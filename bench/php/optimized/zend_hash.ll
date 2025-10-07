@@ -2773,7 +2773,7 @@ zend_array_dup_value.exit:                        ; preds = %170, %185, %188
   store ptr %231, ptr %232, align 8, !tbaa !5
   %233 = sext i32 %227 to i64
   %234 = getelementptr inbounds i32, ptr %231, i64 %233
-  %235 = icmp ne i32 %227, 0
+  %235 = icmp ugt i32 %228, 15
   tail call void @llvm.assume(i1 %235)
   %236 = and i64 %229, 15
   %237 = icmp eq i64 %236, 0
