@@ -132,14 +132,16 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %38
 
 _ZN5alloc11collections5btree3mem7replace17h0143aa89c05cdaefE.llvm.7371537965014501254.exit: ; preds = %.noexc2.i
+  %41 = extractvalue { ptr, ptr } %36, 0
+  %42 = extractvalue { ptr, ptr } %36, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14
+  call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %41 = extractvalue { ptr, ptr } %36, 0
-  %42 = extractvalue { ptr, ptr } %36, 1
   br label %29
 }
 
@@ -811,14 +813,16 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   resume { ptr, i32 } %47
 
 _ZN5alloc11collections5btree3mem7replace17h1bb4c45f803c59fbE.llvm.7371537965014501254.exit: ; preds = %.noexc2.i
+  %50 = extractvalue { ptr, ptr } %45, 0
+  %51 = extractvalue { ptr, ptr } %45, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !166
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !166
+  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %50 = extractvalue { ptr, ptr } %45, 0
-  %51 = extractvalue { ptr, ptr } %45, 1
   br label %38
 }
 

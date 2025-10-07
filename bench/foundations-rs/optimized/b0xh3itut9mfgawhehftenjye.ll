@@ -658,6 +658,7 @@ common.resume:                                    ; preds = %109, %58, %84, %93,
           to label %common.resume unwind label %137
 
 111:                                              ; preds = %85, %34
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.3.0.copyload.i, i64 8) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -8392,6 +8393,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 256:                                              ; preds = %238
   %257 = load i8, ptr %.sroa.321.0.copyload.i.i, align 1, !noalias !449, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i.i, i64 8) ]
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i.i, i64 32
   %259 = load ptr, ptr %258, align 8, !noalias !466, !nonnull !4, !noundef !4
   invoke void %259(ptr noalias noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull %.sroa.321.0.copyload.i.i, i64 noundef %239)
@@ -8618,6 +8620,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 339:                                              ; preds = %321
   %340 = load i8, ptr %.sroa.321.0.copyload.i5.i, align 1, !noalias !481, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i3.i, i64 8) ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i3.i, i64 32
   %342 = load ptr, ptr %341, align 8, !noalias !498, !nonnull !4, !noundef !4
   invoke void %342(ptr noalias noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull %.sroa.321.0.copyload.i5.i, i64 noundef %322)
@@ -8838,6 +8841,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 420:                                              ; preds = %402
   %421 = load i8, ptr %.sroa.315.0.copyload.i.i, align 1, !noalias !511, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i.i, i64 8) ]
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i.i, i64 32
   %423 = load ptr, ptr %422, align 8, !noalias !528, !nonnull !4, !noundef !4
   invoke void %423(ptr noalias noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %.sroa.315.0.copyload.i.i, i64 noundef %403)
@@ -9010,6 +9014,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 470:                                              ; preds = %452
   %471 = load i8, ptr %.sroa.319.0.copyload.i.i, align 1, !noalias !541, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i.i, i64 8) ]
   %472 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i.i, i64 32
   %473 = load ptr, ptr %472, align 8, !noalias !558, !nonnull !4, !noundef !4
   invoke void %473(ptr noalias noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %.sroa.319.0.copyload.i.i, i64 noundef %453)
@@ -9193,6 +9198,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 525:                                              ; preds = %507
   %526 = load i8, ptr %.sroa.319.0.copyload.i47.i, align 1, !noalias !573, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i45.i, i64 8) ]
   %527 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i45.i, i64 32
   %528 = load ptr, ptr %527, align 8, !noalias !590, !nonnull !4, !noundef !4
   invoke void %528(ptr noalias noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull %.sroa.319.0.copyload.i47.i, i64 noundef %508)
@@ -9444,6 +9450,7 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h15bdb1165744bb79E.exit.i
 591:                                              ; preds = %588
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
   call void @llvm.experimental.noalias.scope.decl(metadata !613)
+  call void @llvm.assume(i1 true) [ "align"(ptr %589, i64 8) ]
   %592 = getelementptr inbounds nuw i8, ptr %589, i64 32
   %593 = load ptr, ptr %592, align 8, !noalias !616, !nonnull !4, !noundef !4
   %594 = load ptr, ptr %131, align 8, !alias.scope !617, !noalias !609, !noundef !4
@@ -9570,6 +9577,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 638:                                              ; preds = %620
   %639 = load i8, ptr %.sroa.3.0.copyload.i.i, align 1, !noalias !634, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i.i, i64 8) ]
   %640 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i.i, i64 32
   %641 = load ptr, ptr %640, align 8, !noalias !651, !nonnull !4, !noundef !4
   invoke void %641(ptr noalias noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull %.sroa.3.0.copyload.i.i, i64 noundef %621)
@@ -9659,6 +9667,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 671:                                              ; preds = %653
   %672 = load i8, ptr %.sroa.3.0.copyload.i81.i, align 1, !noalias !661, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i79.i, i64 8) ]
   %673 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i79.i, i64 32
   %674 = load ptr, ptr %673, align 8, !noalias !678, !nonnull !4, !noundef !4
   invoke void %674(ptr noalias noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %.sroa.3.0.copyload.i81.i, i64 noundef %654)
@@ -9814,6 +9823,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 721:                                              ; preds = %703
   %722 = load i8, ptr %.sroa.315.0.copyload.i92.i, align 1, !noalias !689, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i90.i, i64 8) ]
   %723 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i90.i, i64 32
   %724 = load ptr, ptr %723, align 8, !noalias !706, !nonnull !4, !noundef !4
   invoke void %724(ptr noalias noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %.sroa.315.0.copyload.i92.i, i64 noundef %704)
@@ -9904,6 +9914,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 754:                                              ; preds = %736
   %755 = load i8, ptr %.sroa.3.0.copyload.i109.i, align 1, !noalias !716, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i107.i, i64 8) ]
   %756 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i107.i, i64 32
   %757 = load ptr, ptr %756, align 8, !noalias !733, !nonnull !4, !noundef !4
   invoke void %757(ptr noalias noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.sroa.3.0.copyload.i109.i, i64 noundef %737)
@@ -9993,6 +10004,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 787:                                              ; preds = %769
   %788 = load i8, ptr %.sroa.3.0.copyload.i120.i, align 1, !noalias !743, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i118.i, i64 8) ]
   %789 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i118.i, i64 32
   %790 = load ptr, ptr %789, align 8, !noalias !760, !nonnull !4, !noundef !4
   invoke void %790(ptr noalias noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %.sroa.3.0.copyload.i120.i, i64 noundef %770)
@@ -10083,6 +10095,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 
 820:                                              ; preds = %802
   %821 = load i8, ptr %.sroa.3.0.copyload.i130.i, align 1, !noalias !770, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i128.i, i64 8) ]
   %822 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i128.i, i64 32
   %823 = load ptr, ptr %822, align 8, !noalias !787, !nonnull !4, !noundef !4
   invoke void %823(ptr noalias noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.sroa.3.0.copyload.i130.i, i64 noundef %803)
@@ -10125,6 +10138,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h0dbfe58720df1e93E.exit.i: ; 
 830:                                              ; preds = %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
   call void @llvm.experimental.noalias.scope.decl(metadata !798)
+  call void @llvm.assume(i1 true) [ "align"(ptr %828, i64 8) ]
   %831 = getelementptr inbounds nuw i8, ptr %828, i64 32
   %832 = load ptr, ptr %831, align 8, !noalias !801, !nonnull !4, !noundef !4
   %833 = load ptr, ptr %131, align 8, !alias.scope !801, !noundef !4
@@ -10287,6 +10301,7 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17h31123d7bdc5643d1E.exit.thread.thr
 868:                                              ; preds = %.loopexit281
   call void @llvm.experimental.noalias.scope.decl(metadata !802)
   call void @llvm.experimental.noalias.scope.decl(metadata !805)
+  call void @llvm.assume(i1 true) [ "align"(ptr %864, i64 8) ]
   %869 = getelementptr inbounds nuw i8, ptr %864, i64 32
   %870 = load ptr, ptr %869, align 8, !noalias !808, !nonnull !4, !noundef !4
   %871 = load ptr, ptr %131, align 8, !alias.scope !808, !noundef !4
@@ -10964,6 +10979,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 256:                                              ; preds = %238
   %257 = load i8, ptr %.sroa.321.0.copyload.i.i, align 1, !noalias !837, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i.i, i64 8) ]
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i.i, i64 32
   %259 = load ptr, ptr %258, align 8, !noalias !854, !nonnull !4, !noundef !4
   invoke void %259(ptr noalias noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull %.sroa.321.0.copyload.i.i, i64 noundef %239)
@@ -11190,6 +11206,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 339:                                              ; preds = %321
   %340 = load i8, ptr %.sroa.321.0.copyload.i5.i, align 1, !noalias !869, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i3.i, i64 8) ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i3.i, i64 32
   %342 = load ptr, ptr %341, align 8, !noalias !886, !nonnull !4, !noundef !4
   invoke void %342(ptr noalias noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull %.sroa.321.0.copyload.i5.i, i64 noundef %322)
@@ -11410,6 +11427,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 420:                                              ; preds = %402
   %421 = load i8, ptr %.sroa.315.0.copyload.i.i, align 1, !noalias !899, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i.i, i64 8) ]
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i.i, i64 32
   %423 = load ptr, ptr %422, align 8, !noalias !916, !nonnull !4, !noundef !4
   invoke void %423(ptr noalias noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %.sroa.315.0.copyload.i.i, i64 noundef %403)
@@ -11582,6 +11600,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 470:                                              ; preds = %452
   %471 = load i8, ptr %.sroa.319.0.copyload.i.i, align 1, !noalias !929, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i.i, i64 8) ]
   %472 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i.i, i64 32
   %473 = load ptr, ptr %472, align 8, !noalias !946, !nonnull !4, !noundef !4
   invoke void %473(ptr noalias noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %.sroa.319.0.copyload.i.i, i64 noundef %453)
@@ -11765,6 +11784,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 525:                                              ; preds = %507
   %526 = load i8, ptr %.sroa.319.0.copyload.i47.i, align 1, !noalias !961, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i45.i, i64 8) ]
   %527 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i45.i, i64 32
   %528 = load ptr, ptr %527, align 8, !noalias !978, !nonnull !4, !noundef !4
   invoke void %528(ptr noalias noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull %.sroa.319.0.copyload.i47.i, i64 noundef %508)
@@ -12016,6 +12036,7 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h3961309733b5e173E.exit.i
 591:                                              ; preds = %588
   call void @llvm.experimental.noalias.scope.decl(metadata !998)
   call void @llvm.experimental.noalias.scope.decl(metadata !1001)
+  call void @llvm.assume(i1 true) [ "align"(ptr %589, i64 8) ]
   %592 = getelementptr inbounds nuw i8, ptr %589, i64 32
   %593 = load ptr, ptr %592, align 8, !noalias !1004, !nonnull !4, !noundef !4
   %594 = load ptr, ptr %131, align 8, !alias.scope !1005, !noalias !997, !noundef !4
@@ -12142,6 +12163,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 638:                                              ; preds = %620
   %639 = load i8, ptr %.sroa.3.0.copyload.i.i, align 1, !noalias !1022, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i.i, i64 8) ]
   %640 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i.i, i64 32
   %641 = load ptr, ptr %640, align 8, !noalias !1039, !nonnull !4, !noundef !4
   invoke void %641(ptr noalias noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull %.sroa.3.0.copyload.i.i, i64 noundef %621)
@@ -12231,6 +12253,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 671:                                              ; preds = %653
   %672 = load i8, ptr %.sroa.3.0.copyload.i81.i, align 1, !noalias !1049, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i79.i, i64 8) ]
   %673 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i79.i, i64 32
   %674 = load ptr, ptr %673, align 8, !noalias !1066, !nonnull !4, !noundef !4
   invoke void %674(ptr noalias noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %.sroa.3.0.copyload.i81.i, i64 noundef %654)
@@ -12386,6 +12409,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 721:                                              ; preds = %703
   %722 = load i8, ptr %.sroa.315.0.copyload.i92.i, align 1, !noalias !1077, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i90.i, i64 8) ]
   %723 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i90.i, i64 32
   %724 = load ptr, ptr %723, align 8, !noalias !1094, !nonnull !4, !noundef !4
   invoke void %724(ptr noalias noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %.sroa.315.0.copyload.i92.i, i64 noundef %704)
@@ -12476,6 +12500,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 754:                                              ; preds = %736
   %755 = load i8, ptr %.sroa.3.0.copyload.i109.i, align 1, !noalias !1104, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i107.i, i64 8) ]
   %756 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i107.i, i64 32
   %757 = load ptr, ptr %756, align 8, !noalias !1121, !nonnull !4, !noundef !4
   invoke void %757(ptr noalias noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.sroa.3.0.copyload.i109.i, i64 noundef %737)
@@ -12565,6 +12590,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 787:                                              ; preds = %769
   %788 = load i8, ptr %.sroa.3.0.copyload.i120.i, align 1, !noalias !1131, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i118.i, i64 8) ]
   %789 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i118.i, i64 32
   %790 = load ptr, ptr %789, align 8, !noalias !1148, !nonnull !4, !noundef !4
   invoke void %790(ptr noalias noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %.sroa.3.0.copyload.i120.i, i64 noundef %770)
@@ -12655,6 +12681,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 
 820:                                              ; preds = %802
   %821 = load i8, ptr %.sroa.3.0.copyload.i130.i, align 1, !noalias !1158, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i128.i, i64 8) ]
   %822 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i128.i, i64 32
   %823 = load ptr, ptr %822, align 8, !noalias !1175, !nonnull !4, !noundef !4
   invoke void %823(ptr noalias noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.sroa.3.0.copyload.i130.i, i64 noundef %803)
@@ -12697,6 +12724,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17h995f6e31ca610656E.exit.i: ; 
 830:                                              ; preds = %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   call void @llvm.experimental.noalias.scope.decl(metadata !1186)
+  call void @llvm.assume(i1 true) [ "align"(ptr %828, i64 8) ]
   %831 = getelementptr inbounds nuw i8, ptr %828, i64 32
   %832 = load ptr, ptr %831, align 8, !noalias !1189, !nonnull !4, !noundef !4
   %833 = load ptr, ptr %131, align 8, !alias.scope !1189, !noundef !4
@@ -12859,6 +12887,7 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17h593eb4b881ff801dE.exit.thread.thr
 868:                                              ; preds = %.loopexit281
   call void @llvm.experimental.noalias.scope.decl(metadata !1190)
   call void @llvm.experimental.noalias.scope.decl(metadata !1193)
+  call void @llvm.assume(i1 true) [ "align"(ptr %864, i64 8) ]
   %869 = getelementptr inbounds nuw i8, ptr %864, i64 32
   %870 = load ptr, ptr %869, align 8, !noalias !1196, !nonnull !4, !noundef !4
   %871 = load ptr, ptr %131, align 8, !alias.scope !1196, !noundef !4
@@ -13536,6 +13565,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 256:                                              ; preds = %238
   %257 = load i8, ptr %.sroa.321.0.copyload.i.i, align 1, !noalias !1225, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i.i, i64 8) ]
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i.i, i64 32
   %259 = load ptr, ptr %258, align 8, !noalias !1242, !nonnull !4, !noundef !4
   invoke void %259(ptr noalias noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull %.sroa.321.0.copyload.i.i, i64 noundef %239)
@@ -13762,6 +13792,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 339:                                              ; preds = %321
   %340 = load i8, ptr %.sroa.321.0.copyload.i5.i, align 1, !noalias !1257, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.019.0.copyload.i3.i, i64 8) ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload.i3.i, i64 32
   %342 = load ptr, ptr %341, align 8, !noalias !1274, !nonnull !4, !noundef !4
   invoke void %342(ptr noalias noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull %.sroa.321.0.copyload.i5.i, i64 noundef %322)
@@ -13982,6 +14013,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 420:                                              ; preds = %402
   %421 = load i8, ptr %.sroa.315.0.copyload.i.i, align 1, !noalias !1287, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i.i, i64 8) ]
   %422 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i.i, i64 32
   %423 = load ptr, ptr %422, align 8, !noalias !1304, !nonnull !4, !noundef !4
   invoke void %423(ptr noalias noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %.sroa.315.0.copyload.i.i, i64 noundef %403)
@@ -14154,6 +14186,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 470:                                              ; preds = %452
   %471 = load i8, ptr %.sroa.319.0.copyload.i.i, align 1, !noalias !1317, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i.i, i64 8) ]
   %472 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i.i, i64 32
   %473 = load ptr, ptr %472, align 8, !noalias !1334, !nonnull !4, !noundef !4
   invoke void %473(ptr noalias noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %.sroa.319.0.copyload.i.i, i64 noundef %453)
@@ -14337,6 +14370,7 @@ default.unreachable415:                           ; preds = %212, %.critedge
 
 525:                                              ; preds = %507
   %526 = load i8, ptr %.sroa.319.0.copyload.i47.i, align 1, !noalias !1349, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.017.0.copyload.i45.i, i64 8) ]
   %527 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i45.i, i64 32
   %528 = load ptr, ptr %527, align 8, !noalias !1366, !nonnull !4, !noundef !4
   invoke void %528(ptr noalias noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull %.sroa.319.0.copyload.i47.i, i64 noundef %508)
@@ -14588,6 +14622,7 @@ _ZN5hyper5proto2h16decode12ChunkedState12read_size_lf17h5f4214fea6cf86a9E.exit.i
 591:                                              ; preds = %588
   call void @llvm.experimental.noalias.scope.decl(metadata !1386)
   call void @llvm.experimental.noalias.scope.decl(metadata !1389)
+  call void @llvm.assume(i1 true) [ "align"(ptr %589, i64 8) ]
   %592 = getelementptr inbounds nuw i8, ptr %589, i64 32
   %593 = load ptr, ptr %592, align 8, !noalias !1392, !nonnull !4, !noundef !4
   %594 = load ptr, ptr %131, align 8, !alias.scope !1393, !noalias !1385, !noundef !4
@@ -14714,6 +14749,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 638:                                              ; preds = %620
   %639 = load i8, ptr %.sroa.3.0.copyload.i.i, align 1, !noalias !1410, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i.i, i64 8) ]
   %640 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i.i, i64 32
   %641 = load ptr, ptr %640, align 8, !noalias !1427, !nonnull !4, !noundef !4
   invoke void %641(ptr noalias noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull %.sroa.3.0.copyload.i.i, i64 noundef %621)
@@ -14803,6 +14839,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 671:                                              ; preds = %653
   %672 = load i8, ptr %.sroa.3.0.copyload.i81.i, align 1, !noalias !1437, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i79.i, i64 8) ]
   %673 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i79.i, i64 32
   %674 = load ptr, ptr %673, align 8, !noalias !1454, !nonnull !4, !noundef !4
   invoke void %674(ptr noalias noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %.sroa.3.0.copyload.i81.i, i64 noundef %654)
@@ -14958,6 +14995,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 721:                                              ; preds = %703
   %722 = load i8, ptr %.sroa.315.0.copyload.i92.i, align 1, !noalias !1465, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.013.0.copyload.i90.i, i64 8) ]
   %723 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i90.i, i64 32
   %724 = load ptr, ptr %723, align 8, !noalias !1482, !nonnull !4, !noundef !4
   invoke void %724(ptr noalias noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %.sroa.315.0.copyload.i92.i, i64 noundef %704)
@@ -15048,6 +15086,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 754:                                              ; preds = %736
   %755 = load i8, ptr %.sroa.3.0.copyload.i109.i, align 1, !noalias !1492, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i107.i, i64 8) ]
   %756 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i107.i, i64 32
   %757 = load ptr, ptr %756, align 8, !noalias !1509, !nonnull !4, !noundef !4
   invoke void %757(ptr noalias noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.sroa.3.0.copyload.i109.i, i64 noundef %737)
@@ -15137,6 +15176,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 787:                                              ; preds = %769
   %788 = load i8, ptr %.sroa.3.0.copyload.i120.i, align 1, !noalias !1519, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i118.i, i64 8) ]
   %789 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i118.i, i64 32
   %790 = load ptr, ptr %789, align 8, !noalias !1536, !nonnull !4, !noundef !4
   invoke void %790(ptr noalias noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %.sroa.3.0.copyload.i120.i, i64 noundef %770)
@@ -15227,6 +15267,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 
 820:                                              ; preds = %802
   %821 = load i8, ptr %.sroa.3.0.copyload.i130.i, align 1, !noalias !1546, !noundef !4
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.05.0.copyload.i128.i, i64 8) ]
   %822 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload.i128.i, i64 32
   %823 = load ptr, ptr %822, align 8, !noalias !1563, !nonnull !4, !noundef !4
   invoke void %823(ptr noalias noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.sroa.3.0.copyload.i130.i, i64 noundef %803)
@@ -15269,6 +15310,7 @@ _ZN5hyper5proto2h16decode12ChunkedState9read_body17hfce039664d9df9a2E.exit.i: ; 
 830:                                              ; preds = %.body
   call void @llvm.experimental.noalias.scope.decl(metadata !1571)
   call void @llvm.experimental.noalias.scope.decl(metadata !1574)
+  call void @llvm.assume(i1 true) [ "align"(ptr %828, i64 8) ]
   %831 = getelementptr inbounds nuw i8, ptr %828, i64 32
   %832 = load ptr, ptr %831, align 8, !noalias !1577, !nonnull !4, !noundef !4
   %833 = load ptr, ptr %131, align 8, !alias.scope !1577, !noundef !4
@@ -15431,6 +15473,7 @@ _ZN5hyper5proto2h16decode12ChunkedState4step17ha85849e3445bc03eE.exit.thread.thr
 868:                                              ; preds = %.loopexit281
   call void @llvm.experimental.noalias.scope.decl(metadata !1578)
   call void @llvm.experimental.noalias.scope.decl(metadata !1581)
+  call void @llvm.assume(i1 true) [ "align"(ptr %864, i64 8) ]
   %869 = getelementptr inbounds nuw i8, ptr %864, i64 32
   %870 = load ptr, ptr %869, align 8, !noalias !1584, !nonnull !4, !noundef !4
   %871 = load ptr, ptr %131, align 8, !alias.scope !1584, !noundef !4
@@ -15864,6 +15907,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 13:                                               ; preds = %7, %11
   store ptr %8, ptr %4, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = invoke noundef zeroext i1 @_ZN5tokio7runtime2io16registration_set15RegistrationSet10deregister17h6e7dab1f6da4b4fcE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %18 unwind label %16
@@ -15917,6 +15961,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 13:                                               ; preds = %7, %11
   store ptr %8, ptr %4, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = invoke noundef zeroext i1 @_ZN5tokio7runtime2io16registration_set15RegistrationSet10deregister17h6e7dab1f6da4b4fcE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %18 unwind label %16
@@ -15970,6 +16015,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
 
 13:                                               ; preds = %7, %11
   store ptr %8, ptr %4, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = invoke noundef zeroext i1 @_ZN5tokio7runtime2io16registration_set15RegistrationSet10deregister17h6e7dab1f6da4b4fcE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %18 unwind label %16

@@ -813,6 +813,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1036d81cdd52064eE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !170, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -1054,6 +1055,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h1eae228917f4f4a8E(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !197, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -1145,6 +1147,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h23f2d16eef4aef4cE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !206, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 144
@@ -1430,6 +1433,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3db607b4547f35f9E(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !237, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 144
@@ -1671,6 +1675,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h48310ad935c38f1fE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !265, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -1814,6 +1819,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4a9aaf33bbc3d560E(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !279, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -2001,6 +2007,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h5a04e6cb3e08acffE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !293, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -2574,6 +2581,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h74010dcf804764e5E(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !355, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -3350,6 +3358,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9c041157f4edb7ebE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !441, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 144
@@ -3926,6 +3935,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb175ec1a27122b01E(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !508, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 120
@@ -4017,6 +4027,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb4ae129cbfa42cfaE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !517, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 112
@@ -4150,6 +4161,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb892c9cfcb92fbacE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !526, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 120
@@ -4421,6 +4433,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hdb3cf5c58cd4327eE(ptr noalia
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i.i: ; preds = %11
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !546, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 136
@@ -5253,6 +5266,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h14c0aae98251c0cdE.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !684, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 120
@@ -5523,6 +5537,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3423ab0a15d10d97E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !738, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -5621,6 +5636,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4c4419ad3e2e2bc5E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !758, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -5784,6 +5800,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h549600fd05f1d8cbE.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !796, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -5922,6 +5939,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h5817d7f8acda4b43E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !823, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 144
@@ -5995,6 +6013,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h63f4988bdef7f20eE.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !832, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -6278,6 +6297,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h97d8540ecec0a48eE.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !895, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 112
@@ -6340,6 +6360,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h97f2484ba767d818E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !904, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -6427,6 +6448,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9d2495261660eba8E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !924, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -6903,6 +6925,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc73a4f60bdd51b53E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !1036, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 120
@@ -7003,6 +7026,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd0711cf5af01ab91E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !1062, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 144
@@ -7065,6 +7089,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hd4a49a80fea0a859E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !1071, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 144
@@ -7140,6 +7165,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he35829453be9a532E.llvm.66861
   unreachable
 
 _ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE.exit.i.i.i: ; preds = %13
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !1086, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %.val1, i64 136
@@ -9064,6 +9090,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1155)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !1158, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10299,6 +10326,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6fe7563c8a1f28
 18:                                               ; preds = %"_ZN4core3ptr228drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$$GT$$GT$17hb2f7dcb0b9e7e741E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1364)
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !noalias !1367, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -10324,6 +10352,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6fe7563c8a1f28
 28:                                               ; preds = %"_ZN4core3ptr228drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$$GT$$GT$17hb2f7dcb0b9e7e741E.exit3.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1385)
+  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 8) ]
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8, !noalias !1388, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -11197,10 +11226,12 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit: ; pred
 
 .noexc4:                                          ; preds = %43, %_ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit
   store ptr %40, ptr %4, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %47 = load i8, ptr %46, align 8, !range !1550, !noundef !4
   %48 = trunc nuw i8 %47 to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 8) ]
   br i1 %48, label %.noexc.i, label %53
 
 .noexc.i:                                         ; preds = %.noexc4
@@ -11445,6 +11476,7 @@ define hidden void @_ZN5tokio7runtime4task4core7Trailer9set_waker17hbb0703c33de9
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1624)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1627)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !1630, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11476,6 +11508,7 @@ define hidden void @"_ZN5tokio7runtime4task4core7Trailer9set_waker28_$u7b$$u7b$c
 6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1638)
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !1641, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11634,6 +11667,7 @@ define void @_ZN5tokio7runtime4task4core7Trailer9wake_join17h13942f27e87f96ceE(p
   unreachable
 
 "_ZN5tokio7runtime4task4core7Trailer9wake_join28_$u7b$$u7b$closure$u7d$$u7d$17hed53941a57f6efe9E.exit": ; preds = %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 8) ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24

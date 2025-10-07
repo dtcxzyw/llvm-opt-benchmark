@@ -767,6 +767,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !145
   %17 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.sroa.06.0.i.i
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
@@ -23316,7 +23317,7 @@ define { i32, i32 } @"_ZN99_$LT$fish..builtins..string..length..Length$u20$as$u2
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  %27 = load ptr, ptr %21, align 8, !nonnull !3
+  %27 = load ptr, ptr %21, align 8, !nonnull !3, !align !77
   %28 = load i64, ptr %19, align 8
   %29 = invoke { ptr, i64 } @"_ZN70_$LT$widestring..utfstr..Utf32Str$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17hdfb34ac63a847473E"(ptr noalias noundef nonnull readonly align 4 %27, i64 noundef %28)
           to label %.split.us.us.us unwind label %.loopexit.split-lp.loopexit.split-lp.split.us.split.us
@@ -23430,7 +23431,7 @@ define { i32, i32 } @"_ZN99_$LT$fish..builtins..string..length..Length$u20$as$u2
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  %58 = load ptr, ptr %21, align 8, !nonnull !3
+  %58 = load ptr, ptr %21, align 8, !nonnull !3, !align !77
   %59 = load i64, ptr %19, align 8
   %60 = invoke { ptr, i64 } @"_ZN70_$LT$widestring..utfstr..Utf32Str$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17hdfb34ac63a847473E"(ptr noalias noundef nonnull readonly align 4 %58, i64 noundef %59)
           to label %.split.us73 unwind label %.loopexit.split-lp.loopexit.split-lp.split.us.split
@@ -24668,7 +24669,7 @@ define { i32, i32 } @"_ZN99_$LT$fish..builtins..string..repeat..Repeat$u20$as$u2
   %.sroa.014.1133 = phi i64 [ %.sroa.014.2, %149 ], [ %.sroa.014.0, %95 ]
   %99 = load i64, ptr %38, align 8
   %.not57 = icmp ult i64 %.sroa.014.1133, %99
-  %100 = load ptr, ptr %46, align 8, !nonnull !3
+  %100 = load ptr, ptr %46, align 8, !nonnull !3, !align !77
   br i1 %.not57, label %104, label %106
 
 thread-pre-split:                                 ; preds = %149, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h77e1714d935e0dc3E.exit74"

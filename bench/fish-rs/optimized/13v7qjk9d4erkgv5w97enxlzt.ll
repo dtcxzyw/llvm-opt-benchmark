@@ -18865,7 +18865,7 @@ _ZN4fish8builtins4math13format_double17h322c828724df6699E.exit.i: ; preds = %436
   br label %871
 
 871:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heed4704be947a31aE.exit", %351
-  %872 = load ptr, ptr %344, align 8, !nonnull !17
+  %872 = load ptr, ptr %344, align 8, !nonnull !17, !align !65
   %873 = load i64, ptr %345, align 8
   %874 = getelementptr inbounds nuw i32, ptr %872, i64 %873
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h77e1714d935e0dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull %872, ptr noundef nonnull %874, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed30acb1490cb1edb4adbeb613859062.1)
@@ -19566,6 +19566,7 @@ _ZN4fish6parser6Parser15blocks_iter_rev17h52c7e8665abe7919E.exit: ; preds = %12
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %20, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1409
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1412)
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = getelementptr i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -20243,7 +20244,7 @@ define { i32, i32 } @"_ZN101_$LT$fish..builtins..string..collect..Collect$u20$as
   %43 = trunc nuw i8 %42 to i1
   %44 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %45 = load ptr, ptr %18, align 8, !nonnull !17
+  %45 = load ptr, ptr %18, align 8, !nonnull !17, !align !65
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %44
   store ptr %45, ptr %7, align 8
   store ptr %46, ptr %19, align 8
@@ -20306,7 +20307,7 @@ define { i32, i32 } @"_ZN101_$LT$fish..builtins..string..collect..Collect$u20$as
           to label %69 unwind label %.loopexit.split-lp
 
 65:                                               ; preds = %60
-  %66 = load ptr, ptr %18, align 8, !nonnull !17
+  %66 = load ptr, ptr %18, align 8, !nonnull !17, !align !65
   %67 = load ptr, ptr %22, align 8, !nonnull !17, !align !102, !noundef !17
   %68 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream22append_with_separation17h959eb9e5ac1b4cdbE(ptr noalias noundef nonnull align 8 dereferenceable(32) %67, ptr noalias noundef nonnull readonly align 4 %66, i64 noundef %62, i1 noundef zeroext true, i1 noundef zeroext %43)
           to label %70 unwind label %.loopexit.split
@@ -21212,12 +21213,12 @@ define { i32, i32 } @"_ZN93_$LT$fish..builtins..string..sub..Sub$u20$as$u20$fish
   br i1 %107, label %114, label %108, !prof !59
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %85, align 8, !nonnull !17
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
+  %109 = load ptr, ptr %84, align 8, !nonnull !17, !align !102, !noundef !17
+  %110 = load ptr, ptr %85, align 8, !nonnull !17, !align !65
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
   %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %.pre, i64 %106)
-  %111 = sub nuw i64 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
-  %112 = load ptr, ptr %84, align 8, !nonnull !17, !align !102, !noundef !17
-  %113 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h560b6507302fab41E(ptr noalias noundef nonnull align 8 dereferenceable(32) %112, ptr noalias noundef nonnull readonly align 4 %110, i64 noundef %111)
+  %112 = sub nuw i64 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
+  %113 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h560b6507302fab41E(ptr noalias noundef nonnull align 8 dereferenceable(32) %109, ptr noalias noundef nonnull readonly align 4 %111, i64 noundef %112)
           to label %116 unwind label %.loopexit69
 
 114:                                              ; preds = %105
@@ -22472,6 +22473,7 @@ _ZN4fish6parser6Parser16mut_wait_handles17hea8d07ca6ab6104fE.exit: ; preds = %3
 
 54:                                               ; preds = %.lr.ph237
   %spec.select.val = load ptr, ptr %.sroa.013.0233, align 8, !nonnull !17, !noundef !17
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   %55 = getelementptr inbounds nuw i8, ptr %spec.select.val, i64 24
   %56 = load ptr, ptr %55, align 8, !noalias !1689, !nonnull !17, !noundef !17
   %57 = getelementptr inbounds nuw i8, ptr %spec.select.val, i64 32
@@ -22652,6 +22654,7 @@ _ZN4fish8builtins4wait19wait_handle_matches17h4903fec201bc15e3E.exit32.us.us: ; 
 
 106:                                              ; preds = %105
   store ptr %104, ptr %7, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %108 = load ptr, ptr %107, align 8, !noalias !1692, !nonnull !17, !noundef !17
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 32
@@ -22726,6 +22729,7 @@ _ZN4fish8builtins4wait19wait_handle_matches17h4903fec201bc15e3E.exit32.us: ; pre
   br i1 %.not, label %132, label %126
 
 126:                                              ; preds = %125
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 4) ]
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %128 = load ptr, ptr %127, align 8, !noalias !1692, !nonnull !17, !noundef !17
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 32
@@ -29386,6 +29390,7 @@ define noundef zeroext i1 @_ZN4fish6parser6Parser11is_function17h9f8ff4ad45d47c4
   br i1 %.not, label %.loopexit5, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29550,6 +29555,7 @@ define noundef zeroext i1 @_ZN4fish6parser6Parser23is_command_substitution17h103
   br i1 %.not, label %.loopexit5, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31541,6 +31547,7 @@ _ZN4fish6parser6Parser15blocks_iter_rev17h52c7e8665abe7919E.exit: ; preds = %1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %13, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !2571
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2574)
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31693,6 +31700,7 @@ _ZN4fish6parser6Parser15blocks_iter_rev17h52c7e8665abe7919E.exit: ; preds = %1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %12, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !2587
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2590)
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = getelementptr i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31856,6 +31864,7 @@ define { ptr, ptr } @_ZN4fish6parser6Parser14block_at_index17had42a53b039d8a74E(
   br i1 %.not, label %16, label %29
 
 16:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %11, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31934,6 +31943,7 @@ define { ptr, ptr } @_ZN4fish6parser6Parser18block_at_index_mut17h09bb64e5398fab
   unreachable
 
 15:                                               ; preds = %8
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -32767,6 +32777,7 @@ define void @_ZN4fish6parser6Parser17get_function_name17h2a73fdf39959040cE(ptr d
   br i1 %.not83, label %_ZN4core4iter6traits8iterator8Iterator4find17h3c857552c408c1c6E.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %25
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 8) ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %33 = getelementptr i8, ptr %1, i64 48
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -36991,6 +37002,7 @@ _ZN4fish6parser6Parser15blocks_iter_rev17h52c7e8665abe7919E.exit: ; preds = %8
 .lr.ph.i:                                         ; preds = %_ZN4fish6parser6Parser15blocks_iter_rev17h52c7e8665abe7919E.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
   %20 = getelementptr i8, ptr %0, i64 48
   br label %21
 

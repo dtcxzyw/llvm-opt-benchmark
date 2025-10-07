@@ -4595,6 +4595,9 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
 101:                                              ; preds = %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h68bf3869f8e35891E.exit.i"
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %102, align 8, !noalias !618
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.5.sroa.0.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !618
+  call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 8) ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %104 = load i64, ptr %103, align 8, !noalias !618, !noundef !13
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4621,8 +4624,6 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
   br label %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit"
 
 111:                                              ; preds = %101
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.5.sroa.0.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !618
   %112 = xor i64 %.sroa.5.sroa.0.0.copyload.i, -1
   %113 = load i64, ptr %.sroa.0.0.copyload.i, align 8, !noundef !13
   %114 = and i64 %113, %112

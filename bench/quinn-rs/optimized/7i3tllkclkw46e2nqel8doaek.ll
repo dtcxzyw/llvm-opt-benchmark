@@ -617,13 +617,20 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6rem
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !6
   %.not = icmp eq ptr %7, null
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %.sroa.3.0 = select i1 %.not, ptr undef, ptr %9
+  br i1 %.not, label %11, label %8
+
+8:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 8) ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = load ptr, ptr %9, align 8, !noundef !6
+  br label %11
+
+11:                                               ; preds = %2, %8
+  %.sroa.3.0 = phi ptr [ %10, %8 ], [ undef, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %11
+  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %13
 }
 
 ; Function Attrs: nonlazybind uwtable

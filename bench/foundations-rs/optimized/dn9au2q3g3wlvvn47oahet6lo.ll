@@ -2982,12 +2982,14 @@ define hidden noundef ptr @_ZN17tikv_jemalloc_ctl11stats_print11stats_print17he4
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define internal void @_ZN17tikv_jemalloc_ctl11stats_print8callback17h839c6a6807fe774aE(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %44
 
 5:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !align !49, !noundef !4
   %.not11 = icmp eq ptr %7, null

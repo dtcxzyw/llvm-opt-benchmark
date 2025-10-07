@@ -660,7 +660,7 @@ define void @_ZN5quinn8endpoint8Endpoint6client17hd7f173d113dfcf18E(ptr dead_on_
   %161 = load ptr, ptr %4, align 8, !noundef !3
   %162 = icmp eq ptr %161, null
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %164 = load ptr, ptr %163, align 8, !nonnull !3
+  %164 = load ptr, ptr %163, align 8, !nonnull !3, !align !7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %162, label %165, label %170
 
@@ -3201,6 +3201,7 @@ define void @_ZN5quinn8endpoint8Endpoint5close17hce3ebc56e3e1fe20E(ptr noalias n
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   call void @llvm.experimental.noalias.scope.decl(metadata !309)
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 8) ]
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %61 = load ptr, ptr %60, align 8, !noalias !312, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %42, i64 184
@@ -4950,6 +4951,7 @@ define internal fastcc void @_ZN5quinn8endpoint13ConnectionSet6insert17h45bb15e9
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 8) ]
   %31 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56

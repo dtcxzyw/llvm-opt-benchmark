@@ -1892,6 +1892,7 @@ default.unreachable:                              ; preds = %2
   %.fca.1.extract.i = extractvalue { ptr, ptr } %18, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !272
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i, i64 24
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
   %21 = invoke noundef align 8 dereferenceable_or_null(96) ptr %20(ptr noundef align 1 %.fca.0.extract.i)
@@ -1966,6 +1967,7 @@ common.resume:                                    ; preds = %46, %22
   %.fca.1.extract.i11 = extractvalue { ptr, ptr } %42, 1
   %.fca.1.gep.i12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.fca.1.extract.i11, ptr %.fca.1.gep.i12, align 8, !noalias !280
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i11, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i11, i64 56
   %44 = load ptr, ptr %43, align 8, !invariant.load !4, !nonnull !4
   %45 = invoke noundef align 8 dereferenceable_or_null(96) ptr %44(ptr noundef align 1 %.fca.0.extract.i10)
@@ -2068,6 +2070,7 @@ default.unreachable:                              ; preds = %2
   %.fca.1.extract.i = extractvalue { ptr, ptr } %18, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !296
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %19 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i, i64 24
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
   %21 = invoke noundef align 8 dereferenceable_or_null(96) ptr %20(ptr noundef align 1 %.fca.0.extract.i)
@@ -2145,6 +2148,7 @@ common.resume:                                    ; preds = %48, %22
   %.fca.1.extract.i14 = extractvalue { ptr, ptr } %44, 1
   %.fca.1.gep.i15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.fca.1.extract.i14, ptr %.fca.1.gep.i15, align 8, !noalias !304
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i14, i64 8) ]
   %45 = getelementptr inbounds nuw i8, ptr %.fca.1.extract.i14, i64 56
   %46 = load ptr, ptr %45, align 8, !invariant.load !4, !nonnull !4
   %47 = invoke noundef align 8 dereferenceable_or_null(96) ptr %46(ptr noundef align 1 %.fca.0.extract.i13)

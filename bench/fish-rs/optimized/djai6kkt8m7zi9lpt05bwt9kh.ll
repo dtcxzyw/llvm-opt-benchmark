@@ -22561,6 +22561,7 @@ define range(i64 0, -4294967294) i64 @_ZN4fish8builtins6status6status17hbcd1bb20
   br i1 %310, label %311, label %313
 
 311:                                              ; preds = %309
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val.i, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1606
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1606
   store i64 0, ptr %27, align 8, !noalias !1606
@@ -27133,6 +27134,7 @@ common.resume:                                    ; preds = %124, %101, %97, %23
   %248 = extractvalue { ptr, ptr } %50, 1
   %249 = icmp ne ptr %248, null
   tail call void @llvm.assume(i1 %249)
+  call void @llvm.assume(i1 true) [ "align"(ptr %248, i64 8) ]
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %251 = load ptr, ptr %250, align 8, !invariant.load !3, !nonnull !3
   %252 = invoke { i64, i64 } %251(ptr noundef nonnull align 1 %51)
@@ -27516,6 +27518,7 @@ define internal fastcc ptr @_ZN4fish8builtins4test16test_expressions10TestParser
   br i1 %.not30, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$fish..builtins..test..test_expressions..Expression$GT$$GT$$GT$17h2dcac9c608437927E.exit", label %85
 
 85:                                               ; preds = %82
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 8) ]
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !invariant.load !3, !nonnull !3
   %88 = invoke { i64, i64 } %87(ptr noundef nonnull align 1 %83)
@@ -28131,6 +28134,7 @@ _ZN4fish8builtins4test16test_expressions10TestParser3arg17hf001e4dd3baa90daE.exi
   %35 = extractvalue { ptr, ptr } %32, 1
   %36 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %36)
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = load ptr, ptr %37, align 8, !invariant.load !3, !nonnull !3
   %39 = invoke { i64, i64 } %38(ptr noundef nonnull align 1 %33)
@@ -28876,6 +28880,7 @@ _ZN4fish8builtins4test16test_expressions10TestParser3arg17hf001e4dd3baa90daE.exi
   %56 = extractvalue { ptr, ptr } %53, 1
   %57 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %57)
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load ptr, ptr %58, align 8, !invariant.load !3, !nonnull !3
   %60 = invoke { i64, i64 } %59(ptr noundef nonnull align 1 %54)
@@ -30729,6 +30734,7 @@ define range(i64 0, 8589934594) i64 @_ZN4fish8builtins4test4test17h8d24439a9af25
 
 239:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2294
+  call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 8) ]
   %240 = invoke { i64, i64 } %233(ptr noundef nonnull align 1 %184)
           to label %243 unwind label %241
 
@@ -31045,6 +31051,7 @@ define range(i64 0, 8589934594) i64 @_ZN4fish8builtins4test4test17h8d24439a9af25
 
 .thread124.i:                                     ; preds = %..thread124.i_crit_edge, %200
   %349 = phi ptr [ %.pre159, %..thread124.i_crit_edge ], [ %197, %200 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 8) ]
   %350 = invoke { i64, i64 } %349(ptr noundef nonnull align 1 %184)
           to label %351 unwind label %190
 
@@ -31064,6 +31071,7 @@ define range(i64 0, 8589934594) i64 @_ZN4fish8builtins4test4test17h8d24439a9af25
   unreachable
 
 356:                                              ; preds = %351
+  call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 8) ]
   %357 = invoke { i64, i64 } %349(ptr noundef nonnull align 1 %184)
           to label %358 unwind label %190
 
@@ -33206,6 +33214,7 @@ _ZN4fish9highlight11file_tester22fs_is_case_insensitive17h37de2a0cc353d222E.exit
           to label %.backedge unwind label %.loopexit93
 
 239:                                              ; preds = %235
+  call void @llvm.assume(i1 true) [ "align"(ptr %234, i64 8) ]
   %240 = invoke noundef zeroext i1 @_ZN4fish17operation_context16OperationContext12check_cancel17h9fca8071d735dfc1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5)
           to label %246 unwind label %241
 
@@ -36142,7 +36151,7 @@ _ZN4fish15parse_execution16ExecutionContext11node_source17h345eba09064073f7E.exi
 
 226:                                              ; preds = %225
   %227 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %228 = load ptr, ptr %227, align 8, !noalias !2678, !nonnull !3
+  %228 = load ptr, ptr %227, align 8, !noalias !2678, !nonnull !3, !align !527
   %229 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %230 = load i64, ptr %229, align 8, !noalias !2678
   %231 = load ptr, ptr %.sroa.426.0..sroa_idx.i, align 8, !alias.scope !2676, !noalias !2686, !nonnull !3, !noundef !3

@@ -7245,6 +7245,7 @@ default.unreachable96:                            ; preds = %39
 
 63:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$http..uri..scheme..Scheme$GT$$GT$17hf8d4b09c9b7c3e11E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
   %64 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -7609,6 +7610,7 @@ default.unreachable96:                            ; preds = %39
 
 63:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$http..uri..scheme..Scheme$GT$$GT$17hf8d4b09c9b7c3e11E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
   %64 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -9385,6 +9387,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Resul
 3:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !noalias !257, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11379,6 +11382,7 @@ common.resume:                                    ; preds = %.thread.i, %common.
 518:                                              ; preds = %516
   call void @llvm.experimental.noalias.scope.decl(metadata !390)
   call void @llvm.experimental.noalias.scope.decl(metadata !393)
+  call void @llvm.assume(i1 true) [ "align"(ptr %517, i64 8) ]
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 32
   %520 = load ptr, ptr %519, align 8, !noalias !396, !nonnull !4, !noundef !4
   %521 = load ptr, ptr %.sroa.357.0..sroa_idx.i.i.i, align 8, !alias.scope !397, !noalias !354, !noundef !4
@@ -11409,6 +11413,7 @@ common.resume:                                    ; preds = %.thread.i, %common.
 527:                                              ; preds = %525
   call void @llvm.experimental.noalias.scope.decl(metadata !401)
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
+  call void @llvm.assume(i1 true) [ "align"(ptr %526, i64 8) ]
   %528 = getelementptr inbounds nuw i8, ptr %526, i64 32
   %529 = load ptr, ptr %528, align 8, !noalias !407, !nonnull !4, !noundef !4
   %530 = load ptr, ptr %.sroa.357.0..sroa_idx.i.i.i, align 8, !alias.scope !408, !noalias !354, !noundef !4

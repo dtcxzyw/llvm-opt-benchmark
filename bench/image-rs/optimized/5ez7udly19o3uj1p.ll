@@ -3127,6 +3127,7 @@ _ZN12jpeg_decoder6parser11read_length17h90f349e538137747E.exit: ; preds = %17
   store ptr %31, ptr %32, align 8, !alias.scope !424
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.6.037, ptr %33, align 8, !alias.scope !424
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val31, i64 8) ]
   %34 = invoke noundef ptr %14(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %31, i64 noundef %.sroa.6.037)
           to label %"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$10read_exact17hcdd87de97d160344E.llvm.10180119082961779398.exit" unwind label %37
 
@@ -4147,6 +4148,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit148: ; preds = %_ZN5all
   br i1 %73, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit148
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val143, i64 8) ]
   %74 = trunc i8 %2 to i1
   %75 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -4275,6 +4277,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit148: ; preds = %_ZN5all
 115:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val143, i64 8) ]
   %116 = invoke noundef ptr %35(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %23, i64 noundef 16)
           to label %"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$10read_exact17hcdd87de97d160344E.llvm.10180119082961779398.exit" unwind label %.loopexit
 
@@ -4349,6 +4352,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit148: ; preds = %_ZN5all
   store i64 %143, ptr %22, align 8, !alias.scope !595
   store ptr %144, ptr %76, align 8, !alias.scope !595
   store i64 %119, ptr %77, align 8, !alias.scope !595
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val143, i64 8) ]
   %145 = invoke noundef ptr %35(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %144, i64 noundef %119)
           to label %"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$for$u20$alloc..boxed..Box$LT$R$GT$$GT$10read_exact17hcdd87de97d160344E.llvm.10180119082961779398.exit171" unwind label %.loopexit276
 
@@ -6313,6 +6317,7 @@ _ZN12jpeg_decoder6parser11read_length17h90f349e538137747E.exit: ; preds = %28
   br i1 %.not175, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader160
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val75, i64 8) ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %45
 
@@ -6501,11 +6506,13 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit80:  ; preds = %58
 88:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1019
   store i8 0, ptr %4, align 1, !noalias !1019
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val75, i64 8) ]
   %89 = call noundef ptr %25(ptr noundef nonnull align 1 %.val74, ptr noalias noundef nonnull align 1 %4, i64 noundef 1), !noalias !1023
   %90 = icmp eq ptr %89, null
   br i1 %90, label %96, label %99
 
 91:                                               ; preds = %77
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val75, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1026
   store i8 0, ptr %3, align 2, !noalias !1026
   store i8 0, ptr %41, align 1, !noalias !1026
@@ -6748,6 +6755,7 @@ _ZN12jpeg_decoder6parser11read_length17h90f349e538137747E.exit: ; preds = %16
   br label %44
 
 30:                                               ; preds = %27
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val26, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1081
   store i8 0, ptr %3, align 2, !noalias !1081
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -7955,6 +7963,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1233
   store i8 0, ptr %11, align 1, !noalias !1233
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   %95 = call noundef ptr %48(ptr noundef nonnull align 1 %.val230, ptr noalias noundef nonnull align 1 %11, i64 noundef 1), !noalias !1237
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %99
@@ -7983,6 +7992,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
   br i1 %or.cond30, label %115, label %103
 
 103:                                              ; preds = %101, %107, %97
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1240
   store i8 0, ptr %10, align 2, !noalias !1240
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -8043,6 +8053,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
   %123 = load i16, ptr %10, align 2, !noalias !1240
   %124 = call i16 @llvm.bswap.i16(i16 %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1240
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1257
   store i8 0, ptr %9, align 2, !noalias !1257
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -8107,6 +8118,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
 146:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1268
   store i8 0, ptr %8, align 1, !noalias !1268
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   %147 = call noundef ptr %48(ptr noundef nonnull align 1 %.val230, ptr noalias noundef nonnull align 1 %8, i64 noundef 1), !noalias !1272
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %152
@@ -8180,6 +8192,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
   store ptr %175, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 0, ptr %177, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 25
   %180 = getelementptr inbounds nuw i8, ptr %19, i64 26
@@ -8333,6 +8346,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9c3199f69953ac1aE.exit": ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1298
   store i8 0, ptr %6, align 1, !noalias !1298
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   %223 = invoke noundef ptr %48(ptr noundef nonnull align 1 %.val230, ptr noalias noundef nonnull align 1 %6, i64 noundef 1)
           to label %.noexc252 unwind label %.loopexit
 
@@ -8371,6 +8385,7 @@ switch.lookup480:                                 ; preds = %93, %85, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1302
   store i8 0, ptr %5, align 1, !noalias !1302
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val231, i64 8) ]
   %235 = invoke noundef ptr %48(ptr noundef nonnull align 1 %.val230, ptr noalias noundef nonnull align 1 %5, i64 noundef 1)
           to label %.noexc255 unwind label %.loopexit
 
@@ -10765,6 +10780,7 @@ _ZN12jpeg_decoder6parser11read_length17h90f349e538137747E.exit: ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1679
   store i8 0, ptr %14, align 1, !noalias !1679
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %83 = call noundef ptr %58(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %14, i64 noundef 1), !noalias !1683
   %84 = icmp eq ptr %83, null
   br i1 %84, label %86, label %89
@@ -10892,6 +10908,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %86
   store ptr %123, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 0, ptr %125, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %127 = load ptr, ptr %126, align 8, !nonnull !19
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10978,6 +10995,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1707
   store i8 0, ptr %11, align 1, !noalias !1707
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %149 = invoke noundef ptr %58(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %11, i64 noundef 1)
           to label %.noexc204 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -10996,6 +11014,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1711
   store i8 0, ptr %10, align 1, !noalias !1711
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %155 = invoke noundef ptr %58(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %10, i64 noundef 1)
           to label %.noexc210 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -11018,6 +11037,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %86
   store i8 %160, ptr %32, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1715
   store i8 0, ptr %9, align 1, !noalias !1715
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %161 = invoke noundef ptr %58(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %9, i64 noundef 1)
           to label %.noexc213 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -11528,6 +11548,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
 341:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1820
   store i8 0, ptr %6, align 1, !noalias !1820
+  call void @llvm.assume(i1 true) [ "align"(ptr %.val198, i64 8) ]
   %342 = invoke noundef ptr %58(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 1 %6, i64 noundef 1)
           to label %.noexc243 unwind label %.loopexit.split-lp.loopexit.split
 

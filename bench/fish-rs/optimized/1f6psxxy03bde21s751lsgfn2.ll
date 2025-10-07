@@ -9041,7 +9041,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i: ; preds = 
 
 176:                                              ; preds = %169
   %177 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %178 = load ptr, ptr %177, align 8, !nonnull !12
+  %178 = load ptr, ptr %177, align 8, !nonnull !12, !align !630
   %179 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %180 = load i64, ptr %179, align 8
   %181 = getelementptr inbounds nuw i32, ptr %178, i64 %180
@@ -27190,23 +27190,28 @@ _ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i: ; preds = %15
           to label %57 unwind label %.thread23
 
 .thread:                                          ; preds = %39, %39, %39, %39
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 2048
   store i8 1, ptr %43, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   br label %55
 
 44:                                               ; preds = %39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 2048
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !27
   %45 = trunc nuw i8 %.pre to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %44
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 1952
   %48 = load i64, ptr %47, align 8, !range !145, !noundef !12
   %.not6 = icmp eq i64 %48, -9223372036854775808
   br i1 %.not6, label %49, label %50
 
 49:                                               ; preds = %46
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   store i64 0, ptr %47, align 8
   %.sroa.4.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %35, i64 1960
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx33, align 8
@@ -27243,6 +27248,7 @@ _ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit: ; preds
   unreachable
 
 55:                                               ; preds = %.thread, %44
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 8) ]
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 1328
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -31754,7 +31760,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %267
   %311 = load ptr, ptr %310, align 8, !nonnull !12, !noundef !12
   %312 = getelementptr inbounds nuw i8, ptr %49, i64 1800
   %313 = load i64, ptr %312, align 8, !noundef !12
-  %314 = load ptr, ptr %.sroa.437.0..sroa_idx40144, align 8, !nonnull !12
+  %314 = load ptr, ptr %.sroa.437.0..sroa_idx40144, align 8, !nonnull !12, !align !630
   %315 = load i64, ptr %.sroa.542.0..sroa_idx45145, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
@@ -40286,6 +40292,7 @@ _ZN4fish6reader10ReaderData3rls17h3c90212e9b432979E.exit794: ; preds = %_ZN4fish
 
 1833:                                             ; preds = %1826
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.assume(i1 true) [ "align"(ptr %1830, i64 8) ]
   store ptr %1829, ptr %36, align 8
   %1834 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %1830, ptr %1834, align 8
@@ -40752,7 +40759,7 @@ _ZN4fish6reader10ReaderData16active_edit_line17hb5b3ae928391b01eE.exit.thread: ;
 
 47:                                               ; preds = %27
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %49 = load ptr, ptr %48, align 8, !nonnull !12
+  %49 = load ptr, ptr %48, align 8, !nonnull !12, !align !630
   %50 = invoke { i64, i64 } @_ZN4fish10parse_util26parse_util_cmdsubst_extent17h2de91b6dcf2ccde9E(ptr noalias noundef nonnull readonly align 4 %49, i64 noundef %28, i64 noundef %29)
           to label %55 unwind label %.loopexit.split-lp
 
@@ -40786,7 +40793,7 @@ _ZN4fish6reader10ReaderData16active_edit_line17hb5b3ae928391b01eE.exit.thread: ;
   br i1 %or.cond, label %64, label %60, !prof !710
 
 60:                                               ; preds = %55
-  %61 = load ptr, ptr %48, align 8, !nonnull !12
+  %61 = load ptr, ptr %48, align 8, !nonnull !12, !align !630
   %62 = sub nuw i64 %57, %56
   %63 = getelementptr inbounds nuw i32, ptr %61, i64 %56
   invoke void @_ZN4fish9tokenizer9Tokenizer3new17hb6ce3d49b58c2ebdE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 4 %63, i64 noundef %62, i8 noundef 1)
@@ -41209,6 +41216,7 @@ _ZN4fish6reader20text_ends_in_comment17h4e1114f111a52f33E.exit47: ; preds = %.lr
   br i1 %115, label %116, label %_ZN4fish6reader6Reader18expand_for_execute17he564edfe830b667eE.exit
 
 116:                                              ; preds = %113
+  call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 8) ]
   %117 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %118 = load ptr, ptr %117, align 8, !alias.scope !4540, !noalias !4534, !nonnull !12, !noundef !12
   %119 = load i64, ptr %33, align 8, !alias.scope !4540, !noalias !4534, !noundef !12
@@ -51687,6 +51695,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i96.i: ; preds 
 
 501:                                              ; preds = %.noexc112.i
   %502 = extractvalue { ptr, i64 } %497, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %496, i64 4) ]
   %503 = icmp eq i64 %.sroa.0.023.i.i, 0
   br i1 %503, label %.invoke472.i, label %507
 

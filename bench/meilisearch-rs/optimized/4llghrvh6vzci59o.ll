@@ -11410,6 +11410,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   br i1 %or.cond.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3dcebd800b5897d6E.exit", label %16
 
 16:                                               ; preds = %.noexc1
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2154
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2154
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2154
@@ -11551,6 +11552,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Ente
   br i1 %or.cond.i, label %_ZN7tracing4span4Span7do_exit17h43ee55b11661a111E.exit, label %15
 
 15:                                               ; preds = %9
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ], !noalias !2192
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2195
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2195
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !2195
@@ -13900,6 +13902,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$$LP$http..header..n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2952)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2955)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2958)
+  call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 8) ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !noalias !2961, !nonnull !11, !noundef !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19913,6 +19916,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc369, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %175
 
 175:                                              ; preds = %.noexc369
+  call void @llvm.assume(i1 true) [ "align"(ptr %173, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !4100
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !4100
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !4100
@@ -21784,6 +21788,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.19292657444
   br i1 %or.cond.i.i, label %.sink.split, label %743
 
 743:                                              ; preds = %.noexc423
+  call void @llvm.assume(i1 true) [ "align"(ptr %741, i64 8) ], !noalias !4402
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4405
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4405
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4405
@@ -22238,6 +22243,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc499, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %158
 
 158:                                              ; preds = %.noexc499
+  call void @llvm.assume(i1 true) [ "align"(ptr %156, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !4422
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !4422
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !4422
@@ -24577,6 +24583,7 @@ default.unreachable:                              ; preds = %216
   br i1 %or.cond.i.i, label %.thread827, label %728
 
 728:                                              ; preds = %.noexc583
+  call void @llvm.assume(i1 true) [ "align"(ptr %726, i64 8) ], !noalias !4591
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4594
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4594
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4594
@@ -25285,6 +25292,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc50, %.
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %80
 
 80:                                               ; preds = %.noexc50
+  call void @llvm.assume(i1 true) [ "align"(ptr %78, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !4737
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !4737
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !4737
@@ -25422,6 +25430,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc50, %.
   br i1 %or.cond.i.i, label %.thread90, label %120
 
 120:                                              ; preds = %.noexc57
+  call void @llvm.assume(i1 true) [ "align"(ptr %118, i64 8) ], !noalias !4773
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !4776
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4776
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !4776
@@ -25746,6 +25755,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc125, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %94
 
 94:                                               ; preds = %.noexc125
+  call void @llvm.assume(i1 true) [ "align"(ptr %92, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !4797
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !4797
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !4797
@@ -26281,6 +26291,7 @@ default.unreachable:                              ; preds = %134
   br i1 %or.cond.i.i, label %.sink.split, label %241
 
 241:                                              ; preds = %.noexc133
+  call void @llvm.assume(i1 true) [ "align"(ptr %239, i64 8) ], !noalias !4856
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !4859
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4859
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4859
@@ -26405,6 +26416,7 @@ default.unreachable:                              ; preds = %134
   br i1 %or.cond.i.i137, label %.sink.split, label %280
 
 280:                                              ; preds = %.noexc139
+  call void @llvm.assume(i1 true) [ "align"(ptr %278, i64 8) ], !noalias !4870
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4873
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4873
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4873
@@ -26709,6 +26721,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc269, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %138
 
 138:                                              ; preds = %.noexc269
+  call void @llvm.assume(i1 true) [ "align"(ptr %136, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !4890
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !4890
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !4890
@@ -28108,6 +28121,7 @@ default.unreachable:                              ; preds = %213
   br i1 %or.cond.i.i, label %.sink.split, label %492
 
 492:                                              ; preds = %.noexc329
+  call void @llvm.assume(i1 true) [ "align"(ptr %490, i64 8) ], !noalias !5125
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5128
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5128
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5128
@@ -28383,6 +28397,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc191, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %105
 
 105:                                              ; preds = %.noexc191
+  call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !5145
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !5145
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !5145
@@ -29244,6 +29259,7 @@ default.unreachable:                              ; preds = %159
   br i1 %or.cond.i.i, label %.sink.split, label %335
 
 335:                                              ; preds = %.noexc236
+  call void @llvm.assume(i1 true) [ "align"(ptr %333, i64 8) ], !noalias !5284
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5287
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5287
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5287
@@ -29392,6 +29408,7 @@ default.unreachable:                              ; preds = %159
   br i1 %or.cond.i.i242, label %.sink.split, label %384
 
 384:                                              ; preds = %.noexc244
+  call void @llvm.assume(i1 true) [ "align"(ptr %382, i64 8) ], !noalias !5305
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5308
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5308
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5308
@@ -29717,6 +29734,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc285, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %161
 
 161:                                              ; preds = %.noexc285
+  call void @llvm.assume(i1 true) [ "align"(ptr %159, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !5325
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !5325
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !5325
@@ -30293,6 +30311,7 @@ default.unreachable:                              ; preds = %270
   br i1 %or.cond.i287, label %340, label %333
 
 333:                                              ; preds = %.noexc290
+  call void @llvm.assume(i1 true) [ "align"(ptr %331, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !5345
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !5345
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !5345
@@ -30397,6 +30416,7 @@ default.unreachable:                              ; preds = %270
   br i1 %or.cond.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit", label %360
 
 360:                                              ; preds = %.noexc333
+  call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 8) ], !noalias !5359
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !5362
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !5362
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !5362
@@ -30469,6 +30489,7 @@ default.unreachable:                              ; preds = %270
   br i1 %or.cond.i.i340, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit344", label %382
 
 382:                                              ; preds = %.noexc342
+  call void @llvm.assume(i1 true) [ "align"(ptr %380, i64 8) ], !noalias !5374
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !5377
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !5377
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !5377
@@ -30693,6 +30714,7 @@ _ZN10rayon_core8registry9in_worker17hf99fa101aa0e3a4cE.exit: ; preds = %.noexc33
   br i1 %or.cond.i293, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit298, label %447
 
 447:                                              ; preds = %.noexc296
+  call void @llvm.assume(i1 true) [ "align"(ptr %445, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5397
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !5397
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !5397
@@ -30778,6 +30800,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit298: ; preds = %.noexc297
   br i1 %or.cond.i.i349, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit353", label %478
 
 478:                                              ; preds = %.noexc351
+  call void @llvm.assume(i1 true) [ "align"(ptr %476, i64 8) ], !noalias !5403
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !5406
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !5406
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !5406
@@ -30831,6 +30854,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit298: ; preds = %.noexc297
   br i1 %or.cond.i.i354, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit358", label %497
 
 497:                                              ; preds = %.noexc356
+  call void @llvm.assume(i1 true) [ "align"(ptr %495, i64 8) ], !noalias !5410
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !5413
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !5413
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !5413
@@ -30983,6 +31007,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit298: ; preds = %.noexc297
   br i1 %or.cond.i299, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit304, label %549
 
 549:                                              ; preds = %.noexc302
+  call void @llvm.assume(i1 true) [ "align"(ptr %547, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !5414
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !5414
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !5414
@@ -31162,6 +31187,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit304: ; preds = %.noexc303
   br i1 %or.cond.i.i364, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit368", label %600
 
 600:                                              ; preds = %.noexc366
+  call void @llvm.assume(i1 true) [ "align"(ptr %598, i64 8) ], !noalias !5425
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !5428
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !5428
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !5428
@@ -31485,6 +31511,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit304: ; preds = %.noexc303
   br i1 %or.cond.i.i381, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit385", label %687
 
 687:                                              ; preds = %.noexc383
+  call void @llvm.assume(i1 true) [ "align"(ptr %685, i64 8) ], !noalias !5462
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !5465
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !5465
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5465
@@ -31690,6 +31717,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit304: ; preds = %.noexc303
   br i1 %or.cond.i.i404, label %.thread532, label %746
 
 746:                                              ; preds = %.noexc406
+  call void @llvm.assume(i1 true) [ "align"(ptr %744, i64 8) ], !noalias !5493
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !5496
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5496
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5496
@@ -32174,6 +32202,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc448, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %172
 
 172:                                              ; preds = %.noexc448
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !5549
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !5549
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !5549
@@ -34644,6 +34673,7 @@ select.unfold:                                    ; preds = %385, %420
   br i1 %or.cond.i.i, label %.sink.split, label %928
 
 928:                                              ; preds = %.noexc536
+  call void @llvm.assume(i1 true) [ "align"(ptr %926, i64 8) ], !noalias !5925
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5928
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5928
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !5928
@@ -34996,6 +35026,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc584, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %179
 
 179:                                              ; preds = %.noexc584
+  call void @llvm.assume(i1 true) [ "align"(ptr %177, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !5929
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !5929
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !5929
@@ -37427,6 +37458,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc584, %
   br i1 %or.cond.i.i, label %.thread953, label %789
 
 789:                                              ; preds = %.noexc674
+  call void @llvm.assume(i1 true) [ "align"(ptr %787, i64 8) ], !noalias !6064
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6067
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6067
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !6067
@@ -39519,6 +39551,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc114, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %86
 
 86:                                               ; preds = %.noexc114
+  call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6183
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6183
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6183
@@ -39804,6 +39837,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc114, %
   br i1 %or.cond.i.i, label %.thread151, label %168
 
 168:                                              ; preds = %.noexc118
+  call void @llvm.assume(i1 true) [ "align"(ptr %166, i64 8) ], !noalias !6189
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6192
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6192
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6192
@@ -40103,6 +40137,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc140, %
   br i1 %or.cond.i, label %_ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit, label %81
 
 81:                                               ; preds = %.noexc140
+  call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6193
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6193
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !6193
@@ -40317,6 +40352,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc140, %
   br i1 %or.cond.i.i, label %.sink.split, label %138
 
 138:                                              ; preds = %.noexc146
+  call void @llvm.assume(i1 true) [ "align"(ptr %136, i64 8) ], !noalias !6203
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6206
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6206
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6206
@@ -40425,6 +40461,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc140, %
   br i1 %or.cond.i.i148, label %.sink.split, label %172
 
 172:                                              ; preds = %.noexc150
+  call void @llvm.assume(i1 true) [ "align"(ptr %170, i64 8) ], !noalias !6210
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6213
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6213
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6213
@@ -49902,6 +49939,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   call void @llvm.experimental.noalias.scope.decl(metadata !9708)
   call void @llvm.experimental.noalias.scope.decl(metadata !9711)
   call void @llvm.experimental.noalias.scope.decl(metadata !9714)
+  call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 8) ]
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8, !noalias !9717, !nonnull !11, !noundef !11
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -49949,6 +49987,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   call void @llvm.experimental.noalias.scope.decl(metadata !9728)
   call void @llvm.experimental.noalias.scope.decl(metadata !9731)
   call void @llvm.experimental.noalias.scope.decl(metadata !9734)
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 8) ]
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !9737, !nonnull !11, !noundef !11
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -50039,6 +50078,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   call void @llvm.experimental.noalias.scope.decl(metadata !9758)
   call void @llvm.experimental.noalias.scope.decl(metadata !9761)
   call void @llvm.experimental.noalias.scope.decl(metadata !9764)
+  call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !9767, !nonnull !11, !noundef !11
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -50085,6 +50125,7 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   call void @llvm.experimental.noalias.scope.decl(metadata !9778)
   call void @llvm.experimental.noalias.scope.decl(metadata !9781)
   call void @llvm.experimental.noalias.scope.decl(metadata !9784)
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !9787, !nonnull !11, !noundef !11
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -50437,6 +50478,7 @@ define internal fastcc void @_ZN7tracing4span4Span3log17he876007851fb4a46E(ptr n
   br i1 %12, label %17, label %switch.lookup
 
 switch.lookup:                                    ; preds = %4
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 8) ]
   %13 = load i64, ptr %11, align 8, !range !1782, !noundef !11
   %switch.offset = sub nuw nsw i64 5, %13
   %14 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8
@@ -68835,6 +68877,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(96) ptr @_ZN9acti
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20632)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20635)
+  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !20638, !nonnull !11, !noundef !11
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24

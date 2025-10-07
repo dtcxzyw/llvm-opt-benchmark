@@ -9948,6 +9948,7 @@ _ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit12.i: ; preds = %57
           to label %311 unwind label %306
 
 294:                                              ; preds = %280
+  call void @llvm.assume(i1 true) [ "align"(ptr %277, i64 8) ]
   %.pr = load i64, ptr %277, align 8
   br label %295
 
@@ -10060,6 +10061,7 @@ _ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.exit12.i: ; preds = %57
           to label %356 unwind label %351
 
 339:                                              ; preds = %325
+  call void @llvm.assume(i1 true) [ "align"(ptr %322, i64 8) ]
   %.pr150 = load i64, ptr %322, align 8
   br label %340
 
@@ -12724,6 +12726,7 @@ define void @_ZN4jiff4span8Relative18into_relative_span17h2be168d8deafb8aaE(ptr 
   %45 = load ptr, ptr %44, align 8, !alias.scope !785, !noalias !788, !nonnull !4, !align !156
   %.sroa.09.0.i = select i1 %43, ptr %45, ptr %44
   %46 = trunc nuw i64 %125 to i1
+  call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 8) ]
   %.sroa.010.0.i = select i1 %46, ptr %128, ptr %.sroa.212.0..sroa_idx
   invoke fastcc void @_ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E(ptr noalias noundef align 8 captures(none) dereferenceable(72) %14, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.09.0.i, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(40) %.sroa.010.0.i)
           to label %switch.lookup76 unwind label %51, !noalias !788

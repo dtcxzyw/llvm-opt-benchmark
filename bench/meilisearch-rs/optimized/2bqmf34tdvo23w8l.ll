@@ -9153,6 +9153,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17heb4
   %.pn.in = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pn = load i64, ptr %.pn.in, align 8, !noundef !9
   %19 = add i64 %.pn, %.sroa.01.0.i27
+  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 8) ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !1837, !noundef !9
   %22 = icmp ult i64 %.sroa.01.0.i27, %21
@@ -47171,6 +47172,7 @@ _ZN10serde_json5value8to_value17hc151012d21451e0cE.exit.thread: ; preds = %1210
   br label %1225
 
 1212:                                             ; preds = %1210
+  call void @llvm.assume(i1 true) [ "align"(ptr %506, i64 4) ]
   %1213 = load float, ptr %506, align 4, !alias.scope !9131, !noalias !9134, !noundef !9
   invoke void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$f32$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h28103001c5700707E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %187, float noundef %1213)
           to label %_ZN10serde_json5value8to_value17hc151012d21451e0cE.exit unwind label %.body141.thread1430
@@ -50788,6 +50790,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
 71:                                               ; preds = %67
   %72 = icmp ne ptr %.sroa.57.0.copyload.i, null
   call void @llvm.assume(i1 %72)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.46.0.copyload.i, i64 8) ]
   call fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h11aa68b2990393fbE"(ptr noundef nonnull align 8 %.sroa.57.0.copyload.i, ptr noalias noundef nonnull align 8 %.sroa.46.0.copyload.i), !noalias !9936
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h5820d7cadd190f3cE.exit.i"
 
@@ -95433,6 +95436,7 @@ default.unreachable:                              ; preds = %"_ZN4core4iter8adap
   unreachable
 
 51:                                               ; preds = %"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h3c3b8009d6ec9ee9E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %52 = load ptr, ptr %1, align 8, !noundef !9
   %53 = icmp eq ptr %52, null
   br i1 %53, label %59, label %54
@@ -96181,6 +96185,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4dd1d88e7fdb4570E.exit.thread:
   br i1 %50, label %268, label %264
 
 264:                                              ; preds = %262
+  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %266 = load i64, ptr %265, align 8, !noundef !9
   br label %268
@@ -100498,6 +100503,7 @@ define noundef zeroext i1 @"_ZN69_$LT$meilisearch..search..SearchQuery$u20$as$u2
 59:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %56, ptr %18, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %61 = load i64, ptr %60, align 8, !noundef !9
   %62 = icmp ult i64 %61, 10
@@ -100513,11 +100519,15 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.val24 = load ptr, ptr %67, align 8, !nonnull !9, !noundef !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   %68 = getelementptr inbounds nuw i8, ptr %.val24, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 8) ]
   store i64 %61, ptr %14, align 8
   store ptr %.val24, ptr %15, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -108437,6 +108447,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
 1065:                                             ; preds = %1061
   %1066 = icmp ne ptr %.sroa.57.0.copyload.i.i.i.i.i, null
   call void @llvm.assume(i1 %1066)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.46.0.copyload.i.i.i.i.i, i64 8) ]
   invoke fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17h11aa68b2990393fbE"(ptr noundef nonnull align 8 %.sroa.57.0.copyload.i.i.i.i.i, ptr noalias noundef nonnull align 8 %.sroa.46.0.copyload.i.i.i.i.i)
           to label %1074 unwind label %.loopexit.i.i341, !noalias !20165
 

@@ -1196,6 +1196,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$salsa..storage..Coo
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %6, %1
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !139, !noundef !10
   %10 = add i64 %9, -1
@@ -2117,6 +2118,7 @@ define void @"_ZN72_$LT$salsa..storage..CoordinateDrop$u20$as$u20$core..ops..dro
   br label %8
 
 8:                                                ; preds = %1, %6
+  call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 8) ]
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !10
   %11 = add i64 %10, -1
@@ -2282,6 +2284,7 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
   br i1 %.not.i, label %_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17hc72c1e83420afa7cE.exit, label %35
 
 35:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa2b4d785c4b0ca5E.exit.i"
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
   %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i = load i64, ptr %.sroa.10.i, align 8, !range !25, !noundef !10
   %36 = inttoptr i64 %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
@@ -2291,13 +2294,13 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %41 = load atomic i32, ptr %40 acquire, align 4, !noalias !351
+  %41 = load atomic i32, ptr %40 acquire, align 8, !noalias !351
   br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i"
 
 42:                                               ; preds = %35
   store ptr null, ptr %36, align 8, !alias.scope !351
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %44 = load atomic i32, ptr %43 acquire, align 4, !noalias !351
+  %44 = load atomic i32, ptr %43 acquire, align 8, !noalias !351
   %.not.i.i = icmp eq i32 %44, 3
   br i1 %.not.i.i, label %45, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i"
 
