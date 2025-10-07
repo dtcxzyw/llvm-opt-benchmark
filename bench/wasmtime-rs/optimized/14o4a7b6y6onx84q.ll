@@ -3579,9 +3579,9 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.233.i.sroa.0.0.copyload.sink.i.i = phi i56 [ %.sroa.233.i.sroa.0.0.copyload.i.i, %55 ], [ %.sroa.224.i.sroa.0.0.copyload.i.i, %54 ]
   %.sroa.13.0.ph.i.i = phi i64 [ %.sroa.531.0.copyload.i.i.i, %55 ], [ %.sroa.522.0.copyload.i.i.i, %54 ]
   %.sroa.6.9.insert.ext719.i.i = zext i56 %.sroa.233.i.sroa.0.0.copyload.sink.i.i to i64
-  %.sroa.23.sroa.29.0.extract.trunc53.i = trunc i56 %.sroa.233.i.sroa.0.0.copyload.sink.i.i to i8
-  %.sroa.23.sroa.44.0.extract.shift78.i = lshr i64 %.sroa.6.9.insert.ext719.i.i, 8
-  %.sroa.23.sroa.44.0.extract.trunc79.i = trunc nuw i64 %.sroa.23.sroa.44.0.extract.shift78.i to i48
+  %.sroa.23.sroa.29.0.extract.trunc55.i = trunc i56 %.sroa.233.i.sroa.0.0.copyload.sink.i.i to i8
+  %.sroa.23.sroa.44.0.extract.shift82.i = lshr i64 %.sroa.6.9.insert.ext719.i.i, 8
+  %.sroa.23.sroa.44.0.extract.trunc83.i = trunc nuw i64 %.sroa.23.sroa.44.0.extract.shift82.i to i48
   br label %.loopexit
 
 60:                                               ; preds = %56
@@ -3631,7 +3631,7 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 1
   %.sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.1..sroa.4.i.1..sroa.4.1..sroa.4.1..sroa.4.1..sroa.4.2..sroa.5423.0.copyload.i.i = load i16, ptr %.sroa.4.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !noalias !1005
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
-  %.sroa.23.sroa.44.0.insert.ext95.i = zext i16 %.sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.1..sroa.4.i.1..sroa.4.1..sroa.4.1..sroa.4.1..sroa.4.2..sroa.5423.0.copyload.i.i to i48
+  %.sroa.23.sroa.44.0.insert.ext99.i = zext i16 %.sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.i.1..sroa.4.i.1..sroa.4.i.1..sroa.4.1..sroa.4.1..sroa.4.1..sroa.4.2..sroa.5423.0.copyload.i.i to i48
   br label %.loopexit
 
 79:                                               ; preds = %69
@@ -4171,10 +4171,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4282.4.ph = phi i64 [ %.sroa.4282.10.insert.insert291, %260 ], [ 19, %265 ], [ 19, %272 ], [ 19, %.loopexit1037 ], [ 6, %253 ]
   %.sroa.16.0.ph = phi i64 [ %261, %260 ], [ %266, %265 ], [ %273, %272 ], [ %244, %.loopexit1037 ], [ undef, %253 ]
   %.sroa.23.sroa.0.0.extract.trunc36.i = trunc i64 %.sroa.4282.4.ph to i8
-  %.sroa.23.sroa.29.0.extract.shift50.i = lshr i64 %.sroa.4282.4.ph, 8
-  %.sroa.23.sroa.29.0.extract.trunc51.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift50.i to i8
-  %.sroa.23.sroa.44.0.extract.shift76.i = lshr i64 %.sroa.4282.4.ph, 16
-  %.sroa.23.sroa.44.0.extract.trunc77.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift76.i to i48
+  %.sroa.23.sroa.29.0.extract.shift52.i = lshr i64 %.sroa.4282.4.ph, 8
+  %.sroa.23.sroa.29.0.extract.trunc53.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift52.i to i8
+  %.sroa.23.sroa.44.0.extract.shift80.i = lshr i64 %.sroa.4282.4.ph, 16
+  %.sroa.23.sroa.44.0.extract.trunc81.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift80.i to i48
   br label %.loopexit
 
 275:                                              ; preds = %132
@@ -4376,10 +4376,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4298.4.ph = phi i64 [ %.sroa.4298.10.insert.insert307, %329 ], [ 19, %334 ], [ 19, %341 ], [ 19, %.loopexit1034 ], [ 6, %322 ]
   %.sroa.16308.0.ph = phi i64 [ %330, %329 ], [ %335, %334 ], [ %342, %341 ], [ %313, %.loopexit1034 ], [ undef, %322 ]
   %.sroa.23.sroa.0.0.extract.trunc35.i = trunc i64 %.sroa.4298.4.ph to i8
-  %.sroa.23.sroa.29.0.extract.shift48.i = lshr i64 %.sroa.4298.4.ph, 8
-  %.sroa.23.sroa.29.0.extract.trunc49.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift48.i to i8
-  %.sroa.23.sroa.44.0.extract.shift74.i = lshr i64 %.sroa.4298.4.ph, 16
-  %.sroa.23.sroa.44.0.extract.trunc75.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift74.i to i48
+  %.sroa.23.sroa.29.0.extract.shift50.i = lshr i64 %.sroa.4298.4.ph, 8
+  %.sroa.23.sroa.29.0.extract.trunc51.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift50.i to i8
+  %.sroa.23.sroa.44.0.extract.shift78.i = lshr i64 %.sroa.4298.4.ph, 16
+  %.sroa.23.sroa.44.0.extract.trunc79.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift78.i to i48
   br label %.loopexit
 
 344:                                              ; preds = %151
@@ -4562,20 +4562,20 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4315.4.ph = phi i64 [ %.sroa.4315.10.insert.insert324, %392 ], [ 19, %397 ], [ 19, %404 ], [ 19, %.loopexit1031 ], [ 6, %385 ]
   %.sroa.16325.0.ph = phi i64 [ %393, %392 ], [ %398, %397 ], [ %405, %404 ], [ %376, %.loopexit1031 ], [ undef, %385 ]
   %.sroa.23.sroa.0.0.extract.trunc34.i = trunc i64 %.sroa.4315.4.ph to i8
-  %.sroa.23.sroa.29.0.extract.shift46.i = lshr i64 %.sroa.4315.4.ph, 8
-  %.sroa.23.sroa.29.0.extract.trunc47.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift46.i to i8
-  %.sroa.23.sroa.44.0.extract.shift72.i = lshr i64 %.sroa.4315.4.ph, 16
-  %.sroa.23.sroa.44.0.extract.trunc73.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift72.i to i48
+  %.sroa.23.sroa.29.0.extract.shift48.i = lshr i64 %.sroa.4315.4.ph, 8
+  %.sroa.23.sroa.29.0.extract.trunc49.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift48.i to i8
+  %.sroa.23.sroa.44.0.extract.shift76.i = lshr i64 %.sroa.4315.4.ph, 16
+  %.sroa.23.sroa.44.0.extract.trunc77.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift76.i to i48
   br label %.loopexit
 
 407:                                              ; preds = %202, %195, %190, %183, %173
   %.sroa.17.0.ph.i.i = phi i64 [ %191, %190 ], [ %196, %195 ], [ %203, %202 ], [ %174, %173 ], [ undef, %183 ]
   %.sroa.4776.0.ph.i.i = phi i64 [ %.sroa.4776.10.insert.insert785.i.i, %190 ], [ 19, %195 ], [ 19, %202 ], [ 19, %173 ], [ 6, %183 ]
   %.sroa.23.sroa.0.0.extract.trunc33.i = trunc i64 %.sroa.4776.0.ph.i.i to i8
-  %.sroa.23.sroa.29.0.extract.shift44.i = lshr i64 %.sroa.4776.0.ph.i.i, 8
-  %.sroa.23.sroa.29.0.extract.trunc45.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift44.i to i8
-  %.sroa.23.sroa.44.0.extract.shift70.i = lshr i64 %.sroa.4776.0.ph.i.i, 16
-  %.sroa.23.sroa.44.0.extract.trunc71.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift70.i to i48
+  %.sroa.23.sroa.29.0.extract.shift46.i = lshr i64 %.sroa.4776.0.ph.i.i, 8
+  %.sroa.23.sroa.29.0.extract.trunc47.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift46.i to i8
+  %.sroa.23.sroa.44.0.extract.shift74.i = lshr i64 %.sroa.4776.0.ph.i.i, 16
+  %.sroa.23.sroa.44.0.extract.trunc75.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift74.i to i48
   br label %.loopexit
 
 408:                                              ; preds = %204
@@ -4744,10 +4744,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4327.4.ph = phi i64 [ %.sroa.4327.10.insert.insert336, %448 ], [ 19, %453 ], [ 19, %460 ], [ 19, %.loopexit1028 ], [ 6, %441 ]
   %.sroa.16337.0.ph = phi i64 [ %449, %448 ], [ %454, %453 ], [ %461, %460 ], [ %432, %.loopexit1028 ], [ undef, %441 ]
   %.sroa.23.sroa.0.0.extract.trunc32.i = trunc i64 %.sroa.4327.4.ph to i8
-  %.sroa.23.sroa.29.0.extract.shift42.i = lshr i64 %.sroa.4327.4.ph, 8
-  %.sroa.23.sroa.29.0.extract.trunc43.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift42.i to i8
-  %.sroa.23.sroa.44.0.extract.shift68.i = lshr i64 %.sroa.4327.4.ph, 16
-  %.sroa.23.sroa.44.0.extract.trunc69.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift68.i to i48
+  %.sroa.23.sroa.29.0.extract.shift44.i = lshr i64 %.sroa.4327.4.ph, 8
+  %.sroa.23.sroa.29.0.extract.trunc45.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift44.i to i8
+  %.sroa.23.sroa.44.0.extract.shift72.i = lshr i64 %.sroa.4327.4.ph, 16
+  %.sroa.23.sroa.44.0.extract.trunc73.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift72.i to i48
   br label %.loopexit
 
 464:                                              ; preds = %210
@@ -4937,10 +4937,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   %.sroa.4344.4.ph = phi i64 [ %.sroa.4344.10.insert.insert353, %514 ], [ 19, %519 ], [ 19, %526 ], [ 19, %.loopexit1027 ], [ 6, %507 ]
   %.sroa.16354.0.ph = phi i64 [ %515, %514 ], [ %520, %519 ], [ %527, %526 ], [ %498, %.loopexit1027 ], [ undef, %507 ]
   %.sroa.23.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.4344.4.ph to i8
-  %.sroa.23.sroa.29.0.extract.shift.i = lshr i64 %.sroa.4344.4.ph, 8
-  %.sroa.23.sroa.29.0.extract.trunc.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift.i to i8
-  %.sroa.23.sroa.44.0.extract.shift.i = lshr i64 %.sroa.4344.4.ph, 16
-  %.sroa.23.sroa.44.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift.i to i48
+  %.sroa.23.sroa.29.0.extract.shift42.i = lshr i64 %.sroa.4344.4.ph, 8
+  %.sroa.23.sroa.29.0.extract.trunc43.i = trunc i64 %.sroa.23.sroa.29.0.extract.shift42.i to i8
+  %.sroa.23.sroa.44.0.extract.shift70.i = lshr i64 %.sroa.4344.4.ph, 16
+  %.sroa.23.sroa.44.0.extract.trunc71.i = trunc nuw nsw i64 %.sroa.23.sroa.44.0.extract.shift70.i to i48
   br label %.loopexit
 
 529:                                              ; preds = %81, %56
@@ -4949,17 +4949,17 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   br label %.loopexit1024
 
 .loopexit:                                        ; preds = %81, %.lr.ph.i.i150, %.lr.ph.i.i659.i.i, %.lr.ph.i.i197, %.lr.ph.i.i.i.i, %483, %.loopexit1026, %362, %.loopexit1030, %.loopexit1033, %.loopexit1036, %528, %484, %463, %462, %415, %410, %407, %406, %343, %302, %274, %159, %.loopexit1029, %140, %.loopexit1032, %.loopexit1035, %.loopexit1038, %79, %77, %59
-  %.sroa.23.sroa.44.6.ph.i = phi i48 [ %.sroa.23.sroa.44.0.extract.trunc.i, %528 ], [ %.sroa.2587.i.sroa.4.0.copyload.i, %484 ], [ %.sroa.2572.i.sroa.4.0.copyload.i, %462 ], [ %.sroa.23.sroa.44.0.extract.trunc69.i, %463 ], [ %.sroa.2563.i.sroa.4.0.copyload.i, %415 ], [ %.sroa.23.sroa.44.0.extract.trunc73.i, %406 ], [ 0, %.loopexit1029 ], [ 0, %159 ], [ 0, %.loopexit1032 ], [ 0, %140 ], [ %.sroa.23.sroa.44.0.extract.trunc77.i, %274 ], [ 0, %.loopexit1035 ], [ 0, %.loopexit1038 ], [ %.sroa.23.sroa.44.0.extract.trunc79.i, %59 ], [ %.sroa.23.sroa.44.0.insert.ext95.i, %77 ], [ 0, %79 ], [ %.sroa.2554.i.sroa.4.0.copyload.i, %410 ], [ %.sroa.23.sroa.44.0.extract.trunc71.i, %407 ], [ %.sroa.23.sroa.44.2.insert.shift.i, %302 ], [ %.sroa.23.sroa.44.0.extract.trunc75.i, %343 ], [ 0, %.loopexit1036 ], [ 0, %.loopexit1033 ], [ 0, %.loopexit1030 ], [ 0, %362 ], [ 0, %.loopexit1026 ], [ 0, %483 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i197 ], [ 0, %.lr.ph.i.i659.i.i ], [ 0, %.lr.ph.i.i150 ], [ undef, %81 ]
-  %.sroa.23.sroa.29.6.ph.i = phi i8 [ %.sroa.23.sroa.29.0.extract.trunc.i, %528 ], [ %.sroa.2587.i.sroa.0.0.copyload.i, %484 ], [ %.sroa.2572.i.sroa.0.0.copyload.i, %462 ], [ %.sroa.23.sroa.29.0.extract.trunc43.i, %463 ], [ %.sroa.2563.i.sroa.0.0.copyload.i, %415 ], [ %.sroa.23.sroa.29.0.extract.trunc47.i, %406 ], [ 0, %.loopexit1029 ], [ 0, %159 ], [ 0, %.loopexit1032 ], [ 0, %140 ], [ %.sroa.23.sroa.29.0.extract.trunc51.i, %274 ], [ 0, %.loopexit1035 ], [ 0, %.loopexit1038 ], [ %.sroa.23.sroa.29.0.extract.trunc53.i, %59 ], [ 0, %77 ], [ 0, %79 ], [ %.sroa.2554.i.sroa.0.0.copyload.i, %410 ], [ %.sroa.23.sroa.29.0.extract.trunc45.i, %407 ], [ 0, %302 ], [ %.sroa.23.sroa.29.0.extract.trunc49.i, %343 ], [ 0, %.loopexit1036 ], [ 0, %.loopexit1033 ], [ 0, %.loopexit1030 ], [ 0, %362 ], [ 0, %.loopexit1026 ], [ 0, %483 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i197 ], [ 0, %.lr.ph.i.i659.i.i ], [ 0, %.lr.ph.i.i150 ], [ undef, %81 ]
+  %.sroa.23.sroa.44.6.ph.i = phi i48 [ %.sroa.23.sroa.44.0.extract.trunc71.i, %528 ], [ %.sroa.2587.i.sroa.4.0.copyload.i, %484 ], [ %.sroa.2572.i.sroa.4.0.copyload.i, %462 ], [ %.sroa.23.sroa.44.0.extract.trunc73.i, %463 ], [ %.sroa.2563.i.sroa.4.0.copyload.i, %415 ], [ %.sroa.23.sroa.44.0.extract.trunc77.i, %406 ], [ 0, %.loopexit1029 ], [ 0, %159 ], [ 0, %.loopexit1032 ], [ 0, %140 ], [ %.sroa.23.sroa.44.0.extract.trunc81.i, %274 ], [ 0, %.loopexit1035 ], [ 0, %.loopexit1038 ], [ %.sroa.23.sroa.44.0.extract.trunc83.i, %59 ], [ %.sroa.23.sroa.44.0.insert.ext99.i, %77 ], [ 0, %79 ], [ %.sroa.2554.i.sroa.4.0.copyload.i, %410 ], [ %.sroa.23.sroa.44.0.extract.trunc75.i, %407 ], [ %.sroa.23.sroa.44.2.insert.shift.i, %302 ], [ %.sroa.23.sroa.44.0.extract.trunc79.i, %343 ], [ 0, %.loopexit1036 ], [ 0, %.loopexit1033 ], [ 0, %.loopexit1030 ], [ 0, %362 ], [ 0, %.loopexit1026 ], [ 0, %483 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i197 ], [ 0, %.lr.ph.i.i659.i.i ], [ 0, %.lr.ph.i.i150 ], [ undef, %81 ]
+  %.sroa.23.sroa.29.6.ph.i = phi i8 [ %.sroa.23.sroa.29.0.extract.trunc43.i, %528 ], [ %.sroa.2587.i.sroa.0.0.copyload.i, %484 ], [ %.sroa.2572.i.sroa.0.0.copyload.i, %462 ], [ %.sroa.23.sroa.29.0.extract.trunc45.i, %463 ], [ %.sroa.2563.i.sroa.0.0.copyload.i, %415 ], [ %.sroa.23.sroa.29.0.extract.trunc49.i, %406 ], [ 0, %.loopexit1029 ], [ 0, %159 ], [ 0, %.loopexit1032 ], [ 0, %140 ], [ %.sroa.23.sroa.29.0.extract.trunc53.i, %274 ], [ 0, %.loopexit1035 ], [ 0, %.loopexit1038 ], [ %.sroa.23.sroa.29.0.extract.trunc55.i, %59 ], [ 0, %77 ], [ 0, %79 ], [ %.sroa.2554.i.sroa.0.0.copyload.i, %410 ], [ %.sroa.23.sroa.29.0.extract.trunc47.i, %407 ], [ 0, %302 ], [ %.sroa.23.sroa.29.0.extract.trunc51.i, %343 ], [ 0, %.loopexit1036 ], [ 0, %.loopexit1033 ], [ 0, %.loopexit1030 ], [ 0, %362 ], [ 0, %.loopexit1026 ], [ 0, %483 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i197 ], [ 0, %.lr.ph.i.i659.i.i ], [ 0, %.lr.ph.i.i150 ], [ undef, %81 ]
   %.sroa.23.sroa.0.6.ph.i = phi i8 [ %.sroa.23.sroa.0.0.extract.trunc.i, %528 ], [ %211, %484 ], [ %413, %462 ], [ %.sroa.23.sroa.0.0.extract.trunc32.i, %463 ], [ %208, %415 ], [ %.sroa.23.sroa.0.0.extract.trunc34.i, %406 ], [ 19, %.loopexit1029 ], [ 6, %159 ], [ 19, %.loopexit1032 ], [ 6, %140 ], [ %.sroa.23.sroa.0.0.extract.trunc36.i, %274 ], [ 19, %.loopexit1035 ], [ 19, %.loopexit1038 ], [ %.sink.i.i, %59 ], [ 19, %77 ], [ 19, %79 ], [ %205, %410 ], [ %.sroa.23.sroa.0.0.extract.trunc33.i, %407 ], [ 19, %302 ], [ %.sroa.23.sroa.0.0.extract.trunc35.i, %343 ], [ 19, %.loopexit1036 ], [ 19, %.loopexit1033 ], [ 19, %.loopexit1030 ], [ 6, %362 ], [ 19, %.loopexit1026 ], [ 6, %483 ], [ 6, %.lr.ph.i.i.i.i ], [ 6, %.lr.ph.i.i197 ], [ 6, %.lr.ph.i.i659.i.i ], [ 6, %.lr.ph.i.i150 ], [ 48, %81 ]
   %.sroa.73.2.ph.i = phi i64 [ %.sroa.16354.0.ph, %528 ], [ %.sroa.5585.0.copyload.i.i, %484 ], [ %.sroa.5570.0.copyload.i.i, %462 ], [ %.sroa.16337.0.ph, %463 ], [ %.sroa.5561.0.copyload.i.i, %415 ], [ %.sroa.16325.0.ph, %406 ], [ %150, %.loopexit1029 ], [ undef, %159 ], [ %131, %.loopexit1032 ], [ undef, %140 ], [ %.sroa.16.0.ph, %274 ], [ %113, %.loopexit1035 ], [ %95, %.loopexit1038 ], [ %.sroa.13.0.ph.i.i, %59 ], [ %78, %77 ], [ %80, %79 ], [ %.sroa.5552.0.copyload.i.i, %410 ], [ %.sroa.17.0.ph.i.i, %407 ], [ %303, %302 ], [ %.sroa.16308.0.ph, %343 ], [ %222, %.loopexit1036 ], [ %288, %.loopexit1033 ], [ %353, %.loopexit1030 ], [ %.sroa.11312.02189, %362 ], [ %474, %.loopexit1026 ], [ %.sroa.11341.02190, %483 ], [ undef, %.lr.ph.i.i.i.i ], [ %.sroa.11279.02187, %.lr.ph.i.i197 ], [ undef, %.lr.ph.i.i659.i.i ], [ %.sroa.11295.02188, %.lr.ph.i.i150 ], [ undef, %81 ]
-  %.sroa.23.sroa.44.0.insert.ext82.i = zext i48 %.sroa.23.sroa.44.6.ph.i to i64
-  %.sroa.23.sroa.44.0.insert.shift83.i = shl nuw i64 %.sroa.23.sroa.44.0.insert.ext82.i, 16
-  %.sroa.23.sroa.29.0.insert.ext56.i = zext i8 %.sroa.23.sroa.29.6.ph.i to i64
-  %.sroa.23.sroa.29.0.insert.shift57.i = shl nuw nsw i64 %.sroa.23.sroa.29.0.insert.ext56.i, 8
-  %.sroa.23.sroa.29.0.insert.insert59.i = or disjoint i64 %.sroa.23.sroa.29.0.insert.shift57.i, %.sroa.23.sroa.44.0.insert.shift83.i
+  %.sroa.23.sroa.44.0.insert.ext86.i = zext i48 %.sroa.23.sroa.44.6.ph.i to i64
+  %.sroa.23.sroa.44.0.insert.shift87.i = shl nuw i64 %.sroa.23.sroa.44.0.insert.ext86.i, 16
+  %.sroa.23.sroa.29.0.insert.ext58.i = zext i8 %.sroa.23.sroa.29.6.ph.i to i64
+  %.sroa.23.sroa.29.0.insert.shift59.i = shl nuw nsw i64 %.sroa.23.sroa.29.0.insert.ext58.i, 8
+  %.sroa.23.sroa.29.0.insert.insert61.i = or disjoint i64 %.sroa.23.sroa.29.0.insert.shift59.i, %.sroa.23.sroa.44.0.insert.shift87.i
   %.sroa.23.sroa.0.0.insert.ext39.i = zext i8 %.sroa.23.sroa.0.6.ph.i to i64
-  %.sroa.23.sroa.0.0.insert.insert41.i = or disjoint i64 %.sroa.23.sroa.29.0.insert.insert59.i, %.sroa.23.sroa.0.0.insert.ext39.i
+  %.sroa.23.sroa.0.0.insert.insert41.i = or disjoint i64 %.sroa.23.sroa.29.0.insert.insert61.i, %.sroa.23.sroa.0.0.insert.ext39.i
   store ptr @anon.7736b00188ea486646a9328fd927c866.3.llvm.18206624868217611764, ptr %17, align 8, !alias.scope !1709, !noalias !951
   store i64 0, ptr %18, align 8, !alias.scope !1709, !noalias !951
   %530 = getelementptr inbounds nuw i8, ptr %0, i64 8

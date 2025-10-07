@@ -165406,7 +165406,7 @@ define void @"_ZN81_$LT$typst..text..lang..Region$u20$as$u20$typst..foundations.
 
 29:                                               ; preds = %25
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.thread unwind label %65
+          to label %.thread unwind label %66
 
 30:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
@@ -165462,41 +165462,41 @@ define void @"_ZN81_$LT$typst..text..lang..Region$u20$as$u20$typst..foundations.
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30198
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i16 %54, ptr %55, align 1
-  br label %61
+  br label %57
 
 .loopexit:                                        ; preds = %42, %30
   %56 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.152f57749fcdf0a673d809c4f4545e7f.547, i64 noundef 52)
-          to label %.noexc21 unwind label %25
+          to label %61 unwind label %25
 
-.noexc21:                                         ; preds = %.loopexit
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = extractvalue { ptr, i64 } %56, 1
-  %59 = icmp ne ptr %57, null
-  tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %57, ptr %60, align 8
-  %.sroa.015.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %58, ptr %.sroa.015.sroa.4.0..sroa_idx, align 8
-  %.pre = load i8, ptr %31, align 1, !alias.scope !30205
-  br label %61
-
-61:                                               ; preds = %.noexc21, %53
-  %62 = phi i8 [ %.pre, %.noexc21 ], [ %41, %53 ]
-  %storemerge = phi i8 [ 1, %.noexc21 ], [ 0, %53 ]
+57:                                               ; preds = %61, %53
+  %58 = phi i8 [ %.pre, %61 ], [ %41, %53 ]
+  %storemerge = phi i8 [ 1, %61 ], [ 0, %53 ]
   store i8 %storemerge, ptr %0, align 8
-  %63 = icmp sgt i8 %62, -1
-  br i1 %63, label %64, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit23"
+  %59 = icmp sgt i8 %58, -1
+  br i1 %59, label %60, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit23"
 
-64:                                               ; preds = %61
+60:                                               ; preds = %57
   call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit23"
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit23": ; preds = %64, %61, %23
+61:                                               ; preds = %.loopexit
+  %62 = extractvalue { ptr, i64 } %56, 0
+  %63 = extractvalue { ptr, i64 } %56, 1
+  %64 = icmp ne ptr %62, null
+  tail call void @llvm.assume(i1 %64)
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %62, ptr %65, align 8
+  %.sroa.015.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %63, ptr %.sroa.015.sroa.4.0..sroa_idx, align 8
+  %.pre = load i8, ptr %31, align 1, !alias.scope !30205
+  br label %57
+
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit23": ; preds = %60, %57, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %22
 
-65:                                               ; preds = %29, %.thread32
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %29, %.thread32
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #60
   unreachable
@@ -165507,7 +165507,7 @@ define void @"_ZN81_$LT$typst..text..lang..Region$u20$as$u20$typst..foundations.
 
 .thread32:                                        ; preds = %13
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #58
-          to label %.thread unwind label %65
+          to label %.thread unwind label %66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
