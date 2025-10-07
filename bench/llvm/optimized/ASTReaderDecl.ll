@@ -59149,11 +59149,9 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %48 = call noundef ptr @_ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE6insertIPS4_EES7_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %.0.i, ptr noundef %44, ptr noundef %47)
   %49 = zext i32 %.0.copyload.i.i.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 4
+  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
-  %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
+  %.0.copyload.i.i.i2.i = load i32, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %54 = load ptr, ptr %7, align 8, !tbaa !2087
@@ -59401,11 +59399,9 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %48 = call noundef ptr @_ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE6insertIPS4_EES7_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %.0.i, ptr noundef %44, ptr noundef %47)
   %49 = zext i32 %.0.copyload.i.i.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
-  call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 4
+  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
-  %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
+  %.0.copyload.i.i.i2.i = load i32, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   %54 = load ptr, ptr %7, align 8, !tbaa !2087

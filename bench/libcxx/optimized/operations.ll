@@ -6670,8 +6670,8 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerINS1_4pathEEC2B8ne210000EPKcPNS_1
   call void @_ZdlPvm(ptr noundef %38, i64 noundef %40) #28
   br label %common.resume
 
-common.resume:                                    ; preds = %32, %36, %260
-  %common.resume.op = phi { ptr, i32 } [ %.pn26, %260 ], [ %33, %36 ], [ %33, %32 ]
+common.resume:                                    ; preds = %32, %36, %259
+  %common.resume.op = phi { ptr, i32 } [ %.pn26, %259 ], [ %33, %36 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt3__14__fs10filesystem4pathC2B8ne210000IA1_cvEERKT_NS2_6formatE.exit: ; preds = %30
@@ -6694,7 +6694,7 @@ _ZNSt3__14__fs10filesystem4pathC2B8ne210000IA1_cvEERKT_NS2_6formatE.exit: ; pred
 
 _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit: ; preds = %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %259
+  br label %258
 
 49:                                               ; preds = %_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA1_cvEERKT_NS2_6formatE.exit
   %50 = landingpad { ptr, i32 }
@@ -6714,7 +6714,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit: ; preds = %41, %44
 
 _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit32: ; preds = %49, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %260
+  br label %259
 
 58:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail12ErrorHandlerINS1_4pathEEC2B8ne210000EPKcPNS_10error_codeEPKS4_SB_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6864,12 +6864,12 @@ _ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_
 119:                                              ; preds = %62, %60
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %244
+  br label %243
 
 121:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne210000Ev.exit.i
   %122 = landingpad { ptr, i32 }
           cleanup
-  br label %239
+  br label %238
 
 123:                                              ; preds = %_ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit.i
   %124 = landingpad { ptr, i32 }
@@ -7015,7 +7015,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_17basic_string_viewIcN
 
 .thread:                                          ; preds = %.invoke
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %220
+  br label %219
 
 172:                                              ; preds = %148, %.noexc52, %171
   %.sroa.17.5 = phi ptr [ %.sroa.17.0168, %148 ], [ %167, %.noexc52 ], [ %167, %171 ]
@@ -7040,7 +7040,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_17basic_string_viewIcN
 174:                                              ; preds = %.loopexit, %.loopexit.split-lp, %125, %137, %123
   %.pn.pn = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %239
+  br label %238
 
 175:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit47
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7111,7 +7111,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65: ; preds = %_ZNSt3__14__fs1
 
 199:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65
   invoke void @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerINS1_4pathEE6reportB8ne210000ERKNS_10error_codeE(ptr dead_on_unwind writable sret(%"class.std::__1::__fs::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %220 unwind label %208
+          to label %219 unwind label %208
 
 200:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA1_cvEERKT_NS2_6formatE.exit57
   %201 = landingpad { ptr, i32 }
@@ -7134,157 +7134,152 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65: ; preds = %_ZNSt3__14__fs1
   %.pn19 = phi { ptr, i32 } [ %179, %178 ], [ %201, %200 ], [ %.pn19.ph, %.body.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %239
+  br label %238
 
-208:                                              ; preds = %214, %199
-  %.sroa.17.0160 = phi ptr [ %.sroa.17.0161, %214 ], [ %.sroa.17.0162, %199 ]
-  %.sroa.098.0132 = phi ptr [ %.sroa.098.0133, %214 ], [ %.sroa.098.0134, %199 ]
+208:                                              ; preds = %213, %199
+  %.sroa.17.0160 = phi ptr [ %.sroa.17.0161, %213 ], [ %.sroa.17.0162, %199 ]
+  %.sroa.098.0132 = phi ptr [ %.sroa.098.0133, %213 ], [ %.sroa.098.0134, %199 ]
   %209 = landingpad { ptr, i32 }
           cleanup
-  br label %239
+  br label %238
 
 210:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65, %175
   %.sroa.17.0161 = phi ptr [ %.sroa.17.0162, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65 ], [ %.sroa.17.0168, %175 ]
   %.sroa.10.0147 = phi ptr [ %.sroa.10.0148, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65 ], [ %.sroa.10.0169, %175 ]
   %.sroa.098.0133 = phi ptr [ %.sroa.098.0134, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit65 ], [ %.sroa.098.0170, %175 ]
   %211 = icmp eq ptr %.sroa.098.0133, %.sroa.10.0147
-  br i1 %211, label %212, label %213
+  br i1 %211, label %212, label %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
 
 212:                                              ; preds = %210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br label %220
+  br label %219
 
-213:                                              ; preds = %210
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.10.0147, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.098.0133, i64 8) ]
-  br label %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
-
-_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit: ; preds = %215, %213
-  %.sroa.490.0 = phi ptr [ %.sroa.10.0147, %213 ], [ %216, %215 ]
+_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit: ; preds = %210, %214
+  %.sroa.490.0 = phi ptr [ %215, %214 ], [ %.sroa.10.0147, %210 ]
   %.not120 = icmp eq ptr %.sroa.490.0, %.sroa.098.0133
-  br i1 %.not120, label %214, label %215
+  br i1 %.not120, label %213, label %214
+
+213:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
+  invoke void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr dead_on_unwind writable sret(%"class.std::__1::__fs::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %219 unwind label %208
 
 214:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
-  invoke void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr dead_on_unwind writable sret(%"class.std::__1::__fs::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %220 unwind label %208
+  %215 = getelementptr inbounds i8, ptr %.sroa.490.0, i64 -16
+  %216 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__14__fs10filesystem4path6appendB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %215)
+          to label %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit unwind label %217, !llvm.loop !273
 
-215:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
-  %216 = getelementptr inbounds i8, ptr %.sroa.490.0, i64 -16
-  %217 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__14__fs10filesystem4path6appendB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %216)
-          to label %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit unwind label %218, !llvm.loop !273
-
-218:                                              ; preds = %215
-  %219 = landingpad { ptr, i32 }
+217:                                              ; preds = %214
+  %218 = landingpad { ptr, i32 }
           cleanup
-  br label %239
+  br label %238
 
-220:                                              ; preds = %.thread, %214, %199, %212
-  %.sroa.17.0165 = phi ptr [ %.sroa.17.0168, %.thread ], [ %.sroa.17.0161, %214 ], [ %.sroa.17.0162, %199 ], [ %.sroa.17.0161, %212 ]
-  %.sroa.098.0137 = phi ptr [ %.sroa.098.0170, %.thread ], [ %.sroa.098.0133, %214 ], [ %.sroa.098.0134, %199 ], [ %.sroa.098.0133, %212 ]
+219:                                              ; preds = %.thread, %213, %199, %212
+  %.sroa.17.0165 = phi ptr [ %.sroa.17.0168, %.thread ], [ %.sroa.17.0161, %213 ], [ %.sroa.17.0162, %199 ], [ %.sroa.17.0161, %212 ]
+  %.sroa.098.0137 = phi ptr [ %.sroa.098.0170, %.thread ], [ %.sroa.098.0133, %213 ], [ %.sroa.098.0134, %199 ], [ %.sroa.098.0133, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i74 = icmp eq ptr %.sroa.098.0137, null
-  br i1 %.not.i.i74, label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit, label %221
+  br i1 %.not.i.i74, label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit, label %220
 
-221:                                              ; preds = %220
-  %222 = ptrtoint ptr %.sroa.17.0165 to i64
-  %223 = ptrtoint ptr %.sroa.098.0137 to i64
-  %224 = sub i64 %222, %223
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0137, i64 noundef %224) #28
+220:                                              ; preds = %219
+  %221 = ptrtoint ptr %.sroa.17.0165 to i64
+  %222 = ptrtoint ptr %.sroa.098.0137 to i64
+  %223 = sub i64 %221, %222
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0137, i64 noundef %223) #28
   br label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit
 
-_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit: ; preds = %220, %221
+_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit: ; preds = %219, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %225 = load i8, ptr %9, align 8
-  %226 = and i8 %225, 1
-  %.not.i.i75 = icmp eq i8 %226, 0
-  br i1 %.not.i.i75, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77, label %227
+  %224 = load i8, ptr %9, align 8
+  %225 = and i8 %224, 1
+  %.not.i.i75 = icmp eq i8 %225, 0
+  br i1 %.not.i.i75, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77, label %226
 
-227:                                              ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit
-  %228 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %229 = load ptr, ptr %228, align 8, !tbaa !5
-  %230 = load i64, ptr %9, align 8
-  %231 = and i64 %230, -2
-  call void @_ZdlPvm(ptr noundef %229, i64 noundef %231) #28
+226:                                              ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit
+  %227 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %228 = load ptr, ptr %227, align 8, !tbaa !5
+  %229 = load i64, ptr %9, align 8
+  %230 = and i64 %229, -2
+  call void @_ZdlPvm(ptr noundef %228, i64 noundef %230) #28
   br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77
 
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77: ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit, %227
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77: ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit, %226
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %232 = load i8, ptr %8, align 8
-  %233 = and i8 %232, 1
-  %.not.i.i78 = icmp eq i8 %233, 0
-  br i1 %.not.i.i78, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80, label %234
+  %231 = load i8, ptr %8, align 8
+  %232 = and i8 %231, 1
+  %.not.i.i78 = icmp eq i8 %232, 0
+  br i1 %.not.i.i78, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80, label %233
 
-234:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77
-  %235 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !5
-  %237 = load i64, ptr %8, align 8
-  %238 = and i64 %237, -2
-  call void @_ZdlPvm(ptr noundef %236, i64 noundef %238) #28
+233:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %235 = load ptr, ptr %234, align 8, !tbaa !5
+  %236 = load i64, ptr %8, align 8
+  %237 = and i64 %236, -2
+  call void @_ZdlPvm(ptr noundef %235, i64 noundef %237) #28
   br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80
 
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80: ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77, %234
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80: ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit77, %233
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %258
+
+238:                                              ; preds = %217, %208, %.body, %174, %121
+  %.sroa.17.0157 = phi ptr [ %.sroa.17.0160, %208 ], [ %.sroa.17.0162, %.body ], [ %.sroa.17.0168, %174 ], [ %.sroa.17.0168, %121 ], [ %.sroa.17.0161, %217 ]
+  %.sroa.098.0129 = phi ptr [ %.sroa.098.0132, %208 ], [ %.sroa.098.0134, %.body ], [ %.sroa.098.0170, %174 ], [ %.sroa.098.0170, %121 ], [ %.sroa.098.0133, %217 ]
+  %.pn23 = phi { ptr, i32 } [ %209, %208 ], [ %.pn19, %.body ], [ %.pn.pn, %174 ], [ %122, %121 ], [ %218, %217 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %.not.i.i81 = icmp eq ptr %.sroa.098.0129, null
+  br i1 %.not.i.i81, label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82, label %239
+
+239:                                              ; preds = %238
+  %240 = ptrtoint ptr %.sroa.17.0157 to i64
+  %241 = ptrtoint ptr %.sroa.098.0129 to i64
+  %242 = sub i64 %240, %241
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0129, i64 noundef %242) #28
+  br label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82
+
+_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82: ; preds = %238, %239
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %243
+
+243:                                              ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82, %119
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82 ], [ %120, %119 ]
+  %244 = load i8, ptr %9, align 8
+  %245 = and i8 %244, 1
+  %.not.i.i83 = icmp eq i8 %245, 0
+  br i1 %.not.i.i83, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85, label %246
+
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %248 = load ptr, ptr %247, align 8, !tbaa !5
+  %249 = load i64, ptr %9, align 8
+  %250 = and i64 %249, -2
+  call void @_ZdlPvm(ptr noundef %248, i64 noundef %250) #28
+  br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85
+
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85: ; preds = %243, %246
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  %251 = load i8, ptr %8, align 8
+  %252 = and i8 %251, 1
+  %.not.i.i86 = icmp eq i8 %252, 0
+  br i1 %.not.i.i86, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88, label %253
+
+253:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85
+  %254 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !5
+  %256 = load i64, ptr %8, align 8
+  %257 = and i64 %256, -2
+  call void @_ZdlPvm(ptr noundef %255, i64 noundef %257) #28
+  br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88
+
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88: ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85, %253
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %259
 
-239:                                              ; preds = %218, %208, %.body, %174, %121
-  %.sroa.17.0157 = phi ptr [ %.sroa.17.0160, %208 ], [ %.sroa.17.0162, %.body ], [ %.sroa.17.0168, %174 ], [ %.sroa.17.0168, %121 ], [ %.sroa.17.0161, %218 ]
-  %.sroa.098.0129 = phi ptr [ %.sroa.098.0132, %208 ], [ %.sroa.098.0134, %.body ], [ %.sroa.098.0170, %174 ], [ %.sroa.098.0170, %121 ], [ %.sroa.098.0133, %218 ]
-  %.pn23 = phi { ptr, i32 } [ %209, %208 ], [ %.pn19, %.body ], [ %.pn.pn, %174 ], [ %122, %121 ], [ %219, %218 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not.i.i81 = icmp eq ptr %.sroa.098.0129, null
-  br i1 %.not.i.i81, label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82, label %240
-
-240:                                              ; preds = %239
-  %241 = ptrtoint ptr %.sroa.17.0157 to i64
-  %242 = ptrtoint ptr %.sroa.098.0129 to i64
-  %243 = sub i64 %241, %242
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0129, i64 noundef %243) #28
-  br label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82
-
-_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82: ; preds = %239, %240
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %244
-
-244:                                              ; preds = %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82, %119
-  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82 ], [ %120, %119 ]
-  %245 = load i8, ptr %9, align 8
-  %246 = and i8 %245, 1
-  %.not.i.i83 = icmp eq i8 %246, 0
-  br i1 %.not.i.i83, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85, label %247
-
-247:                                              ; preds = %244
-  %248 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %249 = load ptr, ptr %248, align 8, !tbaa !5
-  %250 = load i64, ptr %9, align 8
-  %251 = and i64 %250, -2
-  call void @_ZdlPvm(ptr noundef %249, i64 noundef %251) #28
-  br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85
-
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85: ; preds = %244, %247
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %252 = load i8, ptr %8, align 8
-  %253 = and i8 %252, 1
-  %.not.i.i86 = icmp eq i8 %253, 0
-  br i1 %.not.i.i86, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88, label %254
-
-254:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85
-  %255 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %256 = load ptr, ptr %255, align 8, !tbaa !5
-  %257 = load i64, ptr %8, align 8
-  %258 = and i64 %257, -2
-  call void @_ZdlPvm(ptr noundef %256, i64 noundef %258) #28
-  br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88
-
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88: ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit85, %254
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %260
-
-259:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
+258:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-260:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit32
+259:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit32
   %.pn26 = phi { ptr, i32 } [ %50, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit32 ], [ %.pn23.pn, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume

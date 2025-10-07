@@ -400,7 +400,7 @@ $_ZTVN4llvm13format_objectIJjjEEE = comdat any
 @_ZN5clang9api_notes14APINotesReaderC1EPN4llvm12MemoryBufferENS2_12VersionTupleERb = unnamed_addr alias void (ptr, ptr, i64, i64, ptr), ptr @_ZN5clang9api_notes14APINotesReaderC2EPN4llvm12MemoryBufferENS2_12VersionTupleERb
 @_ZN5clang9api_notes14APINotesReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang9api_notes14APINotesReaderD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementation13getIdentifierEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load ptr, ptr %4, align 8, !tbaa !3
@@ -435,8 +435,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %19 = zext i32 %16 to i64
   %20 = shl nuw nsw i64 %19, 2
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %21, align 4, !noalias !17
+  %.0.copyload.i.i.i.i.i = load i32, ptr %21, align 1, !noalias !17
   %22 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %22, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE4findERKNS_9StringRefEPS4_.exit.thread, label %23
 
@@ -594,8 +593,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %46 = zext i32 %43 to i64
   %47 = shl nuw nsw i64 %46, 2
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
-  call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %48, align 4, !noalias !52
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %48, align 1, !noalias !52
   %49 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %49, label %.loopexit, label %50
 
@@ -955,8 +953,7 @@ _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit17.i: ; preds = %181, %_ZN5clang
   %188 = zext i32 %185 to i64
   %189 = shl nuw nsw i64 %188, 2
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 %189
-  call void @llvm.assume(i1 true) [ "align"(ptr %190, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %190, align 4, !noalias !64
+  %.0.copyload.i.i.i.i.i = load i32, ptr %190, align 1, !noalias !64
   %191 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %191, label %.loopexit.sink.split.i.i, label %192
 
@@ -2607,11 +2604,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !12
@@ -2978,11 +2973,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = and i64 %92, 4294967295
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %95, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %95, align 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %97, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %97, align 1
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %99 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %99, align 8, !tbaa !231
@@ -3009,11 +3002,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %108 = and i64 %106, 4294967295
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 4) ]
-  %.0.copyload.i.i.i.i2.i45 = load i32, ptr %109, align 4
+  %.0.copyload.i.i.i.i2.i45 = load i32, ptr %109, align 1
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 4) ]
-  %.0.copyload.i.i.i2.i.i46 = load i32, ptr %111, align 4
+  %.0.copyload.i.i.i2.i.i46 = load i32, ptr %111, align 1
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i45, ptr %113, align 8, !tbaa !241
@@ -3377,11 +3368,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !264
@@ -3745,11 +3734,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !287
@@ -4113,11 +4100,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !310
@@ -4481,11 +4466,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !333
@@ -4849,11 +4832,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !67
@@ -5217,11 +5198,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !372
@@ -5585,11 +5564,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !395
@@ -5953,11 +5930,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !418
@@ -6321,11 +6296,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !441
@@ -6689,11 +6662,9 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %93 = and i64 %91, 4294967295
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 1
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !464
@@ -7758,7 +7729,7 @@ _ZNSt10unique_ptrIN5clang9api_notes14APINotesReaderESt14default_deleteIS2_EED2Ev
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupObjCClassIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
@@ -7801,8 +7772,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %22 = zext i32 %19 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 4, !noalias !635
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 1, !noalias !635
   %25 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %26
 
@@ -7888,8 +7858,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %61 = zext i32 %58 to i64
   %62 = shl nuw nsw i64 %61, 2
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 4, !noalias !641
+  %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 1, !noalias !641
   %64 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %65
 
@@ -8017,8 +7986,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoE
   %38 = zext i32 %35 to i64
   %39 = shl nuw nsw i64 %38, 2
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %40, align 4, !noalias !653
+  %.0.copyload.i.i.i.i.i = load i32, ptr %40, align 1, !noalias !653
   %41 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %41, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %42
 
@@ -8653,7 +8621,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader20lookupObjCProtocolIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
@@ -8696,8 +8664,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %22 = zext i32 %19 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 4, !noalias !676
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %24, align 1, !noalias !676
   %25 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %25, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %26
 
@@ -8783,8 +8750,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %61 = zext i32 %58 to i64
   %62 = shl nuw nsw i64 %61, 2
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
-  call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 4, !noalias !682
+  %.0.copyload.i.i.i.i.i = load i32, ptr %63, align 1, !noalias !682
   %64 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %64, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %65
 
@@ -8912,8 +8878,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolIn
   %38 = zext i32 %35 to i64
   %39 = shl nuw nsw i64 %38, 2
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
-  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %40, align 4, !noalias !691
+  %.0.copyload.i.i.i.i.i = load i32, ptr %40, align 1, !noalias !691
   %41 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %41, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE4findERKjPS4_.exit.thread, label %42
 
@@ -9068,8 +9033,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %36 = zext i32 %33 to i64
   %37 = shl nuw nsw i64 %36, 2
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %38, align 4, !noalias !695
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %38, align 1, !noalias !695
   %39 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %39, label %.loopexit, label %40
 
@@ -9166,8 +9130,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %79 = zext i32 %76 to i64
   %80 = shl nuw nsw i64 %79, 2
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 %80
-  call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %81, align 4, !noalias !701
+  %.0.copyload.i.i.i.i.i = load i32, ptr %81, align 1, !noalias !701
   %82 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %82, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %83
 
@@ -9771,8 +9734,7 @@ define dso_local void @_ZN5clang9api_notes14APINotesReader16lookupObjCMethodENS0
   %53 = zext i32 %50 to i64
   %54 = shl nuw nsw i64 %53, 2
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
-  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %55, align 4, !noalias !725
+  %.0.copyload.i.i.i.i.i = load i32, ptr %55, align 1, !noalias !725
   %56 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %56, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4findERKSt5tupleIJjjhEEPS4_.exit.thread, label %57
 
@@ -10394,8 +10356,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %34 = zext i32 %31 to i64
   %35 = shl nuw nsw i64 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !760
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 1, !noalias !760
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %37, label %.loopexit, label %38
 
@@ -10486,8 +10447,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %78 = zext i32 %75 to i64
   %79 = shl nuw nsw i64 %78, 2
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %79
-  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %80, align 4, !noalias !763
+  %.0.copyload.i.i.i.i.i = load i32, ptr %80, align 1, !noalias !763
   %81 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %81, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %82
 
@@ -11033,8 +10993,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %34 = zext i32 %31 to i64
   %35 = shl nuw nsw i64 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !785
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 1, !noalias !785
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %37, label %.loopexit, label %38
 
@@ -11125,8 +11084,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %78 = zext i32 %75 to i64
   %79 = shl nuw nsw i64 %78, 2
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %79
-  call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %80, align 4, !noalias !788
+  %.0.copyload.i.i.i.i.i = load i32, ptr %80, align 1, !noalias !788
   %81 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %81, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %82
 
@@ -11725,8 +11683,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 2
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 4, !noalias !811
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 1, !noalias !811
   %38 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %38, label %.loopexit, label %39
 
@@ -11819,8 +11776,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %81 = zext i32 %78 to i64
   %82 = shl nuw nsw i64 %81, 2
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
-  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 4, !noalias !814
+  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 1, !noalias !814
   %84 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %84, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %85
 
@@ -12366,8 +12322,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 2
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 4, !noalias !836
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 1, !noalias !836
   %38 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %38, label %.loopexit, label %39
 
@@ -12460,8 +12415,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %81 = zext i32 %78 to i64
   %82 = shl nuw nsw i64 %81, 2
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
-  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 4, !noalias !839
+  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 1, !noalias !839
   %84 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %84, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %85
 
@@ -13190,8 +13144,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %34 = zext i32 %31 to i64
   %35 = shl nuw nsw i64 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
-  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !865
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %36, align 1, !noalias !865
   %37 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %37, label %.loopexit, label %38
 
@@ -13274,8 +13227,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %73 = zext i32 %70 to i64
   %74 = shl nuw nsw i64 %73, 2
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
-  call void @llvm.assume(i1 true) [ "align"(ptr %75, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %75, align 4, !noalias !868
+  %.0.copyload.i.i.i.i.i = load i32, ptr %75, align 1, !noalias !868
   %76 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %76, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE4findERKjPS4_.exit.thread, label %77
 
@@ -13718,7 +13670,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader11lookupTagIDEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !475
@@ -13761,8 +13713,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %24 = zext i32 %21 to i64
   %25 = shl nuw nsw i64 %24, 2
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
-  call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %26, align 4, !noalias !890
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %26, align 1, !noalias !890
   %27 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %27, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %28
 
@@ -13853,8 +13804,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %66 = zext i32 %63 to i64
   %67 = shl nuw nsw i64 %66, 2
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
-  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %68, align 4, !noalias !896
+  %.0.copyload.i.i.i.i.i = load i32, ptr %68, align 1, !noalias !896
   %69 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %69, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %70
 
@@ -13986,8 +13936,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %42 = zext i32 %39 to i64
   %43 = shl nuw nsw i64 %42, 2
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %44, align 4, !noalias !902
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %44, align 1, !noalias !902
   %45 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %45, label %.loopexit, label %46
 
@@ -14080,8 +14029,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %88 = zext i32 %85 to i64
   %89 = shl nuw nsw i64 %88, 2
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
-  call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %90, align 4, !noalias !905
+  %.0.copyload.i.i.i.i.i = load i32, ptr %90, align 1, !noalias !905
   %91 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %91, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %92
 
@@ -15300,8 +15248,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 2
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 4, !noalias !930
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %37, align 1, !noalias !930
   %38 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %38, label %.loopexit, label %39
 
@@ -15394,8 +15341,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %81 = zext i32 %78 to i64
   %82 = shl nuw nsw i64 %81, 2
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
-  call void @llvm.assume(i1 true) [ "align"(ptr %83, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 4, !noalias !933
+  %.0.copyload.i.i.i.i.i = load i32, ptr %83, align 1, !noalias !933
   %84 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %84, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE4findERKNS2_18SingleDeclTableKeyEPS4_.exit.thread, label %85
 
@@ -15965,7 +15911,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupNamespaceIDEN4llvm9StringRefESt8optionalINS0_9ContextIDEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !475
@@ -16008,8 +15954,7 @@ _ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9Strin
   %23 = zext i32 %20 to i64
   %24 = shl nuw nsw i64 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
-  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 4) ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %25, align 4, !noalias !958
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %25, align 1, !noalias !958
   %26 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, 0
   br i1 %26, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %27
 
@@ -16101,8 +16046,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %65 = zext i32 %62 to i64
   %66 = shl nuw nsw i64 %65, 2
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 %66
-  call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %67, align 4, !noalias !964
+  %.0.copyload.i.i.i.i.i = load i32, ptr %67, align 1, !noalias !964
   %68 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %68, label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread, label %69
 
@@ -29340,7 +29284,7 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
-attributes #0 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -855,11 +855,9 @@ _ZNK4llvm9StringRef6rsplitEc.exit:                ; preds = %166, %_ZN5clang17Gl
   %223 = load ptr, ptr %37, align 8, !tbaa !94
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 %221
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %224, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %224, align 4
+  %.0.copyload.i.i.i.i2.i = load i32, ptr %224, align 1
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %226, i64 4) ]
-  %.0.copyload.i.i.i2.i.i = load i32, ptr %226, align 4
+  %.0.copyload.i.i.i2.i.i = load i32, ptr %226, align 1
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %228 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   store i32 %.0.copyload.i.i.i.i2.i, ptr %228, align 8, !tbaa !96
@@ -2813,8 +2811,7 @@ _ZN12_GLOBAL__N_126IdentifierIndexReaderTrait11ComputeHashERKN4llvm9StringRefE.e
   %45 = zext i32 %42 to i64
   %46 = shl nuw nsw i64 %45, 2
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
-  call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 4) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %47, align 4, !noalias !287
+  %.0.copyload.i.i.i.i.i = load i32, ptr %47, align 1, !noalias !287
   %48 = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %48, label %_ZN4llvm22OnDiskChainedHashTableIN12_GLOBAL__N_126IdentifierIndexReaderTraitEE4findERKNS_9StringRefEPS2_.exit.thread, label %49
 
@@ -4701,11 +4698,9 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %524, %_Z
   %541 = load ptr, ptr %74, align 8, !tbaa !94, !noalias !366
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 %539
   %543 = getelementptr inbounds nuw i8, ptr %541, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %542, i64 4) ]
-  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %542, align 4
+  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %542, align 1
   %544 = getelementptr inbounds nuw i8, ptr %542, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %544, i64 4) ]
-  %.0.copyload.i.i.i2.i.i.i = load i32, ptr %544, align 4
+  %.0.copyload.i.i.i2.i.i.i = load i32, ptr %544, align 1
   %545 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %546 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   store i32 %.0.copyload.i.i.i.i2.i.i, ptr %546, align 8, !tbaa !457
