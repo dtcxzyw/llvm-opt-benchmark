@@ -15389,8 +15389,8 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i"
-  %.sink = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sink, i64 8) ]
+  %.sink12 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sink12, i64 8) ]
   %44 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   %45 = load ptr, ptr %44, align 8, !noalias !4, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80

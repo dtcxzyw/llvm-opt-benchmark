@@ -2622,7 +2622,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load i64, ptr %152, align 8, !noalias !36, !noundef !3
   %.not29.i = icmp eq i64 %153, 0
-  br i1 %.not29.i, label %.thread47.i, label %154
+  br i1 %.not29.i, label %.thread.i, label %154
 
 154:                                              ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -2630,7 +2630,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %157 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %156, i64 %153
   %158 = getelementptr i8, ptr %157, i64 -32
   %.not30.i = icmp eq ptr %158, null
-  br i1 %.not30.i, label %.thread47.i, label %159
+  br i1 %.not30.i, label %.thread.i, label %159
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %151, i64 72
@@ -2639,13 +2639,13 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %163 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values10ValueStack12stack_ptr_at17h07614d8f0145bbbcE(ptr noalias noundef nonnull align 8 dereferenceable(32) %160, i64 noundef %162), !noalias !36
   br label %166
 
-.thread47.i:                                      ; preds = %154, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
+.thread.i:                                        ; preds = %154, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
   %164 = getelementptr inbounds nuw i8, ptr %151, i64 72
   %165 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values10ValueStack14root_stack_ptr17he70987b048e259eeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %164), !noalias !36
   br label %166
 
-166:                                              ; preds = %.thread47.i, %159
-  %.not3050.i = phi i8 [ 0, %159 ], [ 1, %.thread47.i ]
+166:                                              ; preds = %.thread.i, %159
+  %.not3048.i = phi i8 [ 0, %159 ], [ 1, %.thread47.i ]
   %.sroa.024.0.i = phi ptr [ %163, %159 ], [ %165, %.thread47.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !43
   store ptr %.sroa.024.0.i, ptr %26, align 8, !noalias !43
@@ -2720,17 +2720,17 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
 
 199:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i"
   store i64 %194, ptr %195, align 8, !noalias !36
-  %.pre67.i = load ptr, ptr %45, align 8, !alias.scope !39, !noalias !45
-  br i1 %67, label %200, label %.thread60.i
+  %.pre65.i = load ptr, ptr %45, align 8, !alias.scope !39, !noalias !45
+  br i1 %67, label %200, label %.thread58.i
 
 200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %.pre67.i, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %.pre65.i, i64 48
   %202 = load i32, ptr %201, align 8, !range !35, !noalias !36, !noundef !3
   %203 = trunc nuw i32 %202 to i1
-  br i1 %203, label %204, label %.thread60.i
+  br i1 %203, label %204, label %.thread58.i
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw i8, ptr %.pre67.i, i64 52
+  %205 = getelementptr inbounds nuw i8, ptr %.pre65.i, i64 52
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !43
   %206 = call noundef align 8 dereferenceable(144) ptr @_ZN5wasmi5store5inner10StoreInner16resolve_instance17h62bfb93af6a98434E(ptr noalias noundef nonnull readonly align 8 dereferenceable(344) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %205), !noalias !94
@@ -2788,32 +2788,32 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   store i64 %.sroa.33.0.i41.i, ptr %146, align 8, !alias.scope !39, !noalias !45
   store ptr %.sroa.04.0.i42.i, ptr %147, align 8, !alias.scope !39, !noalias !45
   %.pre.i = load ptr, ptr %45, align 8, !alias.scope !39, !noalias !45
-  br label %.thread60.i
+  br label %.thread58.i
 
-.thread60.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i, %200, %199
-  %231 = phi ptr [ %.pre67.i, %200 ], [ %.pre67.i, %199 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i ]
+.thread58.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i, %200, %199
+  %231 = phi ptr [ %.pre65.i, %200 ], [ %.pre65.i, %199 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i ]
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i64, ptr %232, align 8, !noalias !36, !noundef !3
   %.not35.i = icmp eq i64 %233, 0
-  br i1 %.not35.i, label %.thread63.i, label %234
+  br i1 %.not35.i, label %.thread61.i, label %234
 
-234:                                              ; preds = %.thread60.i
+234:                                              ; preds = %.thread58.i
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %236 = load ptr, ptr %235, align 8, !noalias !36, !nonnull !3, !noundef !3
   %237 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %236, i64 %233
   %238 = getelementptr i8, ptr %237, i64 -32
   %.not36.i = icmp eq ptr %238, null
-  br i1 %.not36.i, label %.thread63.i, label %239
+  br i1 %.not36.i, label %.thread61.i, label %239
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds nuw i8, ptr %231, i64 72
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN5wasmi6engine8executor6instrs8Executor20init_call_frame_impl17h108f87aebf9bd03dE(ptr noalias noundef nonnull align 8 dereferenceable(32) %240, ptr noalias noundef nonnull align 8 dereferenceable(8) %86, ptr noalias noundef nonnull align 8 dereferenceable(8) %241, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %238), !noalias !36
-  br label %.thread63.i
+  br label %.thread61.i
 
-.thread63.i:                                      ; preds = %239, %234, %.thread60.i
+.thread61.i:                                      ; preds = %239, %234, %.thread58.i
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.not3050.i, ptr %242, align 1, !alias.scope !36, !noalias !100
+  store i8 %.not3048.i, ptr %242, align 1, !alias.scope !36, !noalias !100
   store i8 0, ptr %0, align 8, !alias.scope !36, !noalias !100
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !43
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h728f873a194702afE.exit"
@@ -2825,7 +2825,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   store i8 1, ptr %0, align 8, !alias.scope !36, !noalias !100
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h728f873a194702afE.exit"
 
-"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h728f873a194702afE.exit": ; preds = %.thread63.i, %243
+"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h728f873a194702afE.exit": ; preds = %.thread61.i, %243
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !43
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %411
@@ -3526,9 +3526,9 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit"
 
 161:                                              ; preds = %91, %99, %73
-  %.sink40.i = phi ptr [ %75, %73 ], [ %94, %91 ], [ %101, %99 ]
+  %.sink38.i = phi ptr [ %75, %73 ], [ %94, %91 ], [ %101, %99 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink40.i, ptr %162, align 8, !alias.scope !154, !noalias !201
+  store ptr %.sink38.i, ptr %162, align 8, !alias.scope !154, !noalias !201
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit"
 
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i", %161
@@ -4229,7 +4229,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load i64, ptr %161, align 8, !noalias !262, !noundef !3
   %.not31.i = icmp eq i64 %162, 0
-  br i1 %.not31.i, label %.thread50.i, label %163
+  br i1 %.not31.i, label %.thread.i, label %163
 
 163:                                              ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
@@ -4237,7 +4237,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %166 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %165, i64 %162
   %167 = getelementptr i8, ptr %166, i64 -32
   %.not32.i = icmp eq ptr %167, null
-  br i1 %.not32.i, label %.thread50.i, label %168
+  br i1 %.not32.i, label %.thread.i, label %168
 
 168:                                              ; preds = %163
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 72
@@ -4246,13 +4246,13 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   %172 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values10ValueStack12stack_ptr_at17h07614d8f0145bbbcE(ptr noalias noundef nonnull align 8 dereferenceable(32) %169, i64 noundef %171), !noalias !262
   br label %175
 
-.thread50.i:                                      ; preds = %163, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
+.thread.i:                                        ; preds = %163, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit.i
   %173 = getelementptr inbounds nuw i8, ptr %160, i64 72
   %174 = call noundef ptr @_ZN5wasmi6engine8executor5stack6values10ValueStack14root_stack_ptr17he70987b048e259eeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %173), !noalias !262
   br label %175
 
-175:                                              ; preds = %.thread50.i, %168
-  %.not3253.i = phi i8 [ 0, %168 ], [ 1, %.thread50.i ]
+175:                                              ; preds = %.thread.i, %168
+  %.not3252.i = phi i8 [ 0, %168 ], [ 1, %.thread50.i ]
   %.sroa.026.0.i = phi ptr [ %172, %168 ], [ %174, %.thread50.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !269
   store ptr %.sroa.026.0.i, ptr %26, align 8, !noalias !269
@@ -4327,17 +4327,17 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
 
 208:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i"
   store i64 %203, ptr %204, align 8, !noalias !262
-  %.pre70.i = load ptr, ptr %47, align 8, !alias.scope !265, !noalias !271
-  br i1 %69, label %209, label %.thread63.i
+  %.pre69.i = load ptr, ptr %47, align 8, !alias.scope !265, !noalias !271
+  br i1 %69, label %209, label %.thread62.i
 
 209:                                              ; preds = %208
-  %210 = getelementptr inbounds nuw i8, ptr %.pre70.i, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %.pre69.i, i64 48
   %211 = load i32, ptr %210, align 8, !range !35, !noalias !262, !noundef !3
   %212 = trunc nuw i32 %211 to i1
-  br i1 %212, label %213, label %.thread63.i
+  br i1 %212, label %213, label %.thread62.i
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw i8, ptr %.pre70.i, i64 52
+  %214 = getelementptr inbounds nuw i8, ptr %.pre69.i, i64 52
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !269
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !269
   %215 = call noundef align 8 dereferenceable(144) ptr @_ZN5wasmi5store5inner10StoreInner16resolve_instance17h62bfb93af6a98434E(ptr noalias noundef nonnull readonly align 8 dereferenceable(344) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %214), !noalias !319
@@ -4395,32 +4395,32 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   store i64 %.sroa.33.0.i43.i, ptr %155, align 8, !alias.scope !265, !noalias !271
   store ptr %.sroa.04.0.i44.i, ptr %156, align 8, !alias.scope !265, !noalias !271
   %.pre.i = load ptr, ptr %47, align 8, !alias.scope !265, !noalias !271
-  br label %.thread63.i
+  br label %.thread62.i
 
-.thread63.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i, %209, %208
-  %240 = phi ptr [ %.pre70.i, %209 ], [ %.pre70.i, %208 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i ]
+.thread62.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i, %209, %208
+  %240 = phi ptr [ %.pre69.i, %209 ], [ %.pre69.i, %208 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i ]
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load i64, ptr %241, align 8, !noalias !262, !noundef !3
   %.not37.i = icmp eq i64 %242, 0
-  br i1 %.not37.i, label %.thread66.i, label %243
+  br i1 %.not37.i, label %.thread65.i, label %243
 
-243:                                              ; preds = %.thread63.i
+243:                                              ; preds = %.thread62.i
   %244 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %245 = load ptr, ptr %244, align 8, !noalias !262, !nonnull !3, !noundef !3
   %246 = getelementptr { ptr, { i64, i64 }, i16, i8, [5 x i8] }, ptr %245, i64 %242
   %247 = getelementptr i8, ptr %246, i64 -32
   %.not38.i = icmp eq ptr %247, null
-  br i1 %.not38.i, label %.thread66.i, label %248
+  br i1 %.not38.i, label %.thread65.i, label %248
 
 248:                                              ; preds = %243
   %249 = getelementptr inbounds nuw i8, ptr %240, i64 72
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN5wasmi6engine8executor6instrs8Executor20init_call_frame_impl17h108f87aebf9bd03dE(ptr noalias noundef nonnull align 8 dereferenceable(32) %249, ptr noalias noundef nonnull align 8 dereferenceable(8) %88, ptr noalias noundef nonnull align 8 dereferenceable(8) %250, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %247), !noalias !262
-  br label %.thread66.i
+  br label %.thread65.i
 
-.thread66.i:                                      ; preds = %248, %243, %.thread63.i
+.thread65.i:                                      ; preds = %248, %243, %.thread62.i
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.not3253.i, ptr %251, align 1, !alias.scope !262, !noalias !325
+  store i8 %.not3252.i, ptr %251, align 1, !alias.scope !262, !noalias !325
   store i8 0, ptr %0, align 8, !alias.scope !262, !noalias !325
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !269
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h7b78e9435212e663E.exit"
@@ -4432,7 +4432,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   store i8 1, ptr %0, align 8, !alias.scope !262, !noalias !325
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h7b78e9435212e663E.exit"
 
-"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h7b78e9435212e663E.exit": ; preds = %.thread66.i, %252
+"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h7b78e9435212e663E.exit": ; preds = %.thread65.i, %252
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !269
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %423
@@ -5159,9 +5159,9 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit"
 
 173:                                              ; preds = %103, %111, %75
-  %.sink41.i = phi ptr [ %77, %75 ], [ %106, %103 ], [ %113, %111 ]
+  %.sink40.i = phi ptr [ %77, %75 ], [ %106, %103 ], [ %113, %111 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink41.i, ptr %174, align 8, !alias.scope !378, !noalias !426
+  store ptr %.sink40.i, ptr %174, align 8, !alias.scope !378, !noalias !426
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit"
 
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i", %173

@@ -21217,7 +21217,7 @@ define { i32, i32 } @"_ZN93_$LT$fish..builtins..string..sub..Sub$u20$as$u20$fish
   %110 = load ptr, ptr %85, align 8, !nonnull !17, !align !65
   %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
   %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %.pre, i64 %106)
-  %112 = sub nuw i64 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
+  %111 = sub nuw i64 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.in.sroa.speculate.load.7.sroa.speculated.i
   %113 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream6append17h560b6507302fab41E(ptr noalias noundef nonnull align 8 dereferenceable(32) %109, ptr noalias noundef nonnull readonly align 4 %111, i64 noundef %112)
           to label %116 unwind label %.loopexit69
 
