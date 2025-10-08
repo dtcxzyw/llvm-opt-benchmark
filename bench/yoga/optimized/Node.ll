@@ -1996,32 +1996,32 @@ define void @_ZN8facebook4yoga4Node17processDimensionsEv(ptr noundef nonnull ali
   br i1 %15, label %20, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
 20:                                               ; preds = %8
-  %21 = fcmp ord float %17, 0.000000e+00
-  br i1 %21, label %22, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
+  %or.cond.i.i.i.i = fcmp ord float %17, 0.000000e+00
+  br i1 %or.cond.i.i.i.i, label %21, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
 
-22:                                               ; preds = %20
+21:                                               ; preds = %20
   %23 = fcmp ord float %19, 0.000000e+00
   br i1 %23, label %24, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-24:                                               ; preds = %22
+24:; preds = %22
   %25 = fsub float %17, %19
   %26 = tail call noundef float @llvm.fabs.f32(float %25)
-  %27 = fcmp olt float %26, 0x3F1A36E2E0000000
+  %26 = fcmp olt float %26, 0x3F1A36E2E0000000
   br i1 %27, label %29, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit: ; preds = %20
+_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit:; preds = %20
   %28 = fcmp uno float %19, 0.000000e+00
   br i1 %28, label %29, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-29:                                               ; preds = %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
+29:; preds = %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
   %30 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
   br label %32
 
-_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread: ; preds = %5, %22, %8, %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
+_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread:; preds = %5, %22, %8, %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
   %31 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
   br label %32
 
-32:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread, %29
+32:; preds = %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread, %29
   %.sink29 = phi i64 [ %31, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread ], [ %30, %29 ]
   %33 = trunc i64 %.sink29 to i40
   %34 = zext nneg i8 %.0.idx25.sroa.phi.sroa.speculated to i64

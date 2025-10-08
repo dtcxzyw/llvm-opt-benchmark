@@ -5855,50 +5855,50 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %37 = sitofp i32 %36 to double
   %38 = fdiv double %37, %.031.i.i
   %39 = fcmp une double %38, %.034.i.i
-  br i1 %39, label %56, label %_ZN7testing8internal7PrintToEdPSo.exit
+  br i1 %39, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
 40:                                               ; preds = %2
   %41 = fcmp olt double %.034.i.i, 1.000000e+10
-  br i1 %41, label %42, label %56
+  br i1 %41, label %42, label %58
 
 42:                                               ; preds = %40
   %43 = fcmp ult double %.034.i.i, 1.000000e+09
-  br i1 %43, label %44, label %49
+  br i1 %43, label %44, label %51
 
 44:                                               ; preds = %42
   %45 = fcmp ult double %.034.i.i, 1.000000e+08
-  br i1 %45, label %46, label %49
+  br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
   %47 = fcmp ult double %.034.i.i, 1.000000e+07
-  br i1 %47, label %48, label %49
+  br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  br label %49
+  br label %51
 
-49:                                               ; preds = %48, %46, %44, %42
+51:                                               ; preds = %48, %46, %44, %42
   %.0.i.i = phi double [ 1.000000e+01, %48 ], [ 1.000000e+04, %42 ], [ 1.000000e+03, %44 ], [ 1.000000e+02, %46 ]
-  %50 = fdiv double %.034.i.i, %.0.i.i
-  %51 = fadd double %50, 5.000000e-01
-  %52 = fptosi double %51 to i32
-  %53 = sitofp i32 %52 to double
-  %54 = fmul double %.0.i.i, %53
-  %55 = fcmp une double %54, %.034.i.i
-  br i1 %55, label %56, label %_ZN7testing8internal7PrintToEdPSo.exit
+  %52 = fdiv double %.034.i.i, %.0.i.i
+  %53 = fadd double %52, 5.000000e-01
+  %54 = fptosi double %53 to i32
+  %55 = sitofp i32 %54 to double
+  %56 = fmul double %.0.i.i, %55
+  %57 = fcmp une double %56, %.034.i.i
+  br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
-56:                                               ; preds = %49, %40, %34
+58:                                               ; preds = %51, %40, %34
   br label %_ZN7testing8internal7PrintToEdPSo.exit
 
-_ZN7testing8internal7PrintToEdPSo.exit:           ; preds = %34, %49, %56
+_ZN7testing8internal7PrintToEdPSo.exit:           ; preds = %34, %51, %58
   %.133.i.i = phi i64 [ 17, %56 ], [ 6, %34 ], [ 6, %49 ]
   store i64 %.133.i.i, ptr %8, align 8, !tbaa !224
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %3)
-  %58 = load ptr, ptr %1, align 8, !tbaa !20
-  %59 = getelementptr i8, ptr %58, i64 -24
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i64 %9, ptr %62, align 8, !tbaa !224
+  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %3)
+  %60 = load ptr, ptr %1, align 8, !tbaa !20
+  %61 = getelementptr i8, ptr %60, i64 -24
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %9, ptr %64, align 8, !tbaa !224
   ret void
 }
 

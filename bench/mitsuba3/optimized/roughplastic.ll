@@ -4061,11 +4061,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %50
 
 50:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %50
-  %.0189298 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %53, %50 ]
-  %51 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %16, i64 %.0189298
-  %52 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %51, i64 %.0189298
+  %.0189296 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %53, %50 ]
+  %51 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %16, i64 %.0189296
+  %52 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %51, i64 %.0189296
   store <4 x float> zeroinitializer, ptr %52, align 16
-  %53 = add nuw nsw i64 %.0189298, 1
+  %53 = add nuw nsw i64 %.0189296, 1
   %exitcond.not = icmp eq i64 %53, 4
   br i1 %exitcond.not, label %54, label %50, !llvm.loop !74
 
@@ -4135,7 +4135,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.0 = phi float [ %66, %65 ], [ %94, %67 ]
   %96 = fcmp contract uge float %4, %.0
   store float 1.000000e+00, ptr %37, align 4
-  br i1 %96, label %.critedge297, label %97
+  br i1 %96, label %.critedge307, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4167,7 +4167,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %117 = insertelement <4 x float> %116, float 0.000000e+00, i64 3
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
-.critedge297:                                     ; preds = %95
+.critedge307:                                     ; preds = %95
   %118 = load float, ptr %5, align 4
   %119 = tail call contract noundef float @llvm.fma.f32(float %118, float 2.000000e+00, float -1.000000e+00)
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -4241,13 +4241,13 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %179 = insertelement <4 x float> %178, float %176, i64 2
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
-_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %97, %.critedge297
-  %storemerge300 = phi <4 x float> [ %117, %97 ], [ %179, %.critedge297 ]
-  %storemerge299 = phi i32 [ 0, %97 ], [ 1, %.critedge297 ]
-  %storemerge = phi i32 [ 8, %97 ], [ 2, %.critedge297 ]
-  store <4 x float> %storemerge300, ptr %15, align 16
-  store i32 %storemerge299, ptr %39, align 4
-  store i32 %storemerge, ptr %38, align 8
+_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %97, %.critedge307
+  %.sink305 = phi <4 x float> [ %117, %97 ], [ %179, %.critedge297 ]
+  %.sink304 = phi i32 [ 0, %97 ], [ 1, %.critedge297 ]
+  %.sink = phi i32 [ 8, %97 ], [ 2, %.critedge297 ]
+  store <4 x float> %.sink305, ptr %15, align 16
+  store i32 %.sink304, ptr %39, align 4
+  store i32 %.sink, ptr %38, align 8
   %180 = call noundef float @_ZNK7mitsuba12RoughPlasticIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE3pdfERKNS_11BSDFContextERKNS_18SurfaceInteractionIfS5_EERKNS_6VectorIfLm3EEEb(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 16 dereferenceable(240) %3, ptr noundef nonnull align 16 dereferenceable(16) %15, i1 noundef zeroext true)
   store float %180, ptr %36, align 16
   %181 = fcmp contract ogt float %180, 0.000000e+00

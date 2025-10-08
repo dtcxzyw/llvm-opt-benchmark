@@ -208,7 +208,7 @@ define internal fastcc noundef ptr @_ZL5setupP8PJconsts9TMercAlgo(ptr noundef %0
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %74
+  br label %73
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -227,7 +227,7 @@ define internal fastcc noundef ptr @_ZL5setupP8PJconsts9TMercAlgo(ptr noundef %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL10destructorP8PJconstsi, ptr %13, align 8, !tbaa !71
   %14 = fcmp une double %10, 0.000000e+00
-  br i1 %14, label %15, label %_ZL12setup_approxP8PJconsts.exit.thread.thread
+  br i1 %14, label %15, label %30
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -252,27 +252,27 @@ define internal fastcc noundef ptr @_ZL5setupP8PJconsts9TMercAlgo(ptr noundef %0
   store double %29, ptr %3, align 8, !tbaa !78
   br label %_ZL12setup_approxP8PJconsts.exit.thread
 
-_ZL12setup_approxP8PJconsts.exit.thread.thread:   ; preds = %12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %31 = load double, ptr %30, align 8, !tbaa !69
-  store double %31, ptr %3, align 8, !tbaa !78
-  %32 = fmul double %31, 5.000000e-01
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %32, ptr %33, align 8, !tbaa !77
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %32 = load double, ptr %31, align 8, !tbaa !69
+  store double %32, ptr %3, align 8, !tbaa !78
+  %33 = fmul double %32, 5.000000e-01
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %33, ptr %34, align 8, !tbaa !77
   br label %37
 
 _ZL12setup_approxP8PJconsts.exit:                 ; preds = %15
-  %34 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  %.not24 = icmp eq ptr %34, null
-  br i1 %.not24, label %74, label %_ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge
+  %35 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  %.not24 = icmp eq ptr %35, null
+  br i1 %.not24, label %73, label %_ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge
 
 _ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge: ; preds = %_ZL12setup_approxP8PJconsts.exit
   %.pr.pre = load double, ptr %9, align 8, !tbaa !67
   br label %_ZL12setup_approxP8PJconsts.exit.thread
 
 _ZL12setup_approxP8PJconsts.exit.thread:          ; preds = %_ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge, %20
-  %35 = phi double [ %27, %20 ], [ %.pr.pre, %_ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge ]
-  %36 = fcmp oeq double %35, 0.000000e+00
+  %36 = phi double [ %27, %20 ], [ %.pr.pre, %_ZL12setup_approxP8PJconsts.exit._ZL12setup_approxP8PJconsts.exit.threadthread-pre-split_crit_edge ]
+  %37 = fcmp oeq double %36, 0.000000e+00
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %_ZL12setup_approxP8PJconsts.exit.thread.thread, %_ZL12setup_approxP8PJconsts.exit.thread
@@ -289,7 +289,7 @@ _ZL12setup_approxP8PJconsts.exit.thread:          ; preds = %_ZL12setup_approxP8
   store ptr @_ZL12approx_e_fwd5PJ_LPP8PJconsts, ptr %42, align 8, !tbaa !80
   br label %74
 
-43:                                               ; preds = %7
+43:; preds = %7
   %44 = tail call fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef nonnull %0)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL11exact_e_inv5PJ_XYP8PJconsts, ptr %45, align 8, !tbaa !79
@@ -297,22 +297,22 @@ _ZL12setup_approxP8PJconsts.exit.thread:          ; preds = %_ZL12setup_approxP8
   store ptr @_ZL11exact_e_fwd5PJ_LPP8PJconsts, ptr %46, align 8, !tbaa !80
   br label %74
 
-47:                                               ; preds = %7
+47:; preds = %7
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL10destructorP8PJconstsi, ptr %48, align 8, !tbaa !71
   %49 = fcmp une double %10, 0.000000e+00
   br i1 %49, label %50, label %65
 
-50:                                               ; preds = %47
+50:; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %52 = load double, ptr %51, align 8, !tbaa !72
   %53 = tail call noundef ptr @_Z7pj_enfnd(double noundef %52)
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !73
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %53, ptr %50, align 8, !tbaa !73
   %.not.i26 = icmp eq ptr %53, null
   br i1 %.not.i26, label %_ZL12setup_approxP8PJconsts.exit27, label %55
 
-55:                                               ; preds = %50
+55:; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %57 = load double, ptr %56, align 8, !tbaa !68
   %58 = tail call double @sin(double noundef %57) #13, !tbaa !76
@@ -326,29 +326,29 @@ _ZL12setup_approxP8PJconsts.exit.thread:          ; preds = %_ZL12setup_approxP8
   store double %64, ptr %3, align 8, !tbaa !78
   br label %_ZL12setup_approxP8PJconsts.exit27.thread
 
-65:                                               ; preds = %47
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %67 = load double, ptr %66, align 8, !tbaa !69
-  store double %67, ptr %3, align 8, !tbaa !78
-  %68 = fmul double %67, 5.000000e-01
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %68, ptr %69, align 8, !tbaa !77
+64:                                               ; preds = %47
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %66 = load double, ptr %65, align 8, !tbaa !69
+  store double %66, ptr %3, align 8, !tbaa !78
+  %67 = fmul double %66, 5.000000e-01
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %67, ptr %68, align 8, !tbaa !77
   br label %_ZL12setup_approxP8PJconsts.exit27.thread
 
 _ZL12setup_approxP8PJconsts.exit27:               ; preds = %50
-  %70 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  %.not = icmp eq ptr %70, null
-  br i1 %.not, label %74, label %_ZL12setup_approxP8PJconsts.exit27.thread
+  %69 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  %.not = icmp eq ptr %69, null
+  br i1 %.not, label %73, label %_ZL12setup_approxP8PJconsts.exit27.thread
 
-_ZL12setup_approxP8PJconsts.exit27.thread:        ; preds = %55, %65, %_ZL12setup_approxP8PJconsts.exit27
-  %71 = tail call fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef nonnull %0)
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL10auto_e_inv5PJ_XYP8PJconsts, ptr %72, align 8, !tbaa !79
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL10auto_e_fwd5PJ_LPP8PJconsts, ptr %73, align 8, !tbaa !80
-  br label %74
+_ZL12setup_approxP8PJconsts.exit27.thread:        ; preds = %55, %64, %_ZL12setup_approxP8PJconsts.exit27
+  %70 = tail call fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef nonnull %0)
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL10auto_e_inv5PJ_XYP8PJconsts, ptr %71, align 8, !tbaa !79
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @_ZL10auto_e_fwd5PJ_LPP8PJconsts, ptr %72, align 8, !tbaa !80
+  br label %73
 
-74:                                               ; preds = %7, %43, %_ZL12setup_approxP8PJconsts.exit27.thread, %40, %37, %_ZL12setup_approxP8PJconsts.exit27, %_ZL12setup_approxP8PJconsts.exit, %5
+73:                                               ; preds = %7, %43, %_ZL12setup_approxP8PJconsts.exit27.thread, %40, %37, %_ZL12setup_approxP8PJconsts.exit27, %_ZL12setup_approxP8PJconsts.exit, %5
   %.0 = phi ptr [ %6, %5 ], [ null, %_ZL12setup_approxP8PJconsts.exit ], [ null, %_ZL12setup_approxP8PJconsts.exit27 ], [ %0, %37 ], [ %0, %40 ], [ %0, %_ZL12setup_approxP8PJconsts.exit27.thread ], [ %0, %43 ], [ %0, %7 ]
   ret ptr %.0
 }

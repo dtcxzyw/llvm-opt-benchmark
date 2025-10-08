@@ -475,7 +475,7 @@ define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr n
 _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %.0.i = phi double [ %15, %14 ], [ 0x2DE6061812054CFA, %2 ], [ 0x51F73F60EA79F5B9, %12 ]
   %16 = fcmp une double %9, 0.000000e+00
-  br i1 %16, label %17, label %44
+  br i1 %16, label %17, label %47
 
 17:                                               ; preds = %_ZL8safe_expd.exit
   %18 = tail call double @llvm.fabs.f64(double %9)
@@ -484,7 +484,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %20 = fcmp ogt double %19, 1.000000e+02
   %.sroa.speculated = select i1 %20, double 1.000000e+02, double %19
   %21 = fcmp ogt double %9, 0.000000e+00
-  br i1 %21, label %22, label %37
+  br i1 %21, label %22, label %40
 
 22:                                               ; preds = %17
   %23 = fmul double %.0.i, 5.000000e-01
@@ -505,35 +505,35 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   br label %_ZL8safe_expd.exit36
 
 _ZL8safe_expd.exit36:                             ; preds = %22, %25, %27
-  %.0.i3353 = phi double [ %32, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x2DE6061812054CFA, %22 ]
-  %.pn60 = phi double [ %31, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x51F73F60EA79F5B9, %22 ]
+  %.0.i3354 = phi double [ %32, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x2DE6061812054CFA, %22 ]
+  %.pn63 = phi double [ %31, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x51F73F60EA79F5B9, %22 ]
   %.0.i35 = phi double [ %33, %27 ], [ 0x2DE6061812054CFA, %25 ], [ 0x51F73F60EA79F5B9, %22 ]
-  %34 = fmul double %23, %.pn60
-  %35 = fsub double %.0.i3353, %.0.i35
-  %36 = fmul double %23, %35
-  br label %42
+  %37 = fmul double %23, %.pn63
+  %38 = fsub double %.0.i3354, %.0.i35
+  %39 = fmul double %23, %38
+  br label %45
 
-37:                                               ; preds = %17
-  %38 = tail call double @cos(double noundef %.sroa.speculated) #17, !tbaa !4
-  %39 = fmul double %.0.i, %38
-  %40 = tail call double @sin(double noundef %.sroa.speculated) #17, !tbaa !4
-  %41 = fmul double %.0.i, %40
-  br label %42
+40:                                               ; preds = %17
+  %41 = tail call double @cos(double noundef %.sroa.speculated) #17, !tbaa !4
+  %42 = fmul double %.0.i, %41
+  %43 = tail call double @sin(double noundef %.sroa.speculated) #17, !tbaa !4
+  %44 = fmul double %.0.i, %43
+  br label %45
 
-42:                                               ; preds = %37, %_ZL8safe_expd.exit36
-  %.026 = phi double [ %34, %_ZL8safe_expd.exit36 ], [ %39, %37 ]
-  %.pn = phi double [ %36, %_ZL8safe_expd.exit36 ], [ %41, %37 ]
+45:                                               ; preds = %40, %_ZL8safe_expd.exit36
+  %.026 = phi double [ %37, %_ZL8safe_expd.exit36 ], [ %42, %37 ]
+  %.pn = phi double [ %39, %_ZL8safe_expd.exit36 ], [ %44, %37 ]
   %.0 = fdiv double %.pn, %sqrt
-  %43 = fadd double %.026, %.0
-  br label %47
+  %46 = fadd double %.026, %.0
+  br label %50
 
-44:                                               ; preds = %_ZL8safe_expd.exit
-  %45 = fadd double %6, 1.000000e+00
-  %46 = fmul double %45, %.0.i
-  br label %47
+47:                                               ; preds = %_ZL8safe_expd.exit
+  %48 = fadd double %6, 1.000000e+00
+  %49 = fmul double %48, %.0.i
+  br label %50
 
-47:                                               ; preds = %44, %42
-  %.027 = phi double [ %43, %42 ], [ %46, %44 ]
+50:                                               ; preds = %47, %45
+  %.027 = phi double [ %46, %42 ], [ %49, %44 ]
   ret double %.027
 }
 

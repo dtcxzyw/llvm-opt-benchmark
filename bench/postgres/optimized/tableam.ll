@@ -752,9 +752,9 @@ define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr no
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 122
   %22 = load i8, ptr %21, align 2, !range !4, !noundef !5
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %select.unfold, label %.thread51
+  br i1 %23, label %select.unfold, label %.thread
 
-.thread51:                                        ; preds = %20
+.thread:                                          ; preds = %20
   store i32 10, ptr %2, align 4
   br label %32
 
@@ -778,7 +778,7 @@ select.unfold:                                    ; preds = %20, %7
   %31 = fdiv double %15, %30
   br label %49
 
-32:                                               ; preds = %.thread51, %26
+32:                                               ; preds = %.thread, %26
   %.05055 = phi i32 [ 10, %.thread51 ], [ %8, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %34 = load ptr, ptr %33, align 8

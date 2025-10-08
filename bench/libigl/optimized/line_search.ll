@@ -23,16 +23,16 @@ define dso_local noundef double @_ZN3igl11line_searchERN5Eigen6MatrixIdLin1ELin1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %11, label %12
+  br i1 %.not.i.i, label %11, label %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit
 
 11:                                               ; preds = %8
   tail call void @_ZSt25__throw_bad_function_callv() #9
   unreachable
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !9
-  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
+_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit: ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !9
+  %14 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %16 = fcmp ord double %15, 0.000000e+00
   br i1 %16, label %.lr.ph, label %._crit_edge
 

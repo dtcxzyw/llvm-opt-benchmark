@@ -8274,7 +8274,7 @@ if.end29:                                         ; preds = %if.end16
 
 if.then32:                                        ; preds = %if.end29
   %cmp33 = icmp eq i32 %ctx.addr.0.extract.trunc, 2
-  br i1 %cmp33, label %if.end54.thread88, label %16
+  br i1 %cmp33, label %if.end54.thread88, label %17
 
 if.else:                                          ; preds = %if.end29
   %incdec.ptr.i.i.i35 = getelementptr inbounds i8, ptr %2, i64 -16
@@ -8331,7 +8331,7 @@ if.end57:                                         ; preds = %if.end54
   br i1 %cmp5874, label %if.then59, label %if.else64
 
 if.end57.thread:                                  ; preds = %if.end54
-  br i1 %cmp5874, label %cond.true, label %16
+  br i1 %cmp5874, label %cond.true, label %17
 
 if.then59:                                        ; preds = %if.end54.thread88, %if.end57
   %fromIndex.175 = phi double [ %9, %if.end57 ], [ %sub, %if.end54.thread88 ]
@@ -8342,37 +8342,37 @@ cond.true:                                        ; preds = %if.end54.thread88, 
   %fromIndex.17584 = phi double [ %fromIndex.175, %if.then59 ], [ 0.000000e+00, %if.end57.thread ], [ 0.000000e+00, %if.end54.thread88 ]
   %sub62 = fadd double %conv, -1.000000e+00
   %cmp.i41 = fcmp olt double %sub62, %fromIndex.17584
-  br i1 %cmp.i41, label %select.unfold, label %for.body.preheader
+  br i1 %cmp.i41, label %16, label %for.body.preheader
 
 cond.false:                                       ; preds = %if.then59
   %add = fadd double %fromIndex.175, %conv
-  br label %select.unfold
+  br label %16
 
 if.else64:                                        ; preds = %if.end57
   %cmp65 = fcmp ult double %9, 0.000000e+00
-  br i1 %cmp65, label %cond.false67, label %16
+  br i1 %cmp65, label %cond.false67, label %17
 
 cond.false67:                                     ; preds = %if.else64
   %add69 = fadd double %conv, %9
   %cmp.i42 = fcmp olt double %add69, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i42, double 0.000000e+00, double %add69
-  br label %16
+  br label %17
 
-select.unfold:                                    ; preds = %cond.true, %cond.false
+16:                                               ; preds = %cond.true, %cond.false
   %k.0 = phi double [ %add, %cond.false ], [ %sub62, %cond.true ]
   %cmp2.i104 = fcmp ult double %k.0, 0.000000e+00
   br i1 %cmp2.i104, label %for.end, label %for.body.preheader
 
-16:                                               ; preds = %if.else64, %cond.false67, %if.end57.thread, %if.then32
+17:                                               ; preds = %if.else64, %cond.false67, %if.end57.thread, %if.then32
   %k.0.ph = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end57.thread ], [ %.sroa.speculated, %cond.false67 ], [ %9, %if.else64 ]
   %cmp3.i105115 = fcmp olt double %k.0.ph, %conv
   br i1 %cmp3.i105115, label %for.body.lr.ph, label %for.end
 
-for.body.lr.ph:                                   ; preds = %16
+for.body.lr.ph:                                   ; preds = %17
   %cmp87 = icmp eq i32 %ctx.addr.0.extract.trunc, 0
   br i1 %cmp87, label %for.body.us, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %cond.true, %select.unfold, %for.body.lr.ph
+for.body.preheader:                               ; preds = %cond.true, %16, %for.body.lr.ph
   %k.0118119128 = phi double [ %k.0.ph, %for.body.lr.ph ], [ %k.0, %select.unfold ], [ %fromIndex.17584, %cond.true ]
   %cond76117120127 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ -1.000000e+00, %select.unfold ], [ -1.000000e+00, %cond.true ]
   %cmp5877116121126 = phi i1 [ false, %for.body.lr.ph ], [ true, %select.unfold ], [ true, %cond.true ]
@@ -8382,16 +8382,16 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %k.1107.us = phi double [ %add113.us, %for.inc.us ], [ %k.0.ph, %for.body.lr.ph ]
   %retval.sroa.0.0.copyload.i.i.us = load i64, ptr %2, align 8
   %and.i.i.i.i.us = and i64 %retval.sroa.0.0.copyload.i.i.us, 281474976710655
-  %17 = inttoptr i64 %and.i.i.i.i.us to ptr
+  %18 = inttoptr i64 %and.i.i.i.i.us to ptr
   %conv83.us = fptoui double %k.1107.us to i32
-  %bf.load.i.i.i.i.us = load i32, ptr %17, align 4
+  %bf.load.i.i.i.i.us = load i32, ptr %18, align 4
   %bf.lshr.i.i.i.i.us = lshr i32 %bf.load.i.i.i.i.us, 24
   %conv.i.i.i.i45.us = zext nneg i32 %bf.lshr.i.i.i.i.us to i64
   %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i45.us
-  %18 = load ptr, ptr %arrayidx.i.i.i.i.i.i.us, align 8
-  %getOwnIndexed.i.us = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %19 = load ptr, ptr %getOwnIndexed.i.us, align 8
-  %call3.i.us = tail call i64 %19(ptr nonnull %17, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv83.us) #10
+  %19 = load ptr, ptr %arrayidx.i.i.i.i.i.i.us, align 8
+  %getOwnIndexed.i.us = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %20 = load ptr, ptr %getOwnIndexed.i.us, align 8
+  %call3.i.us = tail call i64 %19(ptr nonnull %18, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv83.us) #10
   %retval.sroa.0.0.copyload.i.i.i.us = load i64, ptr %retval.sroa.0.0.i24, align 8
   %call95.us = tail call noundef zeroext i1 @_ZN6hermes2vm15isSameValueZeroENS0_11HermesValueES1_(i64 %call3.i.us, i64 %retval.sroa.0.0.copyload.i.i.i.us) #10
   br i1 %call95.us, label %return, label %for.inc.us
@@ -8405,24 +8405,24 @@ for.body:                                         ; preds = %for.body.preheader,
   %k.1107 = phi double [ %add113, %for.inc ], [ %k.0118119128, %for.body.preheader ]
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i to ptr
+  %21 = inttoptr i64 %and.i.i.i.i to ptr
   %conv83 = fptoui double %k.1107 to i32
-  %bf.load.i.i.i.i = load i32, ptr %20, align 4
+  %bf.load.i.i.i.i = load i32, ptr %21, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i45 = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i45
-  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %getOwnIndexed.i = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %22 = load ptr, ptr %getOwnIndexed.i, align 8
-  %call3.i = tail call i64 %22(ptr nonnull %20, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv83) #10
+  %22 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %getOwnIndexed.i = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %23 = load ptr, ptr %getOwnIndexed.i, align 8
+  %call3.i = tail call i64 %22(ptr nonnull %21, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv83) #10
   %retval.sroa.0.0.copyload.i.i.i46 = load i64, ptr %retval.sroa.0.0.i24, align 8
   %call103 = tail call noundef zeroext i1 @_ZN6hermes2vm18strictEqualityTestENS0_11HermesValueES1_(i64 %call3.i, i64 %retval.sroa.0.0.copyload.i.i.i46) #10
   br i1 %call103, label %sw.default.i48, label %for.inc
 
 sw.default.i48:                                   ; preds = %for.body
-  %23 = fcmp uno double %k.1107, 0.000000e+00
-  %24 = bitcast double %k.1107 to i64
-  %retval.sroa.0.0.i.i = select i1 %23, i64 9221120237041090560, i64 %24
+  %24 = fcmp uno double %k.1107, 0.000000e+00
+  %25 = bitcast double %k.1107 to i64
+  %retval.sroa.0.0.i.i = select i1 %24, i64 9221120237041090560, i64 %25
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -8432,7 +8432,7 @@ for.inc:                                          ; preds = %for.body
   %retval.0.i = select i1 %cmp5877116121126, i1 %cmp2.i, i1 %cmp3.i
   br i1 %retval.0.i, label %for.body, label %for.end, !llvm.loop !110
 
-for.end:                                          ; preds = %for.inc.us, %for.inc, %select.unfold, %16
+for.end:                                          ; preds = %for.inc.us, %for.inc, %16, %17
   %cond.i53 = icmp eq i32 %ctx.addr.0.extract.trunc, 0
   %spec.select101 = select i1 %cond.i53, i64 -1407374883553280, i64 -4616189618054758400
   br label %return

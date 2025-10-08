@@ -109,7 +109,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_deformationP8PJconst
 
 12:                                               ; preds = %1
   %13 = tail call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %155
+  br label %159
 
 14:                                               ; preds = %1
   tail call void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef nonnull %0, ptr noundef nonnull %9)
@@ -138,7 +138,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_deformationP8PJconst
 31:                                               ; preds = %26
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   %32 = tail call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %155
+  br label %159
 
 .critedge:                                        ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -242,7 +242,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
 67:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   %68 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-  br label %155
+  br label %159
 
 69:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -346,7 +346,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
 104:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
   %105 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-  br label %155
+  br label %159
 
 106:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -362,7 +362,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
 110:                                              ; preds = %106
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %111 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1029)
-  br label %155
+  br label %159
 
 112:                                              ; preds = %106, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   store double 0x7FF0000000000000, ptr %5, align 8, !tbaa !76
@@ -389,7 +389,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
 124:                                              ; preds = %121
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %125 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %155
+  br label %159
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -414,43 +414,43 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
   %139 = load double, ptr %127, align 8, !tbaa !77
   br i1 %138, label %140, label %144
 
-140:                                              ; preds = %136
+139:                                              ; preds = %136
   %141 = fcmp oeq double %139, 0x7FF0000000000000
-  br i1 %141, label %142, label %.thread
+  br i1 %141, label %142, label %151
 
-142:                                              ; preds = %140
+142:                                              ; preds = %139
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
   %143 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %155
+  br label %159
 
 144:                                              ; preds = %136
   %145 = fcmp une double %139, 0x7FF0000000000000
-  br i1 %145, label %146, label %.thread
+  br i1 %145, label %146, label %151
 
 146:                                              ; preds = %144
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
-  %147 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1028)
-  br label %155
+  %150 = call noundef ptr @_ZL25pj_deformation_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1028)
+  br label %159
 
-.thread:                                          ; preds = %140, %144
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL25pj_deformation_forward_4dR8PJ_COORDP8PJconsts, ptr %148, align 8, !tbaa !78
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr @_ZL25pj_deformation_reverse_4dR8PJ_COORDP8PJconsts, ptr %149, align 8, !tbaa !79
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts, ptr %150, align 8, !tbaa !80
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr @_ZL25pj_deformation_reverse_3d6PJ_XYZP8PJconsts, ptr %151, align 8, !tbaa !81
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, i8 0, i64 16, i1 false)
-  store i32 3, ptr %153, align 4, !tbaa !38
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i32 3, ptr %154, align 8, !tbaa !39
-  br label %155
+151:                                              ; preds = %140, %144
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL25pj_deformation_forward_4dR8PJ_COORDP8PJconsts, ptr %152, align 8, !tbaa !78
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr @_ZL25pj_deformation_reverse_4dR8PJ_COORDP8PJconsts, ptr %153, align 8, !tbaa !79
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts, ptr %154, align 8, !tbaa !80
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr @_ZL25pj_deformation_reverse_3d6PJ_XYZP8PJconsts, ptr %155, align 8, !tbaa !81
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
+  store i32 3, ptr %157, align 4, !tbaa !38
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store i32 3, ptr %158, align 8, !tbaa !39
+  br label %159
 
-155:                                              ; preds = %31, %67, %104, %110, %124, %142, %146, %.thread, %12
-  %.0 = phi ptr [ %13, %12 ], [ %68, %67 ], [ %125, %124 ], [ %143, %142 ], [ %147, %146 ], [ %0, %.thread ], [ %105, %104 ], [ %111, %110 ], [ %32, %31 ]
+159:                                              ; preds = %31, %67, %104, %110, %124, %142, %146, %151, %12
+  %.0 = phi ptr [ %13, %12 ], [ %68, %67 ], [ %125, %124 ], [ %143, %142 ], [ %150, %146 ], [ %0, %.thread ], [ %105, %104 ], [ %111, %110 ], [ %32, %31 ]
   ret ptr %.0
 }
 

@@ -5344,7 +5344,7 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %.sroa.7.1.us = select i1 %23, double %18, double %.sroa.7.076.us
   %24 = add nuw nsw i32 %.01877.us, 1
   %exitcond84.not = icmp eq i32 %24, 48
-  br i1 %exitcond84.not, label %.thread, label %.preheader.split.us, !llvm.loop !191
+  br i1 %exitcond84.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !191
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %.01877 = phi i32 [ %34, %.preheader.split ], [ 0, %.preheader ]
@@ -5365,7 +5365,7 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %exitcond.not = icmp eq i32 %34, 48
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !191
 
-.thread:                                          ; preds = %.preheader.split.us
+.split.us.thread:                                 ; preds = %.preheader.split.us
   %.pre = fdiv double %18, %2
   br label %45
 
@@ -5380,7 +5380,7 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %.sroa.24.0 = phi double [ 0.000000e+00, %9 ], [ %26, %.split.us ], [ 0.000000e+00, %.cont30 ]
   %.sroa.49.0 = phi double [ 0.000000e+00, %9 ], [ %37, %.split.us ], [ 0.000000e+00, %.cont30 ]
   %39 = fcmp ueq double %1, 0.000000e+00
-  br i1 %39, label %45, label %cdce.end.thread
+  br i1 %39, label %40, label %cdce.end.split.us.thread
 
 cdce.end.thread:                                  ; preds = %38
   %40 = fadd double %1, 1.000000e+00
@@ -5390,21 +5390,21 @@ cdce.end.thread:                                  ; preds = %38
   %44 = fdiv double 1.000000e+00, %1
   br label %cdce.end.split.us
 
-45:                                               ; preds = %.thread, %38
+40:                                               ; preds = %.thread, %38
   %.sroa.24.0102 = phi double [ %18, %.thread ], [ %.sroa.24.0, %38 ]
   %.sroa.38.0100 = phi double [ %.pre, %.thread ], [ %.sroa.38.0, %38 ]
   %46 = fcmp ugt double %.sroa.38.0100, 0.000000e+00
   br i1 %46, label %cdce.end.split.preheader, label %cdce.call, !prof !232
 
-cdce.call:                                        ; preds = %45
-  %47 = tail call double @log(double noundef %.sroa.38.0100) #31, !tbaa !31
+cdce.call:                                        ; preds = %40
+  %42 = tail call double @log(double noundef %.sroa.38.0100) #31, !tbaa !31
   br label %cdce.end.split.preheader
 
 cdce.end.split.preheader:                         ; preds = %45, %cdce.call
-  %48 = sitofp i32 %3 to double
+  %43 = sitofp i32 %3 to double
   br label %cdce.end.split
 
-cdce.end.split.us:                                ; preds = %cdce.end.thread, %65
+cdce.end.split.us.preheader:                      ; preds = %cdce.end.thread, %65
   %indvars.iv87 = phi i64 [ 0, %cdce.end.thread ], [ %indvars.iv.next88, %65 ]
   %49 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv87
   store i16 -1, ptr %49, align 2, !tbaa !180
@@ -5446,7 +5446,7 @@ cdce.end.split:                                   ; preds = %cdce.end.split.preh
   store i16 -1, ptr %66, align 2, !tbaa !180
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = uitofp nneg i32 %67 to double
-  %69 = fdiv double %68, %48
+  %69 = fdiv double %68, %43
   %70 = fcmp ult double %69, 1.000000e+00
   br i1 %70, label %71, label %82
 

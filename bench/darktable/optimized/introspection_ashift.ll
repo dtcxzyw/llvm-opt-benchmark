@@ -12551,8 +12551,8 @@ new_ntuple_list.exit.i.i.i.i:                     ; preds = %280
   %303 = tail call reassoc nsz arcp contract afn double @llvm.floor.f64(double %302)
   %304 = fptosi double %303 to i32
   %305 = sitofp i32 %304 to double
-  %.neg13.i.i.i = fsub reassoc nsz arcp contract afn double -3.000000e+00, %301
-  %306 = fadd reassoc nsz arcp contract afn double %.neg13.i.i.i, %305
+  %.neg11.i.i.i = fsub reassoc nsz arcp contract afn double -3.000000e+00, %301
+  %306 = fadd reassoc nsz arcp contract afn double %.neg11.i.i.i, %305
   br label %307
 
 307:                                              ; preds = %307, %.lr.ph.i164.i.i.i
@@ -12662,8 +12662,8 @@ gaussian_kernel.exit176.i.i.i:                    ; preds = %.lr.ph31.i171.i.i.i
   %351 = tail call reassoc nsz arcp contract afn double @llvm.floor.f64(double %350)
   %352 = fptosi double %351 to i32
   %353 = sitofp i32 %352 to double
-  %.neg15.i.i.i = fsub reassoc nsz arcp contract afn double -3.000000e+00, %349
-  %354 = fadd reassoc nsz arcp contract afn double %.neg15.i.i.i, %353
+  %.neg13.i.i.i = fsub reassoc nsz arcp contract afn double -3.000000e+00, %349
+  %354 = fadd reassoc nsz arcp contract afn double %.neg13.i.i.i, %353
   br label %355
 
 355:                                              ; preds = %355, %.lr.ph.i157.i.i.i
@@ -13097,8 +13097,8 @@ new_image_char_ini.exit.i.i.i:                    ; preds = %536
   br i1 %545, label %569, label %.preheader.i204.i.i
 
 .preheader.i204.i.i:                              ; preds = %new_image_char_ini.exit.i.i.i
-  %.not30.i.i.i = icmp eq ptr %515, null
-  br i1 %.not30.i.i.i, label %._crit_edge.i207.i.i, label %.lr.ph.i205.i.i
+  %.not28.i.i.i = icmp eq ptr %515, null
+  br i1 %.not28.i.i.i, label %._crit_edge.i207.i.i, label %.lr.ph.i205.i.i
 
 .lr.ph.i205.i.i:                                  ; preds = %.preheader.i204.i.i
   %546 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13135,9 +13135,9 @@ new_image_char_ini.exit.i.i.i:                    ; preds = %536
   %571 = phi ptr [ %265, %.lr.ph.i205.i.i ], [ %960, %959 ]
   %572 = phi i32 [ 1, %.lr.ph.i205.i.i ], [ %961, %959 ]
   %573 = phi i32 [ 0, %.lr.ph.i205.i.i ], [ %962, %959 ]
-  %.0831.i.i.i = phi ptr [ %515, %.lr.ph.i205.i.i ], [ %964, %959 ]
-  %574 = load i32, ptr %.0831.i.i.i, align 8, !tbaa !561
-  %575 = getelementptr inbounds nuw i8, ptr %.0831.i.i.i, i64 4
+  %.0829.i.i.i = phi ptr [ %515, %.lr.ph.i205.i.i ], [ %964, %959 ]
+  %574 = load i32, ptr %.0829.i.i.i, align 8, !tbaa !561
+  %575 = getelementptr inbounds nuw i8, ptr %.0829.i.i.i, i64 4
   %576 = load i32, ptr %575, align 4, !tbaa !562
   %577 = mul i32 %576, %517
   %578 = add i32 %577, %574
@@ -13325,15 +13325,15 @@ angle_diff_signed.exit.i.i.i.i:                   ; preds = %.lr.ph9.i.i.i.i.i, 
   br label %700
 
 700:                                              ; preds = %738, %.lr.ph86.i.i.i.i.i
-  %.lcssa2628.i.i.i = phi i32 [ %663, %.lr.ph86.i.i.i.i.i ], [ %733, %738 ]
+  %.lcssa2426.i.i.i = phi i32 [ %663, %.lr.ph86.i.i.i.i.i ], [ %733, %738 ]
   %.07584.i.i.i.i.i = phi double [ %699, %.lr.ph86.i.i.i.i.i ], [ %701, %738 ]
   %701 = fmul reassoc nsz arcp contract afn double %.07584.i.i.i.i.i, 7.500000e-01
-  %702 = icmp sgt i32 %.lcssa2628.i.i.i, 0
+  %702 = icmp sgt i32 %.lcssa2426.i.i.i, 0
   br i1 %702, label %.lr.ph.i104.i.i.i.i, label %refine.exit.thread.loopexit.i.i.i
 
 .lr.ph.i104.i.i.i.i:                              ; preds = %700, %732
-  %703 = phi i32 [ %733, %732 ], [ %.lcssa2628.i.i.i, %700 ]
-  %704 = phi i32 [ %734, %732 ], [ %.lcssa2628.i.i.i, %700 ]
+  %703 = phi i32 [ %733, %732 ], [ %.lcssa2426.i.i.i, %700 ]
+  %704 = phi i32 [ %734, %732 ], [ %.lcssa2426.i.i.i, %700 ]
   %.083.i.i.i.i.i = phi i32 [ %735, %732 ], [ 0, %700 ]
   %705 = sext i32 %.083.i.i.i.i.i to i64
   %706 = getelementptr inbounds %struct.point, ptr %544, i64 %705
@@ -13401,8 +13401,8 @@ angle_diff_signed.exit.i.i.i.i:                   ; preds = %.lr.ph9.i.i.i.i.i, 
   br i1 %753, label %700, label %.loopexit.i.i.i
 
 refine.exit.thread.loopexit.i.i.i:                ; preds = %._crit_edge.i.i.i.i.i, %700
-  %.lcssa2629.i.i.i = phi i32 [ %.lcssa2628.i.i.i, %700 ], [ %733, %._crit_edge.i.i.i.i.i ]
-  store i32 %.lcssa2629.i.i.i, ptr %6, align 4
+  %.lcssa2427.i.i.i = phi i32 [ %.lcssa2426.i.i.i, %700 ], [ %733, %._crit_edge.i.i.i.i.i ]
+  store i32 %.lcssa2427.i.i.i, ptr %6, align 4
   br label %refine.exit.thread.i.i.i
 
 refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.loopexit.i.i.i, %652, %._crit_edge.i149.i.i.i, %607
@@ -13418,7 +13418,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %755 = call reassoc nsz arcp contract afn fastcc double @rect_nfa(ptr noundef nonnull %5, ptr noundef nonnull readonly %408, double noundef %526)
   %756 = fcmp reassoc nsz arcp contract afn ogt double %755, 0.000000e+00
-  br i1 %756, label %rect_improve.exit.thread.i.i.i, label %757
+  br i1 %756, label %rect_improve.exit.i.i.i, label %757
 
 757:                                              ; preds = %754
   %758 = load double, ptr %5, align 8, !tbaa !567
@@ -13479,7 +13479,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 
 778:                                              ; preds = %776
   %779 = fcmp reassoc nsz arcp contract afn ogt double %.181.i.i.i.i, 0.000000e+00
-  br i1 %779, label %rect_improve.exit.thread.i.i.i, label %780
+  br i1 %779, label %rect_improve.exit.i.i.i, label %780
 
 780:                                              ; preds = %778
   %781 = load double, ptr %5, align 8, !tbaa !567
@@ -13545,7 +13545,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 
 804:                                              ; preds = %801
   %805 = fcmp reassoc nsz arcp contract afn ogt double %.383.i.i.i.i, 0.000000e+00
-  br i1 %805, label %rect_improve.exit.thread.i.i.i, label %806
+  br i1 %805, label %rect_improve.exit.i.i.i, label %806
 
 806:                                              ; preds = %804
   %807 = load double, ptr %5, align 8, !tbaa !567
@@ -13625,7 +13625,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 
 844:                                              ; preds = %837
   %845 = fcmp reassoc nsz arcp contract afn ogt double %.5.i.i.i.i, 0.000000e+00
-  br i1 %845, label %rect_improve.exit.thread.i.i.i, label %846
+  br i1 %845, label %rect_improve.exit.i.i.i, label %846
 
 846:                                              ; preds = %844
   %847 = load double, ptr %5, align 8, !tbaa !567
@@ -13705,7 +13705,7 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
 
 884:                                              ; preds = %877
   %885 = fcmp reassoc nsz arcp contract afn ogt double %.7.i.i.i.i, 0.000000e+00
-  br i1 %885, label %rect_improve.exit.thread.i.i.i, label %886
+  br i1 %885, label %rect_improve.exit.i.i.i, label %886
 
 886:                                              ; preds = %884
   %887 = load double, ptr %5, align 8, !tbaa !567
@@ -13764,8 +13764,8 @@ refine.exit.thread.i.i.i:                         ; preds = %refine.exit.thread.
   %exitcond107.not.i.i.i.i = icmp eq i32 %906, 5
   br i1 %exitcond107.not.i.i.i.i, label %rect_improve.exit.i.i.i, label %898
 
-rect_improve.exit.thread.i.i.i:                   ; preds = %884, %844, %804, %778, %754
-  %.079.i.ph.i.i.i = phi double [ %.7.i.i.i.i, %884 ], [ %.5.i.i.i.i, %844 ], [ %.383.i.i.i.i, %804 ], [ %.181.i.i.i.i, %778 ], [ %755, %754 ]
+rect_improve.exit.i.i.i:                          ; preds = %884, %844, %804, %778, %754
+  %.079.i.i.i.i = phi double [ %.7.i.i.i.i, %884 ], [ %.5.i.i.i.i, %844 ], [ %.383.i.i.i.i, %804 ], [ %.181.i.i.i.i, %778 ], [ %755, %754 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %908
 
@@ -13774,7 +13774,7 @@ rect_improve.exit.i.i.i:                          ; preds = %905
   %907 = fcmp reassoc nsz arcp contract afn ugt double %.9.i.i.i.i, 0.000000e+00
   br i1 %907, label %908, label %959
 
-908:                                              ; preds = %rect_improve.exit.i.i.i, %rect_improve.exit.thread.i.i.i
+908:                                              ; preds = %rect_improve.exit.i.i.i, %rect_improve.exit.i.i.i
   %.079.i12.i.i.i = phi double [ %.079.i.ph.i.i.i, %rect_improve.exit.thread.i.i.i ], [ %.9.i.i.i.i, %rect_improve.exit.i.i.i ]
   %909 = load double, ptr %5, align 8, !tbaa !567
   %910 = load double, ptr %546, align 8, !tbaa !569
@@ -13859,7 +13859,7 @@ add_7tuple.exit.i.i.i:                            ; preds = %928, %908
   %960 = phi ptr [ %571, %587 ], [ %571, %rect_improve.exit.i.i.i ], [ %935, %add_7tuple.exit.i.i.i ], [ %571, %583 ], [ %571, %570 ], [ %571, %refine.exit.thread.i.i.i ]
   %961 = phi i32 [ %572, %587 ], [ %572, %rect_improve.exit.i.i.i ], [ %936, %add_7tuple.exit.i.i.i ], [ %572, %583 ], [ %572, %570 ], [ %572, %refine.exit.thread.i.i.i ]
   %962 = phi i32 [ %573, %587 ], [ %573, %rect_improve.exit.i.i.i ], [ %958, %add_7tuple.exit.i.i.i ], [ %573, %583 ], [ %573, %570 ], [ %573, %refine.exit.thread.i.i.i ]
-  %963 = getelementptr inbounds nuw i8, ptr %.0831.i.i.i, i64 8
+  %963 = getelementptr inbounds nuw i8, ptr %.0829.i.i.i, i64 8
   %964 = load ptr, ptr %963, align 8, !tbaa !559
   %.not.i206.i.i = icmp eq ptr %964, null
   br i1 %.not.i206.i.i, label %._crit_edge.i207.i.i, label %570

@@ -25125,20 +25125,20 @@ define dso_local noundef i32 @_ZNK10btSoftBody7rayTestERK9btVector3S2_RfRNS_8eFe
   %212 = call float @llvm.fmuladd.f32(float %130, float %204, float %211)
   %213 = call noundef float @llvm.fmuladd.f32(float %136, float %210, float %212)
   %214 = fcmp ogt float %213, 0xBEB4000000000000
-  br i1 %214, label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit, label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread
+  br i1 %214, label %215, label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread
 
-_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit: ; preds = %201
-  %215 = add nsw i32 %.574, 1
-  br i1 %6, label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread, label %216
+215:                                              ; preds = %201
+  %216 = add nsw i32 %.574, 1
+  br i1 %6, label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread, label %217
 
-216:                                              ; preds = %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit
+217:                                              ; preds = %215
   store i32 4, ptr %4, align 4, !tbaa !761
   store i32 %98, ptr %5, align 4, !tbaa !356
   store float %155, ptr %3, align 4, !tbaa !234
   br label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread
 
-_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread: ; preds = %142, %158, %184, %201, %103, %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit, %216
-  %.6 = phi i32 [ %215, %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit ], [ %215, %216 ], [ %.574, %103 ], [ %.574, %201 ], [ %.574, %184 ], [ %.574, %158 ], [ %.574, %142 ]
+_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread: ; preds = %142, %158, %184, %201, %103, %215, %217
+  %.6 = phi i32 [ %216, %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit ], [ %216, %216 ], [ %.574, %103 ], [ %.574, %201 ], [ %.574, %184 ], [ %.574, %158 ], [ %.574, %142 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 4
   br i1 %exitcond89.not, label %99, label %103, !llvm.loop !768

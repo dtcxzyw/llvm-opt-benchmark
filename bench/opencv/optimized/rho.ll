@@ -1260,15 +1260,15 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %465
-  %.034 = phi float [ 1.000000e+02, %1 ], [ %.227, %465 ]
-  %.01133 = phi i32 [ 0, %1 ], [ %466, %465 ]
+.preheader:                                       ; preds = %1, %466
+  %.031 = phi float [ 1.000000e+02, %1 ], [ %.227, %465 ]
+  %.01130 = phi i32 [ 0, %1 ], [ %466, %465 ]
   %26 = load ptr, ptr %14, align 8, !tbaa !98
   %27 = load ptr, ptr %18, align 8, !tbaa !100
   br label %28
 
 28:                                               ; preds = %.preheader, %63
-  %.1 = phi float [ %64, %63 ], [ %.034, %.preheader ]
+  %.1 = phi float [ %64, %63 ], [ %.031, %.preheader ]
   %29 = fadd float %.1, 1.000000e+00
   br label %.preheader.i
 
@@ -1831,22 +1831,22 @@ _ZN2cvL9sacLMGainEPKfS1_fff.exit:                 ; preds = %436
 449:                                              ; preds = %_ZN2cvL9sacLMGainEPKfS1_fff.exit
   %450 = fmul float %.1, 8.000000e+00
   %451 = fcmp ogt float %450, 0x41FF400000000000
-  br i1 %451, label %467, label %455
+  br i1 %451, label %467, label %456
 
 452:                                              ; preds = %_ZN2cvL9sacLMGainEPKfS1_fff.exit
   %453 = fcmp ogt float %447, 7.500000e-01
-  br i1 %453, label %.thread, label %455
+  br i1 %453, label %454, label %456
 
-.thread:                                          ; preds = %452
-  %454 = fmul float %.1, 5.000000e-01
+454:                                              ; preds = %452
+  %455 = fmul float %.1, 5.000000e-01
   br label %457
 
-455:                                              ; preds = %452, %449
+456:                                              ; preds = %452, %449
   %.2 = phi float [ %450, %449 ], [ %.1, %452 ]
-  %456 = fcmp ogt float %447, 0.000000e+00
-  br i1 %456, label %457, label %465
+  %457 = fcmp ogt float %447, 0.000000e+00
+  br i1 %457, label %458, label %466
 
-457:                                              ; preds = %.thread, %455
+458:                                              ; preds = %454, %456
   %.228 = phi float [ %454, %.thread ], [ %.2, %455 ]
   store float %.0189.lcssa.i, ptr %2, align 4, !tbaa !72
   store float %366, ptr %364, align 4
@@ -1857,17 +1857,17 @@ _ZN2cvL9sacLMGainEPKfS1_fff.exit:                 ; preds = %436
   store float %381, ptr %379, align 4
   store float %384, ptr %382, align 4
   store float %387, ptr %385, align 4
-  %458 = load ptr, ptr %4, align 8, !tbaa !76
-  %459 = load ptr, ptr %6, align 8, !tbaa !56
-  %460 = load ptr, ptr %8, align 8, !tbaa !57
-  %461 = load ptr, ptr %10, align 8, !tbaa !77
-  %462 = load i32, ptr %12, align 8, !tbaa !59
-  %463 = load ptr, ptr %14, align 8, !tbaa !98
-  %464 = load ptr, ptr %16, align 8, !tbaa !99
+  %459 = load ptr, ptr %4, align 8, !tbaa !76
+  %460 = load ptr, ptr %6, align 8, !tbaa !56
+  %461 = load ptr, ptr %8, align 8, !tbaa !57
+  %462 = load ptr, ptr %10, align 8, !tbaa !77
+  %463 = load i32, ptr %12, align 8, !tbaa !59
+  %464 = load ptr, ptr %14, align 8, !tbaa !98
+  %465 = load ptr, ptr %16, align 8, !tbaa !99
   call fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr noundef %458, ptr noundef %459, ptr noundef %460, ptr noundef %461, i32 noundef %462, ptr noundef %463, ptr noundef %464, ptr noundef %2)
-  br label %465
+  br label %466
 
-465:                                              ; preds = %455, %457
+466:                                              ; preds = %456, %458
   %.227 = phi float [ %.2, %455 ], [ %.228, %457 ]
   %466 = add nuw nsw i32 %.01133, 1
   %exitcond.not = icmp eq i32 %466, 100

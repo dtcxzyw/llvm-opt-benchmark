@@ -139,23 +139,23 @@ define <2 x float> @b2ComputeCosSin(float noundef %0) local_unnamed_addr #3 {
 b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.preheader.i
   %.1.lcssa.i = phi float [ %.0.lcssa.i, %.preheader.i ], [ %6, %.lr.ph7.i ]
   %8 = fcmp olt float %.1.lcssa.i, 0xBFF921FB60000000
-  br i1 %8, label %.thread, label %16
+  br i1 %8, label %9, label %15
 
-.thread:                                          ; preds = %b2UnwindLargeAngle.exit
-  %9 = fadd float %.1.lcssa.i, 0x400921FB60000000
-  %10 = fmul float %9, %9
-  %11 = fmul float %10, 4.000000e+00
-  %12 = fsub float 0x4023BD3CE0000000, %11
-  %13 = fneg float %12
+9:                                                ; preds = %b2UnwindLargeAngle.exit
+  %10 = fadd float %.1.lcssa.i, 0x400921FB60000000
+  %11 = fmul float %10, %10
+  %12 = fmul float %11, 4.000000e+00
+  %13 = fsub float 0x4023BD3CE0000000, %12
+  %14 = fneg float %13
   %14 = fadd float %10, 0x4023BD3CE0000000
   %15 = fdiv float %13, %14
   br label %32
 
-16:                                               ; preds = %b2UnwindLargeAngle.exit
-  %17 = fcmp ogt float %.1.lcssa.i, 0x3FF921FB60000000
-  br i1 %17, label %.thread51, label %25
+15:                                               ; preds = %b2UnwindLargeAngle.exit
+  %16 = fcmp ogt float %.1.lcssa.i, 0x3FF921FB60000000
+  br i1 %16, label %17, label %25
 
-.thread51:                                        ; preds = %16
+17:                                               ; preds = %15
   %18 = fadd float %.1.lcssa.i, 0xC00921FB60000000
   %19 = fmul float %18, %18
   %20 = fmul float %19, 4.000000e+00
@@ -165,7 +165,7 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
   %24 = fdiv float %22, %23
   br label %34
 
-25:                                               ; preds = %16
+25:; preds = %16
   %26 = fmul float %.1.lcssa.i, %.1.lcssa.i
   %27 = fmul float %26, 4.000000e+00
   %28 = fsub float 0x4023BD3CE0000000, %27
@@ -174,29 +174,29 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
   %31 = fcmp olt float %.1.lcssa.i, 0.000000e+00
   br i1 %31, label %._crit_edge, label %34
 
-._crit_edge:                                      ; preds = %25
+._crit_edge:; preds = %25
   %.pre = fadd float %.1.lcssa.i, 0x400921FB60000000
   br label %32
 
-32:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %9, %.thread ]
+32:; preds = %._crit_edge, %.thread
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %10, %.thread ]
   %.050 = phi float [ %30, %._crit_edge ], [ %15, %.thread ]
-  %33 = fmul float %.pre-phi, -1.600000e+01
+  %35 = fmul float %.pre-phi, -1.600000e+01
   br label %36
 
-34:                                               ; preds = %.thread51, %25
+34:; preds = %.thread51, %25
   %.053 = phi float [ %24, %.thread51 ], [ %30, %25 ]
-  %35 = fmul float %.1.lcssa.i, 1.600000e+01
+  %40 = fmul float %.1.lcssa.i, 1.600000e+01
   br label %36
 
-36:                                               ; preds = %34, %32
+36:; preds = %34, %32
   %.1.lcssa.i.sink65 = phi float [ %.1.lcssa.i, %34 ], [ %.pre-phi, %32 ]
-  %.sink63 = phi float [ %35, %34 ], [ %33, %32 ]
+  %.sink63 = phi float [ %40, %34 ], [ %33, %32 ]
   %.049 = phi float [ %.053, %34 ], [ %.050, %32 ]
   %37 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink65
   %38 = fmul float %.sink63, %37
-  %39 = fmul float %.1.lcssa.i.sink65, 4.000000e+00
-  %40 = fmul float %39, %37
+  %47 = fmul float %.1.lcssa.i.sink65, 4.000000e+00
+  %40 = fmul float %47, %37
   %41 = fsub float 0x4048AC8C20000000, %40
   %42 = fdiv float %38, %41
   %43 = fmul float %42, %42

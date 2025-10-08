@@ -1340,7 +1340,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
 ; Function Attrs: nofree nounwind nonlazybind memory(errnomem: write) uwtable
 define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %or.cond = fcmp ueq double %0, 0xFFF0000000000000
-  br i1 %or.cond, label %common.ret40, label %2
+  br i1 %or.cond, label %common.ret39, label %2
 
 2:                                                ; preds = %1
   %3 = fcmp ugt double %0, 0.000000e+00
@@ -1351,7 +1351,7 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
   %6 = fsub double %5, %0
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp ugt double %7, 0x3CB0000000000000
-  br i1 %8, label %9, label %common.ret40
+  br i1 %8, label %9, label %common.ret39
 
 9:                                                ; preds = %4
   %10 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %5)
@@ -1368,28 +1368,28 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
 16:                                               ; preds = %13
   %17 = sub nuw i64 %15, %14
   %18 = icmp ult i64 %17, 5
-  br i1 %18, label %common.ret40, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
+  br i1 %18, label %common.ret39, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %13
   %19 = sub nuw i64 %14, %15
   %20 = icmp ult i64 %19, 5
-  br i1 %20, label %common.ret40, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
+  br i1 %20, label %common.ret39, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25": ; preds = %9, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %16
   %21 = fcmp olt double %0, 0.000000e+00
-  br i1 %21, label %25, label %.thread27
+  br i1 %21, label %25, label %32
 
 22:                                               ; preds = %2
   %23 = fcmp ugt double %0, 0x3EB0C6F7A0B5ED8D
-  br i1 %23, label %.preheader, label %.thread27
+  br i1 %23, label %.preheader, label %32
 
 .preheader:                                       ; preds = %22
   %24 = fcmp olt double %0, 1.200000e+01
   br i1 %24, label %.lr.ph, label %._crit_edge
 
-common.ret40:                                     ; preds = %4, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %16, %1, %41, %._crit_edge, %.thread27, %25
-  %common.ret40.op = phi double [ %31, %25 ], [ %35, %.thread27 ], [ %57, %41 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %16 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %4 ]
-  ret double %common.ret40.op
+common.ret39:                                     ; preds = %4, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %16, %1, %42, %._crit_edge, %32, %25
+  %common.ret39.op = phi double [ %31, %25 ], [ %36, %.thread27 ], [ %58, %41 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %16 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %4 ]
+  ret double %common.ret39.op
 
 25:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
   %26 = fsub double 1.000000e+00, %0
@@ -1398,48 +1398,48 @@ common.ret40:                                     ; preds = %4, %"_ZN47_$LT$f64$
   %29 = tail call noundef double @tan(double noundef %28)
   %30 = fdiv double 0x400921FB54442D18, %29
   %31 = fadd double %27, %30
-  br label %common.ret40
+  br label %common.ret39
 
-.thread27:                                        ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25", %22
-  %32 = fdiv double 1.000000e+00, %0
-  %33 = fsub double 0xBFE2788CFC6FB619, %32
-  %34 = fmul double %0, 0x3FFA51A6625307D3
-  %35 = fadd double %34, %33
-  br label %common.ret40
+32:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25", %22
+  %33 = fdiv double 1.000000e+00, %0
+  %34 = fsub double 0xBFE2788CFC6FB619, %33
+  %35 = fmul double %0, 0x3FFA51A6625307D3
+  %36 = fadd double %35, %34
+  br label %common.ret39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.sroa.05.0.lcssa = phi double [ %0, %.preheader ], [ %39, %.lr.ph ]
-  %.sroa.0.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %38, %.lr.ph ]
-  %36 = fcmp ult double %.sroa.05.0.lcssa, 1.200000e+01
-  br i1 %36, label %common.ret40, label %41
+  %.sroa.05.0.lcssa = phi double [ %0, %.preheader ], [ %40, %.lr.ph ]
+  %.sroa.0.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %39, %.lr.ph ]
+  %37 = fcmp ult double %.sroa.05.0.lcssa, 1.200000e+01
+  br i1 %37, label %common.ret39, label %42
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.sroa.0.129 = phi double [ %38, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %.sroa.05.028 = phi double [ %39, %.lr.ph ], [ %0, %.preheader ]
-  %37 = fdiv double 1.000000e+00, %.sroa.05.028
-  %38 = fsub double %.sroa.0.129, %37
-  %39 = fadd double %.sroa.05.028, 1.000000e+00
-  %40 = fcmp olt double %39, 1.200000e+01
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %.sroa.0.128 = phi double [ %39, %.lr.ph ], [ 0.000000e+00, %.preheader ]
+  %.sroa.05.027 = phi double [ %40, %.lr.ph ], [ %0, %.preheader ]
+  %38 = fdiv double 1.000000e+00, %.sroa.05.027
+  %39 = fsub double %.sroa.0.128, %38
+  %40 = fadd double %.sroa.05.027, 1.000000e+00
+  %41 = fcmp olt double %40, 1.200000e+01
+  br i1 %41, label %.lr.ph, label %._crit_edge
 
-41:                                               ; preds = %._crit_edge
-  %42 = fdiv double 1.000000e+00, %.sroa.05.0.lcssa
-  %43 = tail call noundef double @llvm.log.f64(double %.sroa.05.0.lcssa)
-  %44 = fmul double %42, 5.000000e-01
-  %45 = fsub double %43, %44
-  %46 = fadd double %.sroa.0.1.lcssa, %45
-  %47 = fmul double %42, %42
-  %48 = fmul double %47, 0x3F7F07C1F07C1F08
-  %49 = fsub double 0x3F71111111111111, %48
-  %50 = fmul double %47, %49
-  %51 = fsub double 0x3F70410410410410, %50
-  %52 = fmul double %47, %51
-  %53 = fsub double 0x3F81111111111111, %52
-  %54 = fmul double %47, %53
-  %55 = fsub double 0x3FB5555555555555, %54
-  %56 = fmul double %47, %55
-  %57 = fsub double %46, %56
-  br label %common.ret40
+42:                                               ; preds = %._crit_edge
+  %43 = fdiv double 1.000000e+00, %.sroa.05.0.lcssa
+  %44 = tail call noundef double @llvm.log.f64(double %.sroa.05.0.lcssa)
+  %45 = fmul double %43, 5.000000e-01
+  %46 = fsub double %44, %45
+  %47 = fadd double %.sroa.0.1.lcssa, %46
+  %48 = fmul double %43, %43
+  %49 = fmul double %48, 0x3F7F07C1F07C1F08
+  %50 = fsub double 0x3F71111111111111, %49
+  %51 = fmul double %48, %50
+  %52 = fsub double 0x3F70410410410410, %51
+  %53 = fmul double %48, %52
+  %54 = fsub double 0x3F81111111111111, %53
+  %55 = fmul double %48, %54
+  %56 = fsub double 0x3FB5555555555555, %55
+  %57 = fmul double %48, %56
+  %58 = fsub double %47, %57
+  br label %common.ret39
 }
 
 ; Function Attrs: nofree nounwind nonlazybind memory(errnomem: write) uwtable

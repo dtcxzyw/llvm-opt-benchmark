@@ -3782,11 +3782,11 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %14, align 4
-  br label %81
+  br label %82
 
 15:                                               ; preds = %.lr.ph, %float8_mi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_mi.exit ]
-  %.02035 = phi double [ 0.000000e+00, %.lr.ph ], [ %64, %float8_mi.exit ]
+  %.02034 = phi double [ 0.000000e+00, %.lr.ph ], [ %64, %float8_mi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp eq i64 %indvars.iv.next, %12
   %17 = getelementptr inbounds nuw %struct.Point, ptr %11, i64 %indvars.iv
@@ -3828,13 +3828,13 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
   unreachable
 
 float8_mul.exit:                                  ; preds = %33, %35
-  %39 = fadd double %.02035, %24
+  %39 = fadd double %.02034, %24
   %40 = tail call double @llvm.fabs.f64(double %39)
   %41 = fcmp oeq double %40, 0x7FF0000000000000
   br i1 %41, label %42, label %float8_pl.exit, !prof !12
 
 42:                                               ; preds = %float8_mul.exit
-  %43 = tail call double @llvm.fabs.f64(double %.02035)
+  %43 = tail call double @llvm.fabs.f64(double %.02034)
   %44 = fcmp oeq double %43, 0x7FF0000000000000
   %or.cond.i22 = or i1 %44, %26
   br i1 %or.cond.i22, label %float8_pl.exit, label %45
@@ -3918,18 +3918,18 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit25, 
 
 78:                                               ; preds = %76
   %79 = fcmp oeq double %.020.lcssa, 0.000000e+00
-  br i1 %79, label %float8_div.exit, label %.thread28
+  br i1 %79, label %float8_div.exit, label %80
 
-.thread28:                                        ; preds = %78
+80:                                               ; preds = %78
   tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %73, %76, %78
-  %80 = bitcast double %70 to i64
-  br label %81
+  %81 = bitcast double %70 to i64
+  br label %82
 
-81:                                               ; preds = %float8_div.exit, %13
-  %.0 = phi i64 [ %80, %float8_div.exit ], [ 0, %13 ]
+82:                                               ; preds = %float8_div.exit, %13
+  %.0 = phi i64 [ %81, %float8_div.exit ], [ 0, %13 ]
   ret i64 %.0
 }
 
@@ -18844,7 +18844,7 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
 7:                                                ; preds = %4
   %8 = tail call double @llvm.fabs.f64(double %0)
   %9 = fcmp ugt double %8, 0x3EB0C6F7A0B5ED8D
-  br i1 %9, label %10, label %103
+  br i1 %9, label %10, label %104
 
 10:                                               ; preds = %7
   %11 = fcmp ogt double %0, 0x3EB0C6F7A0B5ED8D
@@ -18858,22 +18858,22 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
 15:                                               ; preds = %14
   %16 = fcmp ogt double %2, 0x3EB0C6F7A0B5ED8D
   %17 = select i1 %16, i32 0, i32 2147483647
-  br label %103
+  br label %104
 
 18:                                               ; preds = %14
   %19 = fadd double %3, 0x3EB0C6F7A0B5ED8D
   %20 = fcmp olt double %19, 0.000000e+00
   %21 = select i1 %20, i32 1, i32 -1
-  br label %103
+  br label %104
 
 22:                                               ; preds = %10
-  br i1 %13, label %103, label %23
+  br i1 %13, label %104, label %23
 
 23:                                               ; preds = %22
   %24 = fadd double %2, 0x3EB0C6F7A0B5ED8D
   %25 = fcmp olt double %24, 0.000000e+00
   %26 = select i1 %25, i32 0, i32 2147483647
-  br label %103
+  br label %104
 
 27:                                               ; preds = %4
   %28 = fcmp ogt double %1, 0x3EB0C6F7A0B5ED8D
@@ -18886,7 +18886,7 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
   %33 = fadd double %2, 0x3EB0C6F7A0B5ED8D
   %34 = fcmp olt double %33, 0.000000e+00
   %35 = select i1 %34, i32 0, i32 %29
-  br label %103
+  br label %104
 
 36:                                               ; preds = %27
   br i1 %28, label %.critedge, label %37
@@ -18894,26 +18894,26 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
 37:                                               ; preds = %36
   %38 = fadd double %3, 0x3EB0C6F7A0B5ED8D
   %39 = fcmp olt double %38, 0.000000e+00
-  br i1 %39, label %103, label %41
+  br i1 %39, label %104, label %41
 
 .critedge:                                        ; preds = %36
   %40 = fcmp ogt double %3, 0x3EB0C6F7A0B5ED8D
-  br i1 %40, label %103, label %41
+  br i1 %40, label %104, label %41
 
 41:                                               ; preds = %37, %.critedge
   %42 = fadd double %0, 0x3EB0C6F7A0B5ED8D
   %43 = fcmp ult double %42, 0.000000e+00
-  br i1 %43, label %48, label %44
+  br i1 %43, label %48, label %45
 
-44:                                               ; preds = %41
+45:                                               ; preds = %41
   %45 = fcmp ogt double %2, 0x3EB0C6F7A0B5ED8D
   br i1 %45, label %46, label %.thread
 
-46:                                               ; preds = %44
+47:                                               ; preds = %44
   %47 = shl nsw i32 %29, 1
   br label %103
 
-48:                                               ; preds = %41
+50:                                               ; preds = %41
   %49 = fcmp olt double %42, 0.000000e+00
   %50 = fcmp ole double %2, 0x3EB0C6F7A0B5ED8D
   %or.cond = and i1 %49, %50
@@ -19026,25 +19026,25 @@ float8_mul.exit40:                                ; preds = %85, %87
 
 float8_mi.exit42:                                 ; preds = %float8_mul.exit40
   %96 = fcmp ugt double %92, 0x3EB0C6F7A0B5ED8D
-  br i1 %96, label %float8_mi.exit42.thread, label %103
+  br i1 %96, label %97, label %104
 
-float8_mi.exit42.thread:                          ; preds = %94, %float8_mi.exit42
-  br i1 %28, label %.critedge34, label %97
+97:                                               ; preds = %94, %float8_mi.exit42
+  br i1 %28, label %.critedge34, label %98
 
-97:                                               ; preds = %float8_mi.exit42.thread
-  %98 = fadd double %91, 0x3EB0C6F7A0B5ED8D
-  %99 = fcmp olt double %98, 0.000000e+00
-  br i1 %99, label %103, label %101
+98:                                               ; preds = %97
+  %99 = fadd double %91, 0x3EB0C6F7A0B5ED8D
+  %100 = fcmp olt double %99, 0.000000e+00
+  br i1 %100, label %104, label %102
 
-.critedge34:                                      ; preds = %float8_mi.exit42.thread
-  %100 = fcmp ogt double %91, 0x3EB0C6F7A0B5ED8D
-  br i1 %100, label %103, label %101
+.critedge34:                                      ; preds = %97
+  %101 = fcmp ogt double %91, 0x3EB0C6F7A0B5ED8D
+  br i1 %101, label %104, label %102
 
-101:                                              ; preds = %97, %.critedge34
-  %102 = shl nsw i32 %29, 1
-  br label %103
+102:                                              ; preds = %98, %.critedge34
+  %103 = shl nsw i32 %29, 1
+  br label %104
 
-103:                                              ; preds = %48, %97, %.critedge34, %float8_mi.exit42, %37, %.critedge, %22, %7, %101, %46, %32, %23, %18, %15
+104:                                              ; preds = %48, %98, %.critedge34, %float8_mi.exit42, %37, %.critedge, %22, %7, %102, %46, %32, %23, %18, %15
   %.0 = phi i32 [ %17, %15 ], [ %21, %18 ], [ %26, %23 ], [ %35, %32 ], [ %47, %46 ], [ %102, %101 ], [ 2147483647, %7 ], [ 0, %22 ], [ 0, %.critedge ], [ 0, %37 ], [ 2147483647, %float8_mi.exit42 ], [ 0, %.critedge34 ], [ 0, %97 ], [ 0, %48 ]
   ret i32 %.0
 }

@@ -4386,19 +4386,19 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %55 = fcmp une double %54, %.034.i.i
   br i1 %55, label %56, label %_ZN7testing8internal7PrintToEdPSo.exit
 
-56:                                               ; preds = %49, %40, %34
+56:; preds = %49, %40, %34
   br label %_ZN7testing8internal7PrintToEdPSo.exit
 
 _ZN7testing8internal7PrintToEdPSo.exit:           ; preds = %34, %49, %56
   %.133.i.i = phi i64 [ 17, %56 ], [ 6, %34 ], [ 6, %49 ]
   store i64 %.133.i.i, ptr %8, align 8, !tbaa !117
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %3)
-  %58 = load ptr, ptr %1, align 8, !tbaa !18
-  %59 = getelementptr i8, ptr %58, i64 -24
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i64 %9, ptr %62, align 8, !tbaa !117
+  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %3)
+  %60 = load ptr, ptr %1, align 8, !tbaa !18
+  %61 = getelementptr i8, ptr %60, i64 -24
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %9, ptr %64, align 8, !tbaa !117
   ret void
 }
 

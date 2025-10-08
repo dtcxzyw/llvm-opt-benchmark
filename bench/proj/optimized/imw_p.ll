@@ -399,7 +399,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %3
-  %.035 = phi i32 [ 0, %3 ], [ %43, %.critedge2.backedge ]
+  %.035 = phi i32 [ 0, %3 ], [ %45, %.critedge2.backedge ]
   %.sroa.8.0 = phi double [ %10, %3 ], [ %.sroa.8.1, %.critedge2.backedge ]
   %.sroa.018.0 = phi double [ %12, %3 ], [ %.sroa.018.2, %.critedge2.backedge ]
   %14 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %.sroa.018.0, double %.sroa.8.0, ptr noundef %2, ptr noundef %4)
@@ -425,23 +425,23 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %30 = fadd double %25, %29
   br label %31
 
-31:                                               ; preds = %24, %20
+31:; preds = %24, %20
   %.sroa.8.1 = phi double [ %30, %24 ], [ %.sroa.8.0, %20 ]
   %32 = fcmp une double %15, 0.000000e+00
   br i1 %32, label %33, label %42
 
-33:                                               ; preds = %31
+33:; preds = %31
   %34 = fsub double %15, %0
   %35 = tail call double @llvm.fabs.f64(double %34)
   %36 = fcmp ogt double %35, 1.000000e-10
   br i1 %36, label %37, label %42
 
-37:                                               ; preds = %33
+37:; preds = %33
   %38 = fmul double %0, %.sroa.018.0
   %39 = fdiv double %38, %15
   br label %42
 
-40:                                               ; preds = %20
+40:; preds = %20
   %41 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
@@ -451,29 +451,29 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
 
-42:                                               ; preds = %31, %33, %37
+44:                                               ; preds = %31, %33, %37
   %.sroa.018.2 = phi double [ %39, %37 ], [ %.sroa.018.0, %33 ], [ %.sroa.018.0, %31 ]
-  %43 = add nuw nsw i32 %.035, 1
+  %45 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %.035, 999
-  br i1 %exitcond.not, label %.critedge, label %44
+  br i1 %exitcond.not, label %.critedge, label %46
 
-44:                                               ; preds = %42
-  %45 = fsub double %15, %0
-  %46 = tail call double @llvm.fabs.f64(double %45)
-  %47 = fcmp ogt double %46, 1.000000e-10
-  br i1 %47, label %.critedge2.backedge, label %48
+46:                                               ; preds = %44
+  %47 = fsub double %15, %0
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp ogt double %48, 1.000000e-10
+  br i1 %49, label %.critedge2.backedge, label %50
 
-48:                                               ; preds = %44
-  %49 = fsub double %16, %1
-  %50 = tail call double @llvm.fabs.f64(double %49)
-  %51 = fcmp ogt double %50, 1.000000e-10
-  br i1 %51, label %.critedge2.backedge, label %.critedge.thread
+50:                                               ; preds = %46
+  %51 = fsub double %16, %1
+  %52 = tail call double @llvm.fabs.f64(double %51)
+  %53 = fcmp ogt double %52, 1.000000e-10
+  br i1 %53, label %.critedge2.backedge, label %.critedge.thread
 
-.critedge2.backedge:                              ; preds = %48, %44
+.critedge2.backedge:                              ; preds = %50, %46
   br label %.critedge2, !llvm.loop !64
 
-.critedge:                                        ; preds = %42
-  %52 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+.critedge:                                        ; preds = %44
+  %54 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
   %.sroa.030.0.copyload31 = load double, ptr %6, align 8, !tbaa !52
@@ -482,7 +482,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %48, %40, %.critedge
+.critedge.thread:                                 ; preds = %50, %40, %.critedge
   %.sroa.030.2 = phi double [ %.sroa.030.0.copyload31, %.critedge ], [ %.sroa.030.0.copyload, %40 ], [ %.sroa.018.2, %48 ]
   %.sroa.432.2 = phi double [ %.sroa.432.0.copyload34, %.critedge ], [ %.sroa.432.0.copyload, %40 ], [ %.sroa.8.1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

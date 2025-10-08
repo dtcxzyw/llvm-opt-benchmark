@@ -14509,9 +14509,9 @@ if.end30:                                         ; preds = %_ZN8QuantLib6detail
   br i1 %cmp31, label %if.then32, label %if.end64
 
 if.then32:                                        ; preds = %if.end30
-  %18 = load ptr, ptr %paramIsFixed, align 8, !tbaa !143
-  %19 = load i64, ptr %18, align 8, !tbaa !36
-  %and.i33 = and i64 %19, 1
+  %20 = load ptr, ptr %paramIsFixed, align 8, !tbaa !143
+  %21 = load i64, ptr %20, align 8, !tbaa !36
+  %and.i33 = and i64 %21, 1
   %tobool.i34.not = icmp eq i64 %and.i33, 0
   br i1 %tobool.i34.not, label %if.then37, label %if.else46
 
@@ -14522,7 +14522,7 @@ if.then37:                                        ; preds = %if.then32
   br label %if.end64
 
 if.else46:                                        ; preds = %if.then32
-  %and.i40 = and i64 %19, 2
+  %and.i40 = and i64 %21, 2
   %tobool.i41.not = icmp eq i64 %and.i40, 0
   br i1 %tobool.i41.not, label %if.then51, label %if.end64
 
@@ -15669,9 +15669,9 @@ if.then10:                                        ; preds = %invoke.cont8
   %call15 = tail call double @pow(double noundef %forward, double noundef %sub) #28, !tbaa !192
   %mul16 = fmul double %9, %call15
   %cmp = fcmp olt double %mul16, 5.000000e-02
-  br i1 %cmp, label %if.end28.thread, label %if.end28
+  br i1 %cmp, label %if.then17, label %if.end28
 
-if.end28.thread:                                  ; preds = %if.then10
+if.then17:                                        ; preds = %if.then10
   %div22 = fdiv double 0x3FA9999B4718C345, %9
   %call23 = tail call double @log(double noundef %div22) #28, !tbaa !192
   %call24 = tail call double @log(double noundef %forward) #28, !tbaa !192
@@ -15707,7 +15707,7 @@ if.else42:                                        ; preds = %invoke.cont8
   store double %div53, ptr %call.i, align 8, !tbaa !81
   br label %invoke.cont56
 
-invoke.cont56:                                    ; preds = %if.else42, %if.then30, %if.end28, %if.end28.thread
+invoke.cont56:                                    ; preds = %if.else42, %if.then30, %if.end28, %if.then17
   %and.i.i.i.i29 = and i64 %1, 4
   %tobool.i.i.i.i30.not = icmp eq i64 %and.i.i.i.i29, 0
   br i1 %tobool.i.i.i.i30.not, label %if.else61, label %if.then58
@@ -15730,9 +15730,9 @@ if.else61:                                        ; preds = %invoke.cont56
   br label %invoke.cont70
 
 invoke.cont70:                                    ; preds = %if.then58, %if.else61
-  %.sink42 = phi double [ %add67, %if.else61 ], [ %13, %if.then58 ]
+  %.sink41 = phi double [ %add67, %if.else61 ], [ %13, %if.then58 ]
   %16 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store double %.sink42, ptr %16, align 8, !tbaa !81
+  store double %.sink41, ptr %16, align 8, !tbaa !81
   %and.i.i.i.i35 = and i64 %1, 8
   %tobool.i.i.i.i36.not = icmp eq i64 %and.i.i.i.i35, 0
   br i1 %tobool.i.i.i.i36.not, label %if.else75, label %if.then72
@@ -15755,9 +15755,9 @@ if.else75:                                        ; preds = %invoke.cont70
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %if.then72, %if.else75
-  %.sink43 = phi double [ %add81, %if.else75 ], [ %18, %if.then72 ]
+  %.sink42 = phi double [ %add81, %if.else75 ], [ %18, %if.then72 ]
   %21 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store double %.sink43, ptr %21, align 8, !tbaa !81
+  store double %.sink42, ptr %21, align 8, !tbaa !81
   ret void
 }
 
