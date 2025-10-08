@@ -243,7 +243,6 @@
   "loop-rotate.NumInstrsDuplicated": 3111110,
   "loop-rotate.NumInstrsHoisted": 1195,
   "loop-rotate.NumNotRotatedDueToHeaderSize": 6119,
-  "loop-rotate.NumRotated": 1195612,
   "loop-simplify.NumNested": 12141,
   "loop-simplifycfg.NumLoopBlocksDeleted": 6875,
   "loop-simplifycfg.NumLoopExitsDeleted": 4108,
