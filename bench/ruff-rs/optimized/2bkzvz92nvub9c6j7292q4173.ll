@@ -4068,28 +4068,28 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h104
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hb392f31c8bc78d44E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 5
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !130
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 5
+  br i1 %4, label %switch.lookup.i, label %5, !prof !130
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.ff6590dc96b775749cee7aee339d2e7d.31, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6590dc96b775749cee7aee339d2e7d.32)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.ff6590dc96b775749cee7aee339d2e7d.31, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6590dc96b775749cee7aee339d2e7d.32)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN211_$LT$ruff_linter..rules..pylint..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h060f2497eef79715E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN211_$LT$ruff_linter..rules..pylint..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h060f2497eef79715E.exit"
 
-"_ZN211_$LT$ruff_linter..rules..pylint..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h060f2497eef79715E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.7.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN211_$LT$ruff_linter..rules..pylint..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h060f2497eef79715E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.7.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }

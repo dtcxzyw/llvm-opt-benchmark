@@ -349,74 +349,73 @@ define noundef range(i8 6, 14) i8 @"_ZN112_$LT$ockam_transport_core..error..Tran
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 3
   switch i64 %6, label %default.unreachable [
-    i64 2, label %9
-    i64 3, label %7
-    i64 0, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split
-    i64 1, label %13
+    i64 2, label %7
+    i64 3, label %11
+    i64 0, label %15
+    i64 1, label %18
   ]
 
 default.unreachable:                              ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
-  %.mask = and i64 %5, -4294967296
-  %8 = icmp eq i64 %.mask, 8589934592
-  br i1 %8, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread3, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
+  %8 = lshr i64 %5, 32
+  %9 = trunc nuw i64 %8 to i32
+  %10 = invoke noundef i8 @_ZN3std3sys4unix17decode_error_kind17h4e88361be1dfe9b9E(i32 noundef %9)
+          to label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit unwind label %21
 
-9:                                                ; preds = %2
-  %10 = lshr i64 %5, 32
-  %11 = trunc nuw i64 %10 to i32
-  %12 = invoke noundef i8 @_ZN3std3sys4unix17decode_error_kind17h4e88361be1dfe9b9E(i32 noundef %11)
-          to label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit unwind label %14
+11:                                               ; preds = %2
+  %12 = lshr i64 %5, 32
+  %13 = trunc nuw i64 %12 to i32
+  %spec.select1.i.i.i = tail call i32 @llvm.umin.i32(i32 %13, i32 41)
+  %spec.select.i.i.i = trunc nuw nsw i32 %spec.select1.i.i.i to i8
+  %14 = icmp ult ptr %0, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %14)
+  br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
 
-13:                                               ; preds = %2
-  br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split
-
-14:                                               ; preds = %9
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #4
-          to label %26 unwind label %24
-
-_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split: ; preds = %2, %13
-  %.sink5 = phi i64 [ 15, %13 ], [ 16, %2 ]
-  %16 = getelementptr i8, ptr %0, i64 %.sink5
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i8, ptr %16, align 8, !range !6, !noundef !5
   br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
 
-_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split, %9
-  %.0.i = phi i8 [ %12, %9 ], [ %17, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split ]
-  %18 = icmp eq i8 %.0.i, 2
-  br i1 %18, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread3, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
+18:                                               ; preds = %2
+  %19 = getelementptr i8, ptr %0, i64 15
+  %20 = load i8, ptr %19, align 8, !range !6, !noundef !5
+  br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
 
-_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread3: ; preds = %7, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
-  br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
+21:                                               ; preds = %7
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #6
+          to label %30 unwind label %28
 
-_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread: ; preds = %7, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread3
-  %19 = phi i8 [ 6, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread3 ], [ 13, %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit ], [ 13, %7 ]
+_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit: ; preds = %18, %15, %11, %7
+  %.0.i = phi i8 [ %spec.select.i.i.i, %11 ], [ %17, %15 ], [ %20, %18 ], [ %10, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd2aa1fbdd123cc9eE.llvm.12192176430880052379(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %0), !noalias !7
-  %20 = load i8, ptr %3, align 8, !range !14, !alias.scope !15, !noalias !7, !noundef !5
-  %21 = icmp eq i8 %20, 3
-  br i1 %21, label %22, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE.exit"
+  %23 = load i8, ptr %3, align 8, !range !14, !alias.scope !15, !noalias !7, !noundef !5
+  %24 = icmp eq i8 %23, 3
+  br i1 %24, label %25, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE.exit"
 
-22:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h075955caec173cd7E.llvm.12192176430880052379"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23), !noalias !7
+25:                                               ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h075955caec173cd7E.llvm.12192176430880052379"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26), !noalias !7
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE.exit": ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread, %22
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb97096accd08e2acE.exit": ; preds = %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit, %25
+  %27 = icmp eq i8 %.0.i, 2
+  %. = select i1 %27, i8 6, i8 13
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7
-  ret i8 %19
+  ret i8 %.
 
-24:                                               ; preds = %14
-  %25 = landingpad { ptr, i32 }
+28:                                               ; preds = %21
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #5
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #7
   unreachable
 
-26:                                               ; preds = %14
-  resume { ptr, i32 } %15
+30:                                               ; preds = %21
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -464,12 +463,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noinline }
-attributes #5 = { noinline noreturn nounwind }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { noinline }
+attributes #7 = { noinline noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

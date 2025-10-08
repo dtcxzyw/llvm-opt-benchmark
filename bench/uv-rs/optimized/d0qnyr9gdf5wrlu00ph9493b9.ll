@@ -7200,7 +7200,8 @@ define void @"_ZN78_$LT$uv_client..httpcache..RequestHeaders$u20$as$u20$rkyv..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN9uv_client9httpcache1_80_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_client..httpcache..Method$GT$7resolve17h59c3e6b9c10cf577E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 3) %1, ptr noundef nonnull writeonly captures(none) %2, i64 noundef %3) unnamed_addr #6 {
+define void @"_ZN9uv_client9httpcache1_80_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_client..httpcache..Method$GT$7resolve17h59c3e6b9c10cf577E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 3) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #6 {
+switch.lookup:
   store i8 %1, ptr %2, align 1
   ret void
 }

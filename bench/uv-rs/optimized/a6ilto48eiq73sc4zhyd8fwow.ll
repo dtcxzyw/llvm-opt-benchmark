@@ -18588,13 +18588,13 @@ define void @_ZN9uv_python14python_version13PythonVersion19python_full_version17
   %22 = load i8, ptr %21, align 1, !alias.scope !5376, !noalias !5373, !noundef !3
   %23 = icmp eq i8 %22, 0
   %.sink26.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink26.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink26.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink26.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink26.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink26.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink26.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink26.i.sroa.gep67 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink26.i.sroa.gep57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink26.i.sroa.gep59 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink26.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink26.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink26.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink26.i.sroa.gep65 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink26.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %2
@@ -18977,18 +18977,18 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %217, %186
-  %.sink26.i.sroa.phi = phi ptr [ %.sink26.i.sroa.gep, %217 ], [ %.sink26.i.sroa.gep58, %186 ]
-  %.sink26.i.sroa.phi59 = phi ptr [ %.sink26.i.sroa.gep60, %217 ], [ %.sink26.i.sroa.gep61, %186 ]
-  %.sink26.i.sroa.phi62 = phi ptr [ %.sink26.i.sroa.gep63, %217 ], [ %.sink26.i.sroa.gep64, %186 ]
-  %.sink26.i.sroa.phi65 = phi ptr [ %.sink26.i.sroa.gep66, %217 ], [ %.sink26.i.sroa.gep67, %186 ]
+  %.sink26.i.sroa.phi = phi ptr [ %.sink26.i.sroa.gep, %217 ], [ %.sink26.i.sroa.gep57, %186 ]
+  %.sink26.i.sroa.phi58 = phi ptr [ %.sink26.i.sroa.gep59, %217 ], [ %.sink26.i.sroa.gep60, %186 ]
+  %.sink26.i.sroa.phi61 = phi ptr [ %.sink26.i.sroa.gep62, %217 ], [ %.sink26.i.sroa.gep63, %186 ]
+  %.sink26.i.sroa.phi64 = phi ptr [ %.sink26.i.sroa.gep65, %217 ], [ %.sink26.i.sroa.gep66, %186 ]
   %.sink26.i = phi ptr [ %5, %217 ], [ %4, %186 ]
   %.sink20.i = phi ptr [ inttoptr (i64 8 to ptr), %217 ], [ %3, %186 ]
   %.sink.i = phi i64 [ 0, %217 ], [ 1, %186 ]
   %187 = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.122, %217 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.126, %186 ]
   store i64 1, ptr %.sink26.i.sroa.phi, align 8, !noalias !5398
-  store ptr null, ptr %.sink26.i.sroa.phi59, align 8, !noalias !5398
-  store ptr %.sink20.i, ptr %.sink26.i.sroa.phi62, align 8, !noalias !5398
-  store i64 %.sink.i, ptr %.sink26.i.sroa.phi65, align 8, !noalias !5398
+  store ptr null, ptr %.sink26.i.sroa.phi58, align 8, !noalias !5398
+  store ptr %.sink20.i, ptr %.sink26.i.sroa.phi61, align 8, !noalias !5398
+  store i64 %.sink.i, ptr %.sink26.i.sroa.phi64, align 8, !noalias !5398
   invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187) #55
           to label %.cont.i unwind label %171, !noalias !5396
 
@@ -19238,19 +19238,19 @@ _ZN9uv_pep4407version7Version12with_release17h1cc9e28262180414E.exit: ; preds = 
 
 300:                                              ; preds = %296
   %301 = icmp ugt i64 %.sroa.0.0.i, 1048575
-  br i1 %301, label %_ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.thread2.i, label %switch.lookup
+  br i1 %301, label %_ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.thread2.i, label %switch.lookup.i.i
 
-_ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.thread.i: ; preds = %switch.lookup, %297
-  %storemerge.i.i = phi i64 [ %304, %switch.lookup ], [ %299, %297 ]
+_ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.thread.i: ; preds = %switch.lookup.i.i, %297
+  %storemerge.i.i = phi i64 [ %304, %switch.lookup.i.i ], [ %299, %297 ]
   store i64 %storemerge.i.i, ptr %15, align 8, !alias.scope !5443, !noalias !5438
   br label %319
 
-switch.lookup:                                    ; preds = %300
+switch.lookup.i.i:                                ; preds = %300
   %302 = and i64 %292, -16777216
-  %switch.idx.cast = zext nneg i8 %.sroa.6.0.i to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 20
-  %switch.offset = add nuw nsw i64 %switch.idx.mult, 2097152
-  %303 = or disjoint i64 %302, %switch.offset
+  %switch.idx.cast.i.i = zext nneg i8 %.sroa.6.0.i to i64
+  %switch.idx.mult.i.i = shl nuw nsw i64 %switch.idx.cast.i.i, 20
+  %switch.offset.i.i = add nuw nsw i64 %switch.idx.mult.i.i, 2097152
+  %303 = or disjoint i64 %302, %switch.offset.i.i
   %304 = or disjoint i64 %303, %.sroa.0.0.i
   br label %_ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.thread.i
 
@@ -19356,8 +19356,8 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i: ; preds 
   br i1 %349, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i, label %350
 
 _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i: ; preds = %350, %345
-  %storemerge.i.i49 = phi i64 [ %353, %350 ], [ %347, %345 ]
-  store i64 %storemerge.i.i49, ptr %16, align 8, !alias.scope !5467, !noalias !5462
+  %storemerge.i.i48 = phi i64 [ %353, %350 ], [ %347, %345 ]
+  store i64 %storemerge.i.i48, ptr %16, align 8, !alias.scope !5467, !noalias !5462
   br label %368
 
 350:                                              ; preds = %348
@@ -19376,8 +19376,8 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i:
   call void @llvm.experimental.noalias.scope.decl(metadata !5470)
   call void @llvm.experimental.noalias.scope.decl(metadata !5473)
   %357 = load i8, ptr %337, align 1, !alias.scope !5476, !noalias !5462, !noundef !3
-  %.not.i.i.i50 = icmp eq i8 %357, 0
-  br i1 %.not.i.i.i50, label %358, label %common.resume
+  %.not.i.i.i49 = icmp eq i8 %357, 0
+  br i1 %.not.i.i.i49, label %358, label %common.resume
 
 358:                                              ; preds = %355
   call void @llvm.experimental.noalias.scope.decl(metadata !5477)
@@ -19420,8 +19420,8 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !5489)
   %371 = getelementptr inbounds nuw i8, ptr %16, i64 9
   %372 = load i8, ptr %371, align 1, !alias.scope !5492, !noundef !3
-  %.not.i.i54 = icmp eq i8 %372, 0
-  br i1 %.not.i.i54, label %373, label %common.resume
+  %.not.i.i53 = icmp eq i8 %372, 0
+  br i1 %.not.i.i53, label %373, label %common.resume
 
 373:                                              ; preds = %369
   call void @llvm.experimental.noalias.scope.decl(metadata !5493)
@@ -19449,8 +19449,8 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !5503)
   %382 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %383 = load i8, ptr %382, align 1, !alias.scope !5506, !noundef !3
-  %.not.i.i55 = icmp eq i8 %383, 0
-  br i1 %.not.i.i55, label %384, label %common.resume
+  %.not.i.i54 = icmp eq i8 %383, 0
+  br i1 %.not.i.i54, label %384, label %common.resume
 
 384:                                              ; preds = %380
   call void @llvm.experimental.noalias.scope.decl(metadata !5507)

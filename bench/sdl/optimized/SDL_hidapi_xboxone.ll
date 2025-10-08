@@ -143,10 +143,10 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_UpdateDevice(ptr noundef %0) #0
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   %.sink.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 19
-  %.sink.i.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %6, i64 17
-  %.sink.i.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %6, i64 35
-  %.0.i.i.sroa.gep42 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  br i1 %11, label %12, label %390
+  %.sink.i.i.sroa.gep38 = getelementptr inbounds nuw i8, ptr %6, i64 17
+  %.sink.i.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %6, i64 35
+  %.0.i.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  br i1 %11, label %12, label %391
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -200,15 +200,15 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_UpdateDevice(ptr noundef %0) #0
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 7
   br label %53
 
-53:                                               ; preds = %.lr.ph, %303
-  %54 = phi i32 [ %19, %.lr.ph ], [ %305, %303 ]
+53:                                               ; preds = %.lr.ph, %304
+  %54 = phi i32 [ %19, %.lr.ph ], [ %306, %304 ]
   %55 = load i8, ptr %21, align 4, !range !3, !noundef !4
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %208
+  br i1 %56, label %57, label %209
 
 57:                                               ; preds = %53
   %58 = load i8, ptr %6, align 16
-  switch i8 %58, label %303 [
+  switch i8 %58, label %304 [
     i8 1, label %59
     i8 2, label %197
     i8 4, label %203
@@ -217,7 +217,7 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_UpdateDevice(ptr noundef %0) #0
 59:                                               ; preds = %57
   %60 = icmp samesign ugt i32 %54, 15
   %or.cond = and i1 %36, %60
-  br i1 %or.cond, label %61, label %303
+  br i1 %or.cond, label %61, label %304
 
 61:                                               ; preds = %59
   %62 = call i64 @SDL_GetTicksNS_REAL() #9
@@ -384,8 +384,8 @@ define internal zeroext i1 @HIDAPI_DriverXboxOne_UpdateDevice(ptr noundef %0) #0
   br label %157
 
 157:                                              ; preds = %156, %155, %154
-  %.sink.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep, %155 ], [ %.sink.i.i.sroa.gep39, %156 ], [ %.sink.i.i.sroa.gep40, %154 ]
-  %.0.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep39, %155 ], [ %.sink.i.i.sroa.gep, %156 ], [ %.0.i.i.sroa.gep42, %154 ]
+  %.sink.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep, %155 ], [ %.sink.i.i.sroa.gep38, %156 ], [ %.sink.i.i.sroa.gep39, %154 ]
+  %.0.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep38, %155 ], [ %.sink.i.i.sroa.gep, %156 ], [ %.0.i.i.sroa.gep41, %154 ]
   %.090.in.in.i.i = load i8, ptr %.sink.i.i.sroa.phi, align 1
   %.090.in.not.i.i = icmp eq i8 %.090.in.in.i.i, 0
   br i1 %.090.in.not.i.i, label %._crit_edge.i.i, label %158
@@ -469,10 +469,10 @@ HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit: ; preds = %HIDAPI_DriverXb
   %195 = call i32 @llvm.umin.i32(i32 range(i32 16, -2147483648) %54, i32 64)
   %196 = zext nneg i32 %195 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %196, i1 false)
-  br label %303
+  br label %304
 
 197:                                              ; preds = %57
-  br i1 %.not, label %303, label %198
+  br i1 %.not, label %304, label %198
 
 198:                                              ; preds = %197
   %199 = call i64 @SDL_GetTicksNS_REAL() #9
@@ -481,484 +481,484 @@ HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit: ; preds = %HIDAPI_DriverXb
   %201 = and i8 %200, 1
   %202 = icmp ne i8 %201, 0
   call void @SDL_SendJoystickButton(i64 noundef %199, ptr noundef nonnull %16, i8 noundef zeroext 5, i1 noundef zeroext %202) #9
-  br label %303
+  br label %304
 
 203:                                              ; preds = %57
-  br i1 %.not, label %303, label %switch.lookup76
+  br i1 %.not, label %304, label %204
 
-switch.lookup76:                                  ; preds = %203
+204:                                              ; preds = %203
   %.val = load i8, ptr %34, align 1
-  %204 = zext i8 %.val to i32
-  %205 = and i32 %204, 3
-  %switch.idx.mult = mul nuw nsw i32 %205, 30
-  %switch.offset = add nuw nsw i32 %switch.idx.mult, 10
-  %206 = and i32 %204, 12
-  %207 = icmp eq i32 %206, 0
-  %..i = select i1 %207, i32 3, i32 1
-  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %16, i32 noundef %..i, i32 noundef %switch.offset) #9
-  br label %303
+  %205 = zext i8 %.val to i32
+  %206 = and i32 %205, 3
+  %switch.idx.mult.i = mul nuw nsw i32 %206, 30
+  %switch.offset.i = add nuw nsw i32 %switch.idx.mult.i, 10
+  %207 = and i32 %205, 12
+  %208 = icmp eq i32 %207, 0
+  %..i = select i1 %208, i32 3, i32 1
+  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %16, i32 noundef %..i, i32 noundef %switch.offset.i) #9
+  br label %304
 
-208:                                              ; preds = %53
+209:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %209 = icmp samesign ult i32 %54, 4
-  br i1 %209, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i
+  %210 = icmp samesign ult i32 %54, 4
+  br i1 %210, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %208, %297
-  %.01524.i = phi i32 [ %301, %297 ], [ %54, %208 ]
-  %.01623.i = phi ptr [ %300, %297 ], [ %6, %208 ]
-  %210 = load i8, ptr %.01623.i, align 1
-  store i8 %210, ptr %5, align 1
-  %211 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 1
-  %212 = load i8, ptr %211, align 1
-  store i8 %212, ptr %22, align 1
-  %213 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 2
-  %214 = load i8, ptr %213, align 1
-  store i8 %214, ptr %23, align 1
+.lr.ph.i:                                         ; preds = %209, %298
+  %.01524.i = phi i32 [ %302, %298 ], [ %54, %209 ]
+  %.01623.i = phi ptr [ %301, %298 ], [ %6, %209 ]
+  %211 = load i8, ptr %.01623.i, align 1
+  store i8 %211, ptr %5, align 1
+  %212 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 1
+  %213 = load i8, ptr %212, align 1
+  store i8 %213, ptr %22, align 1
+  %214 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 2
+  %215 = load i8, ptr %214, align 1
+  store i8 %215, ptr %23, align 1
   store i32 0, ptr %25, align 1
-  %215 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 3
-  %216 = add nsw i32 %.01524.i, -3
-  %217 = call i32 @llvm.umin.i32(i32 %216, i32 4)
-  %wide.trip.count.i.i.i = zext nneg i32 %217 to i64
+  %216 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 3
+  %217 = add nsw i32 %.01524.i, -3
+  %218 = call i32 @llvm.umin.i32(i32 %217, i32 4)
+  %wide.trip.count.i.i.i = zext nneg i32 %218 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %226, %.lr.ph.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i.i, %226 ]
-  %.014.i.i.i = phi i32 [ 0, %.lr.ph.i ], [ %225, %226 ]
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 %indvars.iv.i.i.i
-  %219 = load i8, ptr %218, align 1
-  %220 = and i8 %219, 127
-  %221 = zext nneg i8 %220 to i32
-  %222 = trunc i64 %indvars.iv.i.i.i to i32
-  %223 = mul i32 %222, 7
-  %224 = shl nuw nsw i32 %221, %223
-  %225 = or i32 %224, %.014.i.i.i
-  %.not.i.i.i = icmp sgt i8 %219, -1
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %226
+.lr.ph.i.i.i:                                     ; preds = %227, %.lr.ph.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i.i, %227 ]
+  %.014.i.i.i = phi i32 [ 0, %.lr.ph.i ], [ %226, %227 ]
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 %indvars.iv.i.i.i
+  %220 = load i8, ptr %219, align 1
+  %221 = and i8 %220, 127
+  %222 = zext nneg i8 %221 to i32
+  %223 = trunc i64 %indvars.iv.i.i.i to i32
+  %224 = mul i32 %223, 7
+  %225 = shl nuw nsw i32 %222, %224
+  %226 = or i32 %225, %.014.i.i.i
+  %.not.i.i.i = icmp sgt i8 %220, -1
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %227
 
-226:                                              ; preds = %.lr.ph.i.i.i
+227:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %226, %.lr.ph.i.i.i
-  %.011.lcssa.ph.i.i.i = phi i32 [ %217, %226 ], [ %222, %.lr.ph.i.i.i ]
-  store i32 %225, ptr %24, align 1
-  %227 = add nsw i32 %.011.lcssa.ph.i.i.i, 4
-  %.not.i.i33 = icmp sgt i8 %212, -1
-  br i1 %.not.i.i33, label %HIDAPI_GIP_DecodeHeader.exit.i, label %228
+._crit_edge.loopexit.i.i.i:                       ; preds = %227, %.lr.ph.i.i.i
+  %.011.lcssa.ph.i.i.i = phi i32 [ %218, %227 ], [ %223, %.lr.ph.i.i.i ]
+  store i32 %226, ptr %24, align 1
+  %228 = add nsw i32 %.011.lcssa.ph.i.i.i, 4
+  %.not.i.i32 = icmp sgt i8 %213, -1
+  br i1 %.not.i.i32, label %HIDAPI_GIP_DecodeHeader.exit.i, label %229
 
-228:                                              ; preds = %._crit_edge.loopexit.i.i.i
-  %229 = sext i32 %227 to i64
-  %230 = getelementptr inbounds i8, ptr %.01623.i, i64 %229
-  %231 = sub nsw i32 %.01524.i, %227
-  %invariant.smin.i24.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483643, -2147483648) %231, i32 4)
-  %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %.lr.ph.preheader.i27.i.i, label %DecodeVariableInt.exit38.i.i
+229:                                              ; preds = %._crit_edge.loopexit.i.i.i
+  %230 = sext i32 %228 to i64
+  %231 = getelementptr inbounds i8, ptr %.01623.i, i64 %230
+  %232 = sub nsw i32 %.01524.i, %228
+  %invariant.smin.i24.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483643, -2147483648) %232, i32 4)
+  %233 = icmp sgt i32 %232, 0
+  br i1 %233, label %.lr.ph.preheader.i27.i.i, label %DecodeVariableInt.exit38.i.i
 
-.lr.ph.preheader.i27.i.i:                         ; preds = %228
+.lr.ph.preheader.i27.i.i:                         ; preds = %229
   %wide.trip.count.i28.i.i = zext nneg i32 %invariant.smin.i24.i.i to i64
   br label %.lr.ph.i29.i.i
 
-.lr.ph.i29.i.i:                                   ; preds = %241, %.lr.ph.preheader.i27.i.i
-  %indvars.iv.i30.i.i = phi i64 [ 0, %.lr.ph.preheader.i27.i.i ], [ %indvars.iv.next.i33.i.i, %241 ]
-  %.014.i31.i.i = phi i32 [ 0, %.lr.ph.preheader.i27.i.i ], [ %240, %241 ]
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 %indvars.iv.i30.i.i
-  %234 = load i8, ptr %233, align 1
-  %235 = and i8 %234, 127
-  %236 = zext nneg i8 %235 to i32
-  %237 = trunc i64 %indvars.iv.i30.i.i to i32
-  %238 = mul i32 %237, 7
-  %239 = shl nuw nsw i32 %236, %238
-  %240 = or i32 %239, %.014.i31.i.i
-  %.not.i32.i.i = icmp sgt i8 %234, -1
-  br i1 %.not.i32.i.i, label %._crit_edge.loopexit.i35.i.i, label %241
+.lr.ph.i29.i.i:                                   ; preds = %242, %.lr.ph.preheader.i27.i.i
+  %indvars.iv.i30.i.i = phi i64 [ 0, %.lr.ph.preheader.i27.i.i ], [ %indvars.iv.next.i33.i.i, %242 ]
+  %.014.i31.i.i = phi i32 [ 0, %.lr.ph.preheader.i27.i.i ], [ %241, %242 ]
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i30.i.i
+  %235 = load i8, ptr %234, align 1
+  %236 = and i8 %235, 127
+  %237 = zext nneg i8 %236 to i32
+  %238 = trunc i64 %indvars.iv.i30.i.i to i32
+  %239 = mul i32 %238, 7
+  %240 = shl nuw nsw i32 %237, %239
+  %241 = or i32 %240, %.014.i31.i.i
+  %.not.i32.i.i = icmp sgt i8 %235, -1
+  br i1 %.not.i32.i.i, label %._crit_edge.loopexit.i35.i.i, label %242
 
-241:                                              ; preds = %.lr.ph.i29.i.i
+242:                                              ; preds = %.lr.ph.i29.i.i
   %indvars.iv.next.i33.i.i = add nuw nsw i64 %indvars.iv.i30.i.i, 1
   %exitcond.not.i34.i.i = icmp eq i64 %indvars.iv.next.i33.i.i, %wide.trip.count.i28.i.i
   br i1 %exitcond.not.i34.i.i, label %._crit_edge.loopexit.i35.i.i, label %.lr.ph.i29.i.i, !llvm.loop !5
 
-._crit_edge.loopexit.i35.i.i:                     ; preds = %241, %.lr.ph.i29.i.i
-  %.011.lcssa.ph.i36.i.i = phi i32 [ %invariant.smin.i24.i.i, %241 ], [ %237, %.lr.ph.i29.i.i ]
-  %242 = add nuw nsw i32 %.011.lcssa.ph.i36.i.i, 1
+._crit_edge.loopexit.i35.i.i:                     ; preds = %242, %.lr.ph.i29.i.i
+  %.011.lcssa.ph.i36.i.i = phi i32 [ %invariant.smin.i24.i.i, %242 ], [ %238, %.lr.ph.i29.i.i ]
+  %243 = add nuw nsw i32 %.011.lcssa.ph.i36.i.i, 1
   br label %DecodeVariableInt.exit38.i.i
 
-DecodeVariableInt.exit38.i.i:                     ; preds = %._crit_edge.loopexit.i35.i.i, %228
-  %.011.lcssa.i25.i.i = phi i32 [ 1, %228 ], [ %242, %._crit_edge.loopexit.i35.i.i ]
-  %.1.i26.i.i = phi i32 [ 0, %228 ], [ %240, %._crit_edge.loopexit.i35.i.i ]
+DecodeVariableInt.exit38.i.i:                     ; preds = %._crit_edge.loopexit.i35.i.i, %229
+  %.011.lcssa.i25.i.i = phi i32 [ 1, %229 ], [ %243, %._crit_edge.loopexit.i35.i.i ]
+  %.1.i26.i.i = phi i32 [ 0, %229 ], [ %241, %._crit_edge.loopexit.i35.i.i ]
   store i32 %.1.i26.i.i, ptr %25, align 1
-  %243 = add nsw i32 %.011.lcssa.i25.i.i, %227
+  %244 = add nsw i32 %.011.lcssa.i25.i.i, %228
   br label %HIDAPI_GIP_DecodeHeader.exit.i
 
 HIDAPI_GIP_DecodeHeader.exit.i:                   ; preds = %DecodeVariableInt.exit38.i.i, %._crit_edge.loopexit.i.i.i
-  %244 = phi i32 [ %.1.i26.i.i, %DecodeVariableInt.exit38.i.i ], [ 0, %._crit_edge.loopexit.i.i.i ]
-  %.0.i.i34 = phi i32 [ %243, %DecodeVariableInt.exit38.i.i ], [ %227, %._crit_edge.loopexit.i.i.i ]
-  %245 = add i32 %.0.i.i34, %225
-  %246 = icmp ugt i32 %245, %.01524.i
-  br i1 %246, label %247, label %249
+  %245 = phi i32 [ %.1.i26.i.i, %DecodeVariableInt.exit38.i.i ], [ 0, %._crit_edge.loopexit.i.i.i ]
+  %.0.i.i33 = phi i32 [ %244, %DecodeVariableInt.exit38.i.i ], [ %228, %._crit_edge.loopexit.i.i.i ]
+  %246 = add i32 %.0.i.i33, %226
+  %247 = icmp ugt i32 %246, %.01524.i
+  br i1 %247, label %248, label %250
 
-247:                                              ; preds = %HIDAPI_GIP_DecodeHeader.exit.i
-  %248 = sub nsw i32 %.01524.i, %.0.i.i34
-  store i32 %248, ptr %24, align 1
-  br label %249
+248:                                              ; preds = %HIDAPI_GIP_DecodeHeader.exit.i
+  %249 = sub nsw i32 %.01524.i, %.0.i.i33
+  store i32 %249, ptr %24, align 1
+  br label %250
 
-249:                                              ; preds = %247, %HIDAPI_GIP_DecodeHeader.exit.i
-  %250 = phi i32 [ %248, %247 ], [ %225, %HIDAPI_GIP_DecodeHeader.exit.i ]
-  %251 = sext i32 %.0.i.i34 to i64
-  %252 = getelementptr inbounds i8, ptr %.01623.i, i64 %251
-  %253 = and i8 %212, 64
-  %.not.i17.i = icmp eq i8 %253, 0
-  br i1 %.not.i17.i, label %260, label %254
+250:                                              ; preds = %248, %HIDAPI_GIP_DecodeHeader.exit.i
+  %251 = phi i32 [ %249, %248 ], [ %226, %HIDAPI_GIP_DecodeHeader.exit.i ]
+  %252 = sext i32 %.0.i.i33 to i64
+  %253 = getelementptr inbounds i8, ptr %.01623.i, i64 %252
+  %254 = and i8 %213, 64
+  %.not.i17.i = icmp eq i8 %254, 0
+  br i1 %.not.i17.i, label %261, label %255
 
-254:                                              ; preds = %249
-  %255 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i = icmp eq ptr %255, null
-  br i1 %.not.i.i.i.i, label %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, label %256
+255:                                              ; preds = %250
+  %256 = load ptr, ptr %26, align 8
+  %.not.i.i.i.i = icmp eq ptr %256, null
+  br i1 %.not.i.i.i.i, label %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, label %257
 
-256:                                              ; preds = %254
-  call void @SDL_free_REAL(ptr noundef nonnull %255) #9
+257:                                              ; preds = %255
+  call void @SDL_free_REAL(ptr noundef nonnull %256) #9
   store ptr null, ptr %26, align 8
   store i32 0, ptr %27, align 8
   br label %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i
 
-HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i:         ; preds = %256, %254
-  %257 = zext nneg i32 %244 to i64
-  %258 = call noalias ptr @SDL_malloc_REAL(i64 noundef %257) #9
-  store ptr %258, ptr %26, align 8
-  %.not.i.not.i.i = icmp eq ptr %258, null
-  br i1 %.not.i.not.i.i, label %HIDAPI_GIP_ProcessData.exit, label %259
+HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i:         ; preds = %257, %255
+  %258 = zext nneg i32 %245 to i64
+  %259 = call noalias ptr @SDL_malloc_REAL(i64 noundef %258) #9
+  store ptr %259, ptr %26, align 8
+  %.not.i.not.i.i = icmp eq ptr %259, null
+  br i1 %.not.i.not.i.i, label %HIDAPI_GIP_ProcessData.exit, label %260
 
-259:                                              ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i
-  store i32 %244, ptr %27, align 8
+260:                                              ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i
+  store i32 %245, ptr %27, align 8
   store i32 0, ptr %25, align 1
-  br label %260
+  br label %261
 
-260:                                              ; preds = %259, %249
-  %261 = phi i32 [ 0, %259 ], [ %244, %249 ]
-  %262 = and i8 %212, 16
-  %.not20.i.i = icmp eq i8 %262, 0
-  br i1 %.not20.i.i, label %281, label %263
+261:                                              ; preds = %260, %250
+  %262 = phi i32 [ 0, %260 ], [ %245, %250 ]
+  %263 = and i8 %213, 16
+  %.not20.i.i = icmp eq i8 %263, 0
+  br i1 %.not20.i.i, label %282, label %264
 
-263:                                              ; preds = %260
-  %264 = add i32 %261, %250
-  %265 = trunc i32 %264 to i16
-  br i1 %.not.i.i33, label %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i, label %266
+264:                                              ; preds = %261
+  %265 = add i32 %262, %251
+  %266 = trunc i32 %265 to i16
+  br i1 %.not.i.i32, label %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i, label %267
 
-266:                                              ; preds = %263
-  %267 = load ptr, ptr %26, align 8
-  %.not8.i.i.i = icmp eq ptr %267, null
-  br i1 %.not8.i.i.i, label %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i, label %268
+267:                                              ; preds = %264
+  %268 = load ptr, ptr %26, align 8
+  %.not8.i.i.i = icmp eq ptr %268, null
+  br i1 %.not8.i.i.i, label %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i, label %269
 
-268:                                              ; preds = %266
-  %269 = load i32, ptr %27, align 8
-  %270 = sub i32 %269, %264
-  %271 = trunc i32 %270 to i16
+269:                                              ; preds = %267
+  %270 = load i32, ptr %27, align 8
+  %271 = sub i32 %270, %265
+  %272 = trunc i32 %271 to i16
   br label %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i
 
-HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i:          ; preds = %268, %266, %263
-  %.sroa.712.0.i.i.i = phi i16 [ 0, %263 ], [ 0, %266 ], [ %271, %268 ]
+HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i:          ; preds = %269, %267, %264
+  %.sroa.712.0.i.i.i = phi i16 [ 0, %264 ], [ 0, %267 ], [ %272, %269 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not.i.i23.i.i = icmp eq i8 %214, 0
-  br i1 %.not.i.i23.i.i, label %272, label %.split.loop.exit.i.i.i.i.i.i
+  %.not.i.i23.i.i = icmp eq i8 %215, 0
+  br i1 %.not.i.i23.i.i, label %273, label %.split.loop.exit.i.i.i.i.i.i
 
-272:                                              ; preds = %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i
-  %273 = load i8, ptr %28, align 8
-  %274 = add i8 %273, 1
-  %spec.select.i.i.i.i.i = call i8 @llvm.umax.i8(i8 %274, i8 1)
+273:                                              ; preds = %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i
+  %274 = load i8, ptr %28, align 8
+  %275 = add i8 %274, 1
+  %spec.select.i.i.i.i.i = call i8 @llvm.umax.i8(i8 %275, i8 1)
   store i8 %spec.select.i.i.i.i.i, ptr %28, align 8
   br label %.split.loop.exit.i.i.i.i.i.i
 
-.split.loop.exit.i.i.i.i.i.i:                     ; preds = %272, %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i
-  %275 = phi i8 [ %spec.select.i.i.i.i.i, %272 ], [ %214, %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i ]
+.split.loop.exit.i.i.i.i.i.i:                     ; preds = %273, %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i
+  %276 = phi i8 [ %spec.select.i.i.i.i.i, %273 ], [ %215, %HIDAPI_GIP_GetHeaderLength.exit.i.i.i.i ]
   store i8 1, ptr %4, align 16
   store i8 32, ptr %29, align 1
-  store i8 %275, ptr %30, align 2
+  store i8 %276, ptr %30, align 2
   store i8 9, ptr %31, align 1
   store i8 0, ptr %32, align 4
-  store i8 %210, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1
+  store i8 %211, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1
   store i8 32, ptr %.sroa.5.0..sroa_idx.i.i.i, align 2
-  store i16 %265, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
+  store i16 %266, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
   store i16 0, ptr %.sroa.7.0..sroa_idx.i.i.i, align 1
   store i16 %.sroa.712.0.i.i.i, ptr %.sroa.712.0..sroa_idx.i.i.i, align 1
-  %276 = call i64 @SDL_GetTicks_REAL() #9
-  store i64 %276, ptr %33, align 8
-  %277 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %277, label %SendProtocolPacket.exit.i.i.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.i.i
+  %277 = call i64 @SDL_GetTicks_REAL() #9
+  store i64 %277, ptr %33, align 8
+  %278 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %278, label %SendProtocolPacket.exit.i.i.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.i.i
 
 SendProtocolPacket.exit.i.i.i.i:                  ; preds = %.split.loop.exit.i.i.i.i.i.i
-  %278 = load ptr, ptr %8, align 8
-  %279 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %278, ptr noundef nonnull %4, i32 noundef 13) #9
-  %.not.i26.i.i.i.i = icmp eq i32 %279, 13
+  %279 = load ptr, ptr %8, align 8
+  %280 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %279, ptr noundef nonnull %4, i32 noundef 13) #9
+  %.not.i26.i.i.i.i = icmp eq i32 %280, 13
   br i1 %.not.i26.i.i.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i, label %HIDAPI_GIP_AcknowledgePacket.exit.i.i
 
 HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i:     ; preds = %SendProtocolPacket.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %281
+  br label %282
 
 HIDAPI_GIP_AcknowledgePacket.exit.i.i:            ; preds = %SendProtocolPacket.exit.i.i.i.i, %.split.loop.exit.i.i.i.i.i.i
-  %280 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
+  %281 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HIDAPI_GIP_ProcessData.exit
 
-281:                                              ; preds = %HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i, %260
-  br i1 %.not.i.i33, label %296, label %282
+282:                                              ; preds = %HIDAPI_GIP_AcknowledgePacket.exit.thread.i.i, %261
+  br i1 %.not.i.i32, label %297, label %283
 
-282:                                              ; preds = %281
-  %283 = load ptr, ptr %26, align 8
-  %.not.i24.i.i = icmp eq ptr %283, null
-  br i1 %.not.i24.i.i, label %HIDAPI_GIP_ProcessData.exit, label %284
+283:                                              ; preds = %282
+  %284 = load ptr, ptr %26, align 8
+  %.not.i24.i.i = icmp eq ptr %284, null
+  br i1 %.not.i24.i.i, label %HIDAPI_GIP_ProcessData.exit, label %285
 
-284:                                              ; preds = %282
-  %285 = add i32 %261, %250
-  %286 = load i32, ptr %27, align 8
-  %287 = icmp ugt i32 %285, %286
-  br i1 %287, label %HIDAPI_GIP_ProcessData.exit, label %288
+285:                                              ; preds = %283
+  %286 = add i32 %262, %251
+  %287 = load i32, ptr %27, align 8
+  %288 = icmp ugt i32 %286, %287
+  br i1 %288, label %HIDAPI_GIP_ProcessData.exit, label %289
 
-288:                                              ; preds = %284
-  %.not19.i.i.i = icmp eq i32 %250, 0
-  br i1 %.not19.i.i.i, label %293, label %289
+289:                                              ; preds = %285
+  %.not19.i.i.i = icmp eq i32 %251, 0
+  br i1 %.not19.i.i.i, label %294, label %290
 
-289:                                              ; preds = %288
-  %290 = zext nneg i32 %261 to i64
-  %291 = getelementptr inbounds nuw i8, ptr %283, i64 %290
-  %292 = zext i32 %250 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %291, ptr nonnull readonly align 1 %252, i64 %292, i1 false)
-  br label %297
+290:                                              ; preds = %289
+  %291 = zext nneg i32 %262 to i64
+  %292 = getelementptr inbounds nuw i8, ptr %284, i64 %291
+  %293 = zext i32 %251 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %253, i64 %293, i1 false)
+  br label %298
 
-293:                                              ; preds = %288
-  call fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %16, ptr noundef nonnull %8, ptr noundef nonnull readonly %5, ptr noundef %283, i32 noundef %286)
-  %294 = load ptr, ptr %26, align 8
-  %.not.i.i26.i.i = icmp eq ptr %294, null
-  br i1 %.not.i.i26.i.i, label %297, label %295
+294:                                              ; preds = %289
+  call fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %16, ptr noundef nonnull %8, ptr noundef nonnull readonly %5, ptr noundef %284, i32 noundef %287)
+  %295 = load ptr, ptr %26, align 8
+  %.not.i.i26.i.i = icmp eq ptr %295, null
+  br i1 %.not.i.i26.i.i, label %298, label %296
 
-295:                                              ; preds = %293
-  call void @SDL_free_REAL(ptr noundef nonnull %294) #9
+296:                                              ; preds = %294
+  call void @SDL_free_REAL(ptr noundef nonnull %295) #9
   store ptr null, ptr %26, align 8
   store i32 0, ptr %27, align 8
-  br label %297
+  br label %298
 
-296:                                              ; preds = %281
-  call fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %16, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %252, i32 noundef %250)
-  br label %297
+297:                                              ; preds = %282
+  call fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %16, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %253, i32 noundef %251)
+  br label %298
 
-297:                                              ; preds = %296, %295, %293, %289
-  %298 = add i32 %250, %.0.i.i34
-  %299 = zext i32 %298 to i64
-  %300 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 %299
-  %301 = sub i32 %.01524.i, %298
-  %302 = icmp slt i32 %301, 4
-  br i1 %302, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i, !llvm.loop !7
+298:                                              ; preds = %297, %296, %294, %290
+  %299 = add i32 %251, %.0.i.i33
+  %300 = zext i32 %299 to i64
+  %301 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 %300
+  %302 = sub i32 %.01524.i, %299
+  %303 = icmp slt i32 %302, 4
+  br i1 %303, label %HIDAPI_GIP_ProcessData.exit, label %.lr.ph.i, !llvm.loop !7
 
-HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, %282, %284, %297, %208, %HIDAPI_GIP_AcknowledgePacket.exit.i.i
+HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i, %283, %285, %298, %209, %HIDAPI_GIP_AcknowledgePacket.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %303
+  br label %304
 
-303:                                              ; preds = %198, %switch.lookup76, %59, %HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit, %197, %203, %57, %HIDAPI_GIP_ProcessData.exit
-  %304 = load ptr, ptr %17, align 8
-  %305 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %304, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #9
-  %306 = icmp sgt i32 %305, 0
-  br i1 %306, label %53, label %._crit_edge, !llvm.loop !8
+304:                                              ; preds = %198, %204, %59, %HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit, %197, %203, %57, %HIDAPI_GIP_ProcessData.exit
+  %305 = load ptr, ptr %17, align 8
+  %306 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %305, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #9
+  %307 = icmp sgt i32 %306, 0
+  br i1 %307, label %53, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %303, %12
-  %.lcssa44 = phi i32 [ %19, %12 ], [ %305, %303 ]
-  %307 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %308 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %309 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %310 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %311 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %312 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %313 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %314 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %315 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %.pre.i35 = load i32, ptr %307, align 4
-  br label %316
+._crit_edge:                                      ; preds = %304, %12
+  %.lcssa43 = phi i32 [ %19, %12 ], [ %306, %304 ]
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %309 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %310 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %312 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %313 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 5
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %316 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %.pre.i34 = load i32, ptr %308, align 4
+  br label %317
 
-316:                                              ; preds = %381, %._crit_edge
-  %317 = phi i32 [ %382, %381 ], [ %.pre.i35, %._crit_edge ]
-  switch i32 %317, label %381 [
-    i32 0, label %318
-    i32 1, label %326
-    i32 2, label %330
-    i32 3, label %377
+317:                                              ; preds = %382, %._crit_edge
+  %318 = phi i32 [ %383, %382 ], [ %.pre.i34, %._crit_edge ]
+  switch i32 %318, label %382 [
+    i32 0, label %319
+    i32 1, label %327
+    i32 2, label %331
+    i32 3, label %378
   ]
 
-318:                                              ; preds = %316
+319:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 8196, ptr %3, align 4
-  %319 = load i8, ptr %311, align 8
-  %320 = add i8 %319, 1
-  %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %320, i8 1)
-  store i8 %spec.select.i.i.i, ptr %311, align 8
-  store i8 %spec.select.i.i.i, ptr %315, align 2
-  %321 = call i64 @SDL_GetTicks_REAL() #9
-  store i64 %321, ptr %308, align 8
-  %322 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %322, label %SendProtocolPacket.exit.i.i, label %SendProtocolPacket.exit.thread.i.i
+  %320 = load i8, ptr %312, align 8
+  %321 = add i8 %320, 1
+  %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %321, i8 1)
+  store i8 %spec.select.i.i.i, ptr %312, align 8
+  store i8 %spec.select.i.i.i, ptr %316, align 2
+  %322 = call i64 @SDL_GetTicks_REAL() #9
+  store i64 %322, ptr %309, align 8
+  %323 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %323, label %SendProtocolPacket.exit.i.i, label %SendProtocolPacket.exit.thread.i.i
 
-SendProtocolPacket.exit.i.i:                      ; preds = %318
-  %323 = load ptr, ptr %8, align 8
-  %324 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %323, ptr noundef nonnull %3, i32 noundef 4) #9
-  %.not.i.i.i38 = icmp eq i32 %324, 4
-  br i1 %.not.i.i.i38, label %SendIdentificationRequest.exit.i, label %SendProtocolPacket.exit.thread.i.i
+SendProtocolPacket.exit.i.i:                      ; preds = %319
+  %324 = load ptr, ptr %8, align 8
+  %325 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %324, ptr noundef nonnull %3, i32 noundef 4) #9
+  %.not.i.i.i37 = icmp eq i32 %325, 4
+  br i1 %.not.i.i.i37, label %SendIdentificationRequest.exit.i, label %SendProtocolPacket.exit.thread.i.i
 
-SendProtocolPacket.exit.thread.i.i:               ; preds = %SendProtocolPacket.exit.i.i, %318
-  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
+SendProtocolPacket.exit.thread.i.i:               ; preds = %SendProtocolPacket.exit.i.i, %319
+  %326 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
   br label %SendIdentificationRequest.exit.i
 
 SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.exit.thread.i.i, %SendProtocolPacket.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split.i
 
-326:                                              ; preds = %316
-  %327 = call i64 @SDL_GetTicks_REAL() #9
-  %328 = load i64, ptr %308, align 8
-  %329 = add i64 %328, 100
-  %.not11.i = icmp ult i64 %327, %329
-  br i1 %.not11.i, label %381, label %.sink.split.i
+327:                                              ; preds = %317
+  %328 = call i64 @SDL_GetTicks_REAL() #9
+  %329 = load i64, ptr %309, align 8
+  %330 = add i64 %329, 100
+  %.not11.i = icmp ult i64 %328, %330
+  br i1 %.not11.i, label %382, label %.sink.split.i
 
-330:                                              ; preds = %316
-  %331 = load i16, ptr %309, align 8
-  %332 = load i16, ptr %310, align 2
+331:                                              ; preds = %317
+  %332 = load i16, ptr %310, align 8
+  %333 = load i16, ptr %311, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %333
+  br label %334
 
-333:                                              ; preds = %375, %330
-  %.02134.i.i = phi i64 [ 0, %330 ], [ %376, %375 ]
-  %334 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02134.i.i
-  %335 = add nsw i64 %.02134.i.i, -6
-  %.not.i.i37 = icmp ult i64 %335, -3
-  br i1 %.not.i.i37, label %.thread.i.i, label %336
+334:                                              ; preds = %376, %331
+  %.02134.i.i = phi i64 [ 0, %331 ], [ %377, %376 ]
+  %335 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02134.i.i
+  %336 = add nsw i64 %.02134.i.i, -6
+  %.not.i.i36 = icmp ult i64 %336, -3
+  br i1 %.not.i.i36, label %.thread.i.i, label %337
 
-336:                                              ; preds = %333
-  %337 = load i16, ptr %334, align 8
-  %.not24.i.i = icmp eq i16 %331, %337
-  br i1 %.not24.i.i, label %338, label %375
+337:                                              ; preds = %334
+  %338 = load i16, ptr %335, align 8
+  %.not24.i.i = icmp eq i16 %332, %338
+  br i1 %.not24.i.i, label %339, label %376
 
-338:                                              ; preds = %336
-  %339 = getelementptr inbounds nuw i8, ptr %334, i64 2
-  %340 = load i16, ptr %339, align 2
-  %.not26.i.i = icmp eq i16 %332, %340
-  br i1 %.not26.i.i, label %.thread.i.i, label %375
+339:                                              ; preds = %337
+  %340 = getelementptr inbounds nuw i8, ptr %335, i64 2
+  %341 = load i16, ptr %340, align 2
+  %.not26.i.i = icmp eq i16 %333, %341
+  br i1 %.not26.i.i, label %.thread.i.i, label %376
 
-.thread.i.i:                                      ; preds = %338, %333
-  %341 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %344 = load i32, ptr %343, align 8
-  %345 = sext i32 %344 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %342, i64 %345, i1 false)
-  %346 = load i8, ptr %311, align 8
-  %347 = add i8 %346, 1
-  %spec.select.i.i13.i = call i8 @llvm.umax.i8(i8 %347, i8 1)
-  store i8 %spec.select.i.i13.i, ptr %311, align 8
-  store i8 %spec.select.i.i13.i, ptr %312, align 2
-  %348 = load i8, ptr %2, align 16
-  %349 = icmp eq i8 %348, 10
-  br i1 %349, label %350, label %365
+.thread.i.i:                                      ; preds = %339, %334
+  %342 = getelementptr inbounds nuw i8, ptr %335, i64 8
+  %343 = load ptr, ptr %342, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %335, i64 16
+  %345 = load i32, ptr %344, align 8
+  %346 = sext i32 %345 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 1 %343, i64 %346, i1 false)
+  %347 = load i8, ptr %312, align 8
+  %348 = add i8 %347, 1
+  %spec.select.i.i13.i = call i8 @llvm.umax.i8(i8 %348, i8 1)
+  store i8 %spec.select.i.i13.i, ptr %312, align 8
+  store i8 %spec.select.i.i13.i, ptr %313, align 2
+  %349 = load i8, ptr %2, align 16
+  %350 = icmp eq i8 %349, 10
+  br i1 %350, label %351, label %366
 
-350:                                              ; preds = %.thread.i.i
-  %351 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.6) #9
-  %.not.i.i16.i = icmp eq ptr %351, null
-  br i1 %.not.i.i16.i, label %GetHomeLEDBrightness.exit.i.i, label %352
+351:                                              ; preds = %.thread.i.i
+  %352 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.6) #9
+  %.not.i.i16.i = icmp eq ptr %352, null
+  br i1 %.not.i.i16.i, label %GetHomeLEDBrightness.exit.i.i, label %353
 
-352:                                              ; preds = %350
-  %353 = load i8, ptr %351, align 1
-  %.not6.i.i.i = icmp eq i8 %353, 0
-  br i1 %.not6.i.i.i, label %GetHomeLEDBrightness.exit.i.i, label %354
+353:                                              ; preds = %351
+  %354 = load i8, ptr %352, align 1
+  %.not6.i.i.i = icmp eq i8 %354, 0
+  br i1 %.not6.i.i.i, label %GetHomeLEDBrightness.exit.i.i, label %355
 
-354:                                              ; preds = %352
-  %355 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %351, i32 noundef 46) #9
-  %.not7.i.i.i = icmp eq ptr %355, null
-  br i1 %.not7.i.i.i, label %360, label %356
+355:                                              ; preds = %353
+  %356 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %352, i32 noundef 46) #9
+  %.not7.i.i.i = icmp eq ptr %356, null
+  br i1 %.not7.i.i.i, label %361, label %357
 
-356:                                              ; preds = %354
-  %357 = call double @SDL_atof_REAL(ptr noundef nonnull %351) #9
-  %358 = fmul double %357, 5.000000e+01
-  %359 = fptosi double %358 to i32
+357:                                              ; preds = %355
+  %358 = call double @SDL_atof_REAL(ptr noundef nonnull %352) #9
+  %359 = fmul double %358, 5.000000e+01
+  %360 = fptosi double %359 to i32
   br label %GetHomeLEDBrightness.exit.i.i
 
-360:                                              ; preds = %354
-  %361 = call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %351, i1 noundef zeroext true) #9
-  %spec.select.i27.i.i = select i1 %361, i32 20, i32 0
+361:                                              ; preds = %355
+  %362 = call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %352, i1 noundef zeroext true) #9
+  %spec.select.i27.i.i = select i1 %362, i32 20, i32 0
   br label %GetHomeLEDBrightness.exit.i.i
 
-GetHomeLEDBrightness.exit.i.i:                    ; preds = %360, %356, %352, %350
-  %.0.i.i.i = phi i32 [ %359, %356 ], [ 20, %352 ], [ 20, %350 ], [ %spec.select.i27.i.i, %360 ]
-  %362 = icmp sgt i32 %.0.i.i.i, 0
-  %363 = zext i1 %362 to i8
-  store i8 %363, ptr %313, align 1
-  %364 = trunc i32 %.0.i.i.i to i8
-  store i8 %364, ptr %314, align 2
-  br label %365
+GetHomeLEDBrightness.exit.i.i:                    ; preds = %361, %357, %353, %351
+  %.0.i.i.i = phi i32 [ %360, %357 ], [ 20, %353 ], [ 20, %351 ], [ %spec.select.i27.i.i, %361 ]
+  %363 = icmp sgt i32 %.0.i.i.i, 0
+  %364 = zext i1 %363 to i8
+  store i8 %364, ptr %314, align 1
+  %365 = trunc i32 %.0.i.i.i to i8
+  store i8 %365, ptr %315, align 2
+  br label %366
 
-365:                                              ; preds = %GetHomeLEDBrightness.exit.i.i, %.thread.i.i
-  %366 = call i64 @SDL_GetTicks_REAL() #9
-  store i64 %366, ptr %308, align 8
-  %367 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %367, label %SendProtocolPacket.exit.i15.i, label %SendProtocolPacket.exit.thread.i14.i
+366:                                              ; preds = %GetHomeLEDBrightness.exit.i.i, %.thread.i.i
+  %367 = call i64 @SDL_GetTicks_REAL() #9
+  store i64 %367, ptr %309, align 8
+  %368 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %368, label %SendProtocolPacket.exit.i15.i, label %SendProtocolPacket.exit.thread.i14.i
 
-SendProtocolPacket.exit.i15.i:                    ; preds = %365
-  %368 = load ptr, ptr %8, align 8
-  %369 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %368, ptr noundef nonnull %2, i32 noundef %344) #9
-  %.not.i29.i.i = icmp eq i32 %369, %344
-  br i1 %.not.i29.i.i, label %370, label %SendProtocolPacket.exit.thread.i14.i
+SendProtocolPacket.exit.i15.i:                    ; preds = %366
+  %369 = load ptr, ptr %8, align 8
+  %370 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %369, ptr noundef nonnull %2, i32 noundef %345) #9
+  %.not.i29.i.i = icmp eq i32 %370, %345
+  br i1 %.not.i29.i.i, label %371, label %SendProtocolPacket.exit.thread.i14.i
 
-370:                                              ; preds = %SendProtocolPacket.exit.i15.i
-  %371 = add nsw i64 %.02134.i.i, -3
-  %372 = icmp ult i64 %371, 3
-  br i1 %372, label %373, label %375
+371:                                              ; preds = %SendProtocolPacket.exit.i15.i
+  %372 = add nsw i64 %.02134.i.i, -3
+  %373 = icmp ult i64 %372, 3
+  br i1 %373, label %374, label %376
 
-373:                                              ; preds = %370
+374:                                              ; preds = %371
   call void @SDL_Delay_REAL(i32 noundef 10) #9
-  br label %375
+  br label %376
 
-SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.exit.i15.i, %365
-  %374 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
+SendProtocolPacket.exit.thread.i14.i:             ; preds = %SendProtocolPacket.exit.i15.i, %366
+  %375 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
   br label %SendControllerStartup.exit.i
 
-375:                                              ; preds = %373, %370, %338, %336
-  %376 = add nuw nsw i64 %.02134.i.i, 1
-  %exitcond.i.i = icmp eq i64 %376, 7
-  br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %333, !llvm.loop !9
+376:                                              ; preds = %374, %371, %339, %337
+  %377 = add nuw nsw i64 %.02134.i.i, 1
+  %exitcond.i.i = icmp eq i64 %377, 7
+  br i1 %exitcond.i.i, label %SendControllerStartup.exit.i, label %334, !llvm.loop !9
 
-SendControllerStartup.exit.i:                     ; preds = %375, %SendProtocolPacket.exit.thread.i14.i
+SendControllerStartup.exit.i:                     ; preds = %376, %SendProtocolPacket.exit.thread.i14.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.sink.split.i
 
-377:                                              ; preds = %316
-  %378 = call i64 @SDL_GetTicks_REAL() #9
-  %379 = load i64, ptr %308, align 8
-  %380 = add i64 %379, 50
-  %.not.i36 = icmp ult i64 %378, %380
-  br i1 %.not.i36, label %381, label %.sink.split.i
+378:                                              ; preds = %317
+  %379 = call i64 @SDL_GetTicks_REAL() #9
+  %380 = load i64, ptr %309, align 8
+  %381 = add i64 %380, 50
+  %.not.i35 = icmp ult i64 %379, %381
+  br i1 %.not.i35, label %382, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %377, %SendControllerStartup.exit.i, %326, %SendIdentificationRequest.exit.i
-  %.sink.i = phi i32 [ 1, %SendIdentificationRequest.exit.i ], [ 3, %SendControllerStartup.exit.i ], [ 2, %326 ], [ 4, %377 ]
-  store i32 %.sink.i, ptr %307, align 4
-  br label %381
+.sink.split.i:                                    ; preds = %378, %SendControllerStartup.exit.i, %327, %SendIdentificationRequest.exit.i
+  %.sink.i = phi i32 [ 1, %SendIdentificationRequest.exit.i ], [ 3, %SendControllerStartup.exit.i ], [ 2, %327 ], [ 4, %378 ]
+  store i32 %.sink.i, ptr %308, align 4
+  br label %382
 
-381:                                              ; preds = %.sink.split.i, %377, %326, %316
-  %382 = load i32, ptr %307, align 4
-  %.not12.i = icmp eq i32 %382, %317
-  br i1 %.not12.i, label %HIDAPI_DriverXboxOne_UpdateInitState.exit, label %316, !llvm.loop !10
+382:                                              ; preds = %.sink.split.i, %378, %327, %317
+  %383 = load i32, ptr %308, align 4
+  %.not12.i = icmp eq i32 %383, %318
+  br i1 %.not12.i, label %HIDAPI_DriverXboxOne_UpdateInitState.exit, label %317, !llvm.loop !10
 
-HIDAPI_DriverXboxOne_UpdateInitState.exit:        ; preds = %381
-  %383 = call fastcc zeroext i1 @HIDAPI_DriverXboxOne_UpdateRumble(ptr noundef nonnull %8)
-  %384 = icmp slt i32 %.lcssa44, 0
-  br i1 %384, label %385, label %388
+HIDAPI_DriverXboxOne_UpdateInitState.exit:        ; preds = %382
+  %384 = call fastcc zeroext i1 @HIDAPI_DriverXboxOne_UpdateRumble(ptr noundef nonnull %8)
+  %385 = icmp slt i32 %.lcssa43, 0
+  br i1 %385, label %386, label %389
 
-385:                                              ; preds = %HIDAPI_DriverXboxOne_UpdateInitState.exit
-  %386 = load ptr, ptr %13, align 8
-  %387 = load i32, ptr %386, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef %0, i32 noundef %387) #9
-  br label %388
+386:                                              ; preds = %HIDAPI_DriverXboxOne_UpdateInitState.exit
+  %387 = load ptr, ptr %13, align 8
+  %388 = load i32, ptr %387, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef %0, i32 noundef %388) #9
+  br label %389
 
-388:                                              ; preds = %385, %HIDAPI_DriverXboxOne_UpdateInitState.exit
-  %389 = icmp eq i32 %.lcssa44, 0
-  br label %390
+389:                                              ; preds = %386, %HIDAPI_DriverXboxOne_UpdateInitState.exit
+  %390 = icmp eq i32 %.lcssa43, 0
+  br label %391
 
-390:                                              ; preds = %1, %388
-  %.0 = phi i1 [ %389, %388 ], [ false, %1 ]
+391:                                              ; preds = %1, %389
+  %.0 = phi i1 [ %390, %389 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

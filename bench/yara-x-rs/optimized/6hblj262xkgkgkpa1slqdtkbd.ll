@@ -1115,58 +1115,58 @@ _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbf
   %19 = load i64, ptr %6, align 8, !noundef !14
   %20 = sub i64 %19, %.val
   %21 = icmp ult i64 %20, %18
-  br i1 %21, label %"_ZN78_$LT$yara_x_parser..tokenizer..tokens..Token$u20$as$u20$core..clone..Clone$GT$5clone17hafc3c981c29ed04cE.exit", label %51
+  br i1 %21, label %22, label %52
 
-"_ZN78_$LT$yara_x_parser..tokenizer..tokens..Token$u20$as$u20$core..clone..Clone$GT$5clone17hafc3c981c29ed04cE.exit": ; preds = %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %23 = load i64, ptr %22, align 8, !alias.scope !91, !noundef !14
-  %24 = add i64 %23, %20
-  %25 = load i64, ptr %9, align 8, !range !81, !alias.scope !91, !noundef !14
-  %.not.i2 = icmp ult i64 %24, %25
-  %26 = select i1 %.not.i2, i64 0, i64 %25
-  %.sroa.01.0.i = sub nuw i64 %24, %26
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %28 = load ptr, ptr %27, align 8, !alias.scope !91, !nonnull !14, !noundef !14
-  %29 = getelementptr inbounds nuw { i8, [11 x i8] }, ptr %28, i64 %.sroa.01.0.i
-  %30 = load i8, ptr %29, align 4, !range !94, !alias.scope !95, !noalias !98, !noundef !14
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %.val162.i = load i32, ptr %31, align 4, !alias.scope !100, !noalias !98, !noundef !14
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.val163.i = load i32, ptr %32, align 4, !alias.scope !103, !noalias !98, !noundef !14
-  store i8 %30, ptr %0, align 4
+22:                                               ; preds = %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %24 = load i64, ptr %23, align 8, !alias.scope !91, !noundef !14
+  %25 = add i64 %24, %20
+  %26 = load i64, ptr %9, align 8, !range !81, !alias.scope !91, !noundef !14
+  %.not.i2 = icmp ult i64 %25, %26
+  %27 = select i1 %.not.i2, i64 0, i64 %26
+  %.sroa.01.0.i = sub nuw i64 %25, %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %29 = load ptr, ptr %28, align 8, !alias.scope !91, !nonnull !14, !noundef !14
+  %30 = getelementptr inbounds nuw { i8, [11 x i8] }, ptr %29, i64 %.sroa.01.0.i
+  %31 = load i8, ptr %30, align 4, !range !94, !alias.scope !95, !noalias !98, !noundef !14
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %.val162.i = load i32, ptr %32, align 4, !alias.scope !100, !noalias !98, !noundef !14
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.val163.i = load i32, ptr %33, align 4, !alias.scope !103, !noalias !98, !noundef !14
+  store i8 %31, ptr %0, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.val162.i, ptr %.sroa.46.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.val163.i, ptr %.sroa.5.0..sroa_idx, align 4
-  %33 = add i64 %19, 1
-  store i64 %33, ptr %6, align 8
+  %34 = add i64 %19, 1
+  store i64 %34, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %35 = load i64, ptr %34, align 8, !alias.scope !109, !noundef !14
-  %.not.i3 = icmp eq i64 %35, 0
-  br i1 %.not.i3, label %47, label %36
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %36 = load i64, ptr %35, align 8, !alias.scope !109, !noundef !14
+  %.not.i3 = icmp eq i64 %36, 0
+  br i1 %.not.i3, label %48, label %37
 
-36:                                               ; preds = %"_ZN78_$LT$yara_x_parser..tokenizer..tokens..Token$u20$as$u20$core..clone..Clone$GT$5clone17hafc3c981c29ed04cE.exit"
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %39 = load i64, ptr %38, align 8, !alias.scope !109, !noundef !14
-  %40 = load i64, ptr %37, align 8, !range !81, !alias.scope !109, !noundef !14
-  %.not.i.i = icmp ult i64 %39, %40
-  %41 = select i1 %.not.i.i, i64 0, i64 %40
-  %.sroa.01.0.i.i = sub nuw i64 %39, %41
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %43 = load ptr, ptr %42, align 8, !alias.scope !109, !nonnull !14, !noundef !14
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.sroa.01.0.i.i
-  %45 = load i64, ptr %44, align 8, !noalias !106, !noundef !14
-  %.not6.i = icmp ult i64 %45, %.val
-  br i1 %.not6.i, label %46, label %47, !prof !27
+37:                                               ; preds = %22
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %40 = load i64, ptr %39, align 8, !alias.scope !109, !noundef !14
+  %41 = load i64, ptr %38, align 8, !range !81, !alias.scope !109, !noundef !14
+  %.not.i.i = icmp ult i64 %40, %41
+  %42 = select i1 %.not.i.i, i64 0, i64 %41
+  %.sroa.01.0.i.i = sub nuw i64 %40, %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %44 = load ptr, ptr %43, align 8, !alias.scope !109, !nonnull !14, !noundef !14
+  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.sroa.01.0.i.i
+  %46 = load i64, ptr %45, align 8, !noalias !106, !noundef !14
+  %.not6.i = icmp ult i64 %46, %.val
+  br i1 %.not6.i, label %47, label %48, !prof !27
 
-46:                                               ; preds = %36
+47:                                               ; preds = %37
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.684cb7f4bb695f7dcb9f12bd404f35b8.79, i64 noundef 58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.684cb7f4bb695f7dcb9f12bd404f35b8.80) #18, !noalias !106
   unreachable
 
-47:                                               ; preds = %36, %"_ZN78_$LT$yara_x_parser..tokenizer..tokens..Token$u20$as$u20$core..clone..Clone$GT$5clone17hafc3c981c29ed04cE.exit"
-  %.pn = phi i64 [ %33, %"_ZN78_$LT$yara_x_parser..tokenizer..tokens..Token$u20$as$u20$core..clone..Clone$GT$5clone17hafc3c981c29ed04cE.exit" ], [ %45, %36 ]
+48:                                               ; preds = %37, %22
+  %.pn = phi i64 [ %34, %22 ], [ %46, %37 ]
   %.sroa.04.0.i = sub i64 %.pn, %.val
   %.not11.i = icmp eq i64 %.pn, %.val
   br i1 %.not11.i, label %_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit, label %.lr.ph.i4
@@ -1175,26 +1175,26 @@ _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbf
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !106
   br label %_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit
 
-.lr.ph.i4:                                        ; preds = %47, %.lr.ph.i4
-  %.sroa.02.010.i = phi i64 [ %48, %.lr.ph.i4 ], [ 0, %47 ]
-  %48 = add nuw i64 %.sroa.02.010.i, 1
+.lr.ph.i4:                                        ; preds = %48, %.lr.ph.i4
+  %.sroa.02.010.i = phi i64 [ %49, %.lr.ph.i4 ], [ 0, %48 ]
+  %49 = add nuw i64 %.sroa.02.010.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !106
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h95be12d54c447e6bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !106
-  %exitcond.not.i = icmp eq i64 %48, %.sroa.04.0.i
+  %exitcond.not.i = icmp eq i64 %49, %.sroa.04.0.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i4
 
-_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit: ; preds = %47, %._crit_edge.loopexit.i
-  %49 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %.val, %47 ]
-  %50 = add i64 %49, %.sroa.04.0.i
-  store i64 %50, ptr %8, align 8, !alias.scope !106
-  br label %52
+_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit: ; preds = %48, %._crit_edge.loopexit.i
+  %50 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %.val, %48 ]
+  %51 = add i64 %50, %.sroa.04.0.i
+  store i64 %51, ptr %8, align 8, !alias.scope !106
+  br label %53
 
-51:                                               ; preds = %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
+52:                                               ; preds = %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit
   store i8 82, ptr %0, align 4
-  br label %52
+  br label %53
 
-52:                                               ; preds = %51, %_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit
+53:                                               ; preds = %52, %_ZN13yara_x_parser6parser12token_stream11TokenStream5purge17hab224821e5103616E.exit
   ret void
 }
 

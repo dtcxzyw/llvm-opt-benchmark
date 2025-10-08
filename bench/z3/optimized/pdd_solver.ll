@@ -3690,21 +3690,21 @@ _Z7deallocIN2dd6solver8equationEEvPT_.exit:       ; preds = %2, %_ZN2dd6solver8e
 define hidden void @_ZN2dd6solver13push_equationENS0_8eq_stateERNS0_8equationE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %2) local_unnamed_addr #5 align 2 {
   store i32 %1, ptr %2, align 8, !tbaa !95
   %4 = icmp ult i32 %1, 3
-  br i1 %4, label %switch.lookup, label %5
+  br i1 %4, label %switch.lookup.i, label %5
 
 5:                                                ; preds = %3
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 433, ptr noundef nonnull @.str.10)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit
 
-switch.lookup:                                    ; preds = %3
+switch.lookup.i:                                  ; preds = %3
   %6 = shl nuw nsw i32 %1, 3
-  %narrow = add nuw nsw i32 %6, 136
-  %switch.offset = zext nneg i32 %narrow to i64
+  %narrow.i = add nuw nsw i32 %6, 136
+  %switch.offset.i = zext nneg i32 %narrow.i to i64
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit
 
-_ZN2dd6solver9get_queueERKNS0_8equationE.exit:    ; preds = %switch.lookup, %5
-  %.sink.i = phi i64 [ 152, %5 ], [ %switch.offset, %switch.lookup ]
+_ZN2dd6solver9get_queueERKNS0_8equationE.exit:    ; preds = %5, %switch.lookup.i
+  %.sink.i = phi i64 [ 152, %5 ], [ %switch.offset.i, %switch.lookup.i ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = icmp eq ptr %8, null
@@ -4393,21 +4393,21 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %6
 47:                                               ; preds = %._crit_edge
   %48 = load i32, ptr %.121, align 8, !tbaa !95
   %49 = icmp ult i32 %48, 3
-  br i1 %49, label %switch.lookup, label %50
+  br i1 %49, label %switch.lookup.i.i.i, label %50
 
 50:                                               ; preds = %47
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 433, ptr noundef nonnull @.str.10)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i
 
-switch.lookup:                                    ; preds = %47
+switch.lookup.i.i.i:                              ; preds = %47
   %51 = shl nuw nsw i32 %48, 3
-  %narrow = add nuw nsw i32 %51, 136
-  %switch.offset = zext nneg i32 %narrow to i64
+  %narrow.i.i.i = add nuw nsw i32 %51, 136
+  %switch.offset.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i
 
-_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i: ; preds = %switch.lookup, %50
-  %.sink.i.i.i = phi i64 [ 152, %50 ], [ %switch.offset, %switch.lookup ]
+_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i: ; preds = %switch.lookup.i.i.i, %50
+  %.sink.i.i.i = phi i64 [ 152, %50 ], [ %switch.offset.i.i.i, %switch.lookup.i.i.i ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.121, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !99
@@ -5268,21 +5268,21 @@ switch.lookup:                                    ; preds = %2
 define hidden void @_ZN2dd6solver12del_equationEPNS0_8equationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !95
   %4 = icmp ult i32 %3, 3
-  br i1 %4, label %switch.lookup, label %5
+  br i1 %4, label %switch.lookup.i.i.i, label %5
 
 5:                                                ; preds = %2
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 433, ptr noundef nonnull @.str.10)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i
 
-switch.lookup:                                    ; preds = %2
+switch.lookup.i.i.i:                              ; preds = %2
   %6 = shl nuw nsw i32 %3, 3
-  %narrow = add nuw nsw i32 %6, 136
-  %switch.offset = zext nneg i32 %narrow to i64
+  %narrow.i.i.i = add nuw nsw i32 %6, 136
+  %switch.offset.i.i.i = zext nneg i32 %narrow.i.i.i to i64
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i
 
-_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i: ; preds = %switch.lookup, %5
-  %.sink.i.i.i = phi i64 [ 152, %5 ], [ %switch.offset, %switch.lookup ]
+_ZN2dd6solver9get_queueERKNS0_8equationE.exit.i.i: ; preds = %switch.lookup.i.i.i, %5
+  %.sink.i.i.i = phi i64 [ 152, %5 ], [ %switch.offset.i.i.i, %switch.lookup.i.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !99
@@ -5350,21 +5350,21 @@ _ZN2dd6solver6retireEPNS0_8equationE.exit:        ; preds = %22, %35
 define hidden void @_ZN2dd6solver12pop_equationERNS0_8equationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %1, align 8, !tbaa !95
   %4 = icmp ult i32 %3, 3
-  br i1 %4, label %switch.lookup, label %5
+  br i1 %4, label %switch.lookup.i, label %5
 
 5:                                                ; preds = %2
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 433, ptr noundef nonnull @.str.10)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit
 
-switch.lookup:                                    ; preds = %2
+switch.lookup.i:                                  ; preds = %2
   %6 = shl nuw nsw i32 %3, 3
-  %narrow = add nuw nsw i32 %6, 136
-  %switch.offset = zext nneg i32 %narrow to i64
+  %narrow.i = add nuw nsw i32 %6, 136
+  %switch.offset.i = zext nneg i32 %narrow.i to i64
   br label %_ZN2dd6solver9get_queueERKNS0_8equationE.exit
 
-_ZN2dd6solver9get_queueERKNS0_8equationE.exit:    ; preds = %switch.lookup, %5
-  %.sink.i = phi i64 [ 152, %5 ], [ %switch.offset, %switch.lookup ]
+_ZN2dd6solver9get_queueERKNS0_8equationE.exit:    ; preds = %5, %switch.lookup.i
+  %.sink.i = phi i64 [ 152, %5 ], [ %switch.offset.i, %switch.lookup.i ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !99

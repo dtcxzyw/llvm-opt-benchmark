@@ -15874,7 +15874,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %40 = add nuw nsw i64 %.sroa.7.0140156, 1
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.7.0140156
   %42 = load i8, ptr %41, align 1, !noalias !3444, !noundef !4
-  %spec.select = call i8 @llvm.umin.i8(i8 %42, i8 3)
+  %spec.select.i.i = call i8 @llvm.umin.i8(i8 %42, i8 3)
   %43 = load i64, ptr %3, align 8, !alias.scope !3451, !noundef !4
   %44 = icmp eq i64 %39, %43
   br i1 %44, label %46, label %47
@@ -15894,7 +15894,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %48 = phi i64 [ %.pre.i, %.noexc104 ], [ %39, %.lr.ph ]
   %49 = load ptr, ptr %34, align 8, !alias.scope !3451, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds { i8, i8 }, ptr %49, i64 %48
-  store i8 %spec.select, ptr %50, align 1
+  store i8 %spec.select.i.i, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 %42, ptr %51, align 1
   %52 = load i64, ptr %35, align 8, !alias.scope !3451, !noundef !4

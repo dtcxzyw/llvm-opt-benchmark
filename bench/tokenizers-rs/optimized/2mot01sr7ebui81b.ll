@@ -11369,10 +11369,9 @@ define hidden void @_ZN5serde2de7Visitor14visit_byte_buf17h1ab334efd1f11b7eE(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h5517f29dd71ddc3dE(ptr noalias noundef writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #22 {
-"_ZN215_$LT$tokenizers..tokenizer..added_vocabulary.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..tokenizer..added_vocabulary..AddedToken$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h401504968ae9f377E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 6)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !3097
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 6)
+  store i8 %4, ptr %3, align 1, !alias.scope !3097
   store i8 0, ptr %0, align 8, !alias.scope !3097
   ret void
 }
@@ -32721,11 +32720,10 @@ define noundef zeroext i1 @"_ZN214_$LT$tokenizers..models..wordpiece..trainer.._
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN215_$LT$tokenizers..tokenizer..added_vocabulary.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..tokenizer..added_vocabulary..AddedToken$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h401504968ae9f377E"(ptr noalias noundef writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #22 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 6)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 6)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }

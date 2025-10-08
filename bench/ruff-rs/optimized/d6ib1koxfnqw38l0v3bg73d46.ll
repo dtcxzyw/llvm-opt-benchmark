@@ -45238,592 +45238,592 @@ define void @_ZN11ruff_linter5codes14RuleCodePrefix5rules17hc1781e1eb9afad17E(pt
   %59 = alloca [1 x i8], align 1
   %60 = load i8, ptr %1, align 1, !range !32, !noundef !3
   switch i8 %60, label %default.unreachable19 [
-    i8 0, label %61
-    i8 1, label %64
-    i8 2, label %67
-    i8 3, label %70
-    i8 4, label %73
-    i8 5, label %75
-    i8 6, label %77
-    i8 7, label %79
-    i8 8, label %82
-    i8 9, label %85
-    i8 10, label %87
-    i8 11, label %90
-    i8 12, label %93
-    i8 13, label %95
-    i8 14, label %98
-    i8 15, label %101
-    i8 16, label %102
-    i8 17, label %105
-    i8 18, label %108
-    i8 19, label %111
-    i8 20, label %114
-    i8 21, label %117
-    i8 22, label %120
-    i8 23, label %123
-    i8 24, label %126
-    i8 25, label %129
-    i8 26, label %132
-    i8 27, label %135
-    i8 28, label %138
-    i8 29, label %141
-    i8 30, label %143
-    i8 31, label %145
-    i8 32, label %148
-    i8 33, label %151
-    i8 34, label %154
-    i8 35, label %157
-    i8 36, label %159
-    i8 37, label %162
-    i8 38, label %165
-    i8 39, label %168
-    i8 40, label %171
-    i8 41, label %174
-    i8 42, label %176
-    i8 43, label %179
-    i8 44, label %182
-    i8 45, label %183
-    i8 46, label %186
-    i8 47, label %188
-    i8 48, label %190
-    i8 49, label %193
-    i8 50, label %195
-    i8 51, label %198
-    i8 52, label %200
-    i8 53, label %202
-    i8 54, label %205
-    i8 55, label %207
-    i8 56, label %209
-    i8 57, label %211
-    i8 58, label %213
+    i8 0, label %switch.lookup
+    i8 1, label %switch.lookup56
+    i8 2, label %switch.lookup57
+    i8 3, label %switch.lookup58
+    i8 4, label %69
+    i8 5, label %71
+    i8 6, label %73
+    i8 7, label %switch.lookup59
+    i8 8, label %switch.lookup60
+    i8 9, label %79
+    i8 10, label %switch.lookup61
+    i8 11, label %switch.lookup62
+    i8 12, label %85
+    i8 13, label %switch.lookup63
+    i8 14, label %switch.lookup64
+    i8 15, label %91
+    i8 16, label %switch.lookup65
+    i8 17, label %switch.lookup66
+    i8 18, label %switch.lookup67
+    i8 19, label %switch.lookup68
+    i8 20, label %switch.lookup69
+    i8 21, label %switch.lookup70
+    i8 22, label %switch.lookup71
+    i8 23, label %switch.lookup72
+    i8 24, label %switch.lookup73
+    i8 25, label %switch.lookup74
+    i8 26, label %switch.lookup75
+    i8 27, label %switch.lookup76
+    i8 28, label %116
+    i8 29, label %119
+    i8 30, label %121
+    i8 31, label %switch.lookup77
+    i8 32, label %switch.lookup78
+    i8 33, label %switch.lookup79
+    i8 34, label %switch.lookup80
+    i8 35, label %131
+    i8 36, label %switch.lookup81
+    i8 37, label %switch.lookup82
+    i8 38, label %switch.lookup83
+    i8 39, label %switch.lookup84
+    i8 40, label %switch.lookup85
+    i8 41, label %143
+    i8 42, label %switch.lookup86
+    i8 43, label %switch.lookup87
+    i8 44, label %149
+    i8 45, label %switch.lookup88
+    i8 46, label %152
+    i8 47, label %154
+    i8 48, label %switch.lookup89
+    i8 49, label %158
+    i8 50, label %switch.lookup90
+    i8 51, label %162
+    i8 52, label %164
+    i8 53, label %switch.lookup91
+    i8 54, label %168
+    i8 55, label %170
+    i8 56, label %172
+    i8 57, label %174
+    i8 58, label %176
   ]
 
 default.unreachable19:                            ; preds = %2
   unreachable
 
-61:                                               ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %63 = load i8, ptr %62, align 1, !range !122, !noundef !3
-  store i8 %63, ptr %59, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %62 = load i8, ptr %61, align 1, !range !122, !noundef !3
+  store i8 %62, ptr %59, align 1
   call void @_ZN11ruff_linter5codes7Airflow5rules17he2feed7eff8db55bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  br label %215
+  br label %178
 
-64:                                               ; preds = %2
+switch.lookup56:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %66 = load i8, ptr %65, align 1, !range !33, !noundef !3
-  store i8 %66, ptr %58, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %64 = load i8, ptr %63, align 1, !range !33, !noundef !3
+  store i8 %64, ptr %58, align 1
   call void @_ZN11ruff_linter5codes9Eradicate5rules17h52af751caac1c455E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %215
+  br label %178
 
-67:                                               ; preds = %2
+switch.lookup57:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %69 = load i8, ptr %68, align 1, !range !37, !noundef !3
-  store i8 %69, ptr %57, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %66 = load i8, ptr %65, align 1, !range !37, !noundef !3
+  store i8 %66, ptr %57, align 1
   call void @_ZN11ruff_linter5codes7FastApi5rules17h65f38b022774ef51E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br label %215
+  br label %178
 
-70:                                               ; preds = %2
+switch.lookup58:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %72 = load i8, ptr %71, align 1, !range !123, !noundef !3
-  store i8 %72, ptr %56, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %68 = load i8, ptr %67, align 1, !range !123, !noundef !3
+  store i8 %68, ptr %56, align 1
   call void @_ZN11ruff_linter5codes10Flake820205rules17h300271ae0a4de55fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br label %215
+  br label %178
 
-73:                                               ; preds = %2
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 1
+69:                                               ; preds = %2
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %.val = load i8, ptr %74, align 1, !range !124, !noundef !3
+  %.val = load i8, ptr %70, align 1, !range !124, !noundef !3
   store i8 %.val, ptr %55, align 1
   call void @_ZN11ruff_linter5codes17Flake8Annotations5rules17hc0d47e59bbcc19e4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %215
+  br label %178
 
-75:                                               ; preds = %2
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 1
+71:                                               ; preds = %2
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  %.val1 = load i8, ptr %76, align 1, !range !125, !noundef !3
+  %.val1 = load i8, ptr %72, align 1, !range !125, !noundef !3
   store i8 %.val1, ptr %54, align 1
   call void @_ZN11ruff_linter5codes11Flake8Async5rules17h22d3863b44211184E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %215
+  br label %178
 
-77:                                               ; preds = %2
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 1
+73:                                               ; preds = %2
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %.val2 = load i8, ptr %78, align 1, !range !126, !noundef !3
+  %.val2 = load i8, ptr %74, align 1, !range !126, !noundef !3
   store i8 %.val2, ptr %53, align 1
   call void @_ZN11ruff_linter5codes12Flake8Bandit5rules17hcadf95c1f704fb7fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br label %215
+  br label %178
 
-79:                                               ; preds = %2
+switch.lookup59:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %81 = load i8, ptr %80, align 1, !range !33, !noundef !3
-  store i8 %81, ptr %52, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %76 = load i8, ptr %75, align 1, !range !33, !noundef !3
+  store i8 %76, ptr %52, align 1
   call void @_ZN11ruff_linter5codes17Flake8BlindExcept5rules17h1314f25edfd43df1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  br label %215
+  br label %178
 
-82:                                               ; preds = %2
+switch.lookup60:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %84 = load i8, ptr %83, align 1, !range !37, !noundef !3
-  store i8 %84, ptr %51, align 1
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %78 = load i8, ptr %77, align 1, !range !37, !noundef !3
+  store i8 %78, ptr %51, align 1
   call void @_ZN11ruff_linter5codes17Flake8BooleanTrap5rules17hedd0f0697f3a763eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  br label %215
+  br label %178
 
-85:                                               ; preds = %2
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1
+79:                                               ; preds = %2
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %.val3 = load i8, ptr %86, align 1, !range !127, !noundef !3
+  %.val3 = load i8, ptr %80, align 1, !range !127, !noundef !3
   store i8 %.val3, ptr %50, align 1
   call void @_ZN11ruff_linter5codes13Flake8Bugbear5rules17h39f020a5b68274c9E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  br label %215
+  br label %178
 
-87:                                               ; preds = %2
+switch.lookup61:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %89 = load i8, ptr %88, align 1, !range !47, !noundef !3
-  store i8 %89, ptr %49, align 1
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %82 = load i8, ptr %81, align 1, !range !47, !noundef !3
+  store i8 %82, ptr %49, align 1
   call void @_ZN11ruff_linter5codes14Flake8Builtins5rules17h603d51406079b942E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  br label %215
+  br label %178
 
-90:                                               ; preds = %2
+switch.lookup62:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %92 = load i8, ptr %91, align 1, !range !37, !noundef !3
-  store i8 %92, ptr %48, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %84 = load i8, ptr %83, align 1, !range !37, !noundef !3
+  store i8 %84, ptr %48, align 1
   call void @_ZN11ruff_linter5codes12Flake8Commas5rules17hdeea38404a3323a6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br label %215
+  br label %178
 
-93:                                               ; preds = %2
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 1
+85:                                               ; preds = %2
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %.val4 = load i8, ptr %94, align 1, !range !128, !noundef !3
+  %.val4 = load i8, ptr %86, align 1, !range !128, !noundef !3
   store i8 %.val4, ptr %47, align 1
   call void @_ZN11ruff_linter5codes20Flake8Comprehensions5rules17hfa42c32ef7965483E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %215
+  br label %178
 
-95:                                               ; preds = %2
+switch.lookup63:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %97 = load i8, ptr %96, align 1, !range !33, !noundef !3
-  store i8 %97, ptr %46, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %88 = load i8, ptr %87, align 1, !range !33, !noundef !3
+  store i8 %88, ptr %46, align 1
   call void @_ZN11ruff_linter5codes15Flake8Copyright5rules17h4fa96ccaadb25f59E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %215
+  br label %178
 
-98:                                               ; preds = %2
+switch.lookup64:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %100 = load i8, ptr %99, align 1, !range !129, !noundef !3
-  store i8 %100, ptr %45, align 1
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %90 = load i8, ptr %89, align 1, !range !129, !noundef !3
+  store i8 %90, ptr %45, align 1
   call void @_ZN11ruff_linter5codes15Flake8Datetimez5rules17h8f288fd6b30a2c21E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br label %215
+  br label %178
 
-101:                                              ; preds = %2
+91:                                               ; preds = %2
   tail call void @_ZN11ruff_linter5codes14Flake8Debugger5rules17h72dfc7920425b03bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias nonnull readonly align 1 poison)
-  br label %215
+  br label %178
 
-102:                                              ; preds = %2
+switch.lookup65:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %104 = load i8, ptr %103, align 1, !range !130, !noundef !3
-  store i8 %104, ptr %44, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %93 = load i8, ptr %92, align 1, !range !130, !noundef !3
+  store i8 %93, ptr %44, align 1
   call void @_ZN11ruff_linter5codes12Flake8Django5rules17h7cb5eec2bca58c45E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %215
+  br label %178
 
-105:                                              ; preds = %2
+switch.lookup66:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %107 = load i8, ptr %106, align 1, !range !37, !noundef !3
-  store i8 %107, ptr %43, align 1
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %95 = load i8, ptr %94, align 1, !range !37, !noundef !3
+  store i8 %95, ptr %43, align 1
   call void @_ZN11ruff_linter5codes12Flake8ErrMsg5rules17h6ae481f0d600be1eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br label %215
+  br label %178
 
-108:                                              ; preds = %2
+switch.lookup67:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %110 = load i8, ptr %109, align 1, !range !60, !noundef !3
-  store i8 %110, ptr %42, align 1
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %97 = load i8, ptr %96, align 1, !range !60, !noundef !3
+  store i8 %97, ptr %42, align 1
   call void @_ZN11ruff_linter5codes16Flake8Executable5rules17hc868dd4015fdea67E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %215
+  br label %178
 
-111:                                              ; preds = %2
+switch.lookup68:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %113 = load i8, ptr %112, align 1, !range !64, !noundef !3
-  store i8 %113, ptr %41, align 1
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %99 = load i8, ptr %98, align 1, !range !64, !noundef !3
+  store i8 %99, ptr %41, align 1
   call void @_ZN11ruff_linter5codes11Flake8Fixme5rules17hb3b931c115d8ea8eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br label %215
+  br label %178
 
-114:                                              ; preds = %2
+switch.lookup69:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %116 = load i8, ptr %115, align 1, !range !68, !noundef !3
-  store i8 %116, ptr %40, align 1
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %101 = load i8, ptr %100, align 1, !range !68, !noundef !3
+  store i8 %101, ptr %40, align 1
   call void @_ZN11ruff_linter5codes23Flake8FutureAnnotations5rules17h23c4a6652075dec0E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %215
+  br label %178
 
-117:                                              ; preds = %2
+switch.lookup70:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %119 = load i8, ptr %118, align 1, !range !37, !noundef !3
-  store i8 %119, ptr %39, align 1
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %103 = load i8, ptr %102, align 1, !range !37, !noundef !3
+  store i8 %103, ptr %39, align 1
   call void @_ZN11ruff_linter5codes13Flake8GetText5rules17hbb09da20c48b7a65E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %215
+  br label %178
 
-120:                                              ; preds = %2
+switch.lookup71:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %122 = load i8, ptr %121, align 1, !range !37, !noundef !3
-  store i8 %122, ptr %38, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %105 = load i8, ptr %104, align 1, !range !37, !noundef !3
+  store i8 %105, ptr %38, align 1
   call void @_ZN11ruff_linter5codes23Flake8ImplicitStrConcat5rules17h71eb5cd90a4340f3E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %215
+  br label %178
 
-123:                                              ; preds = %2
+switch.lookup72:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %125 = load i8, ptr %124, align 1, !range !37, !noundef !3
-  store i8 %125, ptr %37, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %107 = load i8, ptr %106, align 1, !range !37, !noundef !3
+  store i8 %107, ptr %37, align 1
   call void @_ZN11ruff_linter5codes23Flake8ImportConventions5rules17h70b33bc474942b81E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %215
+  br label %178
 
-126:                                              ; preds = %2
+switch.lookup73:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %128 = load i8, ptr %127, align 1, !range !130, !noundef !3
-  store i8 %128, ptr %36, align 1
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %109 = load i8, ptr %108, align 1, !range !130, !noundef !3
+  store i8 %109, ptr %36, align 1
   call void @_ZN11ruff_linter5codes13Flake8Logging5rules17h0cb6e6cdc5e08dafE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %215
+  br label %178
 
-129:                                              ; preds = %2
+switch.lookup74:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %131 = load i8, ptr %130, align 1, !range !129, !noundef !3
-  store i8 %131, ptr %35, align 1
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %111 = load i8, ptr %110, align 1, !range !129, !noundef !3
+  store i8 %111, ptr %35, align 1
   call void @_ZN11ruff_linter5codes19Flake8LoggingFormat5rules17h9c36bca703d2f626E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %215
+  br label %178
 
-132:                                              ; preds = %2
+switch.lookup75:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %134 = load i8, ptr %133, align 1, !range !33, !noundef !3
-  store i8 %134, ptr %34, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %113 = load i8, ptr %112, align 1, !range !33, !noundef !3
+  store i8 %113, ptr %34, align 1
   call void @_ZN11ruff_linter5codes14Flake8NoPep4205rules17hf4787af304361a59E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %215
+  br label %178
 
-135:                                              ; preds = %2
+switch.lookup76:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %137 = load i8, ptr %136, align 1, !range !131, !noundef !3
-  store i8 %137, ptr %33, align 1
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %115 = load i8, ptr %114, align 1, !range !131, !noundef !3
+  store i8 %115, ptr %33, align 1
   call void @_ZN11ruff_linter5codes9Flake8Pie5rules17h12c393f2158e762dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %215
+  br label %178
 
-138:                                              ; preds = %2
+116:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %140 = load i8, ptr %139, align 1, !range !84, !noundef !3
-  store i8 %140, ptr %32, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %118 = load i8, ptr %117, align 1, !range !84, !noundef !3
+  store i8 %118, ptr %32, align 1
   call void @_ZN11ruff_linter5codes11Flake8Print5rules17h4f89488f79f0a30bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %215
+  br label %178
 
-141:                                              ; preds = %2
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 1
+119:                                              ; preds = %2
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %.val5 = load i8, ptr %142, align 1, !range !132, !noundef !3
+  %.val5 = load i8, ptr %120, align 1, !range !132, !noundef !3
   store i8 %.val5, ptr %31, align 1
   call void @_ZN11ruff_linter5codes9Flake8Pyi5rules17h38331999e8b137ebE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %215
+  br label %178
 
-143:                                              ; preds = %2
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 1
+121:                                              ; preds = %2
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %.val6 = load i8, ptr %144, align 1, !range !133, !noundef !3
+  %.val6 = load i8, ptr %122, align 1, !range !133, !noundef !3
   store i8 %.val6, ptr %30, align 1
   call void @_ZN11ruff_linter5codes17Flake8PytestStyle5rules17h9ac1dabc4187e789E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %215
+  br label %178
 
-145:                                              ; preds = %2
+switch.lookup77:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %147 = load i8, ptr %146, align 1, !range !60, !noundef !3
-  store i8 %147, ptr %29, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %124 = load i8, ptr %123, align 1, !range !60, !noundef !3
+  store i8 %124, ptr %29, align 1
   call void @_ZN11ruff_linter5codes12Flake8Quotes5rules17h17ccbb7373d552ecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %215
+  br label %178
 
-148:                                              ; preds = %2
+switch.lookup78:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %150 = load i8, ptr %149, align 1, !range !33, !noundef !3
-  store i8 %150, ptr %28, align 1
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %126 = load i8, ptr %125, align 1, !range !33, !noundef !3
+  store i8 %126, ptr %28, align 1
   call void @_ZN11ruff_linter5codes11Flake8Raise5rules17hec560dd52420846bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %215
+  br label %178
 
-151:                                              ; preds = %2
+switch.lookup79:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %153 = load i8, ptr %152, align 1, !range !130, !noundef !3
-  store i8 %153, ptr %27, align 1
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %128 = load i8, ptr %127, align 1, !range !130, !noundef !3
+  store i8 %128, ptr %27, align 1
   call void @_ZN11ruff_linter5codes12Flake8Return5rules17h3def204f8b9018aaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %215
+  br label %178
 
-154:                                              ; preds = %2
+switch.lookup80:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %156 = load i8, ptr %155, align 1, !range !33, !noundef !3
-  store i8 %156, ptr %26, align 1
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %130 = load i8, ptr %129, align 1, !range !33, !noundef !3
+  store i8 %130, ptr %26, align 1
   call void @_ZN11ruff_linter5codes10Flake8Self5rules17h48d057d11cd3fdfeE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %215
+  br label %178
 
-157:                                              ; preds = %2
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 1
+131:                                              ; preds = %2
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %.val7 = load i8, ptr %158, align 1, !range !134, !noundef !3
+  %.val7 = load i8, ptr %132, align 1, !range !134, !noundef !3
   store i8 %.val7, ptr %25, align 1
   call void @_ZN11ruff_linter5codes14Flake8Simplify5rules17he8a8a43124e58f4aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %215
+  br label %178
 
-159:                                              ; preds = %2
+switch.lookup81:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %161 = load i8, ptr %160, align 1, !range !37, !noundef !3
-  store i8 %161, ptr %24, align 1
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %134 = load i8, ptr %133, align 1, !range !37, !noundef !3
+  store i8 %134, ptr %24, align 1
   call void @_ZN11ruff_linter5codes11Flake8Slots5rules17h3aa1105d6c45c57fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %215
+  br label %178
 
-162:                                              ; preds = %2
+switch.lookup82:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %164 = load i8, ptr %163, align 1, !range !37, !noundef !3
-  store i8 %164, ptr %23, align 1
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %136 = load i8, ptr %135, align 1, !range !37, !noundef !3
+  store i8 %136, ptr %23, align 1
   call void @_ZN11ruff_linter5codes17Flake8TidyImports5rules17h7b1aa471dff04a32E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %215
+  br label %178
 
-165:                                              ; preds = %2
+switch.lookup83:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %167 = load i8, ptr %166, align 1, !range !103, !noundef !3
-  store i8 %167, ptr %22, align 1
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %138 = load i8, ptr %137, align 1, !range !103, !noundef !3
+  store i8 %138, ptr %22, align 1
   call void @_ZN11ruff_linter5codes11Flake8Todos5rules17h25d139d2e390aba2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %215
+  br label %178
 
-168:                                              ; preds = %2
+switch.lookup84:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %170 = load i8, ptr %169, align 1, !range !135, !noundef !3
-  store i8 %170, ptr %21, align 1
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %140 = load i8, ptr %139, align 1, !range !135, !noundef !3
+  store i8 %140, ptr %21, align 1
   call void @_ZN11ruff_linter5codes18Flake8TypeChecking5rules17h0a7cfa2e6f46bcc6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %215
+  br label %178
 
-171:                                              ; preds = %2
+switch.lookup85:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %173 = load i8, ptr %172, align 1, !range !60, !noundef !3
-  store i8 %173, ptr %20, align 1
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %142 = load i8, ptr %141, align 1, !range !60, !noundef !3
+  store i8 %142, ptr %20, align 1
   call void @_ZN11ruff_linter5codes21Flake8UnusedArguments5rules17h4befcb5abb8527f0E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %215
+  br label %178
 
-174:                                              ; preds = %2
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 1
+143:                                              ; preds = %2
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %.val8 = load i8, ptr %175, align 1, !range !136, !noundef !3
+  %.val8 = load i8, ptr %144, align 1, !range !136, !noundef !3
   store i8 %.val8, ptr %19, align 1
   call void @_ZN11ruff_linter5codes16Flake8UsePathlib5rules17h3ecd78080971d305E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %215
+  br label %178
 
-176:                                              ; preds = %2
+switch.lookup86:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %178 = load i8, ptr %177, align 1, !range !33, !noundef !3
-  store i8 %178, ptr %18, align 1
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %146 = load i8, ptr %145, align 1, !range !33, !noundef !3
+  store i8 %146, ptr %18, align 1
   call void @_ZN11ruff_linter5codes5Flynt5rules17h5d5a12b0d37340d5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %215
+  br label %178
 
-179:                                              ; preds = %2
+switch.lookup87:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %181 = load i8, ptr %180, align 1, !range !68, !noundef !3
-  store i8 %181, ptr %17, align 1
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %148 = load i8, ptr %147, align 1, !range !68, !noundef !3
+  store i8 %148, ptr %17, align 1
   call void @_ZN11ruff_linter5codes5Isort5rules17h1a84ae22606bad63E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %215
+  br label %178
 
-182:                                              ; preds = %2
+149:                                              ; preds = %2
   tail call void @_ZN11ruff_linter5codes6McCabe5rules17h6489eb1474f68741E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias nonnull readonly align 1 poison)
-  br label %215
+  br label %178
 
-183:                                              ; preds = %2
+switch.lookup88:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %185 = load i8, ptr %184, align 1, !range !47, !noundef !3
-  store i8 %185, ptr %16, align 1
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %151 = load i8, ptr %150, align 1, !range !47, !noundef !3
+  store i8 %151, ptr %16, align 1
   call void @_ZN11ruff_linter5codes5Numpy5rules17hf707ec7288513b94E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %215
+  br label %178
 
-186:                                              ; preds = %2
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 1
+152:                                              ; preds = %2
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %.val9 = load i8, ptr %187, align 1, !range !137, !noundef !3
+  %.val9 = load i8, ptr %153, align 1, !range !137, !noundef !3
   store i8 %.val9, ptr %15, align 1
   call void @_ZN11ruff_linter5codes10PEP8Naming5rules17hb44ec0bb176bbc9dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %215
+  br label %178
 
-188:                                              ; preds = %2
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 1
+154:                                              ; preds = %2
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %.val10 = load i8, ptr %189, align 1, !range !125, !noundef !3
+  %.val10 = load i8, ptr %155, align 1, !range !125, !noundef !3
   store i8 %.val10, ptr %14, align 1
   call void @_ZN11ruff_linter5codes9PandasVet5rules17h55347a43f8670481E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %215
+  br label %178
 
-190:                                              ; preds = %2
+switch.lookup89:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %192 = load i8, ptr %191, align 1, !range !135, !noundef !3
-  store i8 %192, ptr %13, align 1
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %157 = load i8, ptr %156, align 1, !range !135, !noundef !3
+  store i8 %157, ptr %13, align 1
   call void @_ZN11ruff_linter5codes8Perflint5rules17h5dee666d19087cabE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %215
+  br label %178
 
-193:                                              ; preds = %2
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 1
+158:                                              ; preds = %2
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %.val11 = load i8, ptr %194, align 1, !range !138, !noundef !3
+  %.val11 = load i8, ptr %159, align 1, !range !138, !noundef !3
   store i8 %.val11, ptr %12, align 1
   call void @_ZN11ruff_linter5codes11Pycodestyle5rules17ha107f1ca397f4e29E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %215
+  br label %178
 
-195:                                              ; preds = %2
+switch.lookup90:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %197 = load i8, ptr %196, align 1, !range !135, !noundef !3
-  store i8 %197, ptr %11, align 1
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %161 = load i8, ptr %160, align 1, !range !135, !noundef !3
+  store i8 %161, ptr %11, align 1
   call void @_ZN11ruff_linter5codes9Pydoclint5rules17h6ad6630b382d21f8E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %215
+  br label %178
 
-198:                                              ; preds = %2
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 1
+162:                                              ; preds = %2
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.val12 = load i8, ptr %199, align 1, !range !139, !noundef !3
+  %.val12 = load i8, ptr %163, align 1, !range !139, !noundef !3
   store i8 %.val12, ptr %10, align 1
   call void @_ZN11ruff_linter5codes10Pydocstyle5rules17h2dfc7d006b581de4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %215
+  br label %178
 
-200:                                              ; preds = %2
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 1
+164:                                              ; preds = %2
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.val13 = load i8, ptr %201, align 1, !range !140, !noundef !3
+  %.val13 = load i8, ptr %165, align 1, !range !140, !noundef !3
   store i8 %.val13, ptr %9, align 1
   call void @_ZN11ruff_linter5codes8Pyflakes5rules17h92846b9d22dd2d2fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %215
+  br label %178
 
-202:                                              ; preds = %2
+switch.lookup91:                                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %204 = load i8, ptr %203, align 1, !range !60, !noundef !3
-  store i8 %204, ptr %8, align 1
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %167 = load i8, ptr %166, align 1, !range !60, !noundef !3
+  store i8 %167, ptr %8, align 1
   call void @_ZN11ruff_linter5codes11PygrepHooks5rules17h06080df883a51b99E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %215
+  br label %178
 
-205:                                              ; preds = %2
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 1
+168:                                              ; preds = %2
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.val14 = load i8, ptr %206, align 1, !range !141, !noundef !3
+  %.val14 = load i8, ptr %169, align 1, !range !141, !noundef !3
   store i8 %.val14, ptr %7, align 1
   call void @_ZN11ruff_linter5codes6Pylint5rules17heab695bdf2c685d2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %215
+  br label %178
 
-207:                                              ; preds = %2
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 1
+170:                                              ; preds = %2
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.val15 = load i8, ptr %208, align 1, !range !142, !noundef !3
+  %.val15 = load i8, ptr %171, align 1, !range !142, !noundef !3
   store i8 %.val15, ptr %6, align 1
   call void @_ZN11ruff_linter5codes9Pyupgrade5rules17hf16e7481b6b58b3aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %215
+  br label %178
 
-209:                                              ; preds = %2
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 1
+172:                                              ; preds = %2
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.val16 = load i8, ptr %210, align 1, !range !143, !noundef !3
+  %.val16 = load i8, ptr %173, align 1, !range !143, !noundef !3
   store i8 %.val16, ptr %5, align 1
   call void @_ZN11ruff_linter5codes6Refurb5rules17h06c74cb5712d59aeE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %215
+  br label %178
 
-211:                                              ; preds = %2
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 1
+174:                                              ; preds = %2
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.val17 = load i8, ptr %212, align 1, !range !144, !noundef !3
+  %.val17 = load i8, ptr %175, align 1, !range !144, !noundef !3
   store i8 %.val17, ptr %4, align 1
   call void @_ZN11ruff_linter5codes4Ruff5rules17hb3edd6824a4846ffE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %215
+  br label %178
 
-213:                                              ; preds = %2
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 1
+176:                                              ; preds = %2
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.val18 = load i8, ptr %214, align 1, !range !145, !noundef !3
+  %.val18 = load i8, ptr %177, align 1, !range !145, !noundef !3
   store i8 %.val18, ptr %3, align 1
   call void @_ZN11ruff_linter5codes11Tryceratops5rules17h1e1e2aa3748bbb9bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %215
+  br label %178
 
-215:                                              ; preds = %202, %195, %190, %183, %179, %176, %171, %168, %165, %162, %159, %154, %151, %148, %145, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %98, %95, %90, %87, %82, %79, %70, %67, %64, %61, %213, %211, %209, %207, %205, %200, %198, %193, %188, %186, %182, %174, %157, %143, %141, %101, %93, %85, %77, %75, %73
+178:                                              ; preds = %switch.lookup91, %switch.lookup90, %switch.lookup89, %switch.lookup88, %switch.lookup87, %switch.lookup86, %switch.lookup85, %switch.lookup84, %switch.lookup83, %switch.lookup82, %switch.lookup81, %switch.lookup80, %switch.lookup79, %switch.lookup78, %switch.lookup77, %116, %switch.lookup76, %switch.lookup75, %switch.lookup74, %switch.lookup73, %switch.lookup72, %switch.lookup71, %switch.lookup70, %switch.lookup69, %switch.lookup68, %switch.lookup67, %switch.lookup66, %switch.lookup65, %switch.lookup64, %switch.lookup63, %switch.lookup62, %switch.lookup61, %switch.lookup60, %switch.lookup59, %switch.lookup58, %switch.lookup57, %switch.lookup56, %switch.lookup, %176, %174, %172, %170, %168, %164, %162, %158, %154, %152, %149, %143, %131, %121, %119, %91, %85, %79, %73, %71, %69
   ret void
 }
 

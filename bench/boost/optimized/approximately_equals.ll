@@ -161556,150 +161556,150 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
   %38 = load double, ptr %2, align 8, !tbaa !1488
   %39 = call noundef nonnull align 16 dereferenceable(69) ptr @_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE12assign_floatIdEENSt9enable_ifIXaasr3std17is_floating_pointIT_EE5valuelesr3std14numeric_limitsIS7_EE6digitsLj100EERS4_E4typeES7_(ptr noundef nonnull align 16 dereferenceable(80) %8, double noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %switch.selectcmp.i.i.i.i.i = icmp eq i32 %12, 2147482982
-  %switch.selectcmp.i2.i.i.i.i = icmp eq i32 %18, 2147482982
-  %40 = select i1 %switch.selectcmp.i.i.i.i.i, i1 true, i1 %switch.selectcmp.i2.i.i.i.i
-  br i1 %40, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27, label %41
+  %40 = icmp eq i32 %12, 2147482982
+  %41 = icmp eq i32 %18, 2147482982
+  %42 = select i1 %40, i1 true, i1 %41
+  br i1 %42, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25, label %43
 
-41:                                               ; preds = %3
+43:                                               ; preds = %3
   %.not.i.i.i.i.i = icmp eq i8 %14, %20
-  br i1 %.not.i.i.i.i.i, label %45, label %42
+  br i1 %.not.i.i.i.i.i, label %47, label %44
 
-42:                                               ; preds = %41
-  %43 = icmp eq i32 %12, 2147482980
-  %44 = icmp eq i32 %18, 2147482980
-  %or.cond.i.i.i.i.i = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %69, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27
+44:                                               ; preds = %43
+  %45 = icmp eq i32 %12, 2147482980
+  %46 = icmp eq i32 %18, 2147482980
+  %or.cond.i.i.i.i.i = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %71, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25
 
-45:                                               ; preds = %41
+47:                                               ; preds = %43
   %.not14.i.i.i.i.i = icmp eq i32 %12, %18
-  br i1 %.not14.i.i.i.i.i, label %53, label %46
+  br i1 %.not14.i.i.i.i.i, label %55, label %48
 
-46:                                               ; preds = %45
-  %47 = icmp eq i32 %12, 2147482980
-  br i1 %47, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit, label %48
-
-48:                                               ; preds = %46
-  %49 = icmp eq i32 %18, 2147482980
+48:                                               ; preds = %47
+  %49 = icmp eq i32 %12, 2147482980
   br i1 %49, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp sgt i32 %12, %18
-  %52 = select i1 %51, i32 1, i32 -1
+  %51 = icmp eq i32 %18, 2147482980
+  br i1 %51, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit, label %52
+
+52:                                               ; preds = %50
+  %53 = icmp sgt i32 %12, %18
+  %54 = select i1 %53, i32 1, i32 -1
   br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
 
-53:                                               ; preds = %45
+55:                                               ; preds = %47
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %10, %16
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %54
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %56
 
-54:                                               ; preds = %53
-  %55 = icmp ugt i64 %10, %16
-  %56 = select i1 %55, i32 1, i32 -1
+56:                                               ; preds = %55
+  %57 = icmp ugt i64 %10, %16
+  %58 = select i1 %57, i32 1, i32 -1
   br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
 
-.preheader.i.i.i.i.i.i.i.i:                       ; preds = %53, %58
-  %.015.in.i.i.i.i.i.i.i.i = phi i64 [ %.015.i.i.i.i.i.i.i.i, %58 ], [ %10, %53 ]
-  %57 = icmp slt i64 %.015.in.i.i.i.i.i.i.i.i, 1
-  br i1 %57, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit, label %58
+.preheader.i.i.i.i.i.i.i.i:                       ; preds = %55, %60
+  %.015.in.i.i.i.i.i.i.i.i = phi i64 [ %.015.i.i.i.i.i.i.i.i, %60 ], [ %10, %55 ]
+  %59 = icmp slt i64 %.015.in.i.i.i.i.i.i.i.i, 1
+  br i1 %59, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit, label %60
 
-58:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i
+60:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i
   %.015.i.i.i.i.i.i.i.i = add nsw i64 %.015.in.i.i.i.i.i.i.i.i, -1
-  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.015.i.i.i.i.i.i.i.i
-  %60 = load i64, ptr %59, align 8, !tbaa !1539
-  %61 = getelementptr inbounds nuw i64, ptr %5, i64 %.015.i.i.i.i.i.i.i.i
+  %61 = getelementptr inbounds nuw i64, ptr %4, i64 %.015.i.i.i.i.i.i.i.i
   %62 = load i64, ptr %61, align 8, !tbaa !1539
-  %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %60, %62
-  br i1 %.not19.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %63, !llvm.loop !2661
+  %63 = getelementptr inbounds nuw i64, ptr %5, i64 %.015.i.i.i.i.i.i.i.i
+  %64 = load i64, ptr %63, align 8, !tbaa !1539
+  %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %62, %64
+  br i1 %.not19.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %65, !llvm.loop !2661
 
-63:                                               ; preds = %58
-  %64 = icmp ugt i64 %60, %62
-  %65 = select i1 %64, i32 1, i32 -1
+65:                                               ; preds = %60
+  %66 = icmp ugt i64 %62, %64
+  %67 = select i1 %66, i32 1, i32 -1
   br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
 
-_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit: ; preds = %.preheader.i.i.i.i.i.i.i.i, %46, %48, %50, %54, %63
-  %.0.i.i.i.i.i = phi i32 [ %52, %50 ], [ -1, %46 ], [ 1, %48 ], [ %56, %54 ], [ %65, %63 ], [ 0, %.preheader.i.i.i.i.i.i.i.i ]
-  %66 = trunc nuw i8 %14 to i1
-  %67 = sub nsw i32 0, %.0.i.i.i.i.i
-  %spec.select.i.i.i.i.i = select i1 %66, i32 %67, i32 %.0.i.i.i.i.i
-  %68 = icmp eq i32 %spec.select.i.i.i.i.i, 0
-  br i1 %68, label %69, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27
+_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit: ; preds = %.preheader.i.i.i.i.i.i.i.i, %48, %50, %52, %56, %65
+  %.0.i.i.i.i.i = phi i32 [ %54, %52 ], [ -1, %48 ], [ 1, %50 ], [ %58, %56 ], [ %67, %65 ], [ 0, %.preheader.i.i.i.i.i.i.i.i ]
+  %68 = trunc nuw i8 %14 to i1
+  %69 = sub nsw i32 0, %.0.i.i.i.i.i
+  %spec.select.i.i.i.i.i = select i1 %68, i32 %69, i32 %.0.i.i.i.i.i
+  %70 = icmp eq i32 %spec.select.i.i.i.i.i, 0
+  br i1 %70, label %71, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25
 
-69:                                               ; preds = %42, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
-  %switch.selectcmp.i.i.i.i.i13 = icmp eq i32 %25, 2147482982
-  %switch.selectcmp.i2.i.i.i.i14 = icmp eq i32 %32, 2147482982
-  %70 = select i1 %switch.selectcmp.i.i.i.i.i13, i1 true, i1 %switch.selectcmp.i2.i.i.i.i14
-  br i1 %70, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27, label %71
-
-71:                                               ; preds = %69
-  %.not.i.i.i.i.i15 = icmp eq i8 %27, %34
-  br i1 %.not.i.i.i.i.i15, label %75, label %72
-
-72:                                               ; preds = %71
-  %73 = icmp eq i32 %25, 2147482980
-  %74 = icmp eq i32 %32, 2147482980
-  %or.cond.i.i.i.i.i16 = select i1 %73, i1 %74, i1 false
-  br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27
+71:                                               ; preds = %44, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
+  %72 = icmp eq i32 %25, 2147482982
+  %73 = icmp eq i32 %32, 2147482982
+  %74 = select i1 %72, i1 true, i1 %73
+  br i1 %74, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25, label %75
 
 75:                                               ; preds = %71
-  %.not14.i.i.i.i.i18 = icmp eq i32 %25, %32
-  br i1 %.not14.i.i.i.i.i18, label %83, label %76
+  %.not.i.i.i.i.i13 = icmp eq i8 %27, %34
+  br i1 %.not.i.i.i.i.i13, label %79, label %76
 
 76:                                               ; preds = %75
   %77 = icmp eq i32 %25, 2147482980
-  br i1 %77, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19, label %78
+  %78 = icmp eq i32 %32, 2147482980
+  %or.cond.i.i.i.i.i14 = select i1 %77, i1 %78, i1 false
+  br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25
 
-78:                                               ; preds = %76
-  %79 = icmp eq i32 %32, 2147482980
-  br i1 %79, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19, label %80
+79:                                               ; preds = %75
+  %.not14.i.i.i.i.i16 = icmp eq i32 %25, %32
+  br i1 %.not14.i.i.i.i.i16, label %87, label %80
 
-80:                                               ; preds = %78
-  %81 = icmp sgt i32 %25, %32
-  %82 = select i1 %81, i32 1, i32 -1
-  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19
+80:                                               ; preds = %79
+  %81 = icmp eq i32 %25, 2147482980
+  br i1 %81, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17, label %82
 
-83:                                               ; preds = %75
-  %.not.i.i.i.i.i.i.i.i22 = icmp eq i64 %23, %30
-  br i1 %.not.i.i.i.i.i.i.i.i22, label %.preheader.i.i.i.i.i.i.i.i23, label %84
+82:                                               ; preds = %80
+  %83 = icmp eq i32 %32, 2147482980
+  br i1 %83, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17, label %84
 
-84:                                               ; preds = %83
-  %85 = icmp ugt i64 %23, %30
+84:                                               ; preds = %82
+  %85 = icmp sgt i32 %25, %32
   %86 = select i1 %85, i32 1, i32 -1
-  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19
+  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17
 
-.preheader.i.i.i.i.i.i.i.i23:                     ; preds = %83, %88
-  %.015.in.i.i.i.i.i.i.i.i24 = phi i64 [ %.015.i.i.i.i.i.i.i.i25, %88 ], [ %23, %83 ]
-  %87 = icmp slt i64 %.015.in.i.i.i.i.i.i.i.i24, 1
-  br i1 %87, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19, label %88
+87:                                               ; preds = %79
+  %.not.i.i.i.i.i.i.i.i20 = icmp eq i64 %23, %30
+  br i1 %.not.i.i.i.i.i.i.i.i20, label %.preheader.i.i.i.i.i.i.i.i21, label %88
 
-88:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i23
-  %.015.i.i.i.i.i.i.i.i25 = add nsw i64 %.015.in.i.i.i.i.i.i.i.i24, -1
-  %89 = getelementptr inbounds nuw i64, ptr %6, i64 %.015.i.i.i.i.i.i.i.i25
-  %90 = load i64, ptr %89, align 8, !tbaa !1539
-  %91 = getelementptr inbounds nuw i64, ptr %7, i64 %.015.i.i.i.i.i.i.i.i25
-  %92 = load i64, ptr %91, align 8, !tbaa !1539
-  %.not19.i.i.i.i.i.i.i.i26 = icmp eq i64 %90, %92
-  br i1 %.not19.i.i.i.i.i.i.i.i26, label %.preheader.i.i.i.i.i.i.i.i23, label %93, !llvm.loop !2661
+88:                                               ; preds = %87
+  %89 = icmp ugt i64 %23, %30
+  %90 = select i1 %89, i32 1, i32 -1
+  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17
 
-93:                                               ; preds = %88
-  %94 = icmp ugt i64 %90, %92
-  %95 = select i1 %94, i32 1, i32 -1
-  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19
+.preheader.i.i.i.i.i.i.i.i21:                     ; preds = %87, %92
+  %.015.in.i.i.i.i.i.i.i.i22 = phi i64 [ %.015.i.i.i.i.i.i.i.i23, %92 ], [ %23, %87 ]
+  %91 = icmp slt i64 %.015.in.i.i.i.i.i.i.i.i22, 1
+  br i1 %91, label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17, label %92
 
-_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19: ; preds = %.preheader.i.i.i.i.i.i.i.i23, %93, %84, %80, %78, %76
-  %.0.i.i.i.i.i20 = phi i32 [ %82, %80 ], [ -1, %76 ], [ 1, %78 ], [ %86, %84 ], [ %95, %93 ], [ 0, %.preheader.i.i.i.i.i.i.i.i23 ]
-  %96 = trunc nuw i8 %27 to i1
-  %97 = sub nsw i32 0, %.0.i.i.i.i.i20
-  %spec.select.i.i.i.i.i21 = select i1 %96, i32 %97, i32 %.0.i.i.i.i.i20
-  %98 = icmp eq i32 %spec.select.i.i.i.i.i21, 0
-  br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27
+92:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i21
+  %.015.i.i.i.i.i.i.i.i23 = add nsw i64 %.015.in.i.i.i.i.i.i.i.i22, -1
+  %93 = getelementptr inbounds nuw i64, ptr %6, i64 %.015.i.i.i.i.i.i.i.i23
+  %94 = load i64, ptr %93, align 8, !tbaa !1539
+  %95 = getelementptr inbounds nuw i64, ptr %7, i64 %.015.i.i.i.i.i.i.i.i23
+  %96 = load i64, ptr %95, align 8, !tbaa !1539
+  %.not19.i.i.i.i.i.i.i.i24 = icmp eq i64 %94, %96
+  br i1 %.not19.i.i.i.i.i.i.i.i24, label %.preheader.i.i.i.i.i.i.i.i21, label %97, !llvm.loop !2661
 
-_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27: ; preds = %3, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19, %72, %69, %42, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
-  %99 = phi i1 [ false, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit ], [ false, %42 ], [ false, %69 ], [ %or.cond.i.i.i.i.i16, %72 ], [ %98, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i19 ], [ false, %3 ]
+97:                                               ; preds = %92
+  %98 = icmp ugt i64 %94, %96
+  %99 = select i1 %98, i32 1, i32 -1
+  br label %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17
+
+_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17: ; preds = %.preheader.i.i.i.i.i.i.i.i21, %97, %88, %84, %82, %80
+  %.0.i.i.i.i.i18 = phi i32 [ %86, %84 ], [ -1, %80 ], [ 1, %82 ], [ %90, %88 ], [ %99, %97 ], [ 0, %.preheader.i.i.i.i.i.i.i.i21 ]
+  %100 = trunc nuw i8 %27 to i1
+  %101 = sub nsw i32 0, %.0.i.i.i.i.i18
+  %spec.select.i.i.i.i.i19 = select i1 %100, i32 %101, i32 %.0.i.i.i.i.i18
+  %102 = icmp eq i32 %spec.select.i.i.i.i.i19, 0
+  br label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25
+
+_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit25: ; preds = %3, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17, %76, %71, %44, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
+  %103 = phi i1 [ false, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit ], [ false, %44 ], [ false, %71 ], [ %or.cond.i.i.i.i.i14, %76 ], [ %102, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.i.i.i.i.i17 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %99
+  ret i1 %103
 }
 
 ; Function Attrs: uwtable

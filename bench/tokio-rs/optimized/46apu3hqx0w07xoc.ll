@@ -1024,23 +1024,23 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h2332921684a2f802E(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.029 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.123, %35 ]
-  %.sroa.4.028 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.121, %35 ]
+9:                                                ; preds = %.lr.ph, %36
+  %.sroa.0.029 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.123, %36 ]
+  %.sroa.4.028 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.121, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN52_$LT$$RF$std..fs..File$u20$as$u20$std..io..Write$GT$5write17h2be5a518d8bc2f48E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.029, i64 noundef %.sroa.4.028)
   %10 = load i64, ptr %5, align 8, !range !19, !noundef !17
   %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %14, label %11
 
-.loopexit:                                        ; preds = %35, %3, %29
-  %.0 = phi ptr [ %.1, %29 ], [ null, %3 ], [ null, %35 ]
+.loopexit:                                        ; preds = %36, %3, %28
+  %.0 = phi ptr [ %.1, %28 ], [ null, %3 ], [ null, %36 ]
   ret ptr %.0
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %7, align 8, !noundef !17
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %29, label %27
+  br i1 %13, label %28, label %26
 
 14:                                               ; preds = %9
   %.val = load ptr, ptr %7, align 8, !nonnull !17, !noundef !17
@@ -1048,75 +1048,77 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h2332921684a2f802E(ptr no
   %16 = and i64 %15, 3
   switch i64 %16, label %default.unreachable [
     i64 2, label %17
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
-    i64 0, label %19
-    i64 1, label %23
+    i64 3, label %19
+    i64 0, label %22
+    i64 1, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
   ]
 
 default.unreachable:                              ; preds = %14
   unreachable
 
 17:                                               ; preds = %14
-  %.mask.i = and i64 %15, -4294967296
-  %18 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %18, label %.thread, label %29
+  %.mask20.i = and i64 %15, -4294967296
+  %18 = icmp eq i64 %.mask20.i, 17179869184
+  br i1 %18, label %.thread, label %28
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %21 = load i8, ptr %20, align 8, !range !137, !noundef !17
-  %22 = icmp eq i8 %21, 35
-  br i1 %22, label %.thread, label %29
+  %20 = icmp ult ptr %.val, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %20)
+  %.mask.i = and i64 %15, -4294967296
+  %21 = icmp eq i64 %.mask.i, 150323855360
+  br i1 %21, label %.thread, label %28
 
-23:                                               ; preds = %14
-  %24 = getelementptr i8, ptr %.val, i64 15
-  %25 = load i8, ptr %24, align 8, !range !137, !noundef !17
-  %26 = icmp eq i8 %25, 35
-  br i1 %26, label %.thread, label %29
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %24 = load i8, ptr %23, align 8, !range !137, !noundef !17
+  %25 = icmp eq i8 %24, 35
+  br i1 %25, label %.thread, label %28
 
-27:                                               ; preds = %11
-  %28 = icmp ugt i64 %12, %.sroa.4.028
-  br i1 %28, label %30, label %31
+26:                                               ; preds = %11
+  %27 = icmp ugt i64 %12, %.sroa.4.028
+  br i1 %27, label %29, label %30
 
-29:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %17, %19, %23, %11
-  %.1 = phi ptr [ @anon.489e625cf0d9bafa89a816c128d01e73.1, %11 ], [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+28:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %17, %19, %22, %11
+  %.1 = phi ptr [ @anon.489e625cf0d9bafa89a816c128d01e73.1, %11 ], [ %.val, %22 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %12, i64 noundef %.sroa.4.028, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.489e625cf0d9bafa89a816c128d01e73.3) #37
   unreachable
 
-31:                                               ; preds = %27
-  %32 = sub nuw i64 %.sroa.4.028, %12
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 %12
-  br label %35
+30:                                               ; preds = %26
+  %31 = sub nuw i64 %.sroa.4.028, %12
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 %12
+  br label %36
 
 _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %14
-  %.mask20.i = and i64 %15, -4294967296
-  %34 = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %34, label %.thread, label %29
+  %33 = getelementptr i8, ptr %.val, i64 15
+  %34 = load i8, ptr %33, align 8, !range !137, !noundef !17
+  %35 = icmp eq i8 %34, 35
+  br i1 %35, label %.thread, label %28
 
-35:                                               ; preds = %31, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
-  %.sroa.0.123 = phi ptr [ %.sroa.0.029, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit" ], [ %33, %31 ]
-  %.sroa.4.121 = phi i64 [ %.sroa.4.028, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit" ], [ %32, %31 ]
+36:                                               ; preds = %30, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
+  %.sroa.0.123 = phi ptr [ %.sroa.0.029, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit" ], [ %32, %30 ]
+  %.sroa.4.121 = phi i64 [ %.sroa.4.028, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit" ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %36 = icmp eq i64 %.sroa.4.121, 0
-  br i1 %36, label %.loopexit, label %9
+  %37 = icmp eq i64 %.sroa.4.121, 0
+  br i1 %37, label %.loopexit, label %9
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %17, %19, %23
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %17, %19, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !138
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !138
-  %37 = load i8, ptr %4, align 8, !range !145, !alias.scope !146, !noalias !138, !noundef !17
-  %38 = icmp eq i8 %37, 3
-  br i1 %38, label %39, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
+  %38 = load i8, ptr %4, align 8, !range !145, !alias.scope !146, !noalias !138, !noundef !17
+  %39 = icmp eq i8 %38, 3
+  br i1 %39, label %40, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-39:                                               ; preds = %.thread
+40:                                               ; preds = %.thread
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !138
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %.thread, %39
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %.thread, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !138
-  br label %35
+  br label %36
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
@@ -1126,183 +1128,187 @@ define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17
   %2 = ptrtoint ptr %.0.val to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %default.unreachable [
-    i64 2, label %5
-    i64 3, label %switch.lookup
-    i64 0, label %44
-    i64 1, label %47
+    i64 2, label %4
+    i64 3, label %43
+    i64 0, label %47
+    i64 1, label %50
   ]
 
 default.unreachable:                              ; preds = %0
   unreachable
 
-switch.lookup:                                    ; preds = %0
-  %4 = lshr i64 %2, 32
-  %switch.idx.cast = trunc i64 %4 to i8
-  br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
-
-5:                                                ; preds = %0
-  %6 = lshr i64 %2, 32
-  %7 = trunc nuw i64 %6 to i32
-  switch i32 %7, label %42 [
+4:                                                ; preds = %0
+  %5 = lshr i64 %2, 32
+  %6 = trunc nuw i64 %5 to i32
+  switch i32 %6, label %41 [
     i32 7, label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
-    i32 98, label %8
-    i32 99, label %9
-    i32 16, label %10
-    i32 103, label %11
-    i32 111, label %12
-    i32 104, label %13
-    i32 35, label %14
-    i32 122, label %15
-    i32 17, label %16
-    i32 27, label %17
-    i32 113, label %18
-    i32 4, label %19
-    i32 22, label %20
-    i32 21, label %21
-    i32 40, label %22
-    i32 2, label %23
-    i32 12, label %24
-    i32 28, label %25
-    i32 38, label %26
-    i32 31, label %27
-    i32 36, label %28
-    i32 100, label %29
-    i32 101, label %30
-    i32 107, label %31
-    i32 20, label %32
-    i32 39, label %33
-    i32 32, label %34
-    i32 30, label %35
-    i32 29, label %36
-    i32 116, label %37
-    i32 110, label %38
-    i32 26, label %39
-    i32 18, label %40
-    i32 13, label %41
-    i32 1, label %41
-    i32 11, label %43
+    i32 98, label %7
+    i32 99, label %8
+    i32 16, label %9
+    i32 103, label %10
+    i32 111, label %11
+    i32 104, label %12
+    i32 35, label %13
+    i32 122, label %14
+    i32 17, label %15
+    i32 27, label %16
+    i32 113, label %17
+    i32 4, label %18
+    i32 22, label %19
+    i32 21, label %20
+    i32 40, label %21
+    i32 2, label %22
+    i32 12, label %23
+    i32 28, label %24
+    i32 38, label %25
+    i32 31, label %26
+    i32 36, label %27
+    i32 100, label %28
+    i32 101, label %29
+    i32 107, label %30
+    i32 20, label %31
+    i32 39, label %32
+    i32 32, label %33
+    i32 30, label %34
+    i32 29, label %35
+    i32 116, label %36
+    i32 110, label %37
+    i32 26, label %38
+    i32 18, label %39
+    i32 13, label %40
+    i32 1, label %40
+    i32 11, label %42
   ]
 
-8:                                                ; preds = %5
+7:                                                ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-9:                                                ; preds = %5
+8:                                                ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-10:                                               ; preds = %5
+9:                                                ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-11:                                               ; preds = %5
+10:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-12:                                               ; preds = %5
+11:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-13:                                               ; preds = %5
+12:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-14:                                               ; preds = %5
+13:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-15:                                               ; preds = %5
+14:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-16:                                               ; preds = %5
+15:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-17:                                               ; preds = %5
+16:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-18:                                               ; preds = %5
+17:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-19:                                               ; preds = %5
+18:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-20:                                               ; preds = %5
+19:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-21:                                               ; preds = %5
+20:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-22:                                               ; preds = %5
+21:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-23:                                               ; preds = %5
+22:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-24:                                               ; preds = %5
+23:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-25:                                               ; preds = %5
+24:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-26:                                               ; preds = %5
+25:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-27:                                               ; preds = %5
+26:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-28:                                               ; preds = %5
+27:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-29:                                               ; preds = %5
+28:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-30:                                               ; preds = %5
+29:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-31:                                               ; preds = %5
+30:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-32:                                               ; preds = %5
+31:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-33:                                               ; preds = %5
+32:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-34:                                               ; preds = %5
+33:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-35:                                               ; preds = %5
+34:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-36:                                               ; preds = %5
+35:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-37:                                               ; preds = %5
+36:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-38:                                               ; preds = %5
+37:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-39:                                               ; preds = %5
+38:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-40:                                               ; preds = %5
+39:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-41:                                               ; preds = %5, %5
+40:                                               ; preds = %4, %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-42:                                               ; preds = %5
+41:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-43:                                               ; preds = %5
+42:                                               ; preds = %4
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-44:                                               ; preds = %0
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %46 = load i8, ptr %45, align 8, !range !137, !noundef !17
+43:                                               ; preds = %0
+  %44 = lshr i64 %2, 32
+  %45 = trunc nuw i64 %44 to i32
+  %spec.select43.i.i = tail call i32 @llvm.umin.i32(i32 %45, i32 41)
+  %spec.select.i.i = trunc nuw nsw i32 %spec.select43.i.i to i8
+  %46 = icmp ult ptr %.0.val, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %46)
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
 47:                                               ; preds = %0
-  %48 = getelementptr i8, ptr %.0.val, i64 15
+  %48 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %49 = load i8, ptr %48, align 8, !range !137, !noundef !17
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
-_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit: ; preds = %switch.lookup, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %47, %44
-  %.0 = phi i8 [ %46, %44 ], [ %49, %47 ], [ 13, %43 ], [ 40, %42 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 1, %41 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+50:                                               ; preds = %0
+  %51 = getelementptr i8, ptr %.0.val, i64 15
+  %52 = load i8, ptr %51, align 8, !range !137, !noundef !17
+  br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
+
+_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
+  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -9624,6 +9630,9 @@ declare i32 @llvm.umax.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #34

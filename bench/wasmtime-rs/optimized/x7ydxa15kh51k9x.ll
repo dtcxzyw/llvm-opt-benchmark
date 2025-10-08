@@ -303,16 +303,16 @@ _ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i16 102, 1261) i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
+define hidden range(i16 102, 1510) i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  switch i8 %2, label %default.unreachable4 [
+  switch i8 %2, label %default.unreachable10 [
     i8 0, label %3
     i8 1, label %12
     i8 2, label %16
     i8 3, label %31
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -321,18 +321,18 @@ default.unreachable4:                             ; preds = %1
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 2, !noundef !4
-  br i1 %6, label %switch.lookup, label %9
+  br i1 %6, label %switch.lookup.i, label %9
 
 9:                                                ; preds = %3
   %10 = icmp eq i8 %8, 32
   %..i = select i1 %10, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-switch.lookup:                                    ; preds = %3
+switch.lookup.i:                                  ; preds = %3
   %11 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %8, i1 true)
-  %switch.tableidx = add nsw i8 %11, -3
-  %switch.idx.cast = zext i8 %switch.tableidx to i16
-  %switch.offset = add nuw nsw i16 %switch.idx.cast, 118
+  %switch.tableidx.i = add nsw i8 %11, -3
+  %switch.idx.cast.i = zext i8 %switch.tableidx.i to i16
+  %switch.offset.i = add nuw nsw i16 %switch.idx.cast.i, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
 12:                                               ; preds = %1
@@ -350,22 +350,22 @@ switch.lookup:                                    ; preds = %3
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %23 = load i8, ptr %22, align 1, !noundef !4
-  br i1 %21, label %switch.lookup6, label %24
+  br i1 %21, label %switch.lookup.i.i, label %24
 
 24:                                               ; preds = %16
   %25 = icmp eq i8 %23, 32
   %..i.i = select i1 %25, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-switch.lookup6:                                   ; preds = %16
+switch.lookup.i.i:                                ; preds = %16
   %26 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %23, i1 true)
-  %switch.tableidx5 = add nsw i8 %26, -3
-  %switch.idx.cast7 = zext i8 %switch.tableidx5 to i16
-  %switch.offset8 = add nuw nsw i16 %switch.idx.cast7, 118
+  %switch.tableidx.i.i = add nsw i8 %26, -3
+  %switch.idx.cast.i.i = zext i8 %switch.tableidx.i.i to i16
+  %switch.offset.i.i = add nuw nsw i16 %switch.idx.cast.i.i, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %switch.lookup6, %24
-  %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset8, %switch.lookup6 ]
+_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %24, %switch.lookup.i.i
+  %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset.i.i, %switch.lookup.i.i ]
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %28 = trunc nuw nsw i64 %27 to i16
   %29 = shl nuw nsw i16 %28, 4
@@ -380,31 +380,32 @@ _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.ex
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %37 = load i8, ptr %36, align 1, !noundef !4
-  br i1 %35, label %switch.lookup10, label %38
+  br i1 %35, label %switch.lookup.i.i4, label %38
 
 38:                                               ; preds = %31
   %39 = icmp eq i8 %37, 32
-  %40 = select i1 %39, i16 1259, i16 1260
+  %..i.i2 = select i1 %39, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-switch.lookup10:                                  ; preds = %31
-  %41 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %37, i1 true)
-  %switch.tableidx9 = add nsw i8 %41, -3
-  %switch.idx.cast11 = zext i8 %switch.tableidx9 to i16
-  %switch.offset12 = add nuw nsw i16 %switch.idx.cast11, 1254
+switch.lookup.i.i4:                               ; preds = %31
+  %40 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %37, i1 true)
+  %switch.tableidx.i.i5 = add nsw i8 %40, -3
+  %switch.idx.cast.i.i6 = zext i8 %switch.tableidx.i.i5 to i16
+  %switch.offset.i.i7 = add nuw nsw i16 %switch.idx.cast.i.i6, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %switch.lookup10, %38
-  %.0.i.i2 = phi i16 [ %40, %38 ], [ %switch.offset12, %switch.lookup10 ]
-  %42 = load i64, ptr %32, align 8, !noundef !4
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 false)
-  %44 = trunc nuw nsw i64 %43 to i16
-  %45 = shl nuw nsw i16 %44, 4
-  %46 = sub nuw nsw i16 %.0.i.i2, %45
+_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %38, %switch.lookup.i.i4
+  %.0.i.i3 = phi i16 [ %..i.i2, %38 ], [ %switch.offset.i.i7, %switch.lookup.i.i4 ]
+  %41 = load i64, ptr %32, align 8, !noundef !4
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 false)
+  %43 = trunc nuw nsw i64 %42 to i16
+  %reass.sub.i = add nuw nsw i16 %.0.i.i3, 1136
+  %44 = shl nuw nsw i16 %43, 4
+  %45 = sub nuw nsw i16 %reass.sub.i, %44
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %switch.lookup, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %12
-  %.0 = phi i16 [ %..i1, %12 ], [ %30, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %46, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %..i, %9 ], [ %switch.offset, %switch.lookup ]
+_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %switch.lookup.i, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %12
+  %.0 = phi i16 [ %..i1, %12 ], [ %30, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %45, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %..i, %9 ], [ %switch.offset.i, %switch.lookup.i ]
   ret i16 %.0
 }
 

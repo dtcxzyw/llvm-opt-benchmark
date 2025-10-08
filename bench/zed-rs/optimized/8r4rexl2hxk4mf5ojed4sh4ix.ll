@@ -5387,11 +5387,10 @@ define hidden void @"_ZN146_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN146_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Usage$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h17cc29b3fb1fb500E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -5839,11 +5838,10 @@ define hidden void @"_ZN152_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN152_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ChoiceDelta$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he2d643b8dd6e3dcdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -6136,11 +6134,10 @@ define hidden void @"_ZN154_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN154_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ToolCallChunk$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hcb14f0a210b25875E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -7295,11 +7292,10 @@ define hidden void @"_ZN160_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN160_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ResponseStreamEvent$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hbafeef75701f4eccE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 4)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -7482,11 +7478,10 @@ define hidden void @"_ZN161_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN161_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ResponseMessageDelta$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha3cfff54f49a010cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -8011,11 +8006,10 @@ define hidden void @"_ZN207_$LT$$LT$open_ai.._..$LT$impl$u20$serde..de..Deserial
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN207_$LT$$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Model$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc34a7e1b343943afE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -19797,10 +19791,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h1e85f646f7fc9fe5E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h40105f50720a88fbE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN146_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Usage$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h17cc29b3fb1fb500E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4084
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 1, !alias.scope !4084
   store i8 0, ptr %0, align 8, !alias.scope !4084
   ret void
 }
@@ -19969,10 +19962,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h740ae495bbd14cc8E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h7f0b12be0530c83bE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN161_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ResponseMessageDelta$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha3cfff54f49a010cE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4102
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 1, !alias.scope !4102
   store i8 0, ptr %0, align 8, !alias.scope !4102
   ret void
 }
@@ -20009,10 +20001,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h81240144937ba601E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h8918ce5fd51d904eE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN152_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ChoiceDelta$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he2d643b8dd6e3dcdE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4111
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 1, !alias.scope !4111
   store i8 0, ptr %0, align 8, !alias.scope !4111
   ret void
 }
@@ -20051,10 +20042,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hcb9bca9dbe87a72fE(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hd2b0eed6f615352bE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN154_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ToolCallChunk$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hcb14f0a210b25875E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4123
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 1, !alias.scope !4123
   store i8 0, ptr %0, align 8, !alias.scope !4123
   ret void
 }
@@ -20079,20 +20069,18 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hdf48071555418cb4E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817he94a6e3ba6001c0aE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN207_$LT$$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..Model$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc34a7e1b343943afE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  store i8 %4, ptr %3, align 1, !alias.scope !4129
   store i8 0, ptr %0, align 8, !alias.scope !4129
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hf541c178c7940c9cE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN160_$LT$open_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$open_ai..ResponseStreamEvent$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hbafeef75701f4eccE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !4132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 4)
+  store i8 %4, ptr %3, align 1, !alias.scope !4132
   store i8 0, ptr %0, align 8, !alias.scope !4132
   ret void
 }
@@ -55916,7 +55904,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %47 = load i8, ptr %46, align 1, !range !1025, !noalias !13861
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !13861
-  br i1 %trunc.i.i.i.i.i.i, label %115, label %switch.lookup
+  br i1 %trunc.i.i.i.i.i.i, label %115, label %switch.lookup.i
 
 default.unreachable:                              ; preds = %74
   unreachable
@@ -56108,7 +56096,7 @@ default.unreachable:                              ; preds = %74
 110:                                              ; preds = %99
   %111 = add i64 %100, 1
   store i64 %111, ptr %14, align 8, !alias.scope !13937, !noalias !13859
-  br label %switch.lookup
+  br label %switch.lookup.i
 
 112:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !13858
@@ -56117,7 +56105,7 @@ default.unreachable:                              ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !13858
   br label %115
 
-switch.lookup:                                    ; preds = %42, %110
+switch.lookup.i:                                  ; preds = %110, %42
   %.sroa.4.0.i = phi i8 [ %.sroa.8.0.i.i.i, %110 ], [ %47, %42 ]
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.i, ptr %114, align 1, !alias.scope !13826, !noalias !13829
@@ -56184,8 +56172,8 @@ switch.lookup:                                    ; preds = %42, %110
   store ptr %.sroa.0.0.i.ph, ptr %135, align 8
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit"
 
-"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit": ; preds = %115, %switch.lookup, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h585f12bb7e624133E.exit", %134
-  %.sink = phi i8 [ 0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h585f12bb7e624133E.exit" ], [ 1, %134 ], [ 1, %115 ], [ 0, %switch.lookup ]
+"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h9d788438f26f8eedE.exit": ; preds = %115, %switch.lookup.i, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h585f12bb7e624133E.exit", %134
+  %.sink = phi i8 [ 0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h585f12bb7e624133E.exit" ], [ 1, %134 ], [ 1, %115 ], [ 0, %switch.lookup.i ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -58116,14 +58104,14 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #40
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #38
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #38
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #38
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #38
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

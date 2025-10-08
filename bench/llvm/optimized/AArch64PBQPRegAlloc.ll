@@ -5374,19 +5374,19 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl29mov
   %8 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::NodeEntry", ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !458
-  %switch.tableidx = add i32 %10, -1
-  %11 = icmp ult i32 %switch.tableidx, 3
-  br i1 %11, label %switch.lookup, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
+  %switch.tableidx.i = add i32 %10, -1
+  %11 = icmp ult i32 %switch.tableidx.i, 3
+  br i1 %11, label %switch.lookup.i, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
 
-switch.lookup:                                    ; preds = %2
-  %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
-  %switch.idx.mult = mul nsw i64 %switch.idx.cast, -48
-  %12 = getelementptr i8, ptr %0, i64 %switch.idx.mult
+switch.lookup.i:                                  ; preds = %2
+  %switch.idx.cast.i = zext nneg i32 %switch.tableidx.i to i64
+  %switch.idx.mult.i = mul nsw i64 %switch.idx.cast.i, -48
+  %12 = getelementptr i8, ptr %0, i64 %switch.idx.mult.i
   %13 = getelementptr i8, ptr %12, i64 104
   %14 = call noundef i64 @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE5eraseERKj(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
 
-_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit: ; preds = %2, %switch.lookup
+_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit: ; preds = %2, %switch.lookup.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5472,19 +5472,19 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl36mov
   %8 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::NodeEntry", ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !458
-  %switch.tableidx = add i32 %10, -1
-  %11 = icmp ult i32 %switch.tableidx, 3
-  br i1 %11, label %switch.lookup, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
+  %switch.tableidx.i = add i32 %10, -1
+  %11 = icmp ult i32 %switch.tableidx.i, 3
+  br i1 %11, label %switch.lookup.i, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
 
-switch.lookup:                                    ; preds = %2
-  %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
-  %switch.idx.mult = mul nsw i64 %switch.idx.cast, -48
-  %12 = getelementptr i8, ptr %0, i64 %switch.idx.mult
+switch.lookup.i:                                  ; preds = %2
+  %switch.idx.cast.i = zext nneg i32 %switch.tableidx.i to i64
+  %switch.idx.mult.i = mul nsw i64 %switch.idx.cast.i, -48
+  %12 = getelementptr i8, ptr %0, i64 %switch.idx.mult.i
   %13 = getelementptr i8, ptr %12, i64 104
   %14 = call noundef i64 @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE5eraseERKj(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit
 
-_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit: ; preds = %2, %switch.lookup
+_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit: ; preds = %2, %switch.lookup.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64

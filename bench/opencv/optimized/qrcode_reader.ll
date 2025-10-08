@@ -1068,12 +1068,12 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %187, %_ZNKSt7__cxx1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %190 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %191 = load i32, ptr %190, align 8, !tbaa !65
-  %switch.tableidx = add i32 %191, -10
-  %192 = icmp ult i32 %switch.tableidx, 3
+  %switch.tableidx.i = add i32 %191, -10
+  %192 = icmp ult i32 %switch.tableidx.i, 3
   br i1 %192, label %.sink.split.i, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit
 
 .sink.split.i:                                    ; preds = %_ZN5zxing12ErrorHandlerD2Ev.exit
-  store i32 %switch.tableidx, ptr %81, align 4, !tbaa !22
+  store i32 %switch.tableidx.i, ptr %81, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit
 
 _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit: ; preds = %_ZN5zxing12ErrorHandlerD2Ev.exit, %.sink.split.i
@@ -1170,15 +1170,15 @@ _ZN5zxing12ErrorHandlerD2Ev.exit281:              ; preds = %226, %_ZNKSt7__cxx1
 230:                                              ; preds = %183
   %231 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %232 = load i32, ptr %231, align 8, !tbaa !65
-  %switch.tableidx3295 = add i32 %232, -10
-  %233 = icmp ult i32 %switch.tableidx3295, 3
-  br i1 %233, label %.sink.split.i282, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284
+  %switch.tableidx.i282 = add i32 %232, -10
+  %233 = icmp ult i32 %switch.tableidx.i282, 3
+  br i1 %233, label %.sink.split.i283, label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284
 
-.sink.split.i282:                                 ; preds = %230
-  store i32 %switch.tableidx3295, ptr %81, align 4, !tbaa !22
+.sink.split.i283:                                 ; preds = %230
+  store i32 %switch.tableidx.i282, ptr %81, align 4, !tbaa !22
   br label %_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284
 
-_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284: ; preds = %230, %.sink.split.i282
+_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exit284: ; preds = %230, %.sink.split.i283
   %234 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %235 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %236 = load ptr, ptr %235, align 8, !tbaa !73

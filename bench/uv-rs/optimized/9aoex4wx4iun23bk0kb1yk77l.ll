@@ -34,7 +34,7 @@ define noundef zeroext i1 @_ZN10uv_extract5error5Error24is_http_streaming_failed
   %2 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 5)
-  switch i64 %4, label %15 [
+  switch i64 %4, label %14 [
     i64 1, label %5
     i64 2, label %9
   ]
@@ -43,36 +43,48 @@ define noundef zeroext i1 @_ZN10uv_extract5error5Error24is_http_streaming_failed
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !4
   %8 = icmp eq i8 %7, 13
-  br label %15
+  br label %14
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 3
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %16, label %15
+  switch i64 %13, label %default.unreachable [
+    i64 2, label %14
+    i64 3, label %15
+    i64 0, label %14
+    i64 1, label %17
+  ]
 
-15:                                               ; preds = %9, %1, %16, %5
-  %.sroa.0.0.shrunk = phi i1 [ %8, %5 ], [ %.sroa.0.0.i, %16 ], [ false, %1 ], [ false, %9 ]
+default.unreachable:                              ; preds = %9
+  unreachable
+
+14:                                               ; preds = %9, %9, %15, %1, %17, %5
+  %.sroa.0.0.shrunk = phi i1 [ %8, %5 ], [ %.sroa.0.0.i, %17 ], [ false, %1 ], [ false, %15 ], [ false, %9 ], [ false, %9 ]
   ret i1 %.sroa.0.0.shrunk
 
-16:                                               ; preds = %9
-  %17 = getelementptr i8, ptr %11, i64 -1
-  %18 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr i8, ptr %11, i64 7
-  %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !6, !noundef !4
-  %22 = getelementptr i8, ptr %21, i64 56
-  %.val = load ptr, ptr %22, align 8
-  %23 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %19)
-  %24 = extractvalue { i64, i64 } %23, 0
-  %25 = extractvalue { i64, i64 } %23, 1
-  %26 = icmp eq i64 %24, 3651417219560125105
-  %27 = icmp eq i64 %25, -2221366707112211979
-  %.sroa.0.0.i = select i1 %26, i1 %27, i1 false
-  br label %15
+15:                                               ; preds = %9
+  %16 = icmp ult ptr %11, inttoptr (i64 180388626432 to ptr)
+  tail call void @llvm.assume(i1 %16)
+  br label %14
+
+17:                                               ; preds = %9
+  %18 = getelementptr i8, ptr %11, i64 -1
+  %19 = icmp ne ptr %18, null
+  tail call void @llvm.assume(i1 %19)
+  %20 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
+  %21 = getelementptr i8, ptr %11, i64 7
+  %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !6, !noundef !4
+  %23 = getelementptr i8, ptr %22, i64 56
+  %.val = load ptr, ptr %23, align 8
+  %24 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %20)
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = extractvalue { i64, i64 } %24, 1
+  %27 = icmp eq i64 %25, 3651417219560125105
+  %28 = icmp eq i64 %26, -2221366707112211979
+  %.sroa.0.0.i = select i1 %27, i1 %28, i1 false
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable

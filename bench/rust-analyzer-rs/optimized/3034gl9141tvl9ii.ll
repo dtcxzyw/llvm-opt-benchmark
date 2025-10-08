@@ -16864,11 +16864,11 @@ define hidden { i64, ptr } @"_ZN8chalk_ir4fold12boring_impls97_$LT$impl$u20$chal
   invoke void %9(ptr noundef nonnull align 1 %2)
           to label %12 unwind label %10
 
-10:                                               ; preds = %.invoke, %.thread, %32, %12, %5
+10:                                               ; preds = %.invoke, %29, %34, %12, %5
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$chalk_ir..GenericArgData$LT$hir_ty..interner..Interner$GT$$GT$17hbce75be25f1ca404E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17h4cc98e3a21cc8b07E.exit" unwind label %35
+          to label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17h4cc98e3a21cc8b07E.exit" unwind label %37
 
 12:                                               ; preds = %5
   %13 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
@@ -16892,21 +16892,21 @@ default.unreachable:                              ; preds = %14
   %18 = load ptr, ptr %16, align 8, !alias.scope !3967, !nonnull !9, !noundef !9
   %19 = atomicrmw add ptr %18, i64 1 monotonic, align 8, !noalias !3967
   %20 = icmp slt i64 %19, 0
-  br i1 %20, label %.invoke, label %.thread
+  br i1 %20, label %.invoke, label %29
 
 21:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !3968)
   %22 = load ptr, ptr %16, align 8, !alias.scope !3971, !nonnull !9, !noundef !9
   %23 = atomicrmw add ptr %22, i64 1 monotonic, align 8, !noalias !3971
   %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.invoke, label %.thread
+  br i1 %24, label %.invoke, label %29
 
 25:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !3972)
   %26 = load ptr, ptr %16, align 8, !alias.scope !3975, !nonnull !9, !noundef !9
   %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8, !noalias !3975
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %.invoke, label %.thread
+  br i1 %28, label %.invoke, label %29
 
 .invoke:                                          ; preds = %25, %21, %17
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #33
@@ -16915,24 +16915,25 @@ default.unreachable:                              ; preds = %14
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread:                                          ; preds = %25, %21, %17
-  %.sroa.4.0.i12 = phi ptr [ %18, %17 ], [ %22, %21 ], [ %26, %25 ]
-  %.sink.i = phi i64 [ 32, %17 ], [ 40, %21 ], [ 48, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i
-  %30 = load ptr, ptr %29, align 8, !invariant.load !9, !alias.scope !3976, !nonnull !9
-  %31 = invoke noundef nonnull ptr %30(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.4.0.i12, i32 noundef %4)
-          to label %32 unwind label %10
-
-32:                                               ; preds = %.thread
-  %33 = invoke { i64, ptr } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$18intern_generic_arg17hf1cb607f9b3010daE"(i64 noundef %15, ptr noundef nonnull %31)
+29:                                               ; preds = %25, %21, %17
+  %.sroa.4.0.i = phi ptr [ %18, %17 ], [ %22, %21 ], [ %26, %25 ]
+  %switch.idx.mult.i = shl nuw nsw i64 %15, 3
+  %30 = getelementptr i8, ptr %3, i64 %switch.idx.mult.i
+  %31 = getelementptr i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8, !invariant.load !9, !alias.scope !3976, !nonnull !9
+  %33 = invoke noundef nonnull ptr %32(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.4.0.i, i32 noundef %4)
           to label %34 unwind label %10
 
-34:                                               ; preds = %32
-  call void @"_ZN4core3ptr79drop_in_place$LT$chalk_ir..GenericArgData$LT$hir_ty..interner..Interner$GT$$GT$17hbce75be25f1ca404E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  ret { i64, ptr } %33
+34:                                               ; preds = %29
+  %35 = invoke { i64, ptr } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$18intern_generic_arg17hf1cb607f9b3010daE"(i64 noundef %15, ptr noundef nonnull %33)
+          to label %36 unwind label %10
 
-35:                                               ; preds = %10
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  call void @"_ZN4core3ptr79drop_in_place$LT$chalk_ir..GenericArgData$LT$hir_ty..interner..Interner$GT$$GT$17hbce75be25f1ca404E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  ret { i64, ptr } %35
+
+37:                                               ; preds = %10
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable

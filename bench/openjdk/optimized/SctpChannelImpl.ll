@@ -622,7 +622,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
     i16 -32765, label %9
     i16 -32767, label %10
     i16 -32763, label %38
-    i16 -32766, label %switch.lookup23
+    i16 -32766, label %57
   ]
 
 9:                                                ; preds = %7
@@ -633,9 +633,9 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i16, ptr %11, align 4
   %13 = icmp ult i16 %12, 5
-  %switch.idx.cast = zext i16 %12 to i32
-  %switch.offset = add nuw nsw i32 %switch.idx.cast, 1
-  %.0.i = select i1 %13, i32 %switch.offset, i32 0
+  %switch.idx.cast.i = zext i16 %12 to i32
+  %switch.offset.i = add nuw nsw i32 %switch.idx.cast.i, 1
+  %.0.i = select i1 %13, i32 %switch.offset.i, i32 0
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
@@ -691,44 +691,44 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   tail call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %56, i32 noundef 5) #12
   br label %handleAssocChange.exit
 
-switch.lookup23:                                  ; preds = %7
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %59) #12
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %handleAssocChange.exit, label %62
+57:                                               ; preds = %7
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %61 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %60) #12
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %handleAssocChange.exit, label %63
 
-62:                                               ; preds = %switch.lookup23
-  %63 = icmp ult i32 %58, 6
-  %switch.offset24 = add nsw i32 %58, 1
-  %spec.select = select i1 %63, i32 %switch.offset24, i32 0
-  %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr @spc_class, align 8
-  %68 = load ptr, ptr @spc_ctrID, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %70 = load i32, ptr %69, align 4
-  %71 = tail call ptr (ptr, ptr, ptr, ...) %66(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %60, i32 noundef %spec.select) #12
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %handleAssocChange.exit, label %73
+63:                                               ; preds = %57
+  %64 = icmp ult i32 %59, 6
+  %switch.offset.i18 = add nsw i32 %59, 1
+  %spec.select.i = select i1 %64, i32 %switch.offset.i18, i32 0
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 224
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr @spc_class, align 8
+  %69 = load ptr, ptr @spc_ctrID, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %71 = load i32, ptr %70, align 4
+  %72 = tail call ptr (ptr, ptr, ptr, ...) %67(ptr noundef nonnull %0, ptr noundef %68, ptr noundef %69, i32 noundef %71, ptr noundef nonnull %61, i32 noundef %spec.select.i) #12
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %handleAssocChange.exit, label %74
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 832
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr @src_valueID, align 8
-  tail call void %76(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %77, ptr noundef nonnull %71) #12
-  %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 872
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr @src_typeID, align 8
-  tail call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %81, i32 noundef 4) #12
+74:                                               ; preds = %63
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 832
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr @src_valueID, align 8
+  tail call void %77(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %78, ptr noundef nonnull %72) #12
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 872
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr @src_typeID, align 8
+  tail call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef 4) #12
   br label %handleAssocChange.exit
 
-handleAssocChange.exit:                           ; preds = %7, %73, %62, %switch.lookup23, %48, %38, %29, %10, %9
-  %.0 = phi i8 [ 1, %9 ], [ 1, %10 ], [ 1, %29 ], [ 1, %38 ], [ 1, %48 ], [ 1, %switch.lookup23 ], [ 1, %62 ], [ 1, %73 ], [ 0, %7 ]
+handleAssocChange.exit:                           ; preds = %7, %74, %63, %57, %48, %38, %29, %10, %9
+  %.0 = phi i8 [ 1, %9 ], [ 1, %10 ], [ 1, %29 ], [ 1, %38 ], [ 1, %48 ], [ 1, %57 ], [ 1, %63 ], [ 1, %74 ], [ 0, %7 ]
   ret i8 %.0
 }
 

@@ -91,8 +91,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.80e0e8421008f8c9b869018c9376c80d.59.llvm.15204554659183753403 = external hidden unnamed_addr constant <{ [24 x i8], ptr }>, align 8
 @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.8801228890571076355" = private unnamed_addr constant [6 x i64] [i64 6, i64 12, i64 15, i64 10, i64 8, i64 12], align 8
 @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.8801228890571076355.20" = private unnamed_addr constant [6 x ptr] [ptr @anon.411c86290905c02460496ef744cb4f85.39, ptr @anon.411c86290905c02460496ef744cb4f85.40, ptr @anon.411c86290905c02460496ef744cb4f85.41, ptr @anon.411c86290905c02460496ef744cb4f85.42, ptr @anon.411c86290905c02460496ef744cb4f85.43, ptr @anon.411c86290905c02460496ef744cb4f85.44], align 8
-@"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE" = private unnamed_addr constant [8 x ptr] [ptr @anon.411c86290905c02460496ef744cb4f85.81, ptr @anon.411c86290905c02460496ef744cb4f85.82, ptr @anon.411c86290905c02460496ef744cb4f85.83, ptr @anon.411c86290905c02460496ef744cb4f85.84, ptr @anon.411c86290905c02460496ef744cb4f85.85, ptr @anon.411c86290905c02460496ef744cb4f85.86, ptr @anon.411c86290905c02460496ef744cb4f85.87, ptr @anon.411c86290905c02460496ef744cb4f85.88], align 8
-@"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE.22" = private unnamed_addr constant [8 x i64] [i64 10, i64 10, i64 11, i64 11, i64 18, i64 18, i64 19, i64 19], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbf24457a081570d7E.llvm.8801228890571076355"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -5054,45 +5052,75 @@ define noundef zeroext i1 @"_ZN99_$LT$live_kit_server..proto..room_composite_egr
 define noundef zeroext i1 @"_ZN155_$LT$$LT$live_kit_server..proto..room_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17ha893ae0dc42f89f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !20, !noundef !7
   %4 = load i32, ptr %3, align 4, !noundef !7
-  %5 = icmp ult i32 %4, 8
-  br i1 %5, label %switch.lookup, label %6
+  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 8)
+  switch i32 %spec.select.i, label %default.unreachable5 [
+    i32 8, label %5
+    i32 0, label %26
+    i32 1, label %19
+    i32 2, label %20
+    i32 3, label %21
+    i32 4, label %22
+    i32 5, label %23
+    i32 6, label %24
+    i32 7, label %25
+  ]
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %8 = load i32, ptr %7, align 4, !alias.scope !1316, !noalias !1319, !noundef !7
-  %9 = and i32 %8, 16
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+default.unreachable5:                             ; preds = %2
+  unreachable
 
-11:                                               ; preds = %6
-  %12 = and i32 %8, 32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %18
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %7 = load i32, ptr %6, align 4, !alias.scope !1316, !noalias !1319, !noundef !7
+  %8 = and i32 %7, 16
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %13
 
-14:                                               ; preds = %6
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+10:                                               ; preds = %5
+  %11 = and i32 %7, 32
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %15, label %17
+
+13:                                               ; preds = %5
+  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-16:                                               ; preds = %11
-  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+15:                                               ; preds = %10
+  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-18:                                               ; preds = %11
-  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+17:                                               ; preds = %10
+  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %18, %16, %14, %switch.lookup
-  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %17, %15, %13, %26
+  %.sroa.0.0.in = phi i1 [ %27, %26 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 
-switch.lookup:                                    ; preds = %2
-  %20 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE", i64 %20
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = zext nneg i32 %4 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE.22", i64 %21
-  %switch.load21 = load i64, ptr %switch.gep20, align 8
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load21)
+19:                                               ; preds = %2
+  br label %26
+
+20:                                               ; preds = %2
+  br label %26
+
+21:                                               ; preds = %2
+  br label %26
+
+22:                                               ; preds = %2
+  br label %26
+
+23:                                               ; preds = %2
+  br label %26
+
+24:                                               ; preds = %2
+  br label %26
+
+25:                                               ; preds = %2
+  br label %26
+
+26:                                               ; preds = %2, %25, %24, %23, %22, %21, %20, %19
+  %.sroa.04.0 = phi ptr [ @anon.411c86290905c02460496ef744cb4f85.82, %19 ], [ @anon.411c86290905c02460496ef744cb4f85.83, %20 ], [ @anon.411c86290905c02460496ef744cb4f85.84, %21 ], [ @anon.411c86290905c02460496ef744cb4f85.85, %22 ], [ @anon.411c86290905c02460496ef744cb4f85.86, %23 ], [ @anon.411c86290905c02460496ef744cb4f85.87, %24 ], [ @anon.411c86290905c02460496ef744cb4f85.88, %25 ], [ @anon.411c86290905c02460496ef744cb4f85.81, %2 ]
+  %.sroa.11.0 = phi i64 [ 10, %19 ], [ 11, %20 ], [ 11, %21 ], [ 18, %22 ], [ 18, %23 ], [ 19, %24 ], [ 19, %25 ], [ 10, %2 ]
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.11.0)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 }
 
@@ -5198,45 +5226,75 @@ define noundef zeroext i1 @"_ZN100_$LT$live_kit_server..proto..track_composite_e
 define noundef zeroext i1 @"_ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !20, !noundef !7
   %4 = load i32, ptr %3, align 4, !noundef !7
-  %5 = icmp ult i32 %4, 8
-  br i1 %5, label %switch.lookup, label %6
+  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 8)
+  switch i32 %spec.select.i, label %default.unreachable5 [
+    i32 8, label %5
+    i32 0, label %26
+    i32 1, label %19
+    i32 2, label %20
+    i32 3, label %21
+    i32 4, label %22
+    i32 5, label %23
+    i32 6, label %24
+    i32 7, label %25
+  ]
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %8 = load i32, ptr %7, align 4, !alias.scope !1321, !noalias !1324, !noundef !7
-  %9 = and i32 %8, 16
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+default.unreachable5:                             ; preds = %2
+  unreachable
 
-11:                                               ; preds = %6
-  %12 = and i32 %8, 32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %18
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %7 = load i32, ptr %6, align 4, !alias.scope !1321, !noalias !1324, !noundef !7
+  %8 = and i32 %7, 16
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %13
 
-14:                                               ; preds = %6
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+10:                                               ; preds = %5
+  %11 = and i32 %7, 32
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %15, label %17
+
+13:                                               ; preds = %5
+  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-16:                                               ; preds = %11
-  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+15:                                               ; preds = %10
+  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-18:                                               ; preds = %11
-  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+17:                                               ; preds = %10
+  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %18, %16, %14, %switch.lookup
-  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %17, %15, %13, %26
+  %.sroa.0.0.in = phi i1 [ %27, %26 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 
-switch.lookup:                                    ; preds = %2
-  %20 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE", i64 %20
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = zext nneg i32 %4 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN156_$LT$$LT$live_kit_server..proto..track_composite_egress_request..Options$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17haf6c396e7bc1188cE.22", i64 %21
-  %switch.load21 = load i64, ptr %switch.gep20, align 8
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load21)
+19:                                               ; preds = %2
+  br label %26
+
+20:                                               ; preds = %2
+  br label %26
+
+21:                                               ; preds = %2
+  br label %26
+
+22:                                               ; preds = %2
+  br label %26
+
+23:                                               ; preds = %2
+  br label %26
+
+24:                                               ; preds = %2
+  br label %26
+
+25:                                               ; preds = %2
+  br label %26
+
+26:                                               ; preds = %2, %25, %24, %23, %22, %21, %20, %19
+  %.sroa.04.0 = phi ptr [ @anon.411c86290905c02460496ef744cb4f85.82, %19 ], [ @anon.411c86290905c02460496ef744cb4f85.83, %20 ], [ @anon.411c86290905c02460496ef744cb4f85.84, %21 ], [ @anon.411c86290905c02460496ef744cb4f85.85, %22 ], [ @anon.411c86290905c02460496ef744cb4f85.86, %23 ], [ @anon.411c86290905c02460496ef744cb4f85.87, %24 ], [ @anon.411c86290905c02460496ef744cb4f85.88, %25 ], [ @anon.411c86290905c02460496ef744cb4f85.81, %2 ]
+  %.sroa.11.0 = phi i64 [ 10, %19 ], [ 11, %20 ], [ 11, %21 ], [ 18, %22 ], [ 18, %23 ], [ 19, %24 ], [ 19, %25 ], [ 10, %2 ]
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.11.0)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 }
 
@@ -5754,6 +5812,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

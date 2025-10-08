@@ -6388,8 +6388,8 @@ define noundef range(i8 0, 4) i8 @_ZN6quiche3tls9Handshake6cipher17he8c5d0fba2f6
 
 4:                                                ; preds = %1
   %5 = tail call noundef i32 @SSL_CIPHER_get_id(ptr noundef nonnull %2) #27, !noalias !434
-  %switch.tableidx = add i32 %5, -50336513
-  %spec.select10 = tail call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 3)
+  %switch.tableidx.i = add i32 %5, -50336513
+  %spec.select10 = tail call i32 @llvm.umin.i32(i32 %switch.tableidx.i, i32 3)
   %spec.select = trunc nuw nsw i32 %spec.select10 to i8
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
@@ -6613,7 +6613,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6quiche3tls15set_read_secret17h8ea
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %21
 
-19:                                               ; preds = %switch.lookup, %18, %55, %41, %33
+19:                                               ; preds = %switch.lookup, %18, %56, %41, %33
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking19panic_cannot_unwind17h82fcc9c695da0defE() #28
@@ -6625,8 +6625,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6quiche3tls15set_read_secret17h8ea
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit, label %24
 
-_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit: ; preds = %47, %51, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22", %21, %59, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit"
-  %.sroa.0.0 = phi i32 [ 0, %59 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit" ], [ 0, %21 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22" ], [ 1, %51 ], [ 0, %47 ]
+_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit: ; preds = %47, %52, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22", %21, %60, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit"
+  %.sroa.0.0 = phi i32 [ 0, %60 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit" ], [ 0, %21 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22" ], [ 1, %52 ], [ 0, %47 ]
   ret i32 %.sroa.0.0
 
 24:                                               ; preds = %21
@@ -6694,91 +6694,91 @@ switch.lookup:                                    ; preds = %46, %24
 
 47:                                               ; preds = %switch.lookup
   %48 = call noundef i32 @SSL_CIPHER_get_id(ptr noundef %2) #27, !noalias !450
-  %switch.tableidx = add i32 %48, -50336513
-  %49 = icmp ult i32 %switch.tableidx, 3
-  br i1 %49, label %switch.lookup29, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
+  %switch.tableidx.i = add i32 %48, -50336513
+  %49 = icmp ult i32 %switch.tableidx.i, 3
+  br i1 %49, label %50, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-switch.lookup29:                                  ; preds = %47
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
-  %50 = load i32, ptr %15, align 4, !range !449, !noundef !3
-  %.not19 = icmp eq i32 %50, 1
-  br i1 %.not19, label %51, label %55
+50:                                               ; preds = %47
+  %switch.idx.cast.i = trunc nuw nsw i32 %switch.tableidx.i to i8
+  %51 = load i32, ptr %15, align 4, !range !449, !noundef !3
+  %.not19 = icmp eq i32 %51, 1
+  br i1 %.not19, label %52, label %56
 
-51:                                               ; preds = %switch.lookup29
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 240
-  %53 = load i8, ptr %52, align 8, !range !269, !noundef !3
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 240
+  %54 = load i8, ptr %53, align 8, !range !269, !noundef !3
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-55:                                               ; preds = %51, %switch.lookup29
+56:                                               ; preds = %52, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  invoke void @_ZN6quiche6crypto4Open11from_secret17hc5fca2b5ca435eeeE(ptr noalias noundef nonnull sret([920 x i8]) align 8 captures(none) dereferenceable(920) %11, i8 noundef %switch.idx.cast, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
-          to label %56 unwind label %19
+  invoke void @_ZN6quiche6crypto4Open11from_secret17hc5fca2b5ca435eeeE(ptr noalias noundef nonnull sret([920 x i8]) align 8 captures(none) dereferenceable(920) %11, i8 noundef %switch.idx.cast.i, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+          to label %57 unwind label %19
 
-56:                                               ; preds = %55
-  %57 = load i64, ptr %11, align 8, !range !29, !noundef !3
-  %58 = icmp eq i64 %57, -9223372036854775808
-  br i1 %58, label %59, label %60
+57:                                               ; preds = %56
+  %58 = load i64, ptr %11, align 8, !range !29, !noundef !3
+  %59 = icmp eq i64 %58, -9223372036854775808
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %56
+60:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-60:                                               ; preds = %56
+61:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %10, ptr noundef nonnull align 8 dereferenceable(920) %11, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %61 = load i32, ptr %15, align 4, !range !449, !noundef !3
-  %62 = icmp eq i32 %61, 1
-  br i1 %62, label %63, label %68
+  %62 = load i32, ptr %15, align 4, !range !449, !noundef !3
+  %63 = icmp eq i32 %62, 1
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %60
+64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %9, ptr noundef nonnull align 8 dereferenceable(920) %10, i64 920, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %32, i64 3160
-  %65 = load i64, ptr %64, align 8, !range !29, !alias.scope !453, !noundef !3
-  %66 = icmp eq i64 %65, -9223372036854775808
-  br i1 %66, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit", label %67
+  %65 = getelementptr inbounds nuw i8, ptr %32, i64 3160
+  %66 = load i64, ptr %65, align 8, !range !29, !alias.scope !453, !noundef !3
+  %67 = icmp eq i64 %66, -9223372036854775808
+  br i1 %67, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit", label %68
 
-67:                                               ; preds = %63
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Open$GT$17hb259d9e54bf12b49E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %64)
-          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit" unwind label %73
+68:                                               ; preds = %64
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Open$GT$17hb259d9e54bf12b49E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %65)
+          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit" unwind label %74
 
-68:                                               ; preds = %60
+69:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %8, ptr noundef nonnull align 8 dereferenceable(920) %10, i64 920, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %32, i64 1320
-  %70 = load i64, ptr %69, align 8, !range !29, !alias.scope !456, !noundef !3
-  %71 = icmp eq i64 %70, -9223372036854775808
-  br i1 %71, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22", label %72
+  %70 = getelementptr inbounds nuw i8, ptr %32, i64 1320
+  %71 = load i64, ptr %70, align 8, !range !29, !alias.scope !456, !noundef !3
+  %72 = icmp eq i64 %71, -9223372036854775808
+  br i1 %72, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22", label %73
 
-72:                                               ; preds = %68
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Open$GT$17hb259d9e54bf12b49E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %69)
-          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22" unwind label %76
+73:                                               ; preds = %69
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Open$GT$17hb259d9e54bf12b49E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %70)
+          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22" unwind label %77
 
-73:                                               ; preds = %67
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %68
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %76
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit": ; preds = %63, %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %64, ptr noundef nonnull align 8 dereferenceable(920) %9, i64 920, i1 false)
+"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit": ; preds = %64, %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %65, ptr noundef nonnull align 8 dereferenceable(920) %9, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-75:                                               ; preds = %76, %73
-  %.sink28 = phi ptr [ %8, %76 ], [ %9, %73 ]
-  %.sink = phi ptr [ %69, %76 ], [ %64, %73 ]
+76:                                               ; preds = %77, %74
+  %.sink28 = phi ptr [ %8, %77 ], [ %9, %74 ]
+  %.sink = phi ptr [ %70, %77 ], [ %65, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %.sink, ptr noundef nonnull align 8 dereferenceable(920) %.sink28, i64 920, i1 false)
   call void @_ZN4core9panicking19panic_cannot_unwind17h82fcc9c695da0defE() #28
   unreachable
 
-76:                                               ; preds = %72
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %73
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %76
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22": ; preds = %68, %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %69, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
+"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Open$GT$$GT$17ha572eb4d298aed54E.exit22": ; preds = %69, %73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %70, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 }
@@ -6811,7 +6811,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6quiche3tls16set_write_secret17h45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %19
 
-17:                                               ; preds = %switch.lookup, %16, %53, %39, %31
+17:                                               ; preds = %switch.lookup, %16, %54, %39, %31
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking19panic_cannot_unwind17h82fcc9c695da0defE() #28
@@ -6823,8 +6823,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6quiche3tls16set_write_secret17h45
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit, label %22
 
-_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit: ; preds = %45, %49, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit", %19, %57
-  %.sroa.0.0 = phi i32 [ 0, %57 ], [ 0, %19 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit" ], [ 1, %49 ], [ 0, %45 ]
+_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit: ; preds = %45, %50, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit", %19, %58
+  %.sroa.0.0 = phi i32 [ 0, %58 ], [ 0, %19 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit" ], [ 1, %50 ], [ 0, %45 ]
   ret i32 %.sroa.0.0
 
 22:                                               ; preds = %19
@@ -6892,58 +6892,58 @@ switch.lookup:                                    ; preds = %44, %22
 
 45:                                               ; preds = %switch.lookup
   %46 = call noundef i32 @SSL_CIPHER_get_id(ptr noundef %2) #27, !noalias !459
-  %switch.tableidx = add i32 %46, -50336513
-  %47 = icmp ult i32 %switch.tableidx, 3
-  br i1 %47, label %switch.lookup22, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
+  %switch.tableidx.i = add i32 %46, -50336513
+  %47 = icmp ult i32 %switch.tableidx.i, 3
+  br i1 %47, label %48, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-switch.lookup22:                                  ; preds = %45
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
-  %48 = load i32, ptr %13, align 4, !range !449, !noundef !3
-  %.not15 = icmp eq i32 %48, 1
-  br i1 %.not15, label %49, label %53
+48:                                               ; preds = %45
+  %switch.idx.cast.i = trunc nuw nsw i32 %switch.tableidx.i to i8
+  %49 = load i32, ptr %13, align 4, !range !449, !noundef !3
+  %.not15 = icmp eq i32 %49, 1
+  br i1 %.not15, label %50, label %54
 
-49:                                               ; preds = %switch.lookup22
-  %50 = getelementptr inbounds nuw i8, ptr %21, i64 240
-  %51 = load i8, ptr %50, align 8, !range !269, !noundef !3
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit, label %53
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 240
+  %52 = load i8, ptr %51, align 8, !range !269, !noundef !3
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit, label %54
 
-53:                                               ; preds = %49, %switch.lookup22
+54:                                               ; preds = %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  invoke void @_ZN6quiche6crypto4Seal11from_secret17h80d0b9f4d46941c4E(ptr noalias noundef nonnull sret([920 x i8]) align 8 captures(none) dereferenceable(920) %9, i8 noundef %switch.idx.cast, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
-          to label %54 unwind label %17
+  invoke void @_ZN6quiche6crypto4Seal11from_secret17h80d0b9f4d46941c4E(ptr noalias noundef nonnull sret([920 x i8]) align 8 captures(none) dereferenceable(920) %9, i8 noundef %switch.idx.cast.i, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+          to label %55 unwind label %17
 
-54:                                               ; preds = %53
-  %55 = load i64, ptr %9, align 8, !range !29, !noundef !3
-  %56 = icmp eq i64 %55, -9223372036854775808
-  br i1 %56, label %57, label %58
+55:                                               ; preds = %54
+  %56 = load i64, ptr %9, align 8, !range !29, !noundef !3
+  %57 = icmp eq i64 %56, -9223372036854775808
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 
-58:                                               ; preds = %54
+59:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %8, ptr noundef nonnull align 8 dereferenceable(920) %9, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %59 = getelementptr inbounds nuw i8, ptr %30, i64 2240
-  %60 = load i64, ptr %59, align 8, !range !29, !alias.scope !462, !noundef !3
-  %61 = icmp eq i64 %60, -9223372036854775808
-  br i1 %61, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit", label %62
+  %60 = getelementptr inbounds nuw i8, ptr %30, i64 2240
+  %61 = load i64, ptr %60, align 8, !range !29, !alias.scope !462, !noundef !3
+  %62 = icmp eq i64 %61, -9223372036854775808
+  br i1 %62, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit", label %63
 
-62:                                               ; preds = %58
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Seal$GT$17hacec3add05f237baE"(ptr noalias noundef nonnull align 8 dereferenceable(920) %59)
-          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit" unwind label %63
+63:                                               ; preds = %59
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$quiche..crypto..Seal$GT$17hacec3add05f237baE"(ptr noalias noundef nonnull align 8 dereferenceable(920) %60)
+          to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit" unwind label %64
 
-63:                                               ; preds = %62
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %63
+  %65 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %59, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %60, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
   call void @_ZN4core9panicking19panic_cannot_unwind17h82fcc9c695da0defE() #28
   unreachable
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit": ; preds = %58, %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %59, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
+"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$quiche..crypto..Seal$GT$$GT$17h07fb5d73820039eaE.exit": ; preds = %59, %63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %60, ptr noundef nonnull align 8 dereferenceable(920) %8, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6quiche3tls19get_cipher_from_ptr17h4ae852df786f1addE.exit
 }

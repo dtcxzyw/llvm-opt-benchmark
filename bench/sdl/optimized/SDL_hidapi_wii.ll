@@ -1914,18 +1914,18 @@ PostStickCalibrated.exit.i:                       ; preds = %97, %56
 
 107:                                              ; preds = %100
   %108 = lshr i8 %102, 4
-  %switch.tableidx = add nsw i8 %108, -1
-  %109 = icmp ult i8 %switch.tableidx, 3
-  br i1 %109, label %switch.lookup, label %UpdatePowerLevelWiiU.exit.i
+  %switch.tableidx.i.i = add nsw i8 %108, -1
+  %109 = icmp ult i8 %switch.tableidx.i.i, 3
+  br i1 %109, label %switch.lookup.i.i, label %UpdatePowerLevelWiiU.exit.i
 
-switch.lookup:                                    ; preds = %107
-  %narrow = mul nuw nsw i8 %switch.tableidx, 30
-  %narrow136 = add nuw i8 %narrow, 10
-  %switch.offset = zext i8 %narrow136 to i32
+switch.lookup.i.i:                                ; preds = %107
+  %narrow.i.i = mul nuw nsw i8 %switch.tableidx.i.i, 30
+  %narrow18.i.i = add nuw nsw i8 %narrow.i.i, 10
+  %switch.offset.i.i = zext nneg i8 %narrow18.i.i to i32
   br label %UpdatePowerLevelWiiU.exit.i
 
-UpdatePowerLevelWiiU.exit.i:                      ; preds = %107, %switch.lookup, %100
-  %.0.i29.i = phi i32 [ 100, %100 ], [ %switch.offset, %switch.lookup ], [ 3, %107 ]
+UpdatePowerLevelWiiU.exit.i:                      ; preds = %switch.lookup.i.i, %107, %100
+  %.0.i29.i = phi i32 [ 100, %100 ], [ %switch.offset.i.i, %switch.lookup.i.i ], [ 3, %107 ]
   %spec.select17.i.i = select i1 %.not16.i.i, i32 4, i32 1
   %110 = and i32 %103, 8
   %.not.i30.i = icmp eq i32 %110, 0

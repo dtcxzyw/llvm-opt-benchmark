@@ -4142,10 +4142,9 @@ define void @_ZN22FilterMutualInfoPlugin20imageMutualInfoAlignER12MeshDocumentib
   store i32 %7, ptr %87, align 8
   store i32 %8, ptr %13, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %switch.tableidx = add i32 %2, -1
-  %89 = icmp ult i32 %switch.tableidx, 5
-  %.sink = select i1 %89, i32 %2, i32 0
-  store i32 %.sink, ptr %88, align 8
+  %89 = icmp ult i32 %2, 6
+  %. = select i1 %89, i32 %2, i32 0
+  store i32 %., ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.1593, ptr noundef nonnull align 4 dereferenceable(64) %90, i64 64, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 120

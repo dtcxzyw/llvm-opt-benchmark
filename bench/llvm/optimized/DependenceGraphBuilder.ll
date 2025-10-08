@@ -3900,14 +3900,14 @@ define linkonce_odr hidden void @_ZZN4llvm30AbstractDependenceGraphBuilderINS_19
   %29 = load ptr, ptr %28, align 8, !tbaa !104
   %30 = load ptr, ptr %29, align 8, !tbaa !113
   %31 = icmp eq ptr %30, %2
-  br i1 %31, label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit63, label %32
+  br i1 %31, label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit62, label %32
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !104
   %35 = load ptr, ptr %34, align 8, !tbaa !113
   %36 = icmp eq ptr %35, %2
-  br i1 %36, label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit65, label %37
+  br i1 %36, label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit64, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 32
@@ -3967,19 +3967,19 @@ _ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.l
   %59 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 8
   br label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit
 
-_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit63: ; preds = %27
+_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit62: ; preds = %27
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 16
   br label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit
 
-_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit65: ; preds = %32
+_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit64: ; preds = %32
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 24
   br label %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit
 
-_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit63, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit65, %42, %48, %54, %58
-  %.028.i.i.i.i.i.i = phi ptr [ %16, %58 ], [ %.029.lcssa.i.i.i.i.i.i, %42 ], [ %.1.i.i.i.i.i.i, %48 ], [ %.2.i.i.i.i.i.i, %54 ], [ %59, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit ], [ %60, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit63 ], [ %61, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit65 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit62, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit64, %42, %48, %54, %58
+  %.028.i.i.i.i.i.i = phi ptr [ %16, %58 ], [ %.029.lcssa.i.i.i.i.i.i, %42 ], [ %.1.i.i.i.i.i.i, %48 ], [ %.2.i.i.i.i.i.i, %54 ], [ %59, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit ], [ %60, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit62 ], [ %61, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit.loopexit.split.loop.exit64 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %62 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
-  %.not29 = icmp eq ptr %.028.i.i.i.i.i.i, %62
-  br i1 %.not29, label %159, label %63
+  %.not30 = icmp eq ptr %.028.i.i.i.i.i.i, %62
+  br i1 %.not30, label %161, label %63
 
 63:                                               ; preds = %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4035,20 +4035,20 @@ _ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorIm
   %86 = zext i32 %84 to i64
   %.idx = shl nuw nsw i64 %86, 3
   %87 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %.not38 = icmp eq i32 %84, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %84, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorImplIPS2_EE.exit
   %88 = zext i32 %4 to i64
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i32 %4, label %.lr.ph.split [
     i32 0, label %.lr.ph.split.us
-    i32 1, label %.lr.ph.split.us40
+    i32 1, label %.lr.ph.split.us41
   ]
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %109
-  %.039.us = phi ptr [ %114, %109 ], [ %.pre, %.lr.ph ]
-  %90 = load ptr, ptr %.039.us, align 8, !tbaa !104
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %110
+  %.040.us = phi ptr [ %115, %110 ], [ %.pre, %.lr.ph ]
+  %90 = load ptr, ptr %.040.us, align 8, !tbaa !104
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8, !tbaa !106
   %93 = load ptr, ptr %0, align 8, !tbaa !282
@@ -4057,125 +4057,125 @@ _ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorIm
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !283, !range !77, !noundef !95
   %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %109, label %switch.lookup
+  br i1 %98, label %110, label %99
 
-switch.lookup:                                    ; preds = %.lr.ph.split.us
-  %99 = load ptr, ptr %89, align 8, !tbaa !284
-  %100 = load ptr, ptr %99, align 8, !tbaa !224
-  %101 = load ptr, ptr %100, align 8, !tbaa !3
-  %switch.tableidx = add nsw i32 %92, -1
-  %switch.idx.cast = zext i32 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %switch.idx.mult
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  %104 = load ptr, ptr %103, align 8
-  %105 = call noundef nonnull align 8 dereferenceable(12) ptr %104(ptr noundef nonnull align 8 dereferenceable(104) %100, ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(52) %3) #18
-  %106 = load ptr, ptr %0, align 8, !tbaa !282
-  %107 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %106, i64 %88
-  %108 = getelementptr inbounds i8, ptr %107, i64 %95
-  store i8 1, ptr %108, align 1, !tbaa !283
-  br label %109
+99:                                               ; preds = %.lr.ph.split.us
+  %100 = load ptr, ptr %89, align 8, !tbaa !284
+  %101 = load ptr, ptr %100, align 8, !tbaa !224
+  %102 = load ptr, ptr %101, align 8, !tbaa !3
+  %switch.tableidx.i.us = add nsw i32 %92, -1
+  %switch.idx.cast.i.us = zext i32 %switch.tableidx.i.us to i64
+  %switch.idx.mult.i.us = shl nuw nsw i64 %switch.idx.cast.i.us, 3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %switch.idx.mult.i.us
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  %105 = load ptr, ptr %104, align 8
+  %106 = call noundef nonnull align 8 dereferenceable(12) ptr %105(ptr noundef nonnull align 8 dereferenceable(104) %101, ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(52) %3) #18
+  %107 = load ptr, ptr %0, align 8, !tbaa !282
+  %108 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %107, i64 %88
+  %109 = getelementptr inbounds i8, ptr %108, i64 %95
+  store i8 1, ptr %109, align 1, !tbaa !283
+  br label %110
 
-109:                                              ; preds = %switch.lookup, %.lr.ph.split.us
+110:                                              ; preds = %99, %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %90, ptr %6, align 8, !tbaa !104
-  %110 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %111 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %111 = load ptr, ptr %9, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 72
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %90) #18
-  %114 = getelementptr inbounds nuw i8, ptr %.039.us, i64 8
-  %.not.us = icmp eq ptr %114, %87
+  %112 = load ptr, ptr %9, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 72
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %90) #18
+  %115 = getelementptr inbounds nuw i8, ptr %.040.us, i64 8
+  %.not.us = icmp eq ptr %115, %87
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split.us40:                                ; preds = %.lr.ph, %134
-  %.039.us41 = phi ptr [ %139, %134 ], [ %.pre, %.lr.ph ]
-  %115 = load ptr, ptr %.039.us41, align 8, !tbaa !104
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load i32, ptr %116, align 8, !tbaa !106
-  %118 = load ptr, ptr %0, align 8, !tbaa !282
-  %119 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %118, i64 %88
-  %120 = sext i32 %117 to i64
-  %121 = getelementptr inbounds i8, ptr %119, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !283, !range !77, !noundef !95
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %134, label %switch.lookup78
+.lr.ph.split.us41:                                ; preds = %.lr.ph, %136
+  %.040.us42 = phi ptr [ %141, %136 ], [ %.pre, %.lr.ph ]
+  %116 = load ptr, ptr %.040.us42, align 8, !tbaa !104
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load i32, ptr %117, align 8, !tbaa !106
+  %119 = load ptr, ptr %0, align 8, !tbaa !282
+  %120 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %119, i64 %88
+  %121 = sext i32 %118 to i64
+  %122 = getelementptr inbounds i8, ptr %120, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !283, !range !77, !noundef !95
+  %124 = trunc nuw i8 %123 to i1
+  br i1 %124, label %136, label %125
 
-switch.lookup78:                                  ; preds = %.lr.ph.split.us40
-  %124 = load ptr, ptr %89, align 8, !tbaa !284
-  %125 = load ptr, ptr %124, align 8, !tbaa !224
-  %126 = load ptr, ptr %125, align 8, !tbaa !3
-  %switch.tableidx77 = add nsw i32 %117, -1
-  %switch.idx.cast79 = zext i32 %switch.tableidx77 to i64
-  %switch.idx.mult80 = shl nuw nsw i64 %switch.idx.cast79, 3
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %switch.idx.mult80
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
-  %129 = load ptr, ptr %128, align 8
-  %130 = call noundef nonnull align 8 dereferenceable(12) ptr %129(ptr noundef nonnull align 8 dereferenceable(104) %125, ptr noundef nonnull align 8 dereferenceable(52) %3, ptr noundef nonnull align 8 dereferenceable(52) %2) #18
-  %131 = load ptr, ptr %0, align 8, !tbaa !282
-  %132 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %131, i64 %88
-  %133 = getelementptr inbounds i8, ptr %132, i64 %120
-  store i8 1, ptr %133, align 1, !tbaa !283
-  br label %134
+125:                                              ; preds = %.lr.ph.split.us41
+  %126 = load ptr, ptr %89, align 8, !tbaa !284
+  %127 = load ptr, ptr %126, align 8, !tbaa !224
+  %128 = load ptr, ptr %127, align 8, !tbaa !3
+  %switch.tableidx.i27.us = add nsw i32 %118, -1
+  %switch.idx.cast.i28.us = zext i32 %switch.tableidx.i27.us to i64
+  %switch.idx.mult.i29.us = shl nuw nsw i64 %switch.idx.cast.i28.us, 3
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %switch.idx.mult.i29.us
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
+  %131 = load ptr, ptr %130, align 8
+  %132 = call noundef nonnull align 8 dereferenceable(12) ptr %131(ptr noundef nonnull align 8 dereferenceable(104) %127, ptr noundef nonnull align 8 dereferenceable(52) %3, ptr noundef nonnull align 8 dereferenceable(52) %2) #18
+  %133 = load ptr, ptr %0, align 8, !tbaa !282
+  %134 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %133, i64 %88
+  %135 = getelementptr inbounds i8, ptr %134, i64 %121
+  store i8 1, ptr %135, align 1, !tbaa !283
+  br label %136
 
-134:                                              ; preds = %switch.lookup78, %.lr.ph.split.us40
+136:                                              ; preds = %125, %.lr.ph.split.us41
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %115, ptr %6, align 8, !tbaa !104
-  %135 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store ptr %116, ptr %6, align 8, !tbaa !104
+  %137 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %136 = load ptr, ptr %9, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %115) #18
-  %139 = getelementptr inbounds nuw i8, ptr %.039.us41, i64 8
-  %.not.us42 = icmp eq ptr %139, %87
-  br i1 %.not.us42, label %._crit_edge, label %.lr.ph.split.us40
+  %138 = load ptr, ptr %9, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 72
+  %140 = load ptr, ptr %139, align 8
+  call void %140(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %116) #18
+  %141 = getelementptr inbounds nuw i8, ptr %.040.us42, i64 8
+  %.not.us43 = icmp eq ptr %141, %87
+  br i1 %.not.us43, label %._crit_edge, label %.lr.ph.split.us41
 
-._crit_edge:                                      ; preds = %134, %109, %153, %63, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorImplIPS2_EE.exit
-  %140 = load ptr, ptr %7, align 8, !tbaa !23
-  %141 = icmp eq ptr %140, %64
-  br i1 %141, label %_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit, label %142
+._crit_edge:                                      ; preds = %136, %110, %155, %63, %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE11findEdgesToERKS1_RNS_15SmallVectorImplIPS2_EE.exit
+  %142 = load ptr, ptr %7, align 8, !tbaa !23
+  %143 = icmp eq ptr %142, %64
+  br i1 %143, label %_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit, label %144
 
-142:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %140) #18
+144:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %142) #18
   br label %_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit: ; preds = %._crit_edge, %142
+_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit: ; preds = %._crit_edge, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %159
+  br label %161
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %153
-  %.039 = phi ptr [ %158, %153 ], [ %.pre, %.lr.ph ]
-  %143 = load ptr, ptr %.039, align 8, !tbaa !104
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load i32, ptr %144, align 8, !tbaa !106
-  %146 = load ptr, ptr %0, align 8, !tbaa !282
-  %147 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %146, i64 %88
-  %148 = sext i32 %145 to i64
-  %149 = getelementptr inbounds i8, ptr %147, i64 %148
-  %150 = load i8, ptr %149, align 1, !tbaa !283, !range !77, !noundef !95
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %153, label %152
+.lr.ph.split:                                     ; preds = %.lr.ph, %155
+  %.040 = phi ptr [ %160, %155 ], [ %.pre, %.lr.ph ]
+  %145 = load ptr, ptr %.040, align 8, !tbaa !104
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load i32, ptr %146, align 8, !tbaa !106
+  %148 = load ptr, ptr %0, align 8, !tbaa !282
+  %149 = getelementptr inbounds nuw %"class.llvm::EnumeratedArray", ptr %148, i64 %88
+  %150 = sext i32 %147 to i64
+  %151 = getelementptr inbounds i8, ptr %149, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !283, !range !77, !noundef !95
+  %153 = trunc nuw i8 %152 to i1
+  br i1 %153, label %155, label %154
 
-152:                                              ; preds = %.lr.ph.split
-  store i8 1, ptr %149, align 1, !tbaa !283
-  br label %153
+154:                                              ; preds = %.lr.ph.split
+  store i8 1, ptr %151, align 1, !tbaa !283
+  br label %155
 
-153:                                              ; preds = %152, %.lr.ph.split
+155:                                              ; preds = %154, %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %143, ptr %6, align 8, !tbaa !104
-  %154 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store ptr %145, ptr %6, align 8, !tbaa !104
+  %156 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6removeERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %155 = load ptr, ptr %9, align 8, !tbaa !3
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 72
-  %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %143) #18
-  %158 = getelementptr inbounds nuw i8, ptr %.039, i64 8
-  %.not = icmp eq ptr %158, %87
+  %157 = load ptr, ptr %9, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 72
+  %159 = load ptr, ptr %158, align 8
+  call void %159(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(12) %145) #18
+  %160 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  %.not = icmp eq ptr %160, %87
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
-159:                                              ; preds = %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit, %_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit
+161:                                              ; preds = %_ZNK4llvm6DGNodeINS_7DDGNodeENS_7DDGEdgeEE9hasEdgeToERKS1_.exit, %_ZN4llvm11SmallVectorIPNS_7DDGEdgeELj10EED2Ev.exit
   ret void
 }
 

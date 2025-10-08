@@ -3690,11 +3690,10 @@ define hidden void @"_ZN154_$LT$language.._..$LT$impl$u20$serde..de..Deserialize
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN154_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..BracketPair$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h59b04ec97374af15E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i64 noundef %1) unnamed_addr #8 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -30216,10 +30215,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_i817he82caa5a61bad861E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h1d9b953d8c439730E(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i8 noundef %1) unnamed_addr #8 {
-"_ZN154_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..BracketPair$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h59b04ec97374af15E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8, !alias.scope !5526
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  store i8 %4, ptr %3, align 8, !alias.scope !5526
   store i64 2, ptr %0, align 8, !alias.scope !5526
   ret void
 }
@@ -91398,10 +91396,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #36
+declare i8 @llvm.umin.i8(i8, i8) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #36
+declare i64 @llvm.umax.i64(i64, i64) #36
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

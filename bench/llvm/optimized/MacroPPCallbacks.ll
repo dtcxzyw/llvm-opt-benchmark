@@ -595,14 +595,14 @@ _ZNK5clang13SourceManager26isWrittenInCommandLineFileENS_14SourceLocationE.exit:
 19:                                               ; preds = %_ZNK5clang13SourceManager26isWrittenInCommandLineFileENS_14SourceLocationE.exit.thread, %_ZNK5clang13SourceManager26isWrittenInCommandLineFileENS_14SourceLocationE.exit
   %20 = load i32, ptr %5, align 8, !tbaa !58
   %21 = icmp ult i32 %20, 4
-  br i1 %21, label %switch.lookup, label %_ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12
+  br i1 %21, label %switch.lookup.i10, label %_ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12
 
-switch.lookup:                                    ; preds = %19
-  %switch.offset = add nuw nsw i32 %20, 1
-  store i32 %switch.offset, ptr %5, align 8, !tbaa !58
+switch.lookup.i10:                                ; preds = %19
+  %switch.offset.i11 = add nuw nsw i32 %20, 1
+  store i32 %switch.offset.i11, ptr %5, align 8, !tbaa !58
   br label %_ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12
 
-_ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12: ; preds = %19, %switch.lookup, %2
+_ZN5clang16MacroPPCallbacks23updateStatusToNextScopeEv.exit12: ; preds = %switch.lookup.i10, %19, %2
   %22 = load i32, ptr %8, align 4, !tbaa !57
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %8, align 4, !tbaa !57

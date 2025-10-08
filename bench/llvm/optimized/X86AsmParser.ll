@@ -14122,7 +14122,7 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
   %14 = add nsw i32 %13, -104
   %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 30)
   %16 = icmp ult i32 %15, 5
-  br i1 %16, label %switch.lookup, label %436
+  br i1 %16, label %switch.lookup306, label %436
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14195,7 +14195,7 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
   %44 = load i8, ptr %43, align 1, !tbaa !116
   %45 = and i8 %44, -8
   %46 = icmp eq i8 %45, 48
-  br i1 %46, label %switch.lookup236, label %436
+  br i1 %46, label %switch.lookup, label %436
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14253,9 +14253,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !116
-  %switch.tableidx237 = add i8 %65, -48
-  %66 = icmp ult i8 %switch.tableidx237, 10
-  br i1 %66, label %switch.lookup238, label %436
+  %switch.tableidx236 = add i8 %65, -48
+  %66 = icmp ult i8 %switch.tableidx236, 10
+  br i1 %66, label %switch.lookup237, label %436
 
 67:                                               ; preds = %56
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14274,9 +14274,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %75 = load i8, ptr %74, align 1, !tbaa !116
-  %switch.tableidx241 = add i8 %75, -48
-  %76 = icmp ult i8 %switch.tableidx241, 10
-  br i1 %76, label %switch.lookup242, label %436
+  %switch.tableidx240 = add i8 %75, -48
+  %76 = icmp ult i8 %switch.tableidx240, 10
+  br i1 %76, label %switch.lookup241, label %436
 
 77:                                               ; preds = %56
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14349,7 +14349,7 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
   %103 = load i8, ptr %102, align 1, !tbaa !116
   %104 = and i8 %103, -8
   %105 = icmp eq i8 %104, 48
-  br i1 %105, label %switch.lookup246, label %436
+  br i1 %105, label %switch.lookup245, label %436
 
 106:                                              ; preds = %56
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14362,7 +14362,7 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
   %111 = load i8, ptr %110, align 1, !tbaa !116
   %112 = and i8 %111, -8
   %113 = icmp eq i8 %112, 48
-  br i1 %113, label %switch.lookup250, label %436
+  br i1 %113, label %switch.lookup249, label %436
 
 114:                                              ; preds = %56
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14384,16 +14384,16 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %119 = load i8, ptr %118, align 1, !tbaa !116
-  %switch.tableidx253 = add i8 %119, -48
-  %120 = icmp ult i8 %switch.tableidx253, 10
-  br i1 %120, label %switch.lookup254, label %436
+  %switch.tableidx = add i8 %119, -48
+  %120 = icmp ult i8 %switch.tableidx, 10
+  br i1 %120, label %switch.lookup307, label %436
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %123 = load i8, ptr %122, align 1, !tbaa !116
-  %switch.tableidx257 = add i8 %123, -48
-  %124 = icmp ult i8 %switch.tableidx257, 10
-  br i1 %124, label %switch.lookup258, label %436
+  %switch.tableidx252 = add i8 %123, -48
+  %124 = icmp ult i8 %switch.tableidx252, 10
+  br i1 %124, label %switch.lookup253, label %436
 
 125:                                              ; preds = %114
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -14531,9 +14531,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %174 = load i8, ptr %173, align 1, !tbaa !116
-  %switch.tableidx261 = add i8 %174, -48
-  %175 = icmp ult i8 %switch.tableidx261, 6
-  br i1 %175, label %switch.lookup262, label %436
+  %switch.tableidx256 = add i8 %174, -48
+  %175 = icmp ult i8 %switch.tableidx256, 6
+  br i1 %175, label %switch.lookup257, label %436
 
 176:                                              ; preds = %168
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14544,9 +14544,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 178:                                              ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %180 = load i8, ptr %179, align 1, !tbaa !116
-  %switch.tableidx265 = add i8 %180, -48
-  %181 = icmp ult i8 %switch.tableidx265, 6
-  br i1 %181, label %switch.lookup266, label %436
+  %switch.tableidx260 = add i8 %180, -48
+  %181 = icmp ult i8 %switch.tableidx260, 6
+  br i1 %181, label %switch.lookup261, label %436
 
 182:                                              ; preds = %168
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14962,9 +14962,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 318:                                              ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %320 = load i8, ptr %319, align 1, !tbaa !116
-  %switch.tableidx269 = add i8 %320, -48
-  %321 = icmp ult i8 %switch.tableidx269, 8
-  br i1 %321, label %switch.lookup270, label %436
+  %switch.tableidx264 = add i8 %320, -48
+  %321 = icmp ult i8 %switch.tableidx264, 8
+  br i1 %321, label %switch.lookup265, label %436
 
 322:                                              ; preds = %168
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14975,9 +14975,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 324:                                              ; preds = %322
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %326 = load i8, ptr %325, align 1, !tbaa !116
-  %switch.tableidx273 = add i8 %326, -48
-  %327 = icmp ult i8 %switch.tableidx273, 10
-  br i1 %327, label %switch.lookup274, label %436
+  %switch.tableidx268 = add i8 %326, -48
+  %327 = icmp ult i8 %switch.tableidx268, 10
+  br i1 %327, label %switch.lookup269, label %436
 
 328:                                              ; preds = %168
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14988,9 +14988,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 330:                                              ; preds = %328
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %332 = load i8, ptr %331, align 1, !tbaa !116
-  %switch.tableidx277 = add i8 %332, -48
-  %333 = icmp ult i8 %switch.tableidx277, 10
-  br i1 %333, label %switch.lookup278, label %436
+  %switch.tableidx272 = add i8 %332, -48
+  %333 = icmp ult i8 %switch.tableidx272, 10
+  br i1 %333, label %switch.lookup273, label %436
 
 334:                                              ; preds = %168
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -15001,9 +15001,9 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 336:                                              ; preds = %334
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %338 = load i8, ptr %337, align 1, !tbaa !116
-  %switch.tableidx281 = add i8 %338, -48
-  %339 = icmp ult i8 %switch.tableidx281, 10
-  br i1 %339, label %switch.lookup282, label %436
+  %switch.tableidx276 = add i8 %338, -48
+  %339 = icmp ult i8 %switch.tableidx276, 10
+  br i1 %339, label %switch.lookup277, label %436
 
 340:                                              ; preds = %2
   %341 = load i8, ptr %0, align 1, !tbaa !116
@@ -15107,16 +15107,16 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 377:                                              ; preds = %374
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %379 = load i8, ptr %378, align 1, !tbaa !116
-  %switch.tableidx285 = add i8 %379, -48
-  %380 = icmp ult i8 %switch.tableidx285, 10
-  br i1 %380, label %switch.lookup286, label %436
+  %switch.tableidx310 = add i8 %379, -48
+  %380 = icmp ult i8 %switch.tableidx310, 10
+  br i1 %380, label %switch.lookup311, label %436
 
 381:                                              ; preds = %374
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %383 = load i8, ptr %382, align 1, !tbaa !116
-  %switch.tableidx289 = add i8 %383, -48
-  %384 = icmp ult i8 %switch.tableidx289, 10
-  br i1 %384, label %switch.lookup290, label %436
+  %switch.tableidx280 = add i8 %383, -48
+  %384 = icmp ult i8 %switch.tableidx280, 10
+  br i1 %384, label %switch.lookup281, label %436
 
 385:                                              ; preds = %374
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15145,16 +15145,16 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 393:                                              ; preds = %390
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %395 = load i8, ptr %394, align 1, !tbaa !116
-  %switch.tableidx293 = add i8 %395, -48
-  %396 = icmp ult i8 %switch.tableidx293, 10
-  br i1 %396, label %switch.lookup294, label %436
+  %switch.tableidx314 = add i8 %395, -48
+  %396 = icmp ult i8 %switch.tableidx314, 10
+  br i1 %396, label %switch.lookup315, label %436
 
 397:                                              ; preds = %390
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %399 = load i8, ptr %398, align 1, !tbaa !116
-  %switch.tableidx297 = add i8 %399, -48
-  %400 = icmp ult i8 %switch.tableidx297, 10
-  br i1 %400, label %switch.lookup298, label %436
+  %switch.tableidx284 = add i8 %399, -48
+  %400 = icmp ult i8 %switch.tableidx284, 10
+  br i1 %400, label %switch.lookup285, label %436
 
 401:                                              ; preds = %390
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15183,16 +15183,16 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 409:                                              ; preds = %406
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %411 = load i8, ptr %410, align 1, !tbaa !116
-  %switch.tableidx301 = add i8 %411, -48
-  %412 = icmp ult i8 %switch.tableidx301, 10
-  br i1 %412, label %switch.lookup302, label %436
+  %switch.tableidx288 = add i8 %411, -48
+  %412 = icmp ult i8 %switch.tableidx288, 10
+  br i1 %412, label %switch.lookup289, label %436
 
 413:                                              ; preds = %406
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %415 = load i8, ptr %414, align 1, !tbaa !116
-  %switch.tableidx305 = add i8 %415, -48
-  %416 = icmp ult i8 %switch.tableidx305, 10
-  br i1 %416, label %switch.lookup306, label %436
+  %switch.tableidx292 = add i8 %415, -48
+  %416 = icmp ult i8 %switch.tableidx292, 10
+  br i1 %416, label %switch.lookup293, label %436
 
 417:                                              ; preds = %406
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15255,115 +15255,115 @@ define internal fastcc range(i32 0, 376) i32 @_ZL17MatchRegisterNameN4llvm9Strin
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %441, label %436
 
-436:                                              ; preds = %413, %409, %397, %393, %381, %377, %336, %330, %324, %318, %178, %172, %121, %117, %109, %101, %73, %63, %42, %10, %428, %430, %432, %434, %420, %422, %424, %426, %340, %342, %344, %346, %369, %366, %363, %360, %357, %354, %351, %348, %372, %374, %388, %390, %404, %406, %168, %170, %176, %182, %191, %188, %185, %303, %306, %311, %250, %253, %258, %263, %268, %273, %278, %283, %288, %293, %298, %197, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %194, %316, %322, %328, %334, %56, %58, %60, %70, %67, %86, %80, %77, %98, %106, %144, %138, %133, %128, %114, %165, %162, %159, %156, %3, %5, %17, %23, %30, %33, %36, %39, %50, %2
+436:                                              ; preds = %393, %377, %117, %10, %413, %409, %397, %381, %336, %330, %324, %318, %178, %172, %121, %109, %101, %73, %63, %42, %428, %430, %432, %434, %420, %422, %424, %426, %340, %342, %344, %346, %369, %366, %363, %360, %357, %354, %351, %348, %372, %374, %388, %390, %404, %406, %168, %170, %176, %182, %191, %188, %185, %303, %306, %311, %250, %253, %258, %263, %268, %273, %278, %283, %288, %293, %298, %197, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %194, %316, %322, %328, %334, %56, %58, %60, %70, %67, %86, %80, %77, %98, %106, %144, %138, %133, %128, %114, %165, %162, %159, %156, %3, %5, %17, %23, %30, %33, %36, %39, %50, %2
   br label %441
 
-switch.lookup:                                    ; preds = %10
+switch.lookup:                                    ; preds = %42
+  %narrow305 = add nuw nsw i8 %44, -97
+  %switch.offset = zext i8 %narrow305 to i32
+  br label %441
+
+switch.lookup237:                                 ; preds = %63
+  %narrow304 = add nuw nsw i8 %65, 23
+  %switch.offset239 = zext nneg i8 %narrow304 to i32
+  br label %441
+
+switch.lookup241:                                 ; preds = %73
+  %narrow303 = add nuw nsw i8 %75, 39
+  %switch.offset243 = zext nneg i8 %narrow303 to i32
+  br label %441
+
+switch.lookup245:                                 ; preds = %101
+  %narrow302 = add nuw nsw i8 %103, 55
+  %switch.offset247 = zext nneg i8 %narrow302 to i32
+  br label %441
+
+switch.lookup249:                                 ; preds = %109
+  %narrow301 = add nuw nsw i8 %111, 63
+  %switch.offset251 = zext nneg i8 %narrow301 to i32
+  br label %441
+
+switch.lookup253:                                 ; preds = %121
+  %switch.idx.cast254 = zext nneg i8 %switch.tableidx252 to i32
+  %switch.offset255 = add nuw nsw i32 %switch.idx.cast254, 300
+  br label %441
+
+switch.lookup257:                                 ; preds = %172
+  %narrow300 = add nuw nsw i8 %174, 33
+  %switch.offset259 = zext nneg i8 %narrow300 to i32
+  br label %441
+
+switch.lookup261:                                 ; preds = %178
+  %narrow299 = add nuw nsw i8 %180, 49
+  %switch.offset263 = zext nneg i8 %narrow299 to i32
+  br label %441
+
+switch.lookup265:                                 ; preds = %318
+  %switch.idx.cast266 = zext nneg i8 %switch.tableidx264 to i32
+  %switch.offset267 = add nuw nsw i32 %switch.idx.cast266, 284
+  br label %441
+
+switch.lookup269:                                 ; preds = %324
+  %narrow298 = add nuw i8 %326, 87
+  %switch.offset271 = zext i8 %narrow298 to i32
+  br label %441
+
+switch.lookup273:                                 ; preds = %330
+  %narrow297 = add nuw nsw i8 %332, -113
+  %switch.offset275 = zext i8 %narrow297 to i32
+  br label %441
+
+switch.lookup277:                                 ; preds = %336
+  %switch.idx.cast278 = zext nneg i8 %switch.tableidx276 to i32
+  %switch.offset279 = add nuw nsw i32 %switch.idx.cast278, 247
+  br label %441
+
+switch.lookup281:                                 ; preds = %381
+  %narrow296 = add nuw nsw i8 %383, -85
+  %switch.offset283 = zext i8 %narrow296 to i32
+  br label %441
+
+switch.lookup285:                                 ; preds = %397
+  %narrow = add nuw nsw i8 %399, -69
+  %switch.offset287 = zext i8 %narrow to i32
+  br label %441
+
+switch.lookup289:                                 ; preds = %409
+  %switch.idx.cast290 = zext nneg i8 %switch.tableidx288 to i32
+  %switch.offset291 = add nuw nsw i32 %switch.idx.cast290, 257
+  br label %441
+
+switch.lookup293:                                 ; preds = %413
+  %switch.idx.cast294 = zext nneg i8 %switch.tableidx292 to i32
+  %switch.offset295 = add nuw nsw i32 %switch.idx.cast294, 267
+  br label %441
+
+switch.lookup306:                                 ; preds = %10
   %437 = zext nneg i32 %15 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE, i64 %437
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %441
 
-switch.lookup236:                                 ; preds = %42
-  %narrow318 = add nuw nsw i8 %44, -97
-  %switch.offset = zext i8 %narrow318 to i32
+switch.lookup307:                                 ; preds = %117
+  %438 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep308 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.99, i64 %438
+  %switch.load309 = load i32, ptr %switch.gep308, align 4
   br label %441
 
-switch.lookup238:                                 ; preds = %63
-  %narrow317 = add nuw nsw i8 %65, 23
-  %switch.offset240 = zext nneg i8 %narrow317 to i32
+switch.lookup311:                                 ; preds = %377
+  %439 = zext nneg i8 %switch.tableidx310 to i64
+  %switch.gep312 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.100, i64 %439
+  %switch.load313 = load i32, ptr %switch.gep312, align 4
   br label %441
 
-switch.lookup242:                                 ; preds = %73
-  %narrow316 = add nuw nsw i8 %75, 39
-  %switch.offset244 = zext nneg i8 %narrow316 to i32
+switch.lookup315:                                 ; preds = %393
+  %440 = zext nneg i8 %switch.tableidx314 to i64
+  %switch.gep316 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.101, i64 %440
+  %switch.load317 = load i32, ptr %switch.gep316, align 4
   br label %441
 
-switch.lookup246:                                 ; preds = %101
-  %narrow315 = add nuw nsw i8 %103, 55
-  %switch.offset248 = zext nneg i8 %narrow315 to i32
-  br label %441
-
-switch.lookup250:                                 ; preds = %109
-  %narrow314 = add nuw nsw i8 %111, 63
-  %switch.offset252 = zext nneg i8 %narrow314 to i32
-  br label %441
-
-switch.lookup254:                                 ; preds = %117
-  %438 = zext nneg i8 %switch.tableidx253 to i64
-  %switch.gep255 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.99, i64 %438
-  %switch.load256 = load i32, ptr %switch.gep255, align 4
-  br label %441
-
-switch.lookup258:                                 ; preds = %121
-  %switch.idx.cast259 = zext nneg i8 %switch.tableidx257 to i32
-  %switch.offset260 = add nuw nsw i32 %switch.idx.cast259, 300
-  br label %441
-
-switch.lookup262:                                 ; preds = %172
-  %narrow313 = add nuw nsw i8 %174, 33
-  %switch.offset264 = zext nneg i8 %narrow313 to i32
-  br label %441
-
-switch.lookup266:                                 ; preds = %178
-  %narrow312 = add nuw nsw i8 %180, 49
-  %switch.offset268 = zext nneg i8 %narrow312 to i32
-  br label %441
-
-switch.lookup270:                                 ; preds = %318
-  %switch.idx.cast271 = zext nneg i8 %switch.tableidx269 to i32
-  %switch.offset272 = add nuw nsw i32 %switch.idx.cast271, 284
-  br label %441
-
-switch.lookup274:                                 ; preds = %324
-  %narrow311 = add nuw i8 %326, 87
-  %switch.offset276 = zext i8 %narrow311 to i32
-  br label %441
-
-switch.lookup278:                                 ; preds = %330
-  %narrow310 = add nuw nsw i8 %332, -113
-  %switch.offset280 = zext i8 %narrow310 to i32
-  br label %441
-
-switch.lookup282:                                 ; preds = %336
-  %switch.idx.cast283 = zext nneg i8 %switch.tableidx281 to i32
-  %switch.offset284 = add nuw nsw i32 %switch.idx.cast283, 247
-  br label %441
-
-switch.lookup286:                                 ; preds = %377
-  %439 = zext nneg i8 %switch.tableidx285 to i64
-  %switch.gep287 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.100, i64 %439
-  %switch.load288 = load i32, ptr %switch.gep287, align 4
-  br label %441
-
-switch.lookup290:                                 ; preds = %381
-  %narrow309 = add nuw nsw i8 %383, -85
-  %switch.offset292 = zext i8 %narrow309 to i32
-  br label %441
-
-switch.lookup294:                                 ; preds = %393
-  %440 = zext nneg i8 %switch.tableidx293 to i64
-  %switch.gep295 = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE.101, i64 %440
-  %switch.load296 = load i32, ptr %switch.gep295, align 4
-  br label %441
-
-switch.lookup298:                                 ; preds = %397
-  %narrow = add nuw nsw i8 %399, -69
-  %switch.offset300 = zext i8 %narrow to i32
-  br label %441
-
-switch.lookup302:                                 ; preds = %409
-  %switch.idx.cast303 = zext nneg i8 %switch.tableidx301 to i32
-  %switch.offset304 = add nuw nsw i32 %switch.idx.cast303, 257
-  br label %441
-
-switch.lookup306:                                 ; preds = %413
-  %switch.idx.cast307 = zext nneg i8 %switch.tableidx305 to i32
-  %switch.offset308 = add nuw nsw i32 %switch.idx.cast307, 267
-  br label %441
-
-441:                                              ; preds = %switch.lookup306, %switch.lookup302, %switch.lookup298, %switch.lookup294, %switch.lookup290, %switch.lookup286, %switch.lookup282, %switch.lookup278, %switch.lookup274, %switch.lookup270, %switch.lookup266, %switch.lookup262, %switch.lookup258, %switch.lookup254, %switch.lookup250, %switch.lookup246, %switch.lookup242, %switch.lookup238, %switch.lookup236, %switch.lookup, %417, %401, %385, %153, %150, %147, %141, %125, %95, %92, %89, %83, %47, %434, %432, %430, %426, %424, %422, %369, %366, %363, %360, %357, %354, %351, %344, %342, %311, %306, %298, %293, %288, %283, %278, %273, %268, %263, %258, %253, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %191, %188, %165, %162, %159, %144, %138, %133, %128, %86, %80, %70, %58, %50, %39, %36, %33, %30, %23, %17, %5, %436, %315, %314, %310, %309, %302, %301, %297, %296, %292, %291, %287, %286, %282, %281, %277, %276, %272, %271, %267, %266, %262, %261, %257, %256, %249, %248, %244, %243, %239, %238, %234, %233, %229, %228, %224, %223, %219, %218, %214, %213, %209, %208, %204, %203, %137, %136, %132, %131, %55, %54, %53, %29, %28, %27, %26, %22, %21, %20, %9, %8
-  %.sroa.0185.0 = phi i32 [ 0, %436 ], [ 2, %8 ], [ 3, %9 ], [ 11, %20 ], [ 12, %21 ], [ 13, %22 ], [ 16, %26 ], [ 19, %27 ], [ 20, %28 ], [ 21, %29 ], [ 65, %53 ], [ 68, %54 ], [ 127, %55 ], [ 167, %131 ], [ 175, %132 ], [ 168, %136 ], [ 176, %137 ], [ 169, %203 ], [ 177, %204 ], [ 170, %208 ], [ 178, %209 ], [ 171, %213 ], [ 179, %214 ], [ 172, %218 ], [ 180, %219 ], [ 173, %223 ], [ 181, %224 ], [ 174, %228 ], [ 182, %229 ], [ 344, %233 ], [ 360, %234 ], [ 345, %238 ], [ 361, %239 ], [ 346, %243 ], [ 362, %244 ], [ 347, %248 ], [ 363, %249 ], [ 348, %256 ], [ 364, %257 ], [ 349, %261 ], [ 365, %262 ], [ 350, %266 ], [ 366, %267 ], [ 351, %271 ], [ 367, %272 ], [ 352, %276 ], [ 368, %277 ], [ 353, %281 ], [ 369, %282 ], [ 354, %286 ], [ 370, %287 ], [ 355, %291 ], [ 371, %292 ], [ 356, %296 ], [ 372, %297 ], [ 357, %301 ], [ 373, %302 ], [ 358, %309 ], [ 374, %310 ], [ 359, %314 ], [ 375, %315 ], [ 1, %5 ], [ 10, %17 ], [ 15, %23 ], [ 31, %30 ], [ 36, %33 ], [ 38, %36 ], [ 49, %39 ], [ 62, %50 ], [ 8, %58 ], [ 18, %70 ], [ 22, %80 ], [ 25, %86 ], [ 151, %128 ], [ 152, %133 ], [ 51, %138 ], [ 54, %144 ], [ 64, %159 ], [ 67, %162 ], [ 69, %165 ], [ 34, %188 ], [ 35, %191 ], [ 153, %200 ], [ 154, %205 ], [ 155, %210 ], [ 156, %215 ], [ 157, %220 ], [ 158, %225 ], [ 312, %230 ], [ 313, %235 ], [ 314, %240 ], [ 315, %245 ], [ 316, %253 ], [ 317, %258 ], [ 318, %263 ], [ 319, %268 ], [ 320, %273 ], [ 321, %278 ], [ 322, %283 ], [ 323, %288 ], [ 324, %293 ], [ 325, %298 ], [ 326, %306 ], [ 327, %311 ], [ 28, %342 ], [ 50, %344 ], [ 128, %351 ], [ 129, %354 ], [ 130, %357 ], [ 131, %360 ], [ 132, %363 ], [ 133, %366 ], [ 134, %369 ], [ 70, %422 ], [ 57, %424 ], [ 283, %426 ], [ 14, %430 ], [ 37, %432 ], [ 39, %434 ], [ %switch.select187, %47 ], [ %switch.select191, %83 ], [ %switch.select195, %89 ], [ %switch.select199, %92 ], [ %switch.select203, %95 ], [ %switch.select207, %125 ], [ %switch.select211, %141 ], [ %switch.select215, %147 ], [ %switch.select219, %150 ], [ %switch.select223, %153 ], [ %switch.select227, %385 ], [ %switch.select231, %401 ], [ %switch.select235, %417 ], [ %switch.load, %switch.lookup ], [ %switch.offset, %switch.lookup236 ], [ %switch.offset240, %switch.lookup238 ], [ %switch.offset244, %switch.lookup242 ], [ %switch.offset248, %switch.lookup246 ], [ %switch.offset252, %switch.lookup250 ], [ %switch.load256, %switch.lookup254 ], [ %switch.offset260, %switch.lookup258 ], [ %switch.offset264, %switch.lookup262 ], [ %switch.offset268, %switch.lookup266 ], [ %switch.offset272, %switch.lookup270 ], [ %switch.offset276, %switch.lookup274 ], [ %switch.offset280, %switch.lookup278 ], [ %switch.offset284, %switch.lookup282 ], [ %switch.load288, %switch.lookup286 ], [ %switch.offset292, %switch.lookup290 ], [ %switch.load296, %switch.lookup294 ], [ %switch.offset300, %switch.lookup298 ], [ %switch.offset304, %switch.lookup302 ], [ %switch.offset308, %switch.lookup306 ]
+441:                                              ; preds = %switch.lookup315, %switch.lookup311, %switch.lookup307, %switch.lookup306, %switch.lookup293, %switch.lookup289, %switch.lookup285, %switch.lookup281, %switch.lookup277, %switch.lookup273, %switch.lookup269, %switch.lookup265, %switch.lookup261, %switch.lookup257, %switch.lookup253, %switch.lookup249, %switch.lookup245, %switch.lookup241, %switch.lookup237, %switch.lookup, %417, %401, %385, %153, %150, %147, %141, %125, %95, %92, %89, %83, %47, %434, %432, %430, %426, %424, %422, %369, %366, %363, %360, %357, %354, %351, %344, %342, %311, %306, %298, %293, %288, %283, %278, %273, %268, %263, %258, %253, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %191, %188, %165, %162, %159, %144, %138, %133, %128, %86, %80, %70, %58, %50, %39, %36, %33, %30, %23, %17, %5, %436, %315, %314, %310, %309, %302, %301, %297, %296, %292, %291, %287, %286, %282, %281, %277, %276, %272, %271, %267, %266, %262, %261, %257, %256, %249, %248, %244, %243, %239, %238, %234, %233, %229, %228, %224, %223, %219, %218, %214, %213, %209, %208, %204, %203, %137, %136, %132, %131, %55, %54, %53, %29, %28, %27, %26, %22, %21, %20, %9, %8
+  %.sroa.0185.0 = phi i32 [ 0, %436 ], [ 2, %8 ], [ 3, %9 ], [ 11, %20 ], [ 12, %21 ], [ 13, %22 ], [ 16, %26 ], [ 19, %27 ], [ 20, %28 ], [ 21, %29 ], [ 65, %53 ], [ 68, %54 ], [ 127, %55 ], [ 167, %131 ], [ 175, %132 ], [ 168, %136 ], [ 176, %137 ], [ 169, %203 ], [ 177, %204 ], [ 170, %208 ], [ 178, %209 ], [ 171, %213 ], [ 179, %214 ], [ 172, %218 ], [ 180, %219 ], [ 173, %223 ], [ 181, %224 ], [ 174, %228 ], [ 182, %229 ], [ 344, %233 ], [ 360, %234 ], [ 345, %238 ], [ 361, %239 ], [ 346, %243 ], [ 362, %244 ], [ 347, %248 ], [ 363, %249 ], [ 348, %256 ], [ 364, %257 ], [ 349, %261 ], [ 365, %262 ], [ 350, %266 ], [ 366, %267 ], [ 351, %271 ], [ 367, %272 ], [ 352, %276 ], [ 368, %277 ], [ 353, %281 ], [ 369, %282 ], [ 354, %286 ], [ 370, %287 ], [ 355, %291 ], [ 371, %292 ], [ 356, %296 ], [ 372, %297 ], [ 357, %301 ], [ 373, %302 ], [ 358, %309 ], [ 374, %310 ], [ 359, %314 ], [ 375, %315 ], [ 1, %5 ], [ 10, %17 ], [ 15, %23 ], [ 31, %30 ], [ 36, %33 ], [ 38, %36 ], [ 49, %39 ], [ 62, %50 ], [ 8, %58 ], [ 18, %70 ], [ 22, %80 ], [ 25, %86 ], [ 151, %128 ], [ 152, %133 ], [ 51, %138 ], [ 54, %144 ], [ 64, %159 ], [ 67, %162 ], [ 69, %165 ], [ 34, %188 ], [ 35, %191 ], [ 153, %200 ], [ 154, %205 ], [ 155, %210 ], [ 156, %215 ], [ 157, %220 ], [ 158, %225 ], [ 312, %230 ], [ 313, %235 ], [ 314, %240 ], [ 315, %245 ], [ 316, %253 ], [ 317, %258 ], [ 318, %263 ], [ 319, %268 ], [ 320, %273 ], [ 321, %278 ], [ 322, %283 ], [ 323, %288 ], [ 324, %293 ], [ 325, %298 ], [ 326, %306 ], [ 327, %311 ], [ 28, %342 ], [ 50, %344 ], [ 128, %351 ], [ 129, %354 ], [ 130, %357 ], [ 131, %360 ], [ 132, %363 ], [ 133, %366 ], [ 134, %369 ], [ 70, %422 ], [ 57, %424 ], [ 283, %426 ], [ 14, %430 ], [ 37, %432 ], [ 39, %434 ], [ %switch.select187, %47 ], [ %switch.select191, %83 ], [ %switch.select195, %89 ], [ %switch.select199, %92 ], [ %switch.select203, %95 ], [ %switch.select207, %125 ], [ %switch.select211, %141 ], [ %switch.select215, %147 ], [ %switch.select219, %150 ], [ %switch.select223, %153 ], [ %switch.select227, %385 ], [ %switch.select231, %401 ], [ %switch.select235, %417 ], [ %switch.offset, %switch.lookup ], [ %switch.offset239, %switch.lookup237 ], [ %switch.offset243, %switch.lookup241 ], [ %switch.offset247, %switch.lookup245 ], [ %switch.offset251, %switch.lookup249 ], [ %switch.offset255, %switch.lookup253 ], [ %switch.offset259, %switch.lookup257 ], [ %switch.offset263, %switch.lookup261 ], [ %switch.offset267, %switch.lookup265 ], [ %switch.offset271, %switch.lookup269 ], [ %switch.offset275, %switch.lookup273 ], [ %switch.offset279, %switch.lookup277 ], [ %switch.offset283, %switch.lookup281 ], [ %switch.offset287, %switch.lookup285 ], [ %switch.offset291, %switch.lookup289 ], [ %switch.offset295, %switch.lookup293 ], [ %switch.load, %switch.lookup306 ], [ %switch.load309, %switch.lookup307 ], [ %switch.load313, %switch.lookup311 ], [ %switch.load317, %switch.lookup315 ]
   ret i32 %.sroa.0185.0
 }
 

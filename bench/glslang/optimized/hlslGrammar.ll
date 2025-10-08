@@ -6376,60 +6376,60 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStreamOutTemplateType
   %4 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
   %5 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #16
-  %switch.tableidx = add i32 %5, -30
-  %6 = icmp ult i32 %switch.tableidx, 3
-  br i1 %6, label %switch.lookup, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
+  %switch.tableidx.i = add i32 %5, -30
+  %6 = icmp ult i32 %switch.tableidx.i, 3
+  br i1 %6, label %7, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
 
-switch.lookup:                                    ; preds = %3
-  %switch.idx.mult = mul nuw nsw i32 %switch.tableidx, 3
-  %switch.offset = add nuw nsw i32 %switch.idx.mult, 1
-  store i32 %switch.offset, ptr %2, align 4
+7:                                                ; preds = %3
+  %switch.idx.mult.i = mul nuw nsw i32 %switch.tableidx.i, 3
+  %switch.offset.i = add nuw nsw i32 %switch.idx.mult.i, 1
+  store i32 %switch.offset.i, ptr %2, align 4
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #16
-  %7 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 373) #16
-  br i1 %7, label %8, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
+  %8 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 373) #16
+  br i1 %8, label %9, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
 
-8:                                                ; preds = %switch.lookup
+9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %9 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %10 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %9, label %10, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split
+  br i1 %10, label %11, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef nonnull align 8 dereferenceable(80) ptr %13(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = and i64 %16, -128
-  %18 = or disjoint i64 %17, 17
-  store i64 %18, ptr %15, align 8
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef nonnull align 8 dereferenceable(80) ptr %21(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, -65409
-  %26 = or disjoint i64 %25, 17920
-  store i64 %26, ptr %23, align 8
-  %27 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
-  br i1 %27, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %1, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef nonnull align 8 dereferenceable(80) ptr %14(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, -128
+  %19 = or disjoint i64 %18, 17
+  store i64 %19, ptr %16, align 8
+  %20 = load ptr, ptr %1, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef nonnull align 8 dereferenceable(80) ptr %22(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, -65409
+  %27 = or disjoint i64 %26, 17920
+  store i64 %27, ptr %24, align 8
+  %28 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
+  br i1 %28, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split
 
-_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split: ; preds = %10, %8
-  %.str.47.sink = phi ptr [ @.str.49, %8 ], [ @.str.47, %10 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 344
-  %33 = load ptr, ptr %32, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %33(ptr noundef nonnull align 8 dereferenceable(1280) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str, ptr noundef nonnull %.str.47.sink, ptr noundef nonnull @.str.1) #16
+_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split: ; preds = %11, %9
+  %.str.47.sink = phi ptr [ @.str.49, %9 ], [ @.str.47, %11 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %30, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 344
+  %34 = load ptr, ptr %33, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %34(ptr noundef nonnull align 8 dereferenceable(1280) %30, ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str, ptr noundef nonnull %.str.47.sink, ptr noundef nonnull @.str.1) #16
   br label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
 
-_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit: ; preds = %3, %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split, %10, %switch.lookup
-  %.0 = phi i1 [ false, %switch.lookup ], [ true, %10 ], [ false, %3 ], [ false, %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split ]
+_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit: ; preds = %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split, %3, %11, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %11 ], [ false, %3 ], [ false, %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split ]
   ret i1 %.0
 }
 

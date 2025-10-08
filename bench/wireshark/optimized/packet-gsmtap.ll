@@ -803,9 +803,9 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
   br label %dissect_gsmtap_v2.exit
 
 153:                                              ; preds = %106
-  %switch.tableidx29 = add i8 %22, -16
-  %154 = icmp ult i8 %switch.tableidx29, 6
-  br i1 %154, label %switch.lookup30, label %select.unfold.i
+  %switch.tableidx.i = add i8 %22, -16
+  %154 = icmp ult i8 %switch.tableidx.i, 6
+  br i1 %154, label %switch.lookup.i, label %select.unfold.i
 
 155:                                              ; preds = %106
   switch i8 %22, label %159 [
@@ -981,13 +981,13 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
   %229 = load ptr, ptr %228, align 8
   br label %.sink.split36.i
 
-switch.lookup30:                                  ; preds = %153
-  %230 = or disjoint i8 %switch.tableidx29, 8
-  %switch.offset = zext nneg i8 %230 to i64
+switch.lookup.i:                                  ; preds = %153
+  %230 = or disjoint i8 %switch.tableidx.i, 8
+  %switch.offset.i = zext nneg i8 %230 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %153, %switch.lookup30, %213, %212, %211, %160, %159, %158, %157, %156, %155, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
-  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset, %switch.lookup30 ], [ 0, %153 ]
+select.unfold.i:                                  ; preds = %switch.lookup.i, %213, %212, %211, %160, %159, %158, %157, %156, %155, %153, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
+  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %153 ]
   %231 = getelementptr ptr, ptr @sub_handles, i64 %.0246.ph.i
   %232 = load ptr, ptr %231, align 8
   %.not265.i = icmp eq ptr %232, null

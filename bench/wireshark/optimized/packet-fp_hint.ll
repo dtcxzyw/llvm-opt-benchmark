@@ -764,9 +764,9 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   %wide.trip.count = zext i8 %3 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph, %89
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %.099119 = phi i16 [ %2, %.lr.ph ], [ %90, %89 ]
+30:                                               ; preds = %.lr.ph, %88
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
+  %.099119 = phi i16 [ %2, %.lr.ph ], [ %89, %88 ]
   %31 = zext i16 %.099119 to i32
   %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %31)
   %33 = add nuw nsw i32 %31, 4
@@ -780,80 +780,80 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   %41 = lshr i8 %36, 3
   %42 = and i8 %41, 1
   %exitcond = icmp eq i64 %indvars.iv, 64
-  br i1 %exitcond, label %43, label %46
+  br i1 %exitcond, label %43, label %switch.lookup
 
 43:                                               ; preds = %30
   %44 = zext i8 %3 to i32
   %45 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_fph_radio_bearers, ptr noundef %0, i32 noundef %31, i32 noundef -1, ptr noundef nonnull @.str.77, i32 noundef %44, i32 noundef 64)
   br label %.loopexit
 
-46:                                               ; preds = %30
-  %47 = shl i8 %36, 4
-  %48 = and i8 %47, 16
-  %49 = lshr i8 %34, 4
-  %50 = or disjoint i8 %48, %49
-  %51 = lshr i8 %34, 2
-  %52 = and i8 %51, 3
-  %53 = and i8 %34, 3
-  %54 = getelementptr i8, ptr %24, i64 %indvars.iv
-  store i8 %53, ptr %54, align 1
-  %55 = getelementptr i8, ptr %25, i64 %indvars.iv
-  store i8 %50, ptr %55, align 1
-  %56 = getelementptr i32, ptr %.0100, i64 %indvars.iv
-  store i32 %32, ptr %56, align 4
-  %57 = getelementptr i8, ptr %26, i64 %indvars.iv
-  store i8 %40, ptr %57, align 1
-  %58 = getelementptr i8, ptr %27, i64 %indvars.iv
-  store i8 %42, ptr %58, align 1
-  %59 = getelementptr i32, ptr %28, i64 %indvars.iv
-  store i32 0, ptr %59, align 4
-  %60 = getelementptr i8, ptr %.0101, i64 %indvars.iv
-  store i8 %38, ptr %60, align 1
-  %61 = getelementptr i8, ptr %29, i64 %indvars.iv
-  store i8 %52, ptr %61, align 1
-  br i1 %.not110, label %89, label %62
+switch.lookup:                                    ; preds = %30
+  %46 = shl i8 %36, 4
+  %47 = and i8 %46, 16
+  %48 = lshr i8 %34, 4
+  %49 = or disjoint i8 %47, %48
+  %50 = lshr i8 %34, 2
+  %51 = and i8 %50, 3
+  %52 = and i8 %34, 3
+  %53 = getelementptr i8, ptr %24, i64 %indvars.iv
+  store i8 %52, ptr %53, align 1
+  %54 = getelementptr i8, ptr %25, i64 %indvars.iv
+  store i8 %49, ptr %54, align 1
+  %55 = getelementptr i32, ptr %.0100, i64 %indvars.iv
+  store i32 %32, ptr %55, align 4
+  %56 = getelementptr i8, ptr %26, i64 %indvars.iv
+  store i8 %40, ptr %56, align 1
+  %57 = getelementptr i8, ptr %27, i64 %indvars.iv
+  store i8 %42, ptr %57, align 1
+  %58 = getelementptr i32, ptr %28, i64 %indvars.iv
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr i8, ptr %.0101, i64 %indvars.iv
+  store i8 %38, ptr %59, align 1
+  %60 = getelementptr i8, ptr %29, i64 %indvars.iv
+  store i8 %51, ptr %60, align 1
+  br i1 %.not110, label %88, label %61
 
-62:                                               ; preds = %46
-  %63 = load i32, ptr @hf_fph_rb, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %63, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef 0)
-  %65 = load i32, ptr @ett_fph_rb, align 4
-  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
+61:                                               ; preds = %switch.lookup
+  %62 = load i32, ptr @hf_fph_rb, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %62, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef 0)
+  %64 = load i32, ptr @ett_fph_rb, align 4
+  %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64)
   %.not111 = icmp eq i32 %32, 0
-  br i1 %.not111, label %70, label %67
+  br i1 %.not111, label %69, label %66
 
-67:                                               ; preds = %62
-  %68 = load i32, ptr @hf_fph_urnti, align 4
-  %69 = tail call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %68, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %32)
-  br label %70
+66:                                               ; preds = %61
+  %67 = load i32, ptr @hf_fph_urnti, align 4
+  %68 = tail call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %32)
+  br label %69
 
-70:                                               ; preds = %67, %62
-  %71 = load i32, ptr @hf_fph_content, align 4
-  %72 = shl nuw nsw i32 %33, 3
-  %73 = or disjoint i32 %72, 4
-  %74 = tail call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %71, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef -2147483648)
-  %75 = load i32, ptr @hf_fph_rlcmode, align 4
-  %76 = or disjoint i32 %72, 6
-  %77 = tail call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef 2, i32 noundef -2147483648)
-  %78 = load i32, ptr @hf_fph_rbid, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %78, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648)
-  %80 = load i32, ptr @hf_fph_ctmux, align 4
-  %81 = zext nneg i8 %38 to i64
-  %82 = tail call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %80, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %81)
-  %83 = load i32, ptr @hf_fph_ciphered, align 4
-  %84 = zext nneg i8 %40 to i64
-  %85 = tail call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %83, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %84)
-  %86 = load i32, ptr @hf_fph_deciphered, align 4
-  %87 = zext nneg i8 %42 to i64
-  %88 = tail call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %86, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %87)
-  br label %89
+69:                                               ; preds = %66, %61
+  %70 = load i32, ptr @hf_fph_content, align 4
+  %71 = shl nuw nsw i32 %33, 3
+  %72 = or disjoint i32 %71, 4
+  %73 = tail call ptr @proto_tree_add_bits_item(ptr noundef %65, i32 noundef %70, ptr noundef %0, i32 noundef %72, i32 noundef 2, i32 noundef -2147483648)
+  %74 = load i32, ptr @hf_fph_rlcmode, align 4
+  %75 = or disjoint i32 %71, 6
+  %76 = tail call ptr @proto_tree_add_bits_item(ptr noundef %65, i32 noundef %74, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef -2147483648)
+  %77 = load i32, ptr @hf_fph_rbid, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %77, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648)
+  %79 = load i32, ptr @hf_fph_ctmux, align 4
+  %80 = zext nneg i8 %38 to i64
+  %81 = tail call ptr @proto_tree_add_boolean(ptr noundef %65, i32 noundef %79, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %80)
+  %82 = load i32, ptr @hf_fph_ciphered, align 4
+  %83 = zext nneg i8 %40 to i64
+  %84 = tail call ptr @proto_tree_add_boolean(ptr noundef %65, i32 noundef %82, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %83)
+  %85 = load i32, ptr @hf_fph_deciphered, align 4
+  %86 = zext nneg i8 %42 to i64
+  %87 = tail call ptr @proto_tree_add_boolean(ptr noundef %65, i32 noundef %85, ptr noundef %0, i32 noundef %35, i32 noundef 1, i64 noundef %86)
+  br label %88
 
-89:                                               ; preds = %70, %46
-  %90 = add i16 %.099119, 8
+88:                                               ; preds = %69, %switch.lookup
+  %89 = add i16 %.099119, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond125.not, label %.loopexit, label %30, !llvm.loop !9
 
-.loopexit:                                        ; preds = %89, %23, %43
+.loopexit:                                        ; preds = %88, %23, %43
   ret void
 }
 

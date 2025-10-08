@@ -31800,13 +31800,13 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %25 = tail call i8 @llvm.ucmp.i8.i64(i64 %24, i64 %22)
   br label %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he28f33a7eae0a819E.llvm.16595843094761361803.exit"
 
-"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he28f33a7eae0a819E.llvm.16595843094761361803.exit": ; preds = %20, %18
+"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he28f33a7eae0a819E.llvm.16595843094761361803.exit": ; preds = %18, %20
   %.sroa.0.1.i = phi i8 [ %25, %20 ], [ %.sroa.0.0.i, %18 ]
   %26 = load ptr, ptr %0, align 8, !alias.scope !8603, !noalias !8614, !nonnull !11, !align !378, !noundef !11
   %27 = load i8, ptr %26, align 1, !range !376, !noalias !8613, !noundef !11
   %28 = trunc nuw i8 %27 to i1
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i
-  %.sroa.0.2.i = select i1 %28, i8 %switch.offset, i8 %.sroa.0.1.i
+  %switch.offset.i = sub nsw i8 0, %.sroa.0.1.i
+  %.sroa.0.2.i = select i1 %28, i8 %switch.offset.i, i8 %.sroa.0.1.i
   ret i8 %.sroa.0.2.i
 }
 
@@ -31846,13 +31846,13 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %25 = tail call i8 @llvm.ucmp.i8.i64(i64 %24, i64 %22)
   br label %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha4372bec280fb9bfE.llvm.16595843094761361803.exit"
 
-"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha4372bec280fb9bfE.llvm.16595843094761361803.exit": ; preds = %20, %18
+"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha4372bec280fb9bfE.llvm.16595843094761361803.exit": ; preds = %18, %20
   %.sroa.0.1.i = phi i8 [ %25, %20 ], [ %.sroa.0.0.i, %18 ]
   %26 = load ptr, ptr %0, align 8, !alias.scope !8615, !noalias !8625, !nonnull !11, !align !378, !noundef !11
   %27 = load i8, ptr %26, align 1, !range !376, !noalias !8624, !noundef !11
   %28 = trunc nuw i8 %27 to i1
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i
-  %.sroa.0.2.i = select i1 %28, i8 %switch.offset, i8 %.sroa.0.1.i
+  %switch.offset.i = sub nsw i8 0, %.sroa.0.1.i
+  %.sroa.0.2.i = select i1 %28, i8 %switch.offset.i, i8 %.sroa.0.1.i
   ret i8 %.sroa.0.2.i
 }
 

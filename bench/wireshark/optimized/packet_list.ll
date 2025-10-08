@@ -21976,21 +21976,21 @@ define void @_ZN10PacketList18preferencesChangedEv(ptr noundef align 8 dereferen
 
 11:                                               ; preds = %10
   %12 = tail call noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef align 8 dereferenceable_or_null(16) %0, i32 noundef 100, i32 noundef 1)
-  br label %.sink.split
+  br label %switch.lookup.sink.split
 
 13:                                               ; preds = %1
   br i1 %9, label %switch.lookup, label %14
 
 14:                                               ; preds = %13
   tail call void @_ZN7QObject9killTimerEi(ptr noundef align 8 dereferenceable_or_null(16) %0, i32 noundef %8)
-  br label %.sink.split
+  br label %switch.lookup.sink.split
 
-.sink.split:                                      ; preds = %11, %14
+switch.lookup.sink.split:                         ; preds = %11, %14
   %.sink3 = phi i32 [ 0, %14 ], [ %12, %11 ]
   store i32 %.sink3, ptr %7, align 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %.sink.split, %13, %10
+switch.lookup:                                    ; preds = %switch.lookup.sink.split, %13, %10
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 440), align 8
   %16 = icmp ult i32 %15, 4
   %spec.select = select i1 %16, i32 %15, i32 1

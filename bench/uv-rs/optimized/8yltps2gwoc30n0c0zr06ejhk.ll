@@ -1548,7 +1548,7 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_auth..index..AuthPolicy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hae4ce2081dcd31d1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_auth..index..AuthPolicy$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hae4ce2081dcd31d1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !310
@@ -1560,16 +1560,16 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8, !noalias !329
-  br i1 %6, label %9, label %11
+  br i1 %6, label %switch.lookup, label %10
 
-9:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !310
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %8, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %8, ptr %9, align 8
   store i64 2, ptr %0, align 8
-  br label %12
+  br label %11
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -1577,9 +1577,9 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
   store i64 %5, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %8, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %9
+11:                                               ; preds = %10, %switch.lookup
   ret void
 }
 

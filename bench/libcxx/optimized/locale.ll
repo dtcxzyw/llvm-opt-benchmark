@@ -18477,10 +18477,10 @@ switch.early.test69:                              ; preds = %20
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.372 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
   %39 = load i8, ptr %.372, align 1, !tbaa !4
-  %switch.tableidx = add i8 %39, -97
-  %40 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %39, -32
-  %.0.i = select i1 %40, i8 %switch.offset, i8 %39
+  %switch.tableidx.i = add i8 %39, -97
+  %40 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %39, -32
+  %.0.i = select i1 %40, i8 %switch.offset.i, i8 %39
   store i8 %.0.i, ptr %.372, align 1, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %.372, i64 1
   %.not60 = icmp eq ptr %41, %37
@@ -18695,10 +18695,10 @@ switch.early.test69:                              ; preds = %20
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.372 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
   %39 = load i8, ptr %.372, align 1, !tbaa !4
-  %switch.tableidx = add i8 %39, -97
-  %40 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %39, -32
-  %.0.i = select i1 %40, i8 %switch.offset, i8 %39
+  %switch.tableidx.i = add i8 %39, -97
+  %40 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %39, -32
+  %.0.i = select i1 %40, i8 %switch.offset.i, i8 %39
   store i8 %.0.i, ptr %.372, align 1, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %.372, i64 1
   %.not60 = icmp eq ptr %41, %37
@@ -18878,10 +18878,10 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIcNS_19ostreambuf_iteratorIcNS
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.255 = phi ptr [ %33, %.lr.ph ], [ %.1, %26 ]
   %31 = load i8, ptr %.255, align 1, !tbaa !4
-  %switch.tableidx = add i8 %31, -97
-  %32 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %31, -32
-  %.0.i = select i1 %32, i8 %switch.offset, i8 %31
+  %switch.tableidx.i = add i8 %31, -97
+  %32 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %31, -32
+  %.0.i = select i1 %32, i8 %switch.offset.i, i8 %31
   store i8 %.0.i, ptr %.255, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.255, i64 1
   %.not49 = icmp eq ptr %33, %29
@@ -19061,10 +19061,10 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIcNS_19ostreambuf_iteratorIcNS
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.255 = phi ptr [ %33, %.lr.ph ], [ %.1, %26 ]
   %31 = load i8, ptr %.255, align 1, !tbaa !4
-  %switch.tableidx = add i8 %31, -97
-  %32 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %31, -32
-  %.0.i = select i1 %32, i8 %switch.offset, i8 %31
+  %switch.tableidx.i = add i8 %31, -97
+  %32 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %31, -32
+  %.0.i = select i1 %32, i8 %switch.offset.i, i8 %31
   store i8 %.0.i, ptr %.255, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.255, i64 1
   %.not49 = icmp eq ptr %33, %29
@@ -20343,10 +20343,10 @@ switch.early.test69:                              ; preds = %20
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.372 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
   %39 = load i8, ptr %.372, align 1, !tbaa !4
-  %switch.tableidx = add i8 %39, -97
-  %40 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %39, -32
-  %.0.i = select i1 %40, i8 %switch.offset, i8 %39
+  %switch.tableidx.i = add i8 %39, -97
+  %40 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %39, -32
+  %.0.i = select i1 %40, i8 %switch.offset.i, i8 %39
   store i8 %.0.i, ptr %.372, align 1, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %.372, i64 1
   %.not60 = icmp eq ptr %41, %37
@@ -20561,10 +20561,10 @@ switch.early.test69:                              ; preds = %20
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.372 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
   %39 = load i8, ptr %.372, align 1, !tbaa !4
-  %switch.tableidx = add i8 %39, -97
-  %40 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %39, -32
-  %.0.i = select i1 %40, i8 %switch.offset, i8 %39
+  %switch.tableidx.i = add i8 %39, -97
+  %40 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %39, -32
+  %.0.i = select i1 %40, i8 %switch.offset.i, i8 %39
   store i8 %.0.i, ptr %.372, align 1, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %.372, i64 1
   %.not60 = icmp eq ptr %41, %37
@@ -20744,10 +20744,10 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIwNS_19ostreambuf_iteratorIwNS
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.255 = phi ptr [ %33, %.lr.ph ], [ %.1, %26 ]
   %31 = load i8, ptr %.255, align 1, !tbaa !4
-  %switch.tableidx = add i8 %31, -97
-  %32 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %31, -32
-  %.0.i = select i1 %32, i8 %switch.offset, i8 %31
+  %switch.tableidx.i = add i8 %31, -97
+  %32 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %31, -32
+  %.0.i = select i1 %32, i8 %switch.offset.i, i8 %31
   store i8 %.0.i, ptr %.255, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.255, i64 1
   %.not49 = icmp eq ptr %33, %29
@@ -20927,10 +20927,10 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIwNS_19ostreambuf_iteratorIwNS
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.255 = phi ptr [ %33, %.lr.ph ], [ %.1, %26 ]
   %31 = load i8, ptr %.255, align 1, !tbaa !4
-  %switch.tableidx = add i8 %31, -97
-  %32 = icmp ult i8 %switch.tableidx, 6
-  %switch.offset = add i8 %31, -32
-  %.0.i = select i1 %32, i8 %switch.offset, i8 %31
+  %switch.tableidx.i = add i8 %31, -97
+  %32 = icmp ult i8 %switch.tableidx.i, 6
+  %switch.offset.i = add i8 %31, -32
+  %.0.i = select i1 %32, i8 %switch.offset.i, i8 %31
   store i8 %.0.i, ptr %.255, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.255, i64 1
   %.not49 = icmp eq ptr %33, %29

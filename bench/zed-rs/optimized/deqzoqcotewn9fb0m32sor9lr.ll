@@ -1576,11 +1576,10 @@ define hidden void @"_ZN182_$LT$zbus..message..header.._..$LT$impl$u20$serde..de
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN182_$LT$zbus..message..header.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$zbus..message..header..PrimaryHeader$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h7b803fb699f9c23aE.llvm.13033308200869021913"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 9)) %0, i64 noundef %1) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 6)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 6)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 8
   store i64 14, ptr %0, align 8
   ret void
 }
@@ -15038,11 +15037,10 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1303330820086902
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h0e65b1e0aa2539d3E(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 9)) %0, i32 noundef %1) unnamed_addr #3 {
-"_ZN182_$LT$zbus..message..header.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$zbus..message..header..PrimaryHeader$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h7b803fb699f9c23aE.llvm.13033308200869021913.exit":
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 6)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8, !alias.scope !3801
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 6)
+  %.sink.i = trunc nuw nsw i32 %4 to i8
+  store i8 %.sink.i, ptr %3, align 8, !alias.scope !3801
   store i64 14, ptr %0, align 8, !alias.scope !3801
   ret void
 }
@@ -27522,10 +27520,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #42
 declare i64 @llvm.umin.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #40
+declare i32 @llvm.umin.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #40
+declare i64 @llvm.umax.i64(i64, i64) #40
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

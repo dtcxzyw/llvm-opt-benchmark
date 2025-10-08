@@ -3557,34 +3557,34 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %63 = getelementptr inbounds nuw i32, ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp ult i32 %61, 8
-  br i1 %65, label %switch.lookup, label %66
+  br i1 %65, label %switch.lookup89, label %66
 
 .loopexit85:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %337
 
-.loopexit.split-lp:                               ; preds = %switch.lookup101, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %50, %53, %54, %66, %67, %71, %72, %76, %77, %78, %81, %85, %86, %88, %92, %93, %95, %98, %101, %104, %106, %109, %111, %113, %116, %118, %121, %124, %127, %131, %134, %139, %142, %147, %150, %155, %158, %160, %163, %165, %167, %170, %172, %175, %178, %182, %185, %187, %190, %192, %194, %197, %199, %202, %205, %209, %212, %214, %217, %219, %221, %224, %226, %229, %250, %253, %255, %256, %258, %260, %262, %263, %265, %266, %268, %269, %271, %272, %274, %275, %277, %283, %289, %290, %296, %298, %300, %301, %303, %307, %308, %311, %329, %_ZN7QStringD2Ev.exit, %310, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72
+.loopexit.split-lp:                               ; preds = %switch.lookup, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %50, %53, %54, %66, %67, %71, %72, %76, %77, %78, %81, %85, %86, %88, %92, %93, %95, %98, %101, %104, %106, %109, %111, %113, %116, %118, %121, %124, %127, %131, %134, %139, %142, %147, %150, %155, %158, %160, %163, %165, %167, %170, %172, %175, %178, %182, %185, %187, %190, %192, %194, %197, %199, %202, %205, %209, %212, %214, %217, %219, %221, %224, %226, %229, %250, %253, %255, %256, %258, %260, %262, %263, %265, %266, %268, %269, %271, %272, %274, %275, %277, %283, %289, %290, %296, %298, %300, %301, %303, %307, %308, %311, %329, %_ZN7QStringD2Ev.exit, %310, %.noexc, %.noexc69, %.noexc70, %.noexc71, %.noexc72
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %337
 
-switch.lookup:                                    ; preds = %58
+switch.lookup89:                                  ; preds = %58
   %switch.cast = trunc nuw i32 %61 to i8
   %switch.downshift = lshr i8 -27, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
-  %switch.cast89 = trunc nuw i32 %61 to i8
-  %switch.downshift91 = lshr i8 -21, %switch.cast89
-  %switch.masked92 = trunc i8 %switch.downshift91 to i1
-  %switch.masked96 = icmp eq i32 %61, 6
-  %switch.masked100 = icmp eq i32 %61, 7
+  %switch.cast90 = trunc nuw i32 %61 to i8
+  %switch.downshift92 = lshr i8 -21, %switch.cast90
+  %switch.masked93 = trunc i8 %switch.downshift92 to i1
+  %switch.masked97 = icmp eq i32 %61, 6
+  %switch.masked101 = icmp eq i32 %61, 7
   br label %66
 
-66:                                               ; preds = %switch.lookup, %58
-  %.059 = phi i1 [ false, %58 ], [ %switch.masked, %switch.lookup ]
-  %.058 = phi i1 [ false, %58 ], [ %switch.masked92, %switch.lookup ]
-  %.057 = phi i1 [ false, %58 ], [ %switch.masked96, %switch.lookup ]
-  %.056 = phi i1 [ false, %58 ], [ %switch.masked100, %switch.lookup ]
+66:                                               ; preds = %switch.lookup89, %58
+  %.059 = phi i1 [ false, %58 ], [ %switch.masked, %switch.lookup89 ]
+  %.058 = phi i1 [ false, %58 ], [ %switch.masked93, %switch.lookup89 ]
+  %.057 = phi i1 [ false, %58 ], [ %switch.masked97, %switch.lookup89 ]
+  %.056 = phi i1 [ false, %58 ], [ %switch.masked101, %switch.lookup89 ]
   invoke void @glDisable(i32 noundef 2896)
           to label %67 unwind label %.loopexit.split-lp
 
@@ -4068,9 +4068,9 @@ switch.lookup:                                    ; preds = %58
 
 291:                                              ; preds = %290
   %292 = icmp ult i32 %2, 4
-  br i1 %292, label %switch.lookup101, label %296
+  br i1 %292, label %switch.lookup, label %296
 
-switch.lookup101:                                 ; preds = %291
+switch.lookup:                                    ; preds = %291
   %switch.offset = add nuw nsw i32 %2, 6403
   %293 = load i32, ptr %0, align 8
   %294 = load i32, ptr %12, align 4
@@ -4078,7 +4078,7 @@ switch.lookup101:                                 ; preds = %291
   invoke void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %293, i32 noundef %294, i32 noundef %switch.offset, i32 noundef 5121, ptr noundef %295)
           to label %296 unwind label %.loopexit.split-lp
 
-296:                                              ; preds = %291, %switch.lookup101
+296:                                              ; preds = %291, %switch.lookup
   invoke void @glDisableClientState(i32 noundef 32884)
           to label %297 unwind label %.loopexit.split-lp
 

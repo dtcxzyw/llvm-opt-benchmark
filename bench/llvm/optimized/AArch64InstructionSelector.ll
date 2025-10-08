@@ -16744,27 +16744,27 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm19Machine
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector27selectArithExtendedRegisterERNS0_14MachineOperandEE3$_1E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #0 align 2 {
-switch.lookup:
-  %2 = alloca %"class.llvm::MachineOperand", align 8
+  %3 = alloca %"class.llvm::MachineOperand", align 8
   %.val = load i32, ptr %0, align 8, !tbaa !970
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val2 = load i64, ptr %3, align 8, !tbaa !972
-  %.val3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val4 = load ptr, ptr %4, align 8
-  %switch.tableidx = add nsw i32 %.val, -5
-  %switch.idx.cast = zext i32 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
-  %5 = and i64 %.val2, 7
-  %6 = or disjoint i64 %switch.idx.mult, %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i32 1, ptr %2, align 8, !alias.scope !973
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !568, !alias.scope !973
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %6, ptr %8, align 8, !tbaa !296, !alias.scope !973
-  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.val4, ptr noundef nonnull align 8 dereferenceable(1065) %.val3, ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val2 = load i64, ptr %4, align 8, !tbaa !972
+  %.val3 = load ptr, ptr %1, align 8, !tbaa !753
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val4 = load ptr, ptr %5, align 8, !tbaa !587
+  %6 = trunc i64 %.val2 to i32
+  %switch.tableidx.i.i.i.i.i = shl i32 %.val, 3
+  %7 = add i32 %switch.tableidx.i.i.i.i.i, -40
+  %8 = and i32 %6, 7
+  %9 = or disjoint i32 %8, %7
+  %10 = zext i32 %9 to i64
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store i32 1, ptr %3, align 8, !alias.scope !973
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %11, align 8, !tbaa !568, !alias.scope !973
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %10, ptr %12, align 8, !tbaa !296, !alias.scope !973
+  call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %.val4, ptr noundef nonnull align 8 dereferenceable(1065) %.val3, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

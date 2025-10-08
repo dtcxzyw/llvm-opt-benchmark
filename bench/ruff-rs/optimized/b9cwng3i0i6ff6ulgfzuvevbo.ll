@@ -679,10 +679,9 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN14ruff_formatter14format_element3tag3Tag6is_end17hbfe94e76b6d94db9E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 8, !range !80, !noundef !14
-  %switch.idx.cast = trunc i8 %1 to i1
-  ret i1 %switch.idx.cast
+  %2 = load i8, ptr %0, align 8, !range !80, !noundef !14
+  %switch.idx.cast.i = trunc i8 %2 to i1
+  ret i1 %switch.idx.cast.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1009,19 +1008,19 @@ define hidden void @_ZN14ruff_formatter7printer5queue5Queue12skip_content17h99e5
 3:                                                ; preds = %2, %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
   %.sroa.42.09 = phi i64 [ 1, %2 ], [ %.sroa.42.2, %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit" ]
   %4 = tail call noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$3pop17h30fbbea6fa4467e1E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0), !noalias !85
-  %.not16.i = icmp eq ptr %4, null
-  br i1 %.not16.i, label %.critedge.i, label %.lr.ph.i
+  %.not14.i = icmp eq ptr %4, null
+  br i1 %.not14.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %6
-  %.sroa.05.017.i = phi ptr [ %11, %6 ], [ %4, %3 ]
-  %5 = load i8, ptr %.sroa.05.017.i, align 8, !range !84, !noalias !85, !noundef !14
+  %.sroa.05.015.i = phi ptr [ %11, %6 ], [ %4, %3 ]
+  %5 = load i8, ptr %.sroa.05.015.i, align 8, !range !84, !noalias !85, !noundef !14
   switch i8 %5, label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit" [
     i8 8, label %6
     i8 10, label %switch.lookup
   ]
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.05.017.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i, i64 8
   %8 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_formatter..format_element..Interned$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bb2017b6f6b9d0dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !85
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
@@ -1035,7 +1034,7 @@ define hidden void @_ZN14ruff_formatter7printer5queue5Queue12skip_content17h99e5
   unreachable
 
 switch.lookup:                                    ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.017.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i, i64 8
   %13 = load i8, ptr %12, align 8, !range !80, !noalias !85, !noundef !14
   %14 = zext nneg i8 %13 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 %14
@@ -1044,39 +1043,24 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   br i1 %15, label %16, label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
 
 16:                                               ; preds = %switch.lookup
-  switch i8 %13, label %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit.i [
-    i8 0, label %19
-    i8 2, label %19
-    i8 4, label %19
-    i8 6, label %19
-    i8 8, label %19
-    i8 10, label %19
-    i8 12, label %19
-    i8 14, label %19
-    i8 16, label %19
-    i8 18, label %19
-    i8 20, label %19
-    i8 22, label %19
-    i8 24, label %19
-    i8 26, label %19
-    i8 28, label %19
-  ]
+  %switch.idx.cast.i.i = trunc i8 %13 to i1
+  br i1 %switch.idx.cast.i.i, label %17, label %20
 
-_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit.i: ; preds = %16
-  %17 = add i64 %.sroa.42.09, -1
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %22, label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
+17:                                               ; preds = %16
+  %18 = add i64 %.sroa.42.09, -1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %23, label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
 
-19:                                               ; preds = %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16
-  %20 = add i64 %.sroa.42.09, 1
+20:                                               ; preds = %16
+  %21 = add i64 %.sroa.42.09, 1
   br label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
 
-"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit": ; preds = %.lr.ph.i, %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit.i, %19, %switch.lookup
-  %.sroa.42.2 = phi i64 [ %.sroa.42.09, %switch.lookup ], [ %20, %19 ], [ %17, %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit.i ], [ %.sroa.42.09, %.lr.ph.i ]
-  %21 = icmp eq i64 %.sroa.42.2, 0
-  br i1 %21, label %22, label %3
+"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit": ; preds = %.lr.ph.i, %17, %20, %switch.lookup
+  %.sroa.42.2 = phi i64 [ %.sroa.42.09, %switch.lookup ], [ %21, %20 ], [ %18, %17 ], [ %.sroa.42.09, %.lr.ph.i ]
+  %22 = icmp eq i64 %.sroa.42.2, 0
+  br i1 %22, label %23, label %3
 
-22:                                               ; preds = %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit", %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit.i
+23:                                               ; preds = %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit", %17
   ret void
 }
 
@@ -1111,19 +1095,19 @@ define hidden noundef align 8 ptr @"_ZN120_$LT$ruff_formatter..printer..queue..Q
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !nonnull !14, !align !18, !noundef !14
   %7 = tail call noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$3pop17h1c2dba19db47e764E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  %.not16 = icmp eq ptr %7, null
-  br i1 %.not16, label %.critedge, label %.lr.ph
+  %.not14 = icmp eq ptr %7, null
+  br i1 %.not14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %9
-  %.sroa.05.017 = phi ptr [ %14, %9 ], [ %7, %5 ]
-  %8 = load i8, ptr %.sroa.05.017, align 8, !range !84, !noundef !14
+  %.sroa.05.015 = phi ptr [ %14, %9 ], [ %7, %5 ]
+  %8 = load i8, ptr %.sroa.05.015, align 8, !range !84, !noundef !14
   switch i8 %8, label %.loopexit [
     i8 8, label %9
     i8 10, label %switch.lookup
   ]
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 8
   %11 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_formatter..format_element..Interned$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bb2017b6f6b9d0dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
@@ -1137,7 +1121,7 @@ define hidden noundef align 8 ptr @"_ZN120_$LT$ruff_formatter..printer..queue..Q
   unreachable
 
 switch.lookup:                                    ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 8
   %16 = load i8, ptr %15, align 8, !range !80, !noundef !14
   %17 = zext nneg i8 %16 to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 %17
@@ -1148,40 +1132,25 @@ switch.lookup:                                    ; preds = %.lr.ph
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %switch.lookup
-  switch i8 %16, label %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit [
-    i8 0, label %24
-    i8 2, label %24
-    i8 4, label %24
-    i8 6, label %24
-    i8 8, label %24
-    i8 10, label %24
-    i8 12, label %24
-    i8 14, label %24
-    i8 16, label %24
-    i8 18, label %24
-    i8 20, label %24
-    i8 22, label %24
-    i8 24, label %24
-    i8 26, label %24
-    i8 28, label %24
-  ]
+  %switch.idx.cast.i = trunc i8 %16 to i1
+  br i1 %switch.idx.cast.i, label %22, label %25
 
-_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit: ; preds = %21
-  %22 = add i64 %3, -1
-  store i64 %22, ptr %2, align 8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.loopexit, label %26
+22:                                               ; preds = %21
+  %23 = add i64 %3, -1
+  store i64 %23, ptr %2, align 8
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %.loopexit, label %27
 
-24:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %25 = add i64 %3, 1
-  store i64 %25, ptr %2, align 8
-  br label %26
+25:                                               ; preds = %21
+  %26 = add i64 %3, 1
+  store i64 %26, ptr %2, align 8
+  br label %27
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit, %switch.lookup, %1, %26
-  %.sroa.0.0 = phi ptr [ %.sroa.05.017, %26 ], [ null, %1 ], [ %.sroa.05.017, %switch.lookup ], [ null, %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit ], [ %.sroa.05.017, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %22, %switch.lookup, %1, %27
+  %.sroa.0.0 = phi ptr [ %.sroa.05.015, %27 ], [ null, %1 ], [ %.sroa.05.015, %switch.lookup ], [ null, %22 ], [ %.sroa.05.015, %.lr.ph ]
   ret ptr %.sroa.0.0
 
-26:                                               ; preds = %_ZN14ruff_formatter14format_element3tag3Tag8is_start17h1da713d6c663d9dcE.exit, %24
+27:                                               ; preds = %22, %25
   br label %.loopexit
 }
 

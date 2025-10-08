@@ -79,9 +79,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h97b2911324971dc4E(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %36
-  %.sroa.0.021 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.113, %36 ]
-  %.sroa.4.020 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.112, %36 ]
+7:                                                ; preds = %.lr.ph, %37
+  %.sroa.0.021 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.113, %37 ]
+  %.sroa.4.020 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.112, %37 ]
   %8 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17h609e4bed11db6468E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.021, i64 noundef %.sroa.4.020)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -89,81 +89,83 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h97b2911324971dc4E(ptr no
   %12 = ptrtoint ptr %10 to i64
   br i1 %11, label %13, label %15
 
-.loopexit:                                        ; preds = %13, %23, %19, %17, %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit, %36, %3
-  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit ], [ %10, %17 ], [ %10, %19 ], [ %10, %23 ], [ @anon.4e9b806ee0758ff2b0f3c055e3f79959.1, %13 ], [ null, %36 ]
+.loopexit:                                        ; preds = %13, %22, %19, %17, %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit, %37, %3
+  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit ], [ %10, %17 ], [ %10, %19 ], [ %10, %22 ], [ @anon.4e9b806ee0758ff2b0f3c055e3f79959.1, %13 ], [ null, %37 ]
   ret ptr %.sroa.04.0
 
 13:                                               ; preds = %7
   %14 = icmp eq ptr %10, null
-  br i1 %14, label %.loopexit, label %27
+  br i1 %14, label %.loopexit, label %26
 
 15:                                               ; preds = %7
   %16 = and i64 %12, 3
   switch i64 %16, label %default.unreachable [
     i64 2, label %17
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit
-    i64 0, label %19
-    i64 1, label %23
+    i64 3, label %19
+    i64 0, label %22
+    i64 1, label %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit
   ]
 
 default.unreachable:                              ; preds = %15
   unreachable
 
 17:                                               ; preds = %15
-  %.mask.i = and i64 %12, -4294967296
-  %18 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %18, label %32, label %.loopexit
+  %.mask20.i = and i64 %12, -4294967296
+  %18 = icmp eq i64 %.mask20.i, 17179869184
+  br i1 %18, label %33, label %.loopexit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
-  %22 = icmp eq i8 %21, 35
-  br i1 %22, label %32, label %.loopexit
+  %20 = icmp ult ptr %10, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %20)
+  %.mask.i = and i64 %12, -4294967296
+  %21 = icmp eq i64 %.mask.i, 150323855360
+  br i1 %21, label %33, label %.loopexit
 
-23:                                               ; preds = %15
-  %24 = getelementptr i8, ptr %10, i64 15
-  %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
-  %26 = icmp eq i8 %25, 35
-  br i1 %26, label %32, label %.loopexit
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %24 = load i8, ptr %23, align 8, !range !4, !noundef !5
+  %25 = icmp eq i8 %24, 35
+  br i1 %25, label %33, label %.loopexit
 
-27:                                               ; preds = %13
-  %28 = icmp ult i64 %.sroa.4.020, %12
-  br i1 %28, label %.noexc, label %.thread
+26:                                               ; preds = %13
+  %27 = icmp ult i64 %.sroa.4.020, %12
+  br i1 %27, label %.noexc, label %.thread
 
-.noexc:                                           ; preds = %27
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %12, i64 noundef %.sroa.4.020, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.3) #28
+.noexc:                                           ; preds = %26
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %12, i64 noundef %.sroa.4.020, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.3) #29
   unreachable
 
-.thread:                                          ; preds = %27
-  %29 = sub nuw i64 %.sroa.4.020, %12
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 %12
-  br label %36
+.thread:                                          ; preds = %26
+  %28 = sub nuw i64 %.sroa.4.020, %12
+  %29 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 %12
+  br label %37
 
 _ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit: ; preds = %15
-  %.mask20.i = and i64 %12, -4294967296
-  %31 = icmp eq i64 %.mask20.i, 150323855360
-  br i1 %31, label %32, label %.loopexit
+  %30 = getelementptr i8, ptr %10, i64 15
+  %31 = load i8, ptr %30, align 8, !range !4, !noundef !5
+  %32 = icmp eq i8 %31, 35
+  br i1 %32, label %33, label %.loopexit
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit, %17, %19, %23
+33:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17he394224dfe9e3211E.exit, %17, %19, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !6
-  %33 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !5
-  %34 = icmp eq i8 %33, 3
-  br i1 %34, label %35, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
+  %34 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !5
+  %35 = icmp eq i8 %34, 3
+  br i1 %35, label %36, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hbe955385072f7a22E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !6
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit": ; preds = %32, %35
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit": ; preds = %33, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
-  br label %36
+  br label %37
 
-36:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
-  %.sroa.0.113 = phi ptr [ %30, %.thread ], [ %.sroa.0.021, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
-  %.sroa.4.112 = phi i64 [ %29, %.thread ], [ %.sroa.4.020, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
-  %37 = icmp eq i64 %.sroa.4.112, 0
-  br i1 %37, label %.loopexit, label %7
+37:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
+  %.sroa.0.113 = phi ptr [ %29, %.thread ], [ %.sroa.0.021, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
+  %.sroa.4.112 = phi i64 [ %28, %.thread ], [ %.sroa.4.020, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ]
+  %38 = icmp eq i64 %.sroa.4.112, 0
+  br i1 %38, label %.loopexit, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -194,7 +196,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr no
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr126drop_in_place$LT$std..io..Write..write_fmt..Adapter$LT$actix_web..helpers..MutWriter$LT$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17h6ce43970f5bb900fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #29
+  invoke void @"_ZN4core3ptr126drop_in_place$LT$std..io..Write..write_fmt..Adapter$LT$actix_web..helpers..MutWriter$LT$bytes..bytes_mut..BytesMut$GT$$GT$$GT$17h6ce43970f5bb900fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #30
           to label %21 unwind label %19
 
 9:                                                ; preds = %2
@@ -233,22 +235,22 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8b27bbbe8c502b79E(ptr no
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 21:                                               ; preds = %7
   resume { ptr, i32 } %8
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable10 [
     i64 2, label %5
-    i64 3, label %switch.lookup
-    i64 0, label %11
-    i64 1, label %13
+    i64 3, label %9
+    i64 0, label %14
+    i64 1, label %16
   ]
 
 default.unreachable10:                            ; preds = %2
@@ -259,28 +261,32 @@ default.unreachable10:                            ; preds = %2
   %7 = trunc nuw i64 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
-  br label %16
+  br label %19
 
-switch.lookup:                                    ; preds = %2
-  %9 = lshr i64 %3, 32
-  %switch.idx.cast = trunc i64 %9 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %switch.idx.cast, ptr %10, align 1
-  br label %16
+9:                                                ; preds = %2
+  %10 = lshr i64 %3, 32
+  %11 = trunc nuw i64 %10 to i32
+  %spec.select42.i = tail call i32 @llvm.umin.i32(i32 %11, i32 41)
+  %spec.select.i = trunc nuw nsw i32 %spec.select42.i to i8
+  %12 = icmp ult ptr %1, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %spec.select.i, ptr %13, align 1
+  br label %19
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %12, align 8
-  br label %16
-
-13:                                               ; preds = %2
-  %14 = getelementptr i8, ptr %1, i64 -1
+14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8
-  br label %16
+  store ptr %1, ptr %15, align 8
+  br label %19
 
-16:                                               ; preds = %5, %11, %switch.lookup, %13
-  %.sink = phi i8 [ 0, %5 ], [ 2, %11 ], [ 1, %switch.lookup ], [ 3, %13 ]
+16:                                               ; preds = %2
+  %17 = getelementptr i8, ptr %1, i64 -1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8
+  br label %19
+
+19:                                               ; preds = %5, %14, %9, %16
+  %.sink = phi i8 [ 0, %5 ], [ 2, %14 ], [ 1, %9 ], [ 3, %16 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -406,14 +412,14 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 13:                                               ; preds = %16, %2
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #30
           to label %19 unwind label %17
 
 15:                                               ; preds = %2
   br i1 %12, label %16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f5c9d74c96a75f0E.llvm.10894476612218408692.exit"
 
 16:                                               ; preds = %15
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %16
@@ -428,7 +434,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 19:                                               ; preds = %13
@@ -461,7 +467,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$core..option..Option$LT$mei
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !50, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr157drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$17h523934dcbb18007aE.exit"
 
 "_ZN4core3ptr157drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$17h523934dcbb18007aE.exit": ; preds = %6, %10, %14
@@ -495,7 +501,7 @@ define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !61, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr162drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$17he7638a2cba2bf296E.exit"
 
 "_ZN4core3ptr162drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$17he7638a2cba2bf296E.exit": ; preds = %6, %10, %14
@@ -529,7 +535,7 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !72, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr165drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$17hd7ffaeeefe3034bbE.exit"
 
 "_ZN4core3ptr165drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$17hd7ffaeeefe3034bbE.exit": ; preds = %6, %10, %14
@@ -563,7 +569,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !83, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr167drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$17h29a4a75b8787d4bbE.exit"
 
 "_ZN4core3ptr167drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$17h29a4a75b8787d4bbE.exit": ; preds = %6, %10, %14
@@ -597,7 +603,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !94, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr167drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$17hc4e7a49806c14798E.exit"
 
 "_ZN4core3ptr167drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$17hc4e7a49806c14798E.exit": ; preds = %6, %10, %14
@@ -631,7 +637,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !105, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr168drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$17h0bc4dfab202d28c6E.exit"
 
 "_ZN4core3ptr168drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$17h0bc4dfab202d28c6E.exit": ; preds = %6, %10, %14
@@ -665,7 +671,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !116, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr169drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$17h5bb17a093a67272bE.exit"
 
 "_ZN4core3ptr169drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$17h5bb17a093a67272bE.exit": ; preds = %6, %10, %14
@@ -699,7 +705,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !127, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit"
 
 "_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit": ; preds = %6, %10, %14
@@ -733,7 +739,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !138, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #32
   br label %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$17h63cb5e27810a9480E.exit"
 
 "_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$17h63cb5e27810a9480E.exit": ; preds = %6, %10, %14
@@ -785,7 +791,7 @@ default.unreachable11:                            ; preds = %1
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %5, align 8, !noalias !150, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %14, i64 noundef %10) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %14, i64 noundef %10) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit": ; preds = %8, %12, %16
@@ -808,7 +814,7 @@ default.unreachable11:                            ; preds = %1
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %4, align 8, !noalias !159, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef %20) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef %20) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit1"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit1": ; preds = %18, %22, %26
@@ -831,7 +837,7 @@ default.unreachable11:                            ; preds = %1
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %3, align 8, !noalias !168, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef %30) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef %30) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit2"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit2": ; preds = %28, %32, %36
@@ -854,7 +860,7 @@ default.unreachable11:                            ; preds = %1
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %2, align 8, !noalias !177, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef %40) #31
+  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef %40) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit3"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit3": ; preds = %38, %42, %46
@@ -894,7 +900,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 
 ; Function Attrs: cold inlinehint noreturn nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hint21unreachable_unchecked18precondition_check17h50c2ed357d1e7afcE.llvm.10894476612218408692() unnamed_addr #4 {
-  tail call void @_ZN4core9panicking14panic_nounwind17h23e6f792ad66b857E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.29.llvm.10894476612218408692, i64 noundef 82) #32
+  tail call void @_ZN4core9panicking14panic_nounwind17h23e6f792ad66b857E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.29.llvm.10894476612218408692, i64 noundef 82) #33
   unreachable
 }
 
@@ -907,7 +913,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f5c9d74c96a7
   ret void
 
 7:                                                ; preds = %4
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #28
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #29
   unreachable
 }
 
@@ -927,13 +933,13 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf56744be4a307
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.35.llvm.10894476612218408692, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.36.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.35.llvm.10894476612218408692, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.36.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #29
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$GT$17hc4d2394feb3ad150E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #29
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$GT$17hc4d2394feb3ad150E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #30
           to label %15 unwind label %13
 
 12:                                               ; preds = %8
@@ -942,7 +948,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf56744be4a307
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 15:                                               ; preds = %10
@@ -974,7 +980,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %8, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %7, i64 %12) #28
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %7, i64 %12) #29
   unreachable
 }
 
@@ -1825,7 +1831,7 @@ define void @"_ZN101_$LT$alloc..string..String$u20$as$u20$meilisearch_types..des
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %8, align 8, !noalias !305
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %7, i64 %10) #28, !noalias !305
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %7, i64 %10) #29, !noalias !305
   unreachable
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692.exit": ; preds = %3
@@ -1859,7 +1865,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 
 13:                                               ; preds = %.body, %14
   %.pn3 = phi { ptr, i32 } [ %15, %14 ], [ %26, %.body ]
-  invoke void @"_ZN4core3ptr185drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$$GT$17h758b368c126c97fdE.llvm.10894476612218408692"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #29
+  invoke void @"_ZN4core3ptr185drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$$GT$17h758b368c126c97fdE.llvm.10894476612218408692"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #30
           to label %57 unwind label %55
 
 14:                                               ; preds = %31, %4
@@ -1898,14 +1904,14 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 25:                                               ; preds = %28, %16
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #30
           to label %.body unwind label %29, !noalias !314
 
 27:                                               ; preds = %16
   br i1 %24, label %28, label %31
 
 28:                                               ; preds = %27
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i unwind label %25, !noalias !314
 
 .noexc.i:                                         ; preds = %28
@@ -1914,11 +1920,11 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !314
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !314
   unreachable
 
 .body:                                            ; preds = %25
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #30
           to label %13 unwind label %55
 
 31:                                               ; preds = %27
@@ -1947,7 +1953,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %7, align 8, !noalias !315, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %41, i64 noundef %38, i64 noundef %34) #31
+  call void @__rust_dealloc(ptr noundef nonnull %41, i64 noundef %38, i64 noundef %34) #32
   br label %42
 
 42:                                               ; preds = %40, %36, %.noexc
@@ -1974,7 +1980,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %6, align 8, !noalias !329, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %51, i64 noundef %47) #31
+  call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %51, i64 noundef %47) #32
   br label %"_ZN4core3ptr157drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$17h523934dcbb18007aE.exit.i"
 
 "_ZN4core3ptr157drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..BadRequest$GT$$GT$17h523934dcbb18007aE.exit.i": ; preds = %53, %49, %45
@@ -1987,7 +1993,7 @@ define hidden void @"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilis
 55:                                               ; preds = %.body, %13
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 57:                                               ; preds = %13
@@ -2023,7 +2029,7 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
 
 21:                                               ; preds = %26, %22
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ]
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h292f3c022513c31dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #29
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h292f3c022513c31dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #30
           to label %47 unwind label %45
 
 22:                                               ; preds = %6
@@ -2057,7 +2063,7 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %21 unwind label %45
 
 _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
@@ -2080,13 +2086,13 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8, !noalias !352, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %33, i64 noundef %29) #31
+  call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %33, i64 noundef %29) #32
   br label %39
 
 37:                                               ; preds = %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h292f3c022513c31dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #29
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h292f3c022513c31dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #30
           to label %40 unwind label %45
 
 39:                                               ; preds = %35, %31, %.noexc18
@@ -2096,7 +2102,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
 
 40:                                               ; preds = %41, %37
   %.pn13 = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %47 unwind label %45
 
 41:                                               ; preds = %39
@@ -2117,7 +2123,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %24
 45:                                               ; preds = %40, %37, %26, %21
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 47:                                               ; preds = %40, %21
@@ -2264,7 +2270,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit34: ; preds = %24
 
 42:                                               ; preds = %37
   %43 = load i64, ptr %41, align 8, !noalias !370
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %40, i64 %43) #28, !noalias !370
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %40, i64 %43) #29, !noalias !370
   unreachable
 
 .thread:                                          ; preds = %37
@@ -2314,14 +2320,14 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit34: ; preds = %24
 55:                                               ; preds = %58, %47
   %56 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #30
           to label %common.resume unwind label %59, !noalias !380
 
 57:                                               ; preds = %47
   br i1 %54, label %58, label %45
 
 58:                                               ; preds = %57
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i unwind label %55, !noalias !380
 
 .noexc.i:                                         ; preds = %58
@@ -2330,7 +2336,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit34: ; preds = %24
 59:                                               ; preds = %55
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !380
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !380
   unreachable
 
 common.resume:                                    ; preds = %68, %55
@@ -2371,7 +2377,7 @@ common.resume:                                    ; preds = %68, %55
 68:                                               ; preds = %63, %61
   %69 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %common.resume unwind label %81
 
 70:                                               ; preds = %63
@@ -2391,7 +2397,7 @@ common.resume:                                    ; preds = %68, %55
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %4, align 8, !noalias !384, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %79, i64 noundef %76, i64 noundef %72) #31
+  call void @__rust_dealloc(ptr noundef nonnull %79, i64 noundef %76, i64 noundef %72) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit": ; preds = %70, %74, %78
@@ -2409,7 +2415,7 @@ common.resume:                                    ; preds = %68, %55
 81:                                               ; preds = %68
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 }
 
@@ -2457,7 +2463,7 @@ define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatErro
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef range(i8 26, -116) i8 @"_ZN112_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hca70a8c489e5f488E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !362, !noundef !5
   %3 = icmp eq i64 %2, -9223372036854775799
@@ -2468,60 +2474,84 @@ define noundef range(i8 26, -116) i8 @"_ZN112_$LT$meilisearch_types..document_fo
   %6 = load ptr, ptr %5, align 8, !alias.scope !393, !nonnull !5, !noundef !5
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 3
-  %9 = icmp eq i64 %8, 2
-  br i1 %9, label %10, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
-
-10:                                               ; preds = %4
-  %11 = lshr i64 %7, 32
-  %12 = trunc nuw i64 %11 to i32
-  switch i32 %12, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
-    i32 5, label %13
-    i32 24, label %14
-    i32 28, label %15
+  switch i64 %8, label %default.unreachable [
+    i64 2, label %9
+    i64 3, label %12
+    i64 0, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
+    i64 1, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
   ]
 
-13:                                               ; preds = %10
+default.unreachable:                              ; preds = %4
+  unreachable
+
+9:                                                ; preds = %4
+  %10 = lshr i64 %7, 32
+  %11 = trunc nuw i64 %10 to i32
+  switch i32 %11, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
+    i32 5, label %14
+    i32 24, label %15
+    i32 28, label %16
+  ]
+
+12:                                               ; preds = %4
+  %13 = icmp ult ptr %6, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %13)
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-14:                                               ; preds = %10
+14:                                               ; preds = %9
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-15:                                               ; preds = %10
+15:                                               ; preds = %9
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %15, %14, %13, %10, %4, %1
-  %.sroa.0.0 = phi i8 [ 120, %1 ], [ 118, %13 ], [ -117, %14 ], [ -121, %15 ], [ 26, %10 ], [ 26, %4 ]
+16:                                               ; preds = %9
+  br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
+
+"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %16, %15, %14, %12, %9, %4, %4, %1
+  %.sroa.0.0 = phi i8 [ 120, %1 ], [ 118, %14 ], [ -117, %15 ], [ -121, %16 ], [ 26, %12 ], [ 26, %9 ], [ 26, %4 ], [ 26, %4 ]
   ret i8 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef range(i8 26, -116) i8 @"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 3
-  %5 = icmp eq i64 %4, 2
-  br i1 %5, label %6, label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
-
-6:                                                ; preds = %1
-  %7 = lshr i64 %3, 32
-  %8 = trunc nuw i64 %7 to i32
-  switch i32 %8, label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit [
-    i32 5, label %9
-    i32 24, label %10
-    i32 28, label %11
+  switch i64 %4, label %default.unreachable [
+    i64 2, label %5
+    i64 3, label %8
+    i64 0, label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
+    i64 1, label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
   ]
 
-9:                                                ; preds = %6
+default.unreachable:                              ; preds = %1
+  unreachable
+
+5:                                                ; preds = %1
+  %6 = lshr i64 %3, 32
+  %7 = trunc nuw i64 %6 to i32
+  switch i32 %7, label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit [
+    i32 5, label %10
+    i32 24, label %11
+    i32 28, label %12
+  ]
+
+8:                                                ; preds = %1
+  %9 = icmp ult ptr %2, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %9)
   br label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
 
-10:                                               ; preds = %6
+10:                                               ; preds = %5
   br label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
 
-11:                                               ; preds = %6
+11:                                               ; preds = %5
   br label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
 
-_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit: ; preds = %1, %6, %11, %10, %9
-  %.sroa.0.0 = phi i8 [ 118, %9 ], [ -117, %10 ], [ -121, %11 ], [ 26, %6 ], [ 26, %1 ]
+12:                                               ; preds = %5
+  br label %_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit
+
+_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692.exit: ; preds = %1, %1, %5, %8, %12, %11, %10
+  %.sroa.0.0 = phi i8 [ 118, %10 ], [ -117, %11 ], [ -121, %12 ], [ 26, %8 ], [ 26, %5 ], [ 26, %1 ], [ 26, %1 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2576,7 +2606,7 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
 
 10:                                               ; preds = %1
   %11 = load i64, ptr %9, align 8, !noalias !410
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #28, !noalias !410
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #29, !noalias !410
   unreachable
 
 "_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h6da94f74d5e3eb21E.exit": ; preds = %1
@@ -2600,13 +2630,13 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !423
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !421
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.35.llvm.10894476612218408692, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.36.llvm.10894476612218408692, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.68.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.35.llvm.10894476612218408692, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.36.llvm.10894476612218408692, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.68.llvm.10894476612218408692) #29
           to label %18 unwind label %16, !noalias !424
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$GT$17hc4d2394feb3ad150E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #29
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$GT$17hc4d2394feb3ad150E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #30
           to label %21 unwind label %19, !noalias !424
 
 18:                                               ; preds = %14
@@ -2615,7 +2645,7 @@ define void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h52
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !424
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !424
   unreachable
 
 21:                                               ; preds = %16
@@ -2744,7 +2774,7 @@ define noundef zeroext i1 @_ZN17meilisearch_types17index_uid_pattern15IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3ea72a1927126403E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #11 {
+define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3ea72a1927126403E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2755,7 +2785,7 @@ define { ptr, i64 } @"_ZN97_$LT$meilisearch_types..index_uid_pattern..IndexUidPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @"_ZN105_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..borrow..Borrow$LT$str$GT$$GT$6borrow17h3d802d663dfea59aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #11 {
+define { ptr, i64 } @"_ZN105_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u20$as$u20$core..borrow..Borrow$LT$str$GT$$GT$6borrow17h3d802d663dfea59aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2809,7 +2839,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 25:                                               ; preds = %17
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #30
           to label %.body.thread unwind label %29, !noalias !440
 
 27:                                               ; preds = %17
@@ -2824,7 +2854,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !440
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !440
   unreachable
 
 31:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5a45215337436167E.exit.i"
@@ -2871,7 +2901,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %4, align 8, !noalias !449, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %41, i64 noundef %37) #31, !noalias !464
+  call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %41, i64 noundef %37) #32, !noalias !464
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h741baee4dffd6b07E.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h741baee4dffd6b07E.exit.thread": ; preds = %.noexc, %39, %43
@@ -2899,7 +2929,7 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %3, align 8, !noalias !467, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %50, i64 noundef %46) #31, !noalias !465
+  call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %50, i64 noundef %46) #32, !noalias !465
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h741baee4dffd6b07E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h741baee4dffd6b07E.exit": ; preds = %.noexc8, %48, %52
@@ -2923,13 +2953,13 @@ define void @"_ZN125_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 56:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #30
           to label %.body.thread unwind label %57
 
 57:                                               ; preds = %56
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 }
 
@@ -2949,7 +2979,7 @@ define void @"_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 
 10:                                               ; preds = %3
   %11 = load i64, ptr %9, align 8, !noalias !478
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #28, !noalias !478
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #29, !noalias !478
   unreachable
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692.exit": ; preds = %3
@@ -3002,7 +3032,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h19a3011269a4a4ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h19a3011269a4a4ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #17 {
   ret i8 52
 }
 
@@ -3050,14 +3080,14 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 25:                                               ; preds = %28, %4
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #30
           to label %.body unwind label %29, !noalias !490
 
 27:                                               ; preds = %4
   br i1 %24, label %28, label %33
 
 28:                                               ; preds = %27
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i unwind label %25, !noalias !490
 
 .noexc.i:                                         ; preds = %28
@@ -3066,7 +3096,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !490
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !490
   unreachable
 
 31:                                               ; preds = %67
@@ -3091,7 +3121,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 35:                                               ; preds = %.body.i, %36
   %.pn3.i = phi { ptr, i32 } [ %37, %36 ], [ %48, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #30
           to label %.body.thread unwind label %77, !noalias !500
 
 36:                                               ; preds = %53, %33
@@ -3130,14 +3160,14 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 47:                                               ; preds = %50, %38
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #30
           to label %.body.i unwind label %51, !noalias !505
 
 49:                                               ; preds = %38
   br i1 %46, label %50, label %53
 
 50:                                               ; preds = %49
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %47, !noalias !505
 
 .noexc.i.i:                                       ; preds = %50
@@ -3146,11 +3176,11 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !505
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !505
   unreachable
 
 .body.i:                                          ; preds = %47
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %35 unwind label %77, !noalias !496
 
 53:                                               ; preds = %49
@@ -3179,7 +3209,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %8, align 8, !noalias !507, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef %60, i64 noundef %56) #31, !noalias !496
+  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef %60, i64 noundef %56) #32, !noalias !496
   br label %64
 
 64:                                               ; preds = %62, %58, %.noexc.i4
@@ -3209,7 +3239,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %7, align 8, !noalias !522, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef %73, i64 noundef %69) #31, !noalias !500
+  call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef %73, i64 noundef %69) #32, !noalias !500
   br label %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i.i"
 
 "_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i.i": ; preds = %75, %71, %.noexc
@@ -3219,7 +3249,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 77:                                               ; preds = %.body.i, %35
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !500
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !500
   unreachable
 
 "_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h8b05612f9ffc8b55E.exit": ; preds = %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i.i", %64
@@ -3230,7 +3260,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 79:                                               ; preds = %.body.thread, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body9, %.body.thread ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %1) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %1) #30
           to label %97 unwind label %95
 
 80:                                               ; preds = %"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h8b05612f9ffc8b55E.exit"
@@ -3260,7 +3290,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %6, align 8, !noalias !536, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %94, i64 noundef %91, i64 noundef %87) #31
+  call void @__rust_dealloc(ptr noundef nonnull %94, i64 noundef %91, i64 noundef %87) #32
   br label %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i"
 
 "_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i": ; preds = %93, %89, %85
@@ -3272,17 +3302,17 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 .body.thread:                                     ; preds = %35, %31, %.body
   %eh.lpad-body9 = phi { ptr, i32 } [ %26, %.body ], [ %32, %31 ], [ %.pn3.i, %35 ]
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef align 8 dereferenceable(32) %2) #29
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef align 8 dereferenceable(32) %2) #30
           to label %79 unwind label %95
 
 .body:                                            ; preds = %25
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #30
           to label %.body.thread unwind label %95
 
 95:                                               ; preds = %.body, %.body.thread, %79
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 97:                                               ; preds = %79
@@ -3335,13 +3365,13 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit:    ; preds = %2
 11:                                               ; preds = %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #29
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #30
           to label %10 unwind label %12
 
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 }
 
@@ -3390,7 +3420,7 @@ define noundef ptr @_ZN17meilisearch_types10versioning18check_version_file17h760
 37:                                               ; preds = %2
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #29
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h8ad27ede4cfca0efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %common.resume unwind label %49, !noalias !567
 
 39:                                               ; preds = %2
@@ -3409,24 +3439,24 @@ define noundef ptr @_ZN17meilisearch_types10versioning18check_version_file17h760
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %18, align 8, !noalias !569, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %45, i64 noundef %41) #31, !noalias !567
+  call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %45, i64 noundef %41) #32, !noalias !567
   br label %_ZN3std2fs14read_to_string17he7877303e78dd373E.exit
 
 49:                                               ; preds = %37
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !567
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !567
   unreachable
 
-common.resume:                                    ; preds = %62, %226, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %227, %226 ], [ %.pn13, %62 ]
+common.resume:                                    ; preds = %69, %232, %37
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %233, %232 ], [ %.pn13, %69 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3std2fs14read_to_string17he7877303e78dd373E.exit: ; preds = %39, %43, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !569
   %51 = load i64, ptr %31, align 8, !range !49, !noundef !5
   %52 = icmp eq i64 %51, -9223372036854775808
-  br i1 %52, label %53, label %65
+  br i1 %52, label %53, label %72
 
 53:                                               ; preds = %_ZN3std2fs14read_to_string17he7877303e78dd373E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -3436,56 +3466,68 @@ _ZN3std2fs14read_to_string17he7877303e78dd373E.exit: ; preds = %39, %43, %47
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 3
   switch i64 %57, label %default.unreachable [
-    i64 2, label %60
-    i64 3, label %58
-    i64 0, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
-    i64 1, label %61
+    i64 2, label %58
+    i64 3, label %59
+    i64 0, label %63
+    i64 1, label %66
   ]
 
 default.unreachable:                              ; preds = %53
   unreachable
 
 58:                                               ; preds = %53
-  %59 = icmp ult ptr %55, inttoptr (i64 4294967296 to ptr)
-  br i1 %59, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
-
-60:                                               ; preds = %53
   %.mask = and i64 %56, -4294967296
   %cond = icmp eq i64 %.mask, 8589934592
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread70, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
 
-61:                                               ; preds = %53
+59:                                               ; preds = %53
+  %60 = lshr i64 %56, 32
+  %61 = trunc nuw i64 %60 to i32
+  %spec.select42.i.i.i = call i32 @llvm.umin.i32(i32 %61, i32 41)
+  %spec.select.i.i.i = trunc nuw nsw i32 %spec.select42.i.i.i to i8
+  %62 = icmp ult ptr %55, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %62)
   br label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
 
-62:                                               ; preds = %.body, %63
-  %.pn13 = phi { ptr, i32 } [ %64, %63 ], [ %.pn9.pn.pn, %.body ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #29
-          to label %common.resume unwind label %199
+63:                                               ; preds = %53
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %65 = load i8, ptr %64, align 8, !range !4, !noundef !5
+  br label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
 
-63:                                               ; preds = %189, %164, %65
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %53
+  %67 = getelementptr i8, ptr %55, i64 15
+  %68 = load i8, ptr %67, align 8, !range !4, !noundef !5
+  br label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
+
+69:                                               ; preds = %.body, %70
+  %.pn13 = phi { ptr, i32 } [ %71, %70 ], [ %.pn9.pn.pn, %.body ]
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #30
+          to label %common.resume unwind label %206
+
+70:                                               ; preds = %196, %171, %72
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %69
 
-65:                                               ; preds = %_ZN3std2fs14read_to_string17he7877303e78dd373E.exit
+72:                                               ; preds = %_ZN3std2fs14read_to_string17he7877303e78dd373E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %66 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %69 = load i64, ptr %68, align 8, !noundef !5
+  %73 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %74 = load ptr, ptr %73, align 8, !nonnull !5, !noundef !5
+  %75 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %76 = load i64, ptr %75, align 8, !noundef !5
   store i64 0, ptr %28, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %69, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %76, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %67, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %74, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store i64 %69, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %76, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i64 0, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i64 %69, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %76, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 46, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 52
@@ -3497,31 +3539,31 @@ default.unreachable:                              ; preds = %53
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65a06e1f2fd1a353E.llvm.7205017296298784897"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %28)
-          to label %72 unwind label %63
+          to label %79 unwind label %70
 
-.body:                                            ; preds = %123, %85, %70, %203, %.body33
-  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn.ph, %203 ], [ %.pn, %.body33 ], [ %71, %70 ], [ %86, %85 ], [ %124, %123 ]
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17heec7950c8f95304bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #29
-          to label %62 unwind label %199
+.body:                                            ; preds = %130, %92, %77, %210, %.body33
+  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn.ph, %210 ], [ %.pn, %.body33 ], [ %78, %77 ], [ %93, %92 ], [ %131, %130 ]
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17heec7950c8f95304bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #30
+          to label %69 unwind label %206
 
-70:                                               ; preds = %154, %90
-  %71 = landingpad { ptr, i32 }
+77:                                               ; preds = %161, %97
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.val21 = load ptr, ptr %73, align 8, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.val22 = load i64, ptr %74, align 8, !noundef !5
-  %75 = icmp eq i64 %.val22, 3
-  br i1 %75, label %76, label %90
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.val21 = load ptr, ptr %80, align 8, !nonnull !5, !noundef !5
+  %81 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.val22 = load i64, ptr %81, align 8, !noundef !5
+  %82 = icmp eq i64 %.val22, 3
+  br i1 %82, label %83, label %97
 
-76:                                               ; preds = %72
+83:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.val27 = load ptr, ptr %.val21, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !align !587, !noundef !5
-  %77 = getelementptr i8, ptr %.val21, i64 8
-  %.val28 = load i64, ptr %77, align 8, !alias.scope !582, !noalias !585, !noundef !5
+  %84 = getelementptr i8, ptr %.val21, i64 8
+  %.val28 = load i64, ptr %84, align 8, !alias.scope !582, !noalias !585, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !588
   store i64 0, ptr %17, align 8, !noalias !588
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -3529,60 +3571,60 @@ default.unreachable:                              ; preds = %53
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !588
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !588
-  %78 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  store i32 0, ptr %78, align 4, !noalias !588
-  %79 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store i32 32, ptr %79, align 8, !noalias !588
-  %80 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i8 3, ptr %80, align 8, !noalias !588
+  %85 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  store i32 0, ptr %85, align 4, !noalias !588
+  %86 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i32 32, ptr %86, align 8, !noalias !588
+  %87 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store i8 3, ptr %87, align 8, !noalias !588
   store i64 0, ptr %16, align 8, !noalias !588
-  %81 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 0, ptr %81, align 8, !noalias !588
-  %82 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %17, ptr %82, align 8, !noalias !588
-  %83 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %83, align 8, !noalias !588
-  %84 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28, ptr noalias noundef nonnull align 8 dereferenceable(64) %16)
-          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i" unwind label %85, !noalias !588
+  %88 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 0, ptr %88, align 8, !noalias !588
+  %89 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr %17, ptr %89, align 8, !noalias !588
+  %90 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %90, align 8, !noalias !588
+  %91 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val27, i64 noundef %.val28, ptr noalias noundef nonnull align 8 dereferenceable(64) %16)
+          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i" unwind label %92, !noalias !588
 
-85:                                               ; preds = %87, %76
-  %86 = landingpad { ptr, i32 }
+92:                                               ; preds = %94, %83
+  %93 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #29
-          to label %.body unwind label %88, !noalias !588
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #30
+          to label %.body unwind label %95, !noalias !588
 
-"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i": ; preds = %76
-  br i1 %84, label %87, label %93
+"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i": ; preds = %83
+  br i1 %91, label %94, label %100
 
-87:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i"
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
-          to label %.noexc.i unwind label %85, !noalias !588
+94:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i"
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
+          to label %.noexc.i unwind label %92, !noalias !588
 
-.noexc.i:                                         ; preds = %87
+.noexc.i:                                         ; preds = %94
   unreachable
 
-88:                                               ; preds = %85
-  %89 = landingpad { ptr, i32 }
+95:                                               ; preds = %92
+  %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !588
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !588
   unreachable
 
-90:                                               ; preds = %72
+97:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %91 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store i64 -9223372036854775807, ptr %91, align 8
-  %92 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %22)
-          to label %204 unwind label %70
+  %98 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store i64 -9223372036854775807, ptr %98, align 8
+  %99 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %22)
+          to label %211 unwind label %77
 
-93:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i"
+100:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !588
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !588
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %94 = getelementptr inbounds nuw i8, ptr %.val21, i64 16
-  %.val25 = load ptr, ptr %94, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !align !587, !noundef !5
-  %95 = getelementptr i8, ptr %.val21, i64 24
-  %.val26 = load i64, ptr %95, align 8, !alias.scope !582, !noalias !585, !noundef !5
+  %101 = getelementptr inbounds nuw i8, ptr %.val21, i64 16
+  %.val25 = load ptr, ptr %101, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !align !587, !noundef !5
+  %102 = getelementptr i8, ptr %.val21, i64 24
+  %.val26 = load i64, ptr %102, align 8, !alias.scope !582, !noalias !585, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !591
   store i64 0, ptr %15, align 8, !noalias !591
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3590,57 +3632,57 @@ default.unreachable:                              ; preds = %53
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i30, align 8, !noalias !591
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !591
-  %96 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  store i32 0, ptr %96, align 4, !noalias !591
-  %97 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 32, ptr %97, align 8, !noalias !591
-  %98 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store i8 3, ptr %98, align 8, !noalias !591
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 52
+  store i32 0, ptr %103, align 4, !noalias !591
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 32, ptr %104, align 8, !noalias !591
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store i8 3, ptr %105, align 8, !noalias !591
   store i64 0, ptr %14, align 8, !noalias !591
-  %99 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 0, ptr %99, align 8, !noalias !591
-  %100 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %15, ptr %100, align 8, !noalias !591
-  %101 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %101, align 8, !noalias !591
-  %102 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val25, i64 noundef %.val26, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
-          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31" unwind label %103, !noalias !591
+  %106 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i64 0, ptr %106, align 8, !noalias !591
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store ptr %15, ptr %107, align 8, !noalias !591
+  %108 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %108, align 8, !noalias !591
+  %109 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val25, i64 noundef %.val26, ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
+          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31" unwind label %110, !noalias !591
 
-103:                                              ; preds = %105, %93
-  %104 = landingpad { ptr, i32 }
+110:                                              ; preds = %112, %100
+  %111 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #29
-          to label %.body33 unwind label %106, !noalias !591
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #30
+          to label %.body33 unwind label %113, !noalias !591
 
-"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31": ; preds = %93
-  br i1 %102, label %105, label %108
+"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31": ; preds = %100
+  br i1 %109, label %112, label %115
 
-105:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31"
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
-          to label %.noexc.i32 unwind label %103, !noalias !591
+112:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31"
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
+          to label %.noexc.i32 unwind label %110, !noalias !591
 
-.noexc.i32:                                       ; preds = %105
+.noexc.i32:                                       ; preds = %112
   unreachable
 
-106:                                              ; preds = %103
-  %107 = landingpad { ptr, i32 }
+113:                                              ; preds = %110
+  %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !591
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !591
   unreachable
 
-.body33:                                          ; preds = %103, %.body40
-  %.pn = phi { ptr, i32 } [ %119, %.body40 ], [ %104, %103 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #29
-          to label %.body unwind label %199
+.body33:                                          ; preds = %110, %.body40
+  %.pn = phi { ptr, i32 } [ %126, %.body40 ], [ %111, %110 ]
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #30
+          to label %.body unwind label %206
 
-108:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31"
+115:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i31"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !591
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !591
-  %109 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
-  %.val23 = load ptr, ptr %109, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !align !587, !noundef !5
-  %110 = getelementptr i8, ptr %.val21, i64 40
-  %.val24 = load i64, ptr %110, align 8, !alias.scope !582, !noalias !585, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
+  %.val23 = load ptr, ptr %116, align 8, !alias.scope !582, !noalias !585, !nonnull !5, !align !587, !noundef !5
+  %117 = getelementptr i8, ptr %.val21, i64 40
+  %.val24 = load i64, ptr %117, align 8, !alias.scope !582, !noalias !585, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !594
   store i64 0, ptr %13, align 8, !noalias !594
   %.sroa.4.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3648,54 +3690,54 @@ default.unreachable:                              ; preds = %53
   %.sroa.5.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i37, align 8, !noalias !594
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !594
-  %111 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  store i32 0, ptr %111, align 4, !noalias !594
-  %112 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i32 32, ptr %112, align 8, !noalias !594
-  %113 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i8 3, ptr %113, align 8, !noalias !594
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  store i32 0, ptr %118, align 4, !noalias !594
+  %119 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store i32 32, ptr %119, align 8, !noalias !594
+  %120 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  store i8 3, ptr %120, align 8, !noalias !594
   store i64 0, ptr %12, align 8, !noalias !594
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 0, ptr %114, align 8, !noalias !594
-  %115 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %13, ptr %115, align 8, !noalias !594
-  %116 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %116, align 8, !noalias !594
-  %117 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val23, i64 noundef %.val24, ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
-          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38" unwind label %118, !noalias !594
+  %121 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 0, ptr %121, align 8, !noalias !594
+  %122 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %13, ptr %122, align 8, !noalias !594
+  %123 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr @anon.4e9b806ee0758ff2b0f3c055e3f79959.18.llvm.10894476612218408692, ptr %123, align 8, !noalias !594
+  %124 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1 %.val23, i64 noundef %.val24, ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
+          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38" unwind label %125, !noalias !594
 
-118:                                              ; preds = %120, %108
-  %119 = landingpad { ptr, i32 }
+125:                                              ; preds = %127, %115
+  %126 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
-          to label %.body40 unwind label %121, !noalias !594
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
+          to label %.body40 unwind label %128, !noalias !594
 
-"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38": ; preds = %108
-  br i1 %117, label %120, label %125
+"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38": ; preds = %115
+  br i1 %124, label %127, label %132
 
-120:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38"
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
-          to label %.noexc.i39 unwind label %118, !noalias !594
+127:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38"
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
+          to label %.noexc.i39 unwind label %125, !noalias !594
 
-.noexc.i39:                                       ; preds = %120
+.noexc.i39:                                       ; preds = %127
   unreachable
 
-121:                                              ; preds = %118
-  %122 = landingpad { ptr, i32 }
+128:                                              ; preds = %125
+  %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !594
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !594
   unreachable
 
-.body40:                                          ; preds = %118
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #29
-          to label %.body33 unwind label %199
+.body40:                                          ; preds = %125
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #30
+          to label %.body33 unwind label %206
 
-123:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
-  %124 = landingpad { ptr, i32 }
+130:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
+  %131 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-125:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38"
+132:                                              ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h736ae9dfb67182e3E.exit.i38"
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !594
@@ -3706,291 +3748,289 @@ default.unreachable:                              ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %126 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.val19 = load i64, ptr %126, align 8, !noundef !5
+  %133 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.val19 = load i64, ptr %133, align 8, !noundef !5
   %.not.i = icmp eq i64 %.val19, 1
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit": ; preds = %125
-  %127 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.val18 = load ptr, ptr %127, align 8, !nonnull !5, !noundef !5
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit": ; preds = %132
+  %134 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.val18 = load ptr, ptr %134, align 8, !nonnull !5, !noundef !5
   %lhsc = load i8, ptr %.val18, align 1
-  %128 = icmp eq i8 %lhsc, 49
-  %129 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.val17 = load i64, ptr %129, align 8
+  %135 = icmp eq i8 %lhsc, 49
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.val17 = load i64, ptr %136, align 8
   %.not.i44 = icmp eq i64 %.val17, 1
-  %or.cond = select i1 %128, i1 %.not.i44, i1 false
+  %or.cond = select i1 %135, i1 %.not.i44, i1 false
   br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit"
-  %130 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.val = load ptr, ptr %130, align 8, !nonnull !5, !noundef !5
-  %lhsc88 = load i8, ptr %.val, align 1
-  %131 = icmp eq i8 %lhsc88, 57
-  br i1 %131, label %132, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.val = load ptr, ptr %137, align 8, !nonnull !5, !noundef !5
+  %lhsc87 = load i8, ptr %.val, align 1
+  %138 = icmp eq i8 %lhsc87, 57
+  br i1 %138, label %139, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
 
-132:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47"
+139:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47"
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !597
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
-          to label %.noexc unwind label %201
+          to label %.noexc unwind label %208
 
-.noexc:                                           ; preds = %132
-  %133 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %134 = load i64, ptr %133, align 8, !range !49, !noalias !597, !noundef !5
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %142, label %136
+.noexc:                                           ; preds = %139
+  %140 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %141 = load i64, ptr %140, align 8, !range !49, !noalias !597, !noundef !5
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %149, label %143
 
-136:                                              ; preds = %.noexc
-  %137 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %138 = load i64, ptr %137, align 8, !noalias !597, !noundef !5
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %142, label %140
+143:                                              ; preds = %.noexc
+  %144 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %145 = load i64, ptr %144, align 8, !noalias !597, !noundef !5
+  %146 = icmp eq i64 %145, 0
+  br i1 %146, label %149, label %147
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %11, align 8, !noalias !597, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %141, i64 noundef %138, i64 noundef %134) #31
-  br label %142
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %11, align 8, !noalias !597, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %148, i64 noundef %145, i64 noundef %141) #32
+  br label %149
 
-142:                                              ; preds = %140, %136, %.noexc
+149:                                              ; preds = %147, %143, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !597
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !606
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
-          to label %.noexc48 unwind label %152
+          to label %.noexc48 unwind label %159
 
-.noexc48:                                         ; preds = %142
-  %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %144 = load i64, ptr %143, align 8, !range !49, !noalias !606, !noundef !5
-  %145 = icmp eq i64 %144, 0
-  br i1 %145, label %154, label %146
+.noexc48:                                         ; preds = %149
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %151 = load i64, ptr %150, align 8, !range !49, !noalias !606, !noundef !5
+  %152 = icmp eq i64 %151, 0
+  br i1 %152, label %161, label %153
 
-146:                                              ; preds = %.noexc48
-  %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %148 = load i64, ptr %147, align 8, !noalias !606, !noundef !5
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %154, label %150
+153:                                              ; preds = %.noexc48
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %155 = load i64, ptr %154, align 8, !noalias !606, !noundef !5
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %161, label %157
 
-150:                                              ; preds = %146
-  %151 = load ptr, ptr %10, align 8, !noalias !606, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %151, i64 noundef %148, i64 noundef %144) #31
-  br label %154
+157:                                              ; preds = %153
+  %158 = load ptr, ptr %10, align 8, !noalias !606, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %158, i64 noundef %155, i64 noundef %151) #32
+  br label %161
 
-152:                                              ; preds = %142
-  %153 = landingpad { ptr, i32 }
+159:                                              ; preds = %149
+  %160 = landingpad { ptr, i32 }
           cleanup
-  br label %203
+  br label %210
 
-154:                                              ; preds = %150, %146, %.noexc48
+161:                                              ; preds = %157, %153, %.noexc48
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !606
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !615
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
-          to label %.noexc50 unwind label %70
+          to label %.noexc50 unwind label %77
 
-.noexc50:                                         ; preds = %154
-  %155 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %156 = load i64, ptr %155, align 8, !range !49, !noalias !615, !noundef !5
-  %157 = icmp eq i64 %156, 0
-  br i1 %157, label %164, label %158
+.noexc50:                                         ; preds = %161
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %163 = load i64, ptr %162, align 8, !range !49, !noalias !615, !noundef !5
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %171, label %165
 
-158:                                              ; preds = %.noexc50
-  %159 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %160 = load i64, ptr %159, align 8, !noalias !615, !noundef !5
-  %161 = icmp eq i64 %160, 0
-  br i1 %161, label %164, label %162
+165:                                              ; preds = %.noexc50
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %167 = load i64, ptr %166, align 8, !noalias !615, !noundef !5
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %171, label %169
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr %9, align 8, !noalias !615, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %163, i64 noundef %160, i64 noundef %156) #31
-  br label %164
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %9, align 8, !noalias !615, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %170, i64 noundef %167, i64 noundef %163) #32
+  br label %171
 
-164:                                              ; preds = %162, %158, %.noexc50
+171:                                              ; preds = %169, %165, %.noexc50
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !615
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !624
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
-          to label %.noexc52 unwind label %63
+          to label %.noexc52 unwind label %70
 
-.noexc52:                                         ; preds = %164
-  %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %166 = load i64, ptr %165, align 8, !range !49, !noalias !624, !noundef !5
-  %167 = icmp eq i64 %166, 0
-  br i1 %167, label %174, label %168
+.noexc52:                                         ; preds = %171
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %173 = load i64, ptr %172, align 8, !range !49, !noalias !624, !noundef !5
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %181, label %175
 
-168:                                              ; preds = %.noexc52
-  %169 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %170 = load i64, ptr %169, align 8, !noalias !624, !noundef !5
-  %171 = icmp eq i64 %170, 0
-  br i1 %171, label %174, label %172
+175:                                              ; preds = %.noexc52
+  %176 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %177 = load i64, ptr %176, align 8, !noalias !624, !noundef !5
+  %178 = icmp eq i64 %177, 0
+  br i1 %178, label %181, label %179
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %8, align 8, !noalias !624, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %173, i64 noundef %170, i64 noundef %166) #31
-  br label %174
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %8, align 8, !noalias !624, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %180, i64 noundef %177, i64 noundef %173) #32
+  br label %181
 
-174:                                              ; preds = %172, %168, %.noexc52
+181:                                              ; preds = %179, %175, %.noexc52
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !624
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !631
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-  %175 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %176 = load i64, ptr %175, align 8, !range !49, !noalias !631, !noundef !5
-  %177 = icmp eq i64 %176, 0
-  br i1 %177, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53", label %178
+  %182 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %183 = load i64, ptr %182, align 8, !range !49, !noalias !631, !noundef !5
+  %184 = icmp eq i64 %183, 0
+  br i1 %184, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53", label %185
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %180 = load i64, ptr %179, align 8, !noalias !631, !noundef !5
-  %181 = icmp eq i64 %180, 0
-  br i1 %181, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53", label %182
+185:                                              ; preds = %181
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %187 = load i64, ptr %186, align 8, !noalias !631, !noundef !5
+  %188 = icmp eq i64 %187, 0
+  br i1 %188, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53", label %189
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %7, align 8, !noalias !631, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %183, i64 noundef %180, i64 noundef %176) #31
+189:                                              ; preds = %185
+  %190 = load ptr, ptr %7, align 8, !noalias !631, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %190, i64 noundef %187, i64 noundef %183) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53": ; preds = %174, %178, %182
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53": ; preds = %181, %185, %189
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !631
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %184
+  br label %191
 
-184:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", %225, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53" ], [ %.sroa.0.3, %225 ], [ %.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56" ]
+191:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", %231, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53"
+  %.sroa.0.0 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit53" ], [ %.sroa.0.3, %231 ], [ %.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   ret ptr %.sroa.0.0
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread": ; preds = %125, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread": ; preds = %132, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  %185 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %186 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %187 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
-          to label %188 unwind label %123
+  %192 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  %193 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  %194 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
+          to label %195 unwind label %130
 
-188:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
+195:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %189
+  br label %196
 
-189:                                              ; preds = %204, %188
-  %.sroa.0.1 = phi ptr [ %187, %188 ], [ %92, %204 ]
+196:                                              ; preds = %211, %195
+  %.sroa.0.1 = phi ptr [ %194, %195 ], [ %99, %211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !640
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha8598f8a24b16fc4E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
-          to label %.noexc54 unwind label %63
+          to label %.noexc54 unwind label %70
 
-.noexc54:                                         ; preds = %189
-  %190 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %191 = load i64, ptr %190, align 8, !range !49, !noalias !640, !noundef !5
-  %192 = icmp eq i64 %191, 0
-  br i1 %192, label %205, label %193
+.noexc54:                                         ; preds = %196
+  %197 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %198 = load i64, ptr %197, align 8, !range !49, !noalias !640, !noundef !5
+  %199 = icmp eq i64 %198, 0
+  br i1 %199, label %212, label %200
 
-193:                                              ; preds = %.noexc54
-  %194 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %195 = load i64, ptr %194, align 8, !noalias !640, !noundef !5
-  %196 = icmp eq i64 %195, 0
-  br i1 %196, label %205, label %197
+200:                                              ; preds = %.noexc54
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %202 = load i64, ptr %201, align 8, !noalias !640, !noundef !5
+  %203 = icmp eq i64 %202, 0
+  br i1 %203, label %212, label %204
 
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %6, align 8, !noalias !640, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %198, i64 noundef %195, i64 noundef %191) #31
-  br label %205
+204:                                              ; preds = %200
+  %205 = load ptr, ptr %6, align 8, !noalias !640, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %205, i64 noundef %202, i64 noundef %198) #32
+  br label %212
 
-199:                                              ; preds = %226, %203, %201, %.body40, %.body33, %.body, %62
-  %200 = landingpad { ptr, i32 }
+206:                                              ; preds = %232, %210, %208, %.body40, %.body33, %.body, %69
+  %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
-201:                                              ; preds = %132
-  %202 = landingpad { ptr, i32 }
+208:                                              ; preds = %139
+  %209 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #29
-          to label %203 unwind label %199
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #30
+          to label %210 unwind label %206
 
-203:                                              ; preds = %201, %152
-  %.pn9.pn.ph = phi { ptr, i32 } [ %153, %152 ], [ %202, %201 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #29
-          to label %.body unwind label %199
+210:                                              ; preds = %208, %159
+  %.pn9.pn.ph = phi { ptr, i32 } [ %160, %159 ], [ %209, %208 ]
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #30
+          to label %.body unwind label %206
 
-204:                                              ; preds = %90
+211:                                              ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %189
+  br label %196
 
-205:                                              ; preds = %197, %193, %.noexc54
+212:                                              ; preds = %204, %200, %.noexc54
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !640
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !647
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-  %206 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %207 = load i64, ptr %206, align 8, !range !49, !noalias !647, !noundef !5
-  %208 = icmp eq i64 %207, 0
-  br i1 %208, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", label %209
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %214 = load i64, ptr %213, align 8, !range !49, !noalias !647, !noundef !5
+  %215 = icmp eq i64 %214, 0
+  br i1 %215, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", label %216
 
-209:                                              ; preds = %205
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %211 = load i64, ptr %210, align 8, !noalias !647, !noundef !5
-  %212 = icmp eq i64 %211, 0
-  br i1 %212, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", label %213
+216:                                              ; preds = %212
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %218 = load i64, ptr %217, align 8, !noalias !647, !noundef !5
+  %219 = icmp eq i64 %218, 0
+  br i1 %219, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56", label %220
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %5, align 8, !noalias !647, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %214, i64 noundef %211, i64 noundef %207) #31
+220:                                              ; preds = %216
+  %221 = load ptr, ptr %5, align 8, !noalias !647, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %221, i64 noundef %218, i64 noundef %214) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56": ; preds = %205, %209, %213
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit56": ; preds = %212, %216, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !647
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %184
+  br label %191
 
-_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit: ; preds = %53, %61
-  %.sink = phi i64 [ 15, %61 ], [ 16, %53 ]
-  %215 = getelementptr i8, ptr %55, i64 %.sink
-  %.sroa.0.0.i = load i8, ptr %215, align 8, !range !4, !noundef !5
-  %216 = icmp eq i8 %.sroa.0.0.i, 0
-  br i1 %216, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
+_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit: ; preds = %66, %63, %59
+  %.sroa.0.0.i = phi i8 [ %spec.select.i.i.i, %59 ], [ %65, %63 ], [ %68, %66 ]
+  %222 = icmp eq i8 %.sroa.0.0.i, 0
+  br i1 %222, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread70, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
 
-_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71: ; preds = %58, %60, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
+_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread70: ; preds = %58, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %217 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i64 -9223372036854775808, ptr %217, align 8
-  %218 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %19)
-          to label %220 unwind label %226
+  %223 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store i64 -9223372036854775808, ptr %223, align 8
+  %224 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %19)
+          to label %226 unwind label %232
 
-_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %60, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
-  %219 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull %55)
-  br label %225
+_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
+  %225 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull %55)
+  br label %231
 
-220:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71
+226:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread70
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !656
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %55), !noalias !656
-  %221 = load i8, ptr %4, align 8, !range !13, !alias.scope !663, !noalias !656, !noundef !5
-  %222 = icmp eq i8 %221, 3
-  br i1 %222, label %223, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
+  %227 = load i8, ptr %4, align 8, !range !13, !alias.scope !663, !noalias !656, !noundef !5
+  %228 = icmp eq i8 %227, 3
+  br i1 %228, label %229, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hbe955385072f7a22E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(8) %224), !noalias !656
+229:                                              ; preds = %226
+  %230 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hbe955385072f7a22E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(8) %230), !noalias !656
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit": ; preds = %220, %223
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit": ; preds = %226, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !656
-  br label %225
+  br label %231
 
-225:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
-  %.sroa.0.3 = phi ptr [ %218, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ], [ %219, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread ]
+231:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit"
+  %.sroa.0.3 = phi ptr [ %224, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE.exit" ], [ %225, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %184
+  br label %191
 
-226:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71
-  %227 = landingpad { ptr, i32 }
+232:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread70
+  %233 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #29
-          to label %common.resume unwind label %199
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #30
+          to label %common.resume unwind label %206
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4023,7 +4063,7 @@ define void @"_ZN85_$LT$usize$u20$as$u20$meilisearch_types..deserr..query_params
 
 16:                                               ; preds = %11
   %17 = load i64, ptr %15, align 8, !noalias !667
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %14, i64 %17) #28, !noalias !667
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %14, i64 %17) #29, !noalias !667
   unreachable
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692.exit": ; preds = %11
@@ -4069,7 +4109,7 @@ define void @"_ZN83_$LT$u32$u20$as$u20$meilisearch_types..deserr..query_params..
 
 13:                                               ; preds = %8
   %14 = load i64, ptr %12, align 8, !noalias !672
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %11, i64 %14) #28, !noalias !672
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %11, i64 %14) #29, !noalias !672
   unreachable
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692.exit": ; preds = %8
@@ -4125,7 +4165,7 @@ define void @"_ZN84_$LT$bool$u20$as$u20$meilisearch_types..deserr..query_params.
 
 13:                                               ; preds = %8
   %14 = load i64, ptr %12, align 8, !noalias !685
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %11, i64 %14) #28, !noalias !685
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %11, i64 %14) #29, !noalias !685
   unreachable
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc3c2ecc48bd39452E.llvm.10894476612218408692.exit": ; preds = %8
@@ -4173,7 +4213,7 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !697
 
 17:                                               ; preds = %34, %4
@@ -4212,14 +4252,14 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !702
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !702
 
 .noexc.i.i:                                       ; preds = %31
@@ -4228,11 +4268,11 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !702
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !702
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !690
 
 34:                                               ; preds = %30
@@ -4257,13 +4297,13 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !704, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !690
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !690
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !697
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !697
   unreachable
 
 46:                                               ; preds = %16
@@ -4311,7 +4351,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !722
 
 17:                                               ; preds = %34, %4
@@ -4350,14 +4390,14 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !727
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !727
 
 .noexc.i.i:                                       ; preds = %31
@@ -4366,11 +4406,11 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !727
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !727
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !715
 
 34:                                               ; preds = %30
@@ -4395,13 +4435,13 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !729, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !715
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !715
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !722
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !722
   unreachable
 
 46:                                               ; preds = %16
@@ -4449,7 +4489,7 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !747
 
 17:                                               ; preds = %34, %4
@@ -4488,14 +4528,14 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !752
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !752
 
 .noexc.i.i:                                       ; preds = %31
@@ -4504,11 +4544,11 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !752
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !752
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !740
 
 34:                                               ; preds = %30
@@ -4533,13 +4573,13 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !754, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !740
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !740
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !747
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !747
   unreachable
 
 46:                                               ; preds = %16
@@ -4587,7 +4627,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !772
 
 17:                                               ; preds = %34, %4
@@ -4626,14 +4666,14 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !777
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !777
 
 .noexc.i.i:                                       ; preds = %31
@@ -4642,11 +4682,11 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !777
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !777
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !765
 
 34:                                               ; preds = %30
@@ -4671,13 +4711,13 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !779, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !765
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !765
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !772
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !772
   unreachable
 
 46:                                               ; preds = %16
@@ -4725,7 +4765,7 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !797
 
 17:                                               ; preds = %34, %4
@@ -4764,14 +4804,14 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !802
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !802
 
 .noexc.i.i:                                       ; preds = %31
@@ -4780,11 +4820,11 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !802
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !802
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !790
 
 34:                                               ; preds = %30
@@ -4809,13 +4849,13 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !804, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !790
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !790
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !797
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !797
   unreachable
 
 46:                                               ; preds = %16
@@ -4863,7 +4903,7 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !822
 
 17:                                               ; preds = %34, %4
@@ -4902,14 +4942,14 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !827
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !827
 
 .noexc.i.i:                                       ; preds = %31
@@ -4918,11 +4958,11 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !827
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !827
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !815
 
 34:                                               ; preds = %30
@@ -4947,13 +4987,13 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !829, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !815
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !815
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !822
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !822
   unreachable
 
 46:                                               ; preds = %16
@@ -5001,7 +5041,7 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #30
           to label %46 unwind label %44, !noalias !847
 
 17:                                               ; preds = %34, %4
@@ -5040,14 +5080,14 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 28:                                               ; preds = %31, %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %.body.i unwind label %32, !noalias !852
 
 30:                                               ; preds = %19
   br i1 %27, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #28
+  invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.4e9b806ee0758ff2b0f3c055e3f79959.19.llvm.10894476612218408692, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.33.llvm.10894476612218408692, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e9b806ee0758ff2b0f3c055e3f79959.21.llvm.10894476612218408692) #29
           to label %.noexc.i.i unwind label %28, !noalias !852
 
 .noexc.i.i:                                       ; preds = %31
@@ -5056,11 +5096,11 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !852
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !852
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$deserr..errors..json..JsonError$GT$17h9386ea4e817959a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
           to label %16 unwind label %44, !noalias !840
 
 34:                                               ; preds = %30
@@ -5085,13 +5125,13 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %6, align 8, !noalias !854, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #31, !noalias !840
+  call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %40, i64 noundef %36) #32, !noalias !840
   br label %47
 
 44:                                               ; preds = %.body.i, %16
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30, !noalias !847
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31, !noalias !847
   unreachable
 
 46:                                               ; preds = %16
@@ -5110,732 +5150,732 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..ApiKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h152f41ce6f892d4fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..ApiKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h152f41ce6f892d4fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..ApiKeyNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haa091f39f50d77ddE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..ApiKeyNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haa091f39f50d77ddE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..BadParameter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdf3f5efa98a62754E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..BadParameter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdf3f5efa98a62754E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN106_$LT$meilisearch_types..error..deserr_codes..BadRequest$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a34e6a0b6c9f48eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN106_$LT$meilisearch_types..error..deserr_codes..BadRequest$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a34e6a0b6c9f48eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..DatabaseSizeLimitReached$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8c305632bfcedd97E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..DatabaseSizeLimitReached$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8c305632bfcedd97E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..DocumentNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h063a3f36f7d13c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..DocumentNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h063a3f36f7d13c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..DumpAlreadyProcessing$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h193317d0c5088c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..DumpAlreadyProcessing$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h193317d0c5088c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..DumpNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h236401cd76ebc2e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..DumpNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h236401cd76ebc2e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..DumpProcessFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h204c7d4b35e29ee0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..DumpProcessFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h204c7d4b35e29ee0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..DuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h93ac9e600b989ffdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..DuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h93ac9e600b989ffdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h117faa7f6236714bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h117faa7f6236714bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7e0ea0878e514d38E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7e0ea0878e514d38E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h222fb4d4718ae568E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h222fb4d4718ae568E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4d710ec1ff69987aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4d710ec1ff69987aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1669913202dad94eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1669913202dad94eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb42a23eeb3321a6fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb42a23eeb3321a6fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5eab8adf9d4aa7e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..ImmutableApiKeyUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5eab8adf9d4aa7e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a85ee8a7e029766E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexCreatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a85ee8a7e029766E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h569ea6037c8fb91fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h569ea6037c8fb91fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h224b1bd8ca0c5866E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..ImmutableIndexUpdatedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h224b1bd8ca0c5866E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..IndexAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h177dcbe7cfce5807E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..IndexAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h177dcbe7cfce5807E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..IndexCreationFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3d569897eebdb2e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..IndexCreationFailed$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3d569897eebdb2e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..IndexNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb4800d58ead363e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..IndexNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb4800d58ead363e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc8f407b389c74b5eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyAlreadyExists$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc8f407b389c74b5eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN134_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyMultipleCandidatesFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8adf7757811cfd5fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN134_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyMultipleCandidatesFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8adf7757811cfd5fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN127_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyNoCandidateFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h179242184a7afcbaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN127_$LT$meilisearch_types..error..deserr_codes..IndexPrimaryKeyNoCandidateFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h179242184a7afcbaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN104_$LT$meilisearch_types..error..deserr_codes..Internal$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec84f76641a2203bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN104_$LT$meilisearch_types..error..deserr_codes..Internal$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec84f76641a2203bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..InvalidApiKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5d447c9c09c3aff2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN109_$LT$meilisearch_types..error..deserr_codes..InvalidApiKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5d447c9c09c3aff2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7ebed773f5572d09E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7ebed773f5572d09E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyDescription$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h326ec62fbe62d47eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyDescription$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h326ec62fbe62d47eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h77464334ba223518E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h77464334ba223518E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdb56848e12ded26dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdb56848e12ded26dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf61d8ec7f5763b1dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf61d8ec7f5763b1dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf54d7c24a6da0380E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf54d7c24a6da0380E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7aa0e3535bf2594eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7aa0e3535bf2594eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h72453f2b6c41e0b0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidApiKeyUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h72453f2b6c41e0b0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h664d4ed8096fd4d4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h664d4ed8096fd4d4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentCsvDelimiter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h49a7edd92d0d3284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentCsvDelimiter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h49a7edd92d0d3284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFields$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84e74a17704ff32aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFields$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84e74a17704ff32aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..MissingDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hccd71d78b25c7c20E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..MissingDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hccd71d78b25c7c20E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbdf7fda6b9466c51E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbdf7fda6b9466c51E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentGeoField$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5006e9bd38523b36E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentGeoField$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5006e9bd38523b36E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidVectorDimensions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0613079f96dced54E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidVectorDimensions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0613079f96dced54E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidVectorsType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbeefef2714ebba05E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidVectorsType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbeefef2714ebba05E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h217bf1956ef55f83E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h217bf1956ef55f83E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h707c347c5c8d7612E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h707c347c5c8d7612E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0edb59e10a6668eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidDocumentOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0edb59e10a6668eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidEmbedder$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2dfb8552c587eabeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidEmbedder$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2dfb8552c587eabeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidHybridQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha8829d7e4119ab35E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidHybridQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha8829d7e4119ab35E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidIndexLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8d55e935f9784904E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidIndexLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8d55e935f9784904E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidIndexOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3323089e958b13e7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidIndexOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3323089e958b13e7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidIndexPrimaryKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha9bc832384d023efE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidIndexPrimaryKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha9bc832384d023efE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha626b5eecc8ef371E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha626b5eecc8ef371E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToSearchOn$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7233b238d92037ebE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToSearchOn$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7233b238d92037ebE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToCrop$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h136309f5753d5531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToCrop$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h136309f5753d5531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToHighlight$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf0f09ee8c11d7c43E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToHighlight$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf0f09ee8c11d7c43E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h663803184ffca340E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h663803184ffca340E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h813ea6ea681668f3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSearchAttributesToRetrieve$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h813ea6ea681668f3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropLength$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a895b42808f7e40E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropLength$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a895b42808f7e40E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropMarker$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h86256e6da550c542E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSearchCropMarker$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h86256e6da550c542E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFacets$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h474d53b1c025552bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFacets$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h474d53b1c025552bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb933792ad92d5cf5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSemanticRatio$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb933792ad92d5cf5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h007c1354de150c02E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h007c1354de150c02E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9903b5a2d43236a9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9903b5a2d43236a9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfeb9de01d94a414eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfeb9de01d94a414eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h32d6401f110eaf3bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarFilter$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h32d6401f110eaf3bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPostTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0773d2ad21787804E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPostTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0773d2ad21787804E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPreTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h48c31626fc75b8c5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHighlightPreTag$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h48c31626fc75b8c5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHitsPerPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7a378a86b7dc1da3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSearchHitsPerPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7a378a86b7dc1da3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec449228075f8137E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hec449228075f8137E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSearchLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9828927bde767efaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSearchLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9828927bde767efaE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchMatchingStrategy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h83bbad4e840c3bccE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchMatchingStrategy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h83bbad4e840c3bccE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97489e40d4e351aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97489e40d4e351aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h6e4c44503caf43cdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchOffset$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h6e4c44503caf43cdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fd51b2a4b99e798E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchPage$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fd51b2a4b99e798E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..InvalidSearchQ$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h99b6f9d89e7aaa1cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..InvalidSearchQ$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h99b6f9d89e7aaa1cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0bbb86340d75738bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchQuery$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0bbb86340d75738bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h85e6af036cb905c1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..InvalidFacetSearchName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h85e6af036cb905c1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchVector$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5bd5406dc7411ac5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidSearchVector$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5bd5406dc7411ac5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowMatchesPosition$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h078d0c77757e927eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowMatchesPosition$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h078d0c77757e927eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0d6b4e809eb790eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha0d6b4e809eb790eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0285d30e3d76e2d2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScore$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0285d30e3d76e2d2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN132_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h731d4ed1aec1f001E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN132_$LT$meilisearch_types..error..deserr_codes..InvalidSearchShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h731d4ed1aec1f001E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 82
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN133_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7fcef3aa90e51de2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN133_$LT$meilisearch_types..error..deserr_codes..InvalidSimilarShowRankingScoreDetails$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7fcef3aa90e51de2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSort$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h79b519ec5543aec7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..InvalidSearchSort$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h79b519ec5543aec7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDisplayedAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9bfcf3b017769ee6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN130_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDisplayedAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9bfcf3b017769ee6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 85
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDistinctAttribute$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9cbd335fc058868fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN128_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDistinctAttribute$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9cbd335fc058868fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsProximityPrecision$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he7f7736fdff7ac8cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsProximityPrecision$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he7f7736fdff7ac8cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 87
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFaceting$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3b36336e8fe2a531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFaceting$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3b36336e8fe2a531E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFilterableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h51b258d3c234edf1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsFilterableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h51b258d3c234edf1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsPagination$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h98c55c7ee7de611bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsPagination$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h98c55c7ee7de611bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchCutoffMs$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5ba5917899ad4508E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN125_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchCutoffMs$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5ba5917899ad4508E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsEmbedders$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5261712df876d2c3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsEmbedders$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5261712df876d2c3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h645f9465206d6e6bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h645f9465206d6e6bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 93
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h254038e88705b8e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN131_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSearchableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h254038e88705b8e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 94
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSortableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a548d3ea50cd133E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSortableAttributes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0a548d3ea50cd133E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsStopWords$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9a3f26dae4fb717aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN120_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsStopWords$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h9a3f26dae4fb717aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsNonSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfb5b5815913cf6a1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN129_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsNonSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hfb5b5815913cf6a1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a5760217fcdd99eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSeparatorTokens$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h8a5760217fcdd99eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDictionary$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h94ee8df4e9457ccbE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsDictionary$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h94ee8df4e9457ccbE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSynonyms$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16f0e5826e64e629E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN119_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsSynonyms$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16f0e5826e64e629E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsTypoTolerance$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2034b32615a358e9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN124_$LT$meilisearch_types..error..deserr_codes..InvalidSettingsTypoTolerance$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2034b32615a358e9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..InvalidState$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2d81704dc526cd7bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..InvalidState$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h2d81704dc526cd7bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidStoreFile$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he51448219713dfa3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidStoreFile$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he51448219713dfa3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSwapDuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc326f49633bfede8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN126_$LT$meilisearch_types..error..deserr_codes..InvalidSwapDuplicateIndexFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc326f49633bfede8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 104
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3c924a6e53b99056E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..InvalidSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3c924a6e53b99056E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdc1b099aa2c78402E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hdc1b099aa2c78402E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 106
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haae4b183ae50af89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17haae4b183ae50af89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h876db0d22ad99b01E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN121_$LT$meilisearch_types..error..deserr_codes..InvalidTaskAfterStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h876db0d22ad99b01E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 108
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h487ff4c83e16f074E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeEnqueuedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h487ff4c83e16f074E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd34b5631e18e01f5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeFinishedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd34b5631e18e01f5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3216d6fd027ead4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..InvalidTaskBeforeStartedAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h3216d6fd027ead4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 111
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidTaskCanceledBy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hae3abf88d5530494E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..InvalidTaskCanceledBy$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hae3abf88d5530494E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskFrom$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc1651846eeb1e6d7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskFrom$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc1651846eeb1e6d7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84a6a181e4c2837dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskLimit$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84a6a181e4c2837dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 114
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidTaskStatuses$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h74be34e7142aefb9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..InvalidTaskStatuses$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h74be34e7142aefb9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskTypes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h90d8079f84aaa117E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..InvalidTaskTypes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h90d8079f84aaa117E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskUids$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbd2cfd5e34302e2fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..InvalidTaskUids$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbd2cfd5e34302e2fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN103_$LT$meilisearch_types..error..deserr_codes..IoError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0b901ac100d209d3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN103_$LT$meilisearch_types..error..deserr_codes..IoError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h0b901ac100d209d3E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..FeatureNotEnabled$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91d3aa7c220b9e4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..FeatureNotEnabled$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91d3aa7c220b9e4dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MalformedPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84d60f83a24f1ce9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MalformedPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h84d60f83a24f1ce9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MaxFieldsLimitExceeded$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hce1e51190bcfec86E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MaxFieldsLimitExceeded$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hce1e51190bcfec86E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc16bf6c1ef597284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyActions$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc16bf6c1ef597284E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h290c9a1731a8ca89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h290c9a1731a8ca89E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 123
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc3672463b48b2b70E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc3672463b48b2b70E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..MissingAuthorizationHeader$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h97e227538e1a3bdeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN122_$LT$meilisearch_types..error..deserr_codes..MissingAuthorizationHeader$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h97e227538e1a3bdeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha6872edf4c3a73e8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingContentType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17ha6872edf4c3a73e8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..MissingDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h96f167636a81d2d8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..MissingDocumentId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h96f167636a81d2d8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4258eade1593b04aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN123_$LT$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h4258eade1593b04aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..MissingIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16ee3cbb201df0b8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..MissingIndexUid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h16ee3cbb201df0b8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MissingMasterKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5cf4edd50b3bea93E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..MissingMasterKey$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h5cf4edd50b3bea93E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..MissingPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h650ef31f5057e915E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..MissingPayload$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h650ef31f5057e915E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..MissingSearchHybrid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60b171be3caaa9abE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..MissingSearchHybrid$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60b171be3caaa9abE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hba1225a92b2f8911E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingSwapIndexes$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hba1225a92b2f8911E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -123
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingTaskFilters$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7bfc5458c40df25cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN114_$LT$meilisearch_types..error..deserr_codes..MissingTaskFilters$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h7bfc5458c40df25cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..NoSpaceLeftOnDevice$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd5591c757217cf73E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN115_$LT$meilisearch_types..error..deserr_codes..NoSpaceLeftOnDevice$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd5591c757217cf73E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..PayloadTooLarge$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fbd001b54177b9cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN111_$LT$meilisearch_types..error..deserr_codes..PayloadTooLarge$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1fbd001b54177b9cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..TooManySearchRequests$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a39f5a4d218ef12E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..TooManySearchRequests$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1a39f5a4d218ef12E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..TaskNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60759ecaed558773E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN108_$LT$meilisearch_types..error..deserr_codes..TaskNotFound$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h60759ecaed558773E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..TooManyOpenFiles$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hee09e8d71cdead8eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN112_$LT$meilisearch_types..error..deserr_codes..TooManyOpenFiles$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hee09e8d71cdead8eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..TooManyVectors$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd2bf2b8b08180df9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN110_$LT$meilisearch_types..error..deserr_codes..TooManyVectors$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hd2bf2b8b08180df9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..UnretrievableDocument$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h786336d3fc5c7eaeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN117_$LT$meilisearch_types..error..deserr_codes..UnretrievableDocument$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h786336d3fc5c7eaeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..UnretrievableErrorCode$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1bec1648c45e9fd5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN118_$LT$meilisearch_types..error..deserr_codes..UnretrievableErrorCode$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h1bec1648c45e9fd5E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -114
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..UnsupportedMediaType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb8a98721739d8905E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..UnsupportedMediaType$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb8a98721739d8905E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..VectorEmbeddingError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97d2b522b5a6febE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN116_$LT$meilisearch_types..error..deserr_codes..VectorEmbeddingError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hb97d2b522b5a6febE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..NotFoundSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbc1c2e04a470be04E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #16 {
+define noundef i8 @"_ZN113_$LT$meilisearch_types..error..deserr_codes..NotFoundSimilarId$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hbc1c2e04a470be04E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #17 {
   ret i8 -111
 }
 
@@ -5902,7 +5942,7 @@ default.unreachable:                              ; preds = %2
 
 25:                                               ; preds = %20
   %26 = load i64, ptr %24, align 8, !noalias !866
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %23, i64 %26) #28, !noalias !866
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %23, i64 %26) #29, !noalias !866
   unreachable
 
 27:                                               ; preds = %20
@@ -5952,7 +5992,7 @@ default.unreachable:                              ; preds = %2
 
 39:                                               ; preds = %34
   %40 = load i64, ptr %38, align 8, !noalias !874
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %37, i64 %40) #28, !noalias !874
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %37, i64 %40) #29, !noalias !874
   unreachable
 
 41:                                               ; preds = %34
@@ -6006,7 +6046,7 @@ default.unreachable:                              ; preds = %2
 50:                                               ; preds = %27
   %51 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %65 unwind label %63
 
 52:                                               ; preds = %27
@@ -6026,7 +6066,7 @@ default.unreachable:                              ; preds = %2
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %4, align 8, !noalias !882, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %58, i64 noundef %54) #31
+  call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %58, i64 noundef %54) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit": ; preds = %52, %56, %60
@@ -6042,7 +6082,7 @@ default.unreachable:                              ; preds = %2
 63:                                               ; preds = %66, %50
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #30
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #31
   unreachable
 
 65:                                               ; preds = %66, %50
@@ -6052,7 +6092,7 @@ default.unreachable:                              ; preds = %2
 66:                                               ; preds = %41
   %67 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #29
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #30
           to label %65 unwind label %63
 
 68:                                               ; preds = %41
@@ -6075,7 +6115,7 @@ default.unreachable:                              ; preds = %2
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %3, align 8, !noalias !891, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %77, i64 noundef %74, i64 noundef %70) #31
+  call void @__rust_dealloc(ptr noundef nonnull %77, i64 noundef %74, i64 noundef %70) #32
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit38"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit38": ; preds = %68, %72, %76
@@ -6086,7 +6126,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
+declare void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #18
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
@@ -6095,7 +6135,7 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17h609e4bed11db6468E"(ptr noalias noundef nonnull align 1, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed_addr #18
+declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed_addr #19
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
@@ -6110,10 +6150,10 @@ declare hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hf536dd68c439
 declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hc84fcaca444cdb5dE(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb25ec0889dbabb9eE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
@@ -6128,19 +6168,19 @@ declare noundef zeroext i1 @"_ZN63_$LT$serde_json..error..Error$u20$as$u20$core.
 declare noundef zeroext i1 @"_ZN71_$LT$milli..criterion..CriterionError$u20$as$u20$core..fmt..Display$GT$3fmt17h3745f0563f5adfcbE"(ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking14panic_nounwind17h23e6f792ad66b857E(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #18
+declare void @_ZN4core9panicking14panic_nounwind17h23e6f792ad66b857E(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #19
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
+declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #18
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h719a0c086c16b3eeE"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef, i64) unnamed_addr #17
+declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef, i64) unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
@@ -6155,7 +6195,7 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h43303a79
 declare noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #22
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #23
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17ha13f48a7b8085527E"(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
@@ -6206,7 +6246,7 @@ declare void @_ZN3std2fs14read_to_string5inner17h45819a5834290d5cE(ptr dead_on_u
 declare hidden noundef ptr @_ZN3std2fs5write17h89200f59b7eb139dE(ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #23
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #24
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6ec489b8e597aad6E.llvm.9153134991762065841(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
@@ -6224,10 +6264,10 @@ declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displa
 declare { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h70c9c4cab7a194a7E() unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #23
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17ha84d7ca8f31527b6E"(ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #24
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull) unnamed_addr #23
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull) unnamed_addr #24
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hbe955385072f7a22E.llvm.7557364402226394005"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
@@ -6266,22 +6306,25 @@ declare hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..s
 declare hidden void @"_ZN4core3ptr85drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPatternFormatError$GT$17hc4d2394feb3ad150E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #26
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold inlinehint noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -6291,28 +6334,29 @@ attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, argm
 attributes #8 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #17 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #18 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #23 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #28 = { noreturn }
-attributes #29 = { cold }
-attributes #30 = { cold noreturn nounwind }
-attributes #31 = { nounwind }
-attributes #32 = { noreturn nounwind }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #18 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #19 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #24 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { noreturn }
+attributes #30 = { cold }
+attributes #31 = { cold noreturn nounwind }
+attributes #32 = { nounwind }
+attributes #33 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

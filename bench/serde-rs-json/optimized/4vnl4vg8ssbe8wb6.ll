@@ -458,183 +458,187 @@ define noundef range(i8 0, 42) i8 @_ZN10serde_json5error5Error13io_error_kind17h
   %7 = ptrtoint ptr %.val to i64
   %8 = and i64 %7, 3
   switch i64 %8, label %default.unreachable [
-    i64 2, label %10
-    i64 3, label %switch.lookup
-    i64 0, label %49
-    i64 1, label %52
+    i64 2, label %9
+    i64 3, label %48
+    i64 0, label %52
+    i64 1, label %55
   ]
 
 default.unreachable:                              ; preds = %5
   unreachable
 
-switch.lookup:                                    ; preds = %5
-  %9 = lshr i64 %7, 32
-  %switch.idx.cast = trunc i64 %9 to i8
-  br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
-
-10:                                               ; preds = %5
-  %11 = lshr i64 %7, 32
-  %12 = trunc nuw i64 %11 to i32
-  switch i32 %12, label %47 [
+9:                                                ; preds = %5
+  %10 = lshr i64 %7, 32
+  %11 = trunc nuw i64 %10 to i32
+  switch i32 %11, label %46 [
     i32 7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
-    i32 98, label %13
-    i32 99, label %14
-    i32 16, label %15
-    i32 103, label %16
-    i32 111, label %17
-    i32 104, label %18
-    i32 35, label %19
-    i32 122, label %20
-    i32 17, label %21
-    i32 27, label %22
-    i32 113, label %23
-    i32 4, label %24
-    i32 22, label %25
-    i32 21, label %26
-    i32 40, label %27
-    i32 2, label %28
-    i32 12, label %29
-    i32 28, label %30
-    i32 38, label %31
-    i32 31, label %32
-    i32 36, label %33
-    i32 100, label %34
-    i32 101, label %35
-    i32 107, label %36
-    i32 20, label %37
-    i32 39, label %38
-    i32 32, label %39
-    i32 30, label %40
-    i32 29, label %41
-    i32 116, label %42
-    i32 110, label %43
-    i32 26, label %44
-    i32 18, label %45
-    i32 13, label %46
-    i32 1, label %46
-    i32 11, label %48
+    i32 98, label %12
+    i32 99, label %13
+    i32 16, label %14
+    i32 103, label %15
+    i32 111, label %16
+    i32 104, label %17
+    i32 35, label %18
+    i32 122, label %19
+    i32 17, label %20
+    i32 27, label %21
+    i32 113, label %22
+    i32 4, label %23
+    i32 22, label %24
+    i32 21, label %25
+    i32 40, label %26
+    i32 2, label %27
+    i32 12, label %28
+    i32 28, label %29
+    i32 38, label %30
+    i32 31, label %31
+    i32 36, label %32
+    i32 100, label %33
+    i32 101, label %34
+    i32 107, label %35
+    i32 20, label %36
+    i32 39, label %37
+    i32 32, label %38
+    i32 30, label %39
+    i32 29, label %40
+    i32 116, label %41
+    i32 110, label %42
+    i32 26, label %43
+    i32 18, label %44
+    i32 13, label %45
+    i32 1, label %45
+    i32 11, label %47
   ]
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-15:                                               ; preds = %10
+14:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-16:                                               ; preds = %10
+15:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-17:                                               ; preds = %10
+16:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-18:                                               ; preds = %10
+17:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-19:                                               ; preds = %10
+18:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-20:                                               ; preds = %10
+19:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-21:                                               ; preds = %10
+20:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-22:                                               ; preds = %10
+21:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-23:                                               ; preds = %10
+22:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-24:                                               ; preds = %10
+23:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-25:                                               ; preds = %10
+24:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-26:                                               ; preds = %10
+25:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-27:                                               ; preds = %10
+26:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-28:                                               ; preds = %10
+27:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-29:                                               ; preds = %10
+28:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-30:                                               ; preds = %10
+29:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-31:                                               ; preds = %10
+30:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-32:                                               ; preds = %10
+31:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-33:                                               ; preds = %10
+32:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-34:                                               ; preds = %10
+33:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-35:                                               ; preds = %10
+34:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-36:                                               ; preds = %10
+35:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-37:                                               ; preds = %10
+36:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-38:                                               ; preds = %10
+37:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-39:                                               ; preds = %10
+38:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-40:                                               ; preds = %10
+39:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-41:                                               ; preds = %10
+40:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-42:                                               ; preds = %10
+41:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-43:                                               ; preds = %10
+42:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-44:                                               ; preds = %10
+43:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-45:                                               ; preds = %10
+44:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-46:                                               ; preds = %10, %10
+45:                                               ; preds = %9, %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-47:                                               ; preds = %10
+46:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-48:                                               ; preds = %10
+47:                                               ; preds = %9
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-49:                                               ; preds = %5
-  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %51 = load i8, ptr %50, align 8, !range !48, !noundef !4
+48:                                               ; preds = %5
+  %49 = lshr i64 %7, 32
+  %50 = trunc nuw i64 %49 to i32
+  %spec.select43.i.i.i = tail call i32 @llvm.umin.i32(i32 %50, i32 41)
+  %spec.select.i.i.i = trunc nuw nsw i32 %spec.select43.i.i.i to i8
+  %51 = icmp ult ptr %.val, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %51)
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
 52:                                               ; preds = %5
-  %53 = getelementptr i8, ptr %.val, i64 15
+  %53 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %54 = load i8, ptr %53, align 8, !range !48, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
 
-_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit: ; preds = %switch.lookup, %52, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %10, %1
-  %.0 = phi i8 [ 41, %1 ], [ %51, %49 ], [ %54, %52 ], [ 13, %48 ], [ 40, %47 ], [ 8, %13 ], [ 9, %14 ], [ 28, %15 ], [ 6, %16 ], [ 2, %17 ], [ 3, %18 ], [ 30, %19 ], [ 26, %20 ], [ 12, %21 ], [ 27, %22 ], [ 4, %23 ], [ 35, %24 ], [ 20, %25 ], [ 15, %26 ], [ 18, %27 ], [ 0, %28 ], [ 38, %29 ], [ 24, %30 ], [ 36, %31 ], [ 32, %32 ], [ 33, %33 ], [ 10, %34 ], [ 5, %35 ], [ 7, %36 ], [ 14, %37 ], [ 16, %38 ], [ 11, %39 ], [ 17, %40 ], [ 25, %41 ], [ 19, %42 ], [ 22, %43 ], [ 29, %44 ], [ 31, %45 ], [ 1, %46 ], [ 34, %10 ], [ %switch.idx.cast, %switch.lookup ]
+55:                                               ; preds = %5
+  %56 = getelementptr i8, ptr %.val, i64 15
+  %57 = load i8, ptr %56, align 8, !range !48, !noundef !4
+  br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
+
+_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit: ; preds = %55, %52, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %9, %1
+  %.0 = phi i8 [ 41, %1 ], [ %spec.select.i.i.i, %48 ], [ %54, %52 ], [ %57, %55 ], [ 13, %47 ], [ 40, %46 ], [ 8, %12 ], [ 9, %13 ], [ 28, %14 ], [ 6, %15 ], [ 2, %16 ], [ 3, %17 ], [ 30, %18 ], [ 26, %19 ], [ 12, %20 ], [ 27, %21 ], [ 4, %22 ], [ 35, %23 ], [ 20, %24 ], [ 15, %25 ], [ 18, %26 ], [ 0, %27 ], [ 38, %28 ], [ 24, %29 ], [ 36, %30 ], [ 32, %31 ], [ 33, %32 ], [ 10, %33 ], [ 5, %34 ], [ 7, %35 ], [ 14, %36 ], [ 16, %37 ], [ 11, %38 ], [ 17, %39 ], [ 25, %40 ], [ 19, %41 ], [ 22, %42 ], [ 29, %43 ], [ 31, %44 ], [ 1, %45 ], [ 34, %9 ]
   ret i8 %.0
 }
 
@@ -1915,6 +1919,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

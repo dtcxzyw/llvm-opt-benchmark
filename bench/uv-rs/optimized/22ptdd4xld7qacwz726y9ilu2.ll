@@ -786,7 +786,8 @@ define noundef zeroext i1 @"_ZN176_$LT$uv_platform_tags..platform.._..$LT$impl$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 12) %1, ptr noundef nonnull writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 {
+define void @"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 12) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #5 {
+switch.lookup:
   store i8 %1, ptr %2, align 1
   ret void
 }

@@ -467,10 +467,10 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19AuxSymbolEE6resizeEm.exit: ; preds = %
   store i32 %101, ptr %102, align 4, !tbaa !178
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.val53 = load i8, ptr %103, align 8, !tbaa !17
-  %switch.idx.cast = zext i8 %.val53 to i32
-  %switch.idx.mult = shl nuw nsw i32 %switch.idx.cast, 20
-  %switch.offset = add nuw nsw i32 %switch.idx.mult, 1048576
-  %104 = or i32 %switch.offset, %101
+  %switch.idx.cast.i = zext i8 %.val53 to i32
+  %switch.idx.mult.i = shl nuw nsw i32 %switch.idx.cast.i, 20
+  %switch.offset.i = add nuw nsw i32 %switch.idx.mult.i, 1048576
+  %104 = or i32 %switch.offset.i, %101
   store i32 %104, ptr %102, align 4, !tbaa !178
   %105 = getelementptr inbounds nuw i8, ptr %.val.i, i64 80
   store ptr %2, ptr %105, align 8, !tbaa !179

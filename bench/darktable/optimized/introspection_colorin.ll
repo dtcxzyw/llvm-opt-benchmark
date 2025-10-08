@@ -3284,631 +3284,631 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   store i32 %35, ptr %36, align 4, !tbaa !123
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %38 = load i32, ptr %37, align 4, !tbaa !184
-  %.off = add i32 %38, -1
-  %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %.sink.split, label %42
+  %switch.tableidx = add i32 %38, -1
+  %39 = icmp ult i32 %switch.tableidx, 4
+  br i1 %39, label %switch.lookup, label %43
 
-.sink.split:                                      ; preds = %32
-  %39 = tail call ptr @dt_colorspaces_get_profile(i32 noundef %38, ptr noundef nonnull @.str.26, i32 noundef 1) #17
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1032
-  %41 = load ptr, ptr %40, align 8, !tbaa !180
-  store ptr %41, ptr %33, align 16, !tbaa !128
-  br label %42
+switch.lookup:                                    ; preds = %32
+  %40 = tail call ptr @dt_colorspaces_get_profile(i32 noundef %38, ptr noundef nonnull @.str.26, i32 noundef 1) #17
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1032
+  %42 = load ptr, ptr %41, align 8, !tbaa !180
+  store ptr %42, ptr %33, align 16, !tbaa !128
+  br label %43
 
-42:                                               ; preds = %32, %.sink.split
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !175
-  %.not221 = icmp eq ptr %44, null
-  br i1 %.not221, label %46, label %45
+43:                                               ; preds = %32, %switch.lookup
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !175
+  %.not221 = icmp eq ptr %45, null
+  br i1 %.not221, label %47, label %46
 
-45:                                               ; preds = %42
-  tail call void @cmsDeleteTransform(ptr noundef nonnull %44) #17
-  store ptr null, ptr %43, align 8, !tbaa !175
-  br label %46
+46:                                               ; preds = %43
+  tail call void @cmsDeleteTransform(ptr noundef nonnull %45) #17
+  store ptr null, ptr %44, align 8, !tbaa !175
+  br label %47
 
-46:                                               ; preds = %45, %42
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %48 = load ptr, ptr %47, align 32, !tbaa !173
-  %.not222 = icmp eq ptr %48, null
-  br i1 %.not222, label %50, label %49
+47:                                               ; preds = %46, %43
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %49 = load ptr, ptr %48, align 32, !tbaa !173
+  %.not222 = icmp eq ptr %49, null
+  br i1 %.not222, label %51, label %50
 
-49:                                               ; preds = %46
-  tail call void @cmsDeleteTransform(ptr noundef nonnull %48) #17
-  store ptr null, ptr %47, align 32, !tbaa !173
-  br label %50
+50:                                               ; preds = %47
+  tail call void @cmsDeleteTransform(ptr noundef nonnull %49) #17
+  store ptr null, ptr %48, align 32, !tbaa !173
+  br label %51
 
-50:                                               ; preds = %49, %46
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !174
-  %.not223 = icmp eq ptr %52, null
-  br i1 %.not223, label %54, label %53
+51:                                               ; preds = %50, %47
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !174
+  %.not223 = icmp eq ptr %53, null
+  br i1 %.not223, label %55, label %54
 
-53:                                               ; preds = %50
-  tail call void @cmsDeleteTransform(ptr noundef nonnull %52) #17
-  store ptr null, ptr %51, align 8, !tbaa !174
-  br label %54
+54:                                               ; preds = %51
+  tail call void @cmsDeleteTransform(ptr noundef nonnull %53) #17
+  store ptr null, ptr %52, align 8, !tbaa !174
+  br label %55
 
-54:                                               ; preds = %50, %53
-  %55 = getelementptr inbounds nuw i8, ptr %12, i64 786496
-  store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 786560
+55:                                               ; preds = %51, %54
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 786496
   store float 0x7FF8000000000000, ptr %56, align 64, !tbaa !121
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 786624
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 786560
   store float 0x7FF8000000000000, ptr %57, align 64, !tbaa !121
-  %58 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store float -1.000000e+00, ptr %58, align 16, !tbaa !121
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 262192
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 786624
+  store float 0x7FF8000000000000, ptr %58, align 64, !tbaa !121
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store float -1.000000e+00, ptr %59, align 16, !tbaa !121
-  %60 = getelementptr inbounds nuw i8, ptr %12, i64 524336
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 262192
   store float -1.000000e+00, ptr %60, align 16, !tbaa !121
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 786728
-  store i32 0, ptr %61, align 8, !tbaa !127
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 1, ptr %62, align 8, !tbaa !185
-  %63 = load i32, ptr %1, align 4, !tbaa !176
-  %64 = icmp eq i32 %63, 6
-  br i1 %64, label %65, label %67
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 524336
+  store float -1.000000e+00, ptr %61, align 16, !tbaa !121
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 786728
+  store i32 0, ptr %62, align 8, !tbaa !127
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  store i32 1, ptr %63, align 8, !tbaa !185
+  %64 = load i32, ptr %1, align 4, !tbaa !176
+  %65 = icmp eq i32 %64, 6
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %54
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %66, align 16, !tbaa !186
-  br label %321
+66:                                               ; preds = %55
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 0, ptr %67, align 16, !tbaa !186
+  br label %322
 
-67:                                               ; preds = %54
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !122
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 620
-  %71 = load i32, ptr %70, align 4, !tbaa !187
-  %72 = and i32 %71, 1024
-  %.not224 = icmp eq i32 %72, 0
-  br i1 %.not224, label %73, label %75
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !122
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 620
+  %72 = load i32, ptr %71, align 4, !tbaa !187
+  %73 = and i32 %72, 1024
+  %.not224 = icmp eq i32 %73, 0
+  br i1 %.not224, label %74, label %76
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 1, ptr %74, align 16, !tbaa !186
-  br label %75
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 1, ptr %75, align 16, !tbaa !186
+  br label %76
 
-75:                                               ; preds = %73, %67
-  switch i32 %63, label %102 [
-    i32 12, label %76
-    i32 13, label %80
-    i32 14, label %84
+76:                                               ; preds = %74, %68
+  switch i32 %64, label %103 [
+    i32 12, label %77
+    i32 13, label %81
+    i32 14, label %85
     i32 9, label %.thread257
   ]
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 1624
-  %78 = tail call ptr @dt_colorspaces_create_darktable_profile(ptr noundef nonnull %77) #17
-  store ptr %78, ptr %27, align 8, !tbaa !181
-  %.not225 = icmp eq ptr %78, null
-  br i1 %.not225, label %.thread257, label %79
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 1624
+  %79 = tail call ptr @dt_colorspaces_create_darktable_profile(ptr noundef nonnull %78) #17
+  store ptr %79, ptr %27, align 8, !tbaa !181
+  %.not225 = icmp eq ptr %79, null
+  br i1 %.not225, label %.thread257, label %80
 
-79:                                               ; preds = %76
+80:                                               ; preds = %77
   store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 1624
-  %82 = tail call ptr @dt_colorspaces_create_vendor_profile(ptr noundef nonnull %81) #17
-  store ptr %82, ptr %27, align 8, !tbaa !181
-  %.not226 = icmp eq ptr %82, null
-  br i1 %.not226, label %.thread257, label %83
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 1624
+  %83 = tail call ptr @dt_colorspaces_create_vendor_profile(ptr noundef nonnull %82) #17
+  store ptr %83, ptr %27, align 8, !tbaa !181
+  %.not226 = icmp eq ptr %83, null
+  br i1 %.not226, label %.thread257, label %84
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
-84:                                               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 1624
-  %86 = tail call ptr @dt_colorspaces_create_alternate_profile(ptr noundef nonnull %85) #17
-  store ptr %86, ptr %27, align 8, !tbaa !181
-  %.not227 = icmp eq ptr %86, null
+85:                                               ; preds = %76
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 1624
+  %87 = tail call ptr @dt_colorspaces_create_alternate_profile(ptr noundef nonnull %86) #17
+  store ptr %87, ptr %27, align 8, !tbaa !181
+  %.not227 = icmp eq ptr %87, null
   br i1 %.not227, label %.thread257, label %.thread263
 
-.thread263:                                       ; preds = %84
+.thread263:                                       ; preds = %85
   store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
-.thread257:                                       ; preds = %75, %76, %80, %84
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 2072
-  %89 = load i32, ptr %88, align 8, !tbaa !201
-  %90 = tail call ptr @dt_image_cache_get(ptr noundef %87, i32 noundef %89, i8 noundef signext 114) #17
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %100, label %92
+.thread257:                                       ; preds = %76, %77, %81, %85
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 2072
+  %90 = load i32, ptr %89, align 8, !tbaa !201
+  %91 = tail call ptr @dt_image_cache_get(ptr noundef %88, i32 noundef %90, i8 noundef signext 114) #17
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %101, label %93
 
-92:                                               ; preds = %.thread257
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 1656
-  %94 = load ptr, ptr %93, align 8, !tbaa !202
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %100, label %96
+93:                                               ; preds = %.thread257
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 1656
+  %95 = load ptr, ptr %94, align 8, !tbaa !202
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %101, label %97
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 1664
-  %98 = load i32, ptr %97, align 16, !tbaa !203
-  %99 = tail call ptr @dt_colorspaces_get_rgb_profile_from_mem(ptr noundef nonnull %94, i32 noundef %98) #17
-  store ptr %99, ptr %27, align 8, !tbaa !181
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 1664
+  %99 = load i32, ptr %98, align 16, !tbaa !203
+  %100 = tail call ptr @dt_colorspaces_get_rgb_profile_from_mem(ptr noundef nonnull %95, i32 noundef %99) #17
+  store ptr %100, ptr %27, align 8, !tbaa !181
   store i32 1, ptr %12, align 64, !tbaa !182
-  br label %100
+  br label %101
 
-100:                                              ; preds = %.thread257, %92, %96
-  %.4 = phi i32 [ 9, %96 ], [ 10, %92 ], [ 10, %.thread257 ]
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
-  tail call void @dt_image_cache_read_release(ptr noundef %101, ptr noundef %90) #17
-  br label %102
+101:                                              ; preds = %.thread257, %93, %97
+  %.4 = phi i32 [ 9, %97 ], [ 10, %93 ], [ 10, %.thread257 ]
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
+  tail call void @dt_image_cache_read_release(ptr noundef %102, ptr noundef %91) #17
+  br label %103
 
-102:                                              ; preds = %75, %100
-  %.3 = phi i32 [ %.4, %100 ], [ %63, %75 ]
-  %103 = icmp eq i32 %.3, 10
-  br i1 %103, label %104, label %117
+103:                                              ; preds = %76, %101
+  %.3 = phi i32 [ %.4, %101 ], [ %64, %76 ]
+  %104 = icmp eq i32 %.3, 10
+  br i1 %104, label %105, label %118
 
-104:                                              ; preds = %102
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 2072
-  %107 = load i32, ptr %106, align 8, !tbaa !201
-  %108 = tail call ptr @dt_image_cache_get(ptr noundef %105, i32 noundef %107, i8 noundef signext 114) #17
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1616
-  %110 = load float, ptr %109, align 16, !tbaa !121
-  %111 = tail call float @llvm.fabs.f32(float %110)
-  %112 = fcmp ueq float %111, 0x7FF0000000000000
-  br i1 %112, label %115, label %113
+105:                                              ; preds = %103
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 2072
+  %108 = load i32, ptr %107, align 8, !tbaa !201
+  %109 = tail call ptr @dt_image_cache_get(ptr noundef %106, i32 noundef %108, i8 noundef signext 114) #17
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1616
+  %111 = load float, ptr %110, align 16, !tbaa !121
+  %112 = tail call float @llvm.fabs.f32(float %111)
+  %113 = fcmp ueq float %112, 0x7FF0000000000000
+  br i1 %113, label %116, label %114
 
-113:                                              ; preds = %104
-  %114 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %109) #17
-  store ptr %114, ptr %27, align 8, !tbaa !181
+114:                                              ; preds = %105
+  %115 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %110) #17
+  store ptr %115, ptr %27, align 8, !tbaa !181
   store i32 1, ptr %12, align 64, !tbaa !182
-  br label %115
+  br label %116
 
-115:                                              ; preds = %104, %113
-  %.6 = phi i32 [ 10, %113 ], [ 11, %104 ]
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
-  tail call void @dt_image_cache_read_release(ptr noundef %116, ptr noundef nonnull %108) #17
-  br label %117
+116:                                              ; preds = %105, %114
+  %.6 = phi i32 [ 10, %114 ], [ 11, %105 ]
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
+  tail call void @dt_image_cache_read_release(ptr noundef %117, ptr noundef nonnull %109) #17
+  br label %118
 
-117:                                              ; preds = %115, %102
-  %.5 = phi i32 [ %.6, %115 ], [ %.3, %102 ]
-  %118 = icmp eq i32 %.5, 11
-  br i1 %118, label %119, label %thread-pre-split
+118:                                              ; preds = %116, %103
+  %.5 = phi i32 [ %.6, %116 ], [ %.3, %103 ]
+  %119 = icmp eq i32 %.5, 11
+  br i1 %119, label %120, label %thread-pre-split
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 2400
-  %121 = load float, ptr %120, align 16, !tbaa !121
-  %122 = tail call float @llvm.fabs.f32(float %121)
-  %123 = fcmp ueq float %122, 0x7FF0000000000000
-  br i1 %123, label %124, label %130
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 2400
+  %122 = load float, ptr %121, align 16, !tbaa !121
+  %123 = tail call float @llvm.fabs.f32(float %122)
+  %124 = fcmp ueq float %123, 0x7FF0000000000000
+  br i1 %124, label %125, label %131
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %126 = tail call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %125) #17
-  %.not230 = icmp eq i32 %126, 0
-  br i1 %.not230, label %thread-pre-split, label %127
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 640
+  %127 = tail call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %126) #17
+  %.not230 = icmp eq i32 %127, 0
+  br i1 %.not230, label %thread-pre-split, label %128
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 1624
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %128) #17
-  %129 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #17
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %129, ptr noundef nonnull %128) #17
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 1624
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %129) #17
+  %130 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #17
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %130, ptr noundef nonnull %129) #17
   br label %thread-pre-split
 
-130:                                              ; preds = %119
-  %131 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %120) #17
-  store ptr %131, ptr %27, align 8, !tbaa !181
+131:                                              ; preds = %120
+  %132 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %121) #17
+  store ptr %132, ptr %27, align 8, !tbaa !181
   store i32 1, ptr %12, align 64, !tbaa !182
-  br label %132
+  br label %133
 
-thread-pre-split:                                 ; preds = %79, %83, %117, %127, %124, %.thread263
-  %.7.ph = phi i32 [ 14, %.thread263 ], [ 3, %124 ], [ 3, %127 ], [ %.5, %117 ], [ 12, %79 ], [ 13, %83 ]
+thread-pre-split:                                 ; preds = %80, %84, %118, %128, %125, %.thread263
+  %.7.ph = phi i32 [ 14, %.thread263 ], [ 3, %125 ], [ 3, %128 ], [ %.5, %118 ], [ 12, %80 ], [ 13, %84 ]
   %.pr = load ptr, ptr %27, align 8, !tbaa !181
-  br label %132
+  br label %133
 
-132:                                              ; preds = %thread-pre-split, %130
-  %133 = phi ptr [ %.pr, %thread-pre-split ], [ %131, %130 ]
-  %.7 = phi i32 [ %.7.ph, %thread-pre-split ], [ 11, %130 ]
-  %.not231 = icmp eq ptr %133, null
-  br i1 %.not231, label %134, label %thread-pre-split265.thread
+133:                                              ; preds = %thread-pre-split, %131
+  %134 = phi ptr [ %.pr, %thread-pre-split ], [ %132, %131 ]
+  %.7 = phi i32 [ %.7.ph, %thread-pre-split ], [ 11, %131 ]
+  %.not231 = icmp eq ptr %134, null
+  br i1 %.not231, label %135, label %thread-pre-split265.thread
 
-134:                                              ; preds = %132
-  %135 = tail call ptr @dt_colorspaces_get_profile(i32 noundef %.7, ptr noundef nonnull %19, i32 noundef 1) #17
-  %.not232 = icmp eq ptr %135, null
-  br i1 %.not232, label %._crit_edge, label %136
+135:                                              ; preds = %133
+  %136 = tail call ptr @dt_colorspaces_get_profile(i32 noundef %.7, ptr noundef nonnull %19, i32 noundef 1) #17
+  %.not232 = icmp eq ptr %136, null
+  br i1 %.not232, label %._crit_edge, label %137
 
-._crit_edge:                                      ; preds = %134
+._crit_edge:                                      ; preds = %135
   %.pre = load ptr, ptr %27, align 8, !tbaa !181
-  br label %139
+  br label %140
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 1032
-  %138 = load ptr, ptr %137, align 8, !tbaa !180
-  store ptr %138, ptr %27, align 8, !tbaa !181
-  br label %139
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 1032
+  %139 = load ptr, ptr %138, align 8, !tbaa !180
+  store ptr %139, ptr %27, align 8, !tbaa !181
+  br label %140
 
-139:                                              ; preds = %._crit_edge, %136
-  %140 = phi ptr [ %.pre, %._crit_edge ], [ %138, %136 ]
-  %141 = icmp eq ptr %140, null
-  %142 = icmp ne i32 %.7, 1
-  %or.cond = and i1 %142, %141
-  br i1 %or.cond, label %143, label %147
+140:                                              ; preds = %._crit_edge, %137
+  %141 = phi ptr [ %.pre, %._crit_edge ], [ %139, %137 ]
+  %142 = icmp eq ptr %141, null
+  %143 = icmp ne i32 %.7, 1
+  %or.cond = and i1 %143, %142
+  br i1 %or.cond, label %144, label %148
 
-143:                                              ; preds = %139
-  %144 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1032
-  %146 = load ptr, ptr %145, align 8, !tbaa !180
-  store ptr %146, ptr %27, align 8, !tbaa !181
+144:                                              ; preds = %140
+  %145 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 1032
+  %147 = load ptr, ptr %146, align 8, !tbaa !180
+  store ptr %147, ptr %27, align 8, !tbaa !181
   store i32 0, ptr %12, align 64, !tbaa !182
-  br label %147
+  br label %148
 
-147:                                              ; preds = %143, %139
-  %.pr266 = phi ptr [ %146, %143 ], [ %140, %139 ]
+148:                                              ; preds = %144, %140
+  %.pr266 = phi ptr [ %147, %144 ], [ %141, %140 ]
   %.not233 = icmp eq ptr %.pr266, null
   br i1 %.not233, label %thread-pre-split265, label %thread-pre-split265.thread
 
-thread-pre-split265:                              ; preds = %147
-  %148 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef 1) #17
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1032
-  %150 = load ptr, ptr %149, align 8, !tbaa !180
-  store ptr %150, ptr %27, align 8, !tbaa !181
+thread-pre-split265:                              ; preds = %148
+  %149 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef 1) #17
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 1032
+  %151 = load ptr, ptr %150, align 8, !tbaa !180
+  store ptr %151, ptr %27, align 8, !tbaa !181
   store i32 0, ptr %12, align 64, !tbaa !182
-  %.not234 = icmp eq ptr %150, null
-  br i1 %.not234, label %151, label %thread-pre-split265.thread
+  %.not234 = icmp eq ptr %151, null
+  br i1 %.not234, label %152, label %thread-pre-split265.thread
 
-151:                                              ; preds = %thread-pre-split265
+152:                                              ; preds = %thread-pre-split265
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.29) #17
-  %152 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #17
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %152) #17
-  %153 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %153, align 16, !tbaa !186
-  br label %321
+  %153 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #17
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %153) #17
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 0, ptr %154, align 16, !tbaa !186
+  br label %322
 
-thread-pre-split265.thread:                       ; preds = %132, %147, %thread-pre-split265
-  %154 = phi ptr [ %150, %thread-pre-split265 ], [ %.pr266, %147 ], [ %133, %132 ]
-  %155 = tail call i32 @cmsGetColorSpace(ptr noundef nonnull %154) #17
-  switch i32 %155, label %157 [
-    i32 1380401696, label %164
-    i32 1482250784, label %156
+thread-pre-split265.thread:                       ; preds = %133, %148, %thread-pre-split265
+  %155 = phi ptr [ %151, %thread-pre-split265 ], [ %.pr266, %148 ], [ %134, %133 ]
+  %156 = tail call i32 @cmsGetColorSpace(ptr noundef nonnull %155) #17
+  switch i32 %156, label %158 [
+    i32 1380401696, label %165
+    i32 1482250784, label %157
   ]
 
-156:                                              ; preds = %thread-pre-split265.thread
-  br label %164
-
 157:                                              ; preds = %thread-pre-split265.thread
-  %158 = ashr i32 %155, 24
-  %159 = shl i32 %155, 8
-  %160 = ashr i32 %159, 24
-  %161 = shl i32 %155, 16
-  %162 = ashr i32 %161, 24
-  %sext = shl i32 %155, 24
-  %163 = ashr exact i32 %sext, 24
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.31, i32 noundef %158, i32 noundef %160, i32 noundef %162, i32 noundef %163) #17
-  br label %164
+  br label %165
 
-164:                                              ; preds = %thread-pre-split265.thread, %157, %156
-  %.0206 = phi i32 [ 4456604, %157 ], [ 4784284, %156 ], [ 4456604, %thread-pre-split265.thread ]
-  %165 = load ptr, ptr %33, align 16, !tbaa !128
-  %.not235 = icmp eq ptr %165, null
-  %166 = load ptr, ptr %27, align 8, !tbaa !181
-  %167 = tail call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %166, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 65536) #17
-  %.not236 = icmp eq i32 %167, 0
-  br i1 %.not235, label %201, label %168
+158:                                              ; preds = %thread-pre-split265.thread
+  %159 = ashr i32 %156, 24
+  %160 = shl i32 %156, 8
+  %161 = ashr i32 %160, 24
+  %162 = shl i32 %156, 16
+  %163 = ashr i32 %162, 24
+  %sext = shl i32 %156, 24
+  %164 = ashr exact i32 %sext, 24
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.31, i32 noundef %159, i32 noundef %161, i32 noundef %163, i32 noundef %164) #17
+  br label %165
 
-168:                                              ; preds = %164
-  br i1 %.not236, label %181, label %169
+165:                                              ; preds = %thread-pre-split265.thread, %158, %157
+  %.0206 = phi i32 [ 4456604, %158 ], [ 4784284, %157 ], [ 4456604, %thread-pre-split265.thread ]
+  %166 = load ptr, ptr %33, align 16, !tbaa !128
+  %.not235 = icmp eq ptr %166, null
+  %167 = load ptr, ptr %27, align 8, !tbaa !181
+  %168 = tail call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %167, ptr noundef nonnull %56, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, i32 noundef 65536) #17
+  %.not236 = icmp eq i32 %168, 0
+  br i1 %.not235, label %202, label %169
 
-169:                                              ; preds = %168
-  store i32 0, ptr %62, align 8, !tbaa !185
-  store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %170 = load ptr, ptr %27, align 8, !tbaa !181
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %172 = load i32, ptr %171, align 4, !tbaa !204
-  %173 = tail call ptr @cmsCreateTransform(ptr noundef %170, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %172, i32 noundef 0) #17
-  store ptr %173, ptr %43, align 8, !tbaa !175
-  %174 = load ptr, ptr %27, align 8, !tbaa !181
-  %175 = load ptr, ptr %33, align 16, !tbaa !128
-  %176 = load i32, ptr %171, align 4, !tbaa !204
-  %177 = tail call ptr @cmsCreateTransform(ptr noundef %174, i32 noundef %.0206, ptr noundef %175, i32 noundef 4456604, i32 noundef %176, i32 noundef 0) #17
-  store ptr %177, ptr %47, align 32, !tbaa !173
-  %178 = load ptr, ptr %33, align 16, !tbaa !128
-  %179 = load i32, ptr %171, align 4, !tbaa !204
-  %180 = tail call ptr @cmsCreateTransform(ptr noundef %178, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %179, i32 noundef 0) #17
-  store ptr %180, ptr %51, align 8, !tbaa !174
-  br label %207
+169:                                              ; preds = %165
+  br i1 %.not236, label %182, label %170
 
-181:                                              ; preds = %168
+170:                                              ; preds = %169
+  store i32 0, ptr %63, align 8, !tbaa !185
+  store float 0x7FF8000000000000, ptr %56, align 64, !tbaa !121
+  %171 = load ptr, ptr %27, align 8, !tbaa !181
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 516
+  %173 = load i32, ptr %172, align 4, !tbaa !204
+  %174 = tail call ptr @cmsCreateTransform(ptr noundef %171, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %173, i32 noundef 0) #17
+  store ptr %174, ptr %44, align 8, !tbaa !175
+  %175 = load ptr, ptr %27, align 8, !tbaa !181
+  %176 = load ptr, ptr %33, align 16, !tbaa !128
+  %177 = load i32, ptr %172, align 4, !tbaa !204
+  %178 = tail call ptr @cmsCreateTransform(ptr noundef %175, i32 noundef %.0206, ptr noundef %176, i32 noundef 4456604, i32 noundef %177, i32 noundef 0) #17
+  store ptr %178, ptr %48, align 32, !tbaa !173
+  %179 = load ptr, ptr %33, align 16, !tbaa !128
+  %180 = load i32, ptr %172, align 4, !tbaa !204
+  %181 = tail call ptr @cmsCreateTransform(ptr noundef %179, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %180, i32 noundef 0) #17
+  store ptr %181, ptr %52, align 8, !tbaa !174
+  br label %208
+
+182:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %182 = load ptr, ptr %33, align 16, !tbaa !128
-  %183 = call i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %182, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #17
-  br label %184
+  %183 = load ptr, ptr %33, align 16, !tbaa !128
+  %184 = call i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %183, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #17
+  br label %185
 
-184:                                              ; preds = %188, %181
-  %indvars.iv23.i = phi i64 [ 0, %181 ], [ %indvars.iv.next24.i, %188 ]
+185:                                              ; preds = %189, %182
+  %indvars.iv23.i = phi i64 [ 0, %182 ], [ %indvars.iv.next24.i, %189 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %185 = getelementptr inbounds nuw [4 x float], ptr %9, i64 %indvars.iv23.i
-  %186 = getelementptr inbounds nuw [4 x float], ptr %56, i64 %indvars.iv23.i
+  %186 = getelementptr inbounds nuw [4 x float], ptr %9, i64 %indvars.iv23.i
+  %187 = getelementptr inbounds nuw [4 x float], ptr %57, i64 %indvars.iv23.i
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %189, %184
-  %.01619.i = phi i64 [ 0, %184 ], [ %191, %189 ]
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %55, i64 %.01619.i
-  %187 = getelementptr inbounds nuw float, ptr %5, i64 %.01619.i
-  %.promoted.i = load float, ptr %187, align 4, !tbaa !121
-  br label %192
+.preheader.i:                                     ; preds = %190, %185
+  %.01619.i = phi i64 [ 0, %185 ], [ %192, %190 ]
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %56, i64 %.01619.i
+  %188 = getelementptr inbounds nuw float, ptr %5, i64 %.01619.i
+  %.promoted.i = load float, ptr %188, align 4, !tbaa !121
+  br label %193
 
-188:                                              ; preds = %189
+189:                                              ; preds = %190
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 3
-  br i1 %exitcond26.not.i, label %dt_colormatrix_mul.exit, label %184
+  br i1 %exitcond26.not.i, label %dt_colormatrix_mul.exit, label %185
 
-189:                                              ; preds = %192
-  store float %198, ptr %187, align 4, !tbaa !121
-  %190 = getelementptr inbounds nuw float, ptr %186, i64 %.01619.i
-  store float %198, ptr %190, align 4, !tbaa !121
-  %191 = add nuw nsw i64 %.01619.i, 1
-  %exitcond22.not.i = icmp eq i64 %191, 4
-  br i1 %exitcond22.not.i, label %188, label %.preheader.i
+190:                                              ; preds = %193
+  store float %199, ptr %188, align 4, !tbaa !121
+  %191 = getelementptr inbounds nuw float, ptr %187, i64 %.01619.i
+  store float %199, ptr %191, align 4, !tbaa !121
+  %192 = add nuw nsw i64 %.01619.i, 1
+  %exitcond22.not.i = icmp eq i64 %192, 4
+  br i1 %exitcond22.not.i, label %189, label %.preheader.i
 
-192:                                              ; preds = %192, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %192 ]
-  %193 = phi float [ %.promoted.i, %.preheader.i ], [ %198, %192 ]
-  %194 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv.i
-  %195 = load float, ptr %194, align 4, !tbaa !121
+193:                                              ; preds = %193, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %193 ]
+  %194 = phi float [ %.promoted.i, %.preheader.i ], [ %199, %193 ]
+  %195 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv.i
+  %196 = load float, ptr %195, align 4, !tbaa !121
   %gep.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
-  %196 = load float, ptr %gep.i, align 4, !tbaa !121
-  %197 = fmul reassoc nsz arcp contract afn float %196, %195
-  %198 = fadd reassoc nsz arcp contract afn float %197, %193
+  %197 = load float, ptr %gep.i, align 4, !tbaa !121
+  %198 = fmul reassoc nsz arcp contract afn float %197, %196
+  %199 = fadd reassoc nsz arcp contract afn float %198, %194
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %189, label %192
+  br i1 %exitcond.not.i, label %190, label %193
 
-dt_colormatrix_mul.exit:                          ; preds = %188
-  %199 = load ptr, ptr %33, align 16, !tbaa !128
-  %200 = call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %199, ptr noundef nonnull %57, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #17
+dt_colormatrix_mul.exit:                          ; preds = %189
+  %200 = load ptr, ptr %33, align 16, !tbaa !128
+  %201 = call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %200, ptr noundef nonnull %58, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %207
+  br label %208
 
-201:                                              ; preds = %164
-  br i1 %.not236, label %207, label %202
+202:                                              ; preds = %165
+  br i1 %.not236, label %208, label %203
 
-202:                                              ; preds = %201
-  store i32 0, ptr %62, align 8, !tbaa !185
-  store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %203 = load ptr, ptr %27, align 8, !tbaa !181
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %205 = load i32, ptr %204, align 4, !tbaa !204
-  %206 = tail call ptr @cmsCreateTransform(ptr noundef %203, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %205, i32 noundef 0) #17
-  store ptr %206, ptr %43, align 8, !tbaa !175
-  br label %207
+203:                                              ; preds = %202
+  store i32 0, ptr %63, align 8, !tbaa !185
+  store float 0x7FF8000000000000, ptr %56, align 64, !tbaa !121
+  %204 = load ptr, ptr %27, align 8, !tbaa !181
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 516
+  %206 = load i32, ptr %205, align 4, !tbaa !204
+  %207 = tail call ptr @cmsCreateTransform(ptr noundef %204, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %206, i32 noundef 0) #17
+  store ptr %207, ptr %44, align 8, !tbaa !175
+  br label %208
 
-207:                                              ; preds = %201, %202, %169, %dt_colormatrix_mul.exit
-  %208 = load ptr, ptr %33, align 16, !tbaa !128
-  %.not238 = icmp eq ptr %208, null
-  br i1 %.not238, label %226, label %209
+208:                                              ; preds = %202, %203, %170, %dt_colormatrix_mul.exit
+  %209 = load ptr, ptr %33, align 16, !tbaa !128
+  %.not238 = icmp eq ptr %209, null
+  br i1 %.not238, label %227, label %210
 
-209:                                              ; preds = %207
-  %210 = load ptr, ptr %47, align 32, !tbaa !173
-  %.not239 = icmp eq ptr %210, null
-  br i1 %.not239, label %211, label %215
+210:                                              ; preds = %208
+  %211 = load ptr, ptr %48, align 32, !tbaa !173
+  %.not239 = icmp eq ptr %211, null
+  br i1 %.not239, label %212, label %216
 
-211:                                              ; preds = %209
-  %212 = load float, ptr %56, align 64, !tbaa !121
-  %213 = call float @llvm.fabs.f32(float %212)
-  %214 = fcmp ueq float %213, 0x7FF0000000000000
-  br i1 %214, label %.thread267, label %215
+212:                                              ; preds = %210
+  %213 = load float, ptr %57, align 64, !tbaa !121
+  %214 = call float @llvm.fabs.f32(float %213)
+  %215 = fcmp ueq float %214, 0x7FF0000000000000
+  br i1 %215, label %.thread267, label %216
 
-215:                                              ; preds = %211, %209
-  %216 = load ptr, ptr %51, align 8, !tbaa !174
-  %.not241 = icmp eq ptr %216, null
-  br i1 %.not241, label %217, label %226
+216:                                              ; preds = %212, %210
+  %217 = load ptr, ptr %52, align 8, !tbaa !174
+  %.not241 = icmp eq ptr %217, null
+  br i1 %.not241, label %218, label %227
 
-217:                                              ; preds = %215
-  %218 = load float, ptr %57, align 64, !tbaa !121
-  %219 = call float @llvm.fabs.f32(float %218)
-  %220 = fcmp ueq float %219, 0x7FF0000000000000
-  br i1 %220, label %221, label %226
+218:                                              ; preds = %216
+  %219 = load float, ptr %58, align 64, !tbaa !121
+  %220 = call float @llvm.fabs.f32(float %219)
+  %221 = fcmp ueq float %220, 0x7FF0000000000000
+  br i1 %221, label %222, label %227
 
-221:                                              ; preds = %217
-  br i1 %.not239, label %.thread267, label %222
+222:                                              ; preds = %218
+  br i1 %.not239, label %.thread267, label %223
 
-222:                                              ; preds = %221
-  call void @cmsDeleteTransform(ptr noundef nonnull %210) #17
-  store ptr null, ptr %47, align 32, !tbaa !173
+223:                                              ; preds = %222
+  call void @cmsDeleteTransform(ptr noundef nonnull %211) #17
+  store ptr null, ptr %48, align 32, !tbaa !173
   br label %.thread267
 
-.thread267:                                       ; preds = %211, %222, %221
-  %223 = load ptr, ptr %51, align 8, !tbaa !174
-  %.not244 = icmp eq ptr %223, null
-  br i1 %.not244, label %225, label %224
+.thread267:                                       ; preds = %212, %223, %222
+  %224 = load ptr, ptr %52, align 8, !tbaa !174
+  %.not244 = icmp eq ptr %224, null
+  br i1 %.not244, label %226, label %225
 
-224:                                              ; preds = %.thread267
-  call void @cmsDeleteTransform(ptr noundef nonnull %223) #17
-  store ptr null, ptr %51, align 8, !tbaa !174
-  br label %225
-
-225:                                              ; preds = %224, %.thread267
-  store ptr null, ptr %33, align 16, !tbaa !128
+225:                                              ; preds = %.thread267
+  call void @cmsDeleteTransform(ptr noundef nonnull %224) #17
+  store ptr null, ptr %52, align 8, !tbaa !174
   br label %226
 
-226:                                              ; preds = %225, %217, %215, %207
-  %227 = load ptr, ptr %43, align 8, !tbaa !175
-  %.not245 = icmp eq ptr %227, null
-  br i1 %.not245, label %228, label %253
-
-228:                                              ; preds = %226
-  %229 = load float, ptr %55, align 64, !tbaa !121
-  %230 = call float @llvm.fabs.f32(float %229)
-  %231 = fcmp ueq float %230, 0x7FF0000000000000
-  br i1 %231, label %232, label %253
-
-232:                                              ; preds = %228
-  %233 = load i32, ptr %1, align 4, !tbaa !176
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %236
-
-235:                                              ; preds = %232
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, ptr noundef nonnull %19) #17
-  br label %237
-
-236:                                              ; preds = %232
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33) #17
-  br label %237
-
-237:                                              ; preds = %236, %235
-  %238 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #17
-  call void (ptr, ...) @dt_control_log(ptr noundef %238) #17
-  %239 = load ptr, ptr %27, align 8, !tbaa !181
-  %.not247 = icmp eq ptr %239, null
-  br i1 %.not247, label %243, label %240
-
-240:                                              ; preds = %237
-  %241 = load i32, ptr %12, align 64, !tbaa !182
-  %.not248 = icmp eq i32 %241, 0
-  br i1 %.not248, label %243, label %242
-
-242:                                              ; preds = %240
-  call void @dt_colorspaces_cleanup_profile(ptr noundef nonnull %239) #17
-  br label %243
-
-243:                                              ; preds = %242, %240, %237
+226:                                              ; preds = %225, %.thread267
   store ptr null, ptr %33, align 16, !tbaa !128
-  %244 = call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 1032
-  %246 = load ptr, ptr %245, align 8, !tbaa !180
-  store ptr %246, ptr %27, align 8, !tbaa !181
+  br label %227
+
+227:                                              ; preds = %226, %218, %216, %208
+  %228 = load ptr, ptr %44, align 8, !tbaa !175
+  %.not245 = icmp eq ptr %228, null
+  br i1 %.not245, label %229, label %254
+
+229:                                              ; preds = %227
+  %230 = load float, ptr %56, align 64, !tbaa !121
+  %231 = call float @llvm.fabs.f32(float %230)
+  %232 = fcmp ueq float %231, 0x7FF0000000000000
+  br i1 %232, label %233, label %254
+
+233:                                              ; preds = %229
+  %234 = load i32, ptr %1, align 4, !tbaa !176
+  %235 = icmp eq i32 %234, 0
+  br i1 %235, label %236, label %237
+
+236:                                              ; preds = %233
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, ptr noundef nonnull %19) #17
+  br label %238
+
+237:                                              ; preds = %233
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33) #17
+  br label %238
+
+238:                                              ; preds = %237, %236
+  %239 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #17
+  call void (ptr, ...) @dt_control_log(ptr noundef %239) #17
+  %240 = load ptr, ptr %27, align 8, !tbaa !181
+  %.not247 = icmp eq ptr %240, null
+  br i1 %.not247, label %244, label %241
+
+241:                                              ; preds = %238
+  %242 = load i32, ptr %12, align 64, !tbaa !182
+  %.not248 = icmp eq i32 %242, 0
+  br i1 %.not248, label %244, label %243
+
+243:                                              ; preds = %241
+  call void @dt_colorspaces_cleanup_profile(ptr noundef nonnull %240) #17
+  br label %244
+
+244:                                              ; preds = %243, %241, %238
+  store ptr null, ptr %33, align 16, !tbaa !128
+  %245 = call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 1032
+  %247 = load ptr, ptr %246, align 8, !tbaa !180
+  store ptr %247, ptr %27, align 8, !tbaa !181
   store i32 0, ptr %12, align 64, !tbaa !182
-  %247 = call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %246, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 65536) #17
-  %.not249 = icmp eq i32 %247, 0
-  br i1 %.not249, label %253, label %248
+  %248 = call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %247, ptr noundef nonnull %56, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, i32 noundef 65536) #17
+  %.not249 = icmp eq i32 %248, 0
+  br i1 %.not249, label %254, label %249
 
-248:                                              ; preds = %243
-  store i32 0, ptr %62, align 8, !tbaa !185
-  store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %249 = load ptr, ptr %27, align 8, !tbaa !181
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %251 = load i32, ptr %250, align 4, !tbaa !204
-  %252 = call ptr @cmsCreateTransform(ptr noundef %249, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %251, i32 noundef 0) #17
-  store ptr %252, ptr %43, align 8, !tbaa !175
-  br label %253
+249:                                              ; preds = %244
+  store i32 0, ptr %63, align 8, !tbaa !185
+  store float 0x7FF8000000000000, ptr %56, align 64, !tbaa !121
+  %250 = load ptr, ptr %27, align 8, !tbaa !181
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 516
+  %252 = load i32, ptr %251, align 4, !tbaa !204
+  %253 = call ptr @cmsCreateTransform(ptr noundef %250, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %252, i32 noundef 0) #17
+  store ptr %253, ptr %44, align 8, !tbaa !175
+  br label %254
 
-253:                                              ; preds = %243, %248, %228, %226
-  store i32 0, ptr %61, align 8, !tbaa !127
-  %254 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %255 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %256 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %257 = getelementptr inbounds nuw i8, ptr %12, i64 786688
-  br label %270
+254:                                              ; preds = %244, %249, %229, %227
+  store i32 0, ptr %62, align 8, !tbaa !127
+  %255 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 786688
+  br label %271
 
-258:                                              ; preds = %320
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %260 = load ptr, ptr %259, align 8, !tbaa !109
-  %261 = load ptr, ptr %68, align 8, !tbaa !122
-  %262 = load i32, ptr %17, align 16, !tbaa !179
-  %263 = call ptr @dt_ioppr_set_pipe_work_profile_info(ptr noundef %260, ptr noundef %261, i32 noundef %262, ptr noundef nonnull %21, i32 noundef 0) #17
-  %264 = load ptr, ptr %259, align 8, !tbaa !109
-  %265 = load ptr, ptr %68, align 8, !tbaa !122
-  %266 = load i32, ptr %14, align 4, !tbaa !26
-  %267 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %268 = load i32, ptr %267, align 4, !tbaa !204
-  %269 = call ptr @dt_ioppr_set_pipe_input_profile_info(ptr noundef %264, ptr noundef %265, i32 noundef %266, ptr noundef nonnull %18, i32 noundef %268, ptr noundef nonnull %55) #17
-  br label %321
+259:                                              ; preds = %321
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %261 = load ptr, ptr %260, align 8, !tbaa !109
+  %262 = load ptr, ptr %69, align 8, !tbaa !122
+  %263 = load i32, ptr %17, align 16, !tbaa !179
+  %264 = call ptr @dt_ioppr_set_pipe_work_profile_info(ptr noundef %261, ptr noundef %262, i32 noundef %263, ptr noundef nonnull %21, i32 noundef 0) #17
+  %265 = load ptr, ptr %260, align 8, !tbaa !109
+  %266 = load ptr, ptr %69, align 8, !tbaa !122
+  %267 = load i32, ptr %14, align 4, !tbaa !26
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 516
+  %269 = load i32, ptr %268, align 4, !tbaa !204
+  %270 = call ptr @dt_ioppr_set_pipe_input_profile_info(ptr noundef %265, ptr noundef %266, i32 noundef %267, ptr noundef nonnull %18, i32 noundef %269, ptr noundef nonnull %56) #17
+  br label %322
 
-270:                                              ; preds = %253, %320
-  %indvars.iv = phi i64 [ 0, %253 ], [ %indvars.iv.next, %320 ]
-  %271 = getelementptr inbounds nuw [65536 x float], ptr %58, i64 %indvars.iv
-  %272 = load float, ptr %271, align 16, !tbaa !121
-  %273 = fcmp reassoc nsz arcp contract afn ult float %272, 0.000000e+00
-  br i1 %273, label %318, label %274
+271:                                              ; preds = %254, %321
+  %indvars.iv = phi i64 [ 0, %254 ], [ %indvars.iv.next, %321 ]
+  %272 = getelementptr inbounds nuw [65536 x float], ptr %59, i64 %indvars.iv
+  %273 = load float, ptr %272, align 16, !tbaa !121
+  %274 = fcmp reassoc nsz arcp contract afn ult float %273, 0.000000e+00
+  br i1 %274, label %319, label %275
 
-274:                                              ; preds = %270
-  store i32 1, ptr %61, align 8, !tbaa !127
+275:                                              ; preds = %271
+  store i32 1, ptr %62, align 8, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %275 = getelementptr inbounds nuw i8, ptr %271, i64 183496
-  %276 = load float, ptr %275, align 4, !tbaa !121
-  %277 = getelementptr i8, ptr %271, i64 183500
-  %278 = load float, ptr %277, align 4, !tbaa !121
-  %279 = fsub reassoc nsz arcp contract afn float %278, %276
-  %280 = fmul reassoc nsz arcp contract afn float %279, 5.000000e-01
-  %281 = fadd reassoc nsz arcp contract afn float %280, %276
-  store float %281, ptr %10, align 16, !tbaa !121
-  %282 = getelementptr inbounds nuw i8, ptr %271, i64 209712
-  %283 = load float, ptr %282, align 4, !tbaa !121
-  %284 = getelementptr i8, ptr %271, i64 209716
-  %285 = load float, ptr %284, align 4, !tbaa !121
-  %286 = fsub reassoc nsz arcp contract afn float %285, %283
-  %287 = fmul reassoc nsz arcp contract afn float %286, 0.000000e+00
-  %288 = fadd reassoc nsz arcp contract afn float %287, %283
-  store float %288, ptr %254, align 4, !tbaa !121
-  %289 = getelementptr inbounds nuw i8, ptr %271, i64 235924
-  %290 = load float, ptr %289, align 4, !tbaa !121
-  %291 = getelementptr i8, ptr %271, i64 235928
-  %292 = load float, ptr %291, align 4, !tbaa !121
-  %293 = fsub reassoc nsz arcp contract afn float %292, %290
-  %294 = fmul reassoc nsz arcp contract afn float %293, 5.000000e-01
-  %295 = fadd reassoc nsz arcp contract afn float %294, %290
-  store float %295, ptr %255, align 8, !tbaa !121
-  %296 = getelementptr i8, ptr %271, i64 262140
-  %297 = load float, ptr %296, align 4, !tbaa !121
-  store float %297, ptr %256, align 4, !tbaa !121
-  %298 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %297
-  br label %299
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 183496
+  %277 = load float, ptr %276, align 4, !tbaa !121
+  %278 = getelementptr i8, ptr %272, i64 183500
+  %279 = load float, ptr %278, align 4, !tbaa !121
+  %280 = fsub reassoc nsz arcp contract afn float %279, %277
+  %281 = fmul reassoc nsz arcp contract afn float %280, 5.000000e-01
+  %282 = fadd reassoc nsz arcp contract afn float %281, %277
+  store float %282, ptr %10, align 16, !tbaa !121
+  %283 = getelementptr inbounds nuw i8, ptr %272, i64 209712
+  %284 = load float, ptr %283, align 4, !tbaa !121
+  %285 = getelementptr i8, ptr %272, i64 209716
+  %286 = load float, ptr %285, align 4, !tbaa !121
+  %287 = fsub reassoc nsz arcp contract afn float %286, %284
+  %288 = fmul reassoc nsz arcp contract afn float %287, 0.000000e+00
+  %289 = fadd reassoc nsz arcp contract afn float %288, %284
+  store float %289, ptr %255, align 4, !tbaa !121
+  %290 = getelementptr inbounds nuw i8, ptr %272, i64 235924
+  %291 = load float, ptr %290, align 4, !tbaa !121
+  %292 = getelementptr i8, ptr %272, i64 235928
+  %293 = load float, ptr %292, align 4, !tbaa !121
+  %294 = fsub reassoc nsz arcp contract afn float %293, %291
+  %295 = fmul reassoc nsz arcp contract afn float %294, 5.000000e-01
+  %296 = fadd reassoc nsz arcp contract afn float %295, %291
+  store float %296, ptr %256, align 8, !tbaa !121
+  %297 = getelementptr i8, ptr %272, i64 262140
+  %298 = load float, ptr %297, align 4, !tbaa !121
+  store float %298, ptr %257, align 4, !tbaa !121
+  %299 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %298
+  br label %300
 
-299:                                              ; preds = %312, %274
-  %indvars.iv.i250 = phi i64 [ 0, %274 ], [ %indvars.iv.next.i251, %312 ]
-  %.040.i = phi float [ 0.000000e+00, %274 ], [ %.1.i, %312 ]
-  %.03339.i = phi i32 [ 0, %274 ], [ %.134.i, %312 ]
-  %300 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i250
-  %301 = load float, ptr %300, align 4, !tbaa !121
-  %302 = fmul reassoc nsz arcp contract afn float %301, %298
-  %303 = fcmp reassoc nsz arcp contract afn ogt float %302, 0.000000e+00
-  br i1 %303, label %304, label %312
+300:                                              ; preds = %313, %275
+  %indvars.iv.i250 = phi i64 [ 0, %275 ], [ %indvars.iv.next.i251, %313 ]
+  %.040.i = phi float [ 0.000000e+00, %275 ], [ %.1.i, %313 ]
+  %.03339.i = phi i32 [ 0, %275 ], [ %.134.i, %313 ]
+  %301 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i250
+  %302 = load float, ptr %301, align 4, !tbaa !121
+  %303 = fmul reassoc nsz arcp contract afn float %302, %299
+  %304 = fcmp reassoc nsz arcp contract afn ogt float %303, 0.000000e+00
+  br i1 %304, label %305, label %313
 
-304:                                              ; preds = %299
-  %305 = getelementptr inbounds nuw float, ptr @__const.commit_params.x, i64 %indvars.iv.i250
-  %306 = load float, ptr %305, align 4, !tbaa !121
-  %307 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %302)
-  %308 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %306)
-  %309 = fdiv reassoc nsz arcp contract afn float %307, %308
-  %310 = fadd reassoc nsz arcp contract afn float %309, %.040.i
-  %311 = add nsw i32 %.03339.i, 1
-  br label %312
+305:                                              ; preds = %300
+  %306 = getelementptr inbounds nuw float, ptr @__const.commit_params.x, i64 %indvars.iv.i250
+  %307 = load float, ptr %306, align 4, !tbaa !121
+  %308 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %303)
+  %309 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %307)
+  %310 = fdiv reassoc nsz arcp contract afn float %308, %309
+  %311 = fadd reassoc nsz arcp contract afn float %310, %.040.i
+  %312 = add nsw i32 %.03339.i, 1
+  br label %313
 
-312:                                              ; preds = %304, %299
-  %.134.i = phi i32 [ %311, %304 ], [ %.03339.i, %299 ]
-  %.1.i = phi nsz float [ %310, %304 ], [ %.040.i, %299 ]
+313:                                              ; preds = %305, %300
+  %.134.i = phi i32 [ %312, %305 ], [ %.03339.i, %300 ]
+  %.1.i = phi nsz float [ %311, %305 ], [ %.040.i, %300 ]
   %indvars.iv.next.i251 = add nuw nsw i64 %indvars.iv.i250, 1
   %exitcond.not.i252 = icmp eq i64 %indvars.iv.next.i251, 3
-  br i1 %exitcond.not.i252, label %dt_iop_estimate_exp.exit, label %299
+  br i1 %exitcond.not.i252, label %dt_iop_estimate_exp.exit, label %300
 
-dt_iop_estimate_exp.exit:                         ; preds = %312
-  %313 = getelementptr inbounds nuw [3 x float], ptr %257, i64 %indvars.iv
+dt_iop_estimate_exp.exit:                         ; preds = %313
+  %314 = getelementptr inbounds nuw [3 x float], ptr %258, i64 %indvars.iv
   %.not.i = icmp eq i32 %.134.i, 0
-  %314 = sitofp i32 %.134.i to float
-  %315 = fdiv reassoc nsz arcp contract afn float %.1.i, %314
-  %.2.i = select nsz i1 %.not.i, float 1.000000e+00, float %315
-  store float 1.000000e+00, ptr %313, align 4, !tbaa !121
-  %316 = getelementptr inbounds nuw i8, ptr %313, i64 4
-  store float %297, ptr %316, align 4, !tbaa !121
-  %317 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  store float %.2.i, ptr %317, align 4, !tbaa !121
+  %315 = sitofp i32 %.134.i to float
+  %316 = fdiv reassoc nsz arcp contract afn float %.1.i, %315
+  %.2.i = select nsz i1 %.not.i, float 1.000000e+00, float %316
+  store float 1.000000e+00, ptr %314, align 4, !tbaa !121
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 4
+  store float %298, ptr %317, align 4, !tbaa !121
+  %318 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  store float %.2.i, ptr %318, align 4, !tbaa !121
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %320
+  br label %321
 
-318:                                              ; preds = %270
-  %319 = getelementptr inbounds nuw [3 x float], ptr %257, i64 %indvars.iv
-  store float -1.000000e+00, ptr %319, align 4, !tbaa !121
-  br label %320
+319:                                              ; preds = %271
+  %320 = getelementptr inbounds nuw [3 x float], ptr %258, i64 %indvars.iv
+  store float -1.000000e+00, ptr %320, align 4, !tbaa !121
+  br label %321
 
-320:                                              ; preds = %dt_iop_estimate_exp.exit, %318
+321:                                              ; preds = %dt_iop_estimate_exp.exit, %319
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %258, label %270
+  br i1 %exitcond.not, label %259, label %271
 
-321:                                              ; preds = %258, %151, %65
+322:                                              ; preds = %259, %152, %66
   ret void
 }
 

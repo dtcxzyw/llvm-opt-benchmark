@@ -7929,44 +7929,43 @@ define void @"_ZN89_$LT$uv_pep440..version_specifier..VersionSpecifiers$u20$as$u
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN88_$LT$uv_pep440..version_specifier..VersionSpecifier$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h034e9641355ea2c6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef nonnull initializes((0, 1), (8, 9)) %2, i64 noundef %3) unnamed_addr #2 {
-"_ZN9uv_pep4407version1_80_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..Operator$GT$7resolve17h110c6d41f03e2f08E.exit":
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i8, ptr %4, align 4, !range !465, !noundef !3
-  store i8 %5, ptr %2, align 1
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %1, align 4, !range !966, !noundef !3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load i8, ptr %5, align 4, !range !465, !noundef !3
+  store i8 %6, ptr %2, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = load i32, ptr %1, align 4, !range !966, !noundef !3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = load i32, ptr %9, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !967)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !970)
-  %trunc.i.i = trunc nuw i32 %7 to i1
-  br i1 %trunc.i.i, label %10, label %14
+  %trunc.i.i = trunc nuw i32 %8 to i1
+  br i1 %trunc.i.i, label %11, label %15
 
-10:                                               ; preds = %"_ZN9uv_pep4407version1_80_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..Operator$GT$7resolve17h110c6d41f03e2f08E.exit"
-  store i8 1, ptr %6, align 4, !noalias !973
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %12 = add i64 %3, 12
-  %13 = zext i32 %9 to i64
-  tail call void @"_ZN4rkyv7rel_ptr18RawRelPtr$LT$O$GT$11try_emplace17hc75e60298af64023E.llvm.4561438521817157030"(i64 noundef %13, ptr noundef nonnull %11, i64 noundef %12), !noalias !973
+11:                                               ; preds = %4
+  store i8 1, ptr %7, align 4, !noalias !973
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %13 = add i64 %3, 12
+  %14 = zext i32 %10 to i64
+  tail call void @"_ZN4rkyv7rel_ptr18RawRelPtr$LT$O$GT$11try_emplace17hc75e60298af64023E.llvm.4561438521817157030"(i64 noundef %14, ptr noundef nonnull %12, i64 noundef %13), !noalias !973
   br label %"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit"
 
-14:                                               ; preds = %"_ZN9uv_pep4407version1_80_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..Operator$GT$7resolve17h110c6d41f03e2f08E.exit"
-  store i8 0, ptr %6, align 8, !noalias !973
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+15:                                               ; preds = %4
+  store i8 0, ptr %7, align 8, !noalias !973
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i8, ptr %16, align 8, !alias.scope !977, !noundef !3
-  store i8 %17, ptr %15, align 8, !noalias !977
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load i64, ptr %0, align 8, !alias.scope !977, !noundef !3
-  store i64 %19, ptr %18, align 8, !noalias !977
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %22 = load i8, ptr %21, align 1, !range !978, !alias.scope !977, !noundef !3
-  store i8 %22, ptr %20, align 8, !noalias !977
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i8, ptr %17, align 8, !alias.scope !977, !noundef !3
+  store i8 %18, ptr %16, align 8, !noalias !977
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = load i64, ptr %0, align 8, !alias.scope !977, !noundef !3
+  store i64 %20, ptr %19, align 8, !noalias !977
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %23 = load i8, ptr %22, align 1, !range !978, !alias.scope !977, !noundef !3
+  store i8 %23, ptr %21, align 8, !noalias !977
   br label %"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit"
 
-"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit": ; preds = %10, %14
+"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E.exit": ; preds = %11, %15
   ret void
 }
 

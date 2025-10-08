@@ -6850,10 +6850,10 @@ define internal fastcc void @_ZN4just13compile_error10capitalize17h49501378fff1b
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1052
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1052
-  %narrow = sub nuw nsw i32 1114114, %..i
-  %narrow28 = select i1 %50, i32 %narrow, i32 3
-  %switch.offset = zext nneg i32 %narrow28 to i64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h1c5047de917c247fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0, i64 noundef %switch.offset)
+  %narrow.i.i.i = sub nuw nsw i32 1114114, %..i
+  %narrow3.i.i.i = select i1 %50, i32 %narrow.i.i.i, i32 3
+  %switch.offset.i.i.i = zext nneg i32 %narrow3.i.i.i to i64
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h1c5047de917c247fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0, i64 noundef %switch.offset.i.i.i)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7a2752b7ca1ba8e4E.exit.i.i" unwind label %52, !noalias !1052
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7a2752b7ca1ba8e4E.exit.i.i": ; preds = %.thread19

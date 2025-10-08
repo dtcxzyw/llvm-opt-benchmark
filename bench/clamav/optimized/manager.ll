@@ -1760,8 +1760,8 @@ switch.lookup:                                    ; preds = %834
   %switch.offset = add nuw nsw i32 %switch.idx.mult, 1024
   br label %840
 
-840:                                              ; preds = %switch.lookup, %829
-  %.sink630 = phi i32 [ 1024, %829 ], [ %switch.offset, %switch.lookup ]
+840:                                              ; preds = %829, %switch.lookup
+  %.sink630 = phi i32 [ %switch.offset, %switch.lookup ], [ 1024, %829 ]
   %841 = load i32, ptr %827, align 4, !tbaa !29
   %842 = or i32 %841, %.sink630
   store i32 %842, ptr %827, align 4, !tbaa !29

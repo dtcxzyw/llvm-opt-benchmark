@@ -205,15 +205,15 @@ define dso_local range(i32 0, 5) i32 @LLVMGetComdatSelectionKind(ptr noundef rea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @LLVMSetComdatSelectionKind(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
-  %switch = icmp ult i32 %1, 5
-  br i1 %switch, label %.sink.split, label %4
+  %3 = icmp ult i32 %1, 5
+  br i1 %3, label %.sink.split, label %5
 
 .sink.split:                                      ; preds = %2
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %3, align 8, !tbaa !15
-  br label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %4, align 8, !tbaa !15
+  br label %5
 
-4:                                                ; preds = %2, %.sink.split
+5:                                                ; preds = %2, %.sink.split
   ret void
 }
 

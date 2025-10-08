@@ -5341,39 +5341,32 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter8comments16has_skip_
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i"
-  %6 = phi ptr [ %7, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i" ], [ %0, %4 ]
+.lr.ph.i:                                         ; preds = %4, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i"
+  %6 = phi ptr [ %7, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i" ], [ %0, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %9 = load i8, ptr %8, align 1, !range !495, !noalias !672, !noundef !3
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %10), !noalias !672
-  br i1 %11, label %12, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i"
+  br i1 %11, label %switch.lookup.i.i, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i"
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code10SourceCode3new17h16f0722f0a5db9ccE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !672
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code15SourceCodeSlice4text17hf1c4694c8859ad5dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %15), !noalias !672
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = tail call noundef i8 @_ZN18ruff_python_trivia8comments15SuppressionKind12from_comment17h91d5ce2da936ad9bE(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18), !noalias !672
-  switch i8 %19, label %default.unreachable [
-    i8 3, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i"
-    i8 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit"
-    i8 2, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit"
-    i8 1, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i"
-  ]
+switch.lookup.i.i:                                ; preds = %.lr.ph.i
+  %12 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code10SourceCode3new17h16f0722f0a5db9ccE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !672
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code15SourceCodeSlice4text17hf1c4694c8859ad5dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14), !noalias !672
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = extractvalue { ptr, i64 } %15, 1
+  %18 = tail call noundef i8 @_ZN18ruff_python_trivia8comments15SuppressionKind12from_comment17h91d5ce2da936ad9bE(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %17), !noalias !672
+  %switch.idx.cast.i.i = trunc i8 %18 to i1
+  br i1 %switch.idx.cast.i.i, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit"
 
-default.unreachable:                              ; preds = %12
-  unreachable
+"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i": ; preds = %switch.lookup.i.i, %.lr.ph.i
+  %.not12.i = icmp eq ptr %7, %5
+  br i1 %.not12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit", label %.lr.ph.i
 
-"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i": ; preds = %12, %12, %.lr.ph.i
-  %.not17.i = icmp eq ptr %7, %5
-  br i1 %.not17.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit", label %.lr.ph.i
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit": ; preds = %12, %12, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i", %4
-  %.lcssa.i = phi i1 [ false, %4 ], [ false, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i" ], [ true, %12 ], [ true, %12 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc6275be41a932351E.exit": ; preds = %switch.lookup.i.i, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i", %4
+  %.lcssa.i = phi i1 [ false, %4 ], [ false, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i" ], [ true, %switch.lookup.i.i ]
   ret i1 %.lcssa.i
 }
 
@@ -6153,39 +6146,32 @@ define noundef zeroext i1 @"_ZN173_$LT$ruff_python_formatter..statement..stmt_co
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %4, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i"
-  %9 = phi ptr [ %10, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i" ], [ %1, %4 ]
+.lr.ph.i.i:                                       ; preds = %4, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i"
+  %9 = phi ptr [ %10, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i" ], [ %1, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %12 = load i8, ptr %11, align 1, !range !495, !noalias !772, !noundef !3
   %13 = trunc nuw i8 %12 to i1
   %14 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %13), !noalias !777
-  br i1 %14, label %15, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i"
+  br i1 %14, label %switch.lookup.i.i.i, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i"
 
-15:                                               ; preds = %.lr.ph.i.i
-  %16 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code10SourceCode3new17h16f0722f0a5db9ccE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7), !noalias !777
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code15SourceCodeSlice4text17hf1c4694c8859ad5dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18), !noalias !777
-  %20 = extractvalue { ptr, i64 } %19, 0
-  %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = tail call noundef i8 @_ZN18ruff_python_trivia8comments15SuppressionKind12from_comment17h91d5ce2da936ad9bE(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21), !noalias !777
-  switch i8 %22, label %default.unreachable [
-    i8 3, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i"
-    i8 0, label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit
-    i8 2, label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit
-    i8 1, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i"
-  ]
+switch.lookup.i.i.i:                              ; preds = %.lr.ph.i.i
+  %15 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code10SourceCode3new17h16f0722f0a5db9ccE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7), !noalias !777
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = extractvalue { ptr, i64 } %15, 1
+  %18 = tail call { ptr, i64 } @_ZN14ruff_formatter11source_code15SourceCodeSlice4text17hf1c4694c8859ad5dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %17), !noalias !777
+  %19 = extractvalue { ptr, i64 } %18, 0
+  %20 = extractvalue { ptr, i64 } %18, 1
+  %21 = tail call noundef i8 @_ZN18ruff_python_trivia8comments15SuppressionKind12from_comment17h91d5ce2da936ad9bE(ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20), !noalias !777
+  %switch.idx.cast.i.i.i = trunc i8 %21 to i1
+  br i1 %switch.idx.cast.i.i.i, label %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i", label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit
 
-default.unreachable:                              ; preds = %15
-  unreachable
+"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i": ; preds = %switch.lookup.i.i.i, %.lr.ph.i.i
+  %.not12.i.i = icmp eq ptr %10, %8
+  br i1 %.not12.i.i, label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit, label %.lr.ph.i.i
 
-"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i": ; preds = %15, %15, %.lr.ph.i.i
-  %.not17.i.i = icmp eq ptr %10, %8
-  br i1 %.not17.i.i, label %_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit, label %.lr.ph.i.i
-
-_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit: ; preds = %15, %15, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i", %4
-  %.lcssa.i.i = phi i1 [ false, %4 ], [ true, %15 ], [ true, %15 ], [ false, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.i.i" ]
+_ZN21ruff_python_formatter8comments16has_skip_comment17h10747ebfcada4d9dE.exit: ; preds = %switch.lookup.i.i.i, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i", %4
+  %.lcssa.i.i = phi i1 [ false, %4 ], [ true, %switch.lookup.i.i.i ], [ false, %"_ZN21ruff_python_formatter8comments16has_skip_comment28_$u7b$$u7b$closure$u7d$$u7d$17h28b1d137ca18d5aaE.exit.backedge.i.i" ]
   ret i1 %.lcssa.i.i
 }
 

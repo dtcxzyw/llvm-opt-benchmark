@@ -2028,11 +2028,10 @@ define hidden void @"_ZN191_$LT$uv_pypi_types..conflicts.._..$LT$impl$u20$serde.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN191_$LT$uv_pypi_types..conflicts.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..conflicts..ConflictItemWire$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h151efa4df11e23beE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i64 noundef %1) unnamed_addr #5 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -3299,11 +3298,10 @@ define hidden void @"_ZN216_$LT$uv_distribution_types..requirement.._..$LT$impl$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN216_$LT$uv_distribution_types..requirement.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_distribution_types..requirement..RequirementSourceWire$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc8c17317ec94facaE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i64 noundef %1) unnamed_addr #5 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -9014,10 +9012,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h4bedc3398ab30235E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h581b7193167ee2e6E(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i8 noundef %1) unnamed_addr #5 {
-"_ZN216_$LT$uv_distribution_types..requirement.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_distribution_types..requirement..RequirementSourceWire$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc8c17317ec94facaE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8, !alias.scope !1591
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 8, !alias.scope !1591
   store i64 2, ptr %0, align 8, !alias.scope !1591
   ret void
 }
@@ -9112,10 +9109,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hbed350e4b9a91a2dE(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hc693ea6daeea2c54E(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i8 noundef %1) unnamed_addr #5 {
-"_ZN191_$LT$uv_pypi_types..conflicts.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..conflicts..ConflictItemWire$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h151efa4df11e23beE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8, !alias.scope !1612
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 8, !alias.scope !1612
   store i64 2, ptr %0, align 8, !alias.scope !1612
   ret void
 }

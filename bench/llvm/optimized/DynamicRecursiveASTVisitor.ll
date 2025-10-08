@@ -11521,20 +11521,20 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
   %9 = icmp ult i8 %8, 58
-  br i1 %9, label %switch.lookup, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseTypeENS_8QualTypeE.exit
+  br i1 %9, label %switch.lookup.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseTypeENS_8QualTypeE.exit
 
-switch.lookup:                                    ; preds = %3
-  %switch.idx.cast = zext nneg i8 %8 to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
+switch.lookup.i:                                  ; preds = %3
+  %switch.idx.cast.i = zext nneg i8 %8 to i64
+  %switch.idx.mult.i = shl nuw nsw i64 %switch.idx.cast.i, 3
   %10 = load ptr, ptr %0, align 8, !tbaa !376
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.idx.mult
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.idx.mult.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6008
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %6) #17
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseTypeENS_8QualTypeE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseTypeENS_8QualTypeE.exit: ; preds = %3, %2, %switch.lookup
-  %.0.i = phi i1 [ true, %2 ], [ true, %3 ], [ %14, %switch.lookup ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseTypeENS_8QualTypeE.exit: ; preds = %2, %3, %switch.lookup.i
+  %.0.i = phi i1 [ true, %2 ], [ true, %3 ], [ %14, %switch.lookup.i ]
   ret i1 %.0.i
 }
 
@@ -11937,12 +11937,12 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE16dataTraverseNodeEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 511
-  %switch.tableidx = add nsw i16 %4, -1
-  %5 = icmp ult i16 %switch.tableidx, 256
-  br i1 %5, label %switch.lookup, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
+  %switch.tableidx.i = add nsw i16 %4, -1
+  %5 = icmp ult i16 %switch.tableidx.i, 256
+  br i1 %5, label %switch.lookup.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
 
-switch.lookup:                                    ; preds = %2
-  %6 = shl nuw nsw i16 %switch.tableidx, 3
+switch.lookup.i:                                  ; preds = %2
+  %6 = shl nuw nsw i16 %switch.tableidx.i, 3
   %7 = load ptr, ptr %0, align 8, !tbaa !376
   %8 = zext nneg i16 %6 to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
@@ -11951,8 +11951,8 @@ switch.lookup:                                    ; preds = %2
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i1 [ true, %2 ], [ %12, %switch.lookup ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit: ; preds = %2, %switch.lookup.i
+  %.0.i = phi i1 [ true, %2 ], [ %12, %switch.lookup.i ]
   ret i1 %.0.i
 }
 
@@ -86909,20 +86909,20 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
   %9 = icmp ult i8 %8, 58
-  br i1 %9, label %switch.lookup, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseTypeENS_8QualTypeE.exit
+  br i1 %9, label %switch.lookup.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseTypeENS_8QualTypeE.exit
 
-switch.lookup:                                    ; preds = %3
-  %switch.idx.cast = zext nneg i8 %8 to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
+switch.lookup.i:                                  ; preds = %3
+  %switch.idx.cast.i = zext nneg i8 %8 to i64
+  %switch.idx.mult.i = shl nuw nsw i64 %switch.idx.cast.i, 3
   %10 = load ptr, ptr %0, align 8, !tbaa !376
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.idx.mult
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.idx.mult.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6008
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %6) #17
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseTypeENS_8QualTypeE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseTypeENS_8QualTypeE.exit: ; preds = %3, %2, %switch.lookup
-  %.0.i = phi i1 [ true, %2 ], [ true, %3 ], [ %14, %switch.lookup ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseTypeENS_8QualTypeE.exit: ; preds = %2, %3, %switch.lookup.i
+  %.0.i = phi i1 [ true, %2 ], [ true, %3 ], [ %14, %switch.lookup.i ]
   ret i1 %.0.i
 }
 
@@ -87325,12 +87325,12 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE16dataTraverseNodeEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 511
-  %switch.tableidx = add nsw i16 %4, -1
-  %5 = icmp ult i16 %switch.tableidx, 256
-  br i1 %5, label %switch.lookup, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
+  %switch.tableidx.i = add nsw i16 %4, -1
+  %5 = icmp ult i16 %switch.tableidx.i, 256
+  br i1 %5, label %switch.lookup.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
 
-switch.lookup:                                    ; preds = %2
-  %6 = shl nuw nsw i16 %switch.tableidx, 3
+switch.lookup.i:                                  ; preds = %2
+  %6 = shl nuw nsw i16 %switch.tableidx.i, 3
   %7 = load ptr, ptr %0, align 8, !tbaa !376
   %8 = zext nneg i16 %6 to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
@@ -87339,8 +87339,8 @@ switch.lookup:                                    ; preds = %2
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i1 [ true, %2 ], [ %12, %switch.lookup ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE.exit: ; preds = %2, %switch.lookup.i
+  %.0.i = phi i1 [ true, %2 ], [ %12, %switch.lookup.i ]
   ret i1 %.0.i
 }
 

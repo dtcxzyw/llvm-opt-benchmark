@@ -206351,15 +206351,15 @@ l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith
 
 ; Function Attrs: nounwind uwtable
 define ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3(i8 noundef zeroext %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
-  %switch = icmp ult i8 %0, 3
-  br i1 %switch, label %lean_dec.exit.sink.split, label %lean_dec.exit
+  %4 = icmp ult i8 %0, 3
+  br i1 %4, label %lean_dec.exit.sink.split, label %lean_dec.exit
 
 lean_dec.exit.sink.split:                         ; preds = %3
-  %4 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %0, ptr noundef %1, ptr nonnull poison)
+  %5 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %0, ptr noundef %1, ptr nonnull poison)
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %3, %lean_dec.exit.sink.split
-  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %3 ], [ %4, %lean_dec.exit.sink.split ]
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %3 ], [ %5, %lean_dec.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -206458,79 +206458,79 @@ lean_dec.exit25:                                  ; preds = %39, %38, %36, %lean
   %40 = load ptr, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___closed__3, align 8, !tbaa !9
   %41 = tail call zeroext i8 @lean_name_eq(ptr noundef %24, ptr noundef %40) #7
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %52
+  br i1 %42, label %43, label %53
 
 43:                                               ; preds = %lean_dec.exit25
-  %switch = icmp ult i8 %1, 3
-  br i1 %switch, label %lean_dec.exit.sink.split.i, label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
+  %44 = icmp ult i8 %1, 3
+  br i1 %44, label %lean_dec.exit.sink.split.i, label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
 
 lean_dec.exit.sink.split.i:                       ; preds = %43
-  %44 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %1, ptr noundef %24, ptr nonnull poison)
+  %45 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %1, ptr noundef %24, ptr nonnull poison)
   br label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
 
 l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit: ; preds = %43, %lean_dec.exit.sink.split.i
-  %.0.i39 = phi ptr [ inttoptr (i64 1 to ptr), %43 ], [ %44, %lean_dec.exit.sink.split.i ]
-  br i1 %.not, label %45, label %lean_dec.exit24
+  %.0.i39 = phi ptr [ inttoptr (i64 1 to ptr), %43 ], [ %45, %lean_dec.exit.sink.split.i ]
+  br i1 %.not, label %46, label %lean_dec.exit24
 
-45:                                               ; preds = %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
-  %46 = load i32, ptr %24, align 4, !tbaa !4
-  %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %48, label %50, !prof !11
+46:                                               ; preds = %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
+  %47 = load i32, ptr %24, align 4, !tbaa !4
+  %48 = icmp sgt i32 %47, 1
+  br i1 %48, label %49, label %51, !prof !11
 
-48:                                               ; preds = %45
-  %49 = add nsw i32 %46, -1
-  store i32 %49, ptr %24, align 4, !tbaa !4
+49:                                               ; preds = %46
+  %50 = add nsw i32 %47, -1
+  store i32 %50, ptr %24, align 4, !tbaa !4
   br label %lean_dec.exit24
 
-50:                                               ; preds = %45
-  %.not.i26 = icmp eq i32 %46, 0
-  br i1 %.not.i26, label %lean_dec.exit24, label %51
+51:                                               ; preds = %46
+  %.not.i26 = icmp eq i32 %47, 0
+  br i1 %.not.i26, label %lean_dec.exit24, label %52
 
-51:                                               ; preds = %50
+52:                                               ; preds = %51
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %24) #7
   br label %lean_dec.exit24
 
-52:                                               ; preds = %lean_dec.exit25
-  br i1 %.not, label %53, label %lean_dec.exit24
+53:                                               ; preds = %lean_dec.exit25
+  br i1 %.not, label %54, label %lean_dec.exit24
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %24, align 4, !tbaa !4
-  %55 = icmp sgt i32 %54, 1
-  br i1 %55, label %56, label %58, !prof !11
+54:                                               ; preds = %53
+  %55 = load i32, ptr %24, align 4, !tbaa !4
+  %56 = icmp sgt i32 %55, 1
+  br i1 %56, label %57, label %59, !prof !11
 
-56:                                               ; preds = %53
-  %57 = add nsw i32 %54, -1
-  store i32 %57, ptr %24, align 4, !tbaa !4
+57:                                               ; preds = %54
+  %58 = add nsw i32 %55, -1
+  store i32 %58, ptr %24, align 4, !tbaa !4
   br label %lean_dec.exit24
 
-58:                                               ; preds = %53
-  %.not.i28 = icmp eq i32 %54, 0
-  br i1 %.not.i28, label %lean_dec.exit24, label %59
+59:                                               ; preds = %54
+  %.not.i28 = icmp eq i32 %55, 0
+  br i1 %.not.i28, label %lean_dec.exit24, label %60
 
-59:                                               ; preds = %58
+60:                                               ; preds = %59
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %24) #7
   br label %lean_dec.exit24
 
 .thread:                                          ; preds = %lean_obj_tag.exit36.thread
-  %60 = load i32, ptr %15, align 4, !tbaa !4
-  %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %62, label %64, !prof !11
+  %61 = load i32, ptr %15, align 4, !tbaa !4
+  %62 = icmp sgt i32 %61, 1
+  br i1 %62, label %63, label %65, !prof !11
 
-62:                                               ; preds = %.thread
-  %63 = add nsw i32 %60, -1
-  store i32 %63, ptr %15, align 4, !tbaa !4
+63:                                               ; preds = %.thread
+  %64 = add nsw i32 %61, -1
+  store i32 %64, ptr %15, align 4, !tbaa !4
   br label %lean_dec.exit24
 
-64:                                               ; preds = %.thread
-  %.not.i30 = icmp eq i32 %60, 0
-  br i1 %.not.i30, label %lean_dec.exit24, label %65
+65:                                               ; preds = %.thread
+  %.not.i30 = icmp eq i32 %61, 0
+  br i1 %.not.i30, label %lean_dec.exit24, label %66
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %15) #7
   br label %lean_dec.exit24
 
-lean_dec.exit24:                                  ; preds = %lean_obj_tag.exit36, %62, %64, %65, %52, %56, %58, %59, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit, %48, %50, %51, %lean_obj_tag.exit
-  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ %.0.i39, %51 ], [ %.0.i39, %50 ], [ %.0.i39, %48 ], [ %.0.i39, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit ], [ inttoptr (i64 3 to ptr), %59 ], [ inttoptr (i64 3 to ptr), %58 ], [ inttoptr (i64 3 to ptr), %56 ], [ inttoptr (i64 3 to ptr), %52 ], [ inttoptr (i64 1 to ptr), %65 ], [ inttoptr (i64 1 to ptr), %64 ], [ inttoptr (i64 1 to ptr), %62 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit36 ]
+lean_dec.exit24:                                  ; preds = %lean_obj_tag.exit36, %63, %65, %66, %53, %57, %59, %60, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit, %49, %51, %52, %lean_obj_tag.exit
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ %.0.i39, %52 ], [ %.0.i39, %51 ], [ %.0.i39, %49 ], [ %.0.i39, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit ], [ inttoptr (i64 3 to ptr), %60 ], [ inttoptr (i64 3 to ptr), %59 ], [ inttoptr (i64 3 to ptr), %57 ], [ inttoptr (i64 3 to ptr), %53 ], [ inttoptr (i64 1 to ptr), %66 ], [ inttoptr (i64 1 to ptr), %65 ], [ inttoptr (i64 1 to ptr), %63 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit36 ]
   ret ptr %.0
 }
 
@@ -206761,63 +206761,63 @@ define ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta
   br label %lean_dec.exit8
 
 lean_dec.exit8:                                   ; preds = %14, %13, %11, %3
-  %switch = icmp ult i8 %6, 3
-  br i1 %switch, label %lean_dec.exit.sink.split.i, label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
+  %15 = icmp ult i8 %6, 3
+  br i1 %15, label %lean_dec.exit.sink.split.i, label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
 
 lean_dec.exit.sink.split.i:                       ; preds = %lean_dec.exit8
-  %15 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %6, ptr noundef %1, ptr nonnull poison)
+  %16 = tail call ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__2(i8 noundef zeroext %6, ptr noundef %1, ptr nonnull poison)
   br label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
 
 l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit: ; preds = %lean_dec.exit8, %lean_dec.exit.sink.split.i
-  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %lean_dec.exit8 ], [ %15, %lean_dec.exit.sink.split.i ]
-  %16 = ptrtoint ptr %2 to i64
-  %17 = and i64 %16, 1
-  %.not13 = icmp eq i64 %17, 0
-  br i1 %.not13, label %18, label %lean_dec.exit7
+  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %lean_dec.exit8 ], [ %16, %lean_dec.exit.sink.split.i ]
+  %17 = ptrtoint ptr %2 to i64
+  %18 = and i64 %17, 1
+  %.not13 = icmp eq i64 %18, 0
+  br i1 %.not13, label %19, label %lean_dec.exit7
 
-18:                                               ; preds = %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
-  %19 = load i32, ptr %2, align 4, !tbaa !4
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !11
+19:                                               ; preds = %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
+  %20 = load i32, ptr %2, align 4, !tbaa !4
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !11
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %2, align 4, !tbaa !4
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %2, align 4, !tbaa !4
   br label %lean_dec.exit7
 
-23:                                               ; preds = %18
-  %.not.i9 = icmp eq i32 %19, 0
-  br i1 %.not.i9, label %lean_dec.exit7, label %24
+24:                                               ; preds = %19
+  %.not.i9 = icmp eq i32 %20, 0
+  br i1 %.not.i9, label %lean_dec.exit7, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #7
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %24, %23, %21, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
-  %25 = ptrtoint ptr %1 to i64
-  %26 = and i64 %25, 1
-  %.not14 = icmp eq i64 %26, 0
-  br i1 %.not14, label %27, label %lean_dec.exit
+lean_dec.exit7:                                   ; preds = %25, %24, %22, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_isForbiddenParent___lambda__3.exit
+  %26 = ptrtoint ptr %1 to i64
+  %27 = and i64 %26, 1
+  %.not14 = icmp eq i64 %27, 0
+  br i1 %.not14, label %28, label %lean_dec.exit
 
-27:                                               ; preds = %lean_dec.exit7
-  %28 = load i32, ptr %1, align 4, !tbaa !4
-  %29 = icmp sgt i32 %28, 1
-  br i1 %29, label %30, label %32, !prof !11
+28:                                               ; preds = %lean_dec.exit7
+  %29 = load i32, ptr %1, align 4, !tbaa !4
+  %30 = icmp sgt i32 %29, 1
+  br i1 %30, label %31, label %33, !prof !11
 
-30:                                               ; preds = %27
-  %31 = add nsw i32 %28, -1
-  store i32 %31, ptr %1, align 4, !tbaa !4
+31:                                               ; preds = %28
+  %32 = add nsw i32 %29, -1
+  store i32 %32, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-32:                                               ; preds = %27
-  %.not.i11 = icmp eq i32 %28, 0
-  br i1 %.not.i11, label %lean_dec.exit, label %33
+33:                                               ; preds = %28
+  %.not.i11 = icmp eq i32 %29, 0
+  br i1 %.not.i11, label %lean_dec.exit, label %34
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %33, %32, %30, %lean_dec.exit7
+lean_dec.exit:                                    ; preds = %34, %33, %31, %lean_dec.exit7
   ret ptr %.0.i
 }
 

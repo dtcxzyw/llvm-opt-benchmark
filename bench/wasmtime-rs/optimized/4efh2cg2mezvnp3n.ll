@@ -2439,8 +2439,8 @@ common.resume:                                    ; preds = %.body, %19
   %.sroa.7.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %46
 
-43:                                               ; preds = %55, %44
-  %.pn.i.i = phi { ptr, i32 } [ %45, %44 ], [ %56, %55 ]
+43:                                               ; preds = %50, %44
+  %.pn.i.i = phi { ptr, i32 } [ %45, %44 ], [ %51, %50 ]
   invoke void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ede1e5e09c98f70E.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
           to label %.body unwind label %73
 
@@ -2457,25 +2457,25 @@ common.resume:                                    ; preds = %.body, %19
   %.sroa.47.0..0.5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.47.0..0.5.sroa_idx.i.i, i64 16, i1 false)
   %49 = icmp eq ptr %.sroa.06.0.copyload.i.i, null
-  br i1 %49, label %_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E.exit.i, label %50
+  br i1 %49, label %_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E.exit.i, label %52
 
-50:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !286
-  store ptr %.sroa.06.0.copyload.i.i, ptr %2, align 8, !noalias !286
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i.i, i64 16, i1 false), !noalias !286
-  %51 = load i64, ptr %.sroa.7.0..sroa_idx2.i.i, align 8, !noalias !286, !noundef !14
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i.i, i64 24
-  %53 = cmpxchg ptr %52, i64 0, i64 %51 acq_rel acquire, align 8
-  %54 = extractvalue { i64, i1 } %53, 1
-  br i1 %54, label %57, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i
-
-55:                                               ; preds = %64
-  %56 = landingpad { ptr, i32 }
+50:                                               ; preds = %64
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h8fad558ac016d3f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #32
           to label %43 unwind label %73
 
-57:                                               ; preds = %50
+52:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !286
+  store ptr %.sroa.06.0.copyload.i.i, ptr %2, align 8, !noalias !286
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i.i, i64 16, i1 false), !noalias !286
+  %53 = load i64, ptr %.sroa.7.0..sroa_idx2.i.i, align 8, !noalias !286, !noundef !14
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload.i.i, i64 24
+  %55 = cmpxchg ptr %54, i64 0, i64 %53 acq_rel acquire, align 8
+  %56 = extractvalue { i64, i1 } %55, 1
+  br i1 %56, label %57, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i
+
+57:                                               ; preds = %52
   %58 = load ptr, ptr %2, align 8, !noalias !286, !nonnull !14, !noundef !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !nonnull !14, !noundef !14
@@ -2486,9 +2486,9 @@ common.resume:                                    ; preds = %.body, %19
 
 64:                                               ; preds = %57
   %65 = invoke noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wake17h2580e9e9c620c48dE(ptr noundef nonnull align 4 %61)
-          to label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i unwind label %55
+          to label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i unwind label %50
 
-_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i: ; preds = %64, %57, %50
+_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i: ; preds = %64, %57, %52
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
@@ -2515,7 +2515,7 @@ _ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit
   %72 = icmp eq ptr %71, %70
   br i1 %72, label %_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E.exit.i, label %46
 
-73:                                               ; preds = %55, %43
+73:                                               ; preds = %50, %43
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
@@ -2527,16 +2527,16 @@ _ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E.exit.i: ; preds = %"_ZN
           to label %89 unwind label %.loopexit.split-lp
 
 .lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3e593b3256beb470E.exit", %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i
-  %.sroa.0.012.i = phi ptr [ %75, %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i ], [ %26, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3e593b3256beb470E.exit" ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 24
-  %.val.i = load ptr, ptr %.sroa.0.012.i, align 8, !noalias !275, !nonnull !14, !noundef !14
+  %.sroa.0.010.i = phi ptr [ %75, %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i ], [ %26, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3e593b3256beb470E.exit" ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 24
+  %.val.i = load ptr, ptr %.sroa.0.010.i, align 8, !noalias !275, !nonnull !14, !noundef !14
   %76 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %77 = cmpxchg ptr %76, i64 0, i64 2 acq_rel acquire, align 8, !noalias !275
   %78 = extractvalue { i64, i1 } %77, 1
   br i1 %78, label %79, label %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i
 
 79:                                               ; preds = %.lr.ph.i
-  %80 = load ptr, ptr %.sroa.0.012.i, align 8, !noalias !275, !nonnull !14, !noundef !14
+  %80 = load ptr, ptr %.sroa.0.010.i, align 8, !noalias !275, !nonnull !14, !noundef !14
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !noalias !275, !nonnull !14, !noundef !14
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40

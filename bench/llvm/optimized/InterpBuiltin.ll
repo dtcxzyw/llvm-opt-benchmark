@@ -1197,11 +1197,11 @@ _ZNK5clang6interp8FloatingleES1_.exit.i.i:        ; preds = %349, %347
 
 360:                                              ; preds = %358
   %361 = tail call noundef i32 @_ZNK4llvm6detail9IEEEFloat7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %289, ptr noundef nonnull align 8 dereferenceable(24) %283) #20
-  br label %switch.lookup
+  br label %switch.lookup.i.i
 
 362:                                              ; preds = %358
   %363 = tail call noundef i32 @_ZNK4llvm6detail13DoubleAPFloat7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %289, ptr noundef nonnull align 8 dereferenceable(24) %283) #20
-  br label %switch.lookup
+  br label %switch.lookup.i.i
 
 364:                                              ; preds = %280
   %365 = load ptr, ptr %289, align 8, !tbaa !62
@@ -1224,14 +1224,14 @@ _ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i:     ; preds = %368, %366
 371:                                              ; preds = %280
   unreachable
 
-switch.lookup:                                    ; preds = %360, %362
+switch.lookup.i.i:                                ; preds = %362, %360
   %.0.i.i.i.i = phi i32 [ %361, %360 ], [ %363, %362 ]
-  %switch.idx.cast = trunc i32 %.0.i.i.i.i to i1
-  %switch.offset = xor i1 %switch.idx.cast, true
+  %switch.idx.cast.i.i = trunc i32 %.0.i.i.i.i to i1
+  %switch.offset.i.i = xor i1 %switch.idx.cast.i.i, true
   br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
 
-_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %switch.lookup, %304, %305, %308, %321, %322, %325, %337, %338, %341, %353, %354, %357, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i
-  %.0.i.i = phi i1 [ %302, %304 ], [ %319, %321 ], [ %335, %337 ], [ %351, %353 ], [ %370, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i ], [ %302, %308 ], [ %302, %305 ], [ %319, %325 ], [ %319, %322 ], [ %335, %341 ], [ %335, %338 ], [ %351, %357 ], [ %351, %354 ], [ %switch.offset, %switch.lookup ]
+_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %304, %305, %308, %321, %322, %325, %337, %338, %341, %353, %354, %357, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i, %switch.lookup.i.i
+  %.0.i.i = phi i1 [ %302, %304 ], [ %319, %321 ], [ %335, %337 ], [ %351, %353 ], [ %370, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i ], [ %302, %308 ], [ %302, %305 ], [ %319, %325 ], [ %319, %322 ], [ %335, %341 ], [ %335, %338 ], [ %351, %357 ], [ %351, %354 ], [ %switch.offset.i.i, %switch.lookup.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %194)
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   call void @llvm.lifetime.end.p0(ptr nonnull %196)

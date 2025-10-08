@@ -55738,7 +55738,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN86_$LT$hir_def..AttrDefId$u20$as$u20$core..convert..From$LT$hir_def..AssocItemId$GT$$GT$4from17h713d1539980183ceE"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
+define void @"_ZN86_$LT$hir_def..AttrDefId$u20$as$u20$core..convert..From$LT$hir_def..AssocItemId$GT$$GT$4from17h713d1539980183ceE"(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
 switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %3, align 4

@@ -7646,7 +7646,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit49: ; pr
   %.1.i = phi i8 [ %.0.i, %.thread66 ], [ %spec.select.i, %128 ]
   %236 = icmp eq i8 %16, 0
   %switch.offset = sub nsw i8 0, %.1.i
-  %spec.select149 = select i1 %236, i8 %switch.offset, i8 %.1.i
+  %spec.select140 = select i1 %236, i8 %switch.offset, i8 %.1.i
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 
 .thread63:                                        ; preds = %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit37, %119
@@ -7657,7 +7657,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit49: ; pr
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 
 _ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit: ; preds = %235, %.thread63, %117
-  %.1 = phi i8 [ %.3, %117 ], [ %spec.select69, %.thread63 ], [ %spec.select149, %235 ]
+  %.1 = phi i8 [ %.3, %117 ], [ %spec.select69, %.thread63 ], [ %spec.select140, %235 ]
   ret i8 %.1
 }
 

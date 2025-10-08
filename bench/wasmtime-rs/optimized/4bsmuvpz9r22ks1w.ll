@@ -9505,16 +9505,16 @@ _ZN17cranelift_codegen8machinst3abi15ArgsAccumulator8args_mut17h309ebf22ef8f38d0
   %.0.i.i.i.i228.us.us = select i1 %184, i16 %181, i16 %186
   %switch.tableidx = add nsw i16 %.0.i.i.i.i228.us.us, -118
   %187 = icmp ult i16 %switch.tableidx, 10
-  br i1 %187, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i229.us.us
+  br i1 %187, label %switch.lookup1345, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i229.us.us
 
-switch.lookup:                                    ; preds = %183
+switch.lookup1345:                                ; preds = %183
   %188 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %188
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i229.us.us
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i229.us.us: ; preds = %switch.lookup, %183
-  %.0.i.i.i230.us.us = phi i32 [ 0, %183 ], [ %switch.load, %switch.lookup ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i229.us.us: ; preds = %switch.lookup1345, %183
+  %.0.i.i.i230.us.us = phi i32 [ 0, %183 ], [ %switch.load, %switch.lookup1345 ]
   %189 = call i16 @llvm.usub.sat.i16(i16 %181, i16 112)
   %190 = lshr i16 %189, 4
   %191 = zext nneg i16 %190 to i32
@@ -9612,18 +9612,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.us.us: ; pre
   %235 = and i16 %229, 15
   %236 = or disjoint i16 %235, 112
   %.0.i.i.i.i = select i1 %234, i16 %229, i16 %236
-  %switch.tableidx1345 = add nsw i16 %.0.i.i.i.i, -118
-  %237 = icmp ult i16 %switch.tableidx1345, 10
-  br i1 %237, label %switch.lookup1346, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
+  %switch.tableidx1346 = add nsw i16 %.0.i.i.i.i, -118
+  %237 = icmp ult i16 %switch.tableidx1346, 10
+  br i1 %237, label %switch.lookup1347, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-switch.lookup1346:                                ; preds = %233
-  %238 = zext nneg i16 %switch.tableidx1345 to i64
-  %switch.gep1347 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %238
-  %switch.load1348 = load i32, ptr %switch.gep1347, align 4
+switch.lookup1347:                                ; preds = %233
+  %238 = zext nneg i16 %switch.tableidx1346 to i64
+  %switch.gep1348 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %238
+  %switch.load1349 = load i32, ptr %switch.gep1348, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup1346, %233
-  %.0.i.i.i = phi i32 [ 0, %233 ], [ %switch.load1348, %switch.lookup1346 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup1347, %233
+  %.0.i.i.i = phi i32 [ 0, %233 ], [ %switch.load1349, %switch.lookup1347 ]
   %239 = call i16 @llvm.usub.sat.i16(i16 %229, i16 112)
   %240 = lshr i16 %239, 4
   %241 = zext nneg i16 %240 to i32
@@ -9761,18 +9761,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit: ; preds = %
   %293 = and i16 %260, 15
   %294 = or disjoint i16 %293, 112
   %.0.i.i.i236 = select i1 %292, i16 %260, i16 %294
-  %switch.tableidx1349 = add nsw i16 %.0.i.i.i236, -118
-  %295 = icmp ult i16 %switch.tableidx1349, 10
-  br i1 %295, label %switch.lookup1350, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
+  %switch.tableidx1350 = add nsw i16 %.0.i.i.i236, -118
+  %295 = icmp ult i16 %switch.tableidx1350, 10
+  br i1 %295, label %switch.lookup1351, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-switch.lookup1350:                                ; preds = %291
-  %296 = zext nneg i16 %switch.tableidx1349 to i64
-  %switch.gep1351 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %296
-  %switch.load1352 = load i32, ptr %switch.gep1351, align 4
+switch.lookup1351:                                ; preds = %291
+  %296 = zext nneg i16 %switch.tableidx1350 to i64
+  %switch.gep1352 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %296
+  %switch.load1353 = load i32, ptr %switch.gep1352, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup1350, %291
-  %.0.i.i237 = phi i32 [ 0, %291 ], [ %switch.load1352, %switch.lookup1350 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup1351, %291
+  %.0.i.i237 = phi i32 [ 0, %291 ], [ %switch.load1353, %switch.lookup1351 ]
   %297 = call i16 @llvm.usub.sat.i16(i16 %260, i16 112)
   %298 = lshr i16 %297, 4
   %299 = zext nneg i16 %298 to i32
@@ -9819,18 +9819,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
 
 311:                                              ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
   %312 = and i16 %260, 15
-  %switch.tableidx1353 = add nsw i16 %312, -6
-  %313 = icmp ult i16 %switch.tableidx1353, 10
-  br i1 %313, label %switch.lookup1354, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245
+  %switch.tableidx1354 = add nsw i16 %312, -6
+  %313 = icmp ult i16 %switch.tableidx1354, 10
+  br i1 %313, label %switch.lookup1355, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245
 
-switch.lookup1354:                                ; preds = %311
-  %314 = zext nneg i16 %switch.tableidx1353 to i64
-  %switch.gep1355 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %314
-  %switch.load1356 = load i32, ptr %switch.gep1355, align 4
+switch.lookup1355:                                ; preds = %311
+  %314 = zext nneg i16 %switch.tableidx1354 to i64
+  %switch.gep1356 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %314
+  %switch.load1357 = load i32, ptr %switch.gep1356, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245: ; preds = %switch.lookup1354, %311
-  %.0.i.i243 = phi i32 [ 0, %311 ], [ %switch.load1356, %switch.lookup1354 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245: ; preds = %switch.lookup1355, %311
+  %.0.i.i243 = phi i32 [ 0, %311 ], [ %switch.load1357, %switch.lookup1355 ]
   %315 = add nsw i16 %260, -112
   %316 = lshr i16 %315, 4
   %317 = zext nneg i16 %316 to i32
@@ -9841,7 +9841,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245: ; preds =
 
 320:                                              ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245
   %321 = icmp ult i64 %.0181747, 4
-  br i1 %321, label %switch.lookup1357, label %322
+  br i1 %321, label %switch.lookup1358, label %322
 
 322:                                              ; preds = %320
   %323 = add i32 %.1177748, 7
@@ -9852,13 +9852,13 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245: ; preds =
   %328 = load i8, ptr %327, align 2, !range !905, !noundef !4
   br label %329
 
-329:                                              ; preds = %switch.lookup1357, %322
-  %.sroa.053.0 = phi i8 [ 1, %322 ], [ 0, %switch.lookup1357 ]
-  %.sroa.354.0 = phi i8 [ %328, %322 ], [ %switch.masked, %switch.lookup1357 ]
-  %.sroa.856.2 = phi i64 [ %326, %322 ], [ %.sroa.856.0.ph758, %switch.lookup1357 ]
-  %.sroa.5.sroa.0.0 = phi i16 [ 121, %322 ], [ 0, %switch.lookup1357 ]
-  %.2186 = phi i64 [ %.0184746, %322 ], [ %349, %switch.lookup1357 ]
-  %.8 = phi i32 [ %325, %322 ], [ %.1177748, %switch.lookup1357 ]
+329:                                              ; preds = %switch.lookup1358, %322
+  %.sroa.053.0 = phi i8 [ 1, %322 ], [ 0, %switch.lookup1358 ]
+  %.sroa.354.0 = phi i8 [ %328, %322 ], [ %switch.masked, %switch.lookup1358 ]
+  %.sroa.856.2 = phi i64 [ %326, %322 ], [ %.sroa.856.0.ph758, %switch.lookup1358 ]
+  %.sroa.5.sroa.0.0 = phi i16 [ 121, %322 ], [ 0, %switch.lookup1358 ]
+  %.2186 = phi i64 [ %.0184746, %322 ], [ %349, %switch.lookup1358 ]
+  %.8 = phi i32 [ %325, %322 ], [ %.1177748, %switch.lookup1358 ]
   %330 = add i64 %.0181747, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.0376.0745, i64 4
@@ -9912,7 +9912,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit245: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.outer
 
-switch.lookup1357:                                ; preds = %320
+switch.lookup1358:                                ; preds = %320
   %switch.cast = trunc nuw i64 %.0181747 to i32
   %switch.shiftamt = shl nuw nsw i32 %switch.cast, 3
   %switch.downshift = lshr i32 151519745, %switch.shiftamt
@@ -9923,26 +9923,26 @@ switch.lookup1357:                                ; preds = %320
 350:                                              ; preds = %309
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %351 = icmp ult i64 %.0184746, 5
-  br i1 %351, label %switch.lookup1358, label %371
+  br i1 %351, label %switch.lookup1359, label %371
 
-switch.lookup1358:                                ; preds = %350
-  %switch.cast1359 = trunc nuw i64 %.0184746 to i40
-  %switch.shiftamt1360 = shl nuw nsw i40 %switch.cast1359, 3
-  %switch.downshift1361 = lshr i40 34376648199, %switch.shiftamt1360
-  %switch.masked1362 = trunc i40 %switch.downshift1361 to i8
-  %switch.cast1363 = trunc nuw i64 %.0184746 to i40
-  %switch.shiftamt1364 = shl nuw nsw i40 %switch.cast1363, 3
-  %switch.downshift1365 = lshr i40 38788989446, %switch.shiftamt1364
-  %switch.masked1366 = trunc i40 %switch.downshift1365 to i8
+switch.lookup1359:                                ; preds = %350
+  %switch.cast1360 = trunc nuw i64 %.0184746 to i40
+  %switch.shiftamt1361 = shl nuw nsw i40 %switch.cast1360, 3
+  %switch.downshift1362 = lshr i40 34376648199, %switch.shiftamt1361
+  %switch.masked1363 = trunc i40 %switch.downshift1362 to i8
+  %switch.cast1364 = trunc nuw i64 %.0184746 to i40
+  %switch.shiftamt1365 = shl nuw nsw i40 %switch.cast1364, 3
+  %switch.downshift1366 = lshr i40 38788989446, %switch.shiftamt1365
+  %switch.masked1367 = trunc i40 %switch.downshift1366 to i8
   store i8 0, ptr %18, align 8
-  store i8 %switch.masked1362, ptr %.sroa.4.0..sroa_idx, align 1
+  store i8 %switch.masked1363, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 0, ptr %.sroa.5378.0..sroa_idx, align 2
   store i16 121, ptr %.sroa.6380.0..sroa_idx, align 4
   store i64 1, ptr %45, align 8, !alias.scope !947, !noalias !950
   %352 = invoke { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h95068c60f1887166E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1)
           to label %.noexc282 unwind label %.loopexit533
 
-.noexc282:                                        ; preds = %switch.lookup1358
+.noexc282:                                        ; preds = %switch.lookup1359
   %353 = extractvalue { i64, i64 } %352, 0
   switch i64 %353, label %.invoke [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i280
@@ -9955,7 +9955,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i280: ; preds = %.noexc282
   %355 = getelementptr inbounds { i8, [15 x i8] }, ptr %354, i64 %.pre.i281
   store i8 0, ptr %355, align 8
   %.sroa.4382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 1
-  store i8 %switch.masked1366, ptr %.sroa.4382.0..sroa_idx, align 1
+  store i8 %switch.masked1367, ptr %.sroa.4382.0..sroa_idx, align 1
   %.sroa.5383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 2
   store i8 0, ptr %.sroa.5383.0..sroa_idx, align 2
   %.sroa.6385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 4
@@ -10072,7 +10072,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i305: ; preds = %.noexc307
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.outer
 
-.loopexit533:                                     ; preds = %371, %switch.lookup1358
+.loopexit533:                                     ; preds = %371, %switch.lookup1359
   %lpad.loopexit535 = landingpad { ptr, i32 }
           cleanup
   br label %396
@@ -10230,7 +10230,7 @@ default.unreachable.i:                            ; preds = %436
 
 438:                                              ; preds = %436
   %439 = icmp ult i64 %.3187737, 9
-  br i1 %439, label %switch.lookup1367, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980
+  br i1 %439, label %switch.lookup1368, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980
 
 440:                                              ; preds = %436
   switch i64 %.3187737, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980 [
@@ -10248,22 +10248,22 @@ default.unreachable.i:                            ; preds = %436
 444:                                              ; preds = %440
   br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread
 
-switch.lookup1367:                                ; preds = %438
-  %switch.gep1368 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$16compute_arg_locs17h0c45442e5d49b4e5E.110", i64 %.3187737
-  %switch.load1369 = load i8, ptr %switch.gep1368, align 1
-  br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread
-
-switch.lookup1370:                                ; preds = %462
+switch.lookup:                                    ; preds = %462
   %switch.idx.cast = trunc nuw i64 %.1740 to i8
   %switch.offset = or disjoint i8 %switch.idx.cast, 64
   br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread
 
-_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread: ; preds = %switch.lookup1370, %switch.lookup1367, %429, %430, %431, %441, %444, %449, %450, %451, %467, %448, %461, %428, %437, %440
-  %.sroa.12.0.i318.pn.ph = phi i8 [ 65, %467 ], [ 67, %451 ], [ 66, %450 ], [ 65, %449 ], [ 2, %444 ], [ 2, %441 ], [ %spec.select4.i321, %431 ], [ %spec.select3.i322, %430 ], [ %spec.select2.i323, %429 ], [ 64, %448 ], [ 64, %461 ], [ %spec.select1.i324, %428 ], [ 0, %437 ], [ 0, %440 ], [ %switch.load1369, %switch.lookup1367 ], [ %switch.offset, %switch.lookup1370 ]
+switch.lookup1368:                                ; preds = %438
+  %switch.gep1369 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$16compute_arg_locs17h0c45442e5d49b4e5E.110", i64 %.3187737
+  %switch.load1370 = load i8, ptr %switch.gep1369, align 1
+  br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread
+
+_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread: ; preds = %switch.lookup1368, %switch.lookup, %429, %430, %431, %441, %444, %449, %450, %451, %467, %448, %461, %428, %437, %440
+  %.sroa.12.0.i318.pn.ph = phi i8 [ 65, %467 ], [ 67, %451 ], [ 66, %450 ], [ 65, %449 ], [ 2, %444 ], [ 2, %441 ], [ %spec.select4.i321, %431 ], [ %spec.select3.i322, %430 ], [ %spec.select2.i323, %429 ], [ 64, %448 ], [ 64, %461 ], [ %spec.select1.i324, %428 ], [ 0, %437 ], [ 0, %440 ], [ %switch.offset, %switch.lookup ], [ %switch.load1370, %switch.lookup1368 ]
   %445 = add i64 %.2183738, 1
   br label %483
 
-_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980: ; preds = %462, %438, %428, %437, %440, %448, %461
+_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980: ; preds = %438, %462, %428, %437, %440, %448, %461
   %446 = add i64 %.2183738, 1
   br label %468
 
@@ -10334,7 +10334,7 @@ default.unreachable.i336:                         ; preds = %460
 
 462:                                              ; preds = %460
   %463 = icmp ult i64 %.1740, 8
-  br i1 %463, label %switch.lookup1370, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980
+  br i1 %463, label %switch.lookup, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980
 
 464:                                              ; preds = %460
   %465 = icmp eq i64 %.1740, 0

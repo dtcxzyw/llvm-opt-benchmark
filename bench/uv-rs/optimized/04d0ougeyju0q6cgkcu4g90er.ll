@@ -1349,7 +1349,7 @@ define hidden void @"_ZN196_$LT$uv_configuration..target_triple.._..$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN196_$LT$uv_configuration..target_triple.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_configuration..target_triple..TargetTriple$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hf9d42adbcbde8f2cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN196_$LT$uv_configuration..target_triple.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_configuration..target_triple..TargetTriple$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hf9d42adbcbde8f2cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !61
@@ -1361,16 +1361,16 @@ define hidden void @"_ZN196_$LT$uv_configuration..target_triple.._..$LT$impl$u20
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %7, align 8, !noalias !80
-  br i1 %6, label %9, label %11
+  br i1 %6, label %switch.lookup, label %10
 
-9:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !61
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %8, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %8, ptr %9, align 8
   store i64 2, ptr %0, align 8
-  br label %12
+  br label %11
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.3233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3233.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -1378,9 +1378,9 @@ define hidden void @"_ZN196_$LT$uv_configuration..target_triple.._..$LT$impl$u20
   store i64 %5, ptr %0, align 8
   %.sroa.2232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %8, ptr %.sroa.2232.0..sroa_idx, align 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %9
+11:                                               ; preds = %10, %switch.lookup
   ret void
 }
 
@@ -2326,11 +2326,10 @@ define hidden void @"_ZN328_$LT$$LT$uv_configuration..trusted_host..TrustedHost$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN328_$LT$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Inner$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he4d4f80c43c5eee7E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #6 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -5144,10 +5143,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_i817h84a34a51feb6423fE(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hf798319955d5a0c5E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #6 {
-"_ZN328_$LT$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Inner$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he4d4f80c43c5eee7E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !903
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 3)
+  store i8 %4, ptr %3, align 1, !alias.scope !903
   store i8 0, ptr %0, align 8, !alias.scope !903
   ret void
 }
@@ -5489,22 +5487,20 @@ define hidden void @_ZN5serde2de7Visitor9visit_str17h0d1ba881fc2eead5E(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617h1639a26b150ed79dE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #6 {
-"_ZN328_$LT$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Inner$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he4d4f80c43c5eee7E.exit":
-  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 3)
-  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !930
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 3)
+  %.sink.i = trunc nuw nsw i16 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !930
   store i8 0, ptr %0, align 8, !alias.scope !930
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217hc834a2b8130c47b9E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #6 {
-"_ZN328_$LT$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Inner$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he4d4f80c43c5eee7E.exit":
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 3)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !933
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 3)
+  %.sink.i = trunc nuw nsw i32 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !933
   store i8 0, ptr %0, align 8, !alias.scope !933
   ret void
 }

@@ -5051,10 +5051,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i77:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit82
 
 _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8RefCount5derefEv.exit.i78, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i77
-  %switch.tableidx = add i32 %49, -1
-  %55 = icmp ult i32 %switch.tableidx, 5
-  %.sink = select i1 %55, i32 %49, i32 0
-  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @alignset, i64 584), align 8
+  %55 = icmp ult i32 %49, 6
+  %. = select i1 %55, i32 %49, i32 0
+  store i32 %., ptr getelementptr inbounds nuw (i8, ptr @alignset, i64 584), align 8
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @alignset, i64 8), align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 264
   %58 = load i32, ptr %57, align 8

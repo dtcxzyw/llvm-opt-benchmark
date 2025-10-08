@@ -5856,7 +5856,7 @@ define void @"_ZN81_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$rustls..ms
 
 12:                                               ; preds = %8
   %13 = icmp ugt i64 %9, %4
-  br i1 %13, label %15, label %"_ZN84_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h9121a9900ea43480E.exit"
+  br i1 %13, label %15, label %16
 
 14:                                               ; preds = %8
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -1, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #17, !noalias !766
@@ -5866,16 +5866,16 @@ define void @"_ZN81_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$rustls..ms
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %9, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #17, !noalias !766
   unreachable
 
-"_ZN84_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h9121a9900ea43480E.exit": ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 %6
-  %17 = load i8, ptr %16, align 1, !noalias !769, !noundef !9
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %17, i8 7)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %18, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %17, ptr %19, align 2
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %10, i64 %6
+  %18 = load i8, ptr %17, align 1, !noalias !769, !noundef !9
+  %spec.select.i = tail call i8 @llvm.umin.i8(i8 %18, i8 7)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %spec.select.i, ptr %19, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %18, ptr %20, align 2
   store i8 20, ptr %0, align 8
-  br label %20
+  br label %21
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit": ; preds = %2
   store i8 11, ptr %0, align 8
@@ -5883,9 +5883,9 @@ define void @"_ZN81_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$rustls..ms
   store ptr @anon.a568c7da4921ec2ed34cb4ede4839d57.49, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 13, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-20:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %"_ZN84_$LT$rustls..msgs..enums..HashAlgorithm$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h9121a9900ea43480E.exit"
+21:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %16
   ret void
 }
 
@@ -8154,7 +8154,7 @@ define void @"_ZN81_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$rustls..ms
 
 12:                                               ; preds = %8
   %13 = icmp ugt i64 %9, %4
-  br i1 %13, label %15, label %"_ZN84_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb6dc9480854999b5E.exit"
+  br i1 %13, label %15, label %16
 
 14:                                               ; preds = %8
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -1, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #17, !noalias !1001
@@ -8164,16 +8164,16 @@ define void @"_ZN81_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$rustls..ms
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %9, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.75.llvm.12014582817787848890) #17, !noalias !1001
   unreachable
 
-"_ZN84_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb6dc9480854999b5E.exit": ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 %6
-  %17 = load i8, ptr %16, align 1, !noalias !1004, !noundef !9
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %17, i8 3)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %18, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %17, ptr %19, align 2
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %10, i64 %6
+  %18 = load i8, ptr %17, align 1, !noalias !1004, !noundef !9
+  %spec.select.i = tail call i8 @llvm.umin.i8(i8 %18, i8 3)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %spec.select.i, ptr %19, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %18, ptr %20, align 2
   store i8 20, ptr %0, align 8
-  br label %20
+  br label %21
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit": ; preds = %2
   store i8 11, ptr %0, align 8
@@ -8181,9 +8181,9 @@ define void @"_ZN81_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$rustls..ms
   store ptr @anon.a568c7da4921ec2ed34cb4ede4839d57.76.llvm.17726792709170085280, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 13, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-20:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %"_ZN84_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hb6dc9480854999b5E.exit"
+21:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %16
   ret void
 }
 

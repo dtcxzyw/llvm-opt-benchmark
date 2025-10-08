@@ -13066,11 +13066,11 @@ define internal fastcc void @mbim_dissect_version(ptr noundef %0, ptr noundef %1
   %11 = load i32, ptr %5, align 4
   %12 = add i32 %11, -256
   %13 = call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 24)
-  %14 = icmp ult i32 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %15 = icmp ult i32 %13, 4
   %switch.offset = add nsw i32 %13, 1
-  %.sink = select i1 %14, i32 %switch.offset, i32 0
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.sink, ptr %15, align 8
+  %.sink = select i1 %15, i32 %switch.offset, i32 0
+  store i32 %.sink, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

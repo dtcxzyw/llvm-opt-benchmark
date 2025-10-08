@@ -122272,7 +122272,7 @@ default.unreachable:                              ; preds = %11
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN216_$LT$polars_core..datatypes..temporal..time_unit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$polars_core..datatypes..temporal..time_unit..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab76f8e951fa7daE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #0 {
+define hidden void @"_ZN216_$LT$polars_core..datatypes..temporal..time_unit.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$polars_core..datatypes..temporal..time_unit..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab76f8e951fa7daE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10973
   call void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17h17d0cc47c389626eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext true), !noalias !10980
@@ -122280,16 +122280,16 @@ define hidden void @"_ZN216_$LT$polars_core..datatypes..temporal..time_unit.._..
   %.not.i.i = icmp eq i8 %4, 9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1, !noalias !10973
-  br i1 %.not.i.i, label %7, label %9
+  br i1 %.not.i.i, label %switch.lookup, label %8
 
-7:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10973
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %6, ptr %8, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %6, ptr %7, align 1
   store i8 9, ptr %0, align 8
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.69.0..sroa_idx.i.i, i64 6, i1 false)
@@ -122312,9 +122312,9 @@ define hidden void @"_ZN216_$LT$polars_core..datatypes..temporal..time_unit.._..
   store ptr %.sroa.12.2.copyload, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.14.2.copyload, ptr %.sroa.629.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %7
+9:                                                ; preds = %8, %switch.lookup
   ret void
 }
 

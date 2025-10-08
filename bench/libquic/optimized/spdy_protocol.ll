@@ -1263,8 +1263,8 @@ switch.lookup:                                    ; preds = %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
-.critedge29:                                      ; preds = %16, %switch.lookup, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %switch.load, %switch.lookup ], [ %1, %16 ]
+.critedge29:                                      ; preds = %switch.lookup, %16, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
+  %.027 = phi i32 [ -1, %8 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %.critedge31 ], [ -1, %26 ], [ -1, %.critedge34 ], [ %1, %16 ], [ %switch.load, %switch.lookup ]
   ret i32 %.027
 
 35:                                               ; preds = %32, %24, %14

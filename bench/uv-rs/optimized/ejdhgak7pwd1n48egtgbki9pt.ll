@@ -265,15 +265,15 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %4 = load i8, ptr %1, align 1, !range !3, !noundef !4
   store i8 0, ptr %1, align 1
   %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %switch.lookup, label %5
+  br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d26f221e5cca90204beeb9489b1f0ba.6) #13
   unreachable
 
-switch.lookup:                                    ; preds = %3
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %2, i8 3)
-  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %spec.select)
+6:                                                ; preds = %3
+  %7 = tail call i8 @llvm.umin.i8(i8 %2, i8 3)
+  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %7)
   ret void
 }
 
@@ -2070,16 +2070,16 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %4 = load i8, ptr %1, align 1, !range !3, !noundef !4
   store i8 0, ptr %1, align 1
   %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %switch.lookup, label %5
+  br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d26f221e5cca90204beeb9489b1f0ba.6) #13
   unreachable
 
-switch.lookup:                                    ; preds = %3
-  %spec.select5 = tail call i16 @llvm.umin.i16(i16 %2, i16 3)
-  %spec.select = trunc nuw nsw i16 %spec.select5 to i8
-  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %spec.select)
+6:                                                ; preds = %3
+  %7 = tail call i16 @llvm.umin.i16(i16 %2, i16 3)
+  %.sink.i.i = trunc nuw nsw i16 %7 to i8
+  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i.i)
   ret void
 }
 
@@ -2166,16 +2166,16 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %4 = load i8, ptr %1, align 1, !range !3, !noundef !4
   store i8 0, ptr %1, align 1
   %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %switch.lookup, label %5
+  br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d26f221e5cca90204beeb9489b1f0ba.6) #13
   unreachable
 
-switch.lookup:                                    ; preds = %3
-  %spec.select5 = tail call i32 @llvm.umin.i32(i32 %2, i32 3)
-  %spec.select = trunc nuw nsw i32 %spec.select5 to i8
-  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %spec.select)
+6:                                                ; preds = %3
+  %7 = tail call i32 @llvm.umin.i32(i32 %2, i32 3)
+  %.sink.i.i = trunc nuw nsw i32 %7 to i8
+  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i.i)
   ret void
 }
 
@@ -2274,16 +2274,16 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %4 = load i8, ptr %1, align 1, !range !3, !noundef !4
   store i8 0, ptr %1, align 1
   %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %switch.lookup, label %5
+  br i1 %trunc, label %6, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d26f221e5cca90204beeb9489b1f0ba.6) #13
   unreachable
 
-switch.lookup:                                    ; preds = %3
-  %spec.select5 = tail call i64 @llvm.umin.i64(i64 %2, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select5 to i8
-  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %spec.select)
+6:                                                ; preds = %3
+  %.sink1.i = tail call i64 @llvm.umin.i64(i64 %2, i64 3)
+  %.sink.i = trunc nuw nsw i64 %.sink1.i to i8
+  tail call void @_ZN12erased_serde3any3Any3new17he6b671fdd77e850dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i)
   ret void
 }
 

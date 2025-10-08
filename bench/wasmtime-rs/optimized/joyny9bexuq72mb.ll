@@ -23160,139 +23160,138 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noalias noundef align 8 ptr @"_ZN90_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0293a06428c4df93E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
-switch.lookup:
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
+  %2 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11350)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val44.i = load i32, ptr %2, align 4, !alias.scope !11352, !noalias !11359, !noundef !16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val44.i = load i32, ptr %3, align 4, !alias.scope !11352, !noalias !11359, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11363)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11375)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11378)
-  %3 = load ptr, ptr %.0.val, align 8, !alias.scope !11381, !noalias !11382, !nonnull !16, !align !98, !noundef !16
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4), !noalias !11387
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !11392, !noalias !11387, !noundef !16
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !11392, !noalias !11387, !nonnull !16, !noundef !16
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
-  store i32 %.val44.i, ptr %8, align 1, !noalias !11397
-  %9 = load i64, ptr %4, align 8, !alias.scope !11392, !noalias !11387, !noundef !16
-  %10 = add i64 %9, 4
-  store i64 %10, ptr %4, align 8, !alias.scope !11392, !noalias !11387
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.val46.i = load i8, ptr %11, align 4, !range !931, !alias.scope !11347, !noalias !11350, !noundef !16
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4), !noalias !11398
-  %12 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %13 = load ptr, ptr %6, align 8, !noalias !11398, !nonnull !16, !noundef !16
-  %switch.idx.cast = zext nneg i8 %.val46.i to i32
-  %14 = getelementptr inbounds i8, ptr %13, i64 %12
-  store i32 %switch.idx.cast, ptr %14, align 1, !noalias !11398
-  %15 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %16 = add i64 %15, 4
-  store i64 %16, ptr %4, align 8, !noalias !11398
+  %4 = load ptr, ptr %.0.val, align 8, !alias.scope !11381, !noalias !11382, !nonnull !16, !align !98, !noundef !16
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 4), !noalias !11387
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 8, !alias.scope !11392, !noalias !11387, !noundef !16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !alias.scope !11392, !noalias !11387, !nonnull !16, !noundef !16
+  %9 = getelementptr inbounds i8, ptr %8, i64 %6
+  store i32 %.val44.i, ptr %9, align 1, !noalias !11397
+  %10 = load i64, ptr %5, align 8, !alias.scope !11392, !noalias !11387, !noundef !16
+  %11 = add i64 %10, 4
+  store i64 %11, ptr %5, align 8, !alias.scope !11392, !noalias !11387
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %.val46.i = load i8, ptr %12, align 4, !range !931, !alias.scope !11347, !noalias !11350, !noundef !16
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 4), !noalias !11398
+  %13 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %14 = load ptr, ptr %7, align 8, !noalias !11398, !nonnull !16, !noundef !16
+  %15 = getelementptr inbounds i8, ptr %14, i64 %13
+  %switch.idx.cast.i.i.i = zext nneg i8 %.val46.i to i32
+  store i32 %switch.idx.cast.i.i.i, ptr %15, align 1, !noalias !11398
+  %16 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %17 = add i64 %16, 4
+  store i64 %17, ptr %5, align 8, !noalias !11398
   %.val48.i = load i32, ptr %0, align 4, !range !238, !alias.scope !11347, !noalias !11350, !noundef !16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.val49.i = load i32, ptr %17, align 4, !alias.scope !11347, !noalias !11350
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val49.i = load i32, ptr %18, align 4, !alias.scope !11347, !noalias !11350
   %trunc.i.i.i = trunc nuw i32 %.val48.i to i1
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1), !noalias !11398
-  %18 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %19 = load ptr, ptr %6, align 8, !noalias !11398, !nonnull !16, !noundef !16
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  br i1 %trunc.i.i.i, label %22, label %21
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 1), !noalias !11398
+  %19 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %20 = load ptr, ptr %7, align 8, !noalias !11398, !nonnull !16, !noundef !16
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  br i1 %trunc.i.i.i, label %23, label %22
 
-21:                                               ; preds = %switch.lookup
-  store i8 0, ptr %20, align 1, !noalias !11399
-  br label %28
+22:                                               ; preds = %1
+  store i8 0, ptr %21, align 1, !noalias !11399
+  br label %29
 
-22:                                               ; preds = %switch.lookup
-  store i8 1, ptr %20, align 1, !noalias !11406
-  %23 = load i64, ptr %4, align 8, !alias.scope !11414, !noalias !11421, !noundef !16
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %4, align 8, !alias.scope !11414, !noalias !11421
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4), !noalias !11425
-  %25 = load i64, ptr %4, align 8, !alias.scope !11446, !noalias !11425, !noundef !16
-  %26 = load ptr, ptr %6, align 8, !alias.scope !11446, !noalias !11425, !nonnull !16, !noundef !16
-  %27 = getelementptr inbounds i8, ptr %26, i64 %25
-  store i32 %.val49.i, ptr %27, align 1, !noalias !11451
-  br label %28
+23:                                               ; preds = %1
+  store i8 1, ptr %21, align 1, !noalias !11406
+  %24 = load i64, ptr %5, align 8, !alias.scope !11414, !noalias !11421, !noundef !16
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %5, align 8, !alias.scope !11414, !noalias !11421
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 4), !noalias !11425
+  %26 = load i64, ptr %5, align 8, !alias.scope !11446, !noalias !11425, !noundef !16
+  %27 = load ptr, ptr %7, align 8, !alias.scope !11446, !noalias !11425, !nonnull !16, !noundef !16
+  %28 = getelementptr inbounds i8, ptr %27, i64 %26
+  store i32 %.val49.i, ptr %28, align 1, !noalias !11451
+  br label %29
 
-28:                                               ; preds = %22, %21
-  %.sink4.i.i.i = phi i64 [ 4, %22 ], [ 1, %21 ]
-  %29 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %30 = add i64 %29, %.sink4.i.i.i
-  store i64 %30, ptr %4, align 8, !noalias !11398
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val51.i = load i32, ptr %31, align 4, !range !238, !alias.scope !11347, !noalias !11350, !noundef !16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.val52.i = load i32, ptr %32, align 4, !alias.scope !11347, !noalias !11350
+29:                                               ; preds = %23, %22
+  %.sink4.i.i.i = phi i64 [ 4, %23 ], [ 1, %22 ]
+  %30 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %31 = add i64 %30, %.sink4.i.i.i
+  store i64 %31, ptr %5, align 8, !noalias !11398
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val51.i = load i32, ptr %32, align 4, !range !238, !alias.scope !11347, !noalias !11350, !noundef !16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val52.i = load i32, ptr %33, align 4, !alias.scope !11347, !noalias !11350
   %trunc.i.i57.i = trunc nuw i32 %.val51.i to i1
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1), !noalias !11398
-  %33 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %34 = load ptr, ptr %6, align 8, !noalias !11398, !nonnull !16, !noundef !16
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br i1 %trunc.i.i57.i, label %37, label %36
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 1), !noalias !11398
+  %34 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %35 = load ptr, ptr %7, align 8, !noalias !11398, !nonnull !16, !noundef !16
+  %36 = getelementptr inbounds i8, ptr %35, i64 %34
+  br i1 %trunc.i.i57.i, label %38, label %37
 
-36:                                               ; preds = %28
-  store i8 0, ptr %35, align 1, !noalias !11452
+37:                                               ; preds = %29
+  store i8 0, ptr %36, align 1, !noalias !11452
   br label %"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit"
 
-37:                                               ; preds = %28
-  store i8 1, ptr %35, align 1, !noalias !11459
-  %38 = load i64, ptr %4, align 8, !alias.scope !11467, !noalias !11474, !noundef !16
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %4, align 8, !alias.scope !11467, !noalias !11474
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 4), !noalias !11478
-  %40 = load i64, ptr %4, align 8, !alias.scope !11499, !noalias !11478, !noundef !16
-  %41 = load ptr, ptr %6, align 8, !alias.scope !11499, !noalias !11478, !nonnull !16, !noundef !16
-  %42 = getelementptr inbounds i8, ptr %41, i64 %40
-  store i32 %.val52.i, ptr %42, align 1, !noalias !11504
+38:                                               ; preds = %29
+  store i8 1, ptr %36, align 1, !noalias !11459
+  %39 = load i64, ptr %5, align 8, !alias.scope !11467, !noalias !11474, !noundef !16
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %5, align 8, !alias.scope !11467, !noalias !11474
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 4), !noalias !11478
+  %41 = load i64, ptr %5, align 8, !alias.scope !11499, !noalias !11478, !noundef !16
+  %42 = load ptr, ptr %7, align 8, !alias.scope !11499, !noalias !11478, !nonnull !16, !noundef !16
+  %43 = getelementptr inbounds i8, ptr %42, i64 %41
+  store i32 %.val52.i, ptr %43, align 1, !noalias !11504
   br label %"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit"
 
-"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit": ; preds = %36, %37
-  %.sink4.i.i58.i = phi i64 [ 4, %37 ], [ 1, %36 ]
-  %43 = load i64, ptr %4, align 8, !noalias !11398, !noundef !16
-  %44 = add i64 %43, %.sink4.i.i58.i
-  store i64 %44, ptr %4, align 8, !noalias !11398
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val54.i = load i32, ptr %45, align 4, !range !238, !alias.scope !11347, !noalias !11350, !noundef !16
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.val55.i = load i32, ptr %46, align 4, !alias.scope !11347, !noalias !11350
+"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit": ; preds = %37, %38
+  %.sink4.i.i58.i = phi i64 [ 4, %38 ], [ 1, %37 ]
+  %44 = load i64, ptr %5, align 8, !noalias !11398, !noundef !16
+  %45 = add i64 %44, %.sink4.i.i58.i
+  store i64 %45, ptr %5, align 8, !noalias !11398
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val54.i = load i32, ptr %46, align 4, !range !238, !alias.scope !11347, !noalias !11350, !noundef !16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.val55.i = load i32, ptr %47, align 4, !alias.scope !11347, !noalias !11350
   %.val2.i = load ptr, ptr %.0.val, align 8, !noalias !11347, !nonnull !16, !noundef !16
   %trunc.i.i = trunc nuw i32 %.val54.i to i1
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val2.i, i64 noundef 1), !noalias !11347
-  %47 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 16
-  %48 = load i64, ptr %47, align 8, !noalias !11347, !noundef !16
-  %49 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 8
-  %50 = load ptr, ptr %49, align 8, !noalias !11347, !nonnull !16, !noundef !16
-  %51 = getelementptr inbounds i8, ptr %50, i64 %48
-  br i1 %trunc.i.i, label %53, label %52
-
-52:                                               ; preds = %"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit"
-  store i8 0, ptr %51, align 1, !noalias !11505
-  br label %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2de30b2cf19847d6E.exit"
+  %48 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 16
+  %49 = load i64, ptr %48, align 8, !noalias !11347, !noundef !16
+  %50 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 8
+  %51 = load ptr, ptr %50, align 8, !noalias !11347, !nonnull !16, !noundef !16
+  %52 = getelementptr inbounds i8, ptr %51, i64 %49
+  br i1 %trunc.i.i, label %54, label %53
 
 53:                                               ; preds = %"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit"
-  store i8 1, ptr %51, align 1, !noalias !11512
-  %54 = load i64, ptr %47, align 8, !alias.scope !11520, !noalias !11527, !noundef !16
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %47, align 8, !alias.scope !11520, !noalias !11527
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val2.i, i64 noundef 4), !noalias !11531
-  %56 = load i64, ptr %47, align 8, !alias.scope !11552, !noalias !11531, !noundef !16
-  %57 = load ptr, ptr %49, align 8, !alias.scope !11552, !noalias !11531, !nonnull !16, !noundef !16
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
-  store i32 %.val55.i, ptr %58, align 1, !noalias !11557
+  store i8 0, ptr %52, align 1, !noalias !11505
   br label %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2de30b2cf19847d6E.exit"
 
-"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2de30b2cf19847d6E.exit": ; preds = %52, %53
-  %.sink4.i.i = phi i64 [ 4, %53 ], [ 1, %52 ]
-  %59 = load i64, ptr %47, align 8, !noalias !11347, !noundef !16
-  %60 = add i64 %59, %.sink4.i.i
-  store i64 %60, ptr %47, align 8, !noalias !11347
+54:                                               ; preds = %"_ZN16wasmtime_environ9component4info1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CanonicalOptions$GT$9serialize17h11552c7eb45f8155E.exit"
+  store i8 1, ptr %52, align 1, !noalias !11512
+  %55 = load i64, ptr %48, align 8, !alias.scope !11520, !noalias !11527, !noundef !16
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %48, align 8, !alias.scope !11520, !noalias !11527
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ffe6bb570e29900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val2.i, i64 noundef 4), !noalias !11531
+  %57 = load i64, ptr %48, align 8, !alias.scope !11552, !noalias !11531, !noundef !16
+  %58 = load ptr, ptr %50, align 8, !alias.scope !11552, !noalias !11531, !nonnull !16, !noundef !16
+  %59 = getelementptr inbounds i8, ptr %58, i64 %57
+  store i32 %.val55.i, ptr %59, align 1, !noalias !11557
+  br label %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2de30b2cf19847d6E.exit"
+
+"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2de30b2cf19847d6E.exit": ; preds = %53, %54
+  %.sink4.i.i = phi i64 [ 4, %54 ], [ 1, %53 ]
+  %60 = load i64, ptr %48, align 8, !noalias !11347, !noundef !16
+  %61 = add i64 %60, %.sink4.i.i
+  store i64 %61, ptr %48, align 8, !noalias !11347
   ret ptr null
 }
 

@@ -7409,7 +7409,7 @@ define noundef i32 @_ZN16wasmtime_environ9stack_map8StackMap12mapped_words17h09c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN16wasmtime_environ4fact10trampoline136_$LT$impl$u20$core..convert..From$LT$wasmtime_environ..component..types..FlatType$GT$$u20$for$u20$wasm_encoder..core..types..ValType$GT$4from17h4eabe8fb4d7e461bE"(ptr noalias noundef writeonly sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %0, i8 noundef %1) unnamed_addr #18 {
+define void @"_ZN16wasmtime_environ4fact10trampoline136_$LT$impl$u20$core..convert..From$LT$wasmtime_environ..component..types..FlatType$GT$$u20$for$u20$wasm_encoder..core..types..ValType$GT$4from17h4eabe8fb4d7e461bE"(ptr noalias noundef writeonly sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) initializes((0, 4)) %0, i8 noundef %1) unnamed_addr #18 {
 switch.lookup:
   %switch.idx.cast = zext i8 %1 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 13

@@ -87092,7 +87092,7 @@ common.resume:                                    ; preds = %.body, %674
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ashpd..desktop..request..ResponseType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h4c393c7355184469E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ashpd..desktop..request..ResponseType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h4c393c7355184469E"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(64) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.4.i.i = alloca [31 x i8], align 1
   %3 = alloca [64 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24426)
@@ -87104,16 +87104,16 @@ define internal fastcc void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u2
   %6 = icmp eq i64 %5, 14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8, !noalias !24435
-  br i1 %6, label %9, label %11
+  br i1 %6, label %switch.lookup, label %10
 
-9:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !24432
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %8, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %8, ptr %9, align 8
   store i64 14, ptr %0, align 8
-  br label %12
+  br label %11
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   %.sroa.920.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.920.0..sroa_idx, i64 31, i1 false)
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -87125,14 +87125,14 @@ define internal fastcc void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u2
   store i64 %5, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %8, ptr %.sroa.216.0..sroa_idx, align 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %9
+11:                                               ; preds = %10, %switch.lookup
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ashpd..desktop..request..ResponseType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17he70c1d6097ce3bcfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ashpd..desktop..request..ResponseType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17he70c1d6097ce3bcfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
   %.sroa.4.i.i = alloca [31 x i8], align 1
   %4 = alloca [64 x i8], align 8
@@ -87179,14 +87179,14 @@ define hidden void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..
   %15 = icmp eq i64 %.pr.i.i, 14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i8, ptr %16, align 8, !noalias !24446
-  br i1 %15, label %18, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i._crit_edge"
+  br i1 %15, label %switch.lookup, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i._crit_edge"
 
-18:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i"
+switch.lookup:                                    ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !24443
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %17, ptr %19, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %17, ptr %18, align 8
   store i64 14, ptr %0, align 8
-  br label %20
+  br label %19
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i._crit_edge": ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.thread.i.i"
   %.sroa.6.0.copyload = phi i8 [ %12, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.thread.i.i" ], [ %17, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i" ]
@@ -87202,9 +87202,9 @@ define hidden void @"_ZN180_$LT$ashpd..desktop..request.._..$LT$impl$u20$serde..
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.6.0.copyload, ptr %.sroa.216.0..sroa_idx, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i._crit_edge", %18
+19:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb854282b9a2a403dE.llvm.6689388785225190856.exit.i.i._crit_edge", %switch.lookup
   ret void
 }
 

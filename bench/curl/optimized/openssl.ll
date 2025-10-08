@@ -1174,8 +1174,8 @@ ossl_strerror.exit:                               ; preds = %71, %73, %76
   %110 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 48)
   %111 = and i64 %110, -281474976645124
   %112 = icmp eq i64 %111, 4
-  %switch.offset = add nuw nsw i64 %110, 765
-  %.0.i315 = select i1 %112, i64 %switch.offset, i64 0
+  %switch.offset.i = add nuw nsw i64 %110, 765
+  %.0.i315 = select i1 %112, i64 %switch.offset.i, i64 0
   %113 = tail call i64 @SSL_CTX_ctrl(ptr noundef %98, i32 noundef 124, i64 noundef %.0.i315, ptr noundef null) #13
   %.not13.i = icmp eq i64 %113, 0
   br i1 %.not13.i, label %ossl_set_ssl_version_min_max.exit.thread, label %ossl_set_ssl_version_min_max.exit

@@ -581,15 +581,15 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit: ; preds = %8, 
   %31 = ptrtoint ptr %30 to i64
   %.mask = and i64 %31, -4294967296
   %cond = icmp eq i64 %.mask, 94489280512
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread7, label %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread6, label %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread
 
-32:                                               ; preds = %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread7
+32:                                               ; preds = %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread6
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5d197935994b1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #19
           to label %37 unwind label %35
 
-_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread7: ; preds = %24
+_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread6: ; preds = %24
   invoke void @_ZN12polars_utils3mem8prefetch7madvise18panic_cold_display17hcc485b1cb8797486E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8abe737df307a700df49d5e67f30d6c.49) #18
           to label %34 unwind label %32
 
@@ -598,7 +598,7 @@ _ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread: ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %14
 
-34:                                               ; preds = %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread7
+34:                                               ; preds = %_ZN3std2io5error5Error4kind17h76c70359558b342bE.exit.thread6
   unreachable
 
 35:                                               ; preds = %32

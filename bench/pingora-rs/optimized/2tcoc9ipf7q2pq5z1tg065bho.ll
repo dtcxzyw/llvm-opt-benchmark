@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.360eaabec42e6bb2431517e5aa02476d.160 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr52drop_in_place$LT$pingora_cache..memory..MemCache$GT$17h95848dcb6ac07e18E", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17hbdd580f78a59da4dE" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -95,11 +95,11 @@ define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_
   store ptr %8, ptr %1, align 8, !alias.scope !15, !noalias !16
   store i64 %9, ptr %3, align 8, !alias.scope !15, !noalias !16
   %11 = icmp sgt i8 %10, -1
-  br i1 %11, label %25, label %12
+  br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
   %13 = icmp samesign ugt i8 %10, -33
-  br i1 %13, label %25, label %14
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %12
   %15 = icmp samesign ult i8 %10, -112
@@ -107,141 +107,105 @@ define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_
 
 16:                                               ; preds = %14
   %17 = icmp samesign ult i8 %10, -96
-  br i1 %17, label %26, label %20
+  br i1 %17, label %.thread86, label %20
 
 18:                                               ; preds = %14
   %19 = and i8 %10, 15
-  br label %25
+  br label %.thread
 
 20:                                               ; preds = %16
   %21 = icmp samesign ult i8 %10, -64
-  br i1 %21, label %23, label %22
+  %22 = and i8 %10, 31
+  br i1 %21, label %.thread, label %26
 
-22:                                               ; preds = %20
-  switch i8 %10, label %default.unreachable [
-    i8 -64, label %25
-    i8 -63, label %25
-    i8 -62, label %25
-    i8 -61, label %25
-    i8 -60, label %25
-    i8 -59, label %25
-    i8 -58, label %25
-    i8 -57, label %25
-    i8 -56, label %25
-    i8 -55, label %25
-    i8 -54, label %25
-    i8 -53, label %25
-    i8 -52, label %25
-    i8 -51, label %25
-    i8 -50, label %25
-    i8 -49, label %25
-    i8 -48, label %25
-    i8 -47, label %25
-    i8 -46, label %25
-    i8 -45, label %25
-    i8 -44, label %25
-    i8 -43, label %25
-    i8 -42, label %25
-    i8 -41, label %25
-    i8 -40, label %25
-    i8 -39, label %25
-    i8 -38, label %25
-    i8 -37, label %25
-    i8 -36, label %30
-    i8 -35, label %32
-    i8 -34, label %25
-    i8 -33, label %25
-  ]
-
-23:                                               ; preds = %20
-  %24 = and i8 %10, 31
-  br label %25
-
-default.unreachable:                              ; preds = %22
-  unreachable
+.thread86:                                        ; preds = %16
+  %23 = and i8 %10, 15
+  %24 = zext nneg i8 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %24, ptr %25, align 4
+  store i8 3, ptr %0, align 8
+  br label %48
 
 _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
   store i8 0, ptr %0, align 8
   %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.360eaabec42e6bb2431517e5aa02476d.51, ptr %.sroa.476.0..sroa_idx, align 8
-  br label %51
+  br label %48
 
-25:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %12, %6, %23, %18
-  %.sroa.7.0.ph.ph = phi i8 [ %19, %18 ], [ %24, %23 ], [ %10, %6 ], [ %10, %12 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ]
-  %.sroa.5.0.ph.ph = phi i8 [ -128, %18 ], [ -96, %23 ], [ 0, %6 ], [ -32, %12 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ]
+26:                                               ; preds = %20
+  switch i8 %10, label %.thread [
+    i8 -35, label %29
+    i8 -36, label %27
+  ]
+
+.thread:                                          ; preds = %20, %18, %6, %12, %26
+  %.sroa.5.0.ph85 = phi i8 [ %10, %26 ], [ -128, %18 ], [ 0, %6 ], [ -32, %12 ], [ -96, %20 ]
+  %.sroa.7.0.ph84 = phi i8 [ %22, %26 ], [ %19, %18 ], [ %10, %6 ], [ %10, %12 ], [ %22, %20 ]
   store i8 2, ptr %0, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.5.0.ph.ph, ptr %.sroa.431.0..sroa_idx, align 1
+  store i8 %.sroa.5.0.ph85, ptr %.sroa.431.0..sroa_idx, align 1
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.7.0.ph.ph, ptr %.sroa.532.0..sroa_idx, align 2
-  br label %51
+  store i8 %.sroa.7.0.ph84, ptr %.sroa.532.0..sroa_idx, align 2
+  br label %48
 
-26:                                               ; preds = %16
-  %27 = and i8 %10, 15
-  %28 = zext nneg i8 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %28, ptr %29, align 4
-  store i8 3, ptr %0, align 8
-  br label %51
-
-30:                                               ; preds = %22
+27:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %31 = icmp ult i64 %4, 3
-  br i1 %31, label %34, label %36
+  %28 = icmp ult i64 %4, 3
+  br i1 %28, label %31, label %33
 
-32:                                               ; preds = %22
+29:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %33 = icmp ult i64 %4, 5
-  br i1 %33, label %43, label %45
+  %30 = icmp ult i64 %4, 5
+  br i1 %30, label %40, label %42
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %7, i64 %4
-  store ptr %35, ptr %1, align 8, !alias.scope !42, !noalias !43
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %7, i64 %4
+  store ptr %32, ptr %1, align 8, !alias.scope !42, !noalias !43
   store i64 0, ptr %3, align 8, !alias.scope !42, !noalias !43
   store i8 1, ptr %0, align 8
   %.sroa.446.sroa.2.0..sroa.446.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.360eaabec42e6bb2431517e5aa02476d.51, ptr %.sroa.446.sroa.2.0..sroa.446.0..sroa_idx.sroa_idx, align 8
-  br label %51
+  br label %48
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %38 = add i64 %4, -3
-  %39 = load i16, ptr %8, align 1, !alias.scope !47, !noalias !51
-  %40 = tail call i16 @llvm.bswap.i16(i16 %39)
-  store ptr %37, ptr %1, align 8, !alias.scope !42, !noalias !43
-  store i64 %38, ptr %3, align 8, !alias.scope !42, !noalias !43
-  %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %41, ptr %42, align 4
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %35 = add i64 %4, -3
+  %36 = load i16, ptr %8, align 1, !alias.scope !47, !noalias !51
+  %37 = tail call i16 @llvm.bswap.i16(i16 %36)
+  store ptr %34, ptr %1, align 8, !alias.scope !42, !noalias !43
+  store i64 %35, ptr %3, align 8, !alias.scope !42, !noalias !43
+  %38 = zext i16 %37 to i32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %38, ptr %39, align 4
   store i8 3, ptr %0, align 8
-  br label %51
+  br label %48
 
-43:                                               ; preds = %32
-  %44 = getelementptr i8, ptr %7, i64 %4
-  store ptr %44, ptr %1, align 8, !alias.scope !53, !noalias !54
+40:                                               ; preds = %29
+  %41 = getelementptr i8, ptr %7, i64 %4
+  store ptr %41, ptr %1, align 8, !alias.scope !53, !noalias !54
   store i64 0, ptr %3, align 8, !alias.scope !53, !noalias !54
   store i8 1, ptr %0, align 8
   %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @anon.360eaabec42e6bb2431517e5aa02476d.51 to i64), ptr %.sroa.458.0..sroa_idx, align 8
-  br label %51
+  br label %48
 
-45:                                               ; preds = %32
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %47 = add i64 %4, -5
-  %48 = load i32, ptr %8, align 1, !alias.scope !58, !noalias !62
-  %49 = tail call i32 @llvm.bswap.i32(i32 %48)
-  store ptr %46, ptr %1, align 8, !alias.scope !53, !noalias !54
-  store i64 %47, ptr %3, align 8, !alias.scope !53, !noalias !54
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %49, ptr %50, align 4
+42:                                               ; preds = %29
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  %44 = add i64 %4, -5
+  %45 = load i32, ptr %8, align 1, !alias.scope !58, !noalias !62
+  %46 = tail call i32 @llvm.bswap.i32(i32 %45)
+  store ptr %43, ptr %1, align 8, !alias.scope !53, !noalias !54
+  store i64 %44, ptr %3, align 8, !alias.scope !53, !noalias !54
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %46, ptr %47, align 4
   store i8 3, ptr %0, align 8
-  br label %51
+  br label %48
 
-51:                                               ; preds = %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit, %34, %43, %25, %26, %36, %45
+48:                                               ; preds = %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit, %31, %40, %.thread, %.thread86, %33, %42
   ret void
 }
 

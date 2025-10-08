@@ -537,7 +537,7 @@ switch.lookup22:                                  ; preds = %13
   call void @gcry_md_close(ptr noundef %.sink)
   br label %26
 
-26:                                               ; preds = %8, %.sink.split, %switch.lookup
+26:                                               ; preds = %.sink.split, %8, %switch.lookup
   %.015 = phi i32 [ 5, %8 ], [ %12, %switch.lookup ], [ %.015.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.015

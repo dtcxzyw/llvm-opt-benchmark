@@ -672,16 +672,16 @@ define internal fastcc void @"_ZN120_$LT$num_bigint_dig..bigint..BigInt$u20$as$u
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i8, ptr %25, align 8, !range !33, !alias.scope !172, !noalias !173, !noundef !23
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %switch.lookup, label %28
+  br i1 %27, label %switch.lookup.i.i, label %28
 
-switch.lookup:                                    ; preds = %24
+switch.lookup.i.i:                                ; preds = %24
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !168
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 41
-  %switch.offset = sub i8 2, %.sroa.2.0.copyload.i.i
+  %switch.offset.i.i = sub i8 2, %.sroa.2.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !noalias !174
   %.sroa.2.0..sroa_idx1.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i8 %switch.offset, ptr %.sroa.2.0..sroa_idx1.i.i, align 8, !alias.scope !161, !noalias !174
+  store i8 %switch.offset.i.i, ptr %.sroa.2.0..sroa_idx1.i.i, align 8, !alias.scope !161, !noalias !174
   %.sroa.4.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %15, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx3.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx.i.i, i64 7, i1 false), !noalias !174
   br label %"_ZN71_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$num_integer..Integer$GT$7div_rem17h92a7178f087e7561E.exit.i"
@@ -706,7 +706,7 @@ common.resume:                                    ; preds = %22, %31, %53, %76
   invoke void @"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #15
           to label %common.resume unwind label %29, !noalias !169
 
-"_ZN71_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$num_integer..Integer$GT$7div_rem17h92a7178f087e7561E.exit.i": ; preds = %switch.lookup, %28
+"_ZN71_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$num_integer..Integer$GT$7div_rem17h92a7178f087e7561E.exit.i": ; preds = %28, %switch.lookup.i.i
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !174
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !168
@@ -1034,7 +1034,7 @@ default.unreachable:                              ; preds = %92, %61
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %77, align 8, !noalias !264
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17hce54466d28d55fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %.sink12.i.i, ptr noundef nonnull %76)
-          to label %switch.lookup unwind label %78, !noalias !267
+          to label %switch.lookup.i unwind label %78, !noalias !267
 
 78:                                               ; preds = %69
   %79 = landingpad { ptr, i32 }
@@ -1048,12 +1048,12 @@ default.unreachable:                              ; preds = %92, %61
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16, !noalias !267
   unreachable
 
-switch.lookup:                                    ; preds = %69
+switch.lookup.i:                                  ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !268
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !264
   %82 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %switch.offset = sub nuw nsw i8 2, %58
-  store i8 %switch.offset, ptr %82, align 8, !alias.scope !246, !noalias !268
+  %switch.offset.i = sub nuw nsw i8 2, %58
+  store i8 %switch.offset.i, ptr %82, align 8, !alias.scope !246, !noalias !268
   br label %126
 
 83:                                               ; preds = %67
@@ -1075,20 +1075,20 @@ switch.lookup:                                    ; preds = %69
 
 92:                                               ; preds = %87
   switch i8 %91, label %default.unreachable [
-    i8 -1, label %switch.lookup13
+    i8 -1, label %switch.lookup31.i
     i8 0, label %94
     i8 1, label %100
   ]
 
-switch.lookup13:                                  ; preds = %92
+switch.lookup31.i:                                ; preds = %92
   %93 = load i8, ptr %56, align 8, !range !33, !alias.scope !249, !noalias !254, !noundef !23
-  %switch.offset15 = sub nuw nsw i8 2, %93
+  %switch.offset33.i = sub nuw nsw i8 2, %93
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !258
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !258
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 40, i1 false), !noalias !254
   call void @"_ZN118_$LT$$RF$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..Sub$LT$num_bigint_dig..biguint..BigUint$GT$$GT$3sub17h3621dc3e7bca2592E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %17), !noalias !246
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !258
-  call fastcc void @_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, i8 noundef %switch.offset15, ptr noalias noundef align 8 captures(none) dereferenceable(40) %18)
+  call fastcc void @_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, i8 noundef %switch.offset33.i, ptr noalias noundef align 8 captures(none) dereferenceable(40) %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !258
   br label %"_ZN114_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$core..ops..arith..Sub$LT$$RF$num_bigint_dig..bigint..BigInt$GT$$GT$3sub17h66c20e0b9e4c1e96E.exit"
 
@@ -1182,7 +1182,7 @@ switch.lookup13:                                  ; preds = %92
   invoke fastcc void @_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, i8 noundef 1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %14)
           to label %126 unwind label %.body.i1
 
-126:                                              ; preds = %.loopexit.i, %switch.lookup
+126:                                              ; preds = %.loopexit.i, %switch.lookup.i
   call void @llvm.experimental.noalias.scope.decl(metadata !281)
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
@@ -1241,7 +1241,7 @@ switch.lookup13:                                  ; preds = %92
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16, !noalias !246
   unreachable
 
-"_ZN114_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$core..ops..arith..Sub$LT$$RF$num_bigint_dig..bigint..BigInt$GT$$GT$3sub17h66c20e0b9e4c1e96E.exit": ; preds = %60, %68, %100, %switch.lookup13, %130, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i"
+"_ZN114_$LT$num_bigint_dig..bigint..BigInt$u20$as$u20$core..ops..arith..Sub$LT$$RF$num_bigint_dig..bigint..BigInt$GT$$GT$3sub17h66c20e0b9e4c1e96E.exit": ; preds = %60, %68, %switch.lookup31.i, %100, %130, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)

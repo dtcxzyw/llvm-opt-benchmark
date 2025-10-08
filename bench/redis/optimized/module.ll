@@ -3791,136 +3791,120 @@ define internal fastcc noalias ptr @moduleCopyCommandArgs(ptr noundef nonnull re
   %14 = mul nuw i64 %.0, 80
   %15 = add nuw i64 %14, 80
   %16 = tail call noalias ptr @zcalloc(i64 noundef %15) #36
-  %.not69 = icmp eq i64 %.0, 0
-  br i1 %.not69, label %._crit_edge, label %.lr.ph
+  %.not68 = icmp eq i64 %.0, 0
+  br i1 %.not68, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %72, %13
+._crit_edge:                                      ; preds = %71, %13
   ret ptr %16
 
-.lr.ph:                                           ; preds = %13, %72
-  %.05268 = phi i64 [ %73, %72 ], [ 0, %13 ]
+.lr.ph:                                           ; preds = %13, %71
+  %.05267 = phi i64 [ %72, %71 ], [ 0, %13 ]
   %.val65 = load i64, ptr %3, align 8, !tbaa !219
-  %sext67 = shl i64 %.05268, 32
-  %17 = ashr exact i64 %sext67, 32
+  %sext66 = shl i64 %.05267, 32
+  %17 = ashr exact i64 %sext66, 32
   %18 = mul i64 %.val65, %17
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !220
   %21 = tail call noalias ptr @zstrdup(ptr noundef %20) #35
-  %22 = getelementptr inbounds nuw %struct.redisCommandArg, ptr %16, i64 %.05268
+  %22 = getelementptr inbounds nuw %struct.redisCommandArg, ptr %16, i64 %.05267
   store ptr %21, ptr %22, align 8, !tbaa !174
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !223
-  switch i32 %24, label %25 [
-    i32 0, label %30
-    i32 1, label %30
-    i32 2, label %30
-    i32 3, label %26
-    i32 4, label %30
-    i32 5, label %30
-    i32 6, label %30
-    i32 7, label %30
-    i32 8, label %30
-  ]
+  %25 = icmp ugt i32 %24, 8
+  %spec.select7.i = select i1 %25, i32 -1, i32 %24
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %spec.select7.i, ptr %26, align 8, !tbaa !224
+  %27 = icmp eq i32 %24, 3
+  br i1 %27, label %28, label %31
 
-25:                                               ; preds = %.lr.ph
-  br label %30
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !225
+  br label %31
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 3, ptr %27, align 8, !tbaa !224
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !225
-  br label %32
+31:                                               ; preds = %.lr.ph, %28
+  %.sink = phi i32 [ %30, %28 ], [ -1, %.lr.ph ]
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  store i32 %.sink, ptr %32, align 4, !tbaa !226
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !227
+  %.not59 = icmp eq ptr %34, null
+  br i1 %.not59, label %38, label %35
 
-30:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %25
-  %.0.i.ph = phi i32 [ -1, %25 ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ], [ %24, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.0.i.ph, ptr %31, align 8, !tbaa !224
-  br label %32
+35:                                               ; preds = %31
+  %36 = tail call noalias ptr @zstrdup(ptr noundef nonnull %34) #35
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %36, ptr %37, align 8, !tbaa !228
+  br label %38
 
-32:                                               ; preds = %30, %26
-  %.sink = phi i32 [ -1, %30 ], [ %29, %26 ]
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 %.sink, ptr %33, align 4, !tbaa !226
-  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !227
-  %.not59 = icmp eq ptr %35, null
-  br i1 %.not59, label %39, label %36
+38:                                               ; preds = %35, %31
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !229
+  %.not60 = icmp eq ptr %40, null
+  br i1 %.not60, label %44, label %41
 
-36:                                               ; preds = %32
-  %37 = tail call noalias ptr @zstrdup(ptr noundef nonnull %35) #35
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %37, ptr %38, align 8, !tbaa !228
-  br label %39
+41:                                               ; preds = %38
+  %42 = tail call noalias ptr @zstrdup(ptr noundef nonnull %40) #35
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %42, ptr %43, align 8, !tbaa !230
+  br label %44
 
-39:                                               ; preds = %36, %32
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !229
-  %.not60 = icmp eq ptr %41, null
-  br i1 %.not60, label %45, label %42
+44:                                               ; preds = %41, %38
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !231
+  %.not61 = icmp eq ptr %46, null
+  br i1 %.not61, label %50, label %47
 
-42:                                               ; preds = %39
-  %43 = tail call noalias ptr @zstrdup(ptr noundef nonnull %41) #35
-  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %43, ptr %44, align 8, !tbaa !230
-  br label %45
+47:                                               ; preds = %44
+  %48 = tail call noalias ptr @zstrdup(ptr noundef nonnull %46) #35
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr %48, ptr %49, align 8, !tbaa !232
+  br label %50
 
-45:                                               ; preds = %42, %39
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !231
-  %.not61 = icmp eq ptr %47, null
-  br i1 %.not61, label %51, label %48
+50:                                               ; preds = %47, %44
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %52 = load ptr, ptr %51, align 8, !tbaa !233
+  %.not62 = icmp eq ptr %52, null
+  br i1 %.not62, label %56, label %53
 
-48:                                               ; preds = %45
-  %49 = tail call noalias ptr @zstrdup(ptr noundef nonnull %47) #35
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %49, ptr %50, align 8, !tbaa !232
-  br label %51
+53:                                               ; preds = %50
+  %54 = tail call noalias ptr @zstrdup(ptr noundef nonnull %52) #35
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store ptr %54, ptr %55, align 8, !tbaa !234
+  br label %56
 
-51:                                               ; preds = %48, %45
-  %52 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !233
-  %.not62 = icmp eq ptr %53, null
-  br i1 %.not62, label %57, label %54
+56:                                               ; preds = %53, %50
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %58 = load ptr, ptr %57, align 8, !tbaa !235
+  %.not63 = icmp eq ptr %58, null
+  br i1 %.not63, label %62, label %59
 
-54:                                               ; preds = %51
-  %55 = tail call noalias ptr @zstrdup(ptr noundef nonnull %53) #35
-  %56 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store ptr %55, ptr %56, align 8, !tbaa !234
-  br label %57
+59:                                               ; preds = %56
+  %60 = tail call noalias ptr @zstrdup(ptr noundef nonnull %58) #35
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  store ptr %60, ptr %61, align 8, !tbaa !236
+  br label %62
 
-57:                                               ; preds = %54, %51
-  %58 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %59 = load ptr, ptr %58, align 8, !tbaa !235
-  %.not63 = icmp eq ptr %59, null
-  br i1 %.not63, label %63, label %60
+62:                                               ; preds = %59, %56
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %64 = load i32, ptr %63, align 8, !tbaa !237
+  %.2.i = and i32 %64, 7
+  %65 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store i32 %.2.i, ptr %65, align 8, !tbaa !238
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %67 = load ptr, ptr %66, align 8, !tbaa !239
+  %.not64 = icmp eq ptr %67, null
+  br i1 %.not64, label %71, label %68
 
-60:                                               ; preds = %57
-  %61 = tail call noalias ptr @zstrdup(ptr noundef nonnull %59) #35
-  %62 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store ptr %61, ptr %62, align 8, !tbaa !236
-  br label %63
+68:                                               ; preds = %62
+  %69 = tail call fastcc ptr @moduleCopyCommandArgs(ptr noundef %67, ptr noundef nonnull %1)
+  %70 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store ptr %69, ptr %70, align 8, !tbaa !176
+  br label %71
 
-63:                                               ; preds = %60, %57
-  %64 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %65 = load i32, ptr %64, align 8, !tbaa !237
-  %.2.i = and i32 %65, 7
-  %66 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store i32 %.2.i, ptr %66, align 8, !tbaa !238
-  %67 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %68 = load ptr, ptr %67, align 8, !tbaa !239
-  %.not64 = icmp eq ptr %68, null
-  br i1 %.not64, label %72, label %69
-
-69:                                               ; preds = %63
-  %70 = tail call fastcc ptr @moduleCopyCommandArgs(ptr noundef %68, ptr noundef nonnull %1)
-  %71 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store ptr %70, ptr %71, align 8, !tbaa !176
-  br label %72
-
-72:                                               ; preds = %69, %63
-  %73 = add nuw i64 %.05268, 1
-  %exitcond.not = icmp eq i64 %73, %.0
+71:                                               ; preds = %68, %62
+  %72 = add nuw i64 %.05267, 1
+  %exitcond.not = icmp eq i64 %72, %.0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !240
 }
 
@@ -30324,159 +30308,159 @@ declare ptr @callReplyCreate(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @moduleValidateCommandArgs(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread53, label %.preheader
+  br i1 %3, label %.thread50, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = getelementptr i8, ptr %1, i64 24
   %5 = load ptr, ptr %0, align 8, !tbaa !220
-  %.not78 = icmp eq ptr %5, null
-  br i1 %.not78, label %.thread53, label %.lr.ph
+  %.not74 = icmp eq ptr %5, null
+  br i1 %.not74, label %.thread50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
-  %6 = phi ptr [ %68, %.critedge ], [ %5, %.preheader ]
-  %7 = phi ptr [ %67, %.critedge ], [ %0, %.preheader ]
-  %.03579 = phi i64 [ %64, %.critedge ], [ 0, %.preheader ]
+  %6 = phi ptr [ %70, %.critedge ], [ %5, %.preheader ]
+  %7 = phi ptr [ %69, %.critedge ], [ %0, %.preheader ]
+  %.03575 = phi i64 [ %66, %.critedge ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !223
-  %switch55 = icmp ult i32 %9, 9
-  br i1 %switch55, label %13, label %moduleConvertArgType.exit
+  %10 = icmp ult i32 %9, 9
+  br i1 %10, label %15, label %11
 
-moduleConvertArgType.exit:                        ; preds = %.lr.ph
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %11 = icmp sgt i32 %10, 3
-  br i1 %11, label %.thread53, label %12
+11:                                               ; preds = %.lr.ph
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %13 = icmp sgt i32 %12, 3
+  br i1 %13, label %.thread50, label %14
 
-12:                                               ; preds = %moduleConvertArgType.exit
+14:                                               ; preds = %11
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.554, ptr noundef nonnull %6, i32 noundef %9) #35
-  br label %.thread53
+  br label %.thread50
 
-13:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   switch i32 %9, label %.thread [
-    i32 6, label %14
-    i32 3, label %23
+    i32 6, label %16
+    i32 3, label %25
   ]
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !227
-  %.not41 = icmp eq ptr %16, null
-  br i1 %.not41, label %17, label %.thread
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !227
+  %.not41 = icmp eq ptr %18, null
+  br i1 %.not41, label %19, label %.thread
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %19 = icmp sgt i32 %18, 3
-  br i1 %19, label %.thread53, label %20
+19:                                               ; preds = %16
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %21 = icmp sgt i32 %20, 3
+  br i1 %21, label %.thread50, label %22
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw %struct.RedisModuleCommandArg, ptr %0, i64 %.03579
-  %22 = load ptr, ptr %21, align 8, !tbaa !220
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.555, ptr noundef %22) #35
-  br label %.thread53
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw %struct.RedisModuleCommandArg, ptr %0, i64 %.03575
+  %24 = load ptr, ptr %23, align 8, !tbaa !220
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.555, ptr noundef %24) #35
+  br label %.thread50
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !225
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %.thread110
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %27 = load i32, ptr %26, align 4, !tbaa !225
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %.thread106
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %29 = icmp sgt i32 %28, 3
-  br i1 %29, label %.thread53, label %30
+29:                                               ; preds = %25
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %31 = icmp sgt i32 %30, 3
+  br i1 %31, label %.thread50, label %32
 
-30:                                               ; preds = %27
+32:                                               ; preds = %29
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.556, ptr noundef nonnull %6) #35
-  br label %.thread53
+  br label %.thread50
 
-.thread:                                          ; preds = %13, %14
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !225
-  %.off = add i32 %32, -1
+.thread:                                          ; preds = %15, %16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !225
+  %.off = add i32 %34, -1
   %switch = icmp ult i32 %.off, -2
-  br i1 %switch, label %33, label %37
+  br i1 %switch, label %35, label %39
 
-33:                                               ; preds = %.thread
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %35 = icmp sgt i32 %34, 3
-  br i1 %35, label %.thread53, label %36
+35:                                               ; preds = %.thread
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %37 = icmp sgt i32 %36, 3
+  br i1 %37, label %.thread50, label %38
 
-36:                                               ; preds = %33
+38:                                               ; preds = %35
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.557, ptr noundef nonnull %6) #35
-  br label %.thread53
+  br label %.thread50
 
-37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !237
-  %.not44 = icmp ult i32 %39, 8
-  br i1 %.not44, label %46, label %42
-
-.thread110:                                       ; preds = %23
+39:                                               ; preds = %.thread
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !237
-  %.not44111 = icmp ult i32 %41, 8
-  br i1 %.not44111, label %.thread112, label %42
+  %.not44 = icmp ult i32 %41, 8
+  br i1 %.not44, label %48, label %44
 
-42:                                               ; preds = %.thread110, %37
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %44 = icmp sgt i32 %43, 3
-  br i1 %44, label %.thread53, label %45
+.thread106:                                       ; preds = %25
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %43 = load i32, ptr %42, align 8, !tbaa !237
+  %.not44107 = icmp ult i32 %43, 8
+  br i1 %.not44107, label %.thread108, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %.thread106, %39
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %46 = icmp sgt i32 %45, 3
+  br i1 %46, label %.thread50, label %47
+
+47:                                               ; preds = %44
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.558, ptr noundef nonnull %6) #35
-  br label %.thread53
+  br label %.thread50
 
-46:                                               ; preds = %37
-  %47 = icmp samesign ugt i32 %9, 6
-  br i1 %47, label %48, label %.thread112
+48:                                               ; preds = %39
+  %49 = icmp samesign ugt i32 %9, 6
+  br i1 %49, label %50, label %.thread108
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !239
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %56
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %52 = load ptr, ptr %51, align 8, !tbaa !239
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %58
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %54 = icmp sgt i32 %53, 3
-  br i1 %54, label %.thread53, label %55
+54:                                               ; preds = %50
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %56 = icmp sgt i32 %55, 3
+  br i1 %56, label %.thread50, label %57
 
-55:                                               ; preds = %52
+57:                                               ; preds = %54
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.559, ptr noundef nonnull %6) #35
-  br label %.thread53
+  br label %.thread50
 
-56:                                               ; preds = %48
-  %57 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %50, ptr noundef %1)
-  %.not46 = icmp eq i32 %57, 0
-  br i1 %.not46, label %.thread53, label %.critedge
+58:                                               ; preds = %50
+  %59 = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef nonnull %52, ptr noundef %1)
+  %.not46 = icmp eq i32 %59, 0
+  br i1 %.not46, label %.thread50, label %.critedge
 
-.thread112:                                       ; preds = %.thread110, %46
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %59 = load ptr, ptr %58, align 8, !tbaa !239
-  %.not45 = icmp eq ptr %59, null
-  br i1 %.not45, label %.critedge, label %60
+.thread108:                                       ; preds = %.thread106, %48
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %61 = load ptr, ptr %60, align 8, !tbaa !239
+  %.not45 = icmp eq ptr %61, null
+  br i1 %.not45, label %.critedge, label %62
 
-60:                                               ; preds = %.thread112
-  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
-  %62 = icmp sgt i32 %61, 3
-  br i1 %62, label %.thread53, label %63
+62:                                               ; preds = %.thread108
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !90
+  %64 = icmp sgt i32 %63, 3
+  br i1 %64, label %.thread50, label %65
 
-63:                                               ; preds = %60
+65:                                               ; preds = %62
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.560, ptr noundef nonnull %6) #35
-  br label %.thread53
+  br label %.thread50
 
-.critedge:                                        ; preds = %.thread112, %56
-  %64 = add i64 %.03579, 1
+.critedge:                                        ; preds = %.thread108, %58
+  %66 = add i64 %.03575, 1
   %.val = load i64, ptr %4, align 8, !tbaa !219
-  %sext = shl i64 %64, 32
-  %65 = ashr exact i64 %sext, 32
-  %66 = mul i64 %65, %.val
-  %67 = getelementptr inbounds i8, ptr %0, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !220
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %.thread53, label %.lr.ph, !llvm.loop !690
+  %sext = shl i64 %66, 32
+  %67 = ashr exact i64 %sext, 32
+  %68 = mul i64 %67, %.val
+  %69 = getelementptr inbounds i8, ptr %0, i64 %68
+  %70 = load ptr, ptr %69, align 8, !tbaa !220
+  %.not = icmp eq ptr %70, null
+  br i1 %.not, label %.thread50, label %.lr.ph, !llvm.loop !690
 
-.thread53:                                        ; preds = %.critedge, %56, %.preheader, %moduleConvertArgType.exit, %12, %17, %20, %27, %30, %33, %36, %42, %45, %52, %55, %60, %63, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %63 ], [ 0, %60 ], [ 0, %55 ], [ 0, %52 ], [ 0, %45 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %moduleConvertArgType.exit ], [ 1, %.preheader ], [ 1, %.critedge ], [ 0, %56 ]
+.thread50:                                        ; preds = %.critedge, %58, %.preheader, %11, %14, %19, %22, %29, %32, %35, %38, %44, %47, %54, %57, %62, %65, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %65 ], [ 0, %62 ], [ 0, %57 ], [ 0, %54 ], [ 0, %47 ], [ 0, %44 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %22 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ 1, %.preheader ], [ 1, %.critedge ], [ 0, %58 ]
   ret i32 %.0
 }
 

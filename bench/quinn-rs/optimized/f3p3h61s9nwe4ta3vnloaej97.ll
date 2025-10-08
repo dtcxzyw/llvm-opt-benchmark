@@ -5648,161 +5648,161 @@ define hidden void @_ZN11quinn_proto6packet6Header6encode17hf937c52136b1ec8fE(pt
   %9 = add nsw i64 %8, -3
   %10 = select i1 %.not, i64 0, i64 %9
   switch i64 %10, label %11 [
-    i64 0, label %switch.lookup
+    i64 0, label %12
     i64 1, label %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit"
-    i64 2, label %40
-    i64 3, label %48
-    i64 4, label %68
+    i64 2, label %41
+    i64 3, label %49
+    i64 4, label %69
   ]
 
 11:                                               ; preds = %3
   unreachable
 
-switch.lookup:                                    ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 65
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i32, ptr %14, align 8, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %16 = load i32, ptr %15, align 8, !noundef !3
   %.sroa.01.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i8
-  %16 = or i8 %.sroa.01.0.extract.trunc.i, -64
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %16)
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %15)
-  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %12, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %17 = or i8 %.sroa.01.0.extract.trunc.i, -64
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %17)
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %16)
   tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !noundef !3
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$9write_var17hf05269890952936bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !noundef !3
-  %21 = load i64, ptr %17, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1f35b7a2b9569eedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %20, ptr noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.63)
+  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %14, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i64, ptr %18, align 8, !noundef !3
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$9write_var17hf05269890952936bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %19)
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load ptr, ptr %20, align 8, !noundef !3
+  %22 = load i64, ptr %18, align 8, !noundef !3
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1f35b7a2b9569eedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %21, ptr noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.63)
   tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17hb5d5288581c5898eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef 0)
   tail call void @_ZN11quinn_proto6packet12PacketNumber6encode17hb59ad4683a24b1e8E(i64 %.sroa.0.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %23 = load i64, ptr %4, align 8, !noundef !3
-  %24 = icmp sgt i64 %23, -1
-  tail call void @llvm.assume(i1 %24)
-  %25 = sub nsw i64 %23, %5
-  %switch.idx.cast = and i64 %.sroa.0.0.copyload, 255
-  %switch.offset = add nuw nsw i64 %switch.idx.cast, 1
+  %24 = load i64, ptr %4, align 8, !noundef !3
+  %25 = icmp sgt i64 %24, -1
+  tail call void @llvm.assume(i1 %25)
+  %26 = sub nsw i64 %24, %5
+  %switch.idx.cast.i = and i64 %.sroa.0.0.copyload, 255
+  %switch.offset.i = add nuw nsw i64 %switch.idx.cast.i, 1
   store i64 %5, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %25, ptr %26, align 8
-  br label %77
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %26, ptr %27, align 8
+  br label %78
 
 "_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit": ; preds = %3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %28 = load i8, ptr %27, align 2, !range !99, !noundef !3
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.05.0.copyload = load i64, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %33 = load i32, ptr %32, align 4, !noundef !3
-  %34 = trunc nuw i8 %28 to i1
-  %..i = select i1 %34, i8 -48, i8 -32
-  %.sroa.01.0.extract.trunc.i38 = trunc i64 %.sroa.05.0.copyload to i8
-  %35 = or i8 %..i, %.sroa.01.0.extract.trunc.i38
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %35)
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %33)
-  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 58
+  %29 = load i8, ptr %28, align 2, !range !99, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 37
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.05.0.copyload = load i64, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %34 = load i32, ptr %33, align 4, !noundef !3
+  %35 = trunc nuw i8 %29 to i1
+  %..i = select i1 %35, i8 -48, i8 -32
+  %.sroa.01.0.extract.trunc.i37 = trunc i64 %.sroa.05.0.copyload to i8
+  %36 = or i8 %..i, %.sroa.01.0.extract.trunc.i37
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %36)
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %34)
   tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %31, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17hb5d5288581c5898eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef 0)
   tail call void @_ZN11quinn_proto6packet12PacketNumber6encode17hb59ad4683a24b1e8E(i64 %.sroa.05.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %36 = load i64, ptr %4, align 8, !noundef !3
-  %37 = icmp sgt i64 %36, -1
-  tail call void @llvm.assume(i1 %37)
-  %38 = sub nsw i64 %36, %5
-  %switch.idx.cast51 = and i64 %.sroa.05.0.copyload, 255
-  %switch.offset52 = add nuw nsw i64 %switch.idx.cast51, 1
+  %37 = load i64, ptr %4, align 8, !noundef !3
+  %38 = icmp sgt i64 %37, -1
+  tail call void @llvm.assume(i1 %38)
+  %39 = sub nsw i64 %37, %5
+  %switch.idx.cast.i38 = and i64 %.sroa.05.0.copyload, 255
+  %switch.offset.i39 = add nuw nsw i64 %switch.idx.cast.i38, 1
   store i64 %5, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %38, ptr %39, align 8
-  br label %77
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %39, ptr %40, align 8
+  br label %78
 
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %44 = load i32, ptr %43, align 4, !noundef !3
+41:                                               ; preds = %3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %45 = load i32, ptr %44, align 4, !noundef !3
   tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef -16)
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %44)
-  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %41, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %45)
   tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %42, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %45 = load i64, ptr %4, align 8, !noundef !3
-  %46 = icmp sgt i64 %45, -1
-  tail call void @llvm.assume(i1 %46)
-  %47 = sub nsw i64 %45, %5
+  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %43, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %46 = load i64, ptr %4, align 8, !noundef !3
+  %47 = icmp sgt i64 %46, -1
+  tail call void @llvm.assume(i1 %47)
+  %48 = sub nsw i64 %46, %5
   store i64 %5, ptr %0, align 8
-  br label %77
+  br label %78
 
-48:                                               ; preds = %3
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %50 = load i8, ptr %49, align 1, !range !99, !noundef !3
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %52 = load i8, ptr %51, align 2, !range !99, !noundef !3
-  %53 = trunc nuw i8 %52 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.013.0.copyload = load i64, ptr %54, align 4
-  %. = select i1 %53, i8 68, i8 64
-  %.sroa.018.0 = shl nuw nsw i8 %50, 5
-  %55 = or disjoint i8 %., %.sroa.018.0
-  %.sroa.01.0.extract.trunc.i43 = trunc i64 %.sroa.013.0.copyload to i8
-  %56 = or i8 %55, %.sroa.01.0.extract.trunc.i43
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %56)
+49:                                               ; preds = %3
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %51 = load i8, ptr %50, align 1, !range !99, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %53 = load i8, ptr %52, align 2, !range !99, !noundef !3
+  %54 = trunc nuw i8 %53 to i1
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.013.0.copyload = load i64, ptr %55, align 4
+  %. = select i1 %54, i8 68, i8 64
+  %.sroa.018.0 = shl nuw nsw i8 %51, 5
+  %56 = or disjoint i8 %., %.sroa.018.0
+  %.sroa.01.0.extract.trunc.i41 = trunc i64 %.sroa.013.0.copyload to i8
+  %57 = or i8 %56, %.sroa.01.0.extract.trunc.i41
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = load i8, ptr %57, align 8, !alias.scope !444, !noundef !3
-  %59 = zext i8 %58 to i64
-  %60 = icmp ugt i8 %58, 20
-  br i1 %60, label %61, label %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit", !prof !4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %59 = load i8, ptr %58, align 8, !alias.scope !444, !noundef !3
+  %60 = zext i8 %59 to i64
+  %61 = icmp ugt i8 %59, 20
+  br i1 %61, label %62, label %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit", !prof !4
 
-61:                                               ; preds = %48
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %59, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.156) #23, !noalias !447
+62:                                               ; preds = %49
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %60, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.156) #23, !noalias !447
   unreachable
 
-"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit": ; preds = %48
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %59
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1f35b7a2b9569eedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.63)
+"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit": ; preds = %49
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %60
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1f35b7a2b9569eedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.63)
   tail call void @_ZN11quinn_proto6packet12PacketNumber6encode17hb59ad4683a24b1e8E(i64 %.sroa.013.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %64 = load i64, ptr %4, align 8, !noundef !3
-  %65 = icmp sgt i64 %64, -1
-  tail call void @llvm.assume(i1 %65)
-  %66 = sub nsw i64 %64, %5
-  %switch.idx.cast54 = and i64 %.sroa.013.0.copyload, 255
-  %switch.offset55 = add nuw nsw i64 %switch.idx.cast54, 1
+  %65 = load i64, ptr %4, align 8, !noundef !3
+  %66 = icmp sgt i64 %65, -1
+  tail call void @llvm.assume(i1 %66)
+  %67 = sub nsw i64 %65, %5
+  %switch.idx.cast.i42 = and i64 %.sroa.013.0.copyload, 255
+  %switch.offset.i43 = add nuw nsw i64 %switch.idx.cast.i42, 1
   store i64 %5, ptr %0, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %66, ptr %67, align 8
-  br label %77
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %67, ptr %68, align 8
+  br label %78
 
-68:                                               ; preds = %3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %72 = load i8, ptr %71, align 1, !noundef !3
-  %73 = or i8 %72, -128
-  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %73)
+69:                                               ; preds = %3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 23
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %73 = load i8, ptr %72, align 1, !noundef !3
+  %74 = or i8 %73, -128
+  tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17ha44bfe031b88fd71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i8 noundef %74)
   tail call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h9a3129cfd3b1e7f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 0)
-  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %69, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %70, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %74 = load i64, ptr %4, align 8, !noundef !3
-  %75 = icmp sgt i64 %74, -1
-  tail call void @llvm.assume(i1 %75)
-  %76 = sub nsw i64 %74, %5
+  tail call void @_ZN11quinn_proto6shared12ConnectionId11encode_long17hd59d9d89f5a91e38E(ptr noalias noundef nonnull readonly align 1 dereferenceable(21) %71, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %75 = load i64, ptr %4, align 8, !noundef !3
+  %76 = icmp sgt i64 %75, -1
+  tail call void @llvm.assume(i1 %76)
+  %77 = sub nsw i64 %75, %5
   store i64 %5, ptr %0, align 8
-  br label %77
+  br label %78
 
-77:                                               ; preds = %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit", %68, %40, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit", %switch.lookup
-  %.sink49 = phi i64 [ 16, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ 8, %68 ], [ 8, %40 ], [ 16, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ 16, %switch.lookup ]
-  %.sroa.02.0.i45.sink = phi i64 [ %switch.offset55, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ %76, %68 ], [ %47, %40 ], [ %switch.offset52, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ %switch.offset, %switch.lookup ]
-  %.sink = phi i8 [ 0, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ 2, %68 ], [ 2, %40 ], [ 1, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ 1, %switch.lookup ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49
-  store i64 %.sroa.02.0.i45.sink, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %79, align 8
+78:                                               ; preds = %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit", %69, %41, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit", %12
+  %.sink46 = phi i64 [ 16, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ 8, %69 ], [ 8, %41 ], [ 16, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ 16, %12 ]
+  %switch.offset.i43.sink = phi i64 [ %switch.offset.i43, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ %77, %69 ], [ %48, %41 ], [ %switch.offset.i39, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ %switch.offset.i, %12 ]
+  %.sink = phi i8 [ 0, %"_ZN77_$LT$quinn_proto..shared..ConnectionId$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd0085c07a45121eE.exit" ], [ 2, %69 ], [ 2, %41 ], [ 1, %"_ZN11quinn_proto6packet95_$LT$impl$u20$core..convert..From$LT$quinn_proto..packet..LongHeaderType$GT$$u20$for$u20$u8$GT$4from17ha5f48027b0bb5d54E.exit" ], [ 1, %12 ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink46
+  store i64 %switch.offset.i43.sink, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink, ptr %80, align 8
   ret void
 }
 
@@ -6135,57 +6135,55 @@ define hidden noundef i64 @_ZN11quinn_proto6packet12PacketNumber6expand17h286ed9
   %.sroa.6.0.extract.shift = lshr i64 %0, 32
   %trunc = trunc i64 %0 to i8
   switch i8 %trunc, label %3 [
-    i8 0, label %.thread
-    i8 1, label %.thread26
-    i8 3, label %6
-    i8 2, label %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
+    i8 0, label %4
+    i8 1, label %6
+    i8 2, label %8
+    i8 3, label %8
   ]
 
 3:                                                ; preds = %2
   unreachable
 
-.thread:                                          ; preds = %2
+4:                                                ; preds = %2
   %.sroa.410.0.extract.shift = lshr i64 %0, 8
-  %4 = and i64 %.sroa.410.0.extract.shift, 255
-  br label %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
-
-.thread26:                                        ; preds = %2
-  %.sroa.511.0.extract.shift = lshr i64 %0, 16
-  %5 = and i64 %.sroa.511.0.extract.shift, 65535
-  br label %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
+  %5 = and i64 %.sroa.410.0.extract.shift, 255
+  br label %8
 
 6:                                                ; preds = %2
-  br label %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
+  %.sroa.511.0.extract.shift = lshr i64 %0, 16
+  %7 = and i64 %.sroa.511.0.extract.shift, 65535
+  br label %8
 
-_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit: ; preds = %2, %.thread26, %.thread, %6
-  %.sroa.013.025 = phi i64 [ %.sroa.6.0.extract.shift, %6 ], [ %4, %.thread ], [ %5, %.thread26 ], [ %.sroa.6.0.extract.shift, %2 ]
-  %.sroa.02.0.i = phi i64 [ 32, %6 ], [ 8, %.thread ], [ 16, %.thread26 ], [ 24, %2 ]
-  %7 = shl nuw nsw i64 1, %.sroa.02.0.i
-  %8 = lshr exact i64 %7, 1
-  %9 = sub nsw i64 0, %7
-  %10 = and i64 %1, %9
-  %11 = or i64 %10, %.sroa.013.025
-  %12 = icmp ult i64 %1, %8
-  %13 = sub nuw i64 %1, %8
-  %.not = icmp ugt i64 %11, %13
-  %or.cond23 = select i1 %12, i1 true, i1 %.not
-  br i1 %or.cond23, label %14, label %19
+8:                                                ; preds = %2, %2, %6, %4
+  %.sroa.013.0 = phi i64 [ %5, %4 ], [ %7, %6 ], [ %.sroa.6.0.extract.shift, %2 ], [ %.sroa.6.0.extract.shift, %2 ]
+  %switch.idx.cast.i = shl i64 %0, 3
+  %switch.offset.i = and i64 %switch.idx.cast.i, 2040
+  %9 = shl nuw nsw i64 256, %switch.offset.i
+  %10 = lshr exact i64 %9, 1
+  %11 = sub nsw i64 0, %9
+  %12 = and i64 %1, %11
+  %13 = or i64 %.sroa.013.0, %12
+  %14 = icmp ult i64 %1, %10
+  %15 = sub nuw i64 %1, %10
+  %.not = icmp ugt i64 %13, %15
+  %or.cond23 = select i1 %14, i1 true, i1 %.not
+  br i1 %or.cond23, label %16, label %21
 
-14:                                               ; preds = %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
-  %15 = add i64 %8, %1
-  %16 = icmp ugt i64 %11, %15
-  %17 = icmp ugt i64 %11, %7
-  %or.cond = and i1 %16, %17
-  %18 = select i1 %or.cond, i64 %7, i64 0
-  %spec.select = sub nuw i64 %11, %18
-  br label %21
+16:                                               ; preds = %8
+  %17 = add i64 %10, %1
+  %18 = icmp ugt i64 %13, %17
+  %19 = icmp ugt i64 %13, %9
+  %or.cond = and i1 %18, %19
+  %20 = select i1 %or.cond, i64 %9, i64 0
+  %spec.select = sub nuw i64 %13, %20
+  br label %23
 
-19:                                               ; preds = %_ZN11quinn_proto6packet12PacketNumber3len17ha7c3cc94431fcf60E.exit
-  %20 = add i64 %11, %7
-  br label %21
+21:                                               ; preds = %8
+  %22 = add i64 %13, %9
+  br label %23
 
-21:                                               ; preds = %14, %19
-  %.sroa.012.0 = phi i64 [ %20, %19 ], [ %spec.select, %14 ]
+23:                                               ; preds = %16, %21
+  %.sroa.012.0 = phi i64 [ %22, %21 ], [ %spec.select, %16 ]
   ret i64 %.sroa.012.0
 }
 

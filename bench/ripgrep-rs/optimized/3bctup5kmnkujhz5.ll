@@ -1126,7 +1126,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i64 7, label %36
   ]
 
-default.unreachable102:                           ; preds = %25
+default.unreachable101:                           ; preds = %25
   unreachable
 
 14:                                               ; preds = %tailrecurse
@@ -1153,7 +1153,7 @@ default.unreachable102:                           ; preds = %25
   %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %27 = load i32, ptr %26, align 8, !range !186, !noundef !7
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %27, i1 true)
-  switch i32 %28, label %default.unreachable102 [
+  switch i32 %28, label %default.unreachable101 [
     i32 0, label %128
     i32 1, label %128
     i32 2, label %131
@@ -1279,7 +1279,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %29
 78:                                               ; preds = %75
   %79 = load i8, ptr %6, align 1, !range !187, !noundef !7
   %80 = icmp eq i8 %79, 4
-  br i1 %80, label %81, label %switch.lookup
+  br i1 %80, label %81, label %.lr.ph68.preheader
 
 81:                                               ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1302,7 +1302,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %29
   %87 = icmp eq ptr %86, null
   br i1 %87, label %._crit_edge72, label %70
 
-switch.lookup:                                    ; preds = %78
+.lr.ph68.preheader:                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) %6, i64 9, i1 false)
   %88 = load i8, ptr %5, align 1, !range !197, !alias.scope !198, !noundef !7
@@ -1316,8 +1316,8 @@ switch.lookup:                                    ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
-.lr.ph68:                                         ; preds = %switch.lookup, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
-  %.sroa.032.066 = phi ptr [ %92, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit ], [ %.sroa.0.0.i, %switch.lookup ]
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
+  %.sroa.032.066 = phi ptr [ %92, %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit ], [ %.sroa.0.0.i, %.lr.ph68.preheader ]
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.032.066, i64 2
   %93 = load i8, ptr %.sroa.032.066, align 1, !noundef !7
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.032.066, i64 1

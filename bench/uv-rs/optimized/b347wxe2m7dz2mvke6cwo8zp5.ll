@@ -7462,7 +7462,8 @@ define noundef zeroext i1 @"_ZN187_$LT$uv_pypi_types..simple_json.._..$LT$impl$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13uv_pypi_types11simple_json1_93_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$7resolve17h2b8fa5c083e35fbbE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 5) %1, ptr noundef nonnull writeonly captures(none) %2, i64 noundef %3) unnamed_addr #9 {
+define void @"_ZN13uv_pypi_types11simple_json1_93_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$7resolve17h2b8fa5c083e35fbbE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef range(i8 0, 5) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #9 {
+switch.lookup:
   store i8 %1, ptr %2, align 1
   ret void
 }
@@ -7481,54 +7482,53 @@ define noundef zeroext i1 @"_ZN184_$LT$uv_pypi_types..simple_json.._..$LT$impl$u
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN80_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hbaad79bf296167d5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i8 noundef range(i8 0, 5) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1), (4, 8)) %3, i64 noundef %4) unnamed_addr #3 {
-"_ZN13uv_pypi_types11simple_json1_93_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$7resolve17h2b8fa5c083e35fbbE.exit":
   store i8 %2, ptr %3, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %6 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %7 = load i64, ptr %6, align 8, !noundef !9
-  %8 = lshr i64 %7, 1
-  %9 = icmp ult i64 %7, 18
-  br i1 %9, label %28, label %10
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
+  %8 = load i64, ptr %7, align 8, !noundef !9
+  %9 = lshr i64 %8, 1
+  %10 = icmp ult i64 %8, 18
+  br i1 %10, label %29, label %11
 
-10:                                               ; preds = %"_ZN13uv_pypi_types11simple_json1_93_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$7resolve17h2b8fa5c083e35fbbE.exit"
-  %11 = add i64 %4, 4
-  %12 = zext i32 %1 to i64
-  %13 = trunc i64 %8 to i32
-  %14 = and i32 %13, 63
-  %15 = shl i32 %13, 2
-  %16 = and i32 %15, -256
-  %17 = or disjoint i32 %14, %16
-  %18 = or disjoint i32 %17, 128
-  store i32 %18, ptr %5, align 4, !noalias !1148
-  %19 = sub i64 %12, %11
-  %20 = icmp ugt i64 %11, %12
-  br i1 %20, label %24, label %21
+11:                                               ; preds = %5
+  %12 = add i64 %4, 4
+  %13 = zext i32 %1 to i64
+  %14 = trunc i64 %9 to i32
+  %15 = and i32 %14, 63
+  %16 = shl i32 %14, 2
+  %17 = and i32 %16, -256
+  %18 = or disjoint i32 %15, %17
+  %19 = or disjoint i32 %18, 128
+  store i32 %19, ptr %6, align 4, !noalias !1148
+  %20 = sub i64 %13, %12
+  %21 = icmp ugt i64 %12, %13
+  br i1 %21, label %25, label %22
 
-21:                                               ; preds = %10
-  %22 = icmp sgt i64 %19, -1
-  br i1 %22, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, label %23
+22:                                               ; preds = %11
+  %23 = icmp sgt i64 %20, -1
+  br i1 %23, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, label %24
 
-23:                                               ; preds = %24, %21
+24:                                               ; preds = %25, %22
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17hda445179faee5fc2E"() #28, !noalias !1148
   unreachable
 
-24:                                               ; preds = %10
-  %25 = icmp slt i64 %19, 0
-  br i1 %25, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, label %23
+25:                                               ; preds = %11
+  %26 = icmp slt i64 %20, 0
+  br i1 %26, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, label %24
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i: ; preds = %24, %21
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = trunc i64 %19 to i32
-  store i32 %27, ptr %26, align 4, !noalias !1148
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i: ; preds = %25, %22
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = trunc i64 %20 to i32
+  store i32 %28, ptr %27, align 4, !noalias !1148
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-28:                                               ; preds = %"_ZN13uv_pypi_types11simple_json1_93_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$7resolve17h2b8fa5c083e35fbbE.exit"
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 -1, ptr %5, align 1, !noalias !1148
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %29, i64 range(i64 0, -9223372036854775808) %8, i1 false)
+29:                                               ; preds = %5
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 -1, ptr %6, align 1, !noalias !1148
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %30, i64 range(i64 0, -9223372036854775808) %9, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit: ; preds = %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, %28
+_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit: ; preds = %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h0593b9e01c26dd03E.exit.i, %29
   ret void
 }
 

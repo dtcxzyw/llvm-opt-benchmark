@@ -681,111 +681,110 @@ _ZN4llvm13TargetOptionsD2Ev.exit:                 ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @LLVMCreateTargetMachine(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
-  %7 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #21
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %8, i8 0, i64 104, i1 false)
-  store ptr %8, ptr %7, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !16
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %11, ptr %10, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store ptr %13, ptr %12, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i32 2, ptr %14, align 8, !tbaa !30
-  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %2, i64 noundef %15) #19
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !16
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef %18, ptr noundef nonnull %3, i64 noundef %19) #19
-  %switch.tableidx = add i32 %4, -1
-  %21 = icmp ult i32 %switch.tableidx, 3
-  %spec.select = select i1 %21, i32 %4, i32 0
-  store i32 %spec.select, ptr %14, align 8, !tbaa !30
-  %switch.tableidx19 = add i32 %5, -1
-  %22 = icmp ult i32 %switch.tableidx19, 6
-  %narrow = select i1 %22, i32 %switch.tableidx19, i32 0
-  %spec.select20 = zext nneg i32 %narrow to i64
-  %spec.select21 = select i1 %22, i64 4294967296, i64 0
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select21, %spec.select20
-  store i64 %.sroa.041.0.insert.insert.i, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  store i8 0, ptr %24, align 4, !tbaa !42
-  switch i32 %6, label %30 [
-    i32 1, label %25
+  %8 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #21
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %9, i8 0, i64 104, i1 false)
+  store ptr %9, ptr %8, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 0, ptr %10, align 8, !tbaa !16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %12, ptr %11, align 8, !tbaa !14
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store ptr %14, ptr %13, align 8, !tbaa !14
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store i32 2, ptr %15, align 8, !tbaa !30
+  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %2, i64 noundef %16) #19
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %19 = load i64, ptr %18, align 8, !tbaa !16
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %19, ptr noundef nonnull %3, i64 noundef %20) #19
+  %switch.tableidx.i = add i32 %4, -1
+  %22 = icmp ult i32 %switch.tableidx.i, 3
+  %spec.select.i = select i1 %22, i32 %4, i32 0
+  store i32 %spec.select.i, ptr %15, align 8, !tbaa !30
+  %switch.tableidx.i14 = add i32 %5, -1
+  %23 = icmp ult i32 %switch.tableidx.i14, 6
+  %narrow.i = select i1 %23, i32 %switch.tableidx.i14, i32 0
+  %spec.select.i15 = zext nneg i32 %narrow.i to i64
+  %spec.select67.i = select i1 %23, i64 4294967296, i64 0
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 100
+  %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select67.i, %spec.select.i15
+  store i64 %.sroa.041.0.insert.insert.i, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 116
+  store i8 0, ptr %25, align 4, !tbaa !42
+  switch i32 %6, label %31 [
+    i32 1, label %26
     i32 0, label %LLVMTargetMachineOptionsSetCodeModel.exit
-    i32 2, label %26
-    i32 6, label %29
-    i32 4, label %27
-    i32 5, label %28
+    i32 2, label %27
+    i32 6, label %30
+    i32 4, label %28
+    i32 5, label %29
   ]
 
-25:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
-  store i8 1, ptr %24, align 1, !tbaa !42
+26:                                               ; preds = %7
+  store i8 1, ptr %25, align 1, !tbaa !42
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-26:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
+27:                                               ; preds = %7
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-27:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
+28:                                               ; preds = %7
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-28:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
+29:                                               ; preds = %7
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-29:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
+30:                                               ; preds = %7
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-30:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
+31:                                               ; preds = %7
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit, %25, %26, %27, %28, %29, %30
-  %.sroa.0.0.i.i = phi i64 [ 1, %30 ], [ 0, %26 ], [ 2, %27 ], [ 3, %28 ], [ 4, %29 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
-  %.sroa.7.0.i.i = phi i64 [ 4294967296, %30 ], [ 4294967296, %26 ], [ 4294967296, %27 ], [ 4294967296, %28 ], [ 4294967296, %29 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
+LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %7, %26, %27, %28, %29, %30, %31
+  %.sroa.0.0.i.i = phi i64 [ 1, %31 ], [ 0, %27 ], [ 2, %28 ], [ 3, %29 ], [ 4, %30 ], [ 0, %26 ], [ 0, %7 ]
+  %.sroa.7.0.i.i = phi i64 [ 4294967296, %31 ], [ 4294967296, %27 ], [ 4294967296, %28 ], [ 4294967296, %29 ], [ 4294967296, %30 ], [ 0, %26 ], [ 0, %7 ]
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.7.0.i.i, %.sroa.0.0.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 108
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %31, align 4
-  %32 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
-  %33 = load ptr, ptr %12, align 8, !tbaa !22
-  %34 = icmp eq ptr %33, %13
-  br i1 %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 108
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %32, align 4
+  %33 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8)
+  %34 = load ptr, ptr %13, align 8, !tbaa !22
+  %35 = icmp eq ptr %34, %14
+  br i1 %35, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %LLVMTargetMachineOptionsSetCodeModel.exit
-  %35 = load i64, ptr %13, align 8, !tbaa !19
-  %36 = add i64 %35, 1
-  tail call void @_ZdlPvm(ptr noundef %33, i64 noundef %36) #20
+  %36 = load i64, ptr %14, align 8, !tbaa !19
+  %37 = add i64 %36, 1
+  tail call void @_ZdlPvm(ptr noundef %34, i64 noundef %37) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %LLVMTargetMachineOptionsSetCodeModel.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %37 = load ptr, ptr %10, align 8, !tbaa !22
-  %38 = icmp eq ptr %37, %11
-  br i1 %38, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
+  %38 = load ptr, ptr %11, align 8, !tbaa !22
+  %39 = icmp eq ptr %38, %12
+  br i1 %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %39 = load i64, ptr %11, align 8, !tbaa !19
-  %40 = add i64 %39, 1
-  tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %40) #20
+  %40 = load i64, ptr %12, align 8, !tbaa !19
+  %41 = add i64 %40, 1
+  tail call void @_ZdlPvm(ptr noundef %38, i64 noundef %41) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
-  %41 = load ptr, ptr %7, align 8, !tbaa !22
-  %42 = icmp eq ptr %41, %8
-  br i1 %42, label %LLVMDisposeTargetMachineOptions.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i
+  %42 = load ptr, ptr %8, align 8, !tbaa !22
+  %43 = icmp eq ptr %42, %9
+  br i1 %43, label %LLVMDisposeTargetMachineOptions.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i
-  %43 = load i64, ptr %8, align 8, !tbaa !19
-  %44 = add i64 %43, 1
-  tail call void @_ZdlPvm(ptr noundef %41, i64 noundef %44) #20
+  %44 = load i64, ptr %9, align 8, !tbaa !19
+  %45 = add i64 %44, 1
+  tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %45) #20
   br label %LLVMDisposeTargetMachineOptions.exit
 
 LLVMDisposeTargetMachineOptions.exit:             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 120) #20
-  ret ptr %32
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 120) #20
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

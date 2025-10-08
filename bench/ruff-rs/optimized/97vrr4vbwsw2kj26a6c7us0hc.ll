@@ -446,7 +446,7 @@ define internal { i64, i64 } @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN175_$LT$ty_python_semantic..lint.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_python_semantic..lint..Level$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h1e28746966c2d9b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN175_$LT$ty_python_semantic..lint.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_python_semantic..lint..Level$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h1e28746966c2d9b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN87_$LT$serde..de..value..StringDeserializer$LT$E$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17h45c4c31270a7b14fE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
@@ -454,16 +454,16 @@ define hidden void @"_ZN175_$LT$ty_python_semantic..lint.._..$LT$impl$u20$serde.
   %.not = icmp eq i64 %4, 2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
-  br i1 %.not, label %7, label %9
+  br i1 %.not, label %switch.lookup, label %8
 
-7:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %6, ptr %7, align 8
   store i64 2, ptr %0, align 8
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.69.0..sroa_idx, i64 87, i1 false)
@@ -471,9 +471,9 @@ define hidden void @"_ZN175_$LT$ty_python_semantic..lint.._..$LT$impl$u20$serde.
   store i64 %4, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %7
+9:                                                ; preds = %8, %switch.lookup
   ret void
 }
 

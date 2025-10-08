@@ -15597,24 +15597,24 @@ define internal fastcc range(i32 -11, 1) i32 @add_compile_string(ptr noundef %0,
   ]
 
 5:                                                ; preds = %4
-  %switch.tableidx = add i32 %2, -1
-  %6 = icmp ult i32 %switch.tableidx, 5
-  %switch.offset = add i32 %2, 1
-  %spec.select = select i1 %6, i32 %switch.offset, i32 7
+  %switch.tableidx.i = add i32 %2, -1
+  %6 = icmp ult i32 %switch.tableidx.i, 5
+  %switch.offset.i = add nuw nsw i32 %2, 1
+  %spec.select.i = select i1 %6, i32 %switch.offset.i, i32 7
   br label %select_str_opcode.exit
 
 7:                                                ; preds = %4
-  %switch.tableidx56 = add i32 %2, -1
-  %8 = icmp ult i32 %switch.tableidx56, 3
-  %switch.offset58 = add i32 %2, 7
-  %spec.select59 = select i1 %8, i32 %switch.offset58, i32 11
+  %switch.tableidx4.i = add i32 %2, -1
+  %8 = icmp ult i32 %switch.tableidx4.i, 3
+  %switch.offset6.i = add nuw nsw i32 %2, 7
+  %spec.select7.i = select i1 %8, i32 %switch.offset6.i, i32 11
   br label %select_str_opcode.exit
 
 9:                                                ; preds = %4
   br label %select_str_opcode.exit
 
-select_str_opcode.exit:                           ; preds = %7, %5, %4, %9
-  %.0.i = phi i32 [ 13, %9 ], [ 12, %4 ], [ %spec.select, %5 ], [ %spec.select59, %7 ]
+select_str_opcode.exit:                           ; preds = %4, %5, %7, %9
+  %.0.i = phi i32 [ 13, %9 ], [ 12, %4 ], [ %spec.select.i, %5 ], [ %spec.select7.i, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 28

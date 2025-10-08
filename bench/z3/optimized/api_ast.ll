@@ -13550,13 +13550,13 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !383
   %18 = icmp ult i32 %17, 56
-  br i1 %18, label %switch.lookup, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %18, label %switch.lookup121, label %_ZNK4decl13get_family_idEv.exit.thread
 
 19:                                               ; preds = %_ZNK4decl13get_family_idEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !383
   %22 = icmp ult i32 %21, 23
-  br i1 %22, label %switch.lookup110, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %22, label %switch.lookup122, label %_ZNK4decl13get_family_idEv.exit.thread
 
 23:                                               ; preds = %_ZNK4decl13get_family_idEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1488
@@ -13568,7 +13568,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !383
   %30 = icmp ult i32 %29, 14
-  br i1 %30, label %switch.lookup113, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %30, label %switch.lookup125, label %_ZNK4decl13get_family_idEv.exit.thread
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -13585,7 +13585,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !383
   %40 = icmp ult i32 %39, 5
-  br i1 %40, label %switch.lookup116, label %41
+  br i1 %40, label %switch.lookup, label %41
 
 41:                                               ; preds = %37
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.8, i32 noundef 1205, ptr noundef nonnull @.str.9)
@@ -13617,7 +13617,7 @@ _ZNK4decl13get_decl_kindEv.exit65:                ; preds = %_ZNK4decl13get_fami
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !383
   %54 = icmp ult i32 %53, 69
-  br i1 %54, label %switch.lookup117, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %54, label %switch.lookup128, label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit66:                ; preds = %_ZNK4decl13get_family_idEv.exit64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1496
@@ -13635,8 +13635,8 @@ _ZNK4decl13get_decl_kindEv.exit67:                ; preds = %_ZNK4decl13get_fami
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !383
   %63 = icmp ult i32 %62, 5
-  %switch.offset121 = add nsw i32 %62, 2048
-  %spec.select = select i1 %63, i32 %switch.offset121, i32 45100
+  %switch.offset111 = add nsw i32 %62, 2048
+  %spec.select = select i1 %63, i32 %switch.offset111, i32 45100
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit68:                ; preds = %_ZNK4decl13get_family_idEv.exit66
@@ -13655,8 +13655,8 @@ _ZNK4decl13get_decl_kindEv.exit69:                ; preds = %_ZNK4decl13get_fami
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !383
   %72 = icmp ult i32 %71, 15
-  %switch.offset123 = add nsw i32 %71, 1536
-  %spec.select134 = select i1 %72, i32 %switch.offset123, i32 45100
+  %switch.offset113 = add nsw i32 %71, 1536
+  %spec.select118 = select i1 %72, i32 %switch.offset113, i32 45100
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit70:                ; preds = %_ZNK4decl13get_family_idEv.exit68
@@ -13681,7 +13681,7 @@ _ZNK4decl13get_decl_kindEv.exit71:                ; preds = %_ZNK4decl13get_fami
   %82 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !383
   %84 = icmp ult i32 %83, 65
-  br i1 %84, label %switch.lookup124, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %84, label %switch.lookup131, label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit72:                ; preds = %_ZNK4decl13get_family_idEv.exit70
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1516
@@ -13693,8 +13693,8 @@ _ZNK4decl13get_decl_kindEv.exit73:                ; preds = %.thread90
   %88 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !383
   %90 = icmp ult i32 %89, 6
-  %switch.offset128 = add nsw i32 %89, 1598
-  %spec.select135 = select i1 %90, i32 %switch.offset128, i32 45100
+  %switch.offset115 = add nsw i32 %89, 1598
+  %spec.select119 = select i1 %90, i32 %switch.offset115, i32 45100
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit74:                ; preds = %_ZNK4decl13get_family_idEv.exit72
@@ -13713,7 +13713,7 @@ _ZNK4decl13get_decl_kindEv.exit75:                ; preds = %_ZNK4decl13get_fami
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !383
   %99 = icmp ult i32 %98, 50
-  br i1 %99, label %switch.lookup129, label %_ZNK4decl13get_family_idEv.exit.thread
+  br i1 %99, label %switch.lookup134, label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit76:                ; preds = %_ZNK4decl13get_family_idEv.exit74.thread
   %100 = icmp eq i32 %50, 1
@@ -13744,8 +13744,8 @@ _ZNK4decl13get_decl_kindEv.exit79:                ; preds = %_ZNK4decl13get_fami
   %110 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !383
   %112 = icmp ult i32 %111, 5
-  %switch.offset133 = add nsw i32 %111, 2304
-  %spec.select136 = select i1 %112, i32 %switch.offset133, i32 45100
+  %switch.offset117 = add nsw i32 %111, 2304
+  %spec.select120 = select i1 %112, i32 %switch.offset117, i32 45100
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit80:                ; preds = %_ZNK4decl13get_family_idEv.exit78, %_ZNK4decl13get_family_idEv.exit78.thread
@@ -13756,48 +13756,48 @@ _ZNK4decl13get_family_idEv.exit80:                ; preds = %_ZNK4decl13get_fami
   %. = select i1 %115, i32 45101, i32 45102
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup:                                    ; preds = %15
+switch.lookup:                                    ; preds = %37
+  %switch.offset = or disjoint i32 %39, 40960
+  br label %_ZNK4decl13get_family_idEv.exit.thread
+
+switch.lookup121:                                 ; preds = %15
   %116 = zext nneg i32 %17 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind, i64 %116
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup110:                                 ; preds = %19
+switch.lookup122:                                 ; preds = %19
   %117 = zext nneg i32 %21 to i64
-  %switch.gep111 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.1, i64 %117
-  %switch.load112 = load i32, ptr %switch.gep111, align 4
+  %switch.gep123 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.1, i64 %117
+  %switch.load124 = load i32, ptr %switch.gep123, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup113:                                 ; preds = %27
+switch.lookup125:                                 ; preds = %27
   %118 = zext nneg i32 %29 to i64
-  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.2, i64 %118
-  %switch.load115 = load i32, ptr %switch.gep114, align 4
+  %switch.gep126 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.2, i64 %118
+  %switch.load127 = load i32, ptr %switch.gep126, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup116:                                 ; preds = %37
-  %switch.offset = or disjoint i32 %39, 40960
-  br label %_ZNK4decl13get_family_idEv.exit.thread
-
-switch.lookup117:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit65
+switch.lookup128:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit65
   %119 = zext nneg i32 %53 to i64
-  %switch.gep118 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.3, i64 %119
-  %switch.load119 = load i32, ptr %switch.gep118, align 4
+  %switch.gep129 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.3, i64 %119
+  %switch.load130 = load i32, ptr %switch.gep129, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup124:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit71
+switch.lookup131:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit71
   %120 = zext nneg i32 %83 to i64
-  %switch.gep125 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.4, i64 %120
-  %switch.load126 = load i32, ptr %switch.gep125, align 4
+  %switch.gep132 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.4, i64 %120
+  %switch.load133 = load i32, ptr %switch.gep132, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-switch.lookup129:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit75
+switch.lookup134:                                 ; preds = %_ZNK4decl13get_decl_kindEv.exit75
   %121 = zext nneg i32 %98 to i64
-  %switch.gep130 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.5, i64 %121
-  %switch.load131 = load i32, ptr %switch.gep130, align 4
+  %switch.gep135 = getelementptr inbounds nuw i32, ptr @switch.table.Z3_get_decl_kind.5, i64 %121
+  %switch.load136 = load i32, ptr %switch.gep135, align 4
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
-_ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZNK4decl13get_decl_kindEv.exit79, %_ZNK4decl13get_decl_kindEv.exit73, %_ZNK4decl13get_decl_kindEv.exit69, %_ZNK4decl13get_decl_kindEv.exit67, %_ZNK4decl13get_family_idEv.exit78, %_ZNK4decl13get_family_idEv.exit74, %_ZNK4decl13get_decl_kindEv.exit75, %switch.lookup129, %_ZNK4decl13get_family_idEv.exit72, %_ZNK4decl13get_family_idEv.exit70, %_ZNK4decl13get_decl_kindEv.exit71, %switch.lookup124, %_ZNK4decl13get_family_idEv.exit68, %_ZNK4decl13get_family_idEv.exit66, %_ZNK4decl13get_family_idEv.exit64, %_ZNK4decl13get_decl_kindEv.exit65, %switch.lookup117, %switch.lookup116, %27, %switch.lookup113, %19, %switch.lookup110, %15, %switch.lookup, %_ZNK4decl13get_family_idEv.exit, %10, %_ZNK4decl13get_family_idEv.exit80, %101, %7
-  %.0 = phi i32 [ 45102, %_ZNK4decl13get_family_idEv.exit ], [ 45102, %7 ], [ %switch.select56, %101 ], [ %., %_ZNK4decl13get_family_idEv.exit80 ], [ 45102, %10 ], [ %switch.load, %switch.lookup ], [ 45100, %15 ], [ %switch.load112, %switch.lookup110 ], [ 45100, %19 ], [ %switch.load115, %switch.lookup113 ], [ 45100, %27 ], [ %switch.offset, %switch.lookup116 ], [ %switch.load119, %switch.lookup117 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit65 ], [ 45100, %_ZNK4decl13get_family_idEv.exit64 ], [ 45100, %_ZNK4decl13get_family_idEv.exit66 ], [ 45100, %_ZNK4decl13get_family_idEv.exit68 ], [ %switch.load126, %switch.lookup124 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit71 ], [ 45100, %_ZNK4decl13get_family_idEv.exit70 ], [ 45100, %_ZNK4decl13get_family_idEv.exit72 ], [ %switch.load131, %switch.lookup129 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit75 ], [ 45100, %_ZNK4decl13get_family_idEv.exit74 ], [ 45100, %_ZNK4decl13get_family_idEv.exit78 ], [ %spec.select, %_ZNK4decl13get_decl_kindEv.exit67 ], [ %spec.select134, %_ZNK4decl13get_decl_kindEv.exit69 ], [ %spec.select135, %_ZNK4decl13get_decl_kindEv.exit73 ], [ %spec.select136, %_ZNK4decl13get_decl_kindEv.exit79 ]
+_ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZNK4decl13get_family_idEv.exit74, %_ZNK4decl13get_decl_kindEv.exit75, %switch.lookup134, %_ZNK4decl13get_family_idEv.exit70, %_ZNK4decl13get_decl_kindEv.exit71, %switch.lookup131, %_ZNK4decl13get_family_idEv.exit64, %_ZNK4decl13get_decl_kindEv.exit65, %switch.lookup128, %27, %switch.lookup125, %19, %switch.lookup122, %15, %switch.lookup121, %_ZNK4decl13get_decl_kindEv.exit79, %_ZNK4decl13get_decl_kindEv.exit73, %_ZNK4decl13get_decl_kindEv.exit69, %_ZNK4decl13get_decl_kindEv.exit67, %_ZNK4decl13get_family_idEv.exit78, %_ZNK4decl13get_family_idEv.exit72, %_ZNK4decl13get_family_idEv.exit68, %_ZNK4decl13get_family_idEv.exit66, %switch.lookup, %_ZNK4decl13get_family_idEv.exit, %10, %_ZNK4decl13get_family_idEv.exit80, %101, %7
+  %.0 = phi i32 [ 45102, %_ZNK4decl13get_family_idEv.exit ], [ 45102, %7 ], [ %switch.select56, %101 ], [ %., %_ZNK4decl13get_family_idEv.exit80 ], [ 45102, %10 ], [ %switch.offset, %switch.lookup ], [ 45100, %_ZNK4decl13get_family_idEv.exit66 ], [ 45100, %_ZNK4decl13get_family_idEv.exit68 ], [ 45100, %_ZNK4decl13get_family_idEv.exit72 ], [ 45100, %_ZNK4decl13get_family_idEv.exit78 ], [ %spec.select, %_ZNK4decl13get_decl_kindEv.exit67 ], [ %spec.select118, %_ZNK4decl13get_decl_kindEv.exit69 ], [ %spec.select119, %_ZNK4decl13get_decl_kindEv.exit73 ], [ %spec.select120, %_ZNK4decl13get_decl_kindEv.exit79 ], [ %switch.load, %switch.lookup121 ], [ 45100, %15 ], [ %switch.load124, %switch.lookup122 ], [ 45100, %19 ], [ %switch.load127, %switch.lookup125 ], [ 45100, %27 ], [ %switch.load130, %switch.lookup128 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit65 ], [ 45100, %_ZNK4decl13get_family_idEv.exit64 ], [ %switch.load133, %switch.lookup131 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit71 ], [ 45100, %_ZNK4decl13get_family_idEv.exit70 ], [ %switch.load136, %switch.lookup134 ], [ 45100, %_ZNK4decl13get_decl_kindEv.exit75 ], [ 45100, %_ZNK4decl13get_family_idEv.exit74 ]
   br i1 %4, label %122, label %_ZN10z3_log_ctxD2Ev.exit, !prof !159
 
 122:                                              ; preds = %_ZNK4decl13get_family_idEv.exit.thread

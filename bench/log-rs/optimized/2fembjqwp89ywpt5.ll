@@ -268,7 +268,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
   %exitcond.not.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i.i, label %switch.lookup, label %21
+  br i1 %exitcond.not.i.i.i, label %33, label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
@@ -292,13 +292,13 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread", label %9
 
-switch.lookup:                                    ; preds = %19
-  %33 = icmp samesign ult i64 %.014.i, 6
-  call void @llvm.assume(i1 %33)
+33:                                               ; preds = %19
+  %34 = icmp samesign ult i64 %.014.i, 6
+  call void @llvm.assume(i1 %34)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %switch.lookup
-  %.07 = phi i64 [ %.014.i, %switch.lookup ], [ 6, %.loopexit.i ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %33
+  %.07 = phi i64 [ %.014.i, %33 ], [ 6, %.loopexit.i ]
   ret i64 %.07
 }
 
@@ -520,11 +520,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -539,8 +539,8 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { nounwind }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}

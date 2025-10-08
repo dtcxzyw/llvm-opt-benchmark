@@ -44,7 +44,7 @@ define noundef range(i8 1, 5) i8 @_ZN8wasmi_ir9primitive14BranchOffset164init17h
   br i1 %.not, label %3, label %4, !prof !3
 
 3:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.2) #7
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.2) #6
   unreachable
 
 4:                                                ; preds = %2
@@ -61,7 +61,7 @@ define noundef range(i8 1, 5) i8 @_ZN8wasmi_ir9primitive14BranchOffset164init17h
   br i1 %9, label %12, label %11
 
 10:                                               ; preds = %4
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.3, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.4) #7
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.3, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.4) #6
   unreachable
 
 11:                                               ; preds = %6
@@ -115,7 +115,7 @@ define void @_ZN8wasmi_ir9primitive12BranchOffset4init17he72650a684d34507E(ptr n
   br i1 %.not, label %3, label %4, !prof !3
 
 3:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.9) #7
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.9) #6
   unreachable
 
 4:                                                ; preds = %2
@@ -128,7 +128,7 @@ define void @_ZN8wasmi_ir9primitive12BranchOffset4init17he72650a684d34507E(ptr n
   ret void
 
 7:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.3, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.10) #7
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.358621df0f77117135dfdad4c54a60db.3, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.358621df0f77117135dfdad4c54a60db.10) #6
   unreachable
 }
 
@@ -189,14 +189,14 @@ define { i32, i32 } @_ZN8wasmi_ir9primitive19ComparatorAndOffset3new17h581df51a5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN8wasmi_ir9primitive19ComparatorAndOffset8from_u6417h319113588d3c6badE(i64 noundef %0) unnamed_addr #0 {
-"_ZN85_$LT$wasmi_ir..primitive..Comparator$u20$as$u20$core..convert..TryFrom$LT$u32$GT$$GT$8try_from17hc348f4b912607b8dE.exit":
-  %1 = lshr i64 %0, 32
-  %2 = trunc nuw i64 %1 to i32
-  %. = tail call i32 @llvm.umin.i32(i32 %2, i32 36)
-  %3 = trunc i64 %0 to i32
-  %4 = insertvalue { i32, i32 } poison, i32 %., 0
-  %5 = insertvalue { i32, i32 } %4, i32 %3, 1
-  ret { i32, i32 } %5
+  %2 = trunc i64 %0 to i32
+  %3 = icmp ugt i64 %0, 154618822655
+  %4 = lshr i64 %0, 32
+  %5 = trunc nuw nsw i64 %4 to i32
+  %.sroa.02.0 = select i1 %3, i32 36, i32 %5
+  %6 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0, 0
+  %7 = insertvalue { i32, i32 } %6, i32 %2, 1
+  ret { i32, i32 } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -513,17 +513,13 @@ declare noundef i16 @"_ZN91_$LT$wasmi_ir..immeditate..Const16$LT$i64$GT$$u20$as$
 ; Function Attrs: nonlazybind uwtable
 declare noundef i16 @"_ZN91_$LT$wasmi_ir..immeditate..Const16$LT$u32$GT$$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hc820375e6c5ac165E"(i16 noundef) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn }
+attributes #6 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

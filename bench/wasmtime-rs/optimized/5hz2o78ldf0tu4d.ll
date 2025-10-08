@@ -29526,9 +29526,9 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i2327: ; preds = %.noexc2329
   call void @llvm.lifetime.start.p0(ptr nonnull %555)
   call fastcc void @"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %555, ptr noalias noundef readonly align 4 dereferenceable(16) %1410)
   invoke void @_ZN17cranelift_codegen3isa3x644inst4args9RegMemImm11with_allocs17ha24a2dfba9157079E(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %556, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %555, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-          to label %switch.lookup unwind label %.loopexit.split-lp
+          to label %switch.lookup4794 unwind label %.loopexit.split-lp
 
-switch.lookup:                                    ; preds = %1417
+switch.lookup4794:                                ; preds = %1417
   call void @llvm.lifetime.end.p0(ptr nonnull %555)
   %1418 = load i8, ptr %1407, align 2, !range !517, !noundef !4
   %1419 = icmp eq i8 %1418, 1
@@ -29540,8 +29540,8 @@ switch.lookup:                                    ; preds = %1417
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE, i64 %1422
   %switch.load = load i32, ptr %switch.gep, align 4
   %1423 = zext nneg i8 %1421 to i64
-  %switch.gep4794 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.64, i64 %1423
-  %switch.load4795 = load i32, ptr %switch.gep4794, align 4
+  %switch.gep4795 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.64, i64 %1423
+  %switch.load4796 = load i32, ptr %switch.gep4795, align 4
   %1424 = shl nuw nsw i8 %1421, 3
   %switch.shiftamt = zext nneg i8 %1424 to i56
   %switch.downshift = lshr i56 1689966635974656, %switch.shiftamt
@@ -29549,15 +29549,15 @@ switch.lookup:                                    ; preds = %1417
   %1425 = icmp eq i8 %1418, 0
   %1426 = sext i1 %1425 to i32
   %.01353 = add nsw i32 %switch.load, %1426
-  %.01352 = add nsw i32 %switch.load4795, %1426
+  %.01352 = add nsw i32 %switch.load4796, %1426
   br i1 %1425, label %.noexc1818, label %1428
 
-.noexc1818:                                       ; preds = %switch.lookup
+.noexc1818:                                       ; preds = %switch.lookup4794
   %1427 = icmp ugt i32 %1416, 767
   br i1 %1427, label %.invoke4287, label %1432
 
-1428:                                             ; preds = %1432, %switch.lookup
-  %.01179 = phi i8 [ %..i2333, %switch.lookup ], [ %spec.select, %1432 ]
+1428:                                             ; preds = %1432, %switch.lookup4794
+  %.01179 = phi i8 [ %..i2333, %switch.lookup4794 ], [ %spec.select, %1432 ]
   %1429 = load i8, ptr %556, align 4, !range !855, !noundef !4
   %1430 = add nsw i8 %1429, -6
   %1431 = icmp ult i8 %1430, 3
@@ -29669,32 +29669,32 @@ switch.lookup:                                    ; preds = %1417
   %1468 = load i8, ptr %1461, align 1, !range !403, !noundef !4
   %switch.shifted = lshr i8 117, %1468
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup4797, label %1469
+  br i1 %switch.lobit, label %switch.lookup4798, label %1469
 
 1469:                                             ; preds = %1467
   call void @llvm.lifetime.start.p0(ptr nonnull %549)
   store ptr @anon.1a7877b4d25764724cd66411c116da83.514, ptr %549, align 8
   br label %.invoke
 
-switch.lookup4797:                                ; preds = %1467
+switch.lookup4798:                                ; preds = %1467
   %1470 = zext nneg i8 %1468 to i64
-  %switch.gep4798 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.65, i64 %1470
-  %switch.load4799 = load i32, ptr %switch.gep4798, align 4
+  %switch.gep4799 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.65, i64 %1470
+  %switch.load4800 = load i32, ptr %switch.gep4799, align 4
   %1471 = load i8, ptr %1459, align 2, !range !517, !noundef !4
   %1472 = icmp eq i8 %1471, 1
   %.1505 = zext i1 %1472 to i8
   %1473 = icmp eq i8 %1471, 0
   %1474 = sext i1 %1473 to i32
-  %.11193 = add nsw i32 %switch.load4799, %1474
+  %.11193 = add nsw i32 %switch.load4800, %1474
   %1475 = icmp ne i8 %1471, 3
   %..i2336 = zext i1 %1475 to i8
   %1476 = icmp ugt i32 %1463, 767
   br i1 %1473, label %.noexc1803, label %.noexc1798
 
-.noexc1803:                                       ; preds = %switch.lookup4797
+.noexc1803:                                       ; preds = %switch.lookup4798
   br i1 %1476, label %.invoke4287, label %.noexc1798.thread
 
-.noexc1798:                                       ; preds = %switch.lookup4797
+.noexc1798:                                       ; preds = %switch.lookup4798
   br i1 %1476, label %.invoke4287, label %1479
 
 .noexc1798.thread:                                ; preds = %.noexc1803
@@ -29789,8 +29789,8 @@ switch.lookup4797:                                ; preds = %1467
   %1509 = icmp ugt i32 %1508, 767
   br i1 %1509, label %.invoke4287, label %1511
 
-.invoke4287:                                      ; preds = %.noexc1704, %.noexc1708, %.noexc1713, %.noexc1718, %.noexc1723, %4034, %4029, %4018, %.noexc1654.thread3468, %.noexc1660, %.noexc1656, %.thread4096, %3785, %3658, %.noexc1671.thread3457, %.noexc1677, %.noexc1673, %3604, %.thread4087, %3588, %.noexc1697, %.noexc1695, %.noexc1691, %3524, %3513, %switch.lookup4935, %3469, %3446, %3444, %3441, %3439, %3409, %3398, %3369, %switch.lookup4921, %switch.lookup4913, %switch.lookup4907, %3295, %3279, %3253, %3217, %3189, %3187, %switch.lookup4903, %3171, %3141, %3139, %3112, %3076, %switch.lookup4893, %3061, %3028, %3026, %3011, %2973, %2971, %2955, %2953, %2829, %2818, %2813, %2608, %.noexc1728, %.noexc1733, %.noexc1738, %.noexc1823, %.noexc1743, %.noexc1748, %switch.lookup4876, %switch.lookup4864, %.noexc1758, %.noexc1763, %2096, %2086, %2066, %2057, %.noexc1768, %.noexc1773, %.noexc1778, %.noexc1783, %switch.lookup4817, %switch.lookup4810, %1661, %1653, %switch.lookup4809, %1616, %1551, %1545, %1539, %1522, %switch.lookup4801, %1506, %.noexc1798, %.noexc1803, %.noexc1808, %.noexc1813, %.noexc1818
-  %1510 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1818 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1813 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1808 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1803 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1798 ], [ @anon.1a7877b4d25764724cd66411c116da83.516, %1506 ], [ @anon.1a7877b4d25764724cd66411c116da83.517, %switch.lookup4801 ], [ @anon.1a7877b4d25764724cd66411c116da83.518, %1522 ], [ @anon.1a7877b4d25764724cd66411c116da83.520, %1539 ], [ @anon.1a7877b4d25764724cd66411c116da83.521, %1545 ], [ @anon.1a7877b4d25764724cd66411c116da83.522, %1551 ], [ @anon.1a7877b4d25764724cd66411c116da83.524, %1616 ], [ @anon.1a7877b4d25764724cd66411c116da83.525, %switch.lookup4809 ], [ @anon.1a7877b4d25764724cd66411c116da83.526, %1653 ], [ @anon.1a7877b4d25764724cd66411c116da83.527, %1661 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4810 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4817 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1783 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1778 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1773 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1768 ], [ @anon.1a7877b4d25764724cd66411c116da83.538, %2057 ], [ @anon.1a7877b4d25764724cd66411c116da83.539, %2066 ], [ @anon.1a7877b4d25764724cd66411c116da83.540, %2086 ], [ @anon.1a7877b4d25764724cd66411c116da83.541, %2096 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1763 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1758 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4864 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %switch.lookup4876 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1748 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1743 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %.noexc1823 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1738 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1733 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1728 ], [ @anon.1a7877b4d25764724cd66411c116da83.558, %2608 ], [ @anon.1a7877b4d25764724cd66411c116da83.564, %2813 ], [ @anon.1a7877b4d25764724cd66411c116da83.565, %2818 ], [ @anon.1a7877b4d25764724cd66411c116da83.566, %2829 ], [ @anon.1a7877b4d25764724cd66411c116da83.567, %2953 ], [ @anon.1a7877b4d25764724cd66411c116da83.568, %2955 ], [ @anon.1a7877b4d25764724cd66411c116da83.572, %2971 ], [ @anon.1a7877b4d25764724cd66411c116da83.573, %2973 ], [ @anon.1a7877b4d25764724cd66411c116da83.578, %3011 ], [ @anon.1a7877b4d25764724cd66411c116da83.579, %3026 ], [ @anon.1a7877b4d25764724cd66411c116da83.580, %3028 ], [ @anon.1a7877b4d25764724cd66411c116da83.584, %3061 ], [ @anon.1a7877b4d25764724cd66411c116da83.585, %switch.lookup4893 ], [ @anon.1a7877b4d25764724cd66411c116da83.586, %3076 ], [ @anon.1a7877b4d25764724cd66411c116da83.590, %3112 ], [ @anon.1a7877b4d25764724cd66411c116da83.591, %3139 ], [ @anon.1a7877b4d25764724cd66411c116da83.592, %3141 ], [ @anon.1a7877b4d25764724cd66411c116da83.594, %3171 ], [ @anon.1a7877b4d25764724cd66411c116da83.595, %switch.lookup4903 ], [ @anon.1a7877b4d25764724cd66411c116da83.596, %3187 ], [ @anon.1a7877b4d25764724cd66411c116da83.597, %3189 ], [ @anon.1a7877b4d25764724cd66411c116da83.599, %3217 ], [ @anon.1a7877b4d25764724cd66411c116da83.602, %3253 ], [ @anon.1a7877b4d25764724cd66411c116da83.604, %3279 ], [ @anon.1a7877b4d25764724cd66411c116da83.605, %3295 ], [ @anon.1a7877b4d25764724cd66411c116da83.608, %switch.lookup4907 ], [ @anon.1a7877b4d25764724cd66411c116da83.610, %switch.lookup4913 ], [ @anon.1a7877b4d25764724cd66411c116da83.612, %switch.lookup4921 ], [ @anon.1a7877b4d25764724cd66411c116da83.613, %3369 ], [ @anon.1a7877b4d25764724cd66411c116da83.615, %3398 ], [ @anon.1a7877b4d25764724cd66411c116da83.616, %3409 ], [ @anon.1a7877b4d25764724cd66411c116da83.618, %3439 ], [ @anon.1a7877b4d25764724cd66411c116da83.619, %3441 ], [ @anon.1a7877b4d25764724cd66411c116da83.620, %3444 ], [ @anon.1a7877b4d25764724cd66411c116da83.621, %3446 ], [ @anon.1a7877b4d25764724cd66411c116da83.623, %3469 ], [ @anon.1a7877b4d25764724cd66411c116da83.624, %switch.lookup4935 ], [ @anon.1a7877b4d25764724cd66411c116da83.626, %3513 ], [ @anon.1a7877b4d25764724cd66411c116da83.628, %3524 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1691 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1695 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1697 ], [ @anon.1a7877b4d25764724cd66411c116da83.630, %3588 ], [ @anon.1a7877b4d25764724cd66411c116da83.631, %.thread4087 ], [ @anon.1a7877b4d25764724cd66411c116da83.632, %3604 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1673 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1677 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1671.thread3457 ], [ @anon.1a7877b4d25764724cd66411c116da83.634, %3658 ], [ @anon.1a7877b4d25764724cd66411c116da83.637, %3785 ], [ @anon.1a7877b4d25764724cd66411c116da83.638, %.thread4096 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1656 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1660 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1654.thread3468 ], [ @anon.1a7877b4d25764724cd66411c116da83.649, %4018 ], [ @anon.1a7877b4d25764724cd66411c116da83.650, %4029 ], [ @anon.1a7877b4d25764724cd66411c116da83.651, %4034 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1723 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1718 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1713 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1708 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1704 ]
+.invoke4287:                                      ; preds = %.noexc1704, %.noexc1708, %.noexc1713, %.noexc1718, %.noexc1723, %4034, %4029, %4018, %.noexc1654.thread3468, %.noexc1660, %.noexc1656, %.thread4096, %3785, %3658, %.noexc1671.thread3457, %.noexc1677, %.noexc1673, %3604, %.thread4087, %3588, %.noexc1697, %.noexc1695, %.noexc1691, %3524, %3513, %switch.lookup4935, %3469, %3446, %3444, %3441, %3439, %3409, %3398, %3369, %switch.lookup4921, %switch.lookup4913, %switch.lookup4907, %3295, %3279, %3253, %3217, %3189, %3187, %switch.lookup4903, %3171, %3141, %3139, %3112, %3076, %switch.lookup4893, %3061, %3028, %3026, %3011, %2973, %2971, %2955, %2953, %2829, %2818, %2813, %2608, %.noexc1728, %.noexc1733, %.noexc1738, %.noexc1823, %.noexc1743, %.noexc1748, %switch.lookup4876, %switch.lookup4864, %.noexc1758, %.noexc1763, %2096, %2086, %2066, %2057, %.noexc1768, %.noexc1773, %.noexc1778, %.noexc1783, %switch.lookup4817, %switch.lookup4810, %1661, %1653, %switch.lookup, %1616, %1551, %1545, %1539, %1522, %switch.lookup4802, %1506, %.noexc1798, %.noexc1803, %.noexc1808, %.noexc1813, %.noexc1818
+  %1510 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1818 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1813 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1808 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1803 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1798 ], [ @anon.1a7877b4d25764724cd66411c116da83.516, %1506 ], [ @anon.1a7877b4d25764724cd66411c116da83.517, %switch.lookup4802 ], [ @anon.1a7877b4d25764724cd66411c116da83.518, %1522 ], [ @anon.1a7877b4d25764724cd66411c116da83.520, %1539 ], [ @anon.1a7877b4d25764724cd66411c116da83.521, %1545 ], [ @anon.1a7877b4d25764724cd66411c116da83.522, %1551 ], [ @anon.1a7877b4d25764724cd66411c116da83.524, %1616 ], [ @anon.1a7877b4d25764724cd66411c116da83.525, %switch.lookup ], [ @anon.1a7877b4d25764724cd66411c116da83.526, %1653 ], [ @anon.1a7877b4d25764724cd66411c116da83.527, %1661 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4810 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4817 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1783 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1778 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1773 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1768 ], [ @anon.1a7877b4d25764724cd66411c116da83.538, %2057 ], [ @anon.1a7877b4d25764724cd66411c116da83.539, %2066 ], [ @anon.1a7877b4d25764724cd66411c116da83.540, %2086 ], [ @anon.1a7877b4d25764724cd66411c116da83.541, %2096 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1763 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1758 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4864 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %switch.lookup4876 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1748 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1743 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %.noexc1823 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1738 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1733 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1728 ], [ @anon.1a7877b4d25764724cd66411c116da83.558, %2608 ], [ @anon.1a7877b4d25764724cd66411c116da83.564, %2813 ], [ @anon.1a7877b4d25764724cd66411c116da83.565, %2818 ], [ @anon.1a7877b4d25764724cd66411c116da83.566, %2829 ], [ @anon.1a7877b4d25764724cd66411c116da83.567, %2953 ], [ @anon.1a7877b4d25764724cd66411c116da83.568, %2955 ], [ @anon.1a7877b4d25764724cd66411c116da83.572, %2971 ], [ @anon.1a7877b4d25764724cd66411c116da83.573, %2973 ], [ @anon.1a7877b4d25764724cd66411c116da83.578, %3011 ], [ @anon.1a7877b4d25764724cd66411c116da83.579, %3026 ], [ @anon.1a7877b4d25764724cd66411c116da83.580, %3028 ], [ @anon.1a7877b4d25764724cd66411c116da83.584, %3061 ], [ @anon.1a7877b4d25764724cd66411c116da83.585, %switch.lookup4893 ], [ @anon.1a7877b4d25764724cd66411c116da83.586, %3076 ], [ @anon.1a7877b4d25764724cd66411c116da83.590, %3112 ], [ @anon.1a7877b4d25764724cd66411c116da83.591, %3139 ], [ @anon.1a7877b4d25764724cd66411c116da83.592, %3141 ], [ @anon.1a7877b4d25764724cd66411c116da83.594, %3171 ], [ @anon.1a7877b4d25764724cd66411c116da83.595, %switch.lookup4903 ], [ @anon.1a7877b4d25764724cd66411c116da83.596, %3187 ], [ @anon.1a7877b4d25764724cd66411c116da83.597, %3189 ], [ @anon.1a7877b4d25764724cd66411c116da83.599, %3217 ], [ @anon.1a7877b4d25764724cd66411c116da83.602, %3253 ], [ @anon.1a7877b4d25764724cd66411c116da83.604, %3279 ], [ @anon.1a7877b4d25764724cd66411c116da83.605, %3295 ], [ @anon.1a7877b4d25764724cd66411c116da83.608, %switch.lookup4907 ], [ @anon.1a7877b4d25764724cd66411c116da83.610, %switch.lookup4913 ], [ @anon.1a7877b4d25764724cd66411c116da83.612, %switch.lookup4921 ], [ @anon.1a7877b4d25764724cd66411c116da83.613, %3369 ], [ @anon.1a7877b4d25764724cd66411c116da83.615, %3398 ], [ @anon.1a7877b4d25764724cd66411c116da83.616, %3409 ], [ @anon.1a7877b4d25764724cd66411c116da83.618, %3439 ], [ @anon.1a7877b4d25764724cd66411c116da83.619, %3441 ], [ @anon.1a7877b4d25764724cd66411c116da83.620, %3444 ], [ @anon.1a7877b4d25764724cd66411c116da83.621, %3446 ], [ @anon.1a7877b4d25764724cd66411c116da83.623, %3469 ], [ @anon.1a7877b4d25764724cd66411c116da83.624, %switch.lookup4935 ], [ @anon.1a7877b4d25764724cd66411c116da83.626, %3513 ], [ @anon.1a7877b4d25764724cd66411c116da83.628, %3524 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1691 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1695 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1697 ], [ @anon.1a7877b4d25764724cd66411c116da83.630, %3588 ], [ @anon.1a7877b4d25764724cd66411c116da83.631, %.thread4087 ], [ @anon.1a7877b4d25764724cd66411c116da83.632, %3604 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1673 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1677 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1671.thread3457 ], [ @anon.1a7877b4d25764724cd66411c116da83.634, %3658 ], [ @anon.1a7877b4d25764724cd66411c116da83.637, %3785 ], [ @anon.1a7877b4d25764724cd66411c116da83.638, %.thread4096 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1656 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1660 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1654.thread3468 ], [ @anon.1a7877b4d25764724cd66411c116da83.649, %4018 ], [ @anon.1a7877b4d25764724cd66411c116da83.650, %4029 ], [ @anon.1a7877b4d25764724cd66411c116da83.651, %4034 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1723 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1718 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1713 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1708 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1704 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1510) #36
           to label %.cont4288 unwind label %.loopexit.split-lp
 
@@ -29809,7 +29809,7 @@ switch.lookup4797:                                ; preds = %1467
   call void @llvm.lifetime.end.p0(ptr nonnull %548)
   %1515 = load i8, ptr %1484, align 2, !range !517, !noundef !4
   switch i8 %1515, label %.invoke4791 [
-    i8 2, label %switch.lookup4801
+    i8 2, label %switch.lookup4802
     i8 3, label %1517
   ]
 
@@ -29824,22 +29824,22 @@ switch.lookup4797:                                ; preds = %1467
   br label %1514
 
 1517:                                             ; preds = %1514
-  br label %switch.lookup4801
+  br label %switch.lookup4802
 
-switch.lookup4801:                                ; preds = %1514, %1517
+switch.lookup4802:                                ; preds = %1514, %1517
   %.01196 = phi i8 [ 1, %1517 ], [ 0, %1514 ]
   %1518 = load i8, ptr %1485, align 1, !range !273, !noundef !4
   %1519 = zext nneg i8 %1518 to i64
-  %switch.gep4802 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.66, i64 %1519
-  %switch.load4803 = load i32, ptr %switch.gep4802, align 4
+  %switch.gep4803 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.66, i64 %1519
+  %switch.load4804 = load i32, ptr %switch.gep4803, align 4
   %1520 = zext nneg i8 %1518 to i64
-  %switch.gep4804 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.67, i64 %1520
-  %switch.load4805 = load i32, ptr %switch.gep4804, align 4
+  %switch.gep4805 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.67, i64 %1520
+  %switch.load4806 = load i32, ptr %switch.gep4805, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %544)
   %1521 = icmp ugt i32 %1489, 767
   br i1 %1521, label %.invoke4287, label %1522
 
-1522:                                             ; preds = %switch.lookup4801
+1522:                                             ; preds = %switch.lookup4802
   %1523 = icmp ugt i32 %1493, 767
   br i1 %1523, label %.invoke4287, label %1524
 
@@ -29854,8 +29854,8 @@ switch.lookup4801:                                ; preds = %1514, %1517
   %.sroa.62525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 16
   %1527 = shl nuw nsw i32 %1489, 6
   %.sroa.62525.sroa.3.0.insert.shift = and i32 %1527, 16128
-  %.sroa.62525.sroa.3.0.insert.insert = or disjoint i32 %switch.load4803, %.sroa.62525.sroa.3.0.insert.shift
-  %.sroa.62525.sroa.0.0.insert.insert = or disjoint i32 %.sroa.62525.sroa.3.0.insert.insert, %switch.load4805
+  %.sroa.62525.sroa.3.0.insert.insert = or disjoint i32 %switch.load4804, %.sroa.62525.sroa.3.0.insert.shift
+  %.sroa.62525.sroa.0.0.insert.insert = or disjoint i32 %.sroa.62525.sroa.3.0.insert.insert, %switch.load4806
   store i32 %.sroa.62525.sroa.0.0.insert.insert, ptr %.sroa.62525.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 20
   store i8 1, ptr %.sroa.11.0..sroa_idx, align 4
@@ -29976,31 +29976,31 @@ switch.lookup4801:                                ; preds = %1514, %1517
   %1578 = load i8, ptr %1568, align 1, !range !273, !noundef !4
   %switch.inv = icmp samesign ugt i8 %1578, 1
   %.1513 = select i1 %switch.inv, i8 6, i8 1
-  br label %switch.lookup4806
+  br label %switch.lookup4807
 
 1579:                                             ; preds = %1573, %1573
   %1580 = load i8, ptr %1568, align 1, !range !273, !noundef !4
   %switch1514 = icmp samesign ult i8 %1580, 2
   %.1516 = select i1 %switch1514, i8 0, i8 5
-  br label %switch.lookup4806
+  br label %switch.lookup4807
 
-switch.lookup4806:                                ; preds = %1577, %1579
+switch.lookup4807:                                ; preds = %1577, %1579
   %1581 = phi i8 [ %1580, %1579 ], [ %1578, %1577 ]
   %.01202 = phi i8 [ %.1516, %1579 ], [ %.1513, %1577 ]
   %1582 = zext nneg i8 %1581 to i64
-  %switch.gep4807 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.68, i64 %1582
-  %switch.load4808 = load i32, ptr %switch.gep4807, align 4
+  %switch.gep4808 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.68, i64 %1582
+  %switch.load4809 = load i32, ptr %switch.gep4808, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.52529)
   %1583 = load i8, ptr %1569, align 8, !range !403, !noundef !4
   %1584 = icmp eq i8 %1583, 6
   br i1 %1584, label %.thread3413, label %1587
 
-.thread3413:                                      ; preds = %switch.lookup4806
+.thread3413:                                      ; preds = %switch.lookup4807
   %1585 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1586 = load i32, ptr %1585, align 4, !noundef !4
   br label %1589
 
-1587:                                             ; preds = %switch.lookup4806
+1587:                                             ; preds = %switch.lookup4807
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call fastcc void @"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E"(ptr noalias noundef align 4 captures(none) dereferenceable(16) %124, ptr noalias noundef readonly align 4 dereferenceable(16) %1569)
   %.sroa.0596.0.copyload597 = load i8, ptr %124, align 4
@@ -30034,7 +30034,7 @@ switch.lookup4806:                                ; preds = %1577, %1579
           to label %1594 unwind label %.loopexit.split-lp
 
 1592:                                             ; preds = %1589
-  invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_reg_reg17h8df5551b04817f09E(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef %.01202, i32 noundef %switch.load4808, i64 noundef 2, i32 noundef %1572, i32 noundef %1590, i8 noundef %..i2342)
+  invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_reg_reg17h8df5551b04817f09E(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef %.01202, i32 noundef %switch.load4809, i64 noundef 2, i32 noundef %1572, i32 noundef %1590, i8 noundef %..i2342)
           to label %1593 unwind label %.loopexit.split-lp
 
 1593:                                             ; preds = %1592, %1596
@@ -30047,7 +30047,7 @@ switch.lookup4806:                                ; preds = %1577, %1579
 
 1595:                                             ; preds = %1594
   call void @llvm.lifetime.end.p0(ptr nonnull %541)
-  invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_reg_mem17h827f18128ff067c7E(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef %.01202, i32 noundef %switch.load4808, i64 noundef 2, i32 noundef %1572, ptr noalias noundef readonly align 4 dereferenceable(16) %542, i8 noundef %..i2342, i8 noundef 0)
+  invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_reg_mem17h827f18128ff067c7E(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef %.01202, i32 noundef %switch.load4809, i64 noundef 2, i32 noundef %1572, ptr noalias noundef readonly align 4 dereferenceable(16) %542, i8 noundef %..i2342, i8 noundef 0)
           to label %1596 unwind label %.loopexit.split-lp
 
 1596:                                             ; preds = %1595
@@ -30126,9 +30126,9 @@ switch.lookup4806:                                ; preds = %1577, %1579
 1620:                                             ; preds = %1616
   %1621 = trunc i32 %1618 to i8
   %1622 = lshr i8 %1621, 2
-  br label %switch.lookup4809
+  br label %switch.lookup
 
-switch.lookup4809:                                ; preds = %1620, %1625
+switch.lookup:                                    ; preds = %1620, %1625
   %.sroa.369.0 = phi i8 [ %.sroa.369.0.copyload, %1625 ], [ %1622, %1620 ]
   %.sroa.067.0 = phi i8 [ %.sroa.067.0.copyload, %1625 ], [ 3, %1620 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %539)
@@ -30146,9 +30146,9 @@ switch.lookup4809:                                ; preds = %1620, %1625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.472, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.472.0..sroa_idx, i64 14, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %537)
   call void @llvm.lifetime.end.p0(ptr nonnull %538)
-  br label %switch.lookup4809
+  br label %switch.lookup
 
-1626:                                             ; preds = %switch.lookup4809
+1626:                                             ; preds = %switch.lookup
   %switch.idx.cast = zext nneg i8 %1623 to i32
   %1627 = shl nuw nsw i32 %switch.idx.cast, 8
   %switch.offset = sub nuw nsw i32 33555443, %1627

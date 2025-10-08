@@ -1112,153 +1112,150 @@ CMS_get0_RecipientInfos.exit:                     ; preds = %9, %9
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %CMS_get0_RecipientInfos.exit
-  switch i32 %1, label %aes_wrap_keylen.exit [
-    i32 0, label %13
-    i32 788, label %19
-    i32 789, label %17
-    i32 790, label %18
+  %13 = icmp eq i32 %1, 0
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %12
+  switch i64 %3, label %17 [
+    i64 16, label %24
+    i64 24, label %15
+    i64 32, label %16
   ]
 
-13:                                               ; preds = %12
-  switch i64 %3, label %16 [
-    i64 16, label %21
-    i64 24, label %14
-    i64 32, label %15
-  ]
+15:                                               ; preds = %14
+  br label %24
 
-14:                                               ; preds = %13
-  br label %21
+16:                                               ; preds = %14
+  br label %24
 
-15:                                               ; preds = %13
-  br label %21
-
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 717, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-17:                                               ; preds = %12
-  br label %19
-
 18:                                               ; preds = %12
-  br label %19
+  %switch.tableidx.i = add i32 %1, -788
+  %19 = icmp ugt i32 %switch.tableidx.i, 2
+  br i1 %19, label %20, label %21
 
-aes_wrap_keylen.exit:                             ; preds = %12
+20:                                               ; preds = %18
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 726, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-19:                                               ; preds = %12, %17, %18
-  %.0.i53.ph = phi i64 [ 32, %18 ], [ 24, %17 ], [ 16, %12 ]
-  %.not46 = icmp eq i64 %3, %.0.i53.ph
-  br i1 %.not46, label %21, label %20
+21:                                               ; preds = %18
+  %22 = shl nuw nsw i32 %switch.tableidx.i, 3
+  %narrow = add nuw nsw i32 %22, 16
+  %switch.offset.i = zext nneg i32 %narrow to i64
+  %.not46 = icmp eq i64 %3, %switch.offset.i
+  br i1 %.not46, label %24, label %23
 
-20:                                               ; preds = %19
+23:                                               ; preds = %21
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 731, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-21:                                               ; preds = %19, %13, %14, %15
-  %.039 = phi i32 [ 789, %14 ], [ 790, %15 ], [ 788, %13 ], [ %1, %19 ]
-  %22 = tail call ptr @CMS_RecipientInfo_it() #6
-  %23 = tail call ptr @ASN1_item_new(ptr noundef %22) #6
-  %.not47 = icmp eq ptr %23, null
-  br i1 %.not47, label %24, label %25
+24:                                               ; preds = %21, %14, %15, %16
+  %.039 = phi i32 [ 789, %15 ], [ 790, %16 ], [ 788, %14 ], [ %1, %21 ]
+  %25 = tail call ptr @CMS_RecipientInfo_it() #6
+  %26 = tail call ptr @ASN1_item_new(ptr noundef %25) #6
+  %.not47 = icmp eq ptr %26, null
+  br i1 %.not47, label %27, label %28
 
-24:                                               ; preds = %21
+27:                                               ; preds = %24
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 740, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @CMS_KEKRecipientInfo_it() #6
-  %27 = tail call ptr @ASN1_item_new(ptr noundef %26) #6
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %27, ptr %28, align 8, !tbaa !12
-  %.not48 = icmp eq ptr %27, null
-  br i1 %.not48, label %29, label %30
+28:                                               ; preds = %24
+  %29 = tail call ptr @CMS_KEKRecipientInfo_it() #6
+  %30 = tail call ptr @ASN1_item_new(ptr noundef %29) #6
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %30, ptr %31, align 8, !tbaa !12
+  %.not48 = icmp eq ptr %30, null
+  br i1 %.not48, label %32, label %33
 
-29:                                               ; preds = %25
+32:                                               ; preds = %28
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 746, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-30:                                               ; preds = %25
-  store i32 2, ptr %23, align 8, !tbaa !13
+33:                                               ; preds = %28
+  store i32 2, ptr %26, align 8, !tbaa !13
   %.not49 = icmp eq ptr %7, null
-  br i1 %.not49, label %39, label %31
+  br i1 %.not49, label %42, label %34
 
-31:                                               ; preds = %30
-  %32 = tail call ptr @CMS_OtherKeyAttribute_it() #6
-  %33 = tail call ptr @ASN1_item_new(ptr noundef %32) #6
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %33, ptr %36, align 8, !tbaa !86
-  %37 = icmp eq ptr %33, null
-  br i1 %37, label %38, label %39
+34:                                               ; preds = %33
+  %35 = tail call ptr @CMS_OtherKeyAttribute_it() #6
+  %36 = tail call ptr @ASN1_item_new(ptr noundef %35) #6
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !82
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %36, ptr %39, align 8, !tbaa !86
+  %40 = icmp eq ptr %36, null
+  br i1 %40, label %41, label %42
 
-38:                                               ; preds = %31
+41:                                               ; preds = %34
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 756, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-39:                                               ; preds = %31, %30
-  %40 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.0.i, ptr noundef nonnull %23) #6
-  %.not50 = icmp eq i32 %40, 0
-  br i1 %.not50, label %41, label %42
+42:                                               ; preds = %34, %33
+  %43 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.0.i, ptr noundef nonnull %26) #6
+  %.not50 = icmp eq i32 %43, 0
+  br i1 %.not50, label %44, label %45
 
-41:                                               ; preds = %39
+44:                                               ; preds = %42
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 762, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-42:                                               ; preds = %39
-  store i32 4, ptr %27, align 8, !tbaa !87
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %2, ptr %43, align 8, !tbaa !88
-  %44 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i64 %3, ptr %44, align 8, !tbaa !89
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !82
-  %47 = load ptr, ptr %46, align 8, !tbaa !83
-  %48 = trunc i64 %5 to i32
-  tail call void @ASN1_STRING_set0(ptr noundef %47, ptr noundef %4, i32 noundef %48) #6
-  %49 = load ptr, ptr %45, align 8, !tbaa !82
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %6, ptr %50, align 8, !tbaa !90
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !86
-  %.not51 = icmp eq ptr %52, null
-  br i1 %.not51, label %55, label %53
+45:                                               ; preds = %42
+  store i32 4, ptr %30, align 8, !tbaa !87
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr %2, ptr %46, align 8, !tbaa !88
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %3, ptr %47, align 8, !tbaa !89
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !82
+  %50 = load ptr, ptr %49, align 8, !tbaa !83
+  %51 = trunc i64 %5 to i32
+  tail call void @ASN1_STRING_set0(ptr noundef %50, ptr noundef %4, i32 noundef %51) #6
+  %52 = load ptr, ptr %48, align 8, !tbaa !82
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %6, ptr %53, align 8, !tbaa !90
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !86
+  %.not51 = icmp eq ptr %55, null
+  br i1 %.not51, label %58, label %56
 
-53:                                               ; preds = %42
-  store ptr %7, ptr %52, align 8, !tbaa !91
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %8, ptr %54, align 8, !tbaa !94
-  br label %55
+56:                                               ; preds = %45
+  store ptr %7, ptr %55, align 8, !tbaa !91
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %8, ptr %57, align 8, !tbaa !94
+  br label %58
 
-55:                                               ; preds = %53, %42
-  %56 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !95
-  %58 = tail call ptr @OBJ_nid2obj(i32 noundef %.039) #6
-  %59 = tail call i32 @X509_ALGOR_set0(ptr noundef %57, ptr noundef %58, i32 noundef -1, ptr noundef null) #6
-  br label %61
+58:                                               ; preds = %56, %45
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !95
+  %61 = tail call ptr @OBJ_nid2obj(i32 noundef %.039) #6
+  %62 = tail call i32 @X509_ALGOR_set0(ptr noundef %60, ptr noundef %61, i32 noundef -1, ptr noundef null) #6
+  br label %64
 
-.thread.sink.split:                               ; preds = %16, %24, %29, %38, %41, %CMS_get0_RecipientInfos.exit.thread, %20, %aes_wrap_keylen.exit
-  %.sink = phi i32 [ 153, %aes_wrap_keylen.exit ], [ 118, %20 ], [ 107, %CMS_get0_RecipientInfos.exit.thread ], [ 524303, %41 ], [ 524301, %38 ], [ 524301, %29 ], [ 524301, %24 ], [ 118, %16 ]
-  %.040.ph = phi ptr [ null, %aes_wrap_keylen.exit ], [ null, %20 ], [ null, %CMS_get0_RecipientInfos.exit.thread ], [ %23, %41 ], [ %23, %38 ], [ %23, %29 ], [ null, %24 ], [ null, %16 ]
+.thread.sink.split:                               ; preds = %17, %27, %32, %41, %44, %CMS_get0_RecipientInfos.exit.thread, %23, %20
+  %.sink = phi i32 [ 153, %20 ], [ 118, %23 ], [ 107, %CMS_get0_RecipientInfos.exit.thread ], [ 524303, %44 ], [ 524301, %41 ], [ 524301, %32 ], [ 524301, %27 ], [ 118, %17 ]
+  %.040.ph = phi ptr [ null, %20 ], [ null, %23 ], [ null, %CMS_get0_RecipientInfos.exit.thread ], [ %26, %44 ], [ %26, %41 ], [ %26, %32 ], [ null, %27 ], [ null, %17 ]
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %CMS_get0_RecipientInfos.exit
   %.040 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %.040.ph, %.thread.sink.split ]
-  %60 = tail call ptr @CMS_RecipientInfo_it() #6
-  tail call void @ASN1_item_free(ptr noundef %.040, ptr noundef %60) #6
-  br label %61
+  %63 = tail call ptr @CMS_RecipientInfo_it() #6
+  tail call void @ASN1_item_free(ptr noundef %.040, ptr noundef %63) #6
+  br label %64
 
-61:                                               ; preds = %.thread, %55
-  %.038 = phi ptr [ null, %.thread ], [ %23, %55 ]
+64:                                               ; preds = %.thread, %58
+  %.038 = phi ptr [ null, %.thread ], [ %26, %58 ]
   ret ptr %.038
 }
 
@@ -1393,10 +1390,10 @@ define i32 @CMS_RecipientInfo_decrypt(ptr noundef %0, ptr noundef %1) local_unna
   %6 = alloca i64, align 8
   %7 = alloca [50 x i8], align 16
   %8 = load i32, ptr %1, align 8, !tbaa !13
-  switch i32 %8, label %175 [
+  switch i32 %8, label %176 [
     i32 0, label %9
     i32 2, label %96
-    i32 3, label %173
+    i32 3, label %174
   ]
 
 9:                                                ; preds = %2
@@ -1584,7 +1581,7 @@ cms_RecipientInfo_ktri_decrypt.exit:              ; preds = %34, %.thread59.i, %
   %.0.i = phi i32 [ 0, %34 ], [ 0, %93 ], [ 1, %85 ], [ 0, %.thread59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %176
+  br label %177
 
 96:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1634,7 +1631,7 @@ ossl_cms_get0_env_enc_content.exit.i12:           ; preds = %103, %99
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !88
   %.not.i14 = icmp eq ptr %112, null
-  br i1 %.not.i14, label %113, label %aes_wrap_keylen.exit.i
+  br i1 %.not.i14, label %113, label %114
 
 113:                                              ; preds = %108
   tail call void @ERR_new() #6
@@ -1642,166 +1639,166 @@ ossl_cms_get0_env_enc_content.exit.i12:           ; preds = %103, %99
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 130, ptr noundef null) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
-aes_wrap_keylen.exit.i:                           ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %115 = load ptr, ptr %114, align 8, !tbaa !95
-  %116 = load ptr, ptr %115, align 8, !tbaa !103
-  %117 = tail call i32 @OBJ_obj2nid(ptr noundef %116) #6
-  %switch.tableidx = add i32 %117, -788
-  %118 = icmp ult i32 %switch.tableidx, 3
-  %switch.idx.cast = zext i32 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
-  %switch.offset = add nuw nsw i64 %switch.idx.mult, 16
-  %.0.i50.i = select i1 %118, i64 %switch.offset, i64 0
-  %119 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %120 = load i64, ptr %119, align 8, !tbaa !89
-  %.not45.i = icmp eq i64 %.0.i50.i, %120
-  br i1 %.not45.i, label %122, label %121
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %116 = load ptr, ptr %115, align 8, !tbaa !95
+  %117 = load ptr, ptr %116, align 8, !tbaa !103
+  %118 = tail call i32 @OBJ_obj2nid(ptr noundef %117) #6
+  %switch.tableidx.i.i = add i32 %118, -788
+  %119 = icmp ult i32 %switch.tableidx.i.i, 3
+  %switch.idx.cast.i.i = zext i32 %switch.tableidx.i.i to i64
+  %switch.idx.mult.i.i = shl nuw nsw i64 %switch.idx.cast.i.i, 3
+  %switch.offset.i.i = add nuw nsw i64 %switch.idx.mult.i.i, 16
+  %.0.i50.i = select i1 %119, i64 %switch.offset.i.i, i64 0
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %121 = load i64, ptr %120, align 8, !tbaa !89
+  %.not45.i = icmp eq i64 %.0.i50.i, %121
+  br i1 %.not45.i, label %123, label %122
 
-121:                                              ; preds = %aes_wrap_keylen.exit.i
+122:                                              ; preds = %114
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 960, ptr noundef nonnull @__func__.cms_RecipientInfo_kekri_decrypt) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 118, ptr noundef null) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
-122:                                              ; preds = %aes_wrap_keylen.exit.i
-  %123 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !111
-  %125 = load i32, ptr %124, align 8, !tbaa !81
-  %126 = icmp slt i32 %125, 16
-  br i1 %126, label %127, label %128
+123:                                              ; preds = %114
+  %124 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !111
+  %126 = load i32, ptr %125, align 8, !tbaa !81
+  %127 = icmp slt i32 %126, 16
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %122
+128:                                              ; preds = %123
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 967, ptr noundef nonnull @__func__.cms_RecipientInfo_kekri_decrypt) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 117, ptr noundef null) #6
-  br label %171
+  br label %172
 
-128:                                              ; preds = %122
+129:                                              ; preds = %123
   switch i64 %.0.i50.i, label %cms_get_key_wrap_cipher.exit.thread.i [
     i64 16, label %cms_get_key_wrap_cipher.exit.i
-    i64 24, label %129
-    i64 32, label %130
+    i64 24, label %130
+    i64 32, label %131
   ]
 
-129:                                              ; preds = %128
+130:                                              ; preds = %129
   br label %cms_get_key_wrap_cipher.exit.i
 
-130:                                              ; preds = %128
+131:                                              ; preds = %129
   br label %cms_get_key_wrap_cipher.exit.i
 
-cms_get_key_wrap_cipher.exit.i:                   ; preds = %130, %129, %128
-  %.0.i51.i = phi ptr [ @.str.9, %129 ], [ @.str.10, %130 ], [ @.str.8, %128 ]
-  %131 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %97) #6
-  %132 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %97) #6
-  %133 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %131, ptr noundef nonnull %.0.i51.i, ptr noundef %132) #6
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %cms_get_key_wrap_cipher.exit.thread.i, label %135
+cms_get_key_wrap_cipher.exit.i:                   ; preds = %131, %130, %129
+  %.0.i51.i = phi ptr [ @.str.9, %130 ], [ @.str.10, %131 ], [ @.str.8, %129 ]
+  %132 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %97) #6
+  %133 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %97) #6
+  %134 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %132, ptr noundef nonnull %.0.i51.i, ptr noundef %133) #6
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %cms_get_key_wrap_cipher.exit.thread.i, label %136
 
-cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_cipher.exit.i, %128
+cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_cipher.exit.i, %129
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 973, ptr noundef nonnull @__func__.cms_RecipientInfo_kekri_decrypt) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 118, ptr noundef null) #6
-  br label %171
+  br label %172
 
-135:                                              ; preds = %cms_get_key_wrap_cipher.exit.i
-  %136 = load ptr, ptr %123, align 8, !tbaa !111
-  %137 = load i32, ptr %136, align 8, !tbaa !81
-  %138 = add nsw i32 %137, -8
-  %139 = sext i32 %138 to i64
-  %140 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %139, ptr noundef nonnull @.str, i32 noundef 977) #6
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %171, label %142
+136:                                              ; preds = %cms_get_key_wrap_cipher.exit.i
+  %137 = load ptr, ptr %124, align 8, !tbaa !111
+  %138 = load i32, ptr %137, align 8, !tbaa !81
+  %139 = add nsw i32 %138, -8
+  %140 = sext i32 %139 to i64
+  %141 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %140, ptr noundef nonnull @.str, i32 noundef 977) #6
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %172, label %143
 
-142:                                              ; preds = %135
-  %143 = tail call ptr @EVP_CIPHER_CTX_new() #6
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %145, label %146
+143:                                              ; preds = %136
+  %144 = tail call ptr @EVP_CIPHER_CTX_new() #6
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %146, label %147
 
-145:                                              ; preds = %142
+146:                                              ; preds = %143
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 983, ptr noundef nonnull @__func__.cms_RecipientInfo_kekri_decrypt) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524294, ptr noundef null) #6
-  br label %171
+  br label %172
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %111, align 8, !tbaa !88
-  %148 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %143, ptr noundef nonnull %133, ptr noundef null, ptr noundef %147, ptr noundef null) #6
-  %.not46.i = icmp eq i32 %148, 0
-  br i1 %.not46.i, label %160, label %149
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %111, align 8, !tbaa !88
+  %149 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %144, ptr noundef nonnull %134, ptr noundef null, ptr noundef %148, ptr noundef null) #6
+  %.not46.i = icmp eq i32 %149, 0
+  br i1 %.not46.i, label %161, label %150
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %123, align 8, !tbaa !111
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !80
-  %153 = load i32, ptr %150, align 8, !tbaa !81
-  %154 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %143, ptr noundef nonnull %140, ptr noundef nonnull %3, ptr noundef %152, i32 noundef %153) #6
-  %.not47.i = icmp eq i32 %154, 0
-  br i1 %.not47.i, label %160, label %155
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %124, align 8, !tbaa !111
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !80
+  %154 = load i32, ptr %151, align 8, !tbaa !81
+  %155 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %144, ptr noundef nonnull %141, ptr noundef nonnull %3, ptr noundef %153, i32 noundef %154) #6
+  %.not47.i = icmp eq i32 %155, 0
+  br i1 %.not47.i, label %161, label %156
 
-155:                                              ; preds = %149
-  %156 = load i32, ptr %3, align 4, !tbaa !109
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i8, ptr %140, i64 %157
-  %159 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %143, ptr noundef nonnull %158, ptr noundef nonnull %4) #6
-  %.not48.i16 = icmp eq i32 %159, 0
-  br i1 %.not48.i16, label %160, label %161
+156:                                              ; preds = %150
+  %157 = load i32, ptr %3, align 4, !tbaa !109
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds i8, ptr %141, i64 %158
+  %160 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %144, ptr noundef nonnull %159, ptr noundef nonnull %4) #6
+  %.not48.i16 = icmp eq i32 %160, 0
+  br i1 %.not48.i16, label %161, label %162
 
-160:                                              ; preds = %155, %149, %146
+161:                                              ; preds = %156, %150, %147
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 992, ptr noundef nonnull @__func__.cms_RecipientInfo_kekri_decrypt) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 157, ptr noundef null) #6
-  br label %171
-
-161:                                              ; preds = %155
-  %162 = load i32, ptr %4, align 4, !tbaa !109
-  %163 = load i32, ptr %3, align 4, !tbaa !109
-  %164 = add nsw i32 %163, %162
-  store i32 %164, ptr %3, align 4, !tbaa !109
-  %165 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 32
-  %166 = load ptr, ptr %165, align 8, !tbaa !106
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 40
-  %168 = load i64, ptr %167, align 8, !tbaa !107
-  call void @CRYPTO_clear_free(ptr noundef %166, i64 noundef %168, ptr noundef nonnull @.str, i32 noundef 997) #6
-  store ptr %140, ptr %165, align 8, !tbaa !106
-  %169 = load i32, ptr %3, align 4, !tbaa !109
-  %170 = sext i32 %169 to i64
-  store i64 %170, ptr %167, align 8, !tbaa !107
-  call void @EVP_CIPHER_free(ptr noundef nonnull %133) #6
   br label %172
 
-171:                                              ; preds = %160, %145, %135, %cms_get_key_wrap_cipher.exit.thread.i, %127
-  %.036.ph.i = phi ptr [ %140, %160 ], [ %140, %145 ], [ null, %135 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %127 ]
-  %.035.ph.i = phi ptr [ %133, %160 ], [ %133, %145 ], [ %133, %135 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %127 ]
-  %.034.ph.i = phi ptr [ %143, %160 ], [ null, %145 ], [ null, %135 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %127 ]
+162:                                              ; preds = %156
+  %163 = load i32, ptr %4, align 4, !tbaa !109
+  %164 = load i32, ptr %3, align 4, !tbaa !109
+  %165 = add nsw i32 %164, %163
+  store i32 %165, ptr %3, align 4, !tbaa !109
+  %166 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 32
+  %167 = load ptr, ptr %166, align 8, !tbaa !106
+  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 40
+  %169 = load i64, ptr %168, align 8, !tbaa !107
+  call void @CRYPTO_clear_free(ptr noundef %167, i64 noundef %169, ptr noundef nonnull @.str, i32 noundef 997) #6
+  store ptr %141, ptr %166, align 8, !tbaa !106
+  %170 = load i32, ptr %3, align 4, !tbaa !109
+  %171 = sext i32 %170 to i64
+  store i64 %171, ptr %168, align 8, !tbaa !107
+  call void @EVP_CIPHER_free(ptr noundef nonnull %134) #6
+  br label %173
+
+172:                                              ; preds = %161, %146, %136, %cms_get_key_wrap_cipher.exit.thread.i, %128
+  %.036.ph.i = phi ptr [ %141, %161 ], [ %141, %146 ], [ null, %136 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %128 ]
+  %.035.ph.i = phi ptr [ %134, %161 ], [ %134, %146 ], [ %134, %136 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %128 ]
+  %.034.ph.i = phi ptr [ %144, %161 ], [ null, %146 ], [ null, %136 ], [ null, %cms_get_key_wrap_cipher.exit.thread.i ], [ null, %128 ]
   call void @EVP_CIPHER_free(ptr noundef %.035.ph.i) #6
   call void @CRYPTO_free(ptr noundef %.036.ph.i, ptr noundef nonnull @.str, i32 noundef 1006) #6
-  br label %172
+  br label %173
 
-172:                                              ; preds = %171, %161
-  %.03462.i = phi ptr [ %.034.ph.i, %171 ], [ %143, %161 ]
-  %.03759.i = phi i32 [ 0, %171 ], [ 1, %161 ]
+173:                                              ; preds = %172, %162
+  %.03462.i = phi ptr [ %.034.ph.i, %172 ], [ %144, %162 ]
+  %.03759.i = phi i32 [ 0, %172 ], [ 1, %162 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %.03462.i) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
-cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i17, %99, %103, %ossl_cms_get0_env_enc_content.exit.i12, %113, %121, %172
-  %.0.i15 = phi i32 [ 0, %121 ], [ %.03759.i, %172 ], [ 0, %113 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i12 ], [ 0, %99 ], [ 0, %103 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i17 ]
+cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i17, %99, %103, %ossl_cms_get0_env_enc_content.exit.i12, %113, %122, %173
+  %.0.i15 = phi i32 [ 0, %122 ], [ %.03759.i, %173 ], [ 0, %113 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i12 ], [ 0, %99 ], [ 0, %103 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %176
+  br label %177
 
-173:                                              ; preds = %2
-  %174 = tail call i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #6
-  br label %176
+174:                                              ; preds = %2
+  %175 = tail call i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #6
+  br label %177
 
-175:                                              ; preds = %2
+176:                                              ; preds = %2
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1025, ptr noundef nonnull @__func__.CMS_RecipientInfo_decrypt) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 155, ptr noundef null) #6
-  br label %176
+  br label %177
 
-176:                                              ; preds = %175, %173, %cms_RecipientInfo_kekri_decrypt.exit, %cms_RecipientInfo_ktri_decrypt.exit
-  %.0 = phi i32 [ 0, %175 ], [ %.0.i, %cms_RecipientInfo_ktri_decrypt.exit ], [ %.0.i15, %cms_RecipientInfo_kekri_decrypt.exit ], [ %174, %173 ]
+177:                                              ; preds = %176, %174, %cms_RecipientInfo_kekri_decrypt.exit, %cms_RecipientInfo_ktri_decrypt.exit
+  %.0 = phi i32 [ 0, %176 ], [ %.0.i, %cms_RecipientInfo_ktri_decrypt.exit ], [ %.0.i15, %cms_RecipientInfo_kekri_decrypt.exit ], [ %175, %174 ]
   ret i32 %.0
 }
 

@@ -2260,9 +2260,9 @@ define i32 @ARKodeEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr 
   br i1 %204, label %205, label %207
 
 205:                                              ; preds = %203
-  %switch.tableidx = add nsw i32 %194, 8
-  %206 = icmp ult i32 %switch.tableidx, 3
-  %spec.select = select i1 %206, i32 %194, i32 -32
+  %switch.tableidx.i = add nsw i32 %194, 8
+  %206 = icmp ult i32 %switch.tableidx.i, 3
+  %spec.select.i = select i1 %206, i32 %194, i32 -32
   br label %.thread337
 
 207:                                              ; preds = %203
@@ -2378,7 +2378,7 @@ arkCheckConvergence.exit:                         ; preds = %193
   br label %.thread337
 
 .thread337:                                       ; preds = %253, %.thread334, %195, %235, %229, %222, %189, %217, %.thread337.loopexit, %205, %202
-  %.5340 = phi i32 [ -21, %202 ], [ %spec.select, %205 ], [ -10, %217 ], [ -4, %195 ], [ %191, %189 ], [ %223, %222 ], [ %230, %229 ], [ %237, %235 ], [ -4, %.thread337.loopexit ], [ %.3, %253 ], [ %256, %.thread334 ]
+  %.5340 = phi i32 [ %spec.select.i, %205 ], [ -21, %202 ], [ -10, %217 ], [ -4, %195 ], [ %191, %189 ], [ %223, %222 ], [ %230, %229 ], [ %237, %235 ], [ -4, %.thread337.loopexit ], [ %.3, %253 ], [ %256, %.thread334 ]
   %257 = call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %.5340)
   %258 = load double, ptr %64, align 8, !tbaa !17
   store double %258, ptr %3, align 8, !tbaa !113
@@ -3565,8 +3565,8 @@ define range(i32 -32, 12) i32 @arkCheckConvergence(ptr noundef captures(address_
   store i32 7, ptr %1, align 4, !tbaa !115
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %18, %3, %34, %5, %3, %37, %36, %15
-  %.0 = phi i32 [ -21, %15 ], [ -10, %36 ], [ 3, %37 ], [ %4, %3 ], [ -4, %5 ], [ -4, %34 ], [ %4, %3 ], [ %spec.select, %18 ]
+switch.lookup:                                    ; preds = %3, %18, %34, %5, %3, %37, %36, %15
+  %.0 = phi i32 [ -21, %15 ], [ -10, %36 ], [ 3, %37 ], [ %4, %3 ], [ -4, %5 ], [ -4, %34 ], [ %spec.select, %18 ], [ %4, %3 ]
   ret i32 %.0
 }
 

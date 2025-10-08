@@ -3328,25 +3328,25 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   %trunc = trunc i64 %1 to i8
   switch i8 %trunc, label %5 [
     i8 0, label %6
-    i8 1, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit"
-    i8 2, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit24"
-    i8 3, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit26"
-    i8 4, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit28"
-    i8 5, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit30"
-    i8 6, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit32"
-    i8 7, label %"_ZN16uv_platform_tags4tags1_88_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..tags..BinaryFormat$GT$7resolve17he200b06b45c7c295E.exit"
-    i8 8, label %32
-    i8 9, label %33
-    i8 10, label %34
-    i8 11, label %35
-    i8 12, label %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit35"
-    i8 13, label %40
-    i8 14, label %66
-    i8 15, label %92
-    i8 16, label %118
-    i8 17, label %144
-    i8 18, label %170
-    i8 19, label %196
+    i8 1, label %7
+    i8 2, label %15
+    i8 3, label %17
+    i8 4, label %19
+    i8 5, label %21
+    i8 6, label %23
+    i8 7, label %31
+    i8 8, label %39
+    i8 9, label %40
+    i8 10, label %41
+    i8 11, label %42
+    i8 12, label %43
+    i8 13, label %48
+    i8 14, label %74
+    i8 15, label %100
+    i8 16, label %126
+    i8 17, label %152
+    i8 18, label %178
+    i8 19, label %204
   ]
 
 5:                                                ; preds = %4
@@ -3356,428 +3356,428 @@ define void @"_ZN16uv_platform_tags12platform_tag1_95_$LT$impl$u20$rkyv..traits.
   store i8 0, ptr %2, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit": ; preds = %4
+7:                                                ; preds = %4
   store i8 1, ptr %2, align 2
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %9 = load i16, ptr %8, align 2, !noundef !3
-  store i16 %9, ptr %7, align 2
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i16, ptr %11, align 4, !noundef !3
-  store i16 %12, ptr %10, align 2
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %10 = load i16, ptr %9, align 2, !noundef !3
+  store i16 %10, ptr %8, align 2
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = load i16, ptr %12, align 4, !noundef !3
+  store i16 %13, ptr %11, align 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  store i8 %.sroa.4.0.extract.trunc, ptr %14, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit24": ; preds = %4
+15:                                               ; preds = %4
   store i8 2, ptr %2, align 1
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %.sroa.4.0.extract.trunc, ptr %14, align 1
-  br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
-
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit26": ; preds = %4
-  store i8 3, ptr %2, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %.sroa.4.0.extract.trunc, ptr %15, align 1
-  br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
-
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit28": ; preds = %4
-  store i8 4, ptr %2, align 1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %.sroa.4.0.extract.trunc, ptr %16, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit30": ; preds = %4
+17:                                               ; preds = %4
+  store i8 3, ptr %2, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %18, align 1
+  br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
+
+19:                                               ; preds = %4
+  store i8 4, ptr %2, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %20, align 1
+  br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
+
+21:                                               ; preds = %4
   store i8 5, ptr %2, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %.sroa.4.0.extract.trunc, ptr %17, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %.sroa.4.0.extract.trunc, ptr %22, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit32": ; preds = %4
+23:                                               ; preds = %4
   store i8 6, ptr %2, align 2
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %20 = load i16, ptr %19, align 2, !noundef !3
-  store i16 %20, ptr %18, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i16, ptr %22, align 4, !noundef !3
-  store i16 %23, ptr %21, align 2
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %24, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %26 = load i16, ptr %25, align 2, !noundef !3
+  store i16 %26, ptr %24, align 2
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %29 = load i16, ptr %28, align 4, !noundef !3
+  store i16 %29, ptr %27, align 2
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  store i8 %.sroa.4.0.extract.trunc, ptr %30, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags4tags1_88_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..tags..BinaryFormat$GT$7resolve17he200b06b45c7c295E.exit": ; preds = %4
+31:                                               ; preds = %4
   store i8 7, ptr %2, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i16, ptr %26, align 2, !noundef !3
-  store i16 %27, ptr %25, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %30 = load i16, ptr %29, align 4, !noundef !3
-  store i16 %30, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %.sroa.4.0.extract.trunc, ptr %31, align 2
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %34 = load i16, ptr %33, align 2, !noundef !3
+  store i16 %34, ptr %32, align 2
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %37 = load i16, ptr %36, align 4, !noundef !3
+  store i16 %37, ptr %35, align 2
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  store i8 %.sroa.4.0.extract.trunc, ptr %38, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-32:                                               ; preds = %4
+39:                                               ; preds = %4
   store i8 8, ptr %2, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-33:                                               ; preds = %4
+40:                                               ; preds = %4
   store i8 9, ptr %2, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-34:                                               ; preds = %4
+41:                                               ; preds = %4
   store i8 10, ptr %2, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-35:                                               ; preds = %4
+42:                                               ; preds = %4
   store i8 11, ptr %2, align 1
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit35": ; preds = %4
+43:                                               ; preds = %4
   store i8 12, ptr %2, align 2
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %38 = load i16, ptr %37, align 2, !noundef !3
-  store i16 %38, ptr %36, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %.sroa.4.0.extract.trunc, ptr %39, align 2
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %46 = load i16, ptr %45, align 2, !noundef !3
+  store i16 %46, ptr %44, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i8 %.sroa.4.0.extract.trunc, ptr %47, align 2
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-40:                                               ; preds = %4
+48:                                               ; preds = %4
   store i8 13, ptr %2, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !nonnull !3, !noundef !3
-  %44 = load i64, ptr %43, align 8, !noundef !3
-  %45 = lshr i64 %44, 1
-  %46 = icmp ult i64 %44, 18
-  br i1 %46, label %64, label %47
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !noundef !3
+  %52 = load i64, ptr %51, align 8, !noundef !3
+  %53 = lshr i64 %52, 1
+  %54 = icmp ult i64 %52, 18
+  br i1 %54, label %72, label %55
 
-47:                                               ; preds = %40
-  %48 = add i64 %3, 4
-  %49 = trunc i64 %45 to i32
-  %50 = and i32 %49, 63
-  %51 = shl i32 %49, 2
-  %52 = and i32 %51, -256
-  %53 = or disjoint i32 %50, %52
-  %54 = or disjoint i32 %53, 128
-  store i32 %54, ptr %41, align 4, !noalias !430
-  %55 = sub i64 %.sroa.6.0.extract.shift, %48
-  %56 = icmp ugt i64 %48, %.sroa.6.0.extract.shift
-  br i1 %56, label %60, label %57
+55:                                               ; preds = %48
+  %56 = add i64 %3, 4
+  %57 = trunc i64 %53 to i32
+  %58 = and i32 %57, 63
+  %59 = shl i32 %57, 2
+  %60 = and i32 %59, -256
+  %61 = or disjoint i32 %58, %60
+  %62 = or disjoint i32 %61, 128
+  store i32 %62, ptr %49, align 4, !noalias !430
+  %63 = sub i64 %.sroa.6.0.extract.shift, %56
+  %64 = icmp ugt i64 %56, %.sroa.6.0.extract.shift
+  br i1 %64, label %68, label %65
 
-57:                                               ; preds = %47
-  %58 = icmp sgt i64 %55, -1
-  br i1 %58, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, label %59
+65:                                               ; preds = %55
+  %66 = icmp sgt i64 %63, -1
+  br i1 %66, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, label %67
 
-59:                                               ; preds = %60, %57
+67:                                               ; preds = %68, %65
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !430
   unreachable
 
-60:                                               ; preds = %47
-  %61 = icmp slt i64 %55, 0
-  br i1 %61, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, label %59
+68:                                               ; preds = %55
+  %69 = icmp slt i64 %63, 0
+  br i1 %69, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, label %67
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i: ; preds = %60, %57
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = trunc i64 %55 to i32
-  store i32 %63, ptr %62, align 4, !noalias !430
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i: ; preds = %68, %65
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %71 = trunc i64 %63 to i32
+  store i32 %71, ptr %70, align 4, !noalias !430
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-64:                                               ; preds = %40
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i64 -1, ptr %41, align 1, !noalias !430
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %65, i64 range(i64 0, -9223372036854775808) %45, i1 false)
+72:                                               ; preds = %48
+  %73 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i64 -1, ptr %49, align 1, !noalias !430
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 1 %73, i64 range(i64 0, -9223372036854775808) %53, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-66:                                               ; preds = %4
+74:                                               ; preds = %4
   store i8 14, ptr %2, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8, !nonnull !3, !noundef !3
-  %70 = load i64, ptr %69, align 8, !noundef !3
-  %71 = lshr i64 %70, 1
-  %72 = icmp ult i64 %70, 18
-  br i1 %72, label %90, label %73
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8, !nonnull !3, !noundef !3
+  %78 = load i64, ptr %77, align 8, !noundef !3
+  %79 = lshr i64 %78, 1
+  %80 = icmp ult i64 %78, 18
+  br i1 %80, label %98, label %81
 
-73:                                               ; preds = %66
-  %74 = add i64 %3, 4
-  %75 = trunc i64 %71 to i32
-  %76 = and i32 %75, 63
-  %77 = shl i32 %75, 2
-  %78 = and i32 %77, -256
-  %79 = or disjoint i32 %76, %78
-  %80 = or disjoint i32 %79, 128
-  store i32 %80, ptr %67, align 4, !noalias !433
-  %81 = sub i64 %.sroa.6.0.extract.shift, %74
-  %82 = icmp ugt i64 %74, %.sroa.6.0.extract.shift
-  br i1 %82, label %86, label %83
+81:                                               ; preds = %74
+  %82 = add i64 %3, 4
+  %83 = trunc i64 %79 to i32
+  %84 = and i32 %83, 63
+  %85 = shl i32 %83, 2
+  %86 = and i32 %85, -256
+  %87 = or disjoint i32 %84, %86
+  %88 = or disjoint i32 %87, 128
+  store i32 %88, ptr %75, align 4, !noalias !433
+  %89 = sub i64 %.sroa.6.0.extract.shift, %82
+  %90 = icmp ugt i64 %82, %.sroa.6.0.extract.shift
+  br i1 %90, label %94, label %91
 
-83:                                               ; preds = %73
-  %84 = icmp sgt i64 %81, -1
-  br i1 %84, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i36, label %85
+91:                                               ; preds = %81
+  %92 = icmp sgt i64 %89, -1
+  br i1 %92, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i23, label %93
 
-85:                                               ; preds = %86, %83
+93:                                               ; preds = %94, %91
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !433
   unreachable
 
-86:                                               ; preds = %73
-  %87 = icmp slt i64 %81, 0
-  br i1 %87, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i36, label %85
+94:                                               ; preds = %81
+  %95 = icmp slt i64 %89, 0
+  br i1 %95, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i23, label %93
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i36: ; preds = %86, %83
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %89 = trunc i64 %81 to i32
-  store i32 %89, ptr %88, align 4, !noalias !433
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i23: ; preds = %94, %91
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %97 = trunc i64 %89 to i32
+  store i32 %97, ptr %96, align 4, !noalias !433
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-90:                                               ; preds = %66
-  %91 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i64 -1, ptr %67, align 1, !noalias !433
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %91, i64 range(i64 0, -9223372036854775808) %71, i1 false)
+98:                                               ; preds = %74
+  %99 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store i64 -1, ptr %75, align 1, !noalias !433
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull readonly align 1 %99, i64 range(i64 0, -9223372036854775808) %79, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-92:                                               ; preds = %4
+100:                                              ; preds = %4
   store i8 15, ptr %2, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8, !nonnull !3, !noundef !3
-  %96 = load i64, ptr %95, align 8, !noundef !3
-  %97 = lshr i64 %96, 1
-  %98 = icmp ult i64 %96, 18
-  br i1 %98, label %116, label %99
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = load ptr, ptr %102, align 8, !nonnull !3, !noundef !3
+  %104 = load i64, ptr %103, align 8, !noundef !3
+  %105 = lshr i64 %104, 1
+  %106 = icmp ult i64 %104, 18
+  br i1 %106, label %124, label %107
 
-99:                                               ; preds = %92
-  %100 = add i64 %3, 4
-  %101 = trunc i64 %97 to i32
-  %102 = and i32 %101, 63
-  %103 = shl i32 %101, 2
-  %104 = and i32 %103, -256
-  %105 = or disjoint i32 %102, %104
-  %106 = or disjoint i32 %105, 128
-  store i32 %106, ptr %93, align 4, !noalias !436
-  %107 = sub i64 %.sroa.6.0.extract.shift, %100
-  %108 = icmp ugt i64 %100, %.sroa.6.0.extract.shift
-  br i1 %108, label %112, label %109
+107:                                              ; preds = %100
+  %108 = add i64 %3, 4
+  %109 = trunc i64 %105 to i32
+  %110 = and i32 %109, 63
+  %111 = shl i32 %109, 2
+  %112 = and i32 %111, -256
+  %113 = or disjoint i32 %110, %112
+  %114 = or disjoint i32 %113, 128
+  store i32 %114, ptr %101, align 4, !noalias !436
+  %115 = sub i64 %.sroa.6.0.extract.shift, %108
+  %116 = icmp ugt i64 %108, %.sroa.6.0.extract.shift
+  br i1 %116, label %120, label %117
 
-109:                                              ; preds = %99
-  %110 = icmp sgt i64 %107, -1
-  br i1 %110, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i38, label %111
+117:                                              ; preds = %107
+  %118 = icmp sgt i64 %115, -1
+  br i1 %118, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i25, label %119
 
-111:                                              ; preds = %112, %109
+119:                                              ; preds = %120, %117
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !436
   unreachable
 
-112:                                              ; preds = %99
-  %113 = icmp slt i64 %107, 0
-  br i1 %113, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i38, label %111
+120:                                              ; preds = %107
+  %121 = icmp slt i64 %115, 0
+  br i1 %121, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i25, label %119
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i38: ; preds = %112, %109
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %115 = trunc i64 %107 to i32
-  store i32 %115, ptr %114, align 4, !noalias !436
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i25: ; preds = %120, %117
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %123 = trunc i64 %115 to i32
+  store i32 %123, ptr %122, align 4, !noalias !436
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-116:                                              ; preds = %92
-  %117 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i64 -1, ptr %93, align 1, !noalias !436
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull readonly align 1 %117, i64 range(i64 0, -9223372036854775808) %97, i1 false)
+124:                                              ; preds = %100
+  %125 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store i64 -1, ptr %101, align 1, !noalias !436
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %125, i64 range(i64 0, -9223372036854775808) %105, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-118:                                              ; preds = %4
+126:                                              ; preds = %4
   store i8 16, ptr %2, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !3, !noundef !3
-  %122 = load i64, ptr %121, align 8, !noundef !3
-  %123 = lshr i64 %122, 1
-  %124 = icmp ult i64 %122, 18
-  br i1 %124, label %142, label %125
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %129 = load ptr, ptr %128, align 8, !nonnull !3, !noundef !3
+  %130 = load i64, ptr %129, align 8, !noundef !3
+  %131 = lshr i64 %130, 1
+  %132 = icmp ult i64 %130, 18
+  br i1 %132, label %150, label %133
 
-125:                                              ; preds = %118
-  %126 = add i64 %3, 4
-  %127 = trunc i64 %123 to i32
-  %128 = and i32 %127, 63
-  %129 = shl i32 %127, 2
-  %130 = and i32 %129, -256
-  %131 = or disjoint i32 %128, %130
-  %132 = or disjoint i32 %131, 128
-  store i32 %132, ptr %119, align 4, !noalias !439
-  %133 = sub i64 %.sroa.6.0.extract.shift, %126
-  %134 = icmp ugt i64 %126, %.sroa.6.0.extract.shift
-  br i1 %134, label %138, label %135
+133:                                              ; preds = %126
+  %134 = add i64 %3, 4
+  %135 = trunc i64 %131 to i32
+  %136 = and i32 %135, 63
+  %137 = shl i32 %135, 2
+  %138 = and i32 %137, -256
+  %139 = or disjoint i32 %136, %138
+  %140 = or disjoint i32 %139, 128
+  store i32 %140, ptr %127, align 4, !noalias !439
+  %141 = sub i64 %.sroa.6.0.extract.shift, %134
+  %142 = icmp ugt i64 %134, %.sroa.6.0.extract.shift
+  br i1 %142, label %146, label %143
 
-135:                                              ; preds = %125
-  %136 = icmp sgt i64 %133, -1
-  br i1 %136, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i40, label %137
+143:                                              ; preds = %133
+  %144 = icmp sgt i64 %141, -1
+  br i1 %144, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i27, label %145
 
-137:                                              ; preds = %138, %135
+145:                                              ; preds = %146, %143
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !439
   unreachable
 
-138:                                              ; preds = %125
-  %139 = icmp slt i64 %133, 0
-  br i1 %139, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i40, label %137
+146:                                              ; preds = %133
+  %147 = icmp slt i64 %141, 0
+  br i1 %147, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i27, label %145
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i40: ; preds = %138, %135
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %141 = trunc i64 %133 to i32
-  store i32 %141, ptr %140, align 4, !noalias !439
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i27: ; preds = %146, %143
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %149 = trunc i64 %141 to i32
+  store i32 %149, ptr %148, align 4, !noalias !439
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-142:                                              ; preds = %118
-  %143 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store i64 -1, ptr %119, align 1, !noalias !439
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr nonnull readonly align 1 %143, i64 range(i64 0, -9223372036854775808) %123, i1 false)
+150:                                              ; preds = %126
+  %151 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  store i64 -1, ptr %127, align 1, !noalias !439
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %151, i64 range(i64 0, -9223372036854775808) %131, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-144:                                              ; preds = %4
+152:                                              ; preds = %4
   store i8 17, ptr %2, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %147 = load ptr, ptr %146, align 8, !nonnull !3, !noundef !3
-  %148 = load i64, ptr %147, align 8, !noundef !3
-  %149 = lshr i64 %148, 1
-  %150 = icmp ult i64 %148, 18
-  br i1 %150, label %168, label %151
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %155 = load ptr, ptr %154, align 8, !nonnull !3, !noundef !3
+  %156 = load i64, ptr %155, align 8, !noundef !3
+  %157 = lshr i64 %156, 1
+  %158 = icmp ult i64 %156, 18
+  br i1 %158, label %176, label %159
 
-151:                                              ; preds = %144
-  %152 = add i64 %3, 4
-  %153 = trunc i64 %149 to i32
-  %154 = and i32 %153, 63
-  %155 = shl i32 %153, 2
-  %156 = and i32 %155, -256
-  %157 = or disjoint i32 %154, %156
-  %158 = or disjoint i32 %157, 128
-  store i32 %158, ptr %145, align 4, !noalias !442
-  %159 = sub i64 %.sroa.6.0.extract.shift, %152
-  %160 = icmp ugt i64 %152, %.sroa.6.0.extract.shift
-  br i1 %160, label %164, label %161
+159:                                              ; preds = %152
+  %160 = add i64 %3, 4
+  %161 = trunc i64 %157 to i32
+  %162 = and i32 %161, 63
+  %163 = shl i32 %161, 2
+  %164 = and i32 %163, -256
+  %165 = or disjoint i32 %162, %164
+  %166 = or disjoint i32 %165, 128
+  store i32 %166, ptr %153, align 4, !noalias !442
+  %167 = sub i64 %.sroa.6.0.extract.shift, %160
+  %168 = icmp ugt i64 %160, %.sroa.6.0.extract.shift
+  br i1 %168, label %172, label %169
 
-161:                                              ; preds = %151
-  %162 = icmp sgt i64 %159, -1
-  br i1 %162, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i42, label %163
+169:                                              ; preds = %159
+  %170 = icmp sgt i64 %167, -1
+  br i1 %170, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i29, label %171
 
-163:                                              ; preds = %164, %161
+171:                                              ; preds = %172, %169
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !442
   unreachable
 
-164:                                              ; preds = %151
-  %165 = icmp slt i64 %159, 0
-  br i1 %165, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i42, label %163
+172:                                              ; preds = %159
+  %173 = icmp slt i64 %167, 0
+  br i1 %173, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i29, label %171
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i42: ; preds = %164, %161
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %167 = trunc i64 %159 to i32
-  store i32 %167, ptr %166, align 4, !noalias !442
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i29: ; preds = %172, %169
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %175 = trunc i64 %167 to i32
+  store i32 %175, ptr %174, align 4, !noalias !442
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-168:                                              ; preds = %144
-  %169 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  store i64 -1, ptr %145, align 1, !noalias !442
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %145, ptr nonnull readonly align 1 %169, i64 range(i64 0, -9223372036854775808) %149, i1 false)
+176:                                              ; preds = %152
+  %177 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  store i64 -1, ptr %153, align 1, !noalias !442
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull readonly align 1 %177, i64 range(i64 0, -9223372036854775808) %157, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-170:                                              ; preds = %4
+178:                                              ; preds = %4
   store i8 18, ptr %2, align 4
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %173 = load ptr, ptr %172, align 8, !nonnull !3, !noundef !3
-  %174 = load i64, ptr %173, align 8, !noundef !3
-  %175 = lshr i64 %174, 1
-  %176 = icmp ult i64 %174, 18
-  br i1 %176, label %194, label %177
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %181 = load ptr, ptr %180, align 8, !nonnull !3, !noundef !3
+  %182 = load i64, ptr %181, align 8, !noundef !3
+  %183 = lshr i64 %182, 1
+  %184 = icmp ult i64 %182, 18
+  br i1 %184, label %202, label %185
 
-177:                                              ; preds = %170
-  %178 = add i64 %3, 4
-  %179 = trunc i64 %175 to i32
-  %180 = and i32 %179, 63
-  %181 = shl i32 %179, 2
-  %182 = and i32 %181, -256
-  %183 = or disjoint i32 %180, %182
-  %184 = or disjoint i32 %183, 128
-  store i32 %184, ptr %171, align 4, !noalias !445
-  %185 = sub i64 %.sroa.6.0.extract.shift, %178
-  %186 = icmp ugt i64 %178, %.sroa.6.0.extract.shift
-  br i1 %186, label %190, label %187
+185:                                              ; preds = %178
+  %186 = add i64 %3, 4
+  %187 = trunc i64 %183 to i32
+  %188 = and i32 %187, 63
+  %189 = shl i32 %187, 2
+  %190 = and i32 %189, -256
+  %191 = or disjoint i32 %188, %190
+  %192 = or disjoint i32 %191, 128
+  store i32 %192, ptr %179, align 4, !noalias !445
+  %193 = sub i64 %.sroa.6.0.extract.shift, %186
+  %194 = icmp ugt i64 %186, %.sroa.6.0.extract.shift
+  br i1 %194, label %198, label %195
 
-187:                                              ; preds = %177
-  %188 = icmp sgt i64 %185, -1
-  br i1 %188, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i44, label %189
+195:                                              ; preds = %185
+  %196 = icmp sgt i64 %193, -1
+  br i1 %196, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i31, label %197
 
-189:                                              ; preds = %190, %187
+197:                                              ; preds = %198, %195
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !445
   unreachable
 
-190:                                              ; preds = %177
-  %191 = icmp slt i64 %185, 0
-  br i1 %191, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i44, label %189
+198:                                              ; preds = %185
+  %199 = icmp slt i64 %193, 0
+  br i1 %199, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i31, label %197
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i44: ; preds = %190, %187
-  %192 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %193 = trunc i64 %185 to i32
-  store i32 %193, ptr %192, align 4, !noalias !445
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i31: ; preds = %198, %195
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %201 = trunc i64 %193 to i32
+  store i32 %201, ptr %200, align 4, !noalias !445
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-194:                                              ; preds = %170
-  %195 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store i64 -1, ptr %171, align 1, !noalias !445
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %171, ptr nonnull readonly align 1 %195, i64 range(i64 0, -9223372036854775808) %175, i1 false)
+202:                                              ; preds = %178
+  %203 = getelementptr inbounds nuw i8, ptr %181, i64 16
+  store i64 -1, ptr %179, align 1, !noalias !445
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %179, ptr nonnull readonly align 1 %203, i64 range(i64 0, -9223372036854775808) %183, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-196:                                              ; preds = %4
+204:                                              ; preds = %4
   store i8 19, ptr %2, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %199 = load ptr, ptr %198, align 8, !nonnull !3, !noundef !3
-  %200 = load i64, ptr %199, align 8, !noundef !3
-  %201 = lshr i64 %200, 1
-  %202 = icmp ult i64 %200, 18
-  br i1 %202, label %220, label %203
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %207 = load ptr, ptr %206, align 8, !nonnull !3, !noundef !3
+  %208 = load i64, ptr %207, align 8, !noundef !3
+  %209 = lshr i64 %208, 1
+  %210 = icmp ult i64 %208, 18
+  br i1 %210, label %228, label %211
 
-203:                                              ; preds = %196
-  %204 = add i64 %3, 4
-  %205 = trunc i64 %201 to i32
-  %206 = and i32 %205, 63
-  %207 = shl i32 %205, 2
-  %208 = and i32 %207, -256
-  %209 = or disjoint i32 %206, %208
-  %210 = or disjoint i32 %209, 128
-  store i32 %210, ptr %197, align 4, !noalias !448
-  %211 = sub i64 %.sroa.6.0.extract.shift, %204
-  %212 = icmp ugt i64 %204, %.sroa.6.0.extract.shift
-  br i1 %212, label %216, label %213
+211:                                              ; preds = %204
+  %212 = add i64 %3, 4
+  %213 = trunc i64 %209 to i32
+  %214 = and i32 %213, 63
+  %215 = shl i32 %213, 2
+  %216 = and i32 %215, -256
+  %217 = or disjoint i32 %214, %216
+  %218 = or disjoint i32 %217, 128
+  store i32 %218, ptr %205, align 4, !noalias !448
+  %219 = sub i64 %.sroa.6.0.extract.shift, %212
+  %220 = icmp ugt i64 %212, %.sroa.6.0.extract.shift
+  br i1 %220, label %224, label %221
 
-213:                                              ; preds = %203
-  %214 = icmp sgt i64 %211, -1
-  br i1 %214, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i46, label %215
+221:                                              ; preds = %211
+  %222 = icmp sgt i64 %219, -1
+  br i1 %222, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i33, label %223
 
-215:                                              ; preds = %216, %213
+223:                                              ; preds = %224, %221
   tail call void @"_ZN48_$LT$rancor..Panic$u20$as$u20$rancor..Source$GT$3new17h99168f99a64fabb5E"() #15, !noalias !448
   unreachable
 
-216:                                              ; preds = %203
-  %217 = icmp slt i64 %211, 0
-  br i1 %217, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i46, label %215
+224:                                              ; preds = %211
+  %225 = icmp slt i64 %219, 0
+  br i1 %225, label %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i33, label %223
 
-_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i46: ; preds = %216, %213
-  %218 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %219 = trunc i64 %211 to i32
-  store i32 %219, ptr %218, align 4, !noalias !448
+_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i33: ; preds = %224, %221
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %227 = trunc i64 %219 to i32
+  store i32 %227, ptr %226, align 4, !noalias !448
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-220:                                              ; preds = %196
-  %221 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store i64 -1, ptr %197, align 1, !noalias !448
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull readonly align 1 %221, i64 range(i64 0, -9223372036854775808) %201, i1 false)
+228:                                              ; preds = %204
+  %229 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  store i64 -1, ptr %205, align 1, !noalias !448
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %205, ptr nonnull readonly align 1 %229, i64 range(i64 0, -9223372036854775808) %209, i1 false)
   br label %_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit
 
-_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit: ; preds = %220, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i46, %194, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i44, %168, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i42, %142, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i40, %116, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i38, %90, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i36, %64, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit35", %"_ZN16uv_platform_tags4tags1_88_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..tags..BinaryFormat$GT$7resolve17he200b06b45c7c295E.exit", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit32", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit30", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit28", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit26", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit24", %"_ZN16uv_platform_tags8platform1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_platform_tags..platform..Arch$GT$7resolve17hebf05f3dee8abc32E.exit", %35, %34, %33, %32, %6
+_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.exit: ; preds = %228, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i33, %202, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i31, %176, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i29, %150, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i27, %124, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i25, %98, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i23, %72, %_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17hfc3975aaac1de8e5E.exit.i, %43, %31, %23, %21, %19, %17, %15, %7, %42, %41, %40, %39, %6
   ret void
 }
 

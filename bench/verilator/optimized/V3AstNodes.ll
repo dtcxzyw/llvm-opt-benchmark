@@ -101999,19 +101999,19 @@ define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1
   %50 = and i64 %49, -8796093022208
   store i64 %50, ptr %47, align 4
   store i8 %2, ptr %44, align 8, !tbaa !454
-  %switch.tableidx = add i8 %2, -11
-  %51 = icmp ult i8 %switch.tableidx, 3
-  br i1 %51, label %switch.lookup, label %_ZN6AstVar11combineTypeE8VVarType.exit
+  %switch.tableidx.i = add i8 %2, -11
+  %51 = icmp ult i8 %switch.tableidx.i, 3
+  br i1 %51, label %switch.lookup.i, label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-switch.lookup:                                    ; preds = %36
-  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 26
-  %switch.offset = or disjoint i64 %switch.idx.mult, %50
-  %52 = or disjoint i64 %switch.offset, 4
+switch.lookup.i:                                  ; preds = %36
+  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i64
+  %switch.idx.mult.i = shl nuw nsw i64 %switch.idx.cast.i, 26
+  %switch.offset.i = or disjoint i64 %switch.idx.mult.i, 4
+  %52 = or disjoint i64 %50, %switch.offset.i
   store i64 %52, ptr %47, align 4
   br label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %36, %switch.lookup
+_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %switch.lookup.i, %36
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN6AstVar11childDTypepEP12AstNodeDType.exit, label %53
 
@@ -102192,19 +102192,19 @@ define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1
   %50 = and i64 %49, -8796093022208
   store i64 %50, ptr %47, align 4
   store i8 %2, ptr %44, align 8, !tbaa !454
-  %switch.tableidx = add i8 %2, -11
-  %51 = icmp ult i8 %switch.tableidx, 3
-  br i1 %51, label %switch.lookup, label %_ZN6AstVar11combineTypeE8VVarType.exit
+  %switch.tableidx.i = add i8 %2, -11
+  %51 = icmp ult i8 %switch.tableidx.i, 3
+  br i1 %51, label %switch.lookup.i, label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-switch.lookup:                                    ; preds = %36
-  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 26
-  %switch.offset = or disjoint i64 %switch.idx.mult, %50
-  %52 = or disjoint i64 %switch.offset, 4
+switch.lookup.i:                                  ; preds = %36
+  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i64
+  %switch.idx.mult.i = shl nuw nsw i64 %switch.idx.cast.i, 26
+  %switch.offset.i = or disjoint i64 %switch.idx.mult.i, 4
+  %52 = or disjoint i64 %50, %switch.offset.i
   store i64 %52, ptr %47, align 4
   br label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %36, %switch.lookup
+_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %switch.lookup.i, %36
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %53, label %72, !prof !21
 
@@ -118229,19 +118229,19 @@ define linkonce_odr dso_local void @_ZN6AstVarC2EP8FileLine8VVarTypeRKNSt7__cxx1
   %50 = and i64 %49, -8796093022208
   store i64 %50, ptr %47, align 4
   store i8 %2, ptr %44, align 8, !tbaa !454
-  %switch.tableidx = add i8 %2, -11
-  %51 = icmp ult i8 %switch.tableidx, 3
-  br i1 %51, label %switch.lookup, label %_ZN6AstVar11combineTypeE8VVarType.exit
+  %switch.tableidx.i = add i8 %2, -11
+  %51 = icmp ult i8 %switch.tableidx.i, 3
+  br i1 %51, label %switch.lookup.i, label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-switch.lookup:                                    ; preds = %36
-  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 26
-  %switch.offset = or disjoint i64 %switch.idx.mult, %50
-  %52 = or disjoint i64 %switch.offset, 4
+switch.lookup.i:                                  ; preds = %36
+  %switch.idx.cast.i = zext nneg i8 %switch.tableidx.i to i64
+  %switch.idx.mult.i = shl nuw nsw i64 %switch.idx.cast.i, 26
+  %switch.offset.i = or disjoint i64 %switch.idx.mult.i, 4
+  %52 = or disjoint i64 %50, %switch.offset.i
   store i64 %52, ptr %47, align 4
   br label %_ZN6AstVar11combineTypeE8VVarType.exit
 
-_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %36, %switch.lookup
+_ZN6AstVar11combineTypeE8VVarType.exit:           ; preds = %switch.lookup.i, %36
   %53 = invoke noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %4, i32 noundef %4, i8 0)
           to label %.noexc15 unwind label %61
 

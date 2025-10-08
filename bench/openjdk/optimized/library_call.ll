@@ -37320,8 +37320,8 @@ _ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102: ; preds = %219, %195, %_ZN4No
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %240, %242
   %244 = icmp ult i32 %240, 4
-  %or.cond174 = and i1 %243, %244
-  br i1 %or.cond174, label %switch.lookup, label %.critedge
+  %or.cond173 = and i1 %243, %244
+  br i1 %or.cond173, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102
   %switch.idx.cast = trunc nuw i32 %240 to i8

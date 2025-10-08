@@ -2343,10 +2343,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %38 = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %36, %30 ]
   %39 = load i16, ptr %38, align 2, !noalias !815, !noundef !15
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %switch.tableidx = add i16 %39, -1
-  %spec.select = call i16 @llvm.umin.i16(i16 %switch.tableidx, i16 4)
+  %switch.tableidx.i.i.i.i.i.i.i = add i16 %39, -1
+  %spec.select.i.i.i.i.i.i.i = call i16 @llvm.umin.i16(i16 %switch.tableidx.i.i.i.i.i.i.i, i16 4)
   %41 = getelementptr inbounds { i16, [1 x i16] }, ptr %31, i64 %37
-  store i16 %spec.select, ptr %41, align 2, !noalias !816
+  store i16 %spec.select.i.i.i.i.i.i.i, ptr %41, align 2, !noalias !816
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i16 %39, ptr %42, align 2, !noalias !816
   %43 = add i64 %37, 1
@@ -54733,10 +54733,10 @@ declare i64 @llvm.umax.i64(i64, i64) #31
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #31
+declare i16 @llvm.umin.i16(i16, i16) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #31
+declare i32 @llvm.smin.i32(i32, i32) #31
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

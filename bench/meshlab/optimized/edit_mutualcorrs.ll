@@ -7680,10 +7680,9 @@ _ZNSt6vectorI14CorrespondenceSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI14CorrespondenceSaIS0_EE9push_backERKS0_.exit, %84
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %switch.tableidx = add i32 %36, -1
-  %158 = icmp ult i32 %switch.tableidx, 5
-  %.sink = select i1 %158, i32 %36, i32 0
-  store i32 %.sink, ptr %157, align 8
+  %158 = icmp ult i32 %36, 6
+  %. = select i1 %158, i32 %36, i32 0
+  store i32 %., ptr %157, align 8
   %159 = load ptr, ptr %29, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 264
   %161 = load i32, ptr %160, align 8

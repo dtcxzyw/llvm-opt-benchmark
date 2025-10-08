@@ -34525,7 +34525,7 @@ switch.lookup:                                    ; preds = %89, %89, %89
   %173 = call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(32) %169) #25
   %174 = call noundef ptr @_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef %173)
   %switch.offset = add nsw i32 %42, -810
-  %switch.offset243 = add nsw i32 %42, -326
+  %switch.offset242 = add nsw i32 %42, -326
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %176 = load ptr, ptr %175, align 8
   %177 = call noundef ptr @_ZNK7glslang13TIntermediate16addConstantUnionEiRKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(2024) %176, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext true) #25
@@ -34822,7 +34822,7 @@ switch.lookup:                                    ; preds = %89, %89, %89
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 392
   %359 = load ptr, ptr %358, align 8
-  call void %359(ptr noundef nonnull align 8 dereferenceable(364) %356, i32 noundef %switch.offset243) #25
+  call void %359(ptr noundef nonnull align 8 dereferenceable(364) %356, i32 noundef %switch.offset242) #25
   %360 = load ptr, ptr %175, align 8
   %361 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr noundef nonnull align 8 dereferenceable(2024) %360, ptr noundef %222, ptr noundef nonnull %306) #25
   %362 = load ptr, ptr %306, align 8
@@ -42896,20 +42896,20 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE9push_backEOS1_.exit5
   %1606 = getelementptr inbounds nuw i8, ptr %1605, i64 96
   %1607 = load ptr, ptr %1606, align 8
   %1608 = tail call noundef i32 %1607(ptr noundef nonnull align 8 dereferenceable(152) %1604) #25
-  %switch.tableidx680 = add i32 %1608, -2
-  %1609 = icmp ult i32 %switch.tableidx680, 3
-  br i1 %1609, label %switch.lookup681, label %1610
+  %switch.tableidx673 = add i32 %1608, -2
+  %1609 = icmp ult i32 %switch.tableidx673, 3
+  br i1 %1609, label %switch.lookup674, label %1610
 
 1610:                                             ; preds = %1588
   %1611 = icmp sgt i32 %1608, 1
   br i1 %1611, label %.thread598.thread, label %.thread598
 
-switch.lookup681:                                 ; preds = %1588
-  %switch.offset682 = add nuw nsw i32 %1608, 517
+switch.lookup674:                                 ; preds = %1588
+  %switch.offset675 = add nuw nsw i32 %1608, 517
   br label %.thread598.thread
 
-.thread598.thread:                                ; preds = %switch.lookup681, %1610
-  %.0455597 = phi i32 [ 0, %1610 ], [ %switch.offset682, %switch.lookup681 ]
+.thread598.thread:                                ; preds = %switch.lookup674, %1610
+  %.0455597 = phi i32 [ 0, %1610 ], [ %switch.offset675, %switch.lookup674 ]
   %1612 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #25
   %1613 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1612, i64 noundef 368) #25
   tail call void @_ZN7glslang16TIntermAggregateC2ENS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(364) %1613, i32 noundef %.0455597)

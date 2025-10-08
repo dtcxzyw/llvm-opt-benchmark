@@ -4760,75 +4760,75 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosCheapAs
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit [
+  switch i16 %3, label %65 [
     i16 1507, label %4
     i16 1510, label %4
     i16 1492, label %4
     i16 1495, label %4
-    i16 1508, label %15
-    i16 1511, label %15
-    i16 1512, label %15
-    i16 1493, label %15
-    i16 1496, label %15
-    i16 1497, label %15
-    i16 7430, label %25
-    i16 7423, label %25
-    i16 7433, label %35
-    i16 7426, label %35
-    i16 7431, label %45
-    i16 7434, label %45
-    i16 7435, label %45
-    i16 7424, label %45
-    i16 7427, label %45
-    i16 7428, label %45
-    i16 4796, label %55
-    i16 4797, label %55
-    i16 4801, label %55
-    i16 4802, label %55
-    i16 4807, label %55
-    i16 4808, label %55
-    i16 4812, label %55
-    i16 4813, label %55
-    i16 4817, label %55
-    i16 4818, label %55
-    i16 4823, label %55
-    i16 4824, label %55
-    i16 4828, label %55
-    i16 4829, label %55
-    i16 4833, label %55
-    i16 4834, label %55
-    i16 4838, label %55
-    i16 4839, label %55
-    i16 4843, label %55
-    i16 4844, label %55
-    i16 4849, label %55
-    i16 4850, label %55
-    i16 4855, label %55
-    i16 4856, label %55
-    i16 4861, label %55
-    i16 4862, label %55
-    i16 4867, label %55
-    i16 4868, label %55
-    i16 5442, label %55
-    i16 5443, label %55
-    i16 7314, label %55
-    i16 7315, label %55
-    i16 7319, label %55
-    i16 7320, label %55
-    i16 7324, label %55
-    i16 7325, label %55
-    i16 7329, label %55
-    i16 7330, label %55
-    i16 7334, label %55
-    i16 7335, label %55
-    i16 7339, label %55
-    i16 7340, label %55
-    i16 7344, label %55
-    i16 7345, label %55
-    i16 7349, label %55
-    i16 7350, label %55
-    i16 7354, label %55
-    i16 7355, label %55
+    i16 1508, label %17
+    i16 1511, label %17
+    i16 1512, label %17
+    i16 1493, label %17
+    i16 1496, label %17
+    i16 1497, label %17
+    i16 7430, label %27
+    i16 7423, label %27
+    i16 7433, label %38
+    i16 7426, label %38
+    i16 7431, label %49
+    i16 7434, label %49
+    i16 7435, label %49
+    i16 7424, label %49
+    i16 7427, label %49
+    i16 7428, label %49
+    i16 4796, label %59
+    i16 4797, label %59
+    i16 4801, label %59
+    i16 4802, label %59
+    i16 4807, label %59
+    i16 4808, label %59
+    i16 4812, label %59
+    i16 4813, label %59
+    i16 4817, label %59
+    i16 4818, label %59
+    i16 4823, label %59
+    i16 4824, label %59
+    i16 4828, label %59
+    i16 4829, label %59
+    i16 4833, label %59
+    i16 4834, label %59
+    i16 4838, label %59
+    i16 4839, label %59
+    i16 4843, label %59
+    i16 4844, label %59
+    i16 4849, label %59
+    i16 4850, label %59
+    i16 4855, label %59
+    i16 4856, label %59
+    i16 4861, label %59
+    i16 4862, label %59
+    i16 4867, label %59
+    i16 4868, label %59
+    i16 5442, label %59
+    i16 5443, label %59
+    i16 7314, label %59
+    i16 7315, label %59
+    i16 7319, label %59
+    i16 7320, label %59
+    i16 7324, label %59
+    i16 7325, label %59
+    i16 7329, label %59
+    i16 7330, label %59
+    i16 7334, label %59
+    i16 7335, label %59
+    i16 7339, label %59
+    i16 7340, label %59
+    i16 7344, label %59
+    i16 7345, label %59
+    i16 7349, label %59
+    i16 7350, label %59
+    i16 7354, label %59
+    i16 7355, label %59
   ]
 
 4:                                                ; preds = %1, %1, %1, %1
@@ -4839,86 +4839,86 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftEx
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 63
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit
+  br i1 %11, label %65, label %12
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit:       ; preds = %4
-  %12 = and i32 %9, 448
-  %cond = icmp eq i32 %12, 0
-  %13 = icmp samesign ult i32 %10, 6
-  %14 = select i1 %cond, i1 %13, i1 false
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+12:                                               ; preds = %4
+  %13 = and i32 %9, 448
+  %14 = icmp eq i32 %13, 0
+  %15 = icmp samesign ult i32 %10, 6
+  %16 = select i1 %14, i1 %15, i1 false
+  br label %65
 
-15:                                               ; preds = %1, %1, %1, %1, %1, %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !251
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %19 = load i64, ptr %18, align 8, !tbaa !252
-  %20 = trunc i64 %19 to i32
-  %21 = and i32 %20, 32
-  %switch.not.not = icmp eq i32 %21, 0
-  br i1 %switch.not.not, label %22, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+17:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !251
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
+  %21 = load i64, ptr %20, align 8, !tbaa !252
+  %22 = trunc i64 %21 to i32
+  %23 = and i32 %22, 32
+  %switch.not.not = icmp eq i32 %23, 0
+  br i1 %switch.not.not, label %24, label %65
 
-22:                                               ; preds = %15
-  %23 = and i32 %20, 7
-  %24 = icmp samesign ult i32 %23, 5
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+24:                                               ; preds = %17
+  %25 = and i32 %22, 7
+  %26 = icmp samesign ult i32 %25, 5
+  br label %65
 
-25:                                               ; preds = %1, %1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !251
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  %29 = load i64, ptr %28, align 8, !tbaa !252
-  %30 = trunc i64 %29 to i32
-  %31 = and i32 %30, 63
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit30
+27:                                               ; preds = %1, %1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !251
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
+  %31 = load i64, ptr %30, align 8, !tbaa !252
+  %32 = trunc i64 %31 to i32
+  %33 = and i32 %32, 63
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %65, label %35
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit30:     ; preds = %25
-  %33 = and i32 %30, 511
-  %34 = icmp eq i32 %33, 159
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+35:                                               ; preds = %27
+  %36 = and i32 %32, 511
+  %37 = icmp eq i32 %36, 159
+  br label %65
 
-35:                                               ; preds = %1, %1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !251
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
-  %39 = load i64, ptr %38, align 8, !tbaa !252
-  %40 = trunc i64 %39 to i32
-  %41 = and i32 %40, 63
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit32
+38:                                               ; preds = %1, %1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !251
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 112
+  %42 = load i64, ptr %41, align 8, !tbaa !252
+  %43 = trunc i64 %42 to i32
+  %44 = and i32 %43, 63
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %65, label %46
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit32:     ; preds = %35
-  %43 = and i32 %40, 511
-  %44 = icmp eq i32 %43, 191
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+46:                                               ; preds = %38
+  %47 = and i32 %43, 511
+  %48 = icmp eq i32 %47, 191
+  br label %65
 
-45:                                               ; preds = %1, %1, %1, %1, %1, %1
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !251
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
-  %49 = load i64, ptr %48, align 8, !tbaa !252
-  %50 = trunc i64 %49 to i32
-  %51 = and i32 %50, 32
-  %switch46.not.not = icmp eq i32 %51, 0
-  br i1 %switch46.not.not, label %52, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+49:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %51 = load ptr, ptr %50, align 8, !tbaa !251
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
+  %53 = load i64, ptr %52, align 8, !tbaa !252
+  %54 = trunc i64 %53 to i32
+  %55 = and i32 %54, 32
+  %switch28.not.not = icmp eq i32 %55, 0
+  br i1 %switch28.not.not, label %56, label %65
 
-52:                                               ; preds = %45
-  %53 = and i32 %50, 7
-  %54 = icmp eq i32 %53, 0
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+56:                                               ; preds = %49
+  %57 = and i32 %54, 7
+  %58 = icmp eq i32 %57, 0
+  br label %65
 
-55:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !251
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
-  %59 = load i64, ptr %58, align 8, !tbaa !252
-  %60 = and i64 %59, 4294967295
-  %.not = icmp eq i64 %60, 0
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
+59:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !251
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 112
+  %63 = load i64, ptr %62, align 8, !tbaa !252
+  %64 = and i64 %63, 4294967295
+  %.not = icmp eq i64 %64, 0
+  br label %65
 
-_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit: ; preds = %45, %15, %52, %35, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit32, %25, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit30, %22, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit, %4, %1, %55
-  %.0 = phi i1 [ %.not, %55 ], [ false, %1 ], [ %14, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit ], [ true, %4 ], [ %24, %22 ], [ true, %25 ], [ %34, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit30 ], [ true, %35 ], [ %44, %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit32 ], [ %54, %52 ], [ false, %15 ], [ false, %45 ]
+65:                                               ; preds = %56, %49, %38, %46, %27, %35, %24, %17, %12, %4, %1, %59
+  %.0 = phi i1 [ %.not, %59 ], [ false, %1 ], [ %16, %12 ], [ true, %4 ], [ %26, %24 ], [ false, %17 ], [ true, %27 ], [ %37, %35 ], [ true, %38 ], [ %48, %46 ], [ %58, %56 ], [ false, %49 ]
   ret i1 %.0
 }
 
@@ -11383,7 +11383,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19canFoldIntoAdd
 18:                                               ; preds = %5, %5, %17, %16, %15, %14, %13, %12, %11, %10
   %.sink = phi i32 [ 2, %17 ], [ 4, %16 ], [ 8, %15 ], [ 16, %14 ], [ 1, %13 ], [ 2, %12 ], [ 4, %11 ], [ 8, %10 ], [ 16, %5 ], [ 16, %5 ]
   %19 = phi i1 [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ false, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %5 ], [ false, %5 ]
-  %.0132 = phi i64 [ 2, %17 ], [ 4, %16 ], [ 8, %15 ], [ 16, %14 ], [ 1, %13 ], [ 1, %12 ], [ 1, %11 ], [ 1, %10 ], [ 1, %5 ], [ 1, %5 ]
+  %.0131 = phi i64 [ 2, %17 ], [ 4, %16 ], [ 8, %15 ], [ 16, %14 ], [ 1, %13 ], [ 1, %12 ], [ 1, %11 ], [ 1, %10 ], [ 1, %5 ], [ 1, %5 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !68
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !251
@@ -11425,7 +11425,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19canFoldIntoAdd
   br i1 %44, label %.critedge2, label %.thread
 
 .thread:                                          ; preds = %36, %43
-  %.1134 = phi i64 [ %.0132, %43 ], [ 1, %36 ]
+  %.1133 = phi i64 [ %.0131, %43 ], [ 1, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %46 = load i16, ptr %45, align 4, !tbaa !247
   switch i16 %46, label %.critedge2 [
@@ -11463,7 +11463,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19canFoldIntoAdd
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %61, ptr %62, align 4, !tbaa !68
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.1134, ptr %63, align 8, !tbaa !876
+  store i64 %.1133, ptr %63, align 8, !tbaa !876
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %64, align 8, !tbaa !879
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11539,7 +11539,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19canFoldIntoAdd
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %106, ptr %107, align 4, !tbaa !68
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.1134, ptr %108, align 8, !tbaa !876
+  store i64 %.1133, ptr %108, align 8, !tbaa !876
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %109, align 8, !tbaa !879
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11574,8 +11574,8 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %111, %119
     i16 1509, label %124
     i16 7432, label %167
     i16 1510, label %210
-    i16 317, label %234
-    i16 1511, label %255
+    i16 317, label %235
+    i16 1511, label %256
   ]
 
 124:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit
@@ -11589,7 +11589,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %111, %119
   %132 = load ptr, ptr %20, align 8, !tbaa !251
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 80
   %134 = load i64, ptr %133, align 8, !tbaa !252
-  %135 = mul nsw i64 %134, %.0132
+  %135 = mul nsw i64 %134, %.0131
   %136 = add nsw i64 %135, %131
   %137 = load i32, ptr %6, align 4, !tbaa !68
   %138 = add i64 %136, 256
@@ -11665,7 +11665,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %111, %119
   %175 = load ptr, ptr %20, align 8, !tbaa !251
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 80
   %177 = load i64, ptr %176, align 8, !tbaa !252
-  %178 = mul nsw i64 %177, %.0132
+  %178 = mul nsw i64 %177, %.0131
   %179 = sub nsw i64 %178, %174
   %180 = load i32, ptr %6, align 4, !tbaa !68
   %181 = add i64 %179, 256
@@ -11737,168 +11737,157 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %111, %119
   %214 = load i64, ptr %213, align 8, !tbaa !252
   %215 = trunc i64 %214 to i32
   %216 = and i32 %215, 448
-  %cond = icmp eq i32 %216, 0
-  br i1 %cond, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
+  %.not134 = icmp eq i32 %216, 0
+  br i1 %.not134, label %217, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit:       ; preds = %210
-  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread", label %217
+217:                                              ; preds = %210
+  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread", label %218
 
-217:                                              ; preds = %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit
-  %218 = and i32 %215, 62
-  %or.cond.not = icmp eq i32 %218, 2
-  br i1 %or.cond.not, label %225, label %219
+218:                                              ; preds = %217
+  %219 = and i32 %215, 62
+  %or.cond.not = icmp eq i32 %219, 2
+  br i1 %or.cond.not, label %226, label %220
 
-219:                                              ; preds = %217
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %221 = load ptr, ptr %220, align 8, !tbaa !428
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 327
-  %223 = load i8, ptr %222, align 1, !tbaa !887, !range !73, !noundef !74
-  %224 = trunc nuw i8 %223 to i1
-  br i1 %224, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %225
+220:                                              ; preds = %218
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %222 = load ptr, ptr %221, align 8, !tbaa !428
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 327
+  %224 = load i8, ptr %223, align 1, !tbaa !887, !range !73, !noundef !74
+  %225 = trunc nuw i8 %224 to i1
+  br i1 %225, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %226
 
-225:                                              ; preds = %219, %217
+226:                                              ; preds = %220, %218
   %.val92 = load i16, ptr %8, align 4, !tbaa !247
   switch i16 %.val92, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread" [
     i16 7381, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit"
     i16 7341, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit"
   ]
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit": ; preds = %225, %225
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %227 = load ptr, ptr %226, align 8, !tbaa !428
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 504
-  %229 = load i8, ptr %228, align 8, !tbaa !888, !range !73, !noundef !74
-  %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread"
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit": ; preds = %226, %226
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %228 = load ptr, ptr %227, align 8, !tbaa !428
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 504
+  %230 = load i8, ptr %229, align 8, !tbaa !888, !range !73, !noundef !74
+  %231 = trunc nuw i8 %230 to i1
+  br i1 %231, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread"
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread": ; preds = %225, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit", %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit
-  %231 = and i64 %214, 63
-  %232 = shl nuw i64 1, %231
-  %233 = call fastcc noundef zeroext i1 @"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_2clElNS5_7FormulaE"(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %232, i32 noundef 0)
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread": ; preds = %226, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit", %217
+  %232 = and i64 %214, 63
+  %233 = shl nuw i64 1, %232
+  %234 = call fastcc noundef zeroext i1 @"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_2clElNS5_7FormulaE"(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %233, i32 noundef 0)
   br label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-234:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit
-  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread", label %235
+235:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit
+  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread", label %236
 
-235:                                              ; preds = %234
+236:                                              ; preds = %235
   %.val94 = load i16, ptr %8, align 4, !tbaa !247
-  switch i16 %.val94, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread" [
-    i16 7381, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106"
-    i16 7341, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106"
+  switch i16 %.val94, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread" [
+    i16 7381, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105"
+    i16 7341, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105"
   ]
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106": ; preds = %235, %235
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %237 = load ptr, ptr %236, align 8, !tbaa !428
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 504
-  %239 = load i8, ptr %238, align 8, !tbaa !888, !range !73, !noundef !74
-  %240 = trunc nuw i8 %239 to i1
-  br i1 %240, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread"
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105": ; preds = %236, %236
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %238 = load ptr, ptr %237, align 8, !tbaa !428
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 504
+  %240 = load i8, ptr %239, align 8, !tbaa !888, !range !73, !noundef !74
+  %241 = trunc nuw i8 %240 to i1
+  br i1 %241, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread"
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread": ; preds = %235, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106", %234
-  %241 = load ptr, ptr %20, align 8, !tbaa !251
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 80
-  %243 = load i64, ptr %242, align 8, !tbaa !252
-  %.not.i = icmp eq i64 %243, 0
-  br i1 %.not.i, label %244, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread": ; preds = %236, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105", %235
+  %242 = load ptr, ptr %20, align 8, !tbaa !251
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 80
+  %244 = load i64, ptr %243, align 8, !tbaa !252
+  %.not.i = icmp eq i64 %244, 0
+  br i1 %.not.i, label %245, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-244:                                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread"
-  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %246 = load ptr, ptr %245, align 8, !tbaa !251
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 36
-  %248 = load i32, ptr %247, align 4, !tbaa !252
-  store i32 %248, ptr %4, align 8, !tbaa !68
-  %249 = getelementptr inbounds nuw i8, ptr %246, i64 68
-  %250 = load i32, ptr %249, align 4, !tbaa !252
-  %251 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %250, ptr %251, align 4, !tbaa !68
-  %252 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %252, align 8, !tbaa !876
-  %253 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %253, align 8, !tbaa !879
-  %254 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %254, align 8, !tbaa !880
+245:                                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread"
+  %246 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %247 = load ptr, ptr %246, align 8, !tbaa !251
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 36
+  %249 = load i32, ptr %248, align 4, !tbaa !252
+  store i32 %249, ptr %4, align 8, !tbaa !68
+  %250 = getelementptr inbounds nuw i8, ptr %247, i64 68
+  %251 = load i32, ptr %250, align 4, !tbaa !252
+  %252 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %251, ptr %252, align 4, !tbaa !68
+  %253 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %253, align 8, !tbaa !876
+  %254 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %254, align 8, !tbaa !879
+  %255 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 0, ptr %255, align 8, !tbaa !880
   br label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-255:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit
-  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", label %256
+256:                                              ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit
+  br i1 %121, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread", label %257
 
-256:                                              ; preds = %255
+257:                                              ; preds = %256
   %.val96 = load i16, ptr %8, align 4, !tbaa !247
-  switch i16 %.val96, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" [
-    i16 7381, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108"
-    i16 7341, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108"
+  switch i16 %.val96, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread" [
+    i16 7381, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107"
+    i16 7341, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107"
   ]
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108": ; preds = %256, %256
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %258 = load ptr, ptr %257, align 8, !tbaa !428
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 504
-  %260 = load i8, ptr %259, align 8, !tbaa !888, !range !73, !noundef !74
-  %261 = trunc nuw i8 %260 to i1
-  br i1 %261, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread"
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107": ; preds = %257, %257
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %259 = load ptr, ptr %258, align 8, !tbaa !428
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 504
+  %261 = load i8, ptr %260, align 8, !tbaa !888, !range !73, !noundef !74
+  %262 = trunc nuw i8 %261 to i1
+  br i1 %262, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit", label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread"
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread": ; preds = %256, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108", %255
-  %262 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %263 = load ptr, ptr %262, align 8, !tbaa !251
-  %264 = getelementptr inbounds nuw i8, ptr %263, i64 112
-  %265 = load i64, ptr %264, align 8, !tbaa !252
-  %266 = trunc i64 %265 to i32
-  %267 = lshr i32 %266, 3
-  %268 = and i32 %267, 7
-  switch i32 %268, label %default.unreachable [
-    i32 0, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-    i32 1, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-    i32 2, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
-    i32 3, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-    i32 4, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-    i32 5, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-    i32 6, label %269
-    i32 7, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread": ; preds = %257, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107", %256
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %264 = load ptr, ptr %263, align 8, !tbaa !251
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 112
+  %266 = load i64, ptr %265, align 8, !tbaa !252
+  %267 = trunc i64 %266 to i32
+  %268 = lshr i32 %267, 3
+  %269 = and i32 %268, 7
+  switch i32 %269, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit" [
+    i32 6, label %270
+    i32 2, label %270
   ]
 
-default.unreachable:                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread"
-  unreachable
+270:                                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread"
+  %271 = and i64 %266, 7
+  %272 = shl nuw nsw i64 1, %271
+  %273 = icmp eq i32 %269, 6
+  %274 = select i1 %273, i32 1, i32 2
+  %275 = load ptr, ptr %20, align 8, !tbaa !251
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 80
+  %277 = load i64, ptr %276, align 8, !tbaa !252
+  %.not.i108 = icmp eq i64 %277, 0
+  br i1 %.not.i108, label %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-269:                                              ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread"
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
-
-_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit: ; preds = %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %269
-  %270 = phi i32 [ 1, %269 ], [ %268, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ]
-  %.pn = and i64 %265, 7
-  %271 = shl nuw nsw i64 1, %.pn
-  %272 = load ptr, ptr %20, align 8, !tbaa !251
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 80
-  %274 = load i64, ptr %273, align 8, !tbaa !252
-  %.not.i109 = icmp eq i64 %274, 0
-  br i1 %.not.i109, label %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
-
-_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i: ; preds = %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit
-  %275 = trunc nuw nsw i64 %271 to i32
-  %276 = load i32, ptr %6, align 4, !tbaa !68
-  %277 = icmp eq i64 %.pn, 0
-  %278 = icmp eq i32 %276, %275
-  %spec.select.i.i = or i1 %277, %278
+_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i: ; preds = %270
+  %278 = trunc nuw nsw i64 %272 to i32
+  %279 = load i32, ptr %6, align 4, !tbaa !68
+  %280 = icmp eq i64 %271, 0
+  %281 = icmp eq i32 %279, %278
+  %spec.select.i.i = or i1 %280, %281
   br i1 %spec.select.i.i, label %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i, label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
 _ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i: ; preds = %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i
-  %279 = getelementptr inbounds nuw i8, ptr %263, i64 36
-  %280 = load i32, ptr %279, align 4, !tbaa !252
-  store i32 %280, ptr %4, align 8, !tbaa !68
-  %281 = getelementptr inbounds nuw i8, ptr %263, i64 68
-  %282 = load i32, ptr %281, align 4, !tbaa !252
-  %283 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %282, ptr %283, align 4, !tbaa !68
-  %284 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %271, ptr %284, align 8, !tbaa !876
-  %285 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %285, align 8, !tbaa !879
-  %286 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %270, ptr %286, align 8, !tbaa !880
+  %282 = getelementptr inbounds nuw i8, ptr %264, i64 36
+  %283 = load i32, ptr %282, align 4, !tbaa !252
+  store i32 %283, ptr %4, align 8, !tbaa !68
+  %284 = getelementptr inbounds nuw i8, ptr %264, i64 68
+  %285 = load i32, ptr %284, align 4, !tbaa !252
+  %286 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %285, ptr %286, align 4, !tbaa !68
+  %287 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %272, ptr %287, align 8, !tbaa !876
+  %288 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %288, align 8, !tbaa !879
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %274, ptr %289, align 8, !tbaa !880
   br label %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit"
 
-"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit": ; preds = %210, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread", %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i, %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit, %244, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i103", %200, %192, %188, %183, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i", %157, %149, %145, %140, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread", %219, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit", %_ZNK4llvm8Function10hasOptSizeEv.exit
-  %.4 = phi i1 [ false, %_ZNK4llvm8Function10hasOptSizeEv.exit ], [ %233, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread" ], [ false, %219 ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108" ], [ true, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i" ], [ false, %140 ], [ false, %145 ], [ false, %149 ], [ false, %157 ], [ true, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i103" ], [ false, %183 ], [ false, %188 ], [ false, %192 ], [ false, %200 ], [ true, %244 ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit106.thread" ], [ true, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i ], [ false, %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit ], [ false, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i ], [ false, %210 ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit108.thread" ]
+"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_1clEl.exit": ; preds = %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i, %270, %245, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i103", %200, %192, %188, %183, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i", %157, %149, %145, %140, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105", %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread", %210, %220, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit", %_ZNK4llvm8Function10hasOptSizeEv.exit
+  %.4 = phi i1 [ false, %_ZNK4llvm8Function10hasOptSizeEv.exit ], [ %234, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit.thread" ], [ false, %210 ], [ false, %220 ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107" ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit107.thread" ], [ true, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i" ], [ false, %140 ], [ false, %145 ], [ false, %149 ], [ false, %157 ], [ true, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_0clEjll.exit.thread.i103" ], [ false, %183 ], [ false, %188 ], [ false, %192 ], [ false, %200 ], [ true, %245 ], [ false, %"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_3clES3_.exit105.thread" ], [ true, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread.i ], [ false, %270 ], [ false, %_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge2
 
@@ -40270,7 +40259,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17verifyInstruct
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %24 [
+  switch i16 %3, label %25 [
     i16 1508, label %4
     i16 1511, label %4
     i16 1493, label %4
@@ -40291,22 +40280,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFa
     i16 7433, label %14
     i16 7423, label %14
     i16 7426, label %14
-    i16 316, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 317, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 312, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 313, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1215, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1216, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1213, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1214, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1506, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1509, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1491, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 1494, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 7429, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 7432, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 7422, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
-    i16 7425, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
+    i16 316, label %switch.edge
+    i16 317, label %switch.edge
+    i16 312, label %switch.edge
+    i16 313, label %switch.edge
+    i16 1215, label %switch.edge
+    i16 1216, label %switch.edge
+    i16 1213, label %switch.edge
+    i16 1214, label %switch.edge
+    i16 1506, label %switch.edge
+    i16 1509, label %switch.edge
+    i16 1491, label %switch.edge
+    i16 1494, label %switch.edge
+    i16 7429, label %switch.edge
+    i16 7432, label %switch.edge
+    i16 7422, label %switch.edge
+    i16 7425, label %switch.edge
   ]
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
@@ -40317,14 +40306,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFa
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 7
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread, label %12
+  br i1 %11, label %switch.edge, label %12
 
 12:                                               ; preds = %4
   %13 = and i32 %9, 48
   %switch = icmp eq i32 %13, 16
-  %switch26 = icmp samesign ult i32 %10, 4
-  %spec.select = select i1 %switch, i1 %switch26, i1 false
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
+  %switch15 = icmp samesign ult i32 %10, 4
+  %spec.select = select i1 %switch, i1 %switch15, i1 false
+  br label %switch.edge
 
 14:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40334,20 +40323,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFa
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 63
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread, label %22
+  br i1 %21, label %switch.edge, label %22
 
 22:                                               ; preds = %14
   %23 = and i32 %19, 448
-  %cond = icmp eq i32 %23, 0
-  %switch28 = icmp samesign ult i32 %20, 4
-  %spec.select30 = select i1 %cond, i1 %switch28, i1 false
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
+  %24 = icmp eq i32 %23, 0
+  %switch17 = icmp samesign ult i32 %20, 4
+  %spec.select19 = select i1 %24, i1 %switch17, i1 false
+  br label %switch.edge
 
-24:                                               ; preds = %1
-  br label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread
+25:                                               ; preds = %1
+  br label %switch.edge
 
-_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread: ; preds = %22, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %14, %4, %24
-  %.0 = phi i1 [ false, %24 ], [ true, %4 ], [ true, %14 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ %spec.select, %12 ], [ %spec.select30, %22 ]
+switch.edge:                                      ; preds = %22, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %14, %4, %25
+  %.0 = phi i1 [ false, %25 ], [ true, %4 ], [ true, %14 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ %spec.select, %12 ], [ %spec.select19, %22 ]
   ret i1 %.0
 }
 
@@ -40499,7 +40488,7 @@ _ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %14 [
+  switch i16 %3, label %15 [
     i16 1603, label %4
     i16 1605, label %4
     i16 1594, label %4
@@ -40516,28 +40505,28 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFa
     i16 5325, label %4
     i16 5335, label %4
     i16 5337, label %4
-    i16 341, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 342, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 339, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 340, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 434, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 435, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 432, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 433, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 484, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 485, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 486, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 487, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1032, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1033, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1034, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1035, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1602, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 1604, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 2468, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 2470, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 5334, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
-    i16 5336, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
+    i16 341, label %switch.edge
+    i16 342, label %switch.edge
+    i16 339, label %switch.edge
+    i16 340, label %switch.edge
+    i16 434, label %switch.edge
+    i16 435, label %switch.edge
+    i16 432, label %switch.edge
+    i16 433, label %switch.edge
+    i16 484, label %switch.edge
+    i16 485, label %switch.edge
+    i16 486, label %switch.edge
+    i16 487, label %switch.edge
+    i16 1032, label %switch.edge
+    i16 1033, label %switch.edge
+    i16 1034, label %switch.edge
+    i16 1035, label %switch.edge
+    i16 1602, label %switch.edge
+    i16 1604, label %switch.edge
+    i16 2468, label %switch.edge
+    i16 2470, label %switch.edge
+    i16 5334, label %switch.edge
+    i16 5336, label %switch.edge
   ]
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
@@ -40548,20 +40537,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFa
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 63
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread, label %12
+  br i1 %11, label %switch.edge, label %12
 
 12:                                               ; preds = %4
   %13 = and i32 %9, 448
-  %cond = icmp eq i32 %13, 0
+  %14 = icmp eq i32 %13, 0
   %switch = icmp samesign ult i32 %10, 4
-  %spec.select = select i1 %cond, i1 %switch, i1 false
-  br label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
+  %spec.select = select i1 %14, i1 %switch, i1 false
+  br label %switch.edge
 
-14:                                               ; preds = %1
-  br label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread
+15:                                               ; preds = %1
+  br label %switch.edge
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread: ; preds = %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ %spec.select, %12 ]
+switch.edge:                                      ; preds = %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %15
+  %.0 = phi i1 [ false, %15 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ %spec.select, %12 ]
   ret i1 %.0
 }
 
@@ -40569,7 +40558,7 @@ _ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread: ; preds = %12, %1, %1, %1, %1
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %14 [
+  switch i16 %3, label %15 [
     i16 1603, label %4
     i16 1605, label %4
     i16 1594, label %4
@@ -40586,28 +40575,28 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicEx
     i16 5325, label %4
     i16 5335, label %4
     i16 5337, label %4
-    i16 341, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 342, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 339, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 340, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 434, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 435, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 432, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 433, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 484, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 485, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 486, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 487, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1032, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1033, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1034, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1035, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1602, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 1604, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 2468, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 2470, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 5334, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
-    i16 5336, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
+    i16 341, label %switch.edge
+    i16 342, label %switch.edge
+    i16 339, label %switch.edge
+    i16 340, label %switch.edge
+    i16 434, label %switch.edge
+    i16 435, label %switch.edge
+    i16 432, label %switch.edge
+    i16 433, label %switch.edge
+    i16 484, label %switch.edge
+    i16 485, label %switch.edge
+    i16 486, label %switch.edge
+    i16 487, label %switch.edge
+    i16 1032, label %switch.edge
+    i16 1033, label %switch.edge
+    i16 1034, label %switch.edge
+    i16 1035, label %switch.edge
+    i16 1602, label %switch.edge
+    i16 1604, label %switch.edge
+    i16 2468, label %switch.edge
+    i16 2470, label %switch.edge
+    i16 5334, label %switch.edge
+    i16 5336, label %switch.edge
   ]
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
@@ -40618,24 +40607,24 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicEx
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 63
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread, label %12
+  br i1 %11, label %switch.edge, label %12
 
 12:                                               ; preds = %4
   %13 = and i32 %9, 448
-  %cond = icmp eq i32 %13, 0
-  br i1 %cond, label %switch.lookup, label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %switch.lookup, label %switch.edge
 
-14:                                               ; preds = %1
-  br label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
+15:                                               ; preds = %1
+  br label %switch.edge
 
 switch.lookup:                                    ; preds = %12
   %switch.cast = and i64 %8, 63
   %switch.downshift = lshr i64 270, %switch.cast
   %switch.masked = trunc i64 %switch.downshift to i1
-  br label %_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread
+  br label %switch.edge
 
-_ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread: ; preds = %switch.lookup, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %12 ], [ %switch.masked, %switch.lookup ]
+switch.edge:                                      ; preds = %switch.lookup, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %15
+  %.0 = phi i1 [ false, %15 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %12 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0
 }
 
@@ -40769,7 +40758,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomER
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit [
+  switch i16 %3, label %17 [
     i16 5442, label %4
     i16 5443, label %4
     i16 4796, label %4
@@ -40828,29 +40817,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledA
   %9 = trunc i64 %8 to i32
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 7
-  switch i32 %11, label %default.unreachable [
-    i32 0, label %.thread
-    i32 1, label %.thread
-    i32 2, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit
-    i32 3, label %.thread
-    i32 4, label %.thread
-    i32 5, label %.thread
-    i32 6, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit
-    i32 7, label %.thread
+  switch i32 %11, label %12 [
+    i32 6, label %17
+    i32 2, label %17
   ]
 
-default.unreachable:                              ; preds = %4
-  unreachable
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %14 = load i64, ptr %13, align 8, !tbaa !252
+  %15 = and i64 %14, 1
+  %16 = icmp ne i64 %15, 0
+  br label %17
 
-.thread:                                          ; preds = %4, %4, %4, %4, %4, %4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %13 = load i64, ptr %12, align 8, !tbaa !252
-  %14 = and i64 %13, 1
-  %15 = icmp ne i64 %14, 0
-  br label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit
-
-_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit:   ; preds = %4, %4, %1, %.thread
-  %.0 = phi i1 [ %15, %.thread ], [ false, %1 ], [ true, %4 ], [ true, %4 ]
+17:                                               ; preds = %4, %4, %1, %12
+  %.0 = phi i1 [ true, %4 ], [ %16, %12 ], [ false, %1 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -40996,7 +40976,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegER
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread [
+  switch i16 %3, label %15 [
     i16 5442, label %4
     i16 5443, label %4
     i16 4796, label %4
@@ -41053,18 +41033,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERK
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load i64, ptr %7, align 8, !tbaa !252
   %9 = and i64 %8, 14
-  %10 = icmp eq i64 %9, 6
-  br i1 %10, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread
+  %.not = icmp eq i64 %9, 6
+  br i1 %.not, label %10, label %15
 
-_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit:   ; preds = %4
+10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %12 = load i64, ptr %11, align 8, !tbaa !252
   %13 = and i64 %12, 1
   %14 = icmp ne i64 %13, 0
-  br label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread
+  br label %15
 
-_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread: ; preds = %4, %1, %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit
-  %.0 = phi i1 [ %14, %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit ], [ false, %1 ], [ true, %4 ]
+15:                                               ; preds = %1, %4, %10
+  %.0 = phi i1 [ true, %4 ], [ %14, %10 ], [ false, %1 ]
   ret i1 %.0
 }
 

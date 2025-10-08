@@ -3284,23 +3284,23 @@ tolower.exit.i:                                   ; preds = %14
   %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !56
   %29 = getelementptr inbounds i32, ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !56
-  %switch.tableidx = add i32 %30, -97
-  %31 = icmp ult i32 %switch.tableidx, 6
-  %switch.offset = add i32 %30, -87
-  %spec.select = select i1 %31, i32 %switch.offset, i32 %26
+  %switch.tableidx.i = add i32 %30, -97
+  %31 = icmp ult i32 %switch.tableidx.i, 6
+  %switch.offset.i = add i32 %30, -87
+  %spec.select73.i = select i1 %31, i32 %switch.offset.i, i32 %26
   %32 = icmp ult i32 %18, 268435455
   %33 = trunc nuw i8 %.01722.i to i1
   br i1 %32, label %34, label %38
 
 34:                                               ; preds = %tolower.exit.i
   %35 = shl nuw i32 %18, 4
-  %36 = add i32 %spec.select, %35
+  %36 = add i32 %spec.select73.i, %35
   %37 = add nsw i32 %15, -4
   %spec.select.i = select i1 %33, i32 %37, i32 %15
   br label %43
 
 38:                                               ; preds = %tolower.exit.i
-  %.not20.i = icmp ne i32 %spec.select, 0
+  %.not20.i = icmp ne i32 %spec.select73.i, 0
   %spec.select37.i = select i1 %.not20.i, i1 true, i1 %16
   %39 = add nsw i32 %15, 4
   %spec.select38.i = select i1 %33, i32 %15, i32 %39
@@ -3343,11 +3343,11 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000IjEENS_28__fractional_consta
   %53 = sext i32 %.sroa.7.0 to i64
   %54 = add nsw i64 %52, %53
   %spec.select11.i = tail call i64 @llvm.smax.i64(i64 %54, i64 -255)
-  %.0.i2667 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 255)
-  %.0.i26 = trunc nsw i64 %.0.i2667 to i32
+  %.0.i66 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 255)
+  %.0.i = trunc nsw i64 %.0.i66 to i32
   %55 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.lcssa.i, i1 true)
   %56 = shl i32 %.lcssa.i, %55
-  %57 = sub nsw i32 %.0.i26, %55
+  %57 = sub nsw i32 %.0.i, %55
   %58 = icmp sgt i32 %57, 96
   br i1 %58, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread, label %59
 
@@ -3376,16 +3376,16 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000IjEENS_28__fractional_consta
   %74 = icmp ult i32 %.055.fr.i, 32
   %75 = lshr i32 %56, %.055.fr.i
   %76 = and i32 %75, 8388607
-  %spec.select.i27 = select i1 %74, i32 %76, i32 0
-  %77 = and i32 %spec.select.i27, 1
+  %spec.select.i26 = select i1 %74, i32 %76, i32 0
+  %77 = and i32 %spec.select.i26, 1
   %78 = icmp ne i32 %77, 0
-  %or.cond.i28 = select i1 %78, i1 true, i1 %73
-  %or.cond61.i = select i1 %70, i1 %or.cond.i28, i1 false
+  %or.cond.i27 = select i1 %78, i1 true, i1 %73
+  %or.cond61.i = select i1 %70, i1 %or.cond.i27, i1 false
   br i1 %or.cond61.i, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %65
-  %.1.i29 = add nuw nsw i32 %spec.select.i27, 1
-  %79 = icmp eq i32 %spec.select.i27, 8388607
+  %.1.i28 = add nuw nsw i32 %spec.select.i26, 1
+  %79 = icmp eq i32 %spec.select.i26, 8388607
   br i1 %79, label %80, label %.thread.i
 
 80:                                               ; preds = %select.unfold.i
@@ -3394,7 +3394,7 @@ select.unfold.i:                                  ; preds = %65
   br i1 %82, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit
 
 .thread.i:                                        ; preds = %select.unfold.i, %65
-  %.167.i = phi i32 [ %.1.i29, %select.unfold.i ], [ %spec.select.i27, %65 ]
+  %.167.i = phi i32 [ %.1.i28, %select.unfold.i ], [ %spec.select.i26, %65 ]
   %83 = icmp eq i32 %.053.i, 0
   br i1 %83, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIfEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit
 
@@ -3427,8 +3427,8 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000IjEENS_28__fractional_consta
   store float %storemerge.i.sink, ptr %0, align 8, !tbaa !60
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.fca.0.extract9.sink, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !52
-  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.store.select.i.sink, ptr %.sroa.734.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %spec.store.select.i.sink, ptr %.sroa.733.0..sroa_idx, align 8, !tbaa !61
   ret void
 }
 
@@ -5331,16 +5331,16 @@ tolower.exit.i:                                   ; preds = %14
   %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !98
   %29 = getelementptr inbounds i32, ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !98
-  %switch.tableidx = add i32 %30, -97
-  %31 = icmp ult i32 %switch.tableidx, 6
-  %switch.offset = add i32 %30, -87
-  %spec.select = select i1 %31, i32 %switch.offset, i32 %26
+  %switch.tableidx.i = add i32 %30, -97
+  %31 = icmp ult i32 %switch.tableidx.i, 6
+  %switch.offset.i = add i32 %30, -87
+  %spec.select73.i = select i1 %31, i32 %switch.offset.i, i32 %26
   %32 = icmp ult i64 %18, 1152921504606846975
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %tolower.exit.i
   %34 = shl nuw i64 %18, 4
-  %35 = zext i32 %spec.select to i64
+  %35 = zext i32 %spec.select73.i to i64
   %36 = add i64 %34, %35
   %37 = trunc nuw i8 %.01722.i to i1
   %38 = add nsw i32 %15, -4
@@ -5348,7 +5348,7 @@ tolower.exit.i:                                   ; preds = %14
   br label %45
 
 39:                                               ; preds = %tolower.exit.i
-  %.not20.i = icmp ne i32 %spec.select, 0
+  %.not20.i = icmp ne i32 %spec.select73.i, 0
   %spec.select37.i = select i1 %.not20.i, i1 true, i1 %16
   %40 = trunc nuw i8 %.01722.i to i1
   %41 = add nsw i32 %15, 4
@@ -5373,7 +5373,7 @@ tolower.exit.i:                                   ; preds = %14
 
 _ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm.exit: ; preds = %42, %45
   %.sroa.12.0 = phi i1 [ %17, %42 ], [ %48, %45 ]
-  %.sroa.1030.0 = phi i1 [ %16, %42 ], [ %47, %45 ]
+  %.sroa.1029.0 = phi i1 [ %16, %42 ], [ %47, %45 ]
   %.sroa.7.0 = phi i32 [ %15, %42 ], [ %46, %45 ]
   %.lcssa.i = phi i64 [ %18, %42 ], [ %49, %45 ]
   %.018.lcssa.i = phi i64 [ %.01821.i, %42 ], [ %8, %45 ]
@@ -5398,12 +5398,12 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_consta
   %56 = sext i32 %.sroa.7.0 to i64
   %57 = add nsw i64 %55, %56
   %spec.select11.i = tail call i64 @llvm.smax.i64(i64 %57, i64 -2047)
-  %.0.i2050 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 2047)
-  %.0.i20 = trunc nsw i64 %.0.i2050 to i32
+  %.0.i49 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 2047)
+  %.0.i = trunc nsw i64 %.0.i49 to i32
   %58 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa.i, i1 true)
   %59 = trunc nuw nsw i64 %58 to i32
   %60 = shl i64 %.lcssa.i, %58
-  %61 = sub nsw i32 %.0.i20, %59
+  %61 = sub nsw i32 %.0.i, %59
   %62 = icmp sgt i32 %61, 960
   br i1 %62, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread, label %63
 
@@ -5429,34 +5429,34 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_consta
   %75 = icmp ne i64 %74, 0
   %76 = and i64 %73, %60
   %77 = icmp ne i64 %76, 0
-  %78 = or i1 %.sroa.1030.0, %77
+  %78 = or i1 %.sroa.1029.0, %77
   %79 = icmp ult i32 %.055.fr.i, 64
   %80 = zext nneg i32 %.055.fr.i to i64
   %81 = lshr i64 %60, %80
   %82 = and i64 %81, 4503599627370495
-  %spec.select.i21 = select i1 %79, i64 %82, i64 0
-  %83 = and i64 %spec.select.i21, 1
+  %spec.select.i20 = select i1 %79, i64 %82, i64 0
+  %83 = and i64 %spec.select.i20, 1
   %84 = icmp ne i64 %83, 0
-  %or.cond.i22 = select i1 %84, i1 true, i1 %78
-  %or.cond61.i = select i1 %75, i1 %or.cond.i22, i1 false
+  %or.cond.i21 = select i1 %84, i1 true, i1 %78
+  %or.cond61.i = select i1 %75, i1 %or.cond.i21, i1 false
   br i1 %or.cond61.i, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %69
-  %.1.i23 = add nuw nsw i64 %spec.select.i21, 1
-  %85 = icmp eq i64 %spec.select.i21, 4503599627370495
+  %.1.i22 = add nuw nsw i64 %spec.select.i20, 1
+  %85 = icmp eq i64 %spec.select.i20, 4503599627370495
   br i1 %85, label %86, label %.thread.i
 
 86:                                               ; preds = %select.unfold.i
   %87 = add nuw nsw i32 %.053.i, 1
   %88 = icmp eq i32 %87, 2047
-  br i1 %88, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46
+  br i1 %88, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45
 
 .thread.i:                                        ; preds = %select.unfold.i, %69
-  %.167.i = phi i64 [ %.1.i23, %select.unfold.i ], [ %spec.select.i21, %69 ]
+  %.167.i = phi i64 [ %.1.i22, %select.unfold.i ], [ %spec.select.i20, %69 ]
   %89 = icmp eq i32 %.053.i, 0
-  br i1 %89, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46
+  br i1 %89, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45
 
-_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46: ; preds = %86, %.thread.i
+_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45: ; preds = %86, %.thread.i
   %.15473.i.ph = phi i32 [ %87, %86 ], [ %.053.i, %.thread.i ]
   %.16772.i.ph = phi i64 [ 4503599627370496, %86 ], [ %.167.i, %.thread.i ]
   %90 = and i64 %.16772.i.ph, 4503599627370495
@@ -5468,11 +5468,11 @@ _ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConver
   %91 = and i64 %.16772.ph.i, 4503599627370495
   br label %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread
 
-_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread: ; preds = %66, %54, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, %52
-  %92 = phi i1 [ true, %52 ], [ true, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46 ], [ false, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ false, %54 ], [ false, %66 ]
-  %.sroa.53.0 = phi i32 [ 0, %52 ], [ 0, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46 ], [ 34, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 34, %54 ], [ 34, %66 ]
-  %.sroa.01.0 = phi i64 [ 0, %52 ], [ %90, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46 ], [ %91, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 0, %54 ], [ 0, %66 ]
-  %.sroa.5.0 = phi i32 [ 0, %52 ], [ %.15473.i.ph, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread46 ], [ %.15473.ph.i, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 2047, %54 ], [ 0, %66 ]
+_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread: ; preds = %66, %54, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit, %52
+  %92 = phi i1 [ true, %52 ], [ true, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45 ], [ false, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ false, %54 ], [ false, %66 ]
+  %.sroa.53.0 = phi i32 [ 0, %52 ], [ 0, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45 ], [ 34, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 34, %54 ], [ 34, %66 ]
+  %.sroa.01.0 = phi i64 [ 0, %52 ], [ %90, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45 ], [ %91, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 0, %54 ], [ 0, %66 ]
+  %.sroa.5.0 = phi i32 [ 0, %52 ], [ %.15473.i.ph, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread45 ], [ %.15473.ph.i, %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit ], [ 2047, %54 ], [ 0, %66 ]
   %93 = zext nneg i32 %.sroa.5.0 to i64
   %94 = shl nuw nsw i64 %93, 52
   %95 = or disjoint i64 %94, %.sroa.01.0
@@ -5487,8 +5487,8 @@ _ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConver
   store double %storemerge.i, ptr %0, align 8, !tbaa !102
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.fca.0.extract, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !52
-  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.store.select.i, ptr %.sroa.632.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %spec.store.select.i, ptr %.sroa.631.0..sroa_idx, align 8, !tbaa !61
   br label %100
 
 100:                                              ; preds = %_ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConvertReturnIT_EENS0_13ExpandedFloatIS3_EEbNS0_14RoundDirectionE.exit.thread, %_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm.exit.thread

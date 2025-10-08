@@ -178,7 +178,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN3rmp6decode11read_marker17hd15bb2a197314fe7E.llvm.4172937639024973655(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
+define hidden void @_ZN3rmp6decode11read_marker17hd15bb2a197314fe7E.llvm.4172937639024973655(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -218,8 +218,7 @@ define hidden void @_ZN3rmp6decode11read_marker17hd15bb2a197314fe7E.llvm.4172937
 21:                                               ; preds = %17
   %22 = icmp samesign ult i8 %11, -64
   %23 = and i8 %11, 31
-  %spec.select = select i1 %22, i8 %23, i8 undef
-  %spec.select12 = select i1 %22, i8 -96, i8 %11
+  %spec.select11 = select i1 %22, i8 -96, i8 %11
   br label %_ZN3rmp6marker6Marker7from_u817hbd1bcab121e775d9E.llvm.4172937639024973655.exit
 
 24:                                               ; preds = %17
@@ -227,8 +226,8 @@ define hidden void @_ZN3rmp6decode11read_marker17hd15bb2a197314fe7E.llvm.4172937
   br label %_ZN3rmp6marker6Marker7from_u817hbd1bcab121e775d9E.llvm.4172937639024973655.exit
 
 _ZN3rmp6marker6Marker7from_u817hbd1bcab121e775d9E.llvm.4172937639024973655.exit: ; preds = %21, %6, %13, %19, %24
-  %.sroa.38.0.i = phi i8 [ %20, %19 ], [ %25, %24 ], [ %11, %6 ], [ %11, %13 ], [ %spec.select, %21 ]
-  %.sroa.0.0.i = phi i8 [ -128, %19 ], [ -112, %24 ], [ 0, %6 ], [ -32, %13 ], [ %spec.select12, %21 ]
+  %.sroa.38.0.i = phi i8 [ %20, %19 ], [ %25, %24 ], [ %11, %6 ], [ %11, %13 ], [ %23, %21 ]
+  %.sroa.0.0.i = phi i8 [ -128, %19 ], [ -112, %24 ], [ 0, %6 ], [ -32, %13 ], [ %spec.select11, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.0.0.i, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -376,7 +375,7 @@ define hidden void @_ZN3rmp6decode7RmpRead7read_u817hdb46f09cb8982b40E.llvm.4172
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN3rmp6decode8read_nil17ha6d0aeba63c03e52E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 {
+define hidden void @_ZN3rmp6decode8read_nil17ha6d0aeba63c03e52E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
@@ -385,7 +384,7 @@ define hidden void @_ZN3rmp6decode8read_nil17ha6d0aeba63c03e52E(ptr dead_on_unwi
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !alias.scope !102, !noalias !103, !noundef !3
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %29, label %6
+  br i1 %5, label %28, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -396,11 +395,11 @@ define hidden void @_ZN3rmp6decode8read_nil17ha6d0aeba63c03e52E(ptr dead_on_unwi
   store ptr %9, ptr %7, align 8, !alias.scope !102, !noalias !103
   store i64 %10, ptr %3, align 8, !alias.scope !102, !noalias !103
   %12 = icmp sgt i8 %11, -1
-  br i1 %12, label %31, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %6
   %14 = icmp samesign ugt i8 %11, -33
-  br i1 %14, label %31, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %13
   %16 = icmp samesign ult i8 %11, -112
@@ -408,49 +407,46 @@ define hidden void @_ZN3rmp6decode8read_nil17ha6d0aeba63c03e52E(ptr dead_on_unwi
 
 17:                                               ; preds = %15
   %18 = icmp samesign ult i8 %11, -96
-  br i1 %18, label %23, label %21
+  br i1 %18, label %24, label %21
 
 19:                                               ; preds = %15
   %20 = and i8 %11, 15
-  br label %31
+  br label %.thread
 
 21:                                               ; preds = %17
   %22 = icmp samesign ult i8 %11, -64
-  br i1 %22, label %27, label %25
+  %23 = and i8 %11, 31
+  br i1 %22, label %.thread, label %26
 
-23:                                               ; preds = %17
-  %24 = and i8 %11, 15
-  br label %31
+24:                                               ; preds = %17
+  %25 = and i8 %11, 15
+  br label %.thread
 
-25:                                               ; preds = %21
-  %26 = icmp eq i8 %11, -64
-  br i1 %26, label %30, label %31
+26:                                               ; preds = %21
+  %27 = icmp eq i8 %11, -64
+  br i1 %27, label %29, label %.thread
 
-27:                                               ; preds = %21
-  %28 = and i8 %11, 31
-  br label %31
-
-29:                                               ; preds = %2
+28:                                               ; preds = %2
   store i8 0, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.e2881294458a747d2d494568321ffd7c.68, ptr %.sroa.411.0..sroa_idx, align 8
-  br label %32
+  br label %30
 
-30:                                               ; preds = %25
+29:                                               ; preds = %26
   store i8 3, ptr %0, align 8
-  br label %32
+  br label %30
 
-31:                                               ; preds = %25, %13, %6, %27, %23, %19
-  %.sroa.5.0.ph.ph = phi i8 [ -128, %19 ], [ -112, %23 ], [ -96, %27 ], [ 0, %6 ], [ -32, %13 ], [ %11, %25 ]
-  %.sroa.7.0.ph.ph = phi i8 [ %20, %19 ], [ %24, %23 ], [ %28, %27 ], [ %11, %6 ], [ %11, %13 ], [ undef, %25 ]
+.thread:                                          ; preds = %21, %19, %24, %6, %13, %26
+  %.sroa.7.0.ph21 = phi i8 [ %23, %26 ], [ %20, %19 ], [ %25, %24 ], [ %11, %6 ], [ %11, %13 ], [ %23, %21 ]
+  %.sroa.5.0.ph20 = phi i8 [ %11, %26 ], [ -128, %19 ], [ -112, %24 ], [ 0, %6 ], [ -32, %13 ], [ -96, %21 ]
   store i8 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.5.0.ph.ph, ptr %.sroa.4.0..sroa_idx, align 1
+  store i8 %.sroa.5.0.ph20, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.7.0.ph.ph, ptr %.sroa.56.0..sroa_idx, align 2
-  br label %32
+  store i8 %.sroa.7.0.ph21, ptr %.sroa.56.0..sroa_idx, align 2
+  br label %30
 
-32:                                               ; preds = %30, %31, %29
+30:                                               ; preds = %29, %.thread, %28
   ret void
 }
 
@@ -478,7 +474,6 @@ define hidden { i8, i8 } @_ZN3rmp6marker6Marker7from_u817hbd1bcab121e775d9E.llvm
 11:                                               ; preds = %7
   %12 = icmp samesign ult i8 %0, -64
   %13 = and i8 %0, 31
-  %spec.select = select i1 %12, i8 %13, i8 undef
   %spec.select4 = select i1 %12, i8 -96, i8 %0
   br label %switch.lookup
 
@@ -487,7 +482,7 @@ define hidden { i8, i8 } @_ZN3rmp6marker6Marker7from_u817hbd1bcab121e775d9E.llvm
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %11, %3, %1, %14, %9
-  %.sroa.38.0 = phi i8 [ %10, %9 ], [ %15, %14 ], [ %0, %1 ], [ %0, %3 ], [ %spec.select, %11 ]
+  %.sroa.38.0 = phi i8 [ %10, %9 ], [ %15, %14 ], [ %0, %1 ], [ %0, %3 ], [ %13, %11 ]
   %.sroa.0.0 = phi i8 [ -128, %9 ], [ -112, %14 ], [ 0, %1 ], [ -32, %3 ], [ %spec.select4, %11 ]
   %16 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %17 = insertvalue { i8, i8 } %16, i8 %.sroa.38.0, 1

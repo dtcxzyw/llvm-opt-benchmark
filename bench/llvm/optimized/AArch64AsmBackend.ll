@@ -4001,19 +4001,19 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br label %.outer
 
 .outer:                                           ; preds = %.thread243.thread, %.lr.ph
-  %.088275.ph = phi i1 [ true, %.thread243.thread ], [ false, %.lr.ph ]
-  %.096274.ph = phi i64 [ %.096274, %.thread243.thread ], [ 0, %.lr.ph ]
-  %.0100273.ph = phi i64 [ %159, %.thread243.thread ], [ 0, %.lr.ph ]
-  %.0113272.ph = phi i64 [ %.0.i158, %.thread243.thread ], [ 0, %.lr.ph ]
-  %.0122271.ph = phi i64 [ %160, %.thread243.thread ], [ 0, %.lr.ph ]
+  %.088273.ph = phi i1 [ true, %.thread243.thread ], [ false, %.lr.ph ]
+  %.096272.ph = phi i64 [ %.096272, %.thread243.thread ], [ 0, %.lr.ph ]
+  %.0100271.ph = phi i64 [ %128, %.thread243.thread ], [ 0, %.lr.ph ]
+  %.0113270.ph = phi i64 [ %.0.i158, %.thread243.thread ], [ 0, %.lr.ph ]
+  %.0122269.ph = phi i64 [ %129, %.thread243.thread ], [ 0, %.lr.ph ]
   br label %20
 
 20:                                               ; preds = %.outer, %.thread243
-  %.096274 = phi i64 [ %.298, %.thread243 ], [ %.096274.ph, %.outer ]
-  %.0100273 = phi i64 [ %.2102, %.thread243 ], [ %.0100273.ph, %.outer ]
-  %.0113272 = phi i64 [ %.1114, %.thread243 ], [ %.0113272.ph, %.outer ]
-  %.0122271 = phi i64 [ %158, %.thread243 ], [ %.0122271.ph, %.outer ]
-  %21 = getelementptr %"class.llvm::MCCFIInstruction", ptr %5, i64 %.0122271
+  %.096272 = phi i64 [ %.298, %.thread243 ], [ %.096272.ph, %.outer ]
+  %.0100271 = phi i64 [ %.2102, %.thread243 ], [ %.0100271.ph, %.outer ]
+  %.0113270 = phi i64 [ %.1114, %.thread243 ], [ %.0113270.ph, %.outer ]
+  %.0122269 = phi i64 [ %127, %.thread243 ], [ %.0122269.ph, %.outer ]
+  %21 = getelementptr %"class.llvm::MCCFIInstruction", ptr %5, i64 %.0122269
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i8, ptr %22, align 8, !tbaa !116
   switch i8 %23, label %.thread [
@@ -4028,10 +4028,10 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   %.0.i = load i32, ptr %.0.in.i, align 8, !tbaa !24
   %26 = zext i32 %.0.i to i64
   %27 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb(ptr noundef nonnull align 8 dereferenceable(232) %25, i64 noundef %26, i1 noundef zeroext true) #18
-  %.sroa.0215.0.extract.trunc = trunc i64 %27 to i32
-  %28 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0215.0.extract.trunc)
+  %.sroa.0216.0.extract.trunc = trunc i64 %27 to i32
+  %28 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0216.0.extract.trunc)
   %.not264 = icmp eq i32 %28, 2
-  %29 = add i64 %.0122271, 2
+  %29 = add i64 %.0122269, 2
   %.not135 = icmp ult i64 %29, %11
   %or.cond155 = and i1 %.not135, %.not264
   br i1 %or.cond155, label %30, label %.thread
@@ -4064,22 +4064,22 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   %.0.i164 = load i32, ptr %.0.in.i163, align 8, !tbaa !24
   %41 = zext i32 %.0.i164 to i64
   %42 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb(ptr noundef nonnull align 8 dereferenceable(232) %40, i64 noundef %41, i1 noundef zeroext true) #18
-  %.sroa.0211.0.extract.trunc = trunc i64 %42 to i32
+  %.sroa.0212.0.extract.trunc = trunc i64 %42 to i32
   %43 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i165 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.0.i166 = load i32, ptr %.0.in.i165, align 8, !tbaa !24
   %44 = zext i32 %.0.i166 to i64
   %45 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb(ptr noundef nonnull align 8 dereferenceable(232) %43, i64 noundef %44, i1 noundef zeroext true) #18
-  %.sroa.0207.0.extract.trunc = trunc i64 %45 to i32
-  %46 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0211.0.extract.trunc)
-  %47 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0207.0.extract.trunc)
+  %.sroa.0208.0.extract.trunc = trunc i64 %45 to i32
+  %46 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0212.0.extract.trunc)
+  %47 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0208.0.extract.trunc)
   %48 = icmp ne i32 %46, 6
   %49 = icmp ne i32 %47, 2
   %or.cond263 = select i1 %48, i1 true, i1 %49
   br i1 %or.cond263, label %.thread, label %.thread243.thread
 
 50:                                               ; preds = %20
-  %.not134 = icmp eq i64 %.096274, 0
+  %.not134 = icmp eq i64 %.096272, 0
   br i1 %.not134, label %51, label %.thread
 
 51:                                               ; preds = %50
@@ -4094,19 +4094,19 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   %.0.i170 = load i32, ptr %.0.in.i169, align 8, !tbaa !24
   %55 = zext i32 %.0.i170 to i64
   %56 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb(ptr noundef nonnull align 8 dereferenceable(232) %54, i64 noundef %55, i1 noundef zeroext true) #18
-  %.sroa.0194.0.extract.trunc = trunc i64 %56 to i32
-  %57 = add i64 %.0122271, 1
+  %.sroa.0195.0.extract.trunc = trunc i64 %56 to i32
+  %57 = add i64 %.0122269, 1
   %58 = icmp eq i64 %57, %11
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %53
-  %.not130 = icmp eq i64 %.0113272, 0
+  %.not130 = icmp eq i64 %.0113270, 0
   br i1 %.not130, label %62, label %60
 
 60:                                               ; preds = %59
   %.0.in.i171 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.i172 = load i64, ptr %.0.in.i171, align 8, !tbaa !24
-  %61 = add nsw i64 %.0113272, -8
+  %61 = add nsw i64 %.0113270, -8
   %.not131 = icmp eq i64 %.0.i172, %61
   br i1 %.not131, label %62, label %.thread
 
@@ -4133,7 +4133,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
 
 71:                                               ; preds = %66
   %.sroa.0.0.extract.trunc = trunc i64 %69 to i32
-  %72 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0194.0.extract.trunc)
+  %72 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0195.0.extract.trunc)
   %73 = tail call fastcc i32 @_ZN4llvmL15getXRegFromWRegENS_10MCRegisterE(i32 %.sroa.0.0.extract.trunc)
   switch i32 %72, label %.thread236 [
     i32 258, label %74
@@ -4141,274 +4141,148 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
     i32 262, label %86
     i32 264, label %92
     i32 266, label %98
-    i32 16, label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-    i32 17, label %104
-    i32 18, label %105
-    i32 19, label %106
-    i32 20, label %107
-    i32 21, label %108
-    i32 22, label %109
-    i32 23, label %110
-    i32 24, label %111
-    i32 25, label %112
-    i32 26, label %113
-    i32 27, label %114
-    i32 28, label %115
-    i32 29, label %116
-    i32 30, label %117
-    i32 31, label %118
-    i32 32, label %119
-    i32 33, label %120
-    i32 34, label %121
-    i32 35, label %122
-    i32 36, label %123
-    i32 37, label %124
-    i32 38, label %125
-    i32 39, label %126
-    i32 40, label %127
-    i32 41, label %128
-    i32 42, label %129
-    i32 43, label %130
-    i32 44, label %131
-    i32 45, label %132
-    i32 46, label %133
-    i32 47, label %134
   ]
 
 74:                                               ; preds = %71
   %75 = icmp eq i32 %73, 259
-  %76 = and i64 %.0100273, 3870
+  %76 = and i64 %.0100271, 3870
   %77 = icmp eq i64 %76, 0
   %or.cond = select i1 %75, i1 %77, i1 false
   br i1 %or.cond, label %78, label %.thread236
 
 78:                                               ; preds = %74
-  %79 = or i64 %.0100273, 1
+  %79 = or i64 %.0100271, 1
   br label %.thread243
 
 80:                                               ; preds = %71
   %81 = icmp eq i32 %73, 261
-  %82 = and i64 %.0100273, 3868
+  %82 = and i64 %.0100271, 3868
   %83 = icmp eq i64 %82, 0
   %or.cond141 = select i1 %81, i1 %83, i1 false
   br i1 %or.cond141, label %84, label %.thread236
 
 84:                                               ; preds = %80
-  %85 = or i64 %.0100273, 2
+  %85 = or i64 %.0100271, 2
   br label %.thread243
 
 86:                                               ; preds = %71
   %87 = icmp eq i32 %73, 263
-  %88 = and i64 %.0100273, 3864
+  %88 = and i64 %.0100271, 3864
   %89 = icmp eq i64 %88, 0
   %or.cond143 = select i1 %87, i1 %89, i1 false
   br i1 %or.cond143, label %90, label %.thread236
 
 90:                                               ; preds = %86
-  %91 = or i64 %.0100273, 4
+  %91 = or i64 %.0100271, 4
   br label %.thread243
 
 92:                                               ; preds = %71
   %93 = icmp eq i32 %73, 265
-  %94 = and i64 %.0100273, 3856
+  %94 = and i64 %.0100271, 3856
   %95 = icmp eq i64 %94, 0
   %or.cond145 = select i1 %93, i1 %95, i1 false
   br i1 %or.cond145, label %96, label %.thread236
 
 96:                                               ; preds = %92
-  %97 = or i64 %.0100273, 8
+  %97 = or i64 %.0100271, 8
   br label %.thread243
 
 98:                                               ; preds = %71
   %99 = icmp eq i32 %73, 267
-  %100 = and i64 %.0100273, 3840
+  %100 = and i64 %.0100271, 3840
   %101 = icmp eq i64 %100, 0
   %or.cond147 = select i1 %99, i1 %101, i1 false
   br i1 %or.cond147, label %102, label %.thread236
 
 102:                                              ; preds = %98
-  %103 = or i64 %.0100273, 16
+  %103 = or i64 %.0100271, 16
   br label %.thread243
 
-104:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-105:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-106:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-107:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-108:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-109:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-110:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-111:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-112:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-113:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-114:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-115:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-116:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-117:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-118:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-119:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-120:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-121:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-122:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-123:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-124:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-125:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-126:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-127:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-128:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-129:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-130:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-131:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-132:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-133:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-134:                                              ; preds = %71
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-.thread236:                                       ; preds = %71, %92, %86, %80, %74, %98
-  br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-
-_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit: ; preds = %71, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %.thread236
-  %.sroa.02.0.i = phi i32 [ %72, %.thread236 ], [ 49, %104 ], [ 50, %105 ], [ 51, %106 ], [ 52, %107 ], [ 53, %108 ], [ 54, %109 ], [ 55, %110 ], [ 56, %111 ], [ 57, %112 ], [ 58, %113 ], [ 59, %114 ], [ 60, %115 ], [ 61, %116 ], [ 62, %117 ], [ 63, %118 ], [ 64, %119 ], [ 65, %120 ], [ 66, %121 ], [ 67, %122 ], [ 68, %123 ], [ 69, %124 ], [ 70, %125 ], [ 71, %126 ], [ 72, %127 ], [ 73, %128 ], [ 74, %129 ], [ 75, %130 ], [ 76, %131 ], [ 77, %132 ], [ 78, %133 ], [ 79, %134 ], [ 48, %71 ]
-  %switch.tableidx = add i32 %73, -16
-  %135 = icmp ult i32 %switch.tableidx, 32
-  %switch.offset = add i32 %73, 32
-  %.sroa.02.0.i181 = select i1 %135, i32 %switch.offset, i32 %73
-  switch i32 %.sroa.02.0.i, label %154 [
-    i32 56, label %136
-    i32 58, label %142
-    i32 60, label %148
+.thread236:                                       ; preds = %71, %74, %80, %86, %92, %98
+  %switch.tableidx.i = add i32 %72, -16
+  %104 = icmp ult i32 %switch.tableidx.i, 32
+  %switch.offset.i = add nuw nsw i32 %72, 32
+  %.sroa.02.0.i = select i1 %104, i32 %switch.offset.i, i32 %72
+  %switch.tableidx.i181 = add i32 %73, -16
+  %105 = icmp ult i32 %switch.tableidx.i181, 32
+  %switch.offset.i182 = add i32 %73, 32
+  %.sroa.02.0.i183 = select i1 %105, i32 %switch.offset.i182, i32 %73
+  switch i32 %.sroa.02.0.i, label %.thread [
+    i32 56, label %106
+    i32 58, label %112
+    i32 60, label %118
+    i32 62, label %124
   ]
 
-136:                                              ; preds = %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-  %137 = icmp eq i32 %.sroa.02.0.i181, 57
-  %138 = and i64 %.0100273, 3584
-  %139 = icmp eq i64 %138, 0
-  %or.cond149 = select i1 %137, i1 %139, i1 false
-  br i1 %or.cond149, label %140, label %.thread
+106:                                              ; preds = %.thread236
+  %107 = icmp eq i32 %.sroa.02.0.i183, 57
+  %108 = and i64 %.0100271, 3584
+  %109 = icmp eq i64 %108, 0
+  %or.cond149 = select i1 %107, i1 %109, i1 false
+  br i1 %or.cond149, label %110, label %.thread
 
-140:                                              ; preds = %136
-  %141 = or i64 %.0100273, 256
+110:                                              ; preds = %106
+  %111 = or i64 %.0100271, 256
   br label %.thread243
 
-142:                                              ; preds = %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-  %143 = icmp eq i32 %.sroa.02.0.i181, 59
-  %144 = and i64 %.0100273, 3072
-  %145 = icmp eq i64 %144, 0
-  %or.cond151 = select i1 %143, i1 %145, i1 false
-  br i1 %or.cond151, label %146, label %.thread
+112:                                              ; preds = %.thread236
+  %113 = icmp eq i32 %.sroa.02.0.i183, 59
+  %114 = and i64 %.0100271, 3072
+  %115 = icmp eq i64 %114, 0
+  %or.cond151 = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond151, label %116, label %.thread
 
-146:                                              ; preds = %142
-  %147 = or i64 %.0100273, 512
+116:                                              ; preds = %112
+  %117 = or i64 %.0100271, 512
   br label %.thread243
 
-148:                                              ; preds = %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-  %149 = icmp eq i32 %.sroa.02.0.i181, 61
-  %150 = and i64 %.0100273, 2048
-  %151 = icmp eq i64 %150, 0
-  %or.cond153 = select i1 %149, i1 %151, i1 false
-  br i1 %or.cond153, label %152, label %.thread
+118:                                              ; preds = %.thread236
+  %119 = icmp eq i32 %.sroa.02.0.i183, 61
+  %120 = and i64 %.0100271, 2048
+  %121 = icmp eq i64 %120, 0
+  %or.cond153 = select i1 %119, i1 %121, i1 false
+  br i1 %or.cond153, label %122, label %.thread
 
-152:                                              ; preds = %148
-  %153 = or i64 %.0100273, 1024
+122:                                              ; preds = %118
+  %123 = or i64 %.0100271, 1024
   br label %.thread243
 
-154:                                              ; preds = %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
-  %155 = icmp eq i32 %.sroa.02.0.i, 62
-  %156 = icmp eq i32 %.sroa.02.0.i181, 63
-  %157 = or i64 %.0100273, 2048
-  %or.cond266 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond266, label %.thread243, label %.thread
+124:                                              ; preds = %.thread236
+  %125 = icmp eq i32 %.sroa.02.0.i183, 63
+  %126 = or i64 %.0100271, 2048
+  br i1 %125, label %.thread243, label %.thread
 
-.thread243:                                       ; preds = %154, %78, %90, %102, %146, %152, %140, %96, %84, %51
-  %.1123 = phi i64 [ %.0122271, %51 ], [ %57, %84 ], [ %57, %96 ], [ %57, %140 ], [ %57, %152 ], [ %57, %146 ], [ %57, %102 ], [ %57, %90 ], [ %57, %78 ], [ %57, %154 ]
-  %.1114 = phi i64 [ %.0113272, %51 ], [ %.0.i178, %84 ], [ %.0.i178, %96 ], [ %.0.i178, %140 ], [ %.0.i178, %152 ], [ %.0.i178, %146 ], [ %.0.i178, %102 ], [ %.0.i178, %90 ], [ %.0.i178, %78 ], [ %.0.i178, %154 ]
-  %.2102 = phi i64 [ %.0100273, %51 ], [ %85, %84 ], [ %97, %96 ], [ %141, %140 ], [ %153, %152 ], [ %147, %146 ], [ %103, %102 ], [ %91, %90 ], [ %79, %78 ], [ %157, %154 ]
-  %.298 = phi i64 [ %52, %51 ], [ %.096274, %84 ], [ %.096274, %96 ], [ %.096274, %140 ], [ %.096274, %152 ], [ %.096274, %146 ], [ %.096274, %102 ], [ %.096274, %90 ], [ %.096274, %78 ], [ %.096274, %154 ]
-  %158 = add i64 %.1123, 1
-  %.not = icmp eq i64 %158, %11
+.thread243:                                       ; preds = %124, %78, %90, %102, %116, %122, %110, %96, %84, %51
+  %.1123 = phi i64 [ %.0122269, %51 ], [ %57, %84 ], [ %57, %96 ], [ %57, %110 ], [ %57, %122 ], [ %57, %116 ], [ %57, %102 ], [ %57, %90 ], [ %57, %78 ], [ %57, %124 ]
+  %.1114 = phi i64 [ %.0113270, %51 ], [ %.0.i178, %84 ], [ %.0.i178, %96 ], [ %.0.i178, %110 ], [ %.0.i178, %122 ], [ %.0.i178, %116 ], [ %.0.i178, %102 ], [ %.0.i178, %90 ], [ %.0.i178, %78 ], [ %.0.i178, %124 ]
+  %.2102 = phi i64 [ %.0100271, %51 ], [ %85, %84 ], [ %97, %96 ], [ %111, %110 ], [ %123, %122 ], [ %117, %116 ], [ %103, %102 ], [ %91, %90 ], [ %79, %78 ], [ %126, %124 ]
+  %.298 = phi i64 [ %52, %51 ], [ %.096272, %84 ], [ %.096272, %96 ], [ %.096272, %110 ], [ %.096272, %122 ], [ %.096272, %116 ], [ %.096272, %102 ], [ %.096272, %90 ], [ %.096272, %78 ], [ %.096272, %124 ]
+  %127 = add i64 %.1123, 1
+  %.not = icmp eq i64 %127, %11
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !125
 
 .thread243.thread:                                ; preds = %39
-  %159 = or i64 %.0100273, 67108864
-  %160 = add i64 %.0122271, 3
-  %.not287 = icmp eq i64 %160, %11
-  br i1 %.not287, label %.thread, label %.outer, !llvm.loop !125
+  %128 = or i64 %.0100271, 67108864
+  %129 = add i64 %.0122269, 3
+  %.not285 = icmp eq i64 %129, %11
+  br i1 %.not285, label %.thread, label %.outer, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.thread243
-  br i1 %.088275.ph, label %.thread, label %161
+  br i1 %.088273.ph, label %.thread, label %130
 
-161:                                              ; preds = %._crit_edge
-  %162 = icmp samesign ugt i64 %.298, 65520
-  br i1 %162, label %.thread, label %163
+130:                                              ; preds = %._crit_edge
+  %131 = icmp samesign ugt i64 %.298, 65520
+  br i1 %131, label %.thread, label %132
 
-163:                                              ; preds = %161
-  %164 = shl nuw nsw i64 %.298, 8
-  %165 = and i64 %164, 16773120
-  %166 = or i64 %.2102, %165
-  %167 = or i64 %166, 33554432
+132:                                              ; preds = %130
+  %133 = shl nuw nsw i64 %.298, 8
+  %134 = and i64 %133, 16773120
+  %135 = or i64 %.2102, %134
+  %136 = or i64 %135, 33554432
   br label %.thread
 
-.thread:                                          ; preds = %.thread243.thread, %39, %37, %33, %30, %24, %136, %142, %148, %154, %66, %62, %60, %53, %50, %20, %161, %163, %._crit_edge, %17, %3
-  %.0 = phi i64 [ 33554432, %3 ], [ 50331648, %17 ], [ 50331648, %161 ], [ %.2102, %._crit_edge ], [ %167, %163 ], [ 50331648, %20 ], [ 50331648, %50 ], [ 50331648, %53 ], [ 50331648, %60 ], [ 50331648, %62 ], [ 50331648, %66 ], [ 50331648, %154 ], [ 50331648, %148 ], [ 50331648, %142 ], [ 50331648, %136 ], [ 50331648, %24 ], [ 50331648, %30 ], [ 50331648, %33 ], [ 50331648, %37 ], [ 50331648, %39 ], [ %159, %.thread243.thread ]
+.thread:                                          ; preds = %.thread243.thread, %39, %37, %33, %30, %24, %.thread236, %106, %112, %118, %124, %66, %62, %60, %53, %50, %20, %130, %132, %._crit_edge, %17, %3
+  %.0 = phi i64 [ 33554432, %3 ], [ 50331648, %17 ], [ 50331648, %130 ], [ %.2102, %._crit_edge ], [ %136, %132 ], [ 50331648, %20 ], [ 50331648, %50 ], [ 50331648, %53 ], [ 50331648, %60 ], [ 50331648, %62 ], [ 50331648, %66 ], [ 50331648, %124 ], [ 50331648, %118 ], [ 50331648, %112 ], [ 50331648, %106 ], [ 50331648, %.thread236 ], [ 50331648, %24 ], [ 50331648, %30 ], [ 50331648, %33 ], [ 50331648, %37 ], [ 50331648, %39 ], [ %128, %.thread243.thread ]
   ret i64 %.0
 }
 

@@ -632,6 +632,7 @@ _ZN4llvm11SmallVectorISt4pairINS_9StringRefENS_14TargetLowering14ConstraintTypeE
   br label %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit
 
 _ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit: ; preds = %_ZN4llvm11SmallVectorISt4pairINS_9StringRefENS_14TargetLowering14ConstraintTypeEELj2EED2Ev.exit.i, %274, %278, %281, %281, %281, %283, %288
+  %.val309 = load i32, ptr %165, align 8
   %300 = getelementptr i8, ptr %164, i64 -48
   %.val310 = load i32, ptr %300, align 8, !tbaa !213
   switch i32 %.val310, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit [
@@ -640,18 +641,17 @@ _ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit:
   ]
 
 301:                                              ; preds = %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit
-  %.val309 = load i32, ptr %165, align 8
   %302 = icmp ult i32 %.val309, 3
-  br i1 %302, label %switch.lookup, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
+  br i1 %302, label %switch.lookup.i, label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
 
-switch.lookup:                                    ; preds = %301
-  %switch.idx.mult = shl nuw nsw i32 %.val309, 3
-  %switch.offset = add nuw nsw i32 %switch.idx.mult, 8
-  %303 = or i32 %switch.offset, %.sroa.0508.0542
+switch.lookup.i:                                  ; preds = %301
+  %switch.idx.mult.i = shl nuw nsw i32 %.val309, 3
+  %switch.offset.i = add nuw nsw i32 %switch.idx.mult.i, 8
+  %303 = or i32 %switch.offset.i, %.sroa.0508.0542
   br label %_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit
 
-_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit: ; preds = %301, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %switch.lookup
-  %.sroa.0508.2 = phi i32 [ %.sroa.0508.0542, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit ], [ %.sroa.0508.0542, %301 ], [ %303, %switch.lookup ]
+_ZN12_GLOBAL__N_110ExtraFlags6updateERKN4llvm14TargetLowering14AsmOperandInfoE.exit: ; preds = %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit, %301, %switch.lookup.i
+  %.sroa.0508.2 = phi i32 [ %.sroa.0508.0542, %_ZL22computeConstraintToUsePKN4llvm14TargetLoweringERNS0_14AsmOperandInfoE.exit ], [ %303, %switch.lookup.i ], [ %.sroa.0508.0542, %301 ]
   %304 = getelementptr inbounds nuw i8, ptr %.sroa.0505.0541, i64 136
   %.not529 = icmp eq ptr %304, %77
   br i1 %.not529, label %.critedge290, label %89

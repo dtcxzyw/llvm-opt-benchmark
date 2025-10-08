@@ -14520,20 +14520,11 @@ define noundef range(i8 0, 4) i8 @"_ZN99_$LT$ui..components..icon..IconDecoratio
   %5 = load i64, ptr %4, align 8, !alias.scope !2583, !noundef !7
   %6 = add i64 %3, %5
   %7 = icmp ugt i64 %6, 3
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %1
-  store i64 %3, ptr %0, align 8, !alias.scope !2583
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %2, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  br label %"_ZN99_$LT$ui..components..icon..IconDecorationIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h02301e2ab58a4439E.exit"
-
-9:                                                ; preds = %1
-  store i64 3, ptr %0, align 8, !alias.scope !2583
-  br label %"_ZN99_$LT$ui..components..icon..IconDecorationIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h02301e2ab58a4439E.exit"
-
-"_ZN99_$LT$ui..components..icon..IconDecorationIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h02301e2ab58a4439E.exit": ; preds = %8, %9
-  %.sroa.0.0.i = phi i8 [ 3, %9 ], [ %spec.select, %8 ]
+  %spec.select1.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 3)
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select1.i.i to i8
+  %.sink.i = select i1 %7, i64 3, i64 %3
+  %.sroa.0.0.i = select i1 %7, i8 3, i8 %spec.select.i.i
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !2583
   ret i8 %.sroa.0.0.i
 }
 
@@ -14563,20 +14554,11 @@ define noundef range(i8 0, 4) i8 @"_ZN99_$LT$ui..components..icon..IconDecoratio
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = add i64 %5, %7
   %9 = icmp ugt i64 %8, 3
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %2
-  store i64 %5, ptr %0, align 8
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  br label %_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit
-
-11:                                               ; preds = %2
-  store i64 3, ptr %0, align 8
-  br label %_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit
-
-_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit: ; preds = %10, %11
-  %.sroa.0.0 = phi i8 [ 3, %11 ], [ %spec.select, %10 ]
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
+  %spec.select.i = trunc nuw nsw i64 %spec.select1.i to i8
+  %.sink = select i1 %9, i64 3, i64 %5
+  %.sroa.0.0 = select i1 %9, i8 3, i8 %spec.select.i
+  store i64 %.sink, ptr %0, align 8
   ret i8 %.sroa.0.0
 }
 
@@ -14600,24 +14582,12 @@ define noundef range(i8 0, 4) i8 @"_ZN114_$LT$ui..components..icon..IconDecorati
   %5 = load i64, ptr %0, align 8, !noundef !7
   %6 = add i64 %5, %4
   %7 = icmp ugt i64 %6, 3
-  br i1 %7, label %10, label %8
-
-8:                                                ; preds = %1
-  store i64 %4, ptr %2, align 8
-  %9 = icmp ult i64 %3, 3
-  br i1 %9, label %switch.lookup, label %_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit
-
-10:                                               ; preds = %1
-  store i64 3, ptr %2, align 8
-  br label %_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit
-
-switch.lookup:                                    ; preds = %8
-  %switch.idx.cast = trunc nuw i64 %3 to i8
-  %switch.offset = sub nsw i8 2, %switch.idx.cast
-  br label %_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit
-
-_ZN2ui10components4icon18IconDecorationIter3get17h555e243a5d4ec54bE.exit: ; preds = %switch.lookup, %8, %10
-  %.sroa.0.0 = phi i8 [ 3, %10 ], [ 3, %8 ], [ %switch.offset, %switch.lookup ]
+  %8 = sub i64 2, %3
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %8, i64 3)
+  %spec.select.i = trunc nuw nsw i64 %spec.select1.i to i8
+  %.sink = select i1 %7, i64 3, i64 %4
+  %.sroa.0.0 = select i1 %7, i8 3, i8 %spec.select.i
+  store i64 %.sink, ptr %2, align 8
   ret i8 %.sroa.0.0
 }
 
@@ -14654,14 +14624,6 @@ define noundef zeroext i1 @"_ZN71_$LT$ui..components..icon..IconNameIter$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef range(i8 0, -87) i8 @_ZN2ui10components4icon12IconNameIter3get17ha2d3db2304995329E(i64 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %0, i64 168)
-  %spec.select = trunc nuw i64 %spec.select1 to i8
-  ret i8 %spec.select
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i64, i64 } @"_ZN74_$LT$ui..components..icon..IconName$u20$as$u20$strum..IntoEnumIterator$GT$4iter17h52b8bee7a56d6358E"() unnamed_addr #3 {
   ret { i64, i64 } zeroinitializer
 }
@@ -14674,15 +14636,10 @@ define noundef range(i8 0, -87) i8 @"_ZN93_$LT$ui..components..icon..IconNameIte
   %5 = load i64, ptr %4, align 8, !alias.scope !2598, !noundef !7
   %6 = add i64 %3, %5
   %7 = icmp ugt i64 %6, 168
-  br i1 %7, label %"_ZN93_$LT$ui..components..icon..IconNameIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5306302894ba12a5E.exit", label %8
-
-8:                                                ; preds = %1
-  %9 = tail call fastcc noundef i8 @_ZN2ui10components4icon12IconNameIter3get17ha2d3db2304995329E(i64 noundef %2)
-  br label %"_ZN93_$LT$ui..components..icon..IconNameIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5306302894ba12a5E.exit"
-
-"_ZN93_$LT$ui..components..icon..IconNameIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5306302894ba12a5E.exit": ; preds = %1, %8
-  %.sink.i = phi i64 [ %3, %8 ], [ 168, %1 ]
-  %.sroa.0.0.i = phi i8 [ %9, %8 ], [ -88, %1 ]
+  %spec.select1.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 168)
+  %spec.select.i.i = trunc nuw i64 %spec.select1.i.i to i8
+  %.sink.i = select i1 %7, i64 168, i64 %3
+  %.sroa.0.0.i = select i1 %7, i8 -88, i8 %spec.select.i.i
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !2598
   ret i8 %.sroa.0.0.i
 }
@@ -14713,15 +14670,10 @@ define noundef range(i8 0, -87) i8 @"_ZN93_$LT$ui..components..icon..IconNameIte
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = add i64 %5, %7
   %9 = icmp ugt i64 %8, 168
-  br i1 %9, label %12, label %10
-
-10:                                               ; preds = %2
-  %11 = tail call fastcc noundef i8 @_ZN2ui10components4icon12IconNameIter3get17ha2d3db2304995329E(i64 noundef %4)
-  br label %12
-
-12:                                               ; preds = %2, %10
-  %.sink = phi i64 [ %5, %10 ], [ 168, %2 ]
-  %.sroa.0.0 = phi i8 [ %11, %10 ], [ -88, %2 ]
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %4, i64 168)
+  %spec.select.i = trunc nuw i64 %spec.select1.i to i8
+  %.sink = select i1 %9, i64 168, i64 %5
+  %.sroa.0.0 = select i1 %9, i8 -88, i8 %spec.select.i
   store i64 %.sink, ptr %0, align 8
   ret i8 %.sroa.0.0
 }
@@ -14746,16 +14698,11 @@ define noundef range(i8 0, -87) i8 @"_ZN108_$LT$ui..components..icon..IconNameIt
   %5 = load i64, ptr %0, align 8, !noundef !7
   %6 = add i64 %5, %4
   %7 = icmp ugt i64 %6, 168
-  br i1 %7, label %11, label %8
-
-8:                                                ; preds = %1
-  %9 = sub i64 167, %3
-  %10 = tail call fastcc noundef i8 @_ZN2ui10components4icon12IconNameIter3get17ha2d3db2304995329E(i64 noundef %9)
-  br label %11
-
-11:                                               ; preds = %1, %8
-  %.sink = phi i64 [ %4, %8 ], [ 168, %1 ]
-  %.sroa.0.0 = phi i8 [ %10, %8 ], [ -88, %1 ]
+  %8 = sub i64 167, %3
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %8, i64 168)
+  %spec.select.i = trunc nuw i64 %spec.select1.i to i8
+  %.sink = select i1 %7, i64 168, i64 %4
+  %.sroa.0.0 = select i1 %7, i8 -88, i8 %spec.select.i
   store i64 %.sink, ptr %2, align 8
   ret i8 %.sroa.0.0
 }

@@ -795,82 +795,82 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %2, %_ZNKSt8_
   %45 = icmp sgt i32 %44, 0
   %46 = load i32, ptr %3, align 4
   %47 = icmp sgt i32 %46, 0
-  %or.cond51 = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond51, label %.preheader, label %._crit_edge32
+  %or.cond54 = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond54, label %.preheader, label %._crit_edge33
 
 .preheader:                                       ; preds = %40, %._crit_edge
   %48 = phi i32 [ %55, %._crit_edge ], [ %44, %40 ]
   %49 = phi i32 [ %56, %._crit_edge ], [ %46, %40 ]
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %._crit_edge ], [ 0, %40 ]
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %._crit_edge ], [ 0, %40 ]
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv36, 32
-  %51 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv37, 32
+  %51 = trunc nuw nsw i64 %indvars.iv37 to i32
   br label %59
 
-._crit_edge32:                                    ; preds = %._crit_edge, %40
+._crit_edge33:                                    ; preds = %._crit_edge, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK8rawspeed10DngDecoder15parseACTIVEAREAEPKNS_7TiffIFDE(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::Optional.17") align 4 %4, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i8, ptr %52, align 4, !tbaa !141, !range !145, !noundef !51
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %71, label %81
+  br i1 %54, label %74, label %84
 
-._crit_edge.loopexit:                             ; preds = %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit
-  %.pre39 = load i32, ptr %31, align 4, !tbaa !144
+._crit_edge.loopexit:                             ; preds = %68
+  %.pre40 = load i32, ptr %31, align 4, !tbaa !144
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %55 = phi i32 [ %.pre39, %._crit_edge.loopexit ], [ %48, %.preheader ]
-  %56 = phi i32 [ %68, %._crit_edge.loopexit ], [ %49, %.preheader ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %55 = phi i32 [ %.pre40, %._crit_edge.loopexit ], [ %48, %.preheader ]
+  %56 = phi i32 [ %71, %._crit_edge.loopexit ], [ %49, %.preheader ]
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %57 = sext i32 %55 to i64
-  %58 = icmp slt i64 %indvars.iv.next37, %57
-  br i1 %58, label %.preheader, label %._crit_edge32, !llvm.loop !146
+  %58 = icmp slt i64 %indvars.iv.next38, %57
+  br i1 %58, label %.preheader, label %._crit_edge33, !llvm.loop !146
 
-59:                                               ; preds = %.lr.ph, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit ]
-  %60 = phi i32 [ %49, %.lr.ph ], [ %68, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit ]
+59:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+  %60 = phi i32 [ %49, %.lr.ph ], [ %71, %68 ]
   %61 = mul nsw i32 %60, %51
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = add nsw i32 %61, %62
   %64 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %63)
-  %switch = icmp ult i8 %64, 7
-  br i1 %switch, label %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit, label %.critedge
+  %65 = icmp ugt i8 %64, 6
+  br i1 %65, label %66, label %68
 
-.critedge:                                        ; preds = %59
-  %65 = zext i8 %64 to i32
-  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10DngDecoder8parseCFAEPKNS_7TiffIFDE, i32 noundef %65) #22
+66:                                               ; preds = %59
+  %67 = zext i8 %64 to i32
+  call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10DngDecoder8parseCFAEPKNS_7TiffIFDE, i32 noundef %67) #22
   unreachable
 
-_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit: ; preds = %59
-  %66 = load ptr, ptr %41, align 8, !tbaa !73
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %41, align 8, !tbaa !73
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
-  call void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 %.sroa.0.0.insert.insert, i8 noundef zeroext %64)
+  call void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr noundef nonnull align 8 dereferenceable(32) %70, i64 %.sroa.0.0.insert.insert, i8 noundef zeroext %64)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %3, align 4, !tbaa !143
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %59, label %._crit_edge.loopexit, !llvm.loop !148
+  %71 = load i32, ptr %3, align 4, !tbaa !143
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %59, label %._crit_edge.loopexit, !llvm.loop !148
 
-71:                                               ; preds = %._crit_edge32
-  %72 = load ptr, ptr %41, align 8, !tbaa !73
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %74 = load i32, ptr %4, align 4, !tbaa !149
-  %75 = sub nsw i32 0, %74
-  call void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef %75)
-  %76 = load ptr, ptr %41, align 8, !tbaa !73
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !151
-  %80 = sub nsw i32 0, %79
-  call void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef %80)
-  br label %81
+74:                                               ; preds = %._crit_edge33
+  %75 = load ptr, ptr %41, align 8, !tbaa !73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
+  %77 = load i32, ptr %4, align 4, !tbaa !149
+  %78 = sub nsw i32 0, %77
+  call void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(32) %76, i32 noundef %78)
+  %79 = load ptr, ptr %41, align 8, !tbaa !73
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %82 = load i32, ptr %81, align 4, !tbaa !151
+  %83 = sub nsw i32 0, %82
+  call void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnull align 8 dereferenceable(32) %80, i32 noundef %83)
+  br label %84
 
-81:                                               ; preds = %._crit_edge32, %71
+84:                                               ; preds = %._crit_edge33, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

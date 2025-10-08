@@ -1713,21 +1713,21 @@ _ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit: ; preds = %_ZNKS
 209:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %211 = load i32, ptr %210, align 8
-  %switch.tableidx = add i32 %211, -1
-  %212 = icmp ult i32 %switch.tableidx, 8
-  br i1 %212, label %switch.lookup, label %_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit
+  %switch.tableidx1138 = add i32 %211, -1
+  %212 = icmp ult i32 %switch.tableidx1138, 8
+  br i1 %212, label %switch.lookup1139, label %_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit
 
 213:                                              ; preds = %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit
   br label %_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit
 
-switch.lookup:                                    ; preds = %209
-  %214 = zext nneg i32 %switch.tableidx to i64
+switch.lookup1139:                                ; preds = %209
+  %214 = zext nneg i32 %switch.tableidx1138 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE, i64 %214
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit
 
-_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit: ; preds = %209, %switch.lookup, %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit, %213
-  %.0.i222 = phi i32 [ 0, %213 ], [ 5, %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit ], [ %switch.load, %switch.lookup ], [ 0, %209 ]
+_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit: ; preds = %209, %switch.lookup1139, %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit, %213
+  %.0.i222 = phi i32 [ 0, %213 ], [ 5, %_ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit ], [ %switch.load, %switch.lookup1139 ], [ 0, %209 ]
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %216 = load i32, ptr %215, align 4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -3245,30 +3245,30 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit441: ; preds = %815, %_ZNSt8
 845:                                              ; preds = %843, %839
   %846 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %847 = load i32, ptr %846, align 8
-  %switch.tableidx1135 = add i32 %847, -2
-  %848 = icmp ult i32 %switch.tableidx1135, 3
-  br i1 %848, label %switch.lookup1136, label %.critedge
+  %switch.tableidx = add i32 %847, -2
+  %848 = icmp ult i32 %switch.tableidx, 3
+  br i1 %848, label %switch.lookup, label %.critedge
 
-switch.lookup1136:                                ; preds = %845
+switch.lookup:                                    ; preds = %845
   %switch.offset = add nuw nsw i32 %847, 12
   %849 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %849, i32 noundef %switch.offset, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %845, %switch.lookup1136
+.critedge:                                        ; preds = %845, %switch.lookup
   %850 = getelementptr inbounds nuw i8, ptr %2, i64 820
   %851 = load i32, ptr %850, align 4
-  %switch.tableidx1137 = add i32 %851, -1
-  %852 = icmp ult i32 %switch.tableidx1137, 6
-  br i1 %852, label %switch.lookup1138, label %.critedge206
+  %switch.tableidx1084 = add i32 %851, -1
+  %852 = icmp ult i32 %switch.tableidx1084, 6
+  br i1 %852, label %switch.lookup1085, label %.critedge206
 
-switch.lookup1138:                                ; preds = %.critedge
-  %switch.offset1139 = add nuw nsw i32 %851, 5078
+switch.lookup1085:                                ; preds = %.critedge
+  %switch.offset1086 = add nuw nsw i32 %851, 5078
   %853 = load ptr, ptr %67, align 8
-  call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %853, i32 noundef %switch.offset1139, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
+  call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %853, i32 noundef %switch.offset1086, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
   br label %.critedge206
 
-.critedge206:                                     ; preds = %.critedge, %switch.lookup1138
+.critedge206:                                     ; preds = %.critedge, %switch.lookup1085
   %854 = getelementptr inbounds nuw i8, ptr %2, i64 804
   %855 = load i32, ptr %854, align 4
   switch i32 %855, label %.critedge208 [
@@ -3754,8 +3754,8 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit518: ; preds = %1022, %_ZNSt
   br label %1042
 
 1042:                                             ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit518, %1038
-  %.sink1084 = phi i64 [ 788, %1038 ], [ 784, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit518 ]
-  %1043 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink1084
+  %.sink1087 = phi i64 [ 788, %1038 ], [ 784, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit518 ]
+  %1043 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink1087
   %.0184 = load i32, ptr %1043, align 4
   switch i32 %.0184, label %.critedge210 [
     i32 5, label %1046

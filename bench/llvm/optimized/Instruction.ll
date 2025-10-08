@@ -11048,29 +11048,28 @@ _ZN4llvm9sandboxir13UnaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
-switch.lookup:
-  %6 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %3)
-  %switch.offset = add nsw i32 %0, -14
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !3
-  %11 = tail call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %6, i32 noundef %switch.offset, ptr noundef %8, ptr noundef %10, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null)
-  %12 = load i8, ptr %11, align 8, !tbaa !262
-  %13 = add i8 %12, -60
-  %14 = icmp ult i8 %13, -18
-  br i1 %14, label %17, label %15
+  %7 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %3)
+  %switch.offset.i = add nsw i32 %0, -14
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
+  %12 = tail call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef %switch.offset.i, ptr noundef %9, ptr noundef %11, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null)
+  %13 = load i8, ptr %12, align 8, !tbaa !262
+  %14 = add i8 %13, -60
+  %15 = icmp ult i8 %14, -18
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %switch.lookup
-  %16 = tail call noundef ptr @_ZN4llvm9sandboxir7Context20createBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %11) #18
-  br label %19
+16:                                               ; preds = %6
+  %17 = tail call noundef ptr @_ZN4llvm9sandboxir7Context20createBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %12) #18
+  br label %20
 
-17:                                               ; preds = %switch.lookup
-  %18 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %11) #18
-  br label %19
+18:                                               ; preds = %6
+  %19 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %12) #18
+  br label %20
 
-19:                                               ; preds = %15, %17
-  %.1 = phi ptr [ %18, %17 ], [ %16, %15 ]
+20:                                               ; preds = %16, %18
+  %.1 = phi ptr [ %19, %18 ], [ %17, %16 ]
   ret ptr %.1
 }
 
@@ -11078,45 +11077,44 @@ declare noundef ptr @_ZN4llvm9sandboxir7Context20createBinaryOperatorEPNS_14Bina
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm9sandboxir14BinaryOperator21createWithCopiedFlagsENS0_11Instruction6OpcodeEPNS0_5ValueES5_S5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %4, ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) local_unnamed_addr #1 align 2 {
-switch.lookup:
-  %7 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %4)
-  %switch.offset = add nsw i32 %0, -14
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = tail call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef %switch.offset, ptr noundef %9, ptr noundef %11, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef null)
-  %13 = load i8, ptr %12, align 8, !tbaa !262
-  %14 = add i8 %13, -60
-  %15 = icmp ult i8 %14, -18
-  br i1 %15, label %18, label %16
+  %8 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %4)
+  %switch.offset.i.i = add nsw i32 %0, -14
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
+  %13 = tail call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %8, i32 noundef %switch.offset.i.i, ptr noundef %10, ptr noundef %12, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef null)
+  %14 = load i8, ptr %13, align 8, !tbaa !262
+  %15 = add i8 %14, -60
+  %16 = icmp ult i8 %15, -18
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %switch.lookup
-  %17 = tail call noundef ptr @_ZN4llvm9sandboxir7Context20createBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %12) #18
+17:                                               ; preds = %7
+  %18 = tail call noundef ptr @_ZN4llvm9sandboxir7Context20createBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %13) #18
   br label %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
 
-18:                                               ; preds = %switch.lookup
-  %19 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %12) #18
+19:                                               ; preds = %7
+  %20 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %13) #18
   br label %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
 
-_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit: ; preds = %16, %18
-  %.1.i = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !112
-  %22 = icmp ne i32 %21, 50
+_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit: ; preds = %17, %19
+  %.1.i = phi ptr [ %20, %19 ], [ %18, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %22 = load i32, ptr %21, align 8, !tbaa !112
+  %23 = icmp ne i32 %22, 50
   %.not9 = icmp eq ptr %.1.i, null
-  %.not = or i1 %.not9, %22
-  br i1 %.not, label %28, label %23
+  %.not = or i1 %.not9, %23
+  br i1 %.not, label %29, label %24
 
-23:                                               ; preds = %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !3
-  tail call void @_ZN4llvm11Instruction11copyIRFlagsEPKNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef %27, i1 noundef zeroext true) #18
-  br label %28
+24:                                               ; preds = %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
+  %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
+  tail call void @_ZN4llvm11Instruction11copyIRFlagsEPKNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef %28, i1 noundef zeroext true) #18
+  br label %29
 
-28:                                               ; preds = %23, %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
+29:                                               ; preds = %24, %_ZN4llvm9sandboxir14BinaryOperator6createENS0_11Instruction6OpcodeEPNS0_5ValueES5_NS0_14InsertPositionERNS0_7ContextERKNS_5TwineE.exit
   ret ptr %.1.i
 }
 

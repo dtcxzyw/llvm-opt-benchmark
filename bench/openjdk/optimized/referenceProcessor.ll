@@ -2921,9 +2921,9 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
 
 80:                                               ; preds = %75, %68, %65
   %.06.i = phi i32 [ %67, %65 ], [ %77, %75 ], [ 0, %68 ]
-  %switch.tableidx = add i32 %2, -1
-  %81 = icmp ult i32 %switch.tableidx, 4
-  br i1 %81, label %switch.lookup, label %82
+  %switch.tableidx.i = add i32 %2, -1
+  %81 = icmp ult i32 %switch.tableidx.i, 4
+  br i1 %81, label %_ZN18ReferenceProcessor19get_discovered_listE13ReferenceType.exit, label %82
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr @g_assert_poison, align 8
@@ -2931,8 +2931,8 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.6, i32 noundef 841) #18
   unreachable
 
-switch.lookup:                                    ; preds = %80
-  %84 = shl nuw nsw i32 %switch.tableidx, 3
+_ZN18ReferenceProcessor19get_discovered_listE13ReferenceType.exit: ; preds = %80
+  %84 = shl nuw nsw i32 %switch.tableidx.i, 3
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
@@ -2942,7 +2942,7 @@ switch.lookup:                                    ; preds = %80
   tail call void @_ZN18ReferenceProcessor22add_to_discovered_listER14DiscoveredListP7oopDescPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull %1, ptr noundef %58)
   br label %91
 
-91:                                               ; preds = %41, %switch.lookup
+91:                                               ; preds = %41, %_ZN18ReferenceProcessor19get_discovered_listE13ReferenceType.exit
   %92 = load ptr, ptr %47, align 8
   %.not.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i, label %94, label %93

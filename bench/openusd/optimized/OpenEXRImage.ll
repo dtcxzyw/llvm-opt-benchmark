@@ -1164,28 +1164,28 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16Ge
   ]
 
 6:                                                ; preds = %1
-  %switch.tableidx = add i32 %3, -1
-  %7 = icmp ult i32 %switch.tableidx, 4
-  %switch.offset = add i32 %3, 31
-  %spec.select = select i1 %7, i32 %switch.offset, i32 -1
+  %switch.tableidx.i = add i32 %3, -1
+  %7 = icmp ult i32 %switch.tableidx.i, 4
+  %switch.offset.i = add i32 %3, 31
+  %spec.select.i = select i1 %7, i32 %switch.offset.i, i32 -1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
 
 8:                                                ; preds = %1
-  %switch.tableidx1 = add i32 %3, -1
-  %9 = icmp ult i32 %switch.tableidx1, 4
-  %switch.offset3 = add i32 %3, 7
-  %spec.select7 = select i1 %9, i32 %switch.offset3, i32 -1
+  %switch.tableidx1.i = add i32 %3, -1
+  %9 = icmp ult i32 %switch.tableidx1.i, 4
+  %switch.offset3.i = add i32 %3, 7
+  %spec.select7.i = select i1 %9, i32 %switch.offset3.i, i32 -1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
 
 10:                                               ; preds = %1
-  %switch.tableidx4 = add i32 %3, -1
-  %11 = icmp ult i32 %switch.tableidx4, 4
-  %switch.offset6 = add i32 %3, 11
-  %spec.select8 = select i1 %11, i32 %switch.offset6, i32 -1
+  %switch.tableidx4.i = add i32 %3, -1
+  %11 = icmp ult i32 %switch.tableidx4.i, 4
+  %switch.offset6.i = add i32 %3, 11
+  %spec.select8.i = select i1 %11, i32 %switch.offset6.i, i32 -1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit: ; preds = %10, %8, %6, %1
-  %.0.i = phi i32 [ -1, %1 ], [ %spec.select, %6 ], [ %spec.select7, %8 ], [ %spec.select8, %10 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit: ; preds = %1, %6, %8, %10
+  %.0.i = phi i32 [ -1, %1 ], [ %spec.select.i, %6 ], [ %spec.select7.i, %8 ], [ %spec.select8.i, %10 ]
   %12 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_9HioFormatE(i32 noundef %.0.i)
   %13 = trunc i64 %12 to i32
   %14 = mul nsw i32 %3, %13

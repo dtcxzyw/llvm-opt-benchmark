@@ -2007,13 +2007,13 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %27 = tail call i8 @llvm.ucmp.i8.i64(i64 %26, i64 %24)
   br label %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfe89279e111b5e50E.llvm.9890526598091136527.exit"
 
-"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfe89279e111b5e50E.llvm.9890526598091136527.exit": ; preds = %22, %20
+"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfe89279e111b5e50E.llvm.9890526598091136527.exit": ; preds = %20, %22
   %.sroa.0.1.i = phi i8 [ %27, %22 ], [ %.sroa.0.0.i, %20 ]
   %28 = load ptr, ptr %0, align 8, !alias.scope !557, !noalias !575, !nonnull !4, !align !576, !noundef !4
   %29 = load i8, ptr %28, align 1, !range !577, !noalias !574, !noundef !4
   %30 = trunc nuw i8 %29 to i1
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i
-  %.sroa.0.2.i = select i1 %30, i8 %switch.offset, i8 %.sroa.0.1.i
+  %switch.offset.i = sub nsw i8 0, %.sroa.0.1.i
+  %.sroa.0.2.i = select i1 %30, i8 %switch.offset.i, i8 %.sroa.0.1.i
   ret i8 %.sroa.0.2.i
 }
 

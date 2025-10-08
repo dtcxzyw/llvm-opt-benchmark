@@ -462,7 +462,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %2
 70:                                               ; preds = %72
   %71 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %10) #10
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %10) #11
           to label %92 unwind label %90
 
 72:                                               ; preds = %2
@@ -523,7 +523,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
 88:                                               ; preds = %83, %80
   %89 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #10
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #11
           to label %92 unwind label %90
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E.exit.i", %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit42
@@ -536,7 +536,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
 90:                                               ; preds = %124, %115, %96, %93, %88, %70
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
 92:                                               ; preds = %124, %93, %88, %70
@@ -545,7 +545,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
 
 93:                                               ; preds = %96, %94
   %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #11
           to label %92 unwind label %90
 
 94:                                               ; preds = %65
@@ -556,7 +556,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
 96:                                               ; preds = %98
   %97 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %9) #10
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %9) #11
           to label %93 unwind label %90
 
 98:                                               ; preds = %65
@@ -618,7 +618,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit51:  ; preds = %98
 115:                                              ; preds = %110, %107
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #11
           to label %124 unwind label %90
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E.exit56": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E.exit.i53", %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit51
@@ -643,7 +643,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit51:  ; preds = %98
 
 124:                                              ; preds = %125, %115
   %.pn18 = phi { ptr, i32 } [ %126, %125 ], [ %116, %115 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #10
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8dd0ef5bd9483f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #11
           to label %92 unwind label %90
 
 125:                                              ; preds = %119, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E.exit56"
@@ -670,40 +670,44 @@ define noundef zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h637f7f
   %3 = ptrtoint ptr %.val to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable [
-    i64 2, label %7
-    i64 3, label %5
-    i64 0, label %8
-    i64 1, label %11
+    i64 2, label %5
+    i64 3, label %6
+    i64 0, label %10
+    i64 1, label %13
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = icmp ult ptr %.val, inttoptr (i64 4294967296 to ptr)
-  %spec.select = select i1 %6, i8 0, i8 13
-  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
-
-7:                                                ; preds = %1
   %.mask = and i64 %3, -4294967296
   %switch.selectcmp = icmp eq i64 %.mask, 8589934592
   %switch.select = select i1 %switch.selectcmp, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = load i8, ptr %9, align 8, !range !183, !noundef !4
+6:                                                ; preds = %1
+  %7 = lshr i64 %3, 32
+  %8 = trunc nuw i64 %7 to i32
+  %spec.select43.i.i.i = tail call i32 @llvm.umin.i32(i32 %8, i32 41)
+  %spec.select.i.i.i = trunc nuw nsw i32 %spec.select43.i.i.i to i8
+  %9 = icmp ult ptr %.val, inttoptr (i64 176093659136 to ptr)
+  tail call void @llvm.assume(i1 %9)
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-11:                                               ; preds = %1
-  %12 = getelementptr i8, ptr %.val, i64 15
-  %13 = load i8, ptr %12, align 8, !range !183, !noundef !4
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %12 = load i8, ptr %11, align 8, !range !183, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %7, %8, %11
-  %.0.i = phi i8 [ %10, %8 ], [ %13, %11 ], [ %spec.select, %5 ], [ %switch.select, %7 ]
-  %14 = icmp eq i8 %.0.i, 0
-  ret i1 %14
+13:                                               ; preds = %1
+  %14 = getelementptr i8, ptr %.val, i64 15
+  %15 = load i8, ptr %14, align 8, !range !183, !noundef !4
+  br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
+
+_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %10, %13
+  %.0.i = phi i8 [ %spec.select.i.i.i, %6 ], [ %12, %10 ], [ %15, %13 ], [ %switch.select, %5 ]
+  %16 = icmp eq i8 %.0.i, 0
+  ret i1 %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -720,7 +724,7 @@ define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$tempfile..file..PathPersistError$GT$17h49bbe88056febc65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #10
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$tempfile..file..PathPersistError$GT$17h49bbe88056febc65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #11
           to label %common.resume unwind label %18
 
 10:                                               ; preds = %2
@@ -743,7 +747,7 @@ define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
 common.resume:                                    ; preds = %8, %14
@@ -757,7 +761,7 @@ common.resume:                                    ; preds = %8, %14
 18:                                               ; preds = %8
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 }
 
@@ -777,7 +781,7 @@ define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$tempfile..file..PersistError$GT$17h14be89ad0d6e714dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #10
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$tempfile..file..PersistError$GT$17h14be89ad0d6e714dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #11
           to label %common.resume unwind label %29
 
 10:                                               ; preds = %2
@@ -806,7 +810,7 @@ define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
 19:                                               ; preds = %16
@@ -824,7 +828,7 @@ define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 24:                                               ; preds = %.body.i
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
 common.resume:                                    ; preds = %8, %.body.i
@@ -845,7 +849,7 @@ common.resume:                                    ; preds = %8, %.body.i
 29:                                               ; preds = %8
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 }
 
@@ -1020,6 +1024,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1030,8 +1037,9 @@ attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { cold }
-attributes #11 = { cold noreturn nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { cold }
+attributes #12 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

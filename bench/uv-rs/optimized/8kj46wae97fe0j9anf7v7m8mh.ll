@@ -1061,21 +1061,20 @@ define noundef zeroext i1 @"_ZN214_$LT$uv_distribution_filename..source_dist.._.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN99_$LT$uv_distribution_filename..source_dist..SourceDistFilename$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc842015c6dcd31ffE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #1 {
-"_ZN24uv_distribution_filename9extension1_108_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_distribution_filename..extension..SourceDistExtension$GT$7resolve17h182617a99eb3cec8E.exit":
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4, !noundef !3
-  tail call void @"_ZN81_$LT$uv_normalize..package_name..PackageName$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h2ebb7d39ca33054fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %5, ptr noundef nonnull %2, i64 noundef %3)
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = add i64 %3, 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %1, align 4, !range !144, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4
-  tail call void @"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i32 noundef %9, i32 %11, ptr noundef nonnull %6, i64 noundef %7)
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i8, ptr %13, align 4, !range !145, !noundef !3
-  store i8 %14, ptr %12, align 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load i32, ptr %5, align 4, !noundef !3
+  tail call void @"_ZN81_$LT$uv_normalize..package_name..PackageName$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h2ebb7d39ca33054fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %6, ptr noundef nonnull %2, i64 noundef %3)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = add i64 %3, 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i32, ptr %1, align 4, !range !144, !noundef !3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = load i32, ptr %11, align 4
+  tail call void @"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, i32 noundef %10, i32 %12, ptr noundef nonnull %7, i64 noundef %8)
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %15 = load i8, ptr %14, align 4, !range !145, !noundef !3
+  store i8 %15, ptr %13, align 1
   ret void
 }
 

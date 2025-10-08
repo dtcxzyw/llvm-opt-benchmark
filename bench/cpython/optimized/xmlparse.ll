@@ -21572,9 +21572,8 @@ define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef initi
   br label %entityValueProcessor.exit
 
 45:                                               ; preds = %._crit_edge.i
-  %switch.tableidx104 = add i32 %.lcssa.i, 2
-  %46 = icmp ult i32 %switch.tableidx104, 3
-  br i1 %46, label %switch.lookup105, label %47
+  %46 = icmp sgt i32 %.lcssa.i, -3
+  br i1 %46, label %switch.lookup.i, label %47
 
 47:                                               ; preds = %45
   %48 = call fastcc i32 @storeEntityValue(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %34, ptr noundef %2, i32 noundef 0)
@@ -21587,12 +21586,12 @@ define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef initi
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge.i, label %.lr.ph.i
 
-switch.lookup105:                                 ; preds = %45
-  %switch.offset107 = sub i32 4, %.lcssa.i
+switch.lookup.i:                                  ; preds = %45
+  %switch.offset.i = sub nsw i32 4, %.lcssa.i
   br label %entityValueProcessor.exit
 
-entityValueProcessor.exit:                        ; preds = %switch.lookup105, %44, %47
-  %.0.i = phi i32 [ 0, %44 ], [ %48, %47 ], [ %switch.offset107, %switch.lookup105 ]
+entityValueProcessor.exit:                        ; preds = %44, %47, %switch.lookup.i
+  %.0.i = phi i32 [ 0, %44 ], [ %48, %47 ], [ %switch.offset.i, %switch.lookup.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %accountingOnAbort.exit
 

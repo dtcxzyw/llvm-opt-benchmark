@@ -194486,20 +194486,11 @@ define noundef range(i8 0, 9) i8 @"_ZN99_$LT$gpui..elements..common..DefaultColo
   %5 = load i64, ptr %4, align 8, !alias.scope !53265, !noundef !5
   %6 = add i64 %3, %5
   %7 = icmp ugt i64 %6, 8
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %1
-  store i64 %3, ptr %0, align 8, !alias.scope !53265
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %2, i64 8)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  br label %"_ZN99_$LT$gpui..elements..common..DefaultColorIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h8751223ef56c0e7bE.exit"
-
-9:                                                ; preds = %1
-  store i64 8, ptr %0, align 8, !alias.scope !53265
-  br label %"_ZN99_$LT$gpui..elements..common..DefaultColorIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h8751223ef56c0e7bE.exit"
-
-"_ZN99_$LT$gpui..elements..common..DefaultColorIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h8751223ef56c0e7bE.exit": ; preds = %8, %9
-  %.sroa.0.0.i = phi i8 [ 8, %9 ], [ %spec.select, %8 ]
+  %spec.select1.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 8)
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select1.i.i to i8
+  %.sink.i = select i1 %7, i64 8, i64 %3
+  %.sroa.0.0.i = select i1 %7, i8 8, i8 %spec.select.i.i
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !53265
   ret i8 %.sroa.0.0.i
 }
 
@@ -194529,20 +194520,11 @@ define noundef range(i8 0, 9) i8 @"_ZN99_$LT$gpui..elements..common..DefaultColo
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = add i64 %5, %7
   %9 = icmp ugt i64 %8, 8
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %2
-  store i64 %5, ptr %0, align 8
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %4, i64 8)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  br label %_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit
-
-11:                                               ; preds = %2
-  store i64 8, ptr %0, align 8
-  br label %_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit
-
-_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit: ; preds = %10, %11
-  %.sroa.0.0 = phi i8 [ 8, %11 ], [ %spec.select, %10 ]
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %4, i64 8)
+  %spec.select.i = trunc nuw nsw i64 %spec.select1.i to i8
+  %.sink = select i1 %9, i64 8, i64 %5
+  %.sroa.0.0 = select i1 %9, i8 8, i8 %spec.select.i
+  store i64 %.sink, ptr %0, align 8
   ret i8 %.sroa.0.0
 }
 
@@ -194566,24 +194548,12 @@ define noundef range(i8 0, 9) i8 @"_ZN114_$LT$gpui..elements..common..DefaultCol
   %5 = load i64, ptr %0, align 8, !noundef !5
   %6 = add i64 %5, %4
   %7 = icmp ugt i64 %6, 8
-  br i1 %7, label %10, label %8
-
-8:                                                ; preds = %1
-  store i64 %4, ptr %2, align 8
-  %9 = icmp ult i64 %3, 8
-  br i1 %9, label %switch.lookup, label %_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit
-
-10:                                               ; preds = %1
-  store i64 8, ptr %2, align 8
-  br label %_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit
-
-switch.lookup:                                    ; preds = %8
-  %switch.idx.cast = trunc nuw i64 %3 to i8
-  %switch.offset = sub nuw nsw i8 7, %switch.idx.cast
-  br label %_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit
-
-_ZN4gpui8elements6common16DefaultColorIter3get17h44396db0426d0910E.exit: ; preds = %switch.lookup, %8, %10
-  %.sroa.0.0 = phi i8 [ 8, %10 ], [ 8, %8 ], [ %switch.offset, %switch.lookup ]
+  %8 = sub i64 7, %3
+  %spec.select1.i = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
+  %spec.select.i = trunc nuw nsw i64 %spec.select1.i to i8
+  %.sink = select i1 %7, i64 8, i64 %4
+  %.sroa.0.0 = select i1 %7, i8 8, i8 %spec.select.i
+  store i64 %.sink, ptr %2, align 8
   ret i8 %.sroa.0.0
 }
 

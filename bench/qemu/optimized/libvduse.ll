@@ -2100,7 +2100,7 @@ define internal fastcc ptr @iova_to_va(ptr noundef captures(none) %0, ptr nounde
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %28, %30
   %32 = inttoptr i64 %31 to ptr
-  br label %68
+  br label %69
 
 33:                                               ; preds = %6, %12, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2118,66 +2118,66 @@ define internal fastcc ptr @iova_to_va(ptr noundef captures(none) %0, ptr nounde
   %39 = load i32, ptr %38, align 8
   %40 = call i32 (i32, i64, ...) @ioctl(i32 noundef %39, i64 noundef 3223355664, ptr noundef nonnull %4) #20
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %68, label %perm_to_prot.exit
+  br i1 %41, label %69, label %42
 
-perm_to_prot.exit:                                ; preds = %34
-  %42 = load i64, ptr %4, align 8
-  %43 = load i64, ptr %35, align 8
-  %44 = load i64, ptr %37, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %46 = load i8, ptr %45, align 8
-  %switch.tableidx = add i8 %46, -1
-  %47 = icmp ult i8 %switch.tableidx, 3
-  %switch.idx.cast = zext i8 %switch.tableidx to i32
-  %switch.offset = add nuw nsw i32 %switch.idx.cast, 1
-  %.0.i = select i1 %47, i32 %switch.offset, i32 0
-  %48 = sub i64 %44, %43
-  %49 = add i64 %48, 1
-  %50 = add i64 %49, %42
-  %51 = call ptr @mmap64(ptr noundef null, i64 noundef %50, i32 noundef range(i32 0, 4) %.0.i, i32 noundef 1, i32 noundef range(i32 0, -2147483648) %40, i64 noundef 0) #20
-  %52 = icmp eq ptr %51, inttoptr (i64 -1 to ptr)
-  br i1 %52, label %vduse_iova_add_region.exit, label %.preheader.i
+42:                                               ; preds = %34
+  %43 = load i64, ptr %4, align 8
+  %44 = load i64, ptr %35, align 8
+  %45 = load i64, ptr %37, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %47 = load i8, ptr %46, align 8
+  %switch.tableidx.i = add i8 %47, -1
+  %48 = icmp ult i8 %switch.tableidx.i, 3
+  %switch.idx.cast.i = zext i8 %switch.tableidx.i to i32
+  %switch.offset.i = add nuw nsw i32 %switch.idx.cast.i, 1
+  %.0.i = select i1 %48, i32 %switch.offset.i, i32 0
+  %49 = sub i64 %45, %44
+  %50 = add i64 %49, 1
+  %51 = add i64 %50, %43
+  %52 = call ptr @mmap64(ptr noundef null, i64 noundef %51, i32 noundef range(i32 0, 4) %.0.i, i32 noundef 1, i32 noundef range(i32 0, -2147483648) %40, i64 noundef 0) #20
+  %53 = icmp eq ptr %52, inttoptr (i64 -1 to ptr)
+  br i1 %53, label %vduse_iova_add_region.exit, label %.preheader.i
 
-53:                                               ; preds = %.preheader.i
+54:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %perm_to_prot.exit, %53
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %perm_to_prot.exit ]
-  %54 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %5, i64 %indvars.iv.i
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load i64, ptr %55, align 8
-  %.not.i = icmp eq i64 %56, 0
-  br i1 %.not.i, label %58, label %53
+.preheader.i:                                     ; preds = %42, %54
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %42 ]
+  %55 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %5, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %57 = load i64, ptr %56, align 8
+  %.not.i = icmp eq i64 %57, 0
+  br i1 %.not.i, label %59, label %54
 
-.critedge.i:                                      ; preds = %53
+.critedge.i:                                      ; preds = %54
   call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.16, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.vduse_iova_add_region) #24
   unreachable
 
-vduse_iova_add_region.exit:                       ; preds = %perm_to_prot.exit
-  %57 = call i32 @close(i32 noundef range(i32 0, -2147483648) %40) #20
-  br label %68
+vduse_iova_add_region.exit:                       ; preds = %42
+  %58 = call i32 @close(i32 noundef range(i32 0, -2147483648) %40) #20
+  br label %69
 
-58:                                               ; preds = %.preheader.i
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %60 = ptrtoint ptr %51 to i64
-  store i64 %60, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i64 %42, ptr %61, align 8
-  store i64 %43, ptr %54, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 %49, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8200
-  %64 = load i32, ptr %63, align 8
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 8
-  %66 = call i32 @close(i32 noundef range(i32 0, -2147483648) %40) #20
-  %67 = call fastcc ptr @iova_to_va(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
-  br label %68
+59:                                               ; preds = %.preheader.i
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %61 = ptrtoint ptr %52 to i64
+  store i64 %61, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i64 %43, ptr %62, align 8
+  store i64 %44, ptr %55, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 %50, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8200
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  %67 = call i32 @close(i32 noundef range(i32 0, -2147483648) %40) #20
+  %68 = call fastcc ptr @iova_to_va(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
+  br label %69
 
-68:                                               ; preds = %vduse_iova_add_region.exit, %24, %34, %58
-  %.2 = phi ptr [ %32, %24 ], [ %67, %58 ], [ null, %34 ], [ null, %vduse_iova_add_region.exit ]
+69:                                               ; preds = %vduse_iova_add_region.exit, %24, %34, %59
+  %.2 = phi ptr [ %32, %24 ], [ %68, %59 ], [ null, %34 ], [ null, %vduse_iova_add_region.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2
 }

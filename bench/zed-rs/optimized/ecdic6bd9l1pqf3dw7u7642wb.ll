@@ -28220,12 +28220,12 @@ _ZN8language13highlight_map12HighlightMap3get17h6e5f4e69bef8c932E.exit: ; preds 
 
 102:                                              ; preds = %100
   %.sroa.036.sroa.4.0.copyload = load i32, ptr %.sroa.06.0.sroa.gep.sroa.gep128, align 8
-  %switch.tableidx = add i32 %.sroa.036.sroa.4.0.copyload, -1
-  %103 = icmp ult i32 %switch.tableidx, 4
-  br i1 %103, label %switch.lookup, label %_ZN8language6buffer12BufferChunks24update_diagnostic_depths17hcab7a8cc3bf8ee3eE.exit
+  %switch.tableidx.i = add i32 %.sroa.036.sroa.4.0.copyload, -1
+  %103 = icmp ult i32 %switch.tableidx.i, 4
+  br i1 %103, label %switch.lookup.i, label %_ZN8language6buffer12BufferChunks24update_diagnostic_depths17hcab7a8cc3bf8ee3eE.exit
 
-switch.lookup:                                    ; preds = %102
-  %104 = shl nuw nsw i32 %switch.tableidx, 3
+switch.lookup.i:                                  ; preds = %102
+  %104 = shl nuw nsw i32 %switch.tableidx.i, 3
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 680
@@ -28234,12 +28234,12 @@ switch.lookup:                                    ; preds = %102
   %110 = trunc nuw i8 %.sroa.340.0.copyload to i1
   br i1 %108, label %113, label %111
 
-111:                                              ; preds = %switch.lookup
+111:                                              ; preds = %switch.lookup.i
   %112 = add i64 %109, -1
   store i64 %112, ptr %107, align 8, !alias.scope !5250, !noalias !5253
   br i1 %110, label %.sink.split.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34da16922228c9dE.exit.backedge"
 
-113:                                              ; preds = %switch.lookup
+113:                                              ; preds = %switch.lookup.i
   %114 = add i64 %109, 1
   store i64 %114, ptr %107, align 8, !alias.scope !5250, !noalias !5253
   br i1 %110, label %.sink.split.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34da16922228c9dE.exit.backedge"

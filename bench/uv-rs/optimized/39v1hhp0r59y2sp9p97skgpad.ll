@@ -1287,22 +1287,20 @@ define hidden void @"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha509dfa29cebcbbdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 9, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc17290ce361d1b7aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -10247,10 +10245,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h000393bb287e350cE(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h003e3da878758e50E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha509dfa29cebcbbdE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1692
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  store i8 %4, ptr %3, align 1, !alias.scope !1692
   store i8 9, ptr %0, align 8, !alias.scope !1692
   ret void
 }
@@ -10314,10 +10311,9 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h26b36d30a7f276cdE(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h277942e100e4c43fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he13f5a532def186eE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 15)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1707
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 15)
+  store i8 %4, ptr %3, align 1, !alias.scope !1707
   store i8 9, ptr %0, align 8, !alias.scope !1707
   ret void
 }
@@ -10467,20 +10463,18 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817hde3cd271bdd4e4a5E(ptr dead_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hec27afea5b21c5cfE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hccaf923ee2afd1d9E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 15)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1728
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 15)
+  store i8 %4, ptr %3, align 1, !alias.scope !1728
   store i8 0, ptr %0, align 8, !alias.scope !1728
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817hf3a602066575bc81E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i8 noundef %1) unnamed_addr #11 {
-"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc17290ce361d1b7aE.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1731
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  store i8 %4, ptr %3, align 1, !alias.scope !1731
   store i8 0, ptr %0, align 8, !alias.scope !1731
   ret void
 }
@@ -11413,11 +11407,10 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617h1500284001d7bc63E(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617h64ba5de92b239009E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #11 {
-"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he13f5a532def186eE.exit":
-  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 15)
-  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1818
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 15)
+  %.sink.i = trunc nuw nsw i16 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !1818
   store i8 9, ptr %0, align 8, !alias.scope !1818
   ret void
 }
@@ -11489,11 +11482,10 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617hb9aceb1f5ab684ffE(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u1617hbf6293487ddb9aa2E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i16 noundef %1) unnamed_addr #11 {
-"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha509dfa29cebcbbdE.exit":
-  %spec.select1 = tail call i16 @llvm.umin.i16(i16 %1, i16 5)
-  %spec.select = trunc nuw nsw i16 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1833
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i16 @llvm.umin.i16(i16 %1, i16 5)
+  %.sink.i = trunc nuw nsw i16 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !1833
   store i8 9, ptr %0, align 8, !alias.scope !1833
   ret void
 }
@@ -11535,11 +11527,10 @@ define hidden void @_ZN5serde2de7Visitor9visit_u1617hf4b1b633797cfe9cE(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h15d1434fef4bc5d5E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #11 {
-"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he13f5a532def186eE.exit":
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 15)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1842
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 15)
+  %.sink.i = trunc nuw nsw i32 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !1842
   store i8 9, ptr %0, align 8, !alias.scope !1842
   ret void
 }
@@ -11580,11 +11571,10 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h29d59f182d7e340eE(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h2d7b3b4a81bc9cffE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i32 noundef %1) unnamed_addr #11 {
-"_ZN175_$LT$uv_pypi_types..scheme.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..scheme..Scheme$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha509dfa29cebcbbdE.exit":
-  %spec.select1 = tail call i32 @llvm.umin.i32(i32 %1, i32 5)
-  %spec.select = trunc nuw nsw i32 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1, !alias.scope !1851
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 5)
+  %.sink.i = trunc nuw nsw i32 %4 to i8
+  store i8 %.sink.i, ptr %3, align 1, !alias.scope !1851
   store i8 9, ptr %0, align 8, !alias.scope !1851
   ret void
 }
@@ -24547,22 +24537,20 @@ define hidden void @"_ZN9uv_python11interpreter1_92_$LT$impl$u20$serde..de..Dese
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hccaf923ee2afd1d9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 15)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 15)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN186_$LT$uv_python..interpreter.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_python..interpreter..InterpreterInfo$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he13f5a532def186eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, i64 noundef %1) unnamed_addr #11 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 15)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %spec.select, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 15)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 1
   store i8 9, ptr %0, align 8
   ret void
 }

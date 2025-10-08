@@ -20078,264 +20078,297 @@ switch.lookup:                                    ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef zeroext i1 @_ZL26isImpliedTrueByMatchingCmpN4llvm12CmpPredicateES0_(i64 %0, i64 %1) unnamed_addr #17 {
-  %.sroa.032.0.extract.trunc = trunc i64 %0 to i32
-  %.sroa.018.0.extract.trunc = trunc i64 %1 to i32
-  %3 = tail call { i64, i8 } @_ZN4llvm12CmpPredicate11getMatchingES0_S0_(i64 %0, i64 %1)
-  %.fca.1.extract = extractvalue { i64, i8 } %3, 1
-  %4 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %4, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread, label %5
+  %.sroa.035.0.extract.trunc = trunc i64 %0 to i32
+  %.sroa.021.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.16.0.extract.shift = lshr i64 %1, 32
+  %3 = icmp eq i32 %.sroa.035.0.extract.trunc, %.sroa.021.0.extract.trunc
+  br i1 %3, label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread, label %4
 
-5:                                                ; preds = %2
-  %6 = and i64 %0, 4294967296
-  %7 = icmp ne i64 %6, 0
-  %.off.i = add i32 %.sroa.018.0.extract.trunc, -38
-  %switch.i = icmp ult i32 %.off.i, 4
-  %or.cond = select i1 %7, i1 %switch.i, i1 false
-  br i1 %or.cond, label %8, label %19
+4:                                                ; preds = %2
+  %5 = icmp ult i32 %.sroa.035.0.extract.trunc, 16
+  %6 = icmp ult i32 %.sroa.021.0.extract.trunc, 16
+  %or.cond.i = or i1 %5, %6
+  %7 = and i64 %0, 4294967296
+  %.pre = icmp ne i64 %7, 0
+  br i1 %or.cond.i, label %._crit_edge, label %8
 
-8:                                                ; preds = %5
-  %9 = add i32 %.sroa.032.0.extract.trunc, -32
+8:                                                ; preds = %4
+  br i1 %.pre, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i.i, label %15
+
+_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i.i: ; preds = %8
+  %9 = add i32 %.sroa.021.0.extract.trunc, -32
   %10 = icmp ult i32 %9, 10
-  br i1 %10, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, label %11
+  tail call void @llvm.assume(i1 %10)
+  %11 = and i32 %.sroa.021.0.extract.trunc, 46
+  %12 = icmp eq i32 %11, 32
+  br i1 %12, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i, label %13
 
-11:                                               ; preds = %8
-  %12 = icmp ult i32 %.sroa.032.0.extract.trunc, 16
-  tail call void @llvm.assume(i1 %12)
-  switch i32 %.sroa.032.0.extract.trunc, label %.thread.i [
+13:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i.i
+  %.off.i.i.i = add nsw i32 %.sroa.021.0.extract.trunc, -38
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, 4
+  br i1 %switch.i.i.i, label %switch.lookup.i.i, label %.thread.i.i
+
+switch.lookup.i.i:                                ; preds = %13
+  %switch.offset.i.i = add nsw i32 %.sroa.021.0.extract.trunc, -4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i
+
+.thread.i.i:                                      ; preds = %13
+  %switch.offset18.i.i = add nuw nsw i32 %.sroa.021.0.extract.trunc, 4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i
+
+_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i: ; preds = %.thread.i.i, %switch.lookup.i.i, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i.i
+  %.0.i.i = phi i32 [ %.sroa.021.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i.i ], [ %switch.offset.i.i, %switch.lookup.i.i ], [ %switch.offset18.i.i, %.thread.i.i ]
+  %14 = icmp eq i32 %.0.i.i, %.sroa.035.0.extract.trunc
+  br i1 %14, label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread, label %15
+
+15:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i, %8
+  %16 = trunc i64 %.sroa.16.0.extract.shift to i1
+  br i1 %16, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6.i, label %._crit_edge
+
+_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6.i: ; preds = %15
+  %17 = add i32 %.sroa.035.0.extract.trunc, -32
+  %18 = icmp ult i32 %17, 10
+  tail call void @llvm.assume(i1 %18)
+  %19 = and i32 %.sroa.035.0.extract.trunc, 46
+  %20 = icmp eq i32 %19, 32
+  br i1 %20, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i, label %21
+
+21:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6.i
+  %.off.i.i7.i = add nsw i32 %.sroa.035.0.extract.trunc, -38
+  %switch.i.i8.i = icmp ult i32 %.off.i.i7.i, 4
+  br i1 %switch.i.i8.i, label %switch.lookup.i9.i, label %.thread.i2.i
+
+switch.lookup.i9.i:                               ; preds = %21
+  %switch.offset.i10.i = add nsw i32 %.sroa.035.0.extract.trunc, -4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i
+
+.thread.i2.i:                                     ; preds = %21
+  %switch.offset18.i5.i = add nuw nsw i32 %.sroa.035.0.extract.trunc, 4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i
+
+_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i: ; preds = %.thread.i2.i, %switch.lookup.i9.i, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6.i
+  %.0.i1.i = phi i32 [ %.sroa.035.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6.i ], [ %switch.offset.i10.i, %switch.lookup.i9.i ], [ %switch.offset18.i5.i, %.thread.i2.i ]
+  %22 = icmp eq i32 %.0.i1.i, %.sroa.021.0.extract.trunc
+  br i1 %22, label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread, label %._crit_edge
+
+._crit_edge:                                      ; preds = %4, %15, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i
+  %.off.i = add i32 %.sroa.021.0.extract.trunc, -38
+  %switch.i = icmp ult i32 %.off.i, 4
+  %or.cond = and i1 %switch.i, %.pre
+  br i1 %or.cond, label %23, label %30
+
+23:                                               ; preds = %._crit_edge
+  %24 = add i32 %.sroa.035.0.extract.trunc, -32
+  %25 = icmp ult i32 %24, 10
+  br i1 %25, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, label %26
+
+26:                                               ; preds = %23
+  tail call void @llvm.assume(i1 %5)
+  switch i32 %.sroa.035.0.extract.trunc, label %.thread.i [
     i32 9, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
     i32 6, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
     i32 1, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
     i32 14, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
   ]
 
-_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i: ; preds = %8
-  %13 = and i32 %.sroa.032.0.extract.trunc, 46
-  %14 = icmp eq i32 %13, 32
-  br i1 %14, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, label %15
-
-15:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i
-  %.off.i.i = add nsw i32 %.sroa.032.0.extract.trunc, -38
-  %switch.i.i = icmp ult i32 %.off.i.i, 4
-  br i1 %switch.i.i, label %16, label %.thread.i
-
-16:                                               ; preds = %15
-  switch i32 %.sroa.032.0.extract.trunc, label %17 [
-    i32 41, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-    i32 39, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-    i32 40, label %.thread56
-    i32 38, label %.thread
-  ]
-
-17:                                               ; preds = %16
-  unreachable
-
-.thread.i:                                        ; preds = %15, %11
-  %.off.i8.i = add nsw i32 %.sroa.032.0.extract.trunc, -34
-  %switch.i9.i = icmp ult i32 %.off.i8.i, 4
-  tail call void @llvm.assume(i1 %switch.i9.i)
-  switch i32 %.sroa.032.0.extract.trunc, label %18 [
-    i32 37, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-    i32 35, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-    i32 36, label %.thread62
-    i32 34, label %.thread59
-  ]
-
-18:                                               ; preds = %.thread.i
-  unreachable
-
-19:                                               ; preds = %5
-  %20 = and i64 %1, 4294967296
-  %21 = icmp ne i64 %20, 0
-  %.off.i3 = add i32 %.sroa.032.0.extract.trunc, -38
-  %switch.i4 = icmp ult i32 %.off.i3, 4
-  %or.cond65 = select i1 %21, i1 %switch.i4, i1 false
-  br i1 %or.cond65, label %22, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-
-22:                                               ; preds = %19
-  %23 = add i32 %.sroa.018.0.extract.trunc, -32
-  %24 = icmp ult i32 %23, 10
-  br i1 %24, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i9, label %25
-
-25:                                               ; preds = %22
-  %26 = icmp ult i32 %.sroa.018.0.extract.trunc, 16
-  tail call void @llvm.assume(i1 %26)
-  switch i32 %.sroa.018.0.extract.trunc, label %.thread.i6 [
-    i32 9, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-    i32 6, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-    i32 1, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-    i32 14, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  ]
-
-_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i9: ; preds = %22
-  %27 = and i32 %.sroa.018.0.extract.trunc, 46
+_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i: ; preds = %23
+  %27 = and i32 %.sroa.035.0.extract.trunc, 46
   %28 = icmp eq i32 %27, 32
   br i1 %28, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, label %29
 
-29:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i9
-  br i1 %switch.i, label %switch.lookup, label %.thread.i6
+29:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i
+  %.off.i.i = add nsw i32 %.sroa.035.0.extract.trunc, -38
+  %switch.i.i = icmp ult i32 %.off.i.i, 4
+  br i1 %switch.i.i, label %switch.lookup.i, label %.thread.i
 
-switch.lookup:                                    ; preds = %29
-  %switch.offset = add nsw i32 %.sroa.018.0.extract.trunc, -4
+switch.lookup.i:                                  ; preds = %29
+  %switch.offset.i = add nsw i32 %.sroa.035.0.extract.trunc, -4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
-.thread.i6:                                       ; preds = %29, %25
-  %.off.i8.i7 = add nsw i32 %.sroa.018.0.extract.trunc, -34
-  %switch.i9.i8 = icmp ult i32 %.off.i8.i7, 4
-  tail call void @llvm.assume(i1 %switch.i9.i8)
-  %switch.offset68 = add nuw nsw i32 %.sroa.018.0.extract.trunc, 4
+.thread.i:                                        ; preds = %29, %26
+  %.off.i8.i = add nsw i32 %.sroa.035.0.extract.trunc, -34
+  %switch.i9.i = icmp ult i32 %.off.i8.i, 4
+  tail call void @llvm.assume(i1 %switch.i9.i)
+  %switch.offset18.i = add nuw nsw i32 %.sroa.035.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
-_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; preds = %.thread.i6, %switch.lookup, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i9, %25, %25, %25, %25, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, %11, %11, %11, %11, %19
-  %.sroa.018.0 = phi i32 [ %.sroa.018.0.extract.trunc, %19 ], [ %.sroa.018.0.extract.trunc, %11 ], [ %.sroa.018.0.extract.trunc, %11 ], [ %.sroa.018.0.extract.trunc, %11 ], [ %.sroa.018.0.extract.trunc, %11 ], [ %.sroa.018.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i ], [ %.sroa.018.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i9 ], [ %.sroa.018.0.extract.trunc, %25 ], [ %.sroa.018.0.extract.trunc, %25 ], [ %.sroa.018.0.extract.trunc, %25 ], [ %.sroa.018.0.extract.trunc, %25 ], [ %switch.offset, %switch.lookup ], [ %switch.offset68, %.thread.i6 ]
-  switch i32 %.sroa.032.0.extract.trunc, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread [
-    i32 32, label %30
-    i32 34, label %32
-    i32 36, label %35
-    i32 38, label %38
-    i32 40, label %41
+30:                                               ; preds = %._crit_edge
+  %31 = trunc i64 %.sroa.16.0.extract.shift to i1
+  %.off.i3 = add i32 %.sroa.035.0.extract.trunc, -38
+  %switch.i4 = icmp ult i32 %.off.i3, 4
+  %or.cond46 = and i1 %switch.i4, %31
+  br i1 %or.cond46, label %32, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+
+32:                                               ; preds = %30
+  %33 = add i32 %.sroa.021.0.extract.trunc, -32
+  %34 = icmp ult i32 %33, 10
+  br i1 %34, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10, label %35
+
+35:                                               ; preds = %32
+  tail call void @llvm.assume(i1 %6)
+  switch i32 %.sroa.021.0.extract.trunc, label %.thread.i6 [
+    i32 9, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+    i32 6, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+    i32 1, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+    i32 14, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
   ]
 
-30:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %31 = add i32 %.sroa.018.0, -35
-  %switch.and = and i32 %31, -7
+_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10: ; preds = %32
+  %36 = and i32 %.sroa.021.0.extract.trunc, 46
+  %37 = icmp eq i32 %36, 32
+  br i1 %37, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, label %38
+
+38:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10
+  br i1 %switch.i, label %switch.lookup.i13, label %.thread.i6
+
+switch.lookup.i13:                                ; preds = %38
+  %switch.offset.i14 = add nsw i32 %.sroa.021.0.extract.trunc, -4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+
+.thread.i6:                                       ; preds = %38, %35
+  %.off.i8.i7 = add nsw i32 %.sroa.021.0.extract.trunc, -34
+  %switch.i9.i8 = icmp ult i32 %.off.i8.i7, 4
+  tail call void @llvm.assume(i1 %switch.i9.i8)
+  %switch.offset18.i9 = add nuw nsw i32 %.sroa.021.0.extract.trunc, 4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+
+_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; preds = %.thread.i6, %switch.lookup.i13, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10, %35, %35, %35, %35, %.thread.i, %switch.lookup.i, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, %26, %26, %26, %26, %30
+  %.sroa.021.0 = phi i32 [ %.sroa.021.0.extract.trunc, %30 ], [ %.sroa.021.0.extract.trunc, %26 ], [ %.sroa.021.0.extract.trunc, %26 ], [ %.sroa.021.0.extract.trunc, %26 ], [ %.sroa.021.0.extract.trunc, %26 ], [ %.sroa.021.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i ], [ %.sroa.021.0.extract.trunc, %switch.lookup.i ], [ %.sroa.021.0.extract.trunc, %.thread.i ], [ %.sroa.021.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10 ], [ %.sroa.021.0.extract.trunc, %35 ], [ %.sroa.021.0.extract.trunc, %35 ], [ %.sroa.021.0.extract.trunc, %35 ], [ %.sroa.021.0.extract.trunc, %35 ], [ %switch.offset.i14, %switch.lookup.i13 ], [ %switch.offset18.i9, %.thread.i6 ]
+  %.sroa.035.0 = phi i32 [ %.sroa.035.0.extract.trunc, %30 ], [ %.sroa.035.0.extract.trunc, %26 ], [ %.sroa.035.0.extract.trunc, %26 ], [ %.sroa.035.0.extract.trunc, %26 ], [ %.sroa.035.0.extract.trunc, %26 ], [ %.sroa.035.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i ], [ %switch.offset.i, %switch.lookup.i ], [ %switch.offset18.i, %.thread.i ], [ %.sroa.035.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i10 ], [ %.sroa.035.0.extract.trunc, %35 ], [ %.sroa.035.0.extract.trunc, %35 ], [ %.sroa.035.0.extract.trunc, %35 ], [ %.sroa.035.0.extract.trunc, %35 ], [ %.sroa.035.0.extract.trunc, %switch.lookup.i13 ], [ %.sroa.035.0.extract.trunc, %.thread.i6 ]
+  switch i32 %.sroa.035.0, label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread [
+    i32 32, label %39
+    i32 34, label %41
+    i32 36, label %43
+    i32 38, label %45
+    i32 40, label %48
+  ]
+
+39:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+  %40 = add i32 %.sroa.021.0, -35
+  %switch.and = and i32 %40, -7
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-
-32:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %33 = icmp eq i32 %.sroa.018.0, 33
-  br i1 %33, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread, label %.thread
-
-.thread:                                          ; preds = %16, %32
-  %.sroa.018.04155 = phi i32 [ %.sroa.018.0, %32 ], [ %.sroa.018.0.extract.trunc, %16 ]
-  %34 = icmp eq i32 %.sroa.018.04155, 35
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-
-35:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %36 = icmp eq i32 %.sroa.018.0, 33
-  br i1 %36, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread, label %.thread56
-
-.thread56:                                        ; preds = %16, %35
-  %.sroa.018.04558 = phi i32 [ %.sroa.018.0, %35 ], [ %.sroa.018.0.extract.trunc, %16 ]
-  %37 = icmp eq i32 %.sroa.018.04558, 37
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
-
-38:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %39 = icmp eq i32 %.sroa.018.0, 33
-  br i1 %39, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread, label %.thread59
-
-.thread59:                                        ; preds = %.thread.i, %38
-  %.sroa.018.04961 = phi i32 [ %.sroa.018.0, %38 ], [ %.sroa.018.0.extract.trunc, %.thread.i ]
-  %40 = icmp eq i32 %.sroa.018.04961, 39
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
+  br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
 
 41:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %42 = icmp eq i32 %.sroa.018.0, 33
-  br i1 %42, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread, label %.thread62
+  %42 = and i32 %.sroa.021.0, -3
+  %spec.select = icmp eq i32 %42, 33
+  br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
 
-.thread62:                                        ; preds = %.thread.i, %41
-  %.sroa.018.05364 = phi i32 [ %.sroa.018.0, %41 ], [ %.sroa.018.0.extract.trunc, %.thread.i ]
-  %43 = icmp eq i32 %.sroa.018.05364, 41
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread
+43:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+  %44 = and i32 %.sroa.021.0, -5
+  %spec.select47 = icmp eq i32 %44, 33
+  br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
 
-_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.thread: ; preds = %30, %.thread.i, %.thread.i, %16, %16, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, %41, %.thread62, %38, %.thread59, %35, %.thread56, %32, %.thread, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %32 ], [ %34, %.thread ], [ true, %35 ], [ %37, %.thread56 ], [ true, %38 ], [ %40, %.thread59 ], [ true, %41 ], [ %43, %.thread62 ], [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ false, %16 ], [ false, %16 ], [ false, %.thread.i ], [ false, %.thread.i ], [ %switch.selectcmp, %30 ]
+45:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+  %46 = icmp eq i32 %.sroa.021.0, 33
+  %47 = icmp eq i32 %.sroa.021.0, 39
+  %spec.select48 = or i1 %46, %47
+  br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
+
+48:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+  %49 = and i32 %.sroa.021.0, -9
+  %spec.select49 = icmp eq i32 %49, 33
+  br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
+
+_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread: ; preds = %48, %45, %43, %41, %39, %2, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
+  %.0 = phi i1 [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i ], [ true, %2 ], [ %spec.select, %41 ], [ %spec.select47, %43 ], [ %spec.select48, %45 ], [ %spec.select49, %48 ], [ %switch.selectcmp, %39 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
 define dso_local { i64, i8 } @_ZN4llvm12CmpPredicate11getMatchingES0_S0_(i64 %0, i64 %1) local_unnamed_addr #17 align 2 {
-  %.sroa.016.0.extract.trunc = trunc i64 %0 to i32
-  %.sroa.8.0.extract.shift22 = lshr i64 %0, 32
-  %.sroa.010.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.019.0.extract.trunc = trunc i64 %0 to i32
+  %.sroa.8.0.extract.shift25 = lshr i64 %0, 32
+  %.sroa.013.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.6.0.extract.shift = lshr i64 %1, 32
-  %3 = icmp eq i32 %.sroa.016.0.extract.trunc, %.sroa.010.0.extract.trunc
+  %3 = icmp eq i32 %.sroa.019.0.extract.trunc, %.sroa.013.0.extract.trunc
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
   %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
-  %.sroa.8.0.extract.trunc23 = trunc i64 %.sroa.8.0.extract.shift22 to i8
-  %5 = icmp eq i8 %.sroa.8.0.extract.trunc23, %.sroa.6.0.extract.trunc
+  %.sroa.8.0.extract.trunc26 = trunc i64 %.sroa.8.0.extract.shift25 to i8
+  %5 = icmp eq i8 %.sroa.8.0.extract.trunc26, %.sroa.6.0.extract.trunc
   %6 = and i64 %0, 1095216660480
   %7 = select i1 %5, i64 %6, i64 0
   br label %28
 
 8:                                                ; preds = %2
-  %9 = icmp ult i32 %.sroa.016.0.extract.trunc, 16
-  %10 = icmp ult i32 %.sroa.010.0.extract.trunc, 16
+  %9 = icmp ult i32 %.sroa.019.0.extract.trunc, 16
+  %10 = icmp ult i32 %.sroa.013.0.extract.trunc, 16
   %or.cond = or i1 %9, %10
   br i1 %or.cond, label %28, label %11
 
 11:                                               ; preds = %8
-  %12 = trunc i64 %.sroa.8.0.extract.shift22 to i1
+  %12 = trunc i64 %.sroa.8.0.extract.shift25 to i1
   br i1 %12, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, label %19
 
 _ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i: ; preds = %11
-  %13 = add i32 %.sroa.010.0.extract.trunc, -32
+  %13 = add i32 %.sroa.013.0.extract.trunc, -32
   %14 = icmp ult i32 %13, 10
   tail call void @llvm.assume(i1 %14)
-  %15 = and i32 %.sroa.010.0.extract.trunc, 46
+  %15 = and i32 %.sroa.013.0.extract.trunc, 46
   %16 = icmp eq i32 %15, 32
   br i1 %16, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, label %17
 
 17:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i
-  %.off.i.i = add nsw i32 %.sroa.010.0.extract.trunc, -38
+  %.off.i.i = add nsw i32 %.sroa.013.0.extract.trunc, -38
   %switch.i.i = icmp ult i32 %.off.i.i, 4
-  br i1 %switch.i.i, label %switch.lookup, label %.thread.i
+  br i1 %switch.i.i, label %switch.lookup.i, label %.thread.i
 
-switch.lookup:                                    ; preds = %17
-  %switch.offset = add nsw i32 %.sroa.010.0.extract.trunc, -4
+switch.lookup.i:                                  ; preds = %17
+  %switch.offset.i = add nsw i32 %.sroa.013.0.extract.trunc, -4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
 .thread.i:                                        ; preds = %17
-  %switch.offset34 = add nuw nsw i32 %.sroa.010.0.extract.trunc, 4
+  %switch.offset18.i = add nuw nsw i32 %.sroa.013.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
-_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; preds = %.thread.i, %switch.lookup, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i
-  %.0.i = phi i32 [ %.sroa.010.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i ], [ %switch.offset, %switch.lookup ], [ %switch.offset34, %.thread.i ]
-  %18 = icmp eq i32 %.0.i, %.sroa.016.0.extract.trunc
+_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i, %switch.lookup.i, %.thread.i
+  %.0.i = phi i32 [ %.sroa.013.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i ], [ %switch.offset.i, %switch.lookup.i ], [ %switch.offset18.i, %.thread.i ]
+  %18 = icmp eq i32 %.0.i, %.sroa.019.0.extract.trunc
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, %11
   %20 = trunc i64 %.sroa.6.0.extract.shift to i1
-  br i1 %20, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i5, label %27
+  br i1 %20, label %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6, label %27
 
-_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i5: ; preds = %19
-  %21 = add i32 %.sroa.016.0.extract.trunc, -32
+_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6: ; preds = %19
+  %21 = add i32 %.sroa.019.0.extract.trunc, -32
   %22 = icmp ult i32 %21, 10
   tail call void @llvm.assume(i1 %22)
-  %23 = and i32 %.sroa.016.0.extract.trunc, 46
+  %23 = and i32 %.sroa.019.0.extract.trunc, 46
   %24 = icmp eq i32 %23, 32
-  br i1 %24, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8, label %25
+  br i1 %24, label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11, label %25
 
-25:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i5
-  %.off.i.i6 = add nsw i32 %.sroa.016.0.extract.trunc, -38
-  %switch.i.i7 = icmp ult i32 %.off.i.i6, 4
-  br i1 %switch.i.i7, label %switch.lookup36, label %.thread.i2
+25:                                               ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6
+  %.off.i.i7 = add nsw i32 %.sroa.019.0.extract.trunc, -38
+  %switch.i.i8 = icmp ult i32 %.off.i.i7, 4
+  br i1 %switch.i.i8, label %switch.lookup.i9, label %.thread.i2
 
-switch.lookup36:                                  ; preds = %25
-  %switch.offset37 = add nsw i32 %.sroa.016.0.extract.trunc, -4
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8
+switch.lookup.i9:                                 ; preds = %25
+  %switch.offset.i10 = add nsw i32 %.sroa.019.0.extract.trunc, -4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11
 
 .thread.i2:                                       ; preds = %25
-  %switch.offset40 = add nuw nsw i32 %.sroa.016.0.extract.trunc, 4
-  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8
+  %switch.offset18.i5 = add nuw nsw i32 %.sroa.019.0.extract.trunc, 4
+  br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11
 
-_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8: ; preds = %.thread.i2, %switch.lookup36, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i5
-  %.0.i1 = phi i32 [ %.sroa.016.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i5 ], [ %switch.offset37, %switch.lookup36 ], [ %switch.offset40, %.thread.i2 ]
-  %26 = icmp eq i32 %.0.i1, %.sroa.010.0.extract.trunc
+_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11: ; preds = %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6, %switch.lookup.i9, %.thread.i2
+  %.0.i1 = phi i32 [ %.sroa.019.0.extract.trunc, %_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE.exit.i6 ], [ %switch.offset.i10, %switch.lookup.i9 ], [ %switch.offset18.i5, %.thread.i2 ]
+  %26 = icmp eq i32 %.0.i1, %.sroa.013.0.extract.trunc
   br i1 %26, label %28, label %27
 
-27:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8, %19
+27:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11, %19
   br label %28
 
-28:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, %8, %27, %4
-  %.sroa.025.0 = phi i64 [ %0, %4 ], [ 0, %27 ], [ 0, %8 ], [ %1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ %0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8 ]
-  %.sroa.4.0 = phi i64 [ %7, %4 ], [ 0, %27 ], [ 0, %8 ], [ 0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ 0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8 ]
-  %.sroa.626.sroa.2.0 = phi i8 [ 1, %4 ], [ 0, %27 ], [ 0, %8 ], [ 1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ 1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit8 ]
-  %.sroa.025.0.insert.ext = and i64 %.sroa.025.0, 4294967295
-  %.sroa.025.0.insert.insert = or i64 %.sroa.4.0, %.sroa.025.0.insert.ext
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.025.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.626.sroa.2.0, 1
+28:                                               ; preds = %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit, %8, %27, %4
+  %.sroa.028.0 = phi i64 [ %0, %4 ], [ 0, %27 ], [ 0, %8 ], [ %1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ %0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11 ]
+  %.sroa.4.0 = phi i64 [ %7, %4 ], [ 0, %27 ], [ 0, %8 ], [ 0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ 0, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11 ]
+  %.sroa.629.sroa.2.0 = phi i8 [ 1, %4 ], [ 0, %27 ], [ 0, %8 ], [ 1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ 1, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11 ]
+  %.sroa.028.0.insert.ext = and i64 %.sroa.028.0, 4294967295
+  %.sroa.028.0.insert.insert = or i64 %.sroa.4.0, %.sroa.028.0.insert.ext
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.028.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.629.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 

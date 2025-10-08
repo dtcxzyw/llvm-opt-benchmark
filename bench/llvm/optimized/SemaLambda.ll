@@ -3822,18 +3822,18 @@ define dso_local void @_ZN5clang4Sema36ActOnLambdaExpressionAfterIntroducerERNS_
   %77 = load i16, ptr %76, align 8
   %78 = and i16 %77, 127
   %79 = icmp eq i16 %78, 2
-  br i1 %79, label %.lr.ph654, label %.critedge
+  br i1 %79, label %.lr.ph655, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph654
+.lr.ph:                                           ; preds = %.lr.ph655
   %80 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %81 = load i16, ptr %80, align 8
   %82 = and i16 %81, 127
   %83 = icmp eq i16 %82, 2
-  br i1 %83, label %.lr.ph654, label %.critedge, !llvm.loop !1113
+  br i1 %83, label %.lr.ph655, label %.critedge, !llvm.loop !1113
 
-.lr.ph654:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0176542653 = phi ptr [ %84, %.lr.ph ], [ %70, %.lr.ph.preheader ]
-  %84 = load ptr, ptr %.0176542653, align 8, !tbaa !1111
+.lr.ph655:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0176542654 = phi ptr [ %84, %.lr.ph ], [ %70, %.lr.ph.preheader ]
+  %84 = load ptr, ptr %.0176542654, align 8, !tbaa !1111
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !1112
   %87 = and i32 %86, 128
@@ -3844,7 +3844,7 @@ define dso_local void @_ZN5clang4Sema36ActOnLambdaExpressionAfterIntroducerERNS_
   %.not197 = select i1 %.not.i, i1 true, i1 %.not197526
   br i1 %.not197, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !1113
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph654
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph655
   br label %.critedge, !llvm.loop !1113
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
@@ -4826,7 +4826,7 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.thread: ; preds = %_ZN
   %580 = load i32, ptr %579, align 4, !tbaa !1139
   %switch.tableidx = add i32 %580, -1
   %581 = icmp ult i32 %switch.tableidx, 3
-  %spec.select658 = select i1 %581, i32 %switch.tableidx, i32 %.0184548
+  %spec.select652 = select i1 %581, i32 %switch.tableidx, i32 %.0184548
   %.sroa.039.0.copyload = load i32, ptr %549, align 4, !tbaa !165
   %582 = load ptr, ptr %554, align 8, !tbaa !1138
   %583 = ptrtoint ptr %582 to i64
@@ -4837,7 +4837,7 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.thread: ; preds = %_ZN
   %587 = load i64, ptr %546, align 8, !tbaa !820
   %588 = and i64 %587, -2
   %589 = inttoptr i64 %588 to ptr
-  %590 = call noundef ptr @_ZN5clang4Sema30createLambdaInitCaptureVarDeclENS_14SourceLocationENS_8QualTypeES1_PNS_14IdentifierInfoEjPNS_4ExprEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.039.0.copyload, i64 %583, i32 %.sroa.037.0.copyload, ptr noundef %586, i32 noundef %spec.select658, ptr noundef %589, ptr noundef nonnull %175)
+  %590 = call noundef ptr @_ZN5clang4Sema30createLambdaInitCaptureVarDeclENS_14SourceLocationENS_8QualTypeES1_PNS_14IdentifierInfoEjPNS_4ExprEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.039.0.copyload, i64 %583, i32 %.sroa.037.0.copyload, ptr noundef %586, i32 noundef %spec.select652, ptr noundef %589, ptr noundef nonnull %175)
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 28
   %592 = load i32, ptr %591, align 4
   %593 = and i32 %592, 127
@@ -5568,7 +5568,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
   br label %1323
 
 880:                                              ; preds = %.thread519, %802
-  %.4188524 = phi i32 [ %spec.select658, %.thread519 ], [ %.0184548, %802 ]
+  %.4188524 = phi i32 [ %spec.select652, %.thread519 ], [ %.0184548, %802 ]
   %.0490523 = phi ptr [ %590, %.thread519 ], [ %.1, %802 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)

@@ -84235,11 +84235,10 @@ _ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit5: ; preds = %8, %_ZNK5clang
   %16 = add nsw i32 %.pre-phi, -73
   %17 = icmp ult i32 %16, -7
   %.not.i6 = or i1 %.not5.i, %17
-  %.not.i6.not = xor i1 %.not.i6, true
-  %switch.tableidx = add nsw i32 %.pre-phi, -66
-  %18 = icmp ult i32 %switch.tableidx, 5
-  %or.cond = select i1 %.not.i6.not, i1 %18, i1 false
-  br i1 %or.cond, label %switch.lookup, label %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit.thread
+  %18 = add nsw i32 %.pre-phi, -71
+  %19 = icmp ult i32 %18, -5
+  %or.cond.not = select i1 %.not.i6, i1 true, i1 %19
+  br i1 %or.cond.not, label %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit.thread, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit5
   %switch.idx.cast = trunc i32 %.pre-phi to i1
@@ -84247,8 +84246,8 @@ switch.lookup:                                    ; preds = %_ZNK5clang14TypoCor
   br label %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit.thread
 
 _ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit.thread: ; preds = %switch.lookup, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit5, %2, %_ZNK5clang14TypoCorrection12getFoundDeclEv.exit.i, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit
-  %19 = phi i1 [ false, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit ], [ false, %_ZNK5clang14TypoCorrection12getFoundDeclEv.exit.i ], [ false, %2 ], [ false, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit5 ], [ %switch.offset, %switch.lookup ]
-  ret i1 %19
+  %20 = phi i1 [ false, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit ], [ false, %_ZNK5clang14TypoCorrection12getFoundDeclEv.exit.i ], [ false, %2 ], [ false, %_ZNK5clang14TypoCorrection17getCorrectionDeclEv.exit5 ], [ %switch.offset, %switch.lookup ]
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

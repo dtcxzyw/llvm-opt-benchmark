@@ -165,15 +165,15 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   store ptr %19, ptr %35, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %61
+  br label %62
 
 "_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit": ; preds = %48, %38
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %49, %48 ]
   %36 = load i32, ptr %13, align 4, !alias.scope !26, !noundef !5
   %37 = invoke noundef i32 @close(i32 noundef %36)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hae885c7c05a177d4E.exit" unwind label %64
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hae885c7c05a177d4E.exit" unwind label %65
 
-38:                                               ; preds = %59, %25, %_ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.exit.i
+38:                                               ; preds = %60, %25, %_ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.exit.i
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit"
@@ -188,7 +188,7 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %42, ptr %43, align 8
   %44 = invoke noundef i8 @_ZN6memory7madvise10get_global17h41bb50b244f7a04eE()
-          to label %switch.lookup unwind label %48, !range !37
+          to label %50 unwind label %48, !range !37
 
 45:                                               ; preds = %32, %.noexc26
   %.sink.i.ph = phi ptr [ %31, %.noexc26 ], [ %33, %32 ]
@@ -202,28 +202,28 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   store i64 1, ptr %0, align 8
   br label %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31"
 
-48:                                               ; preds = %switch.lookup, %40
+48:                                               ; preds = %50, %40
   %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacedbb7339f03849E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit" unwind label %64
+          to label %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit" unwind label %65
 
-switch.lookup:                                    ; preds = %40
-  %switch.idx.cast = zext nneg i8 %44 to i32
-  %50 = invoke noundef ptr @_ZN7memmap24Mmap6advise17he823fd57c510595dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i32 noundef %switch.idx.cast)
+50:                                               ; preds = %40
+  %switch.idx.cast.i.i = zext nneg i8 %44 to i32
+  %51 = invoke noundef ptr @_ZN7memmap24Mmap6advise17he823fd57c510595dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i32 noundef %switch.idx.cast.i.i)
           to label %"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit" unwind label %48
 
-"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit": ; preds = %switch.lookup
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %59
+"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit": ; preds = %50
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %60
 
-52:                                               ; preds = %"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit"
-  %53 = load ptr, ptr %10, align 8, !noundef !5
-  %54 = load i64, ptr %43, align 8, !noundef !5
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %53, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %54, ptr %56, align 8
+53:                                               ; preds = %"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit"
+  %54 = load ptr, ptr %10, align 8, !noundef !5
+  %55 = load i64, ptr %43, align 8, !noundef !5
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %54, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %55, ptr %57, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -231,34 +231,34 @@ switch.lookup:                                    ; preds = %40
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %57 = load i32, ptr %13, align 4, !alias.scope !53, !noundef !5
-  %58 = call noundef i32 @close(i32 noundef %57), !noalias !53
-  br label %61
+  %58 = load i32, ptr %13, align 4, !alias.scope !53, !noundef !5
+  %59 = call noundef i32 @close(i32 noundef %58), !noalias !53
+  br label %62
 
-59:                                               ; preds = %"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit"
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %50, ptr %60, align 8
+60:                                               ; preds = %"_ZN62_$LT$memmap2..Mmap$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17h470c5c995d304a40E.exit"
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %51, ptr %61, align 8
   store i64 1, ptr %0, align 8
   invoke void @"_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacedbb7339f03849E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31" unwind label %38
 
-61:                                               ; preds = %34, %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31", %52
+62:                                               ; preds = %34, %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31", %53
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31": ; preds = %59, %45
+"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit31": ; preds = %60, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %62 = load i32, ptr %13, align 4, !alias.scope !69, !noundef !5
-  %63 = call noundef i32 @close(i32 noundef %62), !noalias !69
-  br label %61
+  %63 = load i32, ptr %13, align 4, !alias.scope !69, !noundef !5
+  %64 = call noundef i32 @close(i32 noundef %63), !noalias !69
+  br label %62
 
-64:                                               ; preds = %48, %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit"
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %48, %"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h34701319fdc012a1E.exit"
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
   unreachable
@@ -359,15 +359,15 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   store ptr %18, ptr %34, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %60
+  br label %61
 
 "_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit": ; preds = %47, %37
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %48, %47 ]
   %35 = load i32, ptr %13, align 4, !alias.scope !87, !noundef !5
   %36 = invoke noundef i32 @close(i32 noundef %35)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hae885c7c05a177d4E.exit" unwind label %63
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hae885c7c05a177d4E.exit" unwind label %64
 
-37:                                               ; preds = %58, %24, %_ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.exit.i
+37:                                               ; preds = %59, %24, %_ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.exit.i
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit"
@@ -382,7 +382,7 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %41, ptr %42, align 8
   %43 = invoke noundef i8 @_ZN6memory7madvise10get_global17h41bb50b244f7a04eE()
-          to label %switch.lookup unwind label %47, !range !37
+          to label %49 unwind label %47, !range !37
 
 44:                                               ; preds = %31, %.noexc26
   %.sink.i.ph = phi ptr [ %30, %.noexc26 ], [ %32, %31 ]
@@ -396,28 +396,28 @@ _ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.3848035939780480563.ex
   store i64 1, ptr %0, align 8
   br label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31"
 
-47:                                               ; preds = %switch.lookup, %39
+47:                                               ; preds = %49, %39
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacedbb7339f03849E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit" unwind label %63
+          to label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit" unwind label %64
 
-switch.lookup:                                    ; preds = %39
-  %switch.idx.cast = zext nneg i8 %43 to i32
-  %49 = invoke noundef ptr @_ZN7memmap27MmapMut6advise17hbd148c7ecd235b51E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i32 noundef %switch.idx.cast)
+49:                                               ; preds = %39
+  %switch.idx.cast.i.i = zext nneg i8 %43 to i32
+  %50 = invoke noundef ptr @_ZN7memmap27MmapMut6advise17hbd148c7ecd235b51E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i32 noundef %switch.idx.cast.i.i)
           to label %"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit" unwind label %47
 
-"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit": ; preds = %switch.lookup
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %58
+"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit": ; preds = %49
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %59
 
-51:                                               ; preds = %"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit"
-  %52 = load ptr, ptr %10, align 8, !noundef !5
-  %53 = load i64, ptr %42, align 8, !noundef !5
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %52, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %53, ptr %55, align 8
+52:                                               ; preds = %"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit"
+  %53 = load ptr, ptr %10, align 8, !noundef !5
+  %54 = load i64, ptr %42, align 8, !noundef !5
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %54, ptr %56, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -425,34 +425,34 @@ switch.lookup:                                    ; preds = %39
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %56 = load i32, ptr %13, align 4, !alias.scope !113, !noundef !5
-  %57 = call noundef i32 @close(i32 noundef %56), !noalias !113
-  br label %60
+  %57 = load i32, ptr %13, align 4, !alias.scope !113, !noundef !5
+  %58 = call noundef i32 @close(i32 noundef %57), !noalias !113
+  br label %61
 
-58:                                               ; preds = %"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit"
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %49, ptr %59, align 8
+59:                                               ; preds = %"_ZN65_$LT$memmap2..MmapMut$u20$as$u20$memory..madvise..Madviseable$GT$7madvise17hb2b1f7cf4c7eae83E.exit"
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %50, ptr %60, align 8
   store i64 1, ptr %0, align 8
   invoke void @"_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacedbb7339f03849E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31" unwind label %37
 
-60:                                               ; preds = %33, %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31", %51
+61:                                               ; preds = %33, %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31", %52
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31": ; preds = %58, %44
+"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit31": ; preds = %59, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %61 = load i32, ptr %13, align 4, !alias.scope !129, !noundef !5
-  %62 = call noundef i32 @close(i32 noundef %61), !noalias !129
-  br label %60
+  %62 = load i32, ptr %13, align 4, !alias.scope !129, !noundef !5
+  %63 = call noundef i32 @close(i32 noundef %62), !noalias !129
+  br label %61
 
-63:                                               ; preds = %47, %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit"
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %47, %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h14094146d0124cb6E.exit"
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
   unreachable

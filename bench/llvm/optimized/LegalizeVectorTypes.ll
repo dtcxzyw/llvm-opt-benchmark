@@ -3523,12 +3523,12 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %141,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %139, i64 %.0.in.v.i.i
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i
+  %switch.offset.i = sub i32 215, %.0.i.i
   %152 = load ptr, ptr %45, align 8, !tbaa !63
   store ptr %.fca.0.extract7, ptr %16, align 8, !tbaa !29
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !23
-  %153 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %152, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 %134, ptr %133, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16) #15
+  %153 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %152, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 %134, ptr %133, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16) #15
   %154 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i.i.i106 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i.i106, label %_ZN4llvm5SDLocD2Ev.exit, label %155
@@ -4007,12 +4007,12 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %108,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %106, i64 %.0.in.v.i.i
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i
+  %switch.offset.i = sub i32 215, %.0.i.i
   %119 = load ptr, ptr %43, align 8, !tbaa !63
   store ptr %.fca.0.extract7, ptr %14, align 8, !tbaa !29
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !23
-  %120 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %119, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %100, ptr %99, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #15
+  %120 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %119, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %100, ptr %99, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %121 = load ptr, ptr %6, align 8, !tbaa !64
@@ -8594,12 +8594,12 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %114,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %112, i64 %.0.in.v.i.i
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i
+  %switch.offset.i = sub i32 215, %.0.i.i
   %125 = load ptr, ptr %107, align 8, !tbaa !63
   store ptr %.fca.0.extract15, ptr %10, align 8, !tbaa !29
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.fca.1.extract16, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !23
-  %126 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %125, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %7, i16 %98, ptr %99, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10) #15
+  %126 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %125, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %7, i16 %98, ptr %99, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10) #15
   %.fca.0.extract4 = extractvalue { ptr, i32 } %126, 0
   %.fca.1.extract5 = extractvalue { ptr, i32 } %126, 1
   %127 = load ptr, ptr %107, align 8, !tbaa !63
@@ -25389,7 +25389,7 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %154,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %152, i64 %.0.in.v.i.i
   %.0.i.i = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i
+  %switch.offset.i = sub i32 215, %.0.i.i
   %165 = load ptr, ptr %59, align 8, !tbaa !63
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %167 = load ptr, ptr %166, align 8, !tbaa !32
@@ -25399,7 +25399,7 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %154,
   store ptr %.fca.0.extract7, ptr %21, align 8, !tbaa !29
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.415.0..sroa_idx, align 8, !tbaa !23
-  %168 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %165, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 %.sroa.0.0.copyload.i194, ptr %.sroa.21.0.copyload.i196, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %21) #15
+  %168 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %165, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 %.sroa.0.0.copyload.i194, ptr %.sroa.21.0.copyload.i196, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %21) #15
   %169 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i.i.i199 = icmp eq ptr %169, null
   br i1 %.not.i.i.i.i.i199, label %_ZN4llvm5SDLocD2Ev.exit, label %170
@@ -59915,14 +59915,14 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %202,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %200, i64 %.0.in.v.i.i
   %.0.i.i123 = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i123
+  %switch.offset.i = sub i32 215, %.0.i.i123
   %213 = load ptr, ptr %96, align 8, !tbaa !63
   %.sroa.01.0.copyload = load i16, ptr %7, align 8, !tbaa !33
   %.sroa.23.0.copyload = load ptr, ptr %90, align 8, !tbaa !35
   store ptr %.fca.0.extract8, ptr %14, align 8, !tbaa !29
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %.fca.1.extract9, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !23
-  %214 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %213, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.01.0.copyload, ptr %.sroa.23.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #15
+  %214 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %213, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.01.0.copyload, ptr %.sroa.23.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %215 = load ptr, ptr %6, align 8, !tbaa !64
@@ -61118,14 +61118,14 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %174,
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %172, i64 %.0.in.v.i.i
   %.0.i.i93 = load i32, ptr %.0.in.i.i, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.offset = sub i32 215, %.0.i.i93
+  %switch.offset.i = sub i32 215, %.0.i.i93
   %185 = load ptr, ptr %65, align 8, !tbaa !63
   %.sroa.01.0.copyload = load i16, ptr %6, align 8, !tbaa !33
   %.sroa.23.0.copyload = load ptr, ptr %23, align 8, !tbaa !35
   store ptr %.fca.0.extract8, ptr %13, align 8, !tbaa !29
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %.fca.1.extract9, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !23
-  %186 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %185, i32 noundef %switch.offset, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.sroa.01.0.copyload, ptr %.sroa.23.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13) #15
+  %186 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %185, i32 noundef %switch.offset.i, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.sroa.01.0.copyload, ptr %.sroa.23.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

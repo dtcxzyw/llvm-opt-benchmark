@@ -5425,16 +5425,16 @@ define hidden void @"_ZN177_$LT$uv_python..discovery.._..$LT$impl$u20$serde..de.
   %24 = icmp eq i64 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i8, ptr %25, align 8, !noalias !1320
-  br i1 %24, label %27, label %29
+  br i1 %24, label %switch.lookup, label %28
 
-27:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcfd54ae7d6d50628E.exit.i.i"
+switch.lookup:                                    ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcfd54ae7d6d50628E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1285
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %26, ptr %28, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %26, ptr %27, align 8
   store i64 2, ptr %0, align 8
-  br label %30
+  br label %29
 
-29:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcfd54ae7d6d50628E.exit.i.i"
+28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcfd54ae7d6d50628E.exit.i.i"
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -5442,9 +5442,9 @@ define hidden void @"_ZN177_$LT$uv_python..discovery.._..$LT$impl$u20$serde..de.
   store i64 %23, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %26, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %27
+29:                                               ; preds = %28, %switch.lookup
   ret void
 }
 
@@ -5621,16 +5621,16 @@ define hidden void @"_ZN178_$LT$uv_python..discovery.._..$LT$impl$u20$serde..de.
   %24 = icmp eq i64 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i8, ptr %25, align 8, !noalias !1356
-  br i1 %24, label %27, label %29
+  br i1 %24, label %switch.lookup, label %28
 
-27:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd50aa48d3b579ff0E.exit.i.i"
+switch.lookup:                                    ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd50aa48d3b579ff0E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1321
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %26, ptr %28, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %26, ptr %27, align 8
   store i64 2, ptr %0, align 8
-  br label %30
+  br label %29
 
-29:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd50aa48d3b579ff0E.exit.i.i"
+28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd50aa48d3b579ff0E.exit.i.i"
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -5638,9 +5638,9 @@ define hidden void @"_ZN178_$LT$uv_python..discovery.._..$LT$impl$u20$serde..de.
   store i64 %23, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %26, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %27
+29:                                               ; preds = %28, %switch.lookup
   ret void
 }
 

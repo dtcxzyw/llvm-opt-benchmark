@@ -957,9 +957,9 @@ switch.lookup:                                    ; preds = %139
 149:                                              ; preds = %139, %switch.lookup
   %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %151 = icmp ult i32 %150, 3
-  br i1 %151, label %switch.lookup163, label %_ZN12ByteViewText17updateContextMenuEv.exit
+  br i1 %151, label %switch.lookup.i, label %_ZN12ByteViewText17updateContextMenuEv.exit
 
-switch.lookup163:                                 ; preds = %149
+switch.lookup.i:                                  ; preds = %149
   %152 = shl nuw nsw i32 %150, 3
   %153 = zext nneg i32 %152 to i64
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 %153
@@ -968,7 +968,7 @@ switch.lookup163:                                 ; preds = %149
   call void @_ZN7QAction10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(16) %156, i1 noundef zeroext true)
   br label %_ZN12ByteViewText17updateContextMenuEv.exit
 
-_ZN12ByteViewText17updateContextMenuEv.exit:      ; preds = %149, %switch.lookup163
+_ZN12ByteViewText17updateContextMenuEv.exit:      ; preds = %149, %switch.lookup.i
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_ZNK12QActionGroup7actionsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.12) align 8 %34, ptr noundef align 8 dereferenceable_or_null(16) %109)
   invoke void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull align 8 dereferenceable_or_null(40) %36, ptr noundef nonnull align 8 dereferenceable(24) %34)
@@ -1716,9 +1716,9 @@ define void @_ZN12ByteViewText17updateContextMenuEv(ptr noundef readonly align 8
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(16) %3, i1 noundef zeroext %5)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   %7 = icmp ult i32 %6, 4
-  br i1 %7, label %switch.lookup, label %11
+  br i1 %7, label %switch.lookup6, label %11
 
-switch.lookup:                                    ; preds = %1
+switch.lookup6:                                   ; preds = %1
   %8 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1727,12 +1727,12 @@ switch.lookup:                                    ; preds = %1
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(16) %10, i1 noundef zeroext true)
   br label %11
 
-11:                                               ; preds = %1, %switch.lookup
+11:                                               ; preds = %1, %switch.lookup6
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %13 = icmp ult i32 %12, 3
-  br i1 %13, label %switch.lookup6, label %19
+  br i1 %13, label %switch.lookup, label %19
 
-switch.lookup6:                                   ; preds = %11
+switch.lookup:                                    ; preds = %11
   %14 = shl nuw nsw i32 %12, 3
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
@@ -1741,7 +1741,7 @@ switch.lookup6:                                   ; preds = %11
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(16) %18, i1 noundef zeroext true)
   br label %19
 
-19:                                               ; preds = %11, %switch.lookup6
+19:                                               ; preds = %11, %switch.lookup
   ret void
 }
 
@@ -2245,9 +2245,9 @@ switch.lookup:                                    ; preds = %1
 15:                                               ; preds = %1, %switch.lookup
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %17 = icmp ult i32 %16, 3
-  br i1 %17, label %switch.lookup1, label %_ZN12ByteViewText17updateContextMenuEv.exit
+  br i1 %17, label %switch.lookup.i, label %_ZN12ByteViewText17updateContextMenuEv.exit
 
-switch.lookup1:                                   ; preds = %15
+switch.lookup.i:                                  ; preds = %15
   %18 = shl nuw nsw i32 %16, 3
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
@@ -2256,7 +2256,7 @@ switch.lookup1:                                   ; preds = %15
   tail call void @_ZN7QAction10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(16) %22, i1 noundef zeroext true)
   br label %_ZN12ByteViewText17updateContextMenuEv.exit
 
-_ZN12ByteViewText17updateContextMenuEv.exit:      ; preds = %15, %switch.lookup1
+_ZN12ByteViewText17updateContextMenuEv.exit:      ; preds = %15, %switch.lookup.i
   tail call void @_ZN12ByteViewText16updateScrollbarsEv(ptr noundef align 8 dereferenceable_or_null(328) %0)
   %23 = tail call noundef ptr @_ZNK19QAbstractScrollArea8viewportEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   tail call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40) %23)

@@ -763,7 +763,7 @@ default.unreachable:                              ; preds = %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN187_$LT$uv_pypi_types..simple_json.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17he5c3991dbdb3958fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
+define hidden void @"_ZN187_$LT$uv_pypi_types..simple_json.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_pypi_types..simple_json..HashAlgorithm$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17he5c3991dbdb3958fE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !123
   call void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17hf5ea83d625fd3faeE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext true), !noalias !130
@@ -771,16 +771,16 @@ define hidden void @"_ZN187_$LT$uv_pypi_types..simple_json.._..$LT$impl$u20$serd
   %5 = icmp eq i8 %4, 9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = load i8, ptr %6, align 1, !noalias !123
-  br i1 %5, label %8, label %10
+  br i1 %5, label %switch.lookup, label %9
 
-8:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !123
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %7, ptr %9, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %7, ptr %8, align 1
   store i8 9, ptr %0, align 8
-  br label %11
+  br label %10
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.69.0..sroa_idx.i.i, i64 6, i1 false)
@@ -803,9 +803,9 @@ define hidden void @"_ZN187_$LT$uv_pypi_types..simple_json.._..$LT$impl$u20$serd
   store ptr %.sroa.12.2.copyload, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.14.2.copyload, ptr %.sroa.629.0..sroa_idx, align 8
-  br label %11
+  br label %10
 
-11:                                               ; preds = %10, %8
+10:                                               ; preds = %9, %switch.lookup
   ret void
 }
 

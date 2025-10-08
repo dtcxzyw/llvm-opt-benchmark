@@ -9103,7 +9103,7 @@ define internal fastcc range(i32 0, 107) i32 @_ZNK12_GLOBAL__N_114RISCVAsmParser
   %10 = load i8, ptr %9, align 1, !tbaa !65
   %11 = and i8 %10, -8
   %12 = icmp eq i8 %11, 48
-  br i1 %12, label %switch.lookup, label %88
+  br i1 %12, label %switch.lookup.i, label %88
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -9226,21 +9226,21 @@ define internal fastcc range(i32 0, 107) i32 @_ZNK12_GLOBAL__N_114RISCVAsmParser
   %52 = load i8, ptr %51, align 1, !tbaa !65
   %53 = and i8 %52, -8
   %54 = icmp eq i8 %53, 48
-  br i1 %54, label %switch.lookup12, label %88
+  br i1 %54, label %switch.lookup39.i, label %88
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %57 = load i8, ptr %56, align 1, !tbaa !65
-  %switch.tableidx15 = add i8 %57, -48
-  %58 = icmp ult i8 %switch.tableidx15, 10
-  br i1 %58, label %switch.lookup16, label %88
+  %switch.tableidx = add i8 %57, -48
+  %58 = icmp ult i8 %switch.tableidx, 10
+  br i1 %58, label %switch.lookup, label %88
 
 59:                                               ; preds = %47
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %61 = load i8, ptr %60, align 1, !tbaa !65
-  %switch.tableidx17 = add i8 %61, -48
-  %62 = icmp ult i8 %switch.tableidx17, 10
-  br i1 %62, label %switch.lookup18, label %88
+  %switch.tableidx11 = add i8 %61, -48
+  %62 = icmp ult i8 %switch.tableidx11, 10
+  br i1 %62, label %switch.lookup12, label %88
 
 63:                                               ; preds = %45
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -9308,33 +9308,33 @@ define internal fastcc range(i32 0, 107) i32 @_ZNK12_GLOBAL__N_114RISCVAsmParser
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit, label %88
 
-88:                                               ; preds = %59, %55, %50, %8, %86, %80, %74, %71, %69, %63, %47, %45, %35, %22, %19, %16, %13, %6, %5
+88:                                               ; preds = %59, %55, %86, %80, %74, %71, %69, %63, %50, %47, %45, %35, %22, %19, %16, %13, %8, %6, %5
   br label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
 
-switch.lookup:                                    ; preds = %8
-  %narrow21 = add nuw nsw i8 %10, 5
-  %switch.offset = zext nneg i8 %narrow21 to i32
+switch.lookup.i:                                  ; preds = %8
+  %narrow42.i = add nuw nsw i8 %10, 5
+  %switch.offset.i = zext nneg i8 %narrow42.i to i32
   br label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
 
-switch.lookup12:                                  ; preds = %50
-  %narrow = add nuw nsw i8 %52, 37
-  %switch.offset14 = zext nneg i8 %narrow to i32
+switch.lookup39.i:                                ; preds = %50
+  %narrow.i = add nuw nsw i8 %52, 37
+  %switch.offset41.i = zext nneg i8 %narrow.i to i32
   br label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
 
-switch.lookup16:                                  ; preds = %55
-  %89 = zext nneg i8 %switch.tableidx15 to i64
+switch.lookup:                                    ; preds = %55
+  %89 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_114RISCVAsmParser23matchRegisterNameHelperEN4llvm9StringRefE, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
 
-switch.lookup18:                                  ; preds = %59
-  %90 = zext nneg i8 %switch.tableidx17 to i64
-  %switch.gep19 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_114RISCVAsmParser23matchRegisterNameHelperEN4llvm9StringRefE.164, i64 %90
-  %switch.load20 = load i32, ptr %switch.gep19, align 4
+switch.lookup12:                                  ; preds = %59
+  %90 = zext nneg i8 %switch.tableidx11 to i64
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_114RISCVAsmParser23matchRegisterNameHelperEN4llvm9StringRefE.164, i64 %90
+  %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
 
-_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup18, %switch.lookup16, %switch.lookup12, %switch.lookup, %88, %86, %83, %77, %66, %44, %43, %42, %41, %40, %39, %38, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %22, %19, %16, %13, %3
-  %.sroa.06.0 = phi i32 [ %4, %3 ], [ 0, %88 ], [ 52, %25 ], [ 61, %26 ], [ 62, %27 ], [ 63, %28 ], [ 64, %29 ], [ 65, %30 ], [ 66, %31 ], [ 67, %32 ], [ 68, %33 ], [ 45, %34 ], [ 49, %38 ], [ 50, %39 ], [ 71, %40 ], [ 72, %41 ], [ 73, %42 ], [ 74, %43 ], [ 47, %44 ], [ 51, %13 ], [ 46, %16 ], [ 44, %19 ], [ 51, %22 ], [ 48, %35 ], [ 43, %86 ], [ %switch.select29.i, %66 ], [ %switch.select33.i, %77 ], [ %switch.select37.i, %83 ], [ %switch.offset, %switch.lookup ], [ %switch.offset14, %switch.lookup12 ], [ %switch.load, %switch.lookup16 ], [ %switch.load20, %switch.lookup18 ]
+_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup12, %switch.lookup, %switch.lookup39.i, %switch.lookup.i, %88, %86, %83, %77, %66, %44, %43, %42, %41, %40, %39, %38, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %22, %19, %16, %13, %3
+  %.sroa.06.0 = phi i32 [ %4, %3 ], [ 0, %88 ], [ 52, %25 ], [ 61, %26 ], [ 62, %27 ], [ 63, %28 ], [ 64, %29 ], [ 65, %30 ], [ 66, %31 ], [ 67, %32 ], [ 68, %33 ], [ 45, %34 ], [ 49, %38 ], [ 50, %39 ], [ 71, %40 ], [ 72, %41 ], [ 73, %42 ], [ 74, %43 ], [ 47, %44 ], [ 51, %13 ], [ 46, %16 ], [ 44, %19 ], [ 51, %22 ], [ 48, %35 ], [ 43, %86 ], [ %switch.select29.i, %66 ], [ %switch.select33.i, %77 ], [ %switch.select37.i, %83 ], [ %switch.offset.i, %switch.lookup.i ], [ %switch.offset41.i, %switch.lookup39.i ], [ %switch.load, %switch.lookup ], [ %switch.load14, %switch.lookup12 ]
   %91 = tail call noundef nonnull align 8 dereferenceable(304) ptr @_ZNK4llvm17MCTargetAsmParser6getSTIEv(ptr noundef nonnull align 8 dereferenceable(561) %0) #25
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 232
   %93 = load i64, ptr %92, align 8, !tbaa !53

@@ -1302,11 +1302,10 @@ define hidden void @"_ZN225_$LT$uv_distribution_types..dependency_metadata.._..$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN225_$LT$uv_distribution_types..dependency_metadata.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_distribution_types..dependency_metadata..StaticMetadata$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hcfa304cd2ae28044E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i64 noundef %1) unnamed_addr #4 {
-switch.lookup:
-  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %spec.select = trunc nuw nsw i64 %spec.select1 to i8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sink1 = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
+  %.sink = trunc nuw nsw i64 %.sink1 to i8
+  store i8 %.sink, ptr %3, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -2910,10 +2909,9 @@ define hidden void @_ZN5serde2de7Visitor14visit_byte_buf17hb5270dc80d7b39d4E(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h944ab4c5d6f8599dE(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, i8 noundef %1) unnamed_addr #4 {
-"_ZN225_$LT$uv_distribution_types..dependency_metadata.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_distribution_types..dependency_metadata..StaticMetadata$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hcfa304cd2ae28044E.exit":
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %2, align 8, !alias.scope !377
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i8 @llvm.umin.i8(i8 %1, i8 5)
+  store i8 %4, ptr %3, align 8, !alias.scope !377
   store i64 2, ptr %0, align 8, !alias.scope !377
   ret void
 }

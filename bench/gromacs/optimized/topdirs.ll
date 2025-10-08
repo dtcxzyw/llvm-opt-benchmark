@@ -229,13 +229,13 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 21:                                               ; preds = %2, %2
-  %switch.tableidx35 = add i32 %1, -1
-  %22 = icmp ult i32 %switch.tableidx35, 10
-  %switch.maskindex = trunc i32 %switch.tableidx35 to i16
+  %switch.tableidx37 = add i32 %1, -1
+  %22 = icmp ult i32 %switch.tableidx37, 10
+  %switch.maskindex = trunc i32 %switch.tableidx37 to i16
   %switch.shifted = lshr i16 959, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond49 = select i1 %22, i1 %switch.lobit, i1 false
-  br i1 %or.cond49, label %switch.lookup37, label %23
+  br i1 %or.cond49, label %switch.lookup39, label %23
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -281,13 +281,13 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 36:                                               ; preds = %2, %2
-  %switch.tableidx38 = add i32 %1, -1
-  %37 = icmp ult i32 %switch.tableidx38, 11
-  %switch.maskindex42 = trunc i32 %switch.tableidx38 to i16
-  %switch.shifted43 = lshr i16 1951, %switch.maskindex42
-  %switch.lobit44 = trunc i16 %switch.shifted43 to i1
-  %or.cond50 = select i1 %37, i1 %switch.lobit44, i1 false
-  br i1 %or.cond50, label %switch.lookup41, label %38
+  %switch.tableidx40 = add i32 %1, -1
+  %37 = icmp ult i32 %switch.tableidx40, 11
+  %switch.maskindex44 = trunc i32 %switch.tableidx40 to i16
+  %switch.shifted45 = lshr i16 1951, %switch.maskindex44
+  %switch.lobit46 = trunc i16 %switch.shifted45 to i1
+  %or.cond50 = select i1 %37, i1 %switch.lobit46, i1 false
+  br i1 %or.cond50, label %switch.lookup43, label %38
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -359,9 +359,9 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 57:                                               ; preds = %2
-  %switch.tableidx47 = add i32 %1, -1
-  %58 = icmp ult i32 %switch.tableidx47, 4
-  br i1 %58, label %switch.lookup48, label %59
+  %switch.tableidx35 = add i32 %1, -1
+  %58 = icmp ult i32 %switch.tableidx35, 4
+  br i1 %58, label %switch.lookup36, label %59
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -525,24 +525,24 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %105
 
-switch.lookup37:                                  ; preds = %21
-  %103 = zext nneg i32 %switch.tableidx35 to i64
+switch.lookup36:                                  ; preds = %57
+  %switch.offset = add nuw nsw i32 %1, 67
+  br label %switch.lookup
+
+switch.lookup39:                                  ; preds = %21
+  %103 = zext nneg i32 %switch.tableidx37 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
-switch.lookup41:                                  ; preds = %36
-  %104 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep45 = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei.7, i64 %104
-  %switch.load46 = load i32, ptr %switch.gep45, align 4
+switch.lookup43:                                  ; preds = %36
+  %104 = zext nneg i32 %switch.tableidx40 to i64
+  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei.7, i64 %104
+  %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %switch.lookup
 
-switch.lookup48:                                  ; preds = %57
-  %switch.offset = add nuw nsw i32 %1, 67
-  br label %switch.lookup
-
-switch.lookup:                                    ; preds = %15, %switch.lookup48, %switch.lookup41, %switch.lookup37, %29, %83, %77, %70, %63, %51, %45, %43, %2, %27, %95, %94, %93, %92, %91, %90, %89, %84, %78, %76, %71, %69, %64, %52, %42
-  %.032 = phi i32 [ 27, %42 ], [ 67, %52 ], [ 73, %64 ], [ 74, %69 ], [ 63, %71 ], [ 64, %76 ], [ 53, %78 ], [ 51, %84 ], [ 50, %89 ], [ 49, %90 ], [ 58, %91 ], [ 59, %92 ], [ 54, %93 ], [ 56, %94 ], [ 60, %95 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.load, %switch.lookup37 ], [ %switch.load46, %switch.lookup41 ], [ %switch.offset, %switch.lookup48 ], [ %switch.tableidx, %15 ]
+switch.lookup:                                    ; preds = %switch.lookup43, %switch.lookup39, %15, %switch.lookup36, %29, %83, %77, %70, %63, %51, %45, %43, %2, %27, %95, %94, %93, %92, %91, %90, %89, %84, %78, %76, %71, %69, %64, %52, %42
+  %.032 = phi i32 [ 27, %42 ], [ 67, %52 ], [ 73, %64 ], [ 74, %69 ], [ 63, %71 ], [ 64, %76 ], [ 53, %78 ], [ 51, %84 ], [ 50, %89 ], [ 49, %90 ], [ 58, %91 ], [ 59, %92 ], [ 54, %93 ], [ 56, %94 ], [ 60, %95 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.offset, %switch.lookup36 ], [ %switch.tableidx, %15 ], [ %switch.load, %switch.lookup39 ], [ %switch.load48, %switch.lookup43 ]
   ret i32 %.032
 
 105:                                              ; preds = %101, %87, %81, %74, %67, %61, %55, %49, %40, %34, %25, %19

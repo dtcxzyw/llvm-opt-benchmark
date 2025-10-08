@@ -1981,16 +1981,16 @@ proto_item_set_generated.exit:                    ; preds = %320, %317, %314, %3
   %378 = zext i8 %358 to i32
   %switch.tableidx = add i32 %377, -1
   %379 = icmp ult i32 %switch.tableidx, 4
-  br i1 %379, label %switch.lookup573, label %381
+  br i1 %379, label %switch.lookup, label %381
 
-switch.lookup573:                                 ; preds = %376
+switch.lookup:                                    ; preds = %376
   %380 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_eap, i64 %380
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %381
 
-381:                                              ; preds = %376, %switch.lookup573
-  %hf_eap_leap_data.sink = phi ptr [ %switch.load, %switch.lookup573 ], [ @hf_eap_leap_data, %376 ]
+381:                                              ; preds = %376, %switch.lookup
+  %hf_eap_leap_data.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_eap_leap_data, %376 ]
   %382 = load i32, ptr %hf_eap_leap_data.sink, align 4
   %383 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %382, ptr noundef %0, i32 noundef 8, i32 noundef %378, i32 noundef 0)
   %384 = add nuw nsw i32 %378, 8

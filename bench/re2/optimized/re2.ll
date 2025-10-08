@@ -481,10 +481,10 @@ invoke.cont53:                                    ; preds = %invoke.cont50
   store ptr %call51, ptr %error_, align 8
   %14 = load i32, ptr %status, align 8
   %15 = icmp ult i32 %14, 15
-  %. = select i1 %15, i32 %14, i32 1
+  %code..i = select i1 %15, i32 %14, i32 1
   %bf.load61 = load i32, ptr %error_code_, align 4
   %bf.clear62 = and i32 %bf.load61, -536870912
-  %bf.set63 = or disjoint i32 %bf.clear62, %.
+  %bf.set63 = or disjoint i32 %bf.clear62, %code..i
   store i32 %bf.set63, ptr %error_code_, align 4
   %call65 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %invoke.cont64 unwind label %lpad17

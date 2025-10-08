@@ -8437,9 +8437,9 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %58 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx66 = add i32 %60, -1
-  %61 = icmp ult i32 %switch.tableidx66, 4
-  br i1 %61, label %switch.lookup67, label %switch.lookup
+  %switch.tableidx130 = add i32 %60, -1
+  %61 = icmp ult i32 %switch.tableidx130, 4
+  br i1 %61, label %switch.lookup131, label %switch.lookup
 
 62:                                               ; preds = %16
   %63 = load ptr, ptr %1, align 8
@@ -8465,10 +8465,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx68 = add i32 %76, -2
-  %77 = icmp ult i32 %switch.tableidx68, 3
-  %switch.offset70 = add i32 %76, 535
-  %spec.select71 = select i1 %77, i32 %switch.offset70, i32 0
+  %switch.tableidx66 = add i32 %76, -2
+  %77 = icmp ult i32 %switch.tableidx66, 3
+  %switch.offset68 = add i32 %76, 535
+  %spec.select69 = select i1 %77, i32 %switch.offset68, i32 0
   br label %switch.lookup
 
 78:                                               ; preds = %68
@@ -8476,10 +8476,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 112
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef i32 %81(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx72 = add i32 %82, -2
-  %83 = icmp ult i32 %switch.tableidx72, 3
-  %switch.offset74 = add i32 %82, 538
-  %spec.select75 = select i1 %83, i32 %switch.offset74, i32 0
+  %switch.tableidx70 = add i32 %82, -2
+  %83 = icmp ult i32 %switch.tableidx70, 3
+  %switch.offset72 = add i32 %82, 538
+  %spec.select73 = select i1 %83, i32 %switch.offset72, i32 0
   br label %switch.lookup
 
 84:                                               ; preds = %68
@@ -8487,19 +8487,19 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 112
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef i32 %87(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx76 = add i32 %88, -2
-  %89 = icmp ult i32 %switch.tableidx76, 3
-  %switch.offset78 = add i32 %88, 541
-  %spec.select79 = select i1 %89, i32 %switch.offset78, i32 0
+  %switch.tableidx74 = add i32 %88, -2
+  %89 = icmp ult i32 %switch.tableidx74, 3
+  %switch.offset76 = add i32 %88, 541
+  %spec.select77 = select i1 %89, i32 %switch.offset76, i32 0
   br label %switch.lookup
 
 90:                                               ; preds = %62
   %91 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx80 = add i32 %93, -1
-  %94 = icmp ult i32 %switch.tableidx80, 4
-  br i1 %94, label %switch.lookup81, label %switch.lookup
+  %switch.tableidx132 = add i32 %93, -1
+  %94 = icmp ult i32 %switch.tableidx132, 4
+  br i1 %94, label %switch.lookup133, label %switch.lookup
 
 95:                                               ; preds = %16
   %96 = load ptr, ptr %1, align 8
@@ -8525,10 +8525,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx84 = add i32 %109, -2
-  %110 = icmp ult i32 %switch.tableidx84, 3
-  %switch.offset86 = add i32 %109, 544
-  %spec.select87 = select i1 %110, i32 %switch.offset86, i32 0
+  %switch.tableidx78 = add i32 %109, -2
+  %110 = icmp ult i32 %switch.tableidx78, 3
+  %switch.offset80 = add i32 %109, 544
+  %spec.select81 = select i1 %110, i32 %switch.offset80, i32 0
   br label %switch.lookup
 
 111:                                              ; preds = %101
@@ -8536,10 +8536,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 112
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx88 = add i32 %115, -2
-  %116 = icmp ult i32 %switch.tableidx88, 3
-  %switch.offset90 = add i32 %115, 547
-  %spec.select91 = select i1 %116, i32 %switch.offset90, i32 0
+  %switch.tableidx82 = add i32 %115, -2
+  %116 = icmp ult i32 %switch.tableidx82, 3
+  %switch.offset84 = add i32 %115, 547
+  %spec.select85 = select i1 %116, i32 %switch.offset84, i32 0
   br label %switch.lookup
 
 117:                                              ; preds = %101
@@ -8547,19 +8547,19 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 112
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx92 = add i32 %121, -2
-  %122 = icmp ult i32 %switch.tableidx92, 3
-  %switch.offset94 = add i32 %121, 550
-  %spec.select95 = select i1 %122, i32 %switch.offset94, i32 0
+  %switch.tableidx86 = add i32 %121, -2
+  %122 = icmp ult i32 %switch.tableidx86, 3
+  %switch.offset88 = add i32 %121, 550
+  %spec.select89 = select i1 %122, i32 %switch.offset88, i32 0
   br label %switch.lookup
 
 123:                                              ; preds = %95
   %124 = getelementptr inbounds nuw i8, ptr %100, i64 96
   %125 = load ptr, ptr %124, align 8
   %126 = tail call noundef i32 %125(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx96 = add i32 %126, -1
-  %127 = icmp ult i32 %switch.tableidx96, 4
-  br i1 %127, label %switch.lookup97, label %switch.lookup
+  %switch.tableidx136 = add i32 %126, -1
+  %127 = icmp ult i32 %switch.tableidx136, 4
+  br i1 %127, label %switch.lookup137, label %switch.lookup
 
 128:                                              ; preds = %16
   %129 = load ptr, ptr %1, align 8
@@ -8585,10 +8585,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 112
   %141 = load ptr, ptr %140, align 8
   %142 = tail call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx100 = add i32 %142, -2
-  %143 = icmp ult i32 %switch.tableidx100, 3
-  %switch.offset102 = add i32 %142, 553
-  %spec.select103 = select i1 %143, i32 %switch.offset102, i32 0
+  %switch.tableidx90 = add i32 %142, -2
+  %143 = icmp ult i32 %switch.tableidx90, 3
+  %switch.offset92 = add i32 %142, 553
+  %spec.select93 = select i1 %143, i32 %switch.offset92, i32 0
   br label %switch.lookup
 
 144:                                              ; preds = %134
@@ -8596,10 +8596,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 112
   %147 = load ptr, ptr %146, align 8
   %148 = tail call noundef i32 %147(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx104 = add i32 %148, -2
-  %149 = icmp ult i32 %switch.tableidx104, 3
-  %switch.offset106 = add i32 %148, 556
-  %spec.select107 = select i1 %149, i32 %switch.offset106, i32 0
+  %switch.tableidx94 = add i32 %148, -2
+  %149 = icmp ult i32 %switch.tableidx94, 3
+  %switch.offset96 = add i32 %148, 556
+  %spec.select97 = select i1 %149, i32 %switch.offset96, i32 0
   br label %switch.lookup
 
 150:                                              ; preds = %134
@@ -8607,19 +8607,19 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 112
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx108 = add i32 %154, -2
-  %155 = icmp ult i32 %switch.tableidx108, 3
-  %switch.offset110 = add i32 %154, 559
-  %spec.select111 = select i1 %155, i32 %switch.offset110, i32 0
+  %switch.tableidx98 = add i32 %154, -2
+  %155 = icmp ult i32 %switch.tableidx98, 3
+  %switch.offset100 = add i32 %154, 559
+  %spec.select101 = select i1 %155, i32 %switch.offset100, i32 0
   br label %switch.lookup
 
 156:                                              ; preds = %128
   %157 = getelementptr inbounds nuw i8, ptr %133, i64 96
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx112 = add i32 %159, -1
-  %160 = icmp ult i32 %switch.tableidx112, 4
-  br i1 %160, label %switch.lookup113, label %switch.lookup
+  %switch.tableidx140 = add i32 %159, -1
+  %160 = icmp ult i32 %switch.tableidx140, 4
+  br i1 %160, label %switch.lookup141, label %switch.lookup
 
 161:                                              ; preds = %16
   %162 = load ptr, ptr %1, align 8
@@ -8645,10 +8645,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 112
   %174 = load ptr, ptr %173, align 8
   %175 = tail call noundef i32 %174(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx116 = add i32 %175, -2
-  %176 = icmp ult i32 %switch.tableidx116, 3
-  %switch.offset118 = add i32 %175, 526
-  %spec.select119 = select i1 %176, i32 %switch.offset118, i32 0
+  %switch.tableidx102 = add i32 %175, -2
+  %176 = icmp ult i32 %switch.tableidx102, 3
+  %switch.offset104 = add i32 %175, 526
+  %spec.select105 = select i1 %176, i32 %switch.offset104, i32 0
   br label %switch.lookup
 
 177:                                              ; preds = %167
@@ -8656,10 +8656,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 112
   %180 = load ptr, ptr %179, align 8
   %181 = tail call noundef i32 %180(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx120 = add i32 %181, -2
-  %182 = icmp ult i32 %switch.tableidx120, 3
-  %switch.offset122 = add i32 %181, 529
-  %spec.select123 = select i1 %182, i32 %switch.offset122, i32 0
+  %switch.tableidx106 = add i32 %181, -2
+  %182 = icmp ult i32 %switch.tableidx106, 3
+  %switch.offset108 = add i32 %181, 529
+  %spec.select109 = select i1 %182, i32 %switch.offset108, i32 0
   br label %switch.lookup
 
 183:                                              ; preds = %167
@@ -8667,19 +8667,19 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 112
   %186 = load ptr, ptr %185, align 8
   %187 = tail call noundef i32 %186(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx124 = add i32 %187, -2
-  %188 = icmp ult i32 %switch.tableidx124, 3
-  %switch.offset126 = add i32 %187, 532
-  %spec.select127 = select i1 %188, i32 %switch.offset126, i32 0
+  %switch.tableidx110 = add i32 %187, -2
+  %188 = icmp ult i32 %switch.tableidx110, 3
+  %switch.offset112 = add i32 %187, 532
+  %spec.select113 = select i1 %188, i32 %switch.offset112, i32 0
   br label %switch.lookup
 
 189:                                              ; preds = %161
   %190 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %191 = load ptr, ptr %190, align 8
   %192 = tail call noundef i32 %191(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx128 = add i32 %192, -1
-  %193 = icmp ult i32 %switch.tableidx128, 4
-  br i1 %193, label %switch.lookup129, label %switch.lookup
+  %switch.tableidx144 = add i32 %192, -1
+  %193 = icmp ult i32 %switch.tableidx144, 4
+  br i1 %193, label %switch.lookup145, label %switch.lookup
 
 194:                                              ; preds = %16
   %195 = load ptr, ptr %1, align 8
@@ -8705,10 +8705,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 112
   %207 = load ptr, ptr %206, align 8
   %208 = tail call noundef i32 %207(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx132 = add i32 %208, -2
-  %209 = icmp ult i32 %switch.tableidx132, 3
-  %switch.offset134 = add i32 %208, 566
-  %spec.select135 = select i1 %209, i32 %switch.offset134, i32 0
+  %switch.tableidx114 = add i32 %208, -2
+  %209 = icmp ult i32 %switch.tableidx114, 3
+  %switch.offset116 = add i32 %208, 566
+  %spec.select117 = select i1 %209, i32 %switch.offset116, i32 0
   br label %switch.lookup
 
 210:                                              ; preds = %200
@@ -8716,10 +8716,10 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 112
   %213 = load ptr, ptr %212, align 8
   %214 = tail call noundef i32 %213(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx136 = add i32 %214, -2
-  %215 = icmp ult i32 %switch.tableidx136, 3
-  %switch.offset138 = add i32 %214, 569
-  %spec.select139 = select i1 %215, i32 %switch.offset138, i32 0
+  %switch.tableidx118 = add i32 %214, -2
+  %215 = icmp ult i32 %switch.tableidx118, 3
+  %switch.offset120 = add i32 %214, 569
+  %spec.select121 = select i1 %215, i32 %switch.offset120, i32 0
   br label %switch.lookup
 
 216:                                              ; preds = %200
@@ -8727,20 +8727,20 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 112
   %219 = load ptr, ptr %218, align 8
   %220 = tail call noundef i32 %219(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx140 = add i32 %220, -2
-  %221 = icmp ult i32 %switch.tableidx140, 3
-  %switch.offset142 = add i32 %220, 572
-  %spec.select143 = select i1 %221, i32 %switch.offset142, i32 0
+  %switch.tableidx122 = add i32 %220, -2
+  %221 = icmp ult i32 %switch.tableidx122, 3
+  %switch.offset124 = add i32 %220, 572
+  %spec.select125 = select i1 %221, i32 %switch.offset124, i32 0
   br label %switch.lookup
 
 222:                                              ; preds = %194
   %223 = getelementptr inbounds nuw i8, ptr %199, i64 96
   %224 = load ptr, ptr %223, align 8
   %225 = tail call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
-  %switch.tableidx144 = add i32 %225, -1
-  %226 = icmp ult i32 %switch.tableidx144, 4
-  %switch.offset146 = add i32 %225, 563
-  %spec.select147 = select i1 %226, i32 %switch.offset146, i32 0
+  %switch.tableidx126 = add i32 %225, -1
+  %226 = icmp ult i32 %switch.tableidx126, 4
+  %switch.offset128 = add i32 %225, 563
+  %spec.select129 = select i1 %226, i32 %switch.offset128, i32 0
   br label %switch.lookup
 
 227:                                              ; preds = %16
@@ -8803,34 +8803,34 @@ define noundef range(i32 0, 584) i32 @_ZNK7glslang13TIntermediate22mapTypeToCons
 264:                                              ; preds = %16
   br label %switch.lookup
 
-switch.lookup67:                                  ; preds = %57
-  %265 = zext nneg i32 %switch.tableidx66 to i64
+switch.lookup131:                                 ; preds = %57
+  %265 = zext nneg i32 %switch.tableidx130 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE, i64 %265
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
-switch.lookup81:                                  ; preds = %90
-  %266 = zext nneg i32 %switch.tableidx80 to i64
-  %switch.gep82 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.23, i64 %266
-  %switch.load83 = load i32, ptr %switch.gep82, align 4
+switch.lookup133:                                 ; preds = %90
+  %266 = zext nneg i32 %switch.tableidx132 to i64
+  %switch.gep134 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.23, i64 %266
+  %switch.load135 = load i32, ptr %switch.gep134, align 4
   br label %switch.lookup
 
-switch.lookup97:                                  ; preds = %123
-  %267 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep98 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.24, i64 %267
-  %switch.load99 = load i32, ptr %switch.gep98, align 4
+switch.lookup137:                                 ; preds = %123
+  %267 = zext nneg i32 %switch.tableidx136 to i64
+  %switch.gep138 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.24, i64 %267
+  %switch.load139 = load i32, ptr %switch.gep138, align 4
   br label %switch.lookup
 
-switch.lookup113:                                 ; preds = %156
-  %268 = zext nneg i32 %switch.tableidx112 to i64
-  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.25, i64 %268
-  %switch.load115 = load i32, ptr %switch.gep114, align 4
+switch.lookup141:                                 ; preds = %156
+  %268 = zext nneg i32 %switch.tableidx140 to i64
+  %switch.gep142 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.25, i64 %268
+  %switch.load143 = load i32, ptr %switch.gep142, align 4
   br label %switch.lookup
 
-switch.lookup129:                                 ; preds = %189
-  %269 = zext nneg i32 %switch.tableidx128 to i64
-  %switch.gep130 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.26, i64 %269
-  %switch.load131 = load i32, ptr %switch.gep130, align 4
+switch.lookup145:                                 ; preds = %189
+  %269 = zext nneg i32 %switch.tableidx144 to i64
+  %switch.gep146 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TIntermediate22mapTypeToConstructorOpERKNS_5TTypeE.26, i64 %269
+  %switch.load147 = load i32, ptr %switch.gep146, align 4
   br label %switch.lookup
 
 switch.lookup149:                                 ; preds = %227
@@ -8869,8 +8869,8 @@ switch.lookup169:                                 ; preds = %257
   %switch.load171 = load i32, ptr %switch.gep170, align 4
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %222, %216, %210, %204, %183, %177, %171, %150, %144, %138, %117, %111, %105, %84, %78, %72, %51, %45, %39, %switch.lookup169, %257, %switch.lookup165, %251, %switch.lookup161, %245, %switch.lookup157, %239, %switch.lookup153, %233, %switch.lookup149, %227, %switch.lookup129, %189, %switch.lookup113, %156, %switch.lookup97, %123, %switch.lookup81, %90, %switch.lookup67, %57, %22, %21, %263, %264, %35, %68, %101, %134, %167, %200, %16, %14, %10, %2
-  %.048 = phi i32 [ 579, %2 ], [ 581, %10 ], [ 582, %14 ], [ 0, %16 ], [ 577, %21 ], [ 0, %35 ], [ 0, %57 ], [ 0, %68 ], [ 0, %90 ], [ 0, %101 ], [ 0, %123 ], [ 0, %134 ], [ 0, %156 ], [ 0, %167 ], [ 0, %189 ], [ 0, %200 ], [ 0, %227 ], [ 0, %233 ], [ 0, %239 ], [ 0, %245 ], [ 0, %251 ], [ 0, %257 ], [ 580, %263 ], [ 583, %264 ], [ %spec.select, %22 ], [ %switch.load, %switch.lookup67 ], [ %switch.load83, %switch.lookup81 ], [ %switch.load99, %switch.lookup97 ], [ %switch.load115, %switch.lookup113 ], [ %switch.load131, %switch.lookup129 ], [ %switch.load151, %switch.lookup149 ], [ %switch.load155, %switch.lookup153 ], [ %switch.load159, %switch.lookup157 ], [ %switch.load163, %switch.lookup161 ], [ %switch.load167, %switch.lookup165 ], [ %switch.load171, %switch.lookup169 ], [ %spec.select57, %39 ], [ %spec.select61, %45 ], [ %spec.select65, %51 ], [ %spec.select71, %72 ], [ %spec.select75, %78 ], [ %spec.select79, %84 ], [ %spec.select87, %105 ], [ %spec.select91, %111 ], [ %spec.select95, %117 ], [ %spec.select103, %138 ], [ %spec.select107, %144 ], [ %spec.select111, %150 ], [ %spec.select119, %171 ], [ %spec.select123, %177 ], [ %spec.select127, %183 ], [ %spec.select135, %204 ], [ %spec.select139, %210 ], [ %spec.select143, %216 ], [ %spec.select147, %222 ]
+switch.lookup:                                    ; preds = %switch.lookup169, %257, %switch.lookup165, %251, %switch.lookup161, %245, %switch.lookup157, %239, %switch.lookup153, %233, %switch.lookup149, %227, %switch.lookup145, %189, %switch.lookup141, %156, %switch.lookup137, %123, %switch.lookup133, %90, %switch.lookup131, %57, %222, %216, %210, %204, %183, %177, %171, %150, %144, %138, %117, %111, %105, %84, %78, %72, %51, %45, %39, %22, %21, %263, %264, %35, %68, %101, %134, %167, %200, %16, %14, %10, %2
+  %.048 = phi i32 [ 579, %2 ], [ 581, %10 ], [ 582, %14 ], [ 0, %16 ], [ 577, %21 ], [ 0, %35 ], [ 0, %57 ], [ 0, %68 ], [ 0, %90 ], [ 0, %101 ], [ 0, %123 ], [ 0, %134 ], [ 0, %156 ], [ 0, %167 ], [ 0, %189 ], [ 0, %200 ], [ 0, %227 ], [ 0, %233 ], [ 0, %239 ], [ 0, %245 ], [ 0, %251 ], [ 0, %257 ], [ 580, %263 ], [ 583, %264 ], [ %spec.select, %22 ], [ %spec.select57, %39 ], [ %spec.select61, %45 ], [ %spec.select65, %51 ], [ %spec.select69, %72 ], [ %spec.select73, %78 ], [ %spec.select77, %84 ], [ %spec.select81, %105 ], [ %spec.select85, %111 ], [ %spec.select89, %117 ], [ %spec.select93, %138 ], [ %spec.select97, %144 ], [ %spec.select101, %150 ], [ %spec.select105, %171 ], [ %spec.select109, %177 ], [ %spec.select113, %183 ], [ %spec.select117, %204 ], [ %spec.select121, %210 ], [ %spec.select125, %216 ], [ %spec.select129, %222 ], [ %switch.load, %switch.lookup131 ], [ %switch.load135, %switch.lookup133 ], [ %switch.load139, %switch.lookup137 ], [ %switch.load143, %switch.lookup141 ], [ %switch.load147, %switch.lookup145 ], [ %switch.load151, %switch.lookup149 ], [ %switch.load155, %switch.lookup153 ], [ %switch.load159, %switch.lookup157 ], [ %switch.load163, %switch.lookup161 ], [ %switch.load167, %switch.lookup165 ], [ %switch.load171, %switch.lookup169 ]
   ret i32 %.048
 }
 

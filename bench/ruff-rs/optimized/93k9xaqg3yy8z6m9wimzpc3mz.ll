@@ -12074,24 +12074,24 @@ define hidden void @"_ZN15ruff_python_ast4name1_80_$LT$impl$u20$serde..de..Deser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN162_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hb49d30a6960fa8b2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
+define hidden void @"_ZN162_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hb49d30a6960fa8b2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 1), (2, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN100_$LT$bincode..features..serde..de_owned..SerdeDecoder$LT$DE$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17h3f4bd3272a0db99bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
   %4 = load i8, ptr %3, align 8, !range !78, !noundef !3
   %.not = icmp eq i8 %4, 18
-  br i1 %.not, label %5, label %9
+  br i1 %.not, label %switch.lookup, label %8
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i16, ptr %6, align 8, !range !6, !noundef !3
+switch.lookup:                                    ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = load i16, ptr %5, align 8, !range !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %7, ptr %8, align 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %6, ptr %7, align 2
   store i8 18, ptr %0, align 8
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.45545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.sroa.25551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.25551.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.45545.0..sroa_idx, i64 7, i1 false)
@@ -12112,9 +12112,9 @@ define hidden void @"_ZN162_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..D
   store ptr %.sroa.75548.0.copyload, ptr %.sroa.55554.0..sroa_idx, align 8
   %.sroa.65555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.85549.0.copyload, ptr %.sroa.65555.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %5
+9:                                                ; preds = %8, %switch.lookup
   ret void
 }
 
@@ -12435,24 +12435,24 @@ define hidden void @"_ZN16ruff_diagnostics4edit1_81_$LT$impl$u20$serde..de..Dese
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN177_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc99d0abe9348af92E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
+define hidden void @"_ZN177_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc99d0abe9348af92E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 2)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN100_$LT$bincode..features..serde..de_owned..SerdeDecoder$LT$DE$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17haa18e1db5afb9cb6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
   %4 = load i8, ptr %3, align 8, !range !78, !noundef !3
   %.not = icmp eq i8 %4, 18
-  br i1 %.not, label %5, label %9
+  br i1 %.not, label %switch.lookup, label %8
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i8, ptr %6, align 8, !range !68, !noundef !3
+switch.lookup:                                    ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = load i8, ptr %5, align 8, !range !68, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %7, ptr %8, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %6, ptr %7, align 1
   store i8 18, ptr %0, align 8
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.225.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.520.0..sroa_idx, i64 7, i1 false)
@@ -12473,9 +12473,9 @@ define hidden void @"_ZN177_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de
   store ptr %.sroa.823.0.copyload, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.9.0.copyload, ptr %.sroa.629.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %5
+9:                                                ; preds = %8, %switch.lookup
   ret void
 }
 

@@ -109,8 +109,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"_ZN8async_io6driver8block_on10IO_POLLING29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hc9b9df65358f5524E" = external thread_local global { { { i8, [1 x i8] } } }
 @anon.979b2f4c25efc3f0839931d992fd7de6.78.llvm.14582701375544310392 = external hidden unnamed_addr constant <{ ptr }>, align 8
 @_ZN8async_io6driver14BLOCK_ON_COUNT17h96b18885ef64c684E = external global { i64 }
-@"switch.table._ZN8worktree89_$LT$impl$u20$core..convert..From$LT$$RF$worktree..Entry$GT$$u20$for$u20$proto..Entry$GT$4from17hb54b7f4868f61356E" = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 1, i32 0], align 4
-@"switch.table._ZN8worktree89_$LT$impl$u20$core..convert..From$LT$$RF$worktree..Entry$GT$$u20$for$u20$proto..Entry$GT$4from17hb54b7f4868f61356E.97" = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 2, i32 undef], align 4
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h259c9d42958030a9E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -16497,32 +16495,30 @@ define void @"_ZN8worktree89_$LT$impl$u20$core..convert..From$LT$$RF$worktree..E
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8, !range !3715, !noundef !5
   %18 = icmp eq i32 %17, 1000000000
-  br i1 %18, label %switch.lookup, label %19
+  br i1 %18, label %22, label %19
 
 19:                                               ; preds = %2
   %20 = load i64, ptr %1, align 8
   %21 = invoke { i64, i32 } @"_ZN85_$LT$proto..Timestamp$u20$as$u20$core..convert..From$LT$std..time..SystemTime$GT$$GT$4from17hbfe0ae0a320ff922E"(i64 noundef %20, i32 noundef %17)
           to label %52 unwind label %50
 
-switch.lookup:                                    ; preds = %2, %52
+22:                                               ; preds = %2, %52
   %.sroa.6.0 = phi i32 [ %54, %52 ], [ undef, %2 ]
   %.sroa.5.0 = phi i64 [ %53, %52 ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 1, %52 ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %23 = load i8, ptr %22, align 8, !range !548, !noundef !5
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %25 = load i8, ptr %24, align 1, !range !548, !noundef !5
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %27 = load i8, ptr %26, align 2, !range !548, !noundef !5
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  %29 = load i8, ptr %28, align 2, !range !154, !noundef !5
-  %30 = zext nneg i8 %29 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN8worktree89_$LT$impl$u20$core..convert..From$LT$$RF$worktree..Entry$GT$$u20$for$u20$proto..Entry$GT$4from17hb54b7f4868f61356E", i64 %30
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %31 = zext nneg i8 %29 to i64
-  %switch.gep14 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN8worktree89_$LT$impl$u20$core..convert..From$LT$$RF$worktree..Entry$GT$$u20$for$u20$proto..Entry$GT$4from17hb54b7f4868f61356E.97", i64 %31
-  %switch.load15 = load i32, ptr %switch.gep14, align 4
-  %32 = icmp ne i8 %8, 3
+  %23 = icmp ne i8 %8, 3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %25 = load i8, ptr %24, align 8, !range !548, !noundef !5
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 81
+  %27 = load i8, ptr %26, align 1, !range !548, !noundef !5
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %29 = load i8, ptr %28, align 2, !range !548, !noundef !5
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 86
+  %31 = load i8, ptr %30, align 2, !range !154, !noundef !5
+  %32 = icmp ne i8 %31, 3
+  %switch.idx.cast.i.i = zext nneg i8 %31 to i32
+  %spec.select = zext i1 %32 to i32
+  %spec.select14 = select i1 %32, i32 %switch.idx.cast.i.i, i32 undef
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %34 = load i8, ptr %33, align 4, !range !548, !noundef !5
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -16530,7 +16526,7 @@ switch.lookup:                                    ; preds = %2, %52
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %6, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = zext i1 %32 to i8
+  %39 = zext i1 %23 to i8
   store i8 %39, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -16542,15 +16538,15 @@ switch.lookup:                                    ; preds = %2, %52
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  store i8 %23, ptr %42, align 1
+  store i8 %25, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i8 %25, ptr %43, align 2
+  store i8 %27, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 91
-  store i8 %27, ptr %44, align 1
+  store i8 %29, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %switch.load, ptr %45, align 8
+  store i32 %spec.select, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %switch.load15, ptr %46, align 4
+  store i32 %spec.select14, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 %34, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16569,7 +16565,7 @@ switch.lookup:                                    ; preds = %2, %52
 52:                                               ; preds = %19
   %53 = extractvalue { i64, i32 } %21, 0
   %54 = extractvalue { i64, i32 } %21, 1
-  br label %switch.lookup
+  br label %22
 
 55:                                               ; preds = %50
   %56 = landingpad { ptr, i32 }

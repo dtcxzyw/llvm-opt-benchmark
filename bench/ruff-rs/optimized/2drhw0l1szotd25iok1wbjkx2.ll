@@ -23942,28 +23942,28 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h088
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h1ab0c2e0a2d47d74E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 4
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !68
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 4
+  br i1 %4, label %switch.lookup.i, label %5, !prof !68
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hdcbb36dee95dad82E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hdcbb36dee95dad82E.exit"
 
-"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hdcbb36dee95dad82E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.6.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8QuotesOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hdcbb36dee95dad82E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.6.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -23971,64 +23971,86 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h236e6920e29ed6b8E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 5
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !90
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 5
+  br i1 %4, label %switch.lookup.i, label %5, !prof !90
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BanditOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he0addbaa5644e4e3E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BanditOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he0addbaa5644e4e3E.exit"
 
-"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BanditOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he0addbaa5644e4e3E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.7.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN192_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BanditOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417he0addbaa5644e4e3E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.7.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h23ddca543ffae29aE(i8 noundef %0) unnamed_addr #0 {
-  %2 = zext i8 %0 to i64
-  %3 = tail call i64 @"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..LintCommonOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h2c0c29818d1d35d5E"(i64 noundef %2)
-  ret i64 %3
+  %2 = alloca [24 x i8], align 8
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 45
+  br i1 %4, label %switch.lookup.i, label %5, !prof !60
+
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
+  store i8 1, ptr %2, align 8
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.267, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
+  br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..LintCommonOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h2c0c29818d1d35d5E.exit"
+
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
+  br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..LintCommonOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h2c0c29818d1d35d5E.exit"
+
+"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..LintCommonOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h2c0c29818d1d35d5E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.47.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.47.0.insert.insert.i, %.sroa.0.0.i
+  ret i64 %.sroa.0.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h268e834430a687afE(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 11
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !32
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 11
+  br i1 %4, label %switch.lookup.i, label %5, !prof !32
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.263, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.263, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PylintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hae65e18e87b6613dE.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PylintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hae65e18e87b6613dE.exit"
 
-"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PylintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hae65e18e87b6613dE.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.13.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN186_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PylintOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hae65e18e87b6613dE.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.13.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.13.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24036,28 +24058,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h3eeae0f19160d8d9E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 30
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !18
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 30
+  br i1 %4, label %switch.lookup.i, label %5, !prof !18
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.258, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.258, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..IsortOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb3e57a8f32e05340E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..IsortOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb3e57a8f32e05340E.exit"
 
-"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..IsortOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb3e57a8f32e05340E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.32.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN185_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..IsortOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb3e57a8f32e05340E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.32.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.32.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24065,28 +24087,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h4d71337e4548ade7E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 5
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !90
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 5
+  br i1 %4, label %switch.lookup.i, label %5, !prof !90
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h55ec113410a24f39E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h55ec113410a24f39E.exit"
 
-"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h55ec113410a24f39E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.7.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8AnnotationsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h55ec113410a24f39E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.7.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24148,28 +24170,28 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h625
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h66e04f0aaaea2bcbE(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 9
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !147
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 9
+  br i1 %4, label %switch.lookup.i, label %5, !prof !147
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.277, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.277, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8PytestStyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1cf3a99eecf8ee70E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8PytestStyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1cf3a99eecf8ee70E.exit"
 
-"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8PytestStyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1cf3a99eecf8ee70E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.11.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8PytestStyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h1cf3a99eecf8ee70E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.11.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24201,28 +24223,28 @@ define hidden { i32, i32 } @_ZN5serde2de7Visitor8visit_u817h82b8e11673ab05bdE(i8
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h903b4fd9d39d71a7E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 4
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !68
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 4
+  br i1 %4, label %switch.lookup.i, label %5, !prof !68
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Pep8NamingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc4c1bc2dc273561fE.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Pep8NamingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc4c1bc2dc273561fE.exit"
 
-"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Pep8NamingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc4c1bc2dc273561fE.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.6.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Pep8NamingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hc4c1bc2dc273561fE.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.6.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24254,28 +24276,28 @@ define hidden { i32, i32 } @_ZN5serde2de7Visitor8visit_u817ha4f4b6fc55c482c4E(i8
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817haf643dea9c650c82E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 3
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !82
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 3
+  br i1 %4, label %switch.lookup.i, label %5, !prof !82
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN191_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PycodestyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h0f395c40d76cb792E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN191_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PycodestyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h0f395c40d76cb792E.exit"
 
-"_ZN191_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PycodestyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h0f395c40d76cb792E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.5.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN191_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PycodestyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h0f395c40d76cb792E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.5.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24355,28 +24377,28 @@ define hidden { i32, i32 } @_ZN5serde2de7Visitor8visit_u817hd0592ef3ecb69f75E(i8
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hdaa793648ba1ceb2E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 6
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !121
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 6
+  br i1 %4, label %switch.lookup.i, label %5, !prof !121
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.275, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.275, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN194_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BuiltinsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hfab3f4f5fc8d392cE.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN194_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BuiltinsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hfab3f4f5fc8d392cE.exit"
 
-"_ZN194_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BuiltinsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hfab3f4f5fc8d392cE.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.8.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN194_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8BuiltinsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hfab3f4f5fc8d392cE.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.8.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24384,28 +24406,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hdf0082e0c1f45644E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 3
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !82
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 3
+  br i1 %4, label %switch.lookup.i, label %5, !prof !82
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h73f8be67910666b5E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h73f8be67910666b5E.exit"
 
-"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h73f8be67910666b5E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.5.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN197_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TidyImportsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h73f8be67910666b5E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.5.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24413,28 +24435,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817he77f7051e81939f9E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 4
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !68
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 4
+  br i1 %4, label %switch.lookup.i, label %5, !prof !68
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PydocstyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h4f30489ef83e7a37E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PydocstyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h4f30489ef83e7a37E.exit"
 
-"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PydocstyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h4f30489ef83e7a37E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.6.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN190_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..PydocstyleOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h4f30489ef83e7a37E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.6.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24472,28 +24494,28 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817he8b
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hecd4a1a48c201cc8E(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 4
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !68
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 4
+  br i1 %4, label %switch.lookup.i, label %5, !prof !68
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.269, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ImportConventionsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha0718c5f2ade251cE.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ImportConventionsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha0718c5f2ade251cE.exit"
 
-"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ImportConventionsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha0718c5f2ade251cE.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.6.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN203_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8ImportConventionsOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417ha0718c5f2ade251cE.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.6.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24501,28 +24523,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hf0628362324bc34fE(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 5
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !90
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 5
+  br i1 %4, label %switch.lookup.i, label %5, !prof !90
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.273, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN198_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TypeCheckingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8122929eea6ac3f4E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN198_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TypeCheckingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8122929eea6ac3f4E.exit"
 
-"_ZN198_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TypeCheckingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8122929eea6ac3f4E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.7.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN198_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8TypeCheckingOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8122929eea6ac3f4E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.7.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
@@ -24530,28 +24552,28 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817hf994e6b391b475dcE(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
-  %3 = icmp ult i8 %0, 3
-  %switch.idx.cast = zext i8 %0 to i64
-  br i1 %3, label %switch.lookup, label %4, !prof !82
+  %3 = zext i8 %0 to i64
+  %4 = icmp ult i8 %0, 3
+  br i1 %4, label %switch.lookup.i, label %5, !prof !82
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %switch.idx.cast, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %3, ptr %6, align 8
   store i8 1, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
+  %7 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.b10352911ab5e248a2451ac49c104988.271, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b10352911ab5e248a2451ac49c104988.259)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw i64 %7, 32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %"_ZN195_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8CopyrightOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h095ec29afa701878E.exit"
 
-switch.lookup:                                    ; preds = %1
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 8
+switch.lookup.i:                                  ; preds = %1
+  %switch.idx.mult.i = shl nuw nsw i64 %3, 8
   br label %"_ZN195_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8CopyrightOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h095ec29afa701878E.exit"
 
-"_ZN195_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8CopyrightOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h095ec29afa701878E.exit": ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %switch.lookup ]
-  %.sroa.5.0.insert.insert.i = phi i64 [ %8, %4 ], [ %switch.idx.mult, %switch.lookup ]
+"_ZN195_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Flake8CopyrightOptions$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h095ec29afa701878E.exit": ; preds = %5, %switch.lookup.i
+  %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %switch.lookup.i ]
+  %.sroa.5.0.insert.insert.i = phi i64 [ %9, %5 ], [ %switch.idx.mult.i, %switch.lookup.i ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %.sroa.0.0.i
   ret i64 %.sroa.0.0.insert.insert.i
 }

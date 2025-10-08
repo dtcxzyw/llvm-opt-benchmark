@@ -979,7 +979,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %_ZN4llvm7ErrorOrISt
   %switch.tableidx = add i32 %232, -5
   %233 = icmp ult i32 %switch.tableidx, 9
   %switch.offset = add i32 %232, -2
-  %spec.select412 = select i1 %233, i32 %switch.offset, i32 54
+  %spec.select411 = select i1 %233, i32 %switch.offset, i32 54
   br label %_ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit115.thread.thread
 
 _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %228, %_ZNK4llvm9StringRef5splitEc.exit
@@ -1041,7 +1041,7 @@ _ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLi
   br label %_ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit115.thread.thread
 
 _ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit115.thread.thread: ; preds = %231, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i120, %_ZNK4llvm9StringRef5splitES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i88, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i112, %_ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit123.thread
-  %.3 = phi i32 [ %.sroa.20.7.ph, %_ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit123.thread ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i112 ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i88 ], [ 54, %_ZNK4llvm9StringRef5splitES0_.exit ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i120 ], [ %spec.select412, %231 ]
+  %.3 = phi i32 [ %.sroa.20.7.ph, %_ZN4llvm12StringSwitchIN5clang6driver6Distro10DistroTypeES4_E4CaseENS_13StringLiteralES4_.exit123.thread ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i112 ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i88 ], [ 54, %_ZNK4llvm9StringRef5splitES0_.exit ], [ 54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i120 ], [ %spec.select411, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %342
 

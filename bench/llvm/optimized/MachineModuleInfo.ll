@@ -1586,14 +1586,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %6 = alloca %"class.llvm::DiagnosticInfoSrcMgr", align 8
   %.val = load i8, ptr %2, align 1, !tbaa !346, !range !210, !noundef !211
   %7 = trunc nuw i8 %.val to i1
-  br i1 %7, label %8, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %7, label %8, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !226
   %10 = tail call noundef i32 @_ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr %.sroa.0.0.copyload.i.i.i.i.i) #18
   %.not.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %11
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %11
 
 11:                                               ; preds = %8
   %12 = zext i32 %10 to i64
@@ -1605,7 +1605,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
   %.not21.i.i.i.i = icmp ult i64 %19, %12
-  br i1 %.not21.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %20
+  br i1 %.not21.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %20
 
 20:                                               ; preds = %11
   %21 = add i32 %10, -1
@@ -1613,7 +1613,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !349
   %.not22.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not22.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %25
+  br i1 %.not22.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %25
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1628,13 +1628,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
 _ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i: ; preds = %25
   %32 = and i64 %30, 960
   %.not24.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not24.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %37
+  br i1 %.not24.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %37
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i: ; preds = %25
   %33 = getelementptr inbounds i8, ptr %24, i64 -24
   %34 = load i32, ptr %33, align 8, !tbaa !334
   %.not2440.i.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not2440.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %.thread42.i.i.i.i
+  br i1 %.not2440.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %.thread42.i.i.i.i
 
 .thread42.i.i.i.i:                                ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i
   %.not23.i.i.i.i = icmp ult i32 %28, %34
@@ -1663,14 +1663,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %37, %.thread42.i.i.
   %47 = load ptr, ptr %46, align 8, !tbaa !365
   %48 = load i8, ptr %47, align 4, !tbaa !368
   %.not.i.i.i.i.i = icmp eq i8 %48, 1
-  br i1 %.not.i.i.i.i.i, label %49, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %49, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
 49:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %51 = load ptr, ptr %50, align 8, !tbaa !370
   %52 = load i8, ptr %51, align 8, !tbaa !376
   %53 = icmp eq i8 %52, 17
-  br i1 %53, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %53, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
 _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i: ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -1680,9 +1680,9 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %58 = load ptr, ptr %54, align 8
   %.0.in.i.i.i.i.i.i = select i1 %57, ptr %54, ptr %58
   %.0.i.i30.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8, !tbaa !324
-  br label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br label %"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i: ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, %49, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i, %20, %11, %8, %5
+"_ZSt10__invoke_rIvRZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISF_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %5, %8, %11, %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %49, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i
   %.0.i.i.i = phi i64 [ 0, %5 ], [ 0, %20 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i ], [ %.0.i.i30.i.i.i.i, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i ], [ 0, %11 ], [ 0, %8 ], [ 0, %49 ], [ 0, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ]
   %59 = load ptr, ptr %0, align 8, !tbaa !382
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1694,11 +1694,11 @@ _ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeE
   %65 = load i64, ptr %64, align 8, !tbaa !386
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load i32, ptr %66, align 8, !tbaa !387
-  %switch.idx.cast = trunc i32 %67 to i8
+  %switch.idx.cast.i.i.i.i.i = trunc i32 %67 to i8
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 25, ptr %68, align 8, !tbaa !388
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 %switch.idx.cast, ptr %69, align 4, !tbaa !391
+  store i8 %switch.idx.cast.i.i.i.i.i, ptr %69, align 4, !tbaa !391
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8, !tbaa !175
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %70, align 8, !tbaa !392
@@ -1748,14 +1748,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %6 = alloca %"class.llvm::DiagnosticInfoSrcMgr", align 8
   %.val = load i8, ptr %2, align 1, !tbaa !346, !range !210, !noundef !211
   %7 = trunc nuw i8 %.val to i1
-  br i1 %7, label %8, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %7, label %8, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !226
   %10 = tail call noundef i32 @_ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr %.sroa.0.0.copyload.i.i.i.i.i) #18
   %.not.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %11
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %11
 
 11:                                               ; preds = %8
   %12 = zext i32 %10 to i64
@@ -1767,7 +1767,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
   %.not21.i.i.i.i = icmp ult i64 %19, %12
-  br i1 %.not21.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %20
+  br i1 %.not21.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %20
 
 20:                                               ; preds = %11
   %21 = add i32 %10, -1
@@ -1775,7 +1775,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
   %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !349
   %.not22.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not22.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %25
+  br i1 %.not22.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %25
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1790,13 +1790,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_
 _ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i: ; preds = %25
   %32 = and i64 %30, 960
   %.not24.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not24.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %37
+  br i1 %.not24.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %37
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i: ; preds = %25
   %33 = getelementptr inbounds i8, ptr %24, i64 -24
   %34 = load i32, ptr %33, align 8, !tbaa !334
   %.not2440.i.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not2440.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i, label %.thread42.i.i.i.i
+  br i1 %.not2440.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %.thread42.i.i.i.i
 
 .thread42.i.i.i.i:                                ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i
   %.not23.i.i.i.i = icmp ult i32 %28, %34
@@ -1825,14 +1825,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i:      ; preds = %37, %.thread42.i.i.
   %47 = load ptr, ptr %46, align 8, !tbaa !365
   %48 = load i8, ptr %47, align 4, !tbaa !368
   %.not.i.i.i.i.i = icmp eq i8 %48, 1
-  br i1 %.not.i.i.i.i.i, label %49, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %.not.i.i.i.i.i, label %49, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 49:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %51 = load ptr, ptr %50, align 8, !tbaa !370
   %52 = load i8, ptr %51, align 8, !tbaa !376
   %53 = icmp eq i8 %52, 17
-  br i1 %53, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br i1 %53, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i: ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -1843,9 +1843,9 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %.0.in.i.i.i.i.i.i = select i1 %57, ptr %54, ptr %58
   %.0.i.i30.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8, !tbaa !324
   %59 = and i64 %.0.i.i30.i.i.i.i, 4294967295
-  br label %_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i
+  br label %"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
-_ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeESaIS9_EE.exit.i.i.i: ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i, %49, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i, %20, %11, %8, %5
+"_ZSt10__invoke_rIvRZN4llvm21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerIS2_JEEEE3$_0JRKNS0_12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISI_EEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %5, %8, %11, %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %49, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i
   %.0.i.i.i = phi i64 [ 0, %5 ], [ 0, %20 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.i.i.i.i ], [ %59, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i.i.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit28.thread.i.i.i.i ], [ 0, %11 ], [ 0, %8 ], [ 0, %49 ], [ 0, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ]
   %60 = load ptr, ptr %0, align 8, !tbaa !402
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1857,11 +1857,11 @@ _ZL12getLocCookieRKN4llvm12SMDiagnosticERKNS_9SourceMgrERSt6vectorIPKNS_6MDNodeE
   %66 = load i64, ptr %65, align 8, !tbaa !386
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %68 = load i32, ptr %67, align 8, !tbaa !387
-  %switch.idx.cast = trunc i32 %68 to i8
+  %switch.idx.cast.i.i.i.i.i = trunc i32 %68 to i8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 25, ptr %69, align 8, !tbaa !388
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 %switch.idx.cast, ptr %70, align 4, !tbaa !391
+  store i8 %switch.idx.cast.i.i.i.i.i, ptr %70, align 4, !tbaa !391
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8, !tbaa !175
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %71, align 8, !tbaa !392

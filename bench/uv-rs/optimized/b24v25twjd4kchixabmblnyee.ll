@@ -681,16 +681,16 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
   %27 = icmp eq i64 %26, 2
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i8, ptr %28, align 8, !noalias !170
-  br i1 %27, label %30, label %32
+  br i1 %27, label %switch.lookup, label %31
 
-30:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he4ce9caa5e0fe298E.exit.i.i"
+switch.lookup:                                    ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he4ce9caa5e0fe298E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !109
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %29, ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %29, ptr %30, align 8
   store i64 2, ptr %0, align 8
-  br label %33
+  br label %32
 
-32:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he4ce9caa5e0fe298E.exit.i.i"
+31:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he4ce9caa5e0fe298E.exit.i.i"
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.9.0..sroa_idx, i64 87, i1 false)
@@ -698,9 +698,9 @@ define hidden void @"_ZN160_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deser
   store i64 %26, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %29, ptr %.sroa.211.0..sroa_idx, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %30
+32:                                               ; preds = %31, %switch.lookup
   ret void
 }
 

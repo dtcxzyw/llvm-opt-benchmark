@@ -55814,18 +55814,18 @@ define noundef range(i8 0, 7) i8 @_ZN6yara_x7modules6protos3lnk3Lnk10drive_type1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8, !range !1866, !noundef !3
   %4 = trunc nuw i32 %3 to i1
-  br i1 %4, label %5, label %"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit"
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %7 = load i32, ptr %6, align 4, !noundef !3
-  %8 = icmp ult i32 %7, 7
-  %switch.idx.cast = trunc i32 %7 to i8
-  %spec.select = select i1 %8, i8 %switch.idx.cast, i8 0
-  br label %"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit"
+  %spec.select.i = trunc nuw nsw i32 %7 to i8
+  %.not = icmp ugt i32 %7, 6
+  %. = select i1 %.not, i8 0, i8 %spec.select.i
+  br label %8
 
-"_ZN81_$LT$yara_x..modules..protos..lnk..DriveType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hdbd40971130d33b0E.exit": ; preds = %5, %1
-  %.sroa.0.0 = phi i8 [ 0, %1 ], [ %spec.select, %5 ]
+8:                                                ; preds = %1, %5
+  %.sroa.0.0 = phi i8 [ %., %5 ], [ 0, %1 ]
   ret i8 %.sroa.0.0
 }
 

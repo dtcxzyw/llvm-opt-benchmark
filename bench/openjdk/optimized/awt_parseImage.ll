@@ -687,8 +687,8 @@ switch.lookup:                                    ; preds = %280
   %switch.offset = sub nuw nsw i32 22, %282
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %switch.lookup, %.loopexit241.i, %77, %127, %111
-  %.sink = phi i32 [ 17, %111 ], [ 20, %127 ], [ 17, %77 ], [ 17, %.loopexit241.i ], [ %switch.offset, %switch.lookup ]
+.loopexit.sink.split:                             ; preds = %.loopexit241.i, %switch.lookup, %77, %127, %111
+  %.sink = phi i32 [ 17, %111 ], [ 20, %127 ], [ 17, %77 ], [ %switch.offset, %switch.lookup ], [ 17, %.loopexit241.i ]
   %294 = getelementptr inbounds nuw i8, ptr %8, i64 608
   store i32 %.sink, ptr %294, align 8
   br label %.loopexit

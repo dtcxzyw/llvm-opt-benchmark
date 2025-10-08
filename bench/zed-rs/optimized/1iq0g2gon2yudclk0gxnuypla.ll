@@ -2775,10 +2775,10 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %9 = phi ptr [ %11, %.lr.ph.i ], [ %7, %2 ]
   %10 = load i16, ptr %9, align 2, !noalias !618, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %switch.tableidx = add i16 %10, -1
-  %spec.select = tail call i16 @llvm.umin.i16(i16 %switch.tableidx, i16 4)
+  %switch.tableidx.i.i.i = add i16 %10, -1
+  %spec.select.i.i.i = tail call i16 @llvm.umin.i16(i16 %switch.tableidx.i.i.i, i16 4)
   %12 = getelementptr inbounds { i16, [1 x i16] }, ptr %.sroa.7.0.copyload, i64 %8
-  store i16 %spec.select, ptr %12, align 2, !noalias !619
+  store i16 %spec.select.i.i.i, ptr %12, align 2, !noalias !619
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 %10, ptr %13, align 2, !noalias !619
   %14 = add i64 %8, 1
@@ -3858,47 +3858,47 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 ._crit_edge5:                                     ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !941
-  br label %17
+  br label %18
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !952, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i64, ptr %9, align 8, !alias.scope !952
-  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit"
+  br label %10
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit": ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit"
-  %10 = phi i64 [ %.promoted, %.lr.ph ], [ %16, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit" ]
-  %11 = phi ptr [ %6, %.lr.ph ], [ %13, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit" ]
-  %12 = load i16, ptr %11, align 2, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store ptr %13, ptr %4, align 8
+10:                                               ; preds = %.lr.ph, %10
+  %11 = phi i64 [ %.promoted, %.lr.ph ], [ %17, %10 ]
+  %12 = phi ptr [ %6, %.lr.ph ], [ %14, %10 ]
+  %13 = load i16, ptr %12, align 2, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  store ptr %14, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !959)
-  %switch.tableidx = add i16 %12, -1
-  %spec.select = tail call i16 @llvm.umin.i16(i16 %switch.tableidx, i16 4)
+  %switch.tableidx.i.i = add i16 %13, -1
+  %spec.select.i.i = tail call i16 @llvm.umin.i16(i16 %switch.tableidx.i.i, i16 4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !961)
-  %14 = getelementptr inbounds { i16, [1 x i16] }, ptr %8, i64 %10
-  store i16 %spec.select, ptr %14, align 2, !noalias !952
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 %12, ptr %15, align 2, !noalias !952
-  %16 = add i64 %10, 1
-  %.not = icmp eq ptr %13, %5
-  br i1 %.not, label %._crit_edge, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit"
+  %15 = getelementptr inbounds { i16, [1 x i16] }, ptr %8, i64 %11
+  store i16 %spec.select.i.i, ptr %15, align 2, !noalias !952
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i16 %13, ptr %16, align 2, !noalias !952
+  %17 = add i64 %11, 1
+  %.not = icmp eq ptr %14, %5
+  br i1 %.not, label %._crit_edge, label %10
 
-._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069.exit"
-  store i64 %16, ptr %9, align 8, !alias.scope !952
-  br label %17
+._crit_edge:                                      ; preds = %10
+  store i64 %17, ptr %9, align 8, !alias.scope !952
+  br label %18
 
-17:                                               ; preds = %._crit_edge5, %._crit_edge
-  %18 = phi i64 [ %.pre, %._crit_edge5 ], [ %16, %._crit_edge ]
+18:                                               ; preds = %._crit_edge5, %._crit_edge
+  %19 = phi i64 [ %.pre, %._crit_edge5 ], [ %17, %._crit_edge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !964)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !965)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
-  %19 = load ptr, ptr %1, align 8, !alias.scope !941, !nonnull !4, !align !33, !noundef !4
-  store i64 %18, ptr %19, align 8, !noalias !941
+  %20 = load ptr, ptr %1, align 8, !alias.scope !941, !nonnull !4, !align !33, !noundef !4
+  store i64 %19, ptr %20, align 8, !noalias !941
   tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h961d16f58bdf8810E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
@@ -26253,21 +26253,20 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6a5980b335933486E.llvm.10483896589350742069"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i16 noundef %1) unnamed_addr #28 personality ptr @rust_eh_personality {
-_ZN4core3ops8function5FnMut8call_mut17hd5c156ab56751c12E.llvm.10483896589350742069.exit:
-  %switch.tableidx = add i16 %1, -1
-  %spec.select = tail call i16 @llvm.umin.i16(i16 %switch.tableidx, i16 4)
+  %switch.tableidx.i = add i16 %1, -1
+  %spec.select.i = tail call i16 @llvm.umin.i16(i16 %switch.tableidx.i, i16 4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5917)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5920)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !alias.scope !5923, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !5923, !noundef !4
-  %6 = getelementptr inbounds { i16, [1 x i16] }, ptr %3, i64 %5
-  store i16 %spec.select, ptr %6, align 2, !noalias !5923
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i16 %1, ptr %7, align 2, !noalias !5923
-  %8 = add i64 %5, 1
-  store i64 %8, ptr %4, align 8, !alias.scope !5923
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8, !alias.scope !5923, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !alias.scope !5923, !noundef !4
+  %7 = getelementptr inbounds { i16, [1 x i16] }, ptr %4, i64 %6
+  store i16 %spec.select.i, ptr %7, align 2, !noalias !5923
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i16 %1, ptr %8, align 2, !noalias !5923
+  %9 = add i64 %6, 1
+  store i64 %9, ptr %5, align 8, !alias.scope !5923
   ret void
 }
 
@@ -46384,10 +46383,10 @@ declare i64 @llvm.umax.i64(i64, i64) #51
 declare i32 @llvm.smax.i32(i32, i32) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #51
+declare i16 @llvm.umin.i16(i16, i16) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #51
+declare i32 @llvm.smin.i32(i32, i32) #51
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

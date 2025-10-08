@@ -7693,17 +7693,17 @@ define void @_ZN7rocksdb21PosixRandomAccessFile4HintENS_18FSRandomAccessFile13Ac
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %switch = icmp ugt i32 %1, 4
-  %or.cond.not = or i1 %switch, %6
-  br i1 %or.cond.not, label %10, label %.sink.split
+  %7 = icmp ugt i32 %1, 4
+  %or.cond.not = or i1 %7, %6
+  br i1 %or.cond.not, label %11, label %.sink.split
 
 .sink.split:                                      ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !199
-  %9 = tail call noundef i32 @posix_fadvise(i32 noundef %8, i64 noundef 0, i64 noundef 0, i32 noundef %1) #33
-  br label %10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load i32, ptr %8, align 8, !tbaa !199
+  %10 = tail call noundef i32 @posix_fadvise(i32 noundef %9, i64 noundef 0, i64 noundef 0, i32 noundef %1) #33
+  br label %11
 
-10:                                               ; preds = %.sink.split, %2
+11:                                               ; preds = %.sink.split, %2
   ret void
 }
 
@@ -9079,18 +9079,18 @@ _ZN7rocksdb6StatusD2Ev.exit80:                    ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb21PosixMmapReadableFile4HintENS_18FSRandomAccessFile13AccessPatternE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #1 align 2 {
-  %switch = icmp ult i32 %1, 5
-  br i1 %switch, label %.sink.split, label %8
+  %3 = icmp ult i32 %1, 5
+  br i1 %3, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %2
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !279
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i64, ptr %5, align 8, !tbaa !280
-  %7 = tail call noundef i32 @posix_madvise(ptr noundef %4, i64 noundef %6, i32 noundef %1) #33
-  br label %8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load ptr, ptr %4, align 8, !tbaa !279
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = load i64, ptr %6, align 8, !tbaa !280
+  %8 = tail call noundef i32 @posix_madvise(ptr noundef %5, i64 noundef %7, i32 noundef %1) #33
+  br label %9
 
-8:                                                ; preds = %2, %.sink.split
+9:                                                ; preds = %2, %.sink.split
   ret void
 }
 

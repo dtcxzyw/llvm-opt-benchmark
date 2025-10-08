@@ -1004,7 +1004,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %52 = load i32, ptr %51, align 4, !tbaa !64
   %53 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #27
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %1297, label %54
+  br i1 %.not, label %1298, label %54
 
 54:                                               ; preds = %6
   %55 = load ptr, ptr %44, align 8, !tbaa !52
@@ -3199,117 +3199,117 @@ convert_any_XYZ_to_LMS.exit:                      ; preds = %.preheader, %1201, 
 1231:                                             ; preds = %1230, %1138
   %1232 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %1233 = load i32, ptr %1232, align 16, !tbaa !105
-  %switch = icmp ult i32 %1233, 5
-  br i1 %switch, label %.sink.split, label %1254
+  %1234 = icmp ult i32 %1233, 5
+  br i1 %1234, label %.sink.split, label %1255
 
 .sink.split:                                      ; preds = %1231
-  %1234 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %1235 = load i32, ptr %1234, align 4, !tbaa !115
-  %1236 = sext i32 %1235 to i64
-  %1237 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %1238 = load i32, ptr %1237, align 4, !tbaa !116
-  %1239 = sext i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %1241 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %1242 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %1243 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %1244 = getelementptr inbounds nuw i8, ptr %43, i64 128
-  %1245 = load float, ptr %1244, align 64, !tbaa !155
-  %1246 = getelementptr inbounds nuw i8, ptr %43, i64 132
-  %1247 = load float, ptr %1246, align 4, !tbaa !156
-  %1248 = getelementptr inbounds nuw i8, ptr %43, i64 140
-  %1249 = load i32, ptr %1248, align 4, !tbaa !157
-  %1250 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  %1251 = load i32, ptr %1250, align 8, !tbaa !158
-  %1252 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %1253 = load i32, ptr %1252, align 8, !tbaa !159
-  call fastcc void @_loop_switch(ptr noundef %2, ptr noundef %3, i64 noundef %1236, i64 noundef %1239, ptr noundef %37, ptr noundef %36, ptr noundef nonnull %43, ptr noundef nonnull %1240, ptr noundef nonnull %1241, ptr noundef nonnull %1242, ptr noundef nonnull %1243, float noundef %1245, float noundef %1247, i32 noundef %1249, i32 noundef %1251, i32 noundef %1233, i32 noundef %1253)
-  br label %1254
+  %1235 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %1236 = load i32, ptr %1235, align 4, !tbaa !115
+  %1237 = sext i32 %1236 to i64
+  %1238 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %1239 = load i32, ptr %1238, align 4, !tbaa !116
+  %1240 = sext i32 %1239 to i64
+  %1241 = getelementptr inbounds nuw i8, ptr %43, i64 112
+  %1242 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %1243 = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %1244 = getelementptr inbounds nuw i8, ptr %43, i64 96
+  %1245 = getelementptr inbounds nuw i8, ptr %43, i64 128
+  %1246 = load float, ptr %1245, align 64, !tbaa !155
+  %1247 = getelementptr inbounds nuw i8, ptr %43, i64 132
+  %1248 = load float, ptr %1247, align 4, !tbaa !156
+  %1249 = getelementptr inbounds nuw i8, ptr %43, i64 140
+  %1250 = load i32, ptr %1249, align 4, !tbaa !157
+  %1251 = getelementptr inbounds nuw i8, ptr %43, i64 136
+  %1252 = load i32, ptr %1251, align 8, !tbaa !158
+  %1253 = getelementptr inbounds nuw i8, ptr %43, i64 152
+  %1254 = load i32, ptr %1253, align 8, !tbaa !159
+  call fastcc void @_loop_switch(ptr noundef %2, ptr noundef %3, i64 noundef %1237, i64 noundef %1240, ptr noundef %37, ptr noundef %36, ptr noundef nonnull %43, ptr noundef nonnull %1241, ptr noundef nonnull %1242, ptr noundef nonnull %1243, ptr noundef nonnull %1244, float noundef %1246, float noundef %1248, i32 noundef %1250, i32 noundef %1252, i32 noundef %1233, i32 noundef %1254)
+  br label %1255
 
-1254:                                             ; preds = %1231, %.sink.split
-  %1255 = load ptr, ptr %66, align 8, !tbaa !80
-  %1256 = load i32, ptr %1255, align 16, !tbaa !81
-  %1257 = icmp ne i32 %1256, 0
-  %or.cond3 = select i1 %1257, i1 %70, i1 false
-  br i1 %or.cond3, label %1258, label %1296
+1255:                                             ; preds = %1231, %.sink.split
+  %1256 = load ptr, ptr %66, align 8, !tbaa !80
+  %1257 = load i32, ptr %1256, align 16, !tbaa !81
+  %1258 = icmp ne i32 %1257, 0
+  %or.cond3 = select i1 %1258, i1 %70, i1 false
+  br i1 %or.cond3, label %1259, label %1297
 
-1258:                                             ; preds = %1254
-  %1259 = getelementptr inbounds nuw i8, ptr %50, i64 532
-  %1260 = load i32, ptr %1259, align 4, !tbaa !160
-  %.not124 = icmp eq i32 %1260, 0
-  br i1 %.not124, label %1296, label %1261
+1259:                                             ; preds = %1255
+  %1260 = getelementptr inbounds nuw i8, ptr %50, i64 532
+  %1261 = load i32, ptr %1260, align 4, !tbaa !160
+  %.not124 = icmp eq i32 %1261, 0
+  br i1 %.not124, label %1297, label %1262
 
-1261:                                             ; preds = %1258
-  %1262 = load ptr, ptr %44, align 8, !tbaa !52
-  %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 620
-  %1264 = load i32, ptr %1263, align 4, !tbaa !65
-  %1265 = icmp eq i32 %1264, 4
-  br i1 %1265, label %1266, label %1296
+1262:                                             ; preds = %1259
+  %1263 = load ptr, ptr %44, align 8, !tbaa !52
+  %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 620
+  %1265 = load i32, ptr %1264, align 4, !tbaa !65
+  %1266 = icmp eq i32 %1265, 4
+  br i1 %1266, label %1267, label %1297
 
-1266:                                             ; preds = %1261
-  %1267 = getelementptr inbounds nuw i8, ptr %50, i64 440
-  %1268 = load ptr, ptr %1267, align 8, !tbaa !112, !noalias !161
-  %1269 = getelementptr inbounds nuw i8, ptr %1268, i64 48
-  %1270 = load i64, ptr %1269, align 16, !tbaa !114, !noalias !161
-  %1271 = shl i64 %1270, 4
-  %1272 = call ptr @dt_alloc_aligned(i64 noundef %1271) #27, !noalias !161
-  call void @llvm.assume(i1 true) [ "align"(ptr %1272, i64 64) ]
-  %1273 = getelementptr i8, ptr %5, i64 8
-  %.val.i = load i32, ptr %1273, align 4, !tbaa !115, !noalias !161
-  %1274 = getelementptr i8, ptr %5, i64 12
-  %.val15.i = load i32, ptr %1274, align 4, !tbaa !116, !noalias !161
-  %1275 = call fastcc <2 x float> @_extract_patches(ptr noundef readonly %3, i32 %.val.i, i32 %.val15.i, ptr noundef nonnull %50, ptr noundef nonnull readonly %36, ptr noundef nonnull readonly %38, ptr noundef %1272, i32 noundef 0)
+1267:                                             ; preds = %1262
+  %1268 = getelementptr inbounds nuw i8, ptr %50, i64 440
+  %1269 = load ptr, ptr %1268, align 8, !tbaa !112, !noalias !161
+  %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 48
+  %1271 = load i64, ptr %1270, align 16, !tbaa !114, !noalias !161
+  %1272 = shl i64 %1271, 4
+  %1273 = call ptr @dt_alloc_aligned(i64 noundef %1272) #27, !noalias !161
+  call void @llvm.assume(i1 true) [ "align"(ptr %1273, i64 64) ]
+  %1274 = getelementptr i8, ptr %5, i64 8
+  %.val.i = load i32, ptr %1274, align 4, !tbaa !115, !noalias !161
+  %1275 = getelementptr i8, ptr %5, i64 12
+  %.val15.i = load i32, ptr %1275, align 4, !tbaa !116, !noalias !161
+  %1276 = call fastcc <2 x float> @_extract_patches(ptr noundef readonly %3, i32 %.val.i, i32 %.val15.i, ptr noundef nonnull %50, ptr noundef nonnull readonly %36, ptr noundef nonnull readonly %38, ptr noundef %1273, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !161
   store float 0.000000e+00, ptr %7, align 4, !tbaa !12, !noalias !161
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !161
   store float 0.000000e+00, ptr %8, align 4, !tbaa !12, !noalias !161
-  %1276 = load ptr, ptr %1267, align 8, !tbaa !112, !noalias !161
-  %1277 = getelementptr inbounds nuw i8, ptr %50, i64 704
-  %1278 = load ptr, ptr %1277, align 64, !tbaa !121, !noalias !161
-  call fastcc void @_compute_patches_delta_E(ptr noundef %1272, ptr noundef %1276, ptr noundef %1278, ptr noundef %7, ptr noundef %8), !noalias !161
-  %1279 = load float, ptr %7, align 4, !tbaa !12, !noalias !161
-  %1280 = fcmp reassoc nsz arcp contract afn ugt float %1279, 0x3FF3333340000000
-  br i1 %1280, label %1281, label %_validate_color_checker.exit
+  %1277 = load ptr, ptr %1268, align 8, !tbaa !112, !noalias !161
+  %1278 = getelementptr inbounds nuw i8, ptr %50, i64 704
+  %1279 = load ptr, ptr %1278, align 64, !tbaa !121, !noalias !161
+  call fastcc void @_compute_patches_delta_E(ptr noundef %1273, ptr noundef %1277, ptr noundef %1279, ptr noundef %7, ptr noundef %8), !noalias !161
+  %1280 = load float, ptr %7, align 4, !tbaa !12, !noalias !161
+  %1281 = fcmp reassoc nsz arcp contract afn ugt float %1280, 0x3FF3333340000000
+  br i1 %1281, label %1282, label %_validate_color_checker.exit
 
-1281:                                             ; preds = %1266
-  %1282 = fcmp reassoc nsz arcp contract afn ugt float %1279, 0x4002666660000000
-  br i1 %1282, label %1283, label %_validate_color_checker.exit
+1282:                                             ; preds = %1267
+  %1283 = fcmp reassoc nsz arcp contract afn ugt float %1280, 0x4002666660000000
+  br i1 %1283, label %1284, label %_validate_color_checker.exit
 
-1283:                                             ; preds = %1281
-  %1284 = fcmp reassoc nsz arcp contract afn ugt float %1279, 0x400B333340000000
-  %.str.311..str.310.i132 = select i1 %1284, ptr @.str.311, ptr @.str.310
+1284:                                             ; preds = %1282
+  %1285 = fcmp reassoc nsz arcp contract afn ugt float %1280, 0x400B333340000000
+  %.str.311..str.310.i132 = select i1 %1285, ptr @.str.311, ptr @.str.310
   br label %_validate_color_checker.exit
 
-_validate_color_checker.exit:                     ; preds = %1266, %1281, %1283
-  %.str.309.sink.i129 = phi ptr [ @.str.308, %1266 ], [ @.str.309, %1281 ], [ %.str.311..str.310.i132, %1283 ]
-  %1285 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.309.sink.i129, i32 noundef 5) #27, !noalias !161
-  %1286 = getelementptr inbounds nuw i8, ptr %50, i64 712
-  %1287 = load ptr, ptr %1286, align 8, !tbaa !153, !noalias !161
-  call void @g_free(ptr noundef %1287) #27, !noalias !161
-  %1288 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.314, i32 noundef 5) #27, !noalias !161
-  %1289 = fpext reassoc nsz arcp contract afn float %1279 to double
-  %1290 = load float, ptr %8, align 4, !tbaa !12, !noalias !161
-  %1291 = fpext reassoc nsz arcp contract afn float %1290 to double
-  %.sroa.0.4.vec.extract.i130 = extractelement <2 x float> %1275, i64 1
-  %1292 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %.sroa.0.4.vec.extract.i130)
-  %1293 = fpext reassoc nsz arcp contract afn float %1292 to double
-  %.sroa.0.0.vec.extract.i131 = extractelement <2 x float> %1275, i64 0
-  %1294 = fpext reassoc nsz arcp contract afn float %.sroa.0.0.vec.extract.i131 to double
-  %1295 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %1288, ptr noundef %1285, double noundef %1289, double noundef %1291, double noundef %1293, double noundef %1294) #27, !noalias !161
-  store ptr %1295, ptr %1286, align 8, !tbaa !153, !noalias !161
-  call void @free(ptr noundef %1272) #27, !noalias !161
+_validate_color_checker.exit:                     ; preds = %1267, %1282, %1284
+  %.str.309.sink.i129 = phi ptr [ @.str.308, %1267 ], [ @.str.309, %1282 ], [ %.str.311..str.310.i132, %1284 ]
+  %1286 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.309.sink.i129, i32 noundef 5) #27, !noalias !161
+  %1287 = getelementptr inbounds nuw i8, ptr %50, i64 712
+  %1288 = load ptr, ptr %1287, align 8, !tbaa !153, !noalias !161
+  call void @g_free(ptr noundef %1288) #27, !noalias !161
+  %1289 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.314, i32 noundef 5) #27, !noalias !161
+  %1290 = fpext reassoc nsz arcp contract afn float %1280 to double
+  %1291 = load float, ptr %8, align 4, !tbaa !12, !noalias !161
+  %1292 = fpext reassoc nsz arcp contract afn float %1291 to double
+  %.sroa.0.4.vec.extract.i130 = extractelement <2 x float> %1276, i64 1
+  %1293 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %.sroa.0.4.vec.extract.i130)
+  %1294 = fpext reassoc nsz arcp contract afn float %1293 to double
+  %.sroa.0.0.vec.extract.i131 = extractelement <2 x float> %1276, i64 0
+  %1295 = fpext reassoc nsz arcp contract afn float %.sroa.0.0.vec.extract.i131 to double
+  %1296 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %1289, ptr noundef %1286, double noundef %1290, double noundef %1292, double noundef %1294, double noundef %1295) #27, !noalias !161
+  store ptr %1296, ptr %1287, align 8, !tbaa !153, !noalias !161
+  call void @free(ptr noundef %1273) #27, !noalias !161
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !161
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !161
-  store i32 0, ptr %1259, align 4, !tbaa !160
-  br label %1296
+  store i32 0, ptr %1260, align 4, !tbaa !160
+  br label %1297
 
-1296:                                             ; preds = %1258, %1261, %_validate_color_checker.exit, %1254
+1297:                                             ; preds = %1259, %1262, %_validate_color_checker.exit, %1255
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %1297
+  br label %1298
 
-1297:                                             ; preds = %6, %1296
+1298:                                             ; preds = %6, %1297
   ret void
 }
 

@@ -2339,8 +2339,8 @@ _Z31grpc_fill_alpn_protocol_stringsPm.exit:       ; preds = %.lr.ph.i, %11
   store i64 %1, ptr %26, align 8, !tbaa !127
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %2, ptr %27, align 8, !tbaa !128
-  %switch.tableidx = add i32 %3, -1
-  %28 = icmp ult i32 %switch.tableidx, 4
+  %switch.tableidx.i = add i32 %3, -1
+  %28 = icmp ult i32 %switch.tableidx.i, 4
   %.0.i = select i1 %28, i32 %3, i32 0
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %.0.i, ptr %29, align 8, !tbaa !129

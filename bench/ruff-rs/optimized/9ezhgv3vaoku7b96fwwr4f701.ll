@@ -35513,8 +35513,8 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef11as_stmt_ref17h59b10f3a8075193eE(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef11as_stmt_ref17h59b10f3a8075193eE(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #18 {
 .sink.split:
   %switch.tableidx = add nsw i64 %0, -2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %switch.tableidx, i64 25)
@@ -35549,8 +35549,8 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef11as_expr_ref17h24ed1c8fb99137c5E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef11as_expr_ref17h24ed1c8fb99137c5E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #18 {
 .sink.split:
   %switch.tableidx = add nsw i64 %0, -27
   %spec.select = tail call i64 @llvm.umin.i64(i64 %switch.tableidx, i64 32)
@@ -35690,8 +35690,8 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef14as_pattern_ref17h7f64a1c37af97a69E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef14as_pattern_ref17h7f64a1c37af97a69E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #18 {
 .sink.split:
   %switch.tableidx = add nsw i64 %0, -62
   %spec.select = tail call i64 @llvm.umin.i64(i64 %switch.tableidx, i64 8)
@@ -35724,8 +35724,8 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef17as_type_param_ref17hf09ad59c0253f666E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #22 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i64, ptr } @_ZN15ruff_python_ast9generated10AnyNodeRef17as_type_param_ref17hf09ad59c0253f666E(i64 noundef range(i64 0, 92) %0, ptr noundef %1) unnamed_addr #18 {
 .sink.split:
   %switch.tableidx = add nsw i64 %0, -70
   %spec.select = tail call i64 @llvm.umin.i64(i64 %switch.tableidx, i64 3)
@@ -36747,7 +36747,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast9generated10AnyNodeRef13is_type_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 0, 92) i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %0, ptr readnone captures(none) %1) unnamed_addr #18 {
+define noundef range(i8 0, 92) i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %0, ptr noundef readnone captures(none) %1) unnamed_addr #18 {
 switch.lookup:
   %switch.idx.cast = trunc nuw nsw i64 %0 to i8
   ret i8 %switch.idx.cast
@@ -50878,16 +50878,8 @@ define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python
   %6 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq ptr %1, %3
-  br i1 %7, label %8, label %12
-
-8:                                                ; preds = %4
-  %9 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef %0, ptr nonnull poison)
-  %10 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef %2, ptr nonnull poison)
-  %11 = icmp eq i8 %9, %10
-  br label %12
-
-12:                                               ; preds = %4, %8
-  %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %4 ]
+  %8 = icmp eq i64 %0, %2
+  %.sroa.0.0 = and i1 %8, %7
   ret i1 %.sroa.0.0
 }
 
@@ -51194,1547 +51186,1502 @@ define { i64, ptr } @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$26is_first_statement_in_body17hc3435e596ebb42ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef range(i64 0, 92) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #30 {
-  switch i64 %1, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36 [
+  switch i64 %1, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37 [
     i64 2, label %4
     i64 3, label %7
-    i64 10, label %39
-    i64 11, label %39
+    i64 10, label %38
+    i64 11, label %38
     i64 12, label %10
     i64 13, label %12
     i64 14, label %15
-    i64 16, label %20
-    i64 59, label %27
-    i64 84, label %29
-    i64 86, label %31
+    i64 16, label %19
+    i64 59, label %26
+    i64 84, label %28
+    i64 86, label %30
   ]
 
 4:                                                ; preds = %3
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %33
+  br label %32
 
 7:                                                ; preds = %3
   %8 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %33
+  br label %32
 
 10:                                               ; preds = %3
   %11 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %11)
-  br label %33
+  br label %32
 
 12:                                               ; preds = %3
   %13 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %33
+  br label %32
 
 15:                                               ; preds = %3
   %16 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %16)
-  %17 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %.not27 = icmp eq i64 %19, 0
-  br i1 %.not27, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %171
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %.not27 = icmp eq i64 %18, 0
+  br i1 %.not27, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %165
 
-20:                                               ; preds = %3
-  %21 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !noundef !3
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load i64, ptr %25, align 8, !noundef !3
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread, label %180
+19:                                               ; preds = %3
+  %20 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %20)
+  %21 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !3
+  %.not = icmp eq i64 %25, 0
+  br i1 %.not, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47.thread, label %173
 
-27:                                               ; preds = %3
-  %28 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %28)
-  br label %33
+26:                                               ; preds = %3
+  %27 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %27)
+  br label %32
 
-29:                                               ; preds = %3
-  %30 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %30)
-  br label %33
+28:                                               ; preds = %3
+  %29 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %29)
+  br label %32
 
-31:                                               ; preds = %3
-  %32 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %32)
-  br label %33
+30:                                               ; preds = %3
+  %31 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %31)
+  br label %32
 
-33:                                               ; preds = %31, %29, %27, %12, %10, %7, %4
-  %.sroa.022.0 = phi ptr [ %6, %4 ], [ %9, %7 ], [ %2, %10 ], [ %14, %12 ], [ %2, %27 ], [ %2, %29 ], [ %2, %31 ]
-  %34 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 16
-  %38 = load i64, ptr %37, align 8, !noundef !3
-  %.not30 = icmp eq i64 %38, 0
-  br i1 %.not30, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %368
+32:                                               ; preds = %30, %28, %26, %12, %10, %7, %4
+  %.sroa.022.0 = phi ptr [ %6, %4 ], [ %9, %7 ], [ %2, %10 ], [ %14, %12 ], [ %2, %26 ], [ %2, %28 ], [ %2, %30 ]
+  %33 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 16
+  %37 = load i64, ptr %36, align 8, !noundef !3
+  %.not30 = icmp eq i64 %37, 0
+  br i1 %.not30, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %354
 
-39:                                               ; preds = %3, %3
-  %40 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %40)
-  %41 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !noundef !3
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %45 = load i64, ptr %44, align 8, !noundef !3
-  %.not28 = icmp eq i64 %45, 0
-  br i1 %.not28, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread, label %46
+38:                                               ; preds = %3, %3
+  %39 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %39)
+  %40 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !noundef !3
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %44 = load i64, ptr %43, align 8, !noundef !3
+  %.not28 = icmp eq i64 %44, 0
+  br i1 %.not28, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread, label %45
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %48 = load ptr, ptr %47, align 8, !nonnull !3, !noundef !3
-  %49 = load i64, ptr %48, align 8, !range !4450, !alias.scope !7343, !noundef !3
-  %50 = icmp slt i64 %49, -9223372036854775784
-  %51 = add i64 %49, -9223372036854775807
-  %52 = select i1 %50, i64 %51, i64 0
-  switch i64 %52, label %53 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
-    i64 1, label %54
-    i64 2, label %56
-    i64 3, label %58
-    i64 4, label %60
-    i64 5, label %62
-    i64 6, label %64
-    i64 7, label %66
-    i64 8, label %68
-    i64 9, label %70
-    i64 10, label %72
-    i64 11, label %74
-    i64 12, label %76
-    i64 13, label %78
-    i64 14, label %80
-    i64 15, label %82
-    i64 16, label %84
-    i64 17, label %86
-    i64 18, label %88
-    i64 19, label %90
-    i64 20, label %92
-    i64 21, label %94
-    i64 22, label %96
-    i64 23, label %98
-    i64 24, label %100
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
+  %48 = load i64, ptr %47, align 8, !range !4450, !alias.scope !7343, !noundef !3
+  %49 = icmp slt i64 %48, -9223372036854775784
+  %50 = add i64 %48, -9223372036854775807
+  %51 = select i1 %49, i64 %50, i64 0
+  switch i64 %51, label %52 [
+    i64 0, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
+    i64 1, label %53
+    i64 2, label %55
+    i64 3, label %57
+    i64 4, label %59
+    i64 5, label %61
+    i64 6, label %63
+    i64 7, label %65
+    i64 8, label %67
+    i64 9, label %69
+    i64 10, label %71
+    i64 11, label %73
+    i64 12, label %75
+    i64 13, label %77
+    i64 14, label %79
+    i64 15, label %81
+    i64 16, label %83
+    i64 17, label %85
+    i64 18, label %87
+    i64 19, label %89
+    i64 20, label %91
+    i64 21, label %93
+    i64 22, label %95
+    i64 23, label %97
+    i64 24, label %99
   ]
 
-53:                                               ; preds = %46
+52:                                               ; preds = %45
   unreachable
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-56:                                               ; preds = %46
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+55:                                               ; preds = %45
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-58:                                               ; preds = %46
-  %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+57:                                               ; preds = %45
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-60:                                               ; preds = %46
-  %61 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+59:                                               ; preds = %45
+  %60 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-62:                                               ; preds = %46
-  %63 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+61:                                               ; preds = %45
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-64:                                               ; preds = %46
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+63:                                               ; preds = %45
+  %64 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-66:                                               ; preds = %46
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+65:                                               ; preds = %45
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-68:                                               ; preds = %46
-  %69 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+67:                                               ; preds = %45
+  %68 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-70:                                               ; preds = %46
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+69:                                               ; preds = %45
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-72:                                               ; preds = %46
-  %73 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+71:                                               ; preds = %45
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-74:                                               ; preds = %46
-  %75 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+73:                                               ; preds = %45
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-76:                                               ; preds = %46
-  %77 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+75:                                               ; preds = %45
+  %76 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-78:                                               ; preds = %46
-  %79 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+77:                                               ; preds = %45
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-80:                                               ; preds = %46
-  %81 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+79:                                               ; preds = %45
+  %80 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-82:                                               ; preds = %46
-  %83 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+81:                                               ; preds = %45
+  %82 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-84:                                               ; preds = %46
-  %85 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+83:                                               ; preds = %45
+  %84 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-86:                                               ; preds = %46
-  %87 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+85:                                               ; preds = %45
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-88:                                               ; preds = %46
-  %89 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+87:                                               ; preds = %45
+  %88 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-90:                                               ; preds = %46
-  %91 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+89:                                               ; preds = %45
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-92:                                               ; preds = %46
-  %93 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+91:                                               ; preds = %45
+  %92 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-94:                                               ; preds = %46
-  %95 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+93:                                               ; preds = %45
+  %94 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-96:                                               ; preds = %46
-  %97 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+95:                                               ; preds = %45
+  %96 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-98:                                               ; preds = %46
-  %99 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+97:                                               ; preds = %45
+  %98 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-100:                                              ; preds = %46
-  %101 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+99:                                               ; preds = %45
+  %100 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i": ; preds = %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %46
-  %.sroa.26.0.i.i.i.i = phi ptr [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %48, %46 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ 3, %54 ], [ 4, %56 ], [ 5, %58 ], [ 6, %60 ], [ 7, %62 ], [ 8, %64 ], [ 9, %66 ], [ 10, %68 ], [ 11, %70 ], [ 12, %72 ], [ 13, %74 ], [ 14, %76 ], [ 15, %78 ], [ 16, %80 ], [ 17, %82 ], [ 18, %84 ], [ 19, %86 ], [ 20, %88 ], [ 21, %90 ], [ 22, %92 ], [ 23, %94 ], [ 24, %96 ], [ 25, %98 ], [ 26, %100 ], [ 2, %46 ]
-  %102 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %102)
-  %103 = icmp eq ptr %43, %.sroa.26.0.i.i.i.i
-  br i1 %103, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit: ; preds = %45, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99
+  %.sroa.26.0.i.i.i.i = phi ptr [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %47, %45 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ 3, %53 ], [ 4, %55 ], [ 5, %57 ], [ 6, %59 ], [ 7, %61 ], [ 8, %63 ], [ 9, %65 ], [ 10, %67 ], [ 11, %69 ], [ 12, %71 ], [ 13, %73 ], [ 14, %75 ], [ 15, %77 ], [ 16, %79 ], [ 17, %81 ], [ 18, %83 ], [ 19, %85 ], [ 20, %87 ], [ 21, %89 ], [ 22, %91 ], [ 23, %93 ], [ 24, %95 ], [ 25, %97 ], [ 26, %99 ], [ 2, %45 ]
+  %101 = icmp ne ptr %42, null
+  tail call void @llvm.assume(i1 %101)
+  %102 = icmp eq ptr %42, %.sroa.26.0.i.i.i.i
+  %103 = icmp eq i64 %40, %.sroa.0.0.i.i.i.i
+  %.sroa.0.0.i.i.i = and i1 %102, %103
+  br i1 %.sroa.0.0.i.i.i, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
-  %104 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %41, ptr nonnull readnone poison)
-  %105 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i, ptr nonnull readnone poison)
-  %106 = icmp eq i8 %104, %105
-  br i1 %106, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread: ; preds = %38, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %105 = load i64, ptr %104, align 8, !noundef !3
+  %.not29 = icmp eq i64 %105, 0
+  br i1 %.not29, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %106
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread: ; preds = %39, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %108 = load i64, ptr %107, align 8, !noundef !3
-  %.not29 = icmp eq i64 %108, 0
-  br i1 %.not29, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %109
-
-109:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %111 = load ptr, ptr %110, align 8, !nonnull !3, !noundef !3
-  %112 = load i64, ptr %111, align 8, !range !4450, !alias.scope !7352, !noundef !3
-  %113 = icmp slt i64 %112, -9223372036854775784
-  %114 = add i64 %112, -9223372036854775807
-  %115 = select i1 %113, i64 %114, i64 0
-  switch i64 %115, label %116 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
-    i64 1, label %117
-    i64 2, label %119
-    i64 3, label %121
-    i64 4, label %123
-    i64 5, label %125
-    i64 6, label %127
-    i64 7, label %129
-    i64 8, label %131
-    i64 9, label %133
-    i64 10, label %135
-    i64 11, label %137
-    i64 12, label %139
-    i64 13, label %141
-    i64 14, label %143
-    i64 15, label %145
-    i64 16, label %147
-    i64 17, label %149
-    i64 18, label %151
-    i64 19, label %153
-    i64 20, label %155
-    i64 21, label %157
-    i64 22, label %159
-    i64 23, label %161
-    i64 24, label %163
+106:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %108 = load ptr, ptr %107, align 8, !nonnull !3, !noundef !3
+  %109 = load i64, ptr %108, align 8, !range !4450, !alias.scope !7352, !noundef !3
+  %110 = icmp slt i64 %109, -9223372036854775784
+  %111 = add i64 %109, -9223372036854775807
+  %112 = select i1 %110, i64 %111, i64 0
+  switch i64 %112, label %113 [
+    i64 0, label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
+    i64 1, label %114
+    i64 2, label %116
+    i64 3, label %118
+    i64 4, label %120
+    i64 5, label %122
+    i64 6, label %124
+    i64 7, label %126
+    i64 8, label %128
+    i64 9, label %130
+    i64 10, label %132
+    i64 11, label %134
+    i64 12, label %136
+    i64 13, label %138
+    i64 14, label %140
+    i64 15, label %142
+    i64 16, label %144
+    i64 17, label %146
+    i64 18, label %148
+    i64 19, label %150
+    i64 20, label %152
+    i64 21, label %154
+    i64 22, label %156
+    i64 23, label %158
+    i64 24, label %160
   ]
 
-116:                                              ; preds = %109
+113:                                              ; preds = %106
   unreachable
 
-117:                                              ; preds = %109
-  %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+114:                                              ; preds = %106
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-119:                                              ; preds = %109
-  %120 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-121:                                              ; preds = %109
-  %122 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+118:                                              ; preds = %106
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-123:                                              ; preds = %109
-  %124 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+120:                                              ; preds = %106
+  %121 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-125:                                              ; preds = %109
-  %126 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+122:                                              ; preds = %106
+  %123 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-127:                                              ; preds = %109
-  %128 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+124:                                              ; preds = %106
+  %125 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-129:                                              ; preds = %109
-  %130 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+126:                                              ; preds = %106
+  %127 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-131:                                              ; preds = %109
-  %132 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+128:                                              ; preds = %106
+  %129 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-133:                                              ; preds = %109
-  %134 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+130:                                              ; preds = %106
+  %131 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-135:                                              ; preds = %109
-  %136 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+132:                                              ; preds = %106
+  %133 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-137:                                              ; preds = %109
-  %138 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+134:                                              ; preds = %106
+  %135 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-139:                                              ; preds = %109
-  %140 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+136:                                              ; preds = %106
+  %137 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-141:                                              ; preds = %109
-  %142 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+138:                                              ; preds = %106
+  %139 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-143:                                              ; preds = %109
-  %144 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+140:                                              ; preds = %106
+  %141 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-145:                                              ; preds = %109
-  %146 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+142:                                              ; preds = %106
+  %143 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-147:                                              ; preds = %109
-  %148 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+144:                                              ; preds = %106
+  %145 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-149:                                              ; preds = %109
-  %150 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+146:                                              ; preds = %106
+  %147 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-151:                                              ; preds = %109
-  %152 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+148:                                              ; preds = %106
+  %149 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-153:                                              ; preds = %109
-  %154 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+150:                                              ; preds = %106
+  %151 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-155:                                              ; preds = %109
-  %156 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+152:                                              ; preds = %106
+  %153 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-157:                                              ; preds = %109
-  %158 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+154:                                              ; preds = %106
+  %155 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-159:                                              ; preds = %109
-  %160 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+156:                                              ; preds = %106
+  %157 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-161:                                              ; preds = %109
-  %162 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+158:                                              ; preds = %106
+  %159 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-163:                                              ; preds = %109
-  %164 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
+160:                                              ; preds = %106
+  %161 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32"
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32": ; preds = %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %109
-  %.sroa.26.0.i.i.i.i33 = phi ptr [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %111, %109 ]
-  %.sroa.0.0.i.i.i.i34 = phi i64 [ 3, %117 ], [ 4, %119 ], [ 5, %121 ], [ 6, %123 ], [ 7, %125 ], [ 8, %127 ], [ 9, %129 ], [ 10, %131 ], [ 11, %133 ], [ 12, %135 ], [ 13, %137 ], [ 14, %139 ], [ 15, %141 ], [ 16, %143 ], [ 17, %145 ], [ 18, %147 ], [ 19, %149 ], [ 20, %151 ], [ 21, %153 ], [ 22, %155 ], [ 23, %157 ], [ 24, %159 ], [ 25, %161 ], [ 26, %163 ], [ 2, %109 ]
-  %165 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %165)
-  %166 = icmp eq ptr %43, %.sroa.26.0.i.i.i.i33
-  br i1 %166, label %167, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
+"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32": ; preds = %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %106
+  %.sroa.26.0.i.i.i.i33 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %108, %106 ]
+  %.sroa.0.0.i.i.i.i34 = phi i64 [ 3, %114 ], [ 4, %116 ], [ 5, %118 ], [ 6, %120 ], [ 7, %122 ], [ 8, %124 ], [ 9, %126 ], [ 10, %128 ], [ 11, %130 ], [ 12, %132 ], [ 13, %134 ], [ 14, %136 ], [ 15, %138 ], [ 16, %140 ], [ 17, %142 ], [ 18, %144 ], [ 19, %146 ], [ 20, %148 ], [ 21, %150 ], [ 22, %152 ], [ 23, %154 ], [ 24, %156 ], [ 25, %158 ], [ 26, %160 ], [ 2, %106 ]
+  %162 = icmp ne ptr %42, null
+  tail call void @llvm.assume(i1 %162)
+  %163 = icmp eq ptr %42, %.sroa.26.0.i.i.i.i33
+  %164 = icmp eq i64 %40, %.sroa.0.0.i.i.i.i34
+  %.sroa.0.0.i.i.i35 = and i1 %163, %164
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37
 
-167:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32"
-  %168 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %41, ptr nonnull readnone poison)
-  %169 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i34, ptr nonnull readnone poison)
-  %170 = icmp eq i8 %168, %169
-  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
-
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread, %33, %15, %426, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58", %364, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52", %177, %171, %167, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, %3
-  %.sroa.011.0.shrunk = phi i1 [ false, %3 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44 ], [ %170, %167 ], [ false, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i32" ], [ %179, %177 ], [ false, %171 ], [ %367, %364 ], [ false, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52" ], [ %429, %426 ], [ false, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58" ], [ false, %15 ], [ false, %33 ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread ]
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread, %32, %15, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63", %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56", %165, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, %3
+  %.sroa.011.0.shrunk = phi i1 [ false, %3 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47 ], [ %.sroa.0.0.i.i.i35, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i32" ], [ %.sroa.0.0.i.i.i39, %165 ], [ %.sroa.0.0.i.i.i59, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56" ], [ %.sroa.0.0.i.i.i66, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63" ], [ false, %15 ], [ false, %32 ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit.thread ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread ]
   ret i1 %.sroa.011.0.shrunk
 
-171:                                              ; preds = %15
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %173 = load ptr, ptr %172, align 8, !nonnull !3, !noundef !3
+165:                                              ; preds = %15
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %167 = load ptr, ptr %166, align 8, !nonnull !3, !noundef !3
+  %168 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %170 = load ptr, ptr %169, align 8, !nonnull !3, !noundef !3
+  %171 = icmp eq ptr %167, %170
+  %172 = icmp eq i64 %168, 84
+  %.sroa.0.0.i.i.i39 = and i1 %172, %171
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37
+
+173:                                              ; preds = %19
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %175 = load ptr, ptr %174, align 8, !nonnull !3, !noundef !3
-  %176 = icmp eq ptr %173, %175
-  br i1 %176, label %177, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
-
-177:                                              ; preds = %171
-  %178 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %17, ptr nonnull readnone poison)
-  %179 = icmp eq i8 %178, 84
-  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
-
-180:                                              ; preds = %20
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %182 = load ptr, ptr %181, align 8, !nonnull !3, !noundef !3
-  %183 = load i64, ptr %182, align 8, !range !4450, !alias.scope !7361, !noundef !3
-  %184 = icmp slt i64 %183, -9223372036854775784
-  %185 = add i64 %183, -9223372036854775807
-  %186 = select i1 %184, i64 %185, i64 0
-  switch i64 %186, label %187 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
-    i64 1, label %188
-    i64 2, label %190
-    i64 3, label %192
-    i64 4, label %194
-    i64 5, label %196
-    i64 6, label %198
-    i64 7, label %200
-    i64 8, label %202
-    i64 9, label %204
-    i64 10, label %206
-    i64 11, label %208
-    i64 12, label %210
-    i64 13, label %212
-    i64 14, label %214
-    i64 15, label %216
-    i64 16, label %218
-    i64 17, label %220
-    i64 18, label %222
-    i64 19, label %224
-    i64 20, label %226
-    i64 21, label %228
-    i64 22, label %230
-    i64 23, label %232
-    i64 24, label %234
+  %176 = load i64, ptr %175, align 8, !range !4450, !alias.scope !7361, !noundef !3
+  %177 = icmp slt i64 %176, -9223372036854775784
+  %178 = add i64 %176, -9223372036854775807
+  %179 = select i1 %177, i64 %178, i64 0
+  switch i64 %179, label %180 [
+    i64 0, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
+    i64 1, label %181
+    i64 2, label %183
+    i64 3, label %185
+    i64 4, label %187
+    i64 5, label %189
+    i64 6, label %191
+    i64 7, label %193
+    i64 8, label %195
+    i64 9, label %197
+    i64 10, label %199
+    i64 11, label %201
+    i64 12, label %203
+    i64 13, label %205
+    i64 14, label %207
+    i64 15, label %209
+    i64 16, label %211
+    i64 17, label %213
+    i64 18, label %215
+    i64 19, label %217
+    i64 20, label %219
+    i64 21, label %221
+    i64 22, label %223
+    i64 23, label %225
+    i64 24, label %227
   ]
 
-187:                                              ; preds = %180
+180:                                              ; preds = %173
   unreachable
 
-188:                                              ; preds = %180
-  %189 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+181:                                              ; preds = %173
+  %182 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-190:                                              ; preds = %180
-  %191 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+183:                                              ; preds = %173
+  %184 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-192:                                              ; preds = %180
-  %193 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+185:                                              ; preds = %173
+  %186 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-194:                                              ; preds = %180
-  %195 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+187:                                              ; preds = %173
+  %188 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-196:                                              ; preds = %180
-  %197 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+189:                                              ; preds = %173
+  %190 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-198:                                              ; preds = %180
-  %199 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+191:                                              ; preds = %173
+  %192 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-200:                                              ; preds = %180
-  %201 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+193:                                              ; preds = %173
+  %194 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-202:                                              ; preds = %180
-  %203 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+195:                                              ; preds = %173
+  %196 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-204:                                              ; preds = %180
-  %205 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+197:                                              ; preds = %173
+  %198 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-206:                                              ; preds = %180
-  %207 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+199:                                              ; preds = %173
+  %200 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-208:                                              ; preds = %180
-  %209 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+201:                                              ; preds = %173
+  %202 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-210:                                              ; preds = %180
-  %211 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+203:                                              ; preds = %173
+  %204 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-212:                                              ; preds = %180
-  %213 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+205:                                              ; preds = %173
+  %206 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-214:                                              ; preds = %180
-  %215 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+207:                                              ; preds = %173
+  %208 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-216:                                              ; preds = %180
-  %217 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+209:                                              ; preds = %173
+  %210 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-218:                                              ; preds = %180
-  %219 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+211:                                              ; preds = %173
+  %212 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-220:                                              ; preds = %180
-  %221 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+213:                                              ; preds = %173
+  %214 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-222:                                              ; preds = %180
-  %223 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+215:                                              ; preds = %173
+  %216 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-224:                                              ; preds = %180
-  %225 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+217:                                              ; preds = %173
+  %218 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-226:                                              ; preds = %180
-  %227 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+219:                                              ; preds = %173
+  %220 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-228:                                              ; preds = %180
-  %229 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+221:                                              ; preds = %173
+  %222 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-230:                                              ; preds = %180
-  %231 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+223:                                              ; preds = %173
+  %224 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-232:                                              ; preds = %180
-  %233 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+225:                                              ; preds = %173
+  %226 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-234:                                              ; preds = %180
-  %235 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
+227:                                              ; preds = %173
+  %228 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40": ; preds = %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %180
-  %.sroa.26.0.i.i.i.i41 = phi ptr [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ %235, %234 ], [ %182, %180 ]
-  %.sroa.0.0.i.i.i.i42 = phi i64 [ 3, %188 ], [ 4, %190 ], [ 5, %192 ], [ 6, %194 ], [ 7, %196 ], [ 8, %198 ], [ 9, %200 ], [ 10, %202 ], [ 11, %204 ], [ 12, %206 ], [ 13, %208 ], [ 14, %210 ], [ 15, %212 ], [ 16, %214 ], [ 17, %216 ], [ 18, %218 ], [ 19, %220 ], [ 20, %222 ], [ 21, %224 ], [ 22, %226 ], [ 23, %228 ], [ 24, %230 ], [ 25, %232 ], [ 26, %234 ], [ 2, %180 ]
-  %236 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %236)
-  %237 = icmp eq ptr %24, %.sroa.26.0.i.i.i.i41
-  br i1 %237, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47: ; preds = %173, %181, %183, %185, %187, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227
+  %.sroa.26.0.i.i.i.i43 = phi ptr [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %175, %173 ]
+  %.sroa.0.0.i.i.i.i44 = phi i64 [ 3, %181 ], [ 4, %183 ], [ 5, %185 ], [ 6, %187 ], [ 7, %189 ], [ 8, %191 ], [ 9, %193 ], [ 10, %195 ], [ 11, %197 ], [ 12, %199 ], [ 13, %201 ], [ 14, %203 ], [ 15, %205 ], [ 16, %207 ], [ 17, %209 ], [ 18, %211 ], [ 19, %213 ], [ 20, %215 ], [ 21, %217 ], [ 22, %219 ], [ 23, %221 ], [ 24, %223 ], [ 25, %225 ], [ 26, %227 ], [ 2, %173 ]
+  %229 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %229)
+  %230 = icmp eq ptr %23, %.sroa.26.0.i.i.i.i43
+  %231 = icmp eq i64 %21, %.sroa.0.0.i.i.i.i44
+  %.sroa.0.0.i.i.i45 = and i1 %230, %231
+  br i1 %.sroa.0.0.i.i.i45, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47.thread
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40"
-  %238 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %22, ptr nonnull readnone poison)
-  %239 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i42, ptr nonnull readnone poison)
-  %240 = icmp eq i8 %238, %239
-  br i1 %240, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47.thread: ; preds = %19, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %233 = load i64, ptr %232, align 8, !noundef !3
+  %.not25 = icmp eq i64 %233, 0
+  br i1 %.not25, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread, label %234
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread: ; preds = %20, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i40", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44
-  %241 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %242 = load i64, ptr %241, align 8, !noundef !3
-  %.not25 = icmp eq i64 %242, 0
-  br i1 %.not25, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread, label %243
-
-243:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread
-  %244 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %245 = load ptr, ptr %244, align 8, !nonnull !3, !noundef !3
-  %246 = load i64, ptr %245, align 8, !range !4450, !alias.scope !7370, !noundef !3
-  %247 = icmp slt i64 %246, -9223372036854775784
-  %248 = add i64 %246, -9223372036854775807
-  %249 = select i1 %247, i64 %248, i64 0
-  switch i64 %249, label %250 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
-    i64 1, label %251
-    i64 2, label %253
-    i64 3, label %255
-    i64 4, label %257
-    i64 5, label %259
-    i64 6, label %261
-    i64 7, label %263
-    i64 8, label %265
-    i64 9, label %267
-    i64 10, label %269
-    i64 11, label %271
-    i64 12, label %273
-    i64 13, label %275
-    i64 14, label %277
-    i64 15, label %279
-    i64 16, label %281
-    i64 17, label %283
-    i64 18, label %285
-    i64 19, label %287
-    i64 20, label %289
-    i64 21, label %291
-    i64 22, label %293
-    i64 23, label %295
-    i64 24, label %297
+234:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47.thread
+  %235 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %236 = load ptr, ptr %235, align 8, !nonnull !3, !noundef !3
+  %237 = load i64, ptr %236, align 8, !range !4450, !alias.scope !7370, !noundef !3
+  %238 = icmp slt i64 %237, -9223372036854775784
+  %239 = add i64 %237, -9223372036854775807
+  %240 = select i1 %238, i64 %239, i64 0
+  switch i64 %240, label %241 [
+    i64 0, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
+    i64 1, label %242
+    i64 2, label %244
+    i64 3, label %246
+    i64 4, label %248
+    i64 5, label %250
+    i64 6, label %252
+    i64 7, label %254
+    i64 8, label %256
+    i64 9, label %258
+    i64 10, label %260
+    i64 11, label %262
+    i64 12, label %264
+    i64 13, label %266
+    i64 14, label %268
+    i64 15, label %270
+    i64 16, label %272
+    i64 17, label %274
+    i64 18, label %276
+    i64 19, label %278
+    i64 20, label %280
+    i64 21, label %282
+    i64 22, label %284
+    i64 23, label %286
+    i64 24, label %288
   ]
 
-250:                                              ; preds = %243
+241:                                              ; preds = %234
   unreachable
 
-251:                                              ; preds = %243
-  %252 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+242:                                              ; preds = %234
+  %243 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-253:                                              ; preds = %243
-  %254 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+244:                                              ; preds = %234
+  %245 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-255:                                              ; preds = %243
-  %256 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+246:                                              ; preds = %234
+  %247 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-257:                                              ; preds = %243
-  %258 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+248:                                              ; preds = %234
+  %249 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-259:                                              ; preds = %243
-  %260 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+250:                                              ; preds = %234
+  %251 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-261:                                              ; preds = %243
-  %262 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+252:                                              ; preds = %234
+  %253 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-263:                                              ; preds = %243
-  %264 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+254:                                              ; preds = %234
+  %255 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-265:                                              ; preds = %243
-  %266 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+256:                                              ; preds = %234
+  %257 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-267:                                              ; preds = %243
-  %268 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+258:                                              ; preds = %234
+  %259 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-269:                                              ; preds = %243
-  %270 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+260:                                              ; preds = %234
+  %261 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-271:                                              ; preds = %243
-  %272 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+262:                                              ; preds = %234
+  %263 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-273:                                              ; preds = %243
-  %274 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+264:                                              ; preds = %234
+  %265 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-275:                                              ; preds = %243
-  %276 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+266:                                              ; preds = %234
+  %267 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-277:                                              ; preds = %243
-  %278 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+268:                                              ; preds = %234
+  %269 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-279:                                              ; preds = %243
-  %280 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+270:                                              ; preds = %234
+  %271 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-281:                                              ; preds = %243
-  %282 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+272:                                              ; preds = %234
+  %273 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-283:                                              ; preds = %243
-  %284 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+274:                                              ; preds = %234
+  %275 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-285:                                              ; preds = %243
-  %286 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+276:                                              ; preds = %234
+  %277 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-287:                                              ; preds = %243
-  %288 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+278:                                              ; preds = %234
+  %279 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-289:                                              ; preds = %243
-  %290 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+280:                                              ; preds = %234
+  %281 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-291:                                              ; preds = %243
-  %292 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+282:                                              ; preds = %234
+  %283 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-293:                                              ; preds = %243
-  %294 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+284:                                              ; preds = %234
+  %285 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-295:                                              ; preds = %243
-  %296 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+286:                                              ; preds = %234
+  %287 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-297:                                              ; preds = %243
-  %298 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
+288:                                              ; preds = %234
+  %289 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46": ; preds = %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %243
-  %.sroa.26.0.i.i.i.i47 = phi ptr [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %245, %243 ]
-  %.sroa.0.0.i.i.i.i48 = phi i64 [ 3, %251 ], [ 4, %253 ], [ 5, %255 ], [ 6, %257 ], [ 7, %259 ], [ 8, %261 ], [ 9, %263 ], [ 10, %265 ], [ 11, %267 ], [ 12, %269 ], [ 13, %271 ], [ 14, %273 ], [ 15, %275 ], [ 16, %277 ], [ 17, %279 ], [ 18, %281 ], [ 19, %283 ], [ 20, %285 ], [ 21, %287 ], [ 22, %289 ], [ 23, %291 ], [ 24, %293 ], [ 25, %295 ], [ 26, %297 ], [ 2, %243 ]
-  %299 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %299)
-  %300 = icmp eq ptr %24, %.sroa.26.0.i.i.i.i47
-  br i1 %300, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54: ; preds = %234, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288
+  %.sroa.26.0.i.i.i.i50 = phi ptr [ %243, %242 ], [ %245, %244 ], [ %247, %246 ], [ %249, %248 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ], [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %236, %234 ]
+  %.sroa.0.0.i.i.i.i51 = phi i64 [ 3, %242 ], [ 4, %244 ], [ 5, %246 ], [ 6, %248 ], [ 7, %250 ], [ 8, %252 ], [ 9, %254 ], [ 10, %256 ], [ 11, %258 ], [ 12, %260 ], [ 13, %262 ], [ 14, %264 ], [ 15, %266 ], [ 16, %268 ], [ 17, %270 ], [ 18, %272 ], [ 19, %274 ], [ 20, %276 ], [ 21, %278 ], [ 22, %280 ], [ 23, %282 ], [ 24, %284 ], [ 25, %286 ], [ 26, %288 ], [ 2, %234 ]
+  %290 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %290)
+  %291 = icmp eq ptr %23, %.sroa.26.0.i.i.i.i50
+  %292 = icmp eq i64 %21, %.sroa.0.0.i.i.i.i51
+  %.sroa.0.0.i.i.i52 = and i1 %291, %292
+  br i1 %.sroa.0.0.i.i.i52, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46"
-  %301 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %22, ptr nonnull readnone poison)
-  %302 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i48, ptr nonnull readnone poison)
-  %303 = icmp eq i8 %301, %302
-  br i1 %303, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit47.thread, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %294 = load i64, ptr %293, align 8, !noundef !3
+  %.not26 = icmp eq i64 %294, 0
+  br i1 %.not26, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37, label %295
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit44.thread, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i46", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50
-  %304 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %305 = load i64, ptr %304, align 8, !noundef !3
-  %.not26 = icmp eq i64 %305, 0
-  br i1 %.not26, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36, label %306
-
-306:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit50.thread
-  %307 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %308 = load ptr, ptr %307, align 8, !nonnull !3, !noundef !3
-  %309 = load i64, ptr %308, align 8, !range !4450, !alias.scope !7379, !noundef !3
-  %310 = icmp slt i64 %309, -9223372036854775784
-  %311 = add i64 %309, -9223372036854775807
-  %312 = select i1 %310, i64 %311, i64 0
-  switch i64 %312, label %313 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
-    i64 1, label %314
-    i64 2, label %316
-    i64 3, label %318
-    i64 4, label %320
-    i64 5, label %322
-    i64 6, label %324
-    i64 7, label %326
-    i64 8, label %328
-    i64 9, label %330
-    i64 10, label %332
-    i64 11, label %334
-    i64 12, label %336
-    i64 13, label %338
-    i64 14, label %340
-    i64 15, label %342
-    i64 16, label %344
-    i64 17, label %346
-    i64 18, label %348
-    i64 19, label %350
-    i64 20, label %352
-    i64 21, label %354
-    i64 22, label %356
-    i64 23, label %358
-    i64 24, label %360
+295:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %297 = load ptr, ptr %296, align 8, !nonnull !3, !noundef !3
+  %298 = load i64, ptr %297, align 8, !range !4450, !alias.scope !7379, !noundef !3
+  %299 = icmp slt i64 %298, -9223372036854775784
+  %300 = add i64 %298, -9223372036854775807
+  %301 = select i1 %299, i64 %300, i64 0
+  switch i64 %301, label %302 [
+    i64 0, label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
+    i64 1, label %303
+    i64 2, label %305
+    i64 3, label %307
+    i64 4, label %309
+    i64 5, label %311
+    i64 6, label %313
+    i64 7, label %315
+    i64 8, label %317
+    i64 9, label %319
+    i64 10, label %321
+    i64 11, label %323
+    i64 12, label %325
+    i64 13, label %327
+    i64 14, label %329
+    i64 15, label %331
+    i64 16, label %333
+    i64 17, label %335
+    i64 18, label %337
+    i64 19, label %339
+    i64 20, label %341
+    i64 21, label %343
+    i64 22, label %345
+    i64 23, label %347
+    i64 24, label %349
   ]
 
-313:                                              ; preds = %306
+302:                                              ; preds = %295
   unreachable
 
-314:                                              ; preds = %306
-  %315 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+303:                                              ; preds = %295
+  %304 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-316:                                              ; preds = %306
-  %317 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+305:                                              ; preds = %295
+  %306 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-318:                                              ; preds = %306
-  %319 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+307:                                              ; preds = %295
+  %308 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-320:                                              ; preds = %306
-  %321 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+309:                                              ; preds = %295
+  %310 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-322:                                              ; preds = %306
-  %323 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+311:                                              ; preds = %295
+  %312 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-324:                                              ; preds = %306
-  %325 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+313:                                              ; preds = %295
+  %314 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-326:                                              ; preds = %306
-  %327 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+315:                                              ; preds = %295
+  %316 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-328:                                              ; preds = %306
-  %329 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+317:                                              ; preds = %295
+  %318 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-330:                                              ; preds = %306
-  %331 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+319:                                              ; preds = %295
+  %320 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-332:                                              ; preds = %306
-  %333 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+321:                                              ; preds = %295
+  %322 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-334:                                              ; preds = %306
-  %335 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+323:                                              ; preds = %295
+  %324 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-336:                                              ; preds = %306
-  %337 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+325:                                              ; preds = %295
+  %326 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-338:                                              ; preds = %306
-  %339 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+327:                                              ; preds = %295
+  %328 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-340:                                              ; preds = %306
-  %341 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+329:                                              ; preds = %295
+  %330 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-342:                                              ; preds = %306
-  %343 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+331:                                              ; preds = %295
+  %332 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-344:                                              ; preds = %306
-  %345 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+333:                                              ; preds = %295
+  %334 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-346:                                              ; preds = %306
-  %347 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+335:                                              ; preds = %295
+  %336 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-348:                                              ; preds = %306
-  %349 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+337:                                              ; preds = %295
+  %338 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-350:                                              ; preds = %306
-  %351 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+339:                                              ; preds = %295
+  %340 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-352:                                              ; preds = %306
-  %353 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+341:                                              ; preds = %295
+  %342 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-354:                                              ; preds = %306
-  %355 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+343:                                              ; preds = %295
+  %344 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-356:                                              ; preds = %306
-  %357 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+345:                                              ; preds = %295
+  %346 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-358:                                              ; preds = %306
-  %359 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+347:                                              ; preds = %295
+  %348 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-360:                                              ; preds = %306
-  %361 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
+349:                                              ; preds = %295
+  %350 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56"
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52": ; preds = %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %306
-  %.sroa.26.0.i.i.i.i53 = phi ptr [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ %325, %324 ], [ %327, %326 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %341, %340 ], [ %343, %342 ], [ %345, %344 ], [ %347, %346 ], [ %349, %348 ], [ %351, %350 ], [ %353, %352 ], [ %355, %354 ], [ %357, %356 ], [ %359, %358 ], [ %361, %360 ], [ %308, %306 ]
-  %.sroa.0.0.i.i.i.i54 = phi i64 [ 3, %314 ], [ 4, %316 ], [ 5, %318 ], [ 6, %320 ], [ 7, %322 ], [ 8, %324 ], [ 9, %326 ], [ 10, %328 ], [ 11, %330 ], [ 12, %332 ], [ 13, %334 ], [ 14, %336 ], [ 15, %338 ], [ 16, %340 ], [ 17, %342 ], [ 18, %344 ], [ 19, %346 ], [ 20, %348 ], [ 21, %350 ], [ 22, %352 ], [ 23, %354 ], [ 24, %356 ], [ 25, %358 ], [ 26, %360 ], [ 2, %306 ]
-  %362 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %362)
-  %363 = icmp eq ptr %24, %.sroa.26.0.i.i.i.i53
-  br i1 %363, label %364, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
+"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i56": ; preds = %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %295
+  %.sroa.26.0.i.i.i.i57 = phi ptr [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %297, %295 ]
+  %.sroa.0.0.i.i.i.i58 = phi i64 [ 3, %303 ], [ 4, %305 ], [ 5, %307 ], [ 6, %309 ], [ 7, %311 ], [ 8, %313 ], [ 9, %315 ], [ 10, %317 ], [ 11, %319 ], [ 12, %321 ], [ 13, %323 ], [ 14, %325 ], [ 15, %327 ], [ 16, %329 ], [ 17, %331 ], [ 18, %333 ], [ 19, %335 ], [ 20, %337 ], [ 21, %339 ], [ 22, %341 ], [ 23, %343 ], [ 24, %345 ], [ 25, %347 ], [ 26, %349 ], [ 2, %295 ]
+  %351 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %351)
+  %352 = icmp eq ptr %23, %.sroa.26.0.i.i.i.i57
+  %353 = icmp eq i64 %21, %.sroa.0.0.i.i.i.i58
+  %.sroa.0.0.i.i.i59 = and i1 %352, %353
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37
 
-364:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i52"
-  %365 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %22, ptr nonnull readnone poison)
-  %366 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i54, ptr nonnull readnone poison)
-  %367 = icmp eq i8 %365, %366
-  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
-
-368:                                              ; preds = %33
-  %369 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 8
-  %370 = load ptr, ptr %369, align 8, !nonnull !3, !noundef !3
-  %371 = load i64, ptr %370, align 8, !range !4450, !alias.scope !7388, !noundef !3
-  %372 = icmp slt i64 %371, -9223372036854775784
-  %373 = add i64 %371, -9223372036854775807
-  %374 = select i1 %372, i64 %373, i64 0
-  switch i64 %374, label %375 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
-    i64 1, label %376
-    i64 2, label %378
-    i64 3, label %380
-    i64 4, label %382
-    i64 5, label %384
-    i64 6, label %386
-    i64 7, label %388
-    i64 8, label %390
-    i64 9, label %392
-    i64 10, label %394
-    i64 11, label %396
-    i64 12, label %398
-    i64 13, label %400
-    i64 14, label %402
-    i64 15, label %404
-    i64 16, label %406
-    i64 17, label %408
-    i64 18, label %410
-    i64 19, label %412
-    i64 20, label %414
-    i64 21, label %416
-    i64 22, label %418
-    i64 23, label %420
-    i64 24, label %422
+354:                                              ; preds = %32
+  %355 = getelementptr inbounds nuw i8, ptr %.sroa.022.0, i64 8
+  %356 = load ptr, ptr %355, align 8, !nonnull !3, !noundef !3
+  %357 = load i64, ptr %356, align 8, !range !4450, !alias.scope !7388, !noundef !3
+  %358 = icmp slt i64 %357, -9223372036854775784
+  %359 = add i64 %357, -9223372036854775807
+  %360 = select i1 %358, i64 %359, i64 0
+  switch i64 %360, label %361 [
+    i64 0, label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
+    i64 1, label %362
+    i64 2, label %364
+    i64 3, label %366
+    i64 4, label %368
+    i64 5, label %370
+    i64 6, label %372
+    i64 7, label %374
+    i64 8, label %376
+    i64 9, label %378
+    i64 10, label %380
+    i64 11, label %382
+    i64 12, label %384
+    i64 13, label %386
+    i64 14, label %388
+    i64 15, label %390
+    i64 16, label %392
+    i64 17, label %394
+    i64 18, label %396
+    i64 19, label %398
+    i64 20, label %400
+    i64 21, label %402
+    i64 22, label %404
+    i64 23, label %406
+    i64 24, label %408
   ]
 
-375:                                              ; preds = %368
+361:                                              ; preds = %354
   unreachable
 
-376:                                              ; preds = %368
-  %377 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+362:                                              ; preds = %354
+  %363 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-378:                                              ; preds = %368
-  %379 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+364:                                              ; preds = %354
+  %365 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-380:                                              ; preds = %368
-  %381 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+366:                                              ; preds = %354
+  %367 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-382:                                              ; preds = %368
-  %383 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+368:                                              ; preds = %354
+  %369 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-384:                                              ; preds = %368
-  %385 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+370:                                              ; preds = %354
+  %371 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-386:                                              ; preds = %368
-  %387 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+372:                                              ; preds = %354
+  %373 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-388:                                              ; preds = %368
-  %389 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+374:                                              ; preds = %354
+  %375 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-390:                                              ; preds = %368
-  %391 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+376:                                              ; preds = %354
+  %377 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-392:                                              ; preds = %368
-  %393 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+378:                                              ; preds = %354
+  %379 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-394:                                              ; preds = %368
-  %395 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+380:                                              ; preds = %354
+  %381 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-396:                                              ; preds = %368
-  %397 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+382:                                              ; preds = %354
+  %383 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-398:                                              ; preds = %368
-  %399 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+384:                                              ; preds = %354
+  %385 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-400:                                              ; preds = %368
-  %401 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+386:                                              ; preds = %354
+  %387 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-402:                                              ; preds = %368
-  %403 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+388:                                              ; preds = %354
+  %389 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-404:                                              ; preds = %368
-  %405 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+390:                                              ; preds = %354
+  %391 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-406:                                              ; preds = %368
-  %407 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+392:                                              ; preds = %354
+  %393 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-408:                                              ; preds = %368
-  %409 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+394:                                              ; preds = %354
+  %395 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-410:                                              ; preds = %368
-  %411 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+396:                                              ; preds = %354
+  %397 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-412:                                              ; preds = %368
-  %413 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+398:                                              ; preds = %354
+  %399 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-414:                                              ; preds = %368
-  %415 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+400:                                              ; preds = %354
+  %401 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-416:                                              ; preds = %368
-  %417 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+402:                                              ; preds = %354
+  %403 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-418:                                              ; preds = %368
-  %419 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+404:                                              ; preds = %354
+  %405 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-420:                                              ; preds = %368
-  %421 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+406:                                              ; preds = %354
+  %407 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-422:                                              ; preds = %368
-  %423 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
+408:                                              ; preds = %354
+  %409 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63"
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58": ; preds = %422, %420, %418, %416, %414, %412, %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %368
-  %.sroa.26.0.i.i.i.i59 = phi ptr [ %377, %376 ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ %370, %368 ]
-  %.sroa.0.0.i.i.i.i60 = phi i64 [ 3, %376 ], [ 4, %378 ], [ 5, %380 ], [ 6, %382 ], [ 7, %384 ], [ 8, %386 ], [ 9, %388 ], [ 10, %390 ], [ 11, %392 ], [ 12, %394 ], [ 13, %396 ], [ 14, %398 ], [ 15, %400 ], [ 16, %402 ], [ 17, %404 ], [ 18, %406 ], [ 19, %408 ], [ 20, %410 ], [ 21, %412 ], [ 22, %414 ], [ 23, %416 ], [ 24, %418 ], [ 25, %420 ], [ 26, %422 ], [ 2, %368 ]
-  %424 = icmp ne ptr %36, null
-  tail call void @llvm.assume(i1 %424)
-  %425 = icmp eq ptr %36, %.sroa.26.0.i.i.i.i59
-  br i1 %425, label %426, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
-
-426:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i58"
-  %427 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %34, ptr nonnull readnone poison)
-  %428 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i60, ptr nonnull readnone poison)
-  %429 = icmp eq i8 %427, %428
-  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit36
+"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i63": ; preds = %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %354
+  %.sroa.26.0.i.i.i.i64 = phi ptr [ %363, %362 ], [ %365, %364 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %377, %376 ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %356, %354 ]
+  %.sroa.0.0.i.i.i.i65 = phi i64 [ 3, %362 ], [ 4, %364 ], [ 5, %366 ], [ 6, %368 ], [ 7, %370 ], [ 8, %372 ], [ 9, %374 ], [ 10, %376 ], [ 11, %378 ], [ 12, %380 ], [ 13, %382 ], [ 14, %384 ], [ 15, %386 ], [ 16, %388 ], [ 17, %390 ], [ 18, %392 ], [ 19, %394 ], [ 20, %396 ], [ 21, %398 ], [ 22, %400 ], [ 23, %402 ], [ 24, %404 ], [ 25, %406 ], [ 26, %408 ], [ 2, %354 ]
+  %410 = icmp ne ptr %35, null
+  tail call void @llvm.assume(i1 %410)
+  %411 = icmp eq ptr %35, %.sroa.26.0.i.i.i.i64
+  %412 = icmp eq i64 %33, %.sroa.0.0.i.i.i.i65
+  %.sroa.0.0.i.i.i66 = and i1 %411, %412
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$36is_first_statement_in_alternate_body17h066d8f54bf2007eeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef range(i64 0, 92) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #30 {
   switch i64 %1, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit [
-    i64 10, label %16
-    i64 11, label %16
+    i64 10, label %15
+    i64 11, label %15
     i64 12, label %4
-    i64 16, label %9
+    i64 16, label %8
   ]
 
 4:                                                ; preds = %3
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
-  %6 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %8 = load i64, ptr %7, align 8, !noundef !3
-  %.not14 = icmp eq i64 %8, 0
-  br i1 %.not14, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %85
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %.not14 = icmp eq i64 %7, 0
+  br i1 %.not14, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %81
 
-9:                                                ; preds = %3
-  %10 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %15 = load i64, ptr %14, align 8, !noundef !3
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread, label %94
+8:                                                ; preds = %3
+  %9 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %9)
+  %10 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !noundef !3
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %14 = load i64, ptr %13, align 8, !noundef !3
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit
 
-16:                                               ; preds = %3, %3
-  %17 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = load i64, ptr %0, align 8, !range !5104, !noundef !3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %22 = load i64, ptr %21, align 8, !noundef !3
-  %.not15 = icmp eq i64 %22, 0
-  br i1 %.not15, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %23
+15:                                               ; preds = %3, %3
+  %16 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !noundef !3
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %21 = load i64, ptr %20, align 8, !noundef !3
+  %.not15 = icmp eq i64 %21, 0
+  br i1 %.not15, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %22
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %25 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
-  %26 = load i64, ptr %25, align 8, !range !4450, !alias.scope !7397, !noundef !3
-  %27 = icmp slt i64 %26, -9223372036854775784
-  %28 = add i64 %26, -9223372036854775807
-  %29 = select i1 %27, i64 %28, i64 0
-  switch i64 %29, label %30 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
-    i64 1, label %31
-    i64 2, label %33
-    i64 3, label %35
-    i64 4, label %37
-    i64 5, label %39
-    i64 6, label %41
-    i64 7, label %43
-    i64 8, label %45
-    i64 9, label %47
-    i64 10, label %49
-    i64 11, label %51
-    i64 12, label %53
-    i64 13, label %55
-    i64 14, label %57
-    i64 15, label %59
-    i64 16, label %61
-    i64 17, label %63
-    i64 18, label %65
-    i64 19, label %67
-    i64 20, label %69
-    i64 21, label %71
-    i64 22, label %73
-    i64 23, label %75
-    i64 24, label %77
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = load i64, ptr %24, align 8, !range !4450, !alias.scope !7397, !noundef !3
+  %26 = icmp slt i64 %25, -9223372036854775784
+  %27 = add i64 %25, -9223372036854775807
+  %28 = select i1 %26, i64 %27, i64 0
+  switch i64 %28, label %29 [
+    i64 0, label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
+    i64 1, label %30
+    i64 2, label %32
+    i64 3, label %34
+    i64 4, label %36
+    i64 5, label %38
+    i64 6, label %40
+    i64 7, label %42
+    i64 8, label %44
+    i64 9, label %46
+    i64 10, label %48
+    i64 11, label %50
+    i64 12, label %52
+    i64 13, label %54
+    i64 14, label %56
+    i64 15, label %58
+    i64 16, label %60
+    i64 17, label %62
+    i64 18, label %64
+    i64 19, label %66
+    i64 20, label %68
+    i64 21, label %70
+    i64 22, label %72
+    i64 23, label %74
+    i64 24, label %76
   ]
 
-30:                                               ; preds = %23
+29:                                               ; preds = %22
   unreachable
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+36:                                               ; preds = %22
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-39:                                               ; preds = %23
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+38:                                               ; preds = %22
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-41:                                               ; preds = %23
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+40:                                               ; preds = %22
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-43:                                               ; preds = %23
-  %44 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+42:                                               ; preds = %22
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-45:                                               ; preds = %23
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+44:                                               ; preds = %22
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-47:                                               ; preds = %23
-  %48 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+46:                                               ; preds = %22
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-49:                                               ; preds = %23
-  %50 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+48:                                               ; preds = %22
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-51:                                               ; preds = %23
-  %52 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+50:                                               ; preds = %22
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-53:                                               ; preds = %23
-  %54 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+52:                                               ; preds = %22
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-55:                                               ; preds = %23
-  %56 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+54:                                               ; preds = %22
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-57:                                               ; preds = %23
-  %58 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+56:                                               ; preds = %22
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-59:                                               ; preds = %23
-  %60 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+58:                                               ; preds = %22
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-61:                                               ; preds = %23
-  %62 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+60:                                               ; preds = %22
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-63:                                               ; preds = %23
-  %64 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+62:                                               ; preds = %22
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-65:                                               ; preds = %23
-  %66 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+64:                                               ; preds = %22
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-67:                                               ; preds = %23
-  %68 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+66:                                               ; preds = %22
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-69:                                               ; preds = %23
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+68:                                               ; preds = %22
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-71:                                               ; preds = %23
-  %72 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+70:                                               ; preds = %22
+  %71 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-73:                                               ; preds = %23
-  %74 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+72:                                               ; preds = %22
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-75:                                               ; preds = %23
-  %76 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+74:                                               ; preds = %22
+  %75 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-77:                                               ; preds = %23
-  %78 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
+76:                                               ; preds = %22
+  %77 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i"
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i": ; preds = %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %23
-  %.sroa.26.0.i.i.i.i = phi ptr [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %25, %23 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ 3, %31 ], [ 4, %33 ], [ 5, %35 ], [ 6, %37 ], [ 7, %39 ], [ 8, %41 ], [ 9, %43 ], [ 10, %45 ], [ 11, %47 ], [ 12, %49 ], [ 13, %51 ], [ 14, %53 ], [ 15, %55 ], [ 16, %57 ], [ 17, %59 ], [ 18, %61 ], [ 19, %63 ], [ 20, %65 ], [ 21, %67 ], [ 22, %69 ], [ 23, %71 ], [ 24, %73 ], [ 25, %75 ], [ 26, %77 ], [ 2, %23 ]
-  %79 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %79)
-  %80 = icmp eq ptr %20, %.sroa.26.0.i.i.i.i
-  br i1 %80, label %81, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
-
-81:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i"
-  %82 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %18, ptr nonnull readnone poison)
-  %83 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i, ptr nonnull readnone poison)
-  %84 = icmp eq i8 %82, %83
+"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i": ; preds = %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %22
+  %.sroa.26.0.i.i.i.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %24, %22 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ 3, %30 ], [ 4, %32 ], [ 5, %34 ], [ 6, %36 ], [ 7, %38 ], [ 8, %40 ], [ 9, %42 ], [ 10, %44 ], [ 11, %46 ], [ 12, %48 ], [ 13, %50 ], [ 14, %52 ], [ 15, %54 ], [ 16, %56 ], [ 17, %58 ], [ 18, %60 ], [ 19, %62 ], [ 20, %64 ], [ 21, %66 ], [ 22, %68 ], [ 23, %70 ], [ 24, %72 ], [ 25, %74 ], [ 26, %76 ], [ 2, %22 ]
+  %78 = icmp ne ptr %19, null
+  tail call void @llvm.assume(i1 %78)
+  %79 = icmp eq ptr %19, %.sroa.26.0.i.i.i.i
+  %80 = icmp eq i64 %17, %.sroa.0.0.i.i.i.i
+  %.sroa.0.0.i.i.i = and i1 %79, %80
   br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread, %16, %4, %224, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27", %91, %85, %81, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i", %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25, %3
-  %.sroa.04.0.shrunk = phi i1 [ false, %3 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit ], [ %84, %81 ], [ false, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i" ], [ %93, %91 ], [ false, %85 ], [ %227, %224 ], [ false, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27" ], [ false, %4 ], [ false, %16 ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread ]
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread, %15, %4, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30", %81, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i", %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28, %3
+  %.sroa.04.0.shrunk = phi i1 [ false, %3 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28 ], [ true, %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit ], [ %.sroa.0.0.i.i.i, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i" ], [ %.sroa.0.0.i.i.i17, %81 ], [ %.sroa.0.0.i.i.i33, %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30" ], [ false, %4 ], [ false, %15 ], [ false, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread ]
   ret i1 %.sroa.04.0.shrunk
 
-85:                                               ; preds = %4
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8, !nonnull !3, !noundef !3
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %89 = load ptr, ptr %88, align 8, !nonnull !3, !noundef !3
-  %90 = icmp eq ptr %87, %89
-  br i1 %90, label %91, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
-
-91:                                               ; preds = %85
-  %92 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %6, ptr nonnull readnone poison)
-  %93 = icmp eq i8 %92, 86
+81:                                               ; preds = %4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %83 = load ptr, ptr %82, align 8, !nonnull !3, !noundef !3
+  %84 = load i64, ptr %0, align 8, !range !5104, !noundef !3
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %86 = load ptr, ptr %85, align 8, !nonnull !3, !noundef !3
+  %87 = icmp eq ptr %83, %86
+  %88 = icmp eq i64 %84, 86
+  %.sroa.0.0.i.i.i17 = and i1 %88, %87
   br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 
-94:                                               ; preds = %9
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %96 = load ptr, ptr %95, align 8, !nonnull !3, !noundef !3
-  %97 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %97)
-  %98 = icmp eq ptr %13, %96
-  br i1 %98, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread
+_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit: ; preds = %8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %90 = load ptr, ptr %89, align 8, !nonnull !3, !noundef !3
+  %91 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %91)
+  %92 = icmp eq ptr %12, %90
+  %93 = icmp eq i64 %10, 59
+  %.sroa.0.0.i.i.i20 = and i1 %93, %92
+  br i1 %.sroa.0.0.i.i.i20, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread
 
-_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit: ; preds = %94
-  %99 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %11, ptr nonnull readnone poison)
-  %100 = icmp eq i8 %99, 59
-  br i1 %100, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread
+_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread: ; preds = %8, %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %95 = load i64, ptr %94, align 8, !noundef !3
+  %.not12 = icmp eq i64 %95, 0
+  br i1 %.not12, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread, label %96
 
-_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread: ; preds = %9, %94, %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %102 = load i64, ptr %101, align 8, !noundef !3
-  %.not12 = icmp eq i64 %102, 0
-  br i1 %.not12, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread, label %103
-
-103:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %105 = load ptr, ptr %104, align 8, !nonnull !3, !noundef !3
-  %106 = load i64, ptr %105, align 8, !range !4450, !alias.scope !7406, !noundef !3
-  %107 = icmp slt i64 %106, -9223372036854775784
-  %108 = add i64 %106, -9223372036854775807
-  %109 = select i1 %107, i64 %108, i64 0
-  switch i64 %109, label %110 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
-    i64 1, label %111
-    i64 2, label %113
-    i64 3, label %115
-    i64 4, label %117
-    i64 5, label %119
-    i64 6, label %121
-    i64 7, label %123
-    i64 8, label %125
-    i64 9, label %127
-    i64 10, label %129
-    i64 11, label %131
-    i64 12, label %133
-    i64 13, label %135
-    i64 14, label %137
-    i64 15, label %139
-    i64 16, label %141
-    i64 17, label %143
-    i64 18, label %145
-    i64 19, label %147
-    i64 20, label %149
-    i64 21, label %151
-    i64 22, label %153
-    i64 23, label %155
-    i64 24, label %157
+96:                                               ; preds = %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %98 = load ptr, ptr %97, align 8, !nonnull !3, !noundef !3
+  %99 = load i64, ptr %98, align 8, !range !4450, !alias.scope !7406, !noundef !3
+  %100 = icmp slt i64 %99, -9223372036854775784
+  %101 = add i64 %99, -9223372036854775807
+  %102 = select i1 %100, i64 %101, i64 0
+  switch i64 %102, label %103 [
+    i64 0, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
+    i64 1, label %104
+    i64 2, label %106
+    i64 3, label %108
+    i64 4, label %110
+    i64 5, label %112
+    i64 6, label %114
+    i64 7, label %116
+    i64 8, label %118
+    i64 9, label %120
+    i64 10, label %122
+    i64 11, label %124
+    i64 12, label %126
+    i64 13, label %128
+    i64 14, label %130
+    i64 15, label %132
+    i64 16, label %134
+    i64 17, label %136
+    i64 18, label %138
+    i64 19, label %140
+    i64 20, label %142
+    i64 21, label %144
+    i64 22, label %146
+    i64 23, label %148
+    i64 24, label %150
   ]
 
-110:                                              ; preds = %103
+103:                                              ; preds = %96
   unreachable
 
-111:                                              ; preds = %103
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+104:                                              ; preds = %96
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-113:                                              ; preds = %103
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+106:                                              ; preds = %96
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-115:                                              ; preds = %103
-  %116 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+108:                                              ; preds = %96
+  %109 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-117:                                              ; preds = %103
-  %118 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+110:                                              ; preds = %96
+  %111 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-119:                                              ; preds = %103
-  %120 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+112:                                              ; preds = %96
+  %113 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-121:                                              ; preds = %103
-  %122 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+114:                                              ; preds = %96
+  %115 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-123:                                              ; preds = %103
-  %124 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+116:                                              ; preds = %96
+  %117 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-125:                                              ; preds = %103
-  %126 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+118:                                              ; preds = %96
+  %119 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-127:                                              ; preds = %103
-  %128 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+120:                                              ; preds = %96
+  %121 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-129:                                              ; preds = %103
-  %130 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+122:                                              ; preds = %96
+  %123 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-131:                                              ; preds = %103
-  %132 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+124:                                              ; preds = %96
+  %125 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-133:                                              ; preds = %103
-  %134 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+126:                                              ; preds = %96
+  %127 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-135:                                              ; preds = %103
-  %136 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+128:                                              ; preds = %96
+  %129 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-137:                                              ; preds = %103
-  %138 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+130:                                              ; preds = %96
+  %131 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-139:                                              ; preds = %103
-  %140 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+132:                                              ; preds = %96
+  %133 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-141:                                              ; preds = %103
-  %142 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+134:                                              ; preds = %96
+  %135 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-143:                                              ; preds = %103
-  %144 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+136:                                              ; preds = %96
+  %137 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-145:                                              ; preds = %103
-  %146 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+138:                                              ; preds = %96
+  %139 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-147:                                              ; preds = %103
-  %148 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+140:                                              ; preds = %96
+  %141 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-149:                                              ; preds = %103
-  %150 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+142:                                              ; preds = %96
+  %143 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-151:                                              ; preds = %103
-  %152 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+144:                                              ; preds = %96
+  %145 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-153:                                              ; preds = %103
-  %154 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+146:                                              ; preds = %96
+  %147 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-155:                                              ; preds = %103
-  %156 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+148:                                              ; preds = %96
+  %149 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-157:                                              ; preds = %103
-  %158 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
+150:                                              ; preds = %96
+  %151 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21": ; preds = %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %103
-  %.sroa.26.0.i.i.i.i22 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %105, %103 ]
-  %.sroa.0.0.i.i.i.i23 = phi i64 [ 3, %111 ], [ 4, %113 ], [ 5, %115 ], [ 6, %117 ], [ 7, %119 ], [ 8, %121 ], [ 9, %123 ], [ 10, %125 ], [ 11, %127 ], [ 12, %129 ], [ 13, %131 ], [ 14, %133 ], [ 15, %135 ], [ 16, %137 ], [ 17, %139 ], [ 18, %141 ], [ 19, %143 ], [ 20, %145 ], [ 21, %147 ], [ 22, %149 ], [ 23, %151 ], [ 24, %153 ], [ 25, %155 ], [ 26, %157 ], [ 2, %103 ]
-  %159 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %159)
-  %160 = icmp eq ptr %13, %.sroa.26.0.i.i.i.i22
-  br i1 %160, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28: ; preds = %96, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150
+  %.sroa.26.0.i.i.i.i24 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %98, %96 ]
+  %.sroa.0.0.i.i.i.i25 = phi i64 [ 3, %104 ], [ 4, %106 ], [ 5, %108 ], [ 6, %110 ], [ 7, %112 ], [ 8, %114 ], [ 9, %116 ], [ 10, %118 ], [ 11, %120 ], [ 12, %122 ], [ 13, %124 ], [ 14, %126 ], [ 15, %128 ], [ 16, %130 ], [ 17, %132 ], [ 18, %134 ], [ 19, %136 ], [ 20, %138 ], [ 21, %140 ], [ 22, %142 ], [ 23, %144 ], [ 24, %146 ], [ 25, %148 ], [ 26, %150 ], [ 2, %96 ]
+  %152 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %152)
+  %153 = icmp eq ptr %12, %.sroa.26.0.i.i.i.i24
+  %154 = icmp eq i64 %10, %.sroa.0.0.i.i.i.i25
+  %.sroa.0.0.i.i.i26 = and i1 %153, %154
+  br i1 %.sroa.0.0.i.i.i26, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21"
-  %161 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %11, ptr nonnull readnone poison)
-  %162 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i23, ptr nonnull readnone poison)
-  %163 = icmp eq i8 %161, %162
-  br i1 %163, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread
+_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread, %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %156 = load i64, ptr %155, align 8, !noundef !3
+  %.not13 = icmp eq i64 %156, 0
+  br i1 %.not13, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %157
 
-_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread: ; preds = %_ZN15ruff_python_ast4node17are_same_optional17h767be7b10d9629c0E.exit.thread, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i21", %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %165 = load i64, ptr %164, align 8, !noundef !3
-  %.not13 = icmp eq i64 %165, 0
-  br i1 %.not13, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit, label %166
-
-166:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit25.thread
-  %167 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %168 = load ptr, ptr %167, align 8, !nonnull !3, !noundef !3
-  %169 = load i64, ptr %168, align 8, !range !4450, !alias.scope !7415, !noundef !3
-  %170 = icmp slt i64 %169, -9223372036854775784
-  %171 = add i64 %169, -9223372036854775807
-  %172 = select i1 %170, i64 %171, i64 0
-  switch i64 %172, label %173 [
-    i64 0, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
-    i64 1, label %174
-    i64 2, label %176
-    i64 3, label %178
-    i64 4, label %180
-    i64 5, label %182
-    i64 6, label %184
-    i64 7, label %186
-    i64 8, label %188
-    i64 9, label %190
-    i64 10, label %192
-    i64 11, label %194
-    i64 12, label %196
-    i64 13, label %198
-    i64 14, label %200
-    i64 15, label %202
-    i64 16, label %204
-    i64 17, label %206
-    i64 18, label %208
-    i64 19, label %210
-    i64 20, label %212
-    i64 21, label %214
-    i64 22, label %216
-    i64 23, label %218
-    i64 24, label %220
+157:                                              ; preds = %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %159 = load ptr, ptr %158, align 8, !nonnull !3, !noundef !3
+  %160 = load i64, ptr %159, align 8, !range !4450, !alias.scope !7415, !noundef !3
+  %161 = icmp slt i64 %160, -9223372036854775784
+  %162 = add i64 %160, -9223372036854775807
+  %163 = select i1 %161, i64 %162, i64 0
+  switch i64 %163, label %164 [
+    i64 0, label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
+    i64 1, label %165
+    i64 2, label %167
+    i64 3, label %169
+    i64 4, label %171
+    i64 5, label %173
+    i64 6, label %175
+    i64 7, label %177
+    i64 8, label %179
+    i64 9, label %181
+    i64 10, label %183
+    i64 11, label %185
+    i64 12, label %187
+    i64 13, label %189
+    i64 14, label %191
+    i64 15, label %193
+    i64 16, label %195
+    i64 17, label %197
+    i64 18, label %199
+    i64 19, label %201
+    i64 20, label %203
+    i64 21, label %205
+    i64 22, label %207
+    i64 23, label %209
+    i64 24, label %211
   ]
 
-173:                                              ; preds = %166
+164:                                              ; preds = %157
   unreachable
 
-174:                                              ; preds = %166
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+165:                                              ; preds = %157
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-176:                                              ; preds = %166
-  %177 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+167:                                              ; preds = %157
+  %168 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-178:                                              ; preds = %166
-  %179 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+169:                                              ; preds = %157
+  %170 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-180:                                              ; preds = %166
-  %181 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+171:                                              ; preds = %157
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-182:                                              ; preds = %166
-  %183 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+173:                                              ; preds = %157
+  %174 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-184:                                              ; preds = %166
-  %185 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+175:                                              ; preds = %157
+  %176 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-186:                                              ; preds = %166
-  %187 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+177:                                              ; preds = %157
+  %178 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-188:                                              ; preds = %166
-  %189 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+179:                                              ; preds = %157
+  %180 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-190:                                              ; preds = %166
-  %191 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+181:                                              ; preds = %157
+  %182 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-192:                                              ; preds = %166
-  %193 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+183:                                              ; preds = %157
+  %184 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-194:                                              ; preds = %166
-  %195 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+185:                                              ; preds = %157
+  %186 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-196:                                              ; preds = %166
-  %197 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+187:                                              ; preds = %157
+  %188 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-198:                                              ; preds = %166
-  %199 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+189:                                              ; preds = %157
+  %190 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-200:                                              ; preds = %166
-  %201 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+191:                                              ; preds = %157
+  %192 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-202:                                              ; preds = %166
-  %203 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+193:                                              ; preds = %157
+  %194 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-204:                                              ; preds = %166
-  %205 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+195:                                              ; preds = %157
+  %196 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-206:                                              ; preds = %166
-  %207 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+197:                                              ; preds = %157
+  %198 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-208:                                              ; preds = %166
-  %209 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+199:                                              ; preds = %157
+  %200 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-210:                                              ; preds = %166
-  %211 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+201:                                              ; preds = %157
+  %202 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-212:                                              ; preds = %166
-  %213 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+203:                                              ; preds = %157
+  %204 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-214:                                              ; preds = %166
-  %215 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+205:                                              ; preds = %157
+  %206 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-216:                                              ; preds = %166
-  %217 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+207:                                              ; preds = %157
+  %208 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-218:                                              ; preds = %166
-  %219 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+209:                                              ; preds = %157
+  %210 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-220:                                              ; preds = %166
-  %221 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
+211:                                              ; preds = %157
+  %212 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  br label %"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30"
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27": ; preds = %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %166
-  %.sroa.26.0.i.i.i.i28 = phi ptr [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %168, %166 ]
-  %.sroa.0.0.i.i.i.i29 = phi i64 [ 3, %174 ], [ 4, %176 ], [ 5, %178 ], [ 6, %180 ], [ 7, %182 ], [ 8, %184 ], [ 9, %186 ], [ 10, %188 ], [ 11, %190 ], [ 12, %192 ], [ 13, %194 ], [ 14, %196 ], [ 15, %198 ], [ 16, %200 ], [ 17, %202 ], [ 18, %204 ], [ 19, %206 ], [ 20, %208 ], [ 21, %210 ], [ 22, %212 ], [ 23, %214 ], [ 24, %216 ], [ 25, %218 ], [ 26, %220 ], [ 2, %166 ]
-  %222 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %222)
-  %223 = icmp eq ptr %13, %.sroa.26.0.i.i.i.i28
-  br i1 %223, label %224, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
-
-224:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67b3e5a2bcf898c1E.exit.i.i27"
-  %225 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %11, ptr nonnull readnone poison)
-  %226 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i.i29, ptr nonnull readnone poison)
-  %227 = icmp eq i8 %225, %226
+"_ZN15ruff_python_ast4node17are_same_optional28_$u7b$$u7b$closure$u7d$$u7d$17h413584f4bf6cf893E.exit.i30": ; preds = %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %157
+  %.sroa.26.0.i.i.i.i31 = phi ptr [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %159, %157 ]
+  %.sroa.0.0.i.i.i.i32 = phi i64 [ 3, %165 ], [ 4, %167 ], [ 5, %169 ], [ 6, %171 ], [ 7, %173 ], [ 8, %175 ], [ 9, %177 ], [ 10, %179 ], [ 11, %181 ], [ 12, %183 ], [ 13, %185 ], [ 14, %187 ], [ 15, %189 ], [ 16, %191 ], [ 17, %193 ], [ 18, %195 ], [ 19, %197 ], [ 20, %199 ], [ 21, %201 ], [ 22, %203 ], [ 23, %205 ], [ 24, %207 ], [ 25, %209 ], [ 26, %211 ], [ 2, %157 ]
+  %213 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %213)
+  %214 = icmp eq ptr %12, %.sroa.26.0.i.i.i.i31
+  %215 = icmp eq i64 %10, %.sroa.0.0.i.i.i.i32
+  %.sroa.0.0.i.i.i33 = and i1 %214, %215
   br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 }
 
@@ -62710,9 +62657,9 @@ define void @_ZN15ruff_python_ast9traversal14EnclosingSuite3new17h48f93a357cbd70
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %12
 
-12:                                               ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i", %.lr.ph.i
-  %.sroa.02.014.i = phi i64 [ 0, %.lr.ph.i ], [ %97, %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i" ]
-  %13 = phi ptr [ %1, %.lr.ph.i ], [ %14, %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i" ]
+12:                                               ; preds = %95, %.lr.ph.i
+  %.sroa.02.013.i = phi i64 [ 0, %.lr.ph.i ], [ %96, %95 ]
+  %13 = phi ptr [ %1, %.lr.ph.i ], [ %14, %95 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load i64, ptr %13, align 8, !range !4450, !alias.scope !8770, !noalias !8775, !noundef !3
   %16 = icmp slt i64 %15, -9223372036854775784
@@ -62849,7 +62796,7 @@ define void @_ZN15ruff_python_ast9traversal14EnclosingSuite3new17h48f93a357cbd70
   %.sroa.26.0.i.i.i = phi ptr [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %13, %12 ]
   %.sroa.0.0.i.i.i = phi i64 [ 3, %20 ], [ 4, %22 ], [ 5, %24 ], [ 6, %26 ], [ 7, %28 ], [ 8, %30 ], [ 9, %32 ], [ 10, %34 ], [ 11, %36 ], [ 12, %38 ], [ 13, %40 ], [ 14, %42 ], [ 15, %44 ], [ 16, %46 ], [ 17, %48 ], [ 18, %50 ], [ 19, %52 ], [ 20, %54 ], [ 21, %56 ], [ 22, %58 ], [ 23, %60 ], [ 24, %62 ], [ 25, %64 ], [ 26, %66 ], [ 2, %12 ]
   switch i64 %10, label %68 [
-    i64 0, label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+    i64 0, label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
     i64 1, label %69
     i64 2, label %70
     i64 3, label %71
@@ -62880,109 +62827,105 @@ define void @_ZN15ruff_python_ast9traversal14EnclosingSuite3new17h48f93a357cbd70
   unreachable
 
 69:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 70:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 71:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 72:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 73:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 74:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 75:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 76:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 77:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 78:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 79:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 80:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 81:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 82:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 83:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 84:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 85:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 86:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 87:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 88:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 89:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 90:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 91:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
 92:                                               ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
-  br label %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
+  br label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
 
-"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i": ; preds = %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
+"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i": ; preds = %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i"
   %.sroa.26.0.i1.i.i = phi ptr [ %11, %69 ], [ %11, %70 ], [ %11, %71 ], [ %11, %72 ], [ %11, %73 ], [ %11, %74 ], [ %11, %75 ], [ %11, %76 ], [ %11, %77 ], [ %11, %78 ], [ %11, %79 ], [ %11, %80 ], [ %11, %81 ], [ %11, %82 ], [ %11, %83 ], [ %11, %84 ], [ %11, %85 ], [ %11, %86 ], [ %11, %87 ], [ %11, %88 ], [ %11, %89 ], [ %11, %90 ], [ %11, %91 ], [ %11, %92 ], [ %3, %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i" ]
   %.sroa.0.0.i2.i.i = phi i64 [ 3, %69 ], [ 4, %70 ], [ 5, %71 ], [ 6, %72 ], [ 7, %73 ], [ 8, %74 ], [ 9, %75 ], [ 10, %76 ], [ 11, %77 ], [ 12, %78 ], [ 13, %79 ], [ 14, %80 ], [ 15, %81 ], [ 16, %82 ], [ 17, %83 ], [ 18, %84 ], [ 19, %85 ], [ 20, %86 ], [ 21, %87 ], [ 22, %88 ], [ 23, %89 ], [ 24, %90 ], [ 25, %91 ], [ 26, %92 ], [ 2, %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit.i.i" ]
   %93 = icmp eq ptr %.sroa.26.0.i.i.i, %.sroa.26.0.i1.i.i
-  br i1 %93, label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i", label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i"
+  %94 = icmp eq i64 %.sroa.0.0.i.i.i, %.sroa.0.0.i2.i.i
+  %.sroa.0.0.i4.i.i = and i1 %93, %94
+  br i1 %.sroa.0.0.i4.i.i, label %98, label %95
 
-"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i": ; preds = %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
-  %94 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i.i.i, ptr nonnull readnone poison)
-  %95 = tail call noundef i8 @_ZN15ruff_python_ast9generated10AnyNodeRef4kind17hb58f55616cd82bb6E(i64 noundef range(i64 0, 92) %.sroa.0.0.i2.i.i, ptr nonnull readnone poison)
-  %96 = icmp eq i8 %94, %95
-  br i1 %96, label %99, label %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i"
+95:                                               ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
+  %96 = add nuw nsw i64 %.sroa.02.013.i, 1
+  %97 = icmp eq ptr %14, %5
+  br i1 %97, label %.loopexit, label %12
 
-"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i": ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i", %"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE.exit3.i.i"
-  %97 = add nuw nsw i64 %.sroa.02.014.i, 1
-  %98 = icmp eq ptr %14, %5
-  br i1 %98, label %.loopexit, label %12
-
-99:                                               ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
-  %100 = icmp ult i64 %.sroa.02.014.i, %2
-  tail call void @llvm.assume(i1 %100)
+98:                                               ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.i"
+  %99 = icmp ult i64 %.sroa.02.013.i, %2
+  tail call void @llvm.assume(i1 %99)
   store ptr %1, ptr %0, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.02.014.i, ptr %.sroa.54.0..sroa_idx, align 8
-  br label %101
+  store i64 %.sroa.02.013.i, ptr %.sroa.54.0..sroa_idx, align 8
+  br label %100
 
-.loopexit:                                        ; preds = %"_ZN15ruff_python_ast9traversal14EnclosingSuite3new28_$u7b$$u7b$closure$u7d$$u7d$17h3548b074a70f389fE.exit.thread.i", %4
+.loopexit:                                        ; preds = %95, %4
   store ptr null, ptr %0, align 8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %.loopexit, %99
+100:                                              ; preds = %.loopexit, %98
   ret void
 }
 

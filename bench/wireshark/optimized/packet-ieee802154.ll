@@ -7947,9 +7947,9 @@ dissect_ieee802154_tap_sun_phy.exit.thread.i:     ; preds = %172, %166, %160, %1
   %262 = add i32 %.0156.i, 8
   %263 = call zeroext i16 @tvb_get_letohs(ptr noundef %47, i32 noundef %262)
   %.not.i140.i = icmp sgt i16 %263, -1
-  br i1 %.not.i140.i, label %270, label %switch.lookup
+  br i1 %.not.i140.i, label %270, label %switch.lookup69
 
-switch.lookup:                                    ; preds = %261
+switch.lookup69:                                  ; preds = %261
   %264 = lshr i16 %263, 9
   %265 = and i16 %264, 3
   %266 = zext nneg i16 %265 to i64
@@ -7973,7 +7973,7 @@ switch.lookup:                                    ; preds = %261
   %278 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %275, ptr noundef %47, i32 noundef %276, i32 noundef %277, i32 noundef 0)
   br label %dissect_ieee802154_tap_phy_header.exit.i
 
-dissect_ieee802154_tap_phy_header.exit.i:         ; preds = %274, %270, %switch.lookup, %259, %254, %251
+dissect_ieee802154_tap_phy_header.exit.i:         ; preds = %274, %270, %switch.lookup69, %259, %254, %251
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_ieee802154_tap_sun_phy.exit.i
@@ -8125,9 +8125,9 @@ dissect_ieee802154_tap_tlvs.exit:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %356 = icmp ult i32 %355, 3
-  br i1 %356, label %switch.lookup69, label %.sink.split
+  br i1 %356, label %switch.lookup, label %.sink.split
 
-switch.lookup69:                                  ; preds = %dissect_ieee802154_tap_tlvs.exit
+switch.lookup:                                    ; preds = %dissect_ieee802154_tap_tlvs.exit
   %switch.idx.mult = shl nuw nsw i32 %355, 1
   %357 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
   %358 = load i32, ptr @hf_ieee802154_tap_data_length, align 4
@@ -8135,7 +8135,7 @@ switch.lookup69:                                  ; preds = %dissect_ieee802154_
   %.not.i = icmp eq ptr %359, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %360
 
-360:                                              ; preds = %switch.lookup69
+360:                                              ; preds = %switch.lookup
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 40
   %362 = load ptr, ptr %361, align 8
   %.not5.i = icmp eq ptr %362, null
@@ -8148,7 +8148,7 @@ switch.lookup69:                                  ; preds = %dissect_ieee802154_
   store i32 %366, ptr %364, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %switch.lookup69, %360, %363
+proto_item_set_generated.exit:                    ; preds = %switch.lookup, %360, %363
   %.not48 = icmp eq i32 %357, 0
   br i1 %.not48, label %370, label %367
 
@@ -8163,7 +8163,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup69, %3
   %371 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %359, ptr noundef nonnull @ei_ieee802154_tap_no_payload)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %dissect_ieee802154_tap_tlvs.exit, %367, %370
+.sink.split:                                      ; preds = %367, %370, %dissect_ieee802154_tap_tlvs.exit
   %372 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %373
 

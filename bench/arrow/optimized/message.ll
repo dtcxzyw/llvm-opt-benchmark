@@ -1437,14 +1437,14 @@ _ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i: ; preds = %_ZNK22ar
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !22
-  %switch.tableidx = add i8 %15, -1
-  %16 = icmp ult i8 %switch.tableidx, 5
-  %switch.offset = zext nneg i8 %15 to i32
-  %spec.select = select i1 %16, i32 %switch.offset, i32 0
+  %switch.tableidx.i = add i8 %15, -1
+  %16 = icmp ult i8 %switch.tableidx.i, 5
+  %narrow = select i1 %16, i8 %15, i8 0
+  %spec.select = zext i8 %narrow to i32
   br label %_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit
 
 _ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i, %1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i
-  %.0.i = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %1 ], [ %spec.select, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
+  %.0.i = phi i32 [ 0, %1 ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ %spec.select, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
   ret i32 %.0.i
 }
 

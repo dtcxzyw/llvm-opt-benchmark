@@ -52934,7 +52934,7 @@ define void @"_ZN117_$LT$worktree..Entry$u20$as$u20$core..convert..TryFrom$LT$$L
   %35 = load i64, ptr %6, align 8, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = invoke fastcc noundef i64 @_ZN8worktree17char_bag_for_path17h16301b8e40a2f757E(i64 noundef %35, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %33)
-          to label %38 unwind label %58
+          to label %38 unwind label %57
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -52946,50 +52946,50 @@ define void @"_ZN117_$LT$worktree..Entry$u20$as$u20$core..convert..TryFrom$LT$$L
 
 41:                                               ; preds = %38
   %42 = invoke { i64, i32 } @"_ZN5proto95_$LT$impl$u20$core..convert..From$LT$proto..Timestamp$GT$$u20$for$u20$std..time..SystemTime$GT$4from17h15dc516e19c76b49E"(i64 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.3.0.copyload)
-          to label %52 unwind label %50
+          to label %51 unwind label %49
 
-43:                                               ; preds = %38, %52
-  %.sroa.03.0 = phi i64 [ %53, %52 ], [ undef, %38 ]
-  %.sroa.54.0 = phi i32 [ %54, %52 ], [ 1000000000, %38 ]
+43:                                               ; preds = %38, %51
+  %.sroa.03.0 = phi i64 [ %52, %51 ], [ undef, %38 ]
+  %.sroa.54.0 = phi i32 [ %53, %51 ], [ 1000000000, %38 ]
   %trunc.i = trunc nuw i32 %22 to i1
-  br i1 %trunc.i, label %44, label %_ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit
+  br i1 %trunc.i, label %switch.lookup.i, label %_ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit
 
-44:                                               ; preds = %43
-  %45 = invoke noundef i32 @_ZN5proto9GitStatus8from_i3217h300f7ce5b71cc4ceE(i32 noundef %24)
-          to label %switch.lookup unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit"
+switch.lookup.i:                                  ; preds = %43
+  %44 = invoke noundef i32 @_ZN5proto9GitStatus8from_i3217h300f7ce5b71cc4ceE(i32 noundef %24)
+          to label %.noexc unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit"
 
-46:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit", %50
-  %.pn = phi { ptr, i32 } [ %55, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit" ], [ %51, %50 ]
-  %47 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10072
-  %48 = icmp eq i64 %47, 1
-  br i1 %48, label %49, label %.noexc19
-
-49:                                               ; preds = %46
-  fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc19 unwind label %56
-
-50:                                               ; preds = %41
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-52:                                               ; preds = %41
-  %53 = extractvalue { i64, i32 } %42, 0
-  %54 = extractvalue { i64, i32 } %42, 1
-  br label %43
-
-"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit": ; preds = %44
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-switch.lookup:                                    ; preds = %44
-  %switch.idx.cast = trunc i32 %45 to i8
+.noexc:                                           ; preds = %switch.lookup.i
+  %switch.idx.cast.i = trunc nuw i32 %44 to i8
   br label %_ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit
 
-_ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit: ; preds = %switch.lookup, %43
-  %.sroa.01.0.i = phi i8 [ 3, %43 ], [ %switch.idx.cast, %switch.lookup ]
+45:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit", %49
+  %.pn = phi { ptr, i32 } [ %54, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit" ], [ %50, %49 ]
+  %46 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10072
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %48, label %.noexc19
+
+48:                                               ; preds = %45
+  fence acquire
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+          to label %.noexc19 unwind label %55
+
+49:                                               ; preds = %41
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
+
+51:                                               ; preds = %41
+  %52 = extractvalue { i64, i32 } %42, 0
+  %53 = extractvalue { i64, i32 } %42, 1
+  br label %43
+
+"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17hbc6a9b1619c26acfE.exit": ; preds = %switch.lookup.i
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
+
+_ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit: ; preds = %.noexc, %43
+  %.sroa.01.0.i = phi i8 [ 3, %43 ], [ %switch.idx.cast.i, %.noexc ]
   %trunc = trunc nuw i64 %28 to i1
   %.17 = select i1 %trunc, i64 %30, i64 0
   %. = xor i8 %11, 3
@@ -53028,27 +53028,27 @@ _ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit: ; preds = %switch.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-56:                                               ; preds = %62, %49
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %61, %48
+  %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-.noexc19:                                         ; preds = %58, %62, %49, %46
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn, %46 ], [ %.pn, %49 ], [ %59, %62 ], [ %59, %58 ]
+.noexc19:                                         ; preds = %57, %61, %48, %45
+  %.pn.pn25 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn, %48 ], [ %58, %61 ], [ %58, %57 ]
   resume { ptr, i32 } %.pn.pn25
 
-58:                                               ; preds = %2
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %2
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %60 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10077
-  %61 = icmp eq i64 %60, 1
-  br i1 %61, label %62, label %.noexc19
+  %59 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10077
+  %60 = icmp eq i64 %59, 1
+  br i1 %60, label %61, label %.noexc19
 
-62:                                               ; preds = %58
+61:                                               ; preds = %57
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %.noexc19 unwind label %56
+          to label %.noexc19 unwind label %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -5701,9 +5701,9 @@ _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i: ; preds = %if.then.i.
   %17 = load i32, ptr %ColumnNo.i.i.i.i, align 4
   %Kind.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -304
   %18 = load i32, ptr %Kind.i.i.i.i, align 8
-  %switch.tableidx = add i32 %18, -1
-  %19 = icmp ult i32 %switch.tableidx, 3
-  %spec.select = select i1 %19, i32 %18, i32 0
+  %switch.tableidx.i.i.i.i = add i32 %18, -1
+  %19 = icmp ult i32 %switch.tableidx.i.i.i.i, 3
+  %spec.select.i.i.i.i = select i1 %19, i32 %18, i32 0
   %Message.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -296
   %call.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i.i.i) #17
   %call2.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i.i.i) #17
@@ -5724,7 +5724,7 @@ if.then.i.i4.i.i:                                 ; preds = %_ZNSt5dequeIN4llvh1
   %ref.tmp7.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %17, ptr %ref.tmp7.sroa.4.0..sroa_idx.i.i, align 4
   %ref.tmp7.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %spec.select, ptr %ref.tmp7.sroa.5.0..sroa_idx.i.i, align 8
+  store i32 %spec.select.i.i.i.i, ptr %ref.tmp7.sroa.5.0..sroa_idx.i.i, align 8
   %ref.tmp7.sroa.612.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %call.i.i.i.i.i, ptr %ref.tmp7.sroa.612.0..sroa_idx.i.i, align 8
   %ref.tmp7.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -5769,7 +5769,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.
   %ref.tmp7.sroa.4.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 12
   store i32 %17, ptr %ref.tmp7.sroa.4.0.add.ptr.i.i.i6.sroa_idx.i.i, align 4
   %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 16
-  store i32 %spec.select, ptr %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
+  store i32 %spec.select.i.i.i.i, ptr %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
   %ref.tmp7.sroa.612.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 24
   store ptr %call.i.i.i.i.i, ptr %ref.tmp7.sroa.612.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
   %ref.tmp7.sroa.7.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 32

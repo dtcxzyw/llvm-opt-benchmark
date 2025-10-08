@@ -101,8 +101,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.97f91ca4bb71179ffbf3fdaca26956c6.39.llvm.2681283092354155405 = external hidden unnamed_addr constant <{ [24 x i8], ptr }>, align 8
 @anon.97f91ca4bb71179ffbf3fdaca26956c6.40.llvm.2681283092354155405 = external hidden unnamed_addr constant <{ [8 x i8] }>, align 1
 @anon.11318fbf632460ff17fb39aaa3807dab.35.llvm.13484906882912144667 = external hidden unnamed_addr constant <{ [24 x i8], ptr }>, align 8
-@"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE" = private unnamed_addr constant [3 x ptr] [ptr @anon.6593980e9a9f89a984a719a4f8e78dd9.63, ptr @anon.6593980e9a9f89a984a719a4f8e78dd9.64, ptr @anon.6593980e9a9f89a984a719a4f8e78dd9.65], align 8
-@"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE.3" = private unnamed_addr constant [3 x i64] [i64 17, i64 22, i64 19], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hce1ac78e2686a260E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 {
@@ -1529,58 +1527,66 @@ define noundef zeroext i1 @"_ZN76_$LT$proto..context_operation..UpdateMessage$u2
 define noundef zeroext i1 @"_ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !28, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = icmp ult i32 %4, 3
-  br i1 %5, label %switch.lookup, label %6
+  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %4, i32 3)
+  switch i32 %spec.select.i, label %default.unreachable5 [
+    i32 3, label %5
+    i32 0, label %21
+    i32 1, label %19
+    i32 2, label %20
+  ]
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %8 = load i32, ptr %7, align 4, !alias.scope !130, !noalias !133, !noundef !4
-  %9 = and i32 %8, 16
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+default.unreachable5:                             ; preds = %2
+  unreachable
 
-11:                                               ; preds = %6
-  %12 = and i32 %8, 32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %18
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %7 = load i32, ptr %6, align 4, !alias.scope !130, !noalias !133, !noundef !4
+  %8 = and i32 %7, 16
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %13
 
-14:                                               ; preds = %6
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+10:                                               ; preds = %5
+  %11 = and i32 %7, 32
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %15, label %17
+
+13:                                               ; preds = %5
+  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hbb3b54aeaec69650E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-16:                                               ; preds = %11
-  %17 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+15:                                               ; preds = %10
+  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h70cb0cc39cca2353E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-18:                                               ; preds = %11
-  %19 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+17:                                               ; preds = %10
+  %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %18, %16, %14, %switch.lookup
-  %.sroa.0.0.in = phi i1 [ %22, %switch.lookup ], [ %17, %16 ], [ %19, %18 ], [ %15, %14 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit": ; preds = %17, %15, %13, %21
+  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 
-switch.lookup:                                    ; preds = %2
-  %20 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE", i64 %20
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = zext nneg i32 %4 to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE.3", i64 %21
-  %switch.load11 = load i64, ptr %switch.gep10, align 8
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load11)
+19:                                               ; preds = %2
+  br label %21
+
+20:                                               ; preds = %2
+  br label %21
+
+21:                                               ; preds = %2, %20, %19
+  %.sroa.04.0 = phi ptr [ @anon.6593980e9a9f89a984a719a4f8e78dd9.64, %19 ], [ @anon.6593980e9a9f89a984a719a4f8e78dd9.65, %20 ], [ @anon.6593980e9a9f89a984a719a4f8e78dd9.63, %2 ]
+  %.sroa.6.0 = phi i64 [ 22, %19 ], [ 19, %20 ], [ 17, %2 ]
+  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.6.0)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 3) i32 @_ZN5proto17context_operation13UpdateMessage4role17h636f7c4fab4ee089E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 {
-_ZN5proto17LanguageModelRole8from_i3217hcb39dae4609da5e1E.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %2 = load i32, ptr %1, align 8, !noundef !4
-  %switch.selectcmp = icmp eq i32 %2, 1
-  %switch.select = zext i1 %switch.selectcmp to i32
-  %switch.selectcmp4 = icmp eq i32 %2, 2
-  %switch.select5 = select i1 %switch.selectcmp4, i32 2, i32 %switch.select
-  ret i32 %switch.select5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = load i32, ptr %2, align 8, !noundef !4
+  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %3, i32 3)
+  %4 = icmp ugt i32 %3, 2
+  %spec.select = select i1 %4, i32 0, i32 %spec.select.i
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
@@ -2194,11 +2200,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2213,8 +2219,8 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { cold }
 attributes #16 = { cold noreturn nounwind }
 

@@ -4214,7 +4214,7 @@ define internal void @interpolator_callback(ptr noundef %0, ptr noundef %1) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !157
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %21
+  br i1 %.not, label %6, label %22
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 680
@@ -4222,29 +4222,29 @@ define internal void @interpolator_callback(ptr noundef %0, ptr noundef %1) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %10 = load ptr, ptr %9, align 16, !tbaa !25
   %11 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #25
-  %switch = icmp ult i32 %11, 3
-  br i1 %switch, label %.sink.split, label %15
+  %12 = icmp ult i32 %11, 3
+  br i1 %12, label %.sink.split, label %16
 
 .sink.split:                                      ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 492
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 500
-  store i32 %11, ptr %13, align 4, !tbaa !6
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 492
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 500
   store i32 %11, ptr %14, align 4, !tbaa !6
-  store i32 %11, ptr %12, align 4, !tbaa !6
-  br label %15
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 496
+  store i32 %11, ptr %15, align 4, !tbaa !6
+  store i32 %11, ptr %13, align 4, !tbaa !6
+  br label %16
 
-15:                                               ; preds = %6, %.sink.split
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !90
-  tail call void @dt_dev_add_history_item_target(ptr noundef %16, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %0) #25
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !127
-  %19 = tail call i64 @gtk_widget_get_type() #26
-  %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %19) #25
-  tail call void @gtk_widget_queue_draw(ptr noundef %20) #25
-  br label %21
+16:                                               ; preds = %6, %.sink.split
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !90
+  tail call void @dt_dev_add_history_item_target(ptr noundef %17, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %0) #25
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %19 = load ptr, ptr %18, align 8, !tbaa !127
+  %20 = tail call i64 @gtk_widget_get_type() #26
+  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #25
+  tail call void @gtk_widget_queue_draw(ptr noundef %21) #25
+  br label %22
 
-21:                                               ; preds = %2, %15
+22:                                               ; preds = %2, %16
   ret void
 }
 

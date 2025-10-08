@@ -2492,7 +2492,7 @@ common.resume:                                    ; preds = %45, %29, %32
   %.sroa.01.0 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload, %"_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h3a717b477080e467E.llvm.858133952616893155.exit.i" ], [ -9223372036854775808, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
   %43 = load i32, ptr %13, align 8, !range !59, !alias.scope !353, !noalias !356, !noundef !4
-  %switch.idx.cast = trunc nuw i32 %43 to i8
+  %switch.idx.cast.i = trunc nuw nsw i32 %43 to i8
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.5.0.i = load i32, ptr %.sroa.5.0.in.i, align 4, !alias.scope !353, !noalias !356
   %44 = icmp eq i32 %.sroa.5.0.i, 0
@@ -2508,7 +2508,7 @@ common.resume:                                    ; preds = %45, %29, %32
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sroa.65.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !360
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !361
-  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %4, i8 noundef %switch.idx.cast, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !365
+  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %4, i8 noundef %switch.idx.cast.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !365
   invoke void @_ZN11proc_macro25Group8set_span17hb2e918b3aeb53966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.0.i)
           to label %"_ZN3syn3mac8printing42_$LT$impl$u20$syn..mac..MacroDelimiter$GT$8surround17ha05cd8cc682e0607E.exit" unwind label %45, !noalias !361
 

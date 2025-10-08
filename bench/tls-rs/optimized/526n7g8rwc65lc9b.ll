@@ -4544,7 +4544,7 @@ define void @_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_u
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !946, !noundef !4
   %6 = icmp ugt i64 %5, 16385
-  br i1 %6, label %20, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !949)
@@ -4561,79 +4561,50 @@ define void @_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_u
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   %13 = load i8, ptr %12, align 1, !noalias !955, !noundef !4
   store i64 %11, ptr %4, align 8, !alias.scope !956
-  switch i8 %13, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit [
-    i8 0, label %8
-    i8 20, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.loopexit14
-    i8 21, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit
-    i8 22, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit31
-    i8 23, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit41
-    i8 24, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-  ]
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %8, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
 
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.loopexit14: ; preds = %10
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit: ; preds = %10
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit31: ; preds = %10
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit41: ; preds = %10
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread: ; preds = %10, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit41, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit31, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.loopexit14
-  %.sroa.0.0.i.ph = phi i8 [ 0, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.loopexit14 ], [ 1, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit ], [ 2, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit31 ], [ 3, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.loopexit41 ], [ 4, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sroa.0.0.i.ph, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 %13, ptr %15, align 1
-  br label %22
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit: ; preds = %10, %8
-  %16 = phi i64 [ 0, %8 ], [ %11, %10 ]
-  %.sroa.3.0.i = phi i8 [ 0, %8 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 5, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 %.sroa.3.0.i, ptr %18, align 1
-  %19 = icmp eq i8 %.sroa.3.0.i, 0
-  br i1 %19, label %21, label %22
-
-20:                                               ; preds = %2
-  store i8 16, ptr %0, align 8
-  br label %26
-
-21:                                               ; preds = %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit
-  store i8 8, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 21, ptr %.sroa.42.0..sroa_idx, align 1
-  br label %26
-
-22:                                               ; preds = %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
-  %.sroa.0.0.i26 = phi i8 [ %.sroa.0.0.i.ph, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread ], [ 5, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit ]
-  %.sroa.3.0.i25 = phi i8 [ %13, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread ], [ %.sroa.3.0.i, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit ]
-  %23 = phi i64 [ %11, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread ], [ %16, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit ]
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 5, ptr %24, align 2
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread: ; preds = %10
+  %switch.tableidx.i.i = add i8 %13, -20
+  %spec.select.i.i = tail call i8 @llvm.umin.i8(i8 %switch.tableidx.i.i, i8 5)
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 %spec.select.i.i, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  store i8 %13, ptr %16, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  store i16 5, ptr %17, align 2
   %.sroa.812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.812.0.copyload = load i16, ptr %.sroa.812.0..sroa_idx, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %25, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %18, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %23, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %11, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.0.0.i26, ptr %.sroa.5.0..sroa_idx, align 8
+  store i8 %spec.select.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 %.sroa.3.0.i25, ptr %.sroa.6.0..sroa_idx, align 1
+  store i8 %13, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 5, ptr %.sroa.7.0..sroa_idx, align 2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %.sroa.812.0.copyload, ptr %.sroa.8.0..sroa_idx, align 4
   store i8 20, ptr %0, align 8
-  br label %26
+  br label %22
 
-26:                                               ; preds = %20, %21, %22
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit: ; preds = %8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 5, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  store i8 0, ptr %20, align 1
+  store i8 8, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 21, ptr %.sroa.42.0..sroa_idx, align 1
+  br label %22
+
+21:                                               ; preds = %2
+  store i8 16, ptr %0, align 8
+  br label %22
+
+22:                                               ; preds = %21, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread
   ret void
 }
 
@@ -5709,59 +5680,29 @@ _ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.ex
   %.sroa.1153.0.copyload = load i16, ptr %.sroa.1153.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   %31 = icmp ugt i64 %.sroa.451.0.copyload, 16385
-  br i1 %31, label %37, label %.preheader
+  br i1 %31, label %39, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit, %33
   %32 = phi i64 [ %34, %33 ], [ %.sroa.451.0.copyload, %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit ]
   %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread, label %33
+  br i1 %.not.i.i, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i, label %33
 
 33:                                               ; preds = %.preheader
   %34 = add nsw i64 %32, -1
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 %34
   %36 = load i8, ptr %35, align 1, !noalias !1157, !noundef !4
-  switch i8 %36, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i [
-    i8 0, label %.preheader
-    i8 20, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102
-    i8 21, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114
-    i8 22, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit
-    i8 23, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74
-    i8 24, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90
-  ]
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %.preheader, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
 
-37:                                               ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit
-  store i8 16, ptr %0, align 8, !alias.scope !1154, !noalias !1163
-  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread: ; preds = %.preheader
-  store i8 8, ptr %0, align 8, !alias.scope !1154, !noalias !1163
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 21, ptr %.sroa.42.0..sroa_idx.i, align 1, !alias.scope !1154, !noalias !1163
-  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i: ; preds = %33, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit
-  %.sroa.0.0.i26.i = phi i8 [ 2, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit ], [ 3, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74 ], [ 4, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90 ], [ 0, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102 ], [ 1, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114 ], [ 5, %33 ]
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i: ; preds = %33
+  %switch.tableidx.i.i.i = add i8 %36, -20
+  %spec.select.i.i.i = call i8 @llvm.umin.i8(i8 %switch.tableidx.i.i.i, i8 5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %38, align 8, !alias.scope !1154, !noalias !1163
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %34, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1154, !noalias !1163
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.0.0.i26.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1154, !noalias !1163
+  store i8 %spec.select.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1154, !noalias !1163
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %36, ptr %.sroa.6.0..sroa_idx.i, align 1, !alias.scope !1154, !noalias !1163
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -5771,7 +5712,17 @@ _ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.th
   store i8 20, ptr %0, align 8, !alias.scope !1154, !noalias !1163
   br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
 
-_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit: ; preds = %37, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i, %21, %30
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i: ; preds = %.preheader
+  store i8 8, ptr %0, align 8, !alias.scope !1154, !noalias !1163
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 21, ptr %.sroa.42.0..sroa_idx.i, align 1, !alias.scope !1154, !noalias !1163
+  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
+
+39:                                               ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit
+  store i8 16, ptr %0, align 8, !alias.scope !1154, !noalias !1163
+  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
+
+_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit: ; preds = %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i, %39, %21, %30
   ret void
 }
 
@@ -6117,59 +6068,29 @@ _ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.ex
   %.sroa.1153.0.copyload = load i16, ptr %.sroa.1153.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !1248)
   %31 = icmp ugt i64 %.sroa.451.0.copyload, 16385
-  br i1 %31, label %37, label %.preheader
+  br i1 %31, label %39, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit, %33
   %32 = phi i64 [ %34, %33 ], [ %.sroa.451.0.copyload, %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit ]
   %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread, label %33
+  br i1 %.not.i.i, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i, label %33
 
 33:                                               ; preds = %.preheader
   %34 = add nsw i64 %32, -1
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 %34
   %36 = load i8, ptr %35, align 1, !noalias !1251, !noundef !4
-  switch i8 %36, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i [
-    i8 0, label %.preheader
-    i8 20, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102
-    i8 21, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114
-    i8 22, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit
-    i8 23, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74
-    i8 24, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90
-  ]
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %.preheader, label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
 
-37:                                               ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit
-  store i8 16, ptr %0, align 8, !alias.scope !1248, !noalias !1257
-  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread: ; preds = %.preheader
-  store i8 8, ptr %0, align 8, !alias.scope !1248, !noalias !1257
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 21, ptr %.sroa.42.0..sroa_idx.i, align 1, !alias.scope !1248, !noalias !1257
-  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114: ; preds = %33
-  br label %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i
-
-_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i: ; preds = %33, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit
-  %.sroa.0.0.i26.i = phi i8 [ 2, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit ], [ 3, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit74 ], [ 4, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit90 ], [ 0, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit102 ], [ 1, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i.loopexit114 ], [ 5, %33 ]
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i: ; preds = %33
+  %switch.tableidx.i.i.i = add i8 %36, -20
+  %spec.select.i.i.i = call i8 @llvm.umin.i8(i8 %switch.tableidx.i.i.i, i8 5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %38, align 8, !alias.scope !1248, !noalias !1257
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %34, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1248, !noalias !1257
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sroa.0.0.i26.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1248, !noalias !1257
+  store i8 %spec.select.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1248, !noalias !1257
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %36, ptr %.sroa.6.0..sroa_idx.i, align 1, !alias.scope !1248, !noalias !1257
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -6179,7 +6100,17 @@ _ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.th
   store i8 20, ptr %0, align 8, !alias.scope !1248, !noalias !1257
   br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
 
-_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit: ; preds = %37, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i.thread, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i, %21, %30
+_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i: ; preds = %.preheader
+  store i8 8, ptr %0, align 8, !alias.scope !1248, !noalias !1257
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 21, ptr %.sroa.42.0..sroa_idx.i, align 1, !alias.scope !1248, !noalias !1257
+  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
+
+39:                                               ; preds = %_ZN6rustls4msgs7message7inbound15BorrowedPayload8truncate17h065d81e551cc88eaE.exit
+  store i8 16, ptr %0, align 8, !alias.scope !1248, !noalias !1257
+  br label %_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit
+
+_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage27into_tls13_unpadded_message17h226dfe31b64f9ac7E.exit: ; preds = %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.thread.i, %_ZN6rustls4msgs7message7inbound19unpad_tls13_payload17hde7e8df7632359c7E.exit.i, %39, %21, %30
   ret void
 }
 
@@ -15561,6 +15492,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #37

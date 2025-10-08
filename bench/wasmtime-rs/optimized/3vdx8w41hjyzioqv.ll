@@ -29796,13 +29796,12 @@ define hidden void @_ZN8wasmtime7runtime9component9resources12ResourceType14unin
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define { i64, i64 } @_ZN8wasmtime7runtime9component9resources19AtomicResourceState3get17h779fc738e764a384E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #38 {
-_ZN8wasmtime7runtime9component9resources13ResourceState6decode17h8c7c4d30c65b8b78E.exit:
-  %1 = load atomic i64, ptr %0 monotonic, align 8
-  %2 = tail call i64 @llvm.umax.i64(i64 %1, i64 -4)
-  %.sroa.0.0.i = xor i64 %2, -1
-  %3 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %2 = load atomic i64, ptr %0 monotonic, align 8
+  %3 = tail call i64 @llvm.umax.i64(i64 %2, i64 -4)
+  %.sroa.0.0.i = xor i64 %3, -1
+  %4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %2, 1
+  ret { i64, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

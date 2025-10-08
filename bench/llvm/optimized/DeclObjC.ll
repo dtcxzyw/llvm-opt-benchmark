@@ -6423,8 +6423,8 @@ _ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit: ; preds = %.lr.ph
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4, !tbaa !553
   %39 = icmp ult i32 %38, 6
-  %spec.select77 = select i1 %39, i32 %38, i32 15
-  %40 = trunc nuw nsw i32 %spec.select77 to i24
+  %spec.select76 = select i1 %39, i32 %38, i32 15
+  %40 = trunc nuw nsw i32 %spec.select76 to i24
   %41 = load i24, ptr %2, align 8
   %42 = shl nuw nsw i24 %40, 13
   %43 = and i24 %41, -122881
@@ -6599,7 +6599,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %80
   br label %132
 
 132:                                              ; preds = %_ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit, %.critedge5, %6
-  %.0 = phi i32 [ %7, %6 ], [ %.124, %.critedge5 ], [ %spec.select77, %_ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit ]
+  %.0 = phi i32 [ %7, %6 ], [ %.124, %.critedge5 ], [ %spec.select76, %_ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit ]
   ret i32 %.0
 }
 

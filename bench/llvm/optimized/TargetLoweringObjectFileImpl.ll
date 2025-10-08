@@ -6030,9 +6030,9 @@ _ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit: ; preds = %4
   br i1 %spec.select.i12, label %27, label %29
 
 27:                                               ; preds = %22
-  %switch.tableidx = add nsw i32 %26, -2
-  %28 = icmp ult i32 %switch.tableidx, 9
-  br i1 %28, label %switch.lookup, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
+  %switch.tableidx35 = add nsw i32 %26, -2
+  %28 = icmp ult i32 %switch.tableidx35, 9
+  br i1 %28, label %switch.lookup36, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
 29:                                               ; preds = %22
   switch i32 %26, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit13 [
@@ -6086,9 +6086,9 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit13: ; preds = %29
   br i1 %or.cond, label %49, label %51
 
 49:                                               ; preds = %.thread
-  %switch.tableidx35 = add nsw i8 %.sroa.015.0.extract.trunc, -8
-  %50 = icmp ult i8 %switch.tableidx35, 3
-  br i1 %50, label %switch.lookup36, label %.thread30
+  %switch.tableidx = add nsw i8 %.sroa.015.0.extract.trunc, -8
+  %50 = icmp ult i8 %switch.tableidx, 3
+  br i1 %50, label %switch.lookup, label %.thread30
 
 51:                                               ; preds = %.thread
   %52 = add i8 %.sroa.015.0.extract.trunc, -4
@@ -6103,16 +6103,16 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit13: ; preds = %29
   %55 = icmp ult i8 %switch.tableidx37, 5
   br i1 %55, label %switch.lookup38, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-switch.lookup:                                    ; preds = %27
-  %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 %56
-  %switch.load = load i64, ptr %switch.gep, align 8
+switch.lookup:                                    ; preds = %49
+  %56 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.idx.mult = zext nneg i8 %56 to i64
+  %switch.offset = add nuw nsw i64 %switch.idx.mult, 632
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-switch.lookup36:                                  ; preds = %49
-  %57 = shl nuw nsw i8 %switch.tableidx35, 3
-  %switch.idx.mult = zext nneg i8 %57 to i64
-  %switch.offset = add nuw nsw i64 %switch.idx.mult, 632
+switch.lookup36:                                  ; preds = %27
+  %57 = zext nneg i32 %switch.tableidx35 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 %57
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
 switch.lookup38:                                  ; preds = %54
@@ -6121,8 +6121,8 @@ switch.lookup38:                                  ; preds = %54
   %switch.load40 = load i64, ptr %switch.gep39, align 8
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %54, %switch.lookup38, %switch.lookup36, %switch.lookup, %27, %41, %35, %33, %30, %20, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit, %.thread30
-  %.sink = phi i64 [ 48, %.thread30 ], [ 432, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit ], [ 424, %20 ], [ 24, %27 ], [ 584, %30 ], [ %., %33 ], [ 560, %35 ], [ 568, %41 ], [ %switch.load, %switch.lookup ], [ %switch.offset, %switch.lookup36 ], [ %switch.load40, %switch.lookup38 ], [ 32, %54 ]
+_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %54, %switch.lookup38, %switch.lookup36, %27, %switch.lookup, %41, %35, %33, %30, %20, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit, %.thread30
+  %.sink = phi i64 [ 48, %.thread30 ], [ 432, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit ], [ 424, %20 ], [ 24, %27 ], [ 584, %30 ], [ %., %33 ], [ 560, %35 ], [ 568, %41 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup36 ], [ %switch.load40, %switch.lookup38 ], [ 32, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %59, align 8, !tbaa !750
   ret ptr %.0

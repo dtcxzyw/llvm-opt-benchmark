@@ -1192,24 +1192,24 @@ _ZN7rocksdb18WritableFileWriter31GetWriterHasPreviousErrorStatusEv.exit: ; preds
   %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %31 = load i32, ptr %30, align 8, !tbaa !119
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 83
+  %33 = load i8, ptr %32, align 1, !tbaa !166
   switch i32 %31, label %_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit [
-    i32 45, label %32
-    i32 26, label %32
+    i32 45, label %34
+    i32 26, label %34
   ]
 
-32:                                               ; preds = %25, %25
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 83
-  %34 = load i8, ptr %33, align 1, !tbaa !166
-  %35 = icmp ult i8 %34, 3
-  br i1 %35, label %switch.lookup, label %_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit
+34:                                               ; preds = %25, %25
+  %35 = icmp ult i8 %33, 3
+  br i1 %35, label %switch.lookup.i, label %_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit
 
-switch.lookup:                                    ; preds = %32
-  %narrow = add nuw nsw i8 %34, 27
-  %switch.offset = zext nneg i8 %narrow to i32
+switch.lookup.i:                                  ; preds = %34
+  %narrow.i = add nuw nsw i8 %33, 27
+  %switch.offset.i = zext nneg i8 %narrow.i to i32
   br label %_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit
 
-_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit: ; preds = %25, %32, %switch.lookup
-  %.0.i = phi i32 [ %switch.offset, %switch.lookup ], [ 62, %32 ], [ 62, %25 ]
+_ZN7rocksdb22GetFileWriteHistogramsENS_10HistogramsENS_3Env10IOActivityE.exit: ; preds = %25, %34, %switch.lookup.i
+  %.0.i = phi i32 [ %switch.offset.i, %switch.lookup.i ], [ 62, %34 ], [ 62, %25 ]
   store ptr %27, ptr %6, align 8, !tbaa !167
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %36, align 8, !tbaa !170
@@ -1771,10 +1771,10 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit147: ; preds = %_ZNK7rocksd
   br i1 %288, label %291, label %290
 
 290:                                              ; preds = %_ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit147
-  br i1 %289, label %344, label %.thread296
+  br i1 %289, label %344, label %.thread297
 
 291:                                              ; preds = %_ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit147
-  br i1 %289, label %.preheader, label %.thread296
+  br i1 %289, label %.preheader, label %.thread297
 
 .preheader:                                       ; preds = %291
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 252
@@ -1790,11 +1790,11 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit147: ; preds = %_ZNK7rocksd
   %301 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %314
 
-.thread296:                                       ; preds = %290, %291
+.thread297:                                       ; preds = %290, %291
   %.not.i149 = icmp eq i64 %.080, 0
   br i1 %.not.i149, label %_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit150, label %302
 
-302:                                              ; preds = %.thread296
+302:                                              ; preds = %.thread297
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %304 = load ptr, ptr %303, align 8, !tbaa !198
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 %.pre242
@@ -1809,7 +1809,7 @@ _ZN7rocksdb18WritableFileWriter13use_direct_ioEv.exit147: ; preds = %_ZNK7rocksd
           cleanup
   br label %580
 
-_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit150:   ; preds = %302, %.thread296
+_ZN7rocksdb13AlignedBuffer6AppendEPKcm.exit150:   ; preds = %302, %.thread297
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %311 = load i32, ptr %310, align 4, !tbaa !121
   %312 = invoke noundef i32 @_ZN7rocksdb6crc32c13Crc32cCombineEjjm(i32 noundef %311, i32 noundef %4, i64 noundef %.080)

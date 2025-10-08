@@ -21071,8 +21071,8 @@ _ZNK4llvm5APInt18getSignificantBitsEv.exit.i167.i: ; preds = %1242, %1238, %1235
 
 1257:                                             ; preds = %1255, %1249
   %.sroa.0.0.i168.ph.i = phi i64 [ %1256, %1255 ], [ %1254, %1249 ]
-  %switch.tableidx = add i64 %.sroa.0.0.i168.ph.i, 1
-  %1258 = icmp ult i64 %switch.tableidx, 3
+  %switch.tableidx.i = add i64 %.sroa.0.0.i168.ph.i, 1
+  %1258 = icmp ult i64 %switch.tableidx.i, 3
   br i1 %1258, label %.critedge12.i, label %.critedge123.i
 
 .critedge12.i:                                    ; preds = %1257, %1249
@@ -21209,8 +21209,8 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.i:     ; preds = %1301, %_ZN4llvm13IR
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %.critedge123.i
 
-.critedge123.i:                                   ; preds = %1202, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i167.i, %1257, %1310, %1306, %1169, %_ZN4llvm8SmallSetIlLj3ESt4lessIlEED2Ev.exit.i, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit.i
-  %.4.i = phi i1 [ false, %_ZN4llvm8SmallSetIlLj3ESt4lessIlEED2Ev.exit.i ], [ false, %1169 ], [ true, %1310 ], [ true, %1306 ], [ false, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit.i ], [ false, %1257 ], [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i167.i ], [ false, %1202 ]
+.critedge123.i:                                   ; preds = %1202, %1257, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i167.i, %1310, %1306, %1169, %_ZN4llvm8SmallSetIlLj3ESt4lessIlEED2Ev.exit.i, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit.i
+  %.4.i = phi i1 [ false, %_ZN4llvm8SmallSetIlLj3ESt4lessIlEED2Ev.exit.i ], [ false, %1169 ], [ true, %1310 ], [ true, %1306 ], [ false, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit.i ], [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i167.i ], [ false, %1257 ], [ false, %1202 ]
   %1314 = load ptr, ptr %111, align 8, !tbaa !25
   %1315 = icmp eq ptr %1314, %1026
   br i1 %1315, label %_ZL28simplifySwitchOfCmpIntrinsicPN4llvm10SwitchInstERNS_13IRBuilderBaseEPNS_14DomTreeUpdaterE.exit, label %1316

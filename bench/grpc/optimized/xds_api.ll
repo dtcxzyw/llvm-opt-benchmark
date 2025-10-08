@@ -478,14 +478,14 @@ declare ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr nound
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef captures(none) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8, !tbaa !36
-  switch i8 %5, label %9 [
+  switch i8 %5, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit [
     i8 -1, label %6
-    i8 0, label %10
-    i8 1, label %_ZNK9grpc_core12experimental4Json7booleanEv.exit
+    i8 0, label %9
     i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
     i8 3, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19
-    i8 4, label %25
-    i8 5, label %_ZNK9grpc_core12experimental4Json4typeEv.exit
+    i8 1, label %_ZNK9grpc_core12experimental4Json7booleanEv.exit
+    i8 4, label %24
+    i8 5, label %55
   ]
 
 6:                                                ; preds = %3
@@ -497,138 +497,135 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueE
   unreachable
 
 9:                                                ; preds = %3
-  unreachable
-
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %11, align 4, !tbaa !29
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %12, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %10, align 4, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %11, align 4
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %3
-  %13 = load ptr, ptr %1, align 8, !tbaa !13
-  %14 = tail call double @strtod(ptr noundef captures(none) %13, ptr noundef null) #10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %15, align 4, !tbaa !29
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %14, ptr %16, align 4
+  %12 = load ptr, ptr %1, align 8, !tbaa !13
+  %13 = tail call double @strtod(ptr noundef captures(none) %12, ptr noundef null) #10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %14, align 4, !tbaa !29
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %13, ptr %15, align 4
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19: ; preds = %3
-  %17 = load ptr, ptr %1, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %20, align 4, !tbaa !29
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %21, align 4
+  %16 = load ptr, ptr %1, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 3, ptr %19, align 4, !tbaa !29
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %20, align 4
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %19, ptr %.sroa.56.0..sroa_idx.i, align 4
+  store i64 %18, ptr %.sroa.56.0..sroa_idx.i, align 4
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
 _ZNK9grpc_core12experimental4Json7booleanEv.exit: ; preds = %3
-  %22 = load i8, ptr %1, align 8, !tbaa !41, !range !43, !noundef !44
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %23, align 4, !tbaa !29
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %22, ptr %24, align 4
+  %21 = load i8, ptr %1, align 8, !tbaa !41, !range !43, !noundef !44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %22, align 4, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %21, ptr %23, align 4
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
-25:                                               ; preds = %3
+24:                                               ; preds = %3
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__Struct_msg_init) #10, !srcloc !19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 4, !tbaa !29
-  %28 = icmp eq i32 %27, 5
-  br i1 %28, label %google_protobuf_Value_struct_value.exit.i, label %google_protobuf_Value_struct_value.exit.thread.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i32, ptr %25, align 4, !tbaa !29
+  %27 = icmp eq i32 %26, 5
+  br i1 %27, label %google_protobuf_Value_struct_value.exit.i, label %google_protobuf_Value_struct_value.exit.thread.i
 
-google_protobuf_Value_struct_value.exit.i:        ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.in.then.val.i.i = load i64, ptr %29, align 1
-  %30 = inttoptr i64 %.0.in.then.val.i.i to ptr
-  %31 = icmp eq i64 %.0.in.then.val.i.i, 0
-  br i1 %31, label %google_protobuf_Value_struct_value.exit.thread.i, label %google_protobuf_Value_mutable_struct_value.exit
+google_protobuf_Value_struct_value.exit.i:        ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.in.then.val.i.i = load i64, ptr %28, align 1
+  %29 = inttoptr i64 %.0.in.then.val.i.i to ptr
+  %30 = icmp eq i64 %.0.in.then.val.i.i, 0
+  br i1 %30, label %google_protobuf_Value_struct_value.exit.thread.i, label %google_protobuf_Value_mutable_struct_value.exit
 
-google_protobuf_Value_struct_value.exit.thread.i: ; preds = %google_protobuf_Value_struct_value.exit.i, %25
-  %32 = load i16, ptr getelementptr inbounds nuw (i8, ptr @google__protobuf__Struct_msg_init, i64 16), align 8, !tbaa !20
-  %33 = zext i16 %32 to i64
-  %34 = add nuw nsw i64 %33, 7
-  %35 = and i64 %34, 131064
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !24
-  %38 = load ptr, ptr %2, align 8, !tbaa !26
+google_protobuf_Value_struct_value.exit.thread.i: ; preds = %google_protobuf_Value_struct_value.exit.i, %24
+  %31 = load i16, ptr getelementptr inbounds nuw (i8, ptr @google__protobuf__Struct_msg_init, i64 16), align 8, !tbaa !20
+  %32 = zext i16 %31 to i64
+  %33 = add nuw nsw i64 %32, 7
+  %34 = and i64 %33, 131064
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = load ptr, ptr %2, align 8, !tbaa !26
+  %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = icmp ult i64 %41, %35
-  br i1 %42, label %43, label %45, !prof !27
+  %40 = sub i64 %38, %39
+  %41 = icmp ult i64 %40, %34
+  br i1 %41, label %42, label %44, !prof !27
 
-43:                                               ; preds = %google_protobuf_Value_struct_value.exit.thread.i
-  %44 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %2, i64 noundef %35)
+42:                                               ; preds = %google_protobuf_Value_struct_value.exit.thread.i
+  %43 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %2, i64 noundef %34)
   br label %upb_Arena_Malloc.exit.i.i
 
-45:                                               ; preds = %google_protobuf_Value_struct_value.exit.thread.i
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %35
-  store ptr %46, ptr %2, align 8, !tbaa !26
+44:                                               ; preds = %google_protobuf_Value_struct_value.exit.thread.i
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %34
+  store ptr %45, ptr %2, align 8, !tbaa !26
   br label %upb_Arena_Malloc.exit.i.i
 
-upb_Arena_Malloc.exit.i.i:                        ; preds = %45, %43
-  %.0.i.i.i21 = phi ptr [ %44, %43 ], [ %38, %45 ]
-  %.not.i.i = icmp eq ptr %.0.i.i.i21, null
-  br i1 %.not.i.i, label %google_protobuf_Value_mutable_struct_value.exit, label %47, !prof !27
+upb_Arena_Malloc.exit.i.i:                        ; preds = %44, %42
+  %.0.i.i.i = phi ptr [ %43, %42 ], [ %37, %44 ]
+  %.not.i.i = icmp eq ptr %.0.i.i.i, null
+  br i1 %.not.i.i, label %google_protobuf_Value_mutable_struct_value.exit, label %46, !prof !27
 
-47:                                               ; preds = %upb_Arena_Malloc.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i21, i8 0, i64 %33, i1 false)
+46:                                               ; preds = %upb_Arena_Malloc.exit.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i, i8 0, i64 %32, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__Struct_msg_init) #10, !srcloc !19
-  store i32 5, ptr %26, align 4, !tbaa !29
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = ptrtoint ptr %.0.i.i.i21 to i64
-  store i64 %49, ptr %48, align 4
+  store i32 5, ptr %25, align 4, !tbaa !29
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = ptrtoint ptr %.0.i.i.i to i64
+  store i64 %48, ptr %47, align 4
   br label %google_protobuf_Value_mutable_struct_value.exit
 
-google_protobuf_Value_mutable_struct_value.exit:  ; preds = %google_protobuf_Value_struct_value.exit.i, %upb_Arena_Malloc.exit.i.i, %47
-  %.0.i = phi ptr [ %.0.i.i.i21, %47 ], [ %30, %google_protobuf_Value_struct_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i ]
-  %50 = load i8, ptr %4, align 8, !tbaa !36
-  switch i8 %50, label %51 [
+google_protobuf_Value_mutable_struct_value.exit:  ; preds = %google_protobuf_Value_struct_value.exit.i, %upb_Arena_Malloc.exit.i.i, %46
+  %.0.i = phi ptr [ %.0.i.i.i, %46 ], [ %29, %google_protobuf_Value_struct_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i ]
+  %49 = load i8, ptr %4, align 8, !tbaa !36
+  switch i8 %49, label %50 [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i22
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i21
   ], !prof !45
 
-51:                                               ; preds = %google_protobuf_Value_mutable_struct_value.exit
-  %52 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %52, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr @.str.3, ptr %53, align 8, !tbaa !38
-  tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #12
+50:                                               ; preds = %google_protobuf_Value_mutable_struct_value.exit
+  %51 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %51, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr @.str.3, ptr %52, align 8, !tbaa !38
+  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #12
   unreachable
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i22:   ; preds = %google_protobuf_Value_mutable_struct_value.exit
-  %54 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %54, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr @.str.2, ptr %55, align 8, !tbaa !38
-  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #12
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i21:   ; preds = %google_protobuf_Value_mutable_struct_value.exit
+  %53 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr @.str.2, ptr %54, align 8, !tbaa !38
+  tail call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #12
   unreachable
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %google_protobuf_Value_mutable_struct_value.exit
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_116PopulateMetadataEP22google_protobuf_StructRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS9_ESaISt4pairIKS9_SB_EEEP9upb_Arena(ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2)
   br label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit
 
-_ZNK9grpc_core12experimental4Json4typeEv.exit:    ; preds = %3
+55:                                               ; preds = %3
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__ListValue_msg_init) #10, !srcloc !19
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 4, !tbaa !29
   %58 = icmp eq i32 %57, 6
   br i1 %58, label %google_protobuf_Value_list_value.exit.i, label %google_protobuf_Value_list_value.exit.thread.i
 
-google_protobuf_Value_list_value.exit.i:          ; preds = %_ZNK9grpc_core12experimental4Json4typeEv.exit
+google_protobuf_Value_list_value.exit.i:          ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.in.then.val.i.i27 = load i64, ptr %59, align 1
-  %60 = inttoptr i64 %.0.in.then.val.i.i27 to ptr
-  %61 = icmp eq i64 %.0.in.then.val.i.i27, 0
+  %.0.in.then.val.i.i26 = load i64, ptr %59, align 1
+  %60 = inttoptr i64 %.0.in.then.val.i.i26 to ptr
+  %61 = icmp eq i64 %.0.in.then.val.i.i26, 0
   br i1 %61, label %google_protobuf_Value_list_value.exit.thread.i, label %google_protobuf_Value_mutable_list_value.exit
 
-google_protobuf_Value_list_value.exit.thread.i:   ; preds = %google_protobuf_Value_list_value.exit.i, %_ZNK9grpc_core12experimental4Json4typeEv.exit
+google_protobuf_Value_list_value.exit.thread.i:   ; preds = %google_protobuf_Value_list_value.exit.i, %55
   %62 = load i16, ptr getelementptr inbounds nuw (i8, ptr @google__protobuf__ListValue_msg_init, i64 16), align 8, !tbaa !20
   %63 = zext i16 %62 to i64
   %64 = add nuw nsw i64 %63, 7
@@ -644,33 +641,33 @@ google_protobuf_Value_list_value.exit.thread.i:   ; preds = %google_protobuf_Val
 
 73:                                               ; preds = %google_protobuf_Value_list_value.exit.thread.i
   %74 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %2, i64 noundef %65)
-  br label %upb_Arena_Malloc.exit.i.i23
+  br label %upb_Arena_Malloc.exit.i.i22
 
 75:                                               ; preds = %google_protobuf_Value_list_value.exit.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 %65
   store ptr %76, ptr %2, align 8, !tbaa !26
-  br label %upb_Arena_Malloc.exit.i.i23
+  br label %upb_Arena_Malloc.exit.i.i22
 
-upb_Arena_Malloc.exit.i.i23:                      ; preds = %75, %73
-  %.0.i.i.i24 = phi ptr [ %74, %73 ], [ %68, %75 ]
-  %.not.i.i25 = icmp eq ptr %.0.i.i.i24, null
-  br i1 %.not.i.i25, label %google_protobuf_Value_mutable_list_value.exit, label %77, !prof !27
+upb_Arena_Malloc.exit.i.i22:                      ; preds = %75, %73
+  %.0.i.i.i23 = phi ptr [ %74, %73 ], [ %68, %75 ]
+  %.not.i.i24 = icmp eq ptr %.0.i.i.i23, null
+  br i1 %.not.i.i24, label %google_protobuf_Value_mutable_list_value.exit, label %77, !prof !27
 
-77:                                               ; preds = %upb_Arena_Malloc.exit.i.i23
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i24, i8 0, i64 %63, i1 false)
+77:                                               ; preds = %upb_Arena_Malloc.exit.i.i22
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i23, i8 0, i64 %63, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__ListValue_msg_init) #10, !srcloc !19
   store i32 6, ptr %56, align 4, !tbaa !29
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = ptrtoint ptr %.0.i.i.i24 to i64
+  %79 = ptrtoint ptr %.0.i.i.i23 to i64
   store i64 %79, ptr %78, align 4
   br label %google_protobuf_Value_mutable_list_value.exit
 
-google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Value_list_value.exit.i, %upb_Arena_Malloc.exit.i.i23, %77
-  %.0.i26 = phi ptr [ %.0.i.i.i24, %77 ], [ %60, %google_protobuf_Value_list_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i23 ]
+google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Value_list_value.exit.i, %upb_Arena_Malloc.exit.i.i22, %77
+  %.0.i25 = phi ptr [ %.0.i.i.i23, %77 ], [ %60, %google_protobuf_Value_list_value.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i22 ]
   %80 = load i8, ptr %4, align 8, !tbaa !36
   switch i8 %80, label %81 [
     i8 5, label %_ZNK9grpc_core12experimental4Json5arrayEv.exit
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i28
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i27
   ], !prof !45
 
 81:                                               ; preds = %google_protobuf_Value_mutable_list_value.exit
@@ -681,7 +678,7 @@ google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Val
   tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #12
   unreachable
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i28:   ; preds = %google_protobuf_Value_mutable_list_value.exit
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i27:   ; preds = %google_protobuf_Value_mutable_list_value.exit
   %84 = tail call ptr @__cxa_allocate_exception(i64 16) #10
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %84, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -693,21 +690,21 @@ _ZNK9grpc_core12experimental4Json5arrayEv.exit:   ; preds = %google_protobuf_Val
   %86 = load ptr, ptr %1, align 8, !tbaa !46
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !46
-  %.not45 = icmp eq ptr %86, %88
-  br i1 %.not45, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %.lr.ph
+  %.not38 = icmp eq ptr %86, %88
+  br i1 %.not38, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK9grpc_core12experimental4Json5arrayEv.exit
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %91
 
 91:                                               ; preds = %.lr.ph, %google_protobuf_ListValue_add_values.exit
-  %.sroa.033.046 = phi ptr [ %86, %.lr.ph ], [ %142, %google_protobuf_ListValue_add_values.exit ]
+  %.sroa.033.039 = phi ptr [ %86, %.lr.ph ], [ %142, %google_protobuf_ListValue_add_values.exit ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__Value_msg_init) #10, !srcloc !19
   %92 = load i64, ptr %89, align 1
   %93 = inttoptr i64 %92 to ptr
-  %.not.i.i29 = icmp eq i64 %92, 0
-  br i1 %.not.i.i29, label %_upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i, label %upb_Message_GetOrCreateMutableArray.exit.i
+  %.not.i.i28 = icmp eq i64 %92, 0
+  br i1 %.not.i.i28, label %_upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i, label %upb_Message_GetOrCreateMutableArray.exit.i
 
 _upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i: ; preds = %91
   %94 = load ptr, ptr %90, align 8, !tbaa !24
@@ -729,8 +726,8 @@ _upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i: ; 
 
 upb_Arena_Malloc.exit.i.i.i:                      ; preds = %102, %100
   %.0.i.i15.i.i = phi ptr [ %101, %100 ], [ %95, %102 ]
-  %.not.i.i.i = icmp eq ptr %.0.i.i15.i.i, null
-  br i1 %.not.i.i.i, label %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i.i, label %104
+  %.not.i.i.i32 = icmp eq ptr %.0.i.i15.i.i, null
+  br i1 %.not.i.i.i32, label %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i.i, label %104
 
 104:                                              ; preds = %upb_Arena_Malloc.exit.i.i.i
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i15.i.i, i64 24
@@ -782,20 +779,20 @@ upb_Array_Reserve.exit.i.i:                       ; preds = %111
 
 130:                                              ; preds = %119
   %131 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %2, i64 noundef %123)
-  br label %upb_Arena_Malloc.exit.i.i30
+  br label %upb_Arena_Malloc.exit.i.i29
 
 132:                                              ; preds = %119
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 %123
   store ptr %133, ptr %2, align 8, !tbaa !26
-  br label %upb_Arena_Malloc.exit.i.i30
+  br label %upb_Arena_Malloc.exit.i.i29
 
-upb_Arena_Malloc.exit.i.i30:                      ; preds = %132, %130
-  %.0.i.i.i31 = phi ptr [ %131, %130 ], [ %125, %132 ]
-  %.not.i14.i = icmp eq ptr %.0.i.i.i31, null
+upb_Arena_Malloc.exit.i.i29:                      ; preds = %132, %130
+  %.0.i.i.i30 = phi ptr [ %131, %130 ], [ %125, %132 ]
+  %.not.i14.i = icmp eq ptr %.0.i.i.i30, null
   br i1 %.not.i14.i, label %google_protobuf_ListValue_add_values.exit, label %134, !prof !27
 
-134:                                              ; preds = %upb_Arena_Malloc.exit.i.i30
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i31, i8 0, i64 %121, i1 false)
+134:                                              ; preds = %upb_Arena_Malloc.exit.i.i29
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i30, i8 0, i64 %121, i1 false)
   %135 = load i64, ptr %112, align 8, !tbaa !33
   %136 = load i64, ptr %.0.i.i, align 8, !tbaa !31
   %137 = and i64 %136, -8
@@ -803,17 +800,17 @@ upb_Arena_Malloc.exit.i.i30:                      ; preds = %132, %130
   %139 = shl i64 %135, 3
   %140 = getelementptr i8, ptr %138, i64 %139
   %141 = getelementptr i8, ptr %140, i64 -8
-  store ptr %.0.i.i.i31, ptr %141, align 8
+  store ptr %.0.i.i.i30, ptr %141, align 8
   br label %google_protobuf_ListValue_add_values.exit
 
-google_protobuf_ListValue_add_values.exit:        ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i30, %134
-  %.0.i32 = phi ptr [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ null, %upb_Array_Reserve.exit.i.i ], [ %.0.i.i.i31, %134 ], [ null, %upb_Arena_Malloc.exit.i.i30 ]
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef %.0.i32, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.033.046, ptr noundef %2)
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.033.046, i64 56
+google_protobuf_ListValue_add_values.exit:        ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i29, %134
+  %.0.i31 = phi ptr [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ null, %upb_Array_Reserve.exit.i.i ], [ %.0.i.i.i30, %134 ], [ null, %upb_Arena_Malloc.exit.i.i29 ]
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef %.0.i31, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.033.039, ptr noundef %2)
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.033.039, i64 56
   %.not = icmp eq ptr %142, %88
   br i1 %.not, label %_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit, label %91
 
-_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit: ; preds = %google_protobuf_ListValue_add_values.exit, %_ZNK9grpc_core12experimental4Json5arrayEv.exit, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit, %_ZNK9grpc_core12experimental4Json7booleanEv.exit, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit, %10
+_ZN9grpc_core12_GLOBAL__N_117PopulateListValueEP25google_protobuf_ListValueRKSt6vectorINS_12experimental4JsonESaIS5_EEP9upb_Arena.exit: ; preds = %google_protobuf_ListValue_add_values.exit, %_ZNK9grpc_core12experimental4Json5arrayEv.exit, %3, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit, %_ZNK9grpc_core12experimental4Json7booleanEv.exit, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit19, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit, %9
   ret void
 }
 

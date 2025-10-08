@@ -496,8 +496,8 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0b763bfe8d89aE.exit.i.i.i.i.i": ; preds = %36, %34
   %.sroa.0.1.i.i.i.i.i.i.i.i.i = phi i8 [ %41, %36 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %34 ]
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i.i.i = select i1 %13, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i.i.i
+  %switch.offset.i.i.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i.i.i = select i1 %13, i8 %switch.offset.i.i.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i.i.i
   %42 = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i.i.i = select i1 %42, ptr %15, ptr %.sroa.6.0.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = select i1 %42, i64 %.sroa.2.0.i.i, i64 %.sroa.07.0.i.i
@@ -2273,8 +2273,8 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0b763bfe8d89aE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %51, %49
   %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %56, %51 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %49 ]
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %28, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.offset.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %28, i8 %switch.offset.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %57 = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %57, ptr %30, ptr %.sroa.6.0.i.i.i.i.i.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %57, i64 %.sroa.2.0.i.i.i.i.i.i.i.i, i64 %.sroa.07.0.i.i.i.i.i.i.i.i
@@ -3015,8 +3015,8 @@ define hidden { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumera
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0b763bfe8d89aE.exit.i.i.i.i": ; preds = %41, %39
   %.sroa.0.1.i.i.i.i.i.i.i.i = phi i8 [ %46, %41 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i, %39 ]
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i.i
+  %switch.offset.i.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i.i = select i1 %18, i8 %switch.offset.i.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i.i
   %47 = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i.i = select i1 %47, ptr %20, ptr %.sroa.6.0.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = select i1 %47, i64 %.sroa.2.0.i, i64 %.sroa.07.0.i
@@ -17367,8 +17367,8 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
 
 "_ZN4core4iter6traits8iterator8Iterator6min_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc5d0b763bfe8d89aE.exit.i.i.i": ; preds = %39, %37
   %.sroa.0.1.i.i.i.i.i.i.i = phi i8 [ %44, %39 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %37 ]
-  %switch.offset = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
-  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %16, i8 %switch.offset, i8 %.sroa.0.1.i.i.i.i.i.i.i
+  %switch.offset.i.i.i.i.i.i.i = sub nsw i8 0, %.sroa.0.1.i.i.i.i.i.i.i
+  %.sroa.0.2.i.i.i.i.i.i.i = select i1 %16, i8 %switch.offset.i.i.i.i.i.i.i, i8 %.sroa.0.1.i.i.i.i.i.i.i
   %45 = icmp eq i8 %.sroa.0.2.i.i.i.i.i.i.i, 1
   %.sroa.3.0.i.i.i.i.i = select i1 %45, ptr %18, ptr %.sroa.6.0
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = select i1 %45, i64 %.sroa.2.0, i64 %.sroa.07.0

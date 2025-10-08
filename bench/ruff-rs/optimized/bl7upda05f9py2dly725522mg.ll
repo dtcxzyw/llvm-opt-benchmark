@@ -13220,7 +13220,7 @@ _ZN18ty_python_semantic5types9BoolError17not_boolable_type17hc2dd865b2c11242aE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18ty_python_semantic5types20ConstructorCallError11return_type17h055ec03499dfccfaE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #8 {
+define hidden void @_ZN18ty_python_semantic5types20ConstructorCallError11return_type17h055ec03499dfccfaE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #8 {
 switch.lookup:
   %2 = load i64, ptr %1, align 8, !range !1624, !noundef !3
   %3 = add nsw i64 %2, -2
