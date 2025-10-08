@@ -2314,149 +2314,142 @@ define internal fastcc float @GetGlobalContentScale(ptr noundef %0) unnamed_addr
   %3 = alloca ptr, align 8
   %4 = load double, ptr @GetGlobalContentScale.scale_factor, align 8
   %5 = fcmp ugt double %4, 0.000000e+00
-  br i1 %5, label %69, label %6
+  br i1 %5, label %.thread38, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.8) #8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %thread-pre-split, label %8
+  br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %6
   %9 = load i8, ptr %7, align 1
   %.not27 = icmp eq i8 %9, 0
-  br i1 %.not27, label %thread-pre-split, label %10
+  br i1 %.not27, label %14, label %10
 
 10:                                               ; preds = %8
   %11 = tail call double @SDL_atof_REAL(ptr noundef nonnull %7) #8
   %12 = fcmp oge double %11, 1.000000e+00
   %13 = fcmp ole double %11, 1.000000e+01
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %.critedge, label %thread-pre-split
+  br i1 %or.cond, label %.thread38.sink.split, label %14
 
-.critedge:                                        ; preds = %10
-  store double %11, ptr @GetGlobalContentScale.scale_factor, align 8
-  br label %44
-
-thread-pre-split:                                 ; preds = %6, %8, %10
+14:                                               ; preds = %10, %8, %6
   %.pr = load double, ptr @GetGlobalContentScale.scale_factor, align 8
-  %14 = fcmp ugt double %.pr, 0.000000e+00
-  br i1 %14, label %44, label %15
+  %15 = fcmp ugt double %.pr, 0.000000e+00
+  br i1 %15, label %.thread38, label %16
 
-15:                                               ; preds = %thread-pre-split
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %17 = load ptr, ptr %16, align 8
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = load ptr, ptr @X11_XrmInitialize, align 8
-  tail call void %19() #8
-  %20 = load ptr, ptr @X11_XResourceManagerString, align 8
-  %21 = tail call ptr %20(ptr noundef %18) #8
-  %.not28 = icmp eq ptr %21, null
-  br i1 %.not28, label %43, label %22
+  %20 = load ptr, ptr @X11_XrmInitialize, align 8
+  tail call void %20() #8
+  %21 = load ptr, ptr @X11_XResourceManagerString, align 8
+  %22 = tail call ptr %21(ptr noundef %19) #8
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %44, label %23
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr @X11_XrmGetStringDatabase, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %21) #8
-  %25 = load ptr, ptr @X11_XrmGetResource, align 8
-  %26 = call i32 %25(ptr noundef %24, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef nonnull %2) #8
-  %.not29 = icmp eq i32 %26, 0
-  br i1 %.not29, label %41, label %27
+23:                                               ; preds = %16
+  %24 = load ptr, ptr @X11_XrmGetStringDatabase, align 8
+  %25 = tail call ptr %24(ptr noundef nonnull %22) #8
+  %26 = load ptr, ptr @X11_XrmGetResource, align 8
+  %27 = call i32 %26(ptr noundef %25, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef nonnull %2) #8
+  %.not29 = icmp eq i32 %27, 0
+  br i1 %.not29, label %42, label %28
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  %31 = load ptr, ptr %3, align 8
-  %32 = icmp ne ptr %31, null
-  %or.cond3 = select i1 %30, i1 %32, i1 false
-  br i1 %or.cond3, label %33, label %41
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  %32 = load ptr, ptr %3, align 8
+  %33 = icmp ne ptr %32, null
+  %or.cond3 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond3, label %34, label %42
 
-33:                                               ; preds = %27
-  %34 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %31, ptr noundef nonnull @.str.10) #8
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %41
+34:                                               ; preds = %28
+  %35 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %32, ptr noundef nonnull @.str.10) #8
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %28, align 8
-  %38 = call i32 @SDL_atoi_REAL(ptr noundef %37) #8
-  %39 = sitofp i32 %38 to double
-  %40 = fdiv double %39, 9.600000e+01
-  store double %40, ptr @GetGlobalContentScale.scale_factor, align 8
-  br label %41
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %29, align 8
+  %39 = call i32 @SDL_atoi_REAL(ptr noundef %38) #8
+  %40 = sitofp i32 %39 to double
+  %41 = fdiv double %40, 9.600000e+01
+  store double %41, ptr @GetGlobalContentScale.scale_factor, align 8
+  br label %42
 
-41:                                               ; preds = %27, %33, %36, %22
-  %42 = load ptr, ptr @X11_XrmDestroyDatabase, align 8
-  call void %42(ptr noundef %24) #8
-  br label %43
-
-43:                                               ; preds = %41, %15
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.pre = load double, ptr @GetGlobalContentScale.scale_factor, align 8
+42:                                               ; preds = %28, %34, %37, %23
+  %43 = load ptr, ptr @X11_XrmDestroyDatabase, align 8
+  call void %43(ptr noundef %25) #8
   br label %44
 
-44:                                               ; preds = %.critedge, %43, %thread-pre-split
-  %45 = phi double [ %11, %.critedge ], [ %.pre, %43 ], [ %.pr, %thread-pre-split ]
-  %46 = fcmp ugt double %45, 0.000000e+00
-  br i1 %46, label %58, label %47
+44:                                               ; preds = %16, %42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %.pr31 = load double, ptr @GetGlobalContentScale.scale_factor, align 8
+  %45 = fcmp ugt double %.pr31, 0.000000e+00
+  br i1 %45, label %.thread38, label %46
 
-47:                                               ; preds = %44
-  %48 = call i32 @X11_GetXsettingsIntKey(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef -1) #8
-  %49 = sitofp i32 %48 to double
-  store double %49, ptr @GetGlobalContentScale.scale_factor, align 8
-  %50 = icmp slt i32 %48, 1
-  br i1 %50, label %51, label %58
+46:                                               ; preds = %44
+  %47 = call i32 @X11_GetXsettingsIntKey(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef -1) #8
+  %48 = sitofp i32 %47 to double
+  store double %48, ptr @GetGlobalContentScale.scale_factor, align 8
+  %49 = icmp slt i32 %47, 1
+  br i1 %49, label %50, label %thread-pre-split33
 
-51:                                               ; preds = %47
-  %52 = call i32 @X11_GetXsettingsIntKey(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef -1) #8
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %thread-pre-split31
+50:                                               ; preds = %46
+  %51 = call i32 @X11_GetXsettingsIntKey(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef -1) #8
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %.thread-pre-split33_crit_edge
 
-54:                                               ; preds = %51
-  %55 = uitofp nneg i32 %52 to double
-  %56 = fmul double %55, 0x3F50000000000000
-  %57 = fdiv double %56, 9.600000e+01
-  store double %57, ptr @GetGlobalContentScale.scale_factor, align 8
-  br label %58
-
-thread-pre-split31:                               ; preds = %51
-  %.pr32 = load double, ptr @GetGlobalContentScale.scale_factor, align 8
-  br label %58
-
-58:                                               ; preds = %thread-pre-split31, %54, %47, %44
-  %59 = phi double [ %.pr32, %thread-pre-split31 ], [ %57, %54 ], [ %49, %47 ], [ %45, %44 ]
-  %60 = fcmp ugt double %59, 0.000000e+00
-  br i1 %60, label %thread-pre-split33, label %61
-
-61:                                               ; preds = %58
-  %62 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.13) #8
-  %.not30 = icmp eq ptr %62, null
-  br i1 %.not30, label %.thread-pre-split33_crit_edge, label %63
-
-.thread-pre-split33_crit_edge:                    ; preds = %61
+.thread-pre-split33_crit_edge:                    ; preds = %50
   %.pr34.pre = load double, ptr @GetGlobalContentScale.scale_factor, align 8
   br label %thread-pre-split33
 
-63:                                               ; preds = %61
-  %64 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %62) #8
-  %65 = sitofp i32 %64 to double
-  store double %65, ptr @GetGlobalContentScale.scale_factor, align 8
+53:                                               ; preds = %50
+  %54 = uitofp nneg i32 %51 to double
+  %55 = fmul double %54, 0x3F50000000000000
+  %56 = fdiv double %55, 9.600000e+01
+  store double %56, ptr @GetGlobalContentScale.scale_factor, align 8
   br label %thread-pre-split33
 
-thread-pre-split33:                               ; preds = %58, %.thread-pre-split33_crit_edge, %63
-  %66 = phi double [ %65, %63 ], [ %.pr34.pre, %.thread-pre-split33_crit_edge ], [ %59, %58 ]
-  %67 = fcmp ugt double %66, 0.000000e+00
-  br i1 %67, label %69, label %68
+thread-pre-split33:                               ; preds = %.thread-pre-split33_crit_edge, %53, %46
+  %57 = phi double [ %56, %53 ], [ %48, %46 ], [ %.pr34.pre, %.thread-pre-split33_crit_edge ]
+  %58 = fcmp ugt double %57, 0.000000e+00
+  br i1 %58, label %.thread38, label %59
 
-68:                                               ; preds = %thread-pre-split33
-  store double 1.000000e+00, ptr @GetGlobalContentScale.scale_factor, align 8
-  br label %69
+59:                                               ; preds = %thread-pre-split33
+  %60 = call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.13) #8
+  %.not30 = icmp eq ptr %60, null
+  br i1 %.not30, label %.thread-pre-split36_crit_edge, label %61
 
-69:                                               ; preds = %thread-pre-split33, %68, %1
-  %70 = phi double [ %66, %thread-pre-split33 ], [ 1.000000e+00, %68 ], [ %4, %1 ]
-  %71 = fptrunc double %70 to float
-  ret float %71
+.thread-pre-split36_crit_edge:                    ; preds = %59
+  %.pr37.pre = load double, ptr @GetGlobalContentScale.scale_factor, align 8
+  br label %thread-pre-split36
+
+61:                                               ; preds = %59
+  %62 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %60) #8
+  %63 = sitofp i32 %62 to double
+  store double %63, ptr @GetGlobalContentScale.scale_factor, align 8
+  br label %thread-pre-split36
+
+thread-pre-split36:                               ; preds = %.thread-pre-split36_crit_edge, %61
+  %64 = phi double [ %63, %61 ], [ %.pr37.pre, %.thread-pre-split36_crit_edge ]
+  %65 = fcmp ugt double %64, 0.000000e+00
+  br i1 %65, label %.thread38, label %.thread38.sink.split
+
+.thread38.sink.split:                             ; preds = %thread-pre-split36, %10
+  %.sink = phi double [ %11, %10 ], [ 1.000000e+00, %thread-pre-split36 ]
+  store double %.sink, ptr @GetGlobalContentScale.scale_factor, align 8
+  br label %.thread38
+
+.thread38:                                        ; preds = %.thread38.sink.split, %14, %thread-pre-split33, %44, %thread-pre-split36, %1
+  %66 = phi double [ %.pr31, %44 ], [ %64, %thread-pre-split36 ], [ %4, %1 ], [ %57, %thread-pre-split33 ], [ %.pr, %14 ], [ %.sink, %.thread38.sink.split ]
+  %67 = fptrunc double %66 to float
+  ret float %67
 }
 
 declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2

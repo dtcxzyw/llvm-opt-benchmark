@@ -288,50 +288,53 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !28
   %30 = fcmp olt double %29, 0.000000e+00
-  br i1 %30, label %40, label %46
+  br i1 %30, label %44, label %.thread84
+
+.thread84:                                        ; preds = %21
+  %31 = tail call double @llvm.fmuladd.f64(double %23, double %29, double %8)
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %33 = load double, ptr %32, align 8, !tbaa !29
+  %34 = fcmp ule double %31, %33
+  br i1 %34, label %96, label %58
 
 .critedge66:                                      ; preds = %16
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load double, ptr %31, align 8, !tbaa !37
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !30
-  %35 = fsub double %32, %34
-  %36 = fsub double %8, %9
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load double, ptr %37, align 8, !tbaa !28
-  %39 = fcmp ult double %38, 0.000000e+00
-  br i1 %39, label %46, label %40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load double, ptr %35, align 8, !tbaa !37
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = load double, ptr %37, align 8, !tbaa !30
+  %39 = fsub double %36, %38
+  %40 = fsub double %8, %9
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = load double, ptr %41, align 8, !tbaa !28
+  %43 = fcmp ult double %42, 0.000000e+00
+  br i1 %43, label %50, label %44
 
-40:                                               ; preds = %.critedge66, %21
-  %41 = phi double [ %38, %.critedge66 ], [ %29, %21 ]
-  %42 = phi double [ %36, %.critedge66 ], [ %27, %21 ]
-  %43 = phi double [ %35, %.critedge66 ], [ %26, %21 ]
-  %44 = fmul double %42, %41
-  %45 = fcmp ult double %43, %44
-  br i1 %45, label %58, label %96
+44:                                               ; preds = %.critedge66, %21
+  %45 = phi double [ %42, %.critedge66 ], [ %29, %21 ]
+  %46 = phi double [ %40, %.critedge66 ], [ %27, %21 ]
+  %47 = phi double [ %39, %.critedge66 ], [ %26, %21 ]
+  %48 = fmul double %46, %45
+  %49 = fcmp ult double %47, %48
+  br i1 %49, label %58, label %96
 
-46:                                               ; preds = %21, %.critedge66
-  %47 = phi double [ %38, %.critedge66 ], [ %29, %21 ]
-  %48 = phi double [ %36, %.critedge66 ], [ %27, %21 ]
-  %49 = phi double [ %35, %.critedge66 ], [ %26, %21 ]
-  %50 = phi double [ %32, %.critedge66 ], [ %23, %21 ]
-  %51 = tail call double @llvm.fmuladd.f64(double %50, double %47, double %8)
+50:                                               ; preds = %.critedge66
+  %51 = tail call double @llvm.fmuladd.f64(double %36, double %42, double %8)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !29
   %54 = fcmp ule double %51, %53
-  %55 = fcmp olt double %47, 0.000000e+00
+  %55 = fcmp olt double %42, 0.000000e+00
   br i1 %55, label %56, label %57
 
-56:                                               ; preds = %46
+56:                                               ; preds = %50
   br i1 %54, label %58, label %96
 
-57:                                               ; preds = %46
+57:                                               ; preds = %50
   br i1 %54, label %96, label %58
 
-58:                                               ; preds = %56, %40, %57
-  %59 = phi double [ %41, %40 ], [ %47, %57 ], [ %47, %56 ]
-  %60 = phi double [ %43, %40 ], [ %49, %57 ], [ %49, %56 ]
-  %61 = phi double [ %42, %40 ], [ %48, %57 ], [ %48, %56 ]
+58:                                               ; preds = %.thread84, %56, %44, %57
+  %59 = phi double [ %45, %44 ], [ %42, %57 ], [ %42, %56 ], [ %29, %.thread84 ]
+  %60 = phi double [ %47, %44 ], [ %39, %57 ], [ %39, %56 ], [ %26, %.thread84 ]
+  %61 = phi double [ %46, %44 ], [ %40, %57 ], [ %40, %56 ], [ %27, %.thread84 ]
   %62 = load ptr, ptr %5, align 8, !tbaa !25
   %63 = load double, ptr %62, align 8, !tbaa !34
   %64 = fsub double %9, %63
@@ -372,8 +375,8 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %95 = fcmp ogt double %92, %94
   br label %96
 
-96:                                               ; preds = %56, %40, %57, %77, %58, %79
-  %.2.shrunk = phi i1 [ false, %57 ], [ %78, %77 ], [ %75, %58 ], [ %95, %79 ], [ true, %40 ], [ false, %56 ]
+96:                                               ; preds = %.thread84, %56, %44, %57, %77, %58, %79
+  %.2.shrunk = phi i1 [ false, %57 ], [ %78, %77 ], [ %75, %58 ], [ %95, %79 ], [ true, %44 ], [ false, %56 ], [ false, %.thread84 ]
   %97 = icmp ne i8 %12, 0
   %.v = xor i1 %.2.shrunk, %97
   %98 = zext i1 %.v to i32

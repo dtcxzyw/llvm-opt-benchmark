@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8, ptr noundef captures(none) initializes((0, 8)) %9) local_unnamed_addr #0 {
+define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8, ptr noundef captures(none) initializes((0, 8)) %9) local_unnamed_addr #0 {
   %11 = load i32, ptr %1, align 4, !tbaa !3
   %narrow = xor i32 %11, -1
   %12 = sext i32 %narrow to i64
@@ -121,8 +121,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %102 = fadd double %67, %101
   %103 = fcmp oge double %98, %102
   %104 = select i1 %103, double %98, double %102
-  %.inv488 = fcmp oge double %104, %17
-  %.486 = select i1 %.inv488, double %104, double %17
+  %.inv489 = fcmp oge double %104, %17
+  %.486 = select i1 %.inv489, double %104, double %17
   %105 = fcmp oge double %98, %101
   %106 = select i1 %105, double %98, double %101
   %107 = fdiv double 1.000000e+00, %106
@@ -232,8 +232,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %183 = fneg double %177
   %184 = select i1 %182, double %177, double %183
   %185 = fmul double %184, 5.000000e-01
-  %.inv489 = fcmp oge double %181, %17
-  %.487 = select i1 %.inv489, double %181, double %17
+  %.inv490 = fcmp oge double %181, %17
+  %.487 = select i1 %.inv490, double %181, double %17
   %186 = fcmp ogt double %185, %.487
   br i1 %186, label %187, label %194
 
@@ -309,8 +309,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %234 = fcmp oge double %233, %.0454
   %235 = select i1 %234, double %233, double %.0454
   %236 = fmul double %235, 5.000000e-01
-  %.inv490 = fcmp oge double %209, %213
-  %237 = select i1 %.inv490, double %209, double %213
+  %.inv491 = fcmp oge double %209, %213
+  %237 = select i1 %.inv491, double %209, double %213
   %238 = tail call double @llvm.fmuladd.f64(double %233, double %216, double %217)
   %239 = fmul double %238, 1.000010e+00
   %240 = fcmp oge double %237, %239
@@ -351,7 +351,7 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   store double %262, ptr %7, align 8, !tbaa !7
   %263 = load double, ptr %9, align 8, !tbaa !7
   %264 = fcmp une double %263, 0.000000e+00
-  br i1 %264, label %265, label %270
+  br i1 %264, label %265, label %.thread488
 
 265:                                              ; preds = %258
   %266 = fmul double %248, %263
@@ -359,79 +359,75 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %267 = load double, ptr %7, align 8, !tbaa !7
   store double %267, ptr %8, align 8, !tbaa !7
   %268 = load double, ptr %5, align 8, !tbaa !7
-  br label %thread-pre-split
+  br label %270
 
 269:                                              ; preds = %208
   store double %223, ptr %5, align 8, !tbaa !7
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %269, %265
-  %storemerge491 = phi double [ %223, %269 ], [ %268, %265 ]
-  store double %storemerge491, ptr %6, align 8, !tbaa !7
-  %.pr = load double, ptr %9, align 8, !tbaa !7
   br label %270
 
-270:                                              ; preds = %thread-pre-split, %258
-  %271 = phi double [ %.pr, %thread-pre-split ], [ %263, %258 ]
-  %272 = fcmp oeq double %271, 0.000000e+00
-  br i1 %272, label %273, label %309
+270:                                              ; preds = %265, %269
+  %storemerge492 = phi double [ %223, %269 ], [ %268, %265 ]
+  store double %storemerge492, ptr %6, align 8, !tbaa !7
+  %.pr = load double, ptr %9, align 8, !tbaa !7
+  %271 = fcmp oeq double %.pr, 0.000000e+00
+  br i1 %271, label %.thread488, label %307
 
-273:                                              ; preds = %270
-  %274 = load double, ptr %8, align 8, !tbaa !7
-  %275 = fcmp ult double %274, 0.000000e+00
-  %276 = fneg double %274
-  %277 = select i1 %275, double %276, double %274
-  %278 = fcmp oge double %277, %.0454
-  %279 = select i1 %278, double %277, double %.0454
-  %280 = fmul double %279, 5.000000e-01
-  %281 = load double, ptr %4, align 8, !tbaa !7
-  %.inv492 = fcmp oge double %281, %213
-  %282 = select i1 %.inv492, double %281, double %213
-  %283 = tail call double @llvm.fmuladd.f64(double %277, double %216, double %217)
-  %284 = fmul double %283, 1.000010e+00
-  %285 = fcmp oge double %282, %284
-  %286 = select i1 %285, double %282, double %284
-  %287 = fcmp ole double %.0453, %280
-  %288 = select i1 %287, double %.0453, double %280
-  %289 = fcmp oge double %286, %288
-  %290 = select i1 %289, double %286, double %288
-  %291 = fcmp une double %290, 1.000000e+00
-  br i1 %291, label %292, label %308
+.thread488:                                       ; preds = %258, %270
+  %272 = load double, ptr %8, align 8, !tbaa !7
+  %273 = fcmp ult double %272, 0.000000e+00
+  %274 = fneg double %272
+  %275 = select i1 %273, double %274, double %272
+  %276 = fcmp oge double %275, %.0454
+  %277 = select i1 %276, double %275, double %.0454
+  %278 = fmul double %277, 5.000000e-01
+  %279 = load double, ptr %4, align 8, !tbaa !7
+  %.inv493 = fcmp oge double %279, %213
+  %280 = select i1 %.inv493, double %279, double %213
+  %281 = tail call double @llvm.fmuladd.f64(double %275, double %216, double %217)
+  %282 = fmul double %281, 1.000010e+00
+  %283 = fcmp oge double %280, %282
+  %284 = select i1 %283, double %280, double %282
+  %285 = fcmp ole double %.0453, %278
+  %286 = select i1 %285, double %.0453, double %278
+  %287 = fcmp oge double %284, %286
+  %288 = select i1 %287, double %284, double %286
+  %289 = fcmp une double %288, 1.000000e+00
+  br i1 %289, label %290, label %306
 
-292:                                              ; preds = %273
-  %293 = fdiv double 1.000000e+00, %290
-  %294 = fcmp ogt double %290, 1.000000e+00
-  br i1 %294, label %295, label %299
+290:                                              ; preds = %.thread488
+  %291 = fdiv double 1.000000e+00, %288
+  %292 = fcmp ogt double %288, 1.000000e+00
+  br i1 %292, label %293, label %297
 
-295:                                              ; preds = %292
-  %296 = fcmp oge double %49, %106
-  %297 = select i1 %296, double %49, double %106
+293:                                              ; preds = %290
+  %294 = fcmp oge double %49, %106
+  %295 = select i1 %294, double %49, double %106
+  %296 = fcmp ole double %49, %106
+  br label %301
+
+297:                                              ; preds = %290
   %298 = fcmp ole double %49, %106
-  br label %303
+  %299 = select i1 %298, double %49, double %106
+  %300 = fcmp oge double %49, %106
+  br label %301
 
-299:                                              ; preds = %292
-  %300 = fcmp ole double %49, %106
-  %301 = select i1 %300, double %49, double %106
-  %302 = fcmp oge double %49, %106
-  br label %303
+301:                                              ; preds = %297, %293
+  %.sink501 = phi i1 [ %300, %297 ], [ %296, %293 ]
+  %.pn503 = phi double [ %299, %297 ], [ %295, %293 ]
+  %.sink500 = fmul double %.pn503, %291
+  %302 = select i1 %.sink501, double %49, double %106
+  %303 = fmul double %302, %.sink500
+  store double %303, ptr %6, align 8, !tbaa !7
+  %304 = load double, ptr %8, align 8, !tbaa !7
+  %305 = fmul double %291, %304
+  store double %305, ptr %8, align 8, !tbaa !7
+  br label %307
 
-303:                                              ; preds = %299, %295
-  %.sink501 = phi i1 [ %302, %299 ], [ %298, %295 ]
-  %.pn503 = phi double [ %301, %299 ], [ %297, %295 ]
-  %.sink500 = fmul double %.pn503, %293
-  %304 = select i1 %.sink501, double %49, double %106
-  %305 = fmul double %304, %.sink500
-  store double %305, ptr %6, align 8, !tbaa !7
-  %306 = load double, ptr %8, align 8, !tbaa !7
-  %307 = fmul double %293, %306
-  store double %307, ptr %8, align 8, !tbaa !7
-  br label %309
-
-308:                                              ; preds = %273
+306:                                              ; preds = %.thread488
   store double %223, ptr %6, align 8, !tbaa !7
-  br label %309
+  br label %307
 
-309:                                              ; preds = %303, %308, %270
+307:                                              ; preds = %301, %306, %270
   ret void
 }
 

@@ -302,9 +302,9 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit51:            ; preds = %_ZNK8LightGBM4Tree1
   br label %154
 
 154:                                              ; preds = %161, %.lr.ph.i
-  %.02135.i = phi double [ %140, %.lr.ph.i ], [ %165, %161 ]
-  %.02734.i = phi i64 [ 0, %.lr.ph.i ], [ %166, %161 ]
-  %155 = getelementptr inbounds nuw i32, ptr %146, i64 %.02734.i
+  %.02134.i = phi double [ %140, %.lr.ph.i ], [ %165, %161 ]
+  %.02733.i = phi i64 [ 0, %.lr.ph.i ], [ %166, %161 ]
+  %155 = getelementptr inbounds nuw i32, ptr %146, i64 %.02733.i
   %156 = load i32, ptr %155, align 4, !tbaa !154
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds double, ptr %1, i64 %157
@@ -314,10 +314,10 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit51:            ; preds = %_ZNK8LightGBM4Tree1
 
 161:                                              ; preds = %154
   %162 = load ptr, ptr %153, align 8, !tbaa !160
-  %163 = getelementptr inbounds nuw double, ptr %162, i64 %.02734.i
+  %163 = getelementptr inbounds nuw double, ptr %162, i64 %.02733.i
   %164 = load double, ptr %163, align 8, !tbaa !155
-  %165 = call double @llvm.fmuladd.f64(double %164, double %159, double %.02135.i)
-  %166 = add nuw i64 %.02734.i, 1
+  %165 = call double @llvm.fmuladd.f64(double %164, double %159, double %.02134.i)
+  %166 = add nuw i64 %.02733.i, 1
   %exitcond.not.i = icmp eq i64 %166, %150
   br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree7PredictEPKd.exit, label %154, !llvm.loop !163
 
@@ -836,7 +836,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   br i1 %.not.not.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.thread.us.i
-  %.02364.us.i = phi double [ %.442.us.i, %.thread.us.i ], [ %52, %.lr.ph.i ]
+  %.02364.us.i = phi double [ %.4.ph.us.i, %.thread.us.i ], [ %52, %.lr.ph.i ]
   %.02763.us.i = phi i64 [ %81, %.thread.us.i ], [ 0, %.lr.ph.i ]
   %69 = getelementptr inbounds nuw i32, ptr %58, i64 %.02763.us.i
   %70 = load i32, ptr %69, align 4, !tbaa !154
@@ -862,7 +862,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %71, %76
-  %.442.us.i = phi double [ %80, %76 ], [ %.02364.us.i, %71 ]
+  %.4.ph.us.i = phi double [ %80, %76 ], [ %.02364.us.i, %71 ]
   %81 = add nuw i64 %.02763.us.i, 1
   %exitcond71.not.i = icmp eq i64 %81, %62
   br i1 %exitcond71.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.us.i, !llvm.loop !178
@@ -874,7 +874,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   br i1 %84, label %.thread55.i, label %76
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread.i
-  %.02364.i = phi double [ %.442.i, %.thread.i ], [ %52, %.lr.ph.i ]
+  %.02364.i = phi double [ %.4.ph.i, %.thread.i ], [ %52, %.lr.ph.i ]
   %.02763.i = phi i64 [ %112, %.thread.i ], [ 0, %.lr.ph.i ]
   %85 = getelementptr inbounds nuw i32, ptr %58, i64 %.02763.i
   %86 = load i32, ptr %85, align 4, !tbaa !154
@@ -928,7 +928,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.i.i.i.i.i, %107, %..loopexit_crit_edge21.i.i.i.i.i, %.lr.ph.split.i
-  %.442.i = phi double [ %111, %107 ], [ %.02364.i, %.lr.ph.split.i ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
+  %.4.ph.i = phi double [ %111, %107 ], [ %.02364.i, %.lr.ph.split.i ], [ %.02364.i, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.02364.i, %.lr.ph.i.i.i.i.i ]
   %112 = add nuw i64 %.02763.i, 1
   %exitcond.not.i = icmp eq i64 %112, %62
   br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit, label %.lr.ph.split.i, !llvm.loop !178
@@ -959,7 +959,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   br label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit
 
 _ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit: ; preds = %.thread.i, %.thread.us.i, %47, %.thread55.i, %118, %125
-  %.1.i = phi double [ %124, %118 ], [ %128, %125 ], [ %116, %.thread55.i ], [ %52, %47 ], [ %.442.us.i, %.thread.us.i ], [ %.442.i, %.thread.i ]
+  %.1.i = phi double [ %124, %118 ], [ %128, %125 ], [ %116, %.thread55.i ], [ %52, %47 ], [ %.4.ph.us.i, %.thread.us.i ], [ %.4.ph.i, %.thread.i ]
   %129 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %130 = load double, ptr %129, align 8, !tbaa !155
   %131 = fadd double %.1.i, %130

@@ -750,22 +750,25 @@ _ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread: ; preds = %.lr.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef double @_ZN19OpenColorIO_v2_5dev15ClampToNormHalfEd(double noundef %0) local_unnamed_addr #4 {
   %2 = fcmp olt double %0, -6.550400e+04
-  br i1 %2, label %8, label %3
+  br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call double @llvm.fabs.f64(double %0)
-  %or.cond = fcmp olt double %4, 0x3F0FFFFFFF8F68F6
-  br i1 %or.cond, label %8, label %5
+  %4 = fcmp ogt double %0, 0xBF0FFFFFFF8F68F6
+  br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %3
-  %6 = fcmp ogt double %0, 6.550400e+04
-  br i1 %6, label %7, label %8
+  %6 = fcmp olt double %0, 0x3F0FFFFFFF8F68F6
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %5
-  br label %8
+  %8 = fcmp ogt double %0, 6.550400e+04
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %3, %1, %5, %7
-  %.0 = phi double [ 6.550400e+04, %7 ], [ %0, %5 ], [ -6.550400e+04, %1 ], [ 0.000000e+00, %3 ]
+9:                                                ; preds = %7
+  br label %.thread
+
+.thread:                                          ; preds = %3, %1, %7, %5, %9
+  %.0 = phi double [ 6.550400e+04, %9 ], [ 0.000000e+00, %5 ], [ %0, %7 ], [ -6.550400e+04, %1 ], [ %0, %3 ]
   ret double %.0
 }
 
@@ -1628,9 +1631,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #12
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

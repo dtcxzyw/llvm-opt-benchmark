@@ -271,7 +271,7 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   %114 = getelementptr inbounds double, ptr %50, i64 %111
   store double %113, ptr %114, align 8, !tbaa !26
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge179, label %.lr.ph178
+  br i1 %exitcond199.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !30
 
 ._crit_edge179:                                   ; preds = %107, %44
   %115 = load i32, ptr %41, align 4, !tbaa !23
@@ -353,3 +353,4 @@ attributes #4 = { nounwind }
 !27 = distinct !{!27, !25}
 !28 = distinct !{!28, !25}
 !29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}

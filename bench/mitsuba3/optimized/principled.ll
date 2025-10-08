@@ -4149,7 +4149,7 @@ _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6Vector
 248:                                              ; preds = %244
   %249 = fmul contract float %184, %247
   %250 = fmul contract float %199, %249
-  %251 = fadd contract float %.1, %250
+  %251 = fadd contract float %spec.select, %250
   br label %252
 
 252:                                              ; preds = %248, %244, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit.thread

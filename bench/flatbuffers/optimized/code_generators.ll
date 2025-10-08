@@ -3811,7 +3811,7 @@ define dso_local void @_ZNK11flatbuffers22FloatConstantGenerator16GenFloatConsta
   %8 = load i32, ptr %7, align 8, !tbaa !245
   switch i32 %8, label %.noexc.i [
     i32 11, label %9
-    i32 12, label %35
+    i32 12, label %36
   ]
 
 9:                                                ; preds = %3
@@ -3834,121 +3834,121 @@ define dso_local void @_ZNK11flatbuffers22FloatConstantGenerator16GenFloatConsta
 .critedge.i.i.i:                                  ; preds = %15
   %18 = fcmp uno float %13, 0.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !252
-  br i1 %18, label %.thread.i, label %22
+  br i1 %18, label %19, label %23
 
-.thread.i:                                        ; preds = %.critedge.i.i.i
-  %19 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !252
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %21 = load ptr, ptr %20, align 8, !noalias !252
-  call void %21(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef 0x7FF8000000000000)
+19:                                               ; preds = %.critedge.i.i.i
+  %20 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !252
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %22 = load ptr, ptr %21, align 8, !noalias !252
+  call void %22(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef 0x7FF8000000000000)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-22:                                               ; preds = %.critedge.i.i.i
-  %23 = call float @llvm.fabs.f32(float %13)
-  %24 = fcmp oeq float %23, 0x7FF0000000000000
-  %25 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !252
-  br i1 %24, label %26, label %29
+23:                                               ; preds = %.critedge.i.i.i
+  %24 = call float @llvm.fabs.f32(float %13)
+  %25 = fcmp oeq float %24, 0x7FF0000000000000
+  %26 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !252
+  br i1 %25, label %27, label %30
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !252
-  call void %28(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef %13)
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %29 = load ptr, ptr %28, align 8, !noalias !252
+  call void %29(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef %13)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %31 = load ptr, ptr %30, align 8, !noalias !252
-  call void %31(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %32 = load ptr, ptr %31, align 8, !noalias !252
+  call void %32(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, float noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
 ._crit_edge.i.i.i:                                ; preds = %15, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !252
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %32, ptr %0, align 8, !tbaa !4, !alias.scope !252
-  store i8 35, ptr %32, align 8, !tbaa !13, !alias.scope !252
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %33, align 8, !tbaa !10, !alias.scope !252
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %34, align 1, !tbaa !13, !alias.scope !252
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %33, ptr %0, align 8, !tbaa !4, !alias.scope !252
+  store i8 35, ptr %33, align 8, !tbaa !13, !alias.scope !252
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %34, align 8, !tbaa !10, !alias.scope !252
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %35, align 1, !tbaa !13, !alias.scope !252
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-35:                                               ; preds = %3
+36:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %37 = load ptr, ptr %36, align 8, !tbaa !48, !noalias !258
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %38 = load ptr, ptr %37, align 8, !tbaa !48, !noalias !258
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !258
-  store ptr %37, ptr %5, align 8, !tbaa !255, !noalias !258
-  %38 = load ptr, ptr @_ZN11flatbuffers13ClassicLocale9instance_E, align 8, !tbaa !256, !noalias !258
-  %39 = call double @strtod_l(ptr noundef %37, ptr noundef nonnull %5, ptr noundef %38) #21, !noalias !258
-  %40 = load ptr, ptr %5, align 8, !tbaa !255, !noalias !258
-  %.not.i.i.i5 = icmp eq ptr %40, %37
-  br i1 %.not.i.i.i5, label %._crit_edge.i.i.i6, label %41
+  store ptr %38, ptr %5, align 8, !tbaa !255, !noalias !258
+  %39 = load ptr, ptr @_ZN11flatbuffers13ClassicLocale9instance_E, align 8, !tbaa !256, !noalias !258
+  %40 = call double @strtod_l(ptr noundef %38, ptr noundef nonnull %5, ptr noundef %39) #21, !noalias !258
+  %41 = load ptr, ptr %5, align 8, !tbaa !255, !noalias !258
+  %.not.i.i.i5 = icmp eq ptr %41, %38
+  br i1 %.not.i.i.i5, label %._crit_edge.i.i.i6, label %42
 
-41:                                               ; preds = %35
-  %42 = load i8, ptr %40, align 1, !tbaa !13, !noalias !258
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %.critedge.i.i.i7, label %._crit_edge.i.i.i6
+42:                                               ; preds = %36
+  %43 = load i8, ptr %41, align 1, !tbaa !13, !noalias !258
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %.critedge.i.i.i7, label %._crit_edge.i.i.i6
 
-.critedge.i.i.i7:                                 ; preds = %41
-  %44 = fcmp uno double %39, 0.000000e+00
+.critedge.i.i.i7:                                 ; preds = %42
+  %45 = fcmp uno double %40, 0.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !258
-  br i1 %44, label %.thread.i8, label %48
+  br i1 %45, label %46, label %50
 
-.thread.i8:                                       ; preds = %.critedge.i.i.i7
-  %45 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !258
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load ptr, ptr %46, align 8, !noalias !258
-  call void %47(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef 0x7FF8000000000000)
+46:                                               ; preds = %.critedge.i.i.i7
+  %47 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !258
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8, !noalias !258
+  call void %49(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef 0x7FF8000000000000)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-48:                                               ; preds = %.critedge.i.i.i7
-  %49 = call double @llvm.fabs.f64(double %39)
-  %50 = fcmp oeq double %49, 0x7FF0000000000000
-  %51 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !258
-  br i1 %50, label %52, label %55
+50:                                               ; preds = %.critedge.i.i.i7
+  %51 = call double @llvm.fabs.f64(double %40)
+  %52 = fcmp oeq double %51, 0x7FF0000000000000
+  %53 = load ptr, ptr %1, align 8, !tbaa !185, !noalias !258
+  br i1 %52, label %54, label %57
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %54 = load ptr, ptr %53, align 8, !noalias !258
-  call void %54(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %39)
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %56 = load ptr, ptr %55, align 8, !noalias !258
+  call void %56(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %40)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %57 = load ptr, ptr %56, align 8, !noalias !258
-  call void %57(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %36)
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %59 = load ptr, ptr %58, align 8, !noalias !258
+  call void %59(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-._crit_edge.i.i.i6:                               ; preds = %41, %35
+._crit_edge.i.i.i6:                               ; preds = %42, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !258
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %58, ptr %0, align 8, !tbaa !4, !alias.scope !258
-  store i8 35, ptr %58, align 8, !tbaa !13, !alias.scope !258
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %59, align 8, !tbaa !10, !alias.scope !258
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %60, align 1, !tbaa !13, !alias.scope !258
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %60, ptr %0, align 8, !tbaa !4, !alias.scope !258
+  store i8 35, ptr %60, align 8, !tbaa !13, !alias.scope !258
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %61, align 8, !tbaa !10, !alias.scope !258
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %62, align 1, !tbaa !13, !alias.scope !258
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
 .noexc.i:                                         ; preds = %3
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %61, ptr %0, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %63, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 17, ptr %4, align 8, !tbaa !157
-  %62 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %62, ptr %0, align 8, !tbaa !48
-  %63 = load i64, ptr %4, align 8, !tbaa !157
-  store i64 %63, ptr %61, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %62, ptr noundef nonnull align 1 dereferenceable(17) @.str.11, i64 17, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %63, ptr %64, align 8, !tbaa !10
-  %65 = load ptr, ptr %0, align 8, !tbaa !48
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %63
-  store i8 0, ptr %66, align 1, !tbaa !13
+  %64 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+  store ptr %64, ptr %0, align 8, !tbaa !48
+  %65 = load i64, ptr %4, align 8, !tbaa !157
+  store i64 %65, ptr %63, align 8, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %64, ptr noundef nonnull align 1 dereferenceable(17) @.str.11, i64 17, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %65, ptr %66, align 8, !tbaa !10
+  %67 = load ptr, ptr %0, align 8, !tbaa !48
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %65
+  store i8 0, ptr %68, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit
 
-_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit: ; preds = %._crit_edge.i.i.i6, %55, %52, %.thread.i8, %._crit_edge.i.i.i, %29, %26, %.thread.i, %.noexc.i
+_ZNK11flatbuffers22FloatConstantGenerator20GenFloatConstantImplIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FieldDefE.exit: ; preds = %._crit_edge.i.i.i6, %57, %54, %46, %._crit_edge.i.i.i, %30, %27, %19, %.noexc.i
   ret void
 }
 

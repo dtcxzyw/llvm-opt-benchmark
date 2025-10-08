@@ -139,62 +139,77 @@ define <2 x float> @b2ComputeCosSin(float noundef %0) local_unnamed_addr #3 {
 b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.preheader.i
   %.1.lcssa.i = phi float [ %.0.lcssa.i, %.preheader.i ], [ %6, %.lr.ph7.i ]
   %8 = fcmp olt float %.1.lcssa.i, 0xBFF921FB60000000
-  br i1 %8, label %9, label %15
+  br i1 %8, label %.thread, label %16
 
-9:                                                ; preds = %b2UnwindLargeAngle.exit
-  %10 = fadd float %.1.lcssa.i, 0x400921FB60000000
-  %11 = fmul float %10, %10
-  %12 = fmul float %11, 4.000000e+00
-  %13 = fsub float 0x4023BD3CE0000000, %12
-  %14 = fneg float %13
-  br label %27
+.thread:                                          ; preds = %b2UnwindLargeAngle.exit
+  %9 = fadd float %.1.lcssa.i, 0x400921FB60000000
+  %10 = fmul float %9, %9
+  %11 = fmul float %10, 4.000000e+00
+  %12 = fsub float 0x4023BD3CE0000000, %11
+  %13 = fneg float %12
+  %14 = fadd float %10, 0x4023BD3CE0000000
+  %15 = fdiv float %13, %14
+  br label %32
 
-15:                                               ; preds = %b2UnwindLargeAngle.exit
-  %16 = fcmp ogt float %.1.lcssa.i, 0x3FF921FB60000000
-  br i1 %16, label %17, label %23
+16:                                               ; preds = %b2UnwindLargeAngle.exit
+  %17 = fcmp ogt float %.1.lcssa.i, 0x3FF921FB60000000
+  br i1 %17, label %.thread51, label %25
 
-17:                                               ; preds = %15
+.thread51:                                        ; preds = %16
   %18 = fadd float %.1.lcssa.i, 0xC00921FB60000000
   %19 = fmul float %18, %18
   %20 = fmul float %19, 4.000000e+00
   %21 = fsub float 0x4023BD3CE0000000, %20
   %22 = fneg float %21
-  br label %27
+  %23 = fadd float %19, 0x4023BD3CE0000000
+  %24 = fdiv float %22, %23
+  br label %34
 
-23:                                               ; preds = %15
-  %24 = fmul float %.1.lcssa.i, %.1.lcssa.i
-  %25 = fmul float %24, 4.000000e+00
-  %26 = fsub float 0x4023BD3CE0000000, %25
-  br label %27
+25:                                               ; preds = %16
+  %26 = fmul float %.1.lcssa.i, %.1.lcssa.i
+  %27 = fmul float %26, 4.000000e+00
+  %28 = fsub float 0x4023BD3CE0000000, %27
+  %29 = fadd float %26, 0x4023BD3CE0000000
+  %30 = fdiv float %28, %29
+  %31 = fcmp olt float %.1.lcssa.i, 0.000000e+00
+  br i1 %31, label %._crit_edge, label %34
 
-27:                                               ; preds = %17, %23, %9
-  %.sink55 = phi float [ %19, %17 ], [ %24, %23 ], [ %11, %9 ]
-  %.sink = phi float [ %22, %17 ], [ %26, %23 ], [ %14, %9 ]
-  %28 = fadd float %.sink55, 0x4023BD3CE0000000
-  %29 = fdiv float %.sink, %28
-  %30 = fcmp olt float %.1.lcssa.i, 0.000000e+00
-  %31 = fmul float %.1.lcssa.i, 1.600000e+01
-  %32 = fadd float %.1.lcssa.i, 0x400921FB60000000
-  %33 = fmul float %32, -1.600000e+01
-  %.1.lcssa.i.sink63 = select i1 %30, float %32, float %.1.lcssa.i
-  %.sink61 = select i1 %30, float %33, float %31
-  %34 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink63
-  %35 = fmul float %.sink61, %34
-  %36 = fmul float %.1.lcssa.i.sink63, 4.000000e+00
-  %37 = fmul float %36, %34
-  %38 = fsub float 0x4048AC8C20000000, %37
-  %39 = fdiv float %35, %38
-  %40 = fmul float %39, %39
-  %41 = fmul float %29, %29
-  %42 = fadd float %41, %40
-  %sqrt = tail call float @llvm.sqrt.f32(float %42)
-  %43 = fcmp ogt float %42, 0.000000e+00
-  %44 = fdiv float 1.000000e+00, %sqrt
-  %45 = select i1 %43, float %44, float 0.000000e+00
-  %46 = fmul float %29, %45
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %46, i64 0
-  %47 = fmul float %39, %45
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %47, i64 1
+._crit_edge:                                      ; preds = %25
+  %.pre = fadd float %.1.lcssa.i, 0x400921FB60000000
+  br label %32
+
+32:                                               ; preds = %._crit_edge, %.thread
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %9, %.thread ]
+  %.050 = phi float [ %30, %._crit_edge ], [ %15, %.thread ]
+  %33 = fmul float %.pre-phi, -1.600000e+01
+  br label %36
+
+34:                                               ; preds = %.thread51, %25
+  %.053 = phi float [ %24, %.thread51 ], [ %30, %25 ]
+  %35 = fmul float %.1.lcssa.i, 1.600000e+01
+  br label %36
+
+36:                                               ; preds = %34, %32
+  %.1.lcssa.i.sink65 = phi float [ %.1.lcssa.i, %34 ], [ %.pre-phi, %32 ]
+  %.sink63 = phi float [ %35, %34 ], [ %33, %32 ]
+  %.049 = phi float [ %.053, %34 ], [ %.050, %32 ]
+  %37 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink65
+  %38 = fmul float %.sink63, %37
+  %39 = fmul float %.1.lcssa.i.sink65, 4.000000e+00
+  %40 = fmul float %39, %37
+  %41 = fsub float 0x4048AC8C20000000, %40
+  %42 = fdiv float %38, %41
+  %43 = fmul float %42, %42
+  %44 = fmul float %.049, %.049
+  %45 = fadd float %44, %43
+  %sqrt = tail call float @llvm.sqrt.f32(float %45)
+  %46 = fcmp ogt float %45, 0.000000e+00
+  %47 = fdiv float 1.000000e+00, %sqrt
+  %48 = select i1 %46, float %47, float 0.000000e+00
+  %49 = fmul float %.049, %48
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %49, i64 0
+  %50 = fmul float %42, %48
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %50, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 

@@ -2306,20 +2306,17 @@ define void @validateOneQubitDampingProb(double noundef %0, ptr noundef %1) loca
   %3 = fcmp ult double %0, 0.000000e+00
   %4 = fcmp ugt double %0, 1.000000e+00
   %.not4.i = or i1 %3, %4
-  br i1 %.not4.i, label %5, label %validateProb.exit
+  br i1 %.not4.i, label %validateProb.exit, label %QuESTAssert.exit
 
-5:                                                ; preds = %2
+validateProb.exit:                                ; preds = %2
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.38, ptr noundef %1)
-  br label %validateProb.exit
+  br i1 %4, label %5, label %QuESTAssert.exit
 
-validateProb.exit:                                ; preds = %2, %5
-  br i1 %4, label %6, label %QuESTAssert.exit
-
-6:                                                ; preds = %validateProb.exit
+5:                                                ; preds = %validateProb.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.42, ptr noundef %1)
   br label %QuESTAssert.exit
 
-QuESTAssert.exit:                                 ; preds = %validateProb.exit, %6
+QuESTAssert.exit:                                 ; preds = %2, %validateProb.exit, %5
   ret void
 }
 

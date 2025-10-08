@@ -1054,9 +1054,10 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   br i1 %17, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %13, %16
+  %.pre-phi = phi double [ 0x7FF0000000000000, %16 ], [ %.pre, %13 ]
   %18 = phi double [ 0.000000e+00, %16 ], [ 1.000000e+00, %13 ]
   %19 = tail call double @llvm.copysign.f64(double %18, double %0)
-  %20 = fcmp oeq double %.pre, 0x7FF0000000000000
+  %20 = fcmp oeq double %.pre-phi, 0x7FF0000000000000
   %21 = select i1 %20, double 1.000000e+00, double 0.000000e+00
   %22 = tail call double @llvm.copysign.f64(double %21, double %1)
   %23 = fcmp uno double %2, 0.000000e+00
@@ -1083,9 +1084,10 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   br i1 %31, label %.thread, label %41
 
 .thread:                                          ; preds = %27, %30
+  %.pre-phi88 = phi double [ 0x7FF0000000000000, %30 ], [ %.pre87, %27 ]
   %32 = phi double [ 0.000000e+00, %30 ], [ 1.000000e+00, %27 ]
   %33 = tail call double @llvm.copysign.f64(double %32, double %.069)
-  %34 = fcmp oeq double %.pre87, 0x7FF0000000000000
+  %34 = fcmp oeq double %.pre-phi88, 0x7FF0000000000000
   %35 = select i1 %34, double 1.000000e+00, double 0.000000e+00
   %36 = tail call double @llvm.copysign.f64(double %35, double %.064)
   %37 = fcmp uno double %.056, 0.000000e+00

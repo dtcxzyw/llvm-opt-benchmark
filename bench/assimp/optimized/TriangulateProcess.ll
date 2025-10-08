@@ -5796,7 +5796,7 @@ _ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit: ; preds = %
   %57 = fmul double %52, %56
   %58 = tail call noundef double @llvm.fmuladd.f64(double %49, double %54, double %57)
   %59 = fcmp ult double %58, 0.000000e+00
-  br i1 %59, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, label %60
+  br i1 %59, label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread, label %60
 
 60:                                               ; preds = %53
   %61 = fsub double %30, %28
@@ -5807,7 +5807,7 @@ _ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit: ; preds = %
   %66 = fmul double %63, %65
   %67 = tail call noundef double @llvm.fmuladd.f64(double %61, double %62, double %66)
   %68 = fcmp ult double %67, 0.000000e+00
-  br i1 %68, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread
+  br i1 %68, label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread
 
 69:                                               ; preds = %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit
   %70 = fsub double %38, %51
@@ -5954,7 +5954,7 @@ _ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit: ; preds = %160
   %172 = fcmp une double %171, 0.000000e+00
   br i1 %172, label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33
 
-_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33: ; preds = %104, %53, %111, %60, %168, %_ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit
+_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33: ; preds = %104, %111, %168, %_ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit
   %173 = fcmp oeq double %35, %51
   %174 = fcmp oeq double %28, %48
   %or.cond = select i1 %173, i1 %174, i1 false
@@ -5985,8 +5985,8 @@ _ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33: ; pred
   %196 = fcmp ogt double %195, 0.000000e+00
   br label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread
 
-_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread: ; preds = %20, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, %161, %168, %176, %8, %3
-  %197 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %20 ]
+_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit.thread: ; preds = %20, %60, %53, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33, %161, %168, %176, %8, %3
+  %197 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %168 ], [ true, %161 ], [ %196, %176 ], [ false, %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33 ], [ false, %53 ], [ false, %60 ], [ false, %20 ]
   ret i1 %197
 }
 

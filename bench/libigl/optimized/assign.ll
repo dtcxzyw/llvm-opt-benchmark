@@ -4946,11 +4946,11 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %59 = load i64, ptr %0, align 16
   %60 = icmp ne i64 %59, 0
   %.not55 = select i1 %58, i1 true, i1 %60
-  br i1 %.not55, label %74, label %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30
+  br i1 %.not55, label %73, label %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30
 
 _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30: ; preds = %55
   %61 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #34
-          to label %.noexc34 unwind label %76
+          to label %.noexc34 unwind label %75
 
 .noexc34:                                         ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4962,52 +4962,58 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30: ; preds = %55
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %68 = load i8, ptr %67, align 2, !range !116
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %72, label %70
+  br i1 %69, label %71, label %70
 
 70:                                               ; preds = %.noexc34
   tail call void @_ZdlPvm(ptr noundef %63, i64 noundef 0) #33
   %.pre60.pre = load i8, ptr %56, align 1, !tbaa !115, !range !116
-  %71 = trunc nuw i8 %.pre60.pre to i1
-  br label %73
+  br label %72
 
-72:                                               ; preds = %.noexc34
+71:                                               ; preds = %.noexc34
   store i8 0, ptr %56, align 1, !tbaa !115
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %70
-  %.pre60 = phi i1 [ false, %72 ], [ %71, %70 ]
+72:                                               ; preds = %71, %70
+  %.pre60 = phi i8 [ 0, %71 ], [ %.pre60.pre, %70 ]
   store i64 1, ptr %64, align 16, !tbaa !113
   store i64 1, ptr %0, align 16, !tbaa !51
   store ptr %61, ptr %62, align 8, !tbaa !51
-  br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit26
+  %.pre73 = trunc nuw i8 %.pre60 to i1
+  br label %.thread
 
-74:                                               ; preds = %55
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %75, align 16, !tbaa !113
+73:                                               ; preds = %55
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %74, align 16, !tbaa !113
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre62 = load ptr, ptr %.phi.trans.insert61, align 8
-  br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit26
+  br label %.thread
 
-76:                                               ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i30
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #35
+  %77 = extractvalue { ptr, i32 } %76, 0
+  tail call void @__clang_call_terminate(ptr %77) #35
   unreachable
 
-_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit26: ; preds = %74, %73
-  %.pre-phi71 = phi i1 [ %58, %74 ], [ %.pre60, %73 ]
-  %79 = phi ptr [ %.pre62, %74 ], [ %61, %73 ]
-  %80 = select i1 %.pre-phi71, ptr %0, ptr %79
+.thread:                                          ; preds = %72, %73
+  %.pre-phi74 = phi i1 [ %.pre73, %72 ], [ %58, %73 ]
+  %78 = phi ptr [ %61, %72 ], [ %.pre62, %73 ]
+  %79 = phi i8 [ %.pre60, %72 ], [ %57, %73 ]
+  %80 = select i1 %.pre-phi74, ptr %0, ptr %78
   store i64 1, ptr %80, align 8, !tbaa !118
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %81, align 8, !tbaa !126
-  br label %82
+  br label %91
 
-82:                                               ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit26, %53
+82:                                               ; preds = %53
   %83 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %1)
   %or.cond = fcmp ueq x86_fp80 %83, 0xK7FFF8000000000000000
-  br i1 %or.cond, label %84, label %91
+  br i1 %or.cond, label %84, label %._crit_edge63
+
+._crit_edge63:                                    ; preds = %82
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %.pre65 = load i8, ptr %.phi.trans.insert64, align 1, !tbaa !115, !range !116
+  br label %91
 
 84:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5034,10 +5040,10 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %90
 
-91:                                               ; preds = %82
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %93 = load i8, ptr %92, align 1, !tbaa !115, !range !116, !noundef !117
-  %94 = trunc nuw i8 %93 to i1
+91:                                               ; preds = %._crit_edge63, %.thread
+  %92 = phi i8 [ %.pre65, %._crit_edge63 ], [ %79, %.thread ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %94 = trunc nuw i8 %92 to i1
   %95 = load i64, ptr %0, align 16
   %96 = icmp ne i64 %95, 0
   %.not56 = select i1 %94, i1 true, i1 %96
@@ -5061,16 +5067,16 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i38: ; preds = %91
 
 106:                                              ; preds = %.noexc42
   tail call void @_ZdlPvm(ptr noundef %99, i64 noundef 0) #33
-  %.pre63.pre = load i8, ptr %92, align 1, !tbaa !115, !range !116
-  %107 = trunc nuw i8 %.pre63.pre to i1
+  %.pre66.pre = load i8, ptr %93, align 1, !tbaa !115, !range !116
+  %107 = trunc nuw i8 %.pre66.pre to i1
   br label %109
 
 108:                                              ; preds = %.noexc42
-  store i8 0, ptr %92, align 1, !tbaa !115
+  store i8 0, ptr %93, align 1, !tbaa !115
   br label %109
 
 109:                                              ; preds = %108, %106
-  %.pre63 = phi i1 [ false, %108 ], [ %107, %106 ]
+  %.pre66 = phi i1 [ false, %108 ], [ %107, %106 ]
   store i64 1, ptr %100, align 16, !tbaa !113
   store i64 1, ptr %0, align 16, !tbaa !51
   store ptr %97, ptr %98, align 8, !tbaa !51
@@ -5079,8 +5085,8 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i38: ; preds = %91
 110:                                              ; preds = %91
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %111, align 16, !tbaa !113
-  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre65 = load ptr, ptr %.phi.trans.insert64, align 8
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8
   br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit
 
 112:                                              ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i38
@@ -5091,10 +5097,10 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i38: ; preds = %91
   unreachable
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIyEENSt9enable_ifIXaasr3std7is_sameIT_yEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit: ; preds = %110, %109
-  %.pre-phi73 = phi i1 [ %94, %110 ], [ %.pre63, %109 ]
-  %115 = phi ptr [ %.pre65, %110 ], [ %97, %109 ]
+  %.pre-phi76 = phi i1 [ %94, %110 ], [ %.pre66, %109 ]
+  %115 = phi ptr [ %.pre68, %110 ], [ %97, %109 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %117 = select i1 %.pre-phi73, ptr %0, ptr %115
+  %117 = select i1 %.pre-phi76, ptr %0, ptr %115
   store i64 0, ptr %117, align 8, !tbaa !118
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %118, align 8, !tbaa !126
@@ -5112,7 +5118,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   %125 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %124)
   %126 = add nsw i32 %.05257, -64
   call void @_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRT_o(ptr noundef nonnull align 16 dereferenceable(27) %0, i64 noundef 64, i64 noundef 0)
-  %127 = load i8, ptr %92, align 1, !tbaa !115, !range !116, !noundef !117
+  %127 = load i8, ptr %93, align 1, !tbaa !115, !range !116, !noundef !117
   %128 = trunc nuw i8 %127 to i1
   %129 = load ptr, ptr %116, align 8
   %130 = select i1 %128, ptr %0, ptr %129
@@ -5204,7 +5210,7 @@ _ZN5boost14multiprecision8backends13eval_subtractILm0ELm0ELNS0_16cpp_integer_typ
   br label %160
 
 160:                                              ; preds = %159, %158
-  %161 = load i8, ptr %92, align 1, !tbaa !115, !range !116, !noundef !117
+  %161 = load i8, ptr %93, align 1, !tbaa !115, !range !116, !noundef !117
   %162 = trunc nuw i8 %161 to i1
   %163 = load ptr, ptr %116, align 8
   %164 = select i1 %162, ptr %0, ptr %163

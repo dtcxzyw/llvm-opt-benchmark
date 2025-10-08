@@ -93871,21 +93871,18 @@ define noundef zeroext i1 @_ZN5typst6layout3abs3Abs9approx_eq17ha41ff6107c1d2313
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit": ; preds = %2
   %9 = fcmp oeq double %0, %1
-  br i1 %9, label %16, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit"
-  %11 = fneg double %1
-  %.0.i.inv.i.i.i.i = fcmp ord double %1, 0.000000e+00
-  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %11, double 0.000000e+00
-  %12 = fadd double %0, %.0.i.i.i.i
-  %.0.i.inv.i.i.i1.i = fcmp uno double %12, 0.000000e+00
-  %13 = tail call double @llvm.fabs.f64(double %12)
-  %14 = fcmp olt double %13, 0x3EB0C6F7A0B5ED8D
-  %15 = or i1 %.0.i.inv.i.i.i1.i, %14
-  br label %16
+  %11 = fsub double %0, %1
+  %.0.i.inv.i.i.i1.i = fcmp uno double %11, 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %11)
+  %13 = fcmp olt double %12, 0x3EB0C6F7A0B5ED8D
+  %14 = or i1 %.0.i.inv.i.i.i1.i, %13
+  br label %15
 
-16:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit", %10
-  %.0 = phi i1 [ %15, %10 ], [ true, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit" ]
+15:                                               ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit", %10
+  %.0 = phi i1 [ %14, %10 ], [ true, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit" ]
   ret i1 %.0
 }
 

@@ -116,7 +116,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
   br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.backedge
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.backedge: ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.loopexit.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
-  br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i
+  br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i, !llvm.loop !23
 
 40:                                               ; preds = %55, %18
   %.not.i.i.i.i.i.not.i.i = phi i1 [ true, %18 ], [ false, %55 ]
@@ -156,7 +156,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 55:                                               ; preds = %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
   %56 = phi double [ %52, %54 ], [ %41, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i ]
-  br i1 %.not.i.i.i.i.i.not.i.i, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i.i.i.i.i.not.i.i, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i, !llvm.loop !25
 
 57:                                               ; preds = %30, %28
   %58 = load <2 x double>, ptr %2, align 16, !tbaa !11
@@ -190,7 +190,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %78, label %79, label %.split.loop.exit
 
 79:                                               ; preds = %.preheader
-  br i1 %75, label %.preheader, label %.split.loop.exit268, !llvm.loop !25
+  br i1 %75, label %.preheader, label %.split.loop.exit268, !llvm.loop !26
 
 .split.loop.exit:                                 ; preds = %.preheader
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -235,7 +235,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 101:                                              ; preds = %92, %95
   %102 = phi double [ %93, %92 ], [ %100, %95 ]
-  br i1 %94, label %92, label %87, !llvm.loop !26
+  br i1 %94, label %92, label %87, !llvm.loop !27
 
 103:                                              ; preds = %87, %57, %10
   ret void
@@ -302,3 +302,4 @@ attributes #7 = { nounwind }
 !24 = !{!"llvm.loop.mustprogress"}
 !25 = distinct !{!25, !24}
 !26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
