@@ -3954,7 +3954,7 @@ _ZN3sat11literal_set6insertENS_7literalE.exit.sink.split: ; preds = %_ZN3sat11li
 
 _ZN3sat11literal_set6insertENS_7literalE.exit:    ; preds = %_ZN3sat11literal_set6insertENS_7literalE.exit.sink.split, %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i.i21, %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i.i
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.063.069, i64 4
-  %220 = add i32 %.01270, 1
+  %220 = add nuw i32 %.01270, 1
   %.not = icmp eq ptr %219, %18
   br i1 %.not, label %._crit_edge, label %69, !llvm.loop !207
 

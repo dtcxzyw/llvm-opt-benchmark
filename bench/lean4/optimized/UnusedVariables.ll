@@ -97111,7 +97111,7 @@ lean_dec.exit468:                                 ; preds = %lean_nat_lt.exit670
 
 153:                                              ; preds = %152, %151, %149, %142
   %154 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Linter_UnusedVariables_unusedVariables___elambda__1___spec__4(ptr noundef %.01624.i, ptr noundef %144)
-  %155 = add i64 %.01425.i, 1
+  %155 = add nuw nsw i64 %.01425.i, 1
   %.not.i737 = icmp eq i64 %155, %140
   br i1 %.not.i737, label %l_Array_foldlMUnsafe_fold___at_Lean_Linter_UnusedVariables_unusedVariables___elambda__1___spec__27.exit, label %142
 

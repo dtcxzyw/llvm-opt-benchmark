@@ -3808,7 +3808,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit60.thread: ; preds = %72, %_ZNK3sm
   %94 = tail call noundef i32 @_ZNK3smt7context14get_assignmentEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(10544) %93, ptr noundef nonnull %70)
   %.not54 = icmp ne i32 %94, -1
   %95 = getelementptr inbounds nuw i8, ptr %.04986, i64 8
-  %96 = add i32 %.05085, 1
+  %96 = add nuw i32 %.05085, 1
   %.not53 = icmp eq ptr %95, %69
   %or.cond = select i1 %.not54, i1 true, i1 %.not53
   br i1 %or.cond, label %.critedge58, label %.lr.ph, !llvm.loop !727
@@ -5195,7 +5195,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit:        ; preds = %28, %.thread
   %.243.ph = phi i32 [ %.041153, %82 ], [ %.041153, %101 ], [ %spec.select, %.critedge ]
   %.2.ph = phi i32 [ %.0154, %82 ], [ %.0154, %101 ], [ %115, %.critedge ]
   %117 = getelementptr inbounds nuw i8, ptr %.044152, i64 8
-  %118 = add i32 %.057151, 1
+  %118 = add nuw i32 %.057151, 1
   %.not = icmp eq ptr %117, %44
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !771
 

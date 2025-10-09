@@ -1189,7 +1189,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.exit.loopexit, %.lr.ph
   %205 = phi ptr [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6appendERKS4_.exit.loopexit ], [ %135, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %206 = add i32 %.02689, 1
+  %206 = add nuw i32 %.02689, 1
   %207 = load ptr, ptr %0, align 8, !tbaa !59, !noalias !137
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 1880
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 1864

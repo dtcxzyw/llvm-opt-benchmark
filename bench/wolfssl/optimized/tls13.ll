@@ -1044,28 +1044,28 @@ WriteSEQTls13.exit.i:                             ; preds = %34, %27, %.thread
 
 .preheader.i.i:                                   ; preds = %WriteSEQTls13.exit.i
   %.not.not.i.i = icmp eq i64 %60, 0
-  br i1 %.not.not.i.i, label %.lr.ph.i.i.preheader.i, label %.lr.ph.split.i.i
-
-.lr.ph.i.i.preheader.i:                           ; preds = %.preheader.i.i
-  %63 = load i64, ptr %58, align 8, !tbaa !54
-  %64 = load i64, ptr %23, align 8, !tbaa !54
-  %65 = xor i64 %64, %63
-  store i64 %65, ptr %23, align 8, !tbaa !54
-  br label %BuildTls13Nonce.exit
+  br i1 %.not.not.i.i, label %.lr.ph.i.preheader.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.preheader.i.i, %.lr.ph.split.i.i
-  %.131.i.i = phi ptr [ %66, %.lr.ph.split.i.i ], [ %58, %.preheader.i.i ]
-  %.12030.i.i = phi ptr [ %68, %.lr.ph.split.i.i ], [ %23, %.preheader.i.i ]
-  %.12329.i.i = phi i32 [ %71, %.lr.ph.split.i.i ], [ 8, %.preheader.i.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %.131.i.i, i64 1
-  %67 = load i8, ptr %.131.i.i, align 1, !tbaa !57
-  %68 = getelementptr inbounds nuw i8, ptr %.12030.i.i, i64 1
-  %69 = load i8, ptr %.12030.i.i, align 1, !tbaa !57
-  %70 = xor i8 %69, %67
-  store i8 %70, ptr %.12030.i.i, align 1, !tbaa !57
-  %71 = add nsw i32 %.12329.i.i, -1
-  %.not40.i.i = icmp eq i32 %71, 0
+  %.131.i.i = phi ptr [ %63, %.lr.ph.split.i.i ], [ %58, %.preheader.i.i ]
+  %.12030.i.i = phi ptr [ %65, %.lr.ph.split.i.i ], [ %23, %.preheader.i.i ]
+  %.12329.i.i = phi i32 [ %68, %.lr.ph.split.i.i ], [ 8, %.preheader.i.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %.131.i.i, i64 1
+  %64 = load i8, ptr %.131.i.i, align 1, !tbaa !57
+  %65 = getelementptr inbounds nuw i8, ptr %.12030.i.i, i64 1
+  %66 = load i8, ptr %.12030.i.i, align 1, !tbaa !57
+  %67 = xor i8 %66, %64
+  store i8 %67, ptr %.12030.i.i, align 1, !tbaa !57
+  %68 = add nsw i32 %.12329.i.i, -1
+  %.not40.i.i = icmp eq i32 %68, 0
   br i1 %.not40.i.i, label %BuildTls13Nonce.exit, label %.lr.ph.split.i.i, !llvm.loop !65
+
+.lr.ph.i.preheader.i.i:                           ; preds = %.preheader.i.i
+  %69 = load i64, ptr %58, align 8, !tbaa !54
+  %70 = load i64, ptr %23, align 8, !tbaa !54
+  %71 = xor i64 %70, %69
+  store i64 %71, ptr %23, align 8, !tbaa !54
+  br label %BuildTls13Nonce.exit
 
 .lr.ph38.i.i:                                     ; preds = %WriteSEQTls13.exit.i, %.lr.ph38.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph38.i.i ], [ 0, %WriteSEQTls13.exit.i ]
@@ -1079,7 +1079,7 @@ WriteSEQTls13.exit.i:                             ; preds = %34, %27, %.thread
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %BuildTls13Nonce.exit, label %.lr.ph38.i.i, !llvm.loop !66
 
-BuildTls13Nonce.exit:                             ; preds = %.lr.ph38.i.i, %.lr.ph.split.i.i, %.lr.ph.i.i.preheader.i
+BuildTls13Nonce.exit:                             ; preds = %.lr.ph38.i.i, %.lr.ph.split.i.i, %.lr.ph.i.preheader.i.i
   store i8 1, ptr %14, align 16, !tbaa !61
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 722
   %78 = load i8, ptr %77, align 2, !tbaa !67
@@ -1439,28 +1439,28 @@ WriteSEQTls13.exit.i.i:                           ; preds = %83, %76, %.thread.i
 
 .preheader.i.i.i:                                 ; preds = %WriteSEQTls13.exit.i.i
   %.not.not.i.i.i = icmp eq i64 %109, 0
-  br i1 %.not.not.i.i.i, label %.lr.ph.i.i.preheader.i.i, label %.lr.ph.split.i.i.i
-
-.lr.ph.i.i.preheader.i.i:                         ; preds = %.preheader.i.i.i
-  %112 = load i64, ptr %107, align 8, !tbaa !54
-  %113 = load i64, ptr %73, align 8, !tbaa !54
-  %114 = xor i64 %113, %112
-  store i64 %114, ptr %73, align 8, !tbaa !54
-  br label %BuildTls13Nonce.exit.i
+  br i1 %.not.not.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %.preheader.i.i.i, %.lr.ph.split.i.i.i
-  %.131.i.i.i = phi ptr [ %115, %.lr.ph.split.i.i.i ], [ %107, %.preheader.i.i.i ]
-  %.12030.i.i.i = phi ptr [ %117, %.lr.ph.split.i.i.i ], [ %73, %.preheader.i.i.i ]
-  %.12329.i.i.i = phi i32 [ %120, %.lr.ph.split.i.i.i ], [ 8, %.preheader.i.i.i ]
-  %115 = getelementptr inbounds nuw i8, ptr %.131.i.i.i, i64 1
-  %116 = load i8, ptr %.131.i.i.i, align 1, !tbaa !57
-  %117 = getelementptr inbounds nuw i8, ptr %.12030.i.i.i, i64 1
-  %118 = load i8, ptr %.12030.i.i.i, align 1, !tbaa !57
-  %119 = xor i8 %118, %116
-  store i8 %119, ptr %.12030.i.i.i, align 1, !tbaa !57
-  %120 = add nsw i32 %.12329.i.i.i, -1
-  %.not40.i.i.i = icmp eq i32 %120, 0
+  %.131.i.i.i = phi ptr [ %112, %.lr.ph.split.i.i.i ], [ %107, %.preheader.i.i.i ]
+  %.12030.i.i.i = phi ptr [ %114, %.lr.ph.split.i.i.i ], [ %73, %.preheader.i.i.i ]
+  %.12329.i.i.i = phi i32 [ %117, %.lr.ph.split.i.i.i ], [ 8, %.preheader.i.i.i ]
+  %112 = getelementptr inbounds nuw i8, ptr %.131.i.i.i, i64 1
+  %113 = load i8, ptr %.131.i.i.i, align 1, !tbaa !57
+  %114 = getelementptr inbounds nuw i8, ptr %.12030.i.i.i, i64 1
+  %115 = load i8, ptr %.12030.i.i.i, align 1, !tbaa !57
+  %116 = xor i8 %115, %113
+  store i8 %116, ptr %.12030.i.i.i, align 1, !tbaa !57
+  %117 = add nsw i32 %.12329.i.i.i, -1
+  %.not40.i.i.i = icmp eq i32 %117, 0
   br i1 %.not40.i.i.i, label %BuildTls13Nonce.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !65
+
+.lr.ph.i.preheader.i.i.i:                         ; preds = %.preheader.i.i.i
+  %118 = load i64, ptr %107, align 8, !tbaa !54
+  %119 = load i64, ptr %73, align 8, !tbaa !54
+  %120 = xor i64 %119, %118
+  store i64 %120, ptr %73, align 8, !tbaa !54
+  br label %BuildTls13Nonce.exit.i
 
 .lr.ph38.i.i.i:                                   ; preds = %WriteSEQTls13.exit.i.i, %.lr.ph38.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph38.i.i.i ], [ 0, %WriteSEQTls13.exit.i.i ]
@@ -1474,7 +1474,7 @@ WriteSEQTls13.exit.i.i:                           ; preds = %83, %76, %.thread.i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %BuildTls13Nonce.exit.i, label %.lr.ph38.i.i.i, !llvm.loop !66
 
-BuildTls13Nonce.exit.i:                           ; preds = %.lr.ph38.i.i.i, %.lr.ph.split.i.i.i, %.lr.ph.i.i.preheader.i.i
+BuildTls13Nonce.exit.i:                           ; preds = %.lr.ph38.i.i.i, %.lr.ph.split.i.i.i, %.lr.ph.i.preheader.i.i.i
   store i8 1, ptr %62, align 8, !tbaa !77
   br label %126
 

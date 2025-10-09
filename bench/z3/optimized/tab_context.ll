@@ -8201,7 +8201,7 @@ _ZN2tb6clause4initER7obj_refIN7datalog4ruleENS2_12rule_managerEE.exit: ; preds =
           to label %61 unwind label %78
 
 61:                                               ; preds = %_ZN2tb6clause4initER7obj_refIN7datalog4ruleENS2_12rule_managerEE.exit
-  %62 = add i32 %.031, 1
+  %62 = add nuw i32 %.031, 1
   %63 = load ptr, ptr %4, align 8, !tbaa !328
   %.not.i.i28 = icmp eq ptr %63, null
   br i1 %.not.i.i28, label %_ZN3refIN2tb6clauseEED2Ev.exit, label %64

@@ -10167,7 +10167,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %.067296 = phi i32 [ %696, %701 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %694 = load ptr, ptr %.049297, align 8, !tbaa !277
   %695 = load ptr, ptr %26, align 8, !tbaa !413
-  %696 = add i32 %.067296, 1
+  %696 = add nuw i32 %.067296, 1
   %697 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %694)
           to label %698 unwind label %703
 

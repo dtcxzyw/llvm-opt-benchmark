@@ -2195,10 +2195,10 @@ _ZN2lp11explanation8iteratorD2Ev.exit58:          ; preds = %_ZN2lp11explanation
   %41 = load ptr, ptr %33, align 8, !tbaa !222
   %42 = load ptr, ptr %34, align 8, !tbaa !222
   %.not72 = icmp eq ptr %41, %42
-  br i1 %.not72, label %45, label %._crit_edge85
+  br i1 %.not72, label %45, label %._crit_edge86
 
-._crit_edge85:                                    ; preds = %40
-  %.pre86 = load ptr, ptr %31, align 8
+._crit_edge86:                                    ; preds = %40
+  %.pre87 = load ptr, ptr %31, align 8
   br label %76
 
 _ZNK2lp11explanation8iteratorneERKS1_.exit:       ; preds = %_ZN2lp11explanation8iteratorD2Ev.exit58
@@ -2287,10 +2287,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorI8rat
           cleanup
   br label %95
 
-76:                                               ; preds = %._crit_edge85, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge
-  %.pn.i.sroa.sel.v.sroa.sel.v = phi ptr [ %5, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %41, %._crit_edge85 ]
-  %77 = phi ptr [ %43, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %.pre86, %._crit_edge85 ]
-  %78 = phi ptr [ %.pre, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %41, %._crit_edge85 ]
+76:                                               ; preds = %._crit_edge86, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge
+  %.pn.i.sroa.sel.v.sroa.sel.v = phi ptr [ %5, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %41, %._crit_edge86 ]
+  %77 = phi ptr [ %43, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %.pre87, %._crit_edge86 ]
+  %78 = phi ptr [ %.pre, %_ZNK2lp11explanation8iteratorneERKS1_.exit._crit_edge ], [ %41, %._crit_edge86 ]
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.0.0.in.i = select i1 %39, ptr %78, ptr %79
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4, !tbaa !3
@@ -2351,149 +2351,148 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %_ZNK6vectorIN3sat7l
   br i1 %.not4776, label %.loopexit, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %.lr.ph79
-  %.04378 = phi i32 [ %103, %.lr.ph79 ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
-  %.04577 = phi ptr [ %104, %.lr.ph79 ], [ %68, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph79 ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %.04577 = phi ptr [ %102, %.lr.ph79 ], [ %68, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
   %.sroa.018.0.copyload = load i32, ptr %.04577, align 4, !tbaa !3
   %100 = load ptr, ptr %17, align 8, !tbaa !267
-  %101 = zext i32 %.04378 to i64
-  %102 = getelementptr inbounds nuw %class.rational, ptr %100, i64 %101
-  call void @_ZN5arith24arith_proof_hint_builder7add_litERK8rationalN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(36) %58, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 %.sroa.018.0.copyload)
-  %103 = add i32 %.04378, 1
-  %104 = getelementptr inbounds nuw i8, ptr %.04577, i64 4
-  %.not47 = icmp eq ptr %104, %99
+  %101 = getelementptr inbounds nuw %class.rational, ptr %100, i64 %indvars.iv
+  call void @_ZN5arith24arith_proof_hint_builder7add_litERK8rationalN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(36) %58, ptr noundef nonnull align 8 dereferenceable(32) %101, i32 %.sroa.018.0.copyload)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %102 = getelementptr inbounds nuw i8, ptr %.04577, i64 4
+  %.not47 = icmp eq ptr %102, %99
   br i1 %.not47, label %.loopexit, label %.lr.ph79
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit60:    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.thread
-  %105 = zext i32 %70 to i64
-  %106 = shl nuw nsw i64 %105, 2
-  %107 = getelementptr inbounds nuw i8, ptr %68, i64 %106
+  %103 = zext i32 %70 to i64
+  %104 = shl nuw nsw i64 %103, 2
+  %105 = getelementptr inbounds nuw i8, ptr %68, i64 %104
   %.not74 = icmp eq i32 %70, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit60, %.lr.ph
-  %.04675 = phi ptr [ %108, %.lr.ph ], [ %68, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit60 ]
+  %.04675 = phi ptr [ %106, %.lr.ph ], [ %68, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit60 ]
   %.sroa.010.0.copyload = load i32, ptr %.04675, align 4, !tbaa !3
   call void @_ZN5arith24arith_proof_hint_builder7add_litERK8rationalN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(36) %58, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational5m_oneE, i32 %.sroa.010.0.copyload)
-  %108 = getelementptr inbounds nuw i8, ptr %.04675, i64 4
-  %.not = icmp eq ptr %108, %107
+  %106 = getelementptr inbounds nuw i8, ptr %.04675, i64 4
+  %.not = icmp eq ptr %106, %105
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph79, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.thread, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit60, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
-  %109 = load ptr, ptr %3, align 8, !tbaa !231
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %._crit_edge, label %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE3endEv.exit
+  %107 = load ptr, ptr %3, align 8, !tbaa !231
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %._crit_edge, label %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE3endEv.exit
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE3endEv.exit: ; preds = %.loopexit
-  %111 = getelementptr inbounds i8, ptr %109, i64 -4
-  %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = zext i32 %112 to i64
-  %114 = shl nuw nsw i64 %113, 4
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 %114
-  %.not4880 = icmp eq i32 %112, 0
+  %109 = getelementptr inbounds i8, ptr %107, i64 -4
+  %110 = load i32, ptr %109, align 4, !tbaa !3
+  %111 = zext i32 %110 to i64
+  %112 = shl nuw nsw i64 %111, 4
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 %112
+  %.not4880 = icmp eq i32 %110, 0
   br i1 %.not4880, label %._crit_edge, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE3endEv.exit
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %.pre87 = load i32, ptr %116, align 8, !tbaa !26
-  %.pre88 = load ptr, ptr %117, align 8, !tbaa !234
-  br label %136
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %.pre88 = load i32, ptr %114, align 8, !tbaa !26
+  %.pre89 = load ptr, ptr %115, align 8, !tbaa !234
+  br label %134
 
 ._crit_edge:                                      ; preds = %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit, %.loopexit, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE3endEv.exit
-  %118 = load ptr, ptr %8, align 8, !tbaa !144
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 2184
-  %120 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %119, i64 noundef 32)
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %122 = load i32, ptr %121, align 8, !tbaa !16
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 980
-  %124 = load i32, ptr %123, align 4, !tbaa !25
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %126 = load i32, ptr %125, align 8, !tbaa !24
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 988
-  %128 = load i32, ptr %127, align 4, !tbaa !27
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %130 = load i32, ptr %129, align 8, !tbaa !26
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %120, align 8, !tbaa !7
-  %131 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i32 %122, ptr %131, align 8, !tbaa !28
-  %132 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %124, ptr %132, align 4, !tbaa !32
-  %133 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store i32 %126, ptr %133, align 8, !tbaa !33
-  %134 = getelementptr inbounds nuw i8, ptr %120, i64 20
-  store i32 %128, ptr %134, align 4, !tbaa !34
-  %135 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store i32 %130, ptr %135, align 8, !tbaa !35
+  %116 = load ptr, ptr %8, align 8, !tbaa !144
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 2184
+  %118 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %117, i64 noundef 32)
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %120 = load i32, ptr %119, align 8, !tbaa !16
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 980
+  %122 = load i32, ptr %121, align 4, !tbaa !25
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %124 = load i32, ptr %123, align 8, !tbaa !24
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 988
+  %126 = load i32, ptr %125, align 4, !tbaa !27
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %128 = load i32, ptr %127, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %118, align 8, !tbaa !7
+  %129 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  store i32 %120, ptr %129, align 8, !tbaa !28
+  %130 = getelementptr inbounds nuw i8, ptr %118, i64 12
+  store i32 %122, ptr %130, align 4, !tbaa !32
+  %131 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  store i32 %124, ptr %131, align 8, !tbaa !33
+  %132 = getelementptr inbounds nuw i8, ptr %118, i64 20
+  store i32 %126, ptr %132, align 4, !tbaa !34
+  %133 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store i32 %128, ptr %133, align 8, !tbaa !35
   br label %_ZN3euf6solver8use_dratEv.exit.thread
 
-136:                                              ; preds = %.lr.ph82, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit
-  %137 = phi ptr [ %.pre88, %.lr.ph82 ], [ %165, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
-  %138 = phi i32 [ %.pre87, %.lr.ph82 ], [ %167, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
-  %.04481 = phi ptr [ %109, %.lr.ph82 ], [ %168, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
-  %139 = getelementptr inbounds nuw i8, ptr %.04481, i64 8
-  %140 = load ptr, ptr %.04481, align 8, !tbaa !62
-  %141 = load ptr, ptr %139, align 8, !tbaa !62
-  %142 = icmp eq ptr %137, null
-  br i1 %142, label %.thread.i.i, label %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
+134:                                              ; preds = %.lr.ph82, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit
+  %135 = phi ptr [ %.pre89, %.lr.ph82 ], [ %163, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
+  %136 = phi i32 [ %.pre88, %.lr.ph82 ], [ %165, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
+  %.04481 = phi ptr [ %107, %.lr.ph82 ], [ %166, %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit ]
+  %137 = getelementptr inbounds nuw i8, ptr %.04481, i64 8
+  %138 = load ptr, ptr %.04481, align 8, !tbaa !62
+  %139 = load ptr, ptr %137, align 8, !tbaa !62
+  %140 = icmp eq ptr %135, null
+  br i1 %140, label %.thread.i.i, label %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i: ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %137, i64 -4
-  %144 = load i32, ptr %143, align 4, !tbaa !3
-  %145 = icmp ult i32 %138, %144
-  br i1 %145, label %146, label %151
+_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i: ; preds = %134
+  %141 = getelementptr inbounds i8, ptr %135, i64 -4
+  %142 = load i32, ptr %141, align 4, !tbaa !3
+  %143 = icmp ult i32 %136, %142
+  br i1 %143, label %144, label %149
 
-146:                                              ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
-  %147 = zext i32 %138 to i64
-  %148 = getelementptr inbounds nuw %"class.std::tuple", ptr %137, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  store ptr %140, ptr %149, align 8, !tbaa !62
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store ptr %141, ptr %150, align 8, !tbaa !62
-  store i8 1, ptr %148, align 8, !tbaa !235
+144:                                              ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
+  %145 = zext i32 %136 to i64
+  %146 = getelementptr inbounds nuw %"class.std::tuple", ptr %135, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  store ptr %138, ptr %147, align 8, !tbaa !62
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store ptr %139, ptr %148, align 8, !tbaa !62
+  store i8 1, ptr %146, align 8, !tbaa !235
   br label %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit
 
-151:                                              ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
-  %152 = getelementptr inbounds i8, ptr %137, i64 -8
-  %153 = load i32, ptr %152, align 4, !tbaa !3
-  %154 = icmp eq i32 %144, %153
-  br i1 %154, label %.thread.i.i, label %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i
+149:                                              ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE4sizeEv.exit.i.i
+  %150 = getelementptr inbounds i8, ptr %135, i64 -8
+  %151 = load i32, ptr %150, align 4, !tbaa !3
+  %152 = icmp eq i32 %142, %151
+  br i1 %152, label %.thread.i.i, label %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i
 
-.thread.i.i:                                      ; preds = %151, %136
-  call void @_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %117)
-  %.pre.i.i.i = load ptr, ptr %117, align 8, !tbaa !234
+.thread.i.i:                                      ; preds = %149, %134
+  call void @_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %115)
+  %.pre.i.i.i = load ptr, ptr %115, align 8, !tbaa !234
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !3
   br label %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i
 
-_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i: ; preds = %.thread.i.i, %151
-  %155 = phi ptr [ %.pre.i.i.i, %.thread.i.i ], [ %137, %151 ]
-  %156 = phi i32 [ %.pre2.i.i.i, %.thread.i.i ], [ %144, %151 ]
-  %157 = getelementptr inbounds i8, ptr %155, i64 -4
-  %158 = zext i32 %156 to i64
-  %159 = getelementptr inbounds nuw %"class.std::tuple", ptr %155, i64 %158
-  store i8 1, ptr %159, align 1, !tbaa !235
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = ptrtoint ptr %141 to i64
+_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i: ; preds = %.thread.i.i, %149
+  %153 = phi ptr [ %.pre.i.i.i, %.thread.i.i ], [ %135, %149 ]
+  %154 = phi i32 [ %.pre2.i.i.i, %.thread.i.i ], [ %142, %149 ]
+  %155 = getelementptr inbounds i8, ptr %153, i64 -4
+  %156 = zext i32 %154 to i64
+  %157 = getelementptr inbounds nuw %"class.std::tuple", ptr %153, i64 %156
+  store i8 1, ptr %157, align 1, !tbaa !235
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %159 = ptrtoint ptr %139 to i64
+  store i64 %159, ptr %158, align 8, !tbaa !62
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %161 = ptrtoint ptr %138 to i64
   store i64 %161, ptr %160, align 8, !tbaa !62
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %163 = ptrtoint ptr %140 to i64
-  store i64 %163, ptr %162, align 8, !tbaa !62
-  %164 = add i32 %156, 1
-  store i32 %164, ptr %157, align 4, !tbaa !3
-  %.pre.i.i = load i32, ptr %116, align 8, !tbaa !26
+  %162 = add i32 %154, 1
+  store i32 %162, ptr %155, align 4, !tbaa !3
+  %.pre.i.i = load i32, ptr %114, align 8, !tbaa !26
   br label %_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit
 
-_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit: ; preds = %146, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i
-  %165 = phi ptr [ %155, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i ], [ %137, %146 ]
-  %166 = phi i32 [ %.pre.i.i, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i ], [ %138, %146 ]
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %116, align 8, !tbaa !26
-  %168 = getelementptr inbounds nuw i8, ptr %.04481, i64 16
-  %.not48 = icmp eq ptr %168, %115
-  br i1 %.not48, label %._crit_edge, label %136
+_ZN5arith24arith_proof_hint_builder6add_eqEPN3euf5enodeES3_.exit: ; preds = %144, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i
+  %163 = phi ptr [ %153, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i ], [ %135, %144 ]
+  %164 = phi i32 [ %.pre.i.i, %_ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i ], [ %136, %144 ]
+  %165 = add i32 %164, 1
+  store i32 %165, ptr %114, align 8, !tbaa !26
+  %166 = getelementptr inbounds nuw i8, ptr %.04481, i64 16
+  %.not48 = icmp eq ptr %166, %113
+  br i1 %.not48, label %._crit_edge, label %134
 
 _ZN3euf6solver8use_dratEv.exit.thread:            ; preds = %4, %12, %._crit_edge
-  %.0 = phi ptr [ %120, %._crit_edge ], [ null, %12 ], [ null, %4 ]
+  %.0 = phi ptr [ %118, %._crit_edge ], [ null, %12 ], [ null, %4 ]
   ret ptr %.0
 }
 

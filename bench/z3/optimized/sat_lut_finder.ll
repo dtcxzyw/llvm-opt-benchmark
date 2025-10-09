@@ -1073,7 +1073,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %169, %175
   %193 = getelementptr inbounds nuw i32, ptr %191, i64 %192
   store i32 %190, ptr %193, align 4, !tbaa !10
   %194 = and i32 %166, 1
-  %195 = add i32 %.083299, 1
+  %195 = add nuw i32 %.083299, 1
   %196 = shl nuw i32 %194, %.083299
   %197 = or i32 %196, %.0300
   %198 = getelementptr inbounds nuw i8, ptr %.085298, i64 4

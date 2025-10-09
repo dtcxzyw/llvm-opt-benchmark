@@ -104677,7 +104677,7 @@ lean_array_uget.exit.i:                           ; preds = %103
 
 123:                                              ; preds = %122, %121, %119, %lean_array_uget.exit.i
   %124 = phi ptr [ %114, %lean_array_uget.exit.i ], [ %116, %119 ], [ %116, %121 ], [ %116, %122 ]
-  %125 = add i64 %.01527.i, 1
+  %125 = add nuw nsw i64 %.01527.i, 1
   %.not.i228 = icmp eq i64 %125, %101
   br i1 %.not.i228, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__9.exit, label %103
 

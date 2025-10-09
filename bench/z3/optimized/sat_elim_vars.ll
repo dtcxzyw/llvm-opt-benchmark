@@ -1106,7 +1106,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %3
   %.02595 = phi i32 [ 0, %.lr.ph ], [ %30, %28 ]
   %.02694 = phi ptr [ %12, %.lr.ph ], [ %33, %28 ]
   %29 = load i32, ptr %.02694, align 4, !tbaa !80
-  %30 = add i32 %.02595, 1
+  %30 = add nuw i32 %.02595, 1
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i32, ptr %20, i64 %31
   store i32 %.02595, ptr %32, align 4, !tbaa !80

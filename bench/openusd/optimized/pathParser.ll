@@ -1325,7 +1325,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %26 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %36, %35 ]
   %27 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %37, %35 ]
-  %28 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %31, label %33
@@ -1343,7 +1343,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ 1, %31 ]
   %36 = phi i64 [ %26, %33 ], [ %32, %31 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
-  %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %37 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
@@ -1400,7 +1400,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %58 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %68, %67 ]
   %59 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, %67 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %69, %67 ]
-  %60 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 10
   br i1 %62, label %63, label %65
@@ -1418,7 +1418,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %66, %65 ], [ 1, %63 ]
   %68 = phi i64 [ %58, %65 ], [ %64, %63 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %46, align 8
-  %69 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %69 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %69, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !8
 
@@ -2586,7 +2586,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %26 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %36, %35 ]
   %27 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %37, %35 ]
-  %28 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %31, label %33
@@ -2604,7 +2604,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ 1, %31 ]
   %36 = phi i64 [ %26, %33 ], [ %32, %31 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
-  %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %37 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
@@ -2674,7 +2674,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %18 = phi i64 [ %.promoted14.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %28, %27 ]
   %19 = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %27 ]
   %.013.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %27 ]
-  %20 = getelementptr inbounds i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 10
   br i1 %22, label %23, label %25
@@ -2692,7 +2692,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 1, %23 ]
   %28 = phi i64 [ %18, %25 ], [ %24, %23 ]
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
-  %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
+  %29 = add nuw nsw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift12.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
@@ -3742,7 +3742,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %18 = phi i64 [ %.promoted14.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %28, %27 ]
   %19 = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %27 ]
   %.013.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %27 ]
-  %20 = getelementptr inbounds i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 10
   br i1 %22, label %23, label %25
@@ -3760,7 +3760,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 1, %23 ]
   %28 = phi i64 [ %18, %25 ], [ %24, %23 ]
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
-  %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
+  %29 = add nuw nsw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift12.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
@@ -4171,7 +4171,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %26 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %36, %35 ]
   %27 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %37, %35 ]
-  %28 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %31, label %33
@@ -4189,7 +4189,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ 1, %31 ]
   %36 = phi i64 [ %26, %33 ], [ %32, %31 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
-  %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %37 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
@@ -4246,7 +4246,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %58 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %68, %67 ]
   %59 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, %67 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %69, %67 ]
-  %60 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 10
   br i1 %62, label %63, label %65
@@ -4264,7 +4264,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %66, %65 ], [ 1, %63 ]
   %68 = phi i64 [ %58, %65 ], [ %64, %63 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %46, align 8
-  %69 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %69 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %69, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !8
 
@@ -4691,7 +4691,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %26 = phi i64 [ %.promoted14.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %36, %35 ]
   %27 = phi i64 [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, %35 ]
   %.013.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %37, %35 ]
-  %28 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %31, label %33
@@ -4709,7 +4709,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ 1, %31 ]
   %36 = phi i64 [ %26, %33 ], [ %32, %31 ]
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
-  %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %37 = add nuw nsw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift12.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
@@ -4779,7 +4779,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %18 = phi i64 [ %.promoted14.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %28, %27 ]
   %19 = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %27 ]
   %.013.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %27 ]
-  %20 = getelementptr inbounds i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 10
   br i1 %22, label %23, label %25
@@ -4797,7 +4797,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 1, %23 ]
   %28 = phi i64 [ %18, %25 ], [ %24, %23 ]
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
-  %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
+  %29 = add nuw nsw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift12.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
@@ -4963,7 +4963,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %18 = phi i64 [ %.promoted14.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %28, %27 ]
   %19 = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %27 ]
   %.013.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %27 ]
-  %20 = getelementptr inbounds i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.pre6, i64 %.013.i.i.i.i.i.i.i
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 10
   br i1 %22, label %23, label %25
@@ -4981,7 +4981,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   %storemerge.i.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 1, %23 ]
   %28 = phi i64 [ %18, %25 ], [ %24, %23 ]
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
-  %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
+  %29 = add nuw nsw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift12.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 

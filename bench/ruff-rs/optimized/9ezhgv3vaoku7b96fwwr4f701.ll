@@ -45921,7 +45921,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue4iter17h4b901e3f6abc9a36E.exit.thr
   %53 = getelementptr i8, ptr %52, i64 8
   %.val.i.i.i = load i64, ptr %53, align 8, !noundef !3
   %54 = add i64 %.val.i.i.i, %.sroa.07.0.i.i.i
-  %55 = add nuw i64 %.sroa.09.0.i.i.i, 1
+  %55 = add nuw nsw i64 %.sroa.09.0.i.i.i, 1
   %56 = icmp eq i64 %55, %.sroa.3.0.i.i3.i.i
   br i1 %56, label %_ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E.exit.loopexit.i, label %51
 
@@ -46133,7 +46133,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue4iter17h4b901e3f6abc9a36E.exit.thr
   %44 = getelementptr i8, ptr %43, i64 8
   %.val.i.i.i = load i64, ptr %44, align 8, !noundef !3
   %45 = add i64 %.val.i.i.i, %.sroa.07.0.i.i.i
-  %46 = add nuw i64 %.sroa.09.0.i.i.i, 1
+  %46 = add nuw nsw i64 %.sroa.09.0.i.i.i, 1
   %47 = icmp eq i64 %46, %.sroa.3.0.i.i3.i.i
   br i1 %47, label %_ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E.exit.loopexit.i, label %42
 
@@ -54069,7 +54069,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue4iter17h4b901e3f6abc9a36E.exit.thr
   %11 = getelementptr i8, ptr %10, i64 8
   %.val.i.i = load i64, ptr %11, align 8, !noundef !3
   %12 = add i64 %.val.i.i, %.sroa.07.0.i.i
-  %13 = add nuw i64 %.sroa.09.0.i.i, 1
+  %13 = add nuw nsw i64 %.sroa.09.0.i.i, 1
   %14 = icmp eq i64 %13, %.sroa.3.0.i.i3.i
   br i1 %14, label %_ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E.exit.loopexit, label %9
 
@@ -54109,7 +54109,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue4iter17h4b901e3f6abc9a36E.exit.thr
   %11 = getelementptr i8, ptr %10, i64 8
   %.val.i = load i64, ptr %11, align 8, !noundef !3
   %12 = add i64 %.val.i, %.sroa.07.0.i
-  %13 = add nuw i64 %.sroa.09.0.i, 1
+  %13 = add nuw nsw i64 %.sroa.09.0.i, 1
   %14 = icmp eq i64 %13, %.sroa.3.0.i.i3
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40c682883b13e855E.exit", label %9
 
@@ -54242,7 +54242,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue4iter17h4b901e3f6abc9a36E.exit.thr
   %13 = getelementptr i8, ptr %12, i64 8
   %.val.i.i = load i64, ptr %13, align 8, !noundef !3
   %14 = add i64 %.val.i.i, %.sroa.07.0.i.i
-  %15 = add nuw i64 %.sroa.09.0.i.i, 1
+  %15 = add nuw nsw i64 %.sroa.09.0.i.i, 1
   %16 = icmp eq i64 %15, %.sroa.3.0.i.i3.i
   br i1 %16, label %_ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E.exit, label %11
 
@@ -54993,7 +54993,7 @@ define noundef i64 @_ZN15ruff_python_ast5nodes17BytesLiteralValue3len17h7f77dc24
   %14 = getelementptr i8, ptr %13, i64 8
   %.val19.i = load i64, ptr %14, align 8, !alias.scope !7617, !noundef !3
   %15 = add i64 %.val19.i, %.sroa.07.0.i
-  %16 = add nuw i64 %.sroa.09.0.i, 1
+  %16 = add nuw nsw i64 %.sroa.09.0.i, 1
   %17 = icmp eq i64 %16, %11
   br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9c32bfa0e4dc45c7E.exit", label %12
 
@@ -55080,7 +55080,7 @@ define noundef zeroext i1 @"_ZN102_$LT$ruff_python_ast..nodes..BytesLiteralValue
   %16 = getelementptr i8, ptr %15, i64 8
   %.val19.i.i = load i64, ptr %16, align 8, !alias.scope !7642, !noundef !3
   %17 = add i64 %.val19.i.i, %.sroa.07.0.i.i
-  %18 = add nuw i64 %.sroa.09.0.i.i, 1
+  %18 = add nuw nsw i64 %.sroa.09.0.i.i, 1
   %19 = icmp eq i64 %18, %13
   br i1 %19, label %_ZN15ruff_python_ast5nodes17BytesLiteralValue3len17h7f77dc243045b4b5E.exit, label %14
 

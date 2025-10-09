@@ -7064,7 +7064,7 @@ _ZlsRSoRK14dependent_expr.exit:                   ; preds = %23
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %31 = add i32 %.020, 1
+  %31 = add nuw i32 %.020, 1
   %32 = getelementptr inbounds nuw i8, ptr %.01419, i64 32
   %.not = icmp eq ptr %32, %13
   br i1 %.not, label %._crit_edge, label %18

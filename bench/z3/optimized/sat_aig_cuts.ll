@@ -1834,7 +1834,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %19, %.noexc
 
 _ZNK6vectorIN3sat8aig_cuts4nodeELb0EjE5emptyEv.exit.thread: ; preds = %.lr.ph, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %_ZNK6vectorIN3sat8aig_cuts4nodeELb0EjE5emptyEv.exit
   %34 = phi ptr [ %11, %.lr.ph ], [ %26, %_ZN6vectorIjLb0EjE9push_backERKj.exit ], [ %11, %_ZNK6vectorIN3sat8aig_cuts4nodeELb0EjE5emptyEv.exit ]
-  %35 = add i32 %.01113, 1
+  %35 = add nuw i32 %.01113, 1
   %36 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq ptr %36, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph

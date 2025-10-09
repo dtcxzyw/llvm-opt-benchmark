@@ -185,7 +185,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %76 = phi i32 [ %81, %.preheader14.split.us ], [ 0, %.preheader14 ]
   %77 = phi ptr [ %82, %.preheader14.split.us ], [ %44, %.preheader14 ]
   %78 = shl i32 %76, 2
-  %79 = add i32 %73, %78
+  %79 = add nuw nsw i32 %73, %78
   %80 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %79, ptr noundef %77) #4
   %81 = add nuw nsw i32 %76, 1
   %82 = getelementptr i8, ptr %77, i64 4
@@ -196,7 +196,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %84 = phi i32 [ %90, %.preheader14.split ], [ 0, %.preheader14 ]
   %85 = phi ptr [ %91, %.preheader14.split ], [ %44, %.preheader14 ]
   %86 = shl i32 %84, 2
-  %87 = add i32 %73, %86
+  %87 = add nuw nsw i32 %73, %86
   %88 = load i32, ptr %85, align 4
   %89 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %87, i32 noundef %88) #4
   %90 = add nuw nsw i32 %84, 1

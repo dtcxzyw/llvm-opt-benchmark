@@ -114,7 +114,7 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE3endEv.exit:  ; preds = %1
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %24, %13, %11
-  %26 = add i32 %.024, 1
+  %26 = add nuw i32 %.024, 1
   %27 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %.not = icmp eq ptr %27, %9
   br i1 %.not, label %._crit_edge, label %11

@@ -1762,7 +1762,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   store ptr %61, ptr %80, align 8, !tbaa !541
   %81 = add i32 %76, 1
   store i32 %81, ptr %78, align 4, !tbaa !537
-  %82 = add i32 %.058, 1
+  %82 = add nuw i32 %.058, 1
   %83 = getelementptr inbounds nuw i8, ptr %.02957, i64 8
   %.not = icmp eq ptr %83, %35
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -2213,7 +2213,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   resume { ptr, i32 } %38
 
 _ZN7bv_util11mk_bit2boolEP4exprj.exit:            ; preds = %33
-  %39 = add i32 %.024, 1
+  %39 = add nuw i32 %.024, 1
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2292,7 +2292,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   resume { ptr, i32 } %29
 
 _ZN7bv_util11mk_bit2boolEP4exprj.exit:            ; preds = %24
-  %30 = add i32 %.023, 1
+  %30 = add nuw i32 %.023, 1
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

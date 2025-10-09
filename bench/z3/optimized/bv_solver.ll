@@ -1281,7 +1281,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   br label %39
 
 39:                                               ; preds = %.sink.split, %28, %22
-  %40 = add i32 %.01830, 1
+  %40 = add nuw i32 %.01830, 1
   %41 = getelementptr inbounds nuw i8, ptr %.02229, i64 4
   %.not = icmp eq ptr %41, %19
   br i1 %.not, label %.critedge24, label %22
@@ -9798,7 +9798,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3euf5enode10get
           to label %_ZN8rationalpLERKS_.exit unwind label %86
 
 _ZN8rationalpLERKS_.exit:                         ; preds = %90, %79
-  %92 = add i32 %.037, 1
+  %92 = add nuw i32 %.037, 1
   %93 = getelementptr inbounds nuw i8, ptr %.02236, i64 4
   %.not = icmp eq ptr %93, %72
   br i1 %.not, label %._crit_edge, label %79

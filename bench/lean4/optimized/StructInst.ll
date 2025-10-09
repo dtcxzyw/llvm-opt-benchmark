@@ -419531,7 +419531,7 @@ lean_dec.exit201:                                 ; preds = %lean_nat_lt.exit, %
   br label %178
 
 176:                                              ; preds = %lean_dec.exit.i
-  %177 = add i64 %.01526.i, 1
+  %177 = add nuw nsw i64 %.01526.i, 1
   %.not.i362 = icmp eq i64 %177, %174
   br i1 %.not.i362, label %200, label %178
 
@@ -420449,7 +420449,7 @@ lean_dec.exit171:                                 ; preds = %lean_nat_lt.exit345
   br label %511
 
 509:                                              ; preds = %lean_dec.exit.i390
-  %510 = add i64 %.01526.i387, 1
+  %510 = add nuw nsw i64 %.01526.i387, 1
   %.not.i391 = icmp eq i64 %510, %507
   br i1 %.not.i391, label %533, label %511
 

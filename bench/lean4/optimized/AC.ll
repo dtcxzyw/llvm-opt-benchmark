@@ -20169,7 +20169,7 @@ lean_dec.exit187:                                 ; preds = %lean_nat_lt.exit222
 
 91:                                               ; preds = %90, %89, %87, %80
   %92 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__3(ptr readnone poison, ptr noundef readonly %., ptr noundef %.01826.i, ptr noundef %82)
-  %93 = add i64 %.01627.i, 1
+  %93 = add nuw nsw i64 %.01627.i, 1
   %.not.i243 = icmp eq i64 %93, %77
   br i1 %.not.i243, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__8.exit, label %80
 
@@ -20381,7 +20381,7 @@ lean_alloc_ctor.exit250:                          ; preds = %lean_alloc_ctor.exi
 
 lean_array_uget.exit.i:                           ; preds = %164, %163, %161, %.lr.ph.split.i
   %165 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__5(ptr readnone poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.02032.i, ptr noundef %156)
-  %166 = add i64 %.01833.i, 1
+  %166 = add nuw nsw i64 %.01833.i, 1
   %.not.i254 = icmp eq i64 %166, %153
   br i1 %.not.i254, label %.lr.ph.split.i266, label %.lr.ph.split.i
 
@@ -20415,7 +20415,7 @@ lean_array_uget.exit.i:                           ; preds = %164, %163, %161, %.
 
 lean_array_uget.exit.i270:                        ; preds = %176, %175, %173, %.lr.ph.split.i266
   %177 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__5(ptr readnone poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.02032.i268, ptr noundef %168)
-  %178 = add i64 %.01833.i267, 1
+  %178 = add nuw nsw i64 %.01833.i267, 1
   %.not.i271 = icmp eq i64 %178, %153
   br i1 %.not.i271, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__6.exit, label %.lr.ph.split.i266
 
