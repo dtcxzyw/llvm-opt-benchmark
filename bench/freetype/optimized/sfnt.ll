@@ -1373,10 +1373,10 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   br i1 %.not, label %39, label %._crit_edge
 
 39:                                               ; preds = %.lr.ph
-  %exitcond = icmp eq i32 %.13641, 65535
-  br i1 %exitcond, label %.loopexit, label %40
+  %40 = icmp eq i32 %.13641, 65535
+  br i1 %40, label %.loopexit, label %40
 
-40:                                               ; preds = %39
+._crit_edge:                                      ; preds = %39
   %41 = add nuw nsw i32 %.13641, 1
   %42 = add nuw nsw i32 %.043, 1
   %43 = icmp ult i32 %42, %14
@@ -24600,9 +24600,9 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
-  %.not215 = icmp ult i32 %.094104.us.us, %35
+  %.not216 = icmp ult i32 %.094104.us.us, %35
   %.094104.us.us.mux = tail call i32 @llvm.umax.i32(i32 %.094104.us.us, i32 %35)
-  br i1 %.not215, label %.thread14, label %.split.us.us.us
+  br i1 %.not216, label %.thread14, label %.split.us.us.us
 
 .split.us.us.us:                                  ; preds = %.lr.ph.split.us.split.us
   %36 = load i8, ptr %.092105.us.us, align 1, !tbaa !15
@@ -24646,8 +24646,8 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
 
 .thread4.split.us.split.us.us.us:                 ; preds = %43, %.split.us.us.us
   %61 = add nuw nsw i32 %.0101103.us.us, 1
-  %exitcond204.not = icmp eq i32 %61, %16
-  br i1 %exitcond204.not, label %.thread10, label %.lr.ph.split.us.split.us, !llvm.loop !773
+  %exitcond205.not = icmp eq i32 %61, %16
+  br i1 %exitcond205.not, label %.thread10, label %.lr.ph.split.us.split.us, !llvm.loop !773
 
 .split49.us.split.us.split.us:                    ; preds = %43
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -24821,13 +24821,13 @@ define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr rea
 
 select.unfold:                                    ; preds = %153, %158
   %.4 = phi i32 [ %160, %158 ], [ %155, %153 ]
-  %.not214 = icmp eq i32 %.4, 0
-  br i1 %.not214, label %.thread, label %.thread10
+  %.not215 = icmp eq i32 %.4, 0
+  br i1 %.not215, label %.thread, label %.thread10
 
 .thread:                                          ; preds = %172, %167, %145, %153, %select.unfold
-  %.599219 = phi i32 [ %.397, %select.unfold ], [ %narrow, %172 ], [ %168, %167 ], [ %.397, %145 ], [ %.397, %153 ]
-  %173 = icmp ugt i32 %.599219, 65534
-  %174 = add nuw nsw i32 %.599219, 1
+  %.599220 = phi i32 [ %.397, %select.unfold ], [ %narrow, %172 ], [ %168, %167 ], [ %.397, %145 ], [ %.397, %153 ]
+  %173 = icmp ugt i32 %.599220, 65534
+  %174 = add nuw nsw i32 %.599220, 1
   br i1 %173, label %.thread10.thread21, label %118
 
 .thread4.split:                                   ; preds = %169, %138, %119, %118
@@ -24843,7 +24843,7 @@ select.unfold:                                    ; preds = %153, %158
 
 .thread10.thread21:                               ; preds = %.thread, %.thread10
   %.126 = phi i32 [ %.1, %.thread10 ], [ 0, %.thread ]
-  %.19525 = phi i32 [ %.195, %.thread10 ], [ %.599219, %.thread ]
+  %.19525 = phi i32 [ %.195, %.thread10 ], [ %.599220, %.thread ]
   store i32 %.19525, ptr %0, align 4, !tbaa !16
   br label %.thread14
 

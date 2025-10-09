@@ -2952,8 +2952,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h332d34e15a6433ecE.exit: ; pre
   %57 = add nuw nsw i64 %.sroa.0.05.i, 1
   %58 = getelementptr inbounds nuw ptr, ptr %49, i64 %.sroa.0.05.i
   %59 = load ptr, ptr %58, align 8, !nonnull !12, !noundef !12
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 176
-  store ptr %9, ptr %60, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %59, i64 176
+  store ptr %9, ptr %59, align 8
   %61 = trunc nuw nsw i64 %.sroa.0.05.i to i16
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 184
   store i16 %61, ptr %62, align 8

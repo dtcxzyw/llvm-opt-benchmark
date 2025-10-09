@@ -108,9 +108,9 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %14 = trunc i64 %13 to i32
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %14, i32 4)
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %15, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph23.i, %.lr.ph.i
+.lr.ph.preheader.i:                               ; preds = %.lr.ph23.i, %.lr.ph.i
   %.019.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.lr.ph23.i ]
   %.01418.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %.lr.ph23.i ]
   %.117.i = phi i64 [ %16, %.lr.ph.i ], [ %.01521.i, %.lr.ph23.i ]
@@ -125,7 +125,7 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %exitcond.not.i = icmp eq i32 %23, %spec.store.select.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+._crit_edge.loopexit.i:; preds = %.lr.ph.i
   %24 = add nuw i64 %.01521.i, 1
   %25 = add nsw i32 %spec.store.select.i, -1
   %26 = zext i32 %25 to i64
@@ -136,22 +136,22 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %.1.lcssa.i = phi i64 [ %.01521.i, %.lr.ph23.i ], [ %27, %._crit_edge.loopexit.i ]
   %.014.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %22, %._crit_edge.loopexit.i ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef %.014.lcssa.i) #3
-  %28 = icmp ult i64 %.1.lcssa.i, %3
-  br i1 %28, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8
+  %29 = icmp ult i64 %.1.lcssa.i, %3
+  br i1 %29, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8
 
 write_fifo.exit:                                  ; preds = %._crit_edge.i, %5
-  %29 = sub i64 %4, %3
-  %30 = lshr i64 %29, 2
-  %31 = trunc i64 %30 to i32
-  %32 = add i32 %31, -1
-  %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %.lr.ph.i13, label %fill_block.exit
+  %30 = sub i64 %4, %3
+  %31 = lshr i64 %30, 2
+  %32 = trunc i64 %31 to i32
+  %33 = add i32 %32, -1
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %.lr.ph.i13, label %fill_block.exit
 
 .lr.ph.i13:                                       ; preds = %write_fifo.exit, %.lr.ph.i13
-  %34 = phi i32 [ %35, %.lr.ph.i13 ], [ %32, %write_fifo.exit ]
+  %35 = phi i32 [ %36, %.lr.ph.i13 ], [ %33, %write_fifo.exit ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef 0) #3
-  %35 = add nsw i32 %34, -1
-  %.not.i14 = icmp eq i32 %34, 0
+  %36 = add nsw i32 %35, -1
+  %.not.i14 = icmp eq i32 %35, 0
   br i1 %.not.i14, label %fill_block.exit, label %.lr.ph.i13, !llvm.loop !9
 
 fill_block.exit:                                  ; preds = %.lr.ph.i13, %write_fifo.exit
