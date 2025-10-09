@@ -2,7 +2,7 @@ import sys
 import os
 
 bench_dir = sys.argv[1]
-max_size = 35 * 1000000
+max_size = 30 * 1000000
 removed = 0
 
 def is_trivial(file):
