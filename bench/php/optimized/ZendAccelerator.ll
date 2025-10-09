@@ -11467,9 +11467,9 @@ zend_string_release.exit199:                      ; preds = %.loopexit266, %96, 
   %227 = load ptr, ptr %226, align 8, !tbaa !419
   %228 = call i32 @zend_update_class_constant(ptr noundef nonnull %219, ptr noundef %225, ptr noundef %227) #26
   %229 = icmp eq i32 %228, 0
-  %..163.i = select i1 %229, i1 true, i1 %.16379.i
-  %..059.i = select i1 %229, i1 true, i1 %.05980.i
-  %.053..i = select i1 %229, i1 %.05381.i, i1 false
+  %..163.i = select i1 %229, i1 true, i1 %.16379.i, !prof !40
+  %..059.i = select i1 %229, i1 true, i1 %.05980.i, !prof !40
+  %.053..i = select i1 %229, i1 %.05381.i, i1 false, !prof !40
   br label %230
 
 230:                                              ; preds = %223, %218, %.lr.ph.i
