@@ -42,10 +42,10 @@ define i64 @av_gcd(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %16 = sub nsw i64 %spec.select33, %spec.select
   %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
   %18 = icmp eq i64 %.02935, %.02836
-  %19 = select i1 %18, i64 0, i64 %17
+  %19 = select i1 %18, i64 0, i64 %17, !prof !4
   %20 = ashr i64 %16, %19
   %.not = icmp eq i64 %spec.select, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.029.lcssa = phi i64 [ %13, %6 ], [ %spec.select, %.lr.ph ]
@@ -199,7 +199,7 @@ common.ret114:                                    ; preds = %53, %49, %12, %4, %
   %.189 = or disjoint i64 %80, %82
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not113 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not113, label %83, label %76, !llvm.loop !6
+  br i1 %.not113, label %83, label %76, !llvm.loop !7
 
 83:                                               ; preds = %76
   %84 = icmp slt i64 %80, 0
@@ -313,7 +313,7 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   unreachable
 
 11:                                               ; preds = %8
-  %12 = load i64, ptr %4, align 8, !tbaa !7
+  %12 = load i64, ptr %4, align 8, !tbaa !8
   %13 = icmp ne i64 %12, -9223372036854775808
   %14 = icmp ne i32 %3, 0
   %or.cond = and i1 %14, %13
@@ -352,7 +352,7 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   %27 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %24, i64 noundef %26, i32 noundef 5) #9
   %28 = zext nneg i32 %3 to i64
   %29 = add nsw i64 %27, %28
-  store i64 %29, ptr %4, align 8, !tbaa !7
+  store i64 %29, ptr %4, align 8, !tbaa !8
   %30 = tail call i64 @av_rescale_rnd(i64 noundef %1, i64 noundef %.pre-phi86, i64 noundef %.pre-phi91, i32 noundef 5) #9
   br label %58
 
@@ -387,7 +387,7 @@ define i64 @av_rescale_delta(i64 %0, i64 noundef %1, i64 %2, i32 noundef %3, ptr
   %.0.i = select i1 %52, i64 %39, i64 %..i
   %53 = zext nneg i32 %3 to i64
   %54 = add nsw i64 %.0.i, %53
-  store i64 %54, ptr %4, align 8, !tbaa !7
+  store i64 %54, ptr %4, align 8, !tbaa !8
   %55 = mul nsw i64 %17, %36
   %56 = mul nsw i64 %19, %34
   %57 = tail call i64 @av_rescale_rnd(i64 noundef %.0.i, i64 noundef %55, i64 noundef %56, i32 noundef 5) #9
@@ -488,22 +488,22 @@ define double @av_bessel_i0(double noundef %0) local_unnamed_addr #7 {
   %.01011.i = phi double [ 0xBC5834AC6DF8A5D9, %6 ], [ %11, %.lr.ph.i ]
   %8 = fmul nsz double %7, %.01011.i
   %9 = getelementptr inbounds nuw double, ptr @av_bessel_i0.p1, i64 %indvars.iv.i
-  %10 = load double, ptr %9, align 8, !tbaa !11
+  %10 = load double, ptr %9, align 8, !tbaa !12
   %11 = fadd nsz double %8, %10
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %.lr.ph.i17, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph.i17, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i, %.lr.ph.i17
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i17 ], [ 4, %.lr.ph.i ]
   %.01011.i19 = phi double [ %15, %.lr.ph.i17 ], [ 1.000000e+00, %.lr.ph.i ]
   %12 = fmul nsz double %7, %.01011.i19
   %13 = getelementptr inbounds nuw double, ptr @av_bessel_i0.q1, i64 %indvars.iv.i18
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !12
   %15 = fadd nsz double %12, %14
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i18, -1
   %.not.i21 = icmp eq i64 %indvars.iv.i18, 0
-  br i1 %.not.i21, label %eval_poly.exit22, label %.lr.ph.i17, !llvm.loop !13
+  br i1 %.not.i21, label %eval_poly.exit22, label %.lr.ph.i17, !llvm.loop !14
 
 eval_poly.exit22:                                 ; preds = %.lr.ph.i17
   %16 = fdiv nsz double %11, %15
@@ -519,22 +519,22 @@ eval_poly.exit22:                                 ; preds = %.lr.ph.i17
   %.01011.i25 = phi double [ 0xC02337CF22CD75C0, %17 ], [ %23, %.lr.ph.i23 ]
   %20 = fmul nsz double %19, %.01011.i25
   %21 = getelementptr inbounds nuw double, ptr @av_bessel_i0.p2, i64 %indvars.iv.i24
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !12
   %23 = fadd nsz double %20, %22
   %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i24, -1
   %.not.i27 = icmp eq i64 %indvars.iv.i24, 0
-  br i1 %.not.i27, label %.lr.ph.i29, label %.lr.ph.i23, !llvm.loop !13
+  br i1 %.not.i27, label %.lr.ph.i29, label %.lr.ph.i23, !llvm.loop !14
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i23, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i32, %.lr.ph.i29 ], [ 6, %.lr.ph.i23 ]
   %.01011.i31 = phi double [ %27, %.lr.ph.i29 ], [ 1.000000e+00, %.lr.ph.i23 ]
   %24 = fmul nsz double %19, %.01011.i31
   %25 = getelementptr inbounds nuw double, ptr @av_bessel_i0.q2, i64 %indvars.iv.i30
-  %26 = load double, ptr %25, align 8, !tbaa !11
+  %26 = load double, ptr %25, align 8, !tbaa !12
   %27 = fadd nsz double %24, %26
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i30, -1
   %.not.i33 = icmp eq i64 %indvars.iv.i30, 0
-  br i1 %.not.i33, label %eval_poly.exit34, label %.lr.ph.i29, !llvm.loop !13
+  br i1 %.not.i33, label %eval_poly.exit34, label %.lr.ph.i29, !llvm.loop !14
 
 eval_poly.exit34:                                 ; preds = %.lr.ph.i29
   %28 = fdiv nsz double %23, %27
@@ -598,13 +598,14 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"long", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !9, i64 0}
-!13 = distinct !{!13, !5}
+!4 = !{!"branch_weights", i32 1, i32 1048575}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"double", !10, i64 0}
+!14 = distinct !{!14, !6}

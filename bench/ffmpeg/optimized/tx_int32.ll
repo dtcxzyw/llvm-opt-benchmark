@@ -166,7 +166,7 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   %4 = mul i32 %3, 125613361
   %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
   %6 = icmp eq i32 %0, 0
-  %7 = select i1 %6, i32 0, i32 %5
+  %7 = select i1 %6, i32 0, i32 %5, !prof !4
   %.not = icmp ult i32 %4, 134217728
   br i1 %.not, label %15, label %8
 
@@ -187,11 +187,11 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds nuw i32, ptr @sr_tabs_init_once, i64 %indvars.iv
   %12 = getelementptr inbounds nuw ptr, ptr @sr_tabs_init_funcs, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !4
+  %13 = load ptr, ptr %12, align 8, !tbaa !5
   %14 = tail call i32 @pthread_once(ptr noundef nonnull %11, ptr noundef %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 15:                                               ; preds = %._crit_edge, %1
   %.024 = phi i32 [ %10, %._crit_edge ], [ %0, %1 ]
@@ -208,7 +208,7 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %.preheader, %22
   %indvars.iv44 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next45, %22 ]
   %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv44
-  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %.loopexit, label %22
 
@@ -216,11 +216,11 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %23 = srem i32 %21, %.141
   %.not34 = icmp eq i32 %23, 0
-  br i1 %.not34, label %24, label %19, !llvm.loop !12
+  br i1 %.not34, label %24, label %19, !llvm.loop !13
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i32, ptr @nptwo_tabs_init_once, i64 %indvars.iv47
-  %26 = load ptr, ptr %17, align 8, !tbaa !13
+  %26 = load ptr, ptr %17, align 8, !tbaa !14
   %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #16
   %28 = sdiv i32 %.141, %21
   br label %.loopexit
@@ -231,7 +231,7 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   %29 = icmp samesign ult i64 %indvars.iv47, 2
   %30 = icmp sgt i32 %.2, 1
   %or.cond = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !15
+  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.loopexit, %15
   ret void
@@ -241,10 +241,10 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %0, align 8, !tbaa !16
+  %3 = load i32, ptr %0, align 8, !tbaa !17
   %4 = ashr i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load double, ptr %5, align 8, !tbaa !25
+  %6 = load double, ptr %5, align 8, !tbaa !26
   %7 = fcmp nsz olt double %6, 0.000000e+00
   %8 = sitofp i32 %4 to double
   %9 = fadd nsz double %8, 1.250000e-01
@@ -255,7 +255,7 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none
   %13 = sext i32 %12 to i64
   %14 = tail call ptr @av_malloc_array(i64 noundef %13, i64 noundef 8) #16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !26
+  store ptr %14, ptr %15, align 8, !tbaa !27
   %.not40 = icmp eq ptr %14, null
   br i1 %.not40, label %.loopexit, label %16
 
@@ -303,19 +303,19 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none
   %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
   %.0.i42 = tail call i64 @llvm.smin.i64(i64 %39, i64 2147483647)
   %40 = trunc nsw i64 %.0.i42 to i32
-  store i32 %33, ptr %gep, align 4, !tbaa !10
+  store i32 %33, ptr %gep, align 4, !tbaa !11
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep, i64 4
-  store i32 %40, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !10
+  store i32 %40, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv47 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next48, %.lr.ph45 ]
-  %41 = load ptr, ptr %15, align 8, !tbaa !26
+  %41 = load ptr, ptr %15, align 8, !tbaa !27
   %42 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %41, i64 %indvars.iv47
   %43 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv47
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !11
   %45 = add nsw i32 %44, %4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds %struct.AVComplexInt32, ptr %41, i64 %46
@@ -323,7 +323,7 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none
   store i64 %48, ptr %42, align 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph45, !llvm.loop !28
+  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph45, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph45, %16, %._crit_edge, %2
   %.035 = phi i32 [ -12, %2 ], [ 0, %._crit_edge ], [ 0, %16 ], [ 0, %.lr.ph45 ]
@@ -355,7 +355,7 @@ define internal void @ff_tx_init_tab_8_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %7, align 4, !tbaa !10
+  store i32 0, ptr %7, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -367,8 +367,8 @@ define internal void @ff_tx_init_tab_8_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
   %6 = trunc nsw i64 %.0.i to i32
   %7 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %6, ptr %.056, align 4, !tbaa !10
-  br i1 %3, label %2, label %1, !llvm.loop !29
+  store i32 %6, ptr %.056, align 4, !tbaa !11
+  br i1 %3, label %2, label %1, !llvm.loop !30
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -376,7 +376,7 @@ define internal void @ff_tx_init_tab_16_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -392,10 +392,10 @@ define internal void @ff_tx_init_tab_16_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 4
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !30
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !31
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -403,7 +403,7 @@ define internal void @ff_tx_init_tab_32_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -419,10 +419,10 @@ define internal void @ff_tx_init_tab_32_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 8
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !31
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !32
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -430,7 +430,7 @@ define internal void @ff_tx_init_tab_64_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -446,10 +446,10 @@ define internal void @ff_tx_init_tab_64_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 16
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !32
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !33
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -457,7 +457,7 @@ define internal void @ff_tx_init_tab_128_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -473,10 +473,10 @@ define internal void @ff_tx_init_tab_128_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 32
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !33
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !34
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -484,7 +484,7 @@ define internal void @ff_tx_init_tab_256_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -500,10 +500,10 @@ define internal void @ff_tx_init_tab_256_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 64
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !34
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !35
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -511,7 +511,7 @@ define internal void @ff_tx_init_tab_512_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -527,10 +527,10 @@ define internal void @ff_tx_init_tab_512_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 128
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !35
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !36
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -538,7 +538,7 @@ define internal void @ff_tx_init_tab_1024_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -554,10 +554,10 @@ define internal void @ff_tx_init_tab_1024_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 256
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !36
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !37
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -565,7 +565,7 @@ define internal void @ff_tx_init_tab_2048_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -581,10 +581,10 @@ define internal void @ff_tx_init_tab_2048_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 512
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !37
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !38
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -592,7 +592,7 @@ define internal void @ff_tx_init_tab_4096_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -608,10 +608,10 @@ define internal void @ff_tx_init_tab_4096_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 1024
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !38
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !39
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -619,7 +619,7 @@ define internal void @ff_tx_init_tab_8192_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -635,10 +635,10 @@ define internal void @ff_tx_init_tab_8192_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 2048
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !39
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !40
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -646,7 +646,7 @@ define internal void @ff_tx_init_tab_16384_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -662,10 +662,10 @@ define internal void @ff_tx_init_tab_16384_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 4096
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !40
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !41
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -673,7 +673,7 @@ define internal void @ff_tx_init_tab_32768_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -689,10 +689,10 @@ define internal void @ff_tx_init_tab_32768_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 8192
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !41
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !42
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -700,7 +700,7 @@ define internal void @ff_tx_init_tab_65536_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -716,10 +716,10 @@ define internal void @ff_tx_init_tab_65536_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 16384
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !42
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !43
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -727,7 +727,7 @@ define internal void @ff_tx_init_tab_131072_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -743,10 +743,10 @@ define internal void @ff_tx_init_tab_131072_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 32768
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !43
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !44
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -754,7 +754,7 @@ define internal void @ff_tx_init_tab_262144_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -770,10 +770,10 @@ define internal void @ff_tx_init_tab_262144_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 65536
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !44
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !45
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -781,7 +781,7 @@ define internal void @ff_tx_init_tab_524288_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -797,10 +797,10 @@ define internal void @ff_tx_init_tab_524288_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 131072
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !45
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !46
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -808,7 +808,7 @@ define internal void @ff_tx_init_tab_1048576_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -824,10 +824,10 @@ define internal void @ff_tx_init_tab_1048576_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 262144
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !46
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !47
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -835,7 +835,7 @@ define internal void @ff_tx_init_tab_2097152_int32() #5 {
   br label %2
 
 1:                                                ; preds = %2
-  store i32 0, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %11, align 4, !tbaa !11
   ret void
 
 2:                                                ; preds = %0, %2
@@ -851,10 +851,10 @@ define internal void @ff_tx_init_tab_2097152_int32() #5 {
   %.0.i = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
   %10 = trunc nsw i64 %.0.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %.056, i64 4
-  store i32 %10, ptr %.056, align 4, !tbaa !10
+  store i32 %10, ptr %.056, align 4, !tbaa !11
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 524288
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !47
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !48
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -863,42 +863,42 @@ define internal void @ff_tx_init_tab_53_int32() #6 {
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
   %.0.i12 = tail call i64 @llvm.smin.i64(i64 %2, i64 2147483647)
   %3 = trunc nsw i64 %.0.i12 to i32
-  store i32 %3, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
-  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 4), align 4, !tbaa !10
+  store i32 %3, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 4), align 4, !tbaa !11
   %4 = tail call i64 @llvm.llrint.i64.f32(float 0x41D9E377A0000000)
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 -2147483648)
   %.0.i10 = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
   %6 = trunc nsw i64 %.0.i10 to i32
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 12), align 4, !tbaa !10
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 12), align 4, !tbaa !11
   %7 = tail call i64 @llvm.llrint.i64.f32(float 0x41DE6F0E20000000)
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 -2147483648)
   %.0.i8 = tail call i64 @llvm.smin.i64(i64 %8, i64 2147483647)
   %9 = trunc nsw i64 %.0.i8 to i32
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 20), align 4, !tbaa !10
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 20), align 4, !tbaa !11
   %10 = tail call i64 @llvm.llrint.i64.f32(float 0x41D2CF2300000000)
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 -2147483648)
   %.0.i6 = tail call i64 @llvm.smin.i64(i64 %11, i64 2147483647)
   %12 = trunc nsw i64 %.0.i6 to i32
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 28), align 4, !tbaa !10
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 28), align 4, !tbaa !11
   %13 = tail call i64 @llvm.llrint.i64.f32(float 0x41DBB67AE0000000)
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
   %.0.i4 = tail call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
   %15 = trunc nsw i64 %.0.i4 to i32
-  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
-  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %16 = tail call i64 @llvm.llrint.i64.f32(float 0x41D0000000000000)
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 -2147483648)
   %.0.i2 = tail call i64 @llvm.smin.i64(i64 %17, i64 2147483647)
   %18 = trunc nsw i64 %.0.i2 to i32
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %19 = tail call i64 @llvm.llrint.i64.f32(float 0xC1D0000000000000)
   %20 = tail call i64 @llvm.smax.i64(i64 %19, i64 -2147483648)
   %.0.i = tail call i64 @llvm.smin.i64(i64 %20, i64 2147483647)
   %21 = trunc nsw i64 %.0.i to i32
-  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 44), align 4, !tbaa !10
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 44), align 4, !tbaa !11
   ret void
 }
 
@@ -908,36 +908,36 @@ define internal void @ff_tx_init_tab_9_int32() #6 {
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
   %.0.i10 = tail call i64 @llvm.smin.i64(i64 %2, i64 2147483647)
   %3 = trunc nsw i64 %.0.i10 to i32
-  store i32 %3, ptr @ff_tx_tab_9_int32, align 16, !tbaa !10
+  store i32 %3, ptr @ff_tx_tab_9_int32, align 16, !tbaa !11
   %4 = tail call i64 @llvm.llrint.i64.f32(float 0x41DBB67AE0000000)
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 -2147483648)
   %.0.i8 = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
   %6 = trunc nsw i64 %.0.i8 to i32
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !10
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !11
   %7 = tail call i64 @llvm.llrint.i64.f32(float 0x41D8836FA0000000)
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 -2147483648)
   %.0.i6 = tail call i64 @llvm.smin.i64(i64 %8, i64 2147483647)
   %9 = trunc nsw i64 %.0.i6 to i32
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !10
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !11
   %10 = tail call i64 @llvm.llrint.i64.f32(float 0x41D491B760000000)
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 -2147483648)
   %.0.i4 = tail call i64 @llvm.smin.i64(i64 %11, i64 2147483647)
   %12 = trunc nsw i64 %.0.i4 to i32
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !10
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !11
   %13 = tail call i64 @llvm.llrint.i64.f32(float 0x41DF838B80000000)
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
   %.0.i2 = tail call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
   %15 = trunc nsw i64 %.0.i2 to i32
-  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !10
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !11
   %16 = tail call i64 @llvm.llrint.i64.f32(float 0x41B63A1A80000000)
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 -2147483648)
   %.0.i = tail call i64 @llvm.smin.i64(i64 %17, i64 2147483647)
   %18 = trunc nsw i64 %.0.i to i32
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !10
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !11
   %19 = add nsw i32 %9, %18
-  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !10
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !11
   %20 = sub nsw i32 %12, %15
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !10
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !11
   ret void
 }
 
@@ -947,55 +947,55 @@ define internal void @ff_tx_init_tab_7_int32() #6 {
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
   %.0.i10 = tail call i64 @llvm.smin.i64(i64 %2, i64 2147483647)
   %3 = trunc nsw i64 %.0.i10 to i32
-  store i32 %3, ptr @ff_tx_tab_7_int32, align 16, !tbaa !10
+  store i32 %3, ptr @ff_tx_tab_7_int32, align 16, !tbaa !11
   %4 = tail call i64 @llvm.llrint.i64.f32(float 0x41D904C380000000)
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 -2147483648)
   %.0.i8 = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
   %6 = trunc nsw i64 %.0.i8 to i32
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !10
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !11
   %7 = tail call i64 @llvm.llrint.i64.f32(float 0x41BC7B90E0000000)
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 -2147483648)
   %.0.i6 = tail call i64 @llvm.smin.i64(i64 %8, i64 2147483647)
   %9 = trunc nsw i64 %.0.i6 to i32
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !10
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !11
   %10 = tail call i64 @llvm.llrint.i64.f32(float 0x41DF329C00000000)
   %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 -2147483648)
   %.0.i4 = tail call i64 @llvm.smin.i64(i64 %11, i64 2147483647)
   %12 = trunc nsw i64 %.0.i4 to i32
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !10
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !11
   %13 = tail call i64 @llvm.llrint.i64.f32(float 0x41DCD4BCA0000000)
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
   %.0.i2 = tail call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
   %15 = trunc nsw i64 %.0.i2 to i32
-  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !10
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !11
   %16 = tail call i64 @llvm.llrint.i64.f32(float 0x41CBC4C040000000)
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 -2147483648)
   %.0.i = tail call i64 @llvm.smin.i64(i64 %17, i64 2147483647)
   %18 = trunc nsw i64 %.0.i to i32
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !10
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @ff_tx_fft2_ns_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2, i64 %3) #7 {
-  %5 = load i32, ptr %2, align 4, !tbaa !48
+  %5 = load i32, ptr %2, align 4, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %8 = sub i32 %5, %7
   %9 = add i32 %7, %5
-  store i32 %9, ptr %1, align 4, !tbaa !48
+  store i32 %9, ptr %1, align 4, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !50
+  %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = sub i32 %11, %13
   %15 = add i32 %13, %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !50
+  store i32 %15, ptr %16, align 4, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %8, ptr %17, align 4, !tbaa !10
+  store i32 %8, ptr %17, align 4, !tbaa !11
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %14, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !10
+  store i32 %14, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !11
   ret void
 }
 
@@ -1010,131 +1010,131 @@ declare i32 @ff_tx_gen_ptwo_revtab(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @ff_tx_fft4_ns_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2, i64 %3) #7 {
-  %5 = load i32, ptr %2, align 4, !tbaa !48
+  %5 = load i32, ptr %2, align 4, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %8 = sub i32 %5, %7
   %9 = add i32 %7, %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = load i32, ptr %10, align 4, !tbaa !48
+  %11 = load i32, ptr %10, align 4, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i32, ptr %12, align 4, !tbaa !48
+  %13 = load i32, ptr %12, align 4, !tbaa !49
   %14 = sub i32 %11, %13
   %15 = add i32 %13, %11
   %16 = sub i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %16, ptr %17, align 4, !tbaa !48
+  store i32 %16, ptr %17, align 4, !tbaa !49
   %18 = add i32 %15, %9
-  store i32 %18, ptr %1, align 4, !tbaa !48
+  store i32 %18, ptr %1, align 4, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !50
+  %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !50
+  %22 = load i32, ptr %21, align 4, !tbaa !51
   %23 = sub i32 %20, %22
   %24 = add i32 %22, %20
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !50
+  %26 = load i32, ptr %25, align 4, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !50
+  %28 = load i32, ptr %27, align 4, !tbaa !51
   %29 = sub i32 %26, %28
   %30 = add i32 %28, %26
   %31 = sub i32 %23, %14
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %31, ptr %33, align 4, !tbaa !50
+  store i32 %31, ptr %33, align 4, !tbaa !51
   %34 = add i32 %23, %14
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %34, ptr %36, align 4, !tbaa !50
+  store i32 %34, ptr %36, align 4, !tbaa !51
   %37 = sub i32 %8, %29
-  store i32 %37, ptr %32, align 4, !tbaa !48
+  store i32 %37, ptr %32, align 4, !tbaa !49
   %38 = add i32 %29, %8
-  store i32 %38, ptr %35, align 4, !tbaa !48
+  store i32 %38, ptr %35, align 4, !tbaa !49
   %39 = sub i32 %24, %30
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %39, ptr %40, align 4, !tbaa !50
+  store i32 %39, ptr %40, align 4, !tbaa !51
   %41 = add i32 %30, %24
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !50
+  store i32 %41, ptr %42, align 4, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft8_ns_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_8_int32, i64 4), align 4, !tbaa !10
-  %6 = load i32, ptr %2, align 4, !tbaa !48
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_8_int32, i64 4), align 4, !tbaa !11
+  %6 = load i32, ptr %2, align 4, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !48
+  %8 = load i32, ptr %7, align 4, !tbaa !49
   %9 = sub i32 %6, %8
   %10 = add i32 %8, %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %12 = load i32, ptr %11, align 4, !tbaa !48
+  %12 = load i32, ptr %11, align 4, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !48
+  %14 = load i32, ptr %13, align 4, !tbaa !49
   %15 = sub i32 %12, %14
   %16 = add i32 %14, %12
   %17 = sub i32 %10, %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %17, ptr %18, align 4, !tbaa !48
+  store i32 %17, ptr %18, align 4, !tbaa !49
   %19 = add i32 %16, %10
-  store i32 %19, ptr %1, align 4, !tbaa !48
+  store i32 %19, ptr %1, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !50
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   %24 = sub i32 %21, %23
   %25 = add i32 %23, %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %29 = load i32, ptr %28, align 4, !tbaa !50
+  %29 = load i32, ptr %28, align 4, !tbaa !51
   %30 = sub i32 %27, %29
   %31 = add i32 %29, %27
   %32 = sub i32 %24, %15
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %32, ptr %34, align 4, !tbaa !50
+  store i32 %32, ptr %34, align 4, !tbaa !51
   %35 = add i32 %24, %15
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %35, ptr %37, align 4, !tbaa !50
+  store i32 %35, ptr %37, align 4, !tbaa !51
   %38 = sub i32 %9, %30
-  store i32 %38, ptr %33, align 4, !tbaa !48
+  store i32 %38, ptr %33, align 4, !tbaa !49
   %39 = add i32 %30, %9
-  store i32 %39, ptr %36, align 4, !tbaa !48
+  store i32 %39, ptr %36, align 4, !tbaa !49
   %40 = sub i32 %25, %31
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %40, ptr %41, align 4, !tbaa !50
+  store i32 %40, ptr %41, align 4, !tbaa !51
   %42 = add i32 %31, %25
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %42, ptr %43, align 4, !tbaa !50
+  store i32 %42, ptr %43, align 4, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %45 = load i32, ptr %44, align 4, !tbaa !48
+  %45 = load i32, ptr %44, align 4, !tbaa !49
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %47 = load i32, ptr %46, align 4, !tbaa !48
+  %47 = load i32, ptr %46, align 4, !tbaa !49
   %48 = add i32 %47, %45
   %49 = sub i32 %45, %47
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %49, ptr %50, align 4, !tbaa !48
+  store i32 %49, ptr %50, align 4, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %52 = load i32, ptr %51, align 4, !tbaa !50
+  %52 = load i32, ptr %51, align 4, !tbaa !51
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %54 = load i32, ptr %53, align 4, !tbaa !50
+  %54 = load i32, ptr %53, align 4, !tbaa !51
   %55 = add i32 %54, %52
   %56 = sub i32 %52, %54
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 %56, ptr %57, align 4, !tbaa !50
+  store i32 %56, ptr %57, align 4, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %59 = load i32, ptr %58, align 4, !tbaa !48
+  %59 = load i32, ptr %58, align 4, !tbaa !49
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %61 = load i32, ptr %60, align 4, !tbaa !48
+  %61 = load i32, ptr %60, align 4, !tbaa !49
   %62 = add i32 %61, %59
   %63 = sub i32 %59, %61
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %66 = load i32, ptr %65, align 4, !tbaa !50
+  %66 = load i32, ptr %65, align 4, !tbaa !51
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %68 = load i32, ptr %67, align 4, !tbaa !50
+  %68 = load i32, ptr %67, align 4, !tbaa !51
   %69 = add i32 %68, %66
   %70 = sub i32 %66, %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -1142,26 +1142,26 @@ define internal void @ff_tx_fft8_ns_int32_c(ptr readnone captures(none) %0, ptr 
   %73 = add i32 %62, %48
   %74 = sub i32 %19, %73
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %74, ptr %75, align 4, !tbaa !48
+  store i32 %74, ptr %75, align 4, !tbaa !49
   %76 = add i32 %73, %19
-  store i32 %76, ptr %1, align 4, !tbaa !48
+  store i32 %76, ptr %1, align 4, !tbaa !49
   %77 = sub i32 %40, %72
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 %77, ptr %79, align 4, !tbaa !50
+  store i32 %77, ptr %79, align 4, !tbaa !51
   %80 = add i32 %72, %40
-  store i32 %80, ptr %41, align 4, !tbaa !50
+  store i32 %80, ptr %41, align 4, !tbaa !51
   %81 = sub i32 %55, %69
   %82 = add i32 %69, %55
   %83 = sub i32 %17, %81
-  store i32 %83, ptr %78, align 4, !tbaa !48
+  store i32 %83, ptr %78, align 4, !tbaa !49
   %84 = add i32 %81, %17
-  store i32 %84, ptr %18, align 4, !tbaa !48
+  store i32 %84, ptr %18, align 4, !tbaa !49
   %85 = sub i32 %42, %82
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %85, ptr %86, align 4, !tbaa !50
+  store i32 %85, ptr %86, align 4, !tbaa !51
   %87 = add i32 %82, %42
-  store i32 %87, ptr %43, align 4, !tbaa !50
+  store i32 %87, ptr %43, align 4, !tbaa !51
   %88 = sext i32 %5 to i64
   %89 = sext i32 %49 to i64
   %90 = mul nsw i64 %89, %88
@@ -1193,153 +1193,153 @@ define internal void @ff_tx_fft8_ns_int32_c(ptr readnone captures(none) %0, ptr 
   %116 = sub i32 %112, %98
   %117 = add i32 %112, %98
   %118 = sub i32 %39, %117
-  store i32 %118, ptr %50, align 4, !tbaa !48
+  store i32 %118, ptr %50, align 4, !tbaa !49
   %119 = add i32 %117, %39
-  store i32 %119, ptr %36, align 4, !tbaa !48
+  store i32 %119, ptr %36, align 4, !tbaa !49
   %120 = sub i32 %32, %116
-  store i32 %120, ptr %71, align 4, !tbaa !50
+  store i32 %120, ptr %71, align 4, !tbaa !51
   %121 = add i32 %116, %32
-  store i32 %121, ptr %34, align 4, !tbaa !50
+  store i32 %121, ptr %34, align 4, !tbaa !51
   %122 = sub i32 %104, %115
   %123 = add i32 %115, %104
   %124 = sub i32 %38, %122
-  store i32 %124, ptr %64, align 4, !tbaa !48
+  store i32 %124, ptr %64, align 4, !tbaa !49
   %125 = add i32 %122, %38
-  store i32 %125, ptr %33, align 4, !tbaa !48
+  store i32 %125, ptr %33, align 4, !tbaa !49
   %126 = sub i32 %35, %123
-  store i32 %126, ptr %57, align 4, !tbaa !50
+  store i32 %126, ptr %57, align 4, !tbaa !51
   %127 = add i32 %123, %35
-  store i32 %127, ptr %37, align 4, !tbaa !50
+  store i32 %127, ptr %37, align 4, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 4), align 4, !tbaa !10
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 8), align 8, !tbaa !10
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 12), align 4, !tbaa !10
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 4), align 4, !tbaa !11
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 8), align 8, !tbaa !11
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 12), align 4, !tbaa !11
   tail call void @ff_tx_fft8_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %10 = load i32, ptr %9, align 4, !tbaa !48
+  %10 = load i32, ptr %9, align 4, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %12 = load i32, ptr %11, align 4, !tbaa !48
+  %12 = load i32, ptr %11, align 4, !tbaa !49
   %13 = sub i32 %10, %12
   %14 = add i32 %12, %10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %16 = load i32, ptr %15, align 4, !tbaa !48
+  %16 = load i32, ptr %15, align 4, !tbaa !49
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %18 = load i32, ptr %17, align 4, !tbaa !48
+  %18 = load i32, ptr %17, align 4, !tbaa !49
   %19 = sub i32 %16, %18
   %20 = add i32 %18, %16
   %21 = sub i32 %14, %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 %21, ptr %22, align 4, !tbaa !48
+  store i32 %21, ptr %22, align 4, !tbaa !49
   %23 = add i32 %20, %14
-  store i32 %23, ptr %8, align 4, !tbaa !48
+  store i32 %23, ptr %8, align 4, !tbaa !49
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = sub i32 %25, %27
   %29 = add i32 %27, %25
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %31 = load i32, ptr %30, align 4, !tbaa !50
+  %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %33 = load i32, ptr %32, align 4, !tbaa !50
+  %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = sub i32 %31, %33
   %35 = add i32 %33, %31
   %36 = sub i32 %28, %19
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %36, ptr %38, align 4, !tbaa !50
+  store i32 %36, ptr %38, align 4, !tbaa !51
   %39 = add i32 %28, %19
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  store i32 %39, ptr %41, align 4, !tbaa !50
+  store i32 %39, ptr %41, align 4, !tbaa !51
   %42 = sub i32 %13, %34
-  store i32 %42, ptr %37, align 4, !tbaa !48
+  store i32 %42, ptr %37, align 4, !tbaa !49
   %43 = add i32 %34, %13
-  store i32 %43, ptr %40, align 4, !tbaa !48
+  store i32 %43, ptr %40, align 4, !tbaa !49
   %44 = sub i32 %29, %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i32 %44, ptr %45, align 4, !tbaa !50
+  store i32 %44, ptr %45, align 4, !tbaa !51
   %46 = add i32 %35, %29
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %46, ptr %47, align 4, !tbaa !50
+  store i32 %46, ptr %47, align 4, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %50 = load i32, ptr %49, align 4, !tbaa !48
+  %50 = load i32, ptr %49, align 4, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %52 = load i32, ptr %51, align 4, !tbaa !48
+  %52 = load i32, ptr %51, align 4, !tbaa !49
   %53 = sub i32 %50, %52
   %54 = add i32 %52, %50
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %56 = load i32, ptr %55, align 4, !tbaa !48
+  %56 = load i32, ptr %55, align 4, !tbaa !49
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %58 = load i32, ptr %57, align 4, !tbaa !48
+  %58 = load i32, ptr %57, align 4, !tbaa !49
   %59 = sub i32 %56, %58
   %60 = add i32 %58, %56
   %61 = sub i32 %54, %60
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %63 = add i32 %60, %54
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %65 = load i32, ptr %64, align 4, !tbaa !50
+  %65 = load i32, ptr %64, align 4, !tbaa !51
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %67 = load i32, ptr %66, align 4, !tbaa !50
+  %67 = load i32, ptr %66, align 4, !tbaa !51
   %68 = sub i32 %65, %67
   %69 = add i32 %67, %65
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  %71 = load i32, ptr %70, align 4, !tbaa !50
+  %71 = load i32, ptr %70, align 4, !tbaa !51
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %73 = load i32, ptr %72, align 4, !tbaa !50
+  %73 = load i32, ptr %72, align 4, !tbaa !51
   %74 = sub i32 %71, %73
   %75 = add i32 %73, %71
   %76 = sub i32 %68, %59
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  store i32 %76, ptr %78, align 4, !tbaa !50
+  store i32 %76, ptr %78, align 4, !tbaa !51
   %79 = add i32 %68, %59
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  store i32 %79, ptr %81, align 4, !tbaa !50
+  store i32 %79, ptr %81, align 4, !tbaa !51
   %82 = sub i32 %53, %74
-  store i32 %82, ptr %77, align 4, !tbaa !48
+  store i32 %82, ptr %77, align 4, !tbaa !49
   %83 = add i32 %74, %53
-  store i32 %83, ptr %80, align 4, !tbaa !48
+  store i32 %83, ptr %80, align 4, !tbaa !49
   %84 = sub i32 %69, %75
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %86 = add i32 %75, %69
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %88 = load i32, ptr %1, align 4, !tbaa !48
+  %88 = load i32, ptr %1, align 4, !tbaa !49
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !50
+  %90 = load i32, ptr %89, align 4, !tbaa !51
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %92 = load i32, ptr %91, align 4, !tbaa !48
+  %92 = load i32, ptr %91, align 4, !tbaa !49
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %94 = load i32, ptr %93, align 4, !tbaa !50
+  %94 = load i32, ptr %93, align 4, !tbaa !51
   %95 = sub i32 %63, %23
   %96 = add i32 %63, %23
   %97 = sub i32 %88, %96
-  store i32 %97, ptr %8, align 4, !tbaa !48
+  store i32 %97, ptr %8, align 4, !tbaa !49
   %98 = add i32 %88, %96
-  store i32 %98, ptr %1, align 4, !tbaa !48
+  store i32 %98, ptr %1, align 4, !tbaa !49
   %99 = sub i32 %94, %95
-  store i32 %99, ptr %87, align 4, !tbaa !50
+  store i32 %99, ptr %87, align 4, !tbaa !51
   %100 = add i32 %94, %95
-  store i32 %100, ptr %93, align 4, !tbaa !50
+  store i32 %100, ptr %93, align 4, !tbaa !51
   %101 = sub i32 %46, %86
   %102 = add i32 %46, %86
   %103 = sub i32 %92, %101
-  store i32 %103, ptr %48, align 4, !tbaa !48
+  store i32 %103, ptr %48, align 4, !tbaa !49
   %104 = add i32 %92, %101
-  store i32 %104, ptr %91, align 4, !tbaa !48
+  store i32 %104, ptr %91, align 4, !tbaa !49
   %105 = sub i32 %90, %102
-  store i32 %105, ptr %47, align 4, !tbaa !50
+  store i32 %105, ptr %47, align 4, !tbaa !51
   %106 = add i32 %90, %102
-  store i32 %106, ptr %89, align 4, !tbaa !50
+  store i32 %106, ptr %89, align 4, !tbaa !51
   %107 = sext i32 %6 to i64
-  %108 = load i32, ptr %22, align 4, !tbaa !48
+  %108 = load i32, ptr %22, align 4, !tbaa !49
   %109 = sext i32 %108 to i64
   %110 = mul nsw i64 %109, %107
   %111 = sub nsw i32 0, %6
@@ -1368,40 +1368,40 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   %134 = lshr i64 %133, 31
   %135 = trunc i64 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %137 = load i32, ptr %136, align 4, !tbaa !48
+  %137 = load i32, ptr %136, align 4, !tbaa !49
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %139 = load i32, ptr %138, align 4, !tbaa !50
+  %139 = load i32, ptr %138, align 4, !tbaa !51
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %141 = load i32, ptr %140, align 4, !tbaa !48
+  %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %143 = load i32, ptr %142, align 4, !tbaa !50
+  %143 = load i32, ptr %142, align 4, !tbaa !51
   %144 = sub i32 %132, %118
   %145 = add i32 %132, %118
   %146 = sub i32 %137, %145
-  store i32 %146, ptr %22, align 4, !tbaa !48
+  store i32 %146, ptr %22, align 4, !tbaa !49
   %147 = add i32 %145, %137
-  store i32 %147, ptr %136, align 4, !tbaa !48
+  store i32 %147, ptr %136, align 4, !tbaa !49
   %148 = sub i32 %143, %144
-  store i32 %148, ptr %85, align 4, !tbaa !50
+  store i32 %148, ptr %85, align 4, !tbaa !51
   %149 = add i32 %144, %143
-  store i32 %149, ptr %142, align 4, !tbaa !50
+  store i32 %149, ptr %142, align 4, !tbaa !51
   %150 = sub i32 %124, %135
   %151 = add i32 %135, %124
   %152 = sub i32 %141, %150
-  store i32 %152, ptr %62, align 4, !tbaa !48
+  store i32 %152, ptr %62, align 4, !tbaa !49
   %153 = add i32 %150, %141
-  store i32 %153, ptr %140, align 4, !tbaa !48
+  store i32 %153, ptr %140, align 4, !tbaa !49
   %154 = sub i32 %139, %151
-  store i32 %154, ptr %45, align 4, !tbaa !50
+  store i32 %154, ptr %45, align 4, !tbaa !51
   %155 = add i32 %151, %139
-  store i32 %155, ptr %138, align 4, !tbaa !50
+  store i32 %155, ptr %138, align 4, !tbaa !51
   %156 = sext i32 %5 to i64
-  %157 = load i32, ptr %40, align 4, !tbaa !48
+  %157 = load i32, ptr %40, align 4, !tbaa !49
   %158 = sext i32 %157 to i64
   %159 = mul nsw i64 %158, %156
   %160 = sub nsw i32 0, %7
   %161 = sext i32 %160 to i64
-  %162 = load i32, ptr %41, align 4, !tbaa !50
+  %162 = load i32, ptr %41, align 4, !tbaa !51
   %163 = sext i32 %162 to i64
   %164 = mul nsw i64 %163, %161
   %165 = add nsw i64 %159, 1073741824
@@ -1414,11 +1414,11 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   %172 = add nsw i64 %171, %170
   %173 = lshr i64 %172, 31
   %174 = trunc i64 %173 to i32
-  %175 = load i32, ptr %80, align 4, !tbaa !48
+  %175 = load i32, ptr %80, align 4, !tbaa !49
   %176 = sext i32 %175 to i64
   %177 = mul nsw i64 %176, %156
   %178 = sext i32 %7 to i64
-  %179 = load i32, ptr %81, align 4, !tbaa !50
+  %179 = load i32, ptr %81, align 4, !tbaa !51
   %180 = sext i32 %179 to i64
   %181 = mul nsw i64 %180, %178
   %182 = add nsw i64 %177, 1073741824
@@ -1432,39 +1432,39 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   %190 = lshr i64 %189, 31
   %191 = trunc i64 %190 to i32
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load i32, ptr %192, align 4, !tbaa !48
+  %193 = load i32, ptr %192, align 4, !tbaa !49
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %195 = load i32, ptr %194, align 4, !tbaa !50
+  %195 = load i32, ptr %194, align 4, !tbaa !51
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %197 = load i32, ptr %196, align 4, !tbaa !48
+  %197 = load i32, ptr %196, align 4, !tbaa !49
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %199 = load i32, ptr %198, align 4, !tbaa !50
+  %199 = load i32, ptr %198, align 4, !tbaa !51
   %200 = sub i32 %185, %168
   %201 = add i32 %185, %168
   %202 = sub i32 %193, %201
-  store i32 %202, ptr %40, align 4, !tbaa !48
+  store i32 %202, ptr %40, align 4, !tbaa !49
   %203 = add i32 %201, %193
-  store i32 %203, ptr %192, align 4, !tbaa !48
+  store i32 %203, ptr %192, align 4, !tbaa !49
   %204 = sub i32 %199, %200
-  store i32 %204, ptr %81, align 4, !tbaa !50
+  store i32 %204, ptr %81, align 4, !tbaa !51
   %205 = add i32 %200, %199
-  store i32 %205, ptr %198, align 4, !tbaa !50
+  store i32 %205, ptr %198, align 4, !tbaa !51
   %206 = sub i32 %174, %191
   %207 = add i32 %191, %174
   %208 = sub i32 %197, %206
-  store i32 %208, ptr %80, align 4, !tbaa !48
+  store i32 %208, ptr %80, align 4, !tbaa !49
   %209 = add i32 %206, %197
-  store i32 %209, ptr %196, align 4, !tbaa !48
+  store i32 %209, ptr %196, align 4, !tbaa !49
   %210 = sub i32 %195, %207
-  store i32 %210, ptr %41, align 4, !tbaa !50
+  store i32 %210, ptr %41, align 4, !tbaa !51
   %211 = add i32 %207, %195
-  store i32 %211, ptr %194, align 4, !tbaa !50
-  %212 = load i32, ptr %37, align 4, !tbaa !48
+  store i32 %211, ptr %194, align 4, !tbaa !51
+  %212 = load i32, ptr %37, align 4, !tbaa !49
   %213 = sext i32 %212 to i64
   %214 = mul nsw i64 %213, %178
   %215 = sub nsw i32 0, %5
   %216 = sext i32 %215 to i64
-  %217 = load i32, ptr %38, align 4, !tbaa !50
+  %217 = load i32, ptr %38, align 4, !tbaa !51
   %218 = sext i32 %217 to i64
   %219 = mul nsw i64 %218, %216
   %220 = add nsw i64 %214, 1073741824
@@ -1477,10 +1477,10 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   %227 = add nsw i64 %226, %225
   %228 = lshr i64 %227, 31
   %229 = trunc i64 %228 to i32
-  %230 = load i32, ptr %77, align 4, !tbaa !48
+  %230 = load i32, ptr %77, align 4, !tbaa !49
   %231 = sext i32 %230 to i64
   %232 = mul nsw i64 %231, %178
-  %233 = load i32, ptr %78, align 4, !tbaa !50
+  %233 = load i32, ptr %78, align 4, !tbaa !51
   %234 = sext i32 %233 to i64
   %235 = mul nsw i64 %234, %156
   %236 = add nsw i64 %232, 1073741824
@@ -1494,33 +1494,33 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   %244 = lshr i64 %243, 31
   %245 = trunc i64 %244 to i32
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %247 = load i32, ptr %246, align 4, !tbaa !48
+  %247 = load i32, ptr %246, align 4, !tbaa !49
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %249 = load i32, ptr %248, align 4, !tbaa !50
+  %249 = load i32, ptr %248, align 4, !tbaa !51
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %251 = load i32, ptr %250, align 4, !tbaa !48
+  %251 = load i32, ptr %250, align 4, !tbaa !49
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %253 = load i32, ptr %252, align 4, !tbaa !50
+  %253 = load i32, ptr %252, align 4, !tbaa !51
   %254 = sub i32 %239, %223
   %255 = add i32 %239, %223
   %256 = sub i32 %247, %255
-  store i32 %256, ptr %37, align 4, !tbaa !48
+  store i32 %256, ptr %37, align 4, !tbaa !49
   %257 = add i32 %255, %247
-  store i32 %257, ptr %246, align 4, !tbaa !48
+  store i32 %257, ptr %246, align 4, !tbaa !49
   %258 = sub i32 %253, %254
-  store i32 %258, ptr %78, align 4, !tbaa !50
+  store i32 %258, ptr %78, align 4, !tbaa !51
   %259 = add i32 %254, %253
-  store i32 %259, ptr %252, align 4, !tbaa !50
+  store i32 %259, ptr %252, align 4, !tbaa !51
   %260 = sub i32 %229, %245
   %261 = add i32 %245, %229
   %262 = sub i32 %251, %260
-  store i32 %262, ptr %77, align 4, !tbaa !48
+  store i32 %262, ptr %77, align 4, !tbaa !49
   %263 = add i32 %260, %251
-  store i32 %263, ptr %250, align 4, !tbaa !48
+  store i32 %263, ptr %250, align 4, !tbaa !49
   %264 = sub i32 %249, %261
-  store i32 %264, ptr %38, align 4, !tbaa !50
+  store i32 %264, ptr %38, align 4, !tbaa !51
   %265 = add i32 %261, %249
-  store i32 %265, ptr %248, align 4, !tbaa !50
+  store i32 %265, ptr %248, align 4, !tbaa !51
   ret void
 }
 
@@ -1561,18 +1561,18 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %.0618638 = phi ptr [ %1, %.lr.ph ], [ %524, %13 ]
   %.0619637 = phi ptr [ %8, %.lr.ph ], [ %525, %13 ]
   %.0620636 = phi i32 [ 0, %.lr.ph ], [ %526, %13 ]
-  %14 = load i32, ptr %.0618638, align 4, !tbaa !10
+  %14 = load i32, ptr %.0618638, align 4, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0639, i64 %11
-  %17 = load i32, ptr %16, align 4, !tbaa !48
+  %17 = load i32, ptr %16, align 4, !tbaa !49
   %18 = sext i32 %17 to i64
   %19 = mul nsw i64 %18, %15
   %20 = getelementptr inbounds nuw i8, ptr %.0619637, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = sub nsw i32 0, %21
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, %23
   %28 = add nsw i64 %19, 1073741824
@@ -1586,12 +1586,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %36 = lshr i64 %35, 31
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0639, i64 %12
-  %39 = load i32, ptr %38, align 4, !tbaa !48
+  %39 = load i32, ptr %38, align 4, !tbaa !49
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %15
   %42 = sext i32 %21 to i64
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 4, !tbaa !51
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %45, %42
   %47 = add nsw i64 %41, 1073741824
@@ -1604,46 +1604,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %54 = add i64 %53, %52
   %55 = lshr i64 %54, 31
   %56 = trunc i64 %55 to i32
-  %57 = load i32, ptr %.0639, align 4, !tbaa !48
+  %57 = load i32, ptr %.0639, align 4, !tbaa !49
   %58 = getelementptr inbounds nuw i8, ptr %.0639, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !50
+  %59 = load i32, ptr %58, align 4, !tbaa !51
   %60 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0639, i64 %5
-  %61 = load i32, ptr %60, align 4, !tbaa !48
+  %61 = load i32, ptr %60, align 4, !tbaa !49
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !50
+  %63 = load i32, ptr %62, align 4, !tbaa !51
   %64 = sub i32 %50, %31
   %65 = add i32 %50, %31
   %66 = sub i32 %57, %65
-  store i32 %66, ptr %16, align 4, !tbaa !48
+  store i32 %66, ptr %16, align 4, !tbaa !49
   %67 = add i32 %65, %57
-  store i32 %67, ptr %.0639, align 4, !tbaa !48
+  store i32 %67, ptr %.0639, align 4, !tbaa !49
   %68 = sub i32 %63, %64
-  store i32 %68, ptr %43, align 4, !tbaa !50
+  store i32 %68, ptr %43, align 4, !tbaa !51
   %69 = add i32 %64, %63
-  store i32 %69, ptr %62, align 4, !tbaa !50
+  store i32 %69, ptr %62, align 4, !tbaa !51
   %70 = sub i32 %37, %56
   %71 = add i32 %56, %37
   %72 = sub i32 %61, %70
-  store i32 %72, ptr %38, align 4, !tbaa !48
+  store i32 %72, ptr %38, align 4, !tbaa !49
   %73 = add i32 %70, %61
-  store i32 %73, ptr %60, align 4, !tbaa !48
+  store i32 %73, ptr %60, align 4, !tbaa !49
   %74 = sub i32 %59, %71
-  store i32 %74, ptr %24, align 4, !tbaa !50
+  store i32 %74, ptr %24, align 4, !tbaa !51
   %75 = add i32 %71, %59
-  store i32 %75, ptr %58, align 4, !tbaa !50
+  store i32 %75, ptr %58, align 4, !tbaa !51
   %76 = getelementptr inbounds nuw i8, ptr %.0618638, i64 8
-  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = sext i32 %77 to i64
   %79 = getelementptr i8, ptr %16, i64 16
-  %80 = load i32, ptr %79, align 4, !tbaa !48
+  %80 = load i32, ptr %79, align 4, !tbaa !49
   %81 = sext i32 %80 to i64
   %82 = mul nsw i64 %81, %78
   %83 = getelementptr inbounds nuw i8, ptr %.0619637, i64 20
-  %84 = load i32, ptr %83, align 4, !tbaa !10
+  %84 = load i32, ptr %83, align 4, !tbaa !11
   %85 = sub nsw i32 0, %84
   %86 = sext i32 %85 to i64
   %87 = getelementptr i8, ptr %16, i64 20
-  %88 = load i32, ptr %87, align 4, !tbaa !50
+  %88 = load i32, ptr %87, align 4, !tbaa !51
   %89 = sext i32 %88 to i64
   %90 = mul nsw i64 %89, %86
   %91 = add nsw i64 %82, 1073741824
@@ -1657,12 +1657,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %99 = lshr i64 %98, 31
   %100 = trunc i64 %99 to i32
   %101 = getelementptr i8, ptr %38, i64 16
-  %102 = load i32, ptr %101, align 4, !tbaa !48
+  %102 = load i32, ptr %101, align 4, !tbaa !49
   %103 = sext i32 %102 to i64
   %104 = mul nsw i64 %103, %78
   %105 = sext i32 %84 to i64
   %106 = getelementptr i8, ptr %38, i64 20
-  %107 = load i32, ptr %106, align 4, !tbaa !50
+  %107 = load i32, ptr %106, align 4, !tbaa !51
   %108 = sext i32 %107 to i64
   %109 = mul nsw i64 %108, %105
   %110 = add nsw i64 %104, 1073741824
@@ -1676,46 +1676,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %118 = lshr i64 %117, 31
   %119 = trunc i64 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.0639, i64 16
-  %121 = load i32, ptr %120, align 4, !tbaa !48
+  %121 = load i32, ptr %120, align 4, !tbaa !49
   %122 = getelementptr inbounds nuw i8, ptr %.0639, i64 20
-  %123 = load i32, ptr %122, align 4, !tbaa !50
+  %123 = load i32, ptr %122, align 4, !tbaa !51
   %124 = getelementptr i8, ptr %60, i64 16
-  %125 = load i32, ptr %124, align 4, !tbaa !48
+  %125 = load i32, ptr %124, align 4, !tbaa !49
   %126 = getelementptr i8, ptr %60, i64 20
-  %127 = load i32, ptr %126, align 4, !tbaa !50
+  %127 = load i32, ptr %126, align 4, !tbaa !51
   %128 = sub i32 %113, %94
   %129 = add i32 %113, %94
   %130 = sub i32 %121, %129
-  store i32 %130, ptr %79, align 4, !tbaa !48
+  store i32 %130, ptr %79, align 4, !tbaa !49
   %131 = add i32 %129, %121
-  store i32 %131, ptr %120, align 4, !tbaa !48
+  store i32 %131, ptr %120, align 4, !tbaa !49
   %132 = sub i32 %127, %128
-  store i32 %132, ptr %106, align 4, !tbaa !50
+  store i32 %132, ptr %106, align 4, !tbaa !51
   %133 = add i32 %128, %127
-  store i32 %133, ptr %126, align 4, !tbaa !50
+  store i32 %133, ptr %126, align 4, !tbaa !51
   %134 = sub i32 %100, %119
   %135 = add i32 %119, %100
   %136 = sub i32 %125, %134
-  store i32 %136, ptr %101, align 4, !tbaa !48
+  store i32 %136, ptr %101, align 4, !tbaa !49
   %137 = add i32 %134, %125
-  store i32 %137, ptr %124, align 4, !tbaa !48
+  store i32 %137, ptr %124, align 4, !tbaa !49
   %138 = sub i32 %123, %135
-  store i32 %138, ptr %87, align 4, !tbaa !50
+  store i32 %138, ptr %87, align 4, !tbaa !51
   %139 = add i32 %135, %123
-  store i32 %139, ptr %122, align 4, !tbaa !50
+  store i32 %139, ptr %122, align 4, !tbaa !51
   %140 = getelementptr inbounds nuw i8, ptr %.0618638, i64 16
-  %141 = load i32, ptr %140, align 4, !tbaa !10
+  %141 = load i32, ptr %140, align 4, !tbaa !11
   %142 = sext i32 %141 to i64
   %143 = getelementptr i8, ptr %16, i64 32
-  %144 = load i32, ptr %143, align 4, !tbaa !48
+  %144 = load i32, ptr %143, align 4, !tbaa !49
   %145 = sext i32 %144 to i64
   %146 = mul nsw i64 %145, %142
   %147 = getelementptr inbounds nuw i8, ptr %.0619637, i64 12
-  %148 = load i32, ptr %147, align 4, !tbaa !10
+  %148 = load i32, ptr %147, align 4, !tbaa !11
   %149 = sub nsw i32 0, %148
   %150 = sext i32 %149 to i64
   %151 = getelementptr i8, ptr %16, i64 36
-  %152 = load i32, ptr %151, align 4, !tbaa !50
+  %152 = load i32, ptr %151, align 4, !tbaa !51
   %153 = sext i32 %152 to i64
   %154 = mul nsw i64 %153, %150
   %155 = add nsw i64 %146, 1073741824
@@ -1729,12 +1729,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %163 = lshr i64 %162, 31
   %164 = trunc i64 %163 to i32
   %165 = getelementptr i8, ptr %38, i64 32
-  %166 = load i32, ptr %165, align 4, !tbaa !48
+  %166 = load i32, ptr %165, align 4, !tbaa !49
   %167 = sext i32 %166 to i64
   %168 = mul nsw i64 %167, %142
   %169 = sext i32 %148 to i64
   %170 = getelementptr i8, ptr %38, i64 36
-  %171 = load i32, ptr %170, align 4, !tbaa !50
+  %171 = load i32, ptr %170, align 4, !tbaa !51
   %172 = sext i32 %171 to i64
   %173 = mul nsw i64 %172, %169
   %174 = add nsw i64 %168, 1073741824
@@ -1748,46 +1748,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %182 = lshr i64 %181, 31
   %183 = trunc i64 %182 to i32
   %184 = getelementptr inbounds nuw i8, ptr %.0639, i64 32
-  %185 = load i32, ptr %184, align 4, !tbaa !48
+  %185 = load i32, ptr %184, align 4, !tbaa !49
   %186 = getelementptr inbounds nuw i8, ptr %.0639, i64 36
-  %187 = load i32, ptr %186, align 4, !tbaa !50
+  %187 = load i32, ptr %186, align 4, !tbaa !51
   %188 = getelementptr i8, ptr %60, i64 32
-  %189 = load i32, ptr %188, align 4, !tbaa !48
+  %189 = load i32, ptr %188, align 4, !tbaa !49
   %190 = getelementptr i8, ptr %60, i64 36
-  %191 = load i32, ptr %190, align 4, !tbaa !50
+  %191 = load i32, ptr %190, align 4, !tbaa !51
   %192 = sub i32 %177, %158
   %193 = add i32 %177, %158
   %194 = sub i32 %185, %193
-  store i32 %194, ptr %143, align 4, !tbaa !48
+  store i32 %194, ptr %143, align 4, !tbaa !49
   %195 = add i32 %193, %185
-  store i32 %195, ptr %184, align 4, !tbaa !48
+  store i32 %195, ptr %184, align 4, !tbaa !49
   %196 = sub i32 %191, %192
-  store i32 %196, ptr %170, align 4, !tbaa !50
+  store i32 %196, ptr %170, align 4, !tbaa !51
   %197 = add i32 %192, %191
-  store i32 %197, ptr %190, align 4, !tbaa !50
+  store i32 %197, ptr %190, align 4, !tbaa !51
   %198 = sub i32 %164, %183
   %199 = add i32 %183, %164
   %200 = sub i32 %189, %198
-  store i32 %200, ptr %165, align 4, !tbaa !48
+  store i32 %200, ptr %165, align 4, !tbaa !49
   %201 = add i32 %198, %189
-  store i32 %201, ptr %188, align 4, !tbaa !48
+  store i32 %201, ptr %188, align 4, !tbaa !49
   %202 = sub i32 %187, %199
-  store i32 %202, ptr %151, align 4, !tbaa !50
+  store i32 %202, ptr %151, align 4, !tbaa !51
   %203 = add i32 %199, %187
-  store i32 %203, ptr %186, align 4, !tbaa !50
+  store i32 %203, ptr %186, align 4, !tbaa !51
   %204 = getelementptr inbounds nuw i8, ptr %.0618638, i64 24
-  %205 = load i32, ptr %204, align 4, !tbaa !10
+  %205 = load i32, ptr %204, align 4, !tbaa !11
   %206 = sext i32 %205 to i64
   %207 = getelementptr i8, ptr %16, i64 48
-  %208 = load i32, ptr %207, align 4, !tbaa !48
+  %208 = load i32, ptr %207, align 4, !tbaa !49
   %209 = sext i32 %208 to i64
   %210 = mul nsw i64 %209, %206
   %211 = getelementptr inbounds nuw i8, ptr %.0619637, i64 4
-  %212 = load i32, ptr %211, align 4, !tbaa !10
+  %212 = load i32, ptr %211, align 4, !tbaa !11
   %213 = sub nsw i32 0, %212
   %214 = sext i32 %213 to i64
   %215 = getelementptr i8, ptr %16, i64 52
-  %216 = load i32, ptr %215, align 4, !tbaa !50
+  %216 = load i32, ptr %215, align 4, !tbaa !51
   %217 = sext i32 %216 to i64
   %218 = mul nsw i64 %217, %214
   %219 = add nsw i64 %210, 1073741824
@@ -1801,12 +1801,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %227 = lshr i64 %226, 31
   %228 = trunc i64 %227 to i32
   %229 = getelementptr i8, ptr %38, i64 48
-  %230 = load i32, ptr %229, align 4, !tbaa !48
+  %230 = load i32, ptr %229, align 4, !tbaa !49
   %231 = sext i32 %230 to i64
   %232 = mul nsw i64 %231, %206
   %233 = sext i32 %212 to i64
   %234 = getelementptr i8, ptr %38, i64 52
-  %235 = load i32, ptr %234, align 4, !tbaa !50
+  %235 = load i32, ptr %234, align 4, !tbaa !51
   %236 = sext i32 %235 to i64
   %237 = mul nsw i64 %236, %233
   %238 = add nsw i64 %232, 1073741824
@@ -1820,46 +1820,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %246 = lshr i64 %245, 31
   %247 = trunc i64 %246 to i32
   %248 = getelementptr inbounds nuw i8, ptr %.0639, i64 48
-  %249 = load i32, ptr %248, align 4, !tbaa !48
+  %249 = load i32, ptr %248, align 4, !tbaa !49
   %250 = getelementptr inbounds nuw i8, ptr %.0639, i64 52
-  %251 = load i32, ptr %250, align 4, !tbaa !50
+  %251 = load i32, ptr %250, align 4, !tbaa !51
   %252 = getelementptr i8, ptr %60, i64 48
-  %253 = load i32, ptr %252, align 4, !tbaa !48
+  %253 = load i32, ptr %252, align 4, !tbaa !49
   %254 = getelementptr i8, ptr %60, i64 52
-  %255 = load i32, ptr %254, align 4, !tbaa !50
+  %255 = load i32, ptr %254, align 4, !tbaa !51
   %256 = sub i32 %241, %222
   %257 = add i32 %241, %222
   %258 = sub i32 %249, %257
-  store i32 %258, ptr %207, align 4, !tbaa !48
+  store i32 %258, ptr %207, align 4, !tbaa !49
   %259 = add i32 %257, %249
-  store i32 %259, ptr %248, align 4, !tbaa !48
+  store i32 %259, ptr %248, align 4, !tbaa !49
   %260 = sub i32 %255, %256
-  store i32 %260, ptr %234, align 4, !tbaa !50
+  store i32 %260, ptr %234, align 4, !tbaa !51
   %261 = add i32 %256, %255
-  store i32 %261, ptr %254, align 4, !tbaa !50
+  store i32 %261, ptr %254, align 4, !tbaa !51
   %262 = sub i32 %228, %247
   %263 = add i32 %247, %228
   %264 = sub i32 %253, %262
-  store i32 %264, ptr %229, align 4, !tbaa !48
+  store i32 %264, ptr %229, align 4, !tbaa !49
   %265 = add i32 %262, %253
-  store i32 %265, ptr %252, align 4, !tbaa !48
+  store i32 %265, ptr %252, align 4, !tbaa !49
   %266 = sub i32 %251, %263
-  store i32 %266, ptr %215, align 4, !tbaa !50
+  store i32 %266, ptr %215, align 4, !tbaa !51
   %267 = add i32 %263, %251
-  store i32 %267, ptr %250, align 4, !tbaa !50
+  store i32 %267, ptr %250, align 4, !tbaa !51
   %268 = getelementptr inbounds nuw i8, ptr %.0618638, i64 4
-  %269 = load i32, ptr %268, align 4, !tbaa !10
+  %269 = load i32, ptr %268, align 4, !tbaa !11
   %270 = sext i32 %269 to i64
   %271 = getelementptr i8, ptr %16, i64 8
-  %272 = load i32, ptr %271, align 4, !tbaa !48
+  %272 = load i32, ptr %271, align 4, !tbaa !49
   %273 = sext i32 %272 to i64
   %274 = mul nsw i64 %273, %270
   %275 = getelementptr inbounds nuw i8, ptr %.0619637, i64 24
-  %276 = load i32, ptr %275, align 4, !tbaa !10
+  %276 = load i32, ptr %275, align 4, !tbaa !11
   %277 = sub nsw i32 0, %276
   %278 = sext i32 %277 to i64
   %279 = getelementptr i8, ptr %16, i64 12
-  %280 = load i32, ptr %279, align 4, !tbaa !50
+  %280 = load i32, ptr %279, align 4, !tbaa !51
   %281 = sext i32 %280 to i64
   %282 = mul nsw i64 %281, %278
   %283 = add nsw i64 %274, 1073741824
@@ -1873,12 +1873,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %291 = lshr i64 %290, 31
   %292 = trunc i64 %291 to i32
   %293 = getelementptr i8, ptr %38, i64 8
-  %294 = load i32, ptr %293, align 4, !tbaa !48
+  %294 = load i32, ptr %293, align 4, !tbaa !49
   %295 = sext i32 %294 to i64
   %296 = mul nsw i64 %295, %270
   %297 = sext i32 %276 to i64
   %298 = getelementptr i8, ptr %38, i64 12
-  %299 = load i32, ptr %298, align 4, !tbaa !50
+  %299 = load i32, ptr %298, align 4, !tbaa !51
   %300 = sext i32 %299 to i64
   %301 = mul nsw i64 %300, %297
   %302 = add nsw i64 %296, 1073741824
@@ -1892,46 +1892,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %310 = lshr i64 %309, 31
   %311 = trunc i64 %310 to i32
   %312 = getelementptr inbounds nuw i8, ptr %.0639, i64 8
-  %313 = load i32, ptr %312, align 4, !tbaa !48
+  %313 = load i32, ptr %312, align 4, !tbaa !49
   %314 = getelementptr inbounds nuw i8, ptr %.0639, i64 12
-  %315 = load i32, ptr %314, align 4, !tbaa !50
+  %315 = load i32, ptr %314, align 4, !tbaa !51
   %316 = getelementptr i8, ptr %60, i64 8
-  %317 = load i32, ptr %316, align 4, !tbaa !48
+  %317 = load i32, ptr %316, align 4, !tbaa !49
   %318 = getelementptr i8, ptr %60, i64 12
-  %319 = load i32, ptr %318, align 4, !tbaa !50
+  %319 = load i32, ptr %318, align 4, !tbaa !51
   %320 = sub i32 %305, %286
   %321 = add i32 %305, %286
   %322 = sub i32 %313, %321
-  store i32 %322, ptr %271, align 4, !tbaa !48
+  store i32 %322, ptr %271, align 4, !tbaa !49
   %323 = add i32 %321, %313
-  store i32 %323, ptr %312, align 4, !tbaa !48
+  store i32 %323, ptr %312, align 4, !tbaa !49
   %324 = sub i32 %319, %320
-  store i32 %324, ptr %298, align 4, !tbaa !50
+  store i32 %324, ptr %298, align 4, !tbaa !51
   %325 = add i32 %320, %319
-  store i32 %325, ptr %318, align 4, !tbaa !50
+  store i32 %325, ptr %318, align 4, !tbaa !51
   %326 = sub i32 %292, %311
   %327 = add i32 %311, %292
   %328 = sub i32 %317, %326
-  store i32 %328, ptr %293, align 4, !tbaa !48
+  store i32 %328, ptr %293, align 4, !tbaa !49
   %329 = add i32 %326, %317
-  store i32 %329, ptr %316, align 4, !tbaa !48
+  store i32 %329, ptr %316, align 4, !tbaa !49
   %330 = sub i32 %315, %327
-  store i32 %330, ptr %279, align 4, !tbaa !50
+  store i32 %330, ptr %279, align 4, !tbaa !51
   %331 = add i32 %327, %315
-  store i32 %331, ptr %314, align 4, !tbaa !50
+  store i32 %331, ptr %314, align 4, !tbaa !51
   %332 = getelementptr inbounds nuw i8, ptr %.0618638, i64 12
-  %333 = load i32, ptr %332, align 4, !tbaa !10
+  %333 = load i32, ptr %332, align 4, !tbaa !11
   %334 = sext i32 %333 to i64
   %335 = getelementptr i8, ptr %16, i64 24
-  %336 = load i32, ptr %335, align 4, !tbaa !48
+  %336 = load i32, ptr %335, align 4, !tbaa !49
   %337 = sext i32 %336 to i64
   %338 = mul nsw i64 %337, %334
   %339 = getelementptr inbounds nuw i8, ptr %.0619637, i64 16
-  %340 = load i32, ptr %339, align 4, !tbaa !10
+  %340 = load i32, ptr %339, align 4, !tbaa !11
   %341 = sub nsw i32 0, %340
   %342 = sext i32 %341 to i64
   %343 = getelementptr i8, ptr %16, i64 28
-  %344 = load i32, ptr %343, align 4, !tbaa !50
+  %344 = load i32, ptr %343, align 4, !tbaa !51
   %345 = sext i32 %344 to i64
   %346 = mul nsw i64 %345, %342
   %347 = add nsw i64 %338, 1073741824
@@ -1945,12 +1945,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %355 = lshr i64 %354, 31
   %356 = trunc i64 %355 to i32
   %357 = getelementptr i8, ptr %38, i64 24
-  %358 = load i32, ptr %357, align 4, !tbaa !48
+  %358 = load i32, ptr %357, align 4, !tbaa !49
   %359 = sext i32 %358 to i64
   %360 = mul nsw i64 %359, %334
   %361 = sext i32 %340 to i64
   %362 = getelementptr i8, ptr %38, i64 28
-  %363 = load i32, ptr %362, align 4, !tbaa !50
+  %363 = load i32, ptr %362, align 4, !tbaa !51
   %364 = sext i32 %363 to i64
   %365 = mul nsw i64 %364, %361
   %366 = add nsw i64 %360, 1073741824
@@ -1964,46 +1964,46 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %374 = lshr i64 %373, 31
   %375 = trunc i64 %374 to i32
   %376 = getelementptr inbounds nuw i8, ptr %.0639, i64 24
-  %377 = load i32, ptr %376, align 4, !tbaa !48
+  %377 = load i32, ptr %376, align 4, !tbaa !49
   %378 = getelementptr inbounds nuw i8, ptr %.0639, i64 28
-  %379 = load i32, ptr %378, align 4, !tbaa !50
+  %379 = load i32, ptr %378, align 4, !tbaa !51
   %380 = getelementptr i8, ptr %60, i64 24
-  %381 = load i32, ptr %380, align 4, !tbaa !48
+  %381 = load i32, ptr %380, align 4, !tbaa !49
   %382 = getelementptr i8, ptr %60, i64 28
-  %383 = load i32, ptr %382, align 4, !tbaa !50
+  %383 = load i32, ptr %382, align 4, !tbaa !51
   %384 = sub i32 %369, %350
   %385 = add i32 %369, %350
   %386 = sub i32 %377, %385
-  store i32 %386, ptr %335, align 4, !tbaa !48
+  store i32 %386, ptr %335, align 4, !tbaa !49
   %387 = add i32 %385, %377
-  store i32 %387, ptr %376, align 4, !tbaa !48
+  store i32 %387, ptr %376, align 4, !tbaa !49
   %388 = sub i32 %383, %384
-  store i32 %388, ptr %362, align 4, !tbaa !50
+  store i32 %388, ptr %362, align 4, !tbaa !51
   %389 = add i32 %384, %383
-  store i32 %389, ptr %382, align 4, !tbaa !50
+  store i32 %389, ptr %382, align 4, !tbaa !51
   %390 = sub i32 %356, %375
   %391 = add i32 %375, %356
   %392 = sub i32 %381, %390
-  store i32 %392, ptr %357, align 4, !tbaa !48
+  store i32 %392, ptr %357, align 4, !tbaa !49
   %393 = add i32 %390, %381
-  store i32 %393, ptr %380, align 4, !tbaa !48
+  store i32 %393, ptr %380, align 4, !tbaa !49
   %394 = sub i32 %379, %391
-  store i32 %394, ptr %343, align 4, !tbaa !50
+  store i32 %394, ptr %343, align 4, !tbaa !51
   %395 = add i32 %391, %379
-  store i32 %395, ptr %378, align 4, !tbaa !50
+  store i32 %395, ptr %378, align 4, !tbaa !51
   %396 = getelementptr inbounds nuw i8, ptr %.0618638, i64 20
-  %397 = load i32, ptr %396, align 4, !tbaa !10
+  %397 = load i32, ptr %396, align 4, !tbaa !11
   %398 = sext i32 %397 to i64
   %399 = getelementptr i8, ptr %16, i64 40
-  %400 = load i32, ptr %399, align 4, !tbaa !48
+  %400 = load i32, ptr %399, align 4, !tbaa !49
   %401 = sext i32 %400 to i64
   %402 = mul nsw i64 %401, %398
   %403 = getelementptr inbounds nuw i8, ptr %.0619637, i64 8
-  %404 = load i32, ptr %403, align 4, !tbaa !10
+  %404 = load i32, ptr %403, align 4, !tbaa !11
   %405 = sub nsw i32 0, %404
   %406 = sext i32 %405 to i64
   %407 = getelementptr i8, ptr %16, i64 44
-  %408 = load i32, ptr %407, align 4, !tbaa !50
+  %408 = load i32, ptr %407, align 4, !tbaa !51
   %409 = sext i32 %408 to i64
   %410 = mul nsw i64 %409, %406
   %411 = add nsw i64 %402, 1073741824
@@ -2017,12 +2017,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %419 = lshr i64 %418, 31
   %420 = trunc i64 %419 to i32
   %421 = getelementptr i8, ptr %38, i64 40
-  %422 = load i32, ptr %421, align 4, !tbaa !48
+  %422 = load i32, ptr %421, align 4, !tbaa !49
   %423 = sext i32 %422 to i64
   %424 = mul nsw i64 %423, %398
   %425 = sext i32 %404 to i64
   %426 = getelementptr i8, ptr %38, i64 44
-  %427 = load i32, ptr %426, align 4, !tbaa !50
+  %427 = load i32, ptr %426, align 4, !tbaa !51
   %428 = sext i32 %427 to i64
   %429 = mul nsw i64 %428, %425
   %430 = add nsw i64 %424, 1073741824
@@ -2036,45 +2036,45 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %438 = lshr i64 %437, 31
   %439 = trunc i64 %438 to i32
   %440 = getelementptr inbounds nuw i8, ptr %.0639, i64 40
-  %441 = load i32, ptr %440, align 4, !tbaa !48
+  %441 = load i32, ptr %440, align 4, !tbaa !49
   %442 = getelementptr inbounds nuw i8, ptr %.0639, i64 44
-  %443 = load i32, ptr %442, align 4, !tbaa !50
+  %443 = load i32, ptr %442, align 4, !tbaa !51
   %444 = getelementptr i8, ptr %60, i64 40
-  %445 = load i32, ptr %444, align 4, !tbaa !48
+  %445 = load i32, ptr %444, align 4, !tbaa !49
   %446 = getelementptr i8, ptr %60, i64 44
-  %447 = load i32, ptr %446, align 4, !tbaa !50
+  %447 = load i32, ptr %446, align 4, !tbaa !51
   %448 = sub i32 %433, %414
   %449 = add i32 %433, %414
   %450 = sub i32 %441, %449
-  store i32 %450, ptr %399, align 4, !tbaa !48
+  store i32 %450, ptr %399, align 4, !tbaa !49
   %451 = add i32 %449, %441
-  store i32 %451, ptr %440, align 4, !tbaa !48
+  store i32 %451, ptr %440, align 4, !tbaa !49
   %452 = sub i32 %447, %448
-  store i32 %452, ptr %426, align 4, !tbaa !50
+  store i32 %452, ptr %426, align 4, !tbaa !51
   %453 = add i32 %448, %447
-  store i32 %453, ptr %446, align 4, !tbaa !50
+  store i32 %453, ptr %446, align 4, !tbaa !51
   %454 = sub i32 %420, %439
   %455 = add i32 %439, %420
   %456 = sub i32 %445, %454
-  store i32 %456, ptr %421, align 4, !tbaa !48
+  store i32 %456, ptr %421, align 4, !tbaa !49
   %457 = add i32 %454, %445
-  store i32 %457, ptr %444, align 4, !tbaa !48
+  store i32 %457, ptr %444, align 4, !tbaa !49
   %458 = sub i32 %443, %455
-  store i32 %458, ptr %407, align 4, !tbaa !50
+  store i32 %458, ptr %407, align 4, !tbaa !51
   %459 = add i32 %455, %443
-  store i32 %459, ptr %442, align 4, !tbaa !50
+  store i32 %459, ptr %442, align 4, !tbaa !51
   %460 = getelementptr inbounds nuw i8, ptr %.0618638, i64 28
-  %461 = load i32, ptr %460, align 4, !tbaa !10
+  %461 = load i32, ptr %460, align 4, !tbaa !11
   %462 = sext i32 %461 to i64
   %463 = getelementptr i8, ptr %16, i64 56
-  %464 = load i32, ptr %463, align 4, !tbaa !48
+  %464 = load i32, ptr %463, align 4, !tbaa !49
   %465 = sext i32 %464 to i64
   %466 = mul nsw i64 %465, %462
-  %467 = load i32, ptr %.0619637, align 4, !tbaa !10
+  %467 = load i32, ptr %.0619637, align 4, !tbaa !11
   %468 = sub nsw i32 0, %467
   %469 = sext i32 %468 to i64
   %470 = getelementptr i8, ptr %16, i64 60
-  %471 = load i32, ptr %470, align 4, !tbaa !50
+  %471 = load i32, ptr %470, align 4, !tbaa !51
   %472 = sext i32 %471 to i64
   %473 = mul nsw i64 %472, %469
   %474 = add nsw i64 %466, 1073741824
@@ -2088,12 +2088,12 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %482 = lshr i64 %481, 31
   %483 = trunc i64 %482 to i32
   %484 = getelementptr i8, ptr %38, i64 56
-  %485 = load i32, ptr %484, align 4, !tbaa !48
+  %485 = load i32, ptr %484, align 4, !tbaa !49
   %486 = sext i32 %485 to i64
   %487 = mul nsw i64 %486, %462
   %488 = sext i32 %467 to i64
   %489 = getelementptr i8, ptr %38, i64 60
-  %490 = load i32, ptr %489, align 4, !tbaa !50
+  %490 = load i32, ptr %489, align 4, !tbaa !51
   %491 = sext i32 %490 to i64
   %492 = mul nsw i64 %491, %488
   %493 = add nsw i64 %487, 1073741824
@@ -2107,39 +2107,39 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   %501 = lshr i64 %500, 31
   %502 = trunc i64 %501 to i32
   %503 = getelementptr inbounds nuw i8, ptr %.0639, i64 56
-  %504 = load i32, ptr %503, align 4, !tbaa !48
+  %504 = load i32, ptr %503, align 4, !tbaa !49
   %505 = getelementptr inbounds nuw i8, ptr %.0639, i64 60
-  %506 = load i32, ptr %505, align 4, !tbaa !50
+  %506 = load i32, ptr %505, align 4, !tbaa !51
   %507 = getelementptr i8, ptr %60, i64 56
-  %508 = load i32, ptr %507, align 4, !tbaa !48
+  %508 = load i32, ptr %507, align 4, !tbaa !49
   %509 = getelementptr i8, ptr %60, i64 60
-  %510 = load i32, ptr %509, align 4, !tbaa !50
+  %510 = load i32, ptr %509, align 4, !tbaa !51
   %511 = sub i32 %496, %477
   %512 = add i32 %496, %477
   %513 = sub i32 %504, %512
-  store i32 %513, ptr %463, align 4, !tbaa !48
+  store i32 %513, ptr %463, align 4, !tbaa !49
   %514 = add i32 %512, %504
-  store i32 %514, ptr %503, align 4, !tbaa !48
+  store i32 %514, ptr %503, align 4, !tbaa !49
   %515 = sub i32 %510, %511
-  store i32 %515, ptr %489, align 4, !tbaa !50
+  store i32 %515, ptr %489, align 4, !tbaa !51
   %516 = add i32 %511, %510
-  store i32 %516, ptr %509, align 4, !tbaa !50
+  store i32 %516, ptr %509, align 4, !tbaa !51
   %517 = sub i32 %483, %502
   %518 = add i32 %502, %483
   %519 = sub i32 %508, %517
-  store i32 %519, ptr %484, align 4, !tbaa !48
+  store i32 %519, ptr %484, align 4, !tbaa !49
   %520 = add i32 %517, %508
-  store i32 %520, ptr %507, align 4, !tbaa !48
+  store i32 %520, ptr %507, align 4, !tbaa !49
   %521 = sub i32 %506, %518
-  store i32 %521, ptr %470, align 4, !tbaa !50
+  store i32 %521, ptr %470, align 4, !tbaa !51
   %522 = add i32 %518, %506
-  store i32 %522, ptr %505, align 4, !tbaa !50
+  store i32 %522, ptr %505, align 4, !tbaa !51
   %523 = getelementptr inbounds nuw i8, ptr %.0639, i64 64
   %524 = getelementptr inbounds nuw i8, ptr %.0618638, i64 32
   %525 = getelementptr inbounds i8, ptr %.0619637, i64 -32
   %526 = add nuw nsw i32 %.0620636, 4
   %527 = icmp slt i32 %526, %2
-  br i1 %527, label %13, label %._crit_edge, !llvm.loop !51
+  br i1 %527, label %13, label %._crit_edge, !llvm.loop !52
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2605,37 +2605,37 @@ define internal void @ff_tx_fft2097152_ns_int32_c(ptr readnone captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft3_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
-  %.sroa.08.0.copyload.i = load i32, ptr %2, align 4, !tbaa !10
+  %.sroa.08.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !10
+  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !50
+  %8 = load i32, ptr %7, align 4, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !50
+  %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = sub i32 %8, %11
   %13 = add i32 %11, %8
-  %14 = load i32, ptr %6, align 4, !tbaa !48
-  %15 = load i32, ptr %9, align 4, !tbaa !48
+  %14 = load i32, ptr %6, align 4, !tbaa !49
+  %15 = load i32, ptr %9, align 4, !tbaa !49
   %16 = sub i32 %14, %15
   %17 = add i32 %15, %14
   %18 = sext i32 %17 to i64
   %19 = add i32 %17, %.sroa.08.0.copyload.i
-  store i32 %19, ptr %1, align 4, !tbaa !48
+  store i32 %19, ptr %1, align 4, !tbaa !49
   %20 = sext i32 %13 to i64
   %21 = add i32 %13, %.sroa.6.0.copyload.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %21, ptr %22, align 4, !tbaa !50
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  store i32 %21, ptr %22, align 4, !tbaa !51
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %24 = sext i32 %23 to i64
   %25 = sext i32 %12 to i64
   %26 = mul nsw i64 %24, %25
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %28 = sext i32 %27 to i64
   %29 = sext i32 %16 to i64
   %30 = mul nsw i64 %28, %29
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %32, %18
   %34 = mul nsw i64 %32, %20
@@ -2645,14 +2645,14 @@ define internal void @ff_tx_fft3_int32_c(ptr readnone captures(none) %0, ptr nou
   %38 = trunc i64 %37 to i32
   %39 = sub i32 %.sroa.08.0.copyload.i, %38
   %40 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %5
-  store i32 %39, ptr %40, align 4, !tbaa !48
+  store i32 %39, ptr %40, align 4, !tbaa !49
   %reass.sub = sub nsw i64 %34, %30
   %41 = add nsw i64 %reass.sub, 1073741824
   %42 = lshr i64 %41, 31
   %43 = trunc i64 %42 to i32
   %44 = sub i32 %.sroa.6.0.copyload.i, %43
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 %44, ptr %45, align 4, !tbaa !50
+  store i32 %44, ptr %45, align 4, !tbaa !51
   %reass.sub3 = sub nsw i64 %33, %26
   %46 = add nsw i64 %reass.sub3, 1073741824
   %47 = lshr i64 %46, 31
@@ -2660,14 +2660,14 @@ define internal void @ff_tx_fft3_int32_c(ptr readnone captures(none) %0, ptr nou
   %49 = sub i32 %.sroa.08.0.copyload.i, %48
   %.idx.i = shl nsw i64 %5, 4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  store i32 %49, ptr %50, align 4, !tbaa !48
+  store i32 %49, ptr %50, align 4, !tbaa !49
   %51 = add nsw i64 %30, 1073741824
   %52 = add i64 %51, %34
   %53 = lshr i64 %52, 31
   %54 = trunc i64 %53 to i32
   %55 = sub i32 %.sroa.6.0.copyload.i, %54
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %55, ptr %56, align 4, !tbaa !50
+  store i32 %55, ptr %56, align 4, !tbaa !51
   ret void
 }
 
@@ -2702,46 +2702,46 @@ declare i32 @ff_tx_gen_default_map(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft5_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
-  %.sroa.057.0.copyload.i = load i32, ptr %2, align 4, !tbaa !10
+  %.sroa.057.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i32, ptr %8, align 4, !tbaa !48
+  %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = sub i32 %7, %9
   %11 = add i32 %9, %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = sub i32 %13, %15
   %17 = add i32 %15, %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !48
+  %19 = load i32, ptr %18, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = load i32, ptr %20, align 4, !tbaa !48
+  %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = sub i32 %19, %21
   %23 = add i32 %21, %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = sub i32 %25, %27
   %29 = add i32 %27, %25
   %30 = add i32 %11, %.sroa.057.0.copyload.i
   %31 = add i32 %30, %23
-  store i32 %31, ptr %1, align 4, !tbaa !48
+  store i32 %31, ptr %1, align 4, !tbaa !49
   %32 = add i32 %17, %.sroa.862.0.copyload.i
   %33 = add i32 %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %33, ptr %34, align 4, !tbaa !50
+  store i32 %33, ptr %34, align 4, !tbaa !51
   %35 = sext i32 %23 to i64
-  %36 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %36 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %37, %35
   %39 = sext i32 %11 to i64
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %41, %39
   %43 = add nsw i64 %38, 1073741824
@@ -2769,11 +2769,11 @@ define internal void @ff_tx_fft5_int32_c(ptr readnone captures(none) %0, ptr nou
   %65 = lshr i64 %64, 31
   %66 = trunc i64 %65 to i32
   %67 = sext i32 %28 to i64
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %69, %67
   %71 = sext i32 %16 to i64
-  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %71
   %75 = add nsw i64 %70, 1073741824
@@ -2803,97 +2803,97 @@ define internal void @ff_tx_fft5_int32_c(ptr readnone captures(none) %0, ptr nou
   %99 = add i32 %.sroa.057.0.copyload.i, %52
   %100 = add i32 %99, %84
   %101 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %5
-  store i32 %100, ptr %101, align 4, !tbaa !48
+  store i32 %100, ptr %101, align 4, !tbaa !49
   %102 = add i32 %.sroa.862.0.copyload.i, %66
   %103 = sub i32 %102, %98
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  store i32 %103, ptr %104, align 4, !tbaa !50
+  store i32 %103, ptr %104, align 4, !tbaa !51
   %105 = add i32 %.sroa.057.0.copyload.i, %46
   %106 = sub i32 %105, %78
   %.idx.i = shl nsw i64 %5, 4
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  store i32 %106, ptr %107, align 4, !tbaa !48
+  store i32 %106, ptr %107, align 4, !tbaa !49
   %108 = add i32 %.sroa.862.0.copyload.i, %60
   %109 = add i32 %108, %92
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 %109, ptr %110, align 4, !tbaa !50
+  store i32 %109, ptr %110, align 4, !tbaa !51
   %111 = add i32 %105, %78
   %.idx104.i = mul nuw nsw i64 %5, 24
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx104.i
-  store i32 %111, ptr %112, align 4, !tbaa !48
+  store i32 %111, ptr %112, align 4, !tbaa !49
   %113 = sub i32 %108, %92
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  store i32 %113, ptr %114, align 4, !tbaa !50
+  store i32 %113, ptr %114, align 4, !tbaa !51
   %115 = sub i32 %99, %84
   %.idx105.i = shl nsw i64 %5, 5
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx105.i
-  store i32 %115, ptr %116, align 4, !tbaa !48
+  store i32 %115, ptr %116, align 4, !tbaa !49
   %117 = add i32 %102, %98
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  store i32 %117, ptr %118, align 4, !tbaa !50
+  store i32 %117, ptr %118, align 4, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft7_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
-  %.sroa.0103.0.copyload.i = load i32, ptr %2, align 4, !tbaa !10
+  %.sroa.0103.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
   %.sroa.10110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !10
+  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load i32, ptr %8, align 4, !tbaa !48
+  %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = sub i32 %7, %9
   %11 = add i32 %9, %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = sub i32 %13, %15
   %17 = add i32 %15, %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !48
+  %19 = load i32, ptr %18, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %21 = load i32, ptr %20, align 4, !tbaa !48
+  %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = sub i32 %19, %21
   %23 = add i32 %21, %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = sub i32 %25, %27
   %29 = add i32 %27, %25
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %31 = load i32, ptr %30, align 4, !tbaa !48
+  %31 = load i32, ptr %30, align 4, !tbaa !49
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %33 = load i32, ptr %32, align 4, !tbaa !48
+  %33 = load i32, ptr %32, align 4, !tbaa !49
   %34 = sub i32 %31, %33
   %35 = add i32 %33, %31
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !50
+  %37 = load i32, ptr %36, align 4, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %39 = load i32, ptr %38, align 4, !tbaa !50
+  %39 = load i32, ptr %38, align 4, !tbaa !51
   %40 = sub i32 %37, %39
   %41 = add i32 %39, %37
   %42 = add nsw i32 %11, %.sroa.0103.0.copyload.i
   %43 = add nsw i32 %42, %23
   %44 = add nsw i32 %43, %35
-  store i32 %44, ptr %1, align 4, !tbaa !48
+  store i32 %44, ptr %1, align 4, !tbaa !49
   %45 = add nsw i32 %17, %.sroa.10110.0.copyload.i
   %46 = add nsw i32 %45, %29
   %47 = add nsw i32 %46, %41
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %47, ptr %48, align 4, !tbaa !50
-  %49 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !48
+  store i32 %47, ptr %48, align 4, !tbaa !51
+  %49 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !49
   %50 = sext i32 %49 to i64
   %51 = sext i32 %11 to i64
   %52 = mul nsw i64 %50, %51
-  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !48
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !49
   %54 = sext i32 %53 to i64
   %55 = sext i32 %35 to i64
   %56 = mul nsw i64 %50, %55
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !48
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !49
   %58 = sext i32 %57 to i64
   %59 = sext i32 %23 to i64
   %60 = mul nsw i64 %50, %59
@@ -2903,15 +2903,15 @@ define internal void @ff_tx_fft7_int32_c(ptr readnone captures(none) %0, ptr nou
   %64 = sext i32 %41 to i64
   %65 = mul nsw i64 %50, %64
   %66 = mul nsw i64 %50, %63
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !50
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !51
   %68 = sext i32 %67 to i64
   %69 = sext i32 %16 to i64
   %70 = mul nsw i64 %68, %69
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !50
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !51
   %72 = sext i32 %71 to i64
   %73 = sext i32 %40 to i64
   %74 = mul nsw i64 %72, %73
-  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !50
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !51
   %76 = sext i32 %75 to i64
   %77 = mul nsw i64 %76, %73
   %78 = sext i32 %28 to i64
@@ -3008,105 +3008,105 @@ define internal void @ff_tx_fft7_int32_c(ptr readnone captures(none) %0, ptr nou
   %151 = add i32 %.sroa.0103.0.copyload.i, %94
   %152 = add i32 %151, %132
   %153 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %5
-  store i32 %152, ptr %153, align 4, !tbaa !48
+  store i32 %152, ptr %153, align 4, !tbaa !49
   %154 = add i32 %.sroa.10110.0.copyload.i, %106
   %155 = sub i32 %154, %138
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  store i32 %155, ptr %156, align 4, !tbaa !50
+  store i32 %155, ptr %156, align 4, !tbaa !51
   %157 = add i32 %.sroa.0103.0.copyload.i, %98
   %158 = sub i32 %157, %126
   %.idx.i = shl nsw i64 %5, 4
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  store i32 %158, ptr %159, align 4, !tbaa !48
+  store i32 %158, ptr %159, align 4, !tbaa !49
   %160 = add i32 %.sroa.10110.0.copyload.i, %110
   %161 = add i32 %160, %144
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  store i32 %161, ptr %162, align 4, !tbaa !50
+  store i32 %161, ptr %162, align 4, !tbaa !51
   %163 = add i32 %.sroa.0103.0.copyload.i, %102
   %164 = add i32 %163, %120
   %.idx169.i = mul nuw nsw i64 %5, 24
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx169.i
-  store i32 %164, ptr %165, align 4, !tbaa !48
+  store i32 %164, ptr %165, align 4, !tbaa !49
   %166 = add i32 %.sroa.10110.0.copyload.i, %114
   %167 = sub i32 %166, %150
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  store i32 %167, ptr %168, align 4, !tbaa !50
+  store i32 %167, ptr %168, align 4, !tbaa !51
   %169 = sub i32 %163, %120
   %.idx170.i = shl nsw i64 %5, 5
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx170.i
-  store i32 %169, ptr %170, align 4, !tbaa !48
+  store i32 %169, ptr %170, align 4, !tbaa !49
   %171 = add i32 %166, %150
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
-  store i32 %171, ptr %172, align 4, !tbaa !50
+  store i32 %171, ptr %172, align 4, !tbaa !51
   %173 = add i32 %157, %126
   %.idx171.i = mul nuw nsw i64 %5, 40
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx171.i
-  store i32 %173, ptr %174, align 4, !tbaa !48
+  store i32 %173, ptr %174, align 4, !tbaa !49
   %175 = sub i32 %160, %144
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  store i32 %175, ptr %176, align 4, !tbaa !50
+  store i32 %175, ptr %176, align 4, !tbaa !51
   %177 = sub i32 %151, %132
   %.idx172.i = mul nuw nsw i64 %5, 48
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx172.i
-  store i32 %177, ptr %178, align 4, !tbaa !48
+  store i32 %177, ptr %178, align 4, !tbaa !49
   %179 = add i32 %154, %138
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  store i32 %179, ptr %180, align 4, !tbaa !50
+  store i32 %179, ptr %180, align 4, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
-  %.sroa.0130.0.copyload.i = load i32, ptr %2, align 4, !tbaa !10
+  %.sroa.0130.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !10
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %9 = load i32, ptr %8, align 4, !tbaa !48
+  %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = sub i32 %7, %9
   %11 = add i32 %9, %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %15 = load i32, ptr %14, align 4, !tbaa !51
   %16 = sub i32 %13, %15
   %17 = add i32 %15, %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !48
+  %19 = load i32, ptr %18, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %21 = load i32, ptr %20, align 4, !tbaa !48
+  %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = sub i32 %19, %21
   %23 = add i32 %21, %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %28 = sub i32 %25, %27
   %29 = add i32 %27, %25
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %31 = load i32, ptr %30, align 4, !tbaa !48
+  %31 = load i32, ptr %30, align 4, !tbaa !49
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %33 = load i32, ptr %32, align 4, !tbaa !48
+  %33 = load i32, ptr %32, align 4, !tbaa !49
   %34 = sub i32 %31, %33
   %35 = add i32 %33, %31
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !50
+  %37 = load i32, ptr %36, align 4, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %39 = load i32, ptr %38, align 4, !tbaa !50
+  %39 = load i32, ptr %38, align 4, !tbaa !51
   %40 = sub i32 %37, %39
   %41 = add i32 %39, %37
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %43 = load i32, ptr %42, align 4, !tbaa !48
+  %43 = load i32, ptr %42, align 4, !tbaa !49
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %45 = load i32, ptr %44, align 4, !tbaa !48
+  %45 = load i32, ptr %44, align 4, !tbaa !49
   %46 = sub i32 %43, %45
   %47 = add i32 %45, %43
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !50
+  %49 = load i32, ptr %48, align 4, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !50
+  %51 = load i32, ptr %50, align 4, !tbaa !51
   %52 = sub i32 %49, %51
   %53 = add i32 %51, %49
   %54 = sub nsw i32 %11, %47
@@ -3124,17 +3124,17 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %66 = add nsw i32 %29, %17
   %67 = add nsw i32 %66, %53
   %68 = add nsw i32 %65, %62
-  store i32 %68, ptr %1, align 4, !tbaa !48
+  store i32 %68, ptr %1, align 4, !tbaa !49
   %69 = add nsw i32 %67, %63
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %69, ptr %70, align 4, !tbaa !50
+  store i32 %69, ptr %70, align 4, !tbaa !51
   %71 = sub i32 %10, %22
   %72 = add nsw i32 %71, %46
   %73 = sext i32 %72 to i64
   %74 = sub i32 %16, %28
   %75 = add nsw i32 %74, %52
   %76 = sext i32 %75 to i64
-  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !50
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !51
   %78 = sext i32 %77 to i64
   %79 = mul nsw i64 %78, %73
   %80 = add nsw i64 %79, 1073741824
@@ -3144,7 +3144,7 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %84 = add nsw i64 %83, 1073741824
   %85 = lshr i64 %84, 31
   %86 = trunc i64 %85 to i32
-  %87 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !48
+  %87 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !49
   %88 = sext i32 %87 to i64
   %89 = sext i32 %65 to i64
   %90 = mul nsw i64 %88, %89
@@ -3168,27 +3168,27 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %108 = trunc i64 %107 to i32
   %109 = add nsw i32 %62, %93
   %110 = add nsw i32 %63, %98
-  %111 = load i32, ptr %2, align 4, !tbaa !48
+  %111 = load i32, ptr %2, align 4, !tbaa !49
   %112 = add nsw i32 %111, %103
-  %113 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !50
+  %113 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !51
   %114 = add nsw i32 %113, %108
-  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !48
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !49
   %116 = sext i32 %115 to i64
   %117 = sext i32 %54 to i64
   %118 = mul nsw i64 %116, %117
   %119 = sext i32 %55 to i64
   %120 = mul nsw i64 %116, %119
-  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !50
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !51
   %122 = sext i32 %121 to i64
   %123 = mul nsw i64 %122, %117
   %124 = mul nsw i64 %122, %119
-  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !50
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !51
   %126 = sext i32 %125 to i64
   %127 = sext i32 %58 to i64
   %128 = mul nsw i64 %126, %127
   %129 = sext i32 %59 to i64
   %130 = mul nsw i64 %126, %129
-  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !48
+  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !49
   %132 = sext i32 %131 to i64
   %133 = mul nsw i64 %132, %127
   %134 = mul nsw i64 %132, %129
@@ -3204,7 +3204,7 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %144 = add i64 %143, %142
   %145 = lshr i64 %144, 31
   %146 = trunc i64 %145 to i32
-  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !48
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !49
   %148 = sext i32 %147 to i64
   %149 = mul nsw i64 %148, %135
   %150 = add nsw i64 %123, 1073741824
@@ -3228,7 +3228,7 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %168 = add i64 %167, %166
   %169 = lshr i64 %168, 31
   %170 = trunc i64 %169 to i32
-  %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !50
+  %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !51
   %172 = sext i32 %171 to i64
   %173 = mul nsw i64 %172, %159
   %174 = add nsw i64 %133, 1073741824
@@ -3269,58 +3269,58 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   %207 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %5
   %208 = add nsw i32 %196, %193
   %209 = sub nsw i32 %194, %195
-  store i32 %208, ptr %207, align 4, !tbaa !10
+  store i32 %208, ptr %207, align 4, !tbaa !11
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %207, i64 4
-  store i32 %209, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %209, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !11
   %.idx.i = shl nsw i64 %5, 4
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %211 = add nsw i32 %200, %197
   %212 = sub nsw i32 %198, %199
-  store i32 %211, ptr %210, align 4, !tbaa !10
+  store i32 %211, ptr %210, align 4, !tbaa !11
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %210, i64 4
-  store i32 %212, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %212, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !11
   %.idx209.i = mul nuw nsw i64 %5, 24
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx209.i
   %214 = add nsw i32 %109, %86
   %215 = sub nsw i32 %110, %82
-  store i32 %214, ptr %213, align 4, !tbaa !10
+  store i32 %214, ptr %213, align 4, !tbaa !11
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %213, i64 4
-  store i32 %215, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %215, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !11
   %.idx210.i = shl nsw i64 %5, 5
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx210.i
   %217 = add nsw i32 %206, %202
   %218 = sub nsw i32 %204, %205
-  store i32 %217, ptr %216, align 4, !tbaa !10
+  store i32 %217, ptr %216, align 4, !tbaa !11
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %216, i64 4
-  store i32 %218, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %218, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !11
   %.idx211.i = mul nuw nsw i64 %5, 40
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx211.i
   %220 = sub nsw i32 %202, %206
   %221 = add nsw i32 %205, %204
-  store i32 %220, ptr %219, align 4, !tbaa !10
+  store i32 %220, ptr %219, align 4, !tbaa !11
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %219, i64 4
-  store i32 %221, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %221, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !11
   %.idx212.i = mul nuw nsw i64 %5, 48
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx212.i
   %223 = sub nsw i32 %109, %86
   %224 = add nsw i32 %110, %82
-  store i32 %223, ptr %222, align 4, !tbaa !10
+  store i32 %223, ptr %222, align 4, !tbaa !11
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %222, i64 4
-  store i32 %224, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %224, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !11
   %.idx213.i = mul nuw nsw i64 %5, 56
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx213.i
   %226 = sub nsw i32 %197, %200
   %227 = add nsw i32 %199, %198
-  store i32 %226, ptr %225, align 4, !tbaa !10
+  store i32 %226, ptr %225, align 4, !tbaa !11
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %225, i64 4
-  store i32 %227, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %227, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !11
   %.idx214.i = shl nsw i64 %5, 6
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx214.i
   %229 = sub nsw i32 %193, %196
   %230 = add nsw i32 %195, %194
-  store i32 %229, ptr %228, align 4, !tbaa !10
+  store i32 %229, ptr %228, align 4, !tbaa !11
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %228, i64 4
-  store i32 %230, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %230, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !11
   ret void
 }
 
@@ -3328,11 +3328,11 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
 define internal void @ff_tx_fft15_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
   %5 = alloca [15 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %7 = sext i32 %6 to i64
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %9 = sext i32 %8 to i64
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %11 = sext i32 %10 to i64
   br label %12
 
@@ -3341,28 +3341,28 @@ define internal void @ff_tx_fft15_int32_c(ptr readnone captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %.idx = mul nuw nsw i64 %indvars.iv, 24
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %.sroa.08.0.copyload.i.i = load i32, ptr %14, align 4, !tbaa !10
+  %.sroa.08.0.copyload.i.i = load i32, ptr %14, align 4, !tbaa !11
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !10
+  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !50
+  %17 = load i32, ptr %16, align 4, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !50
+  %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = sub i32 %17, %20
   %22 = add i32 %20, %17
-  %23 = load i32, ptr %15, align 4, !tbaa !48
-  %24 = load i32, ptr %18, align 4, !tbaa !48
+  %23 = load i32, ptr %15, align 4, !tbaa !49
+  %24 = load i32, ptr %18, align 4, !tbaa !49
   %25 = sub i32 %23, %24
   %26 = add i32 %24, %23
   %27 = sext i32 %26 to i64
   %28 = add i32 %26, %.sroa.08.0.copyload.i.i
-  store i32 %28, ptr %13, align 8, !tbaa !48
+  store i32 %28, ptr %13, align 8, !tbaa !49
   %29 = sext i32 %22 to i64
   %30 = add i32 %22, %.sroa.6.0.copyload.i.i
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !50
+  store i32 %30, ptr %31, align 4, !tbaa !51
   %32 = sext i32 %21 to i64
   %33 = mul nsw i64 %7, %32
   %34 = sext i32 %25 to i64
@@ -3375,74 +3375,74 @@ define internal void @ff_tx_fft15_int32_c(ptr readnone captures(none) %0, ptr no
   %41 = trunc i64 %40 to i32
   %42 = sub i32 %.sroa.08.0.copyload.i.i, %41
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 %42, ptr %43, align 8, !tbaa !48
+  store i32 %42, ptr %43, align 8, !tbaa !49
   %reass.sub = sub nsw i64 %37, %35
   %44 = add nsw i64 %reass.sub, 1073741824
   %45 = lshr i64 %44, 31
   %46 = trunc i64 %45 to i32
   %47 = sub i32 %.sroa.6.0.copyload.i.i, %46
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  store i32 %47, ptr %48, align 4, !tbaa !50
+  store i32 %47, ptr %48, align 4, !tbaa !51
   %reass.sub48 = sub nsw i64 %36, %33
   %49 = add nsw i64 %reass.sub48, 1073741824
   %50 = lshr i64 %49, 31
   %51 = trunc i64 %50 to i32
   %52 = sub i32 %.sroa.08.0.copyload.i.i, %51
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i32 %52, ptr %53, align 8, !tbaa !48
+  store i32 %52, ptr %53, align 8, !tbaa !49
   %54 = add nsw i64 %35, 1073741824
   %55 = add i64 %54, %37
   %56 = lshr i64 %55, 31
   %57 = trunc i64 %56 to i32
   %58 = sub i32 %.sroa.6.0.copyload.i.i, %57
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 84
-  store i32 %58, ptr %59, align 4, !tbaa !50
+  store i32 %58, ptr %59, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %fft15.exit, label %12, !llvm.loop !52
+  br i1 %exitcond.not, label %fft15.exit, label %12, !llvm.loop !53
 
 fft15.exit:                                       ; preds = %12
   %60 = lshr i64 %3, 3
-  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
+  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !48
+  %62 = load i32, ptr %61, align 8, !tbaa !49
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %64 = load i32, ptr %63, align 16, !tbaa !48
+  %64 = load i32, ptr %63, align 16, !tbaa !49
   %65 = sub i32 %62, %64
   %66 = add i32 %64, %62
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !50
+  %68 = load i32, ptr %67, align 4, !tbaa !51
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %70 = load i32, ptr %69, align 4, !tbaa !50
+  %70 = load i32, ptr %69, align 4, !tbaa !51
   %71 = sub i32 %68, %70
   %72 = add i32 %70, %68
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %74 = load i32, ptr %73, align 16, !tbaa !48
+  %74 = load i32, ptr %73, align 16, !tbaa !49
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %76 = load i32, ptr %75, align 8, !tbaa !48
+  %76 = load i32, ptr %75, align 8, !tbaa !49
   %77 = sub i32 %74, %76
   %78 = add i32 %76, %74
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %80 = load i32, ptr %79, align 4, !tbaa !50
+  %80 = load i32, ptr %79, align 4, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %82 = load i32, ptr %81, align 4, !tbaa !50
+  %82 = load i32, ptr %81, align 4, !tbaa !51
   %83 = sub i32 %80, %82
   %84 = add i32 %82, %80
   %85 = add i32 %66, %.sroa.057.0.copyload.i
   %86 = add i32 %85, %78
-  store i32 %86, ptr %1, align 4, !tbaa !48
+  store i32 %86, ptr %1, align 4, !tbaa !49
   %87 = add i32 %72, %.sroa.862.0.copyload.i
   %88 = add i32 %87, %84
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %88, ptr %89, align 4, !tbaa !50
+  store i32 %88, ptr %89, align 4, !tbaa !51
   %90 = sext i32 %78 to i64
-  %91 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %91 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %92 = sext i32 %91 to i64
   %93 = mul nsw i64 %92, %90
   %94 = sext i32 %66 to i64
-  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %94
   %98 = add nsw i64 %93, 1073741824
@@ -3470,11 +3470,11 @@ fft15.exit:                                       ; preds = %12
   %120 = lshr i64 %119, 31
   %121 = trunc i64 %120 to i32
   %122 = sext i32 %83 to i64
-  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = mul nsw i64 %124, %122
   %126 = sext i32 %71 to i64
-  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %128 = sext i32 %127 to i64
   %129 = mul nsw i64 %128, %126
   %130 = add nsw i64 %125, 1073741824
@@ -3505,77 +3505,77 @@ fft15.exit:                                       ; preds = %12
   %155 = add i32 %154, %139
   %.idx.i = mul nuw nsw i64 %60, 48
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  store i32 %155, ptr %156, align 4, !tbaa !48
+  store i32 %155, ptr %156, align 4, !tbaa !49
   %157 = add i32 %.sroa.862.0.copyload.i, %121
   %158 = sub i32 %157, %153
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  store i32 %158, ptr %159, align 4, !tbaa !50
+  store i32 %158, ptr %159, align 4, !tbaa !51
   %160 = add i32 %.sroa.057.0.copyload.i, %101
   %161 = sub i32 %160, %133
   %.idx104.i = mul nuw nsw i64 %60, 96
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx104.i
-  store i32 %161, ptr %162, align 4, !tbaa !48
+  store i32 %161, ptr %162, align 4, !tbaa !49
   %163 = add i32 %.sroa.862.0.copyload.i, %115
   %164 = add i32 %163, %147
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  store i32 %164, ptr %165, align 4, !tbaa !50
+  store i32 %164, ptr %165, align 4, !tbaa !51
   %166 = add i32 %160, %133
   %.idx105.i = mul nuw nsw i64 %60, 24
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx105.i
-  store i32 %166, ptr %167, align 4, !tbaa !48
+  store i32 %166, ptr %167, align 4, !tbaa !49
   %168 = sub i32 %163, %147
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  store i32 %168, ptr %169, align 4, !tbaa !50
+  store i32 %168, ptr %169, align 4, !tbaa !51
   %170 = sub i32 %154, %139
   %.idx106.i = mul nuw nsw i64 %60, 72
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx106.i
-  store i32 %170, ptr %171, align 4, !tbaa !48
+  store i32 %170, ptr %171, align 4, !tbaa !49
   %172 = add i32 %157, %153
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  store i32 %172, ptr %173, align 4, !tbaa !50
+  store i32 %172, ptr %173, align 4, !tbaa !51
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sroa.057.0.copyload.i2 = load i32, ptr %174, align 8, !tbaa !10
+  %.sroa.057.0.copyload.i2 = load i32, ptr %174, align 8, !tbaa !11
   %.sroa.862.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %.sroa.862.0.copyload.i4 = load i32, ptr %.sroa.862.0..sroa_idx.i3, align 4, !tbaa !10
+  %.sroa.862.0.copyload.i4 = load i32, ptr %.sroa.862.0..sroa_idx.i3, align 4, !tbaa !11
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %176 = load i32, ptr %175, align 16, !tbaa !48
+  %176 = load i32, ptr %175, align 16, !tbaa !49
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %178 = load i32, ptr %177, align 8, !tbaa !48
+  %178 = load i32, ptr %177, align 8, !tbaa !49
   %179 = sub i32 %176, %178
   %180 = add i32 %178, %176
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %182 = load i32, ptr %181, align 4, !tbaa !50
+  %182 = load i32, ptr %181, align 4, !tbaa !51
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %184 = load i32, ptr %183, align 4, !tbaa !50
+  %184 = load i32, ptr %183, align 4, !tbaa !51
   %185 = sub i32 %182, %184
   %186 = add i32 %184, %182
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %188 = load i32, ptr %187, align 8, !tbaa !48
+  %188 = load i32, ptr %187, align 8, !tbaa !49
   %189 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %190 = load i32, ptr %189, align 16, !tbaa !48
+  %190 = load i32, ptr %189, align 16, !tbaa !49
   %191 = sub i32 %188, %190
   %192 = add i32 %190, %188
   %193 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %194 = load i32, ptr %193, align 4, !tbaa !50
+  %194 = load i32, ptr %193, align 4, !tbaa !51
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %196 = load i32, ptr %195, align 4, !tbaa !50
+  %196 = load i32, ptr %195, align 4, !tbaa !51
   %197 = sub i32 %194, %196
   %198 = add i32 %196, %194
   %199 = add i32 %180, %.sroa.057.0.copyload.i2
   %200 = add i32 %199, %192
   %.idx.i5 = mul nuw nsw i64 %60, 80
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i5
-  store i32 %200, ptr %201, align 4, !tbaa !48
+  store i32 %200, ptr %201, align 4, !tbaa !49
   %202 = add i32 %186, %.sroa.862.0.copyload.i4
   %203 = add i32 %202, %198
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 4
-  store i32 %203, ptr %204, align 4, !tbaa !50
+  store i32 %203, ptr %204, align 4, !tbaa !51
   %205 = sext i32 %192 to i64
-  %206 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %206 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %207 = sext i32 %206 to i64
   %208 = mul nsw i64 %207, %205
   %209 = sext i32 %180 to i64
-  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %211 = sext i32 %210 to i64
   %212 = mul nsw i64 %211, %209
   %213 = add nsw i64 %208, 1073741824
@@ -3603,11 +3603,11 @@ fft15.exit:                                       ; preds = %12
   %235 = lshr i64 %234, 31
   %236 = trunc i64 %235 to i32
   %237 = sext i32 %197 to i64
-  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %239 = sext i32 %238 to i64
   %240 = mul nsw i64 %239, %237
   %241 = sext i32 %185 to i64
-  %242 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %242 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %243 = sext i32 %242 to i64
   %244 = mul nsw i64 %243, %241
   %245 = add nsw i64 %240, 1073741824
@@ -3637,77 +3637,77 @@ fft15.exit:                                       ; preds = %12
   %269 = add i32 %.sroa.057.0.copyload.i2, %222
   %270 = add i32 %269, %254
   %271 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %60
-  store i32 %270, ptr %271, align 4, !tbaa !48
+  store i32 %270, ptr %271, align 4, !tbaa !49
   %272 = add i32 %.sroa.862.0.copyload.i4, %236
   %273 = sub i32 %272, %268
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 4
-  store i32 %273, ptr %274, align 4, !tbaa !50
+  store i32 %273, ptr %274, align 4, !tbaa !51
   %275 = add i32 %.sroa.057.0.copyload.i2, %216
   %276 = sub i32 %275, %248
   %.idx104.i6 = mul nuw nsw i64 %60, 56
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx104.i6
-  store i32 %276, ptr %277, align 4, !tbaa !48
+  store i32 %276, ptr %277, align 4, !tbaa !49
   %278 = add i32 %.sroa.862.0.copyload.i4, %230
   %279 = add i32 %278, %262
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  store i32 %279, ptr %280, align 4, !tbaa !50
+  store i32 %279, ptr %280, align 4, !tbaa !51
   %281 = add i32 %275, %248
   %.idx105.i7 = mul nuw nsw i64 %60, 104
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx105.i7
-  store i32 %281, ptr %282, align 4, !tbaa !48
+  store i32 %281, ptr %282, align 4, !tbaa !49
   %283 = sub i32 %278, %262
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  store i32 %283, ptr %284, align 4, !tbaa !50
+  store i32 %283, ptr %284, align 4, !tbaa !51
   %285 = sub i32 %269, %254
   %.idx106.i8 = shl nsw i64 %60, 5
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx106.i8
-  store i32 %285, ptr %286, align 4, !tbaa !48
+  store i32 %285, ptr %286, align 4, !tbaa !49
   %287 = add i32 %272, %268
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 4
-  store i32 %287, ptr %288, align 4, !tbaa !50
+  store i32 %287, ptr %288, align 4, !tbaa !51
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %.sroa.057.0.copyload.i9 = load i32, ptr %289, align 16, !tbaa !10
+  %.sroa.057.0.copyload.i9 = load i32, ptr %289, align 16, !tbaa !11
   %.sroa.862.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %.sroa.862.0.copyload.i11 = load i32, ptr %.sroa.862.0..sroa_idx.i10, align 4, !tbaa !10
+  %.sroa.862.0.copyload.i11 = load i32, ptr %.sroa.862.0..sroa_idx.i10, align 4, !tbaa !11
   %290 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %291 = load i32, ptr %290, align 8, !tbaa !48
+  %291 = load i32, ptr %290, align 8, !tbaa !49
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %293 = load i32, ptr %292, align 16, !tbaa !48
+  %293 = load i32, ptr %292, align 16, !tbaa !49
   %294 = sub i32 %291, %293
   %295 = add i32 %293, %291
   %296 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  %297 = load i32, ptr %296, align 4, !tbaa !50
+  %297 = load i32, ptr %296, align 4, !tbaa !51
   %298 = getelementptr inbounds nuw i8, ptr %5, i64 116
-  %299 = load i32, ptr %298, align 4, !tbaa !50
+  %299 = load i32, ptr %298, align 4, !tbaa !51
   %300 = sub i32 %297, %299
   %301 = add i32 %299, %297
   %302 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %303 = load i32, ptr %302, align 16, !tbaa !48
+  %303 = load i32, ptr %302, align 16, !tbaa !49
   %304 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %305 = load i32, ptr %304, align 8, !tbaa !48
+  %305 = load i32, ptr %304, align 8, !tbaa !49
   %306 = sub i32 %303, %305
   %307 = add i32 %305, %303
   %308 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  %309 = load i32, ptr %308, align 4, !tbaa !50
+  %309 = load i32, ptr %308, align 4, !tbaa !51
   %310 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %311 = load i32, ptr %310, align 4, !tbaa !50
+  %311 = load i32, ptr %310, align 4, !tbaa !51
   %312 = sub i32 %309, %311
   %313 = add i32 %311, %309
   %314 = add i32 %295, %.sroa.057.0.copyload.i9
   %315 = add i32 %314, %307
   %.idx.i12 = mul nuw nsw i64 %60, 40
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i12
-  store i32 %315, ptr %316, align 4, !tbaa !48
+  store i32 %315, ptr %316, align 4, !tbaa !49
   %317 = add i32 %301, %.sroa.862.0.copyload.i11
   %318 = add i32 %317, %313
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 4
-  store i32 %318, ptr %319, align 4, !tbaa !50
+  store i32 %318, ptr %319, align 4, !tbaa !51
   %320 = sext i32 %307 to i64
-  %321 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %321 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %322 = sext i32 %321 to i64
   %323 = mul nsw i64 %322, %320
   %324 = sext i32 %295 to i64
-  %325 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %325 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %326 = sext i32 %325 to i64
   %327 = mul nsw i64 %326, %324
   %328 = add nsw i64 %323, 1073741824
@@ -3735,11 +3735,11 @@ fft15.exit:                                       ; preds = %12
   %350 = lshr i64 %349, 31
   %351 = trunc i64 %350 to i32
   %352 = sext i32 %312 to i64
-  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %354 = sext i32 %353 to i64
   %355 = mul nsw i64 %354, %352
   %356 = sext i32 %300 to i64
-  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %358 = sext i32 %357 to i64
   %359 = mul nsw i64 %358, %356
   %360 = add nsw i64 %355, 1073741824
@@ -3770,34 +3770,34 @@ fft15.exit:                                       ; preds = %12
   %385 = add i32 %384, %369
   %.idx104.i13 = mul nuw nsw i64 %60, 88
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx104.i13
-  store i32 %385, ptr %386, align 4, !tbaa !48
+  store i32 %385, ptr %386, align 4, !tbaa !49
   %387 = add i32 %.sroa.862.0.copyload.i11, %351
   %388 = sub i32 %387, %383
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 4
-  store i32 %388, ptr %389, align 4, !tbaa !50
+  store i32 %388, ptr %389, align 4, !tbaa !51
   %390 = add i32 %.sroa.057.0.copyload.i9, %331
   %391 = sub i32 %390, %363
   %.idx105.i14 = shl nsw i64 %60, 4
   %392 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx105.i14
-  store i32 %391, ptr %392, align 4, !tbaa !48
+  store i32 %391, ptr %392, align 4, !tbaa !49
   %393 = add i32 %.sroa.862.0.copyload.i11, %345
   %394 = add i32 %393, %377
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 4
-  store i32 %394, ptr %395, align 4, !tbaa !50
+  store i32 %394, ptr %395, align 4, !tbaa !51
   %396 = add i32 %390, %363
   %.idx106.i15 = shl nsw i64 %60, 6
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx106.i15
-  store i32 %396, ptr %397, align 4, !tbaa !48
+  store i32 %396, ptr %397, align 4, !tbaa !49
   %398 = sub i32 %393, %377
   %399 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  store i32 %398, ptr %399, align 4, !tbaa !50
+  store i32 %398, ptr %399, align 4, !tbaa !51
   %400 = sub i32 %384, %369
   %.idx107.i = mul nuw nsw i64 %60, 112
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx107.i
-  store i32 %400, ptr %401, align 4, !tbaa !48
+  store i32 %400, ptr %401, align 4, !tbaa !49
   %402 = add i32 %387, %383
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 4
-  store i32 %402, ptr %403, align 4, !tbaa !50
+  store i32 %402, ptr %403, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3805,23 +3805,23 @@ fft15.exit:                                       ; preds = %12
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_fft_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %6 = load i64, ptr %5, align 8, !tbaa !53
+  %6 = load i64, ptr %5, align 8, !tbaa !54
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !54
+  %10 = load ptr, ptr %9, align 8, !tbaa !55
   br label %11
 
 11:                                               ; preds = %4, %8
   %12 = phi ptr [ %10, %8 ], [ %1, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
-  %17 = load i32, ptr %0, align 8, !tbaa !16
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %17 = load i32, ptr %0, align 8, !tbaa !17
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3830,13 +3830,13 @@ define internal void @ff_tx_fft_int32_c(ptr noundef readonly captures(none) %0, 
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %13, align 8, !tbaa !55
+  %.pre = load ptr, ptr %13, align 8, !tbaa !56
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
   %19 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %14, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !4
+  %21 = load ptr, ptr %20, align 8, !tbaa !5
   tail call void %21(ptr noundef %19, ptr noundef %1, ptr noundef %12, i64 noundef %3) #16
   ret void
 
@@ -3844,14 +3844,14 @@ define internal void @ff_tx_fft_int32_c(ptr noundef readonly captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %12, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %25
   %27 = load i64, ptr %26, align 4
   store i64 %27, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -3861,7 +3861,7 @@ define internal i32 @ff_tx_fft_init_int32_c(ptr noundef %0, ptr readnone capture
   %.not = icmp eq i64 %9, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = select i1 %.not, i32 1, i32 2
-  store i32 %10, ptr %8, align 4, !tbaa !58
+  store i32 %10, ptr %8, align 4, !tbaa !59
   %11 = and i64 %2, 6917529027641081854
   %12 = or disjoint i64 %11, 2305843009213693953
   %13 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 4, i64 noundef %12, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, ptr noundef %6) #16
@@ -3892,12 +3892,12 @@ declare i32 @ff_tx_gen_inplace_map(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_fft_inplace_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
-  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %10 = load ptr, ptr %9, align 8, !tbaa !57
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   br label %12
 
 12:                                               ; preds = %24, %4
@@ -3907,7 +3907,7 @@ define internal void @ff_tx_fft_inplace_int32_c(ptr noundef readonly captures(no
   %14 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %13
   %15 = load i64, ptr %14, align 4
   %16 = getelementptr inbounds i32, ptr %8, i64 %13
-  %17 = load i32, ptr %16, align 4, !tbaa !10
+  %17 = load i32, ptr %16, align 4, !tbaa !11
   br label %18
 
 18:                                               ; preds = %18, %12
@@ -3918,21 +3918,21 @@ define internal void @ff_tx_fft_inplace_int32_c(ptr noundef readonly captures(no
   %21 = load i64, ptr %20, align 4
   store i64 %.sroa.0.0, ptr %20, align 4
   %22 = getelementptr inbounds i32, ptr %8, i64 %19
-  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %23 = load i32, ptr %22, align 4, !tbaa !11
   %.not = icmp eq i32 %23, %.024
-  br i1 %.not, label %24, label %18, !llvm.loop !60
+  br i1 %.not, label %24, label %18, !llvm.loop !61
 
 24:                                               ; preds = %18
   %.025 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   store i64 %21, ptr %14, align 4
-  %25 = load i32, ptr %.025, align 4, !tbaa !10
+  %25 = load i32, ptr %.025, align 4, !tbaa !11
   %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %26, label %12, !llvm.loop !61
+  br i1 %.not28, label %26, label %12, !llvm.loop !62
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !4
-  %29 = load ptr, ptr %5, align 8, !tbaa !55
+  %28 = load ptr, ptr %27, align 8, !tbaa !5
+  %29 = load ptr, ptr %5, align 8, !tbaa !56
   tail call void %28(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) #16
   ret void
 }
@@ -3943,7 +3943,7 @@ define internal i32 @ff_tx_fft_inplace_small_init_int32_c(ptr noundef initialize
   %9 = shl nsw i64 %8, 3
   %10 = tail call noalias ptr @av_malloc(i64 noundef %9) #16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %10, ptr %11, align 8, !tbaa !54
+  store ptr %10, ptr %11, align 8, !tbaa !55
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %15, label %12
 
@@ -3962,25 +3962,25 @@ declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_fft_pfa_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %9 = load i32, ptr %8, align 8, !tbaa !16
-  %10 = load i32, ptr %0, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
+  %10 = load i32, ptr %0, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %18 = load i64, ptr %17, align 8, !tbaa !53
+  %18 = load i64, ptr %17, align 8, !tbaa !54
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.in = select i1 %.not, ptr %21, ptr %20
-  %22 = load ptr, ptr %.in, align 8, !tbaa !62
+  %22 = load ptr, ptr %.in, align 8, !tbaa !63
   %23 = lshr i64 %3, 3
   %24 = icmp sgt i32 %9, 0
   br i1 %24, label %.preheader58.lr.ph, label %.preheader57
@@ -4004,46 +4004,46 @@ define internal void @ff_tx_fft_pfa_int32_c(ptr noundef readonly captures(none) 
 
 31:                                               ; preds = %.preheader58.us, %31
   %indvars.iv66 = phi i64 [ 0, %.preheader58.us ], [ %indvars.iv.next67, %31 ]
-  %32 = load ptr, ptr %21, align 8, !tbaa !26
+  %32 = load ptr, ptr %21, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %32, i64 %indvars.iv66
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv66
-  %34 = load i32, ptr %gep, align 4, !tbaa !10
+  %34 = load i32, ptr %gep, align 4, !tbaa !11
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %35
   %37 = load i64, ptr %36, align 4
   store i64 %37, ptr %33, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %29
-  br i1 %exitcond70.not, label %._crit_edge.us, label %31, !llvm.loop !63
+  br i1 %exitcond70.not, label %._crit_edge.us, label %31, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %31
-  %38 = load ptr, ptr %26, align 8, !tbaa !4
-  %39 = load ptr, ptr %5, align 8, !tbaa !55
-  %40 = load ptr, ptr %20, align 8, !tbaa !54
+  %38 = load ptr, ptr %26, align 8, !tbaa !5
+  %39 = load ptr, ptr %5, align 8, !tbaa !56
+  %40 = load ptr, ptr %20, align 8, !tbaa !55
   %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv71
-  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %struct.AVComplexInt32, ptr %40, i64 %43
-  %45 = load ptr, ptr %21, align 8, !tbaa !26
+  %45 = load ptr, ptr %21, align 8, !tbaa !27
   tail call void %38(ptr noundef %39, ptr noundef %44, ptr noundef %45, i64 noundef %28) #16
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %27
-  br i1 %exitcond75.not, label %.preheader57, label %.preheader58.us, !llvm.loop !64
+  br i1 %exitcond75.not, label %.preheader57, label %.preheader58.us, !llvm.loop !65
 
 .preheader58:                                     ; preds = %.preheader58.lr.ph, %.preheader58
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader58 ], [ 0, %.preheader58.lr.ph ]
-  %46 = load ptr, ptr %26, align 8, !tbaa !4
-  %47 = load ptr, ptr %5, align 8, !tbaa !55
-  %48 = load ptr, ptr %20, align 8, !tbaa !54
+  %46 = load ptr, ptr %26, align 8, !tbaa !5
+  %47 = load ptr, ptr %5, align 8, !tbaa !56
+  %48 = load ptr, ptr %20, align 8, !tbaa !55
   %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4, !tbaa !10
+  %50 = load i32, ptr %49, align 4, !tbaa !11
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds %struct.AVComplexInt32, ptr %48, i64 %51
-  %53 = load ptr, ptr %21, align 8, !tbaa !26
+  %53 = load ptr, ptr %21, align 8, !tbaa !27
   tail call void %46(ptr noundef %47, ptr noundef %52, ptr noundef %53, i64 noundef %28) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %27
-  br i1 %exitcond.not, label %.preheader, label %.preheader58, !llvm.loop !64
+  br i1 %exitcond.not, label %.preheader, label %.preheader58, !llvm.loop !65
 
 .preheader57:                                     ; preds = %._crit_edge.us, %4
   %54 = icmp sgt i32 %7, 0
@@ -4065,17 +4065,17 @@ define internal void @ff_tx_fft_pfa_int32_c(ptr noundef readonly captures(none) 
 
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv76 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next77, %58 ]
-  %59 = load ptr, ptr %55, align 8, !tbaa !4
-  %60 = load ptr, ptr %5, align 8, !tbaa !55
+  %59 = load ptr, ptr %55, align 8, !tbaa !5
+  %60 = load ptr, ptr %5, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
   %62 = mul nsw i64 %indvars.iv76, %56
   %63 = getelementptr inbounds %struct.AVComplexInt32, ptr %22, i64 %62
-  %64 = load ptr, ptr %20, align 8, !tbaa !54
+  %64 = load ptr, ptr %20, align 8, !tbaa !55
   %65 = getelementptr inbounds %struct.AVComplexInt32, ptr %64, i64 %62
   tail call void %59(ptr noundef nonnull %61, ptr noundef %63, ptr noundef %65, i64 noundef 8) #16
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.preheader, label %58, !llvm.loop !65
+  br i1 %exitcond80.not, label %.preheader, label %58, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -4085,14 +4085,14 @@ define internal void @ff_tx_fft_pfa_int32_c(ptr noundef readonly captures(none) 
   %66 = mul nuw nsw i64 %23, %indvars.iv81
   %67 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %66
   %68 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv81
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds %struct.AVComplexInt32, ptr %22, i64 %70
   %72 = load i64, ptr %71, align 4
   store i64 %72, ptr %67, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !66
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !67
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -4114,14 +4114,14 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader149 ]
   %.0104159 = phi i64 [ %.1105, %.loopexit ], [ %2, %.preheader149 ]
   %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = sdiv i32 %4, %13
   %15 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %.not = icmp samesign ult i32 %15, 2
   %spec.select = select i1 %.not, i32 %13, i32 %14
   %spec.select131 = select i1 %.not, i32 %14, i32 %13
   call void @ff_tx_clear_ctx(ptr noundef %0) #16
-  store i32 1, ptr %8, align 4, !tbaa !58
+  store i32 1, ptr %8, align 4, !tbaa !59
   %16 = and i64 %.0104159, 6917529027641081854
   %17 = or disjoint i64 %16, -6917529027641081856
   %18 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 4, i64 noundef %17, ptr noundef nonnull %8, i32 noundef %spec.select, i32 noundef %5, ptr noundef %6) #16
@@ -4143,7 +4143,7 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %20, %26
-  store i32 2, ptr %8, align 4, !tbaa !58
+  store i32 2, ptr %8, align 4, !tbaa !59
   %29 = or disjoint i64 %16, 2305843009213693953
   %30 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 4, i64 noundef %29, ptr noundef nonnull %8, i32 noundef %spec.select131, i32 noundef %5, ptr noundef %6) #16
   %31 = icmp eq i32 %30, -12
@@ -4185,14 +4185,14 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = sext i32 %.2110 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph161, label %.thread142, !llvm.loop !67
+  br i1 %48, label %.lr.ph161, label %.thread142, !llvm.loop !68
 
 .thread147:                                       ; preds = %41, %.lr.ph, %.preheader149
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !55
-  %51 = load i32, ptr %50, align 8, !tbaa !16
+  %50 = load ptr, ptr %49, align 8, !tbaa !56
+  %51 = load i32, ptr %50, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 160
-  %53 = load i32, ptr %52, align 8, !tbaa !16
+  %53 = load i32, ptr %52, align 8, !tbaa !17
   %54 = call i32 @ff_tx_gen_compound_mapping(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef %51, i32 noundef %53) #16
   %.not126 = icmp eq i32 %54, 0
   br i1 %.not126, label %55, label %.thread142
@@ -4202,25 +4202,25 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %57 = shl nsw i64 %56, 3
   %58 = call noalias ptr @av_malloc(i64 noundef %57) #16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !54
+  store ptr %58, ptr %59, align 8, !tbaa !55
   %.not127 = icmp eq ptr %58, null
   br i1 %.not127, label %.thread142, label %.preheader
 
 .preheader:                                       ; preds = %55
   %60 = icmp sgt i32 %4, 0
-  %.pre181 = load ptr, ptr %49, align 8, !tbaa !55
+  %.pre181 = load ptr, ptr %49, align 8, !tbaa !56
   br i1 %60, label %.lr.ph168, label %._crit_edge169
 
 .lr.ph168:                                        ; preds = %.preheader
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !56
+  %62 = load ptr, ptr %61, align 8, !tbaa !57
   %63 = getelementptr inbounds nuw i8, ptr %.pre181, i64 8
-  %.pre = load i32, ptr %.pre181, align 8, !tbaa !16
+  %.pre = load i32, ptr %.pre181, align 8, !tbaa !17
   br label %67
 
 ._crit_edge169:                                   ; preds = %._crit_edge165, %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %.pre181, i64 288
-  %65 = load i64, ptr %64, align 8, !tbaa !53
+  %65 = load i64, ptr %64, align 8, !tbaa !54
   %66 = and i64 %65, 1
   %.not128 = icmp eq i64 %66, 0
   br i1 %.not128, label %91, label %88
@@ -4233,12 +4233,12 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %71 = sext i32 %68 to i64
   %72 = shl nsw i64 %71, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr align 4 %70, i64 %72, i1 false)
-  %73 = load i32, ptr %.pre181, align 8, !tbaa !16
+  %73 = load i32, ptr %.pre181, align 8, !tbaa !17
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph164, label %._crit_edge165
 
 .lr.ph164:                                        ; preds = %67
-  %75 = load ptr, ptr %63, align 8, !tbaa !56
+  %75 = load ptr, ptr %63, align 8, !tbaa !57
   %invariant.gep = getelementptr i32, ptr %62, i64 %69
   br label %79
 
@@ -4246,25 +4246,25 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %76 = phi i32 [ %73, %67 ], [ %85, %79 ]
   %77 = add nsw i32 %76, %.096167
   %78 = icmp slt i32 %77, %4
-  br i1 %78, label %67, label %._crit_edge169, !llvm.loop !68
+  br i1 %78, label %67, label %._crit_edge169, !llvm.loop !69
 
 79:                                               ; preds = %.lr.ph164, %79
   %indvars.iv178 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next179, %79 ]
   %80 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv178
-  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %81 = load i32, ptr %80, align 4, !tbaa !11
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %58, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !10
+  %84 = load i32, ptr %83, align 4, !tbaa !11
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv178
-  store i32 %84, ptr %gep, align 4, !tbaa !10
+  store i32 %84, ptr %gep, align 4, !tbaa !11
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %85 = load i32, ptr %.pre181, align 8, !tbaa !16
+  %85 = load i32, ptr %.pre181, align 8, !tbaa !17
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next179, %86
-  br i1 %87, label %79, label %._crit_edge165, !llvm.loop !69
+  br i1 %87, label %79, label %._crit_edge165, !llvm.loop !70
 
 88:                                               ; preds = %._crit_edge169
-  %89 = load i32, ptr %.pre181, align 8, !tbaa !16
+  %89 = load i32, ptr %.pre181, align 8, !tbaa !17
   %90 = sext i32 %89 to i64
   br label %91
 
@@ -4277,7 +4277,7 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
   %93 = shl nsw i64 %.0103, 3
   %94 = call noalias ptr @av_malloc(i64 noundef %93) #16
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %94, ptr %95, align 8, !tbaa !26
+  store ptr %94, ptr %95, align 8, !tbaa !27
   %.not130 = icmp eq ptr %94, null
   br i1 %.not130, label %.thread142, label %96
 
@@ -4300,25 +4300,25 @@ declare i32 @ff_tx_gen_compound_mapping(ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_fft_pfa_ns_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %9 = load i32, ptr %8, align 8, !tbaa !16
-  %10 = load i32, ptr %0, align 8, !tbaa !16
+  %9 = load i32, ptr %8, align 8, !tbaa !17
+  %10 = load i32, ptr %0, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %18 = load i64, ptr %17, align 8, !tbaa !53
+  %18 = load i64, ptr %17, align 8, !tbaa !54
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.in = select i1 %.not, ptr %21, ptr %20
-  %22 = load ptr, ptr %.in, align 8, !tbaa !62
+  %22 = load ptr, ptr %.in, align 8, !tbaa !63
   %23 = lshr i64 %3, 3
   %24 = icmp sgt i32 %9, 0
   br i1 %24, label %.lr.ph, label %.preheader47
@@ -4342,11 +4342,11 @@ define internal void @ff_tx_fft_pfa_ns_int32_c(ptr noundef readonly captures(non
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = load ptr, ptr %25, align 8, !tbaa !4
-  %34 = load ptr, ptr %5, align 8, !tbaa !55
-  %35 = load ptr, ptr %20, align 8, !tbaa !54
+  %33 = load ptr, ptr %25, align 8, !tbaa !5
+  %34 = load ptr, ptr %5, align 8, !tbaa !56
+  %35 = load ptr, ptr %20, align 8, !tbaa !55
   %36 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.AVComplexInt32, ptr %35, i64 %38
   %40 = mul nsw i64 %indvars.iv, %28
@@ -4354,7 +4354,7 @@ define internal void @ff_tx_fft_pfa_ns_int32_c(ptr noundef readonly captures(non
   tail call void %33(ptr noundef %34, ptr noundef %39, ptr noundef %41, i64 noundef %27) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %.preheader47, label %32, !llvm.loop !70
+  br i1 %exitcond.not, label %.preheader47, label %32, !llvm.loop !71
 
 .preheader:                                       ; preds = %43, %.preheader47
   %42 = icmp sgt i32 %10, 0
@@ -4366,17 +4366,17 @@ define internal void @ff_tx_fft_pfa_ns_int32_c(ptr noundef readonly captures(non
 
 43:                                               ; preds = %.lr.ph50, %43
   %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %43 ]
-  %44 = load ptr, ptr %30, align 8, !tbaa !4
-  %45 = load ptr, ptr %5, align 8, !tbaa !55
+  %44 = load ptr, ptr %30, align 8, !tbaa !5
+  %45 = load ptr, ptr %5, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %47 = mul nsw i64 %indvars.iv54, %31
   %48 = getelementptr inbounds %struct.AVComplexInt32, ptr %22, i64 %47
-  %49 = load ptr, ptr %20, align 8, !tbaa !54
+  %49 = load ptr, ptr %20, align 8, !tbaa !55
   %50 = getelementptr inbounds %struct.AVComplexInt32, ptr %49, i64 %47
   tail call void %44(ptr noundef nonnull %46, ptr noundef %48, ptr noundef %50, i64 noundef 8) #16
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %.preheader, label %43, !llvm.loop !71
+  br i1 %exitcond58.not, label %.preheader, label %43, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader
   ret void
@@ -4386,21 +4386,21 @@ define internal void @ff_tx_fft_pfa_ns_int32_c(ptr noundef readonly captures(non
   %51 = mul nuw nsw i64 %23, %indvars.iv59
   %52 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %51
   %53 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv59
-  %54 = load i32, ptr %53, align 4, !tbaa !10
+  %54 = load i32, ptr %53, align 4, !tbaa !11
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds %struct.AVComplexInt32, ptr %22, i64 %55
   %57 = load i64, ptr %56, align 4
   store i64 %57, ptr %52, align 4
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !72
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !73
+  %7 = load i32, ptr %6, align 4, !tbaa !74
   %.not = icmp eq i32 %7, 0
   %8 = sitofp i32 %5 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
@@ -4440,11 +4440,11 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %.0.i.us = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
   %29 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %2, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !48
+  %30 = load i32, ptr %29, align 4, !tbaa !49
   %31 = sext i32 %30 to i64
   %32 = mul nsw i64 %.0.i41.us, %31
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !50
+  %34 = load i32, ptr %33, align 4, !tbaa !51
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %.0.i.us, %35
   %37 = add nsw i64 %32, 1073741824
@@ -4461,17 +4461,17 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
   %48 = add nsw i32 %.sroa.6.143.us, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
-  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %15
   %49 = mul nuw nsw i64 %10, %indvars.iv50
   %50 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %49
-  store i32 %47, ptr %50, align 4, !tbaa !10
+  store i32 %47, ptr %50, align 4, !tbaa !11
   %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %48, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !10
+  store i32 %48, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !11
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond54.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge47:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -4479,14 +4479,14 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = lshr i64 %3, 3
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge39
 
 .preheader.lr.ph:                                 ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %wide.trip.count45 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
@@ -4500,17 +4500,17 @@ define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly capture
   %.sroa.6.135.us = phi i32 [ 0, %.preheader.us ], [ %34, %10 ]
   %11 = mul nuw nsw i64 %indvars.iv, %indvars.iv42
   %12 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %9, i64 %11
-  %.sroa.0.0.copyload.us = load i32, ptr %12, align 4, !tbaa !10
+  %.sroa.0.0.copyload.us = load i32, ptr %12, align 4, !tbaa !11
   %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.sroa.5.0.copyload.us = load i32, ptr %.sroa.5.0..sroa_idx.us, align 4, !tbaa !10
+  %.sroa.5.0.copyload.us = load i32, ptr %.sroa.5.0..sroa_idx.us, align 4, !tbaa !11
   %13 = sext i32 %.sroa.0.0.copyload.us to i64
   %14 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %2, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !48
+  %15 = load i32, ptr %14, align 4, !tbaa !49
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, %13
   %18 = sext i32 %.sroa.5.0.copyload.us to i64
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !50
+  %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = sext i32 %20 to i64
   %22 = mul nsw i64 %21, %18
   %23 = add nsw i64 %17, 1073741824
@@ -4527,17 +4527,17 @@ define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly capture
   %34 = add nsw i32 %.sroa.6.135.us, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %10
   %35 = mul nuw nsw i64 %6, %indvars.iv42
   %36 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %35
-  store i32 %33, ptr %36, align 4, !tbaa !10
+  store i32 %33, ptr %36, align 4, !tbaa !11
   %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 %34, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !10
+  store i32 %34, ptr %.sroa.6.0..sroa_idx.us, align 4, !tbaa !11
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !77
+  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !78
 
 ._crit_edge39:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -4546,7 +4546,7 @@ define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly capture
 ; Function Attrs: cold nounwind optsize uwtable
 define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr noundef captures(none) initializes((16, 24)) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr readnone captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !73
+  %9 = load i32, ptr %8, align 4, !tbaa !74
   %.not = icmp eq i32 %9, 0
   %10 = sitofp i32 %4 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
@@ -4556,7 +4556,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr no
   %14 = shl nuw nsw i64 %13, 3
   %15 = tail call noalias ptr @av_malloc(i64 noundef %14) #16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !26
+  store ptr %15, ptr %16, align 8, !tbaa !27
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %.loopexit, label %.preheader26
 
@@ -4578,7 +4578,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr no
 ._crit_edge:                                      ; preds = %21
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -4601,12 +4601,12 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr no
   %37 = tail call i64 @llvm.smax.i64(i64 %36, i64 -2147483648)
   %.0.i = tail call i64 @llvm.smin.i64(i64 %37, i64 2147483647)
   %38 = trunc nsw i64 %.0.i to i32
-  store i32 %32, ptr %26, align 4, !tbaa !10
+  store i32 %32, ptr %26, align 4, !tbaa !11
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 %38, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !10
+  store i32 %38, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count33
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !80
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader26, %7
   %.0 = phi i32 [ -12, %7 ], [ 0, %.preheader26 ], [ 0, %._crit_edge ]
@@ -4616,12 +4616,12 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
-  %7 = load i32, ptr %0, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %7 = load i32, ptr %0, align 8, !tbaa !17
   %8 = ashr i32 %7, 1
   %9 = ashr i32 %7, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = lshr i64 %3, 2
   %13 = icmp sgt i32 %8, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -4644,9 +4644,9 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %58, %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !4
+  %24 = load ptr, ptr %23, align 8, !tbaa !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   tail call void %24(ptr noundef %26, ptr noundef %1, ptr noundef %1, i64 noundef 8) #16
   %27 = icmp sgt i32 %9, 0
   br i1 %27, label %.lr.ph139.preheader, label %._crit_edge140
@@ -4660,38 +4660,38 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %30 = shl nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !11
   %33 = icmp samesign ult i64 %30, %16
   %34 = xor i64 %30, -1
   br i1 %33, label %35, label %45
 
 35:                                               ; preds = %29
   %gep152 = getelementptr inbounds nuw i32, ptr %invariant.gep151, i64 %30
-  %36 = load i32, ptr %gep152, align 4, !tbaa !10
+  %36 = load i32, ptr %gep152, align 4, !tbaa !11
   %37 = getelementptr i32, ptr %21, i64 %34
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !11
   %reass.sub = sub i32 %38, %36
   %39 = add i32 %reass.sub, 32
   %gep154 = getelementptr inbounds nuw i32, ptr %invariant.gep153, i64 %30
-  %40 = load i32, ptr %gep154, align 4, !tbaa !10
+  %40 = load i32, ptr %gep154, align 4, !tbaa !11
   %41 = getelementptr i32, ptr %22, i64 %34
-  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = add i32 %40, %42
   %44 = sub i32 32, %43
   br label %58
 
 45:                                               ; preds = %29
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %30
-  %46 = load i32, ptr %gep, align 4, !tbaa !10
+  %46 = load i32, ptr %gep, align 4, !tbaa !11
   %47 = getelementptr i32, ptr %19, i64 %34
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = add i32 %46, %48
   %50 = sub i32 32, %49
   %51 = sub nuw nsw i64 %30, %16
   %52 = getelementptr inbounds nuw i32, ptr %2, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = getelementptr i32, ptr %20, i64 %34
-  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %55 = load i32, ptr %54, align 4, !tbaa !11
   %56 = add i32 %53, 32
   %57 = sub i32 %56, %55
   br label %58
@@ -4702,12 +4702,12 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %.sroa.6.0 = ashr i32 %.sroa.6.0.in, 6
   %.sroa.079.0 = ashr i32 %.sroa.079.0.in, 6
   %59 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4, !tbaa !48
+  %60 = load i32, ptr %59, align 4, !tbaa !49
   %61 = sext i32 %60 to i64
   %62 = sext i32 %.sroa.079.0 to i64
   %63 = mul nsw i64 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !50
+  %65 = load i32, ptr %64, align 4, !tbaa !51
   %66 = sext i32 %65 to i64
   %67 = sext i32 %.sroa.6.0 to i64
   %68 = mul nsw i64 %66, %67
@@ -4718,8 +4718,8 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %73 = sext i32 %32 to i64
   %74 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i32 %72, ptr %75, align 4, !tbaa !50
-  %76 = load i32, ptr %64, align 4, !tbaa !50
+  store i32 %72, ptr %75, align 4, !tbaa !51
+  %76 = load i32, ptr %64, align 4, !tbaa !51
   %77 = sext i32 %76 to i64
   %78 = mul nsw i64 %77, %62
   %79 = mul nsw i64 %61, %67
@@ -4727,10 +4727,10 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %81 = add nsw i64 %80, %78
   %82 = lshr i64 %81, 31
   %83 = trunc i64 %82 to i32
-  store i32 %83, ptr %74, align 4, !tbaa !48
+  store i32 %83, ptr %74, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !81
 
 ._crit_edge140:                                   ; preds = %.lr.ph139, %._crit_edge
   ret void
@@ -4741,20 +4741,20 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %85 = xor i64 %indvars.iv142, -1
   %86 = add nsw i64 %28, %85
   %87 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !48
+  %88 = load i32, ptr %87, align 4, !tbaa !49
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !50
+  %90 = load i32, ptr %89, align 4, !tbaa !51
   %91 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %84
-  %92 = load i32, ptr %91, align 4, !tbaa !48
+  %92 = load i32, ptr %91, align 4, !tbaa !49
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !50
+  %94 = load i32, ptr %93, align 4, !tbaa !51
   %95 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %84
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !50
+  %97 = load i32, ptr %96, align 4, !tbaa !51
   %98 = sext i32 %97 to i64
   %99 = sext i32 %92 to i64
   %100 = mul nsw i64 %98, %99
-  %101 = load i32, ptr %95, align 4, !tbaa !48
+  %101 = load i32, ptr %95, align 4, !tbaa !49
   %102 = sext i32 %101 to i64
   %103 = sext i32 %94 to i64
   %104 = mul nsw i64 %102, %103
@@ -4766,11 +4766,11 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %110 = mul nsw i64 %12, %109
   %111 = getelementptr i32, ptr %1, i64 %110
   %112 = getelementptr i32, ptr %111, i64 %12
-  store i32 %108, ptr %112, align 4, !tbaa !10
-  %113 = load i32, ptr %95, align 4, !tbaa !48
+  store i32 %108, ptr %112, align 4, !tbaa !11
+  %113 = load i32, ptr %95, align 4, !tbaa !49
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %114, %99
-  %116 = load i32, ptr %96, align 4, !tbaa !50
+  %116 = load i32, ptr %96, align 4, !tbaa !51
   %117 = sext i32 %116 to i64
   %118 = mul nsw i64 %117, %103
   %119 = add nsw i64 %115, 1073741824
@@ -4780,14 +4780,14 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %123 = shl nuw nsw i64 %84, 1
   %124 = mul nuw nsw i64 %12, %123
   %125 = getelementptr inbounds nuw i32, ptr %1, i64 %124
-  store i32 %122, ptr %125, align 4, !tbaa !10
+  store i32 %122, ptr %125, align 4, !tbaa !11
   %126 = getelementptr inbounds %struct.AVComplexInt32, ptr %6, i64 %86
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %128 = load i32, ptr %127, align 4, !tbaa !50
+  %128 = load i32, ptr %127, align 4, !tbaa !51
   %129 = sext i32 %128 to i64
   %130 = sext i32 %88 to i64
   %131 = mul nsw i64 %129, %130
-  %132 = load i32, ptr %126, align 4, !tbaa !48
+  %132 = load i32, ptr %126, align 4, !tbaa !49
   %133 = sext i32 %132 to i64
   %134 = sext i32 %90 to i64
   %135 = mul nsw i64 %133, %134
@@ -4796,21 +4796,21 @@ define internal void @ff_tx_mdct_fwd_int32_c(ptr noundef readonly captures(none)
   %138 = lshr i64 %137, 31
   %139 = trunc i64 %138 to i32
   %140 = getelementptr i32, ptr %125, i64 %12
-  store i32 %139, ptr %140, align 4, !tbaa !10
-  %141 = load i32, ptr %126, align 4, !tbaa !48
+  store i32 %139, ptr %140, align 4, !tbaa !11
+  %141 = load i32, ptr %126, align 4, !tbaa !49
   %142 = sext i32 %141 to i64
   %143 = mul nsw i64 %142, %130
-  %144 = load i32, ptr %127, align 4, !tbaa !50
+  %144 = load i32, ptr %127, align 4, !tbaa !51
   %145 = sext i32 %144 to i64
   %146 = mul nsw i64 %145, %134
   %147 = add nsw i64 %143, 1073741824
   %148 = add i64 %147, %146
   %149 = lshr i64 %148, 31
   %150 = trunc i64 %149 to i32
-  store i32 %150, ptr %111, align 4, !tbaa !10
+  store i32 %150, ptr %111, align 4, !tbaa !11
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge140, label %.lr.ph139, !llvm.loop !81
+  br i1 %exitcond146.not, label %._crit_edge140, label %.lr.ph139, !llvm.loop !82
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -4819,13 +4819,13 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %5, 0
   %9 = select i1 %.not, i32 2, i32 1
-  store i32 %9, ptr %8, align 4, !tbaa !58
-  %10 = load float, ptr %6, align 4, !tbaa !82
+  store i32 %9, ptr %8, align 4, !tbaa !59
+  %10 = load float, ptr %6, align 4, !tbaa !83
   %11 = fpext nsz float %10 to double
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %11, ptr %12, align 8, !tbaa !25
+  store double %11, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %10, ptr %13, align 4, !tbaa !83
+  store float %10, ptr %13, align 4, !tbaa !84
   %14 = and i64 %2, 6917529027641081854
   %15 = or disjoint i64 %14, 2305843009213693953
   %16 = ashr i32 %4, 1
@@ -4844,15 +4844,15 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
   %23 = shl nsw i64 %22, 2
   %24 = call noalias ptr @av_malloc(i64 noundef %23) #16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !56
+  store ptr %24, ptr %25, align 8, !tbaa !57
   %.not50 = icmp eq ptr %24, null
   br i1 %.not50, label %.loopexit, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !55
+  %28 = load ptr, ptr %27, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %30 = load i64, ptr %29, align 8, !tbaa !53
+  %30 = load i64, ptr %29, align 8, !tbaa !54
   %31 = and i64 %30, 2305843009213693952
   %.not51 = icmp eq i64 %31, 0
   br i1 %.not51, label %.preheader53, label %33
@@ -4867,7 +4867,7 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !56
+  %35 = load ptr, ptr %34, align 8, !tbaa !57
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 4 %35, i64 %23, i1 false)
   br label %.loopexit54
 
@@ -4875,10 +4875,10 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %37, ptr %36, align 4, !tbaa !10
+  store i32 %37, ptr %36, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit54, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit54, label %.lr.ph, !llvm.loop !85
 
 .loopexit54:                                      ; preds = %.lr.ph, %.preheader53, %33
   %spec.select = select i1 %.not, ptr null, ptr %24
@@ -4888,26 +4888,26 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
   br i1 %brmerge, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit54
-  %39 = load i32, ptr %0, align 8, !tbaa !16
+  %39 = load i32, ptr %0, align 8, !tbaa !17
   %40 = icmp sgt i32 %39, 1
   br i1 %40, label %.lr.ph57, label %.loopexit
 
 .lr.ph57:                                         ; preds = %.preheader
-  %41 = load ptr, ptr %25, align 8, !tbaa !56
+  %41 = load ptr, ptr %25, align 8, !tbaa !57
   br label %42
 
 42:                                               ; preds = %.lr.ph57, %42
   %indvars.iv59 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next60, %42 ]
   %43 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv59
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !11
   %45 = shl i32 %44, 1
-  store i32 %45, ptr %43, align 4, !tbaa !10
+  store i32 %45, ptr %43, align 4, !tbaa !11
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %46 = load i32, ptr %0, align 8, !tbaa !16
+  %46 = load i32, ptr %0, align 8, !tbaa !17
   %47 = ashr i32 %46, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next60, %48
-  br i1 %49, label %42, label %.loopexit, !llvm.loop !85
+  br i1 %49, label %42, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %42, %.preheader, %.loopexit54, %21, %18
   %.044 = phi i32 [ %20, %18 ], [ -12, %21 ], [ %38, %.loopexit54 ], [ 0, %.preheader ], [ 0, %42 ]
@@ -4918,12 +4918,12 @@ define internal i32 @ff_tx_mdct_init_int32_c(ptr noundef initializes((140, 152))
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
-  %7 = load i32, ptr %0, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %7 = load i32, ptr %0, align 8, !tbaa !17
   %8 = ashr i32 %7, 1
   %9 = ashr i32 %7, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = lshr i64 %3, 2
   %13 = and i32 %7, -2
   %14 = add nsw i32 %13, -1
@@ -4939,9 +4939,9 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !4
+  %20 = load ptr, ptr %19, align 8, !tbaa !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
   tail call void %20(ptr noundef %22, ptr noundef %1, ptr noundef %1, i64 noundef 8) #16
   %23 = sext i32 %8 to i64
   %24 = getelementptr inbounds %struct.AVComplexInt32, ptr %6, i64 %23
@@ -4956,23 +4956,23 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sub nsw i32 0, %28
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %12, %30
   %32 = getelementptr inbounds i32, ptr %17, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = sext i32 %28 to i64
   %35 = mul nsw i64 %12, %34
   %36 = getelementptr inbounds i32, ptr %2, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4, !tbaa !48
+  %39 = load i32, ptr %38, align 4, !tbaa !49
   %40 = sext i32 %39 to i64
   %41 = sext i32 %33 to i64
   %42 = mul nsw i64 %40, %41
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !50
+  %44 = load i32, ptr %43, align 4, !tbaa !51
   %45 = sext i32 %44 to i64
   %46 = sext i32 %37 to i64
   %47 = mul nsw i64 %45, %46
@@ -4981,9 +4981,9 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %50 = lshr i64 %49, 31
   %51 = trunc i64 %50 to i32
   %52 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  store i32 %51, ptr %52, align 4, !tbaa !48
+  store i32 %51, ptr %52, align 4, !tbaa !49
   %53 = mul nsw i64 %45, %41
-  %54 = load i32, ptr %38, align 4, !tbaa !48
+  %54 = load i32, ptr %38, align 4, !tbaa !49
   %55 = sext i32 %54 to i64
   %56 = mul nsw i64 %55, %46
   %57 = add nsw i64 %53, 1073741824
@@ -4991,10 +4991,10 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %59 = lshr i64 %58, 31
   %60 = trunc i64 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 %60, ptr %61, align 4, !tbaa !50
+  store i32 %60, ptr %61, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge
   ret void
@@ -5006,19 +5006,19 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %64 = add nsw i64 %26, %63
   %65 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !50
-  %68 = load i32, ptr %65, align 4, !tbaa !48
+  %67 = load i32, ptr %66, align 4, !tbaa !51
+  %68 = load i32, ptr %65, align 4, !tbaa !49
   %69 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %62
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !50
-  %72 = load i32, ptr %69, align 4, !tbaa !48
+  %71 = load i32, ptr %70, align 4, !tbaa !51
+  %72 = load i32, ptr %69, align 4, !tbaa !49
   %73 = getelementptr inbounds %struct.AVComplexInt32, ptr %24, i64 %64
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !50
+  %75 = load i32, ptr %74, align 4, !tbaa !51
   %76 = sext i32 %75 to i64
   %77 = sext i32 %67 to i64
   %78 = mul nsw i64 %76, %77
-  %79 = load i32, ptr %73, align 4, !tbaa !48
+  %79 = load i32, ptr %73, align 4, !tbaa !49
   %80 = sext i32 %79 to i64
   %81 = sext i32 %68 to i64
   %82 = mul nsw i64 %80, %81
@@ -5026,8 +5026,8 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %84 = sub nsw i64 %83, %82
   %85 = lshr i64 %84, 31
   %86 = trunc i64 %85 to i32
-  store i32 %86, ptr %65, align 4, !tbaa !48
-  %87 = load i32, ptr %73, align 4, !tbaa !48
+  store i32 %86, ptr %65, align 4, !tbaa !49
+  %87 = load i32, ptr %73, align 4, !tbaa !49
   %88 = sext i32 %87 to i64
   %89 = mul nsw i64 %88, %77
   %90 = mul nsw i64 %76, %81
@@ -5035,14 +5035,14 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %92 = add i64 %91, %89
   %93 = lshr i64 %92, 31
   %94 = trunc i64 %93 to i32
-  store i32 %94, ptr %70, align 4, !tbaa !50
+  store i32 %94, ptr %70, align 4, !tbaa !51
   %95 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %24, i64 %62
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !50
+  %97 = load i32, ptr %96, align 4, !tbaa !51
   %98 = sext i32 %97 to i64
   %99 = sext i32 %71 to i64
   %100 = mul nsw i64 %98, %99
-  %101 = load i32, ptr %95, align 4, !tbaa !48
+  %101 = load i32, ptr %95, align 4, !tbaa !49
   %102 = sext i32 %101 to i64
   %103 = sext i32 %72 to i64
   %104 = mul nsw i64 %102, %103
@@ -5050,8 +5050,8 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %106 = sub nsw i64 %105, %104
   %107 = lshr i64 %106, 31
   %108 = trunc i64 %107 to i32
-  store i32 %108, ptr %69, align 4, !tbaa !48
-  %109 = load i32, ptr %95, align 4, !tbaa !48
+  store i32 %108, ptr %69, align 4, !tbaa !49
+  %109 = load i32, ptr %95, align 4, !tbaa !49
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %110, %99
   %112 = mul nsw i64 %98, %103
@@ -5059,10 +5059,10 @@ define internal void @ff_tx_mdct_inv_int32_c(ptr noundef readonly captures(none)
   %114 = add i64 %113, %111
   %115 = lshr i64 %114, 31
   %116 = trunc i64 %115 to i32
-  store i32 %116, ptr %66, align 4, !tbaa !50
+  store i32 %116, ptr %66, align 4, !tbaa !51
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !87
+  br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !88
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5070,20 +5070,20 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %5 = alloca [3 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = mul nsw i32 %10, 3
   %12 = mul nsw i32 %10, 9
-  %13 = load i32, ptr %0, align 8, !tbaa !16
+  %13 = load i32, ptr %0, align 8, !tbaa !17
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = sext i32 %11 to i64
   %18 = getelementptr inbounds i32, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = lshr i64 %3, 2
   %22 = icmp sgt i32 %10, 0
   br i1 %22, label %.preheader161.lr.ph, label %.preheader160
@@ -5091,7 +5091,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
 .preheader161.lr.ph:                              ; preds = %4
   %23 = mul nuw nsw i32 %10, 15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !55
   %26 = zext nneg i32 %10 to i64
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5115,35 +5115,35 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
 
 34:                                               ; preds = %123
   %35 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv169
-  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.AVComplexInt32, ptr %25, i64 %37
-  %.sroa.08.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !10
-  %39 = load i32, ptr %28, align 4, !tbaa !50
-  %40 = load i32, ptr %30, align 4, !tbaa !50
+  %.sroa.08.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !11
+  %39 = load i32, ptr %28, align 4, !tbaa !51
+  %40 = load i32, ptr %30, align 4, !tbaa !51
   %41 = sub i32 %39, %40
   %42 = add i32 %40, %39
-  %43 = load i32, ptr %27, align 8, !tbaa !48
-  %44 = load i32, ptr %29, align 16, !tbaa !48
+  %43 = load i32, ptr %27, align 8, !tbaa !49
+  %44 = load i32, ptr %29, align 16, !tbaa !49
   %45 = sub i32 %43, %44
   %46 = add i32 %44, %43
   %47 = sext i32 %46 to i64
   %48 = add i32 %46, %.sroa.08.0.copyload.i
-  store i32 %48, ptr %38, align 4, !tbaa !48
+  store i32 %48, ptr %38, align 4, !tbaa !49
   %49 = sext i32 %42 to i64
   %50 = add i32 %42, %.sroa.6.0.copyload.i
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 %50, ptr %51, align 4, !tbaa !50
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  store i32 %50, ptr %51, align 4, !tbaa !51
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %53 = sext i32 %52 to i64
   %54 = sext i32 %41 to i64
   %55 = mul nsw i64 %53, %54
-  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %57 = sext i32 %56 to i64
   %58 = sext i32 %45 to i64
   %59 = mul nsw i64 %57, %58
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %61 = sext i32 %60 to i64
   %62 = mul nsw i64 %61, %47
   %63 = mul nsw i64 %61, %49
@@ -5153,59 +5153,59 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %67 = trunc i64 %66 to i32
   %68 = sub i32 %.sroa.08.0.copyload.i, %67
   %69 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %38, i64 %26
-  store i32 %68, ptr %69, align 4, !tbaa !48
+  store i32 %68, ptr %69, align 4, !tbaa !49
   %reass.sub166 = sub nsw i64 %63, %59
   %70 = add nsw i64 %reass.sub166, 1073741824
   %71 = lshr i64 %70, 31
   %72 = trunc i64 %71 to i32
   %73 = sub i32 %.sroa.6.0.copyload.i, %72
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 %73, ptr %74, align 4, !tbaa !50
+  store i32 %73, ptr %74, align 4, !tbaa !51
   %reass.sub167 = sub nsw i64 %62, %55
   %75 = add nsw i64 %reass.sub167, 1073741824
   %76 = lshr i64 %75, 31
   %77 = trunc i64 %76 to i32
   %78 = sub i32 %.sroa.08.0.copyload.i, %77
   %79 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
-  store i32 %78, ptr %79, align 4, !tbaa !48
+  store i32 %78, ptr %79, align 4, !tbaa !49
   %80 = add nsw i64 %59, 1073741824
   %81 = add i64 %80, %63
   %82 = lshr i64 %81, 31
   %83 = trunc i64 %82 to i32
   %84 = sub i32 %.sroa.6.0.copyload.i, %83
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 %84, ptr %85, align 4, !tbaa !50
+  store i32 %84, ptr %85, align 4, !tbaa !51
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, %26
-  br i1 %exitcond172.not, label %.preheader160, label %.preheader161, !llvm.loop !88
+  br i1 %exitcond172.not, label %.preheader160, label %.preheader161, !llvm.loop !89
 
 86:                                               ; preds = %.preheader161, %123
   %indvars.iv = phi i64 [ 0, %.preheader161 ], [ %indvars.iv.next, %123 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %87 = load i32, ptr %gep, align 4, !tbaa !10
+  %87 = load i32, ptr %gep, align 4, !tbaa !11
   %88 = icmp slt i32 %87, %11
   %89 = add nsw i32 %87, %11
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %2, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !10
+  %92 = load i32, ptr %91, align 4, !tbaa !11
   %93 = xor i32 %87, -1
   %94 = add i32 %12, %93
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i32, ptr %2, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !10
+  %97 = load i32, ptr %96, align 4, !tbaa !11
   br i1 %88, label %98, label %110
 
 98:                                               ; preds = %86
   %99 = add i32 %11, %93
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %2, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !10
+  %102 = load i32, ptr %101, align 4, !tbaa !11
   %reass.sub = sub i32 %102, %92
   %103 = add i32 %reass.sub, 32
   %104 = add nsw i32 %87, %12
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i32, ptr %2, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !10
+  %107 = load i32, ptr %106, align 4, !tbaa !11
   %108 = add i32 %107, %97
   %109 = sub i32 32, %108
   br label %123
@@ -5214,13 +5214,13 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %111 = add i32 %23, %93
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i32, ptr %2, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !10
+  %114 = load i32, ptr %113, align 4, !tbaa !11
   %115 = add i32 %92, %114
   %116 = sub i32 32, %115
   %117 = sub nsw i32 %87, %11
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw i32, ptr %2, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !10
+  %120 = load i32, ptr %119, align 4, !tbaa !11
   %121 = add i32 %120, 32
   %122 = sub i32 %121, %97
   br label %123
@@ -5233,12 +5233,12 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %124 = ashr i32 %87, 1
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !48
+  %127 = load i32, ptr %126, align 4, !tbaa !49
   %128 = sext i32 %127 to i64
   %129 = sext i32 %.sroa.089.0 to i64
   %130 = mul nsw i64 %128, %129
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %132 = load i32, ptr %131, align 4, !tbaa !50
+  %132 = load i32, ptr %131, align 4, !tbaa !51
   %133 = sext i32 %132 to i64
   %134 = sext i32 %.sroa.6.0 to i64
   %135 = mul nsw i64 %133, %134
@@ -5248,39 +5248,39 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %139 = trunc i64 %138 to i32
   %140 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  store i32 %139, ptr %141, align 4, !tbaa !50
+  store i32 %139, ptr %141, align 4, !tbaa !51
   %142 = mul nsw i64 %133, %129
   %143 = mul nsw i64 %128, %134
   %144 = add nsw i64 %143, 1073741824
   %145 = add nsw i64 %144, %142
   %146 = lshr i64 %145, 31
   %147 = trunc i64 %146 to i32
-  store i32 %147, ptr %140, align 8, !tbaa !48
+  store i32 %147, ptr %140, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %34, label %86, !llvm.loop !89
+  br i1 %exitcond.not, label %34, label %86, !llvm.loop !90
 
 .preheader:                                       ; preds = %151
   %148 = icmp sgt i32 %14, 0
   br i1 %148, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %149 = load ptr, ptr %32, align 8, !tbaa !54
+  %149 = load ptr, ptr %32, align 8, !tbaa !55
   %150 = zext nneg i32 %14 to i64
   %wide.trip.count180 = zext nneg i32 %14 to i64
   br label %157
 
 151:                                              ; preds = %.preheader160, %151
   %indvars.iv173 = phi i64 [ 0, %.preheader160 ], [ %indvars.iv.next174, %151 ]
-  %152 = load ptr, ptr %31, align 8, !tbaa !4
-  %153 = load ptr, ptr %8, align 8, !tbaa !55
-  %154 = load ptr, ptr %32, align 8, !tbaa !54
+  %152 = load ptr, ptr %31, align 8, !tbaa !5
+  %153 = load ptr, ptr %8, align 8, !tbaa !56
+  %154 = load ptr, ptr %32, align 8, !tbaa !55
   %155 = mul nsw i64 %indvars.iv173, %33
   %156 = getelementptr inbounds %struct.AVComplexInt32, ptr %154, i64 %155
   tail call void %152(ptr noundef %153, ptr noundef %156, ptr noundef %156, i64 noundef 8) #16
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 3
-  br i1 %exitcond176.not, label %.preheader, label %151, !llvm.loop !90
+  br i1 %exitcond176.not, label %.preheader, label %151, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %157, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5292,26 +5292,26 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %159 = xor i64 %indvars.iv177, -1
   %160 = add nsw i64 %150, %159
   %161 = getelementptr inbounds nuw i32, ptr %18, i64 %158
-  %162 = load i32, ptr %161, align 4, !tbaa !10
+  %162 = load i32, ptr %161, align 4, !tbaa !11
   %163 = getelementptr inbounds i32, ptr %18, i64 %160
-  %164 = load i32, ptr %163, align 4, !tbaa !10
+  %164 = load i32, ptr %163, align 4, !tbaa !11
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds %struct.AVComplexInt32, ptr %149, i64 %165
-  %167 = load i32, ptr %166, align 4, !tbaa !48
+  %167 = load i32, ptr %166, align 4, !tbaa !49
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !50
+  %169 = load i32, ptr %168, align 4, !tbaa !51
   %170 = sext i32 %162 to i64
   %171 = getelementptr inbounds %struct.AVComplexInt32, ptr %149, i64 %170
-  %172 = load i32, ptr %171, align 4, !tbaa !48
+  %172 = load i32, ptr %171, align 4, !tbaa !49
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  %174 = load i32, ptr %173, align 4, !tbaa !50
+  %174 = load i32, ptr %173, align 4, !tbaa !51
   %175 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %7, i64 %158
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
-  %177 = load i32, ptr %176, align 4, !tbaa !50
+  %177 = load i32, ptr %176, align 4, !tbaa !51
   %178 = sext i32 %177 to i64
   %179 = sext i32 %172 to i64
   %180 = mul nsw i64 %178, %179
-  %181 = load i32, ptr %175, align 4, !tbaa !48
+  %181 = load i32, ptr %175, align 4, !tbaa !49
   %182 = sext i32 %181 to i64
   %183 = sext i32 %174 to i64
   %184 = mul nsw i64 %182, %183
@@ -5323,11 +5323,11 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %190 = mul nsw i64 %21, %189
   %191 = getelementptr i32, ptr %1, i64 %190
   %192 = getelementptr i32, ptr %191, i64 %21
-  store i32 %188, ptr %192, align 4, !tbaa !10
-  %193 = load i32, ptr %175, align 4, !tbaa !48
+  store i32 %188, ptr %192, align 4, !tbaa !11
+  %193 = load i32, ptr %175, align 4, !tbaa !49
   %194 = sext i32 %193 to i64
   %195 = mul nsw i64 %194, %179
-  %196 = load i32, ptr %176, align 4, !tbaa !50
+  %196 = load i32, ptr %176, align 4, !tbaa !51
   %197 = sext i32 %196 to i64
   %198 = mul nsw i64 %197, %183
   %199 = add nsw i64 %195, 1073741824
@@ -5337,14 +5337,14 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %203 = shl nuw nsw i64 %158, 1
   %204 = mul nuw nsw i64 %21, %203
   %205 = getelementptr inbounds nuw i32, ptr %1, i64 %204
-  store i32 %202, ptr %205, align 4, !tbaa !10
+  store i32 %202, ptr %205, align 4, !tbaa !11
   %206 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %160
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  %208 = load i32, ptr %207, align 4, !tbaa !50
+  %208 = load i32, ptr %207, align 4, !tbaa !51
   %209 = sext i32 %208 to i64
   %210 = sext i32 %167 to i64
   %211 = mul nsw i64 %209, %210
-  %212 = load i32, ptr %206, align 4, !tbaa !48
+  %212 = load i32, ptr %206, align 4, !tbaa !49
   %213 = sext i32 %212 to i64
   %214 = sext i32 %169 to i64
   %215 = mul nsw i64 %213, %214
@@ -5353,21 +5353,21 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %218 = lshr i64 %217, 31
   %219 = trunc i64 %218 to i32
   %220 = getelementptr i32, ptr %205, i64 %21
-  store i32 %219, ptr %220, align 4, !tbaa !10
-  %221 = load i32, ptr %206, align 4, !tbaa !48
+  store i32 %219, ptr %220, align 4, !tbaa !11
+  %221 = load i32, ptr %206, align 4, !tbaa !49
   %222 = sext i32 %221 to i64
   %223 = mul nsw i64 %222, %210
-  %224 = load i32, ptr %207, align 4, !tbaa !50
+  %224 = load i32, ptr %207, align 4, !tbaa !51
   %225 = sext i32 %224 to i64
   %226 = mul nsw i64 %225, %214
   %227 = add nsw i64 %223, 1073741824
   %228 = add i64 %227, %226
   %229 = lshr i64 %228, 31
   %230 = trunc i64 %229 to i32
-  store i32 %230, ptr %191, align 4, !tbaa !10
+  store i32 %230, ptr %191, align 4, !tbaa !11
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge, label %157, !llvm.loop !91
+  br i1 %exitcond181.not, label %._crit_edge, label %157, !llvm.loop !92
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -5378,14 +5378,14 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
   store i32 2, ptr %8, align 4
   %10 = ashr i32 %4, 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !10
+  %12 = load i32, ptr %11, align 8, !tbaa !11
   %13 = sdiv i32 %10, %12
-  %14 = load float, ptr %6, align 4, !tbaa !82
+  %14 = load float, ptr %6, align 4, !tbaa !83
   %15 = fpext nsz float %14 to double
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %15, ptr %16, align 8, !tbaa !25
+  store double %15, ptr %16, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %14, ptr %17, align 4, !tbaa !83
+  store float %14, ptr %17, align 4, !tbaa !84
   %18 = and i64 %2, 6917529027641081854
   %19 = or disjoint i64 %18, 2305843009213693953
   %20 = call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 4, i64 noundef %19, ptr noundef nonnull %8, i32 noundef %13, i32 noundef %5, ptr noundef nonnull %6) #16
@@ -5394,14 +5394,14 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !73
-  %24 = load i32, ptr %11, align 8, !tbaa !10
+  %23 = load i32, ptr %22, align 4, !tbaa !74
+  %24 = load i32, ptr %11, align 8, !tbaa !11
   %25 = call i32 @ff_tx_gen_compound_mapping(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %23, i32 noundef %24, i32 noundef %13) #16
   %.not59 = icmp eq i32 %25, 0
   br i1 %.not59, label %26, label %69
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr %11, align 8, !tbaa !10
+  %27 = load i32, ptr %11, align 8, !tbaa !11
   %28 = icmp eq i32 %27, 15
   br i1 %28, label %29, label %49
 
@@ -5412,7 +5412,7 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
 
 .lr.ph:                                           ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !56
+  %32 = load ptr, ptr %31, align 8, !tbaa !57
   %33 = zext nneg i32 %10 to i64
   br label %34
 
@@ -5436,12 +5436,12 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
 37:                                               ; preds = %39
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 15
   %38 = icmp samesign ult i64 %indvars.iv.next76, %33
-  br i1 %38, label %34, label %._crit_edge, !llvm.loop !92
+  br i1 %38, label %34, label %._crit_edge, !llvm.loop !93
 
 39:                                               ; preds = %40
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 5
-  br i1 %exitcond74.not, label %37, label %.preheader63, !llvm.loop !93
+  br i1 %exitcond74.not, label %37, label %.preheader63, !llvm.loop !94
 
 40:                                               ; preds = %.preheader63, %40
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %40 ]
@@ -5451,12 +5451,12 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
   %44 = urem i32 %43, 15
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i32, ptr %9, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
-  store i32 %47, ptr %48, align 4, !tbaa !10
+  store i32 %47, ptr %48, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %39, label %40, !llvm.loop !94
+  br i1 %exitcond.not, label %39, label %40, !llvm.loop !95
 
 49:                                               ; preds = %._crit_edge, %26
   %.not60 = icmp eq i32 %5, 0
@@ -5464,7 +5464,7 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !57
   br label %53
 
 53:                                               ; preds = %49, %50
@@ -5479,7 +5479,7 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
 
 .lr.ph68:                                         ; preds = %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !56
+  %58 = load ptr, ptr %57, align 8, !tbaa !57
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %63
 
@@ -5488,19 +5488,19 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
   %60 = shl nsw i64 %59, 3
   %61 = call noalias ptr @av_malloc(i64 noundef %60) #16
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %61, ptr %62, align 8, !tbaa !54
+  store ptr %61, ptr %62, align 8, !tbaa !55
   %.not62 = icmp eq ptr %61, null
   br i1 %.not62, label %69, label %67
 
 63:                                               ; preds = %.lr.ph68, %63
   %indvars.iv78 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next79, %63 ]
   %64 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv78
-  %65 = load i32, ptr %64, align 4, !tbaa !10
+  %65 = load i32, ptr %64, align 4, !tbaa !11
   %66 = shl i32 %65, 1
-  store i32 %66, ptr %64, align 4, !tbaa !10
+  store i32 %66, ptr %64, align 4, !tbaa !11
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond81.not, label %._crit_edge69, label %63, !llvm.loop !95
+  br i1 %exitcond81.not, label %._crit_edge69, label %63, !llvm.loop !96
 
 67:                                               ; preds = %._crit_edge69
   %68 = sdiv i32 %10, %13
@@ -5518,20 +5518,20 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %5 = alloca [5 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = mul nsw i32 %10, 5
   %12 = mul nsw i32 %10, 15
-  %13 = load i32, ptr %0, align 8, !tbaa !16
+  %13 = load i32, ptr %0, align 8, !tbaa !17
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = sext i32 %11 to i64
   %18 = getelementptr inbounds i32, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = lshr i64 %3, 2
   %22 = icmp sgt i32 %10, 0
   br i1 %22, label %.preheader169.lr.ph, label %.preheader168
@@ -5539,7 +5539,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
 .preheader169.lr.ph:                              ; preds = %4
   %23 = mul nuw nsw i32 %10, 25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !55
   %26 = zext nneg i32 %10 to i64
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5569,40 +5569,40 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
 
 38:                                               ; preds = %185
   %39 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv175
-  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds %struct.AVComplexInt32, ptr %25, i64 %41
-  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
-  %43 = load i32, ptr %27, align 8, !tbaa !48
-  %44 = load i32, ptr %28, align 16, !tbaa !48
+  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
+  %43 = load i32, ptr %27, align 8, !tbaa !49
+  %44 = load i32, ptr %28, align 16, !tbaa !49
   %45 = sub i32 %43, %44
   %46 = add i32 %44, %43
-  %47 = load i32, ptr %29, align 4, !tbaa !50
-  %48 = load i32, ptr %30, align 4, !tbaa !50
+  %47 = load i32, ptr %29, align 4, !tbaa !51
+  %48 = load i32, ptr %30, align 4, !tbaa !51
   %49 = sub i32 %47, %48
   %50 = add i32 %48, %47
-  %51 = load i32, ptr %31, align 16, !tbaa !48
-  %52 = load i32, ptr %32, align 8, !tbaa !48
+  %51 = load i32, ptr %31, align 16, !tbaa !49
+  %52 = load i32, ptr %32, align 8, !tbaa !49
   %53 = sub i32 %51, %52
   %54 = add i32 %52, %51
-  %55 = load i32, ptr %33, align 4, !tbaa !50
-  %56 = load i32, ptr %34, align 4, !tbaa !50
+  %55 = load i32, ptr %33, align 4, !tbaa !51
+  %56 = load i32, ptr %34, align 4, !tbaa !51
   %57 = sub i32 %55, %56
   %58 = add i32 %56, %55
   %59 = add i32 %46, %.sroa.057.0.copyload.i
   %60 = add i32 %59, %54
-  store i32 %60, ptr %42, align 4, !tbaa !48
+  store i32 %60, ptr %42, align 4, !tbaa !49
   %61 = add i32 %50, %.sroa.862.0.copyload.i
   %62 = add i32 %61, %58
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 %62, ptr %63, align 4, !tbaa !50
+  store i32 %62, ptr %63, align 4, !tbaa !51
   %64 = sext i32 %54 to i64
-  %65 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %65 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %66, %64
   %68 = sext i32 %46 to i64
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, %68
   %72 = add nsw i64 %67, 1073741824
@@ -5630,11 +5630,11 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %94 = lshr i64 %93, 31
   %95 = trunc i64 %94 to i32
   %96 = sext i32 %57 to i64
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %98 = sext i32 %97 to i64
   %99 = mul nsw i64 %98, %96
   %100 = sext i32 %49 to i64
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %102 = sext i32 %101 to i64
   %103 = mul nsw i64 %102, %100
   %104 = add nsw i64 %99, 1073741824
@@ -5664,62 +5664,62 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %128 = add i32 %.sroa.057.0.copyload.i, %81
   %129 = add i32 %128, %113
   %130 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %42, i64 %26
-  store i32 %129, ptr %130, align 4, !tbaa !48
+  store i32 %129, ptr %130, align 4, !tbaa !49
   %131 = add i32 %.sroa.862.0.copyload.i, %95
   %132 = sub i32 %131, %127
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  store i32 %132, ptr %133, align 4, !tbaa !50
+  store i32 %132, ptr %133, align 4, !tbaa !51
   %134 = add i32 %.sroa.057.0.copyload.i, %75
   %135 = sub i32 %134, %107
   %136 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
-  store i32 %135, ptr %136, align 4, !tbaa !48
+  store i32 %135, ptr %136, align 4, !tbaa !49
   %137 = add i32 %.sroa.862.0.copyload.i, %89
   %138 = add i32 %137, %121
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i32 %138, ptr %139, align 4, !tbaa !50
+  store i32 %138, ptr %139, align 4, !tbaa !51
   %140 = add i32 %134, %107
   %141 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx104.i
-  store i32 %140, ptr %141, align 4, !tbaa !48
+  store i32 %140, ptr %141, align 4, !tbaa !49
   %142 = sub i32 %137, %121
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  store i32 %142, ptr %143, align 4, !tbaa !50
+  store i32 %142, ptr %143, align 4, !tbaa !51
   %144 = sub i32 %128, %113
   %145 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx105.i
-  store i32 %144, ptr %145, align 4, !tbaa !48
+  store i32 %144, ptr %145, align 4, !tbaa !49
   %146 = add i32 %131, %127
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  store i32 %146, ptr %147, align 4, !tbaa !50
+  store i32 %146, ptr %147, align 4, !tbaa !51
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, %26
-  br i1 %exitcond178.not, label %.preheader168, label %.preheader169, !llvm.loop !96
+  br i1 %exitcond178.not, label %.preheader168, label %.preheader169, !llvm.loop !97
 
 148:                                              ; preds = %.preheader169, %185
   %indvars.iv = phi i64 [ 0, %.preheader169 ], [ %indvars.iv.next, %185 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %149 = load i32, ptr %gep, align 4, !tbaa !10
+  %149 = load i32, ptr %gep, align 4, !tbaa !11
   %150 = icmp slt i32 %149, %11
   %151 = add nsw i32 %149, %11
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %2, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !10
+  %154 = load i32, ptr %153, align 4, !tbaa !11
   %155 = xor i32 %149, -1
   %156 = add i32 %12, %155
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i32, ptr %2, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !10
+  %159 = load i32, ptr %158, align 4, !tbaa !11
   br i1 %150, label %160, label %172
 
 160:                                              ; preds = %148
   %161 = add i32 %11, %155
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i32, ptr %2, i64 %162
-  %164 = load i32, ptr %163, align 4, !tbaa !10
+  %164 = load i32, ptr %163, align 4, !tbaa !11
   %reass.sub = sub i32 %164, %154
   %165 = add i32 %reass.sub, 32
   %166 = add nsw i32 %149, %12
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i32, ptr %2, i64 %167
-  %169 = load i32, ptr %168, align 4, !tbaa !10
+  %169 = load i32, ptr %168, align 4, !tbaa !11
   %170 = add i32 %169, %159
   %171 = sub i32 32, %170
   br label %185
@@ -5728,13 +5728,13 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %173 = add i32 %23, %155
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds i32, ptr %2, i64 %174
-  %176 = load i32, ptr %175, align 4, !tbaa !10
+  %176 = load i32, ptr %175, align 4, !tbaa !11
   %177 = add i32 %154, %176
   %178 = sub i32 32, %177
   %179 = sub nsw i32 %149, %11
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds nuw i32, ptr %2, i64 %180
-  %182 = load i32, ptr %181, align 4, !tbaa !10
+  %182 = load i32, ptr %181, align 4, !tbaa !11
   %183 = add i32 %182, 32
   %184 = sub i32 %183, %159
   br label %185
@@ -5747,12 +5747,12 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %186 = ashr i32 %149, 1
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %187
-  %189 = load i32, ptr %188, align 4, !tbaa !48
+  %189 = load i32, ptr %188, align 4, !tbaa !49
   %190 = sext i32 %189 to i64
   %191 = sext i32 %.sroa.089.0 to i64
   %192 = mul nsw i64 %190, %191
   %193 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  %194 = load i32, ptr %193, align 4, !tbaa !50
+  %194 = load i32, ptr %193, align 4, !tbaa !51
   %195 = sext i32 %194 to i64
   %196 = sext i32 %.sroa.6.0 to i64
   %197 = mul nsw i64 %195, %196
@@ -5762,39 +5762,39 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %201 = trunc i64 %200 to i32
   %202 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 %201, ptr %203, align 4, !tbaa !50
+  store i32 %201, ptr %203, align 4, !tbaa !51
   %204 = mul nsw i64 %195, %191
   %205 = mul nsw i64 %190, %196
   %206 = add nsw i64 %205, 1073741824
   %207 = add nsw i64 %206, %204
   %208 = lshr i64 %207, 31
   %209 = trunc i64 %208 to i32
-  store i32 %209, ptr %202, align 8, !tbaa !48
+  store i32 %209, ptr %202, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %38, label %148, !llvm.loop !97
+  br i1 %exitcond.not, label %38, label %148, !llvm.loop !98
 
 .preheader:                                       ; preds = %213
   %210 = icmp sgt i32 %14, 0
   br i1 %210, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %211 = load ptr, ptr %36, align 8, !tbaa !54
+  %211 = load ptr, ptr %36, align 8, !tbaa !55
   %212 = zext nneg i32 %14 to i64
   %wide.trip.count186 = zext nneg i32 %14 to i64
   br label %219
 
 213:                                              ; preds = %.preheader168, %213
   %indvars.iv179 = phi i64 [ 0, %.preheader168 ], [ %indvars.iv.next180, %213 ]
-  %214 = load ptr, ptr %35, align 8, !tbaa !4
-  %215 = load ptr, ptr %8, align 8, !tbaa !55
-  %216 = load ptr, ptr %36, align 8, !tbaa !54
+  %214 = load ptr, ptr %35, align 8, !tbaa !5
+  %215 = load ptr, ptr %8, align 8, !tbaa !56
+  %216 = load ptr, ptr %36, align 8, !tbaa !55
   %217 = mul nsw i64 %indvars.iv179, %37
   %218 = getelementptr inbounds %struct.AVComplexInt32, ptr %216, i64 %217
   tail call void %214(ptr noundef %215, ptr noundef %218, ptr noundef %218, i64 noundef 8) #16
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next180, 5
-  br i1 %exitcond182.not, label %.preheader, label %213, !llvm.loop !98
+  br i1 %exitcond182.not, label %.preheader, label %213, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %219, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5806,26 +5806,26 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %221 = xor i64 %indvars.iv183, -1
   %222 = add nsw i64 %212, %221
   %223 = getelementptr inbounds nuw i32, ptr %18, i64 %220
-  %224 = load i32, ptr %223, align 4, !tbaa !10
+  %224 = load i32, ptr %223, align 4, !tbaa !11
   %225 = getelementptr inbounds i32, ptr %18, i64 %222
-  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %226 = load i32, ptr %225, align 4, !tbaa !11
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds %struct.AVComplexInt32, ptr %211, i64 %227
-  %229 = load i32, ptr %228, align 4, !tbaa !48
+  %229 = load i32, ptr %228, align 4, !tbaa !49
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %231 = load i32, ptr %230, align 4, !tbaa !50
+  %231 = load i32, ptr %230, align 4, !tbaa !51
   %232 = sext i32 %224 to i64
   %233 = getelementptr inbounds %struct.AVComplexInt32, ptr %211, i64 %232
-  %234 = load i32, ptr %233, align 4, !tbaa !48
+  %234 = load i32, ptr %233, align 4, !tbaa !49
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %236 = load i32, ptr %235, align 4, !tbaa !50
+  %236 = load i32, ptr %235, align 4, !tbaa !51
   %237 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %7, i64 %220
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  %239 = load i32, ptr %238, align 4, !tbaa !50
+  %239 = load i32, ptr %238, align 4, !tbaa !51
   %240 = sext i32 %239 to i64
   %241 = sext i32 %234 to i64
   %242 = mul nsw i64 %240, %241
-  %243 = load i32, ptr %237, align 4, !tbaa !48
+  %243 = load i32, ptr %237, align 4, !tbaa !49
   %244 = sext i32 %243 to i64
   %245 = sext i32 %236 to i64
   %246 = mul nsw i64 %244, %245
@@ -5837,11 +5837,11 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %252 = mul nsw i64 %21, %251
   %253 = getelementptr i32, ptr %1, i64 %252
   %254 = getelementptr i32, ptr %253, i64 %21
-  store i32 %250, ptr %254, align 4, !tbaa !10
-  %255 = load i32, ptr %237, align 4, !tbaa !48
+  store i32 %250, ptr %254, align 4, !tbaa !11
+  %255 = load i32, ptr %237, align 4, !tbaa !49
   %256 = sext i32 %255 to i64
   %257 = mul nsw i64 %256, %241
-  %258 = load i32, ptr %238, align 4, !tbaa !50
+  %258 = load i32, ptr %238, align 4, !tbaa !51
   %259 = sext i32 %258 to i64
   %260 = mul nsw i64 %259, %245
   %261 = add nsw i64 %257, 1073741824
@@ -5851,14 +5851,14 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %265 = shl nuw nsw i64 %220, 1
   %266 = mul nuw nsw i64 %21, %265
   %267 = getelementptr inbounds nuw i32, ptr %1, i64 %266
-  store i32 %264, ptr %267, align 4, !tbaa !10
+  store i32 %264, ptr %267, align 4, !tbaa !11
   %268 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %222
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  %270 = load i32, ptr %269, align 4, !tbaa !50
+  %270 = load i32, ptr %269, align 4, !tbaa !51
   %271 = sext i32 %270 to i64
   %272 = sext i32 %229 to i64
   %273 = mul nsw i64 %271, %272
-  %274 = load i32, ptr %268, align 4, !tbaa !48
+  %274 = load i32, ptr %268, align 4, !tbaa !49
   %275 = sext i32 %274 to i64
   %276 = sext i32 %231 to i64
   %277 = mul nsw i64 %275, %276
@@ -5867,21 +5867,21 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %280 = lshr i64 %279, 31
   %281 = trunc i64 %280 to i32
   %282 = getelementptr i32, ptr %267, i64 %21
-  store i32 %281, ptr %282, align 4, !tbaa !10
-  %283 = load i32, ptr %268, align 4, !tbaa !48
+  store i32 %281, ptr %282, align 4, !tbaa !11
+  %283 = load i32, ptr %268, align 4, !tbaa !49
   %284 = sext i32 %283 to i64
   %285 = mul nsw i64 %284, %272
-  %286 = load i32, ptr %269, align 4, !tbaa !50
+  %286 = load i32, ptr %269, align 4, !tbaa !51
   %287 = sext i32 %286 to i64
   %288 = mul nsw i64 %287, %276
   %289 = add nsw i64 %285, 1073741824
   %290 = add i64 %289, %288
   %291 = lshr i64 %290, 31
   %292 = trunc i64 %291 to i32
-  store i32 %292, ptr %253, align 4, !tbaa !10
+  store i32 %292, ptr %253, align 4, !tbaa !11
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge, label %219, !llvm.loop !99
+  br i1 %exitcond187.not, label %._crit_edge, label %219, !llvm.loop !100
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5889,20 +5889,20 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %5 = alloca [7 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = mul nsw i32 %10, 7
   %12 = mul nsw i32 %10, 21
-  %13 = load i32, ptr %0, align 8, !tbaa !16
+  %13 = load i32, ptr %0, align 8, !tbaa !17
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = sext i32 %11 to i64
   %18 = getelementptr inbounds i32, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = lshr i64 %3, 2
   %22 = icmp sgt i32 %10, 0
   br i1 %22, label %.preheader197.lr.ph, label %.preheader196
@@ -5910,7 +5910,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
 .preheader197.lr.ph:                              ; preds = %4
   %23 = mul nuw nsw i32 %10, 35
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !55
   %26 = zext nneg i32 %10 to i64
   %.sroa.10110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5946,53 +5946,53 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
 
 42:                                               ; preds = %247
   %43 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv203
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !11
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds %struct.AVComplexInt32, ptr %25, i64 %45
-  %.sroa.0103.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !10
-  %47 = load i32, ptr %27, align 8, !tbaa !48
-  %48 = load i32, ptr %28, align 16, !tbaa !48
+  %.sroa.0103.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !11
+  %47 = load i32, ptr %27, align 8, !tbaa !49
+  %48 = load i32, ptr %28, align 16, !tbaa !49
   %49 = sub i32 %47, %48
   %50 = add i32 %48, %47
-  %51 = load i32, ptr %29, align 4, !tbaa !50
-  %52 = load i32, ptr %30, align 4, !tbaa !50
+  %51 = load i32, ptr %29, align 4, !tbaa !51
+  %52 = load i32, ptr %30, align 4, !tbaa !51
   %53 = sub i32 %51, %52
   %54 = add i32 %52, %51
-  %55 = load i32, ptr %31, align 16, !tbaa !48
-  %56 = load i32, ptr %32, align 8, !tbaa !48
+  %55 = load i32, ptr %31, align 16, !tbaa !49
+  %56 = load i32, ptr %32, align 8, !tbaa !49
   %57 = sub i32 %55, %56
   %58 = add i32 %56, %55
-  %59 = load i32, ptr %33, align 4, !tbaa !50
-  %60 = load i32, ptr %34, align 4, !tbaa !50
+  %59 = load i32, ptr %33, align 4, !tbaa !51
+  %60 = load i32, ptr %34, align 4, !tbaa !51
   %61 = sub i32 %59, %60
   %62 = add i32 %60, %59
-  %63 = load i32, ptr %35, align 8, !tbaa !48
-  %64 = load i32, ptr %36, align 16, !tbaa !48
+  %63 = load i32, ptr %35, align 8, !tbaa !49
+  %64 = load i32, ptr %36, align 16, !tbaa !49
   %65 = sub i32 %63, %64
   %66 = add i32 %64, %63
-  %67 = load i32, ptr %37, align 4, !tbaa !50
-  %68 = load i32, ptr %38, align 4, !tbaa !50
+  %67 = load i32, ptr %37, align 4, !tbaa !51
+  %68 = load i32, ptr %38, align 4, !tbaa !51
   %69 = sub i32 %67, %68
   %70 = add i32 %68, %67
   %71 = add nsw i32 %50, %.sroa.0103.0.copyload.i
   %72 = add nsw i32 %71, %58
   %73 = add nsw i32 %72, %66
-  store i32 %73, ptr %46, align 4, !tbaa !48
+  store i32 %73, ptr %46, align 4, !tbaa !49
   %74 = add nsw i32 %54, %.sroa.10110.0.copyload.i
   %75 = add nsw i32 %74, %62
   %76 = add nsw i32 %75, %70
   %77 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 %76, ptr %77, align 4, !tbaa !50
-  %78 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !48
+  store i32 %76, ptr %77, align 4, !tbaa !51
+  %78 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !49
   %79 = sext i32 %78 to i64
   %80 = sext i32 %50 to i64
   %81 = mul nsw i64 %79, %80
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !48
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !49
   %83 = sext i32 %82 to i64
   %84 = sext i32 %66 to i64
   %85 = mul nsw i64 %79, %84
-  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !48
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !49
   %87 = sext i32 %86 to i64
   %88 = sext i32 %58 to i64
   %89 = mul nsw i64 %79, %88
@@ -6002,15 +6002,15 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %93 = sext i32 %70 to i64
   %94 = mul nsw i64 %79, %93
   %95 = mul nsw i64 %79, %92
-  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !50
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !51
   %97 = sext i32 %96 to i64
   %98 = sext i32 %53 to i64
   %99 = mul nsw i64 %97, %98
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !50
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !51
   %101 = sext i32 %100 to i64
   %102 = sext i32 %69 to i64
   %103 = mul nsw i64 %101, %102
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !50
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !51
   %105 = sext i32 %104 to i64
   %106 = mul nsw i64 %105, %102
   %107 = sext i32 %61 to i64
@@ -6107,76 +6107,76 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %180 = add i32 %.sroa.0103.0.copyload.i, %123
   %181 = add i32 %180, %161
   %182 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %46, i64 %26
-  store i32 %181, ptr %182, align 4, !tbaa !48
+  store i32 %181, ptr %182, align 4, !tbaa !49
   %183 = add i32 %.sroa.10110.0.copyload.i, %135
   %184 = sub i32 %183, %167
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  store i32 %184, ptr %185, align 4, !tbaa !50
+  store i32 %184, ptr %185, align 4, !tbaa !51
   %186 = add i32 %.sroa.0103.0.copyload.i, %127
   %187 = sub i32 %186, %155
   %188 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i
-  store i32 %187, ptr %188, align 4, !tbaa !48
+  store i32 %187, ptr %188, align 4, !tbaa !49
   %189 = add i32 %.sroa.10110.0.copyload.i, %139
   %190 = add i32 %189, %173
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  store i32 %190, ptr %191, align 4, !tbaa !50
+  store i32 %190, ptr %191, align 4, !tbaa !51
   %192 = add i32 %.sroa.0103.0.copyload.i, %131
   %193 = add i32 %192, %149
   %194 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx169.i
-  store i32 %193, ptr %194, align 4, !tbaa !48
+  store i32 %193, ptr %194, align 4, !tbaa !49
   %195 = add i32 %.sroa.10110.0.copyload.i, %143
   %196 = sub i32 %195, %179
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
-  store i32 %196, ptr %197, align 4, !tbaa !50
+  store i32 %196, ptr %197, align 4, !tbaa !51
   %198 = sub i32 %192, %149
   %199 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx170.i
-  store i32 %198, ptr %199, align 4, !tbaa !48
+  store i32 %198, ptr %199, align 4, !tbaa !49
   %200 = add i32 %195, %179
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
-  store i32 %200, ptr %201, align 4, !tbaa !50
+  store i32 %200, ptr %201, align 4, !tbaa !51
   %202 = add i32 %186, %155
   %203 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx171.i
-  store i32 %202, ptr %203, align 4, !tbaa !48
+  store i32 %202, ptr %203, align 4, !tbaa !49
   %204 = sub i32 %189, %173
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 4
-  store i32 %204, ptr %205, align 4, !tbaa !50
+  store i32 %204, ptr %205, align 4, !tbaa !51
   %206 = sub i32 %180, %161
   %207 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx172.i
-  store i32 %206, ptr %207, align 4, !tbaa !48
+  store i32 %206, ptr %207, align 4, !tbaa !49
   %208 = add i32 %183, %167
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  store i32 %208, ptr %209, align 4, !tbaa !50
+  store i32 %208, ptr %209, align 4, !tbaa !51
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, %26
-  br i1 %exitcond206.not, label %.preheader196, label %.preheader197, !llvm.loop !100
+  br i1 %exitcond206.not, label %.preheader196, label %.preheader197, !llvm.loop !101
 
 210:                                              ; preds = %.preheader197, %247
   %indvars.iv = phi i64 [ 0, %.preheader197 ], [ %indvars.iv.next, %247 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %211 = load i32, ptr %gep, align 4, !tbaa !10
+  %211 = load i32, ptr %gep, align 4, !tbaa !11
   %212 = icmp slt i32 %211, %11
   %213 = add nsw i32 %211, %11
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i32, ptr %2, i64 %214
-  %216 = load i32, ptr %215, align 4, !tbaa !10
+  %216 = load i32, ptr %215, align 4, !tbaa !11
   %217 = xor i32 %211, -1
   %218 = add i32 %12, %217
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds i32, ptr %2, i64 %219
-  %221 = load i32, ptr %220, align 4, !tbaa !10
+  %221 = load i32, ptr %220, align 4, !tbaa !11
   br i1 %212, label %222, label %234
 
 222:                                              ; preds = %210
   %223 = add i32 %11, %217
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds i32, ptr %2, i64 %224
-  %226 = load i32, ptr %225, align 4, !tbaa !10
+  %226 = load i32, ptr %225, align 4, !tbaa !11
   %reass.sub = sub i32 %226, %216
   %227 = add i32 %reass.sub, 32
   %228 = add nsw i32 %211, %12
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i32, ptr %2, i64 %229
-  %231 = load i32, ptr %230, align 4, !tbaa !10
+  %231 = load i32, ptr %230, align 4, !tbaa !11
   %232 = add i32 %231, %221
   %233 = sub i32 32, %232
   br label %247
@@ -6185,13 +6185,13 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %235 = add i32 %23, %217
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds i32, ptr %2, i64 %236
-  %238 = load i32, ptr %237, align 4, !tbaa !10
+  %238 = load i32, ptr %237, align 4, !tbaa !11
   %239 = add i32 %216, %238
   %240 = sub i32 32, %239
   %241 = sub nsw i32 %211, %11
   %242 = zext nneg i32 %241 to i64
   %243 = getelementptr inbounds nuw i32, ptr %2, i64 %242
-  %244 = load i32, ptr %243, align 4, !tbaa !10
+  %244 = load i32, ptr %243, align 4, !tbaa !11
   %245 = add i32 %244, 32
   %246 = sub i32 %245, %221
   br label %247
@@ -6204,12 +6204,12 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %248 = ashr i32 %211, 1
   %249 = sext i32 %248 to i64
   %250 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %249
-  %251 = load i32, ptr %250, align 4, !tbaa !48
+  %251 = load i32, ptr %250, align 4, !tbaa !49
   %252 = sext i32 %251 to i64
   %253 = sext i32 %.sroa.089.0 to i64
   %254 = mul nsw i64 %252, %253
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  %256 = load i32, ptr %255, align 4, !tbaa !50
+  %256 = load i32, ptr %255, align 4, !tbaa !51
   %257 = sext i32 %256 to i64
   %258 = sext i32 %.sroa.6.0 to i64
   %259 = mul nsw i64 %257, %258
@@ -6219,39 +6219,39 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %263 = trunc i64 %262 to i32
   %264 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  store i32 %263, ptr %265, align 4, !tbaa !50
+  store i32 %263, ptr %265, align 4, !tbaa !51
   %266 = mul nsw i64 %257, %253
   %267 = mul nsw i64 %252, %258
   %268 = add nsw i64 %267, 1073741824
   %269 = add nsw i64 %268, %266
   %270 = lshr i64 %269, 31
   %271 = trunc i64 %270 to i32
-  store i32 %271, ptr %264, align 8, !tbaa !48
+  store i32 %271, ptr %264, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %42, label %210, !llvm.loop !101
+  br i1 %exitcond.not, label %42, label %210, !llvm.loop !102
 
 .preheader:                                       ; preds = %275
   %272 = icmp sgt i32 %14, 0
   br i1 %272, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %273 = load ptr, ptr %40, align 8, !tbaa !54
+  %273 = load ptr, ptr %40, align 8, !tbaa !55
   %274 = zext nneg i32 %14 to i64
   %wide.trip.count214 = zext nneg i32 %14 to i64
   br label %281
 
 275:                                              ; preds = %.preheader196, %275
   %indvars.iv207 = phi i64 [ 0, %.preheader196 ], [ %indvars.iv.next208, %275 ]
-  %276 = load ptr, ptr %39, align 8, !tbaa !4
-  %277 = load ptr, ptr %8, align 8, !tbaa !55
-  %278 = load ptr, ptr %40, align 8, !tbaa !54
+  %276 = load ptr, ptr %39, align 8, !tbaa !5
+  %277 = load ptr, ptr %8, align 8, !tbaa !56
+  %278 = load ptr, ptr %40, align 8, !tbaa !55
   %279 = mul nsw i64 %indvars.iv207, %41
   %280 = getelementptr inbounds %struct.AVComplexInt32, ptr %278, i64 %279
   tail call void %276(ptr noundef %277, ptr noundef %280, ptr noundef %280, i64 noundef 8) #16
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next208, 7
-  br i1 %exitcond210.not, label %.preheader, label %275, !llvm.loop !102
+  br i1 %exitcond210.not, label %.preheader, label %275, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %281, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6263,26 +6263,26 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %283 = xor i64 %indvars.iv211, -1
   %284 = add nsw i64 %274, %283
   %285 = getelementptr inbounds nuw i32, ptr %18, i64 %282
-  %286 = load i32, ptr %285, align 4, !tbaa !10
+  %286 = load i32, ptr %285, align 4, !tbaa !11
   %287 = getelementptr inbounds i32, ptr %18, i64 %284
-  %288 = load i32, ptr %287, align 4, !tbaa !10
+  %288 = load i32, ptr %287, align 4, !tbaa !11
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds %struct.AVComplexInt32, ptr %273, i64 %289
-  %291 = load i32, ptr %290, align 4, !tbaa !48
+  %291 = load i32, ptr %290, align 4, !tbaa !49
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 4
-  %293 = load i32, ptr %292, align 4, !tbaa !50
+  %293 = load i32, ptr %292, align 4, !tbaa !51
   %294 = sext i32 %286 to i64
   %295 = getelementptr inbounds %struct.AVComplexInt32, ptr %273, i64 %294
-  %296 = load i32, ptr %295, align 4, !tbaa !48
+  %296 = load i32, ptr %295, align 4, !tbaa !49
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 4
-  %298 = load i32, ptr %297, align 4, !tbaa !50
+  %298 = load i32, ptr %297, align 4, !tbaa !51
   %299 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %7, i64 %282
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 4
-  %301 = load i32, ptr %300, align 4, !tbaa !50
+  %301 = load i32, ptr %300, align 4, !tbaa !51
   %302 = sext i32 %301 to i64
   %303 = sext i32 %296 to i64
   %304 = mul nsw i64 %302, %303
-  %305 = load i32, ptr %299, align 4, !tbaa !48
+  %305 = load i32, ptr %299, align 4, !tbaa !49
   %306 = sext i32 %305 to i64
   %307 = sext i32 %298 to i64
   %308 = mul nsw i64 %306, %307
@@ -6294,11 +6294,11 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %314 = mul nsw i64 %21, %313
   %315 = getelementptr i32, ptr %1, i64 %314
   %316 = getelementptr i32, ptr %315, i64 %21
-  store i32 %312, ptr %316, align 4, !tbaa !10
-  %317 = load i32, ptr %299, align 4, !tbaa !48
+  store i32 %312, ptr %316, align 4, !tbaa !11
+  %317 = load i32, ptr %299, align 4, !tbaa !49
   %318 = sext i32 %317 to i64
   %319 = mul nsw i64 %318, %303
-  %320 = load i32, ptr %300, align 4, !tbaa !50
+  %320 = load i32, ptr %300, align 4, !tbaa !51
   %321 = sext i32 %320 to i64
   %322 = mul nsw i64 %321, %307
   %323 = add nsw i64 %319, 1073741824
@@ -6308,14 +6308,14 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %327 = shl nuw nsw i64 %282, 1
   %328 = mul nuw nsw i64 %21, %327
   %329 = getelementptr inbounds nuw i32, ptr %1, i64 %328
-  store i32 %326, ptr %329, align 4, !tbaa !10
+  store i32 %326, ptr %329, align 4, !tbaa !11
   %330 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %284
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 4
-  %332 = load i32, ptr %331, align 4, !tbaa !50
+  %332 = load i32, ptr %331, align 4, !tbaa !51
   %333 = sext i32 %332 to i64
   %334 = sext i32 %291 to i64
   %335 = mul nsw i64 %333, %334
-  %336 = load i32, ptr %330, align 4, !tbaa !48
+  %336 = load i32, ptr %330, align 4, !tbaa !49
   %337 = sext i32 %336 to i64
   %338 = sext i32 %293 to i64
   %339 = mul nsw i64 %337, %338
@@ -6324,21 +6324,21 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %342 = lshr i64 %341, 31
   %343 = trunc i64 %342 to i32
   %344 = getelementptr i32, ptr %329, i64 %21
-  store i32 %343, ptr %344, align 4, !tbaa !10
-  %345 = load i32, ptr %330, align 4, !tbaa !48
+  store i32 %343, ptr %344, align 4, !tbaa !11
+  %345 = load i32, ptr %330, align 4, !tbaa !49
   %346 = sext i32 %345 to i64
   %347 = mul nsw i64 %346, %334
-  %348 = load i32, ptr %331, align 4, !tbaa !50
+  %348 = load i32, ptr %331, align 4, !tbaa !51
   %349 = sext i32 %348 to i64
   %350 = mul nsw i64 %349, %338
   %351 = add nsw i64 %347, 1073741824
   %352 = add i64 %351, %350
   %353 = lshr i64 %352, 31
   %354 = trunc i64 %353 to i32
-  store i32 %354, ptr %315, align 4, !tbaa !10
+  store i32 %354, ptr %315, align 4, !tbaa !11
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
-  br i1 %exitcond215.not, label %._crit_edge, label %281, !llvm.loop !103
+  br i1 %exitcond215.not, label %._crit_edge, label %281, !llvm.loop !104
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6346,20 +6346,20 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %5 = alloca [9 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = load i32, ptr %9, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = mul nsw i32 %10, 9
   %12 = mul nsw i32 %10, 27
-  %13 = load i32, ptr %0, align 8, !tbaa !16
+  %13 = load i32, ptr %0, align 8, !tbaa !17
   %14 = ashr i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = sext i32 %11 to i64
   %18 = getelementptr inbounds i32, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = lshr i64 %3, 2
   %22 = icmp sgt i32 %10, 0
   br i1 %22, label %.preheader171.lr.ph, label %.preheader170
@@ -6367,7 +6367,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
 .preheader171.lr.ph:                              ; preds = %4
   %23 = mul nuw nsw i32 %10, 45
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !55
   %26 = zext nneg i32 %10 to i64
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6409,41 +6409,41 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
 
 46:                                               ; preds = %295
   %47 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv177
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds %struct.AVComplexInt32, ptr %25, i64 %49
-  %.sroa.0130.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !10
-  %51 = load i32, ptr %27, align 8, !tbaa !48
-  %52 = load i32, ptr %28, align 16, !tbaa !48
+  %.sroa.0130.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !11
+  %51 = load i32, ptr %27, align 8, !tbaa !49
+  %52 = load i32, ptr %28, align 16, !tbaa !49
   %53 = sub i32 %51, %52
   %54 = add i32 %52, %51
-  %55 = load i32, ptr %29, align 4, !tbaa !50
-  %56 = load i32, ptr %30, align 4, !tbaa !50
+  %55 = load i32, ptr %29, align 4, !tbaa !51
+  %56 = load i32, ptr %30, align 4, !tbaa !51
   %57 = sub i32 %55, %56
   %58 = add i32 %56, %55
-  %59 = load i32, ptr %31, align 16, !tbaa !48
-  %60 = load i32, ptr %32, align 8, !tbaa !48
+  %59 = load i32, ptr %31, align 16, !tbaa !49
+  %60 = load i32, ptr %32, align 8, !tbaa !49
   %61 = sub i32 %59, %60
   %62 = add i32 %60, %59
-  %63 = load i32, ptr %33, align 4, !tbaa !50
-  %64 = load i32, ptr %34, align 4, !tbaa !50
+  %63 = load i32, ptr %33, align 4, !tbaa !51
+  %64 = load i32, ptr %34, align 4, !tbaa !51
   %65 = sub i32 %63, %64
   %66 = add i32 %64, %63
-  %67 = load i32, ptr %35, align 8, !tbaa !48
-  %68 = load i32, ptr %36, align 16, !tbaa !48
+  %67 = load i32, ptr %35, align 8, !tbaa !49
+  %68 = load i32, ptr %36, align 16, !tbaa !49
   %69 = sub i32 %67, %68
   %70 = add i32 %68, %67
-  %71 = load i32, ptr %37, align 4, !tbaa !50
-  %72 = load i32, ptr %38, align 4, !tbaa !50
+  %71 = load i32, ptr %37, align 4, !tbaa !51
+  %72 = load i32, ptr %38, align 4, !tbaa !51
   %73 = sub i32 %71, %72
   %74 = add i32 %72, %71
-  %75 = load i32, ptr %39, align 16, !tbaa !48
-  %76 = load i32, ptr %40, align 8, !tbaa !48
+  %75 = load i32, ptr %39, align 16, !tbaa !49
+  %76 = load i32, ptr %40, align 8, !tbaa !49
   %77 = sub i32 %75, %76
   %78 = add i32 %76, %75
-  %79 = load i32, ptr %41, align 4, !tbaa !50
-  %80 = load i32, ptr %42, align 4, !tbaa !50
+  %79 = load i32, ptr %41, align 4, !tbaa !51
+  %80 = load i32, ptr %42, align 4, !tbaa !51
   %81 = sub i32 %79, %80
   %82 = add i32 %80, %79
   %83 = sub nsw i32 %54, %78
@@ -6461,17 +6461,17 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %95 = add nsw i32 %66, %58
   %96 = add nsw i32 %95, %82
   %97 = add nsw i32 %94, %91
-  store i32 %97, ptr %50, align 4, !tbaa !48
+  store i32 %97, ptr %50, align 4, !tbaa !49
   %98 = add nsw i32 %96, %92
   %99 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %98, ptr %99, align 4, !tbaa !50
+  store i32 %98, ptr %99, align 4, !tbaa !51
   %100 = sub i32 %53, %61
   %101 = add nsw i32 %100, %77
   %102 = sext i32 %101 to i64
   %103 = sub i32 %57, %65
   %104 = add nsw i32 %103, %81
   %105 = sext i32 %104 to i64
-  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !50
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !51
   %107 = sext i32 %106 to i64
   %108 = mul nsw i64 %107, %102
   %109 = add nsw i64 %108, 1073741824
@@ -6481,7 +6481,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %113 = add nsw i64 %112, 1073741824
   %114 = lshr i64 %113, 31
   %115 = trunc i64 %114 to i32
-  %116 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !48
+  %116 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !49
   %117 = sext i32 %116 to i64
   %118 = sext i32 %94 to i64
   %119 = mul nsw i64 %117, %118
@@ -6507,23 +6507,23 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %139 = add nsw i32 %92, %127
   %140 = add nsw i32 %.sroa.0130.0.copyload.i, %132
   %141 = add nsw i32 %.sroa.4.0.copyload.i, %137
-  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !48
+  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !49
   %143 = sext i32 %142 to i64
   %144 = sext i32 %83 to i64
   %145 = mul nsw i64 %143, %144
   %146 = sext i32 %84 to i64
   %147 = mul nsw i64 %143, %146
-  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !50
+  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !51
   %149 = sext i32 %148 to i64
   %150 = mul nsw i64 %149, %144
   %151 = mul nsw i64 %149, %146
-  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !50
+  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !51
   %153 = sext i32 %152 to i64
   %154 = sext i32 %87 to i64
   %155 = mul nsw i64 %153, %154
   %156 = sext i32 %88 to i64
   %157 = mul nsw i64 %153, %156
-  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !48
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !49
   %159 = sext i32 %158 to i64
   %160 = mul nsw i64 %159, %154
   %161 = mul nsw i64 %159, %156
@@ -6539,7 +6539,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %171 = add i64 %170, %169
   %172 = lshr i64 %171, 31
   %173 = trunc i64 %172 to i32
-  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !48
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !49
   %175 = sext i32 %174 to i64
   %176 = mul nsw i64 %175, %162
   %177 = add nsw i64 %150, 1073741824
@@ -6563,7 +6563,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %195 = add i64 %194, %193
   %196 = lshr i64 %195, 31
   %197 = trunc i64 %196 to i32
-  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !50
+  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !51
   %199 = sext i32 %198 to i64
   %200 = mul nsw i64 %199, %186
   %201 = add nsw i64 %160, 1073741824
@@ -6604,82 +6604,82 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %234 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %50, i64 %26
   %235 = add nsw i32 %223, %220
   %236 = sub nsw i32 %221, %222
-  store i32 %235, ptr %234, align 4, !tbaa !10
+  store i32 %235, ptr %234, align 4, !tbaa !11
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %234, i64 4
-  store i32 %236, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %236, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !11
   %237 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
   %238 = add nsw i32 %227, %224
   %239 = sub nsw i32 %225, %226
-  store i32 %238, ptr %237, align 4, !tbaa !10
+  store i32 %238, ptr %237, align 4, !tbaa !11
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 4
-  store i32 %239, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %239, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !11
   %240 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx209.i
   %241 = add nsw i32 %138, %115
   %242 = sub nsw i32 %139, %111
-  store i32 %241, ptr %240, align 4, !tbaa !10
+  store i32 %241, ptr %240, align 4, !tbaa !11
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %240, i64 4
-  store i32 %242, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %242, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !11
   %243 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx210.i
   %244 = add nsw i32 %233, %229
   %245 = sub nsw i32 %231, %232
-  store i32 %244, ptr %243, align 4, !tbaa !10
+  store i32 %244, ptr %243, align 4, !tbaa !11
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %243, i64 4
-  store i32 %245, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %245, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !11
   %246 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx211.i
   %247 = sub nsw i32 %229, %233
   %248 = add nsw i32 %232, %231
-  store i32 %247, ptr %246, align 4, !tbaa !10
+  store i32 %247, ptr %246, align 4, !tbaa !11
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %246, i64 4
-  store i32 %248, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %248, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !11
   %249 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx212.i
   %250 = sub nsw i32 %138, %115
   %251 = add nsw i32 %139, %111
-  store i32 %250, ptr %249, align 4, !tbaa !10
+  store i32 %250, ptr %249, align 4, !tbaa !11
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 4
-  store i32 %251, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %251, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !11
   %252 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx213.i
   %253 = sub nsw i32 %224, %227
   %254 = add nsw i32 %226, %225
-  store i32 %253, ptr %252, align 4, !tbaa !10
+  store i32 %253, ptr %252, align 4, !tbaa !11
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 4
-  store i32 %254, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %254, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !11
   %255 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx214.i
   %256 = sub nsw i32 %220, %223
   %257 = add nsw i32 %222, %221
-  store i32 %256, ptr %255, align 4, !tbaa !10
+  store i32 %256, ptr %255, align 4, !tbaa !11
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %255, i64 4
-  store i32 %257, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %257, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !11
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, %26
-  br i1 %exitcond180.not, label %.preheader170, label %.preheader171, !llvm.loop !104
+  br i1 %exitcond180.not, label %.preheader170, label %.preheader171, !llvm.loop !105
 
 258:                                              ; preds = %.preheader171, %295
   %indvars.iv = phi i64 [ 0, %.preheader171 ], [ %indvars.iv.next, %295 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %259 = load i32, ptr %gep, align 4, !tbaa !10
+  %259 = load i32, ptr %gep, align 4, !tbaa !11
   %260 = icmp slt i32 %259, %11
   %261 = add nsw i32 %259, %11
   %262 = sext i32 %261 to i64
   %263 = getelementptr inbounds i32, ptr %2, i64 %262
-  %264 = load i32, ptr %263, align 4, !tbaa !10
+  %264 = load i32, ptr %263, align 4, !tbaa !11
   %265 = xor i32 %259, -1
   %266 = add i32 %12, %265
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds i32, ptr %2, i64 %267
-  %269 = load i32, ptr %268, align 4, !tbaa !10
+  %269 = load i32, ptr %268, align 4, !tbaa !11
   br i1 %260, label %270, label %282
 
 270:                                              ; preds = %258
   %271 = add i32 %11, %265
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds i32, ptr %2, i64 %272
-  %274 = load i32, ptr %273, align 4, !tbaa !10
+  %274 = load i32, ptr %273, align 4, !tbaa !11
   %reass.sub = sub i32 %274, %264
   %275 = add i32 %reass.sub, 32
   %276 = add nsw i32 %259, %12
   %277 = sext i32 %276 to i64
   %278 = getelementptr inbounds i32, ptr %2, i64 %277
-  %279 = load i32, ptr %278, align 4, !tbaa !10
+  %279 = load i32, ptr %278, align 4, !tbaa !11
   %280 = add i32 %279, %269
   %281 = sub i32 32, %280
   br label %295
@@ -6688,13 +6688,13 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %283 = add i32 %23, %265
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i32, ptr %2, i64 %284
-  %286 = load i32, ptr %285, align 4, !tbaa !10
+  %286 = load i32, ptr %285, align 4, !tbaa !11
   %287 = add i32 %264, %286
   %288 = sub i32 32, %287
   %289 = sub nsw i32 %259, %11
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw i32, ptr %2, i64 %290
-  %292 = load i32, ptr %291, align 4, !tbaa !10
+  %292 = load i32, ptr %291, align 4, !tbaa !11
   %293 = add i32 %292, 32
   %294 = sub i32 %293, %269
   br label %295
@@ -6707,12 +6707,12 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %296 = ashr i32 %259, 1
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %297
-  %299 = load i32, ptr %298, align 4, !tbaa !48
+  %299 = load i32, ptr %298, align 4, !tbaa !49
   %300 = sext i32 %299 to i64
   %301 = sext i32 %.sroa.089.0 to i64
   %302 = mul nsw i64 %300, %301
   %303 = getelementptr inbounds nuw i8, ptr %298, i64 4
-  %304 = load i32, ptr %303, align 4, !tbaa !50
+  %304 = load i32, ptr %303, align 4, !tbaa !51
   %305 = sext i32 %304 to i64
   %306 = sext i32 %.sroa.6.0 to i64
   %307 = mul nsw i64 %305, %306
@@ -6722,39 +6722,39 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %311 = trunc i64 %310 to i32
   %312 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
-  store i32 %311, ptr %313, align 4, !tbaa !50
+  store i32 %311, ptr %313, align 4, !tbaa !51
   %314 = mul nsw i64 %305, %301
   %315 = mul nsw i64 %300, %306
   %316 = add nsw i64 %315, 1073741824
   %317 = add nsw i64 %316, %314
   %318 = lshr i64 %317, 31
   %319 = trunc i64 %318 to i32
-  store i32 %319, ptr %312, align 8, !tbaa !48
+  store i32 %319, ptr %312, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %46, label %258, !llvm.loop !105
+  br i1 %exitcond.not, label %46, label %258, !llvm.loop !106
 
 .preheader:                                       ; preds = %323
   %320 = icmp sgt i32 %14, 0
   br i1 %320, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %321 = load ptr, ptr %44, align 8, !tbaa !54
+  %321 = load ptr, ptr %44, align 8, !tbaa !55
   %322 = zext nneg i32 %14 to i64
   %wide.trip.count188 = zext nneg i32 %14 to i64
   br label %329
 
 323:                                              ; preds = %.preheader170, %323
   %indvars.iv181 = phi i64 [ 0, %.preheader170 ], [ %indvars.iv.next182, %323 ]
-  %324 = load ptr, ptr %43, align 8, !tbaa !4
-  %325 = load ptr, ptr %8, align 8, !tbaa !55
-  %326 = load ptr, ptr %44, align 8, !tbaa !54
+  %324 = load ptr, ptr %43, align 8, !tbaa !5
+  %325 = load ptr, ptr %8, align 8, !tbaa !56
+  %326 = load ptr, ptr %44, align 8, !tbaa !55
   %327 = mul nsw i64 %indvars.iv181, %45
   %328 = getelementptr inbounds %struct.AVComplexInt32, ptr %326, i64 %327
   tail call void %324(ptr noundef %325, ptr noundef %328, ptr noundef %328, i64 noundef 8) #16
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 9
-  br i1 %exitcond184.not, label %.preheader, label %323, !llvm.loop !106
+  br i1 %exitcond184.not, label %.preheader, label %323, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %329, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6766,26 +6766,26 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %331 = xor i64 %indvars.iv185, -1
   %332 = add nsw i64 %322, %331
   %333 = getelementptr inbounds nuw i32, ptr %18, i64 %330
-  %334 = load i32, ptr %333, align 4, !tbaa !10
+  %334 = load i32, ptr %333, align 4, !tbaa !11
   %335 = getelementptr inbounds i32, ptr %18, i64 %332
-  %336 = load i32, ptr %335, align 4, !tbaa !10
+  %336 = load i32, ptr %335, align 4, !tbaa !11
   %337 = sext i32 %336 to i64
   %338 = getelementptr inbounds %struct.AVComplexInt32, ptr %321, i64 %337
-  %339 = load i32, ptr %338, align 4, !tbaa !48
+  %339 = load i32, ptr %338, align 4, !tbaa !49
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 4
-  %341 = load i32, ptr %340, align 4, !tbaa !50
+  %341 = load i32, ptr %340, align 4, !tbaa !51
   %342 = sext i32 %334 to i64
   %343 = getelementptr inbounds %struct.AVComplexInt32, ptr %321, i64 %342
-  %344 = load i32, ptr %343, align 4, !tbaa !48
+  %344 = load i32, ptr %343, align 4, !tbaa !49
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 4
-  %346 = load i32, ptr %345, align 4, !tbaa !50
+  %346 = load i32, ptr %345, align 4, !tbaa !51
   %347 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %7, i64 %330
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
-  %349 = load i32, ptr %348, align 4, !tbaa !50
+  %349 = load i32, ptr %348, align 4, !tbaa !51
   %350 = sext i32 %349 to i64
   %351 = sext i32 %344 to i64
   %352 = mul nsw i64 %350, %351
-  %353 = load i32, ptr %347, align 4, !tbaa !48
+  %353 = load i32, ptr %347, align 4, !tbaa !49
   %354 = sext i32 %353 to i64
   %355 = sext i32 %346 to i64
   %356 = mul nsw i64 %354, %355
@@ -6797,11 +6797,11 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %362 = mul nsw i64 %21, %361
   %363 = getelementptr i32, ptr %1, i64 %362
   %364 = getelementptr i32, ptr %363, i64 %21
-  store i32 %360, ptr %364, align 4, !tbaa !10
-  %365 = load i32, ptr %347, align 4, !tbaa !48
+  store i32 %360, ptr %364, align 4, !tbaa !11
+  %365 = load i32, ptr %347, align 4, !tbaa !49
   %366 = sext i32 %365 to i64
   %367 = mul nsw i64 %366, %351
-  %368 = load i32, ptr %348, align 4, !tbaa !50
+  %368 = load i32, ptr %348, align 4, !tbaa !51
   %369 = sext i32 %368 to i64
   %370 = mul nsw i64 %369, %355
   %371 = add nsw i64 %367, 1073741824
@@ -6811,14 +6811,14 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %375 = shl nuw nsw i64 %330, 1
   %376 = mul nuw nsw i64 %21, %375
   %377 = getelementptr inbounds nuw i32, ptr %1, i64 %376
-  store i32 %374, ptr %377, align 4, !tbaa !10
+  store i32 %374, ptr %377, align 4, !tbaa !11
   %378 = getelementptr inbounds %struct.AVComplexInt32, ptr %7, i64 %332
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 4
-  %380 = load i32, ptr %379, align 4, !tbaa !50
+  %380 = load i32, ptr %379, align 4, !tbaa !51
   %381 = sext i32 %380 to i64
   %382 = sext i32 %339 to i64
   %383 = mul nsw i64 %381, %382
-  %384 = load i32, ptr %378, align 4, !tbaa !48
+  %384 = load i32, ptr %378, align 4, !tbaa !49
   %385 = sext i32 %384 to i64
   %386 = sext i32 %341 to i64
   %387 = mul nsw i64 %385, %386
@@ -6827,21 +6827,21 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %390 = lshr i64 %389, 31
   %391 = trunc i64 %390 to i32
   %392 = getelementptr i32, ptr %377, i64 %21
-  store i32 %391, ptr %392, align 4, !tbaa !10
-  %393 = load i32, ptr %378, align 4, !tbaa !48
+  store i32 %391, ptr %392, align 4, !tbaa !11
+  %393 = load i32, ptr %378, align 4, !tbaa !49
   %394 = sext i32 %393 to i64
   %395 = mul nsw i64 %394, %382
-  %396 = load i32, ptr %379, align 4, !tbaa !50
+  %396 = load i32, ptr %379, align 4, !tbaa !51
   %397 = sext i32 %396 to i64
   %398 = mul nsw i64 %397, %386
   %399 = add nsw i64 %395, 1073741824
   %400 = add i64 %399, %398
   %401 = lshr i64 %400, 31
   %402 = trunc i64 %401 to i32
-  store i32 %402, ptr %363, align 4, !tbaa !10
+  store i32 %402, ptr %363, align 4, !tbaa !11
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %._crit_edge, label %329, !llvm.loop !107
+  br i1 %exitcond189.not, label %._crit_edge, label %329, !llvm.loop !108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6850,20 +6850,20 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_int32_c(ptr noundef readonly captu
   %6 = alloca [15 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
-  %11 = load i32, ptr %10, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = mul nsw i32 %11, 15
   %13 = mul nsw i32 %11, 45
-  %14 = load i32, ptr %0, align 8, !tbaa !16
+  %14 = load i32, ptr %0, align 8, !tbaa !17
   %15 = ashr i32 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = sext i32 %12 to i64
   %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !56
+  %21 = load ptr, ptr %20, align 8, !tbaa !57
   %22 = lshr i64 %3, 2
   %23 = icmp sgt i32 %11, 0
   br i1 %23, label %.preheader205.lr.ph, label %.preheader204
@@ -6871,7 +6871,7 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_int32_c(ptr noundef readonly captu
 .preheader205.lr.ph:                              ; preds = %4
   %24 = mul nuw nsw i32 %11, 75
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !54
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
   %27 = zext nneg i32 %11 to i64
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6931,13 +6931,13 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_int32_c(ptr noundef readonly captu
 
 57:                                               ; preds = %470
   %58 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv218
-  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %59 = load i32, ptr %58, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %61 = sext i32 %60 to i64
-  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %63 = sext i32 %62 to i64
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %65 = sext i32 %64 to i64
   br label %66
 
@@ -6946,28 +6946,28 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_int32_c(ptr noundef readonly captu
   %67 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv214
   %.idx235 = mul nuw nsw i64 %indvars.iv214, 24
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx235
-  %.sroa.08.0.copyload.i.i = load i32, ptr %68, align 8, !tbaa !10
+  %.sroa.08.0.copyload.i.i = load i32, ptr %68, align 8, !tbaa !11
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !10
+  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !11
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %71 = load i32, ptr %70, align 4, !tbaa !50
+  %71 = load i32, ptr %70, align 4, !tbaa !51
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %74 = load i32, ptr %73, align 4, !tbaa !50
+  %74 = load i32, ptr %73, align 4, !tbaa !51
   %75 = sub i32 %71, %74
   %76 = add i32 %74, %71
-  %77 = load i32, ptr %69, align 8, !tbaa !48
-  %78 = load i32, ptr %72, align 8, !tbaa !48
+  %77 = load i32, ptr %69, align 8, !tbaa !49
+  %78 = load i32, ptr %72, align 8, !tbaa !49
   %79 = sub i32 %77, %78
   %80 = add i32 %78, %77
   %81 = sext i32 %80 to i64
   %82 = add i32 %80, %.sroa.08.0.copyload.i.i
-  store i32 %82, ptr %67, align 8, !tbaa !48
+  store i32 %82, ptr %67, align 8, !tbaa !49
   %83 = sext i32 %76 to i64
   %84 = add i32 %76, %.sroa.6.0.copyload.i.i
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 %84, ptr %85, align 4, !tbaa !50
+  store i32 %84, ptr %85, align 4, !tbaa !51
   %86 = sext i32 %75 to i64
   %87 = mul nsw i64 %61, %86
   %88 = sext i32 %79 to i64
@@ -6980,66 +6980,66 @@ define internal void @ff_tx_mdct_pfa_15xM_fwd_int32_c(ptr noundef readonly captu
   %95 = trunc i64 %94 to i32
   %96 = sub i32 %.sroa.08.0.copyload.i.i, %95
   %97 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store i32 %96, ptr %97, align 8, !tbaa !48
+  store i32 %96, ptr %97, align 8, !tbaa !49
   %reass.sub211 = sub nsw i64 %91, %89
   %98 = add nsw i64 %reass.sub211, 1073741824
   %99 = lshr i64 %98, 31
   %100 = trunc i64 %99 to i32
   %101 = sub i32 %.sroa.6.0.copyload.i.i, %100
   %102 = getelementptr inbounds nuw i8, ptr %67, i64 44
-  store i32 %101, ptr %102, align 4, !tbaa !50
+  store i32 %101, ptr %102, align 4, !tbaa !51
   %reass.sub212 = sub nsw i64 %90, %87
   %103 = add nsw i64 %reass.sub212, 1073741824
   %104 = lshr i64 %103, 31
   %105 = trunc i64 %104 to i32
   %106 = sub i32 %.sroa.08.0.copyload.i.i, %105
   %107 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  store i32 %106, ptr %107, align 8, !tbaa !48
+  store i32 %106, ptr %107, align 8, !tbaa !49
   %108 = add nsw i64 %89, 1073741824
   %109 = add i64 %108, %91
   %110 = lshr i64 %109, 31
   %111 = trunc i64 %110 to i32
   %112 = sub i32 %.sroa.6.0.copyload.i.i, %111
   %113 = getelementptr inbounds nuw i8, ptr %67, i64 84
-  store i32 %112, ptr %113, align 4, !tbaa !50
+  store i32 %112, ptr %113, align 4, !tbaa !51
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next215, 5
-  br i1 %exitcond217.not, label %fft15.exit, label %66, !llvm.loop !52
+  br i1 %exitcond217.not, label %fft15.exit, label %66, !llvm.loop !53
 
 fft15.exit:                                       ; preds = %66
   %114 = sext i32 %59 to i64
   %115 = getelementptr inbounds %struct.AVComplexInt32, ptr %26, i64 %114
-  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
-  %116 = load i32, ptr %28, align 8, !tbaa !48
-  %117 = load i32, ptr %29, align 16, !tbaa !48
+  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
+  %116 = load i32, ptr %28, align 8, !tbaa !49
+  %117 = load i32, ptr %29, align 16, !tbaa !49
   %118 = sub i32 %116, %117
   %119 = add i32 %117, %116
-  %120 = load i32, ptr %30, align 4, !tbaa !50
-  %121 = load i32, ptr %31, align 4, !tbaa !50
+  %120 = load i32, ptr %30, align 4, !tbaa !51
+  %121 = load i32, ptr %31, align 4, !tbaa !51
   %122 = sub i32 %120, %121
   %123 = add i32 %121, %120
-  %124 = load i32, ptr %32, align 16, !tbaa !48
-  %125 = load i32, ptr %33, align 8, !tbaa !48
+  %124 = load i32, ptr %32, align 16, !tbaa !49
+  %125 = load i32, ptr %33, align 8, !tbaa !49
   %126 = sub i32 %124, %125
   %127 = add i32 %125, %124
-  %128 = load i32, ptr %34, align 4, !tbaa !50
-  %129 = load i32, ptr %35, align 4, !tbaa !50
+  %128 = load i32, ptr %34, align 4, !tbaa !51
+  %129 = load i32, ptr %35, align 4, !tbaa !51
   %130 = sub i32 %128, %129
   %131 = add i32 %129, %128
   %132 = add i32 %119, %.sroa.057.0.copyload.i
   %133 = add i32 %132, %127
-  store i32 %133, ptr %115, align 4, !tbaa !48
+  store i32 %133, ptr %115, align 4, !tbaa !49
   %134 = add i32 %123, %.sroa.862.0.copyload.i
   %135 = add i32 %134, %131
   %136 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !50
+  store i32 %135, ptr %136, align 4, !tbaa !51
   %137 = sext i32 %127 to i64
-  %138 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %138 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %139 = sext i32 %138 to i64
   %140 = mul nsw i64 %139, %137
   %141 = sext i32 %119 to i64
-  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %143 = sext i32 %142 to i64
   %144 = mul nsw i64 %143, %141
   %145 = add nsw i64 %140, 1073741824
@@ -7067,11 +7067,11 @@ fft15.exit:                                       ; preds = %66
   %167 = lshr i64 %166, 31
   %168 = trunc i64 %167 to i32
   %169 = sext i32 %130 to i64
-  %170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %171 = sext i32 %170 to i64
   %172 = mul nsw i64 %171, %169
   %173 = sext i32 %122 to i64
-  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %175 = sext i32 %174 to i64
   %176 = mul nsw i64 %175, %173
   %177 = add nsw i64 %172, 1073741824
@@ -7101,63 +7101,63 @@ fft15.exit:                                       ; preds = %66
   %201 = add i32 %.sroa.057.0.copyload.i, %154
   %202 = add i32 %201, %186
   %203 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i
-  store i32 %202, ptr %203, align 4, !tbaa !48
+  store i32 %202, ptr %203, align 4, !tbaa !49
   %204 = add i32 %.sroa.862.0.copyload.i, %168
   %205 = sub i32 %204, %200
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 4
-  store i32 %205, ptr %206, align 4, !tbaa !50
+  store i32 %205, ptr %206, align 4, !tbaa !51
   %207 = add i32 %.sroa.057.0.copyload.i, %148
   %208 = sub i32 %207, %180
   %209 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx104.i
-  store i32 %208, ptr %209, align 4, !tbaa !48
+  store i32 %208, ptr %209, align 4, !tbaa !49
   %210 = add i32 %.sroa.862.0.copyload.i, %162
   %211 = add i32 %210, %194
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 4
-  store i32 %211, ptr %212, align 4, !tbaa !50
+  store i32 %211, ptr %212, align 4, !tbaa !51
   %213 = add i32 %207, %180
   %214 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx105.i
-  store i32 %213, ptr %214, align 4, !tbaa !48
+  store i32 %213, ptr %214, align 4, !tbaa !49
   %215 = sub i32 %210, %194
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store i32 %215, ptr %216, align 4, !tbaa !50
+  store i32 %215, ptr %216, align 4, !tbaa !51
   %217 = sub i32 %201, %186
   %218 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx106.i
-  store i32 %217, ptr %218, align 4, !tbaa !48
+  store i32 %217, ptr %218, align 4, !tbaa !49
   %219 = add i32 %204, %200
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
-  store i32 %219, ptr %220, align 4, !tbaa !50
-  %.sroa.057.0.copyload.i148 = load i32, ptr %36, align 8, !tbaa !10
-  %.sroa.862.0.copyload.i150 = load i32, ptr %.sroa.862.0..sroa_idx.i149, align 4, !tbaa !10
-  %221 = load i32, ptr %37, align 16, !tbaa !48
-  %222 = load i32, ptr %38, align 8, !tbaa !48
+  store i32 %219, ptr %220, align 4, !tbaa !51
+  %.sroa.057.0.copyload.i148 = load i32, ptr %36, align 8, !tbaa !11
+  %.sroa.862.0.copyload.i150 = load i32, ptr %.sroa.862.0..sroa_idx.i149, align 4, !tbaa !11
+  %221 = load i32, ptr %37, align 16, !tbaa !49
+  %222 = load i32, ptr %38, align 8, !tbaa !49
   %223 = sub i32 %221, %222
   %224 = add i32 %222, %221
-  %225 = load i32, ptr %39, align 4, !tbaa !50
-  %226 = load i32, ptr %40, align 4, !tbaa !50
+  %225 = load i32, ptr %39, align 4, !tbaa !51
+  %226 = load i32, ptr %40, align 4, !tbaa !51
   %227 = sub i32 %225, %226
   %228 = add i32 %226, %225
-  %229 = load i32, ptr %41, align 8, !tbaa !48
-  %230 = load i32, ptr %42, align 16, !tbaa !48
+  %229 = load i32, ptr %41, align 8, !tbaa !49
+  %230 = load i32, ptr %42, align 16, !tbaa !49
   %231 = sub i32 %229, %230
   %232 = add i32 %230, %229
-  %233 = load i32, ptr %43, align 4, !tbaa !50
-  %234 = load i32, ptr %44, align 4, !tbaa !50
+  %233 = load i32, ptr %43, align 4, !tbaa !51
+  %234 = load i32, ptr %44, align 4, !tbaa !51
   %235 = sub i32 %233, %234
   %236 = add i32 %234, %233
   %237 = add i32 %224, %.sroa.057.0.copyload.i148
   %238 = add i32 %237, %232
   %239 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i151
-  store i32 %238, ptr %239, align 4, !tbaa !48
+  store i32 %238, ptr %239, align 4, !tbaa !49
   %240 = add i32 %228, %.sroa.862.0.copyload.i150
   %241 = add i32 %240, %236
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 4
-  store i32 %241, ptr %242, align 4, !tbaa !50
+  store i32 %241, ptr %242, align 4, !tbaa !51
   %243 = sext i32 %232 to i64
-  %244 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %244 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %245 = sext i32 %244 to i64
   %246 = mul nsw i64 %245, %243
   %247 = sext i32 %224 to i64
-  %248 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %248 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %249 = sext i32 %248 to i64
   %250 = mul nsw i64 %249, %247
   %251 = add nsw i64 %246, 1073741824
@@ -7185,11 +7185,11 @@ fft15.exit:                                       ; preds = %66
   %273 = lshr i64 %272, 31
   %274 = trunc i64 %273 to i32
   %275 = sext i32 %235 to i64
-  %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %277 = sext i32 %276 to i64
   %278 = mul nsw i64 %277, %275
   %279 = sext i32 %227 to i64
-  %280 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %280 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %281 = sext i32 %280 to i64
   %282 = mul nsw i64 %281, %279
   %283 = add nsw i64 %278, 1073741824
@@ -7219,63 +7219,63 @@ fft15.exit:                                       ; preds = %66
   %307 = add i32 %.sroa.057.0.copyload.i148, %260
   %308 = add i32 %307, %292
   %309 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %115, i64 %27
-  store i32 %308, ptr %309, align 4, !tbaa !48
+  store i32 %308, ptr %309, align 4, !tbaa !49
   %310 = add i32 %.sroa.862.0.copyload.i150, %274
   %311 = sub i32 %310, %306
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 4
-  store i32 %311, ptr %312, align 4, !tbaa !50
+  store i32 %311, ptr %312, align 4, !tbaa !51
   %313 = add i32 %.sroa.057.0.copyload.i148, %254
   %314 = sub i32 %313, %286
   %315 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx104.i152
-  store i32 %314, ptr %315, align 4, !tbaa !48
+  store i32 %314, ptr %315, align 4, !tbaa !49
   %316 = add i32 %.sroa.862.0.copyload.i150, %268
   %317 = add i32 %316, %300
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 4
-  store i32 %317, ptr %318, align 4, !tbaa !50
+  store i32 %317, ptr %318, align 4, !tbaa !51
   %319 = add i32 %313, %286
   %320 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx105.i153
-  store i32 %319, ptr %320, align 4, !tbaa !48
+  store i32 %319, ptr %320, align 4, !tbaa !49
   %321 = sub i32 %316, %300
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 4
-  store i32 %321, ptr %322, align 4, !tbaa !50
+  store i32 %321, ptr %322, align 4, !tbaa !51
   %323 = sub i32 %307, %292
   %324 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx106.i154
-  store i32 %323, ptr %324, align 4, !tbaa !48
+  store i32 %323, ptr %324, align 4, !tbaa !49
   %325 = add i32 %310, %306
   %326 = getelementptr inbounds nuw i8, ptr %324, i64 4
-  store i32 %325, ptr %326, align 4, !tbaa !50
-  %.sroa.057.0.copyload.i155 = load i32, ptr %45, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i157 = load i32, ptr %.sroa.862.0..sroa_idx.i156, align 4, !tbaa !10
-  %327 = load i32, ptr %46, align 8, !tbaa !48
-  %328 = load i32, ptr %47, align 16, !tbaa !48
+  store i32 %325, ptr %326, align 4, !tbaa !51
+  %.sroa.057.0.copyload.i155 = load i32, ptr %45, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i157 = load i32, ptr %.sroa.862.0..sroa_idx.i156, align 4, !tbaa !11
+  %327 = load i32, ptr %46, align 8, !tbaa !49
+  %328 = load i32, ptr %47, align 16, !tbaa !49
   %329 = sub i32 %327, %328
   %330 = add i32 %328, %327
-  %331 = load i32, ptr %48, align 4, !tbaa !50
-  %332 = load i32, ptr %49, align 4, !tbaa !50
+  %331 = load i32, ptr %48, align 4, !tbaa !51
+  %332 = load i32, ptr %49, align 4, !tbaa !51
   %333 = sub i32 %331, %332
   %334 = add i32 %332, %331
-  %335 = load i32, ptr %50, align 16, !tbaa !48
-  %336 = load i32, ptr %51, align 8, !tbaa !48
+  %335 = load i32, ptr %50, align 16, !tbaa !49
+  %336 = load i32, ptr %51, align 8, !tbaa !49
   %337 = sub i32 %335, %336
   %338 = add i32 %336, %335
-  %339 = load i32, ptr %52, align 4, !tbaa !50
-  %340 = load i32, ptr %53, align 4, !tbaa !50
+  %339 = load i32, ptr %52, align 4, !tbaa !51
+  %340 = load i32, ptr %53, align 4, !tbaa !51
   %341 = sub i32 %339, %340
   %342 = add i32 %340, %339
   %343 = add i32 %330, %.sroa.057.0.copyload.i155
   %344 = add i32 %343, %338
   %345 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i158
-  store i32 %344, ptr %345, align 4, !tbaa !48
+  store i32 %344, ptr %345, align 4, !tbaa !49
   %346 = add i32 %334, %.sroa.862.0.copyload.i157
   %347 = add i32 %346, %342
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 4
-  store i32 %347, ptr %348, align 4, !tbaa !50
+  store i32 %347, ptr %348, align 4, !tbaa !51
   %349 = sext i32 %338 to i64
-  %350 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %350 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %351 = sext i32 %350 to i64
   %352 = mul nsw i64 %351, %349
   %353 = sext i32 %330 to i64
-  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %355 = sext i32 %354 to i64
   %356 = mul nsw i64 %355, %353
   %357 = add nsw i64 %352, 1073741824
@@ -7303,11 +7303,11 @@ fft15.exit:                                       ; preds = %66
   %379 = lshr i64 %378, 31
   %380 = trunc i64 %379 to i32
   %381 = sext i32 %341 to i64
-  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %383 = sext i32 %382 to i64
   %384 = mul nsw i64 %383, %381
   %385 = sext i32 %333 to i64
-  %386 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %386 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %387 = sext i32 %386 to i64
   %388 = mul nsw i64 %387, %385
   %389 = add nsw i64 %384, 1073741824
@@ -7337,63 +7337,63 @@ fft15.exit:                                       ; preds = %66
   %413 = add i32 %.sroa.057.0.copyload.i155, %366
   %414 = add i32 %413, %398
   %415 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx104.i159
-  store i32 %414, ptr %415, align 4, !tbaa !48
+  store i32 %414, ptr %415, align 4, !tbaa !49
   %416 = add i32 %.sroa.862.0.copyload.i157, %380
   %417 = sub i32 %416, %412
   %418 = getelementptr inbounds nuw i8, ptr %415, i64 4
-  store i32 %417, ptr %418, align 4, !tbaa !50
+  store i32 %417, ptr %418, align 4, !tbaa !51
   %419 = add i32 %.sroa.057.0.copyload.i155, %360
   %420 = sub i32 %419, %392
   %421 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx105.i160
-  store i32 %420, ptr %421, align 4, !tbaa !48
+  store i32 %420, ptr %421, align 4, !tbaa !49
   %422 = add i32 %.sroa.862.0.copyload.i157, %374
   %423 = add i32 %422, %406
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 4
-  store i32 %423, ptr %424, align 4, !tbaa !50
+  store i32 %423, ptr %424, align 4, !tbaa !51
   %425 = add i32 %419, %392
   %426 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx106.i161
-  store i32 %425, ptr %426, align 4, !tbaa !48
+  store i32 %425, ptr %426, align 4, !tbaa !49
   %427 = sub i32 %422, %406
   %428 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  store i32 %427, ptr %428, align 4, !tbaa !50
+  store i32 %427, ptr %428, align 4, !tbaa !51
   %429 = sub i32 %413, %398
   %430 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx107.i
-  store i32 %429, ptr %430, align 4, !tbaa !48
+  store i32 %429, ptr %430, align 4, !tbaa !49
   %431 = add i32 %416, %412
   %432 = getelementptr inbounds nuw i8, ptr %430, i64 4
-  store i32 %431, ptr %432, align 4, !tbaa !50
+  store i32 %431, ptr %432, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next219, %27
-  br i1 %exitcond221.not, label %.preheader204, label %.preheader205, !llvm.loop !108
+  br i1 %exitcond221.not, label %.preheader204, label %.preheader205, !llvm.loop !109
 
 433:                                              ; preds = %.preheader205, %470
   %indvars.iv = phi i64 [ 0, %.preheader205 ], [ %indvars.iv.next, %470 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %434 = load i32, ptr %gep, align 4, !tbaa !10
+  %434 = load i32, ptr %gep, align 4, !tbaa !11
   %435 = icmp slt i32 %434, %12
   %436 = add nsw i32 %434, %12
   %437 = sext i32 %436 to i64
   %438 = getelementptr inbounds i32, ptr %2, i64 %437
-  %439 = load i32, ptr %438, align 4, !tbaa !10
+  %439 = load i32, ptr %438, align 4, !tbaa !11
   %440 = xor i32 %434, -1
   %441 = add i32 %13, %440
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds i32, ptr %2, i64 %442
-  %444 = load i32, ptr %443, align 4, !tbaa !10
+  %444 = load i32, ptr %443, align 4, !tbaa !11
   br i1 %435, label %445, label %457
 
 445:                                              ; preds = %433
   %446 = add i32 %12, %440
   %447 = sext i32 %446 to i64
   %448 = getelementptr inbounds i32, ptr %2, i64 %447
-  %449 = load i32, ptr %448, align 4, !tbaa !10
+  %449 = load i32, ptr %448, align 4, !tbaa !11
   %reass.sub = sub i32 %449, %439
   %450 = add i32 %reass.sub, 32
   %451 = add nsw i32 %434, %13
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds i32, ptr %2, i64 %452
-  %454 = load i32, ptr %453, align 4, !tbaa !10
+  %454 = load i32, ptr %453, align 4, !tbaa !11
   %455 = add i32 %454, %444
   %456 = sub i32 32, %455
   br label %470
@@ -7402,13 +7402,13 @@ fft15.exit:                                       ; preds = %66
   %458 = add i32 %24, %440
   %459 = sext i32 %458 to i64
   %460 = getelementptr inbounds i32, ptr %2, i64 %459
-  %461 = load i32, ptr %460, align 4, !tbaa !10
+  %461 = load i32, ptr %460, align 4, !tbaa !11
   %462 = add i32 %439, %461
   %463 = sub i32 32, %462
   %464 = sub nsw i32 %434, %12
   %465 = zext nneg i32 %464 to i64
   %466 = getelementptr inbounds nuw i32, ptr %2, i64 %465
-  %467 = load i32, ptr %466, align 4, !tbaa !10
+  %467 = load i32, ptr %466, align 4, !tbaa !11
   %468 = add i32 %467, 32
   %469 = sub i32 %468, %444
   br label %470
@@ -7421,12 +7421,12 @@ fft15.exit:                                       ; preds = %66
   %471 = ashr i32 %434, 1
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds %struct.AVComplexInt32, ptr %8, i64 %472
-  %474 = load i32, ptr %473, align 4, !tbaa !48
+  %474 = load i32, ptr %473, align 4, !tbaa !49
   %475 = sext i32 %474 to i64
   %476 = sext i32 %.sroa.089.0 to i64
   %477 = mul nsw i64 %475, %476
   %478 = getelementptr inbounds nuw i8, ptr %473, i64 4
-  %479 = load i32, ptr %478, align 4, !tbaa !50
+  %479 = load i32, ptr %478, align 4, !tbaa !51
   %480 = sext i32 %479 to i64
   %481 = sext i32 %.sroa.6.0 to i64
   %482 = mul nsw i64 %480, %481
@@ -7436,39 +7436,39 @@ fft15.exit:                                       ; preds = %66
   %486 = trunc i64 %485 to i32
   %487 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
-  store i32 %486, ptr %488, align 4, !tbaa !50
+  store i32 %486, ptr %488, align 4, !tbaa !51
   %489 = mul nsw i64 %480, %476
   %490 = mul nsw i64 %475, %481
   %491 = add nsw i64 %490, 1073741824
   %492 = add nsw i64 %491, %489
   %493 = lshr i64 %492, 31
   %494 = trunc i64 %493 to i32
-  store i32 %494, ptr %487, align 8, !tbaa !48
+  store i32 %494, ptr %487, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %57, label %433, !llvm.loop !109
+  br i1 %exitcond.not, label %57, label %433, !llvm.loop !110
 
 .preheader:                                       ; preds = %498
   %495 = icmp sgt i32 %15, 0
   br i1 %495, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %496 = load ptr, ptr %55, align 8, !tbaa !54
+  %496 = load ptr, ptr %55, align 8, !tbaa !55
   %497 = zext nneg i32 %15 to i64
   %wide.trip.count229 = zext nneg i32 %15 to i64
   br label %504
 
 498:                                              ; preds = %.preheader204, %498
   %indvars.iv222 = phi i64 [ 0, %.preheader204 ], [ %indvars.iv.next223, %498 ]
-  %499 = load ptr, ptr %54, align 8, !tbaa !4
-  %500 = load ptr, ptr %9, align 8, !tbaa !55
-  %501 = load ptr, ptr %55, align 8, !tbaa !54
+  %499 = load ptr, ptr %54, align 8, !tbaa !5
+  %500 = load ptr, ptr %9, align 8, !tbaa !56
+  %501 = load ptr, ptr %55, align 8, !tbaa !55
   %502 = mul nsw i64 %indvars.iv222, %56
   %503 = getelementptr inbounds %struct.AVComplexInt32, ptr %501, i64 %502
   tail call void %499(ptr noundef %500, ptr noundef %503, ptr noundef %503, i64 noundef 8) #16
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next223, 15
-  br i1 %exitcond225.not, label %.preheader, label %498, !llvm.loop !110
+  br i1 %exitcond225.not, label %.preheader, label %498, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %504, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7480,26 +7480,26 @@ fft15.exit:                                       ; preds = %66
   %506 = xor i64 %indvars.iv226, -1
   %507 = add nsw i64 %497, %506
   %508 = getelementptr inbounds nuw i32, ptr %19, i64 %505
-  %509 = load i32, ptr %508, align 4, !tbaa !10
+  %509 = load i32, ptr %508, align 4, !tbaa !11
   %510 = getelementptr inbounds i32, ptr %19, i64 %507
-  %511 = load i32, ptr %510, align 4, !tbaa !10
+  %511 = load i32, ptr %510, align 4, !tbaa !11
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds %struct.AVComplexInt32, ptr %496, i64 %512
-  %514 = load i32, ptr %513, align 4, !tbaa !48
+  %514 = load i32, ptr %513, align 4, !tbaa !49
   %515 = getelementptr inbounds nuw i8, ptr %513, i64 4
-  %516 = load i32, ptr %515, align 4, !tbaa !50
+  %516 = load i32, ptr %515, align 4, !tbaa !51
   %517 = sext i32 %509 to i64
   %518 = getelementptr inbounds %struct.AVComplexInt32, ptr %496, i64 %517
-  %519 = load i32, ptr %518, align 4, !tbaa !48
+  %519 = load i32, ptr %518, align 4, !tbaa !49
   %520 = getelementptr inbounds nuw i8, ptr %518, i64 4
-  %521 = load i32, ptr %520, align 4, !tbaa !50
+  %521 = load i32, ptr %520, align 4, !tbaa !51
   %522 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %8, i64 %505
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 4
-  %524 = load i32, ptr %523, align 4, !tbaa !50
+  %524 = load i32, ptr %523, align 4, !tbaa !51
   %525 = sext i32 %524 to i64
   %526 = sext i32 %519 to i64
   %527 = mul nsw i64 %525, %526
-  %528 = load i32, ptr %522, align 4, !tbaa !48
+  %528 = load i32, ptr %522, align 4, !tbaa !49
   %529 = sext i32 %528 to i64
   %530 = sext i32 %521 to i64
   %531 = mul nsw i64 %529, %530
@@ -7511,11 +7511,11 @@ fft15.exit:                                       ; preds = %66
   %537 = mul nsw i64 %22, %536
   %538 = getelementptr i32, ptr %1, i64 %537
   %539 = getelementptr i32, ptr %538, i64 %22
-  store i32 %535, ptr %539, align 4, !tbaa !10
-  %540 = load i32, ptr %522, align 4, !tbaa !48
+  store i32 %535, ptr %539, align 4, !tbaa !11
+  %540 = load i32, ptr %522, align 4, !tbaa !49
   %541 = sext i32 %540 to i64
   %542 = mul nsw i64 %541, %526
-  %543 = load i32, ptr %523, align 4, !tbaa !50
+  %543 = load i32, ptr %523, align 4, !tbaa !51
   %544 = sext i32 %543 to i64
   %545 = mul nsw i64 %544, %530
   %546 = add nsw i64 %542, 1073741824
@@ -7525,14 +7525,14 @@ fft15.exit:                                       ; preds = %66
   %550 = shl nuw nsw i64 %505, 1
   %551 = mul nuw nsw i64 %22, %550
   %552 = getelementptr inbounds nuw i32, ptr %1, i64 %551
-  store i32 %549, ptr %552, align 4, !tbaa !10
+  store i32 %549, ptr %552, align 4, !tbaa !11
   %553 = getelementptr inbounds %struct.AVComplexInt32, ptr %8, i64 %507
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 4
-  %555 = load i32, ptr %554, align 4, !tbaa !50
+  %555 = load i32, ptr %554, align 4, !tbaa !51
   %556 = sext i32 %555 to i64
   %557 = sext i32 %514 to i64
   %558 = mul nsw i64 %556, %557
-  %559 = load i32, ptr %553, align 4, !tbaa !48
+  %559 = load i32, ptr %553, align 4, !tbaa !49
   %560 = sext i32 %559 to i64
   %561 = sext i32 %516 to i64
   %562 = mul nsw i64 %560, %561
@@ -7541,21 +7541,21 @@ fft15.exit:                                       ; preds = %66
   %565 = lshr i64 %564, 31
   %566 = trunc i64 %565 to i32
   %567 = getelementptr i32, ptr %552, i64 %22
-  store i32 %566, ptr %567, align 4, !tbaa !10
-  %568 = load i32, ptr %553, align 4, !tbaa !48
+  store i32 %566, ptr %567, align 4, !tbaa !11
+  %568 = load i32, ptr %553, align 4, !tbaa !49
   %569 = sext i32 %568 to i64
   %570 = mul nsw i64 %569, %557
-  %571 = load i32, ptr %554, align 4, !tbaa !50
+  %571 = load i32, ptr %554, align 4, !tbaa !51
   %572 = sext i32 %571 to i64
   %573 = mul nsw i64 %572, %561
   %574 = add nsw i64 %570, 1073741824
   %575 = add i64 %574, %573
   %576 = lshr i64 %575, 31
   %577 = trunc i64 %576 to i32
-  store i32 %577, ptr %538, align 4, !tbaa !10
+  store i32 %577, ptr %538, align 4, !tbaa !11
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
-  br i1 %exitcond230.not, label %._crit_edge, label %504, !llvm.loop !111
+  br i1 %exitcond230.not, label %._crit_edge, label %504, !llvm.loop !112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7563,15 +7563,15 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %5 = alloca [3 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load i32, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %0, align 8, !tbaa !17
   %9 = ashr i32 %8, 2
   %10 = ashr i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = mul nsw i32 %13, 3
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
@@ -7590,9 +7590,9 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
 
 .preheader129.lr.ph:                              ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = sext i32 %13 to i64
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7618,35 +7618,35 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
 
 37:                                               ; preds = %93
   %38 = getelementptr inbounds nuw i8, ptr %.0118132, i64 4
-  %39 = load i32, ptr %.0118132, align 4, !tbaa !10
+  %39 = load i32, ptr %.0118132, align 4, !tbaa !11
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds %struct.AVComplexInt32, ptr %29, i64 %40
-  %.sroa.08.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !10
-  %42 = load i32, ptr %32, align 4, !tbaa !50
-  %43 = load i32, ptr %34, align 4, !tbaa !50
+  %.sroa.08.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !11
+  %42 = load i32, ptr %32, align 4, !tbaa !51
+  %43 = load i32, ptr %34, align 4, !tbaa !51
   %44 = sub i32 %42, %43
   %45 = add i32 %43, %42
-  %46 = load i32, ptr %31, align 8, !tbaa !48
-  %47 = load i32, ptr %33, align 16, !tbaa !48
+  %46 = load i32, ptr %31, align 8, !tbaa !49
+  %47 = load i32, ptr %33, align 16, !tbaa !49
   %48 = sub i32 %46, %47
   %49 = add i32 %47, %46
   %50 = sext i32 %49 to i64
   %51 = add i32 %49, %.sroa.08.0.copyload.i
-  store i32 %51, ptr %41, align 4, !tbaa !48
+  store i32 %51, ptr %41, align 4, !tbaa !49
   %52 = sext i32 %45 to i64
   %53 = add i32 %45, %.sroa.6.0.copyload.i
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !50
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !51
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %56 = sext i32 %55 to i64
   %57 = sext i32 %44 to i64
   %58 = mul nsw i64 %56, %57
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %60 = sext i32 %59 to i64
   %61 = sext i32 %48 to i64
   %62 = mul nsw i64 %60, %61
-  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %64 = sext i32 %63 to i64
   %65 = mul nsw i64 %64, %50
   %66 = mul nsw i64 %64, %52
@@ -7656,54 +7656,54 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %70 = trunc i64 %69 to i32
   %71 = sub i32 %.sroa.08.0.copyload.i, %70
   %72 = getelementptr inbounds %struct.AVComplexInt32, ptr %41, i64 %30
-  store i32 %71, ptr %72, align 4, !tbaa !48
+  store i32 %71, ptr %72, align 4, !tbaa !49
   %reass.sub = sub nsw i64 %66, %62
   %73 = add nsw i64 %reass.sub, 1073741824
   %74 = lshr i64 %73, 31
   %75 = trunc i64 %74 to i32
   %76 = sub i32 %.sroa.6.0.copyload.i, %75
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %76, ptr %77, align 4, !tbaa !50
+  store i32 %76, ptr %77, align 4, !tbaa !51
   %reass.sub137 = sub nsw i64 %65, %58
   %78 = add nsw i64 %reass.sub137, 1073741824
   %79 = lshr i64 %78, 31
   %80 = trunc i64 %79 to i32
   %81 = sub i32 %.sroa.08.0.copyload.i, %80
   %82 = getelementptr inbounds i8, ptr %41, i64 %.idx.i
-  store i32 %81, ptr %82, align 4, !tbaa !48
+  store i32 %81, ptr %82, align 4, !tbaa !49
   %83 = add nsw i64 %62, 1073741824
   %84 = add i64 %83, %66
   %85 = lshr i64 %84, 31
   %86 = trunc i64 %85 to i32
   %87 = sub i32 %.sroa.6.0.copyload.i, %86
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 %87, ptr %88, align 4, !tbaa !50
+  store i32 %87, ptr %88, align 4, !tbaa !51
   %89 = getelementptr inbounds nuw i8, ptr %.0134, i64 24
   %90 = getelementptr inbounds nuw i8, ptr %.0117133, i64 12
   %91 = add nuw nsw i32 %.0119131, 3
   %92 = icmp slt i32 %91, %10
-  br i1 %92, label %.preheader129, label %.preheader128, !llvm.loop !112
+  br i1 %92, label %.preheader129, label %.preheader128, !llvm.loop !113
 
 93:                                               ; preds = %.preheader129, %93
   %indvars.iv = phi i64 [ 0, %.preheader129 ], [ %indvars.iv.next, %93 ]
   %94 = getelementptr inbounds nuw i32, ptr %.0117133, i64 %indvars.iv
-  %95 = load i32, ptr %94, align 4, !tbaa !10
+  %95 = load i32, ptr %94, align 4, !tbaa !11
   %96 = sub nsw i32 0, %95
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %19, %97
   %99 = getelementptr inbounds i32, ptr %24, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !10
+  %100 = load i32, ptr %99, align 4, !tbaa !11
   %101 = sext i32 %95 to i64
   %102 = mul nsw i64 %19, %101
   %103 = getelementptr inbounds i32, ptr %2, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !10
+  %104 = load i32, ptr %103, align 4, !tbaa !11
   %105 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0134, i64 %indvars.iv
-  %106 = load i32, ptr %105, align 4, !tbaa !48
+  %106 = load i32, ptr %105, align 4, !tbaa !49
   %107 = sext i32 %106 to i64
   %108 = sext i32 %100 to i64
   %109 = mul nsw i64 %107, %108
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !50
+  %111 = load i32, ptr %110, align 4, !tbaa !51
   %112 = sext i32 %111 to i64
   %113 = sext i32 %104 to i64
   %114 = mul nsw i64 %112, %113
@@ -7712,7 +7712,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %117 = lshr i64 %116, 31
   %118 = trunc i64 %117 to i32
   %119 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
-  store i32 %118, ptr %119, align 8, !tbaa !48
+  store i32 %118, ptr %119, align 8, !tbaa !49
   %120 = mul nsw i64 %112, %108
   %121 = mul nsw i64 %107, %113
   %122 = add nsw i64 %121, 1073741824
@@ -7720,32 +7720,32 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %124 = lshr i64 %123, 31
   %125 = trunc i64 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  store i32 %125, ptr %126, align 4, !tbaa !50
+  store i32 %125, ptr %126, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %37, label %93, !llvm.loop !113
+  br i1 %exitcond.not, label %37, label %93, !llvm.loop !114
 
 .preheader:                                       ; preds = %130
   %127 = icmp sgt i32 %9, 0
   br i1 %127, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %128 = load ptr, ptr %36, align 8, !tbaa !54
+  %128 = load ptr, ptr %36, align 8, !tbaa !55
   %129 = zext nneg i32 %9 to i64
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %136
 
 130:                                              ; preds = %.preheader128, %130
   %indvars.iv139 = phi i64 [ 0, %.preheader128 ], [ %indvars.iv.next140, %130 ]
-  %131 = load ptr, ptr %35, align 8, !tbaa !4
-  %132 = load ptr, ptr %11, align 8, !tbaa !55
-  %133 = load ptr, ptr %36, align 8, !tbaa !54
+  %131 = load ptr, ptr %35, align 8, !tbaa !5
+  %132 = load ptr, ptr %11, align 8, !tbaa !56
+  %133 = load ptr, ptr %36, align 8, !tbaa !55
   %134 = mul nsw i64 %indvars.iv139, %.pre-phi
   %135 = getelementptr inbounds %struct.AVComplexInt32, ptr %133, i64 %134
   tail call void %131(ptr noundef %132, ptr noundef %135, ptr noundef %135, i64 noundef 8) #16
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 3
-  br i1 %exitcond142.not, label %.preheader, label %130, !llvm.loop !114
+  br i1 %exitcond142.not, label %.preheader, label %130, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %136, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7757,26 +7757,26 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %138 = xor i64 %indvars.iv143, -1
   %139 = add nsw i64 %129, %138
   %140 = getelementptr inbounds nuw i32, ptr %18, i64 %137
-  %141 = load i32, ptr %140, align 4, !tbaa !10
+  %141 = load i32, ptr %140, align 4, !tbaa !11
   %142 = getelementptr inbounds i32, ptr %18, i64 %139
-  %143 = load i32, ptr %142, align 4, !tbaa !10
+  %143 = load i32, ptr %142, align 4, !tbaa !11
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds %struct.AVComplexInt32, ptr %128, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  %147 = load i32, ptr %146, align 4, !tbaa !50
-  %148 = load i32, ptr %145, align 4, !tbaa !48
+  %147 = load i32, ptr %146, align 4, !tbaa !51
+  %148 = load i32, ptr %145, align 4, !tbaa !49
   %149 = sext i32 %141 to i64
   %150 = getelementptr inbounds %struct.AVComplexInt32, ptr %128, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
-  %152 = load i32, ptr %151, align 4, !tbaa !50
-  %153 = load i32, ptr %150, align 4, !tbaa !48
+  %152 = load i32, ptr %151, align 4, !tbaa !51
+  %153 = load i32, ptr %150, align 4, !tbaa !49
   %154 = getelementptr inbounds %struct.AVComplexInt32, ptr %.0.lcssa, i64 %139
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %156 = load i32, ptr %155, align 4, !tbaa !50
+  %156 = load i32, ptr %155, align 4, !tbaa !51
   %157 = sext i32 %156 to i64
   %158 = sext i32 %147 to i64
   %159 = mul nsw i64 %157, %158
-  %160 = load i32, ptr %154, align 4, !tbaa !48
+  %160 = load i32, ptr %154, align 4, !tbaa !49
   %161 = sext i32 %160 to i64
   %162 = sext i32 %148 to i64
   %163 = mul nsw i64 %161, %162
@@ -7785,8 +7785,8 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %166 = lshr i64 %165, 31
   %167 = trunc i64 %166 to i32
   %168 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %139
-  store i32 %167, ptr %168, align 4, !tbaa !48
-  %169 = load i32, ptr %154, align 4, !tbaa !48
+  store i32 %167, ptr %168, align 4, !tbaa !49
+  %169 = load i32, ptr %154, align 4, !tbaa !49
   %170 = sext i32 %169 to i64
   %171 = mul nsw i64 %170, %158
   %172 = mul nsw i64 %157, %162
@@ -7796,14 +7796,14 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %176 = trunc i64 %175 to i32
   %177 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %137
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  store i32 %176, ptr %178, align 4, !tbaa !50
+  store i32 %176, ptr %178, align 4, !tbaa !51
   %179 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0.lcssa, i64 %137
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  %181 = load i32, ptr %180, align 4, !tbaa !50
+  %181 = load i32, ptr %180, align 4, !tbaa !51
   %182 = sext i32 %181 to i64
   %183 = sext i32 %152 to i64
   %184 = mul nsw i64 %182, %183
-  %185 = load i32, ptr %179, align 4, !tbaa !48
+  %185 = load i32, ptr %179, align 4, !tbaa !49
   %186 = sext i32 %185 to i64
   %187 = sext i32 %153 to i64
   %188 = mul nsw i64 %186, %187
@@ -7811,8 +7811,8 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %190 = sub nsw i64 %189, %188
   %191 = lshr i64 %190, 31
   %192 = trunc i64 %191 to i32
-  store i32 %192, ptr %177, align 4, !tbaa !48
-  %193 = load i32, ptr %179, align 4, !tbaa !48
+  store i32 %192, ptr %177, align 4, !tbaa !49
+  %193 = load i32, ptr %179, align 4, !tbaa !49
   %194 = sext i32 %193 to i64
   %195 = mul nsw i64 %194, %183
   %196 = mul nsw i64 %182, %187
@@ -7821,10 +7821,10 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %199 = lshr i64 %198, 31
   %200 = trunc i64 %199 to i32
   %201 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  store i32 %200, ptr %201, align 4, !tbaa !50
+  store i32 %200, ptr %201, align 4, !tbaa !51
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
-  br i1 %exitcond146.not, label %._crit_edge, label %136, !llvm.loop !115
+  br i1 %exitcond146.not, label %._crit_edge, label %136, !llvm.loop !116
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7832,15 +7832,15 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %5 = alloca [5 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load i32, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %0, align 8, !tbaa !17
   %9 = ashr i32 %8, 2
   %10 = ashr i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = mul nsw i32 %13, 5
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
@@ -7859,9 +7859,9 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
 
 .preheader137.lr.ph:                              ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = sext i32 %13 to i64
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7893,40 +7893,40 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
 
 41:                                               ; preds = %155
   %42 = getelementptr inbounds nuw i8, ptr %.0118140, i64 4
-  %43 = load i32, ptr %.0118140, align 4, !tbaa !10
+  %43 = load i32, ptr %.0118140, align 4, !tbaa !11
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %struct.AVComplexInt32, ptr %29, i64 %44
-  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
-  %46 = load i32, ptr %31, align 8, !tbaa !48
-  %47 = load i32, ptr %32, align 16, !tbaa !48
+  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
+  %46 = load i32, ptr %31, align 8, !tbaa !49
+  %47 = load i32, ptr %32, align 16, !tbaa !49
   %48 = sub i32 %46, %47
   %49 = add i32 %47, %46
-  %50 = load i32, ptr %33, align 4, !tbaa !50
-  %51 = load i32, ptr %34, align 4, !tbaa !50
+  %50 = load i32, ptr %33, align 4, !tbaa !51
+  %51 = load i32, ptr %34, align 4, !tbaa !51
   %52 = sub i32 %50, %51
   %53 = add i32 %51, %50
-  %54 = load i32, ptr %35, align 16, !tbaa !48
-  %55 = load i32, ptr %36, align 8, !tbaa !48
+  %54 = load i32, ptr %35, align 16, !tbaa !49
+  %55 = load i32, ptr %36, align 8, !tbaa !49
   %56 = sub i32 %54, %55
   %57 = add i32 %55, %54
-  %58 = load i32, ptr %37, align 4, !tbaa !50
-  %59 = load i32, ptr %38, align 4, !tbaa !50
+  %58 = load i32, ptr %37, align 4, !tbaa !51
+  %59 = load i32, ptr %38, align 4, !tbaa !51
   %60 = sub i32 %58, %59
   %61 = add i32 %59, %58
   %62 = add i32 %49, %.sroa.057.0.copyload.i
   %63 = add i32 %62, %57
-  store i32 %63, ptr %45, align 4, !tbaa !48
+  store i32 %63, ptr %45, align 4, !tbaa !49
   %64 = add i32 %53, %.sroa.862.0.copyload.i
   %65 = add i32 %64, %61
   %66 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %65, ptr %66, align 4, !tbaa !50
+  store i32 %65, ptr %66, align 4, !tbaa !51
   %67 = sext i32 %57 to i64
-  %68 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %68 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %69, %67
   %71 = sext i32 %49 to i64
-  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %71
   %75 = add nsw i64 %70, 1073741824
@@ -7954,11 +7954,11 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %97 = lshr i64 %96, 31
   %98 = trunc i64 %97 to i32
   %99 = sext i32 %60 to i64
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %101 = sext i32 %100 to i64
   %102 = mul nsw i64 %101, %99
   %103 = sext i32 %52 to i64
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %105 = sext i32 %104 to i64
   %106 = mul nsw i64 %105, %103
   %107 = add nsw i64 %102, 1073741824
@@ -7988,57 +7988,57 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %131 = add i32 %.sroa.057.0.copyload.i, %84
   %132 = add i32 %131, %116
   %133 = getelementptr inbounds %struct.AVComplexInt32, ptr %45, i64 %30
-  store i32 %132, ptr %133, align 4, !tbaa !48
+  store i32 %132, ptr %133, align 4, !tbaa !49
   %134 = add i32 %.sroa.862.0.copyload.i, %98
   %135 = sub i32 %134, %130
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !50
+  store i32 %135, ptr %136, align 4, !tbaa !51
   %137 = add i32 %.sroa.057.0.copyload.i, %78
   %138 = sub i32 %137, %110
   %139 = getelementptr inbounds i8, ptr %45, i64 %.idx.i
-  store i32 %138, ptr %139, align 4, !tbaa !48
+  store i32 %138, ptr %139, align 4, !tbaa !49
   %140 = add i32 %.sroa.862.0.copyload.i, %92
   %141 = add i32 %140, %124
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  store i32 %141, ptr %142, align 4, !tbaa !50
+  store i32 %141, ptr %142, align 4, !tbaa !51
   %143 = add i32 %137, %110
   %144 = getelementptr inbounds i8, ptr %45, i64 %.idx104.i
-  store i32 %143, ptr %144, align 4, !tbaa !48
+  store i32 %143, ptr %144, align 4, !tbaa !49
   %145 = sub i32 %140, %124
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  store i32 %145, ptr %146, align 4, !tbaa !50
+  store i32 %145, ptr %146, align 4, !tbaa !51
   %147 = sub i32 %131, %116
   %148 = getelementptr inbounds i8, ptr %45, i64 %.idx105.i
-  store i32 %147, ptr %148, align 4, !tbaa !48
+  store i32 %147, ptr %148, align 4, !tbaa !49
   %149 = add i32 %134, %130
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  store i32 %149, ptr %150, align 4, !tbaa !50
+  store i32 %149, ptr %150, align 4, !tbaa !51
   %151 = getelementptr inbounds nuw i8, ptr %.0142, i64 40
   %152 = getelementptr inbounds nuw i8, ptr %.0117141, i64 20
   %153 = add nuw nsw i32 %.0119139, 5
   %154 = icmp slt i32 %153, %10
-  br i1 %154, label %.preheader137, label %.preheader136, !llvm.loop !116
+  br i1 %154, label %.preheader137, label %.preheader136, !llvm.loop !117
 
 155:                                              ; preds = %.preheader137, %155
   %indvars.iv = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next, %155 ]
   %156 = getelementptr inbounds nuw i32, ptr %.0117141, i64 %indvars.iv
-  %157 = load i32, ptr %156, align 4, !tbaa !10
+  %157 = load i32, ptr %156, align 4, !tbaa !11
   %158 = sub nsw i32 0, %157
   %159 = sext i32 %158 to i64
   %160 = mul nsw i64 %19, %159
   %161 = getelementptr inbounds i32, ptr %24, i64 %160
-  %162 = load i32, ptr %161, align 4, !tbaa !10
+  %162 = load i32, ptr %161, align 4, !tbaa !11
   %163 = sext i32 %157 to i64
   %164 = mul nsw i64 %19, %163
   %165 = getelementptr inbounds i32, ptr %2, i64 %164
-  %166 = load i32, ptr %165, align 4, !tbaa !10
+  %166 = load i32, ptr %165, align 4, !tbaa !11
   %167 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0142, i64 %indvars.iv
-  %168 = load i32, ptr %167, align 4, !tbaa !48
+  %168 = load i32, ptr %167, align 4, !tbaa !49
   %169 = sext i32 %168 to i64
   %170 = sext i32 %162 to i64
   %171 = mul nsw i64 %169, %170
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  %173 = load i32, ptr %172, align 4, !tbaa !50
+  %173 = load i32, ptr %172, align 4, !tbaa !51
   %174 = sext i32 %173 to i64
   %175 = sext i32 %166 to i64
   %176 = mul nsw i64 %174, %175
@@ -8047,7 +8047,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %179 = lshr i64 %178, 31
   %180 = trunc i64 %179 to i32
   %181 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
-  store i32 %180, ptr %181, align 8, !tbaa !48
+  store i32 %180, ptr %181, align 8, !tbaa !49
   %182 = mul nsw i64 %174, %170
   %183 = mul nsw i64 %169, %175
   %184 = add nsw i64 %183, 1073741824
@@ -8055,32 +8055,32 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %186 = lshr i64 %185, 31
   %187 = trunc i64 %186 to i32
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  store i32 %187, ptr %188, align 4, !tbaa !50
+  store i32 %187, ptr %188, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %41, label %155, !llvm.loop !117
+  br i1 %exitcond.not, label %41, label %155, !llvm.loop !118
 
 .preheader:                                       ; preds = %192
   %189 = icmp sgt i32 %9, 0
   br i1 %189, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %190 = load ptr, ptr %40, align 8, !tbaa !54
+  %190 = load ptr, ptr %40, align 8, !tbaa !55
   %191 = zext nneg i32 %9 to i64
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %198
 
 192:                                              ; preds = %.preheader136, %192
   %indvars.iv146 = phi i64 [ 0, %.preheader136 ], [ %indvars.iv.next147, %192 ]
-  %193 = load ptr, ptr %39, align 8, !tbaa !4
-  %194 = load ptr, ptr %11, align 8, !tbaa !55
-  %195 = load ptr, ptr %40, align 8, !tbaa !54
+  %193 = load ptr, ptr %39, align 8, !tbaa !5
+  %194 = load ptr, ptr %11, align 8, !tbaa !56
+  %195 = load ptr, ptr %40, align 8, !tbaa !55
   %196 = mul nsw i64 %indvars.iv146, %.pre-phi
   %197 = getelementptr inbounds %struct.AVComplexInt32, ptr %195, i64 %196
   tail call void %193(ptr noundef %194, ptr noundef %197, ptr noundef %197, i64 noundef 8) #16
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 5
-  br i1 %exitcond149.not, label %.preheader, label %192, !llvm.loop !118
+  br i1 %exitcond149.not, label %.preheader, label %192, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %198, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8092,26 +8092,26 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %200 = xor i64 %indvars.iv150, -1
   %201 = add nsw i64 %191, %200
   %202 = getelementptr inbounds nuw i32, ptr %18, i64 %199
-  %203 = load i32, ptr %202, align 4, !tbaa !10
+  %203 = load i32, ptr %202, align 4, !tbaa !11
   %204 = getelementptr inbounds i32, ptr %18, i64 %201
-  %205 = load i32, ptr %204, align 4, !tbaa !10
+  %205 = load i32, ptr %204, align 4, !tbaa !11
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds %struct.AVComplexInt32, ptr %190, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %209 = load i32, ptr %208, align 4, !tbaa !50
-  %210 = load i32, ptr %207, align 4, !tbaa !48
+  %209 = load i32, ptr %208, align 4, !tbaa !51
+  %210 = load i32, ptr %207, align 4, !tbaa !49
   %211 = sext i32 %203 to i64
   %212 = getelementptr inbounds %struct.AVComplexInt32, ptr %190, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  %214 = load i32, ptr %213, align 4, !tbaa !50
-  %215 = load i32, ptr %212, align 4, !tbaa !48
+  %214 = load i32, ptr %213, align 4, !tbaa !51
+  %215 = load i32, ptr %212, align 4, !tbaa !49
   %216 = getelementptr inbounds %struct.AVComplexInt32, ptr %.0.lcssa, i64 %201
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %218 = load i32, ptr %217, align 4, !tbaa !50
+  %218 = load i32, ptr %217, align 4, !tbaa !51
   %219 = sext i32 %218 to i64
   %220 = sext i32 %209 to i64
   %221 = mul nsw i64 %219, %220
-  %222 = load i32, ptr %216, align 4, !tbaa !48
+  %222 = load i32, ptr %216, align 4, !tbaa !49
   %223 = sext i32 %222 to i64
   %224 = sext i32 %210 to i64
   %225 = mul nsw i64 %223, %224
@@ -8120,8 +8120,8 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %228 = lshr i64 %227, 31
   %229 = trunc i64 %228 to i32
   %230 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %201
-  store i32 %229, ptr %230, align 4, !tbaa !48
-  %231 = load i32, ptr %216, align 4, !tbaa !48
+  store i32 %229, ptr %230, align 4, !tbaa !49
+  %231 = load i32, ptr %216, align 4, !tbaa !49
   %232 = sext i32 %231 to i64
   %233 = mul nsw i64 %232, %220
   %234 = mul nsw i64 %219, %224
@@ -8131,14 +8131,14 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %238 = trunc i64 %237 to i32
   %239 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %199
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 4
-  store i32 %238, ptr %240, align 4, !tbaa !50
+  store i32 %238, ptr %240, align 4, !tbaa !51
   %241 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0.lcssa, i64 %199
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  %243 = load i32, ptr %242, align 4, !tbaa !50
+  %243 = load i32, ptr %242, align 4, !tbaa !51
   %244 = sext i32 %243 to i64
   %245 = sext i32 %214 to i64
   %246 = mul nsw i64 %244, %245
-  %247 = load i32, ptr %241, align 4, !tbaa !48
+  %247 = load i32, ptr %241, align 4, !tbaa !49
   %248 = sext i32 %247 to i64
   %249 = sext i32 %215 to i64
   %250 = mul nsw i64 %248, %249
@@ -8146,8 +8146,8 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %252 = sub nsw i64 %251, %250
   %253 = lshr i64 %252, 31
   %254 = trunc i64 %253 to i32
-  store i32 %254, ptr %239, align 4, !tbaa !48
-  %255 = load i32, ptr %241, align 4, !tbaa !48
+  store i32 %254, ptr %239, align 4, !tbaa !49
+  %255 = load i32, ptr %241, align 4, !tbaa !49
   %256 = sext i32 %255 to i64
   %257 = mul nsw i64 %256, %245
   %258 = mul nsw i64 %244, %249
@@ -8156,10 +8156,10 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %261 = lshr i64 %260, 31
   %262 = trunc i64 %261 to i32
   %263 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  store i32 %262, ptr %263, align 4, !tbaa !50
+  store i32 %262, ptr %263, align 4, !tbaa !51
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count
-  br i1 %exitcond153.not, label %._crit_edge, label %198, !llvm.loop !119
+  br i1 %exitcond153.not, label %._crit_edge, label %198, !llvm.loop !120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8167,15 +8167,15 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %5 = alloca [7 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load i32, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %0, align 8, !tbaa !17
   %9 = ashr i32 %8, 2
   %10 = ashr i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = mul nsw i32 %13, 7
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
@@ -8194,9 +8194,9 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
 
 .preheader165.lr.ph:                              ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = sext i32 %13 to i64
   %.sroa.10110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8234,53 +8234,53 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
 
 45:                                               ; preds = %217
   %46 = getelementptr inbounds nuw i8, ptr %.0118168, i64 4
-  %47 = load i32, ptr %.0118168, align 4, !tbaa !10
+  %47 = load i32, ptr %.0118168, align 4, !tbaa !11
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds %struct.AVComplexInt32, ptr %29, i64 %48
-  %.sroa.0103.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !10
-  %50 = load i32, ptr %31, align 8, !tbaa !48
-  %51 = load i32, ptr %32, align 16, !tbaa !48
+  %.sroa.0103.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.10110.0.copyload.i = load i32, ptr %.sroa.10110.0..sroa_idx.i, align 4, !tbaa !11
+  %50 = load i32, ptr %31, align 8, !tbaa !49
+  %51 = load i32, ptr %32, align 16, !tbaa !49
   %52 = sub i32 %50, %51
   %53 = add i32 %51, %50
-  %54 = load i32, ptr %33, align 4, !tbaa !50
-  %55 = load i32, ptr %34, align 4, !tbaa !50
+  %54 = load i32, ptr %33, align 4, !tbaa !51
+  %55 = load i32, ptr %34, align 4, !tbaa !51
   %56 = sub i32 %54, %55
   %57 = add i32 %55, %54
-  %58 = load i32, ptr %35, align 16, !tbaa !48
-  %59 = load i32, ptr %36, align 8, !tbaa !48
+  %58 = load i32, ptr %35, align 16, !tbaa !49
+  %59 = load i32, ptr %36, align 8, !tbaa !49
   %60 = sub i32 %58, %59
   %61 = add i32 %59, %58
-  %62 = load i32, ptr %37, align 4, !tbaa !50
-  %63 = load i32, ptr %38, align 4, !tbaa !50
+  %62 = load i32, ptr %37, align 4, !tbaa !51
+  %63 = load i32, ptr %38, align 4, !tbaa !51
   %64 = sub i32 %62, %63
   %65 = add i32 %63, %62
-  %66 = load i32, ptr %39, align 8, !tbaa !48
-  %67 = load i32, ptr %40, align 16, !tbaa !48
+  %66 = load i32, ptr %39, align 8, !tbaa !49
+  %67 = load i32, ptr %40, align 16, !tbaa !49
   %68 = sub i32 %66, %67
   %69 = add i32 %67, %66
-  %70 = load i32, ptr %41, align 4, !tbaa !50
-  %71 = load i32, ptr %42, align 4, !tbaa !50
+  %70 = load i32, ptr %41, align 4, !tbaa !51
+  %71 = load i32, ptr %42, align 4, !tbaa !51
   %72 = sub i32 %70, %71
   %73 = add i32 %71, %70
   %74 = add nsw i32 %53, %.sroa.0103.0.copyload.i
   %75 = add nsw i32 %74, %61
   %76 = add nsw i32 %75, %69
-  store i32 %76, ptr %49, align 4, !tbaa !48
+  store i32 %76, ptr %49, align 4, !tbaa !49
   %77 = add nsw i32 %57, %.sroa.10110.0.copyload.i
   %78 = add nsw i32 %77, %65
   %79 = add nsw i32 %78, %73
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !50
-  %81 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !48
+  store i32 %79, ptr %80, align 4, !tbaa !51
+  %81 = load i32, ptr @ff_tx_tab_7_int32, align 16, !tbaa !49
   %82 = sext i32 %81 to i64
   %83 = sext i32 %53 to i64
   %84 = mul nsw i64 %82, %83
-  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !48
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 16), align 16, !tbaa !49
   %86 = sext i32 %85 to i64
   %87 = sext i32 %69 to i64
   %88 = mul nsw i64 %82, %87
-  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !48
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 8), align 8, !tbaa !49
   %90 = sext i32 %89 to i64
   %91 = sext i32 %61 to i64
   %92 = mul nsw i64 %82, %91
@@ -8290,15 +8290,15 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %96 = sext i32 %73 to i64
   %97 = mul nsw i64 %82, %96
   %98 = mul nsw i64 %82, %95
-  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !50
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 20), align 4, !tbaa !51
   %100 = sext i32 %99 to i64
   %101 = sext i32 %56 to i64
   %102 = mul nsw i64 %100, %101
-  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !50
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 12), align 4, !tbaa !51
   %104 = sext i32 %103 to i64
   %105 = sext i32 %72 to i64
   %106 = mul nsw i64 %104, %105
-  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !50
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_7_int32, i64 4), align 4, !tbaa !51
   %108 = sext i32 %107 to i64
   %109 = mul nsw i64 %108, %105
   %110 = sext i32 %64 to i64
@@ -8395,71 +8395,71 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %183 = add i32 %.sroa.0103.0.copyload.i, %126
   %184 = add i32 %183, %164
   %185 = getelementptr inbounds %struct.AVComplexInt32, ptr %49, i64 %30
-  store i32 %184, ptr %185, align 4, !tbaa !48
+  store i32 %184, ptr %185, align 4, !tbaa !49
   %186 = add i32 %.sroa.10110.0.copyload.i, %138
   %187 = sub i32 %186, %170
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  store i32 %187, ptr %188, align 4, !tbaa !50
+  store i32 %187, ptr %188, align 4, !tbaa !51
   %189 = add i32 %.sroa.0103.0.copyload.i, %130
   %190 = sub i32 %189, %158
   %191 = getelementptr inbounds i8, ptr %49, i64 %.idx.i
-  store i32 %190, ptr %191, align 4, !tbaa !48
+  store i32 %190, ptr %191, align 4, !tbaa !49
   %192 = add i32 %.sroa.10110.0.copyload.i, %142
   %193 = add i32 %192, %176
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
-  store i32 %193, ptr %194, align 4, !tbaa !50
+  store i32 %193, ptr %194, align 4, !tbaa !51
   %195 = add i32 %.sroa.0103.0.copyload.i, %134
   %196 = add i32 %195, %152
   %197 = getelementptr inbounds i8, ptr %49, i64 %.idx169.i
-  store i32 %196, ptr %197, align 4, !tbaa !48
+  store i32 %196, ptr %197, align 4, !tbaa !49
   %198 = add i32 %.sroa.10110.0.copyload.i, %146
   %199 = sub i32 %198, %182
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
-  store i32 %199, ptr %200, align 4, !tbaa !50
+  store i32 %199, ptr %200, align 4, !tbaa !51
   %201 = sub i32 %195, %152
   %202 = getelementptr inbounds i8, ptr %49, i64 %.idx170.i
-  store i32 %201, ptr %202, align 4, !tbaa !48
+  store i32 %201, ptr %202, align 4, !tbaa !49
   %203 = add i32 %198, %182
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 %203, ptr %204, align 4, !tbaa !50
+  store i32 %203, ptr %204, align 4, !tbaa !51
   %205 = add i32 %189, %158
   %206 = getelementptr inbounds i8, ptr %49, i64 %.idx171.i
-  store i32 %205, ptr %206, align 4, !tbaa !48
+  store i32 %205, ptr %206, align 4, !tbaa !49
   %207 = sub i32 %192, %176
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  store i32 %207, ptr %208, align 4, !tbaa !50
+  store i32 %207, ptr %208, align 4, !tbaa !51
   %209 = sub i32 %183, %164
   %210 = getelementptr inbounds i8, ptr %49, i64 %.idx172.i
-  store i32 %209, ptr %210, align 4, !tbaa !48
+  store i32 %209, ptr %210, align 4, !tbaa !49
   %211 = add i32 %186, %170
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 4
-  store i32 %211, ptr %212, align 4, !tbaa !50
+  store i32 %211, ptr %212, align 4, !tbaa !51
   %213 = getelementptr inbounds nuw i8, ptr %.0170, i64 56
   %214 = getelementptr inbounds nuw i8, ptr %.0117169, i64 28
   %215 = add nuw nsw i32 %.0119167, 7
   %216 = icmp slt i32 %215, %10
-  br i1 %216, label %.preheader165, label %.preheader164, !llvm.loop !120
+  br i1 %216, label %.preheader165, label %.preheader164, !llvm.loop !121
 
 217:                                              ; preds = %.preheader165, %217
   %indvars.iv = phi i64 [ 0, %.preheader165 ], [ %indvars.iv.next, %217 ]
   %218 = getelementptr inbounds nuw i32, ptr %.0117169, i64 %indvars.iv
-  %219 = load i32, ptr %218, align 4, !tbaa !10
+  %219 = load i32, ptr %218, align 4, !tbaa !11
   %220 = sub nsw i32 0, %219
   %221 = sext i32 %220 to i64
   %222 = mul nsw i64 %19, %221
   %223 = getelementptr inbounds i32, ptr %24, i64 %222
-  %224 = load i32, ptr %223, align 4, !tbaa !10
+  %224 = load i32, ptr %223, align 4, !tbaa !11
   %225 = sext i32 %219 to i64
   %226 = mul nsw i64 %19, %225
   %227 = getelementptr inbounds i32, ptr %2, i64 %226
-  %228 = load i32, ptr %227, align 4, !tbaa !10
+  %228 = load i32, ptr %227, align 4, !tbaa !11
   %229 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0170, i64 %indvars.iv
-  %230 = load i32, ptr %229, align 4, !tbaa !48
+  %230 = load i32, ptr %229, align 4, !tbaa !49
   %231 = sext i32 %230 to i64
   %232 = sext i32 %224 to i64
   %233 = mul nsw i64 %231, %232
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 4
-  %235 = load i32, ptr %234, align 4, !tbaa !50
+  %235 = load i32, ptr %234, align 4, !tbaa !51
   %236 = sext i32 %235 to i64
   %237 = sext i32 %228 to i64
   %238 = mul nsw i64 %236, %237
@@ -8468,7 +8468,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %241 = lshr i64 %240, 31
   %242 = trunc i64 %241 to i32
   %243 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
-  store i32 %242, ptr %243, align 8, !tbaa !48
+  store i32 %242, ptr %243, align 8, !tbaa !49
   %244 = mul nsw i64 %236, %232
   %245 = mul nsw i64 %231, %237
   %246 = add nsw i64 %245, 1073741824
@@ -8476,32 +8476,32 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %248 = lshr i64 %247, 31
   %249 = trunc i64 %248 to i32
   %250 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  store i32 %249, ptr %250, align 4, !tbaa !50
+  store i32 %249, ptr %250, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %45, label %217, !llvm.loop !121
+  br i1 %exitcond.not, label %45, label %217, !llvm.loop !122
 
 .preheader:                                       ; preds = %254
   %251 = icmp sgt i32 %9, 0
   br i1 %251, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %252 = load ptr, ptr %44, align 8, !tbaa !54
+  %252 = load ptr, ptr %44, align 8, !tbaa !55
   %253 = zext nneg i32 %9 to i64
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %260
 
 254:                                              ; preds = %.preheader164, %254
   %indvars.iv174 = phi i64 [ 0, %.preheader164 ], [ %indvars.iv.next175, %254 ]
-  %255 = load ptr, ptr %43, align 8, !tbaa !4
-  %256 = load ptr, ptr %11, align 8, !tbaa !55
-  %257 = load ptr, ptr %44, align 8, !tbaa !54
+  %255 = load ptr, ptr %43, align 8, !tbaa !5
+  %256 = load ptr, ptr %11, align 8, !tbaa !56
+  %257 = load ptr, ptr %44, align 8, !tbaa !55
   %258 = mul nsw i64 %indvars.iv174, %.pre-phi
   %259 = getelementptr inbounds %struct.AVComplexInt32, ptr %257, i64 %258
   tail call void %255(ptr noundef %256, ptr noundef %259, ptr noundef %259, i64 noundef 8) #16
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 7
-  br i1 %exitcond177.not, label %.preheader, label %254, !llvm.loop !122
+  br i1 %exitcond177.not, label %.preheader, label %254, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %260, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8513,26 +8513,26 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %262 = xor i64 %indvars.iv178, -1
   %263 = add nsw i64 %253, %262
   %264 = getelementptr inbounds nuw i32, ptr %18, i64 %261
-  %265 = load i32, ptr %264, align 4, !tbaa !10
+  %265 = load i32, ptr %264, align 4, !tbaa !11
   %266 = getelementptr inbounds i32, ptr %18, i64 %263
-  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %267 = load i32, ptr %266, align 4, !tbaa !11
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds %struct.AVComplexInt32, ptr %252, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  %271 = load i32, ptr %270, align 4, !tbaa !50
-  %272 = load i32, ptr %269, align 4, !tbaa !48
+  %271 = load i32, ptr %270, align 4, !tbaa !51
+  %272 = load i32, ptr %269, align 4, !tbaa !49
   %273 = sext i32 %265 to i64
   %274 = getelementptr inbounds %struct.AVComplexInt32, ptr %252, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  %276 = load i32, ptr %275, align 4, !tbaa !50
-  %277 = load i32, ptr %274, align 4, !tbaa !48
+  %276 = load i32, ptr %275, align 4, !tbaa !51
+  %277 = load i32, ptr %274, align 4, !tbaa !49
   %278 = getelementptr inbounds %struct.AVComplexInt32, ptr %.0.lcssa, i64 %263
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 4
-  %280 = load i32, ptr %279, align 4, !tbaa !50
+  %280 = load i32, ptr %279, align 4, !tbaa !51
   %281 = sext i32 %280 to i64
   %282 = sext i32 %271 to i64
   %283 = mul nsw i64 %281, %282
-  %284 = load i32, ptr %278, align 4, !tbaa !48
+  %284 = load i32, ptr %278, align 4, !tbaa !49
   %285 = sext i32 %284 to i64
   %286 = sext i32 %272 to i64
   %287 = mul nsw i64 %285, %286
@@ -8541,8 +8541,8 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %290 = lshr i64 %289, 31
   %291 = trunc i64 %290 to i32
   %292 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %263
-  store i32 %291, ptr %292, align 4, !tbaa !48
-  %293 = load i32, ptr %278, align 4, !tbaa !48
+  store i32 %291, ptr %292, align 4, !tbaa !49
+  %293 = load i32, ptr %278, align 4, !tbaa !49
   %294 = sext i32 %293 to i64
   %295 = mul nsw i64 %294, %282
   %296 = mul nsw i64 %281, %286
@@ -8552,14 +8552,14 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %300 = trunc i64 %299 to i32
   %301 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %261
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
-  store i32 %300, ptr %302, align 4, !tbaa !50
+  store i32 %300, ptr %302, align 4, !tbaa !51
   %303 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0.lcssa, i64 %261
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  %305 = load i32, ptr %304, align 4, !tbaa !50
+  %305 = load i32, ptr %304, align 4, !tbaa !51
   %306 = sext i32 %305 to i64
   %307 = sext i32 %276 to i64
   %308 = mul nsw i64 %306, %307
-  %309 = load i32, ptr %303, align 4, !tbaa !48
+  %309 = load i32, ptr %303, align 4, !tbaa !49
   %310 = sext i32 %309 to i64
   %311 = sext i32 %277 to i64
   %312 = mul nsw i64 %310, %311
@@ -8567,8 +8567,8 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %314 = sub nsw i64 %313, %312
   %315 = lshr i64 %314, 31
   %316 = trunc i64 %315 to i32
-  store i32 %316, ptr %301, align 4, !tbaa !48
-  %317 = load i32, ptr %303, align 4, !tbaa !48
+  store i32 %316, ptr %301, align 4, !tbaa !49
+  %317 = load i32, ptr %303, align 4, !tbaa !49
   %318 = sext i32 %317 to i64
   %319 = mul nsw i64 %318, %307
   %320 = mul nsw i64 %306, %311
@@ -8577,10 +8577,10 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %323 = lshr i64 %322, 31
   %324 = trunc i64 %323 to i32
   %325 = getelementptr inbounds nuw i8, ptr %292, i64 4
-  store i32 %324, ptr %325, align 4, !tbaa !50
+  store i32 %324, ptr %325, align 4, !tbaa !51
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count
-  br i1 %exitcond181.not, label %._crit_edge, label %260, !llvm.loop !123
+  br i1 %exitcond181.not, label %._crit_edge, label %260, !llvm.loop !124
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8588,15 +8588,15 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %5 = alloca [9 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load i32, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %0, align 8, !tbaa !17
   %9 = ashr i32 %8, 2
   %10 = ashr i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = mul nsw i32 %13, 9
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
@@ -8615,9 +8615,9 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
 
 .preheader139.lr.ph:                              ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = sext i32 %13 to i64
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8661,41 +8661,41 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
 
 49:                                               ; preds = %265
   %50 = getelementptr inbounds nuw i8, ptr %.0118142, i64 4
-  %51 = load i32, ptr %.0118142, align 4, !tbaa !10
+  %51 = load i32, ptr %.0118142, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds %struct.AVComplexInt32, ptr %29, i64 %52
-  %.sroa.0130.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !10
-  %54 = load i32, ptr %31, align 8, !tbaa !48
-  %55 = load i32, ptr %32, align 16, !tbaa !48
+  %.sroa.0130.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !11
+  %54 = load i32, ptr %31, align 8, !tbaa !49
+  %55 = load i32, ptr %32, align 16, !tbaa !49
   %56 = sub i32 %54, %55
   %57 = add i32 %55, %54
-  %58 = load i32, ptr %33, align 4, !tbaa !50
-  %59 = load i32, ptr %34, align 4, !tbaa !50
+  %58 = load i32, ptr %33, align 4, !tbaa !51
+  %59 = load i32, ptr %34, align 4, !tbaa !51
   %60 = sub i32 %58, %59
   %61 = add i32 %59, %58
-  %62 = load i32, ptr %35, align 16, !tbaa !48
-  %63 = load i32, ptr %36, align 8, !tbaa !48
+  %62 = load i32, ptr %35, align 16, !tbaa !49
+  %63 = load i32, ptr %36, align 8, !tbaa !49
   %64 = sub i32 %62, %63
   %65 = add i32 %63, %62
-  %66 = load i32, ptr %37, align 4, !tbaa !50
-  %67 = load i32, ptr %38, align 4, !tbaa !50
+  %66 = load i32, ptr %37, align 4, !tbaa !51
+  %67 = load i32, ptr %38, align 4, !tbaa !51
   %68 = sub i32 %66, %67
   %69 = add i32 %67, %66
-  %70 = load i32, ptr %39, align 8, !tbaa !48
-  %71 = load i32, ptr %40, align 16, !tbaa !48
+  %70 = load i32, ptr %39, align 8, !tbaa !49
+  %71 = load i32, ptr %40, align 16, !tbaa !49
   %72 = sub i32 %70, %71
   %73 = add i32 %71, %70
-  %74 = load i32, ptr %41, align 4, !tbaa !50
-  %75 = load i32, ptr %42, align 4, !tbaa !50
+  %74 = load i32, ptr %41, align 4, !tbaa !51
+  %75 = load i32, ptr %42, align 4, !tbaa !51
   %76 = sub i32 %74, %75
   %77 = add i32 %75, %74
-  %78 = load i32, ptr %43, align 16, !tbaa !48
-  %79 = load i32, ptr %44, align 8, !tbaa !48
+  %78 = load i32, ptr %43, align 16, !tbaa !49
+  %79 = load i32, ptr %44, align 8, !tbaa !49
   %80 = sub i32 %78, %79
   %81 = add i32 %79, %78
-  %82 = load i32, ptr %45, align 4, !tbaa !50
-  %83 = load i32, ptr %46, align 4, !tbaa !50
+  %82 = load i32, ptr %45, align 4, !tbaa !51
+  %83 = load i32, ptr %46, align 4, !tbaa !51
   %84 = sub i32 %82, %83
   %85 = add i32 %83, %82
   %86 = sub nsw i32 %57, %81
@@ -8713,17 +8713,17 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %98 = add nsw i32 %69, %61
   %99 = add nsw i32 %98, %85
   %100 = add nsw i32 %97, %94
-  store i32 %100, ptr %53, align 4, !tbaa !48
+  store i32 %100, ptr %53, align 4, !tbaa !49
   %101 = add nsw i32 %99, %95
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 %101, ptr %102, align 4, !tbaa !50
+  store i32 %101, ptr %102, align 4, !tbaa !51
   %103 = sub i32 %56, %64
   %104 = add nsw i32 %103, %80
   %105 = sext i32 %104 to i64
   %106 = sub i32 %60, %68
   %107 = add nsw i32 %106, %84
   %108 = sext i32 %107 to i64
-  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !50
+  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 4), align 4, !tbaa !51
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %110, %105
   %112 = add nsw i64 %111, 1073741824
@@ -8733,7 +8733,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %116 = add nsw i64 %115, 1073741824
   %117 = lshr i64 %116, 31
   %118 = trunc i64 %117 to i32
-  %119 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !48
+  %119 = load i32, ptr @ff_tx_tab_9_int32, align 16, !tbaa !49
   %120 = sext i32 %119 to i64
   %121 = sext i32 %97 to i64
   %122 = mul nsw i64 %120, %121
@@ -8759,23 +8759,23 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %142 = add nsw i32 %95, %130
   %143 = add nsw i32 %.sroa.0130.0.copyload.i, %135
   %144 = add nsw i32 %.sroa.4.0.copyload.i, %140
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !48
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 8), align 8, !tbaa !49
   %146 = sext i32 %145 to i64
   %147 = sext i32 %86 to i64
   %148 = mul nsw i64 %146, %147
   %149 = sext i32 %87 to i64
   %150 = mul nsw i64 %146, %149
-  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !50
+  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 20), align 4, !tbaa !51
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %152, %147
   %154 = mul nsw i64 %152, %149
-  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !50
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 12), align 4, !tbaa !51
   %156 = sext i32 %155 to i64
   %157 = sext i32 %90 to i64
   %158 = mul nsw i64 %156, %157
   %159 = sext i32 %91 to i64
   %160 = mul nsw i64 %156, %159
-  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !48
+  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 16), align 16, !tbaa !49
   %162 = sext i32 %161 to i64
   %163 = mul nsw i64 %162, %157
   %164 = mul nsw i64 %162, %159
@@ -8791,7 +8791,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %174 = add i64 %173, %172
   %175 = lshr i64 %174, 31
   %176 = trunc i64 %175 to i32
-  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !48
+  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 24), align 8, !tbaa !49
   %178 = sext i32 %177 to i64
   %179 = mul nsw i64 %178, %165
   %180 = add nsw i64 %153, 1073741824
@@ -8815,7 +8815,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %198 = add i64 %197, %196
   %199 = lshr i64 %198, 31
   %200 = trunc i64 %199 to i32
-  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !50
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_9_int32, i64 28), align 4, !tbaa !51
   %202 = sext i32 %201 to i64
   %203 = mul nsw i64 %202, %189
   %204 = add nsw i64 %163, 1073741824
@@ -8856,77 +8856,77 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %237 = getelementptr inbounds %struct.AVComplexInt32, ptr %53, i64 %30
   %238 = add nsw i32 %226, %223
   %239 = sub nsw i32 %224, %225
-  store i32 %238, ptr %237, align 4, !tbaa !10
+  store i32 %238, ptr %237, align 4, !tbaa !11
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %237, i64 4
-  store i32 %239, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %239, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !11
   %240 = getelementptr inbounds i8, ptr %53, i64 %.idx.i
   %241 = add nsw i32 %230, %227
   %242 = sub nsw i32 %228, %229
-  store i32 %241, ptr %240, align 4, !tbaa !10
+  store i32 %241, ptr %240, align 4, !tbaa !11
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %240, i64 4
-  store i32 %242, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %242, ptr %.sroa.212.0..sroa_idx.i, align 4, !tbaa !11
   %243 = getelementptr inbounds i8, ptr %53, i64 %.idx209.i
   %244 = add nsw i32 %141, %118
   %245 = sub nsw i32 %142, %114
-  store i32 %244, ptr %243, align 4, !tbaa !10
+  store i32 %244, ptr %243, align 4, !tbaa !11
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %243, i64 4
-  store i32 %245, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %245, ptr %.sroa.210.0..sroa_idx.i, align 4, !tbaa !11
   %246 = getelementptr inbounds i8, ptr %53, i64 %.idx210.i
   %247 = add nsw i32 %236, %232
   %248 = sub nsw i32 %234, %235
-  store i32 %247, ptr %246, align 4, !tbaa !10
+  store i32 %247, ptr %246, align 4, !tbaa !11
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %246, i64 4
-  store i32 %248, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %248, ptr %.sroa.28.0..sroa_idx.i, align 4, !tbaa !11
   %249 = getelementptr inbounds i8, ptr %53, i64 %.idx211.i
   %250 = sub nsw i32 %232, %236
   %251 = add nsw i32 %235, %234
-  store i32 %250, ptr %249, align 4, !tbaa !10
+  store i32 %250, ptr %249, align 4, !tbaa !11
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %249, i64 4
-  store i32 %251, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %251, ptr %.sroa.26.0..sroa_idx.i, align 4, !tbaa !11
   %252 = getelementptr inbounds i8, ptr %53, i64 %.idx212.i
   %253 = sub nsw i32 %141, %118
   %254 = add nsw i32 %142, %114
-  store i32 %253, ptr %252, align 4, !tbaa !10
+  store i32 %253, ptr %252, align 4, !tbaa !11
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 4
-  store i32 %254, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %254, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !11
   %255 = getelementptr inbounds i8, ptr %53, i64 %.idx213.i
   %256 = sub nsw i32 %227, %230
   %257 = add nsw i32 %229, %228
-  store i32 %256, ptr %255, align 4, !tbaa !10
+  store i32 %256, ptr %255, align 4, !tbaa !11
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %255, i64 4
-  store i32 %257, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %257, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !11
   %258 = getelementptr inbounds i8, ptr %53, i64 %.idx214.i
   %259 = sub nsw i32 %223, %226
   %260 = add nsw i32 %225, %224
-  store i32 %259, ptr %258, align 4, !tbaa !10
+  store i32 %259, ptr %258, align 4, !tbaa !11
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 4
-  store i32 %260, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %260, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !11
   %261 = getelementptr inbounds nuw i8, ptr %.0144, i64 72
   %262 = getelementptr inbounds nuw i8, ptr %.0117143, i64 36
   %263 = add nuw nsw i32 %.0119141, 9
   %264 = icmp slt i32 %263, %10
-  br i1 %264, label %.preheader139, label %.preheader138, !llvm.loop !124
+  br i1 %264, label %.preheader139, label %.preheader138, !llvm.loop !125
 
 265:                                              ; preds = %.preheader139, %265
   %indvars.iv = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next, %265 ]
   %266 = getelementptr inbounds nuw i32, ptr %.0117143, i64 %indvars.iv
-  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %267 = load i32, ptr %266, align 4, !tbaa !11
   %268 = sub nsw i32 0, %267
   %269 = sext i32 %268 to i64
   %270 = mul nsw i64 %19, %269
   %271 = getelementptr inbounds i32, ptr %24, i64 %270
-  %272 = load i32, ptr %271, align 4, !tbaa !10
+  %272 = load i32, ptr %271, align 4, !tbaa !11
   %273 = sext i32 %267 to i64
   %274 = mul nsw i64 %19, %273
   %275 = getelementptr inbounds i32, ptr %2, i64 %274
-  %276 = load i32, ptr %275, align 4, !tbaa !10
+  %276 = load i32, ptr %275, align 4, !tbaa !11
   %277 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0144, i64 %indvars.iv
-  %278 = load i32, ptr %277, align 4, !tbaa !48
+  %278 = load i32, ptr %277, align 4, !tbaa !49
   %279 = sext i32 %278 to i64
   %280 = sext i32 %272 to i64
   %281 = mul nsw i64 %279, %280
   %282 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  %283 = load i32, ptr %282, align 4, !tbaa !50
+  %283 = load i32, ptr %282, align 4, !tbaa !51
   %284 = sext i32 %283 to i64
   %285 = sext i32 %276 to i64
   %286 = mul nsw i64 %284, %285
@@ -8935,7 +8935,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %289 = lshr i64 %288, 31
   %290 = trunc i64 %289 to i32
   %291 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
-  store i32 %290, ptr %291, align 8, !tbaa !48
+  store i32 %290, ptr %291, align 8, !tbaa !49
   %292 = mul nsw i64 %284, %280
   %293 = mul nsw i64 %279, %285
   %294 = add nsw i64 %293, 1073741824
@@ -8943,32 +8943,32 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %296 = lshr i64 %295, 31
   %297 = trunc i64 %296 to i32
   %298 = getelementptr inbounds nuw i8, ptr %291, i64 4
-  store i32 %297, ptr %298, align 4, !tbaa !50
+  store i32 %297, ptr %298, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %49, label %265, !llvm.loop !125
+  br i1 %exitcond.not, label %49, label %265, !llvm.loop !126
 
 .preheader:                                       ; preds = %302
   %299 = icmp sgt i32 %9, 0
   br i1 %299, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %300 = load ptr, ptr %48, align 8, !tbaa !54
+  %300 = load ptr, ptr %48, align 8, !tbaa !55
   %301 = zext nneg i32 %9 to i64
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %308
 
 302:                                              ; preds = %.preheader138, %302
   %indvars.iv148 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next149, %302 ]
-  %303 = load ptr, ptr %47, align 8, !tbaa !4
-  %304 = load ptr, ptr %11, align 8, !tbaa !55
-  %305 = load ptr, ptr %48, align 8, !tbaa !54
+  %303 = load ptr, ptr %47, align 8, !tbaa !5
+  %304 = load ptr, ptr %11, align 8, !tbaa !56
+  %305 = load ptr, ptr %48, align 8, !tbaa !55
   %306 = mul nsw i64 %indvars.iv148, %.pre-phi
   %307 = getelementptr inbounds %struct.AVComplexInt32, ptr %305, i64 %306
   tail call void %303(ptr noundef %304, ptr noundef %307, ptr noundef %307, i64 noundef 8) #16
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 9
-  br i1 %exitcond151.not, label %.preheader, label %302, !llvm.loop !126
+  br i1 %exitcond151.not, label %.preheader, label %302, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %308, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8980,26 +8980,26 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %310 = xor i64 %indvars.iv152, -1
   %311 = add nsw i64 %301, %310
   %312 = getelementptr inbounds nuw i32, ptr %18, i64 %309
-  %313 = load i32, ptr %312, align 4, !tbaa !10
+  %313 = load i32, ptr %312, align 4, !tbaa !11
   %314 = getelementptr inbounds i32, ptr %18, i64 %311
-  %315 = load i32, ptr %314, align 4, !tbaa !10
+  %315 = load i32, ptr %314, align 4, !tbaa !11
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds %struct.AVComplexInt32, ptr %300, i64 %316
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 4
-  %319 = load i32, ptr %318, align 4, !tbaa !50
-  %320 = load i32, ptr %317, align 4, !tbaa !48
+  %319 = load i32, ptr %318, align 4, !tbaa !51
+  %320 = load i32, ptr %317, align 4, !tbaa !49
   %321 = sext i32 %313 to i64
   %322 = getelementptr inbounds %struct.AVComplexInt32, ptr %300, i64 %321
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
-  %324 = load i32, ptr %323, align 4, !tbaa !50
-  %325 = load i32, ptr %322, align 4, !tbaa !48
+  %324 = load i32, ptr %323, align 4, !tbaa !51
+  %325 = load i32, ptr %322, align 4, !tbaa !49
   %326 = getelementptr inbounds %struct.AVComplexInt32, ptr %.0.lcssa, i64 %311
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
-  %328 = load i32, ptr %327, align 4, !tbaa !50
+  %328 = load i32, ptr %327, align 4, !tbaa !51
   %329 = sext i32 %328 to i64
   %330 = sext i32 %319 to i64
   %331 = mul nsw i64 %329, %330
-  %332 = load i32, ptr %326, align 4, !tbaa !48
+  %332 = load i32, ptr %326, align 4, !tbaa !49
   %333 = sext i32 %332 to i64
   %334 = sext i32 %320 to i64
   %335 = mul nsw i64 %333, %334
@@ -9008,8 +9008,8 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %338 = lshr i64 %337, 31
   %339 = trunc i64 %338 to i32
   %340 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %311
-  store i32 %339, ptr %340, align 4, !tbaa !48
-  %341 = load i32, ptr %326, align 4, !tbaa !48
+  store i32 %339, ptr %340, align 4, !tbaa !49
+  %341 = load i32, ptr %326, align 4, !tbaa !49
   %342 = sext i32 %341 to i64
   %343 = mul nsw i64 %342, %330
   %344 = mul nsw i64 %329, %334
@@ -9019,14 +9019,14 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %348 = trunc i64 %347 to i32
   %349 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %309
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 4
-  store i32 %348, ptr %350, align 4, !tbaa !50
+  store i32 %348, ptr %350, align 4, !tbaa !51
   %351 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0.lcssa, i64 %309
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 4
-  %353 = load i32, ptr %352, align 4, !tbaa !50
+  %353 = load i32, ptr %352, align 4, !tbaa !51
   %354 = sext i32 %353 to i64
   %355 = sext i32 %324 to i64
   %356 = mul nsw i64 %354, %355
-  %357 = load i32, ptr %351, align 4, !tbaa !48
+  %357 = load i32, ptr %351, align 4, !tbaa !49
   %358 = sext i32 %357 to i64
   %359 = sext i32 %325 to i64
   %360 = mul nsw i64 %358, %359
@@ -9034,8 +9034,8 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %362 = sub nsw i64 %361, %360
   %363 = lshr i64 %362, 31
   %364 = trunc i64 %363 to i32
-  store i32 %364, ptr %349, align 4, !tbaa !48
-  %365 = load i32, ptr %351, align 4, !tbaa !48
+  store i32 %364, ptr %349, align 4, !tbaa !49
+  %365 = load i32, ptr %351, align 4, !tbaa !49
   %366 = sext i32 %365 to i64
   %367 = mul nsw i64 %366, %355
   %368 = mul nsw i64 %354, %359
@@ -9044,10 +9044,10 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %371 = lshr i64 %370, 31
   %372 = trunc i64 %371 to i32
   %373 = getelementptr inbounds nuw i8, ptr %340, i64 4
-  store i32 %372, ptr %373, align 4, !tbaa !50
+  store i32 %372, ptr %373, align 4, !tbaa !51
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
-  br i1 %exitcond155.not, label %._crit_edge, label %308, !llvm.loop !127
+  br i1 %exitcond155.not, label %._crit_edge, label %308, !llvm.loop !128
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9056,15 +9056,15 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_int32_c(ptr noundef readonly captu
   %6 = alloca [15 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = load i32, ptr %0, align 8, !tbaa !16
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %9 = load i32, ptr %0, align 8, !tbaa !17
   %10 = ashr i32 %9, 2
   %11 = ashr i32 %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
-  %14 = load i32, ptr %13, align 8, !tbaa !16
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %14 = load i32, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = mul nsw i32 %14, 15
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %16, i64 %18
@@ -9083,9 +9083,9 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_int32_c(ptr noundef readonly captu
 
 .preheader173.lr.ph:                              ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !56
+  %28 = load ptr, ptr %27, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %30 = load ptr, ptr %29, align 8, !tbaa !55
   %31 = sext i32 %14 to i64
   %.sroa.862.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9146,13 +9146,13 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_int32_c(ptr noundef readonly captu
   br label %477
 
 60:                                               ; preds = %440
-  %61 = load i32, ptr %.0118177, align 4, !tbaa !10
+  %61 = load i32, ptr %.0118177, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !10
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 32), align 16, !tbaa !11
   %63 = sext i32 %62 to i64
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !10
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 36), align 4, !tbaa !11
   %65 = sext i32 %64 to i64
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !10
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 40), align 8, !tbaa !11
   %67 = sext i32 %66 to i64
   br label %68
 
@@ -9161,28 +9161,28 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_int32_c(ptr noundef readonly captu
   %69 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv184
   %.idx = mul nuw nsw i64 %indvars.iv184, 24
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.sroa.08.0.copyload.i.i = load i32, ptr %70, align 8, !tbaa !10
+  %.sroa.08.0.copyload.i.i = load i32, ptr %70, align 8, !tbaa !11
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !10
+  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %73 = load i32, ptr %72, align 4, !tbaa !50
+  %73 = load i32, ptr %72, align 4, !tbaa !51
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  %76 = load i32, ptr %75, align 4, !tbaa !50
+  %76 = load i32, ptr %75, align 4, !tbaa !51
   %77 = sub i32 %73, %76
   %78 = add i32 %76, %73
-  %79 = load i32, ptr %71, align 8, !tbaa !48
-  %80 = load i32, ptr %74, align 8, !tbaa !48
+  %79 = load i32, ptr %71, align 8, !tbaa !49
+  %80 = load i32, ptr %74, align 8, !tbaa !49
   %81 = sub i32 %79, %80
   %82 = add i32 %80, %79
   %83 = sext i32 %82 to i64
   %84 = add i32 %82, %.sroa.08.0.copyload.i.i
-  store i32 %84, ptr %69, align 8, !tbaa !48
+  store i32 %84, ptr %69, align 8, !tbaa !49
   %85 = sext i32 %78 to i64
   %86 = add i32 %78, %.sroa.6.0.copyload.i.i
   %87 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 %86, ptr %87, align 4, !tbaa !50
+  store i32 %86, ptr %87, align 4, !tbaa !51
   %88 = sext i32 %77 to i64
   %89 = mul nsw i64 %63, %88
   %90 = sext i32 %81 to i64
@@ -9195,67 +9195,67 @@ define internal void @ff_tx_mdct_pfa_15xM_inv_int32_c(ptr noundef readonly captu
   %97 = trunc i64 %96 to i32
   %98 = sub i32 %.sroa.08.0.copyload.i.i, %97
   %99 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store i32 %98, ptr %99, align 8, !tbaa !48
+  store i32 %98, ptr %99, align 8, !tbaa !49
   %reass.sub = sub nsw i64 %93, %91
   %100 = add nsw i64 %reass.sub, 1073741824
   %101 = lshr i64 %100, 31
   %102 = trunc i64 %101 to i32
   %103 = sub i32 %.sroa.6.0.copyload.i.i, %102
   %104 = getelementptr inbounds nuw i8, ptr %69, i64 44
-  store i32 %103, ptr %104, align 4, !tbaa !50
+  store i32 %103, ptr %104, align 4, !tbaa !51
   %reass.sub182 = sub nsw i64 %92, %89
   %105 = add nsw i64 %reass.sub182, 1073741824
   %106 = lshr i64 %105, 31
   %107 = trunc i64 %106 to i32
   %108 = sub i32 %.sroa.08.0.copyload.i.i, %107
   %109 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  store i32 %108, ptr %109, align 8, !tbaa !48
+  store i32 %108, ptr %109, align 8, !tbaa !49
   %110 = add nsw i64 %91, 1073741824
   %111 = add i64 %110, %93
   %112 = lshr i64 %111, 31
   %113 = trunc i64 %112 to i32
   %114 = sub i32 %.sroa.6.0.copyload.i.i, %113
   %115 = getelementptr inbounds nuw i8, ptr %69, i64 84
-  store i32 %114, ptr %115, align 4, !tbaa !50
+  store i32 %114, ptr %115, align 4, !tbaa !51
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next185, 5
-  br i1 %exitcond187.not, label %fft15.exit, label %68, !llvm.loop !52
+  br i1 %exitcond187.not, label %fft15.exit, label %68, !llvm.loop !53
 
 fft15.exit:                                       ; preds = %68
   %116 = getelementptr inbounds nuw i8, ptr %.0118177, i64 4
   %117 = sext i32 %61 to i64
   %118 = getelementptr inbounds %struct.AVComplexInt32, ptr %30, i64 %117
-  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !10
-  %119 = load i32, ptr %32, align 8, !tbaa !48
-  %120 = load i32, ptr %33, align 16, !tbaa !48
+  %.sroa.057.0.copyload.i = load i32, ptr %5, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i = load i32, ptr %.sroa.862.0..sroa_idx.i, align 4, !tbaa !11
+  %119 = load i32, ptr %32, align 8, !tbaa !49
+  %120 = load i32, ptr %33, align 16, !tbaa !49
   %121 = sub i32 %119, %120
   %122 = add i32 %120, %119
-  %123 = load i32, ptr %34, align 4, !tbaa !50
-  %124 = load i32, ptr %35, align 4, !tbaa !50
+  %123 = load i32, ptr %34, align 4, !tbaa !51
+  %124 = load i32, ptr %35, align 4, !tbaa !51
   %125 = sub i32 %123, %124
   %126 = add i32 %124, %123
-  %127 = load i32, ptr %36, align 16, !tbaa !48
-  %128 = load i32, ptr %37, align 8, !tbaa !48
+  %127 = load i32, ptr %36, align 16, !tbaa !49
+  %128 = load i32, ptr %37, align 8, !tbaa !49
   %129 = sub i32 %127, %128
   %130 = add i32 %128, %127
-  %131 = load i32, ptr %38, align 4, !tbaa !50
-  %132 = load i32, ptr %39, align 4, !tbaa !50
+  %131 = load i32, ptr %38, align 4, !tbaa !51
+  %132 = load i32, ptr %39, align 4, !tbaa !51
   %133 = sub i32 %131, %132
   %134 = add i32 %132, %131
   %135 = add i32 %122, %.sroa.057.0.copyload.i
   %136 = add i32 %135, %130
-  store i32 %136, ptr %118, align 4, !tbaa !48
+  store i32 %136, ptr %118, align 4, !tbaa !49
   %137 = add i32 %126, %.sroa.862.0.copyload.i
   %138 = add i32 %137, %134
   %139 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store i32 %138, ptr %139, align 4, !tbaa !50
+  store i32 %138, ptr %139, align 4, !tbaa !51
   %140 = sext i32 %130 to i64
-  %141 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %141 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %142 = sext i32 %141 to i64
   %143 = mul nsw i64 %142, %140
   %144 = sext i32 %122 to i64
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %146 = sext i32 %145 to i64
   %147 = mul nsw i64 %146, %144
   %148 = add nsw i64 %143, 1073741824
@@ -9283,11 +9283,11 @@ fft15.exit:                                       ; preds = %68
   %170 = lshr i64 %169, 31
   %171 = trunc i64 %170 to i32
   %172 = sext i32 %133 to i64
-  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %174 = sext i32 %173 to i64
   %175 = mul nsw i64 %174, %172
   %176 = sext i32 %125 to i64
-  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %178 = sext i32 %177 to i64
   %179 = mul nsw i64 %178, %176
   %180 = add nsw i64 %175, 1073741824
@@ -9317,63 +9317,63 @@ fft15.exit:                                       ; preds = %68
   %204 = add i32 %.sroa.057.0.copyload.i, %157
   %205 = add i32 %204, %189
   %206 = getelementptr inbounds i8, ptr %118, i64 %.idx.i
-  store i32 %205, ptr %206, align 4, !tbaa !48
+  store i32 %205, ptr %206, align 4, !tbaa !49
   %207 = add i32 %.sroa.862.0.copyload.i, %171
   %208 = sub i32 %207, %203
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  store i32 %208, ptr %209, align 4, !tbaa !50
+  store i32 %208, ptr %209, align 4, !tbaa !51
   %210 = add i32 %.sroa.057.0.copyload.i, %151
   %211 = sub i32 %210, %183
   %212 = getelementptr inbounds i8, ptr %118, i64 %.idx104.i
-  store i32 %211, ptr %212, align 4, !tbaa !48
+  store i32 %211, ptr %212, align 4, !tbaa !49
   %213 = add i32 %.sroa.862.0.copyload.i, %165
   %214 = add i32 %213, %197
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store i32 %214, ptr %215, align 4, !tbaa !50
+  store i32 %214, ptr %215, align 4, !tbaa !51
   %216 = add i32 %210, %183
   %217 = getelementptr inbounds i8, ptr %118, i64 %.idx105.i
-  store i32 %216, ptr %217, align 4, !tbaa !48
+  store i32 %216, ptr %217, align 4, !tbaa !49
   %218 = sub i32 %213, %197
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store i32 %218, ptr %219, align 4, !tbaa !50
+  store i32 %218, ptr %219, align 4, !tbaa !51
   %220 = sub i32 %204, %189
   %221 = getelementptr inbounds i8, ptr %118, i64 %.idx106.i
-  store i32 %220, ptr %221, align 4, !tbaa !48
+  store i32 %220, ptr %221, align 4, !tbaa !49
   %222 = add i32 %207, %203
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  store i32 %222, ptr %223, align 4, !tbaa !50
-  %.sroa.057.0.copyload.i124 = load i32, ptr %40, align 8, !tbaa !10
-  %.sroa.862.0.copyload.i126 = load i32, ptr %.sroa.862.0..sroa_idx.i125, align 4, !tbaa !10
-  %224 = load i32, ptr %41, align 16, !tbaa !48
-  %225 = load i32, ptr %42, align 8, !tbaa !48
+  store i32 %222, ptr %223, align 4, !tbaa !51
+  %.sroa.057.0.copyload.i124 = load i32, ptr %40, align 8, !tbaa !11
+  %.sroa.862.0.copyload.i126 = load i32, ptr %.sroa.862.0..sroa_idx.i125, align 4, !tbaa !11
+  %224 = load i32, ptr %41, align 16, !tbaa !49
+  %225 = load i32, ptr %42, align 8, !tbaa !49
   %226 = sub i32 %224, %225
   %227 = add i32 %225, %224
-  %228 = load i32, ptr %43, align 4, !tbaa !50
-  %229 = load i32, ptr %44, align 4, !tbaa !50
+  %228 = load i32, ptr %43, align 4, !tbaa !51
+  %229 = load i32, ptr %44, align 4, !tbaa !51
   %230 = sub i32 %228, %229
   %231 = add i32 %229, %228
-  %232 = load i32, ptr %45, align 8, !tbaa !48
-  %233 = load i32, ptr %46, align 16, !tbaa !48
+  %232 = load i32, ptr %45, align 8, !tbaa !49
+  %233 = load i32, ptr %46, align 16, !tbaa !49
   %234 = sub i32 %232, %233
   %235 = add i32 %233, %232
-  %236 = load i32, ptr %47, align 4, !tbaa !50
-  %237 = load i32, ptr %48, align 4, !tbaa !50
+  %236 = load i32, ptr %47, align 4, !tbaa !51
+  %237 = load i32, ptr %48, align 4, !tbaa !51
   %238 = sub i32 %236, %237
   %239 = add i32 %237, %236
   %240 = add i32 %227, %.sroa.057.0.copyload.i124
   %241 = add i32 %240, %235
   %242 = getelementptr inbounds i8, ptr %118, i64 %.idx.i127
-  store i32 %241, ptr %242, align 4, !tbaa !48
+  store i32 %241, ptr %242, align 4, !tbaa !49
   %243 = add i32 %231, %.sroa.862.0.copyload.i126
   %244 = add i32 %243, %239
   %245 = getelementptr inbounds nuw i8, ptr %242, i64 4
-  store i32 %244, ptr %245, align 4, !tbaa !50
+  store i32 %244, ptr %245, align 4, !tbaa !51
   %246 = sext i32 %235 to i64
-  %247 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %247 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %248 = sext i32 %247 to i64
   %249 = mul nsw i64 %248, %246
   %250 = sext i32 %227 to i64
-  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %252 = sext i32 %251 to i64
   %253 = mul nsw i64 %252, %250
   %254 = add nsw i64 %249, 1073741824
@@ -9401,11 +9401,11 @@ fft15.exit:                                       ; preds = %68
   %276 = lshr i64 %275, 31
   %277 = trunc i64 %276 to i32
   %278 = sext i32 %238 to i64
-  %279 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %279 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %280 = sext i32 %279 to i64
   %281 = mul nsw i64 %280, %278
   %282 = sext i32 %230 to i64
-  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %284 = sext i32 %283 to i64
   %285 = mul nsw i64 %284, %282
   %286 = add nsw i64 %281, 1073741824
@@ -9435,63 +9435,63 @@ fft15.exit:                                       ; preds = %68
   %310 = add i32 %.sroa.057.0.copyload.i124, %263
   %311 = add i32 %310, %295
   %312 = getelementptr inbounds %struct.AVComplexInt32, ptr %118, i64 %31
-  store i32 %311, ptr %312, align 4, !tbaa !48
+  store i32 %311, ptr %312, align 4, !tbaa !49
   %313 = add i32 %.sroa.862.0.copyload.i126, %277
   %314 = sub i32 %313, %309
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 4
-  store i32 %314, ptr %315, align 4, !tbaa !50
+  store i32 %314, ptr %315, align 4, !tbaa !51
   %316 = add i32 %.sroa.057.0.copyload.i124, %257
   %317 = sub i32 %316, %289
   %318 = getelementptr inbounds i8, ptr %118, i64 %.idx104.i128
-  store i32 %317, ptr %318, align 4, !tbaa !48
+  store i32 %317, ptr %318, align 4, !tbaa !49
   %319 = add i32 %.sroa.862.0.copyload.i126, %271
   %320 = add i32 %319, %303
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 4
-  store i32 %320, ptr %321, align 4, !tbaa !50
+  store i32 %320, ptr %321, align 4, !tbaa !51
   %322 = add i32 %316, %289
   %323 = getelementptr inbounds i8, ptr %118, i64 %.idx105.i129
-  store i32 %322, ptr %323, align 4, !tbaa !48
+  store i32 %322, ptr %323, align 4, !tbaa !49
   %324 = sub i32 %319, %303
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 4
-  store i32 %324, ptr %325, align 4, !tbaa !50
+  store i32 %324, ptr %325, align 4, !tbaa !51
   %326 = sub i32 %310, %295
   %327 = getelementptr inbounds i8, ptr %118, i64 %.idx106.i130
-  store i32 %326, ptr %327, align 4, !tbaa !48
+  store i32 %326, ptr %327, align 4, !tbaa !49
   %328 = add i32 %313, %309
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  store i32 %328, ptr %329, align 4, !tbaa !50
-  %.sroa.057.0.copyload.i131 = load i32, ptr %49, align 16, !tbaa !10
-  %.sroa.862.0.copyload.i133 = load i32, ptr %.sroa.862.0..sroa_idx.i132, align 4, !tbaa !10
-  %330 = load i32, ptr %50, align 8, !tbaa !48
-  %331 = load i32, ptr %51, align 16, !tbaa !48
+  store i32 %328, ptr %329, align 4, !tbaa !51
+  %.sroa.057.0.copyload.i131 = load i32, ptr %49, align 16, !tbaa !11
+  %.sroa.862.0.copyload.i133 = load i32, ptr %.sroa.862.0..sroa_idx.i132, align 4, !tbaa !11
+  %330 = load i32, ptr %50, align 8, !tbaa !49
+  %331 = load i32, ptr %51, align 16, !tbaa !49
   %332 = sub i32 %330, %331
   %333 = add i32 %331, %330
-  %334 = load i32, ptr %52, align 4, !tbaa !50
-  %335 = load i32, ptr %53, align 4, !tbaa !50
+  %334 = load i32, ptr %52, align 4, !tbaa !51
+  %335 = load i32, ptr %53, align 4, !tbaa !51
   %336 = sub i32 %334, %335
   %337 = add i32 %335, %334
-  %338 = load i32, ptr %54, align 16, !tbaa !48
-  %339 = load i32, ptr %55, align 8, !tbaa !48
+  %338 = load i32, ptr %54, align 16, !tbaa !49
+  %339 = load i32, ptr %55, align 8, !tbaa !49
   %340 = sub i32 %338, %339
   %341 = add i32 %339, %338
-  %342 = load i32, ptr %56, align 4, !tbaa !50
-  %343 = load i32, ptr %57, align 4, !tbaa !50
+  %342 = load i32, ptr %56, align 4, !tbaa !51
+  %343 = load i32, ptr %57, align 4, !tbaa !51
   %344 = sub i32 %342, %343
   %345 = add i32 %343, %342
   %346 = add i32 %333, %.sroa.057.0.copyload.i131
   %347 = add i32 %346, %341
   %348 = getelementptr inbounds i8, ptr %118, i64 %.idx.i134
-  store i32 %347, ptr %348, align 4, !tbaa !48
+  store i32 %347, ptr %348, align 4, !tbaa !49
   %349 = add i32 %337, %.sroa.862.0.copyload.i133
   %350 = add i32 %349, %345
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 4
-  store i32 %350, ptr %351, align 4, !tbaa !50
+  store i32 %350, ptr %351, align 4, !tbaa !51
   %352 = sext i32 %341 to i64
-  %353 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !10
+  %353 = load i32, ptr @ff_tx_tab_53_int32, align 16, !tbaa !11
   %354 = sext i32 %353 to i64
   %355 = mul nsw i64 %354, %352
   %356 = sext i32 %333 to i64
-  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !10
+  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 8), align 8, !tbaa !11
   %358 = sext i32 %357 to i64
   %359 = mul nsw i64 %358, %356
   %360 = add nsw i64 %355, 1073741824
@@ -9519,11 +9519,11 @@ fft15.exit:                                       ; preds = %68
   %382 = lshr i64 %381, 31
   %383 = trunc i64 %382 to i32
   %384 = sext i32 %344 to i64
-  %385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !10
+  %385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 16), align 16, !tbaa !11
   %386 = sext i32 %385 to i64
   %387 = mul nsw i64 %386, %384
   %388 = sext i32 %336 to i64
-  %389 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !10
+  %389 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_53_int32, i64 24), align 8, !tbaa !11
   %390 = sext i32 %389 to i64
   %391 = mul nsw i64 %390, %388
   %392 = add nsw i64 %387, 1073741824
@@ -9553,58 +9553,58 @@ fft15.exit:                                       ; preds = %68
   %416 = add i32 %.sroa.057.0.copyload.i131, %369
   %417 = add i32 %416, %401
   %418 = getelementptr inbounds i8, ptr %118, i64 %.idx104.i135
-  store i32 %417, ptr %418, align 4, !tbaa !48
+  store i32 %417, ptr %418, align 4, !tbaa !49
   %419 = add i32 %.sroa.862.0.copyload.i133, %383
   %420 = sub i32 %419, %415
   %421 = getelementptr inbounds nuw i8, ptr %418, i64 4
-  store i32 %420, ptr %421, align 4, !tbaa !50
+  store i32 %420, ptr %421, align 4, !tbaa !51
   %422 = add i32 %.sroa.057.0.copyload.i131, %363
   %423 = sub i32 %422, %395
   %424 = getelementptr inbounds i8, ptr %118, i64 %.idx105.i136
-  store i32 %423, ptr %424, align 4, !tbaa !48
+  store i32 %423, ptr %424, align 4, !tbaa !49
   %425 = add i32 %.sroa.862.0.copyload.i133, %377
   %426 = add i32 %425, %409
   %427 = getelementptr inbounds nuw i8, ptr %424, i64 4
-  store i32 %426, ptr %427, align 4, !tbaa !50
+  store i32 %426, ptr %427, align 4, !tbaa !51
   %428 = add i32 %422, %395
   %429 = getelementptr inbounds i8, ptr %118, i64 %.idx106.i137
-  store i32 %428, ptr %429, align 4, !tbaa !48
+  store i32 %428, ptr %429, align 4, !tbaa !49
   %430 = sub i32 %425, %409
   %431 = getelementptr inbounds nuw i8, ptr %429, i64 4
-  store i32 %430, ptr %431, align 4, !tbaa !50
+  store i32 %430, ptr %431, align 4, !tbaa !51
   %432 = sub i32 %416, %401
   %433 = getelementptr inbounds i8, ptr %118, i64 %.idx107.i
-  store i32 %432, ptr %433, align 4, !tbaa !48
+  store i32 %432, ptr %433, align 4, !tbaa !49
   %434 = add i32 %419, %415
   %435 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i32 %434, ptr %435, align 4, !tbaa !50
+  store i32 %434, ptr %435, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %436 = getelementptr inbounds nuw i8, ptr %.0179, i64 120
   %437 = getelementptr inbounds nuw i8, ptr %.0117178, i64 60
   %438 = add nuw nsw i32 %.0119176, 15
   %439 = icmp slt i32 %438, %11
-  br i1 %439, label %.preheader173, label %.preheader172, !llvm.loop !128
+  br i1 %439, label %.preheader173, label %.preheader172, !llvm.loop !129
 
 440:                                              ; preds = %.preheader173, %440
   %indvars.iv = phi i64 [ 0, %.preheader173 ], [ %indvars.iv.next, %440 ]
   %441 = getelementptr inbounds nuw i32, ptr %.0117178, i64 %indvars.iv
-  %442 = load i32, ptr %441, align 4, !tbaa !10
+  %442 = load i32, ptr %441, align 4, !tbaa !11
   %443 = sub nsw i32 0, %442
   %444 = sext i32 %443 to i64
   %445 = mul nsw i64 %20, %444
   %446 = getelementptr inbounds i32, ptr %25, i64 %445
-  %447 = load i32, ptr %446, align 4, !tbaa !10
+  %447 = load i32, ptr %446, align 4, !tbaa !11
   %448 = sext i32 %442 to i64
   %449 = mul nsw i64 %20, %448
   %450 = getelementptr inbounds i32, ptr %2, i64 %449
-  %451 = load i32, ptr %450, align 4, !tbaa !10
+  %451 = load i32, ptr %450, align 4, !tbaa !11
   %452 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0179, i64 %indvars.iv
-  %453 = load i32, ptr %452, align 4, !tbaa !48
+  %453 = load i32, ptr %452, align 4, !tbaa !49
   %454 = sext i32 %453 to i64
   %455 = sext i32 %447 to i64
   %456 = mul nsw i64 %454, %455
   %457 = getelementptr inbounds nuw i8, ptr %452, i64 4
-  %458 = load i32, ptr %457, align 4, !tbaa !50
+  %458 = load i32, ptr %457, align 4, !tbaa !51
   %459 = sext i32 %458 to i64
   %460 = sext i32 %451 to i64
   %461 = mul nsw i64 %459, %460
@@ -9613,7 +9613,7 @@ fft15.exit:                                       ; preds = %68
   %464 = lshr i64 %463, 31
   %465 = trunc i64 %464 to i32
   %466 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
-  store i32 %465, ptr %466, align 8, !tbaa !48
+  store i32 %465, ptr %466, align 8, !tbaa !49
   %467 = mul nsw i64 %459, %455
   %468 = mul nsw i64 %454, %460
   %469 = add nsw i64 %468, 1073741824
@@ -9621,32 +9621,32 @@ fft15.exit:                                       ; preds = %68
   %471 = lshr i64 %470, 31
   %472 = trunc i64 %471 to i32
   %473 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  store i32 %472, ptr %473, align 4, !tbaa !50
+  store i32 %472, ptr %473, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %60, label %440, !llvm.loop !129
+  br i1 %exitcond.not, label %60, label %440, !llvm.loop !130
 
 .preheader:                                       ; preds = %477
   %474 = icmp sgt i32 %10, 0
   br i1 %474, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %475 = load ptr, ptr %59, align 8, !tbaa !54
+  %475 = load ptr, ptr %59, align 8, !tbaa !55
   %476 = zext nneg i32 %10 to i64
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %483
 
 477:                                              ; preds = %.preheader172, %477
   %indvars.iv188 = phi i64 [ 0, %.preheader172 ], [ %indvars.iv.next189, %477 ]
-  %478 = load ptr, ptr %58, align 8, !tbaa !4
-  %479 = load ptr, ptr %12, align 8, !tbaa !55
-  %480 = load ptr, ptr %59, align 8, !tbaa !54
+  %478 = load ptr, ptr %58, align 8, !tbaa !5
+  %479 = load ptr, ptr %12, align 8, !tbaa !56
+  %480 = load ptr, ptr %59, align 8, !tbaa !55
   %481 = mul nsw i64 %indvars.iv188, %.pre-phi
   %482 = getelementptr inbounds %struct.AVComplexInt32, ptr %480, i64 %481
   tail call void %478(ptr noundef %479, ptr noundef %482, ptr noundef %482, i64 noundef 8) #16
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next189, 15
-  br i1 %exitcond191.not, label %.preheader, label %477, !llvm.loop !130
+  br i1 %exitcond191.not, label %.preheader, label %477, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %483, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9658,26 +9658,26 @@ fft15.exit:                                       ; preds = %68
   %485 = xor i64 %indvars.iv192, -1
   %486 = add nsw i64 %476, %485
   %487 = getelementptr inbounds nuw i32, ptr %19, i64 %484
-  %488 = load i32, ptr %487, align 4, !tbaa !10
+  %488 = load i32, ptr %487, align 4, !tbaa !11
   %489 = getelementptr inbounds i32, ptr %19, i64 %486
-  %490 = load i32, ptr %489, align 4, !tbaa !10
+  %490 = load i32, ptr %489, align 4, !tbaa !11
   %491 = sext i32 %490 to i64
   %492 = getelementptr inbounds %struct.AVComplexInt32, ptr %475, i64 %491
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 4
-  %494 = load i32, ptr %493, align 4, !tbaa !50
-  %495 = load i32, ptr %492, align 4, !tbaa !48
+  %494 = load i32, ptr %493, align 4, !tbaa !51
+  %495 = load i32, ptr %492, align 4, !tbaa !49
   %496 = sext i32 %488 to i64
   %497 = getelementptr inbounds %struct.AVComplexInt32, ptr %475, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 4
-  %499 = load i32, ptr %498, align 4, !tbaa !50
-  %500 = load i32, ptr %497, align 4, !tbaa !48
+  %499 = load i32, ptr %498, align 4, !tbaa !51
+  %500 = load i32, ptr %497, align 4, !tbaa !49
   %501 = getelementptr inbounds %struct.AVComplexInt32, ptr %.0.lcssa, i64 %486
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 4
-  %503 = load i32, ptr %502, align 4, !tbaa !50
+  %503 = load i32, ptr %502, align 4, !tbaa !51
   %504 = sext i32 %503 to i64
   %505 = sext i32 %494 to i64
   %506 = mul nsw i64 %504, %505
-  %507 = load i32, ptr %501, align 4, !tbaa !48
+  %507 = load i32, ptr %501, align 4, !tbaa !49
   %508 = sext i32 %507 to i64
   %509 = sext i32 %495 to i64
   %510 = mul nsw i64 %508, %509
@@ -9686,8 +9686,8 @@ fft15.exit:                                       ; preds = %68
   %513 = lshr i64 %512, 31
   %514 = trunc i64 %513 to i32
   %515 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %486
-  store i32 %514, ptr %515, align 4, !tbaa !48
-  %516 = load i32, ptr %501, align 4, !tbaa !48
+  store i32 %514, ptr %515, align 4, !tbaa !49
+  %516 = load i32, ptr %501, align 4, !tbaa !49
   %517 = sext i32 %516 to i64
   %518 = mul nsw i64 %517, %505
   %519 = mul nsw i64 %504, %509
@@ -9697,14 +9697,14 @@ fft15.exit:                                       ; preds = %68
   %523 = trunc i64 %522 to i32
   %524 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %484
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 4
-  store i32 %523, ptr %525, align 4, !tbaa !50
+  store i32 %523, ptr %525, align 4, !tbaa !51
   %526 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %.0.lcssa, i64 %484
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 4
-  %528 = load i32, ptr %527, align 4, !tbaa !50
+  %528 = load i32, ptr %527, align 4, !tbaa !51
   %529 = sext i32 %528 to i64
   %530 = sext i32 %499 to i64
   %531 = mul nsw i64 %529, %530
-  %532 = load i32, ptr %526, align 4, !tbaa !48
+  %532 = load i32, ptr %526, align 4, !tbaa !49
   %533 = sext i32 %532 to i64
   %534 = sext i32 %500 to i64
   %535 = mul nsw i64 %533, %534
@@ -9712,8 +9712,8 @@ fft15.exit:                                       ; preds = %68
   %537 = sub nsw i64 %536, %535
   %538 = lshr i64 %537, 31
   %539 = trunc i64 %538 to i32
-  store i32 %539, ptr %524, align 4, !tbaa !48
-  %540 = load i32, ptr %526, align 4, !tbaa !48
+  store i32 %539, ptr %524, align 4, !tbaa !49
+  %540 = load i32, ptr %526, align 4, !tbaa !49
   %541 = sext i32 %540 to i64
   %542 = mul nsw i64 %541, %530
   %543 = mul nsw i64 %529, %534
@@ -9722,17 +9722,17 @@ fft15.exit:                                       ; preds = %68
   %546 = lshr i64 %545, 31
   %547 = trunc i64 %546 to i32
   %548 = getelementptr inbounds nuw i8, ptr %515, i64 4
-  store i32 %547, ptr %548, align 4, !tbaa !50
+  store i32 %547, ptr %548, align 4, !tbaa !51
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
-  br i1 %exitcond195.not, label %._crit_edge, label %483, !llvm.loop !131
+  br i1 %exitcond195.not, label %._crit_edge, label %483, !llvm.loop !132
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load double, ptr %5, align 8, !tbaa !25
-  %7 = load i32, ptr %0, align 8, !tbaa !16
+  %6 = load double, ptr %5, align 8, !tbaa !26
+  %7 = load i32, ptr %0, align 8, !tbaa !17
   %8 = sitofp i32 %7 to double
   %9 = fmul nsz double %8, 4.000000e+00
   %10 = fdiv nsz double 0x400921FB54442D18, %9
@@ -9762,7 +9762,7 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
   %19 = add i32 %14, %18
   %20 = mul nsw i32 %19, %16
   %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !10
+  %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sitofp i32 %22 to double
   %24 = fmul nsz double %23, 0x3E00000000000000
   %25 = sitofp i32 %20 to double
@@ -9771,7 +9771,7 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
   %28 = tail call nsz double @llvm.fmuladd.f64(double %24, double %27, double %.02427.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !133
 
 ._crit_edge.us:                                   ; preds = %17
   %29 = fmul nsz double %6, %28
@@ -9783,10 +9783,10 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
   %34 = trunc nsw i64 %.0.i.us to i32
   %35 = mul nuw nsw i64 %11, %indvars.iv33
   %36 = getelementptr inbounds nuw i32, ptr %1, i64 %35
-  store i32 %34, ptr %36, align 4, !tbaa !10
+  store i32 %34, ptr %36, align 4, !tbaa !11
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge30, label %.preheader.us, !llvm.loop !133
+  br i1 %exitcond37.not, label %._crit_edge30, label %.preheader.us, !llvm.loop !134
 
 ._crit_edge30:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -9794,12 +9794,12 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @ff_tx_mdct_naive_init_int32_c(ptr noundef writeonly captures(none) initializes((140, 152)) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 %4, i32 %5, ptr noundef readonly captures(none) %6) #13 {
-  %8 = load float, ptr %6, align 4, !tbaa !82
+  %8 = load float, ptr %6, align 4, !tbaa !83
   %9 = fpext nsz float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %9, ptr %10, align 8, !tbaa !25
+  store double %9, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %8, ptr %11, align 4, !tbaa !83
+  store float %8, ptr %11, align 4, !tbaa !84
   ret i32 0
 }
 
@@ -9809,8 +9809,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load double, ptr %5, align 8, !tbaa !25
-  %7 = load i32, ptr %0, align 8, !tbaa !16
+  %6 = load double, ptr %5, align 8, !tbaa !26
+  %7 = load i32, ptr %0, align 8, !tbaa !17
   %8 = ashr i32 %7, 1
   %9 = and i32 %7, -2
   %10 = sitofp i32 %9 to double
@@ -9857,14 +9857,14 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
   %35 = tail call nsz double @llvm.cos.f64(double %34)
   %36 = mul nuw nsw i64 %13, %indvars.iv58
   %37 = getelementptr inbounds nuw i32, ptr %2, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = sitofp i32 %38 to double
   %40 = fmul nsz double %39, 0x3E00000000000000
   %41 = tail call nsz double @llvm.fmuladd.f64(double %33, double %40, double %.04149.us)
   %42 = tail call nsz double @llvm.fmuladd.f64(double %35, double %40, double %.04347.us)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.us, label %28, !llvm.loop !134
+  br i1 %exitcond62.not, label %._crit_edge.us, label %28, !llvm.loop !135
 
 ._crit_edge.us:                                   ; preds = %28
   %43 = fmul nsz double %6, %41
@@ -9875,7 +9875,7 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
   %.0.i46.us = tail call i64 @llvm.smin.i64(i64 %47, i64 2147483647)
   %48 = trunc nsw i64 %.0.i46.us to i32
   %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv63
-  store i32 %48, ptr %49, align 4, !tbaa !10
+  store i32 %48, ptr %49, align 4, !tbaa !11
   %50 = fneg nsz double %42
   %51 = fmul nsz double %6, %50
   %52 = fmul nsz double %51, 0x41E0000000000000
@@ -9885,10 +9885,10 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
   %.0.i.us = tail call i64 @llvm.smin.i64(i64 %55, i64 2147483647)
   %56 = trunc nsw i64 %.0.i.us to i32
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv63
-  store i32 %56, ptr %gep, align 4, !tbaa !10
+  store i32 %56, ptr %gep, align 4, !tbaa !11
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, %17
-  br i1 %exitcond68.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !135
+  br i1 %exitcond68.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !136
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -9896,13 +9896,13 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_mdct_inv_full_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = shl i32 %5, 1
   %7 = ashr i32 %6, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !4
+  %9 = load ptr, ptr %8, align 8, !tbaa !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds i32, ptr %1, i64 %12
   tail call void %9(ptr noundef %11, ptr noundef %13, ptr noundef %2, i64 noundef %3) #16
@@ -9925,34 +9925,34 @@ define internal void @ff_tx_mdct_inv_full_int32_c(ptr noundef readonly captures(
   %19 = add nsw i64 %17, %18
   %20 = mul nsw i64 %14, %19
   %21 = getelementptr inbounds i32, ptr %1, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !10
+  %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sub nsw i32 0, %22
   %24 = mul nuw nsw i64 %14, %indvars.iv
   %25 = getelementptr inbounds nuw i32, ptr %1, i64 %24
-  store i32 %23, ptr %25, align 4, !tbaa !10
+  store i32 %23, ptr %25, align 4, !tbaa !11
   %26 = add nuw nsw i64 %indvars.iv, %17
   %27 = mul nuw nsw i64 %14, %26
   %28 = getelementptr inbounds nuw i32, ptr %1, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = trunc nsw i64 %18 to i32
   %31 = add i32 %6, %30
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %14, %32
   %34 = getelementptr inbounds i32, ptr %1, i64 %33
-  store i32 %29, ptr %34, align 4, !tbaa !10
+  store i32 %29, ptr %34, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_mdct_inv_full_init_int32_c(ptr noundef initializes((140, 152)) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
-  %8 = load float, ptr %6, align 4, !tbaa !82
+  %8 = load float, ptr %6, align 4, !tbaa !83
   %9 = fpext nsz float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %9, ptr %10, align 8, !tbaa !25
+  store double %9, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %8, ptr %11, align 4, !tbaa !83
+  store float %8, ptr %11, align 4, !tbaa !84
   %12 = and i64 %2, -5
   %13 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 5, i64 noundef %12, ptr noundef null, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %6) #16
   ret i32 %13
@@ -9960,65 +9960,65 @@ define internal i32 @ff_tx_mdct_inv_full_init_int32_c(ptr noundef initializes((1
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_r2c_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = sext i32 %7 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  %14 = load ptr, ptr %13, align 8, !tbaa !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !55
+  %16 = load ptr, ptr %15, align 8, !tbaa !56
   tail call void %14(ptr noundef %16, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
-  %17 = load i32, ptr %1, align 4, !tbaa !48
+  %17 = load i32, ptr %1, align 4, !tbaa !49
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !50
+  %19 = load i32, ptr %18, align 4, !tbaa !51
   %20 = add nsw i32 %19, %17
-  store i32 %20, ptr %1, align 4, !tbaa !48
+  store i32 %20, ptr %1, align 4, !tbaa !49
   %21 = sub nsw i32 %17, %19
-  store i32 %21, ptr %18, align 4, !tbaa !50
-  %22 = load i32, ptr %9, align 4, !tbaa !10
+  store i32 %21, ptr %18, align 4, !tbaa !51
+  %22 = load i32, ptr %9, align 4, !tbaa !11
   %23 = sext i32 %22 to i64
   %24 = sext i32 %20 to i64
   %25 = mul nsw i64 %23, %24
   %26 = add nsw i64 %25, 1073741824
   %27 = lshr i64 %26, 31
   %28 = trunc i64 %27 to i32
-  store i32 %28, ptr %1, align 4, !tbaa !48
+  store i32 %28, ptr %1, align 4, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = sext i32 %30 to i64
   %32 = sext i32 %21 to i64
   %33 = mul nsw i64 %31, %32
   %34 = add nsw i64 %33, 1073741824
   %35 = lshr i64 %34, 31
   %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %18, align 4, !tbaa !50
+  store i32 %36, ptr %18, align 4, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %11
-  %41 = load i32, ptr %40, align 4, !tbaa !48
+  %41 = load i32, ptr %40, align 4, !tbaa !49
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, %39
   %44 = add nsw i64 %43, 1073741824
   %45 = lshr i64 %44, 31
   %46 = trunc i64 %45 to i32
-  store i32 %46, ptr %40, align 4, !tbaa !48
+  store i32 %46, ptr %40, align 4, !tbaa !49
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !50
+  %51 = load i32, ptr %50, align 4, !tbaa !51
   %52 = sext i32 %51 to i64
   %53 = mul nsw i64 %52, %49
   %54 = add nsw i64 %53, 1073741824
   %55 = lshr i64 %54, 31
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %50, align 4, !tbaa !50
+  store i32 %56, ptr %50, align 4, !tbaa !51
   %57 = icmp sgt i32 %7, 1
   br i1 %57, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -10037,51 +10037,51 @@ define internal void @ff_tx_rdft_r2c_int32_c(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %66, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %62, %66 ]
-  %63 = load i32, ptr %18, align 4, !tbaa !50
+  %63 = load i32, ptr %18, align 4, !tbaa !51
   %64 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %.pre-phi
-  store i32 %63, ptr %64, align 4, !tbaa !48
+  store i32 %63, ptr %64, align 4, !tbaa !49
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 0, ptr %65, align 4, !tbaa !50
-  store i32 0, ptr %18, align 4, !tbaa !50
+  store i32 0, ptr %65, align 4, !tbaa !51
+  store i32 0, ptr %18, align 4, !tbaa !51
   ret void
 
 66:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %67 = load i32, ptr %58, align 4, !tbaa !10
+  %67 = load i32, ptr %58, align 4, !tbaa !11
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  %70 = load i32, ptr %69, align 4, !tbaa !48
+  %70 = load i32, ptr %69, align 4, !tbaa !49
   %71 = sub nsw i64 %62, %indvars.iv
   %72 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !48
+  %73 = load i32, ptr %72, align 4, !tbaa !49
   %74 = add nsw i32 %73, %70
   %75 = sext i32 %74 to i64
   %76 = mul nsw i64 %75, %68
   %77 = add nsw i64 %76, 1073741824
   %78 = lshr i64 %77, 31
   %79 = trunc i64 %78 to i32
-  %80 = load i32, ptr %59, align 4, !tbaa !10
+  %80 = load i32, ptr %59, align 4, !tbaa !11
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !50
+  %83 = load i32, ptr %82, align 4, !tbaa !51
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !50
+  %85 = load i32, ptr %84, align 4, !tbaa !51
   %86 = sub nsw i32 %83, %85
   %87 = sext i32 %86 to i64
   %88 = mul nsw i64 %87, %81
   %89 = add nsw i64 %88, 1073741824
   %90 = lshr i64 %89, 31
   %91 = trunc i64 %90 to i32
-  %92 = load i32, ptr %60, align 4, !tbaa !10
+  %92 = load i32, ptr %60, align 4, !tbaa !11
   %93 = sext i32 %92 to i64
   %94 = add nsw i32 %85, %83
   %95 = sext i32 %94 to i64
-  %96 = load i32, ptr %61, align 4, !tbaa !10
+  %96 = load i32, ptr %61, align 4, !tbaa !11
   %97 = sext i32 %96 to i64
   %98 = sub nsw i32 %70, %73
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = sext i32 %101 to i64
   %103 = shl nsw i64 %95, 1
   %104 = mul i64 %103, %93
@@ -10089,7 +10089,7 @@ define internal void @ff_tx_rdft_r2c_int32_c(ptr noundef readonly captures(none)
   %106 = ashr i64 %105, 32
   %107 = mul nsw i64 %106, %102
   %108 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %109 = load i32, ptr %108, align 4, !tbaa !10
+  %109 = load i32, ptr %108, align 4, !tbaa !11
   %110 = sext i32 %109 to i64
   %111 = shl nsw i64 %99, 1
   %112 = mul i64 %111, %97
@@ -10107,16 +10107,16 @@ define internal void @ff_tx_rdft_r2c_int32_c(ptr noundef readonly captures(none)
   %124 = lshr i64 %123, 31
   %125 = trunc i64 %124 to i32
   %126 = add nsw i32 %119, %79
-  store i32 %126, ptr %69, align 4, !tbaa !48
+  store i32 %126, ptr %69, align 4, !tbaa !49
   %127 = sub nsw i32 %125, %91
-  store i32 %127, ptr %82, align 4, !tbaa !50
+  store i32 %127, ptr %82, align 4, !tbaa !51
   %128 = sub nsw i32 %79, %119
-  store i32 %128, ptr %72, align 4, !tbaa !48
+  store i32 %128, ptr %72, align 4, !tbaa !49
   %129 = add nsw i32 %125, %91
-  store i32 %129, ptr %84, align 4, !tbaa !50
+  store i32 %129, ptr %84, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !138
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -10124,12 +10124,12 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %8 = and i64 %2, 8
   %9 = add nsw i32 %4, 3
   %10 = ashr i32 %9, 2
-  %11 = load float, ptr %6, align 4, !tbaa !82
+  %11 = load float, ptr %6, align 4, !tbaa !83
   %12 = fpext nsz float %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %12, ptr %13, align 8, !tbaa !25
+  store double %12, ptr %13, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %11, ptr %14, align 4, !tbaa !83
+  store float %11, ptr %14, align 4, !tbaa !84
   %15 = and i64 %2, -25
   %16 = ashr i32 %4, 1
   %17 = tail call i32 @ff_tx_init_subtx(ptr noundef %0, i32 noundef 4, i64 noundef %15, ptr noundef null, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %6) #16
@@ -10143,7 +10143,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %22 = shl nsw i64 %21, 3
   %23 = tail call noalias ptr @av_mallocz(i64 noundef %22) #16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %24, align 8, !tbaa !26
+  store ptr %23, ptr %24, align 8, !tbaa !27
   %.not66 = icmp eq ptr %23, null
   br i1 %.not66, label %.loopexit, label %25
 
@@ -10151,7 +10151,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %26 = sitofp i32 %4 to double
   %27 = fdiv nsz double 0x401921FB54442D18, %26
   %.not67 = icmp eq i32 %5, 0
-  %28 = load double, ptr %13, align 8, !tbaa !25
+  %28 = load double, ptr %13, align 8, !tbaa !26
   %29 = fmul nsz double %28, 2.000000e+00
   %30 = select i1 %.not67, double 1.000000e+00, double 5.000000e-01
   %31 = select nsz i1 %.not67, double %28, double %29
@@ -10163,7 +10163,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i86 = tail call i64 @llvm.smin.i64(i64 %36, i64 2147483647)
   %37 = trunc nsw i64 %.0.i86 to i32
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 %37, ptr %23, align 4, !tbaa !10
+  store i32 %37, ptr %23, align 4, !tbaa !11
   %39 = fmul nsz double %31, 5.000000e-01
   %40 = select nsz i1 %.not67, double %28, double %39
   %41 = fmul nsz double %40, 0x41E0000000000000
@@ -10173,7 +10173,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i84 = tail call i64 @llvm.smin.i64(i64 %44, i64 2147483647)
   %45 = trunc nsw i64 %.0.i84 to i32
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 %45, ptr %38, align 4, !tbaa !10
+  store i32 %45, ptr %38, align 4, !tbaa !11
   %47 = fmul nsz double %31, 0x41E0000000000000
   %48 = fptrunc nsz double %47 to float
   %49 = tail call i64 @llvm.llrint.i64.f32(float %48)
@@ -10181,7 +10181,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i82 = tail call i64 @llvm.smin.i64(i64 %50, i64 2147483647)
   %51 = trunc nsw i64 %.0.i82 to i32
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %51, ptr %46, align 4, !tbaa !10
+  store i32 %51, ptr %46, align 4, !tbaa !11
   %53 = fmul nsz double %31, 0xC1E0000000000000
   %54 = fptrunc nsz double %53 to float
   %55 = tail call i64 @llvm.llrint.i64.f32(float %54)
@@ -10189,7 +10189,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i80 = tail call i64 @llvm.smin.i64(i64 %56, i64 2147483647)
   %57 = trunc nsw i64 %.0.i80 to i32
   %58 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 %57, ptr %52, align 4, !tbaa !10
+  store i32 %57, ptr %52, align 4, !tbaa !11
   %59 = fmul nsz double %39, 0x41E0000000000000
   %60 = fptrunc nsz double %59 to float
   %61 = tail call i64 @llvm.llrint.i64.f32(float %60)
@@ -10197,12 +10197,12 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i78 = tail call i64 @llvm.smin.i64(i64 %62, i64 2147483647)
   %63 = trunc nsw i64 %.0.i78 to i32
   %64 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 %63, ptr %58, align 4, !tbaa !10
+  store i32 %63, ptr %58, align 4, !tbaa !11
   %.not68 = icmp eq i64 %8, 0
   br i1 %.not68, label %69, label %65
 
 65:                                               ; preds = %25
-  %66 = load float, ptr %14, align 4, !tbaa !83
+  %66 = load float, ptr %14, align 4, !tbaa !84
   %67 = fdiv nsz float 1.000000e+00, %66
   %68 = fptosi float %67 to i32
   br label %76
@@ -10220,7 +10220,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
 76:                                               ; preds = %69, %65
   %storemerge = phi i32 [ %75, %69 ], [ %68, %65 ]
   %.062 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 %storemerge, ptr %64, align 4, !tbaa !10
+  store i32 %storemerge, ptr %64, align 4, !tbaa !11
   %77 = sitofp i32 %5 to double
   %78 = fsub nsz double 5.000000e-01, %77
   %79 = fmul nsz double %78, %31
@@ -10231,7 +10231,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i74 = tail call i64 @llvm.smin.i64(i64 %83, i64 2147483647)
   %84 = trunc nsw i64 %.0.i74 to i32
   %85 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  store i32 %84, ptr %.062, align 4, !tbaa !10
+  store i32 %84, ptr %.062, align 4, !tbaa !11
   %86 = fneg nsz double %78
   %87 = fmul nsz double %31, %86
   %88 = fmul nsz double %87, 0x41E0000000000000
@@ -10240,7 +10240,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
   %.0.i72 = tail call i64 @llvm.smin.i64(i64 %91, i64 2147483647)
   %92 = trunc nsw i64 %.0.i72 to i32
-  store i32 %92, ptr %85, align 4, !tbaa !10
+  store i32 %92, ptr %85, align 4, !tbaa !11
   %93 = icmp sgt i32 %10, 0
   br i1 %93, label %.lr.ph.preheader, label %.loopexit
 
@@ -10267,10 +10267,10 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %.0.i70 = tail call i64 @llvm.smin.i64(i64 %104, i64 2147483647)
   %105 = trunc nsw i64 %.0.i70 to i32
   %106 = getelementptr inbounds nuw i8, ptr %.187, i64 4
-  store i32 %105, ptr %.187, align 4, !tbaa !10
+  store i32 %105, ptr %.187, align 4, !tbaa !11
   %107 = add nuw nsw i32 %.06088, 1
   %exitcond.not = icmp eq i32 %107, %10
-  br i1 %exitcond.not, label %.lr.ph92.preheader, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %.lr.ph92.preheader, label %.lr.ph, !llvm.loop !139
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %.090 = phi i32 [ %122, %.lr.ph92 ], [ 0, %.lr.ph92.preheader ]
@@ -10290,10 +10290,10 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %119 = select i1 %.not67, i64 %118, i64 %.0.i
   %120 = trunc i64 %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %.289, i64 4
-  store i32 %120, ptr %.289, align 4, !tbaa !10
+  store i32 %120, ptr %.289, align 4, !tbaa !11
   %122 = add nuw nsw i32 %.090, 1
   %exitcond93.not = icmp eq i32 %122, %10
-  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph92, !llvm.loop !139
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph92, !llvm.loop !140
 
 .loopexit:                                        ; preds = %.lr.ph92, %76, %18, %7
   %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %76 ], [ 0, %.lr.ph92 ]
@@ -10304,59 +10304,59 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = add nsw i32 %5, 3
   %9 = ashr i32 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
-  %19 = load i32, ptr %1, align 4, !tbaa !48
+  %19 = load i32, ptr %1, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = add nsw i32 %21, %19
-  store i32 %22, ptr %1, align 4, !tbaa !48
-  %23 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %22, ptr %1, align 4, !tbaa !49
+  %23 = load i32, ptr %11, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
   %25 = sext i32 %22 to i64
   %26 = mul nsw i64 %24, %25
   %27 = add nsw i64 %26, 1073741824
   %28 = lshr i64 %27, 31
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %1, align 4, !tbaa !48
+  store i32 %29, ptr %1, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = sext i32 %33 to i64
   %35 = sext i32 %7 to i64
   %36 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !48
+  %37 = load i32, ptr %36, align 4, !tbaa !49
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, %34
   %40 = add nsw i64 %39, 1073741824
   %41 = lshr i64 %40, 31
   %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %36, align 4, !tbaa !48
+  store i32 %42, ptr %36, align 4, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !11
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !50
+  %47 = load i32, ptr %46, align 4, !tbaa !51
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, %45
   %50 = add nsw i64 %49, 1073741824
   %51 = lshr i64 %50, 31
   %52 = trunc i64 %51 to i32
-  store i32 %52, ptr %46, align 4, !tbaa !50
+  store i32 %52, ptr %46, align 4, !tbaa !51
   %.not76 = icmp slt i32 %7, 1
   br i1 %.not76, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
@@ -10387,15 +10387,15 @@ define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none)
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %62 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  %.sroa.05.0.copyload = load i32, ptr %62, align 4, !tbaa !10
+  %.sroa.05.0.copyload = load i32, ptr %62, align 4, !tbaa !11
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %.sroa.57.0.copyload = load i32, ptr %.sroa.57.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.57.0.copyload = load i32, ptr %.sroa.57.0..sroa_idx, align 4, !tbaa !11
   %63 = sub nsw i64 %56, %indvars.iv
   %64 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %63
-  %.sroa.0.0.copyload = load i32, ptr %64, align 4, !tbaa !10
+  %.sroa.0.0.copyload = load i32, ptr %64, align 4, !tbaa !11
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
-  %65 = load i32, ptr %53, align 4, !tbaa !10
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !11
+  %65 = load i32, ptr %53, align 4, !tbaa !11
   %66 = sext i32 %65 to i64
   %67 = add nsw i32 %.sroa.0.0.copyload, %.sroa.05.0.copyload
   %68 = sext i32 %67 to i64
@@ -10403,7 +10403,7 @@ define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none)
   %70 = add nsw i64 %69, 1073741824
   %71 = lshr i64 %70, 31
   %72 = trunc i64 %71 to i32
-  %73 = load i32, ptr %54, align 4, !tbaa !10
+  %73 = load i32, ptr %54, align 4, !tbaa !11
   %74 = sext i32 %73 to i64
   %75 = add nsw i32 %.sroa.5.0.copyload, %.sroa.57.0.copyload
   %76 = sext i32 %75 to i64
@@ -10411,7 +10411,7 @@ define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none)
   %78 = add nsw i64 %77, 1073741824
   %79 = lshr i64 %78, 31
   %80 = trunc i64 %79 to i32
-  %81 = load i32, ptr %55, align 4, !tbaa !10
+  %81 = load i32, ptr %55, align 4, !tbaa !11
   %82 = sext i32 %81 to i64
   %83 = sub nsw i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload
   %84 = sext i32 %83 to i64
@@ -10420,22 +10420,22 @@ define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none)
   %87 = lshr i64 %86, 31
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %90 = load i32, ptr %89, align 4, !tbaa !10
+  %90 = load i32, ptr %89, align 4, !tbaa !11
   %91 = mul nsw i32 %90, %80
   %92 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %93 = load i32, ptr %92, align 4, !tbaa !10
+  %93 = load i32, ptr %92, align 4, !tbaa !11
   %94 = mul nsw i32 %93, %88
   %95 = sub nsw i32 %91, %94
   %96 = add nsw i32 %95, %72
   %97 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %96, ptr %97, align 4, !tbaa !10
+  store i32 %96, ptr %97, align 4, !tbaa !11
   %98 = sub nsw i32 %72, %95
   %99 = sub nsw i64 %57, %indvars.iv
   %100 = getelementptr inbounds i32, ptr %1, i64 %99
-  store i32 %98, ptr %100, align 4, !tbaa !10
+  store i32 %98, ptr %100, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %61, !llvm.loop !140
+  br i1 %exitcond.not, label %.preheader, label %61, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %.lr.ph79, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %60, %.lr.ph79 ]
@@ -10447,84 +10447,84 @@ define internal void @ff_tx_rdft_r2r_int32_c(ptr noundef readonly captures(none)
   %106 = lshr i64 %105, 31
   %107 = trunc i64 %106 to i32
   %108 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi
-  store i32 %107, ptr %108, align 4, !tbaa !10
+  store i32 %107, ptr %108, align 4, !tbaa !11
   ret void
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
   %indvars.iv82 = phi i64 [ 1, %.lr.ph79.preheader ], [ %indvars.iv.next83, %.lr.ph79 ]
   %109 = sub nsw i64 %59, %indvars.iv82
   %110 = getelementptr inbounds i32, ptr %1, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !10
+  %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = sub nsw i64 %60, %indvars.iv82
   %113 = getelementptr inbounds i32, ptr %1, i64 %112
-  store i32 %111, ptr %113, align 4, !tbaa !10
+  store i32 %111, ptr %113, align 4, !tbaa !11
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !141
+  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !142
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = add nsw i32 %5, 3
   %9 = ashr i32 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
-  %19 = load i32, ptr %1, align 4, !tbaa !48
+  %19 = load i32, ptr %1, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = add nsw i32 %21, %19
-  store i32 %22, ptr %1, align 4, !tbaa !48
-  %23 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %22, ptr %1, align 4, !tbaa !49
+  %23 = load i32, ptr %11, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
   %25 = sext i32 %22 to i64
   %26 = mul nsw i64 %24, %25
   %27 = add nsw i64 %26, 1073741824
   %28 = lshr i64 %27, 31
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %1, align 4, !tbaa !48
+  store i32 %29, ptr %1, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = sext i32 %33 to i64
   %35 = sext i32 %7 to i64
   %36 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !48
+  %37 = load i32, ptr %36, align 4, !tbaa !49
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, %34
   %40 = add nsw i64 %39, 1073741824
   %41 = lshr i64 %40, 31
   %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %36, align 4, !tbaa !48
+  store i32 %42, ptr %36, align 4, !tbaa !49
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %.sroa.525.0.copyload = load i32, ptr %.sroa.525.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.525.0.copyload = load i32, ptr %.sroa.525.0..sroa_idx, align 4, !tbaa !11
   %43 = add nsw i32 %7, 1
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %44
-  %.sroa.020.0.copyload = load i32, ptr %45, align 4, !tbaa !10
+  %.sroa.020.0.copyload = load i32, ptr %45, align 4, !tbaa !11
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %.sroa.522.0.copyload = load i32, ptr %.sroa.522.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.522.0.copyload = load i32, ptr %.sroa.522.0..sroa_idx, align 4, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = getelementptr inbounds i32, ptr %12, i64 %35
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = getelementptr inbounds i32, ptr %14, i64 %35
-  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %55 = load i32, ptr %54, align 4, !tbaa !11
   %.not94 = icmp slt i32 %7, 1
   br i1 %.not94, label %.preheader.._crit_edge_crit_edge, label %.lr.ph.preheader
 
@@ -10551,15 +10551,15 @@ define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %60 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  %.sroa.05.0.copyload = load i32, ptr %60, align 4, !tbaa !10
+  %.sroa.05.0.copyload = load i32, ptr %60, align 4, !tbaa !11
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %.sroa.57.0.copyload = load i32, ptr %.sroa.57.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.57.0.copyload = load i32, ptr %.sroa.57.0..sroa_idx, align 4, !tbaa !11
   %61 = sub nsw i64 %56, %indvars.iv
   %62 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %61
-  %.sroa.0.0.copyload = load i32, ptr %62, align 4, !tbaa !10
+  %.sroa.0.0.copyload = load i32, ptr %62, align 4, !tbaa !11
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !10
-  %63 = load i32, ptr %46, align 4, !tbaa !10
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !11
+  %63 = load i32, ptr %46, align 4, !tbaa !11
   %64 = sext i32 %63 to i64
   %65 = add nsw i32 %.sroa.0.0.copyload, %.sroa.05.0.copyload
   %66 = sext i32 %65 to i64
@@ -10567,7 +10567,7 @@ define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(
   %68 = add nsw i64 %67, 1073741824
   %69 = lshr i64 %68, 31
   %70 = trunc i64 %69 to i32
-  %71 = load i32, ptr %48, align 4, !tbaa !10
+  %71 = load i32, ptr %48, align 4, !tbaa !11
   %72 = sext i32 %71 to i64
   %73 = add nsw i32 %.sroa.5.0.copyload, %.sroa.57.0.copyload
   %74 = sext i32 %73 to i64
@@ -10575,7 +10575,7 @@ define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(
   %76 = add nsw i64 %75, 1073741824
   %77 = lshr i64 %76, 31
   %78 = trunc i64 %77 to i32
-  %79 = load i32, ptr %50, align 4, !tbaa !10
+  %79 = load i32, ptr %50, align 4, !tbaa !11
   %80 = sext i32 %79 to i64
   %81 = sub nsw i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload
   %82 = sext i32 %81 to i64
@@ -10584,22 +10584,22 @@ define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(
   %85 = lshr i64 %84, 31
   %86 = trunc i64 %85 to i32
   %87 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %88 = load i32, ptr %87, align 4, !tbaa !11
   %89 = mul nsw i32 %88, %78
   %90 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 4, !tbaa !10
+  %91 = load i32, ptr %90, align 4, !tbaa !11
   %92 = mul nsw i32 %91, %86
   %93 = sub nsw i32 %89, %92
   %94 = add nsw i32 %93, %70
   %95 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %94, ptr %95, align 4, !tbaa !10
+  store i32 %94, ptr %95, align 4, !tbaa !11
   %96 = sub nsw i32 %70, %93
   %97 = sub nsw i64 %57, %indvars.iv
   %98 = getelementptr inbounds i32, ptr %1, i64 %97
-  store i32 %96, ptr %98, align 4, !tbaa !10
+  store i32 %96, ptr %98, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !142
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.lr.ph97, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %59, %.lr.ph97 ]
@@ -10636,80 +10636,80 @@ define internal void @ff_tx_rdft_r2r_mod2_int32_c(ptr noundef readonly captures(
   %128 = lshr i64 %127, 31
   %129 = trunc i64 %128 to i32
   %130 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi
-  store i32 %129, ptr %130, align 4, !tbaa !10
+  store i32 %129, ptr %130, align 4, !tbaa !11
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %132 = load i32, ptr %131, align 4, !tbaa !10
+  %132 = load i32, ptr %131, align 4, !tbaa !11
   %133 = mul nsw i32 %132, %122
   %134 = getelementptr inbounds i32, ptr %1, i64 %44
-  store i32 %133, ptr %134, align 4, !tbaa !10
+  store i32 %133, ptr %134, align 4, !tbaa !11
   ret void
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv100 = phi i64 [ 1, %.lr.ph97.preheader ], [ %indvars.iv.next101, %.lr.ph97 ]
   %135 = sub nsw i64 %58, %indvars.iv100
   %136 = getelementptr inbounds i32, ptr %1, i64 %135
-  %137 = load i32, ptr %136, align 4, !tbaa !10
+  %137 = load i32, ptr %136, align 4, !tbaa !11
   %138 = sub nsw i64 %59, %indvars.iv100
   %139 = getelementptr inbounds i32, ptr %1, i64 %138
-  store i32 %137, ptr %139, align 4, !tbaa !10
+  store i32 %137, ptr %139, align 4, !tbaa !11
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph97, !llvm.loop !143
+  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph97, !llvm.loop !144
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = add nsw i32 %5, 3
   %9 = ashr i32 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
-  %19 = load i32, ptr %1, align 4, !tbaa !48
+  %19 = load i32, ptr %1, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = add nsw i32 %21, %19
-  store i32 %22, ptr %1, align 4, !tbaa !48
-  %23 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %22, ptr %1, align 4, !tbaa !49
+  %23 = load i32, ptr %11, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
   %25 = sext i32 %22 to i64
   %26 = mul nsw i64 %24, %25
   %27 = add nsw i64 %26, 1073741824
   %28 = lshr i64 %27, 31
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %1, align 4, !tbaa !48
+  store i32 %29, ptr %1, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = sext i32 %31 to i64
   %33 = sext i32 %7 to i64
   %34 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !48
+  %35 = load i32, ptr %34, align 4, !tbaa !49
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, %32
   %38 = add nsw i64 %37, 1073741824
   %39 = lshr i64 %38, 31
   %40 = trunc i64 %39 to i32
-  store i32 %40, ptr %34, align 4, !tbaa !48
+  store i32 %40, ptr %34, align 4, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !50
+  %45 = load i32, ptr %44, align 4, !tbaa !51
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %46, %43
   %48 = add nsw i64 %47, 1073741824
   %49 = lshr i64 %48, 31
   %50 = trunc i64 %49 to i32
-  store i32 %50, ptr %44, align 4, !tbaa !50
+  store i32 %50, ptr %44, align 4, !tbaa !51
   %.not73 = icmp slt i32 %7, 1
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
@@ -10732,15 +10732,15 @@ define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none)
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %60 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  %.sroa.05.0.copyload = load i32, ptr %60, align 4, !tbaa !10
+  %.sroa.05.0.copyload = load i32, ptr %60, align 4, !tbaa !11
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %.sroa.46.0.copyload = load i32, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.46.0.copyload = load i32, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !11
   %61 = sub nsw i64 %54, %indvars.iv
   %62 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %61
-  %.sroa.0.0.copyload = load i32, ptr %62, align 4, !tbaa !10
+  %.sroa.0.0.copyload = load i32, ptr %62, align 4, !tbaa !11
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !10
-  %63 = load i32, ptr %51, align 4, !tbaa !10
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !11
+  %63 = load i32, ptr %51, align 4, !tbaa !11
   %64 = sext i32 %63 to i64
   %65 = sub nsw i32 %.sroa.46.0.copyload, %.sroa.4.0.copyload
   %66 = sext i32 %65 to i64
@@ -10748,7 +10748,7 @@ define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none)
   %68 = add nsw i64 %67, 1073741824
   %69 = lshr i64 %68, 31
   %70 = trunc i64 %69 to i32
-  %71 = load i32, ptr %52, align 4, !tbaa !10
+  %71 = load i32, ptr %52, align 4, !tbaa !11
   %72 = sext i32 %71 to i64
   %73 = add nsw i32 %.sroa.4.0.copyload, %.sroa.46.0.copyload
   %74 = sext i32 %73 to i64
@@ -10756,7 +10756,7 @@ define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none)
   %76 = add nsw i64 %75, 1073741824
   %77 = lshr i64 %76, 31
   %78 = trunc i64 %77 to i32
-  %79 = load i32, ptr %53, align 4, !tbaa !10
+  %79 = load i32, ptr %53, align 4, !tbaa !11
   %80 = sext i32 %79 to i64
   %81 = sub nsw i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload
   %82 = sext i32 %81 to i64
@@ -10765,26 +10765,26 @@ define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none)
   %85 = lshr i64 %84, 31
   %86 = trunc i64 %85 to i32
   %87 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %88 = load i32, ptr %87, align 4, !tbaa !11
   %89 = mul nsw i32 %88, %78
   %90 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 4, !tbaa !10
+  %91 = load i32, ptr %90, align 4, !tbaa !11
   %92 = mul nsw i32 %91, %86
   %93 = add nsw i32 %92, %89
   %94 = sub nsw i32 %93, %70
   %95 = getelementptr i32, ptr %1, i64 %indvars.iv
   %96 = getelementptr i8, ptr %95, i64 -4
-  store i32 %94, ptr %96, align 4, !tbaa !10
+  store i32 %94, ptr %96, align 4, !tbaa !11
   %97 = add nsw i32 %93, %70
   %98 = trunc i64 %indvars.iv to i32
   %99 = xor i32 %98, -1
   %100 = add i32 %5, %99
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i32, ptr %1, i64 %101
-  store i32 %97, ptr %102, align 4, !tbaa !10
+  store i32 %97, ptr %102, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph77.preheader, label %59, !llvm.loop !144
+  br i1 %exitcond.not, label %.lr.ph77.preheader, label %59, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %4
   ret void
@@ -10793,73 +10793,73 @@ define internal void @ff_tx_rdft_r2i_int32_c(ptr noundef readonly captures(none)
   %indvars.iv80 = phi i64 [ 1, %.lr.ph77.preheader ], [ %indvars.iv.next81, %.lr.ph77 ]
   %103 = sub nsw i64 %56, %indvars.iv80
   %104 = getelementptr inbounds i32, ptr %1, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !10
+  %105 = load i32, ptr %104, align 4, !tbaa !11
   %106 = sub nsw i64 %57, %indvars.iv80
   %107 = getelementptr inbounds i32, ptr %1, i64 %106
-  store i32 %105, ptr %107, align 4, !tbaa !10
+  store i32 %105, ptr %107, align 4, !tbaa !11
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !145
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !146
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = add nsw i32 %5, 3
   %9 = ashr i32 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   tail call void %16(ptr noundef %18, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
-  %19 = load i32, ptr %1, align 4, !tbaa !48
+  %19 = load i32, ptr %1, align 4, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !51
   %22 = add nsw i32 %21, %19
-  store i32 %22, ptr %1, align 4, !tbaa !48
-  %23 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %22, ptr %1, align 4, !tbaa !49
+  %23 = load i32, ptr %11, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
   %25 = sext i32 %22 to i64
   %26 = mul nsw i64 %24, %25
   %27 = add nsw i64 %26, 1073741824
   %28 = lshr i64 %27, 31
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %1, align 4, !tbaa !48
+  store i32 %29, ptr %1, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !11
   %32 = sext i32 %31 to i64
   %33 = sext i32 %7 to i64
   %34 = getelementptr %struct.AVComplexInt32, ptr %1, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !48
+  %35 = load i32, ptr %34, align 4, !tbaa !49
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, %32
   %38 = add nsw i64 %37, 1073741824
   %39 = lshr i64 %38, 31
   %40 = trunc i64 %39 to i32
-  store i32 %40, ptr %34, align 4, !tbaa !48
+  store i32 %40, ptr %34, align 4, !tbaa !49
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %.sroa.423.0.copyload = load i32, ptr %.sroa.423.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.423.0.copyload = load i32, ptr %.sroa.423.0..sroa_idx, align 4, !tbaa !11
   %41 = getelementptr i8, ptr %34, i64 8
-  %.sroa.019.0.copyload = load i32, ptr %41, align 4, !tbaa !10
+  %.sroa.019.0.copyload = load i32, ptr %41, align 4, !tbaa !11
   %.sroa.420.0..sroa_idx = getelementptr i8, ptr %34, i64 12
-  %.sroa.420.0.copyload = load i32, ptr %.sroa.420.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.420.0.copyload = load i32, ptr %.sroa.420.0..sroa_idx, align 4, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %45 = load i32, ptr %44, align 4, !tbaa !10
+  %45 = load i32, ptr %44, align 4, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = getelementptr inbounds i32, ptr %14, i64 %33
-  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = getelementptr inbounds i32, ptr %12, i64 %33
-  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %51 = load i32, ptr %50, align 4, !tbaa !11
   %.not89 = icmp slt i32 %7, 1
   br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
 
@@ -10879,15 +10879,15 @@ define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %57 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %1, i64 %indvars.iv
-  %.sroa.05.0.copyload = load i32, ptr %57, align 4, !tbaa !10
+  %.sroa.05.0.copyload = load i32, ptr %57, align 4, !tbaa !11
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %.sroa.46.0.copyload = load i32, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !10
+  %.sroa.46.0.copyload = load i32, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !11
   %58 = sub nsw i64 %52, %indvars.iv
   %59 = getelementptr inbounds %struct.AVComplexInt32, ptr %1, i64 %58
-  %.sroa.0.0.copyload = load i32, ptr %59, align 4, !tbaa !10
+  %.sroa.0.0.copyload = load i32, ptr %59, align 4, !tbaa !11
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !10
-  %60 = load i32, ptr %42, align 4, !tbaa !10
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !11
+  %60 = load i32, ptr %42, align 4, !tbaa !11
   %61 = sext i32 %60 to i64
   %62 = sub nsw i32 %.sroa.46.0.copyload, %.sroa.4.0.copyload
   %63 = sext i32 %62 to i64
@@ -10895,7 +10895,7 @@ define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(
   %65 = add nsw i64 %64, 1073741824
   %66 = lshr i64 %65, 31
   %67 = trunc i64 %66 to i32
-  %68 = load i32, ptr %44, align 4, !tbaa !10
+  %68 = load i32, ptr %44, align 4, !tbaa !11
   %69 = sext i32 %68 to i64
   %70 = add nsw i32 %.sroa.4.0.copyload, %.sroa.46.0.copyload
   %71 = sext i32 %70 to i64
@@ -10903,7 +10903,7 @@ define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(
   %73 = add nsw i64 %72, 1073741824
   %74 = lshr i64 %73, 31
   %75 = trunc i64 %74 to i32
-  %76 = load i32, ptr %46, align 4, !tbaa !10
+  %76 = load i32, ptr %46, align 4, !tbaa !11
   %77 = sext i32 %76 to i64
   %78 = sub nsw i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload
   %79 = sext i32 %78 to i64
@@ -10912,26 +10912,26 @@ define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(
   %82 = lshr i64 %81, 31
   %83 = trunc i64 %82 to i32
   %84 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %85 = load i32, ptr %84, align 4, !tbaa !10
+  %85 = load i32, ptr %84, align 4, !tbaa !11
   %86 = mul nsw i32 %85, %75
   %87 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %88 = load i32, ptr %87, align 4, !tbaa !11
   %89 = mul nsw i32 %88, %83
   %90 = add nsw i32 %89, %86
   %91 = sub nsw i32 %90, %67
   %92 = getelementptr i32, ptr %1, i64 %indvars.iv
   %93 = getelementptr i8, ptr %92, i64 -4
-  store i32 %91, ptr %93, align 4, !tbaa !10
+  store i32 %91, ptr %93, align 4, !tbaa !11
   %94 = add nsw i32 %90, %67
   %95 = trunc i64 %indvars.iv to i32
   %96 = xor i32 %95, -1
   %97 = add i32 %5, %96
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %1, i64 %98
-  store i32 %94, ptr %99, align 4, !tbaa !10
+  store i32 %94, ptr %99, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !146
+  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %4
   %100 = sext i32 %43 to i64
@@ -10960,80 +10960,80 @@ define internal void @ff_tx_rdft_r2i_mod2_int32_c(ptr noundef readonly captures(
   %123 = add i32 %114, %106
   %124 = add i32 %123, %122
   %125 = getelementptr inbounds i32, ptr %1, i64 %33
-  store i32 %124, ptr %125, align 4, !tbaa !10
+  store i32 %124, ptr %125, align 4, !tbaa !11
   ret void
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv96 = phi i64 [ 1, %.lr.ph93.preheader ], [ %indvars.iv.next97, %.lr.ph93 ]
   %126 = sub nsw i64 %54, %indvars.iv96
   %127 = getelementptr inbounds i32, ptr %1, i64 %126
-  %128 = load i32, ptr %127, align 4, !tbaa !10
+  %128 = load i32, ptr %127, align 4, !tbaa !11
   %129 = sub nsw i64 %55, %indvars.iv96
   %130 = getelementptr inbounds i32, ptr %1, i64 %129
-  store i32 %128, ptr %130, align 4, !tbaa !10
+  store i32 %128, ptr %130, align 4, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !147
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !148
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_rdft_c2r_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = ashr i32 %5, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = sext i32 %7 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
   %13 = sext i32 %6 to i64
   %14 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !48
+  %15 = load i32, ptr %14, align 4, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %2, align 4, !tbaa !48
+  %17 = load i32, ptr %2, align 4, !tbaa !49
   %18 = add nsw i32 %17, %15
-  store i32 %18, ptr %2, align 4, !tbaa !48
+  store i32 %18, ptr %2, align 4, !tbaa !49
   %19 = sub nsw i32 %17, %15
-  store i32 %19, ptr %16, align 4, !tbaa !50
-  %20 = load i32, ptr %9, align 4, !tbaa !10
+  store i32 %19, ptr %16, align 4, !tbaa !51
+  %20 = load i32, ptr %9, align 4, !tbaa !11
   %21 = sext i32 %20 to i64
   %22 = sext i32 %18 to i64
   %23 = mul nsw i64 %21, %22
   %24 = add nsw i64 %23, 1073741824
   %25 = lshr i64 %24, 31
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %2, align 4, !tbaa !48
+  store i32 %26, ptr %2, align 4, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
   %30 = sext i32 %19 to i64
   %31 = mul nsw i64 %29, %30
   %32 = add nsw i64 %31, 1073741824
   %33 = lshr i64 %32, 31
   %34 = trunc i64 %33 to i32
-  store i32 %34, ptr %16, align 4, !tbaa !50
+  store i32 %34, ptr %16, align 4, !tbaa !51
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %11
-  %39 = load i32, ptr %38, align 4, !tbaa !48
+  %39 = load i32, ptr %38, align 4, !tbaa !49
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %37
   %42 = add nsw i64 %41, 1073741824
   %43 = lshr i64 %42, 31
   %44 = trunc i64 %43 to i32
-  store i32 %44, ptr %38, align 4, !tbaa !48
+  store i32 %44, ptr %38, align 4, !tbaa !49
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !10
+  %46 = load i32, ptr %45, align 4, !tbaa !11
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !50
+  %49 = load i32, ptr %48, align 4, !tbaa !51
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, %47
   %52 = add nsw i64 %51, 1073741824
   %53 = lshr i64 %52, 31
   %54 = trunc i64 %53 to i32
-  store i32 %54, ptr %48, align 4, !tbaa !50
+  store i32 %54, ptr %48, align 4, !tbaa !51
   %55 = icmp sgt i32 %7, 1
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -11047,49 +11047,49 @@ define internal void @ff_tx_rdft_c2r_int32_c(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %64, %4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !4
+  %61 = load ptr, ptr %60, align 8, !tbaa !5
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !55
+  %63 = load ptr, ptr %62, align 8, !tbaa !56
   tail call void %61(ptr noundef %63, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 8) #16
   ret void
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = load i32, ptr %56, align 4, !tbaa !10
+  %65 = load i32, ptr %56, align 4, !tbaa !11
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %2, i64 %indvars.iv
-  %68 = load i32, ptr %67, align 4, !tbaa !48
+  %68 = load i32, ptr %67, align 4, !tbaa !49
   %69 = sub nsw i64 %13, %indvars.iv
   %70 = getelementptr inbounds %struct.AVComplexInt32, ptr %2, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !48
+  %71 = load i32, ptr %70, align 4, !tbaa !49
   %72 = add nsw i32 %71, %68
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %66
   %75 = add nsw i64 %74, 1073741824
   %76 = lshr i64 %75, 31
   %77 = trunc i64 %76 to i32
-  %78 = load i32, ptr %57, align 4, !tbaa !10
+  %78 = load i32, ptr %57, align 4, !tbaa !11
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %81 = load i32, ptr %80, align 4, !tbaa !50
+  %81 = load i32, ptr %80, align 4, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !50
+  %83 = load i32, ptr %82, align 4, !tbaa !51
   %84 = sub nsw i32 %81, %83
   %85 = sext i32 %84 to i64
   %86 = mul nsw i64 %85, %79
   %87 = add nsw i64 %86, 1073741824
   %88 = lshr i64 %87, 31
   %89 = trunc i64 %88 to i32
-  %90 = load i32, ptr %58, align 4, !tbaa !10
+  %90 = load i32, ptr %58, align 4, !tbaa !11
   %91 = sext i32 %90 to i64
   %92 = add nsw i32 %83, %81
   %93 = sext i32 %92 to i64
-  %94 = load i32, ptr %59, align 4, !tbaa !10
+  %94 = load i32, ptr %59, align 4, !tbaa !11
   %95 = sext i32 %94 to i64
   %96 = sub nsw i32 %68, %71
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %99 = load i32, ptr %98, align 4, !tbaa !10
+  %99 = load i32, ptr %98, align 4, !tbaa !11
   %100 = sext i32 %99 to i64
   %101 = shl nsw i64 %93, 1
   %102 = mul i64 %101, %91
@@ -11097,7 +11097,7 @@ define internal void @ff_tx_rdft_c2r_int32_c(ptr noundef readonly captures(none)
   %104 = ashr i64 %103, 32
   %105 = mul nsw i64 %104, %100
   %106 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %107 = load i32, ptr %106, align 4, !tbaa !10
+  %107 = load i32, ptr %106, align 4, !tbaa !11
   %108 = sext i32 %107 to i64
   %109 = shl nsw i64 %97, 1
   %110 = mul i64 %109, %95
@@ -11115,24 +11115,24 @@ define internal void @ff_tx_rdft_c2r_int32_c(ptr noundef readonly captures(none)
   %122 = lshr i64 %121, 31
   %123 = trunc i64 %122 to i32
   %124 = add nsw i32 %117, %77
-  store i32 %124, ptr %67, align 4, !tbaa !48
+  store i32 %124, ptr %67, align 4, !tbaa !49
   %125 = sub nsw i32 %123, %89
-  store i32 %125, ptr %80, align 4, !tbaa !50
+  store i32 %125, ptr %80, align 4, !tbaa !51
   %126 = sub nsw i32 %77, %117
-  store i32 %126, ptr %70, align 4, !tbaa !48
+  store i32 %126, ptr %70, align 4, !tbaa !49
   %127 = add nsw i32 %123, %89
-  store i32 %127, ptr %82, align 4, !tbaa !50
+  store i32 %127, ptr %82, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !148
+  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !149
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_dctII_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp sgt i32 %6, 0
   br i1 %9, label %.lr.ph.preheader, label %.._crit_edge_crit_edge
 
@@ -11149,27 +11149,27 @@ define internal void @ff_tx_dctII_int32_c(ptr noundef readonly captures(none) %0
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %10, %.lr.ph ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %12 = load ptr, ptr %11, align 8, !tbaa !5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   tail call void %12(ptr noundef %14, ptr noundef %1, ptr noundef %2, i64 noundef 8) #16
   %15 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = icmp sgt i32 %5, 2
   br i1 %17, label %.lr.ph82, label %._crit_edge83
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !10
+  %19 = load i32, ptr %18, align 4, !tbaa !11
   %20 = trunc i64 %indvars.iv to i32
   %21 = xor i32 %20, -1
   %22 = add i32 %5, %21
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %2, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !11
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %26 = load i32, ptr %gep, align 4, !tbaa !10
+  %26 = load i32, ptr %gep, align 4, !tbaa !11
   %27 = add nsw i32 %25, %19
   %28 = sub nsw i32 %19, %25
   %29 = sext i32 %28 to i64
@@ -11180,26 +11180,26 @@ define internal void @ff_tx_dctII_int32_c(ptr noundef readonly captures(none) %0
   %34 = lshr i64 %33, 31
   %35 = trunc i64 %34 to i32
   %36 = add i32 %30, %35
-  store i32 %36, ptr %18, align 4, !tbaa !10
+  store i32 %36, ptr %18, align 4, !tbaa !11
   %37 = sub i32 %30, %35
-  store i32 %37, ptr %24, align 4, !tbaa !10
+  store i32 %37, ptr %24, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge
   %.0.lcssa = phi i32 [ %16, %._crit_edge ], [ %72, %.lr.ph82 ]
-  %38 = load i32, ptr %8, align 4, !tbaa !10
+  %38 = load i32, ptr %8, align 4, !tbaa !11
   %39 = sext i32 %38 to i64
-  %40 = load i32, ptr %1, align 4, !tbaa !10
+  %40 = load i32, ptr %1, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %41, %39
   %43 = add nsw i64 %42, 1073741824
   %44 = lshr i64 %43, 31
   %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %1, align 4, !tbaa !10
+  store i32 %45, ptr %1, align 4, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.0.lcssa, ptr %46, align 4, !tbaa !10
+  store i32 %.0.lcssa, ptr %46, align 4, !tbaa !11
   ret void
 
 .lr.ph82:                                         ; preds = %._crit_edge, %.lr.ph82
@@ -11207,18 +11207,18 @@ define internal void @ff_tx_dctII_int32_c(ptr noundef readonly captures(none) %0
   %.080 = phi i32 [ %72, %.lr.ph82 ], [ %16, %._crit_edge ]
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -2
   %47 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next86
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = sext i32 %48 to i64
   %50 = sub nsw i64 %.pre-phi, %indvars.iv.next86
   %51 = getelementptr inbounds i32, ptr %8, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = sext i32 %52 to i64
   %54 = mul nsw i64 %53, %49
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !10
+  %56 = load i32, ptr %55, align 4, !tbaa !11
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next86
-  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %59 = load i32, ptr %58, align 4, !tbaa !11
   %60 = sext i32 %59 to i64
   %61 = mul nsw i64 %60, %57
   %62 = add nsw i64 %54, 1073741824
@@ -11231,29 +11231,29 @@ define internal void @ff_tx_dctII_int32_c(ptr noundef readonly captures(none) %0
   %69 = add i64 %68, %67
   %70 = lshr i64 %69, 31
   %71 = trunc i64 %70 to i32
-  store i32 %71, ptr %47, align 4, !tbaa !10
-  store i32 %.080, ptr %55, align 4, !tbaa !10
+  store i32 %71, ptr %47, align 4, !tbaa !11
+  store i32 %.080, ptr %55, align 4, !tbaa !11
   %72 = add nsw i32 %.080, %65
   %73 = icmp sgt i64 %indvars.iv85, 4
-  br i1 %73, label %.lr.ph82, label %._crit_edge83, !llvm.loop !150
+  br i1 %73, label %.lr.ph82, label %._crit_edge83, !llvm.loop !151
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca float, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = load float, ptr %6, align 4, !tbaa !82
-  store float %9, ptr %8, align 4, !tbaa !82
+  %9 = load float, ptr %6, align 4, !tbaa !83
+  store float %9, ptr %8, align 4, !tbaa !83
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = shl nsw i32 %4, 1
-  %12 = load i32, ptr %0, align 8, !tbaa !16
+  %12 = load i32, ptr %0, align 8, !tbaa !17
   %13 = shl nsw i32 %12, 1
-  store i32 %13, ptr %0, align 8, !tbaa !16
+  store i32 %13, ptr %0, align 8, !tbaa !17
   %14 = fmul nsz float %9, 5.000000e-01
-  store float %14, ptr %8, align 4, !tbaa !82
+  store float %14, ptr %8, align 4, !tbaa !83
   br label %15
 
 15:                                               ; preds = %10, %7
@@ -11269,7 +11269,7 @@ define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone capture
   %21 = shl nsw i64 %20, 2
   %22 = call noalias ptr @av_malloc(i64 noundef %21) #16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %23, align 8, !tbaa !26
+  store ptr %22, ptr %23, align 8, !tbaa !27
   %.not47 = icmp eq ptr %22, null
   br i1 %.not47, label %.loopexit, label %24
 
@@ -11322,10 +11322,10 @@ define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone capture
   %.0.i51 = call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
   %44 = trunc nsw i64 %.0.i51 to i32
   %45 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
-  store i32 %44, ptr %45, align 4, !tbaa !10
+  store i32 %44, ptr %45, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !152
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv61 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next62, %.lr.ph56 ]
@@ -11343,10 +11343,10 @@ define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone capture
   %.0.i49 = call i64 @llvm.smin.i64(i64 %55, i64 2147483647)
   %56 = trunc nsw i64 %.0.i49 to i32
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv61
-  store i32 %56, ptr %gep, align 4, !tbaa !10
+  store i32 %56, ptr %gep, align 4, !tbaa !11
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph56, !llvm.loop !152
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph56, !llvm.loop !153
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %.lr.ph58 ]
@@ -11364,10 +11364,10 @@ define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone capture
   %.0.i = call i64 @llvm.smin.i64(i64 %66, i64 2147483647)
   %67 = trunc nsw i64 %.0.i to i32
   %gep74 = getelementptr inbounds nuw i32, ptr %invariant.gep73, i64 %indvars.iv66
-  store i32 %67, ptr %gep74, align 4, !tbaa !10
+  store i32 %67, ptr %gep74, align 4, !tbaa !11
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph58, !llvm.loop !153
+  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph58, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph56, %.lr.ph58, %.preheader52, %.preheader, %17, %15
   %.042 = phi i32 [ %16, %15 ], [ -12, %17 ], [ 0, %.preheader ], [ 0, %.preheader52 ], [ 0, %.lr.ph58 ], [ 0, %.lr.ph56 ]
@@ -11377,28 +11377,28 @@ define internal i32 @ff_tx_dct_init_int32_c(ptr noundef %0, ptr readnone capture
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_dctIII_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = ashr i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = sext i32 %5 to i64
   %10 = getelementptr i32, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -4
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 1
   %15 = add nsw i64 %14, 1073741824
   %16 = lshr i64 %15, 31
   %17 = trunc i64 %16 to i32
-  store i32 %17, ptr %10, align 4, !tbaa !10
+  store i32 %17, ptr %10, align 4, !tbaa !11
   %18 = icmp sgt i32 %5, 3
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !4
+  %20 = load ptr, ptr %19, align 8, !tbaa !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
   tail call void %20(ptr noundef %22, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 4) #16
   %23 = icmp sgt i32 %6, 0
   br i1 %23, label %.lr.ph76.preheader, label %._crit_edge77
@@ -11412,41 +11412,41 @@ define internal void @ff_tx_dctIII_int32_c(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %9, %4 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
   %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
-  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = getelementptr i8, ptr %24, i64 -4
-  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %27 = load i32, ptr %26, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = sub nsw i32 %27, %29
   %31 = sext i32 %25 to i64
   %32 = sub nsw i64 %9, %indvars.iv.next
   %33 = getelementptr inbounds i32, ptr %8, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %34 = load i32, ptr %33, align 4, !tbaa !11
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %31
   %37 = sext i32 %30 to i64
   %38 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
-  %39 = load i32, ptr %38, align 4, !tbaa !10
+  %39 = load i32, ptr %38, align 4, !tbaa !11
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %37
   %42 = add nsw i64 %36, 1073741824
   %43 = sub nsw i64 %42, %41
   %44 = lshr i64 %43, 31
   %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %28, align 4, !tbaa !10
-  %46 = load i32, ptr %33, align 4, !tbaa !10
+  store i32 %45, ptr %28, align 4, !tbaa !11
+  %46 = load i32, ptr %33, align 4, !tbaa !11
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %37
-  %49 = load i32, ptr %38, align 4, !tbaa !10
+  %49 = load i32, ptr %38, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, %31
   %52 = add nsw i64 %48, 1073741824
   %53 = add i64 %52, %51
   %54 = lshr i64 %53, 31
   %55 = trunc i64 %54 to i32
-  store i32 %55, ptr %24, align 4, !tbaa !10
+  store i32 %55, ptr %24, align 4, !tbaa !11
   %56 = icmp samesign ugt i64 %indvars.iv, 5
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !154
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !155
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
   ret void
@@ -11454,15 +11454,15 @@ define internal void @ff_tx_dctIII_int32_c(ptr noundef readonly captures(none) %
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv79 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next80, %.lr.ph76 ]
   %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv79
-  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = trunc i64 %indvars.iv79 to i32
   %60 = xor i32 %59, -1
   %61 = add i32 %5, %60
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %1, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %64 = load i32, ptr %63, align 4, !tbaa !11
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv79
-  %65 = load i32, ptr %gep, align 4, !tbaa !10
+  %65 = load i32, ptr %gep, align 4, !tbaa !11
   %66 = add nsw i32 %64, %58
   %67 = sub nsw i32 %58, %64
   %68 = sext i32 %67 to i64
@@ -11472,20 +11472,20 @@ define internal void @ff_tx_dctIII_int32_c(ptr noundef readonly captures(none) %
   %72 = lshr i64 %71, 31
   %73 = trunc i64 %72 to i32
   %74 = add i32 %66, %73
-  store i32 %74, ptr %57, align 4, !tbaa !10
+  store i32 %74, ptr %57, align 4, !tbaa !11
   %75 = sub i32 %66, %73
-  store i32 %75, ptr %63, align 4, !tbaa !10
+  store i32 %75, ptr %63, align 4, !tbaa !11
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !155
+  br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !156
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_dctI_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = add i32 %5, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = lshr i64 %3, 2
   %10 = icmp sgt i32 %5, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -11500,13 +11500,13 @@ define internal void @ff_tx_dctI_int32_c(ptr noundef readonly captures(none) %0,
   %13 = sext i32 %6 to i64
   %14 = mul nsw i64 %9, %13
   %15 = getelementptr inbounds i32, ptr %2, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = getelementptr inbounds i32, ptr %8, i64 %13
-  store i32 %16, ptr %17, align 4, !tbaa !10
+  store i32 %16, ptr %17, align 4, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !4
+  %19 = load ptr, ptr %18, align 8, !tbaa !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   tail call void %19(ptr noundef %21, ptr noundef %1, ptr noundef %8, i64 noundef 4) #16
   ret void
 
@@ -11514,39 +11514,39 @@ define internal void @ff_tx_dctI_int32_c(ptr noundef readonly captures(none) %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = mul nuw nsw i64 %9, %indvars.iv
   %24 = getelementptr inbounds nuw i32, ptr %2, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = sub nsw i64 %12, %indvars.iv
   %27 = getelementptr inbounds i32, ptr %8, i64 %26
-  store i32 %25, ptr %27, align 4, !tbaa !10
+  store i32 %25, ptr %27, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  store i32 %25, ptr %28, align 4, !tbaa !10
+  store i32 %25, ptr %28, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !156
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !157
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal i32 @ff_tx_dcstI_init_int32_c(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca float, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = load float, ptr %6, align 4, !tbaa !82
-  store float %9, ptr %8, align 4, !tbaa !82
+  %9 = load float, ptr %6, align 4, !tbaa !83
+  store float %9, ptr %8, align 4, !tbaa !83
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = shl nsw i32 %4, 1
-  %12 = load i32, ptr %0, align 8, !tbaa !16
+  %12 = load i32, ptr %0, align 8, !tbaa !17
   %13 = shl nsw i32 %12, 1
-  store i32 %13, ptr %0, align 8, !tbaa !16
+  store i32 %13, ptr %0, align 8, !tbaa !17
   %14 = fmul nsz float %9, 5.000000e-01
-  store float %14, ptr %8, align 4, !tbaa !82
+  store float %14, ptr %8, align 4, !tbaa !83
   br label %15
 
 15:                                               ; preds = %10, %7
   %.014 = phi i32 [ %11, %10 ], [ %4, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !157
+  %17 = load i32, ptr %16, align 8, !tbaa !158
   %18 = icmp eq i32 %17, 14
   %19 = select i1 %18, i64 8, i64 16
   %20 = or i64 %19, %2
@@ -11566,7 +11566,7 @@ define internal i32 @ff_tx_dcstI_init_int32_c(ptr noundef %0, ptr noundef readon
   %31 = shl nsw i64 %30, 2
   %32 = call noalias ptr @av_mallocz(i64 noundef %31) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %32, ptr %33, align 8, !tbaa !54
+  store ptr %32, ptr %33, align 8, !tbaa !55
   %.not17 = icmp eq ptr %32, null
   %. = select i1 %.not17, i32 -12, i32 0
   br label %34
@@ -11579,12 +11579,12 @@ define internal i32 @ff_tx_dcstI_init_int32_c(ptr noundef %0, ptr noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal void @ff_tx_dstI_int32_c(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
-  %5 = load i32, ptr %0, align 8, !tbaa !16
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = add i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = lshr i64 %3, 2
-  store i32 0, ptr %8, align 4, !tbaa !10
+  store i32 0, ptr %8, align 4, !tbaa !11
   %.not25 = icmp slt i32 %5, 1
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -11597,11 +11597,11 @@ define internal void @ff_tx_dstI_int32_c(ptr noundef readonly captures(none) %0,
 ._crit_edge:                                      ; preds = %18, %4
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds i32, ptr %8, i64 %12
-  store i32 0, ptr %13, align 4, !tbaa !10
+  store i32 0, ptr %13, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !4
+  %15 = load ptr, ptr %14, align 8, !tbaa !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !56
   tail call void %15(ptr noundef %17, ptr noundef %1, ptr noundef nonnull %8, i64 noundef 4) #16
   ret void
 
@@ -11610,16 +11610,16 @@ define internal void @ff_tx_dstI_int32_c(ptr noundef readonly captures(none) %0,
   %19 = add nsw i64 %indvars.iv, -1
   %20 = mul nuw nsw i64 %9, %19
   %21 = getelementptr inbounds i32, ptr %2, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !10
+  %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sub nsw i32 0, %22
   %24 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  store i32 %23, ptr %24, align 4, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !11
   %25 = sub nsw i64 %11, %indvars.iv
   %26 = getelementptr inbounds i32, ptr %8, i64 %25
-  store i32 %22, ptr %26, align 4, !tbaa !10
+  store i32 %22, ptr %26, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !160
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !161
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -11665,160 +11665,161 @@ attributes #17 = { cold }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !9}
-!13 = !{!14, !5, i64 0}
-!14 = !{!"FFTabInitData", !5, i64 0, !6, i64 8}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !11, i64 0}
-!17 = !{!"AVTXContext", !11, i64 0, !11, i64 4, !18, i64 8, !19, i64 16, !19, i64 24, !20, i64 32, !6, i64 40, !11, i64 72, !6, i64 80, !21, i64 112, !11, i64 120, !22, i64 128, !11, i64 136, !23, i64 140, !24, i64 144, !5, i64 152}
-!18 = !{!"p1 int", !5, i64 0}
-!19 = !{!"p1 _ZTS14AVComplexInt32", !5, i64 0}
-!20 = !{!"p1 _ZTS11AVTXContext", !5, i64 0}
-!21 = !{!"p1 _ZTS11FFTXCodelet", !5, i64 0}
-!22 = !{!"long", !6, i64 0}
-!23 = !{!"float", !6, i64 0}
-!24 = !{!"double", !6, i64 0}
-!25 = !{!17, !24, i64 144}
-!26 = !{!17, !19, i64 16}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = !{!49, !11, i64 0}
-!49 = !{!"AVComplexInt32", !11, i64 0, !11, i64 4}
-!50 = !{!49, !11, i64 4}
-!51 = distinct !{!51, !9}
-!52 = distinct !{!52, !9}
-!53 = !{!17, !22, i64 128}
-!54 = !{!17, !19, i64 24}
-!55 = !{!17, !20, i64 32}
-!56 = !{!17, !18, i64 8}
-!57 = distinct !{!57, !9}
-!58 = !{!59, !11, i64 0}
-!59 = !{!"FFTXCodeletOptions", !11, i64 0}
-!60 = distinct !{!60, !9}
-!61 = distinct !{!61, !9}
-!62 = !{!19, !19, i64 0}
-!63 = distinct !{!63, !9}
-!64 = distinct !{!64, !9}
-!65 = distinct !{!65, !9}
-!66 = distinct !{!66, !9}
-!67 = distinct !{!67, !9}
-!68 = distinct !{!68, !9}
-!69 = distinct !{!69, !9}
-!70 = distinct !{!70, !9}
-!71 = distinct !{!71, !9}
-!72 = distinct !{!72, !9}
-!73 = !{!17, !11, i64 4}
-!74 = distinct !{!74, !9}
-!75 = distinct !{!75, !9}
-!76 = distinct !{!76, !9}
-!77 = distinct !{!77, !9}
-!78 = distinct !{!78, !9}
-!79 = distinct !{!79, !9}
-!80 = distinct !{!80, !9}
-!81 = distinct !{!81, !9}
-!82 = !{!23, !23, i64 0}
-!83 = !{!17, !23, i64 140}
-!84 = distinct !{!84, !9}
-!85 = distinct !{!85, !9}
-!86 = distinct !{!86, !9}
-!87 = distinct !{!87, !9}
-!88 = distinct !{!88, !9}
-!89 = distinct !{!89, !9}
-!90 = distinct !{!90, !9}
-!91 = distinct !{!91, !9}
-!92 = distinct !{!92, !9}
-!93 = distinct !{!93, !9}
-!94 = distinct !{!94, !9}
-!95 = distinct !{!95, !9}
-!96 = distinct !{!96, !9}
-!97 = distinct !{!97, !9}
-!98 = distinct !{!98, !9}
-!99 = distinct !{!99, !9}
-!100 = distinct !{!100, !9}
-!101 = distinct !{!101, !9}
-!102 = distinct !{!102, !9}
-!103 = distinct !{!103, !9}
-!104 = distinct !{!104, !9}
-!105 = distinct !{!105, !9}
-!106 = distinct !{!106, !9}
-!107 = distinct !{!107, !9}
-!108 = distinct !{!108, !9}
-!109 = distinct !{!109, !9}
-!110 = distinct !{!110, !9}
-!111 = distinct !{!111, !9}
-!112 = distinct !{!112, !9}
-!113 = distinct !{!113, !9}
-!114 = distinct !{!114, !9}
-!115 = distinct !{!115, !9}
-!116 = distinct !{!116, !9}
-!117 = distinct !{!117, !9}
-!118 = distinct !{!118, !9}
-!119 = distinct !{!119, !9}
-!120 = distinct !{!120, !9}
-!121 = distinct !{!121, !9}
-!122 = distinct !{!122, !9}
-!123 = distinct !{!123, !9}
-!124 = distinct !{!124, !9}
-!125 = distinct !{!125, !9}
-!126 = distinct !{!126, !9}
-!127 = distinct !{!127, !9}
-!128 = distinct !{!128, !9}
-!129 = distinct !{!129, !9}
-!130 = distinct !{!130, !9}
-!131 = distinct !{!131, !9}
-!132 = distinct !{!132, !9}
-!133 = distinct !{!133, !9}
-!134 = distinct !{!134, !9}
-!135 = distinct !{!135, !9}
-!136 = distinct !{!136, !9}
-!137 = distinct !{!137, !9}
-!138 = distinct !{!138, !9}
-!139 = distinct !{!139, !9}
-!140 = distinct !{!140, !9}
-!141 = distinct !{!141, !9}
-!142 = distinct !{!142, !9}
-!143 = distinct !{!143, !9}
-!144 = distinct !{!144, !9}
-!145 = distinct !{!145, !9}
-!146 = distinct !{!146, !9}
-!147 = distinct !{!147, !9}
-!148 = distinct !{!148, !9}
-!149 = distinct !{!149, !9}
-!150 = distinct !{!150, !9}
-!151 = distinct !{!151, !9}
-!152 = distinct !{!152, !9}
-!153 = distinct !{!153, !9}
-!154 = distinct !{!154, !9}
-!155 = distinct !{!155, !9}
-!156 = distinct !{!156, !9}
-!157 = !{!158, !11, i64 16}
-!158 = !{!"FFTXCodelet", !159, i64 0, !5, i64 8, !11, i64 16, !22, i64 24, !6, i64 32, !11, i64 96, !11, i64 100, !11, i64 104, !5, i64 112, !5, i64 120, !11, i64 128, !11, i64 132}
-!159 = !{!"p1 omnipotent char", !5, i64 0}
-!160 = distinct !{!160, !9}
+!4 = !{!"branch_weights", i32 1, i32 1048575}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = distinct !{!13, !10}
+!14 = !{!15, !6, i64 0}
+!15 = !{!"FFTabInitData", !6, i64 0, !7, i64 8}
+!16 = distinct !{!16, !10}
+!17 = !{!18, !12, i64 0}
+!18 = !{!"AVTXContext", !12, i64 0, !12, i64 4, !19, i64 8, !20, i64 16, !20, i64 24, !21, i64 32, !7, i64 40, !12, i64 72, !7, i64 80, !22, i64 112, !12, i64 120, !23, i64 128, !12, i64 136, !24, i64 140, !25, i64 144, !6, i64 152}
+!19 = !{!"p1 int", !6, i64 0}
+!20 = !{!"p1 _ZTS14AVComplexInt32", !6, i64 0}
+!21 = !{!"p1 _ZTS11AVTXContext", !6, i64 0}
+!22 = !{!"p1 _ZTS11FFTXCodelet", !6, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!"float", !7, i64 0}
+!25 = !{!"double", !7, i64 0}
+!26 = !{!18, !25, i64 144}
+!27 = !{!18, !20, i64 16}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10}
+!37 = distinct !{!37, !10}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}
+!40 = distinct !{!40, !10}
+!41 = distinct !{!41, !10}
+!42 = distinct !{!42, !10}
+!43 = distinct !{!43, !10}
+!44 = distinct !{!44, !10}
+!45 = distinct !{!45, !10}
+!46 = distinct !{!46, !10}
+!47 = distinct !{!47, !10}
+!48 = distinct !{!48, !10}
+!49 = !{!50, !12, i64 0}
+!50 = !{!"AVComplexInt32", !12, i64 0, !12, i64 4}
+!51 = !{!50, !12, i64 4}
+!52 = distinct !{!52, !10}
+!53 = distinct !{!53, !10}
+!54 = !{!18, !23, i64 128}
+!55 = !{!18, !20, i64 24}
+!56 = !{!18, !21, i64 32}
+!57 = !{!18, !19, i64 8}
+!58 = distinct !{!58, !10}
+!59 = !{!60, !12, i64 0}
+!60 = !{!"FFTXCodeletOptions", !12, i64 0}
+!61 = distinct !{!61, !10}
+!62 = distinct !{!62, !10}
+!63 = !{!20, !20, i64 0}
+!64 = distinct !{!64, !10}
+!65 = distinct !{!65, !10}
+!66 = distinct !{!66, !10}
+!67 = distinct !{!67, !10}
+!68 = distinct !{!68, !10}
+!69 = distinct !{!69, !10}
+!70 = distinct !{!70, !10}
+!71 = distinct !{!71, !10}
+!72 = distinct !{!72, !10}
+!73 = distinct !{!73, !10}
+!74 = !{!18, !12, i64 4}
+!75 = distinct !{!75, !10}
+!76 = distinct !{!76, !10}
+!77 = distinct !{!77, !10}
+!78 = distinct !{!78, !10}
+!79 = distinct !{!79, !10}
+!80 = distinct !{!80, !10}
+!81 = distinct !{!81, !10}
+!82 = distinct !{!82, !10}
+!83 = !{!24, !24, i64 0}
+!84 = !{!18, !24, i64 140}
+!85 = distinct !{!85, !10}
+!86 = distinct !{!86, !10}
+!87 = distinct !{!87, !10}
+!88 = distinct !{!88, !10}
+!89 = distinct !{!89, !10}
+!90 = distinct !{!90, !10}
+!91 = distinct !{!91, !10}
+!92 = distinct !{!92, !10}
+!93 = distinct !{!93, !10}
+!94 = distinct !{!94, !10}
+!95 = distinct !{!95, !10}
+!96 = distinct !{!96, !10}
+!97 = distinct !{!97, !10}
+!98 = distinct !{!98, !10}
+!99 = distinct !{!99, !10}
+!100 = distinct !{!100, !10}
+!101 = distinct !{!101, !10}
+!102 = distinct !{!102, !10}
+!103 = distinct !{!103, !10}
+!104 = distinct !{!104, !10}
+!105 = distinct !{!105, !10}
+!106 = distinct !{!106, !10}
+!107 = distinct !{!107, !10}
+!108 = distinct !{!108, !10}
+!109 = distinct !{!109, !10}
+!110 = distinct !{!110, !10}
+!111 = distinct !{!111, !10}
+!112 = distinct !{!112, !10}
+!113 = distinct !{!113, !10}
+!114 = distinct !{!114, !10}
+!115 = distinct !{!115, !10}
+!116 = distinct !{!116, !10}
+!117 = distinct !{!117, !10}
+!118 = distinct !{!118, !10}
+!119 = distinct !{!119, !10}
+!120 = distinct !{!120, !10}
+!121 = distinct !{!121, !10}
+!122 = distinct !{!122, !10}
+!123 = distinct !{!123, !10}
+!124 = distinct !{!124, !10}
+!125 = distinct !{!125, !10}
+!126 = distinct !{!126, !10}
+!127 = distinct !{!127, !10}
+!128 = distinct !{!128, !10}
+!129 = distinct !{!129, !10}
+!130 = distinct !{!130, !10}
+!131 = distinct !{!131, !10}
+!132 = distinct !{!132, !10}
+!133 = distinct !{!133, !10}
+!134 = distinct !{!134, !10}
+!135 = distinct !{!135, !10}
+!136 = distinct !{!136, !10}
+!137 = distinct !{!137, !10}
+!138 = distinct !{!138, !10}
+!139 = distinct !{!139, !10}
+!140 = distinct !{!140, !10}
+!141 = distinct !{!141, !10}
+!142 = distinct !{!142, !10}
+!143 = distinct !{!143, !10}
+!144 = distinct !{!144, !10}
+!145 = distinct !{!145, !10}
+!146 = distinct !{!146, !10}
+!147 = distinct !{!147, !10}
+!148 = distinct !{!148, !10}
+!149 = distinct !{!149, !10}
+!150 = distinct !{!150, !10}
+!151 = distinct !{!151, !10}
+!152 = distinct !{!152, !10}
+!153 = distinct !{!153, !10}
+!154 = distinct !{!154, !10}
+!155 = distinct !{!155, !10}
+!156 = distinct !{!156, !10}
+!157 = distinct !{!157, !10}
+!158 = !{!159, !12, i64 16}
+!159 = !{!"FFTXCodelet", !160, i64 0, !6, i64 8, !12, i64 16, !23, i64 24, !7, i64 32, !12, i64 96, !12, i64 100, !12, i64 104, !6, i64 112, !6, i64 120, !12, i64 128, !12, i64 132}
+!160 = !{!"p1 omnipotent char", !6, i64 0}
+!161 = distinct !{!161, !10}
