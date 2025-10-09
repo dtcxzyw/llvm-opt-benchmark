@@ -1083,162 +1083,139 @@ _ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us:  ; preds = %.split.us
   %.not4757.i.i = icmp eq i64 %13, 0
   br i1 %.not4757.i.i, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38
-  %.010.us37 = phi ptr [ %54, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38 ], [ %1, %.split ]
-  %27 = icmp ult ptr %.010.us37, %.sroa.speculated
+.split.split.us:                                  ; preds = %.split, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us36
+  %.010.us35 = phi ptr [ %44, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us36 ], [ %1, %.split ]
+  %27 = icmp ult ptr %.010.us35, %.sroa.speculated
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %.split.split.us
-  %29 = ptrtoint ptr %.010.us37 to i64
+  %29 = ptrtoint ptr %.010.us35 to i64
   %30 = sub i64 %12, %29
   %31 = icmp ult i64 %30, %11
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %28
   %33 = load i8, ptr %14, align 1, !tbaa !48
-  %34 = icmp ult ptr %.010.us37, %16
+  %34 = icmp ult ptr %.010.us35, %16
   br i1 %34, label %.preheader53.us.i.i.us, label %.thread
 
-.preheader53.us.i.i.us:                           ; preds = %32, %.preheader53.us.i.i.us.backedge
-  %.136.us.i.i.us = phi ptr [ %.136.us.i.i.us.be, %.preheader53.us.i.i.us.backedge ], [ %.010.us37, %32 ]
+.preheader53.us.i.i.us:                           ; preds = %32, %37
+  %.136.us.i.i.us = phi ptr [ %38, %37 ], [ %.010.us35, %32 ]
   %35 = load i8, ptr %.136.us.i.i.us, align 1, !tbaa !48
   %36 = icmp eq i8 %35, %33
-  br i1 %36, label %.preheader52.us.i.i.us, label %37
+  br i1 %36, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28.us, label %37
 
 37:                                               ; preds = %.preheader53.us.i.i.us
   %38 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 1
   %39 = icmp eq ptr %38, %16
-  br i1 %39, label %.thread, label %.preheader53.us.i.i.us.backedge
+  br i1 %39, label %.thread, label %.preheader53.us.i.i.us, !llvm.loop !106
 
-.preheader53.us.i.i.us.backedge:                  ; preds = %37, %.preheader.us.i.i.us
-  %.136.us.i.i.us.be = phi ptr [ %38, %37 ], [ %45, %.preheader.us.i.i.us ]
-  br label %.preheader53.us.i.i.us, !llvm.loop !106
+_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us36: ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28.us
+  %40 = getelementptr inbounds nuw i8, ptr %.010.us35, i64 %46
+  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %40, ptr %4, i32 noundef %5)
+  %41 = load ptr, ptr %17, align 8, !tbaa !103
+  %42 = load ptr, ptr %18, align 8, !tbaa !105
+  %43 = icmp eq ptr %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  br i1 %43, label %.split.split.us, label %.thread25
 
-.preheader52.us.i.i.us:                           ; preds = %.preheader53.us.i.i.us, %47
-  %.0.us.i.i.us = phi i64 [ %48, %47 ], [ 0, %.preheader53.us.i.i.us ]
-  %40 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 %.0.us.i.i.us
-  %41 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.us.i.i.us
-  %42 = load i8, ptr %40, align 1, !tbaa !48
-  %43 = load i8, ptr %41, align 1, !tbaa !48
-  %44 = icmp eq i8 %42, %43
-  br i1 %44, label %47, label %.preheader.us.i.i.us
-
-.preheader.us.i.i.us:                             ; preds = %.preheader52.us.i.i.us
-  %45 = getelementptr inbounds nuw i8, ptr %.136.us.i.i.us, i64 1
-  %46 = icmp ult ptr %45, %16
-  br i1 %46, label %.preheader53.us.i.i.us.backedge, label %.thread
-
-47:                                               ; preds = %.preheader52.us.i.i.us
-  %48 = add i64 %.0.us.i.i.us, 1
-  %49 = icmp eq i64 %48, %11
-  br i1 %49, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us, label %.preheader52.us.i.i.us, !llvm.loop !108
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38: ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us
-  %50 = getelementptr inbounds nuw i8, ptr %.010.us37, i64 %56
-  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %50, ptr %4, i32 noundef %5)
-  %51 = load ptr, ptr %17, align 8, !tbaa !103
-  %52 = load ptr, ptr %18, align 8, !tbaa !105
-  %53 = icmp eq ptr %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  br i1 %53, label %.split.split.us, label %.thread25
-
-_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us:  ; preds = %47
-  %55 = ptrtoint ptr %.136.us.i.i.us to i64
-  %56 = sub i64 %55, %29
-  %57 = icmp eq i64 %56, -1
-  br i1 %57, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38
+_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28.us: ; preds = %.preheader53.us.i.i.us
+  %45 = ptrtoint ptr %.136.us.i.i.us to i64
+  %46 = sub i64 %45, %29
+  %47 = icmp eq i64 %46, -1
+  br i1 %47, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us36
 
 .split.split:                                     ; preds = %.split, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20
-  %.010 = phi ptr [ %98, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20 ], [ %1, %.split ]
-  %58 = icmp ult ptr %.010, %.sroa.speculated
-  br i1 %58, label %59, label %.thread
+  %.010 = phi ptr [ %88, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20 ], [ %1, %.split ]
+  %48 = icmp ult ptr %.010, %.sroa.speculated
+  br i1 %48, label %49, label %.thread
 
-59:                                               ; preds = %.split.split
-  %60 = ptrtoint ptr %.010 to i64
-  %61 = sub i64 %12, %60
-  %62 = icmp ult i64 %61, %11
-  br i1 %62, label %.thread, label %63
+49:                                               ; preds = %.split.split
+  %50 = ptrtoint ptr %.010 to i64
+  %51 = sub i64 %12, %50
+  %52 = icmp ult i64 %51, %11
+  br i1 %52, label %.thread, label %53
 
-63:                                               ; preds = %59
-  %64 = load i8, ptr %14, align 1, !tbaa !48
-  %65 = icmp ult ptr %.010, %16
-  br i1 %65, label %.preheader53.i.i, label %.thread
+53:                                               ; preds = %49
+  %54 = load i8, ptr %14, align 1, !tbaa !48
+  %55 = icmp ult ptr %.010, %16
+  br i1 %55, label %.preheader53.i.i, label %.thread
 
-.preheader53.i.i:                                 ; preds = %63, %.loopexit.i.i
-  %.03562.i.i = phi ptr [ %89, %.loopexit.i.i ], [ %.010, %63 ]
-  %.03861.i.i = phi i64 [ %.139.i.i, %.loopexit.i.i ], [ 0, %63 ]
-  br label %66
+.preheader53.i.i:                                 ; preds = %53, %.loopexit.i.i
+  %.03562.i.i = phi ptr [ %79, %.loopexit.i.i ], [ %.010, %53 ]
+  %.03861.i.i = phi i64 [ %.139.i.i, %.loopexit.i.i ], [ 0, %53 ]
+  br label %56
 
-66:                                               ; preds = %70, %.preheader53.i.i
-  %.136.i.i = phi ptr [ %71, %70 ], [ %.03562.i.i, %.preheader53.i.i ]
-  %67 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %13
-  %68 = load i8, ptr %67, align 1, !tbaa !48
-  %69 = icmp eq i8 %68, %64
-  br i1 %69, label %.preheader52.i.i, label %70
+56:                                               ; preds = %60, %.preheader53.i.i
+  %.136.i.i = phi ptr [ %61, %60 ], [ %.03562.i.i, %.preheader53.i.i ]
+  %57 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %13
+  %58 = load i8, ptr %57, align 1, !tbaa !48
+  %59 = icmp eq i8 %58, %54
+  br i1 %59, label %.preheader52.i.i, label %60
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 1
-  %72 = icmp eq ptr %71, %16
-  br i1 %72, label %.thread, label %66, !llvm.loop !106
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 1
+  %62 = icmp eq ptr %61, %16
+  br i1 %62, label %.thread, label %56, !llvm.loop !106
 
-.preheader52.i.i:                                 ; preds = %66, %86
-  %.0.i.i = phi i64 [ %87, %86 ], [ 0, %66 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.0.i.i
-  %74 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.i.i
-  %75 = load i8, ptr %73, align 1, !tbaa !48
-  %76 = load i8, ptr %74, align 1, !tbaa !48
-  %77 = icmp eq i8 %75, %76
-  br i1 %77, label %86, label %78
+.preheader52.i.i:                                 ; preds = %56, %76
+  %.0.i.i = phi i64 [ %77, %76 ], [ 0, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.0.i.i
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %.0.i.i
+  %65 = load i8, ptr %63, align 1, !tbaa !48
+  %66 = load i8, ptr %64, align 1, !tbaa !48
+  %67 = icmp eq i8 %65, %66
+  br i1 %67, label %76, label %68
 
-78:                                               ; preds = %.preheader52.i.i
-  %79 = icmp eq i64 %.03861.i.i, 0
-  br i1 %79, label %.preheader.i.i, label %.loopexit.i.i
+68:                                               ; preds = %.preheader52.i.i
+  %69 = icmp eq i64 %.03861.i.i, 0
+  br i1 %69, label %.preheader.i.i, label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %78, %84
-  %.24058.i.i = phi i64 [ %85, %84 ], [ 1, %78 ]
-  %80 = sub nuw i64 %13, %.24058.i.i
-  %81 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !48
-  %83 = icmp eq i8 %82, %64
-  br i1 %83, label %.loopexit.i.i, label %84
+.preheader.i.i:                                   ; preds = %68, %74
+  %.24058.i.i = phi i64 [ %75, %74 ], [ 1, %68 ]
+  %70 = sub nuw i64 %13, %.24058.i.i
+  %71 = getelementptr inbounds nuw i8, ptr @_ZZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_jE5magic, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !48
+  %73 = icmp eq i8 %72, %54
+  br i1 %73, label %.loopexit.i.i, label %74
 
-84:                                               ; preds = %.preheader.i.i
-  %85 = add i64 %.24058.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %85, %11
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !109
+74:                                               ; preds = %.preheader.i.i
+  %75 = add i64 %.24058.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %75, %11
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !108
 
-86:                                               ; preds = %.preheader52.i.i
-  %87 = add i64 %.0.i.i, 1
-  %88 = icmp eq i64 %87, %11
-  br i1 %88, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28, label %.preheader52.i.i, !llvm.loop !108
+76:                                               ; preds = %.preheader52.i.i
+  %77 = add i64 %.0.i.i, 1
+  %78 = icmp eq i64 %77, %11
+  br i1 %78, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit, label %.preheader52.i.i, !llvm.loop !109
 
-.loopexit.i.i:                                    ; preds = %84, %.preheader.i.i, %78
-  %.139.i.i = phi i64 [ %.03861.i.i, %78 ], [ %.24058.i.i, %.preheader.i.i ], [ %11, %84 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.139.i.i
-  %90 = icmp ult ptr %89, %16
-  br i1 %90, label %.preheader53.i.i, label %.thread
+.loopexit.i.i:                                    ; preds = %74, %.preheader.i.i, %68
+  %.139.i.i = phi i64 [ %.03861.i.i, %68 ], [ %.24058.i.i, %.preheader.i.i ], [ %11, %74 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 %.139.i.i
+  %80 = icmp ult ptr %79, %16
+  br i1 %80, label %.preheader53.i.i, label %.thread
 
-_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28:   ; preds = %86
-  %91 = ptrtoint ptr %.136.i.i to i64
-  %92 = sub i64 %91, %60
-  %93 = icmp eq i64 %92, -1
-  br i1 %93, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20
+_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit:     ; preds = %76
+  %81 = ptrtoint ptr %.136.i.i to i64
+  %82 = sub i64 %81, %50
+  %83 = icmp eq i64 %82, -1
+  br i1 %83, label %.thread, label %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20
 
-_ZNK5folly5RangeIPKhE4findES3_.exit.thread20:     ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28
-  %94 = getelementptr inbounds nuw i8, ptr %.010, i64 %92
-  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %94, ptr %4, i32 noundef %5)
-  %95 = load ptr, ptr %17, align 8, !tbaa !103
-  %96 = load ptr, ptr %18, align 8, !tbaa !105
-  %97 = icmp eq ptr %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  br i1 %97, label %.split.split, label %.thread25
+_ZNK5folly5RangeIPKhE4findES3_.exit.thread20:     ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit
+  %84 = getelementptr inbounds nuw i8, ptr %.010, i64 %82
+  tail call void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %0, ptr %84, ptr %4, i32 noundef %5)
+  %85 = load ptr, ptr %17, align 8, !tbaa !103
+  %86 = load ptr, ptr %18, align 8, !tbaa !105
+  %87 = icmp eq ptr %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  br i1 %87, label %.split.split, label %.thread25
 
-.thread:                                          ; preds = %63, %59, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28, %.split.split, %.loopexit.i.i, %70, %.split.split.us, %28, %32, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us, %.preheader.us.i.i.us, %37, %.split.us
+.thread:                                          ; preds = %53, %49, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit, %.split.split, %.loopexit.i.i, %60, %.split.split.us, %28, %32, %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28.us, %37, %.split.us
   store i32 0, ptr %0, align 8, !tbaa !110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %.thread25
 
-.thread25:                                        ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us38, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us, %.thread
+.thread25:                                        ; preds = %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us36, %_ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us, %.thread
   ret void
 }
 

@@ -45843,7 +45843,6 @@ define hidden void @"_ZN11polars_core13chunked_array3ops6gather100_$LT$impl$u20$
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %35
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -45911,7 +45910,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc32efa497b03d6faE.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hc32efa497b03d6faE.exit.i.i.i
   %52 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !5924
-  %exitcond.not.i.i.i = icmp eq i64 %52, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %52, %23
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %35
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5961c9af332aee0E.exit27.i.i.i", %.preheader35.i.i.i
@@ -165523,7 +165522,6 @@ define hidden void @"_ZN88_$LT$polars_arrow..bitmap..immutable..Bitmap$u20$as$u2
 
 .lr.ph.i.i:                                       ; preds = %.noexc1.i
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %35
 
 .preheader28.i.i:                                 ; preds = %.noexc3.i, %.noexc1.i
@@ -165573,7 +165571,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0197da79017fefe4E.exit.i
 .noexc3.i:                                        ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0197da79017fefe4E.exit.i.i
   %46 = add nuw nsw i64 %.sroa.019.029.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25016
-  %exitcond.not.i.i = icmp eq i64 %46, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %46, %23
   br i1 %exitcond.not.i.i, label %.preheader28.i.i, label %35
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5961c9af332aee0E.exit27.i.i", %.preheader28.i.i
@@ -173558,7 +173556,6 @@ define hidden void @_ZN10polars_ops13chunked_array4list7any_all12list_all_any17h
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %106, i64 1)
   br label %118
 
 .preheader28.i.i.i:                               ; preds = %.noexc3.i.i, %.noexc1.i.i
@@ -173608,7 +173605,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7a34b8292cf8e3e8E.exit.i
 .noexc3.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7a34b8292cf8e3e8E.exit.i.i.i
   %129 = add nuw nsw i64 %.sroa.019.029.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !25869
-  %exitcond.not.i.i.i = icmp eq i64 %129, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %129, %106
   br i1 %exitcond.not.i.i.i, label %.preheader28.i.i.i, label %118
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5961c9af332aee0E.exit27.i.i.i", %.preheader28.i.i.i
@@ -174249,7 +174246,6 @@ define hidden void @_ZN10polars_ops13chunked_array4list7any_all12list_all_any17h
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %106, i64 1)
   br label %118
 
 .preheader28.i.i.i:                               ; preds = %.noexc3.i.i, %.noexc1.i.i
@@ -174299,7 +174295,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h81c36dc068aa94e3E.exit.i
 .noexc3.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h81c36dc068aa94e3E.exit.i.i.i
   %129 = add nuw nsw i64 %.sroa.019.029.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !25983
-  %exitcond.not.i.i.i = icmp eq i64 %129, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %129, %106
   br i1 %exitcond.not.i.i.i, label %.preheader28.i.i.i, label %118
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5961c9af332aee0E.exit27.i.i.i", %.preheader28.i.i.i

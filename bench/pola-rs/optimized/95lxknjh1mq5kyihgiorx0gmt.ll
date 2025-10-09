@@ -3795,7 +3795,6 @@ define hidden void @"_ZN123_$LT$polars_arrow..bitmap..immutable..Bitmap$u20$as$u
 
 .lr.ph.i.i:                                       ; preds = %.noexc1.i
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %32
 
 .preheader35.i.i:                                 ; preds = %.noexc2.i, %.noexc1.i
@@ -3863,7 +3862,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf878bfde9046c2dcE.exit.i
 .noexc2.i:                                        ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf878bfde9046c2dcE.exit.i.i
   %49 = add nuw nsw i64 %.sroa.019.037.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !279
-  %exitcond.not.i.i = icmp eq i64 %49, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %49, %20
   br i1 %exitcond.not.i.i, label %.preheader35.i.i, label %32
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbadfba07b1fcb932E.exit27.i.i", %.preheader35.i.i
@@ -21260,7 +21259,6 @@ define hidden void @"_ZN88_$LT$polars_arrow..bitmap..immutable..Bitmap$u20$as$u2
 
 .lr.ph.i.i:                                       ; preds = %.noexc1.i
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %35
 
 .preheader28.i.i:                                 ; preds = %.noexc3.i, %.noexc1.i
@@ -21310,7 +21308,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hceb65986ed6059c5E.exit.i
 .noexc3.i:                                        ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hceb65986ed6059c5E.exit.i.i
   %46 = add nuw nsw i64 %.sroa.019.029.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1612
-  %exitcond.not.i.i = icmp eq i64 %46, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %46, %23
   br i1 %exitcond.not.i.i, label %.preheader28.i.i, label %35
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbadfba07b1fcb932E.exit27.i.i", %.preheader28.i.i
@@ -60321,10 +60319,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #27

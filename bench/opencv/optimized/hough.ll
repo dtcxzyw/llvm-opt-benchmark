@@ -15092,8 +15092,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_L15HoughCir
 .preheader408.preheader.i.i.i:                    ; preds = %30
   %46 = add i32 %indvars.iv.i.i, %42
   %smin.i.i = tail call i32 @llvm.smin.i32(i32 %46, i32 10)
-  %47 = tail call i32 @llvm.umax.i32(i32 %smin.i.i, i32 1)
-  %umax.i.i = zext i32 %47 to i64
+  %47 = zext i32 %smin.i.i to i64
   br label %.preheader408.i.i.i
 
 .preheader410.i.i.i:                              ; preds = %51
@@ -15121,7 +15120,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_L15HoughCir
   %53 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv495.i.i.i
   store i32 -2, ptr %53, align 4, !tbaa !49
   %indvars.iv.next496.i.i.i = add nuw nsw i64 %indvars.iv495.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next496.i.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next496.i.i.i, %47
   br i1 %exitcond.not.i.i, label %.preheader410.i.i.i, label %.preheader408.i.i.i, !llvm.loop !390
 
 54:                                               ; preds = %54, %.preheader408.i.i.i
@@ -15441,8 +15440,8 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit346.i.i.i:          ; preds = %176, %.lr.ph.i.i.i
 
 229:                                              ; preds = %227, %119, %96, %80
   %indvars.iv.next507.i.i.i = add nuw nsw i64 %indvars.iv506.i.i.i, 1
-  %exitcond20.not.i.i = icmp eq i64 %indvars.iv.next507.i.i.i, %umax.i.i
-  br i1 %exitcond20.not.i.i, label %._crit_edge444.i.i.i, label %64, !llvm.loop !398
+  %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next507.i.i.i, %47
+  br i1 %exitcond19.not.i.i, label %._crit_edge444.i.i.i, label %64, !llvm.loop !398
 
 .lr.ph470.i.i.i:                                  ; preds = %.lr.ph470.i.i.i.preheader, %296
   %indvars.iv526.i.i.i = phi i64 [ %indvars.iv.next527.i.i.i, %296 ], [ 0, %.lr.ph470.i.i.i.preheader ]
@@ -15566,8 +15565,8 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit346.i.i.i:          ; preds = %176, %.lr.ph.i.i.i
 
 296:                                              ; preds = %370
   %indvars.iv.next527.i.i.i = add nuw nsw i64 %indvars.iv526.i.i.i, 1
-  %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next527.i.i.i, %umax.i.i
-  br i1 %exitcond23.not.i.i, label %._crit_edge471.i.i.i, label %.lr.ph470.i.i.i, !llvm.loop !402
+  %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next527.i.i.i, %47
+  br i1 %exitcond21.not.i.i, label %._crit_edge471.i.i.i, label %.lr.ph470.i.i.i, !llvm.loop !402
 
 .preheader401.i.i.i:                              ; preds = %.loopexit400.i.i.i, %370
   %indvars.iv521.i.i.i = phi i64 [ %indvars.iv.next522.i.i.i, %370 ], [ 0, %.loopexit400.i.i.i ]

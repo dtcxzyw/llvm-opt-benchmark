@@ -4339,7 +4339,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 1120:                                             ; preds = %1123, %1112
   %.2120.i.i = phi float [ %1118, %1123 ], [ %.1119415.i.i, %1112 ]
-  %1121 = add nuw nsw i64 %.0121414.i.i, 1
+  %1121 = add i64 %.0121414.i.i, 1
   %1122 = icmp eq ptr %1044, %1040
   br i1 %1122, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i"
 
@@ -7586,7 +7586,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 2222:                                             ; preds = %2225, %2214
   %.2120.i.i179 = phi float [ %2220, %2225 ], [ %.1119415.i.i176, %2214 ]
-  %2223 = add nuw nsw i64 %.0121414.i.i177, 1
+  %2223 = add i64 %.0121414.i.i177, 1
   %2224 = icmp eq ptr %2146, %2142
   br i1 %2224, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i180", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i175"
 
@@ -10847,7 +10847,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 3327:                                             ; preds = %3330, %3319
   %.2120.i.i598 = phi float [ %3325, %3330 ], [ %.1119415.i.i595, %3319 ]
-  %3328 = add nuw nsw i64 %.0121414.i.i596, 1
+  %3328 = add i64 %.0121414.i.i596, 1
   %3329 = icmp eq ptr %3251, %3247
   br i1 %3329, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i599", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i594"
 

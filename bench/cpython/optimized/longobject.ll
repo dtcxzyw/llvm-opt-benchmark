@@ -16119,9 +16119,8 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph248:                                        ; preds = %.preheader
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
-  %101 = shl nuw nsw i64 %umax, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %100, i8 0, i64 %101, i1 false), !tbaa !33
+  %101 = shl nuw nsw i64 %94, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %100, i8 0, i64 %101, i1 false), !tbaa !33
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %.lr.ph248, %.preheader

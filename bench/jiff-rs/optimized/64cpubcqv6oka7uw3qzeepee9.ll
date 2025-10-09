@@ -5211,12 +5211,12 @@ define internal fastcc void @"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared.
 
 49:                                               ; preds = %.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %51 = add i64 %.sroa.02.011.i, 1
+  %51 = add nuw nsw i64 %.sroa.02.011.i, 1
   %52 = icmp eq ptr %50, %45
   br i1 %52, label %.loopexit, label %.lr.ph.i
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = icmp ult i64 %.sroa.02.011.i, %.sroa.0.0.sroa.speculated.i
+  %54 = icmp samesign ult i64 %.sroa.02.011.i, %.sroa.0.0.sroa.speculated.i
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.02.011.i
   %56 = icmp eq i64 %.sroa.02.011.i, 0

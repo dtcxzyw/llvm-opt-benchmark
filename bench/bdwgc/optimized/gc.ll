@@ -6758,15 +6758,12 @@ GC_find_header.exit:                              ; preds = %127
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %142 = load i64, ptr %141, align 8, !tbaa !58
   %143 = add i64 %142, -32
-  %.not66 = icmp ult i64 %143, 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %140
   %144 = lshr i64 %143, 3
-  br label %.lr.ph
+  %.not66 = icmp ult i64 %143, 8
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03565 = phi i64 [ %146, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %140, %.lr.ph
+  %.03565 = phi i64 [ %146, %.lr.ph ], [ 0, %140 ]
   %145 = getelementptr inbounds nuw i64, ptr %0, i64 %.03565
   store i64 -1171307680339476753, ptr %145, align 8, !tbaa !10
   %146 = add nuw nsw i64 %.03565, 1
@@ -37820,15 +37817,12 @@ GC_find_header.exit.i.i36:                        ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load i64, ptr %174, align 8, !tbaa !58
   %176 = add i64 %175, -32
-  %.not17.i.i = icmp ult i64 %176, 8
-  br i1 %.not17.i.i, label %GC_add_leaked.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %GC_find_header.exit.i.i36
   %177 = lshr i64 %176, 3
-  br label %.lr.ph.i.i
+  %.not17.i.i = icmp ult i64 %176, 8
+  br i1 %.not17.i.i, label %GC_add_leaked.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %204, %.lr.ph.preheader.i.i
-  %.01116.i.i = phi i64 [ %205, %204 ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %GC_find_header.exit.i.i36, %204
+  %.01116.i.i = phi i64 [ %205, %204 ], [ 0, %GC_find_header.exit.i.i36 ]
   %178 = getelementptr inbounds nuw ptr, ptr %119, i64 %.01116.i.i
   %179 = load ptr, ptr %178, align 8, !tbaa !42
   %.not.i.i37 = icmp eq ptr %179, inttoptr (i64 -1171307680339476753 to ptr)
@@ -38411,15 +38405,12 @@ GC_find_header.exit.i:                            ; preds = %47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !58
   %60 = add i64 %59, -32
-  %.not17.i = icmp ult i64 %60, 8
-  br i1 %.not17.i, label %GC_set_mark_bit.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %GC_find_header.exit.i
   %61 = lshr i64 %60, 3
-  br label %.lr.ph.i
+  %.not17.i = icmp ult i64 %60, 8
+  br i1 %.not17.i, label %GC_set_mark_bit.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %88, %.lr.ph.preheader.i
-  %.01116.i = phi i64 [ %89, %88 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %GC_find_header.exit.i, %88
+  %.01116.i = phi i64 [ %89, %88 ], [ 0, %GC_find_header.exit.i ]
   %62 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01116.i
   %63 = load ptr, ptr %62, align 8, !tbaa !42
   %.not.i = icmp eq ptr %63, inttoptr (i64 -1171307680339476753 to ptr)

@@ -4987,8 +4987,8 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us: ; preds
   br i1 %47, label %.thread64, label %48
 
 48:                                               ; preds = %46
-  %exitcond89.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond89.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us
+  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %136, %48
   %49 = icmp ugt i64 %17, 10
@@ -5113,8 +5113,8 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit60.thread.us: ; pre
   br i1 %102, label %.thread64, label %103
 
 103:                                              ; preds = %101
-  %exitcond91.not = icmp eq i64 %94, %17
-  br i1 %exitcond91.not, label %.thread64, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit60.thread.us
+  %exitcond90.not = icmp eq i64 %94, %17
+  br i1 %exitcond90.not, label %.thread64, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit60.thread.us
 
 .lr.ph71.split:                                   ; preds = %.lr.ph71, %125
   %.sroa.020.069 = phi i64 [ %104, %125 ], [ %.0.sroa.speculated.i56, %.lr.ph71 ]
@@ -5189,8 +5189,8 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit60.thread: ; preds 
   br i1 %124, label %.thread64, label %125
 
 125:                                              ; preds = %123, %116
-  %exitcond90.not = icmp eq i64 %104, %17
-  br i1 %exitcond90.not, label %.thread64, label %.lr.ph71.split
+  %exitcond89.not = icmp eq i64 %104, %17
+  br i1 %exitcond89.not, label %.thread64, label %.lr.ph71.split
 
 _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -5629,8 +5629,8 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us: ; preds
   br i1 %44, label %.thread63, label %45
 
 45:                                               ; preds = %43
-  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us
+  %exitcond87.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond87.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
   %46 = icmp ugt i64 %17, 10
@@ -5750,8 +5750,8 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit60.thread.us: ; pre
   br i1 %96, label %.thread63, label %97
 
 97:                                               ; preds = %95
-  %exitcond90.not = icmp eq i64 %91, %17
-  br i1 %exitcond90.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit60.thread.us
+  %exitcond89.not = icmp eq i64 %91, %17
+  br i1 %exitcond89.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit60.thread.us
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %116
   %.sroa.020.068 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i56, %.lr.ph70 ]
@@ -5821,8 +5821,8 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit60.thread: ; preds 
   br i1 %115, label %.thread63, label %116
 
 116:                                              ; preds = %114, %110
-  %exitcond89.not = icmp eq i64 %98, %17
-  br i1 %exitcond89.not, label %.thread63, label %.lr.ph70.split
+  %exitcond88.not = icmp eq i64 %98, %17
+  br i1 %exitcond88.not, label %.thread63, label %.lr.ph70.split
 
 _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -6576,8 +6576,8 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us: ; preds
   br i1 %47, label %.thread64, label %48
 
 48:                                               ; preds = %46
-  %exitcond89.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond89.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us
+  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %136, %48
   %49 = icmp ugt i64 %17, 10
@@ -6702,8 +6702,8 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit60.thread.us: ; pre
   br i1 %102, label %.thread64, label %103
 
 103:                                              ; preds = %101
-  %exitcond91.not = icmp eq i64 %94, %17
-  br i1 %exitcond91.not, label %.thread64, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit60.thread.us
+  %exitcond90.not = icmp eq i64 %94, %17
+  br i1 %exitcond90.not, label %.thread64, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit60.thread.us
 
 .lr.ph71.split:                                   ; preds = %.lr.ph71, %125
   %.sroa.020.069 = phi i64 [ %104, %125 ], [ %.0.sroa.speculated.i56, %.lr.ph71 ]
@@ -6778,8 +6778,8 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit60.thread: ; preds 
   br i1 %124, label %.thread64, label %125
 
 125:                                              ; preds = %123, %116
-  %exitcond90.not = icmp eq i64 %104, %17
-  br i1 %exitcond90.not, label %.thread64, label %.lr.ph71.split
+  %exitcond89.not = icmp eq i64 %104, %17
+  br i1 %exitcond89.not, label %.thread64, label %.lr.ph71.split
 
 _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -8163,8 +8163,8 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us: ; preds
   br i1 %44, label %.thread63, label %45
 
 45:                                               ; preds = %43
-  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us
+  %exitcond87.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond87.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
   %46 = icmp ugt i64 %17, 10
@@ -8284,8 +8284,8 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit60.thread.us: ; pre
   br i1 %96, label %.thread63, label %97
 
 97:                                               ; preds = %95
-  %exitcond90.not = icmp eq i64 %91, %17
-  br i1 %exitcond90.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit60.thread.us
+  %exitcond89.not = icmp eq i64 %91, %17
+  br i1 %exitcond89.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit60.thread.us
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %116
   %.sroa.020.068 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i56, %.lr.ph70 ]
@@ -8355,8 +8355,8 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit60.thread: ; preds 
   br i1 %115, label %.thread63, label %116
 
 116:                                              ; preds = %114, %110
-  %exitcond89.not = icmp eq i64 %98, %17
-  br i1 %exitcond89.not, label %.thread63, label %.lr.ph70.split
+  %exitcond88.not = icmp eq i64 %98, %17
+  br i1 %exitcond88.not, label %.thread63, label %.lr.ph70.split
 
 _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -10050,8 +10050,8 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us: ; preds
   br i1 %44, label %.thread63, label %45
 
 45:                                               ; preds = %43
-  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us
+  %exitcond87.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond87.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
   %46 = icmp ugt i64 %17, 10
@@ -10171,8 +10171,8 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit60.thread.us: ; pre
   br i1 %96, label %.thread63, label %97
 
 97:                                               ; preds = %95
-  %exitcond90.not = icmp eq i64 %91, %17
-  br i1 %exitcond90.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit60.thread.us
+  %exitcond89.not = icmp eq i64 %91, %17
+  br i1 %exitcond89.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit60.thread.us
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %116
   %.sroa.020.068 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i56, %.lr.ph70 ]
@@ -10242,8 +10242,8 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit60.thread: ; preds 
   br i1 %115, label %.thread63, label %116
 
 116:                                              ; preds = %114, %110
-  %exitcond89.not = icmp eq i64 %98, %17
-  br i1 %exitcond89.not, label %.thread63, label %.lr.ph70.split
+  %exitcond88.not = icmp eq i64 %98, %17
+  br i1 %exitcond88.not, label %.thread63, label %.lr.ph70.split
 
 _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -12881,8 +12881,8 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us: ; preds
   br i1 %44, label %.thread63, label %45
 
 45:                                               ; preds = %43
-  %exitcond88.not = icmp eq i64 %39, %.0.sroa.speculated.i
-  br i1 %exitcond88.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us
+  %exitcond87.not = icmp eq i64 %39, %.0.sroa.speculated.i
+  br i1 %exitcond87.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
   %46 = icmp ugt i64 %17, 10
@@ -13002,8 +13002,8 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit60.thread.us: ; pre
   br i1 %96, label %.thread63, label %97
 
 97:                                               ; preds = %95
-  %exitcond90.not = icmp eq i64 %91, %17
-  br i1 %exitcond90.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit60.thread.us
+  %exitcond89.not = icmp eq i64 %91, %17
+  br i1 %exitcond89.not, label %.thread63, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit60.thread.us
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %116
   %.sroa.020.068 = phi i64 [ %98, %116 ], [ %.0.sroa.speculated.i56, %.lr.ph70 ]
@@ -13073,8 +13073,8 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit60.thread: ; preds 
   br i1 %115, label %.thread63, label %116
 
 116:                                              ; preds = %114, %110
-  %exitcond89.not = icmp eq i64 %98, %17
-  br i1 %exitcond89.not, label %.thread63, label %.lr.ph70.split
+  %exitcond88.not = icmp eq i64 %98, %17
+  br i1 %exitcond88.not, label %.thread63, label %.lr.ph70.split
 
 _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread: ; preds = %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

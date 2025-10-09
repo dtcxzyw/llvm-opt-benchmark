@@ -1154,16 +1154,11 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
   %487 = load ptr, ptr %24, align 8
   %488 = call noalias dereferenceable_or_null(8192) ptr @wmem_alloc(ptr noundef %487, i64 noundef 8192) #7
   %.not534.i = icmp ult i8 %481, 4
-  br i1 %.not534.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  br i1 %.not534.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer
 
-.lr.ph.preheader.i:                               ; preds = %468
-  %umax.i = call i32 @llvm.umax.i32(i32 %486, i32 1)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
-  br label %.lr.ph.i.outer
-
-.lr.ph.i.outer:                                   ; preds = %.thread.i, %.lr.ph.preheader.i
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next589.i, %.thread.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0451527.i.ph = phi i1 [ false, %.thread.i ], [ true, %.lr.ph.preheader.i ]
+.lr.ph.i.outer:                                   ; preds = %468, %.thread.i
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next589.i, %.thread.i ], [ 0, %468 ]
+  %.0451527.i.ph = phi i1 [ false, %.thread.i ], [ true, %468 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %521
@@ -1218,13 +1213,13 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
 521:                                              ; preds = %508
   %522 = add i32 %509, %.0448528.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %485
   br i1 %exitcond.not.i, label %523, label %.lr.ph.i, !llvm.loop !10
 
 .thread.i:                                        ; preds = %519, %517
   call void @ptvcursor_advance(ptr noundef %26, i32 noundef %516)
   %indvars.iv.next589.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not590.i = icmp eq i64 %indvars.iv.next589.i, %wide.trip.count.i
+  %exitcond.not590.i = icmp eq i64 %indvars.iv.next589.i, %485
   br i1 %exitcond.not590.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer, !llvm.loop !10
 
 523:                                              ; preds = %521
@@ -1871,9 +1866,6 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
