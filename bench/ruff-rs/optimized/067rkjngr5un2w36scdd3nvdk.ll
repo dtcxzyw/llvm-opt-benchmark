@@ -3707,9 +3707,9 @@ define hidden void @_ZN14ruff_workspace9pyproject18find_settings_toml17hffa115b5
 28:                                               ; preds = %37, %29
   %.pn7.i = phi { ptr, i32 } [ %30, %29 ], [ %.pn.i, %37 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
-          to label %27 unwind label %83, !noalias !397
+          to label %27 unwind label %82, !noalias !397
 
-29:                                               ; preds = %81, %80, %32, %22
+29:                                               ; preds = %80, %79, %32, %22
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -3737,9 +3737,9 @@ _ZN3std4path4Path4join17h4eba608d297ab0e8E.exit.i: ; preds = %32
 37:                                               ; preds = %.body.i, %38
   %.pn.i = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #29
-          to label %28 unwind label %83, !noalias !397
+          to label %28 unwind label %82, !noalias !397
 
-38:                                               ; preds = %75, %49, %41, %_ZN3std4path4Path4join17h4eba608d297ab0e8E.exit.i
+38:                                               ; preds = %74, %49, %41, %_ZN3std4path4Path4join17h4eba608d297ab0e8E.exit.i
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %37
@@ -3756,7 +3756,7 @@ _ZN3std4path4Path4join17h4eba608d297ab0e8E.exit.i: ; preds = %32
   %.sroa.027.0.copyload28 = load i64, ptr %12, align 8, !noalias !398
   %.sroa.9.0.copyload31 = load ptr, ptr %16, align 8, !noalias !398
   %.sroa.12.0.copyload35 = load i64, ptr %17, align 8, !noalias !398
-  br label %82
+  br label %81
 
 _ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i: ; preds = %41
   %43 = load ptr, ptr %18, align 8, !noalias !393, !nonnull !9, !noundef !9
@@ -3764,22 +3764,22 @@ _ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i: ; preds = %41
   %45 = invoke noundef zeroext i1 @_ZN3std4path4Path7is_file17h185549a38a3f77feE(ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %44)
           to label %48 unwind label %46, !noalias !397
 
-46:                                               ; preds = %72, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.i.i, %.noexc.i, %50, %_ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i
+46:                                               ; preds = %71, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.i.i, %.noexc.i, %50, %_ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %69, %65, %55, %46
-  %eh.lpad-body.i = phi { ptr, i32 } [ %47, %46 ], [ %56, %55 ], [ %66, %65 ], [ %66, %69 ]
+.body.i:                                          ; preds = %68, %64, %55, %46
+  %eh.lpad-body.i = phi { ptr, i32 } [ %47, %46 ], [ %56, %55 ], [ %65, %64 ], [ %65, %68 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
-          to label %37 unwind label %83, !noalias !397
+          to label %37 unwind label %82, !noalias !397
 
 48:                                               ; preds = %_ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i
   br i1 %45, label %50, label %49
 
-49:                                               ; preds = %78, %48
+49:                                               ; preds = %77, %48
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %80 unwind label %38, !noalias !397
+          to label %79 unwind label %38, !noalias !397
 
 50:                                               ; preds = %48
   %.val12.i = load ptr, ptr %18, align 8, !alias.scope !399, !noalias !402, !nonnull !9, !noundef !9
@@ -3806,7 +3806,7 @@ _ZN3std4path4Path4join17h4eba608d297ab0e8E.exit14.i: ; preds = %41
 _ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.thread.i.i: ; preds = %.noexc15.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !407
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !407
-  br label %75
+  br label %74
 
 54:                                               ; preds = %.noexc15.i
   %.sroa.610.0.copyload.i.i.i = load i64, ptr %.sroa.610.0..sroa_idx.i.i.i, align 8, !noalias !407
@@ -3844,7 +3844,7 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !407
   %59 = icmp eq i64 %.pr.i.i, 4
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !404
-  br i1 %59, label %75, label %60
+  br i1 %59, label %74, label %60
 
 60:                                               ; preds = %.noexc16.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4728) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(4728) %.sroa.613.0..sroa_idx.i.i, i64 4728, i1 false), !noalias !404
@@ -3858,133 +3858,132 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.i.i
 61:                                               ; preds = %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4712) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(4712) %.sroa.4.0..sroa_idx.i.i, i64 4712, i1 false), !noalias !404
   store i64 %.pr.i.i, ptr %8, align 8, !noalias !404
-  %62 = icmp ne i64 %.pr.i.i, 2
-  %63 = icmp eq i64 %.pr.i.i, 2
-  br i1 %63, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i", label %64
+  %62 = icmp eq i64 %.pr.i.i, 2
+  br i1 %62, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i", label %63
 
-64:                                               ; preds = %61
+63:                                               ; preds = %61
   invoke void @"_ZN4core3ptr53drop_in_place$LT$ruff_workspace..options..Options$GT$17hbca7241af9d301e5E"(ptr noalias noundef nonnull align 8 dereferenceable(4720) %8)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i" unwind label %65, !noalias !413
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i" unwind label %64, !noalias !413
 
-65:                                               ; preds = %64
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %63
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %67 = load i64, ptr %21, align 8, !range !414, !alias.scope !415, !noalias !404, !noundef !9
-  %68 = icmp eq i64 %67, -9223372036854775807
-  br i1 %68, label %.body.i, label %69
+  %66 = load i64, ptr %21, align 8, !range !414, !alias.scope !415, !noalias !404, !noundef !9
+  %67 = icmp eq i64 %66, -9223372036854775807
+  br i1 %67, label %.body.i, label %68
 
-69:                                               ; preds = %65
+68:                                               ; preds = %64
   invoke void @"_ZN4core3ptr55drop_in_place$LT$ruff_workspace..pyproject..Project$GT$17h7d9b48e371acff2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-          to label %.body.i unwind label %73, !noalias !413
+          to label %.body.i unwind label %72, !noalias !413
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i": ; preds = %64, %61, %60
-  %.sroa.7.0.shrunk.i = phi i1 [ %62, %61 ], [ true, %64 ], [ false, %60 ]
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i": ; preds = %63, %61, %60
+  %.sroa.7.0.shrunk.i = phi i1 [ false, %61 ], [ true, %63 ], [ false, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !404
-  %70 = load i64, ptr %21, align 8, !range !414, !alias.scope !418, !noalias !404, !noundef !9
-  %71 = icmp eq i64 %70, -9223372036854775807
-  br i1 %71, label %78, label %72
+  %69 = load i64, ptr %21, align 8, !range !414, !alias.scope !418, !noalias !404, !noundef !9
+  %70 = icmp eq i64 %69, -9223372036854775807
+  br i1 %70, label %77, label %71
 
-72:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i"
+71:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i"
   invoke void @"_ZN4core3ptr55drop_in_place$LT$ruff_workspace..pyproject..Project$GT$17h7d9b48e371acff2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-          to label %78 unwind label %46, !noalias !397
+          to label %77 unwind label %46, !noalias !397
 
-73:                                               ; preds = %69
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %68
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30, !noalias !413
   unreachable
 
-75:                                               ; preds = %.noexc16.i, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.thread.i.i
-  %76 = phi ptr [ %53, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.thread.i.i ], [ %.pre.i.i, %.noexc16.i ]
+74:                                               ; preds = %.noexc16.i, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.thread.i.i
+  %75 = phi ptr [ %53, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17ha3a89a73d839762bE.exit.thread.i.i ], [ %.pre.i.i, %.noexc16.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !404
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !404
-  %77 = icmp ne ptr %76, null
-  call void @llvm.assume(i1 %77)
+  %76 = icmp ne ptr %75, null
+  call void @llvm.assume(i1 %76)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %81 unwind label %38, !noalias !397
+          to label %80 unwind label %38, !noalias !397
 
-78:                                               ; preds = %72, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i"
+77:                                               ; preds = %71, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Options$GT$$GT$17hb122cf92e3da25e4E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !404
-  br i1 %.sroa.7.0.shrunk.i, label %79, label %49
+  br i1 %.sroa.7.0.shrunk.i, label %78, label %49
 
-79:                                               ; preds = %78
+78:                                               ; preds = %77
   %.sroa.027.0.copyload = load i64, ptr %11, align 8, !noalias !398
   %.sroa.9.0.copyload = load ptr, ptr %18, align 8, !noalias !398
   %.sroa.12.0.copyload = load i64, ptr %19, align 8, !noalias !398
-  br label %81
+  br label %80
 
-80:                                               ; preds = %49
+79:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !393
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
           to label %.thread unwind label %29, !noalias !397
 
-.thread:                                          ; preds = %80
+.thread:                                          ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !393
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13), !noalias !397
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !393
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit"
 
-81:                                               ; preds = %79, %75
-  %.sroa.027.0 = phi i64 [ -9223372036854775807, %75 ], [ %.sroa.027.0.copyload, %79 ]
-  %.sroa.9.1 = phi ptr [ %76, %75 ], [ %.sroa.9.0.copyload, %79 ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.054, %75 ], [ %.sroa.12.0.copyload, %79 ]
+80:                                               ; preds = %78, %74
+  %.sroa.027.0 = phi i64 [ -9223372036854775807, %74 ], [ %.sroa.027.0.copyload, %78 ]
+  %.sroa.9.1 = phi ptr [ %75, %74 ], [ %.sroa.9.0.copyload, %78 ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.054, %74 ], [ %.sroa.12.0.copyload, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !393
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
-          to label %82 unwind label %29, !noalias !397
+          to label %81 unwind label %29, !noalias !397
 
-82:                                               ; preds = %81, %42
-  %.sroa.027.1 = phi i64 [ %.sroa.027.0.copyload28, %42 ], [ %.sroa.027.0, %81 ]
-  %.sroa.9.2 = phi ptr [ %.sroa.9.0.copyload31, %42 ], [ %.sroa.9.1, %81 ]
-  %.sroa.12.2 = phi i64 [ %.sroa.12.0.copyload35, %42 ], [ %.sroa.12.1, %81 ]
+81:                                               ; preds = %80, %42
+  %.sroa.027.1 = phi i64 [ %.sroa.027.0.copyload28, %42 ], [ %.sroa.027.0, %80 ]
+  %.sroa.9.2 = phi ptr [ %.sroa.9.0.copyload31, %42 ], [ %.sroa.9.1, %80 ]
+  %.sroa.12.2 = phi i64 [ %.sroa.12.0.copyload35, %42 ], [ %.sroa.12.1, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !393
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17he586479149209466E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13), !noalias !397
   br label %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit
 
-83:                                               ; preds = %.body.i, %37, %28
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %.body.i, %37, %28
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30, !noalias !397
   unreachable
 
-_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit: ; preds = %33, %82
-  %.sroa.027.2 = phi i64 [ %.sroa.027.0.copyload29, %33 ], [ %.sroa.027.1, %82 ]
-  %.sroa.9.3 = phi ptr [ %.sroa.9.0.copyload33, %33 ], [ %.sroa.9.2, %82 ]
-  %.sroa.12.3 = phi i64 [ %.sroa.12.0.copyload37, %33 ], [ %.sroa.12.2, %82 ]
+_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit: ; preds = %33, %81
+  %.sroa.027.2 = phi i64 [ %.sroa.027.0.copyload29, %33 ], [ %.sroa.027.1, %81 ]
+  %.sroa.9.3 = phi ptr [ %.sroa.9.0.copyload33, %33 ], [ %.sroa.9.2, %81 ]
+  %.sroa.12.3 = phi i64 [ %.sroa.12.0.copyload37, %33 ], [ %.sroa.12.2, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !393
-  switch i64 %.sroa.027.2, label %90 [
-    i64 -9223372036854775807, label %87
+  switch i64 %.sroa.027.2, label %89 [
+    i64 -9223372036854775807, label %86
     i64 -9223372036854775808, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit"
   ]
 
-85:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit"
+84:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %86
+  br label %85
 
-86:                                               ; preds = %87, %90, %85
+85:                                               ; preds = %86, %89, %84
   ret void
 
-87:                                               ; preds = %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit
-  %88 = icmp ne ptr %.sroa.9.3, null
-  call void @llvm.assume(i1 %88)
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.3, ptr %89, align 8
+86:                                               ; preds = %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit
+  %87 = icmp ne ptr %.sroa.9.3, null
+  call void @llvm.assume(i1 %87)
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.9.3, ptr %88, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %86
+  br label %85
 
-90:                                               ; preds = %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit
+89:                                               ; preds = %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit
   store i64 %.sroa.027.2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.12.3, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %86
+  br label %85
 
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit": ; preds = %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit, %.thread
   %.sroa.12.34350 = phi i64 [ %.sroa.12.054, %.thread ], [ %.sroa.12.3, %_ZN14ruff_workspace9pyproject13settings_toml17ha3d387630ffbc7dcE.exit ]
   %.sroa.420.0 = extractvalue { ptr, i64 } %23, 1
   %.sroa.019.0 = extractvalue { ptr, i64 } %23, 0
   %.not = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not, label %85, label %22
+  br i1 %.not, label %84, label %22
 }
 
 ; Function Attrs: nonlazybind uwtable

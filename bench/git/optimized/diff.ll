@@ -21517,8 +21517,8 @@ define internal fastcc void @fn_out_diff_words_write_helper(ptr noundef %0, ptr 
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.backedge, %.lr.ph
-  %.03160 = phi i64 [ %3, %.lr.ph ], [ %48, %strbuf_setlen.exit.backedge ]
-  %.03259 = phi ptr [ %4, %.lr.ph ], [ %45, %strbuf_setlen.exit.backedge ]
+  %.03160 = phi i64 [ %3, %.lr.ph ], [ %47, %strbuf_setlen.exit.backedge ]
+  %.03259 = phi ptr [ %4, %.lr.ph ], [ %44, %strbuf_setlen.exit.backedge ]
   %.not4158 = phi i1 [ true, %.lr.ph ], [ false, %strbuf_setlen.exit.backedge ]
   %13 = call ptr @memchr(ptr noundef %.03259, i32 noundef 10, i64 noundef %.03160) #34
   br i1 %.not4158, label %21, label %14
@@ -21541,93 +21541,93 @@ diff_line_prefix.exit:                            ; preds = %14, %16
 
 21:                                               ; preds = %diff_line_prefix.exit, %strbuf_setlen.exit
   %.not42 = icmp eq ptr %13, %.03259
-  br i1 %.not42, label %42, label %22
+  br i1 %.not42, label %41, label %22
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %9, align 8, !tbaa !502
   %.not43 = icmp eq ptr %23, null
-  br i1 %.not43, label %29, label %24
+  br i1 %.not43, label %28, label %24
 
 24:                                               ; preds = %22
   %25 = load i8, ptr %23, align 1, !tbaa !38
   %.fr = freeze i8 %25
-  %26 = icmp ne i8 %.fr, 0
-  %spec.select = select i1 %26, ptr @.str.458, ptr null
+  %.not69 = icmp eq i8 %.fr, 0
+  %spec.select = select i1 %.not69, ptr null, ptr @.str.458
   %.not45 = icmp eq i8 %.fr, 0
-  br i1 %.not45, label %29, label %27
+  br i1 %.not45, label %28, label %26
 
-27:                                               ; preds = %24
-  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #34
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %23, i64 noundef %28) #33
-  br label %29
+26:                                               ; preds = %24
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #34
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %23, i64 noundef %27) #33
+  br label %28
 
-29:                                               ; preds = %22, %27, %24
-  %30 = phi ptr [ %spec.select, %27 ], [ %spec.select, %24 ], [ null, %22 ]
-  %31 = phi i1 [ true, %27 ], [ %26, %24 ], [ false, %22 ]
-  %32 = load ptr, ptr %1, align 8, !tbaa !503
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #34
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %32, i64 noundef %33) #33
+28:                                               ; preds = %22, %26, %24
+  %29 = phi ptr [ %spec.select, %26 ], [ %spec.select, %24 ], [ null, %22 ]
+  %30 = phi i1 [ true, %26 ], [ false, %24 ], [ false, %22 ]
+  %31 = load ptr, ptr %1, align 8, !tbaa !503
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #34
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %32) #33
   %.not46 = icmp eq ptr %13, null
-  %34 = ptrtoint ptr %13 to i64
-  %35 = ptrtoint ptr %.03259 to i64
-  %36 = sub i64 %34, %35
-  %37 = select i1 %.not46, i64 %.03160, i64 %36
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %.03259, i64 noundef %37) #33
-  %38 = load ptr, ptr %10, align 8, !tbaa !504
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #34
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %38, i64 noundef %39) #33
-  br i1 %31, label %40, label %42
+  %33 = ptrtoint ptr %13 to i64
+  %34 = ptrtoint ptr %.03259 to i64
+  %35 = sub i64 %33, %34
+  %36 = select i1 %.not46, i64 %.03160, i64 %35
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %.03259, i64 noundef %36) #33
+  %37 = load ptr, ptr %10, align 8, !tbaa !504
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #34
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %37, i64 noundef %38) #33
+  br i1 %30, label %39, label %41
 
-40:                                               ; preds = %29
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #34
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %30, i64 noundef %41) #33
-  br label %42
+39:                                               ; preds = %28
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #34
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %29, i64 noundef %40) #33
+  br label %41
 
-42:                                               ; preds = %29, %40, %21
+41:                                               ; preds = %28, %39, %21
   %.not47 = icmp eq ptr %13, null
-  br i1 %.not47, label %strbuf_setlen.exit.thread, label %43
+  br i1 %.not47, label %strbuf_setlen.exit.thread, label %42
 
-43:                                               ; preds = %42
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #34
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %44) #33
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %.03259 to i64
-  %.neg = sub i64 %47, %46
-  %48 = add i64 %.neg, %.03160
-  %.not48 = icmp eq i64 %48, 0
-  br i1 %.not48, label %strbuf_setlen.exit.thread, label %49
+42:                                               ; preds = %41
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #34
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %43) #33
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %.03259 to i64
+  %.neg = sub i64 %46, %45
+  %47 = add i64 %.neg, %.03160
+  %.not48 = icmp eq i64 %47, 0
+  br i1 %.not48, label %strbuf_setlen.exit.thread, label %48
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %11, align 8, !tbaa !24
-  %51 = load i64, ptr %12, align 8, !tbaa !65
-  %52 = trunc i64 %51 to i32
-  call fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef 9, ptr noundef %50, i32 noundef %52, i32 noundef 0)
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %11, align 8, !tbaa !24
+  %50 = load i64, ptr %12, align 8, !tbaa !65
+  %51 = trunc i64 %50 to i32
+  call fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef 9, ptr noundef %49, i32 noundef %51, i32 noundef 0)
   store i64 0, ptr %12, align 8, !tbaa !65
-  %53 = load ptr, ptr %11, align 8, !tbaa !24
-  %.not9.i = icmp eq ptr %53, @strbuf_slopbuf
-  br i1 %.not9.i, label %strbuf_setlen.exit.backedge, label %54
+  %52 = load ptr, ptr %11, align 8, !tbaa !24
+  %.not9.i = icmp eq ptr %52, @strbuf_slopbuf
+  br i1 %.not9.i, label %strbuf_setlen.exit.backedge, label %53
 
-54:                                               ; preds = %49
-  store i8 0, ptr %53, align 1, !tbaa !38
+53:                                               ; preds = %48
+  store i8 0, ptr %52, align 1, !tbaa !38
   br label %strbuf_setlen.exit.backedge
 
-strbuf_setlen.exit.backedge:                      ; preds = %54, %49
+strbuf_setlen.exit.backedge:                      ; preds = %53, %48
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit.thread:                        ; preds = %43, %42
+strbuf_setlen.exit.thread:                        ; preds = %42, %41
   %.pre = load i64, ptr %12, align 8, !tbaa !65
   %.not49 = icmp eq i64 %.pre, 0
-  br i1 %.not49, label %strbuf_setlen.exit.thread.thread, label %55
+  br i1 %.not49, label %strbuf_setlen.exit.thread.thread, label %54
 
-55:                                               ; preds = %strbuf_setlen.exit.thread
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %58 = trunc i64 %.pre to i32
-  call fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef 9, ptr noundef %57, i32 noundef %58, i32 noundef 0)
+54:                                               ; preds = %strbuf_setlen.exit.thread
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !24
+  %57 = trunc i64 %.pre to i32
+  call fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef 9, ptr noundef %56, i32 noundef %57, i32 noundef 0)
   br label %strbuf_setlen.exit.thread.thread
 
-strbuf_setlen.exit.thread.thread:                 ; preds = %5, %55, %strbuf_setlen.exit.thread
+strbuf_setlen.exit.thread.thread:                 ; preds = %5, %54, %strbuf_setlen.exit.thread
   call void @strbuf_release(ptr noundef nonnull %6) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

@@ -454,7 +454,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
 
 .thread:                                          ; preds = %28, %16, %24, %14, %3, %style_has_flag.exit, %6
   %.06386 = phi i8 [ %spec.select80, %style_has_flag.exit ], [ %spec.select80, %6 ], [ -1, %3 ], [ %spec.select80, %14 ], [ %spec.select80, %24 ], [ %spec.select80, %16 ], [ %spec.select80, %28 ]
-  %36 = phi i1 [ %9, %style_has_flag.exit ], [ %9, %6 ], [ true, %3 ], [ %9, %14 ], [ %9, %24 ], [ %9, %16 ], [ true, %28 ]
+  %36 = phi i1 [ %9, %style_has_flag.exit ], [ %9, %6 ], [ true, %3 ], [ %9, %14 ], [ false, %24 ], [ %9, %16 ], [ true, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 1008

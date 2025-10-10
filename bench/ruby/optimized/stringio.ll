@@ -4002,7 +4002,7 @@ rb_num2long_inline.exit37thread-pre-split:        ; preds = %rbimpl_RB_TYPE_P_fa
 
 rb_num2long_inline.exit37:                        ; preds = %rb_num2long_inline.exit37thread-pre-split, %35, %56, %.thread, %31
   %.pre51 = phi i64 [ %.pre51.pr, %rb_num2long_inline.exit37thread-pre-split ], [ 4, %35 ], [ %storemerge, %56 ], [ %34, %.thread ], [ %32, %31 ]
-  %70 = phi i1 [ %.ph, %rb_num2long_inline.exit37thread-pre-split ], [ %33, %35 ], [ true, %56 ], [ true, %.thread ], [ %33, %31 ]
+  %70 = phi i1 [ %.ph, %rb_num2long_inline.exit37thread-pre-split ], [ false, %35 ], [ true, %56 ], [ true, %.thread ], [ %33, %31 ]
   %.0 = phi i64 [ %.0.ph, %rb_num2long_inline.exit37thread-pre-split ], [ -1, %35 ], [ %.1, %56 ], [ -1, %.thread ], [ -1, %31 ]
   %71 = load i64, ptr %0, align 8, !tbaa !10
   %72 = icmp eq i64 %71, 4
