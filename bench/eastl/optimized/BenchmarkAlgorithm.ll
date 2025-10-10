@@ -5753,7 +5753,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI10
 
 if.then2.i.i.i:                                   ; preds = %for.body
   %12 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
+  br label %if.then.i.i.i.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i)
@@ -5771,16 +5771,16 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i: ; preds = %if.then.i.i.i.
   %mul.i.i.i.i = mul i64 %14, 1000000000
   %add.i.i.i.i = add i64 %mul.i.i.i.i, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
+  br label %if.then.i.i.i.i.i.i
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i, %if.then2.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %if.then2.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i
   %.sink.i.i.i = phi i64 [ %12, %if.then2.i.i.i ], [ %add.i.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i ]
   store i64 %.sink.i.i.i, ptr %stopwatch1, align 8
   %call.i.i.i.i.i.i.i = call noundef i32 @memcmp(ptr noundef nonnull dereferenceable(100000) %call5.i.i.i.i1.i.i30, ptr noundef nonnull dereferenceable(100000) %call5.i.i.i.i1.i.i35, i64 noundef 100000) #9
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
           to label %invoke.cont54 unwind label %lpad53.loopexit
 
-invoke.cont54:                                    ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
+invoke.cont54:                                    ; preds = %if.then.i.i.i.i.i.i
   %15 = lshr i32 %call.i.i.i.i.i.i.i, 31
   %call11.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %15) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
@@ -5902,7 +5902,7 @@ lpad37:                                           ; preds = %invoke.cont35
           cleanup
   br label %ehcleanup
 
-lpad53.loopexit:                                  ; preds = %if.then, %invoke.cont63, %invoke.cont65, %if.then90, %invoke.cont93, %invoke.cont95, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i, %_ZN5eastl23lexicographical_compareEPhS0_S0_S0_.exit.i, %_ZSt23lexicographical_compareIPaS0_EbT_S1_T0_S2_.exit.i, %_ZN5eastl23lexicographical_compareEPaS0_S0_S0_.exit.i, %_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEES7_EbT_S8_T0_S9_.exit.i, %_ZN5eastl23lexicographical_compareIP10TestObjectS2_EEbT_S3_T0_S4_.exit.i
+lpad53.loopexit:                                  ; preds = %if.then, %invoke.cont63, %invoke.cont65, %if.then90, %invoke.cont93, %invoke.cont95, %if.then.i.i.i.i.i.i, %_ZN5eastl23lexicographical_compareEPhS0_S0_S0_.exit.i, %_ZSt23lexicographical_compareIPaS0_EbT_S1_T0_S2_.exit.i, %_ZN5eastl23lexicographical_compareEPaS0_S0_S0_.exit.i, %_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEES7_EbT_S8_T0_S9_.exit.i, %_ZN5eastl23lexicographical_compareIP10TestObjectS2_EEbT_S3_T0_S4_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad53
@@ -5925,7 +5925,7 @@ if.end:                                           ; preds = %invoke.cont65, %inv
 
 if.then2.i.i.i162:                                ; preds = %if.end
   %34 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156
+  br label %for.body.preheader.i.i.i.i.i.i
 
 if.else.i.i.i149:                                 ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i146)
@@ -5943,16 +5943,16 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i152: ; preds = %if.then.i.i
   %mul.i.i.i.i154 = mul i64 %36, 1000000000
   %add.i.i.i.i155 = add i64 %mul.i.i.i.i154, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i146)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156
+  br label %for.body.preheader.i.i.i.i.i.i
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i152, %if.then2.i.i.i162
+for.body.preheader.i.i.i.i.i.i:                   ; preds = %if.then2.i.i.i162, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i152
   %.sink.i.i.i157 = phi i64 [ %34, %if.then2.i.i.i162 ], [ %add.i.i.i.i155, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i152 ]
   store i64 %.sink.i.i.i157, ptr %stopwatch1, align 8
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156
-  %__first2.addr.020.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i1.i.i54, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156 ], [ %incdec.ptr6.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %__first1.addr.019.i.i.i.i.i.i.idx = phi i64 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i156 ], [ %__first1.addr.019.i.i.i.i.i.i.add, %if.end.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i
+  %__first2.addr.020.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i1.i.i54, %for.body.preheader.i.i.i.i.i.i ], [ %incdec.ptr6.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %__first1.addr.019.i.i.i.i.i.i.idx = phi i64 [ 0, %for.body.preheader.i.i.i.i.i.i ], [ %__first1.addr.019.i.i.i.i.i.i.add, %if.end.i.i.i.i.i.i ]
   %__first1.addr.019.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i49, i64 %__first1.addr.019.i.i.i.i.i.i.idx
   %37 = load i8, ptr %__first1.addr.019.i.i.i.i.i.i.ptr, align 1
   %38 = load i8, ptr %__first2.addr.020.i.i.i.i.i.i, align 1
@@ -6876,7 +6876,7 @@ if.end114:                                        ; preds = %invoke.cont111, %if
 
 if.then2.i.i.i223:                                ; preds = %if.end114
   %47 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i219
+  br label %if.end.i.i.i
 
 if.else.i.i.i212:                                 ; preds = %if.end114
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i209)
@@ -6894,15 +6894,15 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i215: ; preds = %if.then.i.i
   %mul.i.i.i.i217 = mul i64 %49, 1000000000
   %add.i.i.i.i218 = add i64 %mul.i.i.i.i217, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i209)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i219
+  br label %if.end.i.i.i
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i219:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i215, %if.then2.i.i.i223
+if.end.i.i.i:                                     ; preds = %if.then2.i.i.i223, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i215
   %.sink.i.i.i220 = phi i64 [ %47, %if.then2.i.i.i223 ], [ %add.i.i.i.i218, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i215 ]
   store i64 %.sink.i.i.i220, ptr %stopwatch1, align 8
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i219
-  %__first.addr.04.i.i.i.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.add, %for.body.i.i.i.i.i.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i219 ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.add, %for.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i ]
   %__first.addr.04.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i55, i64 %__first.addr.04.i.i.i.i.i.i.idx
   store i64 37, ptr %__first.addr.04.i.i.i.i.i.i.ptr, align 8
   %__first.addr.04.i.i.i.i.i.i.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.idx, 8
@@ -6961,7 +6961,7 @@ invoke.cont126:                                   ; preds = %_ZN2EA4StdC9Stopwat
 
 if.then2.i.i.i276:                                ; preds = %invoke.cont126
   %56 = call noundef i64 @llvm.x86.rdtsc()
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i261
+  br label %if.end.i.i.i264
 
 if.else.i.i.i254:                                 ; preds = %invoke.cont126
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i251)
@@ -6979,15 +6979,15 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i257: ; preds = %if.then.i.i
   %mul.i.i.i.i259 = mul i64 %58, 1000000000
   %add.i.i.i.i260 = add i64 %mul.i.i.i.i259, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i.i251)
-  br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i261
+  br label %if.end.i.i.i264
 
-_ZN2EA4StdC9Stopwatch7RestartEv.exit.i261:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i257, %if.then2.i.i.i276
+if.end.i.i.i264:                                  ; preds = %if.then2.i.i.i276, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i257
   %.sink.i.i.i262 = phi i64 [ %56, %if.then2.i.i.i276 ], [ %add.i.i.i.i260, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i257 ]
   store i64 %.sink.i.i.i262, ptr %stopwatch1, align 8
   br label %for.body.i.i.i.i.i.i268
 
-for.body.i.i.i.i.i.i268:                          ; preds = %for.body.i.i.i.i.i.i268, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i261
-  %__first.addr.04.i.i.i.i.i.i269.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i269.add, %for.body.i.i.i.i.i.i268 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i261 ]
+for.body.i.i.i.i.i.i268:                          ; preds = %for.body.i.i.i.i.i.i268, %if.end.i.i.i264
+  %__first.addr.04.i.i.i.i.i.i269.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i269.add, %for.body.i.i.i.i.i.i268 ], [ 0, %if.end.i.i.i264 ]
   %__first.addr.04.i.i.i.i.i.i269.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i55, i64 %__first.addr.04.i.i.i.i.i.i269.idx
   store i64 37, ptr %__first.addr.04.i.i.i.i.i.i269.ptr, align 8
   %__first.addr.04.i.i.i.i.i.i269.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i269.idx, 8
@@ -11506,7 +11506,7 @@ invoke.cont392:                                   ; preds = %while.body.i.i.i.i7
           to label %invoke.cont394 unwind label %lpad302.loopexit
 
 invoke.cont394:                                   ; preds = %invoke.cont392
-  br i1 %cmp317, label %if.then396, label %if.else5.i.i.i802
+  br i1 %cmp317, label %if.then396, label %invoke.cont416
 
 if.then396:                                       ; preds = %invoke.cont394
   %256 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -11519,19 +11519,19 @@ invoke.cont399:                                   ; preds = %if.then396
 
 invoke.cont401:                                   ; preds = %invoke.cont399
   invoke void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef nonnull @.str.42, i32 noundef %256, i64 noundef %call400, i64 noundef %call402, ptr noundef null)
-          to label %if.else5.i.i.i802 unwind label %lpad302.loopexit
+          to label %invoke.cont416 unwind label %lpad302.loopexit
 
-if.else5.i.i.i802:                                ; preds = %invoke.cont401, %invoke.cont394
+invoke.cont416:                                   ; preds = %invoke.cont401, %invoke.cont394
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %257 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i812 = icmp eq i32 %257, 1
   br i1 %cmp.i.i.i812, label %if.then2.i.i.i825, label %if.else.i.i.i813
 
-if.then2.i.i.i825:                                ; preds = %if.else5.i.i.i802
+if.then2.i.i.i825:                                ; preds = %invoke.cont416
   %258 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i820
 
-if.else.i.i.i813:                                 ; preds = %if.else5.i.i.i802
+if.else.i.i.i813:                                 ; preds = %invoke.cont416
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i810)
   %call.i.i.i.i814 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i810) #9
   %cmp.i.i.i.i815 = icmp eq i32 %call.i.i.i.i814, 22
@@ -11681,7 +11681,7 @@ invoke.cont472:                                   ; preds = %while.body.i.i.i.i8
           to label %invoke.cont474 unwind label %lpad302.loopexit
 
 invoke.cont474:                                   ; preds = %invoke.cont472
-  br i1 %cmp317, label %if.then476, label %if.else5.i.i.i904
+  br i1 %cmp317, label %if.then476, label %invoke.cont496
 
 if.then476:                                       ; preds = %invoke.cont474
   %277 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -11694,19 +11694,19 @@ invoke.cont479:                                   ; preds = %if.then476
 
 invoke.cont481:                                   ; preds = %invoke.cont479
   invoke void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef nonnull @.str.44, i32 noundef %277, i64 noundef %call480, i64 noundef %call482, ptr noundef null)
-          to label %if.else5.i.i.i904 unwind label %lpad302.loopexit
+          to label %invoke.cont496 unwind label %lpad302.loopexit
 
-if.else5.i.i.i904:                                ; preds = %invoke.cont481, %invoke.cont474
+invoke.cont496:                                   ; preds = %invoke.cont481, %invoke.cont474
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %278 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i915 = icmp eq i32 %278, 1
   br i1 %cmp.i.i.i915, label %if.then2.i.i.i928, label %if.else.i.i.i916
 
-if.then2.i.i.i928:                                ; preds = %if.else5.i.i.i904
+if.then2.i.i.i928:                                ; preds = %invoke.cont496
   %279 = call noundef i64 @llvm.x86.rdtsc()
   br label %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i923
 
-if.else.i.i.i916:                                 ; preds = %if.else5.i.i.i904
+if.else.i.i.i916:                                 ; preds = %invoke.cont496
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i.i913)
   %call.i.i.i.i917 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i.i.i913) #9
   %cmp.i.i.i.i918 = icmp eq i32 %call.i.i.i.i917, 22

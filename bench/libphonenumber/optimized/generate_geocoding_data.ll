@@ -966,9 +966,9 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = call ptr @fgets(ptr noundef nonnull %20, i32 noundef 2048, ptr noundef nonnull %18)
   %.not22176 = icmp eq ptr %27, null
-  br i1 %.not22176, label %._crit_edge, label %.lr.ph.i.i.i.lr.ph
+  br i1 %.not22176, label %._crit_edge, label %.lr.ph.i.i.i.preheader.lr.ph
 
-.lr.ph.i.i.i.lr.ph:                               ; preds = %21
+.lr.ph.i.i.i.preheader.lr.ph:                     ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -976,30 +976,30 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.backedge, %.lr.ph.i.i.i.lr.ph
-  %.052.i.i.i = phi i64 [ 512, %.lr.ph.i.i.i.lr.ph ], [ %.052.i.i.i.be, %.lr.ph.i.i.i.backedge ]
-  %.sroa.032.051.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.lr.ph ], [ %.sroa.032.051.i.i.i.be, %.lr.ph.i.i.i.backedge ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.backedge, %.lr.ph.i.i.i.preheader.lr.ph
+  %.052.i.i.i = phi i64 [ 512, %.lr.ph.i.i.i.preheader.lr.ph ], [ %.052.i.i.i.be, %.lr.ph.i.i.i.backedge ]
+  %.sroa.032.051.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.preheader.lr.ph ], [ %.sroa.032.051.i.i.i.be, %.lr.ph.i.i.i.backedge ]
   %33 = load i8, ptr %.sroa.032.051.i.i.i, align 1, !tbaa !16
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit, label %35
+  br i1 %34, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit, label %35
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !16
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit231, label %39
+  br i1 %38, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit235, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit233, label %43
+  br i1 %42, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit233, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   %45 = load i8, ptr %44, align 1, !tbaa !16
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit235, label %47
+  br i1 %46, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit231, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
@@ -1012,21 +1012,21 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   %.sroa.032.051.i.i.i.be = phi ptr [ %48, %47 ], [ %20, %.backedge ]
   br label %.lr.ph.i.i.i, !llvm.loop !66
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit231: ; preds = %35
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
-  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit231: ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit233: ; preds = %39
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit233: ; preds = %39
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
-  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit235: ; preds = %43
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
-  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit235: ; preds = %35
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit235, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit233, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit231
-  %.sroa.08.0.in.sroa.speculated.i.i.i.ph = phi ptr [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit231 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit233 ], [ %53, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit.split.loop.exit235 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
-  %54 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.ph, %20
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit235, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit233, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit231
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit231 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit233 ], [ %53, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.split.loop.exit235 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+  %54 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %20
   br i1 %54, label %.backedge, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.thread
 
 55:                                               ; preds = %19
@@ -1039,8 +1039,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.ex
           cleanup
   br label %246
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.thread: ; preds = %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit
-  %.sroa.08.0.in.sroa.speculated.i.i.i144 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.ph, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit ], [ %22, %47 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.thread: ; preds = %47, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit
+  %.sroa.08.0.in.sroa.speculated.i.i.i144 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit ], [ %22, %47 ]
   %.sroa.08.0.in.sroa.speculated.i.i.i144186 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i144 to i64
   %59 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i144, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !16
@@ -1099,7 +1099,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.ex
   %79 = icmp eq i8 %78, 35
   br i1 %79, label %.backedge, label %81
 
-.backedge:                                        ; preds = %._crit_edge.i.i.i30, %.critedge2, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit.loopexit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit50
+.backedge:                                        ; preds = %._crit_edge.i.i.i30, %.critedge2, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcET_S7_S7_RKT0_.exit50
   %80 = call ptr @fgets(ptr noundef nonnull %20, i32 noundef 2048, ptr noundef nonnull %18)
   %.not22 = icmp eq ptr %80, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph.i.i.i.backedge

@@ -22241,9 +22241,9 @@ define internal void @_ZN12_GLOBAL__N_148StrJoin_TestIteratorRequirementsNoForma
 
 15:                                               ; preds = %._crit_edge.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %13, i8 noundef signext 0)
-          to label %_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i unwind label %18
+          to label %.lr.ph30.preheader.i.i.i.i unwind label %18
 
-_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i: ; preds = %15
+.lr.ph30.preheader.i.i.i.i:                       ; preds = %15
   %16 = load ptr, ptr %3, align 8, !tbaa !31, !alias.scope !1137
   store i8 97, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -22256,9 +22256,9 @@ _ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stri
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %.body, label %.body.sink.split
 
-.lr.ph30.i.i.i.i:                                 ; preds = %.lr.ph30.i.i.i.i, %_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i
-  %22 = phi i64 [ %29, %.lr.ph30.i.i.i.i ], [ 1, %_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ]
-  %.029.i.i.i.i = phi ptr [ %28, %.lr.ph30.i.i.i.i ], [ %17, %_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ]
+.lr.ph30.i.i.i.i:                                 ; preds = %.lr.ph30.i.i.i.i, %.lr.ph30.preheader.i.i.i.i
+  %22 = phi i64 [ %29, %.lr.ph30.i.i.i.i ], [ 1, %.lr.ph30.preheader.i.i.i.i ]
+  %.029.i.i.i.i = phi ptr [ %28, %.lr.ph30.i.i.i.i ], [ %17, %.lr.ph30.preheader.i.i.i.i ]
   store i8 45, ptr %.029.i.i.i.i, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.029.i.i.i.i, i64 1
   %24 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %6, i64 %22

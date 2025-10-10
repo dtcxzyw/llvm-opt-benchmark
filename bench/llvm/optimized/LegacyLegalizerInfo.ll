@@ -6753,7 +6753,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 3, ptr %.sroa.4.0..sroa_idx, align 2
   %28 = icmp eq i64 %6, 4
-  br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit
+  br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.thread
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %26, %38
   %.011.i.i.i.i.i = phi ptr [ %40, %38 ], [ %27, %26 ]
@@ -6767,7 +6767,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %33, %35
   %37 = select i1 %31, i1 %36, i1 false
-  br i1 %37, label %38, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit
+  br i1 %37, label %38, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.thread
 
 38:                                               ; preds = %.lr.ph.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 4
@@ -6775,7 +6775,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairItN4llvm21LegacyLegalizeAct
   %.not.i.i.i.i.i = icmp eq ptr %39, %.val32
   br i1 %.not.i.i.i.i.i, label %41, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
-_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i, %26
+_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %26
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 4) #19
   br label %.lr.ph63
 
@@ -6783,7 +6783,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 4) #19
   br label %62
 
-.lr.ph63:                                         ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit, %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
+.lr.ph63:                                         ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.thread, %"_ZN4llvm15partition_pointIRKSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEZNS_19LegacyLegalizerInfo10findActionES9_jE3$_0RKS5_EEDaOT_T0_.exit"
   %42 = add i32 %18, -2
   %43 = icmp sgt i32 %42, -1
   tail call void @llvm.assume(i1 %43)

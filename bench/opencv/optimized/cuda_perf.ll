@@ -324,7 +324,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc44
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.noexc44, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
+.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit, %.noexc44
   %28 = phi i64 [ %20, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 1, %.noexc44 ]
   %.0.i.i.i.i.i98 = phi ptr [ %27, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ %24, %.noexc44 ]
   br label %.lr.ph

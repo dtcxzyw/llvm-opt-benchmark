@@ -4432,53 +4432,53 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopolo
   br i1 %12, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = xor i64 %16, %8
-  %18 = icmp ult i64 %17, 8
-  br i1 %18, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %19
+  %.ptr18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load ptr, ptr %.ptr18, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = xor i64 %15, %8
+  %17 = icmp ult i64 %16, 8
+  br i1 %17, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %18
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = xor i64 %22, %8
-  %24 = icmp ult i64 %23, 8
-  br i1 %24, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %25
+18:                                               ; preds = %13
+  %.ptr17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = load ptr, ptr %.ptr17, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = xor i64 %20, %8
+  %22 = icmp ult i64 %21, 8
+  br i1 %22, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %23
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = xor i64 %28, %8
-  %30 = icmp ult i64 %29, 8
-  br i1 %30, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %._crit_edge.loopexit.i.i.i.i.i
+23:                                               ; preds = %18
+  %.ptr = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %24 = load ptr, ptr %.ptr, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = xor i64 %25, %8
+  %27 = icmp ult i64 %26, 8
+  br i1 %27, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %._crit_edge.loopexit.i.i.i.i.i
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %25
-  %31 = load ptr, ptr %scevgep.i.i.i.i.i, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = xor i64 %32, %8
-  %34 = icmp ult i64 %33, 8
-  br i1 %34, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %._crit_edge._crit_edge.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %23
+  %28 = load ptr, ptr %scevgep.i.i.i.i.i, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = xor i64 %29, %8
+  %31 = icmp ult i64 %30, 8
+  br i1 %31, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %32
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %._crit_edge.loopexit.i.i.i.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = xor i64 %37, %8
-  %39 = icmp ult i64 %38, 8
-  br i1 %39, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %._crit_edge._crit_edge52.i.i.i.i.i
+32:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = xor i64 %35, %8
+  %37 = icmp ult i64 %36, 8
+  br i1 %37, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %38
 
-._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %.ptr27 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %40 = load ptr, ptr %.ptr27, align 8
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = xor i64 %41, %8
   %43 = icmp ult i64 %42, 8
   br i1 %43, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread, label %_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread12
 
-_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread12: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i
+_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread12: ; preds = %38
   store i32 %1, ptr %6, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = and i64 %8, -8
@@ -4543,7 +4543,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #19
   resume { ptr, i32 } %66
 
-_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %13, %19, %25, %5, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInvalidationERKNS0_12InvalidationE.exit
+_ZSt6any_ofIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEZNS0_27PxOsdMeshTopologyValidation14_ValidateTokenILm7EEEvNS4_4CodeEPKcRS2_RKSt5arrayIS1_XT_EEEUlS9_E_EbT_SF_T0_.exit.thread: ; preds = %5, %13, %18, %23, %38, %32, %._crit_edge.loopexit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInvalidationERKNS0_12InvalidationE.exit
   ret void
 }
 

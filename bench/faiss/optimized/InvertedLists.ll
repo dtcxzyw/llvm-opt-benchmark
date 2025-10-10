@@ -4431,7 +4431,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %28
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %.preheader
-  %26 = shl nuw i64 1, %.035
+  %26 = shl nuw nsw i64 1, %.035
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %26, i32 noundef %24)
   br label %28
 

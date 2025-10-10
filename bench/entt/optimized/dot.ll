@@ -1428,16 +1428,12 @@ define hidden void @_ZN21Dot_CustomWriter_Test8TestBodyEv(ptr nonnull readnone a
   %19 = getelementptr inbounds nuw i64, ptr %13, i64 %.sroa.311.0.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !30, !noalias !110
   %.not1.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not1.i.i.i.i, label %21, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i
+  br i1 %.not1.i.i.i.i, label %21, label %.lr.ph42.i
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
   %22 = add nuw nsw i64 %.sroa.311.0.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %22, 9
   br i1 %.not.i.i.i.i, label %._crit_edge43.i, label %.lr.ph.i.i.i.i, !llvm.loop !113
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %.not3440.i = icmp eq i64 %.sroa.311.0.i.i, 9
-  br i1 %.not3440.i, label %._crit_edge43.i, label %.lr.ph42.i
 
 .lr.ph.i:                                         ; preds = %14, %.noexc65
   %.sroa.028.037.i = phi i64 [ %35, %.noexc65 ], [ 0, %14 ]
@@ -1489,12 +1485,12 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit.thread.i.i:
   %.not.i53 = icmp eq i64 %35, 3
   br i1 %.not.i53, label %.lr.ph.i.i.i.i, label %.lr.ph.i
 
-._crit_edge43.i:                                  ; preds = %21, %.noexc70, %46, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i
+._crit_edge43.i:                                  ; preds = %21, %.noexc70, %46
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.29, i64 noundef 1)
           to label %"_ZN4entt3dotINS_16adjacency_matrixINS_12directed_tagESaImEEEZN21Dot_CustomWriter_Test8TestBodyEvE3$_0EEvRSoRKT_T0_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph42.i:                                       ; preds = %.lr.ph.i.i.i55, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i
-  %.sroa.5.041.i = phi i64 [ %.sroa.311.0.i.i, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.i ], [ %.sroa.5.1.i56, %.lr.ph.i.i.i55 ]
+.lr.ph42.i:                                       ; preds = %.lr.ph.i.i.i55, %.lr.ph.i.i.i.i
+  %.sroa.5.041.i = phi i64 [ %.sroa.311.0.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.5.1.i56, %.lr.ph.i.i.i55 ]
   %37 = udiv i64 %.sroa.5.041.i, 3
   %38 = urem i64 %.sroa.5.041.i, 3
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %37)

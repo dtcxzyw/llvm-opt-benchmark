@@ -1078,7 +1078,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   call void @_ZdlPvm(ptr noundef nonnull %438, i64 noundef %443) #18
   br label %458
 
-444:                                              ; preds = %436, %434, %425
+444:                                              ; preds = %425, %434, %436
   %445 = landingpad { ptr, i32 }
           cleanup
   %446 = load ptr, ptr %12, align 8, !tbaa !77

@@ -36938,8 +36938,7 @@ _ZN7testing8internal23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_tr
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !434, !alias.scope !428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) @constinit, i64 80, i1 false)
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store ptr %scevgep.i, ptr %18, align 8, !tbaa !435, !alias.scope !428
+  store ptr %19, ptr %18, align 8, !tbaa !435, !alias.scope !428
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEclISt6vectorIPcSaISB_EEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.608, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %21 unwind label %32
 
@@ -45605,8 +45604,7 @@ _ZN7testing8internal23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_tr
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !434, !alias.scope !645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @constinit.636, i64 32, i1 false)
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %scevgep.i, ptr %18, align 8, !tbaa !435, !alias.scope !645
+  store ptr %19, ptr %18, align 8, !tbaa !435, !alias.scope !645
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEclISt6vectorIPcSaISB_EEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.608, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %21 unwind label %32
 
@@ -46275,8 +46273,7 @@ _ZN7testing8internal23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_tr
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %17, ptr %18, align 8, !tbaa !434, !alias.scope !655
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) @constinit.640, i64 48, i1 false)
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %scevgep.i, ptr %16, align 8, !tbaa !435, !alias.scope !655
+  store ptr %17, ptr %16, align 8, !tbaa !435, !alias.scope !655
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEclISt6vectorIPcSaISB_EEEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.608, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %19 unwind label %30
 
