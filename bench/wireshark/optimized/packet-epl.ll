@@ -4434,9 +4434,9 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
   %53 = load i32, ptr @ett_epl_el, align 4
   %54 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %49, i32 noundef -1, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.742, i32 noundef %52)
   %.not107 = icmp ult i32 %51, 20
-  br i1 %.not107, label %._crit_edge, label %.lr.ph
+  br i1 %.not107, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %4, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %4, %.lr.ph
   %.0106 = phi i32 [ %80, %.lr.ph ], [ %49, %4 ]
   %.0104105 = phi i32 [ %56, %.lr.ph ], [ 0, %4 ]
   %55 = load i32, ptr @ett_epl_el_entry, align 4

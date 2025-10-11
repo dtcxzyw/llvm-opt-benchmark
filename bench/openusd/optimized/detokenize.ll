@@ -139,16 +139,16 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
 
 .lr.ph76.split.us.i:                              ; preds = %.lr.ph76.i, %._crit_edge.split.us.us.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %._crit_edge.split.us.us.i ], [ 1, %.lr.ph76.i ]
-  %indvars92.i = trunc i64 %indvars.iv87.i to i32
+  %indvars21 = trunc i64 %indvars.iv87.i to i32
   %97 = call i32 @llvm.smin.i32(i32 %indvars92.i, i32 %86)
-  %98 = sub nsw i32 %indvars92.i, %60
-  %99 = call i32 @llvm.smax.i32(i32 %98, i32 -1)
+  %98 = sub nsw i32 %indvars21, %60
+  %98 = call i32 @llvm.smax.i32(i32 %98, i32 -1)
   %.not.not72.us.i = icmp sgt i32 %97, %99
   br i1 %.not.not72.us.i, label %.lr.ph.us.preheader.i, label %._crit_edge.split.us.us.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph76.split.us.i
   %smin89.i = call i64 @llvm.smin.i64(i64 %indvars.iv87.i, i64 %95)
-  %100 = sext i32 %99 to i64
+  %101 = sext i32 %99 to i64
   %sext25 = shl i64 %indvars.iv87.i, 32
   %101 = ashr exact i64 %sext25, 32
   br label %.lr.ph.us.i
@@ -159,8 +159,8 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   br i1 %exitcond94.not.i, label %._crit_edge77.i, label %.lr.ph76.split.us.i, !llvm.loop !6
 
 .lr.ph.us.i:                                      ; preds = %aom_read_symbol_.exit.us.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv90.i = phi i64 [ %smin89.i, %.lr.ph.us.preheader.i ], [ %indvars.iv.next91.i, %aom_read_symbol_.exit.us.us.i ]
-  %102 = sub nsw i64 %101, %indvars.iv90.i
+  %indvars.iv19 = phi i64 [ %smin89.i, %.lr.ph.us.preheader.i ], [ %indvars.iv.next91.i, %aom_read_symbol_.exit.us.us.i ]
+  %102 = sub nsw i64 %101, %indvars.iv19
   %103 = trunc nuw nsw i64 %indvars.iv90.i to i32
   %104 = trunc nsw i64 %102 to i32
   %105 = call i32 @av1_get_palette_color_index_context(ptr noundef nonnull %13, i32 noundef %56, i32 noundef %104, i32 noundef %103, i32 noundef %23, ptr noundef nonnull %4, ptr noundef null) #7
@@ -240,23 +240,23 @@ aom_read_symbol_.exit.us.us.i:                    ; preds = %._crit_edge.loopexi
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.i, %._crit_edge.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.split.i ], [ 1, %.lr.ph76.i ]
-  %indvars86.i = trunc i64 %indvars.iv.i to i32
+  %indvars17 = trunc i64 %indvars.iv.i to i32
   %148 = call i32 @llvm.smin.i32(i32 %indvars86.i, i32 %86)
-  %149 = sub nsw i32 %indvars86.i, %60
-  %150 = call i32 @llvm.smax.i32(i32 %149, i32 -1)
+  %149 = sub nsw i32 %indvars17, %60
+  %149 = call i32 @llvm.smax.i32(i32 %149, i32 -1)
   %.not.not72.i = icmp sgt i32 %148, %150
   br i1 %.not.not72.i, label %.lr.ph.preheader.i, label %._crit_edge.split.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph76.split.i
   %smin.i = call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 %95)
-  %151 = sext i32 %150 to i64
+  %152 = sext i32 %150 to i64
   %sext = shl i64 %indvars.iv.i, 32
   %152 = ashr exact i64 %sext, 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %aom_read_symbol_.exit.i, %.lr.ph.preheader.i
-  %indvars.iv84.i = phi i64 [ %smin.i, %.lr.ph.preheader.i ], [ %indvars.iv.next85.i, %aom_read_symbol_.exit.i ]
-  %153 = sub nsw i64 %152, %indvars.iv84.i
+  %indvars.iv15 = phi i64 [ %smin.i, %.lr.ph.preheader.i ], [ %indvars.iv.next85.i, %aom_read_symbol_.exit.i ]
+  %153 = sub nsw i64 %152, %indvars.iv15
   %154 = trunc nuw nsw i64 %indvars.iv84.i to i32
   %155 = trunc nsw i64 %153 to i32
   %156 = call i32 @av1_get_palette_color_index_context(ptr noundef nonnull %13, i32 noundef %56, i32 noundef %155, i32 noundef %154, i32 noundef %23, ptr noundef nonnull %4, ptr noundef null) #7

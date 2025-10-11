@@ -28,7 +28,7 @@ define void @dt_dng_opcode_process_opcode_list_2(ptr noundef readonly captures(n
 _get_long.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1824
   %4 = load ptr, ptr %3, align 16, !tbaa !6
-  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #3
+  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #4
   store ptr null, ptr %3, align 16, !tbaa !6
   %.val = load i32, ptr %0, align 1
   %5 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #4, !srcloc !25
@@ -66,7 +66,7 @@ _get_long.exit:
   br i1 %.not70, label %.thread, label %24
 
 24:                                               ; preds = %21
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #4
   br label %.thread
 
 25:                                               ; preds = %.lr.ph133
@@ -78,7 +78,7 @@ _get_long.exit98:                                 ; preds = %25
   %28 = and i32 %27, -4
   %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 80
-  %31 = tail call noalias ptr @g_malloc(i64 noundef %30) #5
+  %31 = tail call noalias ptr @g_malloc(i64 noundef %30) #6
   %.val75 = load i32, ptr %19, align 1
   %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val75) #4, !srcloc !25
   store i32 %32, ptr %31, align 8, !tbaa !60
@@ -163,7 +163,7 @@ _get_long.exit98:                                 ; preds = %25
 
 ._crit_edge:                                      ; preds = %_get_float.exit, %_get_long.exit98
   %77 = load ptr, ptr %3, align 16, !tbaa !6
-  %78 = tail call ptr @g_list_append(ptr noundef %77, ptr noundef nonnull %31) #3
+  %78 = tail call ptr @g_list_append(ptr noundef %77, ptr noundef nonnull %31) #4
   store ptr %78, ptr %3, align 16, !tbaa !6
   br label %90
 
@@ -190,7 +190,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
   %88 = and i32 %12, 1
   %.not69 = icmp eq i32 %88, 0
   %89 = select i1 %.not69, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %89, i32 noundef %8) #3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %89, i32 noundef %8) #4
   br label %90
 
 90:                                               ; preds = %._crit_edge, %87, %84
@@ -267,7 +267,7 @@ _get_long.exit90:                                 ; preds = %86, %.lr.ph
   br i1 %.not80, label %.critedge, label %33
 
 33:                                               ; preds = %30
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4) #3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4) #4
   br label %.critedge
 
 34:                                               ; preds = %_get_long.exit90
@@ -290,7 +290,7 @@ _get_long.exit96:                                 ; preds = %34
   br i1 %.not79, label %.critedge, label %40
 
 40:                                               ; preds = %37
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %35) #3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %35) #4
   br label %.critedge
 
 .preheader.preheader:                             ; preds = %_get_long.exit96
@@ -389,7 +389,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %84 = and i32 %20, 1
   %.not78 = icmp eq i32 %84, 0
   %85 = select i1 %.not78, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %85, i32 noundef %16) #3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %85, i32 noundef %16) #4
   br label %86
 
 86:                                               ; preds = %.preheader104, %.preheader105, %83, %80

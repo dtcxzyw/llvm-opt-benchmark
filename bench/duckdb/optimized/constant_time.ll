@@ -513,14 +513,14 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   br label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
 
 .lr.ph.us.i:                                      ; preds = %.preheader.i, %._crit_edge.us.i
-  %.028.us.i = phi i64 [ %69, %._crit_edge.us.i ], [ 0, %.preheader.i ]
-  %59 = sub i64 %.028.us.i, %49
-  %60 = icmp slt i64 %59, 0
-  br i1 %60, label %.lr.ph.split.us.us.i, label %.lr.ph.split.us31.i
+  %.028.us.i = phi i64 [ %66, %._crit_edge.us.i ], [ 0, %.preheader.i ]
+  %56 = sub i64 %.028.us.i, %49
+  %57 = icmp slt i64 %56, 0
+  br i1 %57, label %.lr.ph.split.us.us.i, label %.lr.ph.split.us31.i
 
 .lr.ph.split.us31.i:                              ; preds = %.lr.ph.us.i, %.lr.ph.split.us31.i
   %.02427.us29.i = phi i64 [ %63, %.lr.ph.split.us31.i ], [ 0, %.lr.ph.us.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us29.i
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us29.i
   %62 = load volatile i8, ptr %61, align 1, !tbaa !3
   %63 = add nuw i64 %.02427.us29.i, 1
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 %63
@@ -530,17 +530,17 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us31.i, !llvm.loop !23
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph.split.us31.i, %.lr.ph.split.us.us.i
-  %66 = load volatile i8, ptr %55, align 1, !tbaa !3
-  %67 = icmp sgt i64 %59, -1
-  %68 = select i1 %67, i8 0, i8 %66
-  store volatile i8 %68, ptr %55, align 1, !tbaa !3
-  %69 = add nuw i64 %.028.us.i, 1
-  %exitcond35.not.i = icmp eq i64 %69, %7
+  %63 = load volatile i8, ptr %55, align 1, !tbaa !3
+  %64 = icmp sgt i64 %56, -1
+  %65 = select i1 %64, i8 0, i8 %63
+  store volatile i8 %65, ptr %55, align 1, !tbaa !3
+  %66 = add nuw i64 %.028.us.i, 1
+  %exitcond35.not.i = icmp eq i64 %66, %7
   br i1 %exitcond35.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i, %.lr.ph.split.us.us.i
   %.02427.us.us.i = phi i64 [ %72, %.lr.ph.split.us.us.i ], [ 0, %.lr.ph.us.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us.us.i
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us.us.i
   %71 = load volatile i8, ptr %70, align 1, !tbaa !3
   %72 = add nuw i64 %.02427.us.us.i, 1
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 %72
@@ -549,15 +549,15 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %exitcond34.not.i = icmp eq i64 %72, %54
   br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !23
 
-_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i.preheader, %._crit_edge70
+.preheader.split.i:                               ; preds = %._crit_edge.us.i, %.preheader.split.i.preheader, %._crit_edge70
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %76, label %75
+  br i1 %.not, label %78, label %77
 
-75:                                               ; preds = %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
+77:                                               ; preds = %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %52, i64 %7, i1 false)
-  br label %76
+  br label %78
 
-76:                                               ; preds = %75, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
+78:                                               ; preds = %77, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
   %.neg = select i1 %42, i32 0, i32 -17408
   %.neg60 = select i1 %38, i32 %.neg, i32 -16640
   store i64 %49, ptr %4, align 8, !tbaa !8
