@@ -4393,7 +4393,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 .loopexit167.i:                                   ; preds = %509, %.preheader166.i
   %.not82.not.i = icmp eq i64 %.sroa.073.1184.i, 0
   %502 = add i64 %.sroa.072.1183.i, 4
-  %.sroa.073.1283.i = add i64 %.sroa.073.1184.i, -1
+  %.sroa.073.1283.i = add nsw i64 %.sroa.073.1184.i, -1
   br i1 %.not82.not.i, label %.loopexit168.i, label %.preheader166.i
 
 .preheader166.i:                                  ; preds = %.loopexit167.i, %.preheader166.lr.ph.i
@@ -4430,7 +4430,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 .loopexit163.i:                                   ; preds = %516, %.preheader162.i
   %.not83.not.i = icmp eq i64 %.sroa.071.1194.i, 0
   %514 = add i64 %.sroa.070.1193.i, 4
-  %.sroa.071.1282.i = add i64 %.sroa.071.1194.i, -1
+  %.sroa.071.1282.i = add nsw i64 %.sroa.071.1194.i, -1
   br i1 %.not83.not.i, label %.thread131.i, label %.preheader162.i
 
 .preheader162.i:                                  ; preds = %.loopexit163.i, %.preheader162.lr.ph.i
@@ -4541,18 +4541,18 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 
 .loopexit156.i:                                   ; preds = %550, %.preheader155.i
   %.not85.not.i = icmp eq i64 %.sroa.077.1209.i, 0
-  %543 = add i64 %.sroa.076.1208.i, 4
+  %543 = add nuw nsw i64 %.sroa.076.1208.i, 4
   br i1 %.not85.not.i, label %.loopexit157.i, label %.preheader155.i
 
 .preheader155.i:                                  ; preds = %.loopexit156.i, %.preheader155.lr.ph.i
   %.sroa.077.1209.in.i = phi i64 [ %.sroa.0.0.i.i110.i, %.preheader155.lr.ph.i ], [ %.sroa.077.1209.i, %.loopexit156.i ]
   %.sroa.076.1208.i = phi i64 [ 8, %.preheader155.lr.ph.i ], [ %543, %.loopexit156.i ]
   %.sroa.633.0207.i = phi i64 [ 4, %.preheader155.lr.ph.i ], [ %.sroa.076.1208.i, %.loopexit156.i ]
-  %.sroa.077.1209.i = add i64 %.sroa.077.1209.in.i, -1
+  %.sroa.077.1209.i = add nsw i64 %.sroa.077.1209.in.i, -1
   br i1 %.not230.i, label %.loopexit156.i, label %.lr.ph203.i
 
 .lr.ph203.i:                                      ; preds = %.preheader155.i
-  %544 = add i64 %.sroa.633.0207.i, %395
+  %544 = add nuw nsw i64 %.sroa.633.0207.i, %395
   %545 = mul i64 %544, %376
   %546 = add i64 %545, %467
   br label %550
@@ -4569,7 +4569,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
 550:                                              ; preds = %550, %.lr.ph203.i
   %.sroa.066.0202.i = phi i64 [ 0, %.lr.ph203.i ], [ %551, %550 ]
   %551 = add nuw nsw i64 %.sroa.066.0202.i, 1
-  %552 = add i64 %546, %.sroa.066.0202.i
+  %552 = add nuw nsw i64 %546, %.sroa.066.0202.i
   call void @_ZN10image_webp11loop_filter15subblock_filter17h0bc3b7c1f6b38ca8E(i8 noundef %.sroa.010.0.i276.i, i8 noundef %spec.store.select.i277.i, i8 noundef %465, ptr noalias noundef nonnull align 1 %402, i64 noundef %403, i64 noundef %552, i64 noundef %376), !noalias !811
   %exitcond253.not.i = icmp eq i64 %551, %umax252.i
   br i1 %exitcond253.not.i, label %.loopexit156.i, label %550
@@ -4583,7 +4583,7 @@ _ZN3std2io4Read10read_exact17h69fc1beb8c4a7c5dE.exit.i: ; preds = %"_ZN63_$LT$u8
   %.sroa.075.1219.in.i = phi i64 [ %.sroa.0.0.i.i108.i, %.preheader.lr.ph.i ], [ %.sroa.075.1219.i, %.loopexit.i ]
   %.sroa.629.0218.i = phi i64 [ 4, %.preheader.lr.ph.i ], [ %.sroa.074.1217.i, %.loopexit.i ]
   %.sroa.074.1217.i = phi i64 [ 8, %.preheader.lr.ph.i ], [ %553, %.loopexit.i ]
-  %.sroa.075.1219.i = add i64 %.sroa.075.1219.in.i, -1
+  %.sroa.075.1219.i = add nsw i64 %.sroa.075.1219.in.i, -1
   br i1 %.not231.i, label %.loopexit.i, label %.lr.ph213.i
 
 .lr.ph213.i:                                      ; preds = %.preheader.i

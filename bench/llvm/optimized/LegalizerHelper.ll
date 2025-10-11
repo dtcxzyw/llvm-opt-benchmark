@@ -56465,9 +56465,7 @@ _ZN4llvm11SmallVectorINS0_INS_8RegisterELj8EEELj3EEC2Em.exit: ; preds = %_ZNK4ll
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %71, i32 1)
   %105 = zext nneg i32 %98 to i64
-  %wide.trip.count = zext nneg i32 %umax to i64
   br label %130
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -56624,7 +56622,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 64
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %137, ptr noundef nonnull align 8 dereferenceable(1065) %136, ptr noundef nonnull align 8 dereferenceable(32) %185) #19
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next99, %72
   br i1 %exitcond.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !831
 
 186:                                              ; preds = %._crit_edge90

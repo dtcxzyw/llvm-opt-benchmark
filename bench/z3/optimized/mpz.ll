@@ -14056,15 +14056,12 @@ _ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit:  ; preds = %69, %66, %57
 
 .preheader:                                       ; preds = %74
   %80 = sub nuw i32 %3, %79
-  %.not65 = icmp ult i32 %80, 4
-  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %81 = lshr i32 %80, 2
-  br label %.lr.ph
+  %.not65 = icmp ult i32 %80, 4
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.preheader ]
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %84
 
@@ -30824,15 +30821,12 @@ _ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit:  ; preds = %69, %66, %57
 
 .preheader:                                       ; preds = %74
   %80 = sub nuw i32 %3, %79
-  %.not65 = icmp ult i32 %80, 4
-  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %81 = lshr i32 %80, 2
-  br label %.lr.ph
+  %.not65 = icmp ult i32 %80, 4
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.preheader ]
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %84
 

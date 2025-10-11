@@ -6979,7 +6979,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   br i1 %or.cond201.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i
 
 132:                                              ; preds = %152
-  %133 = add i64 %.041162.i.i.i.i, 1
+  %133 = add nuw nsw i64 %.041162.i.i.i.i, 1
   %.not58.i.i.i.i = icmp eq i64 %133, %130
   br i1 %.not58.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !289
 

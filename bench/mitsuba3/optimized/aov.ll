@@ -11855,122 +11855,118 @@ define linkonce_odr hidden void @_ZN5drjit6detail16tensor_broadcastINS_6TensorIN
   %27 = load ptr, ptr %25, align 8
   br label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
-  %.070.us.us = phi i64 [ %29, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %28 = getelementptr inbounds i64, ptr %19, i64 %.070.us.us
-  store i64 0, ptr %28, align 8
-  %29 = add nuw i64 %.070.us.us, 1
-  %exitcond106.not = icmp eq i64 %29, %..i
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !165
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split
+  store i64 0, ptr %19, align 8
+  br label %._crit_edge
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split.split.preheader, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us
-  %.070.us = phi i64 [ %33, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us ], [ 0, %.lr.ph.split.us.split.split.preheader ]
+  %.070.us = phi i64 [ %31, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us ], [ 0, %.lr.ph.split.us.split.split.preheader ]
   %.not.i54.us = icmp ult i64 %.070.us, %26
   br i1 %.not.i54.us, label %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us, label %.split.us.invoke
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us: ; preds = %.lr.ph.split.us.split.split
-  %30 = getelementptr inbounds i64, ptr %27, i64 %.070.us
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i64, ptr %19, i64 %.070.us
-  store i64 %31, ptr %32, align 8
-  %33 = add nuw i64 %.070.us, 1
-  %exitcond105.not = icmp eq i64 %33, %..i
+  %28 = getelementptr inbounds i64, ptr %27, i64 %.070.us
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i64, ptr %19, i64 %.070.us
+  store i64 %29, ptr %30, align 8
+  %31 = add nuw i64 %.070.us, 1
+  %exitcond105.not = icmp eq i64 %31, %..i
   br i1 %exitcond105.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !165
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %34 = load i64, ptr %5, align 8
+  %32 = load i64, ptr %5, align 8
   br i1 %.not50, label %.lr.ph.split.split.us.split.preheader, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %35 = load i64, ptr %7, align 8
-  %36 = load ptr, ptr %24, align 8
-  %37 = load ptr, ptr %25, align 8
-  %.fr157 = freeze i64 %35
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %34, i64 %.fr157)
+  %33 = load i64, ptr %7, align 8
+  %34 = load ptr, ptr %24, align 8
+  %35 = load ptr, ptr %25, align 8
+  %.fr156 = freeze i64 %33
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %32, i64 %.fr156)
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split
-  %38 = load ptr, ptr %24, align 8
+  %36 = load ptr, ptr %24, align 8
   br label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us
-  %.070.us76 = phi i64 [ %42, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us ], [ 0, %.lr.ph.split.split.us.split.preheader ]
-  %.not.i53.us = icmp ult i64 %.070.us76, %34
+  %.070.us76 = phi i64 [ %40, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us ], [ 0, %.lr.ph.split.split.us.split.preheader ]
+  %.not.i53.us = icmp ult i64 %.070.us76, %32
   br i1 %.not.i53.us, label %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us, label %.split.us.invoke
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us: ; preds = %.lr.ph.split.split.us.split
-  %39 = getelementptr inbounds i64, ptr %38, i64 %.070.us76
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i64, ptr %19, i64 %.070.us76
-  store i64 %40, ptr %41, align 8
-  %42 = add nuw i64 %.070.us76, 1
-  %exitcond104.not = icmp eq i64 %42, %..i
+  %37 = getelementptr inbounds i64, ptr %36, i64 %.070.us76
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i64, ptr %19, i64 %.070.us76
+  store i64 %38, ptr %39, align 8
+  %40 = add nuw i64 %.070.us76, 1
+  %exitcond104.not = icmp eq i64 %40, %..i
   br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !165
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %57
-  %.070 = phi i64 [ %58, %57 ], [ 0, %.lr.ph.split.split.preheader ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %55
+  %.070 = phi i64 [ %56, %55 ], [ 0, %.lr.ph.split.split.preheader ]
   %or.cond125 = icmp ult i64 %.070, %invariant.umin
   br i1 %or.cond125, label %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56, label %.split.us.invoke
 
 .split.us.invoke:                                 ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split
-  %43 = phi i64 [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070, %.lr.ph.split.split ]
-  invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.55, i64 noundef %43) #32
-          to label %.split.us.cont unwind label %52
+  %41 = phi i64 [ %.070.us, %.lr.ph.split.us.split.split ], [ %.070.us76, %.lr.ph.split.split.us.split ], [ %.070, %.lr.ph.split.split ]
+  invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.55, i64 noundef %41) #32
+          to label %.split.us.cont unwind label %50
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56: ; preds = %.lr.ph.split.split
-  %44 = getelementptr inbounds i64, ptr %36, i64 %.070
+  %42 = getelementptr inbounds i64, ptr %34, i64 %.070
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i64, ptr %35, i64 %.070
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i64, ptr %37, i64 %.070
-  %47 = load i64, ptr %46, align 8
-  %..i57 = tail call noundef i64 @llvm.umax.i64(i64 %45, i64 %47)
-  %48 = getelementptr inbounds i64, ptr %19, i64 %.070
-  store i64 %..i57, ptr %48, align 8
-  %49 = icmp ult i64 %45, 2
-  %50 = icmp ult i64 %47, 2
-  %or.cond5.not64 = or i1 %49, %50
-  %.not51 = icmp eq i64 %45, %47
+  %..i57 = tail call noundef i64 @llvm.umax.i64(i64 %43, i64 %45)
+  %46 = getelementptr inbounds i64, ptr %19, i64 %.070
+  store i64 %..i57, ptr %46, align 8
+  %47 = icmp ult i64 %43, 2
+  %48 = icmp ult i64 %45, 2
+  %or.cond5.not64 = or i1 %47, %48
+  %.not51 = icmp eq i64 %43, %45
   %or.cond52 = or i1 %.not51, %or.cond5.not64
-  br i1 %or.cond52, label %57, label %.split72
+  br i1 %or.cond52, label %55, label %.split72
 
 .split72:                                         ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56
-  invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.46, ptr noundef %1, i64 noundef %.070, i64 noundef %45, i64 noundef %47) #32
-          to label %51 unwind label %52
+  invoke void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.46, ptr noundef %1, i64 noundef %.070, i64 noundef %43, i64 noundef %45) #32
+          to label %49 unwind label %50
 
-51:                                               ; preds = %.split72
+49:                                               ; preds = %.split72
   unreachable
 
-52:                                               ; preds = %.split.us.invoke, %59, %._crit_edge, %.split72
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %.split.us.invoke, %57, %._crit_edge, %.split72
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %0, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %_ZN5drjit9dr_vectorImED2Ev.exit, label %56
+  %52 = load ptr, ptr %0, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %_ZN5drjit9dr_vectorImED2Ev.exit, label %54
 
-56:                                               ; preds = %52
-  tail call void @_ZdaPv(ptr noundef nonnull %54) #31
+54:                                               ; preds = %50
+  tail call void @_ZdaPv(ptr noundef nonnull %52) #31
   br label %_ZN5drjit9dr_vectorImED2Ev.exit
 
-_ZN5drjit9dr_vectorImED2Ev.exit:                  ; preds = %52, %56
+_ZN5drjit9dr_vectorImED2Ev.exit:                  ; preds = %50, %54
   store ptr null, ptr %0, align 8
-  resume { ptr, i32 } %53
+  resume { ptr, i32 } %51
 
-57:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56
-  %58 = add nuw i64 %.070, 1
-  %exitcond.not = icmp eq i64 %58, %..i
+55:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56
+  %56 = add nuw i64 %.070, 1
+  %exitcond.not = icmp eq i64 %56, %..i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !165
 
-._crit_edge:                                      ; preds = %57, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us, %.lr.ph.split.us.split.split.us, %15
+._crit_edge:                                      ; preds = %55, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.us, %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit56.us, %.lr.ph.split.us.split.split.us, %15
   invoke void @_ZN5drjit6detail21tensor_broadcast_implINS_12DynamicArrayIjEENS_6TensorINS2_IfEEEEEEvPKcRT0_RKNS_9dr_vectorImEE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %59 unwind label %52
+          to label %57 unwind label %50
 
-59:                                               ; preds = %._crit_edge
+57:                                               ; preds = %._crit_edge
   invoke void @_ZN5drjit6detail21tensor_broadcast_implINS_12DynamicArrayIjEENS_6TensorINS2_IfEEEEEEvPKcRT0_RKNS_9dr_vectorImEE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %60 unwind label %52
+          to label %58 unwind label %50
 
-60:                                               ; preds = %59
+58:                                               ; preds = %57
   ret void
 }
 

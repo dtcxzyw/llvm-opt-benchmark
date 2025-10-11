@@ -14056,11 +14056,11 @@ record_in_rewritten.exit.thread.i:                ; preds = %417, %415
 st_mult.exit.i.i109:                              ; preds = %427
   %429 = mul nuw nsw i64 %426, 40
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %421, ptr nonnull readonly align 1 %423, i64 %429, i1 false)
-  %.pre88.i = load i32, ptr %362, align 8, !tbaa !119
+  %.pre87.i = load i32, ptr %362, align 8, !tbaa !119
   br label %move_array.exit.i
 
 move_array.exit.i:                                ; preds = %st_mult.exit.i.i109, %420
-  %430 = phi i32 [ %.040.lcssa.ph.i, %420 ], [ %.pre88.i, %st_mult.exit.i.i109 ]
+  %430 = phi i32 [ %.040.lcssa.ph.i, %420 ], [ %.pre87.i, %st_mult.exit.i.i109 ]
   %431 = sub nsw i32 %430, %.040.lcssa.ph.i
   store i32 %431, ptr %362, align 8, !tbaa !119
   %432 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -14096,8 +14096,8 @@ peek_command.exit.i:                              ; preds = %440
 
 445:                                              ; preds = %.lr.ph.i56.i
   %indvars.iv.next.i58.i = add nuw nsw i64 %indvars.iv.i57.i, 1
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next.i58.i, %438
-  br i1 %exitcond87.not.i, label %peek_command.exit59.i, label %.lr.ph.i56.i, !llvm.loop !177
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next.i58.i, %438
+  br i1 %exitcond86.not.i, label %peek_command.exit59.i, label %.lr.ph.i56.i, !llvm.loop !177
 
 .lr.ph.i56.i:                                     ; preds = %peek_command.exit.i, %445
   %indvars.iv.i57.i = phi i64 [ %indvars.iv.next.i58.i, %445 ], [ 0, %peek_command.exit.i ]
