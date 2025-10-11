@@ -12854,7 +12854,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0403.0.vec.insert.us = insertelement <16 x float> poison, float %.0294.us, i64 0
   %.sroa.0403.60.vec.insert.us = shufflevector <16 x float> %.sroa.0403.0.vec.insert.us, <16 x float> poison, <16 x i32> zeroinitializer
   %282 = load <16 x float>, ptr %164, align 1, !tbaa !101
-  %283 = select i1 %144, <16 x float> %.sroa.0403.60.vec.insert.us, <16 x float> splat (float 1.000000e+00)
+  %283 = select ninf i1 %144, <16 x float> %.sroa.0403.60.vec.insert.us, <16 x float> splat (float 1.000000e+00)
   br label %_ZN4ncnn3MatD2Ev.exit.us.us
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589:          ; preds = %.thread.us.thread
@@ -15375,7 +15375,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0355.0.vec.insert.us = insertelement <8 x float> poison, float %.0223.us, i64 0
   %.sroa.0355.28.vec.insert.us = shufflevector <8 x float> %.sroa.0355.0.vec.insert.us, <8 x float> poison, <8 x i32> zeroinitializer
   %250 = load <8 x float>, ptr %132, align 1, !tbaa !101
-  %251 = select i1 %112, <8 x float> %.sroa.0355.28.vec.insert.us, <8 x float> splat (float 1.000000e+00)
+  %251 = select ninf i1 %112, <8 x float> %.sroa.0355.28.vec.insert.us, <8 x float> splat (float 1.000000e+00)
   br label %_ZN4ncnn3MatD2Ev.exit.us.us
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph.split.us653:          ; preds = %.thread.us.thread
@@ -19276,7 +19276,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0328.0.vec.insert.us = insertelement <4 x float> poison, float %.0203.us, i64 0
   %.sroa.0328.12.vec.insert.us = shufflevector <4 x float> %.sroa.0328.0.vec.insert.us, <4 x float> poison, <4 x i32> zeroinitializer
   %250 = load <4 x float>, ptr %132, align 1, !tbaa !101
-  %251 = select i1 %112, <4 x float> %.sroa.0328.12.vec.insert.us, <4 x float> splat (float 1.000000e+00)
+  %251 = select ninf i1 %112, <4 x float> %.sroa.0328.12.vec.insert.us, <4 x float> splat (float 1.000000e+00)
   br label %_ZN4ncnn3MatD2Ev.exit.us.us
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph.split.us623:          ; preds = %.thread.us.thread

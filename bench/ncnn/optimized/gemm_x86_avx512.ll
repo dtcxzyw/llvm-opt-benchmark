@@ -31168,7 +31168,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %113 = insertelement <16 x i32> poison, i32 %31, i64 0
   %114 = shufflevector <16 x i32> %113, <16 x i32> poison, <16 x i32> zeroinitializer
   %115 = mul <16 x i32> %114, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %116 = select nsz i1 %79, <16 x float> %81, <16 x float> splat (float 1.000000e+00)
+  %116 = select ninf nsz i1 %79, <16 x float> %81, <16 x float> splat (float 1.000000e+00)
   %117 = insertelement <16 x i32> poison, i32 %22, i64 0
   %118 = shufflevector <16 x i32> %117, <16 x i32> poison, <16 x i32> zeroinitializer
   %119 = mul <16 x i32> %118, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -31267,7 +31267,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %198 = sext i32 %.04256.lcssa to i64
   %199 = sext i32 %4 to i64
   %200 = sext i32 %13 to i64
-  %201 = select nsz i1 %155, <8 x float> %190, <8 x float> splat (float 1.000000e+00)
+  %201 = select ninf nsz i1 %155, <8 x float> %190, <8 x float> splat (float 1.000000e+00)
   br label %2321
 
 202:                                              ; preds = %.lr.ph3558, %._crit_edge
@@ -34246,7 +34246,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %2310 = sext i32 %2309 to i64
   %2311 = insertelement <4 x float> poison, float %8, i64 0
   %2312 = shufflevector <4 x float> %2311, <4 x float> poison, <4 x i32> zeroinitializer
-  %2313 = select nsz i1 %2277, <4 x float> %2312, <4 x float> splat (float 1.000000e+00)
+  %2313 = select ninf nsz i1 %2277, <4 x float> %2312, <4 x float> splat (float 1.000000e+00)
   %2314 = insertelement <4 x i32> poison, i32 %22, i64 0
   %2315 = shufflevector <4 x i32> %2314, <4 x i32> poison, <4 x i32> zeroinitializer
   %2316 = mul <4 x i32> %2315, <i32 0, i32 1, i32 2, i32 3>
@@ -36183,8 +36183,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %3554 = sext i32 %.24258.lcssa to i64
   %3555 = sext i32 %4 to i64
   %3556 = sext i32 %13 to i64
-  %3557 = select nsz i1 %3525, <16 x float> %3527, <16 x float> splat (float 1.000000e+00)
-  %3558 = select nsz i1 %3525, <4 x float> %3543, <4 x float> splat (float 1.000000e+00)
+  %3557 = select ninf nsz i1 %3525, <16 x float> %3527, <16 x float> splat (float 1.000000e+00)
+  %3558 = select ninf nsz i1 %3525, <4 x float> %3543, <4 x float> splat (float 1.000000e+00)
   br label %4498
 
 3559:                                             ; preds = %.lr.ph3676, %._crit_edge3670
@@ -37714,7 +37714,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %4463 = fcmp fast une float %8, 1.000000e+00
   %4464 = insertelement <16 x float> poison, float %8, i64 0
   %4465 = shufflevector <16 x float> %4464, <16 x float> poison, <16 x i32> zeroinitializer
-  %4466 = select nsz i1 %4463, <16 x float> %4465, <16 x float> splat (float 1.000000e+00)
+  %4466 = select ninf nsz i1 %4463, <16 x float> %4465, <16 x float> splat (float 1.000000e+00)
   %4467 = icmp eq i32 %22, 1
   %4468 = insertelement <16 x i32> poison, i32 %22, i64 0
   %4469 = shufflevector <16 x i32> %4468, <16 x i32> poison, <16 x i32> zeroinitializer
@@ -37731,7 +37731,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %4480 = shufflevector <4 x float> %4479, <4 x float> poison, <4 x i32> zeroinitializer
   %4481 = insertelement <4 x float> poison, float %8, i64 0
   %4482 = shufflevector <4 x float> %4481, <4 x float> poison, <4 x i32> zeroinitializer
-  %4483 = select nsz i1 %4463, <4 x float> %4482, <4 x float> splat (float 1.000000e+00)
+  %4483 = select ninf nsz i1 %4463, <4 x float> %4482, <4 x float> splat (float 1.000000e+00)
   %4484 = sext i32 %22 to i64
   %4485 = shl nsw i32 %22, 1
   %4486 = sext i32 %4485 to i64
@@ -38398,10 +38398,10 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br i1 %4799, label %.lr.ph3728, label %._crit_edge3729
 
 .lr.ph3728:                                       ; preds = %.preheader3485
-  %4800 = select nsz i1 %3517, float %.04380, float 0.000000e+00
-  %4801 = select nsz i1 %or.cond37, float %.04380, float 0.000000e+00
+  %4800 = select ninf nsz i1 %3517, float %.04380, float 0.000000e+00
+  %4801 = select ninf nsz i1 %or.cond37, float %.04380, float 0.000000e+00
   %invariant.op = fadd reassoc nsz arcp contract afn float %4800, %4801
-  %4802 = select nsz i1 %or.cond37, float %.04378, float 0.000000e+00
+  %4802 = select ninf nsz i1 %or.cond37, float %.04378, float 0.000000e+00
   %invariant.op3732 = fadd reassoc nsz arcp contract afn float %4800, %4802
   br label %4874
 
@@ -38932,7 +38932,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br i1 %5045, label %.lr.ph3775, label %.preheader
 
 .lr.ph3775:                                       ; preds = %.preheader3481
-  %5046 = select nsz i1 %or.cond53, float %.04253, float 0.000000e+00
+  %5046 = select ninf nsz i1 %or.cond53, float %.04253, float 0.000000e+00
   br label %5078
 
 .lr.ph3766:                                       ; preds = %.preheader3482, %5071
@@ -39027,7 +39027,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br i1 %5076, label %.lr.ph3784, label %._crit_edge3785
 
 .lr.ph3784:                                       ; preds = %.preheader
-  %5077 = select i1 %or.cond53, float %.04253, float -0.000000e+00
+  %5077 = select ninf i1 %or.cond53, float %.04253, float -0.000000e+00
   br label %5110
 
 5078:                                             ; preds = %.lr.ph3775, %5105

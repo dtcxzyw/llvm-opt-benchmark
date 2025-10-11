@@ -5390,7 +5390,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %85 = and i32 %7, -8
   %86 = zext nneg i32 %5 to i64
   %87 = sext i32 %14 to i64
-  %88 = select nsz i1 %64, <8 x float> %66, <8 x float> splat (float 1.000000e+00)
+  %88 = select ninf nsz i1 %64, <8 x float> %66, <8 x float> splat (float 1.000000e+00)
   br label %135
 
 .preheader1515.loopexit.i:                        ; preds = %._crit_edge.i
@@ -5446,7 +5446,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %127 = sext i32 %126 to i64
   %128 = shl nsw i32 %23, 3
   %129 = sext i32 %128 to i64
-  %130 = select nsz i1 %112, <4 x float> %114, <4 x float> splat (float 1.000000e+00)
+  %130 = select ninf nsz i1 %112, <4 x float> %114, <4 x float> splat (float 1.000000e+00)
   %131 = and i32 %7, -8
   %132 = zext nneg i32 %.01775.lcssa.i to i64
   %133 = sext i32 %5 to i64
@@ -6789,7 +6789,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %921 = zext nneg i32 %.11776.lcssa.i to i64
   %922 = sext i32 %5 to i64
   %923 = sext i32 %14 to i64
-  %924 = select nsz i1 %902, <4 x float> %904, <4 x float> splat (float 1.000000e+00)
+  %924 = select ninf nsz i1 %902, <4 x float> %904, <4 x float> splat (float 1.000000e+00)
   br label %1599
 
 925:                                              ; preds = %._crit_edge1605.i, %.lr.ph1611.i
@@ -7928,7 +7928,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %1575 = fcmp fast une float %9, 1.000000e+00
   %1576 = insertelement <4 x float> poison, float %9, i64 0
   %1577 = shufflevector <4 x float> %1576, <4 x float> poison, <4 x i32> zeroinitializer
-  %1578 = select nsz i1 %1575, <4 x float> %1577, <4 x float> splat (float 1.000000e+00)
+  %1578 = select ninf nsz i1 %1575, <4 x float> %1577, <4 x float> splat (float 1.000000e+00)
   %1579 = icmp eq i32 %23, 1
   %1580 = sext i32 %23 to i64
   %1581 = shl nsw i32 %23, 1
@@ -8435,10 +8435,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br i1 %1822, label %.lr.ph1652.i, label %._crit_edge1653.i
 
 .lr.ph1652.i:                                     ; preds = %.preheader1508.i
-  %1823 = select nsz i1 %894, float %.01859.i, float 0.000000e+00
-  %1824 = select nsz i1 %or.cond21.i, float %.01859.i, float 0.000000e+00
+  %1823 = select ninf nsz i1 %894, float %.01859.i, float 0.000000e+00
+  %1824 = select ninf nsz i1 %or.cond21.i, float %.01859.i, float 0.000000e+00
   %invariant.op.i = fadd reassoc nsz arcp contract afn float %1823, %1824
-  %1825 = select nsz i1 %or.cond21.i, float %.01862.i, float 0.000000e+00
+  %1825 = select ninf nsz i1 %or.cond21.i, float %.01862.i, float 0.000000e+00
   %invariant.op1656.i = fadd reassoc nsz arcp contract afn float %1823, %1825
   br label %1894
 
@@ -8846,7 +8846,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br i1 %2020, label %.lr.ph1689.i, label %.preheader.i
 
 .lr.ph1689.i:                                     ; preds = %.preheader1505.i
-  %2021 = select nsz i1 %or.cond31.i, float %.01752.i, float 0.000000e+00
+  %2021 = select ninf nsz i1 %or.cond31.i, float %.01752.i, float 0.000000e+00
   br label %2053
 
 .lr.ph1680.i:                                     ; preds = %.preheader1506.i, %2046
@@ -8941,7 +8941,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br i1 %2051, label %.lr.ph1698.i, label %._crit_edge1699.i
 
 .lr.ph1698.i:                                     ; preds = %.preheader.i
-  %2052 = select i1 %or.cond31.i, float %.01752.i, float -0.000000e+00
+  %2052 = select ninf i1 %or.cond31.i, float %.01752.i, float -0.000000e+00
   br label %2085
 
 2053:                                             ; preds = %2080, %.lr.ph1689.i

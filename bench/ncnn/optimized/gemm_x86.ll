@@ -18855,7 +18855,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %71 = sext i32 %70 to i64
   %72 = shl nsw i32 %22, 3
   %73 = sext i32 %72 to i64
-  %74 = select nsz i1 %56, <4 x float> %58, <4 x float> splat (float 1.000000e+00)
+  %74 = select ninf nsz i1 %56, <4 x float> %58, <4 x float> splat (float 1.000000e+00)
   %75 = and i32 %6, -8
   %76 = zext nneg i32 %4 to i64
   %77 = sext i32 %13 to i64
@@ -18910,7 +18910,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %111 = zext nneg i32 %.01107.lcssa.i to i64
   %112 = sext i32 %4 to i64
   %113 = sext i32 %13 to i64
-  %114 = select nsz i1 %91, <4 x float> %93, <4 x float> splat (float 1.000000e+00)
+  %114 = select ninf nsz i1 %91, <4 x float> %93, <4 x float> splat (float 1.000000e+00)
   br label %771
 
 115:                                              ; preds = %._crit_edge.i, %.lr.ph923.i
@@ -20022,7 +20022,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %747 = fcmp fast une float %8, 1.000000e+00
   %748 = insertelement <4 x float> poison, float %8, i64 0
   %749 = shufflevector <4 x float> %748, <4 x float> poison, <4 x i32> zeroinitializer
-  %750 = select nsz i1 %747, <4 x float> %749, <4 x float> splat (float 1.000000e+00)
+  %750 = select ninf nsz i1 %747, <4 x float> %749, <4 x float> splat (float 1.000000e+00)
   %751 = icmp eq i32 %22, 1
   %752 = sext i32 %22 to i64
   %753 = shl nsw i32 %22, 1
@@ -20515,10 +20515,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %983, label %.lr.ph964.i, label %._crit_edge965.i
 
 .lr.ph964.i:                                      ; preds = %.preheader873.i
-  %984 = select nsz i1 %84, float %.01169.i, float 0.000000e+00
-  %985 = select nsz i1 %or.cond19.i, float %.01169.i, float 0.000000e+00
+  %984 = select ninf nsz i1 %84, float %.01169.i, float 0.000000e+00
+  %985 = select ninf nsz i1 %or.cond19.i, float %.01169.i, float 0.000000e+00
   %invariant.op.i = fadd reassoc nsz arcp contract afn float %984, %985
-  %986 = select nsz i1 %or.cond19.i, float %.01172.i, float 0.000000e+00
+  %986 = select ninf nsz i1 %or.cond19.i, float %.01172.i, float 0.000000e+00
   %invariant.op968.i = fadd reassoc nsz arcp contract afn float %984, %986
   br label %1055
 
@@ -20921,7 +20921,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %1181, label %.lr.ph1001.i, label %.preheader.i
 
 .lr.ph1001.i:                                     ; preds = %.preheader870.i
-  %1182 = select nsz i1 %or.cond21.i, float %.01089.i, float 0.000000e+00
+  %1182 = select ninf nsz i1 %or.cond21.i, float %.01089.i, float 0.000000e+00
   br label %1215
 
 .lr.ph992.i:                                      ; preds = %.preheader871.i, %1208
@@ -21017,7 +21017,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %1213, label %.lr.ph1010.i, label %._crit_edge1011.i
 
 .lr.ph1010.i:                                     ; preds = %.preheader.i
-  %1214 = select nsz i1 %or.cond21.i, float %.01089.i, float 0.000000e+00
+  %1214 = select ninf nsz i1 %or.cond21.i, float %.01089.i, float 0.000000e+00
   br label %1247
 
 1215:                                             ; preds = %1242, %.lr.ph1001.i

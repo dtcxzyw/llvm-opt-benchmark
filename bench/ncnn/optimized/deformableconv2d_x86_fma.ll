@@ -6990,7 +6990,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0374.0.vec.insert.us = insertelement <8 x float> poison, float %.0223.us, i64 0
   %.sroa.0374.28.vec.insert.us = shufflevector <8 x float> %.sroa.0374.0.vec.insert.us, <8 x float> poison, <8 x i32> zeroinitializer
   %247 = load <8 x float>, ptr %132, align 1, !tbaa !101
-  %248 = select i1 %112, <8 x float> %.sroa.0374.28.vec.insert.us, <8 x float> splat (float 1.000000e+00)
+  %248 = select ninf i1 %112, <8 x float> %.sroa.0374.28.vec.insert.us, <8 x float> splat (float 1.000000e+00)
   br label %_ZN4ncnn3MatD2Ev.exit.us.us
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph.split.us672:          ; preds = %.thread.us.thread
@@ -10828,7 +10828,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0328.0.vec.insert.us = insertelement <4 x float> poison, float %.0203.us, i64 0
   %.sroa.0328.12.vec.insert.us = shufflevector <4 x float> %.sroa.0328.0.vec.insert.us, <4 x float> poison, <4 x i32> zeroinitializer
   %247 = load <4 x float>, ptr %132, align 1, !tbaa !101
-  %248 = select i1 %112, <4 x float> %.sroa.0328.12.vec.insert.us, <4 x float> splat (float 1.000000e+00)
+  %248 = select ninf i1 %112, <4 x float> %.sroa.0328.12.vec.insert.us, <4 x float> splat (float 1.000000e+00)
   br label %_ZN4ncnn3MatD2Ev.exit.us.us
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph.split.us623:          ; preds = %.thread.us.thread

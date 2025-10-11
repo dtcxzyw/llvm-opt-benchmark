@@ -22232,7 +22232,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %88 = and i32 %7, -8
   %89 = zext nneg i32 %5 to i64
   %90 = sext i32 %17 to i64
-  %91 = select nsz i1 %70, <8 x float> %72, <8 x float> splat (float 1.000000e+00)
+  %91 = select ninf nsz i1 %70, <8 x float> %72, <8 x float> splat (float 1.000000e+00)
   br label %138
 
 .preheader3503.loopexit.i:                        ; preds = %._crit_edge.i
@@ -22288,7 +22288,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %130 = sext i32 %129 to i64
   %131 = shl nsw i32 %26, 3
   %132 = sext i32 %131 to i64
-  %133 = select nsz i1 %115, <4 x float> %117, <4 x float> splat (float 1.000000e+00)
+  %133 = select ninf nsz i1 %115, <4 x float> %117, <4 x float> splat (float 1.000000e+00)
   %134 = and i32 %7, -8
   %135 = zext nneg i32 %.01840.lcssa.i to i64
   %136 = sext i32 %5 to i64
@@ -23725,7 +23725,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1011 = zext nneg i32 %.11841.lcssa.i to i64
   %1012 = sext i32 %5 to i64
   %1013 = sext i32 %17 to i64
-  %1014 = select nsz i1 %992, <4 x float> %994, <4 x float> splat (float 1.000000e+00)
+  %1014 = select ninf nsz i1 %992, <4 x float> %994, <4 x float> splat (float 1.000000e+00)
   br label %1696
 
 1015:                                             ; preds = %._crit_edge3602.i, %.lr.ph3608.i
@@ -24874,7 +24874,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1672 = fcmp fast une float %9, 1.000000e+00
   %1673 = insertelement <4 x float> poison, float %9, i64 0
   %1674 = shufflevector <4 x float> %1673, <4 x float> poison, <4 x i32> zeroinitializer
-  %1675 = select nsz i1 %1672, <4 x float> %1674, <4 x float> splat (float 1.000000e+00)
+  %1675 = select ninf nsz i1 %1672, <4 x float> %1674, <4 x float> splat (float 1.000000e+00)
   %1676 = icmp eq i32 %26, 1
   %1677 = sext i32 %26 to i64
   %1678 = shl nsw i32 %26, 1
@@ -25378,10 +25378,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %1912, label %.lr.ph3649.i, label %._crit_edge3650.i
 
 .lr.ph3649.i:                                     ; preds = %.preheader3496.i
-  %1913 = select nsz i1 %984, float %.01929.i, float 0.000000e+00
-  %1914 = select nsz i1 %or.cond21.i, float %.01929.i, float 0.000000e+00
+  %1913 = select ninf nsz i1 %984, float %.01929.i, float 0.000000e+00
+  %1914 = select ninf nsz i1 %or.cond21.i, float %.01929.i, float 0.000000e+00
   %invariant.op.i = fadd reassoc nsz arcp contract afn float %1913, %1914
-  %1915 = select nsz i1 %or.cond21.i, float %.01932.i, float 0.000000e+00
+  %1915 = select ninf nsz i1 %or.cond21.i, float %.01932.i, float 0.000000e+00
   %invariant.op3653.i = fadd reassoc nsz arcp contract afn float %1913, %1915
   br label %1984
 
@@ -25791,7 +25791,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %2112, label %.lr.ph3686.i, label %.preheader.i
 
 .lr.ph3686.i:                                     ; preds = %.preheader3493.i
-  %2113 = select nsz i1 %or.cond35.i, float %.01817.i, float 0.000000e+00
+  %2113 = select ninf nsz i1 %or.cond35.i, float %.01817.i, float 0.000000e+00
   br label %2146
 
 .lr.ph3677.i:                                     ; preds = %.preheader3494.i, %2139
@@ -25887,7 +25887,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %2144, label %.lr.ph3695.i, label %._crit_edge3696.i
 
 .lr.ph3695.i:                                     ; preds = %.preheader.i
-  %2145 = select i1 %or.cond35.i, float %.01817.i, float -0.000000e+00
+  %2145 = select ninf i1 %or.cond35.i, float %.01817.i, float -0.000000e+00
   br label %2178
 
 2146:                                             ; preds = %2173, %.lr.ph3686.i
