@@ -1815,7 +1815,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !32
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %114
+  br i1 %12, label %13, label %117
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -1845,7 +1845,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
-  %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %70, %._crit_edge ]
+  %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %73, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !96
   %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !96
@@ -1857,16 +1857,16 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   br i1 %30, label %.lr.ph, label %.preheader112
 
 .preheader112:                                    ; preds = %.lr.ph, %.noexc
-  %31 = phi i32 [ %23, %.noexc ], [ %68, %.lr.ph ]
-  %.030.lcssa = phi ptr [ %29, %.noexc ], [ %65, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %.noexc ], [ %66, %.lr.ph ]
+  %31 = phi i32 [ %23, %.noexc ], [ %71, %.lr.ph ]
+  %.030.lcssa = phi ptr [ %29, %.noexc ], [ %68, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.noexc ], [ %69, %.lr.ph ]
   %32 = or disjoint i32 %.0.lcssa, 3
   %33 = icmp slt i32 %32, %31
   br i1 %33, label %.lr.ph118, label %.preheader
 
 .lr.ph:                                           ; preds = %.noexc, %.lr.ph
-  %.0114 = phi i32 [ %66, %.lr.ph ], [ 0, %.noexc ]
-  %.030113 = phi ptr [ %65, %.lr.ph ], [ %29, %.noexc ]
+  %.0114 = phi i32 [ %69, %.lr.ph ], [ 0, %.noexc ]
+  %.030113 = phi ptr [ %68, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.030113, align 1, !tbaa !45
   %35 = fcmp fast ole <8 x float> %34, zeroinitializer
   %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x3810000000000000))
@@ -1876,98 +1876,99 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %40 = or disjoint <8 x i32> %39, splat (i32 1056964608)
   %41 = bitcast <8 x i32> %40 to <8 x float>
   %42 = lshr <8 x i32> %37, splat (i32 23)
-  %43 = fcmp fast olt <8 x float> %41, splat (float 0x3FE6A09E60000000)
-  %44 = select <8 x i1> %43, <8 x float> %41, <8 x float> zeroinitializer
-  %45 = fadd fast <8 x float> %41, splat (float -1.000000e+00)
-  %.v.v = select <8 x i1> %43, <8 x i32> splat (i32 -127), <8 x i32> splat (i32 -126)
-  %.v = add nsw <8 x i32> %42, %.v.v
-  %46 = sitofp <8 x i32> %.v to <8 x float>
-  %47 = fadd fast <8 x float> %45, %44
-  %48 = fmul fast <8 x float> %47, %47
-  %49 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %47, <8 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <8 x float> splat (float 0xBFBD7A3700000000))
-  %50 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FBDE4A340000000))
-  %51 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %50, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFBFCBA9E0000000))
-  %52 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %51, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FC23D37E0000000))
-  %53 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %52, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFC555CA00000000))
-  %54 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %53, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FC999D580000000))
-  %55 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFCFFFFF80000000))
-  %56 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %55, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FD5555540000000))
-  %57 = fmul fast <8 x float> %48, %47
-  %58 = fmul fast <8 x float> %57, %56
-  %59 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %46, <8 x float> splat (float 0xBF2BD01060000000), <8 x float> nofpclass(nan inf) %58)
-  %60 = fneg fast <8 x float> %48
-  %61 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %60, <8 x float> splat (float 5.000000e-01), <8 x float> nofpclass(nan inf) %59)
-  %62 = fadd fast <8 x float> %61, %47
-  %63 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %46, <8 x float> splat (float 0x3FE6300000000000), <8 x float> nofpclass(nan inf) %62)
-  %64 = select <8 x i1> %35, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %63
-  store <8 x float> %64, ptr %.030113, align 1, !tbaa !45
-  %65 = getelementptr inbounds nuw i8, ptr %.030113, i64 32
-  %66 = add nuw nsw i32 %.0114, 8
-  %67 = or disjoint i32 %66, 7
-  %68 = load i32, ptr %4, align 4, !tbaa !32
-  %69 = icmp slt i32 %67, %68
-  br i1 %69, label %.lr.ph, label %.preheader112, !llvm.loop !99
+  %43 = add nsw <8 x i32> %42, splat (i32 -127)
+  %44 = sitofp <8 x i32> %43 to <8 x float>
+  %45 = fadd fast <8 x float> %44, splat (float 1.000000e+00)
+  %46 = fcmp fast olt <8 x float> %41, splat (float 0x3FE6A09E60000000)
+  %47 = select <8 x i1> %46, <8 x float> %41, <8 x float> zeroinitializer
+  %48 = fadd fast <8 x float> %41, splat (float -1.000000e+00)
+  %49 = select fast <8 x i1> %46, <8 x float> %44, <8 x float> %45
+  %50 = fadd fast <8 x float> %48, %47
+  %51 = fmul fast <8 x float> %50, %50
+  %52 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %50, <8 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <8 x float> splat (float 0xBFBD7A3700000000))
+  %53 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %52, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FBDE4A340000000))
+  %54 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %53, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFBFCBA9E0000000))
+  %55 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FC23D37E0000000))
+  %56 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %55, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFC555CA00000000))
+  %57 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %56, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FC999D580000000))
+  %58 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %57, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFCFFFFF80000000))
+  %59 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %58, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FD5555540000000))
+  %60 = fmul fast <8 x float> %51, %50
+  %61 = fmul fast <8 x float> %60, %59
+  %62 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> splat (float 0xBF2BD01060000000), <8 x float> nofpclass(nan inf) %61)
+  %63 = fneg fast <8 x float> %51
+  %64 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %63, <8 x float> splat (float 5.000000e-01), <8 x float> nofpclass(nan inf) %62)
+  %65 = fadd fast <8 x float> %64, %50
+  %66 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> splat (float 0x3FE6300000000000), <8 x float> nofpclass(nan inf) %65)
+  %67 = select <8 x i1> %35, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %66
+  store <8 x float> %67, ptr %.030113, align 1, !tbaa !45
+  %68 = getelementptr inbounds nuw i8, ptr %.030113, i64 32
+  %69 = add nuw nsw i32 %.0114, 8
+  %70 = or disjoint i32 %69, 7
+  %71 = load i32, ptr %4, align 4, !tbaa !32
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %.lr.ph, label %.preheader112, !llvm.loop !99
 
 .preheader:                                       ; preds = %.lr.ph118, %.preheader112
-  %70 = phi i32 [ %31, %.preheader112 ], [ %108, %.lr.ph118 ]
-  %.131.lcssa = phi ptr [ %.030.lcssa, %.preheader112 ], [ %105, %.lr.ph118 ]
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader112 ], [ %106, %.lr.ph118 ]
-  %71 = icmp slt i32 %.1.lcssa, %70
-  br i1 %71, label %.lr.ph124, label %._crit_edge
+  %73 = phi i32 [ %31, %.preheader112 ], [ %111, %.lr.ph118 ]
+  %.131.lcssa = phi ptr [ %.030.lcssa, %.preheader112 ], [ %108, %.lr.ph118 ]
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader112 ], [ %109, %.lr.ph118 ]
+  %74 = icmp slt i32 %.1.lcssa, %73
+  br i1 %74, label %.lr.ph124, label %._crit_edge
 
 .lr.ph118:                                        ; preds = %.preheader112, %.lr.ph118
-  %.1117 = phi i32 [ %106, %.lr.ph118 ], [ %.0.lcssa, %.preheader112 ]
-  %.131116 = phi ptr [ %105, %.lr.ph118 ], [ %.030.lcssa, %.preheader112 ]
-  %72 = load <4 x float>, ptr %.131116, align 16, !tbaa !45
-  %73 = fcmp fast ole <4 x float> %72, zeroinitializer
-  %74 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %72, <4 x float> splat (float 0x3810000000000000))
-  %75 = bitcast <4 x float> %74 to <4 x i32>
-  %76 = lshr <4 x i32> %75, splat (i32 23)
-  %77 = and <4 x i32> %75, splat (i32 -2139095041)
-  %78 = or disjoint <4 x i32> %77, splat (i32 1056964608)
-  %79 = bitcast <4 x i32> %78 to <4 x float>
-  %80 = add nsw <4 x i32> %76, splat (i32 -126)
-  %81 = sitofp <4 x i32> %80 to <4 x float>
-  %82 = fcmp fast olt <4 x float> %79, splat (float 0x3FE6A09E60000000)
-  %83 = select <4 x i1> %82, <4 x float> %79, <4 x float> zeroinitializer
-  %84 = fadd fast <4 x float> %79, splat (float -1.000000e+00)
-  %85 = select <4 x i1> %82, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
-  %86 = fsub fast <4 x float> %81, %85
-  %87 = fadd fast <4 x float> %84, %83
-  %88 = fmul fast <4 x float> %87, %87
-  %89 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %87, <4 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <4 x float> splat (float 0xBFBD7A3700000000))
-  %90 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %89, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0x3FBDE4A340000000))
-  %91 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %90, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0xBFBFCBA9E0000000))
-  %92 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %91, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0x3FC23D37E0000000))
-  %93 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %92, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0xBFC555CA00000000))
-  %94 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %93, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0x3FC999D580000000))
-  %95 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %94, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0xBFCFFFFF80000000))
-  %96 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %95, <4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0x3FD5555540000000))
-  %97 = fmul fast <4 x float> %88, %87
-  %98 = fmul fast <4 x float> %97, %96
-  %99 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %86, <4 x float> splat (float 0xBF2BD01060000000), <4 x float> nofpclass(nan inf) %98)
-  %100 = fneg fast <4 x float> %88
-  %101 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %100, <4 x float> splat (float 5.000000e-01), <4 x float> nofpclass(nan inf) %99)
-  %102 = fadd fast <4 x float> %101, %87
-  %103 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %86, <4 x float> splat (float 0x3FE6300000000000), <4 x float> nofpclass(nan inf) %102)
-  %104 = select <4 x i1> %73, <4 x float> splat (float 0xFFFFFFFFE0000000), <4 x float> %103
-  store <4 x float> %104, ptr %.131116, align 16, !tbaa !45
-  %105 = getelementptr inbounds nuw i8, ptr %.131116, i64 16
-  %106 = add nuw nsw i32 %.1117, 4
-  %107 = or disjoint i32 %106, 3
-  %108 = load i32, ptr %4, align 4, !tbaa !32
-  %109 = icmp slt i32 %107, %108
-  br i1 %109, label %.lr.ph118, label %.preheader, !llvm.loop !100
+  %.1117 = phi i32 [ %109, %.lr.ph118 ], [ %.0.lcssa, %.preheader112 ]
+  %.131116 = phi ptr [ %108, %.lr.ph118 ], [ %.030.lcssa, %.preheader112 ]
+  %75 = load <4 x float>, ptr %.131116, align 16, !tbaa !45
+  %76 = fcmp fast ole <4 x float> %75, zeroinitializer
+  %77 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %75, <4 x float> splat (float 0x3810000000000000))
+  %78 = bitcast <4 x float> %77 to <4 x i32>
+  %79 = lshr <4 x i32> %78, splat (i32 23)
+  %80 = and <4 x i32> %78, splat (i32 -2139095041)
+  %81 = or disjoint <4 x i32> %80, splat (i32 1056964608)
+  %82 = bitcast <4 x i32> %81 to <4 x float>
+  %83 = add nsw <4 x i32> %79, splat (i32 -127)
+  %84 = sitofp <4 x i32> %83 to <4 x float>
+  %85 = fadd fast <4 x float> %84, splat (float 1.000000e+00)
+  %86 = fcmp fast olt <4 x float> %82, splat (float 0x3FE6A09E60000000)
+  %87 = select <4 x i1> %86, <4 x float> %82, <4 x float> zeroinitializer
+  %88 = fadd fast <4 x float> %82, splat (float -1.000000e+00)
+  %89 = select fast <4 x i1> %86, <4 x float> %84, <4 x float> %85
+  %90 = fadd fast <4 x float> %88, %87
+  %91 = fmul fast <4 x float> %90, %90
+  %92 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %90, <4 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <4 x float> splat (float 0xBFBD7A3700000000))
+  %93 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %92, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0x3FBDE4A340000000))
+  %94 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %93, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0xBFBFCBA9E0000000))
+  %95 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %94, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0x3FC23D37E0000000))
+  %96 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %95, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0xBFC555CA00000000))
+  %97 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %96, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0x3FC999D580000000))
+  %98 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %97, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0xBFCFFFFF80000000))
+  %99 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %98, <4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0x3FD5555540000000))
+  %100 = fmul fast <4 x float> %91, %90
+  %101 = fmul fast <4 x float> %100, %99
+  %102 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %89, <4 x float> splat (float 0xBF2BD01060000000), <4 x float> nofpclass(nan inf) %101)
+  %103 = fneg fast <4 x float> %91
+  %104 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %103, <4 x float> splat (float 5.000000e-01), <4 x float> nofpclass(nan inf) %102)
+  %105 = fadd fast <4 x float> %104, %90
+  %106 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %89, <4 x float> splat (float 0x3FE6300000000000), <4 x float> nofpclass(nan inf) %105)
+  %107 = select <4 x i1> %76, <4 x float> splat (float 0xFFFFFFFFE0000000), <4 x float> %106
+  store <4 x float> %107, ptr %.131116, align 16, !tbaa !45
+  %108 = getelementptr inbounds nuw i8, ptr %.131116, i64 16
+  %109 = add nuw nsw i32 %.1117, 4
+  %110 = or disjoint i32 %109, 3
+  %111 = load i32, ptr %4, align 4, !tbaa !32
+  %112 = icmp slt i32 %110, %111
+  br i1 %112, label %.lr.ph118, label %.preheader, !llvm.loop !100
 
 .lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
-  %.2123 = phi i32 [ %113, %.lr.ph124 ], [ %.1.lcssa, %.preheader ]
-  %.232122 = phi ptr [ %112, %.lr.ph124 ], [ %.131.lcssa, %.preheader ]
-  %110 = load float, ptr %.232122, align 4, !tbaa !49
-  %111 = call fast noundef float @llvm.log.f32(float %110)
-  store float %111, ptr %.232122, align 4, !tbaa !49
-  %112 = getelementptr inbounds nuw i8, ptr %.232122, i64 4
-  %113 = add nuw nsw i32 %.2123, 1
-  %exitcond.not = icmp eq i32 %113, %70
+  %.2123 = phi i32 [ %116, %.lr.ph124 ], [ %.1.lcssa, %.preheader ]
+  %.232122 = phi ptr [ %115, %.lr.ph124 ], [ %.131.lcssa, %.preheader ]
+  %113 = load float, ptr %.232122, align 4, !tbaa !49
+  %114 = call fast noundef float @llvm.log.f32(float %113)
+  store float %114, ptr %.232122, align 4, !tbaa !49
+  %115 = getelementptr inbounds nuw i8, ptr %.232122, i64 4
+  %116 = add nuw nsw i32 %.2123, 1
+  %exitcond.not = icmp eq i32 %116, %73
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph124, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph124, %.preheader
@@ -1982,9 +1983,9 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %114
+  br label %117
 
-114:                                              ; preds = %._crit_edge127, %6
+117:                                              ; preds = %._crit_edge127, %6
   ret void
 }
 
@@ -3405,7 +3406,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !32
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %116
+  br i1 %12, label %13, label %119
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -3435,7 +3436,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
-  %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %71, %._crit_edge ]
+  %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %74, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !150
   %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !150
@@ -3447,16 +3448,16 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   br i1 %30, label %.lr.ph, label %.preheader105
 
 .preheader105:                                    ; preds = %.lr.ph, %.noexc
-  %31 = phi i32 [ %23, %.noexc ], [ %69, %.lr.ph ]
-  %.030.lcssa = phi ptr [ %29, %.noexc ], [ %66, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %.noexc ], [ %67, %.lr.ph ]
+  %31 = phi i32 [ %23, %.noexc ], [ %72, %.lr.ph ]
+  %.030.lcssa = phi ptr [ %29, %.noexc ], [ %69, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.noexc ], [ %70, %.lr.ph ]
   %32 = or disjoint i32 %.0.lcssa, 3
   %33 = icmp slt i32 %32, %31
   br i1 %33, label %.lr.ph111, label %.preheader
 
 .lr.ph:                                           ; preds = %.noexc, %.lr.ph
-  %.0107 = phi i32 [ %67, %.lr.ph ], [ 0, %.noexc ]
-  %.030106 = phi ptr [ %66, %.lr.ph ], [ %29, %.noexc ]
+  %.0107 = phi i32 [ %70, %.lr.ph ], [ 0, %.noexc ]
+  %.030106 = phi ptr [ %69, %.lr.ph ], [ %29, %.noexc ]
   %34 = load <8 x float>, ptr %.030106, align 1, !tbaa !45
   %35 = fcmp fast ole <8 x float> %34, zeroinitializer
   %36 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %34, <8 x float> splat (float 0x3810000000000000))
@@ -3466,100 +3467,101 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %40 = or disjoint <8 x i32> %39, splat (i32 1056964608)
   %41 = bitcast <8 x i32> %40 to <8 x float>
   %42 = lshr <8 x i32> %37, splat (i32 23)
-  %43 = fcmp fast olt <8 x float> %41, splat (float 0x3FE6A09E60000000)
-  %44 = select <8 x i1> %43, <8 x float> %41, <8 x float> zeroinitializer
-  %45 = fadd fast <8 x float> %41, splat (float -1.000000e+00)
-  %.v.v = select <8 x i1> %43, <8 x i32> splat (i32 -127), <8 x i32> splat (i32 -126)
-  %.v = add nsw <8 x i32> %42, %.v.v
-  %46 = sitofp <8 x i32> %.v to <8 x float>
-  %47 = fadd fast <8 x float> %45, %44
-  %48 = fmul fast <8 x float> %47, %47
-  %49 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %47, <8 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <8 x float> splat (float 0xBFBD7A3700000000))
-  %50 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FBDE4A340000000))
-  %51 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %50, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFBFCBA9E0000000))
-  %52 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %51, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FC23D37E0000000))
-  %53 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %52, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFC555CA00000000))
-  %54 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %53, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FC999D580000000))
-  %55 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0xBFCFFFFF80000000))
-  %56 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %55, <8 x float> nofpclass(nan inf) %47, <8 x float> splat (float 0x3FD5555540000000))
-  %57 = fmul fast <8 x float> %48, %47
-  %58 = fmul fast <8 x float> %57, %56
-  %59 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %46, <8 x float> splat (float 0xBF2BD01060000000), <8 x float> nofpclass(nan inf) %58)
-  %60 = fneg fast <8 x float> %48
-  %61 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %60, <8 x float> splat (float 5.000000e-01), <8 x float> nofpclass(nan inf) %59)
-  %62 = fadd fast <8 x float> %61, %47
-  %63 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %46, <8 x float> splat (float 0x3FE6300000000000), <8 x float> nofpclass(nan inf) %62)
-  %64 = fmul fast <8 x float> %63, splat (float 0x3FDBCB7B20000000)
-  %65 = select <8 x i1> %35, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %64
-  store <8 x float> %65, ptr %.030106, align 1, !tbaa !45
-  %66 = getelementptr inbounds nuw i8, ptr %.030106, i64 32
-  %67 = add nuw nsw i32 %.0107, 8
-  %68 = or disjoint i32 %67, 7
-  %69 = load i32, ptr %4, align 4, !tbaa !32
-  %70 = icmp slt i32 %68, %69
-  br i1 %70, label %.lr.ph, label %.preheader105, !llvm.loop !153
+  %43 = add nsw <8 x i32> %42, splat (i32 -127)
+  %44 = sitofp <8 x i32> %43 to <8 x float>
+  %45 = fadd fast <8 x float> %44, splat (float 1.000000e+00)
+  %46 = fcmp fast olt <8 x float> %41, splat (float 0x3FE6A09E60000000)
+  %47 = select <8 x i1> %46, <8 x float> %41, <8 x float> zeroinitializer
+  %48 = fadd fast <8 x float> %41, splat (float -1.000000e+00)
+  %49 = select fast <8 x i1> %46, <8 x float> %44, <8 x float> %45
+  %50 = fadd fast <8 x float> %48, %47
+  %51 = fmul fast <8 x float> %50, %50
+  %52 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %50, <8 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <8 x float> splat (float 0xBFBD7A3700000000))
+  %53 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %52, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FBDE4A340000000))
+  %54 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %53, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFBFCBA9E0000000))
+  %55 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %54, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FC23D37E0000000))
+  %56 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %55, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFC555CA00000000))
+  %57 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %56, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FC999D580000000))
+  %58 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %57, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0xBFCFFFFF80000000))
+  %59 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %58, <8 x float> nofpclass(nan inf) %50, <8 x float> splat (float 0x3FD5555540000000))
+  %60 = fmul fast <8 x float> %51, %50
+  %61 = fmul fast <8 x float> %60, %59
+  %62 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> splat (float 0xBF2BD01060000000), <8 x float> nofpclass(nan inf) %61)
+  %63 = fneg fast <8 x float> %51
+  %64 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %63, <8 x float> splat (float 5.000000e-01), <8 x float> nofpclass(nan inf) %62)
+  %65 = fadd fast <8 x float> %64, %50
+  %66 = call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %49, <8 x float> splat (float 0x3FE6300000000000), <8 x float> nofpclass(nan inf) %65)
+  %67 = fmul fast <8 x float> %66, splat (float 0x3FDBCB7B20000000)
+  %68 = select <8 x i1> %35, <8 x float> splat (float 0xFFFFFFFFE0000000), <8 x float> %67
+  store <8 x float> %68, ptr %.030106, align 1, !tbaa !45
+  %69 = getelementptr inbounds nuw i8, ptr %.030106, i64 32
+  %70 = add nuw nsw i32 %.0107, 8
+  %71 = or disjoint i32 %70, 7
+  %72 = load i32, ptr %4, align 4, !tbaa !32
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %.lr.ph, label %.preheader105, !llvm.loop !153
 
 .preheader:                                       ; preds = %.lr.ph111, %.preheader105
-  %71 = phi i32 [ %31, %.preheader105 ], [ %110, %.lr.ph111 ]
-  %.131.lcssa = phi ptr [ %.030.lcssa, %.preheader105 ], [ %107, %.lr.ph111 ]
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader105 ], [ %108, %.lr.ph111 ]
-  %72 = icmp slt i32 %.1.lcssa, %71
-  br i1 %72, label %.lr.ph117, label %._crit_edge
+  %74 = phi i32 [ %31, %.preheader105 ], [ %113, %.lr.ph111 ]
+  %.131.lcssa = phi ptr [ %.030.lcssa, %.preheader105 ], [ %110, %.lr.ph111 ]
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader105 ], [ %111, %.lr.ph111 ]
+  %75 = icmp slt i32 %.1.lcssa, %74
+  br i1 %75, label %.lr.ph117, label %._crit_edge
 
 .lr.ph111:                                        ; preds = %.preheader105, %.lr.ph111
-  %.1110 = phi i32 [ %108, %.lr.ph111 ], [ %.0.lcssa, %.preheader105 ]
-  %.131109 = phi ptr [ %107, %.lr.ph111 ], [ %.030.lcssa, %.preheader105 ]
-  %73 = load <4 x float>, ptr %.131109, align 16, !tbaa !45
-  %74 = fcmp fast ole <4 x float> %73, zeroinitializer
-  %75 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %73, <4 x float> splat (float 0x3810000000000000))
-  %76 = bitcast <4 x float> %75 to <4 x i32>
-  %77 = lshr <4 x i32> %76, splat (i32 23)
-  %78 = and <4 x i32> %76, splat (i32 -2139095041)
-  %79 = or disjoint <4 x i32> %78, splat (i32 1056964608)
-  %80 = bitcast <4 x i32> %79 to <4 x float>
-  %81 = add nsw <4 x i32> %77, splat (i32 -126)
-  %82 = sitofp <4 x i32> %81 to <4 x float>
-  %83 = fcmp fast olt <4 x float> %80, splat (float 0x3FE6A09E60000000)
-  %84 = select <4 x i1> %83, <4 x float> %80, <4 x float> zeroinitializer
-  %85 = fadd fast <4 x float> %80, splat (float -1.000000e+00)
-  %86 = select <4 x i1> %83, <4 x float> splat (float 1.000000e+00), <4 x float> zeroinitializer
-  %87 = fsub fast <4 x float> %82, %86
-  %88 = fadd fast <4 x float> %85, %84
-  %89 = fmul fast <4 x float> %88, %88
-  %90 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %88, <4 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <4 x float> splat (float 0xBFBD7A3700000000))
-  %91 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %90, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0x3FBDE4A340000000))
-  %92 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %91, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0xBFBFCBA9E0000000))
-  %93 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %92, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0x3FC23D37E0000000))
-  %94 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %93, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0xBFC555CA00000000))
-  %95 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %94, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0x3FC999D580000000))
-  %96 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %95, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0xBFCFFFFF80000000))
-  %97 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %96, <4 x float> nofpclass(nan inf) %88, <4 x float> splat (float 0x3FD5555540000000))
-  %98 = fmul fast <4 x float> %89, %88
-  %99 = fmul fast <4 x float> %98, %97
-  %100 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0xBF2BD01060000000), <4 x float> nofpclass(nan inf) %99)
-  %101 = fneg fast <4 x float> %89
-  %102 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %101, <4 x float> splat (float 5.000000e-01), <4 x float> nofpclass(nan inf) %100)
-  %103 = fadd fast <4 x float> %102, %88
-  %104 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %87, <4 x float> splat (float 0x3FE6300000000000), <4 x float> nofpclass(nan inf) %103)
-  %105 = fmul fast <4 x float> %104, splat (float 0x3FDBCB7B20000000)
-  %106 = select <4 x i1> %74, <4 x float> splat (float 0xFFFFFFFFE0000000), <4 x float> %105
-  store <4 x float> %106, ptr %.131109, align 16, !tbaa !45
-  %107 = getelementptr inbounds nuw i8, ptr %.131109, i64 16
-  %108 = add nuw nsw i32 %.1110, 4
-  %109 = or disjoint i32 %108, 3
-  %110 = load i32, ptr %4, align 4, !tbaa !32
-  %111 = icmp slt i32 %109, %110
-  br i1 %111, label %.lr.ph111, label %.preheader, !llvm.loop !154
+  %.1110 = phi i32 [ %111, %.lr.ph111 ], [ %.0.lcssa, %.preheader105 ]
+  %.131109 = phi ptr [ %110, %.lr.ph111 ], [ %.030.lcssa, %.preheader105 ]
+  %76 = load <4 x float>, ptr %.131109, align 16, !tbaa !45
+  %77 = fcmp fast ole <4 x float> %76, zeroinitializer
+  %78 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %76, <4 x float> splat (float 0x3810000000000000))
+  %79 = bitcast <4 x float> %78 to <4 x i32>
+  %80 = lshr <4 x i32> %79, splat (i32 23)
+  %81 = and <4 x i32> %79, splat (i32 -2139095041)
+  %82 = or disjoint <4 x i32> %81, splat (i32 1056964608)
+  %83 = bitcast <4 x i32> %82 to <4 x float>
+  %84 = add nsw <4 x i32> %80, splat (i32 -127)
+  %85 = sitofp <4 x i32> %84 to <4 x float>
+  %86 = fadd fast <4 x float> %85, splat (float 1.000000e+00)
+  %87 = fcmp fast olt <4 x float> %83, splat (float 0x3FE6A09E60000000)
+  %88 = select <4 x i1> %87, <4 x float> %83, <4 x float> zeroinitializer
+  %89 = fadd fast <4 x float> %83, splat (float -1.000000e+00)
+  %90 = select fast <4 x i1> %87, <4 x float> %85, <4 x float> %86
+  %91 = fadd fast <4 x float> %89, %88
+  %92 = fmul fast <4 x float> %91, %91
+  %93 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %91, <4 x float> nofpclass(nan inf) splat (float 0x3FB2043760000000), <4 x float> splat (float 0xBFBD7A3700000000))
+  %94 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %93, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0x3FBDE4A340000000))
+  %95 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %94, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0xBFBFCBA9E0000000))
+  %96 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %95, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0x3FC23D37E0000000))
+  %97 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %96, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0xBFC555CA00000000))
+  %98 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %97, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0x3FC999D580000000))
+  %99 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %98, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0xBFCFFFFF80000000))
+  %100 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %99, <4 x float> nofpclass(nan inf) %91, <4 x float> splat (float 0x3FD5555540000000))
+  %101 = fmul fast <4 x float> %92, %91
+  %102 = fmul fast <4 x float> %101, %100
+  %103 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0xBF2BD01060000000), <4 x float> nofpclass(nan inf) %102)
+  %104 = fneg fast <4 x float> %92
+  %105 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %104, <4 x float> splat (float 5.000000e-01), <4 x float> nofpclass(nan inf) %103)
+  %106 = fadd fast <4 x float> %105, %91
+  %107 = call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %90, <4 x float> splat (float 0x3FE6300000000000), <4 x float> nofpclass(nan inf) %106)
+  %108 = fmul fast <4 x float> %107, splat (float 0x3FDBCB7B20000000)
+  %109 = select <4 x i1> %77, <4 x float> splat (float 0xFFFFFFFFE0000000), <4 x float> %108
+  store <4 x float> %109, ptr %.131109, align 16, !tbaa !45
+  %110 = getelementptr inbounds nuw i8, ptr %.131109, i64 16
+  %111 = add nuw nsw i32 %.1110, 4
+  %112 = or disjoint i32 %111, 3
+  %113 = load i32, ptr %4, align 4, !tbaa !32
+  %114 = icmp slt i32 %112, %113
+  br i1 %114, label %.lr.ph111, label %.preheader, !llvm.loop !154
 
 .lr.ph117:                                        ; preds = %.preheader, %.lr.ph117
-  %.2116 = phi i32 [ %115, %.lr.ph117 ], [ %.1.lcssa, %.preheader ]
-  %.232115 = phi ptr [ %114, %.lr.ph117 ], [ %.131.lcssa, %.preheader ]
-  %112 = load float, ptr %.232115, align 4, !tbaa !49
-  %113 = call fast noundef float @llvm.log10.f32(float %112)
-  store float %113, ptr %.232115, align 4, !tbaa !49
-  %114 = getelementptr inbounds nuw i8, ptr %.232115, i64 4
-  %115 = add nuw nsw i32 %.2116, 1
-  %exitcond.not = icmp eq i32 %115, %71
+  %.2116 = phi i32 [ %118, %.lr.ph117 ], [ %.1.lcssa, %.preheader ]
+  %.232115 = phi ptr [ %117, %.lr.ph117 ], [ %.131.lcssa, %.preheader ]
+  %115 = load float, ptr %.232115, align 4, !tbaa !49
+  %116 = call fast noundef float @llvm.log10.f32(float %115)
+  store float %116, ptr %.232115, align 4, !tbaa !49
+  %117 = getelementptr inbounds nuw i8, ptr %.232115, i64 4
+  %118 = add nuw nsw i32 %.2116, 1
+  %exitcond.not = icmp eq i32 %118, %74
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph117, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %.lr.ph117, %.preheader
@@ -3574,9 +3576,9 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %116
+  br label %119
 
-116:                                              ; preds = %._crit_edge120, %6
+119:                                              ; preds = %._crit_edge120, %6
   ret void
 }
 
