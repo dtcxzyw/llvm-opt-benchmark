@@ -32325,7 +32325,7 @@ call.i.noexc:                                     ; preds = %_ZTW10infostream.ex
   %cond-lvalue.i = getelementptr inbounds nuw i8, ptr %47, i64 %cond-lvalue.v.i
   %50 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !187
   %tobool.not.i.i = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i, label %if.end54, label %if.then.i.i187
+  br i1 %tobool.not.i.i, label %invoke.cont51, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %call.i.noexc
   %call1.i.i.i189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.191, i64 noundef 14)
@@ -32334,7 +32334,7 @@ if.then.i.i187:                                   ; preds = %call.i.noexc
 invoke.cont49:                                    ; preds = %if.then.i.i187
   %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !187
   %tobool.not.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i, label %if.end54, label %if.then.i
+  br i1 %tobool.not.i, label %invoke.cont51, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont49
   %vtable.i231 = load ptr, ptr %.pr, align 8, !tbaa !15
@@ -32384,7 +32384,7 @@ call1.i.noexc:                                    ; preds = %_ZNKSt9basic_iosIcS
   %call.i.i239 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i237)
           to label %if.end54 unwind label %lpad42
 
-if.end54:                                         ; preds = %call.i.noexc, %invoke.cont49, %call1.i.noexc
+invoke.cont51:                                    ; preds = %call.i.noexc, %invoke.cont49, %call1.i.noexc
   %punching = getelementptr inbounds nuw i8, ptr %this, i64 461
   store i8 1, ptr %punching, align 1, !tbaa !673
   br i1 %cmp, label %if.then56, label %if.end104
@@ -33864,15 +33864,15 @@ invoke.cont239:                                   ; preds = %invoke.cont237
   invoke void %144(ptr noundef nonnull align 8 dereferenceable(8) %call238, ptr noundef nonnull %call240)
           to label %if.end250 unwind label %lpad75
 
-if.end250:                                        ; preds = %if.then121, %invoke.cont239
+if.end250thread-pre-split:                        ; preds = %if.then121, %invoke.cont239
   %.pr503 = load float, ptr %dig_time_complete111, align 4, !tbaa !1223
   %cmp254 = fcmp nsz olt float %.pr503, 1.000000e+05
   %dig_time257 = getelementptr inbounds nuw i8, ptr %this, i64 472
   br i1 %cmp254, label %if.then255, label %if.else258
 
 if.then255:                                       ; preds = %if.end250
-  %145 = load float, ptr %dig_time257, align 8, !tbaa !671
-  %add = fadd nsz float %dtime, %145
+  %146 = load float, ptr %dig_time257, align 8, !tbaa !671
+  %add = fadd nsz float %dtime, %146
   store float %add, ptr %dig_time257, align 8, !tbaa !671
   br label %if.end264
 
@@ -33886,19 +33886,19 @@ if.else258:                                       ; preds = %if.end250.thread, %
 
 if.end264:                                        ; preds = %if.else258, %if.then255
   %camera = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %147 = load ptr, ptr %camera, align 8, !tbaa !120
-  invoke void @_ZN6Camera10setDiggingEi(ptr noundef nonnull align 8 dereferenceable(560) %147, i32 noundef 0)
+  %148 = load ptr, ptr %camera, align 8, !tbaa !120
+  invoke void @_ZN6Camera10setDiggingEi(ptr noundef nonnull align 8 dereferenceable(560) %148, i32 noundef 0)
           to label %cleanup267 unwind label %lpad75
 
 cleanup267:                                       ; preds = %if.end264, %invoke.cont187, %invoke.cont49
   %main_group.i445 = getelementptr inbounds nuw i8, ptr %params, i64 16
-  %148 = load ptr, ptr %main_group.i445, align 8, !tbaa !11
-  %149 = getelementptr inbounds nuw i8, ptr %params, i64 32
-  %cmp.i.i.i.i446 = icmp eq ptr %148, %149
+  %149 = load ptr, ptr %main_group.i445, align 8, !tbaa !11
+  %150 = getelementptr inbounds nuw i8, ptr %params, i64 32
+  %cmp.i.i.i.i446 = icmp eq ptr %149, %150
   br i1 %cmp.i.i.i.i446, label %_ZN9DigParamsD2Ev.exit452, label %if.then.i.i.i447
 
 if.then.i.i.i447:                                 ; preds = %cleanup267
-  call void @_ZdlPv(ptr noundef %148) #41
+  call void @_ZdlPv(ptr noundef %149) #41
   br label %_ZN9DigParamsD2Ev.exit452
 
 _ZN9DigParamsD2Ev.exit452:                        ; preds = %cleanup267, %if.then.i.i.i447
@@ -33909,13 +33909,13 @@ _ZN9DigParamsD2Ev.exit452:                        ; preds = %cleanup267, %if.the
 ehcleanup268:                                     ; preds = %lpad203, %ehcleanup149, %ehcleanup, %lpad75, %lpad22, %lpad.body
   %.pn305.pn = phi { ptr, i32 } [ %52, %lpad22 ], [ %eh.lpad-body, %lpad.body ], [ %99, %lpad75 ], [ %136, %lpad203 ], [ %.pn303, %ehcleanup149 ], [ %100, %ehcleanup ]
   %main_group.i453 = getelementptr inbounds nuw i8, ptr %params, i64 16
-  %150 = load ptr, ptr %main_group.i453, align 8, !tbaa !11
-  %151 = getelementptr inbounds nuw i8, ptr %params, i64 32
-  %cmp.i.i.i.i454 = icmp eq ptr %150, %151
+  %151 = load ptr, ptr %main_group.i453, align 8, !tbaa !11
+  %152 = getelementptr inbounds nuw i8, ptr %params, i64 32
+  %cmp.i.i.i.i454 = icmp eq ptr %151, %152
   br i1 %cmp.i.i.i.i454, label %_ZN9DigParamsD2Ev.exit460, label %if.then.i.i.i455
 
 if.then.i.i.i455:                                 ; preds = %ehcleanup268
-  call void @_ZdlPv(ptr noundef %150) #41
+  call void @_ZdlPv(ptr noundef %151) #41
   br label %_ZN9DigParamsD2Ev.exit460
 
 _ZN9DigParamsD2Ev.exit460:                        ; preds = %ehcleanup268, %if.then.i.i.i455

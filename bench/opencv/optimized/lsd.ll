@@ -2728,16 +2728,16 @@ define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vec
 
 .lr.ph:                                           ; preds = %38, %77
   %46 = phi ptr [ %50, %77 ], [ %15, %38 ]
-  %.06986 = phi i64 [ %78, %77 ], [ 0, %38 ]
-  %.07085 = phi i32 [ %.171, %77 ], [ 0, %38 ]
-  %.07284 = phi double [ %.173, %77 ], [ 0.000000e+00, %38 ]
-  %.07483 = phi double [ %.175, %77 ], [ 0.000000e+00, %38 ]
-  %47 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %46, i64 %.06986
+  %.06985 = phi i64 [ %78, %77 ], [ 0, %38 ]
+  %.07084 = phi i32 [ %.171, %77 ], [ 0, %38 ]
+  %.07283 = phi double [ %.173, %77 ], [ 0.000000e+00, %38 ]
+  %.07482 = phi double [ %.175, %77 ], [ 0.000000e+00, %38 ]
+  %47 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %46, i64 %.06985
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !169
   store i8 0, ptr %49, align 1, !tbaa !108
   %50 = load ptr, ptr %1, align 8, !tbaa !104
-  %51 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %50, i64 %.06986
+  %51 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %50, i64 %.06985
   %52 = load i32, ptr %51, align 8, !tbaa !154
   %53 = sitofp i32 %52 to double
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -2778,16 +2778,16 @@ define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vec
 
 _Z17angle_diff_signedRKdS0_.exit:                 ; preds = %.lr.ph.i, %.lr.ph9.i, %.preheader.i
   %.1.lcssa.i = phi double [ %67, %.preheader.i ], [ %72, %.lr.ph9.i ], [ %70, %.lr.ph.i ]
-  %74 = fadd double %.07483, %.1.lcssa.i
-  %75 = tail call double @llvm.fmuladd.f64(double %.1.lcssa.i, double %.1.lcssa.i, double %.07284)
-  %76 = add nsw i32 %.07085, 1
+  %74 = fadd double %.07482, %.1.lcssa.i
+  %75 = tail call double @llvm.fmuladd.f64(double %.1.lcssa.i, double %.1.lcssa.i, double %.07283)
+  %76 = add nsw i32 %.07084, 1
   br label %77
 
 77:                                               ; preds = %.lr.ph, %_Z17angle_diff_signedRKdS0_.exit
-  %.175 = phi double [ %74, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07483, %.lr.ph ]
-  %.173 = phi double [ %75, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07284, %.lr.ph ]
-  %.171 = phi i32 [ %76, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07085, %.lr.ph ]
-  %78 = add nuw i64 %.06986, 1
+  %.175 = phi double [ %74, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07482, %.lr.ph ]
+  %.173 = phi double [ %75, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07283, %.lr.ph ]
+  %.171 = phi i32 [ %76, %_Z17angle_diff_signedRKdS0_.exit ], [ %.07084, %.lr.ph ]
+  %78 = add nuw i64 %.06985, 1
   %79 = load ptr, ptr %13, align 8, !tbaa !109
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %50 to i64
@@ -3185,11 +3185,11 @@ _Z12double_equalRKdS0_.exit:                      ; preds = %._crit_edge
   br i1 %24, label %.critedge, label %_Z12double_equalRKdS0_.exit.thread
 
 25:                                               ; preds = %.lr.ph, %25
-  %.067 = phi i64 [ 0, %.lr.ph ], [ %43, %25 ]
-  %.05666 = phi double [ 0.000000e+00, %.lr.ph ], [ %37, %25 ]
-  %.05765 = phi double [ 0.000000e+00, %.lr.ph ], [ %39, %25 ]
-  %.05864 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %25 ]
-  %26 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %11, i64 %.067
+  %.066 = phi i64 [ 0, %.lr.ph ], [ %43, %25 ]
+  %.05665 = phi double [ 0.000000e+00, %.lr.ph ], [ %37, %25 ]
+  %.05764 = phi double [ 0.000000e+00, %.lr.ph ], [ %39, %25 ]
+  %.05863 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %25 ]
+  %26 = getelementptr inbounds nuw %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %11, i64 %.066
   %27 = load i32, ptr %26, align 8, !tbaa !154
   %28 = sitofp i32 %27 to double
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -3200,13 +3200,13 @@ _Z12double_equalRKdS0_.exit:                      ; preds = %._crit_edge
   %34 = fsub double %31, %17
   %35 = fmul double %34, %34
   %36 = load double, ptr %32, align 8, !tbaa !90
-  %37 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %.05666)
+  %37 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %.05665)
   %38 = fmul double %33, %33
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double %36, double %.05765)
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double %36, double %.05764)
   %40 = fneg double %34
   %41 = fmul double %33, %40
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double %36, double %.05864)
-  %43 = add nuw i64 %.067, 1
+  %42 = tail call double @llvm.fmuladd.f64(double %41, double %36, double %.05863)
+  %43 = add nuw i64 %.066, 1
   %exitcond.not = icmp eq i64 %43, %15
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !180
 
@@ -3279,10 +3279,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %
   %74 = fcmp ogt double %72, %73
   %75 = fsub double %71, %39
   %76 = fsub double %71, %37
-  %.sink103 = select i1 %74, double %42, double %75
+  %.sink100 = select i1 %74, double %42, double %75
   %.sink.v = select i1 %74, double %76, double %42
   %.sink = fptrunc double %.sink.v to float
-  %77 = fptrunc double %.sink103 to float
+  %77 = fptrunc double %.sink100 to float
   %78 = tail call noundef float @_ZN2cv9fastAtan2Eff(float noundef %.sink, float noundef %77)
   %79 = fpext float %78 to double
   %80 = fmul double %79, 0x3F91DF46A2529D39

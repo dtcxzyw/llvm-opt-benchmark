@@ -47991,10 +47991,10 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable
 9:                                                ; preds = %4
   br i1 %8, label %.thread, label %14
 
-10:                                               ; preds = %4
+10:; preds = %4
   br i1 %8, label %.thread, label %12
 
-.thread:                                          ; preds = %9, %10
+.thread:; preds = %9, %10
   %11 = bitcast float %.pr to i32
   br label %12
 
@@ -48004,13 +48004,13 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable
   store i32 %13, ptr %2, align 16
   br label %25
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   %15 = fcmp oeq float %5, 0.000000e+00
   %16 = fcmp oeq float %.pr, 0.000000e+00
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %17, label %22
+  br i1 %or.cond, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   %18 = bitcast float %.pr to i32
   %19 = xor i32 %18, %7
   %20 = icmp slt i32 %19, 0
@@ -48018,15 +48018,15 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable
 
 21:                                               ; preds = %17
   store float -0.000000e+00, ptr %2, align 16
-  br label %25
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = fcmp olt float %.pr, %5
-  %24 = select i1 %23, float %.pr, float %5
-  store float %24, ptr %2, align 16
-  br label %25
+20:                                               ; preds = %17, %14
+  %21 = fcmp olt float %.pr, %5
+  %22 = select i1 %21, float %.pr, float %5
+  store float %22, ptr %2, align 16
+  br label %23
 
-25:                                               ; preds = %21, %22, %12
+23:                                               ; preds = %21, %20, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48043,10 +48043,10 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable
 9:                                                ; preds = %4
   br i1 %8, label %.thread, label %14
 
-10:                                               ; preds = %4
+10:; preds = %4
   br i1 %8, label %.thread, label %12
 
-.thread:                                          ; preds = %9, %10
+.thread:; preds = %9, %10
   %11 = bitcast float %.pr to i32
   br label %12
 
@@ -48056,13 +48056,13 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable
   store i32 %13, ptr %2, align 16
   br label %25
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   %15 = fcmp oeq float %5, 0.000000e+00
   %16 = fcmp oeq float %.pr, 0.000000e+00
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %17, label %22
+  br i1 %or.cond, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   %18 = bitcast float %.pr to i32
   %19 = xor i32 %18, %7
   %20 = icmp slt i32 %19, 0
@@ -48070,15 +48070,15 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable
 
 21:                                               ; preds = %17
   store float 0.000000e+00, ptr %2, align 16
-  br label %25
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = fcmp olt float %5, %.pr
-  %24 = select i1 %23, float %.pr, float %5
-  store float %24, ptr %2, align 16
-  br label %25
+20:                                               ; preds = %17, %14
+  %21 = fcmp olt float %5, %.pr
+  %22 = select i1 %21, float %.pr, float %5
+  store float %22, ptr %2, align 16
+  br label %23
 
-25:                                               ; preds = %21, %22, %12
+23:                                               ; preds = %21, %20, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48095,10 +48095,10 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable
 9:                                                ; preds = %4
   br i1 %8, label %.thread, label %14
 
-10:                                               ; preds = %4
+10:; preds = %4
   br i1 %8, label %.thread, label %12
 
-.thread:                                          ; preds = %9, %10
+.thread:; preds = %9, %10
   %11 = bitcast double %.pr to i64
   br label %12
 
@@ -48108,13 +48108,13 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable
   store i64 %13, ptr %2, align 16
   br label %25
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   %15 = fcmp oeq double %5, 0.000000e+00
   %16 = fcmp oeq double %.pr, 0.000000e+00
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %17, label %22
+  br i1 %or.cond, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   %18 = bitcast double %.pr to i64
   %19 = xor i64 %18, %7
   %20 = icmp slt i64 %19, 0
@@ -48122,15 +48122,15 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable
 
 21:                                               ; preds = %17
   store double -0.000000e+00, ptr %2, align 16
-  br label %25
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = fcmp olt double %.pr, %5
-  %24 = select i1 %23, double %.pr, double %5
-  store double %24, ptr %2, align 16
-  br label %25
+20:                                               ; preds = %17, %14
+  %21 = fcmp olt double %.pr, %5
+  %22 = select i1 %21, double %.pr, double %5
+  store double %22, ptr %2, align 16
+  br label %23
 
-25:                                               ; preds = %21, %22, %12
+23:                                               ; preds = %21, %20, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48147,10 +48147,10 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable
 9:                                                ; preds = %4
   br i1 %8, label %.thread, label %14
 
-10:                                               ; preds = %4
+10:; preds = %4
   br i1 %8, label %.thread, label %12
 
-.thread:                                          ; preds = %9, %10
+.thread:; preds = %9, %10
   %11 = bitcast double %.pr to i64
   br label %12
 
@@ -48160,13 +48160,13 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable
   store i64 %13, ptr %2, align 16
   br label %25
 
-14:                                               ; preds = %9
+15:                                               ; preds = %9
   %15 = fcmp oeq double %5, 0.000000e+00
   %16 = fcmp oeq double %.pr, 0.000000e+00
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %17, label %22
+  br i1 %or.cond, label %19, label %20
 
-17:                                               ; preds = %14
+19:                                               ; preds = %15
   %18 = bitcast double %.pr to i64
   %19 = xor i64 %18, %7
   %20 = icmp slt i64 %19, 0
@@ -48174,15 +48174,15 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable
 
 21:                                               ; preds = %17
   store double 0.000000e+00, ptr %2, align 16
-  br label %25
+  br label %23
 
-22:                                               ; preds = %17, %14
-  %23 = fcmp olt double %5, %.pr
-  %24 = select i1 %23, double %.pr, double %5
-  store double %24, ptr %2, align 16
-  br label %25
+20:                                               ; preds = %17, %14
+  %21 = fcmp olt double %5, %.pr
+  %22 = select i1 %21, double %.pr, double %5
+  store double %22, ptr %2, align 16
+  br label %23
 
-25:                                               ; preds = %21, %22, %12
+23:                                               ; preds = %21, %20, %12
   store i64 1, ptr %0, align 4
   ret void
 }

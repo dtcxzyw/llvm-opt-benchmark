@@ -160177,10 +160177,10 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit: ; preds 
   %.019 = phi i32 [ %63, %60 ], [ %76, %._crit_edge.i ]
   %.017.lcssa.i = phi double [ 1.000000e+00, %60 ], [ %78, %._crit_edge.i ]
   %80 = uitofp i32 %71 to double
-  br label %92
+  br label %91
 
-_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit: ; preds = %92
-  %81 = fdiv double %98, %.017.lcssa.i
+_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit: ; preds = %91
+  %81 = fdiv double %97, %.017.lcssa.i
   %82 = trunc nuw i8 %65 to i1
   %83 = fneg double %81
   %.020 = select i1 %82, double %83, double %81
@@ -160194,28 +160194,28 @@ _ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 45, i1 false)
   store i32 10, ptr %89, align 4, !tbaa !1572
-  %90 = tail call double @llvm.fabs.f64(double %84)
-  %91 = fcmp olt double %90, 0x10000000000001
-  br i1 %91, label %.lr.ph.i.i.i.preheader.i, label %100
+  %89 = tail call double @llvm.fabs.f64(double %84)
+  %90 = fcmp olt double %89, 0x10000000000001
+  br i1 %90, label %.lr.ph.i.i.i.preheader.i, label %99
 
-92:                                               ; preds = %92, %79
-  %.025.i = phi i64 [ 1, %79 ], [ %99, %92 ]
-  %.01624.i = phi double [ 1.000000e+00, %79 ], [ %94, %92 ]
-  %93 = phi double [ %80, %79 ], [ %98, %92 ]
-  %94 = fdiv double %.01624.i, 1.000000e+08
-  %95 = getelementptr inbounds nuw i32, ptr %2, i64 %.025.i
-  %96 = load i32, ptr %95, align 4, !tbaa !263
-  %97 = uitofp i32 %96 to double
-  %98 = tail call double @llvm.fmuladd.f64(double %97, double %94, double %93)
-  %99 = add nuw nsw i64 %.025.i, 1
-  %exitcond.not.i = icmp eq i64 %99, 3
-  br i1 %exitcond.not.i, label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit, label %92, !llvm.loop !2887
+91:                                               ; preds = %91, %79
+  %.025.i = phi i64 [ 1, %79 ], [ %98, %92 ]
+  %.01624.i = phi double [ 1.000000e+00, %79 ], [ %93, %92 ]
+  %92 = phi double [ %80, %79 ], [ %97, %92 ]
+  %93 = fdiv double %.01624.i, 1.000000e+08
+  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %.025.i
+  %95 = load i32, ptr %94, align 4, !tbaa !263
+  %96 = uitofp i32 %95 to double
+  %97 = tail call double @llvm.fmuladd.f64(double %96, double %93, double %92)
+  %98 = add nuw nsw i64 %.025.i, 1
+  %exitcond.not.i = icmp eq i64 %98, 3
+  br i1 %exitcond.not.i, label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit, label %91, !llvm.loop !2887
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 40, i1 false), !tbaa !263
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEC2Edi.exit
 
-100:                                              ; preds = %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit
+99:                                               ; preds = %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.exit
   %101 = fcmp olt double %84, 0.000000e+00
   %102 = zext i1 %101 to i8
   %103 = fneg double %84
@@ -160223,11 +160223,11 @@ _ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.
   %105 = fcmp ogt double %104, 1.000000e+01
   br i1 %105, label %.lr.ph.i14, label %.preheader.i
 
-.preheader.i:                                     ; preds = %100
+.preheader.i:                                     ; preds = %99
   %106 = fcmp olt double %104, 1.000000e+00
   br i1 %106, label %.lr.ph43.i, label %._crit_edge.i11
 
-.lr.ph.i14:                                       ; preds = %100, %.lr.ph.i14
+.lr.ph.i14:                                       ; preds = %99, %.lr.ph.i14
   %.02739.i = phi double [ %107, %.lr.ph.i14 ], [ %104, %100 ]
   %.02838.i = phi i32 [ %108, %.lr.ph.i14 ], [ %85, %100 ]
   %107 = fdiv double %.02739.i, 1.000000e+01
@@ -160309,8 +160309,8 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEC2Edi.exit: ; preds = 
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
 132:                                              ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEC2Edi.exit, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit.i
-  %.030 = phi i32 [ 12, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEC2Edi.exit ], [ %133, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit.i ]
-  %133 = shl nuw nsw i32 %.030, 1
+  %.029 = phi i32 [ 12, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEC2Edi.exit ], [ %133, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit.i ]
+  %133 = shl nuw nsw i32 %.029, 1
   %.lhs.trunc = add nuw nsw i32 %133, 20
   %134 = lshr i32 %.lhs.trunc, 3
   %.zext = and i32 %134, 31
@@ -160364,7 +160364,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit.i: ; pr
   %155 = call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEpLERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(56) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3twoEvE3val)
   %156 = call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEmLERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %157 = icmp ult i32 %.030, 41
+  %157 = icmp ult i32 %.029, 41
   br i1 %157, label %132, label %131, !llvm.loop !2895
 
 _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit: ; preds = %34, %57, %51, %32, %27, %50, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, %131, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit

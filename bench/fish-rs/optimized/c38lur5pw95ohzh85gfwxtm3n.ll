@@ -40108,15 +40108,15 @@ define internal noundef double @_ZN4fish8tinyexpr3npr17h539c0472d09b6482E(double
 _ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit:   ; preds = %18, %2, %4, %._crit_edge.loopexit.i
   %.sroa.0.0.i = phi double [ 0x7FF0000000000000, %2 ], [ 0x7FF8000000000000, %4 ], [ %22, %._crit_edge.loopexit.i ], [ 0x7FF0000000000000, %18 ]
   %28 = fcmp olt double %1, 0.000000e+00
-  br i1 %28, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread
+  br i1 %28, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %29
 
-_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread: ; preds = %8, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit
+29:                                               ; preds = %8, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit
   %.sroa.0.0.i4 = phi double [ %.sroa.0.0.i, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit ], [ 0x7FF0000000000000, %8 ]
   %29 = fcmp ogt double %1, 0x43F0000000000000
   br i1 %29, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread._ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread_crit_edge
 
-_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread._ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread_crit_edge: ; preds = %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread
-  %.pre = tail call i64 @llvm.fptoui.sat.i64.f64(double %1)
+31:                                               ; preds = %29
+  %32 = tail call i64 @llvm.fptoui.sat.i64.f64(double %1)
   br label %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread
 
 _ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread: ; preds = %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread._ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread_crit_edge, %11
@@ -40125,29 +40125,29 @@ _ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread: ; preds = %_ZN4fis
   %.not.i.i1 = icmp eq i64 %.pre-phi, 0
   br i1 %.not.i.i1, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread, %31
-  %30 = phi i64 [ %32, %31 ], [ 1, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ]
-  %.sroa.01.0.i.i = phi i64 [ %35, %31 ], [ 1, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ]
-  %exitcond.not.i = icmp eq i64 %30, %.pre-phi
-  br i1 %exitcond.not.i, label %36, label %31
+.preheader.i.i:                                   ; preds = %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread, %34
+  %33 = phi i64 [ %35, %31 ], [ 1, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ]
+  %.sroa.01.0.i.i = phi i64 [ %38, %31 ], [ 1, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ]
+  %exitcond.not.i = icmp eq i64 %33, %.pre-phi
+  br i1 %exitcond.not.i, label %39, label %34
 
-31:                                               ; preds = %.preheader.i.i
-  %32 = add i64 %30, 1
-  %33 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.01.0.i.i, i64 %30)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  br i1 %34, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %.preheader.i.i
+34:                                               ; preds = %.preheader.i.i
+  %35 = add i64 %33, 1
+  %36 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.01.0.i.i, i64 %33)
+  %37 = extractvalue { i64, i1 } %36, 1
+  %38 = extractvalue { i64, i1 } %36, 0
+  br i1 %37, label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit, label %.preheader.i.i
 
-36:                                               ; preds = %.preheader.i.i
-  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.01.0.i.i, i64 %.pre-phi)
-  %38 = extractvalue { i64, i1 } %37, 1
-  %39 = extractvalue { i64, i1 } %37, 0
-  %40 = uitofp i64 %39 to double
-  %41 = select i1 %38, double 0x7FF0000000000000, double %40
+39:                                               ; preds = %.preheader.i.i
+  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.01.0.i.i, i64 %.pre-phi)
+  %41 = extractvalue { i64, i1 } %40, 1
+  %42 = extractvalue { i64, i1 } %40, 0
+  %43 = uitofp i64 %42 to double
+  %44 = select i1 %41, double 0x7FF0000000000000, double %43
   br label %_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit
 
-_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit:   ; preds = %31, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread, %36
-  %.sroa.0.0.i5 = phi double [ %.sroa.0.0.i, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit ], [ %.sroa.0.0.i4, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread ], [ %.sroa.0.0.i47, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ], [ %.sroa.0.0.i47, %36 ], [ %.sroa.0.0.i47, %31 ]
+_ZN4fish8tinyexpr3fac17h9f7f25a93135e494E.exit:   ; preds = %34, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit, %29, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread, %39
+  %.sroa.0.0.i2 = phi double [ %.sroa.0.0.i, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit ], [ %.sroa.0.0.i4, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread ], [ %.sroa.0.0.i47, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ], [ %.sroa.0.0.i47, %36 ], [ %.sroa.0.0.i47, %31 ]
   %.sroa.0.0.i2 = phi double [ 0x7FF8000000000000, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit ], [ 0x7FF0000000000000, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread ], [ 1.000000e+00, %_ZN4fish8tinyexpr3ncr17h0421c5f5c9497cc3E.exit.thread.thread ], [ %41, %36 ], [ 0x7FF0000000000000, %31 ]
   %42 = fmul double %.sroa.0.0.i5, %.sroa.0.0.i2
   ret double %42

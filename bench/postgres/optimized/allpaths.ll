@@ -2190,7 +2190,7 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
 13:                                               ; preds = %8
   br i1 %12, label %compute_parallel_worker.exit, label %14
 
-14:                                               ; preds = %13
+14:; preds = %13
   %15 = load i32, ptr @min_parallel_table_scan_size, align 4
   %16 = sitofp i32 %15 to double
   %17 = fcmp olt double %4, %16
@@ -2199,16 +2199,16 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
 18:                                               ; preds = %8
   br i1 %12, label %compute_parallel_worker.exit, label %..thread11_crit_edge
 
-..thread11_crit_edge:                             ; preds = %18
+17:                                               ; preds = %18
   %.pre = load i32, ptr @min_parallel_table_scan_size, align 4
   br label %.thread11
 
-.thread11:                                        ; preds = %..thread11_crit_edge, %14
+18:                                               ; preds = %17, %14
   %19 = phi i32 [ %.pre, %..thread11_crit_edge ], [ %15, %14 ]
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
   br label %21
 
-21:                                               ; preds = %25, %.thread11
+21:                                               ; preds = %25, %18
   %.034.i = phi i32 [ %20, %.thread11 ], [ %22, %25 ]
   %.032.i = phi i32 [ 1, %.thread11 ], [ %26, %25 ]
   %22 = mul i32 %.034.i, 3

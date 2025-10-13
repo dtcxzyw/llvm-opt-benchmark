@@ -7064,7 +7064,7 @@ for.cond.13:                                      ; preds = %for.cond.12
   %or.cond.14 = and i1 %cmp7.14, %cmp9.14
   br i1 %or.cond.14, label %if.then10, label %if.end36
 
-if.then10:                                        ; preds = %for.cond.13, %for.cond.12, %for.cond.11, %for.cond.10, %for.cond.9, %for.cond.8, %for.cond.7, %for.cond.6, %for.cond.5, %for.cond.4, %for.cond.3, %for.cond.2, %for.cond.1, %for.cond, %for.cond.preheader
+for.cond.14:                                      ; preds = %for.cond.13, %for.cond.12, %for.cond.11, %for.cond.10, %for.cond.9, %for.cond.8, %for.cond.7, %for.cond.6, %for.cond.5, %for.cond.4, %for.cond.3, %for.cond.2, %for.cond.1, %for.cond, %for.cond.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %periodicMsg)
   call void @_ZNK6Server13ShutdownState23getShutdownTimerMessageB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.322") align 8 %periodicMsg, ptr noundef nonnull align 8 dereferenceable(44) %this)
   %.not = icmp eq ptr @_ZTH10infostream, null
@@ -52105,9 +52105,9 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %if.th
   br i1 %cmp.i.i.i244, label %ehcleanup62, label %ehcleanup62.sink.split
 
 ehcleanup62.sink.split:                           ; preds = %ehcleanup61, %lpad.i.i168
-  %.sink52 = phi ptr [ %66, %lpad.i.i168 ], [ %102, %ehcleanup61 ]
+  %.sink51 = phi ptr [ %66, %lpad.i.i168 ], [ %102, %ehcleanup61 ]
   %.pn78.pn.pn.ph = phi { ptr, i32 } [ %65, %lpad.i.i168 ], [ %.pn78.pn, %ehcleanup61 ]
-  call void @_ZdlPv(ptr noundef %.sink52) #35
+  call void @_ZdlPv(ptr noundef %.sink51) #35
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup62.sink.split, %ehcleanup61, %lpad.i.i168

@@ -1210,7 +1210,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.critedge29
-  %.031 = phi i64 [ %30, %.critedge29 ], [ 0, %3 ]
+  %.031 = phi i64 [ %34, %.critedge29 ], [ 0, %3 ]
   %.02630 = phi double [ %.1, %.critedge29 ], [ 0.000000e+00, %3 ]
   %15 = getelementptr inbounds nuw double, ptr %13, i64 %.031
   store double 0.000000e+00, ptr %15, align 8, !tbaa !64
@@ -1233,32 +1233,32 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
 
 27:                                               ; preds = %19
   %28 = fcmp ogt double %20, 5.000000e-01
-  br i1 %28, label %.thread, label %.critedge29
+  br i1 %28, label %29, label %.critedge29
 
-.thread:                                          ; preds = %27
-  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %7, i64 %.031
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !64
-  %.pre32 = fmul double %17, %.pre
-  %29 = fcmp olt double %.pre32, 0.000000e+00
-  br i1 %29, label %.critedge, label %.critedge29
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw double, ptr %7, i64 %.031
+  %31 = load double, ptr %30, align 8, !tbaa !64
+  %32 = fmul double %17, %31
+  %33 = fcmp olt double %32, 0.000000e+00
+  br i1 %33, label %.critedge, label %.critedge29
 
-.critedge:                                        ; preds = %22, %.thread
+.critedge:                                        ; preds = %22, %29
   store double 1.000000e+00, ptr %15, align 8, !tbaa !64
   br label %.critedge29
 
-.critedge29:                                      ; preds = %22, %27, %.thread, %.critedge, %.lr.ph
+.critedge29:                                      ; preds = %22, %27, %29, %.critedge, %.lr.ph
   %.1 = phi double [ %.02630, %.lr.ph ], [ 1.000000e+00, %.critedge ], [ %.02630, %.thread ], [ %.02630, %27 ], [ %.02630, %22 ]
-  %30 = add nuw nsw i64 %.031, 1
-  %exitcond.not = icmp eq i64 %30, %5
+  %34 = add nuw nsw i64 %.031, 1
+  %exitcond.not = icmp eq i64 %34, %5
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.critedge29
-  %31 = fcmp une double %.1, 1.000000e+00
-  %32 = zext i1 %31 to i32
+  %35 = fcmp une double %.1, 1.000000e+00
+  %36 = zext i1 %35 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.026.lcssa = phi i32 [ 1, %3 ], [ %32, %._crit_edge.loopexit ]
+  %.026.lcssa = phi i32 [ 1, %3 ], [ %36, %._crit_edge.loopexit ]
   ret i32 %.026.lcssa
 }
 

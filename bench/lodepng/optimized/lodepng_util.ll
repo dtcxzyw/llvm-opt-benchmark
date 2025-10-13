@@ -5834,11 +5834,11 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
   %3 = fcmp oeq float %0, 1.000000e+00
   %4 = fcmp oeq float %1, 0.000000e+00
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %common.ret245, label %5
+  br i1 %or.cond, label %common.ret231, label %5
 
 5:                                                ; preds = %2
   %6 = fcmp oeq float %1, 1.000000e+00
-  br i1 %6, label %common.ret245, label %7
+  br i1 %6, label %common.ret231, label %7
 
 7:                                                ; preds = %5
   %8 = fcmp ogt float %0, 0.000000e+00
@@ -5855,7 +5855,7 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
 
 14:                                               ; preds = %13
   %15 = fadd float %0, %1
-  br label %common.ret245
+  br label %common.ret231
 
 16:                                               ; preds = %13
   br i1 %8, label %17, label %21
@@ -5867,7 +5867,7 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
 19:                                               ; preds = %17
   %20 = fcmp ugt float %1, 0.000000e+00
   %. = select i1 %20, float %0, float 0.000000e+00
-  br label %common.ret245
+  br label %common.ret231
 
 21:                                               ; preds = %16
   %or.cond9 = fcmp ogt float %10, 0x41D0000000000000
@@ -5886,16 +5886,16 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
 28:                                               ; preds = %26
   %29 = fcmp olt float %1, 0.000000e+00
   %30 = select i1 %29, float 0.000000e+00, float 0x7FF0000000000000
-  br label %common.ret245
+  br label %common.ret231
 
 31:                                               ; preds = %26
   %32 = fcmp oeq float %0, 0.000000e+00
-  br i1 %32, label %33, label %common.ret245
+  br i1 %32, label %33, label %common.ret231
 
 33:                                               ; preds = %31
   %34 = fcmp olt float %1, 0.000000e+00
   %35 = select i1 %34, float 0x7FF0000000000000, float 0.000000e+00
-  br label %common.ret245
+  br label %common.ret231
 
 36:                                               ; preds = %22
   %37 = and i32 %23, 1
@@ -5910,17 +5910,17 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
   %41 = fcmp olt float %1, 0.000000e+00
   %42 = fdiv float 1.000000e+00, %0
   %43 = select i1 %41, float %42, float %0
-  br label %common.ret245
+  br label %common.ret231
 
-common.ret245:                                    ; preds = %120, %._crit_edge160.thread, %67, %64, %60, %57, %55, %40, %28, %33, %31, %5, %2, %97, %50, %19, %14, %44
-  %common.ret245.op = phi float [ %47, %44 ], [ %101, %97 ], [ %15, %14 ], [ %., %19 ], [ %52, %50 ], [ 1.000000e+00, %2 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ 0x7FF8000000000000, %31 ], [ %43, %40 ], [ %59, %57 ], [ 0.000000e+00, %55 ], [ 1.000000e+00, %60 ], [ %70, %67 ], [ 0.000000e+00, %64 ], [ %125, %120 ], [ %129, %._crit_edge160.thread ]
-  ret float %common.ret245.op
+common.ret231:                                    ; preds = %120, %._crit_edge160.thread, %67, %64, %60, %57, %55, %40, %28, %33, %31, %5, %2, %97, %50, %19, %14, %44
+  %common.ret231.op = phi float [ %47, %44 ], [ %101, %97 ], [ %15, %14 ], [ %., %19 ], [ %52, %50 ], [ 1.000000e+00, %2 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ 0x7FF8000000000000, %31 ], [ %43, %40 ], [ %59, %57 ], [ 0.000000e+00, %55 ], [ 1.000000e+00, %60 ], [ %70, %67 ], [ 0.000000e+00, %64 ], [ %125, %120 ], [ %129, %._crit_edge160.thread ]
+  ret float %common.ret231.op
 
 44:                                               ; preds = %38
   %45 = fneg float %0
   %46 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %45, float noundef %1)
   %47 = fneg float %46
-  br label %common.ret245
+  br label %common.ret231
 
 48:                                               ; preds = %36, %21
   %.0 = phi i32 [ 0, %21 ], [ %23, %36 ]
@@ -5930,7 +5930,7 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
 50:                                               ; preds = %48
   %51 = fcmp ole float %1, 0.000000e+00
   %52 = select i1 %51, float 0x7FF0000000000000, float 0.000000e+00
-  br label %common.ret245
+  br label %common.ret231
 
 53:                                               ; preds = %48
   %54 = fcmp olt float %0, 0xC7EFFFFFE0000000
@@ -5938,18 +5938,18 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
 
 55:                                               ; preds = %53
   %56 = fcmp ugt float %1, 0.000000e+00
-  br i1 %56, label %57, label %common.ret245
+  br i1 %56, label %57, label %common.ret231
 
 57:                                               ; preds = %55
   %58 = and i32 %.0, 1
   %.not127 = icmp eq i32 %58, 0
   %59 = select i1 %.not127, float 0x7FF0000000000000, float 0xFFF0000000000000
-  br label %common.ret245
+  br label %common.ret231
 
 60:                                               ; preds = %53
   %61 = fneg float %0
   %62 = fcmp oeq float %0, -1.000000e+00
-  br i1 %62, label %common.ret245, label %63
+  br i1 %62, label %common.ret231, label %63
 
 63:                                               ; preds = %60, %17
   %.1122 = phi float [ %0, %17 ], [ %61, %60 ]
@@ -5960,13 +5960,13 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
   %65 = fcmp olt float %.1122, 1.000000e+00
   %66 = fcmp ule float %1, 0.000000e+00
   %.not128 = xor i1 %66, %65
-  br i1 %.not128, label %common.ret245, label %67
+  br i1 %.not128, label %common.ret231, label %67
 
 67:                                               ; preds = %64
   %68 = fcmp olt float %1, 0.000000e+00
   %69 = fneg float %1
   %70 = select i1 %68, float %69, float %1
-  br label %common.ret245
+  br label %common.ret231
 
 71:                                               ; preds = %63, %7
   %.0121 = phi float [ %0, %7 ], [ %.1122, %63 ]
@@ -5989,7 +5989,7 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
   %77 = fcmp olt float %.0121, 1.000000e+00
   br i1 %77, label %.lr.ph143.preheader, label %.preheader130
 
-.lr.ph143.preheader:                              ; preds = %.lr.ph, %.preheader131
+.lr.ph143.preheader:; preds = %.lr.ph, %.preheader131
   %.2113142.ph = phi float [ %.0121, %.preheader131 ], [ %75, %.lr.ph ]
   %.2118141.ph = phi float [ 0.000000e+00, %.preheader131 ], [ %74, %.lr.ph ]
   br label %.lr.ph143
@@ -6044,7 +6044,7 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
   %99 = fcmp ule float %1, 0.000000e+00
   %100 = xor i1 %99, %98
   %101 = select i1 %100, float 0x7FF0000000000000, float 0.000000e+00
-  br label %common.ret245
+  br label %common.ret231
 
 102:                                              ; preds = %._crit_edge
   %103 = fptosi float %95 to i32
@@ -6090,16 +6090,16 @@ common.ret245:                                    ; preds = %120, %._crit_edge16
   %123 = uitofp nneg i32 %122 to float
   %124 = fmul float %110, %123
   %125 = fdiv float %.1115.lcssa, %124
-  br label %common.ret245
+  br label %common.ret231
 
 ._crit_edge160.thread:                            ; preds = %.lr.ph159, %._crit_edge160
-  %.2.lcssa197 = phi i32 [ %.2.lcssa, %._crit_edge160 ], [ %117, %.lr.ph159 ]
-  %.1115.lcssa196 = phi float [ %.1115.lcssa, %._crit_edge160 ], [ %116, %.lr.ph159 ]
-  %126 = shl nuw nsw i32 1, %.2.lcssa197
+  %.2.lcssa186 = phi i32 [ %.2.lcssa, %._crit_edge160 ], [ %117, %.lr.ph159 ]
+  %.1115.lcssa185 = phi float [ %.1115.lcssa, %._crit_edge160 ], [ %116, %.lr.ph159 ]
+  %126 = shl nuw nsw i32 1, %.2.lcssa186
   %127 = uitofp nneg i32 %126 to float
-  %128 = fmul float %.1115.lcssa196, %127
+  %128 = fmul float %.1115.lcssa185, %127
   %129 = fdiv float %128, %110
-  br label %common.ret245
+  br label %common.ret231
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

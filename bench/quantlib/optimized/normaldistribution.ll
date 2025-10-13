@@ -379,9 +379,9 @@ if.end.i:                                         ; preds = %if.then
 
 if.then3.i:                                       ; preds = %if.end.i
   %cmp4.i = fcmp olt double %0, 0x3A1B900000000000
-  br i1 %cmp4.i, label %return, label %if.else.thread
+  br i1 %cmp4.i, label %return, label %if.then3.i.if.else_crit_edge
 
-if.else.thread:                                   ; preds = %if.then3.i
+if.then3.i.if.else_crit_edge:                     ; preds = %if.then3.i
   br label %return
 
 _ZN8QuantLib12close_enoughEdd.exit:               ; preds = %if.end.i

@@ -549,12 +549,12 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !33
   %30 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not6882 = icmp eq ptr %30, null
-  br i1 %.not6882, label %._crit_edge, label %.lr.ph
+  %.not6881 = icmp eq ptr %30, null
+  br i1 %.not6881, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.06183 = phi ptr [ %40, %.lr.ph ], [ %30, %.loopexit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.06183, i64 16
+  %.06182 = phi ptr [ %40, %.lr.ph ], [ %30, %.loopexit ]
+  %31 = getelementptr inbounds nuw i8, ptr %.06182, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %34 = load ptr, ptr %33, align 8, !tbaa !52
@@ -565,7 +565,7 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %38 = load double, ptr %37, align 8, !tbaa !33
   %39 = fsub double %38, %29
   store double %39, ptr %37, align 8, !tbaa !33
-  %40 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06183) #20
+  %40 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06182) #20
   %.not68 = icmp eq ptr %40, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
@@ -574,21 +574,21 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %42 = fcmp une double %29, 0.000000e+00
   %or.cond = select i1 %41, i1 true, i1 %42
   %43 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not6984 = icmp eq ptr %43, null
-  br i1 %.not6984, label %.thread, label %.lr.ph87
+  %.not6983 = icmp eq ptr %43, null
+  br i1 %.not6983, label %.thread, label %.lr.ph86
 
-.lr.ph87:                                         ; preds = %._crit_edge, %45
-  %.16285 = phi ptr [ %46, %45 ], [ %43, %._crit_edge ]
-  %44 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.16285) #20
+.lr.ph86:                                         ; preds = %._crit_edge, %45
+  %.16284 = phi ptr [ %46, %45 ], [ %43, %._crit_edge ]
+  %44 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.16284) #20
   %.not70 = icmp eq ptr %44, null
   br i1 %.not70, label %45, label %47
 
-45:                                               ; preds = %.lr.ph87
-  %46 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.16285) #20
+45:                                               ; preds = %.lr.ph86
+  %46 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.16284) #20
   %.not69 = icmp eq ptr %46, null
-  br i1 %.not69, label %.thread, label %.lr.ph87, !llvm.loop !54
+  br i1 %.not69, label %.thread, label %.lr.ph86, !llvm.loop !54
 
-47:                                               ; preds = %.lr.ph87
+47:                                               ; preds = %.lr.ph86
   %48 = load i32, ptr %44, align 8
   %49 = and i32 %48, 3
   %50 = icmp eq i32 %49, 2
@@ -639,16 +639,16 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %92 = tail call double @cos(double noundef %76) #20, !tbaa !39
   %93 = tail call double @sin(double noundef %76) #20, !tbaa !39
   %94 = tail call ptr @agfstnode(ptr noundef %0) #20
-  %.not7188 = icmp eq ptr %94, null
-  br i1 %.not7188, label %.thread, label %.lr.ph91
+  %.not7187 = icmp eq ptr %94, null
+  br i1 %.not7187, label %.thread, label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %78
+.lr.ph90:                                         ; preds = %78
   %95 = fneg double %93
   br label %96
 
-96:                                               ; preds = %.lr.ph91, %96
-  %.289 = phi ptr [ %94, %.lr.ph91 ], [ %112, %96 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.289, i64 16
+96:                                               ; preds = %.lr.ph90, %96
+  %.288 = phi ptr [ %94, %.lr.ph91 ], [ %112, %96 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.288, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 176
   %100 = load ptr, ptr %99, align 8, !tbaa !52
@@ -665,7 +665,7 @@ angleSet.exit.thread:                             ; preds = %4, %1, %11
   %110 = tail call double @llvm.fmuladd.f64(double %102, double %93, double %109)
   %111 = fadd double %91, %110
   store double %111, ptr %103, align 8, !tbaa !33
-  %112 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.289) #20
+  %112 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.288) #20
   %.not71 = icmp eq ptr %112, null
   br i1 %.not71, label %.thread, label %96, !llvm.loop !55
 

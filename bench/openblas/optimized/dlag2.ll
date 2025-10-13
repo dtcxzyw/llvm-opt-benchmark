@@ -121,8 +121,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %102 = fadd double %67, %101
   %103 = fcmp oge double %98, %102
   %104 = select i1 %103, double %98, double %102
-  %.inv489 = fcmp oge double %104, %17
-  %.486 = select i1 %.inv489, double %104, double %17
+  %.inv488 = fcmp oge double %104, %17
+  %.486 = select i1 %.inv488, double %104, double %17
   %105 = fcmp oge double %98, %101
   %106 = select i1 %105, double %98, double %101
   %107 = fdiv double 1.000000e+00, %106
@@ -232,8 +232,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %183 = fneg double %177
   %184 = select i1 %182, double %177, double %183
   %185 = fmul double %184, 5.000000e-01
-  %.inv490 = fcmp oge double %181, %17
-  %.487 = select i1 %.inv490, double %181, double %17
+  %.inv489 = fcmp oge double %181, %17
+  %.487 = select i1 %.inv489, double %181, double %17
   %186 = fcmp ogt double %185, %.487
   br i1 %186, label %187, label %194
 
@@ -309,8 +309,8 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %234 = fcmp oge double %233, %.0454
   %235 = select i1 %234, double %233, double %.0454
   %236 = fmul double %235, 5.000000e-01
-  %.inv491 = fcmp oge double %209, %213
-  %237 = select i1 %.inv491, double %209, double %213
+  %.inv490 = fcmp oge double %209, %213
+  %237 = select i1 %.inv490, double %209, double %213
   %238 = tail call double @llvm.fmuladd.f64(double %233, double %216, double %217)
   %239 = fmul double %238, 1.000010e+00
   %240 = fcmp oge double %237, %239
@@ -366,18 +366,18 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br label %270
 
 270:                                              ; preds = %265, %269
-  %storemerge492 = phi double [ %223, %269 ], [ %268, %265 ]
-  store double %storemerge492, ptr %6, align 8, !tbaa !7
+  %271 = phi double [ %223, %269 ], [ %268, %265 ]
+  store double %271, ptr %6, align 8, !tbaa !7
   %.pr = load double, ptr %9, align 8, !tbaa !7
   %271 = fcmp oeq double %.pr, 0.000000e+00
   br i1 %271, label %.thread488, label %307
 
-.thread488:                                       ; preds = %258, %270
+.thread488:; preds = %258, %270
   %272 = load double, ptr %8, align 8, !tbaa !7
   %273 = fcmp ult double %272, 0.000000e+00
   %274 = fneg double %272
-  %275 = select i1 %273, double %274, double %272
-  %276 = fcmp oge double %275, %.0454
+  %279 = select i1 %273, double %274, double %272
+  %276 = fcmp oge double %279, %.0454
   %277 = select i1 %276, double %275, double %.0454
   %278 = fmul double %277, 5.000000e-01
   %279 = load double, ptr %4, align 8, !tbaa !7
@@ -385,21 +385,21 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %280 = select i1 %.inv493, double %279, double %213
   %281 = tail call double @llvm.fmuladd.f64(double %275, double %216, double %217)
   %282 = fmul double %281, 1.000010e+00
-  %283 = fcmp oge double %280, %282
-  %284 = select i1 %283, double %280, double %282
-  %285 = fcmp ole double %.0453, %278
-  %286 = select i1 %285, double %.0453, double %278
-  %287 = fcmp oge double %284, %286
-  %288 = select i1 %287, double %284, double %286
+  %287 = fcmp oge double %280, %282
+  %288 = select i1 %287, double %280, double %282
+  %289 = fcmp ole double %.0453, %278
+  %290 = select i1 %289, double %.0453, double %278
+  %291 = fcmp oge double %284, %290
+  %288 = select i1 %291, double %284, double %286
   %289 = fcmp une double %288, 1.000000e+00
   br i1 %289, label %290, label %306
 
-290:                                              ; preds = %.thread488
+290:; preds = %.thread488
   %291 = fdiv double 1.000000e+00, %288
   %292 = fcmp ogt double %288, 1.000000e+00
   br i1 %292, label %293, label %297
 
-293:                                              ; preds = %290
+293:; preds = %290
   %294 = fcmp oge double %49, %106
   %295 = select i1 %294, double %49, double %106
   %296 = fcmp ole double %49, %106
@@ -411,7 +411,7 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %300 = fcmp oge double %49, %106
   br label %301
 
-301:                                              ; preds = %297, %293
+301:; preds = %297, %293
   %.sink501 = phi i1 [ %300, %297 ], [ %296, %293 ]
   %.pn503 = phi double [ %299, %297 ], [ %295, %293 ]
   %.sink500 = fmul double %.pn503, %291
@@ -423,11 +423,11 @@ define void @dlag2_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   store double %305, ptr %8, align 8, !tbaa !7
   br label %307
 
-306:                                              ; preds = %.thread488
+306:; preds = %.thread488
   store double %223, ptr %6, align 8, !tbaa !7
-  br label %307
+  br label %309
 
-307:                                              ; preds = %301, %306, %270
+309:                                              ; preds = %301, %306, %270
   ret void
 }
 

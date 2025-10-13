@@ -656,7 +656,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %7
 18:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 67
   %20 = load i8, ptr %19, align 1, !tbaa !54
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+  br label %.thread
 
 21:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %14)
@@ -664,24 +664,24 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef signext i8 %24(ptr noundef nonnull align 8 dereferenceable(570) %14, i8 noundef signext 10)
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+  br label %.thread
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %18, %21
+.thread:                                          ; preds = %18, %21
   %.0.i.i.i = phi i8 [ %20, %18 ], [ %25, %21 ]
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
   br label %28
 
-28:                                               ; preds = %5, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+28:                                               ; preds = %5, %.thread
   %.0 = phi float [ 0x3F50624DE0000000, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %3, %5 ]
-  %29 = fmul float %.0, %.0
+  %30 = fmul float %.0, %.0
   %30 = mul i32 %4, 3
   %31 = fadd float %1, %2
   %32 = fadd float %31, 1.000000e+00
-  %33 = fmul float %29, 0x3FF99999A0000000
+  %33 = fmul float %30, 0x3FF99999A0000000
   %34 = fdiv float %32, %33
-  %35 = fadd float %34, 1.000000e+00
-  %36 = tail call float @llvm.fmuladd.f32(float %35, float %35, float -1.000000e+00)
+  %33 = fadd float %34, 1.000000e+00
+  %36 = tail call float @llvm.fmuladd.f32(float %35, float %33, float -1.000000e+00)
   %37 = tail call noundef float @sqrtf(float noundef %36) #19, !tbaa !61
   %38 = fsub float %35, %37
   %39 = zext i32 %30 to i64

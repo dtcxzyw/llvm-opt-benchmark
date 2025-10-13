@@ -764,7 +764,7 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev15ClampToNormHalfEd(double
   %8 = fcmp ogt double %0, 6.550400e+04
   br i1 %8, label %9, label %.thread
 
-9:                                                ; preds = %7
+8:                                                ; preds = %7
   br label %.thread
 
 .thread:                                          ; preds = %3, %1, %7, %5, %9

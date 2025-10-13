@@ -23722,8 +23722,8 @@ if.end:                                           ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %a)
   %2 = fcmp ueq double %1, 0x7FF0000000000000
   %cmp = fcmp ult double %b, 0x7FEFFFFFFFFFFFFF
-  %or.cond12 = or i1 %2, %cmp
-  br i1 %or.cond12, label %if.end15, label %if.then6
+  %or.cond11 = or i1 %2, %cmp
+  br i1 %or.cond11, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %cmp7 = fcmp oeq double %a, 0.000000e+00
@@ -23749,10 +23749,10 @@ if.end11:                                         ; preds = %if.then6
 if.end15:                                         ; preds = %if.end
   %8 = tail call double @llvm.fabs.f64(double %b)
   %9 = fcmp ueq double %8, 0x7FF0000000000000
-  %cmp28 = fcmp ugt double %a, 0xFFEFFFFFFFFFFFFF
-  br i1 %9, label %if.end25, label %land.lhs.true17
+  %cmp19 = fcmp ugt double %a, 0xFFEFFFFFFFFFFFFF
+  br i1 %9, label %if.end25, label %if.then20
 
-land.lhs.true17:                                  ; preds = %if.end15
+if.then20:                                        ; preds = %if.end15
   br i1 %cmp28, label %if.end35, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true17
@@ -23767,7 +23767,7 @@ if.then20:                                        ; preds = %land.lhs.true17
   br label %return
 
 if.end25:                                         ; preds = %if.end15
-  %or.cond13 = or i1 %cmp28, %cmp
+  %or.cond13 = or i1 %cmp19, %cmp
   br i1 %or.cond13, label %if.end35, label %if.then32
 
 if.then32:                                        ; preds = %if.end25
@@ -23775,7 +23775,7 @@ if.then32:                                        ; preds = %if.end25
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %13, ptr noundef nonnull @.str.52, ptr noundef nonnull align 8 dereferenceable(8) %a.addr)
   br label %return
 
-if.end35:                                         ; preds = %land.lhs.true17, %if.end25
+if.end35:                                         ; preds = %if.then20, %if.end25
   %14 = load ptr, ptr @_ZZNK5boost4math10quadrature8exp_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib15ExpSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEERKSH_dddPdSN_PmE8function, align 8, !tbaa !3
   call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %14, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %a.addr)
   br label %return

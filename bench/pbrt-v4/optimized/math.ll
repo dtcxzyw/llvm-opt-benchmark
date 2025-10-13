@@ -3289,7 +3289,7 @@ define dso_local { <2 x float>, float } @_ZN4pbrt23EqualAreaSquareToSphereENS_6P
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %36)
   %37 = fmul float %sqrt.i, %35
   %38 = fmul float %18, %34
-  %39 = fmul float %sqrt.i, %38
+  %38 = fmul float %sqrt.i, %38
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %37, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %39, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert, 0

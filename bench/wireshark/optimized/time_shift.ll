@@ -616,8 +616,8 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
 
 .preheader:                                       ; preds = %42
   %45 = load i32, ptr %20, align 8
-  %.not5463 = icmp eq i32 %45, 0
-  br i1 %.not5463, label %._crit_edge, label %.lr.ph
+  %.not5462 = icmp eq i32 %45, 0
+  br i1 %.not5462, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -626,9 +626,9 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   br label %49
 
 49:                                               ; preds = %.lr.ph, %84
-  %.064 = phi i32 [ 1, %.lr.ph ], [ %85, %84 ]
+  %.063 = phi i32 [ 1, %.lr.ph ], [ %85, %84 ]
   %50 = load ptr, ptr %26, align 8
-  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.064)
+  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.063)
   %52 = icmp eq ptr %51, null
   br i1 %52, label %84, label %53
 
@@ -701,7 +701,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.lr.ph
   br label %84
 
 84:                                               ; preds = %49, %calcNT3.exit
-  %85 = add i32 %.064, 1
+  %85 = add i32 %.063, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86
   br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !13

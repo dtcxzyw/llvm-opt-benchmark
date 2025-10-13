@@ -1242,7 +1242,7 @@ _ZN6statrs8function3erf4erfc17h843d00709e8afb21E.exit: ; preds = %19, %17, %15, 
 ; Function Attrs: nonlazybind uwtable
 define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$11inverse_cdf17he83d324eba80a3ecE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, double noundef %1) unnamed_addr #3 {
   %3 = fcmp oeq double %1, 0.000000e+00
-  br i1 %3, label %28, label %4
+  br i1 %3, label %30, label %4
 
 4:                                                ; preds = %2
   %5 = fcmp olt double %1, 1.000000e+00
@@ -1250,7 +1250,7 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
 
 6:                                                ; preds = %4
   %7 = fcmp oeq double %1, 1.000000e+00
-  br i1 %7, label %28, label %27
+  br i1 %7, label %30, label %29
 
 8:                                                ; preds = %4
   %9 = load double, ptr %0, align 8, !noundef !4
@@ -1270,25 +1270,25 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
   %19 = tail call noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9f3a8a2E.llvm.9554138872291501309(double noundef %18, double noundef %13, double noundef 1.000000e+00)
   br label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
-20:                                               ; preds = %15
-  %21 = fadd double %13, -1.000000e+00
-  %22 = fsub double 2.000000e+00, %13
-  %23 = tail call noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9f3a8a2E.llvm.9554138872291501309(double noundef %21, double noundef %22, double noundef -1.000000e+00)
+22:                                               ; preds = %15
+  %23 = fadd double %13, -1.000000e+00
+  %24 = fsub double 2.000000e+00, %13
+  %25 = tail call noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9f3a8a2E.llvm.9554138872291501309(double noundef %23, double noundef %24, double noundef -1.000000e+00)
   br label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
-_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit: ; preds = %8, %17, %20
-  %.sroa.0.0.i = phi double [ %23, %20 ], [ %19, %17 ], [ 0x7FF0000000000000, %8 ]
-  %24 = fmul double %12, %.sroa.0.0.i
-  %25 = fsub double %9, %24
-  %26 = tail call double @llvm.exp.f64(double %25)
-  br label %28
+_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit: ; preds = %8, %17, %22
+  %.sroa.0.0.i = phi double [ %25, %20 ], [ %19, %17 ], [ 0x7FF0000000000000, %8 ]
+  %26 = fmul double %12, %.sroa.0.0.i
+  %27 = fsub double %9, %26
+  %28 = tail call double @llvm.exp.f64(double %27)
+  br label %30
 
-27:                                               ; preds = %6
+29:                                               ; preds = %6
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.bbe97b0f041d7d9326ab2a2573fde642.23, i64 noundef 27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbe97b0f041d7d9326ab2a2573fde642.25) #12
   unreachable
 
-28:                                               ; preds = %6, %2, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
-  %.sroa.0.0 = phi double [ %26, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit ], [ 0.000000e+00, %2 ], [ 0x7FF0000000000000, %6 ]
+30:                                               ; preds = %6, %2, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
+  %.sroa.0.0 = phi double [ %28, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit ], [ 0.000000e+00, %2 ], [ 0x7FF0000000000000, %6 ]
   ret double %.sroa.0.0
 }
 

@@ -524,18 +524,18 @@ _ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i: ; preds = %50, %46, 
   br i1 %57, label %.lr.ph9.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.2.07.i.i.i = phi double [ %58, %.lr.ph.i.i.i ], [ %55, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i ]
-  %58 = fadd double %.sroa.2.07.i.i.i, 0xC01921FB54442D18
+  %.sroa.2.06.i.i.i = phi double [ %58, %.lr.ph.i.i.i ], [ %55, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i ]
+  %58 = fadd double %.sroa.2.06.i.i.i, 0xC01921FB54442D18
   %59 = fcmp ogt double %58, 0x400921FB54442D18
   br i1 %59, label %.lr.ph.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !79
 
-.lr.ph9.i.i.i:                                    ; preds = %.preheader.i.i.i, %.lr.ph9.i.i.i
-  %.sroa.2.18.i.i.i = phi double [ %60, %.lr.ph9.i.i.i ], [ %55, %.preheader.i.i.i ]
-  %60 = fadd double %.sroa.2.18.i.i.i, 0x401921FB54442D18
+.lr.ph8.i.i.i:                                    ; preds = %.preheader.i.i.i, %.lr.ph8.i.i.i
+  %.sroa.2.17.i.i.i = phi double [ %60, %.lr.ph9.i.i.i ], [ %55, %.preheader.i.i.i ]
+  %60 = fadd double %.sroa.2.17.i.i.i, 0x401921FB54442D18
   %61 = fcmp olt double %60, 0xC00921FB54442D18
-  br i1 %61, label %.lr.ph9.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !80
+  br i1 %61, label %.lr.ph8.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !80
 
-_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i: ; preds = %.lr.ph9.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i
+_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i: ; preds = %.lr.ph8.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i
   %.sroa.2.1.lcssa.i.i.i = phi double [ %55, %.preheader.i.i.i ], [ %58, %.lr.ph.i.i.i ], [ %60, %.lr.ph9.i.i.i ]
   %62 = tail call double @sin(double noundef %52) #18, !tbaa !51
   %63 = tail call double @cos(double noundef %52) #18, !tbaa !51
@@ -1092,9 +1092,9 @@ select.unfold.i:                                  ; preds = %90
   %.sink.i = phi i8 [ %109, %.thread.i ], [ %111, %110 ]
   %.2.ph.sink.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.i, %110 ]
   %113 = phi i32 [ 1, %.thread.i ], [ 2, %110 ]
-  %.zext41.i = zext nneg i8 %.sink.i to i32
-  %.neg42.i = mul nsw i32 %.zext41.i, -5
-  %114 = add nsw i32 %.neg42.i, %.2.ph.sink.i
+  %.zext39.i = zext nneg i8 %.sink.i to i32
+  %.neg40.i = mul nsw i32 %.zext39.i, -5
+  %114 = add nsw i32 %.neg40.i, %.2.ph.sink.i
   %115 = shl nsw i32 %114, 1
   %116 = add nsw i32 %115, %113
   %117 = sitofp i32 %116 to double
@@ -1283,7 +1283,7 @@ _ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %1
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %239, %_ZL10safeArcSind.exit.i.i
-  %.sink111.i.i = phi double [ %252, %239 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
+  %.sink108.i.i = phi double [ %252, %239 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
   %.sink.i.i = phi double [ %257, %239 ], [ %233, %_ZL10safeArcSind.exit.i.i ]
   %258 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
   br i1 %258, label %259, label %261
@@ -1305,7 +1305,7 @@ default.unreachable:                              ; preds = %83
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %263, %261, %259, %73, %67
   %.sroa.09.1 = phi double [ %.sink.i.i, %261 ], [ %264, %263 ], [ %260, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink111.i.i, %261 ], [ %.sink111.i.i, %263 ], [ %.sink111.i.i, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ %.sink108.i.i, %261 ], [ %.sink108.i.i, %263 ], [ %.sink108.i.i, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert

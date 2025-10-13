@@ -163,7 +163,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
 25:                                               ; preds = %8
-  br i1 %9, label %.preheader.preheader.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
+  br i1 %9, label %.preheader.preheader.i, label %._crit_edge47.critedge.i
 
 .preheader.preheader.i:                           ; preds = %25
   %wide.trip.count.i = zext nneg i32 %2 to i64
@@ -219,7 +219,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !15
 
-_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %.lr.ph.i, %25, %._crit_edge
+._crit_edge47.critedge.i:                         ; preds = %.lr.ph.i, %25, %._crit_edge
   ret void
 }
 

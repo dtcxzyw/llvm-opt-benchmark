@@ -11659,17 +11659,17 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14type13basic_variantINSt7__cxx
   %4 = alloca %"class.boost::variant", align 8
   %5 = alloca %"class.boost::variant", align 8
   %6 = fcmp ord double %1, 0.000000e+00
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %37
 
 7:                                                ; preds = %2
   %8 = fcmp ult double %1, 0.000000e+00
-  br i1 %8, label %23, label %9
+  br i1 %8, label %23, label %10
 
-9:                                                ; preds = %7
+10:                                               ; preds = %7
   %10 = fcmp ugt double %1, 0x43F0000000000000
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %37, label %11
 
-11:                                               ; preds = %9
+_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.thread.i.i: ; preds = %10
   %12 = fptoui double %1 to i64
   %13 = uitofp i64 %12 to double
   %14 = fcmp oeq double %1, %13
@@ -11689,37 +11689,37 @@ _ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11c
 
 _ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.i.i: ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %12, ptr %19, align 8, !tbaa !88
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %12, ptr %18, align 8, !tbaa !88
   store i32 3, ptr %5, align 8, !tbaa !272
   invoke void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE14variant_assignEOS10_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %20 unwind label %21
+          to label %20 unwind label %20
 
-20:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.i.i
+19:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.i.i
   call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEEaSImEENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS13_4not_INS_8is_constIS16_EEEENS_6detail7variant29is_variant_constructible_fromIS17_NS13_6l_itemIN4mpl_5long_ILl14EEES4_NS1G_INS1I_ILl13EEEbNS1G_INS1I_ILl12EEElNS1G_INS1I_ILl11EEEmNS1G_INS1I_ILl10EEEdNS1G_INS1I_ILl9EEESA_NS1G_INS1I_ILl8EEESC_NS1G_INS1I_ILl7EEESE_NS1G_INS1I_ILl6EEESF_NS1G_INS1I_ILl5EEESG_NS1G_INS1I_ILl4EEESH_NS1G_INS1I_ILl3EEESN_NS1G_INS1I_ILl2EEESW_NS1G_INS1I_ILl1EEESZ_NS13_5l_endEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS1H_5bool_ILb1EEES2E_EERS10_E4typeES17_.exit
 
-common.resume:                                    ; preds = %42, %35, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ], [ %43, %42 ]
+common.resume:                                    ; preds = %43, %35, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %21 ], [ %36, %35 ], [ %44, %42 ]
   resume { ptr, i32 } %common.resume.op
 
-21:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.i.i
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.i.i
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
-23:                                               ; preds = %7
+22:                                               ; preds = %7
   %24 = fcmp ult double %1, 0xC3E0000000000000
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %37, label %25
 
-25:                                               ; preds = %23
+25:                                               ; preds = %22
   %26 = fptosi double %1 to i64
   %27 = sitofp i64 %26 to double
   %28 = fcmp oeq double %1, %27
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %37
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %0, align 8, !tbaa !272
@@ -11753,39 +11753,39 @@ _ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11c
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
-.thread:                                          ; preds = %9, %11, %25, %23, %2
-  %37 = load i32, ptr %0, align 8, !tbaa !272
-  %.lobit.i.i.i.i4 = ashr i32 %37, 31
-  %.0.i2.i.i.i5 = xor i32 %.lobit.i.i.i.i4, %37
-  %38 = icmp eq i32 %.0.i2.i.i.i5, 4
-  br i1 %38, label %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i, label %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
+37:                                               ; preds = %9, %11, %25, %22, %2
+  %38 = load i32, ptr %0, align 8, !tbaa !272
+  %.lobit.i.i.i.i4 = ashr i32 %38, 31
+  %.0.i2.i.i.i5 = xor i32 %.lobit.i.i.i.i4, %38
+  %39 = icmp eq i32 %.0.i2.i.i.i5, 4
+  br i1 %39, label %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i, label %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
 
-_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i: ; preds = %.thread
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %1, ptr %39, align 8, !tbaa !332
+_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i: ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %1, ptr %310, align 8, !tbaa !332
   br label %_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEEaSImEENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS13_4not_INS_8is_constIS16_EEEENS_6detail7variant29is_variant_constructible_fromIS17_NS13_6l_itemIN4mpl_5long_ILl14EEES4_NS1G_INS1I_ILl13EEEbNS1G_INS1I_ILl12EEElNS1G_INS1I_ILl11EEEmNS1G_INS1I_ILl10EEEdNS1G_INS1I_ILl9EEESA_NS1G_INS1I_ILl8EEESC_NS1G_INS1I_ILl7EEESE_NS1G_INS1I_ILl6EEESF_NS1G_INS1I_ILl5EEESG_NS1G_INS1I_ILl4EEESH_NS1G_INS1I_ILl3EEESN_NS1G_INS1I_ILl2EEESW_NS1G_INS1I_ILl1EEESZ_NS13_5l_endEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS1H_5bool_ILb1EEES2E_EERS10_E4typeES17_.exit
 
-_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i: ; preds = %.thread
+_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i: ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %1, ptr %40, align 8, !tbaa !332
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store double %1, ptr %41, align 8, !tbaa !332
   store i32 4, ptr %3, align 8, !tbaa !272
   invoke void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE14variant_assignEOS10_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %41 unwind label %42
+          to label %41 unwind label %43
 
-41:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
+42:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
   call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEEaSImEENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS13_4not_INS_8is_constIS16_EEEENS_6detail7variant29is_variant_constructible_fromIS17_NS13_6l_itemIN4mpl_5long_ILl14EEES4_NS1G_INS1I_ILl13EEEbNS1G_INS1I_ILl12EEElNS1G_INS1I_ILl11EEEmNS1G_INS1I_ILl10EEEdNS1G_INS1I_ILl9EEESA_NS1G_INS1I_ILl8EEESC_NS1G_INS1I_ILl7EEESE_NS1G_INS1I_ILl6EEESF_NS1G_INS1I_ILl5EEESG_NS1G_INS1I_ILl4EEESH_NS1G_INS1I_ILl3EEESN_NS1G_INS1I_ILl2EEESW_NS1G_INS1I_ILl1EEESZ_NS13_5l_endEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS1H_5bool_ILb1EEES2E_EERS10_E4typeES17_.exit
 
-42:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.i.i
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE15destroy_contentEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
-_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEEaSImEENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS13_4not_INS_8is_constIS16_EEEENS_6detail7variant29is_variant_constructible_fromIS17_NS13_6l_itemIN4mpl_5long_ILl14EEES4_NS1G_INS1I_ILl13EEEbNS1G_INS1I_ILl12EEElNS1G_INS1I_ILl11EEEmNS1G_INS1I_ILl10EEEdNS1G_INS1I_ILl9EEESA_NS1G_INS1I_ILl8EEESC_NS1G_INS1I_ILl7EEESE_NS1G_INS1I_ILl6EEESF_NS1G_INS1I_ILl5EEESG_NS1G_INS1I_ILl4EEESH_NS1G_INS1I_ILl3EEESN_NS1G_INS1I_ILl2EEESW_NS1G_INS1I_ILl1EEESZ_NS13_5l_endEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS1H_5bool_ILb1EEES2E_EERS10_E4typeES17_.exit: ; preds = %41, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i, %34, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverIlEEEENT_11result_typeERS16_.exit.thread.i.i, %20, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.thread.i.i
+_ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEEaSImEENS_9enable_ifINS_3mpl4and_INS_19is_rvalue_referenceIOT_EENS13_4not_INS_8is_constIS16_EEEENS_6detail7variant29is_variant_constructible_fromIS17_NS13_6l_itemIN4mpl_5long_ILl14EEES4_NS1G_INS1I_ILl13EEEbNS1G_INS1I_ILl12EEElNS1G_INS1I_ILl11EEEmNS1G_INS1I_ILl10EEEdNS1G_INS1I_ILl9EEESA_NS1G_INS1I_ILl8EEESC_NS1G_INS1I_ILl7EEESE_NS1G_INS1I_ILl6EEESF_NS1G_INS1I_ILl5EEESG_NS1G_INS1I_ILl4EEESH_NS1G_INS1I_ILl3EEESN_NS1G_INS1I_ILl2EEESW_NS1G_INS1I_ILl1EEESZ_NS13_5l_endEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS1H_5bool_ILb1EEES2E_EERS10_E4typeES17_.exit: ; preds = %42, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant15direct_assignerIdEEEENT_11result_typeERS16_.exit.thread.i.i, %34, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverIlEEEENT_11result_typeERS16_.exit.thread.i.i, %19, %_ZNR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant12direct_moverImEEEENT_11result_typeERS16_.exit.thread.i.i
   ret void
 }
 

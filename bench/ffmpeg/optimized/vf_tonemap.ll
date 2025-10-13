@@ -83,14 +83,14 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 ._crit_edge:                                      ; preds = %1, %11
   %17 = phi double [ %13, %11 ], [ %.pre, %1 ]
   %18 = fcmp uno double %17, 0.000000e+00
-  br i1 %18, label %.thread14, label %.thread
+  br i1 %18, label %19, label %.thread
 
-.thread14:                                        ; preds = %9, %._crit_edge
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 1.000000e+00, ptr %19, align 8, !tbaa !24
+19:                                               ; preds = %9, %._crit_edge
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store double 1.000000e+00, ptr %20, align 8, !tbaa !24
   br label %.thread
 
-.thread:                                          ; preds = %8, %6, %16, %14, %.thread14, %._crit_edge
+.thread:                                          ; preds = %8, %6, %16, %14, %19, %._crit_edge
   ret i32 0
 }
 
