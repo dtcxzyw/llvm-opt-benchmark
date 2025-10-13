@@ -7457,7 +7457,7 @@ if.then11.i:                                      ; preds = %if.end8.i
 
 if.end16.i:                                       ; preds = %if.end8.i
   %cmp18.i = fcmp nsz ugt float %cond.i, 5.000000e-01
-  br i1 %cmp18.i, label %if.end16.i989, label %if.then19.i
+  br i1 %cmp18.i, label %_ZN3Sky15m_horizon_blendEv.exit995, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
   %sub21.i = fsub nsz double 5.000000e-01, %conv5.i
@@ -7743,8 +7743,7 @@ if.then11.i985:                                   ; preds = %if.end8.i983
   %conv15.i988 = fptrunc double %mul14.i987 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
-if.end16.i989:                                    ; preds = %if.end16.i, %if.end8.i983
-  %pointcolor.sroa.0.01223.ph2 = phi i32 [ %pointcolor.sroa.0.01223.ph, %if.end8.i983 ], [ -1, %if.end16.i ]
+if.end16.i989:                                    ; preds = %if.end8.i983
   %cmp18.i990 = fcmp nsz ugt float %cond.i, 5.000000e-01
   br i1 %cmp18.i990, label %_ZN3Sky15m_horizon_blendEv.exit995, label %if.then19.i991
 
@@ -7754,9 +7753,9 @@ if.then19.i991:                                   ; preds = %if.end16.i989
   %conv23.i994 = fptrunc double %mul22.i993 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
-_ZN3Sky15m_horizon_blendEv.exit995:               ; preds = %if.then19.i991, %if.end16.i989, %if.then11.i985, %if.end.i, %if.then163
-  %pointcolor.sroa.0.01224 = phi i32 [ %pointcolor.sroa.0.01223.ph, %if.then11.i985 ], [ %pointcolor.sroa.0.01223.ph2, %if.then19.i991 ], [ %pointcolor.sroa.0.01223.ph2, %if.end16.i989 ], [ -1, %if.then163 ], [ -1, %if.end.i ]
-  %retval.1.i982 = phi float [ %conv15.i988, %if.then11.i985 ], [ %conv23.i994, %if.then19.i991 ], [ 0.000000e+00, %if.end16.i989 ], [ 0.000000e+00, %if.then163 ], [ 0.000000e+00, %if.end.i ]
+_ZN3Sky15m_horizon_blendEv.exit995:               ; preds = %if.end16.i, %if.then19.i991, %if.end16.i989, %if.then11.i985, %if.end.i, %if.then163
+  %pointcolor.sroa.0.01224 = phi i32 [ %pointcolor.sroa.0.01223.ph, %if.then11.i985 ], [ %pointcolor.sroa.0.01223.ph, %if.then19.i991 ], [ %pointcolor.sroa.0.01223.ph, %if.end16.i989 ], [ -1, %if.then163 ], [ -1, %if.end.i ], [ -1, %if.end16.i ]
+  %retval.1.i982 = phi float [ %conv15.i988, %if.then11.i985 ], [ %conv23.i994, %if.then19.i991 ], [ 0.000000e+00, %if.end16.i989 ], [ 0.000000e+00, %if.then163 ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.end16.i ]
   %conv405 = fmul nsz float %retval.1.i982, 5.000000e-01
   %sub.i998 = fsub nsz float 1.000000e+00, %conv405
   %shr.i35.i999 = lshr i32 %pointcolor.sroa.0.01224, 24

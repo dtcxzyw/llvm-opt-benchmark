@@ -2603,10 +2603,10 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   %22 = call i32 @llvm.smin.i32(i32 %21, i32 %19)
   store i32 %22, ptr %12, align 4, !tbaa !206
   %23 = load i32, ptr %11, align 4, !tbaa !206
-  %.not53 = icmp sgt i32 %23, %22
-  br i1 %.not53, label %._crit_edge57, label %.lr.ph56
+  %.not52 = icmp sgt i32 %23, %22
+  br i1 %.not52, label %._crit_edge56, label %.lr.ph55
 
-.lr.ph56:                                         ; preds = %18
+.lr.ph55:                                         ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %25 = load ptr, ptr %24, align 8, !tbaa !68
   %26 = load ptr, ptr %3, align 8
@@ -2618,9 +2618,9 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   %32 = add nsw i32 %22, 1
   br label %33
 
-33:                                               ; preds = %.lr.ph56, %65
-  %indvars.iv59 = phi i64 [ %31, %.lr.ph56 ], [ %indvars.iv.next60, %65 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv59
+33:                                               ; preds = %.lr.ph55, %65
+  %indvars.iv58 = phi i64 [ %31, %.lr.ph55 ], [ %indvars.iv.next59, %65 ]
+  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv58
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %65, label %37
@@ -2644,10 +2644,10 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
 
 48:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %.04151 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
+  %.04150 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
   %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !238
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv59
+  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv58
   %52 = load float, ptr %51, align 4, !tbaa !250
   %53 = fcmp uno float %52, 0.000000e+00
   br i1 %53, label %.thread47, label %54
@@ -2657,7 +2657,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   %56 = load ptr, ptr %47, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
-  %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04151)
+  %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04150)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %48, !llvm.loop !252
@@ -2668,20 +2668,20 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %37, %.thread47
-  %.sink69 = phi double [ %61, %.thread47 ], [ %40, %37 ], [ %59, %54 ]
-  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv59
+  %.sink68 = phi double [ %61, %.thread47 ], [ %40, %37 ], [ %59, %54 ]
+  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv58
   %63 = load double, ptr %62, align 8, !tbaa !209
-  %64 = fadd double %.sink69, %63
+  %64 = fadd double %.sink68, %63
   store double %64, ptr %62, align 8, !tbaa !209
   br label %65
 
 65:                                               ; preds = %.sink.split, %33
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next60 to i32
-  %exitcond62.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond62.not, label %._crit_edge57, label %33
+  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next59 to i32
+  %exitcond61.not = icmp eq i32 %32, %lftr.wideiv
+  br i1 %exitcond61.not, label %._crit_edge56, label %33
 
-._crit_edge57:                                    ; preds = %65, %18
+._crit_edge56:                                    ; preds = %65, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2689,7 +2689,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %66
 
-66:                                               ; preds = %._crit_edge57, %10
+66:                                               ; preds = %._crit_edge56, %10
   ret void
 }
 
@@ -4737,10 +4737,10 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   %22 = call i32 @llvm.smin.i32(i32 %21, i32 %19)
   store i32 %22, ptr %12, align 4, !tbaa !206
   %23 = load i32, ptr %11, align 4, !tbaa !206
-  %.not52 = icmp sgt i32 %23, %22
-  br i1 %.not52, label %._crit_edge56, label %.lr.ph55
+  %.not51 = icmp sgt i32 %23, %22
+  br i1 %.not51, label %._crit_edge55, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %18
+.lr.ph54:                                         ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %25 = load ptr, ptr %24, align 8, !tbaa !68
   %26 = load ptr, ptr %3, align 8
@@ -4752,9 +4752,9 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   %32 = add nsw i32 %22, 1
   br label %33
 
-33:                                               ; preds = %.lr.ph55, %65
-  %indvars.iv58 = phi i64 [ %31, %.lr.ph55 ], [ %indvars.iv.next59, %65 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv58
+33:                                               ; preds = %.lr.ph54, %65
+  %indvars.iv57 = phi i64 [ %31, %.lr.ph54 ], [ %indvars.iv.next58, %65 ]
+  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv57
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %65, label %37
@@ -4778,10 +4778,10 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
 
 48:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %.04050 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
+  %.04049 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
   %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !238
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv58
+  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv57
   %52 = load float, ptr %51, align 4, !tbaa !250
   %53 = fcmp uno float %52, 0.000000e+00
   br i1 %53, label %.thread46, label %54
@@ -4791,7 +4791,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   %56 = load ptr, ptr %47, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
-  %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04050)
+  %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04049)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %48, !llvm.loop !278
@@ -4802,20 +4802,20 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %37, %.thread46
-  %.sink68 = phi double [ %61, %.thread46 ], [ %40, %37 ], [ %59, %54 ]
-  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv58
+  %.sink67 = phi double [ %61, %.thread46 ], [ %40, %37 ], [ %59, %54 ]
+  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv57
   %63 = load double, ptr %62, align 8, !tbaa !209
-  %64 = fadd double %.sink68, %63
+  %64 = fadd double %.sink67, %63
   store double %64, ptr %62, align 8, !tbaa !209
   br label %65
 
 65:                                               ; preds = %.sink.split, %33
-  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next59 to i32
-  %exitcond61.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond61.not, label %._crit_edge56, label %33
+  %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next58 to i32
+  %exitcond60.not = icmp eq i32 %32, %lftr.wideiv
+  br i1 %exitcond60.not, label %._crit_edge55, label %33
 
-._crit_edge56:                                    ; preds = %65, %18
+._crit_edge55:                                    ; preds = %65, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4823,7 +4823,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %66
 
-66:                                               ; preds = %._crit_edge56, %10
+66:                                               ; preds = %._crit_edge55, %10
   ret void
 }
 

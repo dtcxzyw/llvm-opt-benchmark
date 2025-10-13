@@ -656,7 +656,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %7
 18:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 67
   %20 = load i8, ptr %19, align 1, !tbaa !54
-  br label %.thread
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 21:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %14)
@@ -664,47 +664,44 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef signext i8 %24(ptr noundef nonnull align 8 dereferenceable(570) %14, i8 noundef signext 10)
-  br label %.thread
+  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-.thread:                                          ; preds = %21, %18
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %18, %21
   %.0.i.i.i = phi i8 [ %20, %18 ], [ %25, %21 ]
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-  br label %31
+  br label %28
 
-28:                                               ; preds = %5
-  %29 = fmul float %3, %3
-  %30 = fmul float %29, 0x3FF99999A0000000
-  br label %31
-
-31:                                               ; preds = %28, %.thread
-  %.023 = phi float [ %30, %28 ], [ 0x3EBAD7F2E0000000, %.thread ]
-  %32 = mul i32 %4, 3
-  %33 = fadd float %1, %2
-  %34 = fadd float %33, 1.000000e+00
-  %35 = fdiv float %34, %.023
-  %36 = fadd float %35, 1.000000e+00
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %36, float -1.000000e+00)
-  %38 = tail call noundef float @sqrtf(float noundef %37) #19, !tbaa !61
-  %39 = fsub float %36, %38
-  %40 = zext i32 %32 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %42 = load ptr, ptr %41, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %40
-  store float %39, ptr %43, align 4, !tbaa !11
-  %44 = fsub float 1.000000e+00, %39
-  %45 = fmul float %44, %44
-  %46 = fmul float %44, %45
-  %47 = fmul float %44, %46
-  %48 = fdiv float %47, %34
-  %49 = add i32 %32, 1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw float, ptr %42, i64 %50
-  store float %48, ptr %51, align 4, !tbaa !11
-  %52 = add i32 %32, 2
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr %42, i64 %53
-  store float %2, ptr %54, align 4, !tbaa !11
+28:                                               ; preds = %5, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+  %.0 = phi float [ 0x3F50624DE0000000, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %3, %5 ]
+  %29 = fmul float %.0, %.0
+  %30 = mul i32 %4, 3
+  %31 = fadd float %1, %2
+  %32 = fadd float %31, 1.000000e+00
+  %33 = fmul float %29, 0x3FF99999A0000000
+  %34 = fdiv float %32, %33
+  %35 = fadd float %34, 1.000000e+00
+  %36 = tail call float @llvm.fmuladd.f32(float %35, float %35, float -1.000000e+00)
+  %37 = tail call noundef float @sqrtf(float noundef %36) #19, !tbaa !61
+  %38 = fsub float %35, %37
+  %39 = zext i32 %30 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %41 = load ptr, ptr %40, align 8, !tbaa !10
+  %42 = getelementptr inbounds nuw float, ptr %41, i64 %39
+  store float %38, ptr %42, align 4, !tbaa !11
+  %43 = fsub float 1.000000e+00, %38
+  %44 = fmul float %43, %43
+  %45 = fmul float %43, %44
+  %46 = fmul float %43, %45
+  %47 = fdiv float %46, %32
+  %48 = add i32 %30, 1
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw float, ptr %41, i64 %49
+  store float %47, ptr %50, align 4, !tbaa !11
+  %51 = add i32 %30, 2
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw float, ptr %41, i64 %52
+  store float %2, ptr %53, align 4, !tbaa !11
   ret void
 }
 

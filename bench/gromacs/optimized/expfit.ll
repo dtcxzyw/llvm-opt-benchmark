@@ -475,7 +475,7 @@ define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr n
 _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %.0.i = phi double [ %15, %14 ], [ 0x2DE6061812054CFA, %2 ], [ 0x51F73F60EA79F5B9, %12 ]
   %16 = fcmp une double %9, 0.000000e+00
-  br i1 %16, label %17, label %47
+  br i1 %16, label %17, label %44
 
 17:                                               ; preds = %_ZL8safe_expd.exit
   %18 = tail call double @llvm.fabs.f64(double %9)
@@ -484,7 +484,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
   %20 = fcmp ogt double %19, 1.000000e+02
   %.sroa.speculated = select i1 %20, double 1.000000e+02, double %19
   %21 = fcmp ogt double %9, 0.000000e+00
-  br i1 %21, label %22, label %40
+  br i1 %21, label %22, label %37
 
 22:                                               ; preds = %17
   %23 = fmul double %.0.i, 5.000000e-01
@@ -493,59 +493,47 @@ _ZL8safe_expd.exit:                               ; preds = %2, %12, %14
 
 25:                                               ; preds = %22
   %26 = fcmp ult double %.sroa.speculated, 2.000000e+02
-  br i1 %26, label %27, label %_ZL8safe_expd.exit30
+  br i1 %26, label %27, label %_ZL8safe_expd.exit36
 
 27:                                               ; preds = %25
   %28 = tail call double @exp(double noundef %.sroa.speculated) #17, !tbaa !4
-  br label %_ZL8safe_expd.exit30
-
-_ZL8safe_expd.exit30:                             ; preds = %25, %27
-  %.0.i29 = phi double [ %28, %27 ], [ 0x51F73F60EA79F5B9, %25 ]
-  %29 = fcmp ult double %.sroa.speculated, 2.000000e+02
-  br i1 %29, label %31, label %_ZL8safe_expd.exit34
-
-_ZL8safe_expd.exit34:                             ; preds = %_ZL8safe_expd.exit30
-  %30 = fadd double %.0.i29, 0x2DE6061812054CFA
+  %29 = fneg double %.sroa.speculated
+  %30 = tail call double @exp(double noundef %29) #17, !tbaa !4
+  %31 = fadd double %28, %30
+  %32 = tail call double @exp(double noundef %.sroa.speculated) #17, !tbaa !4
+  %33 = tail call double @exp(double noundef %29) #17, !tbaa !4
   br label %_ZL8safe_expd.exit36
 
-31:                                               ; preds = %_ZL8safe_expd.exit30
-  %32 = fneg double %.sroa.speculated
-  %33 = tail call double @exp(double noundef %32) #17, !tbaa !4
-  %34 = fadd double %.0.i29, %33
-  %35 = tail call double @exp(double noundef %.sroa.speculated) #17, !tbaa !4
-  %36 = tail call double @exp(double noundef %32) #17, !tbaa !4
-  br label %_ZL8safe_expd.exit36
+_ZL8safe_expd.exit36:                             ; preds = %22, %25, %27
+  %.0.i3353 = phi double [ %32, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x2DE6061812054CFA, %22 ]
+  %.pn60 = phi double [ %31, %27 ], [ 0x51F73F60EA79F5B9, %25 ], [ 0x51F73F60EA79F5B9, %22 ]
+  %.0.i35 = phi double [ %33, %27 ], [ 0x2DE6061812054CFA, %25 ], [ 0x51F73F60EA79F5B9, %22 ]
+  %34 = fmul double %23, %.pn60
+  %35 = fsub double %.0.i3353, %.0.i35
+  %36 = fmul double %23, %35
+  br label %42
 
-_ZL8safe_expd.exit36:                             ; preds = %22, %_ZL8safe_expd.exit34, %31
-  %.0.i3354 = phi double [ %35, %31 ], [ 0x51F73F60EA79F5B9, %_ZL8safe_expd.exit34 ], [ 0x2DE6061812054CFA, %22 ]
-  %.pn63 = phi double [ %34, %31 ], [ %30, %_ZL8safe_expd.exit34 ], [ 0x51F73F60EA79F5B9, %22 ]
-  %.0.i35 = phi double [ %36, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit34 ], [ 0x51F73F60EA79F5B9, %22 ]
-  %37 = fmul double %23, %.pn63
-  %38 = fsub double %.0.i3354, %.0.i35
-  %39 = fmul double %23, %38
-  br label %45
+37:                                               ; preds = %17
+  %38 = tail call double @cos(double noundef %.sroa.speculated) #17, !tbaa !4
+  %39 = fmul double %.0.i, %38
+  %40 = tail call double @sin(double noundef %.sroa.speculated) #17, !tbaa !4
+  %41 = fmul double %.0.i, %40
+  br label %42
 
-40:                                               ; preds = %17
-  %41 = tail call double @cos(double noundef %.sroa.speculated) #17, !tbaa !4
-  %42 = fmul double %.0.i, %41
-  %43 = tail call double @sin(double noundef %.sroa.speculated) #17, !tbaa !4
-  %44 = fmul double %.0.i, %43
-  br label %45
-
-45:                                               ; preds = %40, %_ZL8safe_expd.exit36
-  %.026 = phi double [ %37, %_ZL8safe_expd.exit36 ], [ %42, %40 ]
-  %.pn = phi double [ %39, %_ZL8safe_expd.exit36 ], [ %44, %40 ]
+42:                                               ; preds = %37, %_ZL8safe_expd.exit36
+  %.026 = phi double [ %34, %_ZL8safe_expd.exit36 ], [ %39, %37 ]
+  %.pn = phi double [ %36, %_ZL8safe_expd.exit36 ], [ %41, %37 ]
   %.0 = fdiv double %.pn, %sqrt
-  %46 = fadd double %.026, %.0
-  br label %50
+  %43 = fadd double %.026, %.0
+  br label %47
 
-47:                                               ; preds = %_ZL8safe_expd.exit
-  %48 = fadd double %6, 1.000000e+00
-  %49 = fmul double %48, %.0.i
-  br label %50
+44:                                               ; preds = %_ZL8safe_expd.exit
+  %45 = fadd double %6, 1.000000e+00
+  %46 = fmul double %45, %.0.i
+  br label %47
 
-50:                                               ; preds = %47, %45
-  %.027 = phi double [ %46, %45 ], [ %49, %47 ]
+47:                                               ; preds = %44, %42
+  %.027 = phi double [ %43, %42 ], [ %46, %44 ]
   ret double %.027
 }
 

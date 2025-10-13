@@ -86,10 +86,8 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %5 = fcmp ult double %.034, 1.000000e+00
   br i1 %5, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader37
-  %.031.lcssa = phi double [ %.034, %.preheader37 ], [ %8, %.lr.ph ]
-  %.030.lcssa = phi i32 [ 0, %.preheader37 ], [ %7, %.lr.ph ]
-  %6 = fcmp olt double %.031.lcssa, 1.000000e-01
+.preheader:                                       ; preds = %.preheader37
+  %6 = fcmp olt double %.034, 1.000000e-01
   br i1 %6, label %.lr.ph43, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader37, %.lr.ph
@@ -98,19 +96,19 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %7 = add nuw nsw i32 %.03039, 1
   %8 = fdiv double %.03138, 1.000000e+01
   %9 = fcmp ult double %8, 1.000000e+00
-  br i1 %9, label %.preheader, label %.lr.ph, !llvm.loop !9
+  br i1 %9, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
-  %.142 = phi i32 [ %10, %.lr.ph43 ], [ %.030.lcssa, %.preheader ]
-  %.13241 = phi double [ %11, %.lr.ph43 ], [ %.031.lcssa, %.preheader ]
+  %.142 = phi i32 [ %10, %.lr.ph43 ], [ 0, %.preheader ]
+  %.13241 = phi double [ %11, %.lr.ph43 ], [ %.034, %.preheader ]
   %10 = add nsw i32 %.142, -1
   %11 = fmul double %.13241, 1.000000e+01
   %12 = fcmp olt double %11, 1.000000e-01
   br i1 %12, label %.lr.ph43, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph43, %.preheader, %2
-  %.233 = phi double [ %.034, %2 ], [ %.031.lcssa, %.preheader ], [ %11, %.lr.ph43 ]
-  %.2 = phi i32 [ -12, %2 ], [ %.030.lcssa, %.preheader ], [ %10, %.lr.ph43 ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph43, %.preheader, %2
+  %.233 = phi double [ %.034, %2 ], [ %.034, %.preheader ], [ %11, %.lr.ph43 ], [ %8, %.lr.ph ]
+  %.2 = phi i32 [ -12, %2 ], [ 0, %.preheader ], [ %10, %.lr.ph43 ], [ %7, %.lr.ph ]
   %13 = tail call i32 @llvm.smax.i32(i32 %.2, i32 -12)
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 11)
   %spec.store.select2 = add nsw i32 %14, 12

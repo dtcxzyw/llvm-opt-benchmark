@@ -1886,7 +1886,6 @@ for.body56.lr.ph:                                 ; preds = %invoke.cont49
   %cmp300617 = fcmp ult double %div295614, %div297615
   %cmp302618 = fcmp ult double %div295614, %div299616
   %or.cond619 = or i1 %cmp300617, %cmp302618
-  %cmp330624 = fcmp ogt double %div299616, %div297615
   br label %for.body56
 
 for.cond.cleanup55.loopexit:                      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -2401,7 +2400,7 @@ for.cond.cleanup187:                              ; preds = %invoke.cont279
   br i1 %or.cond, label %if.else329, label %invoke.cont311
 
 for.cond.cleanup187.thread:                       ; preds = %if.end183
-  br i1 %or.cond619, label %if.else329.thread, label %for.cond.cleanup395
+  br i1 %or.cond619, label %invoke.cont381, label %for.cond.cleanup395
 
 invoke.cont195:                                   ; preds = %if.end183, %invoke.cont279
   %k.0519 = phi i64 [ %k.1, %invoke.cont279 ], [ 0, %if.end183 ]
@@ -2631,14 +2630,11 @@ if.else329:                                       ; preds = %for.cond.cleanup187
   %cmp330 = fcmp ogt double %div299, %div297
   br i1 %cmp330, label %for.body336.lr.ph, label %invoke.cont381
 
-if.else329.thread:                                ; preds = %for.cond.cleanup187.thread
-  br i1 %cmp330624, label %for.cond.cleanup335, label %invoke.cont381
-
 for.body336.lr.ph:                                ; preds = %if.else329
   %139 = load ptr, ptr %paths_, align 8, !tbaa !75
   br label %for.body336
 
-for.cond.cleanup335:                              ; preds = %for.body336, %if.else329.thread
+for.cond.cleanup335:                              ; preds = %for.body336
   %140 = load ptr, ptr %_M_finish.i150, align 8, !tbaa !69
   %141 = load ptr, ptr %v_, align 8, !tbaa !68
   %sub.ptr.lhs.cast.i304 = ptrtoint ptr %140 to i64
@@ -2690,7 +2686,7 @@ lpad368:                                          ; preds = %cond.true.i
           cleanup
   br label %ehcleanup427
 
-invoke.cont381:                                   ; preds = %if.else329.thread, %if.else329
+invoke.cont381:                                   ; preds = %for.cond.cleanup187.thread, %if.else329
   %150 = load ptr, ptr %coeff_, align 8, !tbaa !18
   %arrayidx.i329 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %150, i64 %indvars.iv
   %151 = load ptr, ptr %arrayidx.i329, align 8, !tbaa !18

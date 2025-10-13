@@ -18953,14 +18953,14 @@ define linkonce_odr hidden void @_ZN6casadi27casadi_qrqp_primal_blockingIdEEvPNS
   %8 = load ptr, ptr %7, align 8, !tbaa !178
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.backedge
 
 .lr.ph.i:                                         ; preds = %1
@@ -19059,65 +19059,65 @@ define linkonce_odr hidden void @_ZN6casadi27casadi_qrqp_primal_blockingIdEEvPNS
   br i1 %72, label %73, label %87
 
 73:                                               ; preds = %66
-  %74 = load ptr, ptr %11, align 8, !tbaa !175
+  %74 = load ptr, ptr %18, align 8, !tbaa !175
   %75 = getelementptr inbounds nuw double, ptr %74, i64 %.061
   %76 = load double, ptr %75, align 8, !tbaa !195
   %77 = load double, ptr %12, align 8, !tbaa !416
   %78 = fsub double %76, %77
   %79 = fcmp olt double %71, %78
-  br i1 %79, label %80, label %87
+  br i1 %79, label %80, label %thread-pre-split
 
 80:                                               ; preds = %73
   %81 = fsub double %78, %69
   %82 = fdiv double %81, %64
   store double %82, ptr %10, align 8, !tbaa !255
-  %83 = load ptr, ptr %14, align 8, !tbaa !177
+  %83 = load ptr, ptr %13, align 8, !tbaa !177
   %84 = getelementptr inbounds nuw double, ptr %83, i64 %.061
   %85 = load double, ptr %84, align 8, !tbaa !195
   %86 = fcmp olt double %85, 0.000000e+00
-  br label %.sink.split
+  br label %thread-pre-split.sink.split
 
-87:                                               ; preds = %73, %66
+87:                                               ; preds = %66
   %88 = fcmp ogt double %64, 0.000000e+00
-  br i1 %88, label %89, label %104
+  br i1 %88, label %89, label %thread-pre-split
 
 89:                                               ; preds = %87
-  %90 = load ptr, ptr %13, align 8, !tbaa !176
+  %90 = load ptr, ptr %11, align 8, !tbaa !176
   %91 = getelementptr inbounds nuw double, ptr %90, i64 %.061
   %92 = load double, ptr %91, align 8, !tbaa !195
   %93 = load double, ptr %12, align 8, !tbaa !416
   %94 = fadd double %92, %93
   %95 = fcmp ogt double %71, %94
-  br i1 %95, label %96, label %104
+  br i1 %95, label %96, label %thread-pre-split
 
 96:                                               ; preds = %89
   %97 = fsub double %94, %69
   %98 = fdiv double %97, %64
   store double %98, ptr %10, align 8, !tbaa !255
-  %99 = load ptr, ptr %14, align 8, !tbaa !177
+  %99 = load ptr, ptr %13, align 8, !tbaa !177
   %100 = getelementptr inbounds nuw double, ptr %99, i64 %.061
   %101 = load double, ptr %100, align 8, !tbaa !195
   %102 = fcmp ogt double %101, 0.000000e+00
-  br label %.sink.split
+  br label %thread-pre-split.sink.split
 
-.sink.split:                                      ; preds = %80, %96
-  %.sink71 = phi i1 [ %102, %96 ], [ %86, %80 ]
+thread-pre-split.sink.split:                      ; preds = %80, %96
+  %.sink72 = phi i1 [ %102, %96 ], [ %86, %80 ]
   %.sink = phi i64 [ 1, %96 ], [ -1, %80 ]
   %.str.170.sink = phi ptr [ @.str.170, %96 ], [ @.str.169, %80 ]
   %.ph = phi double [ %98, %96 ], [ %82, %80 ]
-  %103 = select i1 %.sink71, i64 -1, i64 %.061
-  store i64 %103, ptr %15, align 8, !tbaa !206
-  store i64 %.sink, ptr %16, align 8, !tbaa !248
-  store ptr %.str.170.sink, ptr %17, align 8, !tbaa !211
-  store i64 %.061, ptr %18, align 8, !tbaa !212
-  br label %104
+  %103 = select i1 %.sink72, i64 -1, i64 %.061
+  store i64 %103, ptr %14, align 8, !tbaa !206
+  store i64 %.sink, ptr %15, align 8, !tbaa !248
+  store ptr %.str.170.sink, ptr %16, align 8, !tbaa !211
+  store i64 %.061, ptr %17, align 8, !tbaa !212
+  br label %thread-pre-split
 
-104:                                              ; preds = %.sink.split, %87, %89
-  %105 = phi double [ %70, %87 ], [ %70, %89 ], [ %.ph, %.sink.split ]
-  %106 = fcmp ugt double %105, 0.000000e+00
-  %107 = add nuw nsw i64 %.061, 1
-  %108 = icmp slt i64 %107, %5
-  %or.cond = select i1 %106, i1 %108, i1 false
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %89, %73, %87
+  %104 = phi double [ %70, %87 ], [ %70, %73 ], [ %70, %89 ], [ %.ph, %thread-pre-split.sink.split ]
+  %105 = fcmp ugt double %104, 0.000000e+00
+  %106 = add nuw nsw i64 %.061, 1
+  %107 = icmp slt i64 %106, %5
+  %or.cond = select i1 %105, i1 %107, i1 false
   br i1 %or.cond, label %.backedge.backedge, label %.loopexit
 
 .critedge:                                        ; preds = %.backedge
@@ -19125,11 +19125,11 @@ define linkonce_odr hidden void @_ZN6casadi27casadi_qrqp_primal_blockingIdEEvPNS
   %.old62 = icmp slt i64 %.old, %5
   br i1 %.old62, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %.critedge, %104
-  %.061.be = phi i64 [ %.old, %.critedge ], [ %107, %104 ]
+.backedge.backedge:                               ; preds = %.critedge, %thread-pre-split
+  %.061.be = phi i64 [ %.old, %.critedge ], [ %106, %thread-pre-split ]
   br label %.backedge, !llvm.loop !469
 
-.loopexit:                                        ; preds = %104, %.critedge, %1, %61
+.loopexit:                                        ; preds = %thread-pre-split, %.critedge, %1, %61
   ret void
 }
 

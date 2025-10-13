@@ -379,11 +379,10 @@ if.end.i:                                         ; preds = %if.then
 
 if.then3.i:                                       ; preds = %if.end.i
   %cmp4.i = fcmp olt double %0, 0x3A1B900000000000
-  br i1 %cmp4.i, label %return, label %if.then3.i.if.else_crit_edge
+  br i1 %cmp4.i, label %return, label %if.else.thread
 
-if.then3.i.if.else_crit_edge:                     ; preds = %if.then3.i
-  %.pre = tail call double @llvm.fabs.f64(double %x)
-  br label %if.else
+if.else.thread:                                   ; preds = %if.then3.i
+  br label %return
 
 _ZN8QuantLib12close_enoughEdd.exit:               ; preds = %if.end.i
   %1 = tail call double @llvm.fabs.f64(double %x)
@@ -393,9 +392,8 @@ _ZN8QuantLib12close_enoughEdd.exit:               ; preds = %if.end.i
   %2 = or i1 %cmp6.i, %cmp8.i
   br i1 %2, label %return, label %if.else
 
-if.else:                                          ; preds = %if.then3.i.if.else_crit_edge, %_ZN8QuantLib12close_enoughEdd.exit
-  %.pre-phi = phi double [ %.pre, %if.then3.i.if.else_crit_edge ], [ %1, %_ZN8QuantLib12close_enoughEdd.exit ]
-  %cmp5 = fcmp olt double %.pre-phi, 0x3CB0000000000000
+if.else:                                          ; preds = %_ZN8QuantLib12close_enoughEdd.exit
+  %cmp5 = fcmp olt double %1, 0x3CB0000000000000
   br i1 %cmp5, label %return, label %do.body
 
 do.body:                                          ; preds = %if.else
@@ -575,8 +573,8 @@ if.else52:                                        ; preds = %if.end38
   %div66 = fdiv double %fneg61, %37
   br label %return
 
-return:                                           ; preds = %if.then, %if.else, %_ZN8QuantLib12close_enoughEdd.exit, %if.then3.i, %if.then40, %if.else52
-  %retval.0 = phi double [ %div, %if.then40 ], [ %div66, %if.else52 ], [ 0x7FEFFFFFFFFFFFFF, %if.then3.i ], [ 0x7FEFFFFFFFFFFFFF, %_ZN8QuantLib12close_enoughEdd.exit ], [ 0xFFEFFFFFFFFFFFFF, %if.else ], [ 0x7FEFFFFFFFFFFFFF, %if.then ]
+return:                                           ; preds = %if.else.thread, %if.then, %if.else, %_ZN8QuantLib12close_enoughEdd.exit, %if.then3.i, %if.then40, %if.else52
+  %retval.0 = phi double [ %div, %if.then40 ], [ %div66, %if.else52 ], [ 0x7FEFFFFFFFFFFFFF, %if.then3.i ], [ 0x7FEFFFFFFFFFFFFF, %_ZN8QuantLib12close_enoughEdd.exit ], [ 0xFFEFFFFFFFFFFFFF, %if.else ], [ 0x7FEFFFFFFFFFFFFF, %if.then ], [ 0xFFEFFFFFFFFFFFFF, %if.else.thread ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont25

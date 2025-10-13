@@ -1832,9 +1832,9 @@ KINLinSolDrv.exit172:                             ; preds = %568
   br i1 %.not.i173, label %.preheader571, label %593
 
 .preheader571:                                    ; preds = %605, %593, %591
-  %.2316408.i.ph = phi double [ %.0314.i, %591 ], [ %.0314.i, %593 ], [ %601, %605 ]
-  %.2319407.i.ph = phi double [ %.0317.i, %591 ], [ %.0317.i, %593 ], [ %600, %605 ]
-  %.2327406.i.ph = phi double [ %.0325.i, %591 ], [ %.0325.i, %593 ], [ 1.000000e+00, %605 ]
+  %.2316424.i.ph = phi double [ %.0314.i, %591 ], [ %.0314.i, %593 ], [ %601, %605 ]
+  %.2319423.i.ph = phi double [ %.0317.i, %591 ], [ %.0317.i, %593 ], [ %600, %605 ]
+  %.2327422.i.ph = phi double [ %.0325.i, %591 ], [ %.0325.i, %593 ], [ 1.000000e+00, %605 ]
   br label %612
 
 593:                                              ; preds = %591
@@ -1871,10 +1871,10 @@ KINLinSolDrv.exit172:                             ; preds = %568
   br label %851
 
 612:                                              ; preds = %.preheader571, %626
-  %.0312409.i = phi i32 [ %630, %626 ], [ 1, %.preheader571 ]
-  %.2316408.i = phi double [ %629, %626 ], [ %.2316408.i.ph, %.preheader571 ]
-  %.2319407.i = phi double [ %628, %626 ], [ %.2319407.i.ph, %.preheader571 ]
-  %.2327406.i = phi double [ 1.000000e+00, %626 ], [ %.2327406.i.ph, %.preheader571 ]
+  %.0312425.i = phi i32 [ %630, %626 ], [ 1, %.preheader571 ]
+  %.2316424.i = phi double [ %629, %626 ], [ %.2316424.i.ph, %.preheader571 ]
+  %.2319423.i = phi double [ %628, %626 ], [ %.2319423.i.ph, %.preheader571 ]
+  %.2327422.i = phi double [ 1.000000e+00, %626 ], [ %.2327422.i.ph, %.preheader571 ]
   %613 = load ptr, ptr %14, align 8, !tbaa !78
   %614 = load ptr, ptr %284, align 8, !tbaa !63
   %615 = load ptr, ptr %283, align 8, !tbaa !61
@@ -1897,10 +1897,10 @@ KINLinSolDrv.exit172:                             ; preds = %568
 626:                                              ; preds = %624
   %627 = load ptr, ptr %284, align 8, !tbaa !63
   tail call void @N_VScale(double noundef 5.000000e-01, ptr noundef %627, ptr noundef %627) #14
-  %628 = fmul double %.2319407.i, 5.000000e-01
-  %629 = fmul double %.2316408.i, 5.000000e-01
+  %628 = fmul double %.2319423.i, 5.000000e-01
+  %629 = fmul double %.2316424.i, 5.000000e-01
   store double %629, ptr %288, align 8, !tbaa !111
-  %630 = add nuw nsw i32 %.0312409.i, 1
+  %630 = add nuw nsw i32 %.0312425.i, 1
   %exitcond.i174 = icmp eq i32 %630, 6
   br i1 %exitcond.i174, label %KINLinSolDrv.exit.thread, label %612, !llvm.loop !117
 
@@ -1911,7 +1911,7 @@ KINLinSolDrv.exit172:                             ; preds = %568
   %635 = fmul double %634, 5.000000e-01
   %636 = fmul double %634, %635
   %637 = load double, ptr %287, align 8, !tbaa !115
-  %638 = fmul double %.2319407.i, %637
+  %638 = fmul double %.2319423.i, %637
   %639 = load ptr, ptr %284, align 8, !tbaa !63
   %640 = load ptr, ptr %14, align 8, !tbaa !78
   %641 = load ptr, ptr %15, align 8, !tbaa !79
@@ -1934,7 +1934,7 @@ KINLinSolDrv.exit172:                             ; preds = %568
 
 653:                                              ; preds = %631
   %654 = load double, ptr %250, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.58, double noundef %650, double noundef %654, double noundef %.2316408.i)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.58, double noundef %650, double noundef %654, double noundef %.2316424.i)
   br label %655
 
 655:                                              ; preds = %653, %631
@@ -2066,15 +2066,15 @@ KINLinSolDrv.exit172:                             ; preds = %568
 
 740:                                              ; preds = %738
   %741 = load double, ptr %179, align 8, !tbaa !91
-  %742 = fcmp olt double %.2316408.i, %741
+  %742 = fcmp olt double %.2316424.i, %741
   br i1 %742, label %.preheader.i, label %.thread.i175
 
 .preheader.i:                                     ; preds = %740, %769
   %.3324.i = phi double [ %743, %769 ], [ 1.000000e+00, %740 ]
   %.3.i = phi i32 [ %746, %769 ], [ %.0310.i, %740 ]
   %743 = fmul double %.3324.i, 2.000000e+00
-  %744 = fcmp uge double %743, %.2327406.i
-  %745 = select i1 %744, double %.2327406.i, double %743
+  %744 = fcmp uge double %743, %.2327422.i
+  %745 = select i1 %744, double %.2327422.i, double %743
   %746 = add nuw nsw i32 %.3.i, 1
   %747 = load ptr, ptr %14, align 8, !tbaa !78
   %748 = load ptr, ptr %284, align 8, !tbaa !63
@@ -2116,7 +2116,7 @@ KINLinSolDrv.exit172:                             ; preds = %568
   br i1 %brmerge, label %.critedge.i.loopexit, label %.preheader.i
 
 .critedge.i.loopexit:                             ; preds = %769
-  %.mux = select i1 %or.cond.i.not558, double %745, double %.2327406.i
+  %.mux = select i1 %or.cond.i.not558, double %745, double %.2327422.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %738
@@ -2132,8 +2132,8 @@ KINLinSolDrv.exit172:                             ; preds = %568
 773:                                              ; preds = %.critedge.i
   %774 = fcmp ogt double %.2323.i, 1.000000e+00
   %775 = fcmp ogt double %.6, %.0320.i
-  %or.cond498.i = select i1 %774, i1 %775, i1 false
-  br i1 %or.cond498.i, label %776, label %.thread.i175
+  %or.cond499.i = select i1 %774, i1 %775, i1 false
+  br i1 %or.cond499.i, label %776, label %.thread.i175
 
 776:                                              ; preds = %773, %.critedge.i
   %777 = fcmp olt double %.2323.i, %.1336.i
@@ -2249,13 +2249,13 @@ KINLinSolDrv.exit172:                             ; preds = %568
 839:                                              ; preds = %838, %.thread.i175
   %840 = load double, ptr %287, align 8, !tbaa !115
   %841 = fmul double %.1322.i, %840
-  %842 = fmul double %.2319407.i, %841
+  %842 = fmul double %.2319423.i, %841
   store double %842, ptr %287, align 8, !tbaa !115
   %843 = load double, ptr %286, align 8, !tbaa !116
   %844 = fmul double %.1322.i, %843
-  %845 = fmul double %.2319407.i, %844
+  %845 = fmul double %.2319423.i, %844
   store double %845, ptr %286, align 8, !tbaa !116
-  %846 = fmul double %.2316408.i, %.1322.i
+  %846 = fmul double %.2316424.i, %.1322.i
   %847 = load double, ptr %179, align 8, !tbaa !91
   %848 = fmul double %847, 0x3FEFAE147AE147AE
   %849 = fcmp ogt double %846, %848

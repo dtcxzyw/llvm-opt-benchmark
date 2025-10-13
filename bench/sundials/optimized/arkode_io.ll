@@ -1597,7 +1597,7 @@ define i32 @ARKodeSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_
 
 5:                                                ; preds = %2
   %6 = fcmp oeq double %1, 0.000000e+00
-  br i1 %6, label %7, label %.critedge
+  br i1 %6, label %7, label %.sink.split
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1613,7 +1613,7 @@ define i32 @ARKodeSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %.not28 = icmp eq i32 %13, 0
-  br i1 %.not28, label %14, label %.critedge
+  br i1 %.not28, label %14, label %.sink.split
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1644,50 +1644,45 @@ define i32 @ARKodeSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_
 31:                                               ; preds = %25, %21
   %.024 = phi i32 [ %24, %21 ], [ %30, %25 ]
   %.not30 = icmp eq i32 %.024, 0
-  br i1 %.not30, label %.critedge, label %ARKodeSetInitStep.exit
+  br i1 %.not30, label %32, label %ARKodeSetInitStep.exit
 
-.critedge:                                        ; preds = %5, %31, %11
-  %32 = fcmp une double %1, 0.000000e+00
-  br i1 %32, label %33, label %35
+32:                                               ; preds = %31
+  %.pre = load i32, ptr %8, align 8, !tbaa !85
+  %33 = icmp eq i32 %.pre, 0
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  store i32 0, ptr %34, align 8, !tbaa !17
+  br i1 %33, label %35, label %37
 
-33:                                               ; preds = %.critedge
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store double %1, ptr %34, align 8, !tbaa !93
-  br label %35
-
-35:                                               ; preds = %.critedge, %33
-  %.sink = phi i32 [ 1, %33 ], [ 0, %.critedge ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  store i32 %.sink, ptr %36, align 8, !tbaa !17
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = load i32, ptr %37, align 8, !tbaa !85
-  %39 = icmp eq i32 %38, 0
-  %or.cond.i = and i1 %6, %39
-  br i1 %or.cond.i, label %40, label %41
-
-40:                                               ; preds = %35
+35:                                               ; preds = %32
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -48, i32 noundef 995, ptr noundef nonnull @__func__.ARKodeSetInitStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #9
   br label %ARKodeSetInitStep.exit
 
-41:                                               ; preds = %35
-  %.sink.i = select i1 %6, double 0.000000e+00, double %1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store double %.sink.i, ptr %42, align 8, !tbaa !93
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store double 0.000000e+00, ptr %43, align 8, !tbaa !94
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %45 = load ptr, ptr %44, align 8, !tbaa !36
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
-  %47 = load ptr, ptr %46, align 8, !tbaa !88
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %ARKodeSetInitStep.exit, label %48
+.sink.split:                                      ; preds = %5, %11
+  %.sink = phi i32 [ 0, %11 ], [ 1, %5 ]
+  %.sink.i.ph = phi double [ 0.000000e+00, %11 ], [ %1, %5 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  store i32 %.sink, ptr %36, align 8, !tbaa !17
+  br label %37
 
-48:                                               ; preds = %41
-  %49 = tail call i32 @SUNAdaptController_Reset(ptr noundef nonnull %47) #9
+37:                                               ; preds = %.sink.split, %32
+  %.sink.i = phi double [ 0.000000e+00, %32 ], [ %.sink.i.ph, %.sink.split ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store double %.sink.i, ptr %38, align 8, !tbaa !93
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store double 0.000000e+00, ptr %39, align 8, !tbaa !94
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 104
+  %43 = load ptr, ptr %42, align 8, !tbaa !88
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %ARKodeSetInitStep.exit, label %44
+
+44:                                               ; preds = %37
+  %45 = tail call i32 @SUNAdaptController_Reset(ptr noundef nonnull %43) #9
   br label %ARKodeSetInitStep.exit
 
-ARKodeSetInitStep.exit:                           ; preds = %48, %40, %41, %31, %10, %4
-  %.0 = phi i32 [ -21, %4 ], [ -48, %10 ], [ %.024, %31 ], [ 0, %41 ], [ 0, %40 ], [ 0, %48 ]
+ARKodeSetInitStep.exit:                           ; preds = %44, %35, %37, %31, %10, %4
+  %.0 = phi i32 [ -21, %4 ], [ -48, %10 ], [ %.024, %31 ], [ 0, %37 ], [ 0, %35 ], [ 0, %44 ]
   ret i32 %.0
 }
 

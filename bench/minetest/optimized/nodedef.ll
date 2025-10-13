@@ -19970,7 +19970,6 @@ if.then32.i1233:                                  ; preds = %if.end28.i1230
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239: ; preds = %if.then32.i1233, %if.end28.i1230
-  %518 = phi float [ %517, %if.end28.i1230 ], [ -5.000000e+00, %if.then32.i1233 ]
   %cmp.i1241 = fcmp nsz olt float %508, 5.000000e+00
   br i1 %cmp.i1241, label %if.then.i1261, label %if.end.i1242
 
@@ -20004,21 +20003,13 @@ if.then18.i1258:                                  ; preds = %if.end15.i1248
 
 if.end21.i1250:                                   ; preds = %if.then18.i1258, %if.end15.i1248
   %cmp24.i1252 = fcmp nsz ogt float %516, 5.000000e+00
-  br i1 %cmp24.i1252, label %if.then25.i1257, label %if.end28.i1253
+  br i1 %cmp24.i1252, label %if.then25.i1257, label %sw.epilog
 
 if.then25.i1257:                                  ; preds = %if.end21.i1250
   store float 5.000000e+00, ptr %Y23.i1228, align 4, !tbaa !409
-  br label %if.end28.i1253
-
-if.end28.i1253:                                   ; preds = %if.then25.i1257, %if.end21.i1250
-  %cmp31.i1255 = fcmp nsz ogt float %518, 5.000000e+00
-  br i1 %cmp31.i1255, label %if.then32.i1256, label %sw.epilog
-
-if.then32.i1256:                                  ; preds = %if.end28.i1253
-  store float 5.000000e+00, ptr %Z30.i1231, align 4, !tbaa !410
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201, %if.then32.i1256, %if.end28.i1253, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156, %if.then32.i310, %if.end28.i307, %if.then32.i.i21.i, %if.end28.i.i18.i, %if.then32.i167, %if.end28.i164
+sw.epilog:                                        ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201, %if.end21.i1250, %if.then25.i1257, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156, %if.then32.i310, %if.end28.i307, %if.then32.i.i21.i, %if.end28.i.i18.i, %if.then32.i167, %if.end28.i164
   ret void
 }
 

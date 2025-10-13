@@ -17,30 +17,27 @@ $_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll = comdat any
 define dso_local noundef double @_ZN3igl11line_searchERN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKS2_dSt8functionIFdS3_EEd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, double noundef %2, ptr noundef %3, double noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
   %7 = fcmp ogt double %4, 0.000000e+00
-  br i1 %7, label %15, label %8
+  br i1 %7, label %.lr.ph, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %11, label %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit
+  br i1 %.not.i.i, label %11, label %12
 
 11:                                               ; preds = %8
   tail call void @_ZSt25__throw_bad_function_callv() #9
   unreachable
 
-_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit: ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !9
-  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br label %15
-
-15:                                               ; preds = %5, %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit
-  %.0 = phi double [ %14, %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit ], [ %4, %5 ]
-  %16 = fcmp ord double %.0, 0.000000e+00
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %16 = fcmp ord double %15, 0.000000e+00
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %15
+.lr.ph:                                           ; preds = %5, %12
+  %.077 = phi double [ %15, %12 ], [ %4, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -52,7 +49,7 @@ _ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit: ; pr
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
-  %.01759 = phi double [ %.0, %.lr.ph ], [ %.1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
+  %.01759 = phi double [ %.077, %.lr.ph ], [ %.1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
   %.01858 = phi i32 [ 0, %.lr.ph ], [ %113, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
   %.04657 = phi double [ %2, %.lr.ph ], [ %.147, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -179,7 +176,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_13CwiseBinaryOpINS_8internal13s
           to label %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit23 unwind label %.loopexit
 
 _ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit23: ; preds = %73
-  %76 = fcmp ult double %75, %.0
+  %76 = fcmp ult double %75, %.077
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %_ZNKSt8functionIFdRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEclES3_.exit23
@@ -285,13 +282,13 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.
   %114 = load ptr, ptr %6, align 8, !tbaa !18
   call void @free(ptr noundef %114) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %115 = fcmp oge double %.1, %.0
+  %115 = fcmp oge double %.1, %.077
   %116 = icmp samesign ult i32 %.01858, 11
   %117 = select i1 %115, i1 %116, i1 false
   br i1 %117, label %25, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit, %15
-  %.017.lcssa = phi double [ %.0, %15 ], [ %.1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
+._crit_edge:                                      ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit, %12
+  %.017.lcssa = phi double [ %15, %12 ], [ %.1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
   ret double %.017.lcssa
 }
 

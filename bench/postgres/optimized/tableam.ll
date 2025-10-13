@@ -752,11 +752,11 @@ define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr no
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 122
   %22 = load i8, ptr %21, align 2, !range !4, !noundef !5
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %select.unfold, label %.thread
+  br i1 %23, label %select.unfold, label %.thread51
 
-.thread:                                          ; preds = %20
+.thread51:                                        ; preds = %20
   store i32 10, ptr %2, align 4
-  br label %26
+  br label %32
 
 select.unfold:                                    ; preds = %20, %7
   store i32 %8, ptr %2, align 4
@@ -767,8 +767,7 @@ select.unfold:                                    ; preds = %20, %7
   store double 0.000000e+00, ptr %3, align 8
   br label %59
 
-26:                                               ; preds = %.thread, %select.unfold
-  %.050 = phi i32 [ 10, %.thread ], [ %8, %select.unfold ]
+26:                                               ; preds = %select.unfold
   %27 = fcmp oge float %14, 0.000000e+00
   %28 = icmp ne i32 %12, 0
   %or.cond3 = select i1 %27, i1 %28, i1 false
@@ -779,7 +778,8 @@ select.unfold:                                    ; preds = %20, %7
   %31 = fdiv double %15, %30
   br label %49
 
-32:                                               ; preds = %26
+32:                                               ; preds = %.thread51, %26
+  %.05055 = phi i32 [ 10, %.thread51 ], [ %8, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
@@ -804,8 +804,9 @@ select.unfold:                                    ; preds = %20, %7
   br label %49
 
 49:                                               ; preds = %39, %29
+  %.05054 = phi i32 [ %8, %29 ], [ %.05055, %39 ]
   %.041 = phi double [ %31, %29 ], [ %48, %39 ]
-  %50 = uitofp i32 %.050 to double
+  %50 = uitofp i32 %.05054 to double
   %51 = fmul double %.041, %50
   %52 = tail call double @llvm.rint.f64(double %51)
   store double %52, ptr %3, align 8

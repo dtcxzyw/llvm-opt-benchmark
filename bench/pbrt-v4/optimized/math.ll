@@ -3286,14 +3286,12 @@ define dso_local { <2 x float>, float } @_ZN4pbrt23EqualAreaSquareToSphereENS_6P
   %34 = tail call noundef float @llvm.copysign.f32(float %33, float %12)
   %35 = fmul float %18, %32
   %36 = fsub float 2.000000e+00, %28
-  %37 = fcmp ogt float %36, 0.000000e+00
-  %.sroa.speculated.i = select i1 %37, float %36, float 0.000000e+00
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %38 = fmul float %sqrt.i, %35
-  %39 = fmul float %18, %34
-  %40 = fmul float %sqrt.i, %39
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %38, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %40, i64 1
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %36)
+  %37 = fmul float %sqrt.i, %35
+  %38 = fmul float %18, %34
+  %39 = fmul float %sqrt.i, %38
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %37, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %39, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %30, 1
   ret { <2 x float>, float } %.fca.1.insert

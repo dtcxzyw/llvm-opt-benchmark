@@ -8430,25 +8430,24 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %75 = fcmp ogt double %74, 3.600000e+02
   br i1 %75, label %.lr.ph.i, label %.preheader87.i
 
-.preheader87.i:                                   ; preds = %.lr.ph.i, %73
-  %.081.lcssa.i = phi double [ %74, %73 ], [ %77, %.lr.ph.i ]
-  %76 = fcmp olt double %.081.lcssa.i, 0.000000e+00
+.preheader87.i:                                   ; preds = %73
+  %76 = fcmp olt double %74, 0.000000e+00
   br i1 %76, label %.lr.ph90.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %73, %.lr.ph.i
   %.08188.i = phi double [ %77, %.lr.ph.i ], [ %74, %73 ]
   %77 = fadd double %.08188.i, -3.600000e+02
   %78 = fcmp ogt double %77, 3.600000e+02
-  br i1 %78, label %.lr.ph.i, label %.preheader87.i, !llvm.loop !38
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
 
 .lr.ph90.i:                                       ; preds = %.preheader87.i, %.lr.ph90.i
-  %.189.i = phi double [ %79, %.lr.ph90.i ], [ %.081.lcssa.i, %.preheader87.i ]
+  %.189.i = phi double [ %79, %.lr.ph90.i ], [ %74, %.preheader87.i ]
   %79 = fadd double %.189.i, 3.600000e+02
   %80 = fcmp olt double %79, 0.000000e+00
   br i1 %80, label %.lr.ph90.i, label %._crit_edge.i, !llvm.loop !39
 
-._crit_edge.i:                                    ; preds = %.lr.ph90.i, %.preheader87.i
-  %.1.lcssa.i = phi double [ %.081.lcssa.i, %.preheader87.i ], [ %79, %.lr.ph90.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph90.i, %.lr.ph.i, %.preheader87.i
+  %.1.lcssa.i = phi double [ %74, %.preheader87.i ], [ %77, %.lr.ph.i ], [ %79, %.lr.ph90.i ]
   %81 = fcmp olt double %.1.lcssa.i, 6.000000e+01
   br i1 %81, label %82, label %87
 
@@ -8480,25 +8479,24 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %98 = fcmp ogt double %.063.i, 3.600000e+02
   br i1 %98, label %.lr.ph94.i, label %.preheader86.i
 
-.preheader86.i:                                   ; preds = %.lr.ph94.i, %97
-  %.2.lcssa.i = phi double [ %.063.i, %97 ], [ %100, %.lr.ph94.i ]
-  %99 = fcmp olt double %.2.lcssa.i, 0.000000e+00
+.preheader86.i:                                   ; preds = %97
+  %99 = fcmp olt double %.063.i, 0.000000e+00
   br i1 %99, label %.lr.ph97.i, label %._crit_edge98.i
 
 .lr.ph94.i:                                       ; preds = %97, %.lr.ph94.i
   %.292.i = phi double [ %100, %.lr.ph94.i ], [ %.063.i, %97 ]
   %100 = fadd double %.292.i, -3.600000e+02
   %101 = fcmp ogt double %100, 3.600000e+02
-  br i1 %101, label %.lr.ph94.i, label %.preheader86.i, !llvm.loop !40
+  br i1 %101, label %.lr.ph94.i, label %._crit_edge98.i, !llvm.loop !40
 
 .lr.ph97.i:                                       ; preds = %.preheader86.i, %.lr.ph97.i
-  %.396.i = phi double [ %102, %.lr.ph97.i ], [ %.2.lcssa.i, %.preheader86.i ]
+  %.396.i = phi double [ %102, %.lr.ph97.i ], [ %.063.i, %.preheader86.i ]
   %102 = fadd double %.396.i, 3.600000e+02
   %103 = fcmp olt double %102, 0.000000e+00
   br i1 %103, label %.lr.ph97.i, label %._crit_edge98.i, !llvm.loop !41
 
-._crit_edge98.i:                                  ; preds = %.lr.ph97.i, %.preheader86.i
-  %.3.lcssa.i = phi double [ %.2.lcssa.i, %.preheader86.i ], [ %102, %.lr.ph97.i ]
+._crit_edge98.i:                                  ; preds = %.lr.ph97.i, %.lr.ph94.i, %.preheader86.i
+  %.3.lcssa.i = phi double [ %.063.i, %.preheader86.i ], [ %100, %.lr.ph94.i ], [ %102, %.lr.ph97.i ]
   %104 = fcmp olt double %.3.lcssa.i, 6.000000e+01
   br i1 %104, label %105, label %110
 
@@ -8531,25 +8529,24 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %122 = fcmp ogt double %121, 3.600000e+02
   br i1 %122, label %.lr.ph102.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph102.i, %120
-  %.4.lcssa.i = phi double [ %121, %120 ], [ %124, %.lr.ph102.i ]
-  %123 = fcmp olt double %.4.lcssa.i, 0.000000e+00
+.preheader.i:                                     ; preds = %120
+  %123 = fcmp olt double %121, 0.000000e+00
   br i1 %123, label %.lr.ph105.i, label %._crit_edge106.i
 
 .lr.ph102.i:                                      ; preds = %120, %.lr.ph102.i
   %.4100.i = phi double [ %124, %.lr.ph102.i ], [ %121, %120 ]
   %124 = fadd double %.4100.i, -3.600000e+02
   %125 = fcmp ogt double %124, 3.600000e+02
-  br i1 %125, label %.lr.ph102.i, label %.preheader.i, !llvm.loop !42
+  br i1 %125, label %.lr.ph102.i, label %._crit_edge106.i, !llvm.loop !42
 
 .lr.ph105.i:                                      ; preds = %.preheader.i, %.lr.ph105.i
-  %.5104.i = phi double [ %126, %.lr.ph105.i ], [ %.4.lcssa.i, %.preheader.i ]
+  %.5104.i = phi double [ %126, %.lr.ph105.i ], [ %121, %.preheader.i ]
   %126 = fadd double %.5104.i, 3.600000e+02
   %127 = fcmp olt double %126, 0.000000e+00
   br i1 %127, label %.lr.ph105.i, label %._crit_edge106.i, !llvm.loop !43
 
-._crit_edge106.i:                                 ; preds = %.lr.ph105.i, %.preheader.i
-  %.5.lcssa.i = phi double [ %.4.lcssa.i, %.preheader.i ], [ %126, %.lr.ph105.i ]
+._crit_edge106.i:                                 ; preds = %.lr.ph105.i, %.lr.ph102.i, %.preheader.i
+  %.5.lcssa.i = phi double [ %121, %.preheader.i ], [ %124, %.lr.ph102.i ], [ %126, %.lr.ph105.i ]
   %128 = fcmp olt double %.5.lcssa.i, 6.000000e+01
   br i1 %128, label %129, label %134
 

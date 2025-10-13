@@ -47986,40 +47986,47 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable
   %7 = bitcast float %5 to i32
   %.pr = load float, ptr %3, align 16
   %8 = fcmp uno float %.pr, 0.000000e+00
-  %or.cond22 = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond22, label %thread-pre-split, label %12
+  br i1 %6, label %10, label %9
 
-thread-pre-split:                                 ; preds = %4
-  %9 = fcmp uno float %.pr, 0.000000e+00
-  %10 = bitcast float %.pr to i32
-  %.0.copyload = select i1 %9, i32 %10, i32 %7
-  %11 = or i32 %.0.copyload, 4194304
-  store i32 %11, ptr %2, align 16
-  br label %23
+9:                                                ; preds = %4
+  br i1 %8, label %.thread, label %14
 
-12:                                               ; preds = %4
-  %13 = fcmp oeq float %5, 0.000000e+00
-  %14 = fcmp oeq float %.pr, 0.000000e+00
-  %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %20
+10:                                               ; preds = %4
+  br i1 %8, label %.thread, label %12
 
-15:                                               ; preds = %12
-  %16 = bitcast float %.pr to i32
-  %17 = xor i32 %16, %7
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %20
+.thread:                                          ; preds = %9, %10
+  %11 = bitcast float %.pr to i32
+  br label %12
 
-19:                                               ; preds = %15
+12:                                               ; preds = %.thread, %10
+  %.0.copyload = phi i32 [ %11, %.thread ], [ %7, %10 ]
+  %13 = or i32 %.0.copyload, 4194304
+  store i32 %13, ptr %2, align 16
+  br label %25
+
+14:                                               ; preds = %9
+  %15 = fcmp oeq float %5, 0.000000e+00
+  %16 = fcmp oeq float %.pr, 0.000000e+00
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %22
+
+17:                                               ; preds = %14
+  %18 = bitcast float %.pr to i32
+  %19 = xor i32 %18, %7
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store float -0.000000e+00, ptr %2, align 16
-  br label %23
+  br label %25
 
-20:                                               ; preds = %15, %12
-  %21 = fcmp olt float %.pr, %5
-  %22 = select i1 %21, float %.pr, float %5
-  store float %22, ptr %2, align 16
-  br label %23
+22:                                               ; preds = %17, %14
+  %23 = fcmp olt float %.pr, %5
+  %24 = select i1 %23, float %.pr, float %5
+  store float %24, ptr %2, align 16
+  br label %25
 
-23:                                               ; preds = %19, %20, %thread-pre-split
+25:                                               ; preds = %21, %22, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48031,40 +48038,47 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable
   %7 = bitcast float %5 to i32
   %.pr = load float, ptr %3, align 16
   %8 = fcmp uno float %.pr, 0.000000e+00
-  %or.cond22 = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond22, label %thread-pre-split, label %12
+  br i1 %6, label %10, label %9
 
-thread-pre-split:                                 ; preds = %4
-  %9 = fcmp uno float %.pr, 0.000000e+00
-  %10 = bitcast float %.pr to i32
-  %.0.copyload = select i1 %9, i32 %10, i32 %7
-  %11 = or i32 %.0.copyload, 4194304
-  store i32 %11, ptr %2, align 16
-  br label %23
+9:                                                ; preds = %4
+  br i1 %8, label %.thread, label %14
 
-12:                                               ; preds = %4
-  %13 = fcmp oeq float %5, 0.000000e+00
-  %14 = fcmp oeq float %.pr, 0.000000e+00
-  %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %20
+10:                                               ; preds = %4
+  br i1 %8, label %.thread, label %12
 
-15:                                               ; preds = %12
-  %16 = bitcast float %.pr to i32
-  %17 = xor i32 %16, %7
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %20
+.thread:                                          ; preds = %9, %10
+  %11 = bitcast float %.pr to i32
+  br label %12
 
-19:                                               ; preds = %15
+12:                                               ; preds = %.thread, %10
+  %.0.copyload = phi i32 [ %11, %.thread ], [ %7, %10 ]
+  %13 = or i32 %.0.copyload, 4194304
+  store i32 %13, ptr %2, align 16
+  br label %25
+
+14:                                               ; preds = %9
+  %15 = fcmp oeq float %5, 0.000000e+00
+  %16 = fcmp oeq float %.pr, 0.000000e+00
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %22
+
+17:                                               ; preds = %14
+  %18 = bitcast float %.pr to i32
+  %19 = xor i32 %18, %7
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store float 0.000000e+00, ptr %2, align 16
-  br label %23
+  br label %25
 
-20:                                               ; preds = %15, %12
-  %21 = fcmp olt float %5, %.pr
-  %22 = select i1 %21, float %.pr, float %5
-  store float %22, ptr %2, align 16
-  br label %23
+22:                                               ; preds = %17, %14
+  %23 = fcmp olt float %5, %.pr
+  %24 = select i1 %23, float %.pr, float %5
+  store float %24, ptr %2, align 16
+  br label %25
 
-23:                                               ; preds = %19, %20, %thread-pre-split
+25:                                               ; preds = %21, %22, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48076,40 +48090,47 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable
   %7 = bitcast double %5 to i64
   %.pr = load double, ptr %3, align 16
   %8 = fcmp uno double %.pr, 0.000000e+00
-  %or.cond22 = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond22, label %thread-pre-split, label %12
+  br i1 %6, label %10, label %9
 
-thread-pre-split:                                 ; preds = %4
-  %9 = fcmp uno double %.pr, 0.000000e+00
-  %10 = bitcast double %.pr to i64
-  %.0.copyload = select i1 %9, i64 %10, i64 %7
-  %11 = or i64 %.0.copyload, 2251799813685248
-  store i64 %11, ptr %2, align 16
-  br label %23
+9:                                                ; preds = %4
+  br i1 %8, label %.thread, label %14
 
-12:                                               ; preds = %4
-  %13 = fcmp oeq double %5, 0.000000e+00
-  %14 = fcmp oeq double %.pr, 0.000000e+00
-  %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %20
+10:                                               ; preds = %4
+  br i1 %8, label %.thread, label %12
 
-15:                                               ; preds = %12
-  %16 = bitcast double %.pr to i64
-  %17 = xor i64 %16, %7
-  %18 = icmp slt i64 %17, 0
-  br i1 %18, label %19, label %20
+.thread:                                          ; preds = %9, %10
+  %11 = bitcast double %.pr to i64
+  br label %12
 
-19:                                               ; preds = %15
+12:                                               ; preds = %.thread, %10
+  %.0.copyload = phi i64 [ %11, %.thread ], [ %7, %10 ]
+  %13 = or i64 %.0.copyload, 2251799813685248
+  store i64 %13, ptr %2, align 16
+  br label %25
+
+14:                                               ; preds = %9
+  %15 = fcmp oeq double %5, 0.000000e+00
+  %16 = fcmp oeq double %.pr, 0.000000e+00
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %22
+
+17:                                               ; preds = %14
+  %18 = bitcast double %.pr to i64
+  %19 = xor i64 %18, %7
+  %20 = icmp slt i64 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store double -0.000000e+00, ptr %2, align 16
-  br label %23
+  br label %25
 
-20:                                               ; preds = %15, %12
-  %21 = fcmp olt double %.pr, %5
-  %22 = select i1 %21, double %.pr, double %5
-  store double %22, ptr %2, align 16
-  br label %23
+22:                                               ; preds = %17, %14
+  %23 = fcmp olt double %.pr, %5
+  %24 = select i1 %23, double %.pr, double %5
+  store double %24, ptr %2, align 16
+  br label %25
 
-23:                                               ; preds = %19, %20, %thread-pre-split
+25:                                               ; preds = %21, %22, %12
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -48121,40 +48142,47 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable
   %7 = bitcast double %5 to i64
   %.pr = load double, ptr %3, align 16
   %8 = fcmp uno double %.pr, 0.000000e+00
-  %or.cond22 = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond22, label %thread-pre-split, label %12
+  br i1 %6, label %10, label %9
 
-thread-pre-split:                                 ; preds = %4
-  %9 = fcmp uno double %.pr, 0.000000e+00
-  %10 = bitcast double %.pr to i64
-  %.0.copyload = select i1 %9, i64 %10, i64 %7
-  %11 = or i64 %.0.copyload, 2251799813685248
-  store i64 %11, ptr %2, align 16
-  br label %23
+9:                                                ; preds = %4
+  br i1 %8, label %.thread, label %14
 
-12:                                               ; preds = %4
-  %13 = fcmp oeq double %5, 0.000000e+00
-  %14 = fcmp oeq double %.pr, 0.000000e+00
-  %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %20
+10:                                               ; preds = %4
+  br i1 %8, label %.thread, label %12
 
-15:                                               ; preds = %12
-  %16 = bitcast double %.pr to i64
-  %17 = xor i64 %16, %7
-  %18 = icmp slt i64 %17, 0
-  br i1 %18, label %19, label %20
+.thread:                                          ; preds = %9, %10
+  %11 = bitcast double %.pr to i64
+  br label %12
 
-19:                                               ; preds = %15
+12:                                               ; preds = %.thread, %10
+  %.0.copyload = phi i64 [ %11, %.thread ], [ %7, %10 ]
+  %13 = or i64 %.0.copyload, 2251799813685248
+  store i64 %13, ptr %2, align 16
+  br label %25
+
+14:                                               ; preds = %9
+  %15 = fcmp oeq double %5, 0.000000e+00
+  %16 = fcmp oeq double %.pr, 0.000000e+00
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %22
+
+17:                                               ; preds = %14
+  %18 = bitcast double %.pr to i64
+  %19 = xor i64 %18, %7
+  %20 = icmp slt i64 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
   store double 0.000000e+00, ptr %2, align 16
-  br label %23
+  br label %25
 
-20:                                               ; preds = %15, %12
-  %21 = fcmp olt double %5, %.pr
-  %22 = select i1 %21, double %.pr, double %5
-  store double %22, ptr %2, align 16
-  br label %23
+22:                                               ; preds = %17, %14
+  %23 = fcmp olt double %5, %.pr
+  %24 = select i1 %23, double %.pr, double %5
+  store double %24, ptr %2, align 16
+  br label %25
 
-23:                                               ; preds = %19, %20, %thread-pre-split
+25:                                               ; preds = %21, %22, %12
   store i64 1, ptr %0, align 4
   ret void
 }

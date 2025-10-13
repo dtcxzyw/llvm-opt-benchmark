@@ -328,9 +328,9 @@ define void @_ZNK6open3d13visualization14ColorMapSummer8GetColorEd(ptr dead_on_u
   %10 = fadd double %9, 5.000000e-01
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4
 
-_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4: ; preds = %3, %5, %7
-  %.0.i9 = phi double [ %8, %7 ], [ 1.000000e+00, %5 ], [ 0.000000e+00, %3 ]
-  %.0.i3 = phi double [ %10, %7 ], [ 1.000000e+00, %5 ], [ 5.000000e-01, %3 ]
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4: ; preds = %5, %3, %7
+  %.0.i9 = phi double [ %8, %7 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %5 ]
+  %.0.i3 = phi double [ %10, %7 ], [ 5.000000e-01, %3 ], [ 1.000000e+00, %5 ]
   store double %.0.i9, ptr %0, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.0.i3, ptr %11, align 8, !tbaa !4
@@ -360,9 +360,9 @@ define void @_ZNK6open3d13visualization14ColorMapWinter8GetColorEd(ptr dead_on_u
   %10 = fsub double 1.000000e+00, %9
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4
 
-_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4: ; preds = %3, %5, %7
-  %.0.i9 = phi double [ %8, %7 ], [ 1.000000e+00, %5 ], [ 0.000000e+00, %3 ]
-  %.0.i3 = phi double [ %10, %7 ], [ 5.000000e-01, %5 ], [ 1.000000e+00, %3 ]
+_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4: ; preds = %5, %3, %7
+  %.0.i9 = phi double [ %8, %7 ], [ 0.000000e+00, %3 ], [ 1.000000e+00, %5 ]
+  %.0.i3 = phi double [ %10, %7 ], [ 1.000000e+00, %3 ], [ 5.000000e-01, %5 ]
   store double 0.000000e+00, ptr %0, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.0.i9, ptr %11, align 8, !tbaa !4

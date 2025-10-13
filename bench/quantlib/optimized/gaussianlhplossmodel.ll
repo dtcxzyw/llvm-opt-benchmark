@@ -729,7 +729,6 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_17RecoveryRateQuote
 @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5boost10wrapexceptINS_4math16evaluation_errorEEE, i32 0, i32 3, ptr @_ZTIN5boost16exception_detail10clone_baseE, i64 2, ptr @_ZTIN5boost4math16evaluation_errorE, i64 2050, ptr @_ZTIN5boost9exceptionE, i64 6146 }, comdat, align 8
 @_ZTVN5boost10wrapexceptINS_4math16evaluation_errorEEE = linkonce_odr unnamed_addr constant { [6 x ptr], [5 x ptr], [4 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr @_ZNK5boost10wrapexceptINS_4math16evaluation_errorEE5cloneEv, ptr @_ZNK5boost10wrapexceptINS_4math16evaluation_errorEE7rethrowEv, ptr @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED2Ev, ptr @_ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr @_ZThn8_N5boost10wrapexceptINS_4math16evaluation_errorEED1Ev, ptr @_ZThn8_N5boost10wrapexceptINS_4math16evaluation_errorEED0Ev, ptr @_ZNKSt13runtime_error4whatEv], [4 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost10wrapexceptINS_4math16evaluation_errorEEE, ptr @_ZThn24_N5boost10wrapexceptINS_4math16evaluation_errorEED1Ev, ptr @_ZThn24_N5boost10wrapexceptINS_4math16evaluation_errorEED0Ev] }, comdat, align 8
 @_ZTVN5boost4math16evaluation_errorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5boost4math16evaluation_errorE, ptr @_ZNSt13runtime_errorD2Ev, ptr @_ZN5boost4math16evaluation_errorD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, comdat, align 8
-@.str.60 = private unnamed_addr constant [30 x i8] c"boost::math::lgamma<%1%>(%1%)\00", align 1
 @.str.75 = private unnamed_addr constant [15 x i8] c"Overflow Error\00", align 1
 @.str.76 = private unnamed_addr constant [33 x i8] c"boost::math::erfc<%1%>(%1%, %1%)\00", align 1
 @.str.77 = private unnamed_addr constant [27 x i8] c"boost::math::erf<%1%>(%1%)\00", align 1
@@ -9962,8 +9961,8 @@ init.end:                                         ; preds = %_ZN5boost4math6deta
   ret void
 }
 
-; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.11() #13 section ".text.startup" comdat($_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE) {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define internal void @__cxx_global_var_init.11() #14 section ".text.startup" comdat($_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE) {
 entry:
   %0 = load i8, ptr @_ZGVN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -9971,28 +9970,10 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE, align 8
-  %1 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 0xKBFFBC942BE9C657A0BA4)
-  %cmp.i.i.i4.i.i = fcmp ogt x86_fp80 %1, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i.i4.i.i, label %if.then.i.i.i5.i.i, label %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit6.i.i
-
-if.then.i.i.i5.i.i:                               ; preds = %init.check
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.42)
-  br label %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit6.i.i
-
-_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit6.i.i: ; preds = %if.then.i.i.i5.i.i, %init.check
-  %2 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 0xKBFFBACDA7EB43AD37186)
-  %cmp.i.i.i10.i.i = fcmp ogt x86_fp80 %2, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i.i10.i.i, label %if.then.i.i.i11.i.i, label %_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE4initC2Ev.exit
-
-if.then.i.i.i11.i.i:                              ; preds = %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit6.i.i
-  tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.42)
-  br label %_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE4initC2Ev.exit
-
-_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE4initC2Ev.exit: ; preds = %_ZN5boost4math6lgammaIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit6.i.i, %if.then.i.i.i11.i.i
-  %3 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE)
+  %1 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE)
   br label %init.end
 
-init.end:                                         ; preds = %_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE4initC2Ev.exit, %entry
+init.end:                                         ; preds = %init.check, %entry
   ret void
 }
 

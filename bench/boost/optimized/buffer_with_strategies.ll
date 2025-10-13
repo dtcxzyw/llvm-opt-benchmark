@@ -142959,7 +142959,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %207 = load double, ptr %2, align 8, !tbaa !1482
   %208 = fcmp olt double %207, 0.000000e+00
-  br i1 %208, label %209, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  br i1 %208, label %209, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %27, align 8, !tbaa !174
@@ -142972,7 +142972,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1
   %213 = load ptr, ptr %186, align 8, !tbaa !174
   %214 = load ptr, ptr %188, align 8, !tbaa !174
   %.not2831.i = icmp eq ptr %213, %214
-  br i1 %.not2831.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, label %.lr.ph34.i
+  br i1 %.not2831.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit, label %.lr.ph34.i
 
 .lr.ph.i42:                                       ; preds = %209, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit.i
   %.sroa.025.030.i = phi ptr [ %230, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit.i ], [ %210, %209 ]
@@ -143040,7 +143040,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2EN
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i: ; preds = %.lr.ph.i.i16.i, %.lr.ph34.i
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.021.032.i, i64 24
   %.not28.i = icmp eq ptr %238, %214
-  br i1 %.not28.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, label %.lr.ph34.i
+  br i1 %.not28.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit, label %.lr.ph34.i
 
 .loopexit46:                                      ; preds = %.lr.ph.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -143052,29 +143052,25 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2EN
           cleanup
   br label %.body
 
-239:                                              ; preds = %244, %243
+239:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread, %242
   %240 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i, %._crit_edge.i
+_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i, %._crit_edge.i
   %.pr = load double, ptr %2, align 8, !tbaa !1482
-  br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  %241 = fcmp olt double %.pr, 0.000000e+00
+  br i1 %241, label %242, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
 
-_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit: ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, %206
-  %241 = phi double [ %.pr, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split ], [ %207, %206 ]
-  %242 = fcmp olt double %241, 0.000000e+00
-  br i1 %242, label %243, label %244
-
-243:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+242:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
   invoke void @_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE38discard_nonintersecting_deflated_ringsEv(ptr noundef nonnull align 8 dereferenceable(296) %23)
+          to label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread unwind label %239
+
+_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread: ; preds = %206, %242, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  %243 = invoke ptr @_ZNK5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE6assignINS4_7polygonIS9_Lb1ELb1ESA_SA_SaSaEENS0_5range20back_insert_iteratorINS4_13multi_polygonISO_SA_SaEEEEEET0_SU_(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr %1)
           to label %244 unwind label %239
 
-244:                                              ; preds = %243, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
-  %245 = invoke ptr @_ZNK5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE6assignINS4_7polygonIS9_Lb1ELb1ESA_SA_SaSaEENS0_5range20back_insert_iteratorINS4_13multi_polygonISO_SA_SaEEEEEET0_SU_(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr %1)
-          to label %246 unwind label %239
-
-246:                                              ; preds = %244
+244:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
   call void @_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEED2Ev(ptr noundef nonnull align 8 dereferenceable(296) %23) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void
@@ -205801,7 +205797,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %203 = load double, ptr %2, align 8, !tbaa !1482
   %204 = fcmp olt double %203, 0.000000e+00
-  br i1 %204, label %205, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  br i1 %204, label %205, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr %27, align 8, !tbaa !174
@@ -205814,7 +205810,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1
   %209 = load ptr, ptr %182, align 8, !tbaa !174
   %210 = load ptr, ptr %184, align 8, !tbaa !174
   %.not2831.i = icmp eq ptr %209, %210
-  br i1 %.not2831.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, label %.lr.ph34.i
+  br i1 %.not2831.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit, label %.lr.ph34.i
 
 .lr.ph.i39:                                       ; preds = %205, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit.i
   %.sroa.025.030.i = phi ptr [ %226, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit.i ], [ %206, %205 ]
@@ -205882,36 +205878,32 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2EN
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i: ; preds = %.lr.ph.i.i16.i, %.lr.ph34.i
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.021.032.i, i64 24
   %.not28.i = icmp eq ptr %234, %210
-  br i1 %.not28.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, label %.lr.ph34.i
+  br i1 %.not28.i, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit, label %.lr.ph34.i
 
 235:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE11block_turnsEv.exit, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE18handle_colocationsEv.exit, %72, %.loopexit, %39, %38, %10
   %236 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-237:                                              ; preds = %242, %241
+237:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread, %240
   %238 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i, %._crit_edge.i
+_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEEEvT_SE_.exit20.i, %._crit_edge.i
   %.pr = load double, ptr %2, align 8, !tbaa !1482
-  br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  %239 = fcmp olt double %.pr, 0.000000e+00
+  br i1 %239, label %240, label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
 
-_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit: ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split, %202
-  %239 = phi double [ %.pr, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exitthread-pre-split ], [ %203, %202 ]
-  %240 = fcmp olt double %239, 0.000000e+00
-  br i1 %240, label %241, label %242
-
-241:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+240:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
   invoke void @_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE38discard_nonintersecting_deflated_ringsEv(ptr noundef nonnull align 8 dereferenceable(296) %23)
+          to label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread unwind label %237
+
+_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread: ; preds = %202, %240, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
+  %241 = invoke ptr @_ZNK5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE6assignINS4_7polygonIS9_Lb1ELb1ESA_SA_SaSaEENS0_5range20back_insert_iteratorINS4_13multi_polygonISO_SA_SaEEEEEET0_SU_(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr %1)
           to label %242 unwind label %237
 
-242:                                              ; preds = %241, %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit
-  %243 = invoke ptr @_ZNK5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE6assignINS4_7polygonIS9_Lb1ELb1ESA_SA_SaSaEENS0_5range20back_insert_iteratorINS4_13multi_polygonISO_SA_SaEEEEEET0_SU_(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr %1)
-          to label %244 unwind label %237
-
-244:                                              ; preds = %242
+242:                                              ; preds = %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE7reverseEv.exit.thread
   call void @_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEED2Ev(ptr noundef nonnull align 8 dereferenceable(296) %23) #56
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void

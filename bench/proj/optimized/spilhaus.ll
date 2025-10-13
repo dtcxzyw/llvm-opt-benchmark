@@ -504,25 +504,24 @@ define internal { double, double } @_ZL16spilhaus_forward5PJ_LPP8PJconsts(double
   %35 = fcmp ogt double %34, 0x400921FB54442D18
   br i1 %35, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %3
-  %.sroa.05.0.lcssa = phi double [ %34, %3 ], [ %37, %.lr.ph ]
-  %36 = fcmp olt double %.sroa.05.0.lcssa, 0xC00921FB54442D18
+.preheader:                                       ; preds = %3
+  %36 = fcmp olt double %34, 0xC00921FB54442D18
   br i1 %36, label %.lr.ph43, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.05.041 = phi double [ %37, %.lr.ph ], [ %34, %3 ]
   %37 = fadd double %.sroa.05.041, 0xC01921FB54442D18
   %38 = fcmp ogt double %37, 0x400921FB54442D18
-  br i1 %38, label %.lr.ph, label %.preheader, !llvm.loop !65
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
-  %.sroa.05.142 = phi double [ %39, %.lr.ph43 ], [ %.sroa.05.0.lcssa, %.preheader ]
+  %.sroa.05.142 = phi double [ %39, %.lr.ph43 ], [ %34, %.preheader ]
   %39 = fadd double %.sroa.05.142, 0x401921FB54442D18
   %40 = fcmp olt double %39, 0xC00921FB54442D18
   br i1 %40, label %.lr.ph43, label %._crit_edge, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.lr.ph43, %.preheader
-  %.sroa.05.1.lcssa = phi double [ %.sroa.05.0.lcssa, %.preheader ], [ %39, %.lr.ph43 ]
+._crit_edge:                                      ; preds = %.lr.ph43, %.lr.ph, %.preheader
+  %.sroa.05.1.lcssa = phi double [ %34, %.preheader ], [ %37, %.lr.ph ], [ %39, %.lr.ph43 ]
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 104

@@ -10207,8 +10207,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us: ; pre
   %128 = load i32, ptr %32, align 4, !tbaa !38
   %129 = icmp slt i32 %127, %128
   %130 = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond385 = and i1 %129, %130
-  br i1 %or.cond385, label %.preheader.us.us, label %._crit_edge279.us
+  %or.cond384 = and i1 %129, %130
+  br i1 %or.cond384, label %.preheader.us.us, label %._crit_edge279.us
 
 ._crit_edge279.us:                                ; preds = %._crit_edge267.us.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us
   %.1191.lcssa.us = phi double [ %.0190286.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us ], [ %.6196.us.us, %._crit_edge267.us.us ]
@@ -10650,8 +10650,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %.pre.pre = load i32, ptr %48, align 4, !tbaa !132
   %325 = load i32, ptr %49, align 4
   %326 = icmp eq i32 %.pre.pre, %325
-  %or.cond387 = select i1 %324, i1 %326, i1 false
-  br i1 %or.cond387, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
+  %or.cond386 = select i1 %324, i1 %326, i1 false
+  br i1 %or.cond386, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
 
 327:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %328 = load i32, ptr %50, align 8, !tbaa !134
@@ -10837,7 +10837,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread: ; preds =
   br i1 %415, label %.thread199, label %_ZN11OpenImageIO6v3_1_013compare_valueIhfEEvRNS0_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS0_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit132
 
 .thread199:                                       ; preds = %.thread, %412, %410
-  %416 = phi float [ %403, %412 ], [ %403, %410 ], [ %399, %.thread ]
+  %416 = phi float [ %403, %412 ], [ %403, %410 ], [ 0x7FF0000000000000, %.thread ]
   %417 = phi float [ %405, %412 ], [ %405, %410 ], [ 0.000000e+00, %.thread ]
   %418 = phi float [ %407, %412 ], [ %407, %410 ], [ 0.000000e+00, %.thread ]
   %419 = call double @llvm.fabs.f64(double %391)
@@ -12457,8 +12457,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us: ; pre
   %128 = load i32, ptr %32, align 4, !tbaa !38
   %129 = icmp slt i32 %127, %128
   %130 = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond387 = and i1 %129, %130
-  br i1 %or.cond387, label %.preheader.us.us, label %._crit_edge279.us
+  %or.cond386 = and i1 %129, %130
+  br i1 %or.cond386, label %.preheader.us.us, label %._crit_edge279.us
 
 ._crit_edge279.us:                                ; preds = %._crit_edge267.us.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us
   %.1191.lcssa.us = phi double [ %.0190286.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us ], [ %.6196.us.us, %._crit_edge267.us.us ]
@@ -12900,8 +12900,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %.pre.pre = load i32, ptr %48, align 4, !tbaa !132
   %325 = load i32, ptr %49, align 4
   %326 = icmp eq i32 %.pre.pre, %325
-  %or.cond389 = select i1 %324, i1 %326, i1 false
-  br i1 %or.cond389, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
+  %or.cond388 = select i1 %324, i1 %326, i1 false
+  br i1 %or.cond388, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
 
 327:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %328 = load i32, ptr %50, align 8, !tbaa !134
@@ -13125,7 +13125,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread: ; preds =
   br i1 %438, label %.thread199, label %_ZN11OpenImageIO6v3_1_013compare_valueIhfEEvRNS0_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS0_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit132
 
 .thread199:                                       ; preds = %.thread, %435, %433
-  %439 = phi float [ %403, %435 ], [ %403, %433 ], [ %399, %.thread ]
+  %439 = phi float [ %403, %435 ], [ %403, %433 ], [ 0x7FF0000000000000, %.thread ]
   %440 = phi float [ %428, %435 ], [ %428, %433 ], [ 0.000000e+00, %.thread ]
   %441 = phi float [ %430, %435 ], [ %430, %433 ], [ 0.000000e+00, %.thread ]
   %442 = call double @llvm.fabs.f64(double %391)
@@ -19429,8 +19429,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us: ; pre
   %128 = load i32, ptr %32, align 4, !tbaa !38
   %129 = icmp slt i32 %127, %128
   %130 = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond385 = and i1 %129, %130
-  br i1 %or.cond385, label %.preheader.us.us, label %._crit_edge279.us
+  %or.cond384 = and i1 %129, %130
+  br i1 %or.cond384, label %.preheader.us.us, label %._crit_edge279.us
 
 ._crit_edge279.us:                                ; preds = %._crit_edge267.us.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us
   %.1191.lcssa.us = phi double [ %.0190286.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us ], [ %.6196.us.us, %._crit_edge267.us.us ]
@@ -19872,8 +19872,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %.pre.pre = load i32, ptr %48, align 4, !tbaa !132
   %325 = load i32, ptr %49, align 4
   %326 = icmp eq i32 %.pre.pre, %325
-  %or.cond387 = select i1 %324, i1 %326, i1 false
-  br i1 %or.cond387, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
+  %or.cond386 = select i1 %324, i1 %326, i1 false
+  br i1 %or.cond386, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
 
 327:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %328 = load i32, ptr %50, align 8, !tbaa !134
@@ -20059,7 +20059,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread: ; preds =
   br i1 %415, label %.thread199, label %_ZN11OpenImageIO6v3_1_013compare_valueItfEEvRNS0_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS0_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit132
 
 .thread199:                                       ; preds = %.thread, %412, %410
-  %416 = phi float [ %403, %412 ], [ %403, %410 ], [ %399, %.thread ]
+  %416 = phi float [ %403, %412 ], [ %403, %410 ], [ 0x7FF0000000000000, %.thread ]
   %417 = phi float [ %405, %412 ], [ %405, %410 ], [ 0.000000e+00, %.thread ]
   %418 = phi float [ %407, %412 ], [ %407, %410 ], [ 0.000000e+00, %.thread ]
   %419 = call double @llvm.fabs.f64(double %391)
@@ -21679,8 +21679,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us: ; pre
   %128 = load i32, ptr %32, align 4, !tbaa !38
   %129 = icmp slt i32 %127, %128
   %130 = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond387 = and i1 %129, %130
-  br i1 %or.cond387, label %.preheader.us.us, label %._crit_edge279.us
+  %or.cond386 = and i1 %129, %130
+  br i1 %or.cond386, label %.preheader.us.us, label %._crit_edge279.us
 
 ._crit_edge279.us:                                ; preds = %._crit_edge267.us.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us
   %.1191.lcssa.us = phi double [ %.0190286.us, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase12deep_samplesEv.exit86.us ], [ %.6196.us.us, %._crit_edge267.us.us ]
@@ -22122,8 +22122,8 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %.pre.pre = load i32, ptr %48, align 4, !tbaa !132
   %325 = load i32, ptr %49, align 4
   %326 = icmp eq i32 %.pre.pre, %325
-  %or.cond389 = select i1 %324, i1 %326, i1 false
-  br i1 %or.cond389, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
+  %or.cond388 = select i1 %324, i1 %326, i1 false
+  br i1 %or.cond388, label %327, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread
 
 327:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread
   %328 = load i32, ptr %50, align 8, !tbaa !134
@@ -22347,7 +22347,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit108.thread: ; preds =
   br i1 %438, label %.thread199, label %_ZN11OpenImageIO6v3_1_013compare_valueItfEEvRNS0_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS0_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit132
 
 .thread199:                                       ; preds = %.thread, %435, %433
-  %439 = phi float [ %403, %435 ], [ %403, %433 ], [ %399, %.thread ]
+  %439 = phi float [ %403, %435 ], [ %403, %433 ], [ 0x7FF0000000000000, %.thread ]
   %440 = phi float [ %428, %435 ], [ %428, %433 ], [ 0.000000e+00, %.thread ]
   %441 = phi float [ %430, %435 ], [ %430, %433 ], [ 0.000000e+00, %.thread ]
   %442 = call double @llvm.fabs.f64(double %391)

@@ -56,7 +56,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 
 6:                                                ; preds = %1
   %7 = fcmp uno double %.pre, 0.000000e+00
-  br i1 %7, label %8, label %._crit_edge
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %6
   store double 0x3FFCCCCCC0000000, ptr %.phi.trans.insert, align 8, !tbaa !24
@@ -64,7 +64,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 
 9:                                                ; preds = %1
   %10 = fcmp uno double %.pre, 0.000000e+00
-  br i1 %10, label %._crit_edge, label %11
+  br i1 %10, label %.thread14, label %11
 
 11:                                               ; preds = %9
   %12 = fsub nsz double 1.000000e+00, %.pre
@@ -74,23 +74,23 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 
 14:                                               ; preds = %1
   %15 = fcmp uno double %.pre, 0.000000e+00
-  br i1 %15, label %16, label %._crit_edge
+  br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
   store double 0x3FD3333340000000, ptr %.phi.trans.insert, align 8, !tbaa !24
   br label %.thread
 
-._crit_edge:                                      ; preds = %1, %14, %9, %11, %6
-  %17 = phi double [ %.pre, %14 ], [ %.pre, %9 ], [ %13, %11 ], [ %.pre, %6 ], [ %.pre, %1 ]
+._crit_edge:                                      ; preds = %1, %11
+  %17 = phi double [ %13, %11 ], [ %.pre, %1 ]
   %18 = fcmp uno double %17, 0.000000e+00
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %.thread14, label %.thread
 
-19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 1.000000e+00, ptr %20, align 8, !tbaa !24
+.thread14:                                        ; preds = %9, %._crit_edge
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store double 1.000000e+00, ptr %19, align 8, !tbaa !24
   br label %.thread
 
-.thread:                                          ; preds = %8, %16, %19, %._crit_edge
+.thread:                                          ; preds = %8, %6, %16, %14, %.thread14, %._crit_edge
   ret i32 0
 }
 

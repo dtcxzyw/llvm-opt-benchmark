@@ -193,36 +193,14 @@ if.then:                                          ; preds = %_ZN5boost12numeric_
 if.end:                                           ; preds = %if.then3.i, %_ZN8QuantLib12close_enoughEdd.exit
   %sub13 = fsub double %t, %call11
   %6 = call double @llvm.copysign.f64(double 1.000000e+00, double %sub13)
-  %cmp.i.i.i.i.i.i45 = fcmp ugt double %6, 0xC1E0000000200000
-  %cmp.i3.i.i.i.i.i46 = fcmp oge double %6, 0x41E0000000000000
-  %cond.i4.i.i.i.i.i47 = select i1 %cmp.i3.i.i.i.i.i46, i32 2, i32 0
-  %r.0.i.i.i.i.i48 = select i1 %cmp.i.i.i.i.i.i45, i32 %cond.i4.i.i.i.i.i47, i32 1
-  switch i32 %r.0.i.i.i.i.i48, label %_ZN5boost7numeric10convdetail21generic_range_checkerINS0_17conversion_traitsIidEENS1_10LE_PrevLoTIS4_EENS1_10GE_SuccHiTIS4_EENS0_20def_overflow_handlerEE14validate_rangeEd.exit.i.i53 [
-    i32 1, label %if.then.i.i.i.i51
-    i32 2, label %if.then3.i.i.i.i49
-  ]
-
-if.then.i.i.i.i51:                                ; preds = %if.end
-  %exception.i.i.i.i52 = call ptr @__cxa_allocate_exception(i64 8) #15
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17negative_overflowE, i64 16), ptr %exception.i.i.i.i52, align 8, !tbaa !3
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i52, ptr nonnull @_ZTIN5boost7numeric17negative_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #16
-  unreachable
-
-if.then3.i.i.i.i49:                               ; preds = %if.end
-  %exception4.i.i.i.i50 = call ptr @__cxa_allocate_exception(i64 8) #15
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7numeric17positive_overflowE, i64 16), ptr %exception4.i.i.i.i50, align 8, !tbaa !3
-  call void @__cxa_throw(ptr nonnull %exception4.i.i.i.i50, ptr nonnull @_ZTIN5boost7numeric17positive_overflowE, ptr nonnull @_ZNSt8bad_castD2Ev) #16
-  unreachable
-
-_ZN5boost7numeric10convdetail21generic_range_checkerINS0_17conversion_traitsIidEENS1_10LE_PrevLoTIS4_EENS1_10GE_SuccHiTIS4_EENS0_20def_overflow_handlerEE14validate_rangeEd.exit.i.i53: ; preds = %if.end
   %cmp.i.i.i54 = fcmp olt double %6, 0.000000e+00
   br i1 %cmp.i.i.i54, label %cond.true.i.i.i57, label %cond.false.i.i.i55
 
-cond.true.i.i.i57:                                ; preds = %_ZN5boost7numeric10convdetail21generic_range_checkerINS0_17conversion_traitsIidEENS1_10LE_PrevLoTIS4_EENS1_10GE_SuccHiTIS4_EENS0_20def_overflow_handlerEE14validate_rangeEd.exit.i.i53
+cond.true.i.i.i57:                                ; preds = %if.end
   %7 = call double @llvm.ceil.f64(double %6)
   br label %_ZN5boost12numeric_castIidEET_T0_.exit58
 
-cond.false.i.i.i55:                               ; preds = %_ZN5boost7numeric10convdetail21generic_range_checkerINS0_17conversion_traitsIidEENS1_10LE_PrevLoTIS4_EENS1_10GE_SuccHiTIS4_EENS0_20def_overflow_handlerEE14validate_rangeEd.exit.i.i53
+cond.false.i.i.i55:                               ; preds = %if.end
   %8 = call double @llvm.floor.f64(double %6)
   br label %_ZN5boost12numeric_castIidEET_T0_.exit58
 

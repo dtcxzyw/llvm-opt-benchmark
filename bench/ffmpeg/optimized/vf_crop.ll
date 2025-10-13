@@ -664,11 +664,11 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
 110:                                              ; preds = %normalize_double.exit139
   %111 = load i32, ptr %74, align 8, !tbaa !59
   %notmask = shl nsw i32 -1, %111
-  %112 = and i32 %.sink.i, %notmask
+  %112 = and i32 %97, %notmask
   store i32 %112, ptr %91, align 8, !tbaa !27
   %113 = load i32, ptr %75, align 4, !tbaa !60
   %notmask128 = shl nsw i32 -1, %113
-  %114 = and i32 %.sink.i136, %notmask128
+  %114 = and i32 %105, %notmask128
   store i32 %114, ptr %98, align 4, !tbaa !28
   br label %115
 

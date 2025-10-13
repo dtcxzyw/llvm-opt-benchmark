@@ -134551,23 +134551,25 @@ define linkonce_odr hidden noundef double @_ZN5boost8geometry8strategy4side11sid
   br i1 %55, label %56, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
 56:                                               ; preds = %4
-  %57 = fcmp ule double %47, 0.000000e+00
-  %58 = fcmp ugt double %48, 0.000000e+00
-  %or.cond.i = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond.i, label %59, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+  %57 = fcmp ogt double %47, 0.000000e+00
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %56
-  %60 = fcmp uge double %47, 0.000000e+00
-  %61 = fcmp ult double %48, 0.000000e+00
-  %or.cond17.i = select i1 %60, i1 true, i1 %61
-  br i1 %or.cond17.i, label %62, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+58:                                               ; preds = %56
+  %59 = fcmp ugt double %48, 0.000000e+00
+  br i1 %59, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-62:                                               ; preds = %59
+60:                                               ; preds = %56
+  %61 = fcmp uge double %47, 0.000000e+00
+  %62 = fcmp ult double %48, 0.000000e+00
+  %or.cond.i = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond.i, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+
+.thread.i:                                        ; preds = %60, %58
   %63 = call noundef double @_ZN5boost8geometry6detail12precise_math12orient2dtailIdLm3EEET_RKNS2_5vec2dIS4_EES8_S8_RSt5arrayIS4_Lm2EESB_SB_SB_SB_SB_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %56, %59, %62
-  %.0.i = phi double [ %63, %62 ], [ %49, %4 ], [ %49, %56 ], [ %49, %59 ]
+_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIfNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %58, %60, %.thread.i
+  %.0.i = phi double [ %63, %.thread.i ], [ %49, %4 ], [ %49, %58 ], [ %49, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -136988,23 +136990,25 @@ define linkonce_odr hidden noundef double @_ZN5boost8geometry8strategy4side11sid
   br i1 %49, label %50, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
 50:                                               ; preds = %4
-  %51 = fcmp ule double %41, 0.000000e+00
-  %52 = fcmp ugt double %42, 0.000000e+00
-  %or.cond.i = select i1 %51, i1 true, i1 %52
-  br i1 %or.cond.i, label %53, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+  %51 = fcmp ogt double %41, 0.000000e+00
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %50
-  %54 = fcmp uge double %41, 0.000000e+00
-  %55 = fcmp ult double %42, 0.000000e+00
-  %or.cond17.i = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond17.i, label %56, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+52:                                               ; preds = %50
+  %53 = fcmp ugt double %42, 0.000000e+00
+  br i1 %53, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-56:                                               ; preds = %53
+54:                                               ; preds = %50
+  %55 = fcmp uge double %41, 0.000000e+00
+  %56 = fcmp ult double %42, 0.000000e+00
+  %or.cond.i = select i1 %55, i1 true, i1 %56
+  br i1 %or.cond.i, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+
+.thread.i:                                        ; preds = %54, %52
   %57 = call noundef double @_ZN5boost8geometry6detail12precise_math12orient2dtailIdLm3EEET_RKNS2_5vec2dIS4_EES8_S8_RSt5arrayIS4_Lm2EESB_SB_SB_SB_SB_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %50, %53, %56
-  %.0.i = phi double [ %57, %56 ], [ %43, %4 ], [ %43, %50 ], [ %43, %53 ]
+_ZN5boost8geometry6detail12precise_math8orient2dIdLm3ENS0_8strategy4side11side_robustIdNS5_21epsilon_equals_policyELm3EE14epsilon_policyIdEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %52, %54, %.thread.i
+  %.0.i = phi double [ %57, %.thread.i ], [ %43, %4 ], [ %43, %52 ], [ %43, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -138356,23 +138360,25 @@ define linkonce_odr hidden noundef x86_fp80 @_ZN5boost8geometry8strategy4side11s
   br i1 %51, label %52, label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
 52:                                               ; preds = %4
-  %53 = fcmp ule x86_fp80 %43, 0xK00000000000000000000
-  %54 = fcmp ugt x86_fp80 %44, 0xK00000000000000000000
-  %or.cond.i = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond.i, label %55, label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+  %53 = fcmp ogt x86_fp80 %43, 0xK00000000000000000000
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %52
-  %56 = fcmp uge x86_fp80 %43, 0xK00000000000000000000
-  %57 = fcmp ult x86_fp80 %44, 0xK00000000000000000000
-  %or.cond17.i = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond17.i, label %58, label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+54:                                               ; preds = %52
+  %55 = fcmp ugt x86_fp80 %44, 0xK00000000000000000000
+  br i1 %55, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-58:                                               ; preds = %55
+56:                                               ; preds = %52
+  %57 = fcmp uge x86_fp80 %43, 0xK00000000000000000000
+  %58 = fcmp ult x86_fp80 %44, 0xK00000000000000000000
+  %or.cond.i = select i1 %57, i1 true, i1 %58
+  br i1 %or.cond.i, label %.thread.i, label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
+
+.thread.i:                                        ; preds = %56, %54
   %59 = call noundef x86_fp80 @_ZN5boost8geometry6detail12precise_math12orient2dtailIeLm3EEET_RKNS2_5vec2dIS4_EES8_S8_RSt5arrayIS4_Lm2EESB_SB_SB_SB_SB_RKS4_(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %14, ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(16) %11)
   br label %_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit
 
-_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %52, %55, %58
-  %.0.i = phi x86_fp80 [ %59, %58 ], [ %45, %4 ], [ %45, %52 ], [ %45, %55 ]
+_ZN5boost8geometry6detail12precise_math8orient2dIeLm3ENS0_8strategy4side11side_robustIeNS5_21epsilon_equals_policyELm3EE14epsilon_policyIeEEEET_RKNS2_5vec2dISB_EESF_SF_RT1_.exit: ; preds = %4, %54, %56, %.thread.i
+  %.0.i = phi x86_fp80 [ %59, %.thread.i ], [ %45, %4 ], [ %45, %54 ], [ %45, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

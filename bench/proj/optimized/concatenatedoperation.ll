@@ -15817,59 +15817,55 @@ define hidden void @_ZNK5osgeo4proj9operation21ConcatenatedOperation19_exportToP
   %25 = fcmp ogt double %13, 0.000000e+00
   %26 = fcmp oeq double %24, 0.000000e+00
   %or.cond = and i1 %25, %26
-  br i1 %or.cond, label %31, label %27
+  br i1 %or.cond, label %.thread, label %27
 
 27:                                               ; preds = %23
   %28 = fcmp ogt double %24, 0.000000e+00
   %29 = fcmp oeq double %13, 0.000000e+00
   %or.cond3 = and i1 %29, %28
-  br i1 %or.cond3, label %30, label %31
+  %brmerge = or i1 %or.cond3, %25
+  %.mux = select i1 %or.cond3, double %24, double %13
+  br i1 %brmerge, label %.thread, label %30
 
-30:                                               ; preds = %27
-  br label %31
-
-31:                                               ; preds = %23, %27, %30
-  %.022 = phi double [ %24, %30 ], [ %24, %27 ], [ %13, %23 ]
-  %.0 = phi double [ %24, %30 ], [ %13, %27 ], [ %13, %23 ]
-  %32 = fcmp ogt double %.0, 0.000000e+00
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %31
+.thread:                                          ; preds = %27, %23
+  %.032 = phi double [ %13, %23 ], [ %.mux, %27 ]
+  %.02231 = phi double [ %13, %23 ], [ %24, %27 ]
   tail call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.22)
-  tail call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcd(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.23, double noundef %.0)
-  br label %34
+  tail call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcd(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.23, double noundef %.032)
+  br label %30
 
-34:                                               ; preds = %33, %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %37 = load ptr, ptr %36, align 8, !tbaa !41
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !41
-  %.not28 = icmp eq ptr %37, %39
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+30:                                               ; preds = %27, %.thread
+  %.02230 = phi double [ %.02231, %.thread ], [ %24, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %32 = load ptr, ptr %31, align 8, !tbaa !3
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %.not33 = icmp eq ptr %33, %35
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %34
-  %40 = fcmp ogt double %.022, 0.000000e+00
-  br i1 %40, label %47, label %48
+._crit_edge:                                      ; preds = %.lr.ph, %30
+  %36 = fcmp ogt double %.02230, 0.000000e+00
+  br i1 %36, label %43, label %44
 
-.lr.ph:                                           ; preds = %34, %.lr.ph
-  %.sroa.025.029 = phi ptr [ %46, %.lr.ph ], [ %37, %34 ]
-  %41 = load ptr, ptr %.sroa.025.029, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %1)
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.025.029, i64 16
-  %.not = icmp eq ptr %46, %39
+.lr.ph:                                           ; preds = %30, %.lr.ph
+  %.sroa.025.034 = phi ptr [ %42, %.lr.ph ], [ %33, %30 ]
+  %37 = load ptr, ptr %.sroa.025.034, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = load ptr, ptr %38, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %1)
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.034, i64 16
+  %.not = icmp eq ptr %42, %35
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-47:                                               ; preds = %._crit_edge
+43:                                               ; preds = %._crit_edge
   tail call void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.22)
-  tail call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcd(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.23, double noundef %.022)
-  br label %48
+  tail call void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamEPKcd(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.23, double noundef %.02230)
+  br label %44
 
-48:                                               ; preds = %47, %._crit_edge
+44:                                               ; preds = %43, %._crit_edge
   ret void
 }
 

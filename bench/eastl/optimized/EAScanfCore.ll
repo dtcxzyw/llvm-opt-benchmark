@@ -4579,14 +4579,12 @@ if.else297:                                       ; preds = %_ZNK2EA4StdC10Scanf
   br i1 %or.cond4, label %if.end303.sink.split, label %if.end303
 
 if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
-  %dValue.2.ph = phi double [ 0x7FF0000000000000, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit ], [ %retval.0.i, %if.else297 ]
   store i32 1, ptr %bOverflow, align 4
   br label %if.end303
 
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
-  %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
-  %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %40, double %fneg306, double %dValue.2
+  %fneg306 = fneg double %retval.0.i
+  %dValue.3 = select i1 %40, double %fneg306, double %retval.0.i
   br label %return
 
 return:                                           ; preds = %54, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
@@ -5958,14 +5956,12 @@ if.else297:                                       ; preds = %_ZNK2EA4StdC10Scanf
   br i1 %or.cond4, label %if.end303.sink.split, label %if.end303
 
 if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
-  %dValue.2.ph = phi double [ 0x7FF0000000000000, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit ], [ %retval.0.i, %if.else297 ]
   store i32 1, ptr %bOverflow, align 4
   br label %if.end303
 
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
-  %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
-  %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %29, double %fneg306, double %dValue.2
+  %fneg306 = fneg double %retval.0.i
+  %dValue.3 = select i1 %29, double %fneg306, double %retval.0.i
   br label %return
 
 return:                                           ; preds = %43, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
@@ -7305,14 +7301,12 @@ if.else282:                                       ; preds = %_ZNK2EA4StdC10Scanf
   br i1 %or.cond4, label %if.end288.sink.split, label %if.end288
 
 if.end288.sink.split:                             ; preds = %if.else282, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
-  %dValue.2.ph = phi double [ 0x7FF0000000000000, %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit ], [ %retval.0.i, %if.else282 ]
   store i32 1, ptr %bOverflow, align 4
   br label %if.end288
 
 if.end288:                                        ; preds = %if.end288.sink.split, %if.else282
-  %dValue.2 = phi double [ %retval.0.i, %if.else282 ], [ %dValue.2.ph, %if.end288.sink.split ]
-  %fneg291 = fneg double %dValue.2
-  %dValue.3 = select i1 %24, double %fneg291, double %dValue.2
+  %fneg291 = fneg double %retval.0.i
+  %dValue.3 = select i1 %24, double %fneg291, double %retval.0.i
   br label %return
 
 return:                                           ; preds = %38, %if.else256, %if.else256.thread, %if.else274, %if.then271, %if.end288, %if.end209, %if.then160

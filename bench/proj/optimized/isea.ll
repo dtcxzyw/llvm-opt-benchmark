@@ -469,25 +469,24 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
   %30 = fcmp ogt double %29, 0x400921FB54442D18
   br i1 %30, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %3
-  %.0.lcssa.i.i.i.i = phi double [ %29, %3 ], [ %32, %.lr.ph.i.i.i.i ]
-  %31 = fcmp olt double %.0.lcssa.i.i.i.i, 0xC00921FB54442D18
+.preheader.i.i.i.i:                               ; preds = %3
+  %31 = fcmp olt double %29, 0xC00921FB54442D18
   br i1 %31, label %.lr.ph7.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi double [ %32, %.lr.ph.i.i.i.i ], [ %29, %3 ]
   %32 = fadd double %.05.i.i.i.i, 0xC01921FB54442D18
   %33 = fcmp ogt double %32, 0x400921FB54442D18
-  br i1 %33, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !77
+  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !77
 
 .lr.ph7.i.i.i.i:                                  ; preds = %.preheader.i.i.i.i, %.lr.ph7.i.i.i.i
-  %.16.i.i.i.i = phi double [ %34, %.lr.ph7.i.i.i.i ], [ %.0.lcssa.i.i.i.i, %.preheader.i.i.i.i ]
+  %.16.i.i.i.i = phi double [ %34, %.lr.ph7.i.i.i.i ], [ %29, %.preheader.i.i.i.i ]
   %34 = fadd double %.16.i.i.i.i, 0x401921FB54442D18
   %35 = fcmp olt double %34, 0xC00921FB54442D18
   br i1 %35, label %.lr.ph7.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !78
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph7.i.i.i.i, %.preheader.i.i.i.i
-  %.1.lcssa.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %34, %.lr.ph7.i.i.i.i ]
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph7.i.i.i.i, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
+  %.1.lcssa.i.i.i.i = phi double [ %29, %.preheader.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i ], [ %34, %.lr.ph7.i.i.i.i ]
   %36 = fmul double %17, %19
   %37 = fneg double %21
   %38 = fmul double %36, %37
@@ -520,25 +519,24 @@ _ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i: ; preds = %50, %46, 
   %56 = fcmp ogt double %55, 0x400921FB54442D18
   br i1 %56, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i
-  %.sroa.2.0.lcssa.i.i.i = phi double [ %55, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i ], [ %58, %.lr.ph.i.i.i ]
-  %57 = fcmp olt double %.sroa.2.0.lcssa.i.i.i, 0xC00921FB54442D18
-  br i1 %57, label %.lr.ph8.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i
+.preheader.i.i.i:                                 ; preds = %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i
+  %57 = fcmp olt double %55, 0xC00921FB54442D18
+  br i1 %57, label %.lr.ph9.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.2.06.i.i.i = phi double [ %58, %.lr.ph.i.i.i ], [ %55, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i ]
-  %58 = fadd double %.sroa.2.06.i.i.i, 0xC01921FB54442D18
+  %.sroa.2.07.i.i.i = phi double [ %58, %.lr.ph.i.i.i ], [ %55, %_ZL12snyder_ctranRKN12_GLOBAL__N_18GeoPointES2_.exit.i.i.i ]
+  %58 = fadd double %.sroa.2.07.i.i.i, 0xC01921FB54442D18
   %59 = fcmp ogt double %58, 0x400921FB54442D18
-  br i1 %59, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !79
+  br i1 %59, label %.lr.ph.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !79
 
-.lr.ph8.i.i.i:                                    ; preds = %.preheader.i.i.i, %.lr.ph8.i.i.i
-  %.sroa.2.17.i.i.i = phi double [ %60, %.lr.ph8.i.i.i ], [ %.sroa.2.0.lcssa.i.i.i, %.preheader.i.i.i ]
-  %60 = fadd double %.sroa.2.17.i.i.i, 0x401921FB54442D18
+.lr.ph9.i.i.i:                                    ; preds = %.preheader.i.i.i, %.lr.ph9.i.i.i
+  %.sroa.2.18.i.i.i = phi double [ %60, %.lr.ph9.i.i.i ], [ %55, %.preheader.i.i.i ]
+  %60 = fadd double %.sroa.2.18.i.i.i, 0x401921FB54442D18
   %61 = fcmp olt double %60, 0xC00921FB54442D18
-  br i1 %61, label %.lr.ph8.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !80
+  br i1 %61, label %.lr.ph9.i.i.i, label %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i, !llvm.loop !80
 
-_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i: ; preds = %.lr.ph8.i.i.i, %.preheader.i.i.i
-  %.sroa.2.1.lcssa.i.i.i = phi double [ %.sroa.2.0.lcssa.i.i.i, %.preheader.i.i.i ], [ %60, %.lr.ph8.i.i.i ]
+_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i: ; preds = %.lr.ph9.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i
+  %.sroa.2.1.lcssa.i.i.i = phi double [ %55, %.preheader.i.i.i ], [ %58, %.lr.ph.i.i.i ], [ %60, %.lr.ph9.i.i.i ]
   %62 = tail call double @sin(double noundef %52) #18, !tbaa !51
   %63 = tail call double @cos(double noundef %52) #18, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -604,10 +602,8 @@ _ZL10safeArcCosd.exit.thread1.i.i.i:              ; preds = %_ZL10safeArcCosd.ex
   %103 = fcmp olt double %.068.i.i.i, 0.000000e+00
   br i1 %103, label %.lr.ph.i14.i.i, label %.preheader.i13.i.i
 
-.preheader.i13.i.i:                               ; preds = %.lr.ph.i14.i.i, %_ZL10safeArcCosd.exit.thread1.i.i.i
-  %.070.lcssa.i.i.i = phi i32 [ 0, %_ZL10safeArcCosd.exit.thread1.i.i.i ], [ %106, %.lr.ph.i14.i.i ]
-  %.169.lcssa.i.i.i = phi double [ %.068.i.i.i, %_ZL10safeArcCosd.exit.thread1.i.i.i ], [ %105, %.lr.ph.i14.i.i ]
-  %104 = fcmp ogt double %.169.lcssa.i.i.i, 0x4000C152382D7366
+.preheader.i13.i.i:                               ; preds = %_ZL10safeArcCosd.exit.thread1.i.i.i
+  %104 = fcmp ogt double %.068.i.i.i, 0x4000C152382D7366
   br i1 %104, label %.lr.ph14.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i14.i.i:                                   ; preds = %_ZL10safeArcCosd.exit.thread1.i.i.i, %.lr.ph.i14.i.i
@@ -616,19 +612,19 @@ _ZL10safeArcCosd.exit.thread1.i.i.i:              ; preds = %_ZL10safeArcCosd.ex
   %105 = fadd double %.16910.i.i.i, 0x4000C152382D7366
   %106 = add nsw i32 %.0709.i.i.i, -1
   %107 = fcmp olt double %105, 0.000000e+00
-  br i1 %107, label %.lr.ph.i14.i.i, label %.preheader.i13.i.i, !llvm.loop !82
+  br i1 %107, label %.lr.ph.i14.i.i, label %._crit_edge.i.i.i, !llvm.loop !82
 
 .lr.ph14.i.i.i:                                   ; preds = %.preheader.i13.i.i, %.lr.ph14.i.i.i
-  %.213.i.i.i = phi double [ %108, %.lr.ph14.i.i.i ], [ %.169.lcssa.i.i.i, %.preheader.i13.i.i ]
-  %.17112.i.i.i = phi i32 [ %109, %.lr.ph14.i.i.i ], [ %.070.lcssa.i.i.i, %.preheader.i13.i.i ]
+  %.213.i.i.i = phi double [ %108, %.lr.ph14.i.i.i ], [ %.068.i.i.i, %.preheader.i13.i.i ]
+  %.17112.i.i.i = phi i32 [ %109, %.lr.ph14.i.i.i ], [ 0, %.preheader.i13.i.i ]
   %108 = fadd double %.213.i.i.i, 0xC000C152382D7366
-  %109 = add nsw i32 %.17112.i.i.i, 1
+  %109 = add nuw nsw i32 %.17112.i.i.i, 1
   %110 = fcmp ogt double %108, 0x4000C152382D7366
   br i1 %110, label %.lr.ph14.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !83
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph14.i.i.i, %.preheader.i13.i.i
-  %.171.lcssa.i.i.i = phi i32 [ %.070.lcssa.i.i.i, %.preheader.i13.i.i ], [ %109, %.lr.ph14.i.i.i ]
-  %.2.lcssa.i.i.i = phi double [ %.169.lcssa.i.i.i, %.preheader.i13.i.i ], [ %108, %.lr.ph14.i.i.i ]
+._crit_edge.i.i.i:                                ; preds = %.lr.ph14.i.i.i, %.lr.ph.i14.i.i, %.preheader.i13.i.i
+  %.171.lcssa.i.i.i = phi i32 [ 0, %.preheader.i13.i.i ], [ %106, %.lr.ph.i14.i.i ], [ %109, %.lr.ph14.i.i.i ]
+  %.2.lcssa.i.i.i = phi double [ %.068.i.i.i, %.preheader.i13.i.i ], [ %105, %.lr.ph.i14.i.i ], [ %108, %.lr.ph14.i.i.i ]
   %111 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #18, !tbaa !51
   %112 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #18, !tbaa !51
   %113 = tail call double @llvm.fmuladd.f64(double %112, double 0x3FFBB67AE8584CAB, double %111)
@@ -1096,9 +1092,9 @@ select.unfold.i:                                  ; preds = %90
   %.sink.i = phi i8 [ %109, %.thread.i ], [ %111, %110 ]
   %.2.ph.sink.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.i, %110 ]
   %113 = phi i32 [ 1, %.thread.i ], [ 2, %110 ]
-  %.zext39.i = zext nneg i8 %.sink.i to i32
-  %.neg40.i = mul nsw i32 %.zext39.i, -5
-  %114 = add nsw i32 %.neg40.i, %.2.ph.sink.i
+  %.zext41.i = zext nneg i8 %.sink.i to i32
+  %.neg42.i = mul nsw i32 %.zext41.i, -5
+  %114 = add nsw i32 %.neg42.i, %.2.ph.sink.i
   %115 = shl nsw i32 %114, 1
   %116 = add nsw i32 %115, %113
   %117 = sitofp i32 %116 to double
@@ -1132,10 +1128,8 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %
   %139 = fcmp olt double %138, 0.000000e+00
   br i1 %139, label %.lr.ph.i.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i.i, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i
-  %.082.lcssa.i.i = phi double [ %137, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %141, %.lr.ph.i.i ]
-  %.081.lcssa.i.i = phi double [ %138, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %142, %.lr.ph.i.i ]
-  %140 = fcmp ogt double %.081.lcssa.i.i, 0x4000C152382D7365
+.preheader.i.i:                                   ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i
+  %140 = fcmp ogt double %138, 0x4000C152382D7365
   br i1 %140, label %.lr.ph93.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i, %.lr.ph.i.i
@@ -1144,19 +1138,19 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %
   %141 = fadd double %.08288.i.i, 0x4000C152382D7365
   %142 = fadd double %.08189.i.i, 0x4000C152382D7365
   %143 = fcmp olt double %142, 0.000000e+00
-  br i1 %143, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !94
+  br i1 %143, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !94
 
 .lr.ph93.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph93.i.i
-  %.192.i.i = phi double [ %145, %.lr.ph93.i.i ], [ %.081.lcssa.i.i, %.preheader.i.i ]
-  %.18391.i.i = phi double [ %144, %.lr.ph93.i.i ], [ %.082.lcssa.i.i, %.preheader.i.i ]
+  %.192.i.i = phi double [ %145, %.lr.ph93.i.i ], [ %138, %.preheader.i.i ]
+  %.18391.i.i = phi double [ %144, %.lr.ph93.i.i ], [ %137, %.preheader.i.i ]
   %144 = fadd double %.18391.i.i, 0xC000C152382D7365
   %145 = fadd double %.192.i.i, 0xC000C152382D7365
   %146 = fcmp ogt double %145, 0x4000C152382D7365
   br i1 %146, label %.lr.ph93.i.i, label %._crit_edge.i.i, !llvm.loop !95
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph93.i.i, %.preheader.i.i
-  %.183.lcssa.i.i = phi double [ %.082.lcssa.i.i, %.preheader.i.i ], [ %144, %.lr.ph93.i.i ]
-  %.1.lcssa.i.i = phi double [ %.081.lcssa.i.i, %.preheader.i.i ], [ %145, %.lr.ph93.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph93.i.i, %.lr.ph.i.i, %.preheader.i.i
+  %.183.lcssa.i.i = phi double [ %137, %.preheader.i.i ], [ %141, %.lr.ph.i.i ], [ %144, %.lr.ph93.i.i ]
+  %.1.lcssa.i.i = phi double [ %138, %.preheader.i.i ], [ %142, %.lr.ph.i.i ], [ %145, %.lr.ph93.i.i ]
   %147 = tail call double @sin(double noundef %.1.lcssa.i.i) #18, !tbaa !51
   %148 = tail call double @cos(double noundef %.1.lcssa.i.i) #18, !tbaa !51
   %149 = fdiv double %148, %147
@@ -1289,7 +1283,7 @@ _ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %1
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %239, %_ZL10safeArcSind.exit.i.i
-  %.sink108.i.i = phi double [ %252, %239 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
+  %.sink111.i.i = phi double [ %252, %239 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
   %.sink.i.i = phi double [ %257, %239 ], [ %233, %_ZL10safeArcSind.exit.i.i ]
   %258 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
   br i1 %258, label %259, label %261
@@ -1311,7 +1305,7 @@ default.unreachable:                              ; preds = %83
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %263, %261, %259, %73, %67
   %.sroa.09.1 = phi double [ %.sink.i.i, %261 ], [ %264, %263 ], [ %260, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink108.i.i, %261 ], [ %.sink108.i.i, %263 ], [ %.sink108.i.i, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ %.sink111.i.i, %261 ], [ %.sink111.i.i, %263 ], [ %.sink111.i.i, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert

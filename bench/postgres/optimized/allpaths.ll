@@ -2183,28 +2183,34 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = icmp ne i32 %10, 0
+  %11 = icmp eq i32 %10, 0
   %12 = fcmp ult double %4, 0.000000e+00
-  %or.cond = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond, label %17, label %13
+  br i1 %11, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = load i32, ptr @min_parallel_table_scan_size, align 4
-  %15 = sitofp i32 %14 to double
-  %16 = fcmp olt double %4, %15
-  br i1 %16, label %compute_parallel_worker.exit.thread, label %17
+  br i1 %12, label %compute_parallel_worker.exit, label %14
 
-17:                                               ; preds = %13, %8
-  br i1 %12, label %compute_parallel_worker.exit, label %18
+14:                                               ; preds = %13
+  %15 = load i32, ptr @min_parallel_table_scan_size, align 4
+  %16 = sitofp i32 %15 to double
+  %17 = fcmp olt double %4, %16
+  br i1 %17, label %compute_parallel_worker.exit.thread, label %.thread11
 
-18:                                               ; preds = %17
-  %19 = load i32, ptr @min_parallel_table_scan_size, align 4
+18:                                               ; preds = %8
+  br i1 %12, label %compute_parallel_worker.exit, label %..thread11_crit_edge
+
+..thread11_crit_edge:                             ; preds = %18
+  %.pre = load i32, ptr @min_parallel_table_scan_size, align 4
+  br label %.thread11
+
+.thread11:                                        ; preds = %..thread11_crit_edge, %14
+  %19 = phi i32 [ %.pre, %..thread11_crit_edge ], [ %15, %14 ]
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
   br label %21
 
-21:                                               ; preds = %25, %18
-  %.034.i = phi i32 [ %20, %18 ], [ %22, %25 ]
-  %.032.i = phi i32 [ 1, %18 ], [ %26, %25 ]
+21:                                               ; preds = %25, %.thread11
+  %.034.i = phi i32 [ %20, %.thread11 ], [ %22, %25 ]
+  %.032.i = phi i32 [ 1, %.thread11 ], [ %26, %25 ]
   %22 = mul i32 %.034.i, 3
   %23 = uitofp i32 %22 to double
   %24 = fcmp ult double %4, %23
@@ -2215,8 +2221,8 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
   %27 = icmp sgt i32 %22, 715827882
   br i1 %27, label %compute_parallel_worker.exit, label %21, !llvm.loop !16
 
-compute_parallel_worker.exit:                     ; preds = %25, %21, %3, %17
-  %.035.i = phi i32 [ %7, %3 ], [ 0, %17 ], [ %26, %25 ], [ %.032.i, %21 ]
+compute_parallel_worker.exit:                     ; preds = %25, %21, %13, %3, %18
+  %.035.i = phi i32 [ %7, %3 ], [ 0, %18 ], [ 0, %13 ], [ %26, %25 ], [ %.032.i, %21 ]
   %28 = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %5)
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %compute_parallel_worker.exit.thread, label %30
@@ -2228,7 +2234,7 @@ compute_parallel_worker.exit:                     ; preds = %25, %21, %3, %17
   tail call void @add_partial_path(ptr noundef %1, ptr noundef %33) #8
   br label %compute_parallel_worker.exit.thread
 
-compute_parallel_worker.exit.thread:              ; preds = %13, %compute_parallel_worker.exit, %30
+compute_parallel_worker.exit.thread:              ; preds = %14, %compute_parallel_worker.exit, %30
   ret void
 }
 

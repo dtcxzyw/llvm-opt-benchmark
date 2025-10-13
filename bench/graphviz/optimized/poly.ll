@@ -1396,9 +1396,9 @@ gv_calloc.exit:                                   ; preds = %12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph46, label %24, !llvm.loop !64
 
-33:                                               ; preds = %.lr.ph46, %75
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %75 ]
-  %.045 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %75 ]
+33:                                               ; preds = %.lr.ph46, %78
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %78 ]
+  %.045 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %78 ]
   %34 = trunc nuw nsw i64 %indvars.iv48 to i32
   %35 = add i32 %23, %34
   %36 = srem i32 %35, %1
@@ -1414,75 +1414,83 @@ gv_calloc.exit:                                   ; preds = %12
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !39
   %46 = fcmp oeq double %45, 0.000000e+00
-  br i1 %46, label %47, label %52
+  br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %41
   %48 = load double, ptr %37, align 8, !tbaa !38
   %49 = load double, ptr %43, align 8, !tbaa !38
   %50 = fmul double %48, %49
   %51 = fcmp olt double %50, 0.000000e+00
-  br i1 %51, label %.loopexit, label %75
+  br i1 %51, label %.loopexit, label %78
 
-52:                                               ; preds = %41, %33
+52:                                               ; preds = %33
   %53 = fcmp ult double %39, 0.000000e+00
-  %.phi.trans.insert = sext i32 %36 to i64
-  %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
-  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert54, i64 8
-  %.pre = load double, ptr %.phi.trans.insert55, align 8, !tbaa !39
-  %54 = fcmp ugt double %.pre, 0.000000e+00
-  %or.cond65 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond65, label %._crit_edge53, label %57
+  %.phi.trans.insert56 = sext i32 %36 to i64
+  %.phi.trans.insert57 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert56
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert57, i64 8
+  %.pre59 = load double, ptr %.phi.trans.insert58, align 8, !tbaa !39
+  br i1 %53, label %._crit_edge55, label %.thread
 
-._crit_edge53:                                    ; preds = %52
-  %55 = fcmp ult double %.pre, 0.000000e+00
-  %56 = fcmp ugt double %39, 0.000000e+00
-  %or.cond41 = or i1 %56, %55
-  br i1 %or.cond41, label %75, label %57
+.thread:                                          ; preds = %52, %41
+  %.pre-phi60 = phi i64 [ %42, %41 ], [ %.phi.trans.insert56, %52 ]
+  %54 = phi double [ %45, %41 ], [ %.pre59, %52 ]
+  %55 = fcmp ugt double %54, 0.000000e+00
+  br i1 %55, label %._crit_edge55, label %59
 
-57:                                               ; preds = %52, %._crit_edge53
-  %58 = load double, ptr %37, align 8, !tbaa !38
-  %59 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
-  %60 = load double, ptr %59, align 8, !tbaa !38
-  %61 = fneg double %39
-  %62 = fmul double %60, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %58, double %.pre, double %62)
-  %64 = fsub double %.pre, %39
-  %65 = fdiv double %63, %64
-  %66 = fcmp oeq double %65, 0.000000e+00
-  br i1 %66, label %.loopexit, label %67
+._crit_edge55:                                    ; preds = %52, %.thread
+  %.pre-phi61 = phi i64 [ %.pre-phi60, %.thread ], [ %.phi.trans.insert56, %52 ]
+  %56 = phi double [ %54, %.thread ], [ %.pre59, %52 ]
+  %57 = fcmp ult double %56, 0.000000e+00
+  %58 = fcmp ugt double %39, 0.000000e+00
+  %or.cond41 = or i1 %58, %57
+  br i1 %or.cond41, label %78, label %59
 
-67:                                               ; preds = %57
-  %68 = fcmp ogt double %65, 0.000000e+00
-  br i1 %68, label %69, label %75
+59:                                               ; preds = %._crit_edge55, %.thread
+  %.pre-phi = phi i64 [ %.pre-phi61, %._crit_edge55 ], [ %.pre-phi60, %.thread ]
+  %60 = phi double [ %56, %._crit_edge55 ], [ %54, %.thread ]
+  %61 = load double, ptr %37, align 8, !tbaa !38
+  %62 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.pre-phi
+  %63 = load double, ptr %62, align 8, !tbaa !38
+  %64 = fneg double %39
+  %65 = fmul double %63, %64
+  %66 = tail call double @llvm.fmuladd.f64(double %61, double %60, double %65)
+  %67 = fsub double %60, %39
+  %68 = fdiv double %66, %67
+  %69 = fcmp oeq double %68, 0.000000e+00
+  br i1 %69, label %.loopexit, label %70
 
-69:                                               ; preds = %67
-  %70 = fcmp oeq double %.pre, 0.000000e+00
-  %or.cond = or i1 %40, %70
-  br i1 %or.cond, label %71, label %73
+70:                                               ; preds = %59
+  %71 = fcmp ogt double %68, 0.000000e+00
+  br i1 %71, label %72, label %78
 
-71:                                               ; preds = %69
-  %72 = fadd double %.045, 5.000000e-01
-  br label %75
+72:                                               ; preds = %70
+  %73 = fcmp oeq double %60, 0.000000e+00
+  %or.cond = or i1 %40, %73
+  br i1 %or.cond, label %74, label %76
 
-73:                                               ; preds = %69
-  %74 = fadd double %.045, 1.000000e+00
-  br label %75
+74:                                               ; preds = %72
+  %75 = fadd double %.045, 5.000000e-01
+  br label %78
 
-75:                                               ; preds = %._crit_edge53, %71, %73, %67, %47
-  %.1 = phi double [ %.045, %47 ], [ %72, %71 ], [ %74, %73 ], [ %.045, %67 ], [ %.045, %._crit_edge53 ]
+76:                                               ; preds = %72
+  %77 = fadd double %.045, 1.000000e+00
+  br label %78
+
+78:                                               ; preds = %._crit_edge55, %74, %76, %70, %47
+  %.1 = phi double [ %.045, %47 ], [ %75, %74 ], [ %77, %76 ], [ %.045, %70 ], [ %.045, %._crit_edge55 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %._crit_edge.loopexit, label %33, !llvm.loop !65
 
-._crit_edge.loopexit:                             ; preds = %75
-  %76 = fptosi double %.1 to i32
-  %77 = and i32 %76, -2147483647
-  %78 = icmp eq i32 %77, 1
-  %79 = zext i1 %78 to i32
+._crit_edge.loopexit:                             ; preds = %78
+  %79 = fptosi double %.1 to i32
+  %80 = and i32 %79, -2147483647
+  %81 = icmp eq i32 %80, 1
+  %82 = zext i1 %81 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %47, %._crit_edge.loopexit, %20
-  %.036 = phi i32 [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
+.loopexit:                                        ; preds = %59, %47, %._crit_edge.loopexit, %20
+  %.036 = phi i32 [ %82, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %59 ]
   ret i32 %.036
 }
 

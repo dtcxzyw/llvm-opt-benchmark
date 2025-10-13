@@ -1970,12 +1970,12 @@ define void @_ZN8facebook4yoga4Node17processDimensionsEv(ptr noundef nonnull ali
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   br label %5
 
-4:                                                ; preds = %31
+4:                                                ; preds = %32
   ret void
 
-5:                                                ; preds = %1, %31
-  %.not = phi i1 [ false, %1 ], [ true, %31 ]
-  %.0.idx25.sroa.phi.sroa.speculated = phi i8 [ 0, %1 ], [ 1, %31 ]
+5:                                                ; preds = %1, %32
+  %.not = phi i1 [ false, %1 ], [ true, %32 ]
+  %.0.idx25.sroa.phi.sroa.speculated = phi i8 [ 0, %1 ], [ 1, %32 ]
   %6 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
   %7 = and i64 %6, 1095216660480
   %.not24 = icmp eq i64 %7, 0
@@ -1996,35 +1996,37 @@ define void @_ZN8facebook4yoga4Node17processDimensionsEv(ptr noundef nonnull ali
   br i1 %15, label %20, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
 20:                                               ; preds = %8
-  %or.cond.i.i.i.i = fcmp ord float %17, %19
-  br i1 %or.cond.i.i.i.i, label %21, label %25
+  %21 = fcmp ord float %17, 0.000000e+00
+  br i1 %21, label %22, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
 
-21:                                               ; preds = %20
-  %22 = fsub float %17, %19
-  %23 = tail call noundef float @llvm.fabs.f32(float %22)
-  %24 = fcmp olt float %23, 0x3F1A36E2E0000000
-  br i1 %24, label %28, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
+22:                                               ; preds = %20
+  %23 = fcmp ord float %19, 0.000000e+00
+  br i1 %23, label %24, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-25:                                               ; preds = %20
-  %26 = fcmp uno float %17, 0.000000e+00
-  %27 = fcmp uno float %19, 0.000000e+00
-  %or.cond = and i1 %26, %27
-  br i1 %or.cond, label %28, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
+24:                                               ; preds = %22
+  %25 = fsub float %17, %19
+  %26 = tail call noundef float @llvm.fabs.f32(float %25)
+  %27 = fcmp olt float %26, 0x3F1A36E2E0000000
+  br i1 %27, label %29, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-28:                                               ; preds = %25, %21
-  %29 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
-  br label %31
+_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit: ; preds = %20
+  %28 = fcmp uno float %19, 0.000000e+00
+  br i1 %28, label %29, label %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread
 
-_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread: ; preds = %5, %25, %8, %21
-  %30 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
-  br label %31
+29:                                               ; preds = %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
+  %30 = tail call i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
+  br label %32
 
-31:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread, %28
-  %.sink30 = phi i64 [ %30, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread ], [ %29, %28 ]
-  %32 = trunc i64 %.sink30 to i40
-  %33 = zext nneg i8 %.0.idx25.sroa.phi.sroa.speculated to i64
-  %34 = getelementptr inbounds nuw %"class.facebook::yoga::StyleSizeLength", ptr %3, i64 %33
-  store i40 %32, ptr %34, align 8
+_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread: ; preds = %5, %22, %8, %24, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit
+  %31 = tail call i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 noundef zeroext %.0.idx25.sroa.phi.sroa.speculated)
+  br label %32
+
+32:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread, %29
+  %.sink29 = phi i64 [ %31, %_ZN8facebook4yoga13inexactEqualsERKNS0_15StyleSizeLengthES3_.exit.thread ], [ %30, %29 ]
+  %33 = trunc i64 %.sink29 to i40
+  %34 = zext nneg i8 %.0.idx25.sroa.phi.sroa.speculated to i64
+  %35 = getelementptr inbounds nuw %"class.facebook::yoga::StyleSizeLength", ptr %3, i64 %34
+  store i40 %33, ptr %35, align 8
   br i1 %.not, label %4, label %5
 }
 

@@ -539,13 +539,13 @@ _clear_lut_curves.exit93.i:                       ; preds = %168, %108, %81
   %173 = load float, ptr %19, align 64, !tbaa !14
   %174 = tail call float @llvm.fabs.f32(float %173)
   %175 = fcmp ueq float %174, 0x7FF0000000000000
-  br i1 %175, label %195, label %176
+  br i1 %175, label %_ioppr_generate_profile_info.exit, label %176
 
 176:                                              ; preds = %_clear_lut_curves.exit93.i
   %177 = load float, ptr %21, align 64, !tbaa !14
   %178 = tail call float @llvm.fabs.f32(float %177)
   %179 = fcmp ueq float %178, 0x7FF0000000000000
-  br i1 %179, label %195, label %180
+  br i1 %179, label %_ioppr_generate_profile_info.exit, label %180
 
 180:                                              ; preds = %176
   %181 = load ptr, ptr %32, align 8, !tbaa !18
@@ -565,97 +565,93 @@ _clear_lut_curves.exit93.i:                       ; preds = %168, %108, %81
   %194 = tail call fastcc i32 @_init_unbounded_coeffs(ptr noundef %188, ptr noundef %190, ptr noundef %192, ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull %27, i32 noundef %193)
   %.pre.i = load float, ptr %19, align 64, !tbaa !14
   %.pre94.i = tail call float @llvm.fabs.f32(float %.pre.i)
-  br label %195
+  %195 = fcmp ueq float %.pre94.i, 0x7FF0000000000000
+  br i1 %195, label %_ioppr_generate_profile_info.exit, label %.thread
 
-195:                                              ; preds = %180, %176, %_clear_lut_curves.exit93.i
-  %.pre-phi.i = phi float [ %.pre94.i, %180 ], [ %174, %176 ], [ %174, %_clear_lut_curves.exit93.i ]
-  %196 = fcmp ueq float %.pre-phi.i, 0x7FF0000000000000
+.thread:                                          ; preds = %180
+  %.pre = load float, ptr %21, align 64, !tbaa !14
+  %.pre19 = tail call float @llvm.fabs.f32(float %.pre)
+  %196 = fcmp ueq float %.pre19, 0x7FF0000000000000
   br i1 %196, label %_ioppr_generate_profile_info.exit, label %197
 
-197:                                              ; preds = %195
-  %198 = load float, ptr %21, align 64, !tbaa !14
-  %199 = tail call float @llvm.fabs.f32(float %198)
-  %200 = fcmp ueq float %199, 0x7FF0000000000000
-  br i1 %200, label %_ioppr_generate_profile_info.exit, label %201
+197:                                              ; preds = %.thread
+  %198 = load i32, ptr %29, align 4, !tbaa !15
+  %.not89.i = icmp eq i32 %198, 0
+  br i1 %.not89.i, label %_ioppr_generate_profile_info.exit, label %199
 
-201:                                              ; preds = %197
-  %202 = load i32, ptr %29, align 4, !tbaa !15
-  %.not89.i = icmp eq i32 %202, 0
-  br i1 %.not89.i, label %_ioppr_generate_profile_info.exit, label %203
-
-203:                                              ; preds = %201
-  %204 = load i32, ptr %31, align 64, !tbaa !17
+199:                                              ; preds = %197
+  %200 = load i32, ptr %31, align 64, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %205 = add nsw i32 %204, -1
-  %206 = sitofp i32 %205 to float
-  %207 = add nsw i32 %204, -2
-  %208 = sitofp i32 %207 to float
-  br label %209
+  %201 = add nsw i32 %200, -1
+  %202 = sitofp i32 %201 to float
+  %203 = add nsw i32 %200, -2
+  %204 = sitofp i32 %203 to float
+  br label %205
 
-209:                                              ; preds = %234, %203
-  %indvars.iv.i.i.i = phi i64 [ 0, %203 ], [ %indvars.iv.next.i.i.i, %234 ]
-  %210 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i.i
-  %211 = load ptr, ptr %210, align 8, !tbaa !18
-  %212 = load float, ptr %211, align 4, !tbaa !14
-  %213 = fcmp reassoc nsz arcp contract afn ult float %212, 0.000000e+00
-  %214 = getelementptr inbounds nuw float, ptr @__const._ioppr_generate_profile_info.rgb, i64 %indvars.iv.i.i.i
-  %215 = load float, ptr %214, align 4, !tbaa !14
-  br i1 %213, label %234, label %216
+205:                                              ; preds = %230, %199
+  %indvars.iv.i.i.i = phi i64 [ 0, %199 ], [ %indvars.iv.next.i.i.i, %230 ]
+  %206 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i.i
+  %207 = load ptr, ptr %206, align 8, !tbaa !18
+  %208 = load float, ptr %207, align 4, !tbaa !14
+  %209 = fcmp reassoc nsz arcp contract afn ult float %208, 0.000000e+00
+  %210 = getelementptr inbounds nuw float, ptr @__const._ioppr_generate_profile_info.rgb, i64 %indvars.iv.i.i.i
+  %211 = load float, ptr %210, align 4, !tbaa !14
+  br i1 %209, label %230, label %212
 
-216:                                              ; preds = %209
-  %217 = fmul reassoc nsz arcp contract afn float %215, %206
-  %218 = fcmp reassoc nsz arcp contract afn ogt float %217, 0.000000e+00
-  %219 = fcmp reassoc nsz arcp contract afn olt float %217, %206
-  %..i.i.i.i = select reassoc nsz arcp contract afn i1 %219, float %217, float %206
-  %220 = select reassoc nsz arcp contract afn i1 %218, float %..i.i.i.i, float 0.000000e+00
-  %221 = fcmp reassoc nsz arcp contract afn olt float %220, %208
-  %222 = select reassoc nsz arcp contract afn i1 %221, float %220, float %208
-  %223 = fptosi float %222 to i32
-  %224 = sitofp i32 %223 to float
-  %225 = fsub reassoc nsz arcp contract afn float %220, %224
-  %226 = sext i32 %223 to i64
-  %227 = getelementptr inbounds float, ptr %211, i64 %226
-  %228 = load float, ptr %227, align 4, !tbaa !14
-  %229 = getelementptr i8, ptr %227, i64 4
-  %230 = load float, ptr %229, align 4, !tbaa !14
-  %231 = fsub reassoc nsz arcp contract afn float %230, %228
-  %232 = fmul reassoc nsz arcp contract afn float %231, %225
-  %233 = fadd reassoc nsz arcp contract afn float %232, %228
-  br label %234
+212:                                              ; preds = %205
+  %213 = fmul reassoc nsz arcp contract afn float %211, %202
+  %214 = fcmp reassoc nsz arcp contract afn ogt float %213, 0.000000e+00
+  %215 = fcmp reassoc nsz arcp contract afn olt float %213, %202
+  %..i.i.i.i = select reassoc nsz arcp contract afn i1 %215, float %213, float %202
+  %216 = select reassoc nsz arcp contract afn i1 %214, float %..i.i.i.i, float 0.000000e+00
+  %217 = fcmp reassoc nsz arcp contract afn olt float %216, %204
+  %218 = select reassoc nsz arcp contract afn i1 %217, float %216, float %204
+  %219 = fptosi float %218 to i32
+  %220 = sitofp i32 %219 to float
+  %221 = fsub reassoc nsz arcp contract afn float %216, %220
+  %222 = sext i32 %219 to i64
+  %223 = getelementptr inbounds float, ptr %207, i64 %222
+  %224 = load float, ptr %223, align 4, !tbaa !14
+  %225 = getelementptr i8, ptr %223, i64 4
+  %226 = load float, ptr %225, align 4, !tbaa !14
+  %227 = fsub reassoc nsz arcp contract afn float %226, %224
+  %228 = fmul reassoc nsz arcp contract afn float %227, %221
+  %229 = fadd reassoc nsz arcp contract afn float %228, %224
+  br label %230
 
-234:                                              ; preds = %216, %209
-  %235 = phi reassoc nsz arcp contract afn float [ %233, %216 ], [ %215, %209 ]
-  %236 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
-  store float %235, ptr %236, align 4, !tbaa !14
+230:                                              ; preds = %212, %205
+  %231 = phi reassoc nsz arcp contract afn float [ %229, %212 ], [ %211, %205 ]
+  %232 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
+  store float %231, ptr %232, align 4, !tbaa !14
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %dt_ioppr_get_rgb_matrix_luminance.exit.i, label %209
+  br i1 %exitcond.not.i.i.i, label %dt_ioppr_get_rgb_matrix_luminance.exit.i, label %205
 
-dt_ioppr_get_rgb_matrix_luminance.exit.i:         ; preds = %234
-  %237 = getelementptr inbounds nuw i8, ptr %16, i64 592
-  %238 = load float, ptr %237, align 16, !tbaa !14
-  %239 = load float, ptr %5, align 16, !tbaa !14
-  %240 = fmul reassoc nsz arcp contract afn float %239, %238
-  %241 = getelementptr inbounds nuw i8, ptr %16, i64 596
-  %242 = load float, ptr %241, align 4, !tbaa !14
-  %243 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %244 = load float, ptr %243, align 4, !tbaa !14
-  %245 = fmul reassoc nsz arcp contract afn float %244, %242
-  %246 = fadd reassoc nsz arcp contract afn float %245, %240
-  %247 = getelementptr inbounds nuw i8, ptr %16, i64 600
-  %248 = load float, ptr %247, align 8, !tbaa !14
-  %249 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %250 = load float, ptr %249, align 8, !tbaa !14
-  %251 = fmul reassoc nsz arcp contract afn float %250, %248
-  %252 = fadd reassoc nsz arcp contract afn float %246, %251
+dt_ioppr_get_rgb_matrix_luminance.exit.i:         ; preds = %230
+  %233 = getelementptr inbounds nuw i8, ptr %16, i64 592
+  %234 = load float, ptr %233, align 16, !tbaa !14
+  %235 = load float, ptr %5, align 16, !tbaa !14
+  %236 = fmul reassoc nsz arcp contract afn float %235, %234
+  %237 = getelementptr inbounds nuw i8, ptr %16, i64 596
+  %238 = load float, ptr %237, align 4, !tbaa !14
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %240 = load float, ptr %239, align 4, !tbaa !14
+  %241 = fmul reassoc nsz arcp contract afn float %240, %238
+  %242 = fadd reassoc nsz arcp contract afn float %241, %236
+  %243 = getelementptr inbounds nuw i8, ptr %16, i64 600
+  %244 = load float, ptr %243, align 8, !tbaa !14
+  %245 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %246 = load float, ptr %245, align 8, !tbaa !14
+  %247 = fmul reassoc nsz arcp contract afn float %246, %244
+  %248 = fadd reassoc nsz arcp contract afn float %242, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store float %252, ptr %30, align 8, !tbaa !16
+  store float %248, ptr %30, align 8, !tbaa !16
   br label %_ioppr_generate_profile_info.exit
 
-_ioppr_generate_profile_info.exit:                ; preds = %195, %197, %201, %dt_ioppr_get_rgb_matrix_luminance.exit.i
-  %253 = load ptr, ptr %6, align 8, !tbaa !65
-  %254 = tail call ptr @g_list_append(ptr noundef %253, ptr noundef nonnull %16) #17
-  store ptr %254, ptr %6, align 8, !tbaa !65
+_ioppr_generate_profile_info.exit:                ; preds = %176, %_clear_lut_curves.exit93.i, %180, %.thread, %197, %dt_ioppr_get_rgb_matrix_luminance.exit.i
+  %249 = load ptr, ptr %6, align 8, !tbaa !65
+  %250 = tail call ptr @g_list_append(ptr noundef %249, ptr noundef nonnull %16) #17
+  store ptr %250, ptr %6, align 8, !tbaa !65
   br label %dt_ioppr_get_profile_info_from_list.exit
 
 dt_ioppr_get_profile_info_from_list.exit:         ; preds = %10, %_ioppr_generate_profile_info.exit

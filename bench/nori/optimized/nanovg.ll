@@ -22076,9 +22076,9 @@ define internal fastcc void @nvg__flattenPaths(ptr noundef readonly captures(non
   br label %17
 
 17:                                               ; preds = %.lr.ph, %nvg__lastPoint.exit.thread
-  %.0107127 = phi i32 [ 0, %.lr.ph ], [ %121, %nvg__lastPoint.exit.thread ]
+  %.0107128 = phi i32 [ 0, %.lr.ph ], [ %121, %nvg__lastPoint.exit.thread ]
   %18 = load ptr, ptr %16, align 8
-  %19 = zext nneg i32 %.0107127 to i64
+  %19 = zext nneg i32 %.0107128 to i64
   %20 = getelementptr inbounds nuw float, ptr %18, i64 %19
   %21 = load float, ptr %20, align 4
   %22 = fptosi float %21 to i32
@@ -22243,7 +22243,7 @@ nvg__lastPath.exit.i115:                          ; preds = %106
 
 nvg__lastPoint.exit.thread:                       ; preds = %17, %119, %nvg__lastPath.exit.i115, %106, %104, %nvg__lastPath.exit.i, %94, %nvg__lastPoint.exit, %78, %70, %65, %nvg__addPath.exit
   %.sink = phi i32 [ 3, %65 ], [ 3, %nvg__addPath.exit ], [ 7, %70 ], [ 7, %78 ], [ 7, %nvg__lastPoint.exit ], [ 1, %94 ], [ 1, %nvg__lastPath.exit.i ], [ 1, %104 ], [ 2, %106 ], [ 2, %nvg__lastPath.exit.i115 ], [ 2, %119 ], [ 1, %17 ]
-  %121 = add nuw nsw i32 %.0107127, %.sink
+  %121 = add nuw nsw i32 %.0107128, %.sink
   %122 = load i32, ptr %9, align 4
   %123 = icmp slt i32 %121, %122
   br i1 %123, label %17, label %._crit_edge, !llvm.loop !105
@@ -22259,15 +22259,15 @@ nvg__lastPoint.exit.thread:                       ; preds = %17, %119, %nvg__las
   store float -1.000000e+06, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store float -1.000000e+06, ptr %128, align 8
-  br i1 %124, label %.lr.ph136, label %.loopexit
+  br i1 %124, label %.lr.ph137, label %.loopexit
 
-.lr.ph136:                                        ; preds = %._crit_edge
+.lr.ph137:                                        ; preds = %._crit_edge
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8860
   br label %131
 
-131:                                              ; preds = %.lr.ph136, %._crit_edge133
-  %indvars.iv = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next, %._crit_edge133 ]
+131:                                              ; preds = %.lr.ph137, %._crit_edge134
+  %indvars.iv = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next, %._crit_edge134 ]
   %132 = load ptr, ptr %129, align 8
   %133 = getelementptr inbounds nuw %struct.NVGpath, ptr %132, i64 %indvars.iv
   %134 = load ptr, ptr %5, align 8
@@ -22306,7 +22306,7 @@ thread-pre-split:                                 ; preds = %131, %156
   %160 = phi i32 [ %157, %156 ], [ %139, %131 ]
   %.0 = phi ptr [ %158, %156 ], [ %142, %131 ]
   %161 = icmp sgt i32 %160, 2
-  br i1 %161, label %162, label %202
+  br i1 %161, label %162, label %198
 
 162:                                              ; preds = %thread-pre-split
   %163 = load float, ptr %137, align 4
@@ -22362,125 +22362,111 @@ nvg__polyArea.exit:                               ; preds = %165
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i117 = add nsw i64 %indvars.iv.i116, -1
   %190 = icmp slt i64 %indvars.iv.next17.i, %indvars.iv.next.i117
-  br i1 %190, label %.lr.ph.i, label %nvg__polyReverse.exit, !llvm.loop !107
+  br i1 %190, label %.lr.ph.i, label %.thread, !llvm.loop !107
 
-nvg__polyReverse.exit:                            ; preds = %.lr.ph.i
+.thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre138 = load i32, ptr %183, align 4
-  %.pre140.pre = load i32, ptr %138, align 4
-  br label %191
+  br label %198
 
-191:                                              ; preds = %nvg__polyReverse.exit, %nvg__polyArea.exit
-  %.pre140 = phi i32 [ %.pre140.pre, %nvg__polyReverse.exit ], [ %160, %nvg__polyArea.exit ]
-  %192 = phi i32 [ %.pre138, %nvg__polyReverse.exit ], [ %184, %nvg__polyArea.exit ]
-  %193 = icmp eq i32 %192, 2
-  %194 = fcmp ogt float %182, 0.000000e+00
-  %or.cond3 = select i1 %193, i1 %194, i1 false
-  br i1 %or.cond3, label %195, label %202
+191:                                              ; preds = %nvg__polyArea.exit
+  %192 = icmp eq i32 %184, 2
+  %193 = fcmp ogt float %182, 0.000000e+00
+  %or.cond3 = select i1 %192, i1 %193, i1 false
+  br i1 %or.cond3, label %.lr.ph.preheader.i118, label %198
 
-195:                                              ; preds = %191
+.lr.ph.preheader.i118:                            ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %196 = icmp sgt i32 %.pre140, 1
-  br i1 %196, label %.lr.ph.preheader.i118, label %nvg__polyReverse.exit124
-
-.lr.ph.preheader.i118:                            ; preds = %195
-  %197 = zext nneg i32 %.pre140 to i64
-  %198 = add nsw i64 %197, -1
+  %194 = add nsw i64 %wide.trip.count.i, -1
   br label %.lr.ph.i119
 
 .lr.ph.i119:                                      ; preds = %.lr.ph.i119, %.lr.ph.preheader.i118
   %indvars.iv16.i120 = phi i64 [ 0, %.lr.ph.preheader.i118 ], [ %indvars.iv.next17.i122, %.lr.ph.i119 ]
-  %indvars.iv.i121 = phi i64 [ %198, %.lr.ph.preheader.i118 ], [ %indvars.iv.next.i123, %.lr.ph.i119 ]
-  %199 = getelementptr inbounds nuw %struct.NVGpoint, ptr %137, i64 %indvars.iv16.i120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %199, i64 32, i1 false)
-  %200 = getelementptr inbounds %struct.NVGpoint, ptr %137, i64 %indvars.iv.i121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %199, ptr noundef nonnull align 4 dereferenceable(32) %200, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %200, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
+  %indvars.iv.i121 = phi i64 [ %194, %.lr.ph.preheader.i118 ], [ %indvars.iv.next.i123, %.lr.ph.i119 ]
+  %195 = getelementptr inbounds nuw %struct.NVGpoint, ptr %137, i64 %indvars.iv16.i120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %195, i64 32, i1 false)
+  %196 = getelementptr inbounds %struct.NVGpoint, ptr %137, i64 %indvars.iv.i121
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %195, ptr noundef nonnull align 4 dereferenceable(32) %196, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %196, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
   %indvars.iv.next17.i122 = add nuw nsw i64 %indvars.iv16.i120, 1
   %indvars.iv.next.i123 = add nsw i64 %indvars.iv.i121, -1
-  %201 = icmp slt i64 %indvars.iv.next17.i122, %indvars.iv.next.i123
-  br i1 %201, label %.lr.ph.i119, label %nvg__polyReverse.exit124.loopexit, !llvm.loop !107
+  %197 = icmp slt i64 %indvars.iv.next17.i122, %indvars.iv.next.i123
+  br i1 %197, label %.lr.ph.i119, label %nvg__polyReverse.exit124, !llvm.loop !107
 
-nvg__polyReverse.exit124.loopexit:                ; preds = %.lr.ph.i119
-  %.pre139.pre = load i32, ptr %138, align 4
-  br label %nvg__polyReverse.exit124
-
-nvg__polyReverse.exit124:                         ; preds = %nvg__polyReverse.exit124.loopexit, %195
-  %.pre139 = phi i32 [ %.pre139.pre, %nvg__polyReverse.exit124.loopexit ], [ %.pre140, %195 ]
+nvg__polyReverse.exit124:                         ; preds = %.lr.ph.i119
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %202
+  br label %198
 
-202:                                              ; preds = %191, %nvg__polyReverse.exit124, %thread-pre-split
-  %203 = phi i32 [ %.pre140, %191 ], [ %.pre139, %nvg__polyReverse.exit124 ], [ %160, %thread-pre-split ]
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %.lr.ph132, label %._crit_edge133
+198:                                              ; preds = %.thread, %191, %nvg__polyReverse.exit124, %thread-pre-split
+  %199 = load i32, ptr %138, align 4
+  %200 = icmp sgt i32 %199, 0
+  br i1 %200, label %.lr.ph133, label %._crit_edge134
 
-.lr.ph132:                                        ; preds = %202, %nvg__normalize.exit
-  %.1130 = phi ptr [ %.0106129, %nvg__normalize.exit ], [ %.0, %202 ]
-  %.0106129 = phi ptr [ %238, %nvg__normalize.exit ], [ %137, %202 ]
-  %.2128 = phi i32 [ %239, %nvg__normalize.exit ], [ 0, %202 ]
-  %205 = load float, ptr %.0106129, align 4
-  %206 = load float, ptr %.1130, align 4
-  %207 = fsub float %205, %206
-  %208 = getelementptr inbounds nuw i8, ptr %.1130, i64 8
-  store float %207, ptr %208, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %.0106129, i64 4
-  %210 = load float, ptr %209, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %.1130, i64 4
-  %212 = load float, ptr %211, align 4
-  %213 = fsub float %210, %212
-  %214 = getelementptr inbounds nuw i8, ptr %.1130, i64 12
-  store float %213, ptr %214, align 4
-  %215 = fmul float %213, %213
-  %216 = tail call float @llvm.fmuladd.f32(float %207, float %207, float %215)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %216)
-  %217 = fcmp ogt float %sqrt.i, 0x3EB0C6F7A0000000
-  br i1 %217, label %218, label %nvg__normalize.exit
+.lr.ph133:                                        ; preds = %198, %nvg__normalize.exit
+  %.1131 = phi ptr [ %.0106130, %nvg__normalize.exit ], [ %.0, %198 ]
+  %.0106130 = phi ptr [ %234, %nvg__normalize.exit ], [ %137, %198 ]
+  %.2129 = phi i32 [ %235, %nvg__normalize.exit ], [ 0, %198 ]
+  %201 = load float, ptr %.0106130, align 4
+  %202 = load float, ptr %.1131, align 4
+  %203 = fsub float %201, %202
+  %204 = getelementptr inbounds nuw i8, ptr %.1131, i64 8
+  store float %203, ptr %204, align 4
+  %205 = getelementptr inbounds nuw i8, ptr %.0106130, i64 4
+  %206 = load float, ptr %205, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %.1131, i64 4
+  %208 = load float, ptr %207, align 4
+  %209 = fsub float %206, %208
+  %210 = getelementptr inbounds nuw i8, ptr %.1131, i64 12
+  store float %209, ptr %210, align 4
+  %211 = fmul float %209, %209
+  %212 = tail call float @llvm.fmuladd.f32(float %203, float %203, float %211)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %212)
+  %213 = fcmp ogt float %sqrt.i, 0x3EB0C6F7A0000000
+  br i1 %213, label %214, label %nvg__normalize.exit
 
-218:                                              ; preds = %.lr.ph132
-  %219 = fdiv float 1.000000e+00, %sqrt.i
-  %220 = fmul float %207, %219
-  store float %220, ptr %208, align 4
-  %221 = fmul float %213, %219
-  store float %221, ptr %214, align 4
+214:                                              ; preds = %.lr.ph133
+  %215 = fdiv float 1.000000e+00, %sqrt.i
+  %216 = fmul float %203, %215
+  store float %216, ptr %204, align 4
+  %217 = fmul float %209, %215
+  store float %217, ptr %210, align 4
   br label %nvg__normalize.exit
 
-nvg__normalize.exit:                              ; preds = %.lr.ph132, %218
-  %222 = getelementptr inbounds nuw i8, ptr %.1130, i64 16
-  store float %sqrt.i, ptr %222, align 4
-  %223 = load float, ptr %125, align 8
-  %224 = fcmp olt float %223, %206
-  %225 = select i1 %224, float %223, float %206
-  store float %225, ptr %125, align 8
-  %226 = load float, ptr %126, align 4
-  %227 = load float, ptr %211, align 4
-  %228 = fcmp olt float %226, %227
+nvg__normalize.exit:                              ; preds = %.lr.ph133, %214
+  %218 = getelementptr inbounds nuw i8, ptr %.1131, i64 16
+  store float %sqrt.i, ptr %218, align 4
+  %219 = load float, ptr %125, align 8
+  %220 = fcmp olt float %219, %202
+  %221 = select i1 %220, float %219, float %202
+  store float %221, ptr %125, align 8
+  %222 = load float, ptr %126, align 4
+  %223 = load float, ptr %207, align 4
+  %224 = fcmp olt float %222, %223
+  %225 = select i1 %224, float %222, float %223
+  store float %225, ptr %126, align 4
+  %226 = load float, ptr %128, align 8
+  %227 = load float, ptr %.1131, align 4
+  %228 = fcmp ogt float %226, %227
   %229 = select i1 %228, float %226, float %227
-  store float %229, ptr %126, align 4
-  %230 = load float, ptr %128, align 8
-  %231 = load float, ptr %.1130, align 4
+  store float %229, ptr %128, align 8
+  %230 = load float, ptr %127, align 4
+  %231 = load float, ptr %207, align 4
   %232 = fcmp ogt float %230, %231
   %233 = select i1 %232, float %230, float %231
-  store float %233, ptr %128, align 8
-  %234 = load float, ptr %127, align 4
-  %235 = load float, ptr %211, align 4
-  %236 = fcmp ogt float %234, %235
-  %237 = select i1 %236, float %234, float %235
-  store float %237, ptr %127, align 4
-  %238 = getelementptr inbounds nuw i8, ptr %.0106129, i64 32
-  %239 = add nuw nsw i32 %.2128, 1
-  %240 = load i32, ptr %138, align 4
-  %241 = icmp slt i32 %239, %240
-  br i1 %241, label %.lr.ph132, label %._crit_edge133, !llvm.loop !108
+  store float %233, ptr %127, align 4
+  %234 = getelementptr inbounds nuw i8, ptr %.0106130, i64 32
+  %235 = add nuw nsw i32 %.2129, 1
+  %236 = load i32, ptr %138, align 4
+  %237 = icmp slt i32 %235, %236
+  br i1 %237, label %.lr.ph133, label %._crit_edge134, !llvm.loop !108
 
-._crit_edge133:                                   ; preds = %nvg__normalize.exit, %202
+._crit_edge134:                                   ; preds = %nvg__normalize.exit, %198
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %242 = load i32, ptr %6, align 8
-  %243 = sext i32 %242 to i64
-  %244 = icmp slt i64 %indvars.iv.next, %243
-  br i1 %244, label %131, label %.loopexit, !llvm.loop !109
+  %238 = load i32, ptr %6, align 8
+  %239 = sext i32 %238 to i64
+  %240 = icmp slt i64 %indvars.iv.next, %239
+  br i1 %240, label %131, label %.loopexit, !llvm.loop !109
 
-.loopexit:                                        ; preds = %._crit_edge133, %._crit_edge.thread, %._crit_edge, %1
+.loopexit:                                        ; preds = %._crit_edge134, %._crit_edge.thread, %._crit_edge, %1
   ret void
 }
 

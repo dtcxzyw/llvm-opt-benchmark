@@ -5344,7 +5344,7 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %.sroa.7.1.us = select i1 %23, double %18, double %.sroa.7.076.us
   %24 = add nuw nsw i32 %.01877.us, 1
   %exitcond84.not = icmp eq i32 %24, 48
-  br i1 %exitcond84.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !191
+  br i1 %exitcond84.not, label %.thread, label %.preheader.split.us, !llvm.loop !191
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %.01877 = phi i32 [ %34, %.preheader.split ], [ 0, %.preheader ]
@@ -5365,9 +5365,9 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %exitcond.not = icmp eq i32 %34, 48
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !191
 
-.split.us.thread:                                 ; preds = %.preheader.split.us
+.thread:                                          ; preds = %.preheader.split.us
   %.pre = fdiv double %18, %2
-  br label %38
+  br label %45
 
 .split.us:                                        ; preds = %.preheader.split
   %35 = fdiv double 1.000000e+00, %1
@@ -5375,40 +5375,42 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   %37 = fmul double %36, %26
   br label %38
 
-38:                                               ; preds = %.split.us.thread, %.split.us, %9, %.cont30
-  %.sroa.38.0 = phi double [ 0.000000e+00, %9 ], [ %27, %.split.us ], [ 0.000000e+00, %.cont30 ], [ %.pre, %.split.us.thread ]
-  %.sroa.24.0 = phi double [ 0.000000e+00, %9 ], [ %26, %.split.us ], [ 0.000000e+00, %.cont30 ], [ %18, %.split.us.thread ]
-  %.sroa.49.0 = phi double [ 0.000000e+00, %9 ], [ %37, %.split.us ], [ 0.000000e+00, %.cont30 ], [ 0.000000e+00, %.split.us.thread ]
+38:                                               ; preds = %.split.us, %9, %.cont30
+  %.sroa.38.0 = phi double [ 0.000000e+00, %9 ], [ %27, %.split.us ], [ 0.000000e+00, %.cont30 ]
+  %.sroa.24.0 = phi double [ 0.000000e+00, %9 ], [ %26, %.split.us ], [ 0.000000e+00, %.cont30 ]
+  %.sroa.49.0 = phi double [ 0.000000e+00, %9 ], [ %37, %.split.us ], [ 0.000000e+00, %.cont30 ]
   %39 = fcmp ueq double %1, 0.000000e+00
-  br i1 %39, label %40, label %cdce.end.split.us.preheader
+  br i1 %39, label %45, label %cdce.end.thread
 
-40:                                               ; preds = %38
-  %41 = fcmp ugt double %.sroa.38.0, 0.000000e+00
-  br i1 %41, label %cdce.end.split.preheader, label %cdce.call, !prof !232
-
-cdce.call:                                        ; preds = %40
-  %42 = tail call double @log(double noundef %.sroa.38.0) #31, !tbaa !31
-  br label %cdce.end.split.preheader
-
-cdce.end.split.preheader:                         ; preds = %cdce.call, %40
-  %43 = sitofp i32 %3 to double
-  br label %cdce.end.split
-
-cdce.end.split.us.preheader:                      ; preds = %38
-  %44 = fadd double %1, 1.000000e+00
-  %45 = tail call double @pow(double noundef %.sroa.38.0, double noundef %44) #31, !tbaa !31
-  %46 = sitofp i32 %3 to double
-  %47 = fadd double %.sroa.49.0, 1.000000e+00
-  %48 = fdiv double 1.000000e+00, %1
+cdce.end.thread:                                  ; preds = %38
+  %40 = fadd double %1, 1.000000e+00
+  %41 = tail call double @pow(double noundef %.sroa.38.0, double noundef %40) #31, !tbaa !31
+  %42 = sitofp i32 %3 to double
+  %43 = fadd double %.sroa.49.0, 1.000000e+00
+  %44 = fdiv double 1.000000e+00, %1
   br label %cdce.end.split.us
 
-cdce.end.split.us:                                ; preds = %cdce.end.split.us.preheader, %65
-  %indvars.iv87 = phi i64 [ 0, %cdce.end.split.us.preheader ], [ %indvars.iv.next88, %65 ]
+45:                                               ; preds = %.thread, %38
+  %.sroa.24.0102 = phi double [ %18, %.thread ], [ %.sroa.24.0, %38 ]
+  %.sroa.38.0100 = phi double [ %.pre, %.thread ], [ %.sroa.38.0, %38 ]
+  %46 = fcmp ugt double %.sroa.38.0100, 0.000000e+00
+  br i1 %46, label %cdce.end.split.preheader, label %cdce.call, !prof !232
+
+cdce.call:                                        ; preds = %45
+  %47 = tail call double @log(double noundef %.sroa.38.0100) #31, !tbaa !31
+  br label %cdce.end.split.preheader
+
+cdce.end.split.preheader:                         ; preds = %45, %cdce.call
+  %48 = sitofp i32 %3 to double
+  br label %cdce.end.split
+
+cdce.end.split.us:                                ; preds = %cdce.end.thread, %65
+  %indvars.iv87 = phi i64 [ 0, %cdce.end.thread ], [ %indvars.iv.next88, %65 ]
   %49 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv87
   store i16 -1, ptr %49, align 2, !tbaa !180
   %50 = trunc nuw nsw i64 %indvars.iv87 to i32
   %51 = uitofp nneg i32 %50 to double
-  %52 = fdiv double %51, %46
+  %52 = fdiv double %51, %42
   %53 = fcmp ult double %52, 1.000000e+00
   br i1 %53, label %54, label %65
 
@@ -5418,8 +5420,8 @@ cdce.end.split.us:                                ; preds = %cdce.end.split.us.p
 
 56:                                               ; preds = %54
   %57 = fadd double %.sroa.49.0, %52
-  %58 = fdiv double %57, %47
-  %59 = tail call double @pow(double noundef %58, double noundef %48) #31, !tbaa !31
+  %58 = fdiv double %57, %43
+  %59 = tail call double @pow(double noundef %58, double noundef %44) #31, !tbaa !31
   br label %62
 
 60:                                               ; preds = %54
@@ -5444,12 +5446,12 @@ cdce.end.split:                                   ; preds = %cdce.end.split.preh
   store i16 -1, ptr %66, align 2, !tbaa !180
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = uitofp nneg i32 %67 to double
-  %69 = fdiv double %68, %43
+  %69 = fdiv double %68, %48
   %70 = fcmp ult double %69, 1.000000e+00
   br i1 %70, label %71, label %82
 
 71:                                               ; preds = %cdce.end.split
-  %72 = fcmp olt double %69, %.sroa.24.0
+  %72 = fcmp olt double %69, %.sroa.24.0102
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -5458,7 +5460,7 @@ cdce.end.split:                                   ; preds = %cdce.end.split.preh
 
 75:                                               ; preds = %71
   %76 = fadd double %69, -1.000000e+00
-  %77 = fdiv double %76, %.sroa.24.0
+  %77 = fdiv double %76, %.sroa.24.0102
   %78 = tail call double @exp(double noundef %77) #31, !tbaa !31
   br label %79
 

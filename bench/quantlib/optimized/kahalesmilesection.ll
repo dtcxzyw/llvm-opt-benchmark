@@ -7504,16 +7504,20 @@ if.end.i48:                                       ; preds = %_ZN5boost4math8quan
   %c0_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %28 = load double, ptr %c0_, align 8, !tbaa !112
   %cmp.i = fcmp olt double %div11, 0x3CB0000000000000
-  br i1 %cmp.i, label %if.then3.i, label %if.end8.i50
+  br i1 %cmp.i, label %if.end.i66.thread, label %if.end.i66
 
-if.then3.i:                                       ; preds = %if.end.i48
+if.end.i66.thread:                                ; preds = %if.end.i48
   %sub.i = fsub double %call16, %8
   %cmp.i.i = fcmp olt double %sub.i, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, double 0.000000e+00, double %sub.i
   %29 = call double @llvm.fmuladd.f64(double %a, double %8, double %.sroa.speculated.i)
-  br label %if.end.i66
+  %retval.0.i52139 = fadd double %29, 0.000000e+00
+  %sub48140 = fsub double %28, %retval.0.i52139
+  %b_141 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store double %sub48140, ptr %b_141, align 8, !tbaa !118
+  br label %if.then3.i84
 
-if.end8.i50:                                      ; preds = %if.end.i48
+if.end.i66:                                       ; preds = %if.end.i48
   call void @llvm.lifetime.start.p0(ptr nonnull %normal.i)
   store double 0.000000e+00, ptr %normal.i, align 8, !tbaa !143
   %m_sd.i.i51 = getelementptr inbounds nuw i8, ptr %normal.i, i64 8
@@ -7539,25 +7543,21 @@ if.end8.i50:                                      ; preds = %if.end.i48
   %.pre = load double, ptr %f_, align 8, !tbaa !116
   %.pre128 = load double, ptr %s_, align 8, !tbaa !117
   %.pre129 = load double, ptr %k1_, align 8, !tbaa !111
-  br label %if.end.i66
-
-if.end.i66:                                       ; preds = %if.end8.i50, %if.then3.i
-  %33 = phi double [ %9, %if.then3.i ], [ %.pre129, %if.end8.i50 ]
-  %34 = phi double [ %div11, %if.then3.i ], [ %.pre128, %if.end8.i50 ]
-  %35 = phi double [ %call16, %if.then3.i ], [ %.pre, %if.end8.i50 ]
-  %retval.0.i52.in = phi double [ %29, %if.then3.i ], [ %32, %if.end8.i50 ]
-  %retval.0.i52 = fadd double %retval.0.i52.in, 0.000000e+00
+  %retval.0.i52 = fadd double %32, 0.000000e+00
   %sub48 = fsub double %28, %retval.0.i52
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store double %sub48, ptr %b_, align 8, !tbaa !118
-  %cmp.i68 = fcmp olt double %34, 0x3CB0000000000000
+  %cmp.i68 = fcmp olt double %.pre128, 0x3CB0000000000000
   br i1 %cmp.i68, label %if.then3.i84, label %if.end8.i69
 
-if.then3.i84:                                     ; preds = %if.end.i66
-  %sub.i85 = fsub double %35, %33
+if.then3.i84:                                     ; preds = %if.end.i66.thread, %if.end.i66
+  %sub48144 = phi double [ %sub48140, %if.end.i66.thread ], [ %sub48, %if.end.i66 ]
+  %33 = phi double [ %call16, %if.end.i66.thread ], [ %.pre, %if.end.i66 ]
+  %34 = phi double [ %9, %if.end.i66.thread ], [ %.pre129, %if.end.i66 ]
+  %sub.i85 = fsub double %33, %34
   %cmp.i.i86 = fcmp olt double %sub.i85, 0.000000e+00
   %.sroa.speculated.i87 = select i1 %cmp.i.i86, double 0.000000e+00, double %sub.i85
-  %36 = call double @llvm.fmuladd.f64(double %a, double %33, double %.sroa.speculated.i87)
+  %35 = call double @llvm.fmuladd.f64(double %a, double %34, double %.sroa.speculated.i87)
   br label %_ZNK8QuantLib18KahaleSmileSection9cFunctionclEd.exit96
 
 if.end8.i69:                                      ; preds = %if.end.i66
@@ -7566,32 +7566,33 @@ if.end8.i69:                                      ; preds = %if.end.i66
   %m_sd.i.i70 = getelementptr inbounds nuw i8, ptr %normal.i61, i64 8
   store double 1.000000e+00, ptr %m_sd.i.i70, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %d1.i62)
-  %div.i71 = fdiv double %35, %33
+  %div.i71 = fdiv double %.pre, %.pre129
   %call10.i72 = call double @log(double noundef %div.i71) #28, !tbaa !120
-  %div12.i73 = fdiv double %call10.i72, %34
-  %div14.i74 = fmul double %34, 5.000000e-01
+  %div12.i73 = fdiv double %call10.i72, %.pre128
+  %div14.i74 = fmul double %.pre128, 5.000000e-01
   %add15.i75 = fadd double %div14.i74, %div12.i73
   store double %add15.i75, ptr %d1.i62, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %d2.i63)
-  %sub17.i76 = fsub double %add15.i75, %34
+  %sub17.i76 = fsub double %add15.i75, %.pre128
   store double %sub17.i76, ptr %d2.i63, align 8, !tbaa !39
   %call19.i77 = call noundef double @_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %normal.i61, ptr noundef nonnull align 8 dereferenceable(8) %d1.i62)
   %call20.i78 = call noundef double @_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %normal.i61, ptr noundef nonnull align 8 dereferenceable(8) %d2.i63)
-  %37 = fneg double %call20.i78
-  %neg.i79 = fmul double %33, %37
-  %38 = call double @llvm.fmuladd.f64(double %35, double %call19.i77, double %neg.i79)
-  %39 = call double @llvm.fmuladd.f64(double %a, double %33, double %38)
+  %36 = fneg double %call20.i78
+  %neg.i79 = fmul double %.pre129, %36
+  %37 = call double @llvm.fmuladd.f64(double %.pre, double %call19.i77, double %neg.i79)
+  %38 = call double @llvm.fmuladd.f64(double %a, double %.pre129, double %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %d2.i63)
   call void @llvm.lifetime.end.p0(ptr nonnull %d1.i62)
   call void @llvm.lifetime.end.p0(ptr nonnull %normal.i61)
   br label %_ZNK8QuantLib18KahaleSmileSection9cFunctionclEd.exit96
 
 _ZNK8QuantLib18KahaleSmileSection9cFunctionclEd.exit96: ; preds = %if.then3.i84, %if.end8.i69
-  %.pn127 = phi double [ %36, %if.then3.i84 ], [ %39, %if.end8.i69 ]
-  %retval.0.i83 = fadd double %sub48, %.pn127
+  %sub48143 = phi double [ %sub48144, %if.then3.i84 ], [ %sub48, %if.end8.i69 ]
+  %.pn127 = phi double [ %35, %if.then3.i84 ], [ %38, %if.end8.i69 ]
+  %retval.0.i83 = fadd double %sub48143, %.pn127
   %c1_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %40 = load double, ptr %c1_, align 8, !tbaa !113
-  %sub54 = fsub double %retval.0.i83, %40
+  %39 = load double, ptr %c1_, align 8, !tbaa !113
+  %sub54 = fsub double %retval.0.i83, %39
   ret double %sub54
 
 unreachable:                                      ; preds = %invoke.cont32

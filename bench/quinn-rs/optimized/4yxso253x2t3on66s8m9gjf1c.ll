@@ -9101,79 +9101,85 @@ _ZN11quinn_proto10congestion3bbr3Bbr21update_recovery_state17hcc4a22d015008a68E.
   %93 = load i64, ptr %0, align 16, !alias.scope !605, !noundef !3
   %94 = icmp eq i64 %92, %93
   %95 = icmp ugt i64 %92, %93
-  br i1 %94, label %124, label %130
+  br i1 %94, label %123, label %129
 
 96:                                               ; preds = %84
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %98 = load float, ptr %97, align 8, !alias.scope !605, !noundef !3
   %99 = fcmp ogt float %98, 1.000000e+00
-  br i1 %99, label %102, label %100
+  br i1 %99, label %.thread49.i, label %100
 
 100:                                              ; preds = %96
   %101 = fcmp olt float %98, 1.000000e+00
-  br i1 %101, label %104, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit
+  br i1 %101, label %103, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit
 
-102:                                              ; preds = %130, %96
-  %103 = phi float [ %132, %130 ], [ %98, %96 ]
-  %.sroa.021.0.i = phi i1 [ %.sroa.020.0.i, %130 ], [ false, %96 ]
-  br i1 %.not.i8, label %136, label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i
+102:                                              ; preds = %129
+  br i1 %.not.i8, label %135, label %.thread.i11
 
-104:                                              ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i, %100
+.thread49.i:                                      ; preds = %96
+  br i1 %.not.i8, label %135, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit
+
+.thread.i11:                                      ; preds = %102
+  br i1 %.sroa.020.0.i, label %185, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit
+
+103:                                              ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i, %100
   %.sroa.021.1.i = phi i1 [ %.sroa.021.2.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i ], [ false, %100 ]
-  %105 = call noundef i64 @_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation12get_estimate17h8d0f17323b2b4ab3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %11)
-  %106 = load i64, ptr %0, align 16, !alias.scope !608, !noundef !3
-  %107 = mul i64 %106, 1000000
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %109 = load i32, ptr %108, align 8, !range !596, !alias.scope !608, !noundef !3
-  %110 = udiv i32 %109, 1000
-  %111 = zext nneg i32 %110 to i64
-  %112 = add i64 %107, %111
-  %113 = mul i64 %112, %105
-  %114 = uitofp i64 %113 to double
-  %115 = fdiv double %114, 1.000000e+06
-  %116 = call i64 @llvm.fptoui.sat.i64.f64(double %115)
-  %117 = icmp eq i64 %116, 0
-  br i1 %117, label %118, label %121
+  %104 = call noundef i64 @_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation12get_estimate17h8d0f17323b2b4ab3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %11)
+  %105 = load i64, ptr %0, align 16, !alias.scope !608, !noundef !3
+  %106 = mul i64 %105, 1000000
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %108 = load i32, ptr %107, align 8, !range !596, !alias.scope !608, !noundef !3
+  %109 = udiv i32 %108, 1000
+  %110 = zext nneg i32 %109 to i64
+  %111 = add i64 %106, %110
+  %112 = mul i64 %111, %104
+  %113 = uitofp i64 %112 to double
+  %114 = fdiv double %113, 1.000000e+06
+  %115 = call i64 @llvm.fptoui.sat.i64.f64(double %114)
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %117, label %120
 
-118:                                              ; preds = %104
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %120 = load i64, ptr %119, align 8, !alias.scope !608, !noundef !3
+117:                                              ; preds = %103
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %119 = load i64, ptr %118, align 8, !alias.scope !608, !noundef !3
   br label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i
 
-121:                                              ; preds = %104
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %123 = load i64, ptr %122, align 16, !alias.scope !608, !noundef !3
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umax.i64(i64 %123, i64 %116)
+120:                                              ; preds = %103
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %122 = load i64, ptr %121, align 16, !alias.scope !608, !noundef !3
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umax.i64(i64 %122, i64 %115)
   br label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i
 
-_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i: ; preds = %121, %118
-  %.sroa.0.0.i.i = phi i64 [ %120, %118 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %121 ]
+_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i: ; preds = %120, %117
+  %.sroa.0.0.i.i = phi i64 [ %119, %117 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %120 ]
   %.not28.i = icmp ugt i64 %3, %.sroa.0.0.i.i
   br i1 %.not28.i, label %184, label %185
 
-124:                                              ; preds = %89
-  %125 = extractvalue { i64, i32 } %91, 1
-  %126 = icmp ult i32 %125, 1000000000
-  call void @llvm.assume(i1 %126)
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %128 = load i32, ptr %127, align 8, !range !596, !alias.scope !605, !noundef !3
-  %129 = icmp samesign ugt i32 %125, %128
-  br label %130
+123:                                              ; preds = %89
+  %124 = extractvalue { i64, i32 } %91, 1
+  %125 = icmp ult i32 %124, 1000000000
+  call void @llvm.assume(i1 %125)
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %127 = load i32, ptr %126, align 8, !range !596, !alias.scope !605, !noundef !3
+  %128 = icmp samesign ugt i32 %124, %127
+  br label %129
 
-130:                                              ; preds = %124, %89
-  %.sroa.020.0.i = phi i1 [ %129, %124 ], [ %95, %89 ]
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %132 = load float, ptr %131, align 8, !alias.scope !605, !noundef !3
-  %133 = fcmp ogt float %132, 1.000000e+00
-  br i1 %133, label %102, label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i
+129:                                              ; preds = %123, %89
+  %.sroa.020.0.i = phi i1 [ %128, %123 ], [ %95, %89 ]
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %131 = load float, ptr %130, align 8, !alias.scope !605, !noundef !3
+  %132 = fcmp ogt float %131, 1.000000e+00
+  br i1 %132, label %102, label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i
 
-_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i: ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i, %130, %102
-  %134 = phi float [ %103, %102 ], [ %132, %130 ], [ %162, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i ]
-  %.sroa.021.2.i = phi i1 [ %.sroa.021.0.i, %102 ], [ %.sroa.020.0.i, %130 ], [ %.sroa.021.0.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i ]
-  %135 = fcmp olt float %134, 1.000000e+00
-  br i1 %135, label %104, label %184
+_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i: ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i, %129
+  %133 = phi float [ %131, %129 ], [ %162, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i ]
+  %.sroa.021.2.i = phi i1 [ %.sroa.020.0.i, %129 ], [ %.sroa.021.053.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i ]
+  %134 = fcmp olt float %133, 1.000000e+00
+  br i1 %134, label %103, label %184
 
-136:                                              ; preds = %102
+135:                                              ; preds = %.thread49.i, %102
+  %.sroa.021.053.i = phi i1 [ false, %.thread49.i ], [ %.sroa.020.0.i, %102 ]
+  %136 = phi float [ %98, %.thread49.i ], [ %131, %102 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %138 = load i64, ptr %137, align 8, !alias.scope !605, !noundef !3
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -9187,19 +9193,19 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31
   %147 = add i64 %142, %146
   %148 = mul i64 %147, %140
   %149 = uitofp i64 %148 to double
-  %150 = fpext float %103 to double
+  %150 = fpext float %136 to double
   %151 = fmul double %150, %149
   %152 = fdiv double %151, 1.000000e+06
   %153 = call i64 @llvm.fptoui.sat.i64.f64(double %152)
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %155, label %158
 
-155:                                              ; preds = %136
+155:                                              ; preds = %135
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %157 = load i64, ptr %156, align 8, !alias.scope !611, !noundef !3
   br label %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31.i
 
-158:                                              ; preds = %136
+158:                                              ; preds = %135
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %160 = load i64, ptr %159, align 16, !alias.scope !611, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i29.i = call noundef i64 @llvm.umax.i64(i64 %160, i64 %153)
@@ -9250,7 +9256,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34
   %.sroa.021.3.i = phi i1 [ %.sroa.021.2.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit31._crit_edge.i ], [ %.sroa.021.1.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i ]
   br i1 %.sroa.021.3.i, label %185, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit
 
-185:                                              ; preds = %184, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i
+185:                                              ; preds = %184, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34.i, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i, %.thread.i11
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %187 = load i8, ptr %186, align 16, !alias.scope !605, !noundef !3
   %188 = add i8 %187, 1
@@ -9264,13 +9270,13 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34
   %193 = load float, ptr %192, align 8, !alias.scope !605, !noundef !3
   %194 = fcmp olt float %193, 1.000000e+00
   %195 = zext nneg i8 %189 to i64
-  br i1 %194, label %199, label %.thread.i10
+  br i1 %194, label %199, label %.thread48.i
 
 196:                                              ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit37.i
   %.pre39.i = load i8, ptr %186, align 16, !alias.scope !605
   %197 = zext i8 %.pre39.i to i64
   %198 = icmp ult i8 %.pre39.i, 8
-  br i1 %198, label %.thread.i10, label %229
+  br i1 %198, label %.thread48.i, label %229
 
 199:                                              ; preds = %185
   %200 = getelementptr inbounds nuw float, ptr @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.222, i64 %195
@@ -9278,7 +9284,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34
   %202 = fadd float %201, -1.000000e+00
   %203 = call float @llvm.fabs.f32(float %202)
   %204 = fcmp olt float %203, 0x3E80000000000000
-  br i1 %204, label %205, label %.thread.i10
+  br i1 %204, label %205, label %.thread48.i
 
 205:                                              ; preds = %199
   %206 = call noundef i64 @_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation12get_estimate17h8d0f17323b2b4ab3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %11)
@@ -9312,7 +9318,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit37
   %225 = icmp ugt i64 %3, %.sroa.0.0.i36.i
   br i1 %225, label %_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit, label %196
 
-.thread.i10:                                      ; preds = %185, %199, %196
+.thread48.i:                                      ; preds = %185, %199, %196
   %226 = phi i64 [ %197, %196 ], [ %195, %199 ], [ %195, %185 ]
   %227 = getelementptr inbounds nuw float, ptr @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.222, i64 %226
   %228 = load float, ptr %227, align 4, !noalias !605, !noundef !3
@@ -9323,7 +9329,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit37
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %197, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.225) #29
   unreachable
 
-_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit: ; preds = %100, %163, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34.i, %184, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit37.i, %.thread.i10
+_ZN11quinn_proto10congestion3bbr3Bbr23update_gain_cycle_phase17h3164c93a50f5c46cE.exit: ; preds = %100, %.thread49.i, %.thread.i11, %163, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit34.i, %184, %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit37.i, %.thread48.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %230
 

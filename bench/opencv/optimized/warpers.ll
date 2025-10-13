@@ -5810,7 +5810,7 @@ define void @_ZN2cv6detail15SphericalWarper15detectResultRoiENS_5Size_IiEERNS_6P
   %32 = load float, ptr %31, align 4, !tbaa !180
   %33 = fadd float %32, %30
   %34 = fcmp ogt float %33, 0.000000e+00
-  br i1 %34, label %35, label %57
+  br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5827,7 +5827,7 @@ define void @_ZN2cv6detail15SphericalWarper15detectResultRoiENS_5Size_IiEERNS_6P
   %46 = sitofp i32 %.sroa.4.0.extract.trunc to float
   %47 = fcmp olt float %42, %46
   %or.cond43 = select i1 %or.cond, i1 %47, i1 false
-  br i1 %or.cond43, label %48, label %57
+  br i1 %or.cond43, label %48, label %.thread
 
 48:                                               ; preds = %35
   %49 = fcmp ogt float %6, 0.000000e+00
@@ -5842,15 +5842,11 @@ define void @_ZN2cv6detail15SphericalWarper15detectResultRoiENS_5Size_IiEERNS_6P
   %.sroa.speculated70 = select i1 %55, float 0.000000e+00, float %11
   %56 = fcmp olt float %14, %53
   %.sroa.speculated66 = select i1 %56, float %53, float %14
-  br label %57
+  br label %.thread
 
-57:                                               ; preds = %21, %35, %48, %4
-  %.096 = phi float [ %.sroa.speculated66, %48 ], [ %14, %35 ], [ %14, %21 ], [ %14, %4 ]
-  %.094 = phi float [ %.sroa.speculated70, %48 ], [ %11, %35 ], [ %11, %21 ], [ %11, %4 ]
-  %.092 = phi float [ %.sroa.speculated74, %48 ], [ %9, %35 ], [ %9, %21 ], [ %9, %4 ]
-  %.0 = phi float [ %.sroa.speculated78, %48 ], [ %6, %35 ], [ %6, %21 ], [ %6, %4 ]
+57:                                               ; preds = %4
   %58 = fcmp olt float %18, 0.000000e+00
-  br i1 %58, label %59, label %92
+  br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %57
   %60 = fneg float %18
@@ -5867,7 +5863,7 @@ define void @_ZN2cv6detail15SphericalWarper15detectResultRoiENS_5Size_IiEERNS_6P
   %71 = load float, ptr %70, align 4, !tbaa !180
   %72 = fadd float %71, %69
   %73 = fcmp ogt float %72, 0.000000e+00
-  br i1 %73, label %74, label %92
+  br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %59
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5884,32 +5880,32 @@ define void @_ZN2cv6detail15SphericalWarper15detectResultRoiENS_5Size_IiEERNS_6P
   %85 = sitofp i32 %.sroa.4.0.extract.trunc to float
   %86 = fcmp olt float %81, %85
   %or.cond45 = select i1 %or.cond3, i1 %86, i1 false
-  br i1 %or.cond45, label %87, label %92
+  br i1 %or.cond45, label %87, label %.thread
 
 87:                                               ; preds = %74
-  %88 = fcmp ogt float %.0, 0.000000e+00
-  %.sroa.speculated62 = select i1 %88, float 0.000000e+00, float %.0
-  %89 = fcmp ogt float %.092, 0.000000e+00
-  %.sroa.speculated58 = select i1 %89, float 0.000000e+00, float %.092
-  %90 = fcmp olt float %.094, 0.000000e+00
-  %.sroa.speculated54 = select i1 %90, float 0.000000e+00, float %.094
-  %91 = fcmp olt float %.096, 0.000000e+00
-  %.sroa.speculated = select i1 %91, float 0.000000e+00, float %.096
-  br label %92
+  %88 = fcmp ogt float %6, 0.000000e+00
+  %.sroa.speculated62 = select i1 %88, float 0.000000e+00, float %6
+  %89 = fcmp ogt float %9, 0.000000e+00
+  %.sroa.speculated58 = select i1 %89, float 0.000000e+00, float %9
+  %90 = fcmp olt float %11, 0.000000e+00
+  %.sroa.speculated54 = select i1 %90, float 0.000000e+00, float %11
+  %91 = fcmp olt float %14, 0.000000e+00
+  %.sroa.speculated = select i1 %91, float 0.000000e+00, float %14
+  br label %.thread
 
-92:                                               ; preds = %59, %74, %87, %57
-  %.197 = phi float [ %.sroa.speculated, %87 ], [ %.096, %74 ], [ %.096, %59 ], [ %.096, %57 ]
-  %.195 = phi float [ %.sroa.speculated54, %87 ], [ %.094, %74 ], [ %.094, %59 ], [ %.094, %57 ]
-  %.193 = phi float [ %.sroa.speculated58, %87 ], [ %.092, %74 ], [ %.092, %59 ], [ %.092, %57 ]
-  %.1 = phi float [ %.sroa.speculated62, %87 ], [ %.0, %74 ], [ %.0, %59 ], [ %.0, %57 ]
-  %93 = fptosi float %.1 to i32
-  store i32 %93, ptr %2, align 4, !tbaa !206
-  %94 = fptosi float %.193 to i32
-  store i32 %94, ptr %7, align 4, !tbaa !208
-  %95 = fptosi float %.195 to i32
-  store i32 %95, ptr %3, align 4, !tbaa !206
-  %96 = fptosi float %.197 to i32
-  store i32 %96, ptr %12, align 4, !tbaa !208
+.thread:                                          ; preds = %48, %35, %21, %59, %74, %87, %57
+  %.197 = phi float [ %.sroa.speculated, %87 ], [ %14, %74 ], [ %14, %59 ], [ %14, %57 ], [ %14, %21 ], [ %14, %35 ], [ %.sroa.speculated66, %48 ]
+  %.195 = phi float [ %.sroa.speculated54, %87 ], [ %11, %74 ], [ %11, %59 ], [ %11, %57 ], [ %11, %21 ], [ %11, %35 ], [ %.sroa.speculated70, %48 ]
+  %.193 = phi float [ %.sroa.speculated58, %87 ], [ %9, %74 ], [ %9, %59 ], [ %9, %57 ], [ %9, %21 ], [ %9, %35 ], [ %.sroa.speculated74, %48 ]
+  %.1 = phi float [ %.sroa.speculated62, %87 ], [ %6, %74 ], [ %6, %59 ], [ %6, %57 ], [ %6, %21 ], [ %6, %35 ], [ %.sroa.speculated78, %48 ]
+  %92 = fptosi float %.1 to i32
+  store i32 %92, ptr %2, align 4, !tbaa !206
+  %93 = fptosi float %.193 to i32
+  store i32 %93, ptr %7, align 4, !tbaa !208
+  %94 = fptosi float %.195 to i32
+  store i32 %94, ptr %3, align 4, !tbaa !206
+  %95 = fptosi float %.197 to i32
+  store i32 %95, ptr %12, align 4, !tbaa !208
   ret void
 }
 
@@ -6173,7 +6169,7 @@ define void @_ZN2cv6detail23SphericalPortraitWarper15detectResultRoiENS_5Size_Ii
   %32 = load float, ptr %31, align 4, !tbaa !180
   %33 = fadd float %32, %30
   %34 = fcmp ogt float %33, 0.000000e+00
-  br i1 %34, label %35, label %57
+  br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -6190,7 +6186,7 @@ define void @_ZN2cv6detail23SphericalPortraitWarper15detectResultRoiENS_5Size_Ii
   %46 = sitofp i32 %.sroa.4.0.extract.trunc to float
   %47 = fcmp olt float %42, %46
   %or.cond43 = select i1 %or.cond, i1 %47, i1 false
-  br i1 %or.cond43, label %48, label %57
+  br i1 %or.cond43, label %48, label %.thread
 
 48:                                               ; preds = %35
   %49 = fcmp ogt float %6, 0.000000e+00
@@ -6205,15 +6201,11 @@ define void @_ZN2cv6detail23SphericalPortraitWarper15detectResultRoiENS_5Size_Ii
   %.sroa.speculated70 = select i1 %55, float 0.000000e+00, float %11
   %56 = fcmp olt float %14, %53
   %.sroa.speculated66 = select i1 %56, float %53, float %14
-  br label %57
+  br label %.thread
 
-57:                                               ; preds = %21, %35, %48, %4
-  %.096 = phi float [ %.sroa.speculated66, %48 ], [ %14, %35 ], [ %14, %21 ], [ %14, %4 ]
-  %.094 = phi float [ %.sroa.speculated70, %48 ], [ %11, %35 ], [ %11, %21 ], [ %11, %4 ]
-  %.092 = phi float [ %.sroa.speculated74, %48 ], [ %9, %35 ], [ %9, %21 ], [ %9, %4 ]
-  %.0 = phi float [ %.sroa.speculated78, %48 ], [ %6, %35 ], [ %6, %21 ], [ %6, %4 ]
+57:                                               ; preds = %4
   %58 = fcmp olt float %18, 0.000000e+00
-  br i1 %58, label %59, label %92
+  br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %57
   %60 = fneg float %18
@@ -6230,7 +6222,7 @@ define void @_ZN2cv6detail23SphericalPortraitWarper15detectResultRoiENS_5Size_Ii
   %71 = load float, ptr %70, align 4, !tbaa !180
   %72 = fadd float %71, %69
   %73 = fcmp ogt float %72, 0.000000e+00
-  br i1 %73, label %74, label %92
+  br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %59
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -6247,32 +6239,32 @@ define void @_ZN2cv6detail23SphericalPortraitWarper15detectResultRoiENS_5Size_Ii
   %85 = sitofp i32 %.sroa.4.0.extract.trunc to float
   %86 = fcmp olt float %81, %85
   %or.cond45 = select i1 %or.cond3, i1 %86, i1 false
-  br i1 %or.cond45, label %87, label %92
+  br i1 %or.cond45, label %87, label %.thread
 
 87:                                               ; preds = %74
-  %88 = fcmp ogt float %.0, 0.000000e+00
-  %.sroa.speculated62 = select i1 %88, float 0.000000e+00, float %.0
-  %89 = fcmp ogt float %.092, 0.000000e+00
-  %.sroa.speculated58 = select i1 %89, float 0.000000e+00, float %.092
-  %90 = fcmp olt float %.094, 0.000000e+00
-  %.sroa.speculated54 = select i1 %90, float 0.000000e+00, float %.094
-  %91 = fcmp olt float %.096, 0.000000e+00
-  %.sroa.speculated = select i1 %91, float 0.000000e+00, float %.096
-  br label %92
+  %88 = fcmp ogt float %6, 0.000000e+00
+  %.sroa.speculated62 = select i1 %88, float 0.000000e+00, float %6
+  %89 = fcmp ogt float %9, 0.000000e+00
+  %.sroa.speculated58 = select i1 %89, float 0.000000e+00, float %9
+  %90 = fcmp olt float %11, 0.000000e+00
+  %.sroa.speculated54 = select i1 %90, float 0.000000e+00, float %11
+  %91 = fcmp olt float %14, 0.000000e+00
+  %.sroa.speculated = select i1 %91, float 0.000000e+00, float %14
+  br label %.thread
 
-92:                                               ; preds = %59, %74, %87, %57
-  %.197 = phi float [ %.sroa.speculated, %87 ], [ %.096, %74 ], [ %.096, %59 ], [ %.096, %57 ]
-  %.195 = phi float [ %.sroa.speculated54, %87 ], [ %.094, %74 ], [ %.094, %59 ], [ %.094, %57 ]
-  %.193 = phi float [ %.sroa.speculated58, %87 ], [ %.092, %74 ], [ %.092, %59 ], [ %.092, %57 ]
-  %.1 = phi float [ %.sroa.speculated62, %87 ], [ %.0, %74 ], [ %.0, %59 ], [ %.0, %57 ]
-  %93 = fptosi float %.1 to i32
-  store i32 %93, ptr %2, align 4, !tbaa !206
-  %94 = fptosi float %.193 to i32
-  store i32 %94, ptr %7, align 4, !tbaa !208
-  %95 = fptosi float %.195 to i32
-  store i32 %95, ptr %3, align 4, !tbaa !206
-  %96 = fptosi float %.197 to i32
-  store i32 %96, ptr %12, align 4, !tbaa !208
+.thread:                                          ; preds = %48, %35, %21, %59, %74, %87, %57
+  %.197 = phi float [ %.sroa.speculated, %87 ], [ %14, %74 ], [ %14, %59 ], [ %14, %57 ], [ %14, %21 ], [ %14, %35 ], [ %.sroa.speculated66, %48 ]
+  %.195 = phi float [ %.sroa.speculated54, %87 ], [ %11, %74 ], [ %11, %59 ], [ %11, %57 ], [ %11, %21 ], [ %11, %35 ], [ %.sroa.speculated70, %48 ]
+  %.193 = phi float [ %.sroa.speculated58, %87 ], [ %9, %74 ], [ %9, %59 ], [ %9, %57 ], [ %9, %21 ], [ %9, %35 ], [ %.sroa.speculated74, %48 ]
+  %.1 = phi float [ %.sroa.speculated62, %87 ], [ %6, %74 ], [ %6, %59 ], [ %6, %57 ], [ %6, %21 ], [ %6, %35 ], [ %.sroa.speculated78, %48 ]
+  %92 = fptosi float %.1 to i32
+  store i32 %92, ptr %2, align 4, !tbaa !206
+  %93 = fptosi float %.193 to i32
+  store i32 %93, ptr %7, align 4, !tbaa !208
+  %94 = fptosi float %.195 to i32
+  store i32 %94, ptr %3, align 4, !tbaa !206
+  %95 = fptosi float %.197 to i32
+  store i32 %95, ptr %12, align 4, !tbaa !208
   ret void
 }
 

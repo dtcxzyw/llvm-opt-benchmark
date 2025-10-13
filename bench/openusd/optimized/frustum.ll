@@ -554,7 +554,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   store double %2, ptr %.sroa.335.0..sroa_idx, align 8
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %2, ptr %.sroa.436.0..sroa_idx, align 8
-  br label %56
+  br label %54
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -578,89 +578,87 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %31 = getelementptr inbounds nuw double, ptr %17, i64 %28
   %32 = load double, ptr %31, align 8
   %33 = fcmp ogt double %30, 0.000000e+00
-  br i1 %33, label %39, label %34
+  br i1 %33, label %38, label %34
 
 34:                                               ; preds = %15
   %35 = fcmp olt double %32, 0.000000e+00
   %36 = fneg double %30
   %37 = fcmp olt double %32, %36
   %or.cond = or i1 %35, %37
-  br i1 %or.cond, label %39, label %38
+  br i1 %or.cond, label %38, label %.thread
 
-38:                                               ; preds = %34
-  br label %39
+38:                                               ; preds = %34, %15
+  %.0 = phi double [ %32, %15 ], [ %30, %34 ]
+  %39 = fcmp olt double %.0, 0.000000e+00
+  br i1 %39, label %40, label %.thread
 
-39:                                               ; preds = %34, %15, %38
-  %.0 = phi double [ %32, %38 ], [ %32, %15 ], [ %30, %34 ]
-  %40 = fcmp olt double %.0, 0.000000e+00
-  br i1 %40, label %41, label %43
+40:                                               ; preds = %38
+  %41 = fneg double %.0
+  br label %44
 
-41:                                               ; preds = %39
-  %42 = fneg double %.0
-  br label %46
+.thread:                                          ; preds = %34, %38
+  %.038 = phi double [ %.0, %38 ], [ %32, %34 ]
+  %42 = fcmp oeq double %.038, 0.000000e+00
+  br i1 %42, label %43, label %44
 
-43:                                               ; preds = %39
-  %44 = fcmp oeq double %.0, 0.000000e+00
-  br i1 %44, label %45, label %46
+43:                                               ; preds = %.thread
+  br label %44
 
-45:                                               ; preds = %43
-  br label %46
-
-46:                                               ; preds = %43, %45, %41
-  %.1 = phi double [ %42, %41 ], [ 1.000000e+00, %45 ], [ %.0, %43 ]
-  %47 = fdiv double 1.000000e+00, %.1
-  %48 = fmul double %2, %47
-  %49 = fmul double %.1, %.1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %51 = load double, ptr %50, align 8
-  %52 = fmul double %51, %51
-  %53 = fadd double %49, %52
-  %sqrt = tail call double @llvm.sqrt.f64(double %53)
-  %54 = fmul double %48, %sqrt
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %54, ptr %55, align 8
+44:                                               ; preds = %.thread, %43, %40
+  %.1 = phi double [ %41, %40 ], [ 1.000000e+00, %43 ], [ %.038, %.thread ]
+  %45 = fdiv double 1.000000e+00, %.1
+  %46 = fmul double %2, %45
+  %47 = fmul double %.1, %.1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %49 = load double, ptr %48, align 8
+  %50 = fmul double %49, %49
+  %51 = fadd double %47, %50
+  %sqrt = tail call double @llvm.sqrt.f64(double %51)
+  %52 = fmul double %46, %sqrt
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store double %52, ptr %53, align 8
   %.pre = fadd double %2, %3
-  br label %56
+  br label %54
 
-56:                                               ; preds = %46, %10
-  %.pre-phi = phi double [ %.pre, %46 ], [ %11, %10 ]
-  %57 = phi double [ %54, %46 ], [ %11, %10 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %59 = fsub double %57, %.pre-phi
-  store double %59, ptr %58, align 8
-  %60 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %59)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %60, ptr %61, align 8
+54:                                               ; preds = %44, %10
+  %.pre-phi = phi double [ %.pre, %44 ], [ %11, %10 ]
+  %55 = phi double [ %52, %44 ], [ %11, %10 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %57 = fsub double %55, %.pre-phi
+  store double %57, ptr %56, align 8
+  %58 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %57)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store double %58, ptr %59, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double -0.000000e+00, ptr %5, align 8, !alias.scope !8, !noalias !11
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double -0.000000e+00, ptr %63, align 8, !alias.scope !8, !noalias !11
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double -1.000000e+00, ptr %64, align 8, !alias.scope !8, !noalias !11
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double -0.000000e+00, ptr %61, align 8, !alias.scope !8, !noalias !11
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double -1.000000e+00, ptr %62, align 8, !alias.scope !8, !noalias !11
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i.i = load double, ptr %6, align 8, !noalias !14
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !14
-  %65 = fmul double %57, %.sroa.0.0.copyload.i.i
-  %66 = fmul double %57, %.sroa.4.0.copyload.i.i
-  %67 = fmul double %57, %.sroa.6.0.copyload.i.i
+  %63 = fmul double %55, %.sroa.0.0.copyload.i.i
+  %64 = fmul double %55, %.sroa.4.0.copyload.i.i
+  %65 = fmul double %55, %.sroa.6.0.copyload.i.i
   %.sroa.0.0.copyload.i = load double, ptr %1, align 8, !noalias !19
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !19
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !19
-  %68 = fsub double %.sroa.0.0.copyload.i, %65
-  %69 = fsub double %.sroa.4.0.copyload.i, %66
-  %70 = fsub double %.sroa.6.0.copyload.i, %67
-  store double %68, ptr %0, align 8
+  %66 = fsub double %.sroa.0.0.copyload.i, %63
+  %67 = fsub double %.sroa.4.0.copyload.i, %64
+  %68 = fsub double %.sroa.6.0.copyload.i, %65
+  store double %66, ptr %0, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %69, ptr %.sroa.225.0..sroa_idx, align 8
+  store double %67, ptr %.sroa.225.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %70, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %68, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }
 

@@ -1165,7 +1165,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   store i64 -2251799813685248, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8, !tbaa !6
-  br label %46
+  br label %.thread
 
 10:                                               ; preds = %5
   %11 = tail call double @llvm.fabs.f64(double %4)
@@ -1175,83 +1175,77 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   br i1 %or.cond6.i.i, label %13, label %14
 
 13:                                               ; preds = %10
-  br i1 %or.cond6.i.i59, label %23, label %.thread
+  br i1 %or.cond6.i.i59, label %21, label %.thread.thread
 
 14:                                               ; preds = %10
-  br i1 %or.cond6.i.i59, label %.thread, label %15
+  %15 = xor i64 %6, %3
+  %.not55 = icmp sgt i64 %15, -1
+  %or.cond = or i1 %or.cond6.i.i59, %.not55
+  br i1 %or.cond, label %.thread, label %16
 
-15:                                               ; preds = %14
-  %16 = xor i64 %6, %3
-  %.not55 = icmp sgt i64 %16, -1
-  br i1 %.not55, label %46, label %17
-
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   store i64 -2251799813685248, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %18, align 8, !tbaa !6
-  br label %46
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %17, align 8, !tbaa !6
+  br label %.thread
 
-.thread:                                          ; preds = %13, %14
-  %or.cond6.i.i68 = fcmp une double %12, 0x7FF0000000000000
-  br i1 %or.cond6.i.i68, label %46, label %19
-
-19:                                               ; preds = %.thread
+.thread.thread:                                   ; preds = %13
   store i64 %6, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 8, !tbaa !6
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %19, ptr %20, align 8, !tbaa !6
+  br label %.thread
+
+21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %22, align 8, !tbaa !6
-  br label %46
-
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !6
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !6
-  %28 = icmp sgt i32 %25, %27
-  br i1 %28, label %29, label %35
+  %26 = icmp sgt i32 %23, %25
+  br i1 %26, label %27, label %33
 
-29:                                               ; preds = %23
-  %30 = sub nsw i32 %25, %27
-  %31 = icmp slt i32 %30, 1024
-  br i1 %31, label %32, label %45
+27:                                               ; preds = %21
+  %28 = sub nsw i32 %23, %25
+  %29 = icmp slt i32 %28, 1024
+  br i1 %29, label %30, label %43
 
-32:                                               ; preds = %29
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30)
-  %33 = fdiv double %7, %ldexp51
-  %34 = fadd double %33, %4
-  %.pre71 = load i32, ptr %24, align 8, !tbaa !6
-  br label %45
+30:                                               ; preds = %27
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %28)
+  %31 = fdiv double %7, %ldexp51
+  %32 = fadd double %31, %4
+  %.pre71 = load i32, ptr %22, align 8, !tbaa !6
+  br label %43
 
-35:                                               ; preds = %23
-  %36 = icmp slt i32 %25, %27
-  br i1 %36, label %37, label %43
+33:                                               ; preds = %21
+  %34 = icmp slt i32 %23, %25
+  br i1 %34, label %35, label %41
 
-37:                                               ; preds = %35
-  %38 = sub nsw i32 %27, %25
-  %39 = icmp slt i32 %38, 1024
-  br i1 %39, label %40, label %45
+35:                                               ; preds = %33
+  %36 = sub nsw i32 %25, %23
+  %37 = icmp slt i32 %36, 1024
+  br i1 %37, label %38, label %43
 
-40:                                               ; preds = %37
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38)
-  %41 = fdiv double %4, %ldexp
-  %42 = fadd double %41, %7
-  %.pre = load i32, ptr %26, align 8, !tbaa !6
-  br label %45
+38:                                               ; preds = %35
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %36)
+  %39 = fdiv double %4, %ldexp
+  %40 = fadd double %39, %7
+  %.pre = load i32, ptr %24, align 8, !tbaa !6
+  br label %43
 
-43:                                               ; preds = %35
-  %44 = fadd double %4, %7
-  br label %45
+41:                                               ; preds = %33
+  %42 = fadd double %4, %7
+  br label %43
 
-45:                                               ; preds = %40, %37, %32, %29, %43
-  %.041 = phi i32 [ %25, %43 ], [ %.pre71, %32 ], [ %25, %29 ], [ %.pre, %40 ], [ %27, %37 ]
-  %.1 = phi double [ %44, %43 ], [ %34, %32 ], [ %4, %29 ], [ %42, %40 ], [ %7, %37 ]
+43:                                               ; preds = %38, %35, %30, %27, %41
+  %.041 = phi i32 [ %23, %41 ], [ %.pre71, %30 ], [ %23, %27 ], [ %.pre, %38 ], [ %25, %35 ]
+  %.1 = phi double [ %42, %41 ], [ %32, %30 ], [ %4, %27 ], [ %40, %38 ], [ %7, %35 ]
   store double %.1, ptr %0, align 8, !tbaa !3
-  store i32 %.041, ptr %24, align 8, !tbaa !6
+  store i32 %.041, ptr %22, align 8, !tbaa !6
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %46
+  br label %.thread
 
-46:                                               ; preds = %17, %15, %19, %.thread, %45, %8
+.thread:                                          ; preds = %14, %16, %.thread.thread, %43, %8
   ret void
 }
 
@@ -1541,97 +1535,91 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   store i64 -2251799813685248, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8, !tbaa !6
-  br label %49
+  br label %.thread
 
 10:                                               ; preds = %5
   %11 = tail call double @llvm.fabs.f64(double %4)
   %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
   %12 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i58 = fcmp une double %12, 0x7FF0000000000000
+  %or.cond6.i.i58 = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %or.cond6.i.i, label %13, label %14
 
 13:                                               ; preds = %10
-  br i1 %or.cond6.i.i58, label %24, label %.thread
+  br i1 %or.cond6.i.i58, label %.thread.thread, label %22
 
 14:                                               ; preds = %10
-  br i1 %or.cond6.i.i58, label %.thread, label %15
+  %15 = xor i64 %6, %3
+  %16 = icmp sgt i64 %15, -1
+  %or.cond = and i1 %or.cond6.i.i58, %16
+  br i1 %or.cond, label %17, label %.thread
 
-15:                                               ; preds = %14
-  %16 = xor i64 %6, %3
-  %17 = icmp sgt i64 %16, -1
-  br i1 %17, label %18, label %49
-
-18:                                               ; preds = %15
+17:                                               ; preds = %14
   store i64 -2251799813685248, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %19, align 8, !tbaa !6
-  br label %49
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %18, align 8, !tbaa !6
+  br label %.thread
 
-.thread:                                          ; preds = %13, %14
-  %or.cond6.i.i67 = fcmp une double %12, 0x7FF0000000000000
-  br i1 %or.cond6.i.i67, label %49, label %20
-
-20:                                               ; preds = %.thread
+.thread.thread:                                   ; preds = %13
   store i64 %6, ptr %0, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %21, align 8, !tbaa !6
+  br label %.thread
+
+22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %22, ptr %23, align 8, !tbaa !6
-  br label %49
-
-24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 8, !tbaa !6
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !6
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !6
-  %29 = icmp sgt i32 %26, %28
-  br i1 %29, label %30, label %36
+  %27 = icmp sgt i32 %24, %26
+  br i1 %27, label %28, label %34
 
-30:                                               ; preds = %24
-  %31 = sub nsw i32 %26, %28
-  %32 = icmp slt i32 %31, 1024
-  br i1 %32, label %33, label %48
+28:                                               ; preds = %22
+  %29 = sub nsw i32 %24, %26
+  %30 = icmp slt i32 %29, 1024
+  br i1 %30, label %31, label %46
 
-33:                                               ; preds = %30
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31)
-  %34 = fdiv double %7, %ldexp51
-  %35 = fsub double %4, %34
-  %.pre70 = load i32, ptr %25, align 8, !tbaa !6
-  br label %48
+31:                                               ; preds = %28
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %29)
+  %32 = fdiv double %7, %ldexp51
+  %33 = fsub double %4, %32
+  %.pre70 = load i32, ptr %23, align 8, !tbaa !6
+  br label %46
 
-36:                                               ; preds = %24
-  %37 = icmp slt i32 %26, %28
-  br i1 %37, label %38, label %46
+34:                                               ; preds = %22
+  %35 = icmp slt i32 %24, %26
+  br i1 %35, label %36, label %44
 
-38:                                               ; preds = %36
-  %39 = sub nsw i32 %28, %26
-  %40 = icmp slt i32 %39, 1024
-  br i1 %40, label %41, label %44
+36:                                               ; preds = %34
+  %37 = sub nsw i32 %26, %24
+  %38 = icmp slt i32 %37, 1024
+  br i1 %38, label %39, label %42
 
-41:                                               ; preds = %38
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39)
-  %42 = fdiv double %4, %ldexp
-  %43 = fsub double %42, %7
-  %.pre = load i32, ptr %27, align 8, !tbaa !6
-  br label %48
+39:                                               ; preds = %36
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %37)
+  %40 = fdiv double %4, %ldexp
+  %41 = fsub double %40, %7
+  %.pre = load i32, ptr %25, align 8, !tbaa !6
+  br label %46
 
-44:                                               ; preds = %38
-  %45 = fneg double %7
-  br label %48
+42:                                               ; preds = %36
+  %43 = fneg double %7
+  br label %46
 
-46:                                               ; preds = %36
-  %47 = fsub double %4, %7
-  br label %48
+44:                                               ; preds = %34
+  %45 = fsub double %4, %7
+  br label %46
 
-48:                                               ; preds = %41, %44, %33, %30, %46
-  %.041 = phi i32 [ %26, %46 ], [ %.pre70, %33 ], [ %26, %30 ], [ %.pre, %41 ], [ %28, %44 ]
-  %.1 = phi double [ %47, %46 ], [ %35, %33 ], [ %4, %30 ], [ %43, %41 ], [ %45, %44 ]
+46:                                               ; preds = %39, %42, %31, %28, %44
+  %.041 = phi i32 [ %24, %44 ], [ %.pre70, %31 ], [ %24, %28 ], [ %.pre, %39 ], [ %26, %42 ]
+  %.1 = phi double [ %45, %44 ], [ %33, %31 ], [ %4, %28 ], [ %41, %39 ], [ %43, %42 ]
   store double %.1, ptr %0, align 8, !tbaa !3
-  store i32 %.041, ptr %25, align 8, !tbaa !6
+  store i32 %.041, ptr %23, align 8, !tbaa !6
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %49
+  br label %.thread
 
-49:                                               ; preds = %18, %15, %20, %.thread, %48, %8
+.thread:                                          ; preds = %14, %17, %.thread.thread, %46, %8
   ret void
 }
 

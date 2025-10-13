@@ -616,8 +616,8 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
 
 .preheader:                                       ; preds = %42
   %45 = load i32, ptr %20, align 8
-  %.not5462 = icmp eq i32 %45, 0
-  br i1 %.not5462, label %._crit_edge, label %.lr.ph
+  %.not5463 = icmp eq i32 %45, 0
+  br i1 %.not5463, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -626,9 +626,9 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   br label %49
 
 49:                                               ; preds = %.lr.ph, %84
-  %.063 = phi i32 [ 1, %.lr.ph ], [ %85, %84 ]
+  %.064 = phi i32 [ 1, %.lr.ph ], [ %85, %84 ]
   %50 = load ptr, ptr %26, align 8
-  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.063)
+  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.064)
   %52 = icmp eq ptr %51, null
   br i1 %52, label %84, label %53
 
@@ -664,10 +664,8 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %74 = fcmp ogt x86_fp80 %73, 0xK401CEE6B280000000000
   br i1 %74, label %.lr.ph.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %53
-  %.032.lcssa.i = phi x86_fp80 [ %67, %53 ], [ %76, %.lr.ph.i ]
-  %.0.lcssa.i = phi x86_fp80 [ %73, %53 ], [ %77, %.lr.ph.i ]
-  %75 = fcmp olt x86_fp80 %.0.lcssa.i, 0xK00000000000000000000
+.preheader.i:                                     ; preds = %53
+  %75 = fcmp olt x86_fp80 %73, 0xK00000000000000000000
   br i1 %75, label %.lr.ph10.i, label %calcNT3.exit
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
@@ -676,19 +674,19 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %76 = fadd x86_fp80 %.0325.i, 0xK3FFF8000000000000000
   %77 = fadd x86_fp80 %.06.i, 0xKC01CEE6B280000000000
   %78 = fcmp ogt x86_fp80 %77, 0xK401CEE6B280000000000
-  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !11
+  br i1 %78, label %.lr.ph.i, label %calcNT3.exit, !llvm.loop !11
 
 .lr.ph10.i:                                       ; preds = %.preheader.i, %.lr.ph10.i
-  %.19.i = phi x86_fp80 [ %80, %.lr.ph10.i ], [ %.0.lcssa.i, %.preheader.i ]
-  %.1338.i = phi x86_fp80 [ %79, %.lr.ph10.i ], [ %.032.lcssa.i, %.preheader.i ]
+  %.19.i = phi x86_fp80 [ %80, %.lr.ph10.i ], [ %73, %.preheader.i ]
+  %.1338.i = phi x86_fp80 [ %79, %.lr.ph10.i ], [ %67, %.preheader.i ]
   %79 = fadd x86_fp80 %.1338.i, 0xKBFFF8000000000000000
   %80 = fadd x86_fp80 %.19.i, 0xK401CEE6B280000000000
   %81 = fcmp olt x86_fp80 %80, 0xK00000000000000000000
   br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !12
 
-calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.preheader.i
-  %.133.lcssa.i = phi x86_fp80 [ %.032.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
-  %.1.lcssa.i = phi x86_fp80 [ %.0.lcssa.i, %.preheader.i ], [ %80, %.lr.ph10.i ]
+calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.lr.ph.i, %.preheader.i
+  %.133.lcssa.i = phi x86_fp80 [ %67, %.preheader.i ], [ %76, %.lr.ph.i ], [ %79, %.lr.ph10.i ]
+  %.1.lcssa.i = phi x86_fp80 [ %73, %.preheader.i ], [ %77, %.lr.ph.i ], [ %80, %.lr.ph10.i ]
   %82 = fptosi x86_fp80 %.133.lcssa.i to i64
   store i64 %82, ptr %10, align 8
   %83 = fptosi x86_fp80 %.1.lcssa.i to i32
@@ -703,7 +701,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
   br label %84
 
 84:                                               ; preds = %49, %calcNT3.exit
-  %85 = add i32 %.063, 1
+  %85 = add i32 %.064, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86
   br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !13

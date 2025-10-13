@@ -545,7 +545,7 @@ define hidden void @process_display(ptr noundef readonly captures(none) %0, ptr 
   %33 = getelementptr inbounds nuw [65536 x float], ptr %31, i64 %32
   br label %38
 
-._crit_edge:                                      ; preds = %90, %6
+._crit_edge:                                      ; preds = %60, %6
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !71
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 604
@@ -554,8 +554,8 @@ define hidden void @process_display(ptr noundef readonly captures(none) %0, ptr 
   store i32 1, ptr %37, align 16, !tbaa !87
   ret void
 
-38:                                               ; preds = %.lr.ph, %90
-  %.03436 = phi i64 [ 0, %.lr.ph ], [ %92, %90 ]
+38:                                               ; preds = %.lr.ph, %60
+  %.03436 = phi i64 [ 0, %.lr.ph ], [ %88, %60 ]
   %39 = mul i64 %.03436, %21
   %40 = getelementptr inbounds nuw float, ptr %2, i64 %39
   %41 = getelementptr inbounds nuw float, ptr %3, i64 %39
@@ -624,20 +624,10 @@ dt_Lab_2_LCH.exit:                                ; preds = %48, %50
   %84 = fmul reassoc nsz arcp contract afn float %83, 4.000000e+00
   %85 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %86 = fcmp reassoc nsz arcp contract afn ogt float %84, 1.000000e+00
-  br i1 %86, label %90, label %87
-
-87:                                               ; preds = %60
-  %88 = fcmp reassoc nsz arcp contract afn olt float %84, 0.000000e+00
-  br i1 %88, label %90, label %89
-
-89:                                               ; preds = %87
-  br label %90
-
-90:                                               ; preds = %89, %87, %60
-  %91 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %60 ], [ %84, %89 ], [ 0.000000e+00, %87 ]
-  store float %91, ptr %85, align 4, !tbaa !14
-  %92 = add nuw i64 %.03436, 1
-  %exitcond.not = icmp eq i64 %92, %28
+  %87 = select reassoc nsz arcp contract afn i1 %86, float 1.000000e+00, float %84
+  store float %87, ptr %85, align 4, !tbaa !14
+  %88 = add nuw i64 %.03436, 1
+  %exitcond.not = icmp eq i64 %88, %28
   br i1 %exitcond.not, label %._crit_edge, label %38
 }
 

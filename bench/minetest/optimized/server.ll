@@ -7062,15 +7062,9 @@ for.cond.13:                                      ; preds = %for.cond.12
   %cmp7.14 = fcmp nsz ogt float %0, 1.800000e+03
   %cmp9.14 = fcmp nsz olt float %sub, 1.800000e+03
   %or.cond.14 = and i1 %cmp7.14, %cmp9.14
-  br i1 %or.cond.14, label %if.then10, label %for.cond.14
+  br i1 %or.cond.14, label %if.then10, label %if.end36
 
-for.cond.14:                                      ; preds = %for.cond.13
-  %cmp7.15 = fcmp nsz ogt float %0, 3.600000e+03
-  %cmp9.15 = fcmp nsz olt float %sub, 3.600000e+03
-  %or.cond.15 = and i1 %cmp7.15, %cmp9.15
-  br i1 %or.cond.15, label %if.then10, label %if.end36
-
-if.then10:                                        ; preds = %for.cond.14, %for.cond.13, %for.cond.12, %for.cond.11, %for.cond.10, %for.cond.9, %for.cond.8, %for.cond.7, %for.cond.6, %for.cond.5, %for.cond.4, %for.cond.3, %for.cond.2, %for.cond.1, %for.cond, %for.cond.preheader
+if.then10:                                        ; preds = %for.cond.13, %for.cond.12, %for.cond.11, %for.cond.10, %for.cond.9, %for.cond.8, %for.cond.7, %for.cond.6, %for.cond.5, %for.cond.4, %for.cond.3, %for.cond.2, %for.cond.1, %for.cond, %for.cond.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %periodicMsg)
   call void @_ZNK6Server13ShutdownState23getShutdownTimerMessageB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.322") align 8 %periodicMsg, ptr noundef nonnull align 8 dereferenceable(44) %this)
   %.not = icmp eq ptr @_ZTH10infostream, null
@@ -7340,8 +7334,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit81: ; preds = %ehc
   call void @llvm.lifetime.end.p0(ptr nonnull %periodicMsg)
   resume { ptr, i32 } %.pn52.pn
 
-if.end36:                                         ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit, %for.cond.14, %if.end
-  %39 = phi float [ %.pre, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ], [ %0, %if.end ], [ %0, %for.cond.14 ]
+if.end36:                                         ; preds = %for.cond.13, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit, %if.end
+  %39 = phi float [ %.pre, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ], [ %0, %if.end ], [ %0, %for.cond.13 ]
   %sub38 = fsub nsz float %39, %dtime
   store float %sub38, ptr %m_timer, align 8, !tbaa !452
   %cmp40 = fcmp nsz olt float %sub38, 0.000000e+00
@@ -51474,7 +51468,7 @@ land.lhs.true:                                    ; preds = %if.else
   %m_timer.i = getelementptr inbounds nuw i8, ptr %this, i64 1096
   %9 = load float, ptr %m_timer.i, align 8, !tbaa !452
   %cmp.i = fcmp nsz ogt float %9, 0.000000e+00
-  br i1 %cmp.i, label %if.then6, label %if.else16
+  br i1 %cmp.i, label %if.then6, label %if.end68
 
 if.then6:                                         ; preds = %land.lhs.true
   %m_shutdown_state4 = getelementptr inbounds nuw i8, ptr %this, i64 1056
@@ -51679,7 +51673,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit117: ; preds = %eh
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %eh.resume
 
-if.else16:                                        ; preds = %land.lhs.true, %if.else
+if.else16:                                        ; preds = %if.else
   %cmp17 = fcmp nsz ogt float %delay, 0.000000e+00
   br i1 %cmp17, label %if.then18, label %if.end68
 
@@ -51691,8 +51685,7 @@ if.then18:                                        ; preds = %if.else16
 
 invoke.cont20:                                    ; preds = %if.then18
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22)
-  %cond.v.i = select i1 %cmp3, float -5.000000e-01, float 5.000000e-01
-  %cond.i = fadd nsz float %delay, %cond.v.i
+  %cond.i = fadd nsz float %delay, 5.000000e-01
   %conv.i = fptosi float %cond.i to i32
   invoke void @_Z18duration_to_stringB5cxx11i(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, i32 noundef %conv.i)
           to label %invoke.cont26 unwind label %lpad23
@@ -52112,9 +52105,9 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %if.th
   br i1 %cmp.i.i.i244, label %ehcleanup62, label %ehcleanup62.sink.split
 
 ehcleanup62.sink.split:                           ; preds = %ehcleanup61, %lpad.i.i168
-  %.sink51 = phi ptr [ %66, %lpad.i.i168 ], [ %102, %ehcleanup61 ]
+  %.sink52 = phi ptr [ %66, %lpad.i.i168 ], [ %102, %ehcleanup61 ]
   %.pn78.pn.pn.ph = phi { ptr, i32 } [ %65, %lpad.i.i168 ], [ %.pn78.pn, %ehcleanup61 ]
-  call void @_ZdlPv(ptr noundef %.sink51) #35
+  call void @_ZdlPv(ptr noundef %.sink52) #35
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup62.sink.split, %ehcleanup61, %lpad.i.i168
@@ -52130,7 +52123,7 @@ ehcleanup65:                                      ; preds = %ehcleanup62, %ehcle
   call void @llvm.lifetime.end.p0(ptr nonnull %oss)
   br label %eh.resume
 
-if.end68:                                         ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %if.else16, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA41_KcEER11StreamProxyOT_.exit, %_ZTW10infostream.exit
+if.end68:                                         ; preds = %land.lhs.true, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %if.else16, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA41_KcEER11StreamProxyOT_.exit, %_ZTW10infostream.exit
   %frombool.i = zext i1 %reconnect to i8
   %m_timer.i250 = getelementptr inbounds nuw i8, ptr %this, i64 1096
   store float %delay, ptr %m_timer.i250, align 8, !tbaa !452

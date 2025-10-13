@@ -163,7 +163,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
 25:                                               ; preds = %8
-  br i1 %9, label %.preheader.preheader.i, label %._crit_edge47.critedge.i
+  br i1 %9, label %.preheader.preheader.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
 
 .preheader.preheader.i:                           ; preds = %25
   %wide.trip.count.i = zext nneg i32 %2 to i64
@@ -219,18 +219,7 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond57.not.i, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, label %.lr.ph.i, !llvm.loop !15
 
-._crit_edge47.critedge.i:                         ; preds = %25
-  %50 = mul nsw i32 %2, 6
-  %51 = sitofp i32 %50 to double
-  %52 = fdiv double 0.000000e+00, %51
-  %53 = fcmp olt double %52, 0.000000e+00
-  br i1 %53, label %cdce.call, label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit, !prof !16
-
-cdce.call:                                        ; preds = %._crit_edge47.critedge.i
-  %54 = tail call double @sqrt(double noundef %52) #6, !tbaa !8
-  br label %_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit
-
-_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %.lr.ph.i, %cdce.call, %._crit_edge47.critedge.i, %._crit_edge
+_ZL16cmp_rvecs_rmstolP8_IO_FILEPKciPA3_KfS5_ff.exit: ; preds = %.lr.ph.i, %25, %._crit_edge
   ret void
 }
 
@@ -280,4 +269,3 @@ attributes #6 = { nounwind }
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
 !15 = distinct !{!15, !11}
-!16 = !{!"branch_weights", i32 1, i32 1048575}
