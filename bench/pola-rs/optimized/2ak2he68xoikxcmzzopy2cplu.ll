@@ -16297,7 +16297,7 @@ define hidden void @"_ZN11polars_core13chunked_array11trusted_len225_$LT$impl$u2
           to label %51 unwind label %.thread142.i.i, !noalias !2011
 
 48:                                               ; preds = %44
-  %49 = add i64 %.sroa.011.0187.i.i, 1
+  %49 = add nuw i64 %.sroa.011.0187.i.i, 1
   %50 = icmp eq ptr %32, %.sroa.2.0.copyload
   br i1 %50, label %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7a689a95f0b30c6E.exit.i.i", label %31
 
@@ -16681,7 +16681,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
           to label %190 unwind label %.loopexit.split-lp177.i.i, !noalias !2011
 
 187:                                              ; preds = %183
-  %188 = add i64 %.sroa.09.0.i.i, 1
+  %188 = add nuw i64 %.sroa.09.0.i.i, 1
   call void @llvm.assume(i1 %180)
   call void @llvm.assume(i1 %181)
   %189 = load ptr, ptr %182, align 8, !invariant.load !6, !noalias !2011, !nonnull !6

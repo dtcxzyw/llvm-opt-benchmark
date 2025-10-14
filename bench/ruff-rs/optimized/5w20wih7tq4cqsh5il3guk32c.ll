@@ -7002,7 +7002,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %3
   %18 = load i8, ptr %16, align 1, !noalias !1427, !noundef !9
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   store i8 %18, ptr %19, align 1, !noalias !1434
-  %20 = add i64 %15, 1
+  %20 = add nuw i64 %15, 1
   %.not.i.i.i.i.i.i.i = icmp eq ptr %17, %.val1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

@@ -13579,7 +13579,7 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
 
 118:                                              ; preds = %.lr.ph.i122.i
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  %120 = add i64 %.sroa.02.011.i.i, 1
+  %120 = add nuw i64 %.sroa.02.011.i.i, 1
   %121 = icmp eq ptr %119, %112
   br i1 %121, label %.loopexit191.i, label %.lr.ph.i122.i
 
@@ -14823,7 +14823,7 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
 
 261:                                              ; preds = %.lr.ph.i122.i
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 1
-  %263 = add i64 %.sroa.02.011.i.i, 1
+  %263 = add nuw i64 %.sroa.02.011.i.i, 1
   %264 = icmp eq ptr %262, %255
   br i1 %264, label %.loopexit191.i, label %.lr.ph.i122.i
 

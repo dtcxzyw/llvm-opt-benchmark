@@ -1002,7 +1002,7 @@ _ZN17ra_ap_rustc_lexer8unescape11scan_escape17h775f2c19724af408E.exit: ; preds =
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h641aa21d6e39c64dE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 1
-  %247 = add i64 %245, 1
+  %247 = add nuw i64 %245, 1
   %248 = icmp eq ptr %246, %13
   br i1 %248, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6ae10ae678722432E.exit.i, label %.lr.ph.i.i
 
@@ -1737,7 +1737,7 @@ _ZN17ra_ap_rustc_lexer8unescape11scan_escape17h070707b955336f0fE.exit: ; preds =
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfbf9e9413b56c2d0E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 1
-  %241 = add i64 %239, 1
+  %241 = add nuw i64 %239, 1
   %242 = icmp eq ptr %240, %13
   br i1 %242, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h38c22ca0c62a3087E.exit.i, label %.lr.ph.i.i
 

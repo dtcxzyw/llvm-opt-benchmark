@@ -17319,7 +17319,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 29:                                               ; preds = %.lr.ph.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %31 = add i64 %.sroa.02.012.i.i.i, 1
+  %31 = add nuw i64 %.sroa.02.012.i.i.i, 1
   %32 = icmp eq ptr %30, %26
   br i1 %32, label %47, label %.lr.ph.i.i.i
 

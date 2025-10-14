@@ -48754,7 +48754,7 @@ define hidden void @"_ZN9regalloc25moves22ParallelMoves$LT$T$GT$7resolve17h90c92
 
 100:                                              ; preds = %.lr.ph.i
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  %102 = add i64 %.010.i, 1
+  %102 = add nuw i64 %.010.i, 1
   %103 = icmp eq ptr %101, %97
   br i1 %103, label %.loopexit270, label %.lr.ph.i
 

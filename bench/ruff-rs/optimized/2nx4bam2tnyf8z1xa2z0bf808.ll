@@ -28079,7 +28079,7 @@ define internal fastcc noundef range(i8 4, 103) i8 @_ZN18ruff_python_parser5lexe
   br i1 %74, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf29db2afb95126c9E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h791f1d6df2b3d5b4E.exit.loopexit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf29db2afb95126c9E.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
-  %75 = add i64 %.sroa.01.018.i.i.i.i, 1
+  %75 = add nuw i64 %.sroa.01.018.i.i.i.i, 1
   %76 = icmp eq ptr %.val50, %72
   br i1 %76, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h791f1d6df2b3d5b4E.exit.loopexit", label %.lr.ph.i.i.i.i
 
@@ -28494,7 +28494,7 @@ _ZN18ruff_python_parser5lexer6cursor6Cursor4bump17h2277234b3703cbf2E.exit81: ; p
   br i1 %265, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha740badc4b22f248E.exit.i.i.i.i", label %.loopexit.loopexit
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha740badc4b22f248E.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i91
-  %266 = add i64 %.sroa.01.018.i.i.i.i92, 1
+  %266 = add nuw i64 %.sroa.01.018.i.i.i.i92, 1
   %267 = icmp eq ptr %.val46, %263
   br i1 %267, label %.loopexit.loopexit, label %.lr.ph.i.i.i.i91
 

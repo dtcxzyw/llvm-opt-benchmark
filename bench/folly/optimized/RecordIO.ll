@@ -1129,7 +1129,7 @@ _ZNK5folly5RangeIPKhE4findES3_.exit.thread20.us:  ; preds = %.split.us
   br i1 %46, label %.preheader53.us.i.i.us.backedge, label %.thread
 
 47:                                               ; preds = %.preheader52.us.i.i.us
-  %48 = add i64 %.0.us.i.i.us, 1
+  %48 = add nuw i64 %.0.us.i.i.us, 1
   %49 = icmp eq i64 %48, %11
   br i1 %49, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us, label %.preheader52.us.i.i.us, !llvm.loop !108
 
@@ -1208,7 +1208,7 @@ _ZNK5folly5RangeIPKhE4findES3_.exit.loopexit.us:  ; preds = %47
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !109
 
 86:                                               ; preds = %.preheader52.i.i
-  %87 = add i64 %.0.i.i, 1
+  %87 = add nuw i64 %.0.i.i, 1
   %88 = icmp eq i64 %87, %11
   br i1 %88, label %_ZNK5folly5RangeIPKhE4findES3_.exit.loopexit28, label %.preheader52.i.i, !llvm.loop !108
 

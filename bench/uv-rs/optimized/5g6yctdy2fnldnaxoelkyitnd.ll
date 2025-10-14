@@ -2419,7 +2419,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = load i8, ptr %.sroa.0.012.i.i.i.i, align 1, !noalias !795, !noundef !3
   %21 = getelementptr inbounds i8, ptr %16, i64 %18
   store i8 %20, ptr %21, align 1, !noalias !806
-  %22 = add i64 %18, 1
+  %22 = add nuw i64 %18, 1
   %.not.i.i.i.i = icmp eq ptr %19, %2
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -7745,7 +7745,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %20 = load i8, ptr %.sroa.0.012.i.i.i.i.i, align 1, !noalias !1769, !noundef !3
   %21 = getelementptr inbounds i8, ptr %16, i64 %18
   store i8 %20, ptr %21, align 1, !noalias !1780
-  %22 = add i64 %18, 1
+  %22 = add nuw i64 %18, 1
   %.not.i.i.i.i.i = icmp eq ptr %19, %2
   br i1 %.not.i.i.i.i.i, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8fb3807da98e0c1bE.llvm.5503902822965331766.exit", label %.lr.ph.i.i.i.i.i
 

@@ -8639,7 +8639,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h29414ef89b64f8feE.exit.i: ; pr
 "_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc44684687ab2892dE.exit.i.i.i": ; preds = %53, %47
   %.sroa.015.1.i = phi i8 [ %56, %53 ], [ %.sroa.015.0.i, %47 ]
   %58 = phi i8 [ %56, %53 ], [ %48, %47 ]
-  %59 = add i64 %.sroa.2.0.i.i.i, 1
+  %59 = add nuw i64 %.sroa.2.0.i.i.i, 1
   %60 = icmp eq i64 %59, %46
   br i1 %60, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ae6ac5a2fd2d1edE.exit.i", label %47
 

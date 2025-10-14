@@ -23077,7 +23077,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   %3448 = load i8, ptr %.013.i, align 1, !tbaa !12
   store i8 %3448, ptr %3447, align 1, !tbaa !12
   %3449 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
-  %3450 = add i64 %.01012.i, 1
+  %3450 = add nuw i64 %.01012.i, 1
   %.not.i327 = icmp eq ptr %3449, %3438
   br i1 %.not.i327, label %_ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEEC2IPhEET_S7_RKS3_.exit, label %.lr.ph.i326, !llvm.loop !425
 

@@ -5211,7 +5211,7 @@ define internal fastcc void @"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared.
 
 49:                                               ; preds = %.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %51 = add i64 %.sroa.02.011.i, 1
+  %51 = add nuw i64 %.sroa.02.011.i, 1
   %52 = icmp eq ptr %50, %45
   br i1 %52, label %.loopexit, label %.lr.ph.i
 

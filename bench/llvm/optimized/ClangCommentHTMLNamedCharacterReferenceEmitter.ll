@@ -437,7 +437,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i:             ; preds = %165, %163
   %169 = load i8, ptr %168, align 1, !tbaa !31
   %170 = zext i8 %169 to i64
   %171 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream9write_hexEy(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %170) #13
-  %172 = add i64 %.0614.i, 1
+  %172 = add nuw i64 %.0614.i, 1
   %.not.i24 = icmp eq i64 %172, %140
   br i1 %.not.i24, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 

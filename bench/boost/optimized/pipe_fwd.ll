@@ -73840,7 +73840,7 @@ _ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit: ; preds = %3
 40:                                               ; preds = %_ZN5boostlsIcA5_cEERNS_23basic_wrap_stringstreamIT_EES5_RKT0_.exit, %13
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.066.097, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.056.096, i64 1
-  %43 = add i64 %storemerge98, 1
+  %43 = add nuw i64 %storemerge98, 1
   %.not73 = icmp eq ptr %41, %3
   br i1 %.not73, label %.critedge, label %.lr.ph, !llvm.loop !1513
 

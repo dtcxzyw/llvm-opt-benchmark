@@ -8672,7 +8672,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %28, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = load i8, ptr %.sroa.029.041, align 1, !tbaa !24
   call void @_ZN7testing8internal7PrintToEhPSo(i8 noundef zeroext %46, ptr noundef nonnull %1)
-  %47 = add i64 %.042, 1
+  %47 = add nuw i64 %.042, 1
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 1
   %.not38 = icmp eq ptr %48, %20
   br i1 %.not38, label %._crit_edge, label %.lr.ph

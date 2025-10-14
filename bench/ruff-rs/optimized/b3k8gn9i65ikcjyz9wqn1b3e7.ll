@@ -5116,7 +5116,7 @@ define internal fastcc void @"_ZN7matchit4tree13Node$LT$T$GT$2at17h06c57f4ab513e
 
 107:                                              ; preds = %.lr.ph.i122
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  %109 = add i64 %.sroa.02.011.i, 1
+  %109 = add nuw i64 %.sroa.02.011.i, 1
   %110 = icmp eq ptr %108, %100
   br i1 %110, label %.loopexit189, label %.lr.ph.i122
 
@@ -5129,7 +5129,7 @@ define internal fastcc void @"_ZN7matchit4tree13Node$LT$T$GT$2at17h06c57f4ab513e
 
 112:                                              ; preds = %.lr.ph.i128
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  %114 = add i64 %.sroa.02.011.i129, 1
+  %114 = add nuw i64 %.sroa.02.011.i129, 1
   %115 = icmp eq ptr %113, %100
   br i1 %115, label %.thread173, label %.lr.ph.i128
 

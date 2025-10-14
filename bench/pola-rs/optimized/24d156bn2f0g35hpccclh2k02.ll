@@ -173,7 +173,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 23:                                               ; preds = %.lr.ph.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %25 = add i64 %.sroa.02.012.i.i.i, 1
+  %25 = add nuw i64 %.sroa.02.012.i.i.i, 1
   %26 = icmp eq ptr %24, %20
   br i1 %26, label %43, label %.lr.ph.i.i.i
 

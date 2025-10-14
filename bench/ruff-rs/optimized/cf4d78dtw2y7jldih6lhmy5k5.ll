@@ -20116,7 +20116,7 @@ define hidden void @_ZN9quick_xml6escape7_escape17h10a9b6615b512d68E(ptr dead_on
   ]
 
 "_ZN9quick_xml6escape7_escape28_$u7b$$u7b$closure$u7d$$u7d$17h1dc3e2d50b6ef668E.exit.i": ; preds = %.lr.ph.i
-  %23 = add i64 %.sroa.02.012.i, 1
+  %23 = add nuw i64 %.sroa.02.012.i, 1
   %24 = icmp eq ptr %22, %15
   br i1 %24, label %.loopexit, label %.lr.ph.i
 

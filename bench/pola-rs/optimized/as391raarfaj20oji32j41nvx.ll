@@ -3208,7 +3208,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable4utf815len_fr
   %12 = phi ptr [ %13, %.lr.ph.i ], [ %0, %10 ]
   %.sroa.02.011.i18 = phi i64 [ %14, %.lr.ph.i ], [ 0, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %14 = add i64 %.sroa.02.011.i18, 1
+  %14 = add nuw i64 %.sroa.02.011.i18, 1
   %15 = icmp ne ptr %13, %9
   tail call void @llvm.assume(i1 %15)
   %.val.i = load i8, ptr %13, align 1, !noalias !308, !noundef !3
@@ -3223,7 +3223,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable4utf815len_fr
   %19 = phi ptr [ %20, %.lr.ph.i7 ], [ %0, %17 ]
   %.sroa.02.011.i820 = phi i64 [ %21, %.lr.ph.i7 ], [ 0, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %21 = add i64 %.sroa.02.011.i820, 1
+  %21 = add nuw i64 %.sroa.02.011.i820, 1
   %22 = icmp ne ptr %20, %9
   tail call void @llvm.assume(i1 %22)
   %.val.i9 = load i8, ptr %20, align 1, !noalias !311, !noundef !3

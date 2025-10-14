@@ -40030,7 +40030,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = add i64 %.sroa.02.010, 1
+  %13 = add nuw i64 %.sroa.02.010, 1
   %14 = icmp eq ptr %10, %3
   br i1 %14, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c0e61a434de3390E.exit.thread.loopexit_crit_edge", label %.lr.ph
 

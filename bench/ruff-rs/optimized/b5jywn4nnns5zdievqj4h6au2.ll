@@ -36805,7 +36805,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %21 = load i8, ptr %19, align 1, !noalias !6712, !noundef !27
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   store i8 %21, ptr %22, align 1, !noalias !6717
-  %23 = add i64 %18, 1
+  %23 = add nuw i64 %18, 1
   %.not.i.i.i.i.i.i.i = icmp eq ptr %20, %.val1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

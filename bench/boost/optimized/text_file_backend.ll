@@ -22507,7 +22507,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extra
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 1
-  %13 = add i64 %.094, 1
+  %13 = add nuw i64 %.094, 1
   %.not = icmp eq ptr %12, %6
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !615
 

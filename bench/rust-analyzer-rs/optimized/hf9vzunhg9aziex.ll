@@ -2255,7 +2255,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcce87b4b40ca236cE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  %119 = add i64 %117, 1
+  %119 = add nuw i64 %117, 1
   %120 = icmp eq ptr %118, %19
   br i1 %120, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf5053776a5809faaE.exit.i, label %.lr.ph.i.i
 
@@ -2871,7 +2871,7 @@ switch.lookup:
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a3377b836a06b4fE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  %119 = add i64 %117, 1
+  %119 = add nuw i64 %117, 1
   %120 = icmp eq ptr %118, %19
   br i1 %120, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf8643edcf4f79d04E.exit.i, label %.lr.ph.i.i
 

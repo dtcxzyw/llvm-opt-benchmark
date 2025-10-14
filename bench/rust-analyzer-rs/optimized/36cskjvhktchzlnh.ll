@@ -1428,7 +1428,7 @@ _ZN17ra_ap_rustc_lexer8unescape11scan_escape17h924242fe69ec6411E.exit: ; preds =
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h04231071aace7f8cE.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 1
-  %264 = add i64 %262, 1
+  %264 = add nuw i64 %262, 1
   %265 = icmp eq ptr %263, %14
   br i1 %265, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3a33193f2131f4dE.exit.i, label %.lr.ph.i.i
 

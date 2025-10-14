@@ -1776,7 +1776,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = add i64 %.011, 1
+  %17 = add nuw i64 %.011, 1
   %18 = icmp eq ptr %11, %4
   br i1 %18, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.llvm.15183607879373971598.exit.thread.loopexit_crit_edge", label %.lr.ph
 

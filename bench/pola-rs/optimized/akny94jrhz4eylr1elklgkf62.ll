@@ -51422,7 +51422,7 @@ _ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit285.threa
 
 668:                                              ; preds = %.noexc292
   %669 = getelementptr inbounds nuw i8, ptr %666, i64 1
-  %670 = add i64 %.sroa.02.012.i.i.i, 1
+  %670 = add nuw i64 %.sroa.02.012.i.i.i, 1
   %671 = icmp eq ptr %669, %665
   br i1 %671, label %.invoke, label %.lr.ph.i.i.i
 

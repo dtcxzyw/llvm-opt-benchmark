@@ -28109,7 +28109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIbEELb0EEppEv.exit unwind label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIbEELb0EEppEv.exit: ; preds = %.lr.ph
-  %28 = add i64 %.11854, 1
+  %28 = add nuw i64 %.11854, 1
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.053, i64 1
   %.not47 = icmp eq ptr %29, %27
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -29237,7 +29237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIhEELb0EEppEv.exit unwind label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIhEELb0EEppEv.exit: ; preds = %.lr.ph
-  %28 = add i64 %.11854, 1
+  %28 = add nuw i64 %.11854, 1
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.053, i64 1
   %.not47 = icmp eq ptr %29, %27
   br i1 %.not47, label %._crit_edge, label %.lr.ph

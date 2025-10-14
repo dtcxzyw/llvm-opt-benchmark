@@ -2943,7 +2943,7 @@ common.resume:                                    ; preds = %97, %106, %118, %71
 
 90:                                               ; preds = %.lr.ph.i.i1
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  %92 = add i64 %.011.i.i2, 1
+  %92 = add nuw i64 %.011.i.i2, 1
   %93 = icmp eq ptr %91, %88
   br i1 %93, label %.loopexit.i9, label %.lr.ph.i.i1
 

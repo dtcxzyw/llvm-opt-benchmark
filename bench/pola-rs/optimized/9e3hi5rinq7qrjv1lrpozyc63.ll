@@ -39391,7 +39391,7 @@ define internal fastcc void @"_ZN112_$LT$polars_io..csv..read..splitfields..inne
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %23 = add i64 %.sroa.02.012.i, 1
+  %23 = add nuw i64 %.sroa.02.012.i, 1
   %24 = icmp eq ptr %22, %18
   br i1 %24, label %41, label %.lr.ph.i
 

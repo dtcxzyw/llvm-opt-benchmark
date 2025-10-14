@@ -39974,7 +39974,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail16file_scan_buffer7consumeEv(
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.04 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %11 = tail call noundef i32 @_ZN3fmt3v116detail9file_baseI8_IO_FILEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %12 = add i64 %.04, 1
+  %12 = add nuw i64 %.04, 1
   %.not = icmp eq i64 %12, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !995
 }

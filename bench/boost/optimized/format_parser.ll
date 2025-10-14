@@ -748,7 +748,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4
 
 133:                                              ; preds = %.lr.ph.i
   %134 = getelementptr inbounds nuw i8, ptr %.050105.i, i64 1
-  %135 = add i64 %.0106.i, 1
+  %135 = add nuw i64 %.0106.i, 1
   %.not.i = icmp eq ptr %134, %2
   br i1 %.not.i, label %_ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5uint_EEEjEEbRT_S9_RKT0_RT1_.exit.thread204, label %.lr.ph.i, !llvm.loop !29
 

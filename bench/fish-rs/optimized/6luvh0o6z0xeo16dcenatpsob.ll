@@ -31468,7 +31468,7 @@ define internal fastcc { i32, i32 } @_ZN4fish4exec22exec_subshell_internal17hc7b
 
 103:                                              ; preds = %.lr.ph.i.us.i
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %105 = add i64 %.sroa.02.011.i.us.i, 1
+  %105 = add nuw i64 %.sroa.02.011.i.us.i, 1
   %106 = icmp eq ptr %104, %100
   br i1 %106, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6ff31b2243ff1050E.exit.us.i", label %.lr.ph.i.us.i
 

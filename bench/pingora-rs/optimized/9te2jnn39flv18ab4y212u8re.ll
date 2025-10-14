@@ -18184,7 +18184,7 @@ _ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe3
 
 "_ZN12pingora_core9protocols4http18conditional_filter18weak_validate_etag28_$u7b$$u7b$closure$u7d$$u7d$17h8ee87e7972882555E.exit.i": ; preds = %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49, %.lr.ph.i49
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %46 = add i64 %.sroa.02.013.i, 1
+  %46 = add nuw i64 %.sroa.02.013.i, 1
   %47 = icmp eq ptr %45, %25
   br i1 %47, label %_ZN12pingora_core9protocols4http18conditional_filter16trim_ascii_start17h88dcbe34a40a1f33E.exit.thread, label %.lr.ph.i49
 
