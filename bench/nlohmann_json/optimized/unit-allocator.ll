@@ -544,8 +544,8 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #3 personality ptr @__gxx_pers
           to label %.noexc unwind label %127
 
 .noexc:                                           ; preds = %90
-  %.b1.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b1.i.i.i.i.i, label %92, label %95
+  %.b.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i, label %92, label %95
 
 92:                                               ; preds = %.noexc
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -733,8 +733,8 @@ _ZNSt10unique_ptrISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8n
           to label %.noexc323 unwind label %170
 
 .noexc323:                                        ; preds = %152
-  %.b1.i.i.i.i.i320 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b1.i.i.i.i.i320, label %154, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit326
+  %.b.i.i.i.i.i320 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i320, label %154, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit326
 
 154:                                              ; preds = %.noexc323
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -924,8 +924,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .noexc327:                                        ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.b1.i.i.i.i7.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b1.i.i.i.i7.i, label %209, label %_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_.exit.i.i.i
+  %.b.i.i.i.i7.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i7.i, label %209, label %_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS1_14adl_serializerES4_IhSaIhEEvEENSC_ISG_EEEvT_SJ_RT0_.exit.i.i.i
 
 209:                                              ; preds = %.noexc327
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -1049,8 +1049,8 @@ _ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx
 .noexc334:                                        ; preds = %246
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.b1.i.i.i.i7.i331 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b1.i.i.i.i7.i331, label %247, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit337
+  %.b.i.i.i.i7.i331 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i7.i331, label %247, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit337
 
 247:                                              ; preds = %.noexc334
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -1218,17 +1218,17 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 .noexc338:                                        ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %.b3.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b3.i.i.i.i.i, label %295, label %314
+  %.b.i.i.i.i9.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i9.i, label %295, label %314
 
 295:                                              ; preds = %.noexc338
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
   %296 = call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %296, align 8, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %296, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
-          to label %.noexc.i9.i unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i
+          to label %.noexc.i10.i unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i
 
-.noexc.i9.i:                                      ; preds = %295
+.noexc.i10.i:                                     ; preds = %295
   unreachable
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i: ; preds = %295
@@ -1347,17 +1347,17 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
           to label %.noexc345 unwind label %350
 
 .noexc345:                                        ; preds = %334
-  %.b3.i.i.i.i.i342 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b3.i.i.i.i.i342, label %336, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit348
+  %.b.i.i.i.i9.i342 = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i9.i342, label %336, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE.exit348
 
 336:                                              ; preds = %.noexc345
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
   %337 = call ptr @__cxa_allocate_exception(i64 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %337, align 8, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %337, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
-          to label %.noexc.i9.i344 unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i343
+          to label %.noexc.i10.i344 unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i343
 
-.noexc.i9.i344:                                   ; preds = %336
+.noexc.i10.i344:                                  ; preds = %336
   unreachable
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdN12_GLOBAL__N_112my_allocatorENS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRA1_KcEEEPT_DpOT0_EUlPS5_E_ED2Ev.exit6.i.i343: ; preds = %336
@@ -4245,8 +4245,8 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ERKS9_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(none) %.0.val, i64 %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  %.b2.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b2.i.i.i.i, label %4, label %6
+  %.b.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i, label %4, label %6
 
 4:                                                ; preds = %1
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -4545,8 +4545,8 @@ define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt
           to label %.noexc3 unwind label %102
 
 .noexc3:                                          ; preds = %.noexc
-  %.b4.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b4.i.i.i.i.i.i.i.i, label %10, label %12
+  %.b.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i.i.i.i, label %10, label %12
 
 10:                                               ; preds = %.noexc3
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -4925,8 +4925,8 @@ define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt
           to label %.noexc3 unwind label %48
 
 .noexc3:                                          ; preds = %.noexc
-  %.b5.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b5.i.i.i.i.i.i.i.i, label %9, label %11
+  %.b.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i.i.i.i, label %9, label %11
 
 9:                                                ; preds = %.noexc3
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -4979,8 +4979,8 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %29, %.noexc6.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %33, %29 ], [ %21, %.noexc6.i.i.i.i.i.i.i.i.i ]
   %.sroa.01.08.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %32, %29 ], [ %5, %.noexc6.i.i.i.i.i.i.i.i.i ]
-  %.b2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %24, label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.b.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %24, label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
@@ -5138,8 +5138,8 @@ define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt
           to label %.noexc3 unwind label %11
 
 .noexc3:                                          ; preds = %.noexc
-  %.b3.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
-  br i1 %.b3.i.i.i.i.i.i.i.i, label %4, label %7
+  %.b.i.i.i.i.i.i.i.i = load i1, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1
+  br i1 %.b.i.i.i.i.i.i.i.i, label %4, label %7
 
 4:                                                ; preds = %.noexc3
   store i1 false, ptr @_ZN12_GLOBAL__N_120next_construct_failsE, align 1

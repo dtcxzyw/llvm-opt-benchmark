@@ -1656,23 +1656,23 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   %26 = load i64, ptr %25, align 8, !tbaa !112
   %27 = tail call i64 @__archive_read_seek(ptr noundef nonnull %0, i64 noundef %26, i32 noundef 0) #21
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %slurp_central_directory.exit.thread, label %.preheader208.i.preheader
+  br i1 %28, label %slurp_central_directory.exit.thread, label %.preheader207.i.preheader
 
-.preheader208.i.preheader:                        ; preds = %24
+.preheader207.i.preheader:                        ; preds = %24
   %29 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 20, ptr noundef nonnull %6) #21
   %30 = icmp eq ptr %29, null
   br i1 %30, label %slurp_central_directory.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader208.i.preheader, %._crit_edge.i
-  %31 = phi ptr [ %61, %._crit_edge.i ], [ %29, %.preheader208.i.preheader ]
+.preheader.i:                                     ; preds = %.preheader207.i.preheader, %._crit_edge.i
+  %31 = phi ptr [ %61, %._crit_edge.i ], [ %29, %.preheader207.i.preheader ]
   %32 = load i64, ptr %6, align 8
   %33 = add nsw i64 %32, -4
   %34 = icmp sgt i64 %32, 4
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %58
-  %.0153211.i = phi i64 [ %.1154.i, %58 ], [ 0, %.preheader.i ]
-  %35 = add nsw i64 %.0153211.i, 3
+  %.0153210.i = phi i64 [ %.1154.i, %58 ], [ 0, %.preheader.i ]
+  %35 = add nsw i64 %.0153210.i, 3
   %36 = getelementptr inbounds i8, ptr %31, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !36
   switch i8 %37, label %56 [
@@ -1685,29 +1685,29 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   ]
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = add nsw i64 %.0153211.i, 2
+  %39 = add nsw i64 %.0153210.i, 2
   br label %58
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = add nsw i64 %.0153211.i, 1
+  %41 = add nsw i64 %.0153210.i, 1
   br label %58
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %31, i64 %.0153211.i
+  %43 = getelementptr inbounds i8, ptr %31, i64 %.0153210.i
   %bcmp186.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %43, ptr noundef nonnull dereferenceable(4) @.str.113, i64 4)
   %44 = icmp eq i32 %bcmp186.i, 0
   br i1 %44, label %63, label %45
 
 45:                                               ; preds = %42
-  %46 = add nsw i64 %.0153211.i, 4
+  %46 = add nsw i64 %.0153210.i, 4
   br label %58
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = add nsw i64 %.0153211.i, 1
+  %48 = add nsw i64 %.0153210.i, 1
   br label %58
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds i8, ptr %31, i64 %.0153211.i
+  %50 = getelementptr inbounds i8, ptr %31, i64 %.0153210.i
   %bcmp184.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %50, ptr noundef nonnull dereferenceable(4) @.str.111, i64 4)
   %51 = icmp eq i32 %bcmp184.i, 0
   br i1 %51, label %63, label %52
@@ -1718,11 +1718,11 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   br i1 %53, label %63, label %54
 
 54:                                               ; preds = %52
-  %55 = add nsw i64 %.0153211.i, 1
+  %55 = add nsw i64 %.0153210.i, 1
   br label %58
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = add nsw i64 %.0153211.i, 4
+  %57 = add nsw i64 %.0153210.i, 4
   br label %58
 
 58:                                               ; preds = %56, %54, %47, %45, %40, %38, %.lr.ph.i
@@ -1738,7 +1738,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   br i1 %62, label %slurp_central_directory.exit.thread, label %.preheader.i
 
 63:                                               ; preds = %52, %49, %42
-  %64 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.0153211.i) #21
+  %64 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.0153210.i) #21
   %65 = call i64 @archive_filter_bytes(ptr noundef nonnull %0, i32 noundef 0) #21
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !114
@@ -1751,9 +1751,9 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   store i64 0, ptr %71, align 8, !tbaa !115
   %72 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 4, ptr noundef null) #21
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %slurp_central_directory.exit.thread, label %.lr.ph214.i
+  br i1 %73, label %slurp_central_directory.exit.thread, label %.lr.ph213.i
 
-.lr.ph214.i:                                      ; preds = %63
+.lr.ph213.i:                                      ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1764,8 +1764,8 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 8004
   br label %82
 
-82:                                               ; preds = %275, %.lr.ph214.i
-  %83 = phi ptr [ %72, %.lr.ph214.i ], [ %278, %275 ]
+82:                                               ; preds = %275, %.lr.ph213.i
+  %83 = phi ptr [ %72, %.lr.ph213.i ], [ %278, %275 ]
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %83, ptr noundef nonnull dereferenceable(4) @.str.114, i64 4)
   %84 = icmp eq i32 %bcmp.i, 0
   br i1 %84, label %280, label %85
@@ -1832,9 +1832,9 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
 
 114:                                              ; preds = %113, %96
   %115 = getelementptr inbounds nuw i8, ptr %90, i64 10
-  %.val192205.i = load i8, ptr %115, align 1, !tbaa !36
+  %.val192.i = load i8, ptr %115, align 1, !tbaa !36
   %116 = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store i8 %.val192205.i, ptr %116, align 8, !tbaa !81
+  store i8 %.val192.i, ptr %116, align 8, !tbaa !81
   %117 = getelementptr inbounds nuw i8, ptr %90, i64 12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %118 = load i8, ptr %117, align 1, !tbaa !36
@@ -1941,15 +1941,15 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
 188:                                              ; preds = %114
   %189 = and i32 %177, 16
   %.not175.i = icmp eq i32 %189, 0
-  %spec.select244.i = select i1 %.not175.i, i16 -32332, i16 16893
+  %spec.select243.i = select i1 %.not175.i, i16 -32332, i16 16893
   %190 = getelementptr inbounds nuw i8, ptr %93, i64 124
-  store i16 %spec.select244.i, ptr %190, align 4, !tbaa !75
+  store i16 %spec.select243.i, ptr %190, align 4, !tbaa !75
   %191 = and i32 %177, 1
   %.not176.i = icmp eq i32 %191, 0
   br i1 %.not176.i, label %196, label %192
 
 192:                                              ; preds = %188
-  %193 = and i16 %spec.select244.i, 365
+  %193 = and i16 %spec.select243.i, 365
   store i16 %193, ptr %190, align 4, !tbaa !75
   br label %196
 
@@ -2117,7 +2117,7 @@ rsrc_basename.exit198.i:                          ; preds = %259, %.thread.i, %2
   %279 = icmp eq ptr %278, null
   br i1 %279, label %slurp_central_directory.exit.thread, label %82
 
-slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %275, %89, %202, %.preheader208.i.preheader, %24, %88, %95, %201, %63
+slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %275, %89, %202, %.preheader207.i.preheader, %24, %88, %95, %201, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zip_read_mac_metadata.exit.thread
 
@@ -2668,9 +2668,9 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8008
   store i8 %56, ptr %57, align 8, !tbaa !79
   %58 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.val316353 = load i8, ptr %58, align 1, !tbaa !36
+  %.val316 = load i8, ptr %58, align 1, !tbaa !36
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store i8 %.val316353, ptr %59, align 8, !tbaa !81
+  store i8 %.val316, ptr %59, align 8, !tbaa !81
   %60 = getelementptr inbounds nuw i8, ptr %29, i64 10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = load i8, ptr %60, align 1, !tbaa !36
@@ -2844,8 +2844,8 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br i1 %163, label %.sink.split, label %164
 
 .sink.split:                                      ; preds = %162, %.thread
-  %.sink397 = phi i16 [ %161, %.thread ], [ 436, %162 ]
-  store i16 %.sink397, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
+  %.sink396 = phi i16 [ %161, %.thread ], [ 436, %162 ]
+  store i16 %.sink396, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
   br label %164
 
 164:                                              ; preds = %.sink.split, %162
@@ -2875,13 +2875,13 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %176 = tail call i64 @wcslen(ptr noundef nonnull %168) #23
   %177 = call ptr @archive_wstrncat(ptr noundef nonnull %5, ptr noundef nonnull %168, i64 noundef %176) #21
   %178 = load i64, ptr %175, align 8, !tbaa !140
-  %.not358 = icmp eq i64 %178, 0
+  %.not357 = icmp eq i64 %178, 0
   %.pre = load ptr, ptr %5, align 8, !tbaa !143
-  br i1 %.not358, label %._crit_edge, label %.lr.ph
+  br i1 %.not357, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %174, %183
-  %.0240357 = phi i64 [ %184, %183 ], [ 0, %174 ]
-  %179 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.0240357
+  %.0240356 = phi i64 [ %184, %183 ], [ 0, %174 ]
+  %179 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.0240356
   %180 = load i32, ptr %179, align 4, !tbaa !138
   %181 = icmp eq i32 %180, 92
   br i1 %181, label %182, label %183
@@ -2891,7 +2891,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %183
 
 183:                                              ; preds = %.lr.ph, %182
-  %184 = add nuw i64 %.0240357, 1
+  %184 = add nuw i64 %.0240356, 1
   %exitcond.not = icmp eq i64 %184, %178
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
 
@@ -2945,7 +2945,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %207 = load i16, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
   %208 = and i16 %207, 4022
   %209 = or disjoint i16 %208, 16457
-  br label %.sink.split398
+  br label %.sink.split397
 
 .thread329:                                       ; preds = %192, %197, %199, %190, %201
   %210 = load i16, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
@@ -2954,15 +2954,15 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
 
 212:                                              ; preds = %.thread329
   %213 = or disjoint i16 %210, -32768
-  br label %.sink.split398
+  br label %.sink.split397
 
-.sink.split398:                                   ; preds = %212, %206
-  %.sink399 = phi i16 [ %209, %206 ], [ %213, %212 ]
-  store i16 %.sink399, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
+.sink.split397:                                   ; preds = %212, %206
+  %.sink398 = phi i16 [ %209, %206 ], [ %213, %212 ]
+  store i16 %.sink398, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !75
   br label %214
 
-214:                                              ; preds = %.sink.split398, %.thread329, %185
-  %215 = phi i16 [ %210, %.thread329 ], [ %186, %185 ], [ %.sink399, %.sink.split398 ]
+214:                                              ; preds = %.sink.split397, %.thread329, %185
+  %215 = phi i16 [ %210, %.thread329 ], [ %186, %185 ], [ %.sink398, %.sink.split397 ]
   %216 = and i16 %215, -4096
   %217 = icmp eq i16 %216, 16384
   br i1 %217, label %218, label %.thread332
@@ -3166,9 +3166,9 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br i1 %298, label %.thread336, label %..thread334_crit_edge
 
 ..thread334_crit_edge:                            ; preds = %297
-  %.pre363 = load ptr, ptr %10, align 8, !tbaa !60
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre363, i64 128
-  %.pre364 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !81
+  %.pre362 = load ptr, ptr %10, align 8, !tbaa !60
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre362, i64 128
+  %.pre363 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !81
   br label %.thread334
 
 .thread336:                                       ; preds = %297
@@ -3177,7 +3177,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %312
 
 .thread334:                                       ; preds = %..thread334_crit_edge, %288
-  %300 = phi i8 [ %.pre364, %..thread334_crit_edge ], [ %287, %288 ]
+  %300 = phi i8 [ %.pre363, %..thread334_crit_edge ], [ %287, %288 ]
   %301 = zext i8 %300 to i32
   br label %303
 
@@ -3258,7 +3258,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %335 = getelementptr inbounds nuw i8, ptr %2, i64 7992
   %336 = load ptr, ptr %335, align 8, !tbaa !54
   %337 = icmp eq ptr %.2253, %336
-  br i1 %337, label %338, label %.thread392
+  br i1 %337, label %338, label %.thread391
 
 338:                                              ; preds = %334
   %339 = load ptr, ptr %10, align 8, !tbaa !60
@@ -3266,24 +3266,24 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %341 = load i16, ptr %340, align 2, !tbaa !80
   %342 = and i16 %341, 2048
   %.not309 = icmp eq i16 %342, 0
-  br i1 %.not309, label %.thread392, label %343
+  br i1 %.not309, label %.thread391, label %343
 
 343:                                              ; preds = %338
   %344 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %.1245, i64 noundef %329, ptr noundef null) #21
   %.pr.pre = load i32, ptr %332, align 4, !tbaa !138
   %345 = icmp eq i32 %.pr.pre, 12
-  br i1 %345, label %.thread342, label %.thread392
+  br i1 %345, label %.thread342, label %.thread391
 
 .thread342:                                       ; preds = %331, %343
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.23) #21
   br label %.thread348
 
-.thread392:                                       ; preds = %334, %338, %343
+.thread391:                                       ; preds = %334, %338, %343
   %346 = load ptr, ptr %335, align 8, !tbaa !54
   %.not310 = icmp eq ptr %.2253, %346
   br i1 %.not310, label %347, label %353
 
-347:                                              ; preds = %.thread392
+347:                                              ; preds = %.thread391
   %348 = load ptr, ptr %10, align 8, !tbaa !60
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 126
   %350 = load i16, ptr %349, align 2, !tbaa !80
@@ -3291,7 +3291,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %352 = icmp eq i16 %351, 0
   br i1 %352, label %353, label %355
 
-353:                                              ; preds = %347, %.thread392
+353:                                              ; preds = %347, %.thread391
   %354 = call ptr @archive_string_conversion_charset_name(ptr noundef %.2253) #21
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.24, ptr noundef %354) #21
   br label %355
@@ -3320,17 +3320,17 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %361 = load i16, ptr %46, align 2, !tbaa !80
   %362 = and i16 %361, 8
   %363 = icmp eq i16 %362, 0
-  %.pre362 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !91
+  %.pre361 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !91
   br i1 %363, label %366, label %364
 
 364:                                              ; preds = %360
-  %365 = icmp slt i64 %.pre362, 1
-  %.not304 = icmp eq i64 %.pre362, 4294967295
+  %365 = icmp slt i64 %.pre361, 1
+  %.not304 = icmp eq i64 %.pre361, 4294967295
   %or.cond313 = or i1 %365, %.not304
   br i1 %or.cond313, label %367, label %366
 
 366:                                              ; preds = %364, %360
-  call void @archive_entry_set_size(ptr noundef %1, i64 noundef %.pre362) #21
+  call void @archive_entry_set_size(ptr noundef %1, i64 noundef %.pre361) #21
   br label %367
 
 367:                                              ; preds = %359, %364, %366

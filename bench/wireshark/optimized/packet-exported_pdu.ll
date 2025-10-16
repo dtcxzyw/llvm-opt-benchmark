@@ -1036,8 +1036,8 @@ declare i32 @register_export_pdu_tap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_exported_pdu() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_exported_pdu.initialized, align 1
-  br i1 %.b1, label %3, label %1
+  %.b = load i1, ptr @proto_reg_handoff_exported_pdu.initialized, align 1
+  br i1 %.b, label %3, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @exported_pdu_handle, align 8

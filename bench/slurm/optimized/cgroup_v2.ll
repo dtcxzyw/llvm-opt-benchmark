@@ -3668,8 +3668,8 @@ define dso_local noundef ptr @cgroup_p_task_get_acct_data(i32 noundef %0) local_
   br label %158
 
 19:                                               ; preds = %1
-  %.b31 = load i1, ptr @cgroup_p_task_get_acct_data.interfaces_checked, align 1
-  br i1 %.b31, label %30, label %20
+  %.b = load i1, ptr @cgroup_p_task_get_acct_data.interfaces_checked, align 1
+  br i1 %.b, label %30, label %20
 
 20:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3701,8 +3701,8 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 30:                                               ; preds = %cgroup_p_has_feature.exit, %19
   %31 = call i32 @common_cgroup_get_param(ptr noundef nonnull %10, ptr noundef nonnull @.str.72, ptr noundef nonnull %4, ptr noundef nonnull %8) #17
-  %.not32 = icmp eq i32 %31, 0
-  br i1 %.not32, label %49, label %32
+  %.not31 = icmp eq i32 %31, 0
+  br i1 %.not31, label %49, label %32
 
 32:                                               ; preds = %30
   %33 = load i32, ptr %3, align 4
@@ -3710,11 +3710,11 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   %35 = icmp eq i32 %33, %34
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %37 = and i64 %36, 36028797018963968
-  %.not34 = icmp eq i64 %37, 0
+  %.not33 = icmp eq i64 %37, 0
   br i1 %35, label %38, label %43
 
 38:                                               ; preds = %32
-  br i1 %.not34, label %49, label %39
+  br i1 %.not33, label %49, label %39
 
 39:                                               ; preds = %38
   %40 = call i32 @get_log_level() #17
@@ -3726,7 +3726,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %49
 
 43:                                               ; preds = %32
-  br i1 %.not34, label %49, label %44
+  br i1 %.not33, label %49, label %44
 
 44:                                               ; preds = %43
   %45 = call i32 @get_log_level() #17
@@ -3740,8 +3740,8 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 49:                                               ; preds = %39, %42, %38, %44, %47, %43, %30
   %50 = call i32 @common_cgroup_get_param(ptr noundef nonnull %10, ptr noundef nonnull @.str.75, ptr noundef nonnull %6, ptr noundef nonnull %8) #17
-  %.not35 = icmp eq i32 %50, 0
-  br i1 %.not35, label %68, label %51
+  %.not34 = icmp eq i32 %50, 0
+  br i1 %.not34, label %68, label %51
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %3, align 4
@@ -3749,11 +3749,11 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   %54 = icmp eq i32 %52, %53
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %56 = and i64 %55, 36028797018963968
-  %.not37 = icmp eq i64 %56, 0
+  %.not36 = icmp eq i64 %56, 0
   br i1 %54, label %57, label %62
 
 57:                                               ; preds = %51
-  br i1 %.not37, label %68, label %58
+  br i1 %.not36, label %68, label %58
 
 58:                                               ; preds = %57
   %59 = call i32 @get_log_level() #17
@@ -3765,7 +3765,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %68
 
 62:                                               ; preds = %51
-  br i1 %.not37, label %68, label %63
+  br i1 %.not36, label %68, label %63
 
 63:                                               ; preds = %62
   %64 = call i32 @get_log_level() #17
@@ -3779,8 +3779,8 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 68:                                               ; preds = %58, %61, %57, %63, %66, %62, %49
   %69 = call i32 @common_cgroup_get_param(ptr noundef nonnull %10, ptr noundef nonnull @.str.78, ptr noundef nonnull %5, ptr noundef nonnull %8) #17
-  %.not38 = icmp eq i32 %69, 0
-  br i1 %.not38, label %87, label %70
+  %.not37 = icmp eq i32 %69, 0
+  br i1 %.not37, label %87, label %70
 
 70:                                               ; preds = %68
   %71 = load i32, ptr %3, align 4
@@ -3788,11 +3788,11 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   %73 = icmp eq i32 %71, %72
   %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %75 = and i64 %74, 36028797018963968
-  %.not40 = icmp eq i64 %75, 0
+  %.not39 = icmp eq i64 %75, 0
   br i1 %73, label %76, label %81
 
 76:                                               ; preds = %70
-  br i1 %.not40, label %87, label %77
+  br i1 %.not39, label %87, label %77
 
 77:                                               ; preds = %76
   %78 = call i32 @get_log_level() #17
@@ -3804,7 +3804,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %87
 
 81:                                               ; preds = %70
-  br i1 %.not40, label %87, label %82
+  br i1 %.not39, label %87, label %82
 
 82:                                               ; preds = %81
   %83 = call i32 @get_log_level() #17
@@ -3823,8 +3823,8 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 90:                                               ; preds = %87
   %91 = call i32 @common_cgroup_get_param(ptr noundef nonnull %10, ptr noundef nonnull @.str.81, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
-  %.not41 = icmp eq i32 %91, 0
-  br i1 %.not41, label %109, label %92
+  %.not40 = icmp eq i32 %91, 0
+  br i1 %.not40, label %109, label %92
 
 92:                                               ; preds = %90
   %93 = load i32, ptr %3, align 4
@@ -3832,11 +3832,11 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   %95 = icmp eq i32 %93, %94
   %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %97 = and i64 %96, 36028797018963968
-  %.not43 = icmp eq i64 %97, 0
+  %.not42 = icmp eq i64 %97, 0
   br i1 %95, label %98, label %103
 
 98:                                               ; preds = %92
-  br i1 %.not43, label %109, label %99
+  br i1 %.not42, label %109, label %99
 
 99:                                               ; preds = %98
   %100 = call i32 @get_log_level() #17
@@ -3848,7 +3848,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %109
 
 103:                                              ; preds = %92
-  br i1 %.not43, label %109, label %104
+  br i1 %.not42, label %109, label %104
 
 104:                                              ; preds = %103
   %105 = call i32 @get_log_level() #17
@@ -3872,18 +3872,18 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   store i64 -2, ptr %114, align 8
   store i64 -1, ptr %110, align 8
   %115 = load ptr, ptr %4, align 8
-  %.not44 = icmp eq ptr %115, null
-  br i1 %.not44, label %130, label %116
+  %.not43 = icmp eq ptr %115, null
+  br i1 %.not43, label %130, label %116
 
 116:                                              ; preds = %109
   %117 = call ptr @xstrstr(ptr noundef nonnull %115, ptr noundef nonnull @.str.84) #17
-  %.not45 = icmp eq ptr %117, null
-  br i1 %.not45, label %122, label %118
+  %.not44 = icmp eq ptr %117, null
+  br i1 %.not44, label %122, label %118
 
 118:                                              ; preds = %116
   %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %117, ptr noundef nonnull @.str.85, ptr noundef nonnull %111) #17
-  %.not46 = icmp eq i32 %119, 1
-  br i1 %.not46, label %122, label %120
+  %.not45 = icmp eq i32 %119, 1
+  br i1 %.not45, label %122, label %120
 
 120:                                              ; preds = %118
   %121 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.86) #17
@@ -3892,13 +3892,13 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 122:                                              ; preds = %120, %118, %116
   %123 = load ptr, ptr %4, align 8
   %124 = call ptr @xstrstr(ptr noundef %123, ptr noundef nonnull @.str.87) #17
-  %.not47 = icmp eq ptr %124, null
-  br i1 %.not47, label %129, label %125
+  %.not46 = icmp eq ptr %124, null
+  br i1 %.not46, label %129, label %125
 
 125:                                              ; preds = %122
   %126 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %124, ptr noundef nonnull @.str.88, ptr noundef nonnull %112) #17
-  %.not48 = icmp eq i32 %126, 1
-  br i1 %.not48, label %129, label %127
+  %.not47 = icmp eq i32 %126, 1
+  br i1 %.not47, label %129, label %127
 
 127:                                              ; preds = %125
   %128 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89) #17
@@ -3910,13 +3910,13 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 130:                                              ; preds = %129, %109
   %131 = load ptr, ptr %6, align 8
-  %.not49 = icmp eq ptr %131, null
-  br i1 %.not49, label %137, label %132
+  %.not48 = icmp eq ptr %131, null
+  br i1 %.not48, label %137, label %132
 
 132:                                              ; preds = %130
   %133 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %131, ptr noundef nonnull @.str.90, ptr noundef nonnull %113) #17
-  %.not50 = icmp eq i32 %133, 1
-  br i1 %.not50, label %136, label %134
+  %.not49 = icmp eq i32 %133, 1
+  br i1 %.not49, label %136, label %134
 
 134:                                              ; preds = %132
   %135 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.91) #17
@@ -3928,24 +3928,24 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 137:                                              ; preds = %136, %130
   %138 = load ptr, ptr %5, align 8
-  %.not51 = icmp eq ptr %138, null
-  br i1 %.not51, label %151, label %139
+  %.not50 = icmp eq ptr %138, null
+  br i1 %.not50, label %151, label %139
 
 139:                                              ; preds = %137
   %140 = call ptr @xstrstr(ptr noundef nonnull %138, ptr noundef nonnull @.str.92) #17
-  %.not52 = icmp eq ptr %140, null
-  br i1 %.not52, label %150, label %141
+  %.not51 = icmp eq ptr %140, null
+  br i1 %.not51, label %150, label %141
 
 141:                                              ; preds = %139
   %142 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %140, ptr noundef nonnull @.str.93, ptr noundef nonnull %114) #17
-  %.not53 = icmp eq i32 %142, 1
-  br i1 %.not53, label %150, label %143
+  %.not52 = icmp eq i32 %142, 1
+  br i1 %.not52, label %150, label %143
 
 143:                                              ; preds = %141
   %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %145 = and i64 %144, 36028797018963968
-  %.not54 = icmp eq i64 %145, 0
-  br i1 %.not54, label %150, label %146
+  %.not53 = icmp eq i64 %145, 0
+  br i1 %.not53, label %150, label %146
 
 146:                                              ; preds = %143
   %147 = call i32 @get_log_level() #17
@@ -3962,13 +3962,13 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
 
 151:                                              ; preds = %150, %137
   %152 = load ptr, ptr %7, align 8
-  %.not55 = icmp eq ptr %152, null
-  br i1 %.not55, label %158, label %153
+  %.not54 = icmp eq ptr %152, null
+  br i1 %.not54, label %158, label %153
 
 153:                                              ; preds = %151
   %154 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %152, ptr noundef nonnull @.str.90, ptr noundef nonnull %110) #17
-  %.not56 = icmp eq i32 %154, 1
-  br i1 %.not56, label %157, label %155
+  %.not55 = icmp eq i32 %154, 1
+  br i1 %.not55, label %157, label %155
 
 155:                                              ; preds = %153
   %156 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.95) #17

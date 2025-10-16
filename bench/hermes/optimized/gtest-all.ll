@@ -36546,11 +36546,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %.b1 = load i1, ptr @_ZN7testing8internalL26g_in_fast_death_test_childE, align 1
+  %.b = load i1, ptr @_ZN7testing8internalL26g_in_fast_death_test_childE, align 1
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i1 [ %lnot, %if.then ], [ %.b1, %if.else ]
+  %retval.0 = phi i1 [ %lnot, %if.then ], [ %.b, %if.else ]
   ret i1 %retval.0
 }
 

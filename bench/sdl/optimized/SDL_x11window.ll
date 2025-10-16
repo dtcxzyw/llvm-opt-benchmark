@@ -1767,44 +1767,44 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8
   %33 = icmp sgt i32 %30, 0
-  br i1 %33, label %.lr.ph60, label %._crit_edge61
+  br i1 %33, label %.lr.ph59, label %._crit_edge60
 
-.lr.ph60:                                         ; preds = %23
+.lr.ph59:                                         ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = icmp sgt i32 %28, 0
-  br i1 %36, label %.lr.ph60.split.preheader, label %._crit_edge61
+  br i1 %36, label %.lr.ph59.split.preheader, label %._crit_edge60
 
-.lr.ph60.split.preheader:                         ; preds = %.lr.ph60
+.lr.ph59.split.preheader:                         ; preds = %.lr.ph59
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  br label %.lr.ph60.split
+  br label %.lr.ph59.split
 
-.lr.ph60.split:                                   ; preds = %.lr.ph60.split.preheader, %._crit_edge
-  %38 = phi i32 [ %53, %._crit_edge ], [ %30, %.lr.ph60.split.preheader ]
-  %39 = phi i32 [ %54, %._crit_edge ], [ %28, %.lr.ph60.split.preheader ]
-  %.03658 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %37, %.lr.ph60.split.preheader ]
-  %.04257 = phi i32 [ %55, %._crit_edge ], [ 0, %.lr.ph60.split.preheader ]
+.lr.ph59.split:                                   ; preds = %.lr.ph59.split.preheader, %._crit_edge
+  %38 = phi i32 [ %53, %._crit_edge ], [ %30, %.lr.ph59.split.preheader ]
+  %39 = phi i32 [ %54, %._crit_edge ], [ %28, %.lr.ph59.split.preheader ]
+  %.03657 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %37, %.lr.ph59.split.preheader ]
+  %.04256 = phi i32 [ %55, %._crit_edge ], [ 0, %.lr.ph59.split.preheader ]
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph60.split
+.lr.ph.preheader:                                 ; preds = %.lr.ph59.split
   %41 = load ptr, ptr %34, align 8
   %42 = load i32, ptr %35, align 8
-  %43 = mul nsw i32 %42, %.04257
+  %43 = mul nsw i32 %42, %.04256
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.156 = phi ptr [ %49, %.lr.ph ], [ %.03658, %.lr.ph.preheader ]
-  %.03755 = phi ptr [ %46, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04354 = phi i32 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds nuw i8, ptr %.03755, i64 4
-  %47 = load i32, ptr %.03755, align 4
+  %.155 = phi ptr [ %49, %.lr.ph ], [ %.03657, %.lr.ph.preheader ]
+  %.03754 = phi ptr [ %46, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04353 = phi i32 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %46 = getelementptr inbounds nuw i8, ptr %.03754, i64 4
+  %47 = load i32, ptr %.03754, align 4
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %.156, i64 8
-  store i64 %48, ptr %.156, align 8
-  %50 = add nuw nsw i32 %.04354, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.155, i64 8
+  store i64 %48, ptr %.155, align 8
+  %50 = add nuw nsw i32 %.04353, 1
   %51 = load i32, ptr %14, align 8
   %52 = icmp slt i32 %50, %51
   br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
@@ -1813,33 +1813,33 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %.pre = load i32, ptr %16, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph60.split
-  %53 = phi i32 [ %38, %.lr.ph60.split ], [ %.pre, %._crit_edge.loopexit ]
-  %54 = phi i32 [ %39, %.lr.ph60.split ], [ %51, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.03658, %.lr.ph60.split ], [ %49, %._crit_edge.loopexit ]
-  %55 = add nuw nsw i32 %.04257, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph59.split
+  %53 = phi i32 [ %38, %.lr.ph59.split ], [ %.pre, %._crit_edge.loopexit ]
+  %54 = phi i32 [ %39, %.lr.ph59.split ], [ %51, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.03657, %.lr.ph59.split ], [ %49, %._crit_edge.loopexit ]
+  %55 = add nuw nsw i32 %.04256, 1
   %56 = icmp slt i32 %55, %53
-  br i1 %56, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !13
+  br i1 %56, label %.lr.ph59.split, label %._crit_edge60, !llvm.loop !13
 
-._crit_edge61:                                    ; preds = %._crit_edge, %.lr.ph60, %23
+._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59, %23
   %57 = load ptr, ptr @X11_XChangeProperty, align 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = tail call i32 %57(ptr noundef %8, i64 noundef %59, i64 noundef %10, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %22, i32 noundef %19) #12
   tail call void @SDL_free_REAL(ptr noundef nonnull %22) #12
-  %.b49 = load i1, ptr @caught_x11_error, align 1
-  br i1 %.b49, label %61, label %63
+  %.b = load i1, ptr @caught_x11_error, align 1
+  br i1 %.b, label %61, label %63
 
-61:                                               ; preds = %._crit_edge61
+61:                                               ; preds = %._crit_edge60
   %62 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #12
   br label %63
 
-63:                                               ; preds = %61, %._crit_edge61
-  %.044 = phi i1 [ %62, %61 ], [ true, %._crit_edge61 ]
+63:                                               ; preds = %61, %._crit_edge60
+  %.044 = phi i1 [ %62, %61 ], [ true, %._crit_edge60 ]
   %64 = load ptr, ptr @X11_XFlush, align 8
   %65 = tail call i32 %64(ptr noundef %8) #12
-  %.not50 = icmp eq ptr %27, null
-  br i1 %.not50, label %.critedge, label %66
+  %.not49 = icmp eq ptr %27, null
+  br i1 %.not49, label %.critedge, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr @X11_XSetErrorHandler, align 8
@@ -2291,14 +2291,14 @@ define hidden noundef zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef %1)
   %64 = load i32, ptr %9, align 4
   %65 = load i32, ptr %10, align 4
   call void @SDL_GlobalToRelativeForWindow(ptr noundef %1, i32 noundef %64, i32 noundef %65, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
-  %.b3537.i = load i1, ptr @caught_x11_error, align 1
-  br i1 %.b3537.i, label %thread-pre-split.thread.i, label %66
+  %.b35.i = load i1, ptr @caught_x11_error, align 1
+  br i1 %.b35.i, label %thread-pre-split.thread.i, label %66
 
 66:                                               ; preds = %47
   %67 = load i32, ptr %17, align 8
   %68 = and i32 %67, 16
-  %.not38.i = icmp eq i32 %68, 0
-  br i1 %.not38.i, label %83, label %69
+  %.not37.i = icmp eq i32 %68, 0
+  br i1 %.not37.i, label %83, label %69
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %9, align 4
@@ -2324,8 +2324,8 @@ define hidden noundef zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef %1)
 83:                                               ; preds = %81, %75, %69, %66
   %.pr.i = phi i32 [ %82, %81 ], [ %67, %75 ], [ %67, %69 ], [ %67, %66 ]
   %84 = and i32 %.pr.i, 32
-  %.not39.i = icmp eq i32 %84, 0
-  br i1 %.not39.i, label %thread-pre-split.i, label %85
+  %.not38.i = icmp eq i32 %84, 0
+  br i1 %.not38.i, label %thread-pre-split.i, label %85
 
 85:                                               ; preds = %83
   %86 = load i32, ptr %43, align 8
@@ -2351,8 +2351,8 @@ thread-pre-split.i:                               ; preds = %93, %83
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %89, %85, %47
   %97 = call i64 @SDL_GetTicksNS_REAL() #12
-  %.not40.i = icmp ult i64 %97, %35
-  br i1 %.not40.i, label %98, label %.loopexit.i
+  %.not39.i = icmp ult i64 %97, %35
+  br i1 %.not39.i, label %98, label %.loopexit.i
 
 98:                                               ; preds = %thread-pre-split.thread.i
   call void @SDL_Delay_REAL(i32 noundef 10) #12
@@ -2370,8 +2370,8 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   store i32 %103, ptr %44, align 4
   %104 = load i32, ptr %45, align 4
   store i32 %104, ptr %46, align 8
-  %.b41.pre.i = load i1, ptr @caught_x11_error, align 1
-  br i1 %.b41.pre.i, label %X11_ExternalResizeMoveSync.exit, label %.loopexit.thread.i
+  %.b.pre.i = load i1, ptr @caught_x11_error, align 1
+  br i1 %.b.pre.i, label %X11_ExternalResizeMoveSync.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %thread-pre-split.i, %.loopexit.i
   br i1 %.not.i, label %109, label %105
@@ -2570,8 +2570,8 @@ thread-pre-split.thread.i34:                      ; preds = %200, %196, %190, %1
 .loopexit.i35:                                    ; preds = %200, %183, %205
   %.0.i = phi i1 [ false, %205 ], [ true, %183 ], [ true, %200 ]
   store i32 0, ptr %124, align 8
-  %.b52.i = load i1, ptr @caught_x11_error, align 1
-  br i1 %.b52.i, label %X11_SyncWindowTimeout.exit, label %211
+  %.b.i = load i1, ptr @caught_x11_error, align 1
+  br i1 %.b.i, label %X11_SyncWindowTimeout.exit, label %211
 
 211:                                              ; preds = %.loopexit.i35
   tail call void @X11_PumpEvents(ptr noundef %0) #12

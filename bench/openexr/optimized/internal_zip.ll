@@ -33,55 +33,55 @@ reconstruct.exit:                                 ; preds = %.lr.ph.i
   %12 = add i64 %2, 1
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %.not51.i = icmp ult i64 %2, 32
-  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i4
+  %.not50.i = icmp ult i64 %2, 32
+  br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %3, %reconstruct.exit
   %.030.lcssa.i = phi ptr [ %0, %reconstruct.exit ], [ %0, %3 ], [ %23, %.lr.ph.i4 ]
   %.029.lcssa.i = phi ptr [ %14, %reconstruct.exit ], [ %4, %3 ], [ %18, %.lr.ph.i4 ]
   %.028.lcssa.i = phi ptr [ %1, %reconstruct.exit ], [ %1, %3 ], [ %16, %.lr.ph.i4 ]
   %15 = and i64 %2, -32
-  %.not52.i = icmp eq i64 %15, %2
-  br i1 %.not52.i, label %interleave.exit, label %.lr.ph49.i
+  %.not51.i = icmp eq i64 %15, %2
+  br i1 %.not51.i, label %interleave.exit, label %.lr.ph48.i
 
 .lr.ph.i4:                                        ; preds = %reconstruct.exit, %.lr.ph.i4
-  %.02841.i = phi ptr [ %16, %.lr.ph.i4 ], [ %1, %reconstruct.exit ]
-  %.02940.i = phi ptr [ %18, %.lr.ph.i4 ], [ %14, %reconstruct.exit ]
-  %.03039.i = phi ptr [ %23, %.lr.ph.i4 ], [ %0, %reconstruct.exit ]
-  %.03238.i = phi i64 [ %24, %.lr.ph.i4 ], [ 0, %reconstruct.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 16
-  %17 = load <16 x i8>, ptr %.02841.i, align 1, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %.02940.i, i64 16
-  %19 = load <16 x i8>, ptr %.02940.i, align 1, !tbaa !3
+  %.02840.i = phi ptr [ %16, %.lr.ph.i4 ], [ %1, %reconstruct.exit ]
+  %.02939.i = phi ptr [ %18, %.lr.ph.i4 ], [ %14, %reconstruct.exit ]
+  %.03038.i = phi ptr [ %23, %.lr.ph.i4 ], [ %0, %reconstruct.exit ]
+  %.03237.i = phi i64 [ %24, %.lr.ph.i4 ], [ 0, %reconstruct.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.02840.i, i64 16
+  %17 = load <16 x i8>, ptr %.02840.i, align 1, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %.02939.i, i64 16
+  %19 = load <16 x i8>, ptr %.02939.i, align 1, !tbaa !3
   %20 = shufflevector <16 x i8> %17, <16 x i8> %19, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %21 = shufflevector <16 x i8> %17, <16 x i8> %19, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %22 = getelementptr inbounds nuw i8, ptr %.03039.i, i64 16
-  store <16 x i8> %20, ptr %.03039.i, align 1, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %.03039.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 16
+  store <16 x i8> %20, ptr %.03038.i, align 1, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 32
   store <16 x i8> %21, ptr %22, align 1, !tbaa !3
-  %24 = add nuw nsw i64 %.03238.i, 1
+  %24 = add nuw nsw i64 %.03237.i, 1
   %exitcond.not.i = icmp eq i64 %24, %11
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i4, !llvm.loop !8
 
-.lr.ph49.i:                                       ; preds = %._crit_edge.i, %.lr.ph49.i
-  %.047.i = phi i64 [ %27, %.lr.ph49.i ], [ %15, %._crit_edge.i ]
-  %.03146.i = phi ptr [ %.1.i, %.lr.ph49.i ], [ %.028.lcssa.i, %._crit_edge.i ]
-  %.03345.i = phi ptr [ %26, %.lr.ph49.i ], [ %.030.lcssa.i, %._crit_edge.i ]
-  %.03444.i = phi ptr [ %.135.i, %.lr.ph49.i ], [ %.029.lcssa.i, %._crit_edge.i ]
-  %25 = and i64 %.047.i, 1
+.lr.ph48.i:                                       ; preds = %._crit_edge.i, %.lr.ph48.i
+  %.046.i = phi i64 [ %27, %.lr.ph48.i ], [ %15, %._crit_edge.i ]
+  %.03145.i = phi ptr [ %.1.i, %.lr.ph48.i ], [ %.028.lcssa.i, %._crit_edge.i ]
+  %.03344.i = phi ptr [ %26, %.lr.ph48.i ], [ %.030.lcssa.i, %._crit_edge.i ]
+  %.03443.i = phi ptr [ %.135.i, %.lr.ph48.i ], [ %.029.lcssa.i, %._crit_edge.i ]
+  %25 = and i64 %.046.i, 1
   %.not.i = icmp eq i64 %25, 0
-  %.135.i = getelementptr inbounds nuw i8, ptr %.03444.i, i64 %25
+  %.135.i = getelementptr inbounds nuw i8, ptr %.03443.i, i64 %25
   %.1.idx.i = xor i64 %25, 1
-  %.1.i = getelementptr inbounds nuw i8, ptr %.03146.i, i64 %.1.idx.i
-  %.in.in.i = select i1 %.not.i, ptr %.03146.i, ptr %.03444.i
-  %.in37.i = load i8, ptr %.in.in.i, align 1, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %.03345.i, i64 1
-  store i8 %.in37.i, ptr %.03345.i, align 1, !tbaa !3
-  %27 = add nuw i64 %.047.i, 1
+  %.1.i = getelementptr inbounds nuw i8, ptr %.03145.i, i64 %.1.idx.i
+  %.in.in.i = select i1 %.not.i, ptr %.03145.i, ptr %.03443.i
+  %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %.03344.i, i64 1
+  store i8 %.in.i, ptr %.03344.i, align 1, !tbaa !3
+  %27 = add nuw i64 %.046.i, 1
   %28 = icmp ult i64 %27, %2
-  br i1 %28, label %.lr.ph49.i, label %interleave.exit, !llvm.loop !9
+  br i1 %28, label %.lr.ph48.i, label %interleave.exit, !llvm.loop !9
 
-interleave.exit:                                  ; preds = %.lr.ph49.i, %._crit_edge.i
+interleave.exit:                                  ; preds = %.lr.ph48.i, %._crit_edge.i
   ret void
 }
 
@@ -219,56 +219,56 @@ reconstruct.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   %38 = add i64 %25, 1
   %39 = lshr i64 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 %39
-  %.not51.i.i.i = icmp ult i64 %25, 32
-  br i1 %.not51.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i
+  %.not50.i.i.i = icmp ult i64 %25, 32
+  br i1 %.not50.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %reconstruct.exit.i.i, %29
   %.030.lcssa.i.i.i = phi ptr [ %3, %reconstruct.exit.i.i ], [ %3, %29 ], [ %49, %.lr.ph.i4.i.i ]
   %.029.lcssa.i.i.i = phi ptr [ %40, %reconstruct.exit.i.i ], [ %30, %29 ], [ %44, %.lr.ph.i4.i.i ]
   %.028.lcssa.i.i.i = phi ptr [ %16, %reconstruct.exit.i.i ], [ %16, %29 ], [ %42, %.lr.ph.i4.i.i ]
   %41 = and i64 %25, -32
-  %.not52.i.i.i = icmp eq i64 %41, %25
-  br i1 %.not52.i.i.i, label %undo_zip_impl.exit, label %.lr.ph49.i.i.i
+  %.not51.i.i.i = icmp eq i64 %41, %25
+  br i1 %.not51.i.i.i, label %undo_zip_impl.exit, label %.lr.ph48.i.i.i
 
 .lr.ph.i4.i.i:                                    ; preds = %reconstruct.exit.i.i, %.lr.ph.i4.i.i
-  %.02841.i.i.i = phi ptr [ %42, %.lr.ph.i4.i.i ], [ %16, %reconstruct.exit.i.i ]
-  %.02940.i.i.i = phi ptr [ %44, %.lr.ph.i4.i.i ], [ %40, %reconstruct.exit.i.i ]
-  %.03039.i.i.i = phi ptr [ %49, %.lr.ph.i4.i.i ], [ %3, %reconstruct.exit.i.i ]
-  %.03238.i.i.i = phi i64 [ %50, %.lr.ph.i4.i.i ], [ 0, %reconstruct.exit.i.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %.02841.i.i.i, i64 16
-  %43 = load <16 x i8>, ptr %.02841.i.i.i, align 1, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i, i64 16
-  %45 = load <16 x i8>, ptr %.02940.i.i.i, align 1, !tbaa !3
+  %.02840.i.i.i = phi ptr [ %42, %.lr.ph.i4.i.i ], [ %16, %reconstruct.exit.i.i ]
+  %.02939.i.i.i = phi ptr [ %44, %.lr.ph.i4.i.i ], [ %40, %reconstruct.exit.i.i ]
+  %.03038.i.i.i = phi ptr [ %49, %.lr.ph.i4.i.i ], [ %3, %reconstruct.exit.i.i ]
+  %.03237.i.i.i = phi i64 [ %50, %.lr.ph.i4.i.i ], [ 0, %reconstruct.exit.i.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.02840.i.i.i, i64 16
+  %43 = load <16 x i8>, ptr %.02840.i.i.i, align 1, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %.02939.i.i.i, i64 16
+  %45 = load <16 x i8>, ptr %.02939.i.i.i, align 1, !tbaa !3
   %46 = shufflevector <16 x i8> %43, <16 x i8> %45, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %47 = shufflevector <16 x i8> %43, <16 x i8> %45, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %48 = getelementptr inbounds nuw i8, ptr %.03039.i.i.i, i64 16
-  store <16 x i8> %46, ptr %.03039.i.i.i, align 1, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %.03039.i.i.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.03038.i.i.i, i64 16
+  store <16 x i8> %46, ptr %.03038.i.i.i, align 1, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %.03038.i.i.i, i64 32
   store <16 x i8> %47, ptr %48, align 1, !tbaa !3
-  %50 = add nuw nsw i64 %.03238.i.i.i, 1
+  %50 = add nuw nsw i64 %.03237.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i, !llvm.loop !8
 
-.lr.ph49.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph49.i.i.i
-  %.047.i.i.i = phi i64 [ %53, %.lr.ph49.i.i.i ], [ %41, %._crit_edge.i.i.i ]
-  %.03146.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph49.i.i.i ], [ %.028.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.03345.i.i.i = phi ptr [ %52, %.lr.ph49.i.i.i ], [ %.030.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %.03444.i.i.i = phi ptr [ %.135.i.i.i, %.lr.ph49.i.i.i ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %51 = and i64 %.047.i.i.i, 1
+.lr.ph48.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph48.i.i.i
+  %.046.i.i.i = phi i64 [ %53, %.lr.ph48.i.i.i ], [ %41, %._crit_edge.i.i.i ]
+  %.03145.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph48.i.i.i ], [ %.028.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.03344.i.i.i = phi ptr [ %52, %.lr.ph48.i.i.i ], [ %.030.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.03443.i.i.i = phi ptr [ %.135.i.i.i, %.lr.ph48.i.i.i ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %51 = and i64 %.046.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %51, 0
-  %.135.i.i.i = getelementptr inbounds nuw i8, ptr %.03444.i.i.i, i64 %51
+  %.135.i.i.i = getelementptr inbounds nuw i8, ptr %.03443.i.i.i, i64 %51
   %.1.idx.i.i.i = xor i64 %51, 1
-  %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.03146.i.i.i, i64 %.1.idx.i.i.i
-  %.in.in.i.i.i = select i1 %.not.i.i.i, ptr %.03146.i.i.i, ptr %.03444.i.i.i
-  %.in37.i.i.i = load i8, ptr %.in.in.i.i.i, align 1, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %.03345.i.i.i, i64 1
-  store i8 %.in37.i.i.i, ptr %.03345.i.i.i, align 1, !tbaa !3
-  %53 = add nuw i64 %.047.i.i.i, 1
+  %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.03145.i.i.i, i64 %.1.idx.i.i.i
+  %.in.in.i.i.i = select i1 %.not.i.i.i, ptr %.03145.i.i.i, ptr %.03443.i.i.i
+  %.in.i.i.i = load i8, ptr %.in.in.i.i.i, align 1, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %.03344.i.i.i, i64 1
+  store i8 %.in.i.i.i, ptr %.03344.i.i.i, align 1, !tbaa !3
+  %53 = add nuw i64 %.046.i.i.i, 1
   %54 = icmp ult i64 %53, %25
-  br i1 %54, label %.lr.ph49.i.i.i, label %undo_zip_impl.exit, !llvm.loop !9
+  br i1 %54, label %.lr.ph48.i.i.i, label %undo_zip_impl.exit, !llvm.loop !9
 
-undo_zip_impl.exit:                               ; preds = %.lr.ph49.i.i.i, %15, %19, %24, %._crit_edge.i.i.i
-  %.014.i = phi i32 [ 3, %15 ], [ %22, %19 ], [ 23, %24 ], [ 0, %._crit_edge.i.i.i ], [ 0, %.lr.ph49.i.i.i ]
+undo_zip_impl.exit:                               ; preds = %.lr.ph48.i.i.i, %15, %19, %24, %._crit_edge.i.i.i
+  %.014.i = phi i32 [ 3, %15 ], [ %22, %19 ], [ 23, %24 ], [ 0, %._crit_edge.i.i.i ], [ 0, %.lr.ph48.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 

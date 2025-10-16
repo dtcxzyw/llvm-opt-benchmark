@@ -302,7 +302,7 @@ define hidden void @_ZN7nanogui10ImagePanel4drawEP10NVGcontext(ptr noundef nonnu
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %33 = phi ptr [ %28, %.lr.ph ], [ %113, %70 ]
-  %.093 = phi i64 [ 0, %.lr.ph ], [ %111, %70 ]
+  %.092 = phi i64 [ 0, %.lr.ph ], [ %111, %70 ]
   %34 = load i32, ptr %10, align 8
   %35 = load i32, ptr %29, align 8
   %36 = add nsw i32 %34, %35
@@ -311,14 +311,14 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %39 = load i32, ptr %12, align 8
   %40 = load i32, ptr %18, align 4
   %41 = add nsw i32 %40, %39
-  %42 = trunc i64 %.093 to i32
+  %42 = trunc i64 %.092 to i32
   %43 = srem i32 %42, %24
   %44 = sdiv i32 %42, %24
   %45 = mul nsw i32 %41, %43
   %46 = mul nsw i32 %41, %44
   %47 = add nsw i32 %36, %45
   %48 = add nsw i32 %38, %46
-  %49 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.093
+  %49 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.092
   %50 = load i32, ptr %49, align 8
   call void @nvgImageSize(ptr noundef %1, i32 noundef %50, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %51 = load i32, ptr %3, align 4
@@ -356,7 +356,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %73 = sitofp i32 %48 to float
   %74 = fadd float %.038, %73
   %75 = load ptr, ptr %25, align 8
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.093
+  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.092
   %77 = load i32, ptr %76, align 8
   %78 = load i32, ptr %30, align 4
   %79 = icmp eq i32 %78, %42
@@ -410,7 +410,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %110 = extractvalue { <2 x float>, <2 x float> } %108, 1
   call void @nvgStrokeColor(ptr noundef %1, <2 x float> %109, <2 x float> %110)
   call void @nvgStroke(ptr noundef %1)
-  %111 = add nuw i64 %.093, 1
+  %111 = add nuw i64 %.092, 1
   %112 = load ptr, ptr %26, align 8
   %113 = load ptr, ptr %25, align 8
   %114 = ptrtoint ptr %112 to i64

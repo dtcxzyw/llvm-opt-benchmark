@@ -59082,14 +59082,14 @@ _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit.t
   br label %.lr.ph.preheader
 
 _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit: ; preds = %5
-  %.not12 = icmp eq i32 %.0.copyload.i.i.i8, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
+  %.not11 = icmp eq i32 %.0.copyload.i.i.i8, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit
-  %.013 = phi i32 [ %30, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit ], [ %.0.copyload.i.i.i8, %.lr.ph.preheader ]
+  %.012 = phi i32 [ %30, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit ], [ %.0.copyload.i.i.i8, %.lr.ph.preheader ]
   %17 = call noundef ptr @_ZN5clang13serialization6reader33ASTDeclContextNameLookupTraitBase11ReadFileRefERPKh(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   %18 = load i32, ptr %13, align 8, !tbaa !896
   %19 = load i32, ptr %14, align 4, !tbaa !897
@@ -59113,7 +59113,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push
   %28 = load i32, ptr %13, align 8, !tbaa !896
   %29 = add i32 %28, 1
   store i32 %29, ptr %13, align 8, !tbaa !896
-  %30 = add i32 %.013, -1
+  %30 = add i32 %.012, -1
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2088
 
@@ -59150,7 +59150,7 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %49 = zext i32 %.0.copyload.i.i.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 4
+  %.0.copyload.i.i.i.i = load i32, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
@@ -59159,7 +59159,7 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %54 = load ptr, ptr %7, align 8, !tbaa !2087
   store ptr %1, ptr %53, align 8, !tbaa !2089
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %.0.copyload.i.i.i.i11, ptr %55, align 8, !tbaa !2095
+  store i32 %.0.copyload.i.i.i.i, ptr %55, align 8, !tbaa !2095
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %.0.copyload.i.i.i2.i, ptr %56, align 4, !tbaa !2096
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -59334,14 +59334,14 @@ _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit.t
   br label %.lr.ph.preheader
 
 _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit: ; preds = %5
-  %.not12 = icmp eq i32 %.0.copyload.i.i.i8, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
+  %.not11 = icmp eq i32 %.0.copyload.i.i.i8, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE7reserveEm.exit
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit
-  %.013 = phi i32 [ %30, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit ], [ %.0.copyload.i.i.i8, %.lr.ph.preheader ]
+  %.012 = phi i32 [ %30, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit ], [ %.0.copyload.i.i.i8, %.lr.ph.preheader ]
   %17 = call noundef ptr @_ZN5clang13serialization6reader33ASTDeclContextNameLookupTraitBase11ReadFileRefERPKh(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   %18 = load i32, ptr %13, align 8, !tbaa !896
   %19 = load i32, ptr %14, align 4, !tbaa !897
@@ -59365,7 +59365,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push
   %28 = load i32, ptr %13, align 8, !tbaa !896
   %29 = add i32 %28, 1
   store i32 %29, ptr %13, align 8, !tbaa !896
-  %30 = add i32 %.013, -1
+  %30 = add i32 %.012, -1
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2106
 
@@ -59402,7 +59402,7 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %49 = zext i32 %.0.copyload.i.i.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 %49
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 4) ]
-  %.0.copyload.i.i.i.i11 = load i32, ptr %50, align 4
+  %.0.copyload.i.i.i.i = load i32, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 4) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %51, align 4
@@ -59411,7 +59411,7 @@ _ZN4llvm13TinyPtrVectorIPN5clang13serialization10ModuleFileEE3endEv.exit: ; pred
   %54 = load ptr, ptr %7, align 8, !tbaa !2087
   store ptr %1, ptr %53, align 8, !tbaa !2107
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %.0.copyload.i.i.i.i11, ptr %55, align 8, !tbaa !2112
+  store i32 %.0.copyload.i.i.i.i, ptr %55, align 8, !tbaa !2112
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %.0.copyload.i.i.i2.i, ptr %56, align 4, !tbaa !2113
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16

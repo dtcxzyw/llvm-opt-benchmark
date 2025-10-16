@@ -9719,13 +9719,13 @@ _ZN7bincode8internal15serialized_size17hbe20024df33e8ec7E.exit: ; preds = %2
   %12 = icmp ne ptr %.val12, null
   call void @llvm.assume(i1 %12)
   %13 = call noundef align 8 ptr @"_ZN16wasmtime_environ12module_types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module_types..ModuleTypes$GT$9serialize17h328bb0198defa428E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val12, ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !6433
-  %.val2.i24 = load i64, ptr %9, align 8, !noalias !6429
+  %.val2.i = load i64, ptr %9, align 8, !noalias !6429
   %.not = icmp eq ptr %13, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6429
   br i1 %.not, label %14, label %24
 
 14:                                               ; preds = %_ZN7bincode8internal15serialized_size17hbe20024df33e8ec7E.exit
-  %15 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he77e955bf4231067E"(i64 noundef %.val2.i24, i1 noundef zeroext false)
+  %15 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he77e955bf4231067E"(i64 noundef %.val2.i, i1 noundef zeroext false)
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
   store i64 %16, ptr %7, align 8
@@ -9826,13 +9826,13 @@ define hidden void @_ZN7bincode8internal9serialize17h881c522848052cc4E(ptr noali
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !noalias !6444
   %9 = call noundef align 8 ptr @"_ZN16wasmtime_environ9component9artifacts1_110_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..artifacts..ComponentArtifacts$GT$9serialize17hef631d4175416fd1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !6449
-  %.val.i12 = load i64, ptr %8, align 8, !noalias !6444
+  %.val.i = load i64, ptr %8, align 8, !noalias !6444
   %.not = icmp eq ptr %9, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6444
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %2
-  %11 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he77e955bf4231067E"(i64 noundef %.val.i12, i1 noundef zeroext false)
+  %11 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he77e955bf4231067E"(i64 noundef %.val.i, i1 noundef zeroext false)
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
   store i64 %12, ptr %7, align 8

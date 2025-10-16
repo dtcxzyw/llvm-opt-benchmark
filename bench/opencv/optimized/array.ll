@@ -4150,10 +4150,10 @@ define void @cvGetRawData(ptr noundef captures(address_is_null) %0, ptr noundef 
 
 32:                                               ; preds = %31
   %.val = load i32, ptr %18, align 8, !tbaa !22
-  %.val102120 = load i32, ptr %14, align 4, !tbaa !22
+  %.val102 = load i32, ptr %14, align 4, !tbaa !22
   %.sroa.2.0.insert.ext.i = zext i32 %.val to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i107 = zext i32 %.val102120 to i64
+  %.sroa.0.0.insert.ext.i107 = zext i32 %.val102 to i64
   %.sroa.0.0.insert.insert.i108 = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i107
   store i64 %.sroa.0.0.insert.insert.i108, ptr %3, align 4
   br label %103
@@ -4291,10 +4291,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %66, %
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %.065121 = phi i32 [ %79, %.preheader.preheader ], [ %85, %.preheader ]
+  %.065120 = phi i32 [ %79, %.preheader.preheader ], [ %85, %.preheader ]
   %83 = getelementptr inbounds nuw %struct.anon.4, ptr %78, i64 %indvars.iv
   %84 = load i32, ptr %83, align 8, !tbaa !37
-  %85 = mul nsw i32 %84, %.065121
+  %85 = mul nsw i32 %84, %.065120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !110

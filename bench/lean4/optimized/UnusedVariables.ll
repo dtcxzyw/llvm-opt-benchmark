@@ -106617,8 +106617,8 @@ define nonnull ptr @l_Lean_MessageData_isUnusedVariableWarning___boxed(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Linter_UnusedVariables(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b90 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b90, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -106657,25 +106657,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit130
+  br label %lean_dec_ref.exit129
 
 19:                                               ; preds = %14
-  %.not.i129 = icmp eq i32 %15, 0
-  br i1 %.not.i129, label %lean_dec_ref.exit130, label %20
+  %.not.i128 = icmp eq i32 %15, 0
+  br i1 %.not.i128, label %lean_dec_ref.exit129, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #7
-  br label %lean_dec_ref.exit130
+  br label %lean_dec_ref.exit129
 
-lean_dec_ref.exit130:                             ; preds = %17, %19, %20
+lean_dec_ref.exit129:                             ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Linter_Util(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val131 = load i32, ptr %22, align 4
-  %.mask.i157 = and i32 %.val131, -16777216
-  %23 = icmp eq i32 %.mask.i157, 16777216
+  %.val130 = load i32, ptr %22, align 4
+  %.mask.i156 = and i32 %.val130, -16777216
+  %23 = icmp eq i32 %.mask.i156, 16777216
   br i1 %23, label %805, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit130
+24:                                               ; preds = %lean_dec_ref.exit129
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -106683,17 +106683,17 @@ lean_dec_ref.exit130:                             ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit128
+  br label %lean_dec_ref.exit127
 
 29:                                               ; preds = %24
-  %.not.i127 = icmp eq i32 %25, 0
-  br i1 %.not.i127, label %lean_dec_ref.exit128, label %30
+  %.not.i126 = icmp eq i32 %25, 0
+  br i1 %.not.i126, label %lean_dec_ref.exit127, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #7
-  br label %lean_dec_ref.exit128
+  br label %lean_dec_ref.exit127
 
-lean_dec_ref.exit128:                             ; preds = %27, %29, %30
+lean_dec_ref.exit127:                             ; preds = %27, %29, %30
   %31 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 6, i64 noundef 6) #7
   store ptr %31, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %31) #7
@@ -106718,11 +106718,11 @@ lean_dec_ref.exit128:                             ; preds = %27, %29, %30
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit
 
-42:                                               ; preds = %lean_dec_ref.exit128
+42:                                               ; preds = %lean_dec_ref.exit127
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit: ; preds = %lean_dec_ref.exit128
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit: ; preds = %lean_dec_ref.exit127
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 1, ptr %40, align 4, !tbaa !8
   store i32 196640, ptr %43, align 4
@@ -106748,7 +106748,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed_
   store ptr %53, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %53) #7
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit126, label %54
+  br i1 %.not, label %lean_dec_ref.exit125, label %54
 
 54:                                               ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit
   %55 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__3, align 8, !tbaa !4
@@ -106756,16 +106756,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed_
   %57 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__9, align 8, !tbaa !4
   %58 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %59 = getelementptr i8, ptr %58, i64 4
-  %.val132 = load i32, ptr %59, align 4
-  %.mask.i158 = and i32 %.val132, -16777216
-  %60 = icmp eq i32 %.mask.i158, 16777216
+  %.val131 = load i32, ptr %59, align 4
+  %.mask.i157 = and i32 %.val131, -16777216
+  %60 = icmp eq i32 %.mask.i157, 16777216
   br i1 %60, label %805, label %61
 
 61:                                               ; preds = %54
   %62 = getelementptr i8, ptr %58, i64 8
-  %.val151 = load ptr, ptr %62, align 8, !tbaa !4
-  store ptr %.val151, ptr @l_Lean_Linter_linter_unusedVariables, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val151) #7
+  %.val150 = load ptr, ptr %62, align 8, !tbaa !4
+  store ptr %.val150, ptr @l_Lean_Linter_linter_unusedVariables, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val150) #7
   %63 = load i32, ptr %58, align 8, !tbaa !8
   %64 = icmp sgt i32 %63, 1
   br i1 %64, label %65, label %67, !prof !11
@@ -106773,17 +106773,17 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed_
 65:                                               ; preds = %61
   %66 = add nsw i32 %63, -1
   store i32 %66, ptr %58, align 4, !tbaa !8
-  br label %lean_dec_ref.exit126
+  br label %lean_dec_ref.exit125
 
 67:                                               ; preds = %61
-  %.not.i125 = icmp eq i32 %63, 0
-  br i1 %.not.i125, label %lean_dec_ref.exit126, label %68
+  %.not.i124 = icmp eq i32 %63, 0
+  br i1 %.not.i124, label %lean_dec_ref.exit125, label %68
 
 68:                                               ; preds = %67
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %58) #7
-  br label %lean_dec_ref.exit126
+  br label %lean_dec_ref.exit125
 
-lean_dec_ref.exit126:                             ; preds = %68, %67, %65, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit
+lean_dec_ref.exit125:                             ; preds = %68, %67, %65, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_8____closed__6.exit
   %69 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 7, i64 noundef 7) #7
   store ptr %69, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %69) #7
@@ -106803,11 +106803,11 @@ lean_dec_ref.exit126:                             ; preds = %68, %67, %65, %_ini
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit
 
-79:                                               ; preds = %lean_dec_ref.exit126
+79:                                               ; preds = %lean_dec_ref.exit125
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit: ; preds = %lean_dec_ref.exit126
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit: ; preds = %lean_dec_ref.exit125
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 1, ptr %77, align 4, !tbaa !8
   store i32 196640, ptr %80, align 4
@@ -106827,7 +106827,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed
   %89 = tail call ptr @l_Lean_Name_mkStr5(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88) #7
   store ptr %89, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %89) #7
-  br i1 %.not, label %lean_dec_ref.exit124, label %90
+  br i1 %.not, label %lean_dec_ref.exit123, label %90
 
 90:                                               ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit
   %91 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__2, align 8, !tbaa !4
@@ -106835,16 +106835,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed
   %93 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__5, align 8, !tbaa !4
   %94 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %95 = getelementptr i8, ptr %94, i64 4
-  %.val133 = load i32, ptr %95, align 4
-  %.mask.i159 = and i32 %.val133, -16777216
-  %96 = icmp eq i32 %.mask.i159, 16777216
+  %.val132 = load i32, ptr %95, align 4
+  %.mask.i158 = and i32 %.val132, -16777216
+  %96 = icmp eq i32 %.mask.i158, 16777216
   br i1 %96, label %805, label %97
 
 97:                                               ; preds = %90
   %98 = getelementptr i8, ptr %94, i64 8
-  %.val152 = load ptr, ptr %98, align 8, !tbaa !4
-  store ptr %.val152, ptr @l_Lean_Linter_linter_unusedVariables_funArgs, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val152) #7
+  %.val151 = load ptr, ptr %98, align 8, !tbaa !4
+  store ptr %.val151, ptr @l_Lean_Linter_linter_unusedVariables_funArgs, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val151) #7
   %99 = load i32, ptr %94, align 8, !tbaa !8
   %100 = icmp sgt i32 %99, 1
   br i1 %100, label %101, label %103, !prof !11
@@ -106852,17 +106852,17 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed
 101:                                              ; preds = %97
   %102 = add nsw i32 %99, -1
   store i32 %102, ptr %94, align 4, !tbaa !8
-  br label %lean_dec_ref.exit124
+  br label %lean_dec_ref.exit123
 
 103:                                              ; preds = %97
-  %.not.i123 = icmp eq i32 %99, 0
-  br i1 %.not.i123, label %lean_dec_ref.exit124, label %104
+  %.not.i122 = icmp eq i32 %99, 0
+  br i1 %.not.i122, label %lean_dec_ref.exit123, label %104
 
 104:                                              ; preds = %103
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %94) #7
-  br label %lean_dec_ref.exit124
+  br label %lean_dec_ref.exit123
 
-lean_dec_ref.exit124:                             ; preds = %104, %103, %101, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit
+lean_dec_ref.exit123:                             ; preds = %104, %103, %101, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_47____closed__4.exit
   %105 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.8, i64 noundef 11, i64 noundef 11) #7
   store ptr %105, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %105) #7
@@ -106882,11 +106882,11 @@ lean_dec_ref.exit124:                             ; preds = %104, %103, %101, %_
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit
 
-115:                                              ; preds = %lean_dec_ref.exit124
+115:                                              ; preds = %lean_dec_ref.exit123
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit: ; preds = %lean_dec_ref.exit124
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit: ; preds = %lean_dec_ref.exit123
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 1, ptr %113, align 4, !tbaa !8
   store i32 196640, ptr %116, align 4
@@ -106906,7 +106906,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed
   %125 = tail call ptr @l_Lean_Name_mkStr5(ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124) #7
   store ptr %125, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %125) #7
-  br i1 %.not, label %lean_dec_ref.exit122, label %126
+  br i1 %.not, label %lean_dec_ref.exit121, label %126
 
 126:                                              ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit
   %127 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__2, align 8, !tbaa !4
@@ -106914,16 +106914,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed
   %129 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__5, align 8, !tbaa !4
   %130 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %131 = getelementptr i8, ptr %130, i64 4
-  %.val134 = load i32, ptr %131, align 4
-  %.mask.i160 = and i32 %.val134, -16777216
-  %132 = icmp eq i32 %.mask.i160, 16777216
+  %.val133 = load i32, ptr %131, align 4
+  %.mask.i159 = and i32 %.val133, -16777216
+  %132 = icmp eq i32 %.mask.i159, 16777216
   br i1 %132, label %805, label %133
 
 133:                                              ; preds = %126
   %134 = getelementptr i8, ptr %130, i64 8
-  %.val153 = load ptr, ptr %134, align 8, !tbaa !4
-  store ptr %.val153, ptr @l_Lean_Linter_linter_unusedVariables_patternVars, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val153) #7
+  %.val152 = load ptr, ptr %134, align 8, !tbaa !4
+  store ptr %.val152, ptr @l_Lean_Linter_linter_unusedVariables_patternVars, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val152) #7
   %135 = load i32, ptr %130, align 8, !tbaa !8
   %136 = icmp sgt i32 %135, 1
   br i1 %136, label %137, label %139, !prof !11
@@ -106931,17 +106931,17 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed
 137:                                              ; preds = %133
   %138 = add nsw i32 %135, -1
   store i32 %138, ptr %130, align 4, !tbaa !8
-  br label %lean_dec_ref.exit122
+  br label %lean_dec_ref.exit121
 
 139:                                              ; preds = %133
-  %.not.i121 = icmp eq i32 %135, 0
-  br i1 %.not.i121, label %lean_dec_ref.exit122, label %140
+  %.not.i120 = icmp eq i32 %135, 0
+  br i1 %.not.i120, label %lean_dec_ref.exit121, label %140
 
 140:                                              ; preds = %139
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %130) #7
-  br label %lean_dec_ref.exit122
+  br label %lean_dec_ref.exit121
 
-lean_dec_ref.exit122:                             ; preds = %140, %139, %137, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit
+lean_dec_ref.exit121:                             ; preds = %140, %139, %137, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_86____closed__4.exit
   %141 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.10, i64 noundef 14, i64 noundef 14) #7
   store ptr %141, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %141) #7
@@ -106961,11 +106961,11 @@ lean_dec_ref.exit122:                             ; preds = %140, %139, %137, %_
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit
 
-151:                                              ; preds = %lean_dec_ref.exit122
+151:                                              ; preds = %lean_dec_ref.exit121
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit: ; preds = %lean_dec_ref.exit122
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit: ; preds = %lean_dec_ref.exit121
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store i32 1, ptr %149, align 4, !tbaa !8
   store i32 196640, ptr %152, align 4
@@ -106985,7 +106985,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____close
   %161 = tail call ptr @l_Lean_Name_mkStr5(ptr noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef %160) #7
   store ptr %161, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %161) #7
-  br i1 %.not, label %lean_dec_ref.exit120, label %162
+  br i1 %.not, label %lean_dec_ref.exit119, label %162
 
 162:                                              ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit
   %163 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__2, align 8, !tbaa !4
@@ -106993,16 +106993,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____close
   %165 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__5, align 8, !tbaa !4
   %166 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %167 = getelementptr i8, ptr %166, i64 4
-  %.val135 = load i32, ptr %167, align 4
-  %.mask.i161 = and i32 %.val135, -16777216
-  %168 = icmp eq i32 %.mask.i161, 16777216
+  %.val134 = load i32, ptr %167, align 4
+  %.mask.i160 = and i32 %.val134, -16777216
+  %168 = icmp eq i32 %.mask.i160, 16777216
   br i1 %168, label %805, label %169
 
 169:                                              ; preds = %162
   %170 = getelementptr i8, ptr %166, i64 8
-  %.val154 = load ptr, ptr %170, align 8, !tbaa !4
-  store ptr %.val154, ptr @l_Lean_Linter_linter_unusedVariables_analyzeTactics, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val154) #7
+  %.val153 = load ptr, ptr %170, align 8, !tbaa !4
+  store ptr %.val153, ptr @l_Lean_Linter_linter_unusedVariables_analyzeTactics, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val153) #7
   %171 = load i32, ptr %166, align 8, !tbaa !8
   %172 = icmp sgt i32 %171, 1
   br i1 %172, label %173, label %175, !prof !11
@@ -107010,17 +107010,17 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____close
 173:                                              ; preds = %169
   %174 = add nsw i32 %171, -1
   store i32 %174, ptr %166, align 4, !tbaa !8
-  br label %lean_dec_ref.exit120
+  br label %lean_dec_ref.exit119
 
 175:                                              ; preds = %169
-  %.not.i119 = icmp eq i32 %171, 0
-  br i1 %.not.i119, label %lean_dec_ref.exit120, label %176
+  %.not.i118 = icmp eq i32 %171, 0
+  br i1 %.not.i118, label %lean_dec_ref.exit119, label %176
 
 176:                                              ; preds = %175
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %166) #7
-  br label %lean_dec_ref.exit120
+  br label %lean_dec_ref.exit119
 
-lean_dec_ref.exit120:                             ; preds = %176, %175, %173, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit
+lean_dec_ref.exit119:                             ; preds = %176, %175, %173, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_125____closed__4.exit
   %177 = load ptr, ptr @l_Lean_Linter_linter_unusedVariables, align 8, !tbaa !4
   store ptr %177, ptr @l_Lean_Linter_getLinterUnusedVariables___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %177) #7
@@ -107029,11 +107029,11 @@ lean_dec_ref.exit120:                             ; preds = %176, %175, %173, %_
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit
 
-180:                                              ; preds = %lean_dec_ref.exit120
+180:                                              ; preds = %lean_dec_ref.exit119
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit: ; preds = %lean_dec_ref.exit120
+_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit: ; preds = %lean_dec_ref.exit119
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i32 1, ptr %178, align 4, !tbaa !8
   store i32 -184549352, ptr %181, align 4
@@ -107069,21 +107069,21 @@ _init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit: ; preds = %lean_dec_ref.exi
   %194 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   store ptr %194, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_379____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %194) #7
-  br i1 %.not, label %lean_dec_ref.exit118, label %195
+  br i1 %.not, label %lean_dec_ref.exit117, label %195
 
 195:                                              ; preds = %_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit
   %196 = tail call ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_379_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %197 = getelementptr i8, ptr %196, i64 4
-  %.val136 = load i32, ptr %197, align 4
-  %.mask.i162 = and i32 %.val136, -16777216
-  %198 = icmp eq i32 %.mask.i162, 16777216
+  %.val135 = load i32, ptr %197, align 4
+  %.mask.i161 = and i32 %.val135, -16777216
+  %198 = icmp eq i32 %.mask.i161, 16777216
   br i1 %198, label %805, label %199
 
 199:                                              ; preds = %195
   %200 = getelementptr i8, ptr %196, i64 8
-  %.val155 = load ptr, ptr %200, align 8, !tbaa !4
-  store ptr %.val155, ptr @l_Lean_Linter_builtinUnusedVariablesIgnoreFnsRef, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val155) #7
+  %.val154 = load ptr, ptr %200, align 8, !tbaa !4
+  store ptr %.val154, ptr @l_Lean_Linter_builtinUnusedVariablesIgnoreFnsRef, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val154) #7
   %201 = load i32, ptr %196, align 8, !tbaa !8
   %202 = icmp sgt i32 %201, 1
   br i1 %202, label %203, label %205, !prof !11
@@ -107091,17 +107091,17 @@ _init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit: ; preds = %lean_dec_ref.exi
 203:                                              ; preds = %199
   %204 = add nsw i32 %201, -1
   store i32 %204, ptr %196, align 4, !tbaa !8
-  br label %lean_dec_ref.exit118
+  br label %lean_dec_ref.exit117
 
 205:                                              ; preds = %199
-  %.not.i117 = icmp eq i32 %201, 0
-  br i1 %.not.i117, label %lean_dec_ref.exit118, label %206
+  %.not.i116 = icmp eq i32 %201, 0
+  br i1 %.not.i116, label %lean_dec_ref.exit117, label %206
 
 206:                                              ; preds = %205
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %196) #7
-  br label %lean_dec_ref.exit118
+  br label %lean_dec_ref.exit117
 
-lean_dec_ref.exit118:                             ; preds = %206, %205, %203, %_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit
+lean_dec_ref.exit117:                             ; preds = %206, %205, %203, %_init_l_Lean_Linter_mkIgnoreFnImpl___closed__1.exit
   %207 = load ptr, ptr @l_Lean_Linter_builtinUnusedVariablesIgnoreFnsRef, align 8, !tbaa !4
   store ptr %207, ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %207) #7
@@ -107144,22 +107144,22 @@ lean_dec_ref.exit118:                             ; preds = %206, %205, %203, %_
   %222 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_426____closed__10()
   store ptr %222, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_426____closed__10, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %222) #7
-  br i1 %.not, label %lean_dec_ref.exit116, label %223
+  br i1 %.not, label %lean_dec_ref.exit115, label %223
 
-223:                                              ; preds = %lean_dec_ref.exit118
+223:                                              ; preds = %lean_dec_ref.exit117
   %224 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_426____closed__10, align 8, !tbaa !4
   %225 = tail call ptr @l_Lean_registerPersistentEnvExtensionUnsafe___rarg(ptr noundef %224, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %226 = getelementptr i8, ptr %225, i64 4
-  %.val137 = load i32, ptr %226, align 4
-  %.mask.i163 = and i32 %.val137, -16777216
-  %227 = icmp eq i32 %.mask.i163, 16777216
+  %.val136 = load i32, ptr %226, align 4
+  %.mask.i162 = and i32 %.val136, -16777216
+  %227 = icmp eq i32 %.mask.i162, 16777216
   br i1 %227, label %805, label %228
 
 228:                                              ; preds = %223
   %229 = getelementptr i8, ptr %225, i64 8
-  %.val156 = load ptr, ptr %229, align 8, !tbaa !4
-  store ptr %.val156, ptr @l_Lean_Linter_unusedVariablesIgnoreFnsExt, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val156) #7
+  %.val155 = load ptr, ptr %229, align 8, !tbaa !4
+  store ptr %.val155, ptr @l_Lean_Linter_unusedVariablesIgnoreFnsExt, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val155) #7
   %230 = load i32, ptr %225, align 8, !tbaa !8
   %231 = icmp sgt i32 %230, 1
   br i1 %231, label %232, label %234, !prof !11
@@ -107167,17 +107167,17 @@ lean_dec_ref.exit118:                             ; preds = %206, %205, %203, %_
 232:                                              ; preds = %228
   %233 = add nsw i32 %230, -1
   store i32 %233, ptr %225, align 4, !tbaa !8
-  br label %lean_dec_ref.exit116
+  br label %lean_dec_ref.exit115
 
 234:                                              ; preds = %228
-  %.not.i115 = icmp eq i32 %230, 0
-  br i1 %.not.i115, label %lean_dec_ref.exit116, label %235
+  %.not.i114 = icmp eq i32 %230, 0
+  br i1 %.not.i114, label %lean_dec_ref.exit115, label %235
 
 235:                                              ; preds = %234
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %225) #7
-  br label %lean_dec_ref.exit116
+  br label %lean_dec_ref.exit115
 
-lean_dec_ref.exit116:                             ; preds = %235, %234, %232, %lean_dec_ref.exit118
+lean_dec_ref.exit115:                             ; preds = %235, %234, %232, %lean_dec_ref.exit117
   %236 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.19, i64 noundef 33, i64 noundef 33) #7
   store ptr %236, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_640____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %236) #7
@@ -107313,14 +107313,14 @@ lean_dec_ref.exit116:                             ; preds = %235, %234, %232, %l
   %300 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_640____closed__24()
   store ptr %300, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_640____closed__24, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %300) #7
-  br i1 %.not, label %lean_dec_ref.exit114, label %301
+  br i1 %.not, label %lean_dec_ref.exit113, label %301
 
-301:                                              ; preds = %lean_dec_ref.exit116
+301:                                              ; preds = %lean_dec_ref.exit115
   %302 = tail call ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_640_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %303 = getelementptr i8, ptr %302, i64 4
-  %.val138 = load i32, ptr %303, align 4
-  %.mask.i164 = and i32 %.val138, -16777216
-  %304 = icmp eq i32 %.mask.i164, 16777216
+  %.val137 = load i32, ptr %303, align 4
+  %.mask.i163 = and i32 %.val137, -16777216
+  %304 = icmp eq i32 %.mask.i163, 16777216
   br i1 %304, label %805, label %305
 
 305:                                              ; preds = %301
@@ -107331,17 +107331,17 @@ lean_dec_ref.exit116:                             ; preds = %235, %234, %232, %l
 308:                                              ; preds = %305
   %309 = add nsw i32 %306, -1
   store i32 %309, ptr %302, align 4, !tbaa !8
-  br label %lean_dec_ref.exit114
+  br label %lean_dec_ref.exit113
 
 310:                                              ; preds = %305
-  %.not.i113 = icmp eq i32 %306, 0
-  br i1 %.not.i113, label %lean_dec_ref.exit114, label %311
+  %.not.i112 = icmp eq i32 %306, 0
+  br i1 %.not.i112, label %lean_dec_ref.exit113, label %311
 
 311:                                              ; preds = %310
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %302) #7
-  br label %lean_dec_ref.exit114
+  br label %lean_dec_ref.exit113
 
-lean_dec_ref.exit114:                             ; preds = %311, %310, %308, %lean_dec_ref.exit116
+lean_dec_ref.exit113:                             ; preds = %311, %310, %308, %lean_dec_ref.exit115
   %312 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.31, i64 noundef 4, i64 noundef 4) #7
   store ptr %312, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_987____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %312) #7
@@ -107386,15 +107386,15 @@ lean_dec_ref.exit114:                             ; preds = %311, %310, %308, %l
   %329 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_987____closed__1()
   store ptr %329, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_987____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %329) #7
-  br i1 %.not, label %lean_dec_ref.exit112, label %330
+  br i1 %.not, label %lean_dec_ref.exit111, label %330
 
-330:                                              ; preds = %lean_dec_ref.exit114
+330:                                              ; preds = %lean_dec_ref.exit113
   %331 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_987____closed__1, align 8, !tbaa !4
   %332 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %331, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %333 = getelementptr i8, ptr %332, i64 4
-  %.val139 = load i32, ptr %333, align 4
-  %.mask.i165 = and i32 %.val139, -16777216
-  %334 = icmp eq i32 %.mask.i165, 16777216
+  %.val138 = load i32, ptr %333, align 4
+  %.mask.i164 = and i32 %.val138, -16777216
+  %334 = icmp eq i32 %.mask.i164, 16777216
   br i1 %334, label %805, label %335
 
 335:                                              ; preds = %330
@@ -107405,17 +107405,17 @@ lean_dec_ref.exit114:                             ; preds = %311, %310, %308, %l
 338:                                              ; preds = %335
   %339 = add nsw i32 %336, -1
   store i32 %339, ptr %332, align 4, !tbaa !8
-  br label %lean_dec_ref.exit112
+  br label %lean_dec_ref.exit111
 
 340:                                              ; preds = %335
-  %.not.i111 = icmp eq i32 %336, 0
-  br i1 %.not.i111, label %lean_dec_ref.exit112, label %341
+  %.not.i110 = icmp eq i32 %336, 0
+  br i1 %.not.i110, label %lean_dec_ref.exit111, label %341
 
 341:                                              ; preds = %340
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %332) #7
-  br label %lean_dec_ref.exit112
+  br label %lean_dec_ref.exit111
 
-lean_dec_ref.exit112:                             ; preds = %341, %340, %338, %lean_dec_ref.exit114
+lean_dec_ref.exit111:                             ; preds = %341, %340, %338, %lean_dec_ref.exit113
   %342 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.35, i64 noundef 9, i64 noundef 9) #7
   store ptr %342, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1021____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %342) #7
@@ -107444,15 +107444,15 @@ lean_dec_ref.exit112:                             ; preds = %341, %340, %338, %l
   %353 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1021____closed__1()
   store ptr %353, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1021____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %353) #7
-  br i1 %.not, label %lean_dec_ref.exit110, label %354
+  br i1 %.not, label %lean_dec_ref.exit109, label %354
 
-354:                                              ; preds = %lean_dec_ref.exit112
+354:                                              ; preds = %lean_dec_ref.exit111
   %355 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1021____closed__1, align 8, !tbaa !4
   %356 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %355, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %357 = getelementptr i8, ptr %356, i64 4
-  %.val140 = load i32, ptr %357, align 4
-  %.mask.i166 = and i32 %.val140, -16777216
-  %358 = icmp eq i32 %.mask.i166, 16777216
+  %.val139 = load i32, ptr %357, align 4
+  %.mask.i165 = and i32 %.val139, -16777216
+  %358 = icmp eq i32 %.mask.i165, 16777216
   br i1 %358, label %805, label %359
 
 359:                                              ; preds = %354
@@ -107463,17 +107463,17 @@ lean_dec_ref.exit112:                             ; preds = %341, %340, %338, %l
 362:                                              ; preds = %359
   %363 = add nsw i32 %360, -1
   store i32 %363, ptr %356, align 4, !tbaa !8
-  br label %lean_dec_ref.exit110
+  br label %lean_dec_ref.exit109
 
 364:                                              ; preds = %359
-  %.not.i109 = icmp eq i32 %360, 0
-  br i1 %.not.i109, label %lean_dec_ref.exit110, label %365
+  %.not.i108 = icmp eq i32 %360, 0
+  br i1 %.not.i108, label %lean_dec_ref.exit109, label %365
 
 365:                                              ; preds = %364
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %356) #7
-  br label %lean_dec_ref.exit110
+  br label %lean_dec_ref.exit109
 
-lean_dec_ref.exit110:                             ; preds = %365, %364, %362, %lean_dec_ref.exit112
+lean_dec_ref.exit109:                             ; preds = %365, %364, %362, %lean_dec_ref.exit111
   %366 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.36, i64 noundef 9, i64 noundef 9) #7
   store ptr %366, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1055____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %366) #7
@@ -107531,15 +107531,15 @@ lean_dec_ref.exit110:                             ; preds = %365, %364, %362, %l
   %392 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1055____closed__1()
   store ptr %392, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1055____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %392) #7
-  br i1 %.not, label %lean_dec_ref.exit108, label %393
+  br i1 %.not, label %lean_dec_ref.exit107, label %393
 
-393:                                              ; preds = %lean_dec_ref.exit110
+393:                                              ; preds = %lean_dec_ref.exit109
   %394 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1055____closed__1, align 8, !tbaa !4
   %395 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %394, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %396 = getelementptr i8, ptr %395, i64 4
-  %.val141 = load i32, ptr %396, align 4
-  %.mask.i167 = and i32 %.val141, -16777216
-  %397 = icmp eq i32 %.mask.i167, 16777216
+  %.val140 = load i32, ptr %396, align 4
+  %.mask.i166 = and i32 %.val140, -16777216
+  %397 = icmp eq i32 %.mask.i166, 16777216
   br i1 %397, label %805, label %398
 
 398:                                              ; preds = %393
@@ -107550,17 +107550,17 @@ lean_dec_ref.exit110:                             ; preds = %365, %364, %362, %l
 401:                                              ; preds = %398
   %402 = add nsw i32 %399, -1
   store i32 %402, ptr %395, align 4, !tbaa !8
-  br label %lean_dec_ref.exit108
+  br label %lean_dec_ref.exit107
 
 403:                                              ; preds = %398
-  %.not.i107 = icmp eq i32 %399, 0
-  br i1 %.not.i107, label %lean_dec_ref.exit108, label %404
+  %.not.i106 = icmp eq i32 %399, 0
+  br i1 %.not.i106, label %lean_dec_ref.exit107, label %404
 
 404:                                              ; preds = %403
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %395) #7
-  br label %lean_dec_ref.exit108
+  br label %lean_dec_ref.exit107
 
-lean_dec_ref.exit108:                             ; preds = %404, %403, %401, %lean_dec_ref.exit110
+lean_dec_ref.exit107:                             ; preds = %404, %403, %401, %lean_dec_ref.exit109
   %405 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1187____lambda__1___closed__1()
   store ptr %405, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1187____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %405) #7
@@ -107608,15 +107608,15 @@ lean_dec_ref.exit108:                             ; preds = %404, %403, %401, %l
   %425 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1187____closed__1()
   store ptr %425, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1187____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %425) #7
-  br i1 %.not, label %lean_dec_ref.exit106, label %426
+  br i1 %.not, label %lean_dec_ref.exit105, label %426
 
-426:                                              ; preds = %lean_dec_ref.exit108
+426:                                              ; preds = %lean_dec_ref.exit107
   %427 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1187____closed__1, align 8, !tbaa !4
   %428 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %427, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %429 = getelementptr i8, ptr %428, i64 4
-  %.val142 = load i32, ptr %429, align 4
-  %.mask.i168 = and i32 %.val142, -16777216
-  %430 = icmp eq i32 %.mask.i168, 16777216
+  %.val141 = load i32, ptr %429, align 4
+  %.mask.i167 = and i32 %.val141, -16777216
+  %430 = icmp eq i32 %.mask.i167, 16777216
   br i1 %430, label %805, label %431
 
 431:                                              ; preds = %426
@@ -107627,17 +107627,17 @@ lean_dec_ref.exit108:                             ; preds = %404, %403, %401, %l
 434:                                              ; preds = %431
   %435 = add nsw i32 %432, -1
   store i32 %435, ptr %428, align 4, !tbaa !8
-  br label %lean_dec_ref.exit106
+  br label %lean_dec_ref.exit105
 
 436:                                              ; preds = %431
-  %.not.i105 = icmp eq i32 %432, 0
-  br i1 %.not.i105, label %lean_dec_ref.exit106, label %437
+  %.not.i104 = icmp eq i32 %432, 0
+  br i1 %.not.i104, label %lean_dec_ref.exit105, label %437
 
 437:                                              ; preds = %436
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %428) #7
-  br label %lean_dec_ref.exit106
+  br label %lean_dec_ref.exit105
 
-lean_dec_ref.exit106:                             ; preds = %437, %436, %434, %lean_dec_ref.exit108
+lean_dec_ref.exit105:                             ; preds = %437, %436, %434, %lean_dec_ref.exit107
   %438 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1307____lambda__1___closed__1()
   store ptr %438, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1307____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %438) #7
@@ -107682,15 +107682,15 @@ lean_dec_ref.exit106:                             ; preds = %437, %436, %434, %l
   %457 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1307____closed__1()
   store ptr %457, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1307____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %457) #7
-  br i1 %.not, label %lean_dec_ref.exit104, label %458
+  br i1 %.not, label %lean_dec_ref.exit103, label %458
 
-458:                                              ; preds = %lean_dec_ref.exit106
+458:                                              ; preds = %lean_dec_ref.exit105
   %459 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1307____closed__1, align 8, !tbaa !4
   %460 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %459, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %461 = getelementptr i8, ptr %460, i64 4
-  %.val143 = load i32, ptr %461, align 4
-  %.mask.i169 = and i32 %.val143, -16777216
-  %462 = icmp eq i32 %.mask.i169, 16777216
+  %.val142 = load i32, ptr %461, align 4
+  %.mask.i168 = and i32 %.val142, -16777216
+  %462 = icmp eq i32 %.mask.i168, 16777216
   br i1 %462, label %805, label %463
 
 463:                                              ; preds = %458
@@ -107701,17 +107701,17 @@ lean_dec_ref.exit106:                             ; preds = %437, %436, %434, %l
 466:                                              ; preds = %463
   %467 = add nsw i32 %464, -1
   store i32 %467, ptr %460, align 4, !tbaa !8
-  br label %lean_dec_ref.exit104
+  br label %lean_dec_ref.exit103
 
 468:                                              ; preds = %463
-  %.not.i103 = icmp eq i32 %464, 0
-  br i1 %.not.i103, label %lean_dec_ref.exit104, label %469
+  %.not.i102 = icmp eq i32 %464, 0
+  br i1 %.not.i102, label %lean_dec_ref.exit103, label %469
 
 469:                                              ; preds = %468
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %460) #7
-  br label %lean_dec_ref.exit104
+  br label %lean_dec_ref.exit103
 
-lean_dec_ref.exit104:                             ; preds = %469, %468, %466, %lean_dec_ref.exit106
+lean_dec_ref.exit103:                             ; preds = %469, %468, %466, %lean_dec_ref.exit105
   %470 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.43, i64 noundef 4, i64 noundef 4) #7
   store ptr %470, ptr @l_Array_mapMUnsafe_map___at_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1427____spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %470) #7
@@ -107853,15 +107853,15 @@ lean_dec_ref.exit104:                             ; preds = %469, %468, %466, %l
   %543 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1427____closed__1()
   store ptr %543, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1427____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %543) #7
-  br i1 %.not, label %lean_dec_ref.exit102, label %544
+  br i1 %.not, label %lean_dec_ref.exit101, label %544
 
-544:                                              ; preds = %lean_dec_ref.exit104
+544:                                              ; preds = %lean_dec_ref.exit103
   %545 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_1427____closed__1, align 8, !tbaa !4
   %546 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %545, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %547 = getelementptr i8, ptr %546, i64 4
-  %.val144 = load i32, ptr %547, align 4
-  %.mask.i170 = and i32 %.val144, -16777216
-  %548 = icmp eq i32 %.mask.i170, 16777216
+  %.val143 = load i32, ptr %547, align 4
+  %.mask.i169 = and i32 %.val143, -16777216
+  %548 = icmp eq i32 %.mask.i169, 16777216
   br i1 %548, label %805, label %549
 
 549:                                              ; preds = %544
@@ -107872,17 +107872,17 @@ lean_dec_ref.exit104:                             ; preds = %469, %468, %466, %l
 552:                                              ; preds = %549
   %553 = add nsw i32 %550, -1
   store i32 %553, ptr %546, align 4, !tbaa !8
-  br label %lean_dec_ref.exit102
+  br label %lean_dec_ref.exit101
 
 554:                                              ; preds = %549
-  %.not.i101 = icmp eq i32 %550, 0
-  br i1 %.not.i101, label %lean_dec_ref.exit102, label %555
+  %.not.i100 = icmp eq i32 %550, 0
+  br i1 %.not.i100, label %lean_dec_ref.exit101, label %555
 
 555:                                              ; preds = %554
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %546) #7
-  br label %lean_dec_ref.exit102
+  br label %lean_dec_ref.exit101
 
-lean_dec_ref.exit102:                             ; preds = %555, %554, %552, %lean_dec_ref.exit104
+lean_dec_ref.exit101:                             ; preds = %555, %554, %552, %lean_dec_ref.exit103
   %556 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.55, i64 noundef 14, i64 noundef 14) #7
   store ptr %556, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4549____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %556) #7
@@ -107921,15 +107921,15 @@ lean_dec_ref.exit102:                             ; preds = %555, %554, %552, %l
   %573 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4549____closed__1()
   store ptr %573, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4549____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %573) #7
-  br i1 %.not, label %lean_dec_ref.exit100, label %574
+  br i1 %.not, label %lean_dec_ref.exit99, label %574
 
-574:                                              ; preds = %lean_dec_ref.exit102
+574:                                              ; preds = %lean_dec_ref.exit101
   %575 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4549____closed__1, align 8, !tbaa !4
   %576 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %575, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %577 = getelementptr i8, ptr %576, i64 4
-  %.val145 = load i32, ptr %577, align 4
-  %.mask.i171 = and i32 %.val145, -16777216
-  %578 = icmp eq i32 %.mask.i171, 16777216
+  %.val144 = load i32, ptr %577, align 4
+  %.mask.i170 = and i32 %.val144, -16777216
+  %578 = icmp eq i32 %.mask.i170, 16777216
   br i1 %578, label %805, label %579
 
 579:                                              ; preds = %574
@@ -107940,17 +107940,17 @@ lean_dec_ref.exit102:                             ; preds = %555, %554, %552, %l
 582:                                              ; preds = %579
   %583 = add nsw i32 %580, -1
   store i32 %583, ptr %576, align 4, !tbaa !8
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
 584:                                              ; preds = %579
-  %.not.i99 = icmp eq i32 %580, 0
-  br i1 %.not.i99, label %lean_dec_ref.exit100, label %585
+  %.not.i98 = icmp eq i32 %580, 0
+  br i1 %.not.i98, label %lean_dec_ref.exit99, label %585
 
 585:                                              ; preds = %584
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %576) #7
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
-lean_dec_ref.exit100:                             ; preds = %585, %584, %582, %lean_dec_ref.exit102
+lean_dec_ref.exit99:                              ; preds = %585, %584, %582, %lean_dec_ref.exit101
   %586 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.57, i64 noundef 9, i64 noundef 9) #7
   store ptr %586, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4581____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %586) #7
@@ -107989,15 +107989,15 @@ lean_dec_ref.exit100:                             ; preds = %585, %584, %582, %l
   %603 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4581____closed__1()
   store ptr %603, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4581____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %603) #7
-  br i1 %.not, label %lean_dec_ref.exit98, label %604
+  br i1 %.not, label %lean_dec_ref.exit97, label %604
 
-604:                                              ; preds = %lean_dec_ref.exit100
+604:                                              ; preds = %lean_dec_ref.exit99
   %605 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4581____closed__1, align 8, !tbaa !4
   %606 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %605, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %607 = getelementptr i8, ptr %606, i64 4
-  %.val146 = load i32, ptr %607, align 4
-  %.mask.i172 = and i32 %.val146, -16777216
-  %608 = icmp eq i32 %.mask.i172, 16777216
+  %.val145 = load i32, ptr %607, align 4
+  %.mask.i171 = and i32 %.val145, -16777216
+  %608 = icmp eq i32 %.mask.i171, 16777216
   br i1 %608, label %805, label %609
 
 609:                                              ; preds = %604
@@ -108008,17 +108008,17 @@ lean_dec_ref.exit100:                             ; preds = %585, %584, %582, %l
 612:                                              ; preds = %609
   %613 = add nsw i32 %610, -1
   store i32 %613, ptr %606, align 4, !tbaa !8
-  br label %lean_dec_ref.exit98
+  br label %lean_dec_ref.exit97
 
 614:                                              ; preds = %609
-  %.not.i97 = icmp eq i32 %610, 0
-  br i1 %.not.i97, label %lean_dec_ref.exit98, label %615
+  %.not.i96 = icmp eq i32 %610, 0
+  br i1 %.not.i96, label %lean_dec_ref.exit97, label %615
 
 615:                                              ; preds = %614
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %606) #7
-  br label %lean_dec_ref.exit98
+  br label %lean_dec_ref.exit97
 
-lean_dec_ref.exit98:                              ; preds = %615, %614, %612, %lean_dec_ref.exit100
+lean_dec_ref.exit97:                              ; preds = %615, %614, %612, %lean_dec_ref.exit99
   %616 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4772____lambda__1___closed__1()
   store ptr %616, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4772____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %616) #7
@@ -108031,15 +108031,15 @@ lean_dec_ref.exit98:                              ; preds = %615, %614, %612, %l
   %619 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4772____closed__1()
   store ptr %619, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4772____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %619) #7
-  br i1 %.not, label %lean_dec_ref.exit96, label %620
+  br i1 %.not, label %lean_dec_ref.exit95, label %620
 
-620:                                              ; preds = %lean_dec_ref.exit98
+620:                                              ; preds = %lean_dec_ref.exit97
   %621 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4772____closed__1, align 8, !tbaa !4
   %622 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %621, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %623 = getelementptr i8, ptr %622, i64 4
-  %.val147 = load i32, ptr %623, align 4
-  %.mask.i173 = and i32 %.val147, -16777216
-  %624 = icmp eq i32 %.mask.i173, 16777216
+  %.val146 = load i32, ptr %623, align 4
+  %.mask.i172 = and i32 %.val146, -16777216
+  %624 = icmp eq i32 %.mask.i172, 16777216
   br i1 %624, label %805, label %625
 
 625:                                              ; preds = %620
@@ -108050,17 +108050,17 @@ lean_dec_ref.exit98:                              ; preds = %615, %614, %612, %l
 628:                                              ; preds = %625
   %629 = add nsw i32 %626, -1
   store i32 %629, ptr %622, align 4, !tbaa !8
-  br label %lean_dec_ref.exit96
+  br label %lean_dec_ref.exit95
 
 630:                                              ; preds = %625
-  %.not.i95 = icmp eq i32 %626, 0
-  br i1 %.not.i95, label %lean_dec_ref.exit96, label %631
+  %.not.i94 = icmp eq i32 %626, 0
+  br i1 %.not.i94, label %lean_dec_ref.exit95, label %631
 
 631:                                              ; preds = %630
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %622) #7
-  br label %lean_dec_ref.exit96
+  br label %lean_dec_ref.exit95
 
-lean_dec_ref.exit96:                              ; preds = %631, %630, %628, %lean_dec_ref.exit98
+lean_dec_ref.exit95:                              ; preds = %631, %630, %628, %lean_dec_ref.exit97
   %632 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.59, i64 noundef 8, i64 noundef 8) #7
   store ptr %632, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4909____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %632) #7
@@ -108099,15 +108099,15 @@ lean_dec_ref.exit96:                              ; preds = %631, %630, %628, %l
   %649 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4909____closed__1()
   store ptr %649, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4909____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %649) #7
-  br i1 %.not, label %lean_dec_ref.exit94, label %650
+  br i1 %.not, label %lean_dec_ref.exit93, label %650
 
-650:                                              ; preds = %lean_dec_ref.exit96
+650:                                              ; preds = %lean_dec_ref.exit95
   %651 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4909____closed__1, align 8, !tbaa !4
   %652 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %651, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %653 = getelementptr i8, ptr %652, i64 4
-  %.val148 = load i32, ptr %653, align 4
-  %.mask.i174 = and i32 %.val148, -16777216
-  %654 = icmp eq i32 %.mask.i174, 16777216
+  %.val147 = load i32, ptr %653, align 4
+  %.mask.i173 = and i32 %.val147, -16777216
+  %654 = icmp eq i32 %.mask.i173, 16777216
   br i1 %654, label %805, label %655
 
 655:                                              ; preds = %650
@@ -108118,17 +108118,17 @@ lean_dec_ref.exit96:                              ; preds = %631, %630, %628, %l
 658:                                              ; preds = %655
   %659 = add nsw i32 %656, -1
   store i32 %659, ptr %652, align 4, !tbaa !8
-  br label %lean_dec_ref.exit94
+  br label %lean_dec_ref.exit93
 
 660:                                              ; preds = %655
-  %.not.i93 = icmp eq i32 %656, 0
-  br i1 %.not.i93, label %lean_dec_ref.exit94, label %661
+  %.not.i92 = icmp eq i32 %656, 0
+  br i1 %.not.i92, label %lean_dec_ref.exit93, label %661
 
 661:                                              ; preds = %660
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %652) #7
-  br label %lean_dec_ref.exit94
+  br label %lean_dec_ref.exit93
 
-lean_dec_ref.exit94:                              ; preds = %661, %660, %658, %lean_dec_ref.exit96
+lean_dec_ref.exit93:                              ; preds = %661, %660, %658, %lean_dec_ref.exit95
   %662 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.61, i64 noundef 8, i64 noundef 8) #7
   store ptr %662, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4961____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %662) #7
@@ -108158,15 +108158,15 @@ lean_dec_ref.exit94:                              ; preds = %661, %660, %658, %l
   %676 = tail call fastcc ptr @_init_l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4961____closed__1()
   store ptr %676, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4961____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %676) #7
-  br i1 %.not, label %lean_dec_ref.exit92, label %677
+  br i1 %.not, label %lean_dec_ref.exit91, label %677
 
-677:                                              ; preds = %lean_dec_ref.exit94
+677:                                              ; preds = %lean_dec_ref.exit93
   %678 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_UnusedVariables___hyg_4961____closed__1, align 8, !tbaa !4
   %679 = tail call ptr @l_Lean_Linter_addBuiltinUnusedVariablesIgnoreFn(ptr noundef %678, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %680 = getelementptr i8, ptr %679, i64 4
-  %.val149 = load i32, ptr %680, align 4
-  %.mask.i175 = and i32 %.val149, -16777216
-  %681 = icmp eq i32 %.mask.i175, 16777216
+  %.val148 = load i32, ptr %680, align 4
+  %.mask.i174 = and i32 %.val148, -16777216
+  %681 = icmp eq i32 %.mask.i174, 16777216
   br i1 %681, label %805, label %682
 
 682:                                              ; preds = %677
@@ -108177,17 +108177,17 @@ lean_dec_ref.exit94:                              ; preds = %661, %660, %658, %l
 685:                                              ; preds = %682
   %686 = add nsw i32 %683, -1
   store i32 %686, ptr %679, align 4, !tbaa !8
-  br label %lean_dec_ref.exit92
+  br label %lean_dec_ref.exit91
 
 687:                                              ; preds = %682
-  %.not.i91 = icmp eq i32 %683, 0
-  br i1 %.not.i91, label %lean_dec_ref.exit92, label %688
+  %.not.i90 = icmp eq i32 %683, 0
+  br i1 %.not.i90, label %lean_dec_ref.exit91, label %688
 
 688:                                              ; preds = %687
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %679) #7
-  br label %lean_dec_ref.exit92
+  br label %lean_dec_ref.exit91
 
-lean_dec_ref.exit92:                              ; preds = %688, %687, %685, %lean_dec_ref.exit94
+lean_dec_ref.exit91:                              ; preds = %688, %687, %685, %lean_dec_ref.exit93
   %689 = tail call fastcc ptr @_init_l_Lean_Linter_getUnusedVariablesIgnoreFns___rarg___closed__1()
   store ptr %689, ptr @l_Lean_Linter_getUnusedVariablesIgnoreFns___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %689) #7
@@ -108257,8 +108257,8 @@ lean_dec_ref.exit92:                              ; preds = %688, %687, %685, %l
   tail call void @lean_mark_persistent(ptr noundef nonnull %720) #7
   %721 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Linter_UnusedVariables_collectReferences_go___spec__24___lambda__4___closed__1, align 8, !tbaa !4
   %722 = getelementptr i8, ptr %721, i64 8
-  %.val.i176 = load i64, ptr %722, align 8, !tbaa !12
-  %723 = shl i64 %.val.i176, 1
+  %.val.i175 = load i64, ptr %722, align 8, !tbaa !12
+  %723 = shl i64 %.val.i175, 1
   %724 = add i64 %723, -1
   %725 = inttoptr i64 %724 to ptr
   store ptr %725, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Linter_UnusedVariables_collectReferences_go___spec__24___lambda__4___closed__3, align 8, !tbaa !4
@@ -108408,13 +108408,13 @@ lean_dec_ref.exit92:                              ; preds = %688, %687, %685, %l
   tail call void @lean_mark_persistent(ptr noundef %790) #7
   br i1 %.not, label %lean_dec_ref.exit, label %791
 
-791:                                              ; preds = %lean_dec_ref.exit92
+791:                                              ; preds = %lean_dec_ref.exit91
   %792 = load ptr, ptr @l_Lean_Linter_UnusedVariables_unusedVariables, align 8, !tbaa !4
   %793 = tail call ptr @l_Lean_Elab_Command_addLinter(ptr noundef %792, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %794 = getelementptr i8, ptr %793, i64 4
-  %.val150 = load i32, ptr %794, align 4
-  %.mask.i177 = and i32 %.val150, -16777216
-  %795 = icmp eq i32 %.mask.i177, 16777216
+  %.val149 = load i32, ptr %794, align 4
+  %.mask.i176 = and i32 %.val149, -16777216
+  %795 = icmp eq i32 %.mask.i176, 16777216
   br i1 %795, label %805, label %796
 
 796:                                              ; preds = %791
@@ -108435,15 +108435,15 @@ lean_dec_ref.exit92:                              ; preds = %688, %687, %685, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %793) #7
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %802, %801, %799, %lean_dec_ref.exit92
+lean_dec_ref.exit:                                ; preds = %802, %801, %799, %lean_dec_ref.exit91
   %803 = tail call fastcc ptr @_init_l_Lean_MessageData_isUnusedVariableWarning___closed__1()
   store ptr %803, ptr @l_Lean_MessageData_isUnusedVariableWarning___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %803) #7
   %804 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %805
 
-805:                                              ; preds = %791, %677, %650, %620, %604, %574, %544, %458, %426, %393, %354, %330, %301, %223, %195, %162, %126, %90, %54, %lean_dec_ref.exit130, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %804, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit130 ], [ %58, %54 ], [ %94, %90 ], [ %130, %126 ], [ %166, %162 ], [ %196, %195 ], [ %225, %223 ], [ %302, %301 ], [ %332, %330 ], [ %356, %354 ], [ %395, %393 ], [ %428, %426 ], [ %460, %458 ], [ %546, %544 ], [ %576, %574 ], [ %606, %604 ], [ %622, %620 ], [ %652, %650 ], [ %679, %677 ], [ %793, %791 ]
+805:                                              ; preds = %791, %677, %650, %620, %604, %574, %544, %458, %426, %393, %354, %330, %301, %223, %195, %162, %126, %90, %54, %lean_dec_ref.exit129, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %804, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit129 ], [ %58, %54 ], [ %94, %90 ], [ %130, %126 ], [ %166, %162 ], [ %196, %195 ], [ %225, %223 ], [ %302, %301 ], [ %332, %330 ], [ %356, %354 ], [ %395, %393 ], [ %428, %426 ], [ %460, %458 ], [ %546, %544 ], [ %576, %574 ], [ %606, %604 ], [ %622, %620 ], [ %652, %650 ], [ %679, %677 ], [ %793, %791 ]
   ret ptr %.0
 }
 

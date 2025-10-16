@@ -1039,8 +1039,8 @@ define dso_local range(i32 0, 2) i32 @gres_find_step_by_key(ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @gres_use_local_device_index() local_unnamed_addr #2 {
-  %.b7 = load i1, ptr @dev_index_mode_set, align 1
-  br i1 %.b7, label %10, label %1
+  %.b = load i1, ptr @dev_index_mode_set, align 1
+  br i1 %.b, label %10, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @dev_index_mode_set, align 1
@@ -1050,8 +1050,8 @@ define dso_local zeroext i1 @gres_use_local_device_index() local_unnamed_addr #2
 
 3:                                                ; preds = %1
   %4 = tail call ptr @xstrstr(ptr noundef nonnull %2, ptr noundef nonnull @.str) #28
-  %.not9.not = icmp eq ptr %4, null
-  br i1 %.not9.not, label %10, label %5
+  %.not7.not = icmp eq ptr %4, null
+  br i1 %.not7.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @cgroup_conf_init() #28
@@ -19120,8 +19120,8 @@ _get_shared_gres_per_task.exit:                   ; preds = %148, %147, %126, %.
   br i1 %5, label %291, label %277
 
 277:                                              ; preds = %_get_shared_gres_per_task.exit
-  %.b7.i = load i1, ptr @dev_index_mode_set, align 1
-  br i1 %.b7.i, label %gres_use_local_device_index.exit, label %278
+  %.b.i = load i1, ptr @dev_index_mode_set, align 1
+  br i1 %.b.i, label %gres_use_local_device_index.exit, label %278
 
 278:                                              ; preds = %277
   store i1 true, ptr @dev_index_mode_set, align 1
@@ -19131,8 +19131,8 @@ _get_shared_gres_per_task.exit:                   ; preds = %148, %147, %126, %.
 
 280:                                              ; preds = %278
   %281 = call ptr @xstrstr(ptr noundef nonnull %279, ptr noundef nonnull @.str) #28
-  %.not9.not.i = icmp eq ptr %281, null
-  br i1 %.not9.not.i, label %gres_use_local_device_index.exit, label %282
+  %.not7.not.i = icmp eq ptr %281, null
+  br i1 %.not7.not.i, label %gres_use_local_device_index.exit, label %282
 
 282:                                              ; preds = %280
   %283 = call i32 @cgroup_conf_init() #28
@@ -19176,8 +19176,8 @@ gres_use_local_device_index.exit:                 ; preds = %277, %278, %280, %2
   br i1 %5, label %305, label %296
 
 296:                                              ; preds = %294
-  %.b7.i111 = load i1, ptr @dev_index_mode_set, align 1
-  br i1 %.b7.i111, label %gres_use_local_device_index.exit115, label %297
+  %.b.i111 = load i1, ptr @dev_index_mode_set, align 1
+  br i1 %.b.i111, label %gres_use_local_device_index.exit115, label %297
 
 297:                                              ; preds = %296
   store i1 true, ptr @dev_index_mode_set, align 1
@@ -19187,8 +19187,8 @@ gres_use_local_device_index.exit:                 ; preds = %277, %278, %280, %2
 
 299:                                              ; preds = %297
   %300 = call ptr @xstrstr(ptr noundef nonnull %298, ptr noundef nonnull @.str) #28
-  %.not9.not.i113 = icmp eq ptr %300, null
-  br i1 %.not9.not.i113, label %gres_use_local_device_index.exit115, label %301
+  %.not7.not.i113 = icmp eq ptr %300, null
+  br i1 %.not7.not.i113, label %gres_use_local_device_index.exit115, label %301
 
 301:                                              ; preds = %299
   %302 = call i32 @cgroup_conf_init() #28
@@ -27326,8 +27326,8 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0,
 
 .loopexit55:                                      ; preds = %.loopexit, %40
   %55 = phi ptr [ %37, %40 ], [ %52, %.loopexit ]
-  %.b7.i = load i1, ptr @dev_index_mode_set, align 1
-  br i1 %.b7.i, label %gres_use_local_device_index.exit, label %56
+  %.b.i = load i1, ptr @dev_index_mode_set, align 1
+  br i1 %.b.i, label %gres_use_local_device_index.exit, label %56
 
 56:                                               ; preds = %.loopexit55
   store i1 true, ptr @dev_index_mode_set, align 1
@@ -27337,8 +27337,8 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0,
 
 58:                                               ; preds = %56
   %59 = call ptr @xstrstr(ptr noundef nonnull %57, ptr noundef nonnull @.str) #28
-  %.not9.not.i = icmp eq ptr %59, null
-  br i1 %.not9.not.i, label %gres_use_local_device_index.exit, label %60
+  %.not7.not.i = icmp eq ptr %59, null
+  br i1 %.not7.not.i, label %gres_use_local_device_index.exit, label %60
 
 60:                                               ; preds = %58
   %61 = call i32 @cgroup_conf_init() #28

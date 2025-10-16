@@ -133202,8 +133202,8 @@ declare ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Build_Library(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -133232,25 +133232,25 @@ define ptr @initialize_Lake_Build_Library(i8 noundef zeroext %0, ptr noundef rea
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Build_Targets(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %424, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -133426,8 +133426,8 @@ _init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__
   %87 = load ptr, ptr @l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__1, align 8, !tbaa !4
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, 1
-  %.not.i13 = icmp eq i64 %89, 0
-  br i1 %.not.i13, label %.critedge.i.i, label %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit, !prof !14
+  %.not.i12 = icmp eq i64 %89, 0
+  br i1 %.not.i12, label %.critedge.i.i, label %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit, !prof !14
 
 .critedge.i.i:                                    ; preds = %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__2.exit
   %90 = tail call ptr @lean_nat_big_sub(ptr noundef %87, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
@@ -133445,15 +133445,15 @@ _init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__
   %94 = load ptr, ptr @l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__4, align 8, !tbaa !4
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
-  %.not.i14 = icmp eq i64 %96, 0
-  br i1 %.not.i14, label %.critedge.i.i15, label %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5.exit, !prof !14
+  %.not.i13 = icmp eq i64 %96, 0
+  br i1 %.not.i13, label %.critedge.i.i14, label %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5.exit, !prof !14
 
-.critedge.i.i15:                                  ; preds = %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit
+.critedge.i.i14:                                  ; preds = %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit
   %97 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %94) #6
   br label %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5.exit
 
-_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5.exit: ; preds = %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit, %.critedge.i.i15
-  %.0.i.i = phi ptr [ %97, %.critedge.i.i15 ], [ %94, %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit ]
+_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5.exit: ; preds = %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit, %.critedge.i.i14
+  %.0.i.i = phi ptr [ %97, %.critedge.i.i14 ], [ %94, %_init_l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__3.exit ]
   store ptr %.0.i.i, ptr @l_Lake_stdFormat___at_Lake_LeanLib_modulesFacetConfig___spec__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i) #6
   %98 = load ptr, ptr @l_Lake_ensureJob___at_Lake_LeanLib_recCollectLocalModules___spec__3___closed__1, align 8, !tbaa !4
@@ -134167,12 +134167,12 @@ l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2.exit.i: ; preds =
   br label %l_Lean_RBNode_insert___at_Lake_LeanLib_initFacetConfigs___spec__1.exit.i
 
 l_Lean_RBNode_insert___at_Lake_LeanLib_initFacetConfigs___spec__1.exit.i: ; preds = %373, %l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2.exit.i
-  %.0.i.i16 = phi ptr [ %374, %373 ], [ %363, %l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2.exit.i ]
+  %.0.i.i15 = phi ptr [ %374, %373 ], [ %363, %l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2.exit.i ]
   %375 = load ptr, ptr @l_Lake_LeanLib_modulesFacet, align 8, !tbaa !4
   %376 = load ptr, ptr @l_Lake_LeanLib_modulesFacetConfig, align 8, !tbaa !4
-  %377 = tail call zeroext i8 @l_Lean_RBNode_isRed___rarg(ptr noundef %.0.i.i16) #6
+  %377 = tail call zeroext i8 @l_Lean_RBNode_isRed___rarg(ptr noundef %.0.i.i15) #6
   %378 = icmp eq i8 %377, 0
-  %379 = tail call ptr @l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2(ptr noundef %.0.i.i16, ptr noundef %375, ptr noundef %376)
+  %379 = tail call ptr @l_Lean_RBNode_ins___at_Lake_LeanLib_initFacetConfigs___spec__2(ptr noundef %.0.i.i15, ptr noundef %375, ptr noundef %376)
   br i1 %378, label %l_Lean_RBNode_insert___at_Lake_LeanLib_initFacetConfigs___spec__1.exit23.i, label %380
 
 380:                                              ; preds = %l_Lean_RBNode_insert___at_Lake_LeanLib_initFacetConfigs___spec__1.exit.i
@@ -134261,18 +134261,18 @@ _init_l_Lake_LeanLib_initFacetConfigs.exit:       ; preds = %l_Lean_RBNode_inser
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_LeanLib_initFacetConfigs.exit, %3
-  %.sink56 = phi ptr [ %4, %3 ], [ %418, %_init_l_Lake_LeanLib_initFacetConfigs.exit ]
-  %421 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
-  store i32 1, ptr %.sink56, align 4, !tbaa !8
+  %.sink55 = phi ptr [ %4, %3 ], [ %418, %_init_l_Lake_LeanLib_initFacetConfigs.exit ]
+  %421 = getelementptr inbounds nuw i8, ptr %.sink55, i64 4
+  store i32 1, ptr %.sink55, align 4, !tbaa !8
   store i32 131096, ptr %421, align 4
-  %422 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %.sink55, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %422, align 8, !tbaa !4
-  %423 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
+  %423 = getelementptr inbounds nuw i8, ptr %.sink55, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %423, align 8, !tbaa !4
   br label %424
 
-424:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink56, %.sink.split ]
+424:                                              ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink55, %.sink.split ]
   ret ptr %.0
 }
 

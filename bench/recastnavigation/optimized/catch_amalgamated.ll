@@ -9133,8 +9133,8 @@ _ZN5Catch5Clara6ParserC2Ev.exit:                  ; preds = %1
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i8 0, ptr %25, align 8
-  %.b21 = load i1, ptr @_ZZN5Catch7SessionC1EvE19alreadyInstantiated, align 1
-  br i1 %.b21, label %26, label %59
+  %.b = load i1, ptr @_ZZN5Catch7SessionC1EvE19alreadyInstantiated, align 1
+  br i1 %.b, label %26, label %59
 
 26:                                               ; preds = %23
   invoke void @_ZN5Catch20ReusableStringStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -9279,41 +9279,41 @@ _ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit.i: ; preds = %78, %_ZN5Catch6
 _ZN5Catch7Session6configEv.exit:                  ; preds = %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit.i, %70
   %82 = phi ptr [ %73, %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit.i ], [ %71, %70 ]
   %83 = load ptr, ptr @_ZN5Catch7Context14currentContextE, align 8
-  %.not.i32 = icmp eq ptr %83, null
-  br i1 %.not.i32, label %84, label %_ZN5Catch24getCurrentMutableContextEv.exit
+  %.not.i31 = icmp eq ptr %83, null
+  br i1 %.not.i31, label %84, label %_ZN5Catch24getCurrentMutableContextEv.exit
 
 84:                                               ; preds = %_ZN5Catch7Session6configEv.exit
   %85 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #57
-          to label %.noexc33 unwind label %57
+          to label %.noexc32 unwind label %57
 
-.noexc33:                                         ; preds = %84
+.noexc32:                                         ; preds = %84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store ptr %85, ptr @_ZN5Catch7Context14currentContextE, align 8
   br label %_ZN5Catch24getCurrentMutableContextEv.exit
 
-_ZN5Catch24getCurrentMutableContextEv.exit:       ; preds = %.noexc33, %_ZN5Catch7Session6configEv.exit
-  %86 = phi ptr [ %85, %.noexc33 ], [ %83, %_ZN5Catch7Session6configEv.exit ]
+_ZN5Catch24getCurrentMutableContextEv.exit:       ; preds = %.noexc32, %_ZN5Catch7Session6configEv.exit
+  %86 = phi ptr [ %85, %.noexc32 ], [ %83, %_ZN5Catch7Session6configEv.exit ]
   store ptr %82, ptr %86, align 8
   store i8 1, ptr %25, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #56
   %87 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %.noexc33 unwind label %120
+
+.noexc33:                                         ; preds = %_ZN5Catch24getCurrentMutableContextEv.exit
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc34 unwind label %120
 
-.noexc34:                                         ; preds = %_ZN5Catch24getCurrentMutableContextEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %.noexc35 unwind label %120
-
-.noexc35:                                         ; preds = %.noexc34
+.noexc34:                                         ; preds = %.noexc33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %88
 
-88:                                               ; preds = %.noexc35
+88:                                               ; preds = %.noexc34
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #56
-  br label %.body36
+  br label %.body35
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc35
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc34
   invoke void @_ZN5Catch10makeStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr.68") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %90 unwind label %122
 
@@ -9325,20 +9325,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8, !noalias !78
   %95 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(8) %91)
-          to label %.noexc39 unwind label %124
+          to label %.noexc38 unwind label %124
 
-.noexc39:                                         ; preds = %90
+.noexc38:                                         ; preds = %90
   br i1 %95, label %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i
 
-_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i: ; preds = %.noexc39
+_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i: ; preds = %.noexc38
   %96 = tail call ptr @__errno_location() #60
   %97 = load i32, ptr %96, align 4, !noalias !78
   %98 = call i32 @isatty(i32 noundef 1) #56, !noalias !78
-  %.not.i38 = icmp eq i32 %98, 0
+  %.not.i37 = icmp eq i32 %98, 0
   store i32 %97, ptr %96, align 4, !noalias !78
-  br i1 %.not.i38, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i
+  br i1 %.not.i37, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i
 
-_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i: ; preds = %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i, %.noexc39
+_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i: ; preds = %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i, %.noexc38
   br label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i
 
 _ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i: ; preds = %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26.i, %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit.i
@@ -9367,8 +9367,8 @@ _ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i: ; p
 110:                                              ; preds = %108
   %111 = load ptr, ptr %64, align 8
   %112 = load ptr, ptr %67, align 8
-  %.not61 = icmp eq ptr %111, %112
-  br i1 %.not61, label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit, label %.lr.ph
+  %.not60 = icmp eq ptr %111, %112
+  br i1 %.not60, label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -9377,11 +9377,11 @@ _ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i: ; p
   br label %116
 
 116:                                              ; preds = %.lr.ph, %151
-  %.sroa.047.062 = phi ptr [ %111, %.lr.ph ], [ %152, %151 ]
-  %117 = load ptr, ptr %.sroa.047.062, align 8
+  %.sroa.046.061 = phi ptr [ %111, %.lr.ph ], [ %152, %151 ]
+  %117 = load ptr, ptr %.sroa.046.061, align 8
   store ptr %117, ptr %8, align 8
-  %.not.i41 = icmp eq ptr %117, null
-  br i1 %.not.i41, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit, label %118
+  %.not.i40 = icmp eq ptr %117, null
+  br i1 %.not.i40, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit, label %118
 
 118:                                              ; preds = %116
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #56
@@ -9394,36 +9394,36 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %116, %118
 119:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
   unreachable
 
-120:                                              ; preds = %.noexc34, %_ZN5Catch24getCurrentMutableContextEv.exit
+120:                                              ; preds = %.noexc33, %_ZN5Catch24getCurrentMutableContextEv.exit
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %.body36
+  br label %.body35
 
 122:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #56
-  br label %.body36
+  br label %.body35
 
-.body36:                                          ; preds = %120, %88, %122
-  %.pn22 = phi { ptr, i32 } [ %123, %122 ], [ %121, %120 ], [ %89, %88 ]
+.body35:                                          ; preds = %120, %88, %122
+  %.pn21 = phi { ptr, i32 } [ %123, %122 ], [ %121, %120 ], [ %89, %88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #56
   br label %.body
 
 124:                                              ; preds = %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit.i, %90
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit46
+  br label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit45
 
 .loopexit:                                        ; preds = %150
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45
+  br label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44
 
 .loopexit.split-lp:                               ; preds = %100, %106, %108
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45
+  br label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44
 
 126:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
   %127 = landingpad { ptr, i32 }
@@ -9431,8 +9431,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %116, %118
           catch ptr @_ZTISt9exception
   %128 = extractvalue { ptr, i32 } %127, 1
   %129 = load ptr, ptr %8, align 8
-  %.not.i42 = icmp eq ptr %129, null
-  br i1 %.not.i42, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %130
+  %.not.i41 = icmp eq ptr %129, null
+  br i1 %.not.i41, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %130
 
 130:                                              ; preds = %126
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #56
@@ -9441,7 +9441,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %116, %118
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %126, %130
   %131 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #56
   %132 = icmp eq i32 %128, %131
-  br i1 %132, label %133, label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45
+  br i1 %132, label %133, label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44
 
 133:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %134 = extractvalue { ptr, i32 } %127, 0
@@ -9484,7 +9484,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %126, %130
           to label %151 unwind label %.loopexit
 
 151:                                              ; preds = %150
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.047.062, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.046.061, i64 8
   %.not = icmp eq ptr %152, %112
   br i1 %.not, label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit, label %116
 
@@ -9510,19 +9510,19 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %126, %130
   br label %161
 
 161:                                              ; preds = %159, %157
-  %.pn24 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
+  %.pn23 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #56
   br label %162
 
 162:                                              ; preds = %161, %155
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %161 ], [ %156, %155 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %161 ], [ %156, %155 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #56
   br label %163
 
 163:                                              ; preds = %162, %153
-  %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24.pn, %162 ], [ %154, %153 ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn23.pn, %162 ], [ %154, %153 ]
   invoke void @__cxa_end_catch()
-          to label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45 unwind label %205
+          to label %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44 unwind label %205
 
 _ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit: ; preds = %151, %110
   %164 = load ptr, ptr %99, align 8
@@ -9535,16 +9535,16 @@ _ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit: ; preds = %151, %110
   call void %169(ptr noundef nonnull align 8 dereferenceable(8) %91) #56
   br label %176
 
-_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %.loopexit, %.loopexit.split-lp, %163
-  %.merged30 = phi { ptr, i32 } [ %.pn24.pn.pn, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %127, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
+_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %.loopexit, %.loopexit.split-lp, %163
+  %.merged29 = phi { ptr, i32 } [ %.pn23.pn.pn, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %127, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
   %170 = load ptr, ptr %99, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %99) #56
-  br label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit46
+  br label %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit45
 
-_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit46: ; preds = %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45, %124
-  %.merged29 = phi { ptr, i32 } [ %.merged30, %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit45 ], [ %125, %124 ]
+_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit45: ; preds = %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44, %124
+  %.merged28 = phi { ptr, i32 } [ %.merged29, %_ZN5Catch6Detail10unique_ptrINS_10ColourImplEED2Ev.exit44 ], [ %125, %124 ]
   %173 = load ptr, ptr %91, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8
@@ -9623,8 +9623,8 @@ _ZN5Catch5Clara6ParserD2Ev.exit:                  ; preds = %_ZSt8_DestroyIPN5Ca
   call void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %197) #56
   ret void
 
-.body:                                            ; preds = %57, %74, %55, %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit46, %.body36
-  %.merged28 = phi { ptr, i32 } [ %.merged29, %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit46 ], [ %.pn22, %.body36 ], [ %56, %55 ], [ %58, %57 ], [ %75, %74 ]
+.body:                                            ; preds = %57, %74, %55, %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit45, %.body35
+  %.merged27 = phi { ptr, i32 } [ %.merged28, %_ZN5Catch6Detail10unique_ptrINS_7IStreamEED2Ev.exit45 ], [ %.pn21, %.body35 ], [ %56, %55 ], [ %58, %57 ], [ %75, %74 ]
   %198 = load ptr, ptr %24, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit, label %200
@@ -9641,7 +9641,7 @@ _ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit: ; preds = %.body, %200
   br label %204
 
 204:                                              ; preds = %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit, %38
-  %.merged = phi { ptr, i32 } [ %.merged28, %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %.merged27, %_ZN5Catch6Detail10unique_ptrINS_6ConfigEED2Ev.exit ], [ %39, %38 ]
   call void @_ZN5Catch5Clara6ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #56
   br label %common.resume
 

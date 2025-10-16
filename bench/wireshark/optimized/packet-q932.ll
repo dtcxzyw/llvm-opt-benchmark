@@ -698,8 +698,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_q932() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_q932.q931_prefs_initialized, align 1
-  br i1 %.b1, label %6, label %1
+  %.b = load i1, ptr @proto_reg_handoff_q932.q931_prefs_initialized, align 1
+  br i1 %.b, label %6, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @q932_ie_handle, align 8
@@ -717,12 +717,12 @@ define hidden void @proto_reg_handoff_q932() #0 {
   %8 = icmp eq i32 %7, 0
   %qsig_arg_local_dissector_table.val = load ptr, ptr @qsig_arg_local_dissector_table, align 8
   %etsi_arg_local_dissector_table.val = load ptr, ptr @etsi_arg_local_dissector_table, align 8
-  %storemerge3 = select i1 %8, ptr %qsig_arg_local_dissector_table.val, ptr %etsi_arg_local_dissector_table.val
-  store ptr %storemerge3, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 16), align 8
+  %storemerge2 = select i1 %8, ptr %qsig_arg_local_dissector_table.val, ptr %etsi_arg_local_dissector_table.val
+  store ptr %storemerge2, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 16), align 8
   %qsig_res_local_dissector_table.val = load ptr, ptr @qsig_res_local_dissector_table, align 8
   %etsi_res_local_dissector_table.val = load ptr, ptr @etsi_res_local_dissector_table, align 8
-  %storemerge2 = select i1 %8, ptr %qsig_res_local_dissector_table.val, ptr %etsi_res_local_dissector_table.val
-  store ptr %storemerge2, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 32), align 8
+  %storemerge1 = select i1 %8, ptr %qsig_res_local_dissector_table.val, ptr %etsi_res_local_dissector_table.val
+  store ptr %storemerge1, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 32), align 8
   %qsig_err_local_dissector_table.val = load ptr, ptr @qsig_err_local_dissector_table, align 8
   %etsi_err_local_dissector_table.val = load ptr, ptr @etsi_err_local_dissector_table, align 8
   %storemerge = select i1 %8, ptr %qsig_err_local_dissector_table.val, ptr %etsi_err_local_dissector_table.val

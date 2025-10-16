@@ -1487,37 +1487,37 @@ dissector_handle_get_dissector_name.exit:         ; preds = %10, %12
 
 31:                                               ; preds = %27
   %32 = icmp eq ptr %1, null
-  br i1 %32, label %dissector_handle_get_dissector_name.exit60, label %33
+  br i1 %32, label %dissector_handle_get_dissector_name.exit59, label %33
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %1, align 8
-  br label %dissector_handle_get_dissector_name.exit60
+  br label %dissector_handle_get_dissector_name.exit59
 
-dissector_handle_get_dissector_name.exit60:       ; preds = %31, %33
-  %.0.i59 = phi ptr [ %34, %33 ], [ null, %31 ]
+dissector_handle_get_dissector_name.exit59:       ; preds = %31, %33
+  %.0.i58 = phi ptr [ %34, %33 ], [ null, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = load i32, ptr %35, align 8
   %.not50 = icmp eq i32 %36, 26
   br i1 %.not50, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %dissector_handle_get_dissector_name.exit60
-  %.04474 = load ptr, ptr %28, align 8
-  %.not5175 = icmp eq ptr %.04474, null
-  br i1 %.not5175, label %.loopexit72, label %.lr.ph
+.preheader:                                       ; preds = %dissector_handle_get_dissector_name.exit59
+  %.04473 = load ptr, ptr %28, align 8
+  %.not5174 = icmp eq ptr %.04473, null
+  br i1 %.not5174, label %.loopexit71, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not57 = icmp eq ptr %.0.i59, null
-  %38 = select i1 %.not57, ptr @.str.26, ptr %.0.i59
+  %.not56 = icmp eq ptr %.0.i58, null
+  %38 = select i1 %.not56, ptr @.str.26, ptr %.0.i58
   br label %39
 
 39:                                               ; preds = %.lr.ph, %52
-  %.04476 = phi ptr [ %.04474, %.lr.ph ], [ %.044, %52 ]
-  %40 = load ptr, ptr %.04476, align 8
+  %.04475 = phi ptr [ %.04473, %.lr.ph ], [ %.044, %52 ]
+  %40 = load ptr, ptr %.04475, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %.not56 = icmp eq ptr %42, null
-  br i1 %.not56, label %52, label %43
+  %.not55 = icmp eq ptr %42, null
+  br i1 %.not55, label %52, label %43
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %37, align 8
@@ -1527,31 +1527,31 @@ dissector_handle_get_dissector_name.exit60:       ; preds = %31, %33
 
 47:                                               ; preds = %43
   %48 = icmp eq ptr %40, null
-  br i1 %48, label %dissector_handle_get_dissector_name.exit62, label %49
+  br i1 %48, label %dissector_handle_get_dissector_name.exit61, label %49
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %40, align 8
-  br label %dissector_handle_get_dissector_name.exit62
+  br label %dissector_handle_get_dissector_name.exit61
 
-dissector_handle_get_dissector_name.exit62:       ; preds = %47, %49
-  %.0.i61 = phi ptr [ %50, %49 ], [ null, %47 ]
-  %51 = icmp eq ptr %.0.i61, null
-  %spec.store.select1 = select i1 %51, ptr @.str.26, ptr %.0.i61
+dissector_handle_get_dissector_name.exit61:       ; preds = %47, %49
+  %.0.i60 = phi ptr [ %50, %49 ], [ null, %47 ]
+  %51 = icmp eq ptr %.0.i60, null
+  %spec.store.select1 = select i1 %51, ptr @.str.26, ptr %.0.i60
   tail call void (ptr, ...) @ws_dissector_bug(ptr noundef nonnull @.str.28, ptr noundef nonnull %38, ptr noundef nonnull %spec.store.select1, ptr noundef %0, ptr noundef %44)
   br label %52
 
-52:                                               ; preds = %39, %43, %dissector_handle_get_dissector_name.exit62
-  %.044.in = getelementptr inbounds nuw i8, ptr %.04476, i64 8
+52:                                               ; preds = %39, %43, %dissector_handle_get_dissector_name.exit61
+  %.044.in = getelementptr inbounds nuw i8, ptr %.04475, i64 8
   %.044 = load ptr, ptr %.044.in, align 8
   %.not51 = icmp eq ptr %.044, null
-  br i1 %.not51, label %.loopexit72.loopexit, label %39, !llvm.loop !11
+  br i1 %.not51, label %.loopexit71.loopexit, label %39, !llvm.loop !11
 
-.loopexit72.loopexit:                             ; preds = %52
+.loopexit71.loopexit:                             ; preds = %52
   %.pre = load i32, ptr %35, align 8
-  br label %.loopexit72
+  br label %.loopexit71
 
-.loopexit72:                                      ; preds = %.loopexit72.loopexit, %.preheader
-  %53 = phi i32 [ %.pre, %.loopexit72.loopexit ], [ %36, %.preheader ]
+.loopexit71:                                      ; preds = %.loopexit71.loopexit, %.preheader
+  %53 = phi i32 [ %.pre, %.loopexit71.loopexit ], [ %36, %.preheader ]
   switch i32 %53, label %.loopexit [
     i32 3, label %54
     i32 4, label %54
@@ -1561,7 +1561,7 @@ dissector_handle_get_dissector_name.exit62:       ; preds = %47, %49
     i32 35, label %54
   ]
 
-54:                                               ; preds = %.loopexit72, %.loopexit72, %.loopexit72, %.loopexit72, %.loopexit72, %.loopexit72
+54:                                               ; preds = %.loopexit71, %.loopexit71, %.loopexit71, %.loopexit71, %.loopexit71, %.loopexit71
   br i1 %32, label %dissector_handle_get_pref_suffix.exit, label %55
 
 55:                                               ; preds = %54
@@ -1572,71 +1572,71 @@ dissector_handle_get_dissector_name.exit62:       ; preds = %47, %49
   br label %dissector_handle_get_pref_suffix.exit
 
 dissector_handle_get_pref_suffix.exit:            ; preds = %54, %55
-  %.0.i63 = phi ptr [ %spec.select.i, %55 ], [ @.str.5, %54 ]
-  %.178 = load ptr, ptr %28, align 8
-  %.not5279 = icmp eq ptr %.178, null
-  br i1 %.not5279, label %.loopexit, label %.lr.ph81
+  %.0.i62 = phi ptr [ %spec.select.i, %55 ], [ @.str.5, %54 ]
+  %.177 = load ptr, ptr %28, align 8
+  %.not5278 = icmp eq ptr %.177, null
+  br i1 %.not5278, label %.loopexit, label %.lr.ph80
 
-.lr.ph81:                                         ; preds = %dissector_handle_get_pref_suffix.exit
+.lr.ph80:                                         ; preds = %dissector_handle_get_pref_suffix.exit
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.not55 = icmp eq ptr %.0.i59, null
-  %59 = select i1 %.not55, ptr @.str.26, ptr %.0.i59
+  %.not54 = icmp eq ptr %.0.i58, null
+  %59 = select i1 %.not54, ptr @.str.26, ptr %.0.i58
   br label %60
 
-60:                                               ; preds = %.lr.ph81, %80
-  %.180 = phi ptr [ %.178, %.lr.ph81 ], [ %.1, %80 ]
-  %61 = load ptr, ptr %.180, align 8
+60:                                               ; preds = %.lr.ph80, %80
+  %.179 = phi ptr [ %.177, %.lr.ph80 ], [ %.1, %80 ]
+  %61 = load ptr, ptr %.179, align 8
   %62 = load ptr, ptr %58, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %64 = load ptr, ptr %63, align 8
-  %.not54 = icmp eq ptr %62, %64
-  br i1 %.not54, label %65, label %80
+  %.not53 = icmp eq ptr %62, %64
+  br i1 %.not53, label %65, label %80
 
 65:                                               ; preds = %60
   %66 = icmp eq ptr %61, null
-  br i1 %66, label %dissector_handle_get_pref_suffix.exit67, label %dissector_handle_get_pref_suffix.exit67.thread
+  br i1 %66, label %dissector_handle_get_pref_suffix.exit66, label %dissector_handle_get_pref_suffix.exit66.thread
 
-dissector_handle_get_pref_suffix.exit67:          ; preds = %65
-  %67 = tail call i32 @g_strcmp0(ptr noundef nonnull %.0.i63, ptr noundef nonnull @.str.5)
+dissector_handle_get_pref_suffix.exit66:          ; preds = %65
+  %67 = tail call i32 @g_strcmp0(ptr noundef nonnull %.0.i62, ptr noundef nonnull @.str.5)
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %dissector_handle_get_dissector_name.exit69.thread, label %80
+  br i1 %68, label %dissector_handle_get_dissector_name.exit68.thread, label %80
 
-dissector_handle_get_pref_suffix.exit67.thread:   ; preds = %65
+dissector_handle_get_pref_suffix.exit66.thread:   ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %70 = load ptr, ptr %69, align 8
-  %.not.i64 = icmp eq ptr %70, null
-  %spec.select.i65 = select i1 %.not.i64, ptr @.str.5, ptr %70
-  %71 = tail call i32 @g_strcmp0(ptr noundef nonnull %.0.i63, ptr noundef nonnull %spec.select.i65)
+  %.not.i63 = icmp eq ptr %70, null
+  %spec.select.i64 = select i1 %.not.i63, ptr @.str.5, ptr %70
+  %71 = tail call i32 @g_strcmp0(ptr noundef nonnull %.0.i62, ptr noundef nonnull %spec.select.i64)
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %dissector_handle_get_dissector_name.exit69, label %80
+  br i1 %72, label %dissector_handle_get_dissector_name.exit68, label %80
 
-dissector_handle_get_dissector_name.exit69:       ; preds = %dissector_handle_get_pref_suffix.exit67.thread
+dissector_handle_get_dissector_name.exit68:       ; preds = %dissector_handle_get_pref_suffix.exit66.thread
   %73 = load ptr, ptr %61, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %dissector_handle_get_dissector_name.exit69.thread, label %79
+  br i1 %74, label %dissector_handle_get_dissector_name.exit68.thread, label %79
 
-dissector_handle_get_dissector_name.exit69.thread: ; preds = %dissector_handle_get_pref_suffix.exit67, %dissector_handle_get_dissector_name.exit69
+dissector_handle_get_dissector_name.exit68.thread: ; preds = %dissector_handle_get_pref_suffix.exit66, %dissector_handle_get_dissector_name.exit68
   %75 = load ptr, ptr @stderr, align 8
   %76 = load ptr, ptr %63, align 8
   %77 = tail call ptr @proto_get_protocol_short_name(ptr noundef %76)
   %78 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %75, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef %77)
   br label %79
 
-79:                                               ; preds = %dissector_handle_get_dissector_name.exit69.thread, %dissector_handle_get_dissector_name.exit69
-  %.0 = phi ptr [ @.str.26, %dissector_handle_get_dissector_name.exit69.thread ], [ %73, %dissector_handle_get_dissector_name.exit69 ]
+79:                                               ; preds = %dissector_handle_get_dissector_name.exit68.thread, %dissector_handle_get_dissector_name.exit68
+  %.0 = phi ptr [ @.str.26, %dissector_handle_get_dissector_name.exit68.thread ], [ %73, %dissector_handle_get_dissector_name.exit68 ]
   tail call void (ptr, ...) @ws_dissector_bug(ptr noundef nonnull @.str.30, ptr noundef nonnull %59, ptr noundef nonnull %.0, ptr noundef %0)
   br label %80
 
-80:                                               ; preds = %dissector_handle_get_pref_suffix.exit67.thread, %dissector_handle_get_pref_suffix.exit67, %79, %60
-  %.1.in = getelementptr inbounds nuw i8, ptr %.180, i64 8
+80:                                               ; preds = %dissector_handle_get_pref_suffix.exit66.thread, %dissector_handle_get_pref_suffix.exit66, %79, %60
+  %.1.in = getelementptr inbounds nuw i8, ptr %.179, i64 8
   %.1 = load ptr, ptr %.1.in, align 8
   %.not52 = icmp eq ptr %.1, null
   br i1 %.not52, label %.loopexit, label %60, !llvm.loop !12
 
-.loopexit:                                        ; preds = %80, %dissector_handle_get_dissector_name.exit60, %dissector_handle_get_pref_suffix.exit, %.loopexit72
-  %.b53 = load i1, ptr @all_tables_handles_sorted, align 1
+.loopexit:                                        ; preds = %80, %dissector_handle_get_dissector_name.exit59, %dissector_handle_get_pref_suffix.exit, %.loopexit71
+  %.b = load i1, ptr @all_tables_handles_sorted, align 1
   %81 = load ptr, ptr %28, align 8
-  br i1 %.b53, label %82, label %84
+  br i1 %.b, label %82, label %84
 
 82:                                               ; preds = %.loopexit
   %83 = tail call ptr @g_slist_insert_sorted(ptr noundef %81, ptr noundef %1, ptr noundef nonnull @dissector_compare_filter_name)

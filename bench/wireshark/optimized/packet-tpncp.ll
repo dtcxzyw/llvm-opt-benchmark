@@ -133,8 +133,8 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
   br i1 %15, label %112, label %16
 
 16:                                               ; preds = %0
-  %.b14 = load i1, ptr @proto_reg_handoff_tpncp.initialized, align 1
-  br i1 %.b14, label %27, label %17
+  %.b = load i1, ptr @proto_reg_handoff_tpncp.initialized, align 1
+  br i1 %.b, label %27, label %17
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @tpncp_handle, align 8
@@ -309,8 +309,8 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
   br label %112
 
 79:                                               ; preds = %init_tpncp_db.exit, %30
-  %.b1315 = load i1, ptr @db_initialized, align 1
-  br i1 %.b1315, label %112, label %80
+  %.b13 = load i1, ptr @db_initialized, align 1
+  br i1 %.b13, label %112, label %80
 
 80:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -327,8 +327,8 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
   %84 = and i32 %.0..0..0..0., 1
-  %.not16 = icmp eq i32 %84, 0
-  br i1 %.not16, label %87, label %85
+  %.not14 = icmp eq i32 %84, 0
+  br i1 %.not14, label %87, label %85
 
 85:                                               ; preds = %80
   %.0..0..0..0.3 = load volatile i32, ptr %11, align 4
@@ -371,8 +371,8 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
 
 101:                                              ; preds = %.loopexit
   %.0..0..0..0.10 = load volatile ptr, ptr %10, align 8
-  %.not17 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not17, label %104, label %102
+  %.not15 = icmp eq ptr %.0..0..0..0.10, null
+  br i1 %.not15, label %104, label %102
 
 102:                                              ; preds = %101
   %.0..0..0..0.7 = load volatile i32, ptr %11, align 4
@@ -384,13 +384,13 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
 104:                                              ; preds = %102, %101, %.loopexit
   %.0..0..0..0.8 = load volatile i32, ptr %11, align 4
   %105 = and i32 %.0..0..0..0.8, 1
-  %.not18 = icmp eq i32 %105, 0
-  br i1 %.not18, label %106, label %108
+  %.not16 = icmp eq i32 %105, 0
+  br i1 %.not16, label %106, label %108
 
 106:                                              ; preds = %104
   %.0..0..0..0.11 = load volatile ptr, ptr %10, align 8
-  %.not19 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %.not19, label %108, label %107
+  %.not17 = icmp eq ptr %.0..0..0..0.11, null
+  br i1 %.not17, label %108, label %107
 
 107:                                              ; preds = %106
   %.0..0..0..0.12 = load volatile ptr, ptr %10, align 8
@@ -528,8 +528,8 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.b76 = load i1, ptr @db_initialized, align 1
-  br i1 %.b76, label %11, label %100
+  %.b = load i1, ptr @db_initialized, align 1
+  br i1 %.b, label %11, label %100
 
 11:                                               ; preds = %4
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8)
@@ -577,8 +577,8 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 43:                                               ; preds = %40, %40
   %44 = load ptr, ptr @tpncp_events_id_vals, align 8
   %45 = call ptr @try_val_to_str(i32 noundef %35, ptr noundef %44)
-  %.not77 = icmp eq ptr %45, null
-  br i1 %.not77, label %93, label %46
+  %.not76 = icmp eq ptr %45, null
+  br i1 %.not76, label %93, label %46
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @hf_tpncp_event_id, align 4
@@ -683,8 +683,8 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tpncp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %.b10 = load i1, ptr @db_initialized, align 1
-  br i1 %.b10, label %5, label %13
+  %.b = load i1, ptr @db_initialized, align 1
+  br i1 %.b, label %5, label %13
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -1017,8 +1017,8 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   store i32 -1, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %106, align 8
-  %.b140 = load i1, ptr @init_tpncp_data_fields_info.was_registered, align 1
-  br i1 %.b140, label %126, label %107
+  %.b = load i1, ptr @init_tpncp_data_fields_info.was_registered, align 1
+  br i1 %.b, label %126, label %107
 
 107:                                              ; preds = %3
   %108 = load i32, ptr @hf_size, align 4
@@ -1060,20 +1060,20 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
 126:                                              ; preds = %125, %3
   %127 = tail call noalias ptr @wmem_array_new(ptr noundef null, i64 noundef 8)
   %128 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef nonnull %2)
-  %.not.i.not190 = icmp eq ptr %128, null
-  br i1 %.not.i.not190, label %fgetline.exit, label %.lr.ph196
+  %.not.i.not189 = icmp eq ptr %128, null
+  br i1 %.not.i.not189, label %fgetline.exit, label %.lr.ph195
 
-.lr.ph196:                                        ; preds = %126
+.lr.ph195:                                        ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %130 = load ptr, ptr @g_ascii_table, align 8
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %132
 
-132:                                              ; preds = %.lr.ph196, %.backedge
-  %.0106194 = phi i32 [ -1, %.lr.ph196 ], [ %.0106.be, %.backedge ]
-  %.0109193 = phi ptr [ null, %.lr.ph196 ], [ %.0109.be, %.backedge ]
-  %.0112192 = phi i32 [ 0, %.lr.ph196 ], [ %.0112.be, %.backedge ]
-  %.0117191 = phi i8 [ 0, %.lr.ph196 ], [ %.0117.be, %.backedge ]
+132:                                              ; preds = %.lr.ph195, %.backedge
+  %.0106193 = phi i32 [ -1, %.lr.ph195 ], [ %.0106.be, %.backedge ]
+  %.0109192 = phi ptr [ null, %.lr.ph195 ], [ %.0109.be, %.backedge ]
+  %.0112191 = phi i32 [ 0, %.lr.ph195 ], [ %.0112.be, %.backedge ]
+  %.0117190 = phi i8 [ 0, %.lr.ph195 ], [ %.0117.be, %.backedge ]
   %133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
   %134 = getelementptr i8, ptr %4, i64 %133
   %135 = getelementptr i8, ptr %134, i64 -1
@@ -1102,10 +1102,10 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   br label %.backedge
 
 .backedge:                                        ; preds = %144, %151, %161, %195, %201, %207, %214, %298, %239, %225
-  %.0117.be = phi i8 [ %.0117191, %144 ], [ %.0117191, %151 ], [ %.0117191, %195 ], [ %.0117191, %201 ], [ %.0117191, %207 ], [ %.0117191, %214 ], [ %.1118, %298 ], [ 0, %239 ], [ %.0117191, %161 ], [ %.0117191, %225 ]
-  %.0112.be = phi i32 [ %.0112192, %144 ], [ %.0112192, %151 ], [ %.0112192, %195 ], [ %.0112192, %201 ], [ %.0112192, %207 ], [ %.0112192, %214 ], [ %.4, %298 ], [ %.1113, %239 ], [ %.0112192, %161 ], [ %220, %225 ]
-  %.0109.be = phi ptr [ %.0109193, %144 ], [ %.0109193, %151 ], [ %.0109193, %195 ], [ %.0109193, %201 ], [ %.0109193, %207 ], [ %.0109193, %214 ], [ %.2111, %298 ], [ %.0109193, %239 ], [ %.0109193, %161 ], [ %.0109193, %225 ]
-  %.0106.be = phi i32 [ %.0106194, %144 ], [ %.0106194, %151 ], [ %.0106194, %195 ], [ %.0106194, %201 ], [ %.0106194, %207 ], [ %.0106194, %214 ], [ %.2108, %298 ], [ %.0106194, %239 ], [ %.0106194, %161 ], [ %.0106194, %225 ]
+  %.0117.be = phi i8 [ %.0117190, %144 ], [ %.0117190, %151 ], [ %.0117190, %195 ], [ %.0117190, %201 ], [ %.0117190, %207 ], [ %.0117190, %214 ], [ %.1118, %298 ], [ 0, %239 ], [ %.0117190, %161 ], [ %.0117190, %225 ]
+  %.0112.be = phi i32 [ %.0112191, %144 ], [ %.0112191, %151 ], [ %.0112191, %195 ], [ %.0112191, %201 ], [ %.0112191, %207 ], [ %.0112191, %214 ], [ %.4, %298 ], [ %.1113, %239 ], [ %.0112191, %161 ], [ %220, %225 ]
+  %.0109.be = phi ptr [ %.0109192, %144 ], [ %.0109192, %151 ], [ %.0109192, %195 ], [ %.0109192, %201 ], [ %.0109192, %207 ], [ %.0109192, %214 ], [ %.2111, %298 ], [ %.0109192, %239 ], [ %.0109192, %161 ], [ %.0109192, %225 ]
+  %.0106.be = phi i32 [ %.0106193, %144 ], [ %.0106193, %151 ], [ %.0106193, %195 ], [ %.0106193, %201 ], [ %.0106193, %207 ], [ %.0106193, %214 ], [ %.2108, %298 ], [ %.0106193, %239 ], [ %.0106193, %161 ], [ %.0106193, %225 ]
   %145 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef nonnull %2)
   %.not.i.not = icmp eq ptr %145, null
   br i1 %.not.i.not, label %fgetline.exit, label %132, !llvm.loop !15
@@ -1127,8 +1127,8 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %155 = getelementptr i16, ptr %130, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8
-  %.not141 = icmp eq i16 %157, 0
-  br i1 %.not141, label %158, label %162
+  %.not140 = icmp eq i16 %157, 0
+  br i1 %.not140, label %158, label %162
 
 158:                                              ; preds = %152
   %159 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.37) #19
@@ -1148,92 +1148,92 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
 
 165:                                              ; preds = %162
   %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(12) @.str.40) #18
-  %.not142 = icmp eq i32 %166, 0
-  br i1 %.not142, label %.thread173, label %.thread222
+  %.not141 = icmp eq i32 %166, 0
+  br i1 %.not141, label %.thread172, label %.thread221
 
 167:                                              ; preds = %162
-  switch i8 %163, label %.thread222 [
+  switch i8 %163, label %.thread221 [
     i8 114, label %168
     i8 115, label %170
   ]
 
 168:                                              ; preds = %167
   %169 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(29) @.str.41) #18
-  %.not143 = icmp eq i32 %169, 0
-  br i1 %.not143, label %.thread173, label %174
+  %.not142 = icmp eq i32 %169, 0
+  br i1 %.not142, label %.thread172, label %174
 
 170:                                              ; preds = %167
   %171 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(20) @.str.42) #18
-  %.not144 = icmp eq i32 %171, 0
-  br i1 %.not144, label %.thread173, label %.thread168
+  %.not143 = icmp eq i32 %171, 0
+  br i1 %.not143, label %.thread172, label %.thread167
 
-.thread168:                                       ; preds = %170
-  %.not145.not = icmp eq i32 %148, 1611
-  br i1 %.not145.not, label %178, label %172
+.thread167:                                       ; preds = %170
+  %.not144.not = icmp eq i32 %148, 1611
+  br i1 %.not144.not, label %178, label %172
 
-172:                                              ; preds = %.thread168
+172:                                              ; preds = %.thread167
   %173 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(5) @.str.43) #18
-  %.not146 = icmp eq i32 %173, 0
-  br i1 %.not146, label %.thread173, label %178
+  %.not145 = icmp eq i32 %173, 0
+  br i1 %.not145, label %.thread172, label %178
 
-.thread222:                                       ; preds = %167, %165
-  switch i32 %148, label %.thread173 [
+.thread221:                                       ; preds = %167, %165
+  switch i32 %148, label %.thread172 [
     i32 1611, label %181
     i32 4, label %186
   ]
 
 174:                                              ; preds = %168
   %175 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(18) @.str.44) #18
-  %.not147 = icmp eq i32 %175, 0
-  br i1 %.not147, label %.thread173, label %176
+  %.not146 = icmp eq i32 %175, 0
+  br i1 %.not146, label %.thread172, label %176
 
 176:                                              ; preds = %174
   %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(17) @.str.45) #18
-  %.not148 = icmp eq i32 %177, 0
-  br i1 %.not148, label %.thread173, label %.thread226
+  %.not147 = icmp eq i32 %177, 0
+  br i1 %.not147, label %.thread172, label %.thread225
 
-.thread226:                                       ; preds = %176
-  switch i32 %148, label %.thread173 [
+.thread225:                                       ; preds = %176
+  switch i32 %148, label %.thread172 [
     i32 1611, label %181
     i32 4, label %186
   ]
 
-178:                                              ; preds = %172, %.thread168
+178:                                              ; preds = %172, %.thread167
   %179 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(24) @.str.46) #18
-  %.not149 = icmp eq i32 %179, 0
-  br i1 %.not149, label %.thread173, label %180
+  %.not148 = icmp eq i32 %179, 0
+  br i1 %.not148, label %.thread172, label %180
 
 180:                                              ; preds = %178
-  br i1 %.not145.not, label %.thread229, label %184
+  br i1 %.not144.not, label %.thread228, label %184
 
-181:                                              ; preds = %.thread222, %.thread226
-  br i1 %164, label %182, label %.thread229
+181:                                              ; preds = %.thread221, %.thread225
+  br i1 %164, label %182, label %.thread228
 
 182:                                              ; preds = %181
   %183 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(1) @.str.47) #18
-  %.not150 = icmp eq ptr %183, null
-  br i1 %.not150, label %.thread229, label %.thread173
+  %.not149 = icmp eq ptr %183, null
+  br i1 %.not149, label %.thread228, label %.thread172
 
 184:                                              ; preds = %180
   %185 = icmp eq i32 %148, 4
-  br i1 %185, label %186, label %.thread173
+  br i1 %185, label %186, label %.thread172
 
-186:                                              ; preds = %.thread222, %.thread226, %184
+186:                                              ; preds = %.thread221, %.thread225, %184
   %187 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(1) @.str.48) #18
-  %.not151 = icmp eq ptr %187, null
-  br i1 %.not151, label %.thread173, label %189
+  %.not150 = icmp eq ptr %187, null
+  br i1 %.not150, label %.thread172, label %189
 
-.thread229:                                       ; preds = %180, %181, %182
+.thread228:                                       ; preds = %180, %181, %182
   %188 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0102, ptr noundef nonnull dereferenceable(1) @.str.49) #18
-  %.not152 = icmp eq ptr %188, null
-  br i1 %.not152, label %.thread173, label %189
+  %.not151 = icmp eq ptr %188, null
+  br i1 %.not151, label %.thread172, label %189
 
-189:                                              ; preds = %.thread229, %186
-  br label %.thread173
+189:                                              ; preds = %.thread228, %186
+  br label %.thread172
 
-.thread173:                                       ; preds = %.thread222, %.thread226, %184, %186, %182, %178, %176, %174, %172, %170, %168, %165, %189, %.thread229
-  %.0122 = phi i32 [ 0, %189 ], [ 0, %.thread229 ], [ 3, %165 ], [ 4, %168 ], [ 5, %170 ], [ 6, %172 ], [ 6, %174 ], [ 7, %176 ], [ 8, %178 ], [ 9, %182 ], [ 0, %186 ], [ 0, %184 ], [ 0, %.thread226 ], [ 0, %.thread222 ]
-  %.0115 = phi i32 [ 7401, %189 ], [ 0, %.thread229 ], [ 0, %165 ], [ 0, %168 ], [ 0, %170 ], [ 0, %172 ], [ 0, %174 ], [ 0, %176 ], [ 0, %178 ], [ 0, %182 ], [ 0, %186 ], [ 0, %184 ], [ 0, %.thread226 ], [ 0, %.thread222 ]
+.thread172:                                       ; preds = %.thread221, %.thread225, %184, %186, %182, %178, %176, %174, %172, %170, %168, %165, %189, %.thread228
+  %.0122 = phi i32 [ 0, %189 ], [ 0, %.thread228 ], [ 3, %165 ], [ 4, %168 ], [ 5, %170 ], [ 6, %172 ], [ 6, %174 ], [ 7, %176 ], [ 8, %178 ], [ 9, %182 ], [ 0, %186 ], [ 0, %184 ], [ 0, %.thread225 ], [ 0, %.thread221 ]
+  %.0115 = phi i32 [ 7401, %189 ], [ 0, %.thread228 ], [ 0, %165 ], [ 0, %168 ], [ 0, %170 ], [ 0, %172 ], [ 0, %174 ], [ 0, %176 ], [ 0, %178 ], [ 0, %182 ], [ 0, %186 ], [ 0, %184 ], [ 0, %.thread225 ], [ 0, %.thread221 ]
   %190 = call i64 @g_ascii_strtoll(ptr noundef nonnull %.0105, ptr noundef null, i32 noundef 10)
   %191 = icmp ne i64 %190, 0
   %192 = zext i1 %191 to i8
@@ -1241,11 +1241,11 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %194 = icmp eq ptr %193, null
   br i1 %194, label %195, label %196
 
-195:                                              ; preds = %.thread173
+195:                                              ; preds = %.thread172
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.38, ptr noundef nonnull %5)
   br label %.backedge
 
-196:                                              ; preds = %.thread173
+196:                                              ; preds = %.thread172
   %197 = call i64 @g_ascii_strtoll(ptr noundef nonnull %193, ptr noundef null, i32 noundef 10)
   %198 = trunc i64 %197 to i8
   %199 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.37) #19
@@ -1272,8 +1272,8 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
 
 209:                                              ; preds = %208
   %210 = call i64 @g_ascii_strtoll(ptr noundef nonnull %205, ptr noundef null, i32 noundef 10)
-  %.not153 = icmp eq i64 %210, 0
-  %spec.select = select i1 %.not153, i32 %.0122, i32 2
+  %.not152 = icmp eq i64 %210, 0
+  %spec.select = select i1 %.not152, i32 %.0122, i32 2
   br label %211
 
 211:                                              ; preds = %209, %208
@@ -1287,21 +1287,21 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   br label %.backedge
 
 215:                                              ; preds = %211
-  %.not154 = icmp eq i32 %.0112192, 0
-  br i1 %.not154, label %.thread175, label %216
+  %.not153 = icmp eq i32 %.0112191, 0
+  br i1 %.not153, label %.thread174, label %216
 
 216:                                              ; preds = %215
   %217 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0102) #18
   %218 = getelementptr i8, ptr %.0102, i64 %217
   %219 = getelementptr i8, ptr %218, i64 -2
-  %220 = add nsw i32 %.0112192, -1
+  %220 = add nsw i32 %.0112191, -1
   %221 = icmp ugt ptr %219, %.0102
-  br i1 %221, label %222, label %.thread175
+  br i1 %221, label %222, label %.thread174
 
 222:                                              ; preds = %216
   %223 = load i8, ptr %219, align 1
   %224 = icmp eq i8 %223, 95
-  br i1 %224, label %225, label %.thread175
+  br i1 %224, label %225, label %.thread174
 
 225:                                              ; preds = %222
   %226 = getelementptr i8, ptr %218, i64 -1
@@ -1311,42 +1311,42 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   br i1 %or.cond, label %.backedge, label %229
 
 229:                                              ; preds = %225
-  %230 = trunc nuw i8 %.0117191 to i1
+  %230 = trunc nuw i8 %.0117190 to i1
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %229
   store i8 0, ptr %219, align 1
-  br label %.thread175
+  br label %.thread174
 
 232:                                              ; preds = %229
   call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.51, ptr noundef nonnull %.0102)
-  br label %.thread175
+  br label %.thread174
 
-.thread175:                                       ; preds = %216, %222, %232, %231, %215
+.thread174:                                       ; preds = %216, %222, %232, %231, %215
   %.2124 = phi i32 [ %.1123, %215 ], [ %.1123, %216 ], [ %.1123, %222 ], [ %.1123, %232 ], [ 2, %231 ]
   %.0119 = phi i8 [ %198, %215 ], [ %198, %216 ], [ %198, %222 ], [ %198, %232 ], [ -128, %231 ]
   %.1113 = phi i32 [ 0, %215 ], [ %220, %216 ], [ %220, %222 ], [ 0, %232 ], [ %220, %231 ]
-  %.not155 = icmp eq i32 %.0106194, %148
-  br i1 %.not155, label %240, label %.preheader
+  %.not154 = icmp eq i32 %.0106193, %148
+  br i1 %.not154, label %240, label %.preheader
 
-.preheader:                                       ; preds = %.thread175
+.preheader:                                       ; preds = %.thread174
   %233 = call i32 @wmem_array_get_count(ptr noundef %127)
-  %.not157189 = icmp ugt i32 %233, %148
-  br i1 %.not157189, label %._crit_edge, label %.lr.ph
+  %.not156188 = icmp ugt i32 %233, %148
+  br i1 %.not156188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   call void @wmem_array_append(ptr noundef %127, ptr noundef nonnull @init_tpncp_data_fields_info.empty, i32 noundef 1)
   %234 = call i32 @wmem_array_get_count(ptr noundef %127)
-  %.not157 = icmp ugt i32 %234, %148
-  br i1 %.not157, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  %.not156 = icmp ugt i32 %234, %148
+  br i1 %.not156, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %235 = call ptr @wmem_array_index(ptr noundef %127, i32 noundef %148)
   %236 = load ptr, ptr %235, align 8
-  %.not158 = icmp eq ptr %236, null
-  br i1 %.not158, label %.thread180, label %239
+  %.not157 = icmp eq ptr %236, null
+  br i1 %.not157, label %.thread179, label %239
 
-.thread180:                                       ; preds = %._crit_edge
+.thread179:                                       ; preds = %._crit_edge
   %237 = call ptr @wmem_epan_scope()
   %238 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %237, i64 noundef 40) #23
   store ptr %238, ptr %235, align 8
@@ -1356,25 +1356,25 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.52, i32 noundef %148)
   br label %.backedge
 
-240:                                              ; preds = %.thread175
+240:                                              ; preds = %.thread174
   %241 = call ptr @wmem_epan_scope()
   %242 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %241, i64 noundef 40) #23
-  %243 = getelementptr inbounds nuw i8, ptr %.0109193, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %.0109192, i64 32
   store ptr %242, ptr %243, align 8
-  %.not156 = icmp eq ptr %242, null
-  br i1 %.not156, label %.critedge, label %244
+  %.not155 = icmp eq ptr %242, null
+  br i1 %.not155, label %.critedge, label %244
 
 244:                                              ; preds = %240
   %245 = getelementptr inbounds nuw i8, ptr %242, i64 32
   store ptr null, ptr %245, align 8
   br label %246
 
-246:                                              ; preds = %.thread180, %244
-  %.2111 = phi ptr [ %242, %244 ], [ %238, %.thread180 ]
-  %.2108 = phi i32 [ %.0106194, %244 ], [ %148, %.thread180 ]
+246:                                              ; preds = %.thread179, %244
+  %.2111 = phi ptr [ %242, %244 ], [ %238, %.thread179 ]
+  %.2108 = phi i32 [ %.0106193, %244 ], [ %148, %.thread179 ]
   %247 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(10) @.str.53) #18
-  %.not159 = icmp eq i32 %247, 0
-  br i1 %.not159, label %265, label %248
+  %.not158 = icmp eq i32 %247, 0
+  br i1 %.not158, label %265, label %248
 
 248:                                              ; preds = %246
   %249 = load ptr, ptr @tpncp_enums_name_vals, align 8
@@ -1394,8 +1394,8 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %255 = sext i32 %254 to i64
   %256 = getelementptr ptr, ptr %249, i64 %255
   %257 = load ptr, ptr %256, align 8
-  %.not.i165 = icmp eq ptr %257, null
-  br i1 %.not.i165, label %get_enum_name_val.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  %.not.i164 = icmp eq ptr %257, null
+  br i1 %.not.i164, label %get_enum_name_val.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 get_enum_name_val.exit:                           ; preds = %.lr.ph.i
   %258 = icmp eq i32 %.09.i, -1
@@ -1412,9 +1412,9 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
   %263 = load ptr, ptr %262, align 8
   store ptr %263, ptr %101, align 8
   %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(14) @.str.54) #18
-  %.not160 = icmp eq i32 %264, 0
-  %spec.select163 = zext i1 %.not160 to i8
-  %spec.select164 = select i1 %.not160, i32 4, i32 %.1113
+  %.not159 = icmp eq i32 %264, 0
+  %spec.select162 = zext i1 %.not159 to i8
+  %spec.select163 = select i1 %.not159, i32 4, i32 %.1113
   br label %266
 
 265:                                              ; preds = %246
@@ -1422,8 +1422,8 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
   br label %266
 
 266:                                              ; preds = %259, %get_enum_name_val.exit.thread, %265
-  %.1118 = phi i8 [ 0, %get_enum_name_val.exit.thread ], [ 0, %265 ], [ %spec.select163, %259 ]
-  %.4 = phi i32 [ %.1113, %get_enum_name_val.exit.thread ], [ %.1113, %265 ], [ %spec.select164, %259 ]
+  %.1118 = phi i8 [ 0, %get_enum_name_val.exit.thread ], [ 0, %265 ], [ %spec.select162, %259 ]
+  %.4 = phi i32 [ %.1113, %get_enum_name_val.exit.thread ], [ %.1113, %265 ], [ %spec.select163, %259 ]
   %267 = getelementptr inbounds nuw i8, ptr %.2111, i64 8
   store i32 -1, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %.2111, i64 12
@@ -1449,8 +1449,8 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
   ]
 
 271:                                              ; preds = %266, %266, %266, %266, %266, %266, %266, %266
-  %.not161 = icmp eq i32 %204, 0
-  br i1 %.not161, label %273, label %272
+  %.not160 = icmp eq i32 %204, 0
+  br i1 %.not160, label %273, label %272
 
 272:                                              ; preds = %271
   store i32 26, ptr %100, align 8
@@ -1499,8 +1499,8 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
 287:                                              ; preds = %266, %282, %286, %279, %280, %272, %273, %275
   %288 = load i32, ptr @hf_size, align 4
   %289 = load i32, ptr @hf_allocated, align 4
-  %.not.i166 = icmp slt i32 %288, %289
-  br i1 %.not.i166, label %._crit_edge.i, label %290
+  %.not.i165 = icmp slt i32 %288, %289
+  br i1 %.not.i165, label %._crit_edge.i, label %290
 
 ._crit_edge.i:                                    ; preds = %287
   %.pre.i = load ptr, ptr @hf, align 8
@@ -1515,8 +1515,8 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
   %295 = sext i32 %294 to i64
   %296 = mul nsw i64 %295, 80
   %297 = call ptr @wmem_realloc(ptr noundef %292, ptr noundef %293, i64 noundef %296) #22
-  %.not7.i167 = icmp eq ptr %297, null
-  br i1 %.not7.i167, label %.critedge, label %.thread.i
+  %.not7.i166 = icmp eq ptr %297, null
+  br i1 %.not7.i166, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %290
   store ptr %297, ptr @hf, align 8

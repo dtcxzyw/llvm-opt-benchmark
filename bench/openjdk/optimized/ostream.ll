@@ -3101,8 +3101,8 @@ declare void @_ZN15ClassListWriter4initEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_Z12ostream_exitv() local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_ZZ12ostream_exitvE19ostream_exit_called, align 1
-  br i1 %.b4, label %19, label %1
+  %.b = load i1, ptr @_ZZ12ostream_exitvE19ostream_exit_called, align 1
+  br i1 %.b, label %19, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZ12ostream_exitvE19ostream_exit_called, align 1
@@ -3114,11 +3114,11 @@ define hidden void @_Z12ostream_exitv() local_unnamed_addr #0 {
   store ptr %spec.select, ptr @tty, align 8
   %.not = icmp eq ptr %2, @_ZL18tty_preinit_stream
   %5 = load ptr, ptr @_ZN13defaultStream8instanceE, align 8
-  %.not5 = icmp eq ptr %2, %5
-  %or.cond = select i1 %.not, i1 true, i1 %.not5
+  %.not4 = icmp eq ptr %2, %5
+  %or.cond = select i1 %.not, i1 true, i1 %.not4
   %6 = icmp eq ptr %2, null
-  %or.cond6 = or i1 %6, %or.cond
-  br i1 %or.cond6, label %11, label %7
+  %or.cond5 = or i1 %6, %or.cond
+  br i1 %or.cond5, label %11, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8

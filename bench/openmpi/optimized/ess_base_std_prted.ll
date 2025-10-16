@@ -148,7 +148,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %14 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 264), align 8, !tbaa !10
   %15 = trunc i64 %14 to i32
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %.loopexit201
+  br i1 %16, label %17, label %.loopexit200
 
 17:                                               ; preds = %0
   %18 = shl i64 %14, 7
@@ -159,14 +159,14 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br i1 %21, label %258, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %.0118208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 240), align 8, !tbaa !21
-  %.not209 = icmp eq ptr %.0118208, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
-  br i1 %.not209, label %.loopexit201, label %.lr.ph
+  %.0118207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 240), align 8, !tbaa !21
+  %.not208 = icmp eq ptr %.0118207, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
+  br i1 %.not208, label %.loopexit200, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.0118211 = phi ptr [ %.0118, %.lr.ph ], [ %.0118208, %.preheader ]
-  %22 = getelementptr inbounds nuw i8, ptr %.0118211, i64 152
+  %.0118210 = phi ptr [ %.0118, %.lr.ph ], [ %.0118207, %.preheader ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0118210, i64 152
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %24 = load ptr, ptr @forward_signals_events, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw %struct.event, ptr %24, i64 %indvars.iv
@@ -174,46 +174,46 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %27 = tail call i32 @prte_event_assign(ptr noundef %25, ptr noundef %26, i32 noundef %23, i16 noundef signext 24, ptr noundef nonnull @signal_forward_callback, ptr noundef %25) #18
   %28 = tail call i32 @event_add(ptr noundef %25, ptr noundef null) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.0118211, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %.0118210, i64 120
   %.0118 = load ptr, ptr %29, align 8, !tbaa !21
   %.not = icmp eq ptr %.0118, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
-  br i1 %.not, label %.loopexit201, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.loopexit200, label %.lr.ph, !llvm.loop !25
 
-.loopexit201:                                     ; preds = %.lr.ph, %.preheader, %0
+.loopexit200:                                     ; preds = %.lr.ph, %.preheader, %0
   store i1 true, ptr @signals_set, align 1
   %30 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !27
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %.loopexit201
+32:                                               ; preds = %.loopexit200
   %33 = tail call i32 @prte_hwloc_base_get_topology() #18
   %.not152 = icmp eq i32 %33, 0
-  br i1 %.not152, label %._crit_edge231, label %258
+  br i1 %.not152, label %._crit_edge230, label %258
 
-._crit_edge231:                                   ; preds = %32
+._crit_edge230:                                   ; preds = %32
   %.pre = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !27
   br label %34
 
-34:                                               ; preds = %._crit_edge231, %.loopexit201
-  %35 = phi ptr [ %.pre, %._crit_edge231 ], [ %30, %.loopexit201 ]
+34:                                               ; preds = %._crit_edge230, %.loopexit200
+  %35 = phi ptr [ %.pre, %._crit_edge230 ], [ %30, %.loopexit200 ]
   %36 = tail call ptr @prte_hwloc_base_get_topo_signature(ptr noundef %35) #18
   store ptr %36, ptr @prte_topo_signature, align 8, !tbaa !3
   %37 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !27
   %38 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %37, i32 noundef 0, i32 noundef 0) #20
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %40 = load i32, ptr %39, align 8, !tbaa !29
-  %.not216 = icmp eq i32 %40, 0
-  br i1 %.not216, label %.loopexit, label %.lr.ph213
+  %.not215 = icmp eq i32 %40, 0
+  br i1 %.not215, label %.loopexit, label %.lr.ph212
 
-.lr.ph213:                                        ; preds = %34
+.lr.ph212:                                        ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 216
   %42 = load ptr, ptr %41, align 8, !tbaa !36
   %wide.trip.count = zext i32 %40 to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph213, %72
-  %indvars.iv224 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next225, %72 ]
-  %44 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %42, i64 %indvars.iv224
+43:                                               ; preds = %.lr.ph212, %72
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next224, %72 ]
+  %44 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %42, i64 %indvars.iv223
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   %46 = icmp eq ptr %45, null
   br i1 %46, label %72, label %47
@@ -230,38 +230,38 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br i1 %53, label %54, label %72
 
 54:                                               ; preds = %51
-  %55 = trunc nuw i64 %indvars.iv224 to i32
+  %55 = trunc nuw i64 %indvars.iv223 to i32
   tail call void @free(ptr noundef nonnull %45) #18
   %56 = load ptr, ptr %41, align 8, !tbaa !36
-  %57 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %56, i64 %indvars.iv224
+  %57 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %56, i64 %indvars.iv223
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !39
   tail call void @free(ptr noundef %59) #18
   %60 = load i32, ptr %39, align 8, !tbaa !29
   %61 = add i32 %60, -1
   %62 = icmp ugt i32 %61, %55
-  br i1 %62, label %.lr.ph215, label %.._crit_edge_crit_edge
+  br i1 %62, label %.lr.ph214, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %54
-  %.pre232 = zext i32 %61 to i64
+  %.pre231 = zext i32 %61 to i64
   br label %._crit_edge
 
-.lr.ph215:                                        ; preds = %54, %.lr.ph215
-  %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.lr.ph215 ], [ %indvars.iv224, %54 ]
+.lr.ph214:                                        ; preds = %54, %.lr.ph214
+  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %.lr.ph214 ], [ %indvars.iv223, %54 ]
   %63 = load ptr, ptr %41, align 8, !tbaa !36
-  %64 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv228
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %65 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv.next229
+  %64 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv227
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %65 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv.next228
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !40
   %66 = load i32, ptr %39, align 8, !tbaa !29
   %67 = add i32 %66, -1
   %68 = zext i32 %67 to i64
-  %69 = icmp samesign ult i64 %indvars.iv.next229, %68
-  br i1 %69, label %.lr.ph215, label %._crit_edge, !llvm.loop !41
+  %69 = icmp samesign ult i64 %indvars.iv.next228, %68
+  br i1 %69, label %.lr.ph214, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph215, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre232, %.._crit_edge_crit_edge ], [ %68, %.lr.ph215 ]
-  %.lcssa = phi i32 [ %61, %.._crit_edge_crit_edge ], [ %67, %.lr.ph215 ]
+._crit_edge:                                      ; preds = %.lr.ph214, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre231, %.._crit_edge_crit_edge ], [ %68, %.lr.ph214 ]
+  %.lcssa = phi i32 [ %61, %.._crit_edge_crit_edge ], [ %67, %.lr.ph214 ]
   %70 = load ptr, ptr %41, align 8, !tbaa !36
   %71 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %70, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
@@ -269,8 +269,8 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br label %.loopexit
 
 72:                                               ; preds = %51, %43, %47
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !42
 
 .loopexit:                                        ; preds = %72, %34, %._crit_edge
@@ -636,8 +636,8 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br label %236
 
 236:                                              ; preds = %235, %210
-  %.b172 = load i1, ptr @plm_in_use, align 1
-  br i1 %.b172, label %237, label %242
+  %.b = load i1, ptr @plm_in_use, align 1
+  br i1 %.b, label %237, label %242
 
 237:                                              ; preds = %236
   %238 = load ptr, ptr @prte_plm, align 8, !tbaa !88
@@ -747,8 +747,8 @@ pmix_obj_update.exit:                             ; preds = %258
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %270
   %279 = getelementptr inbounds nuw i8, ptr %.0123, i64 96
   %280 = load ptr, ptr %279, align 8, !tbaa !97
-  %.not199 = icmp eq ptr %280, null
-  br i1 %.not199, label %283, label %281
+  %.not198 = icmp eq ptr %280, null
+  br i1 %.not198, label %283, label %281
 
 281:                                              ; preds = %pmix_obj_run_destructors.exit
   %282 = getelementptr inbounds nuw i8, ptr %.0123, i64 56
@@ -1081,26 +1081,26 @@ declare i32 @prte_filem_base_select() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_ess_base_prted_finalize() local_unnamed_addr #0 {
-  %.b5 = load i1, ptr @signals_set, align 1
-  br i1 %.b5, label %1, label %12
+  %.b = load i1, ptr @signals_set, align 1
+  br i1 %.b, label %1, label %12
 
 1:                                                ; preds = %0
   %2 = tail call i32 @event_del(ptr noundef nonnull @epipe_handler) #18
   %3 = tail call i32 @event_del(ptr noundef nonnull @term_handler) #18
   %4 = tail call i32 @event_del(ptr noundef nonnull @int_handler) #18
-  %.037 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 240), align 8, !tbaa !21
-  %.not8 = icmp eq ptr %.037, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.036 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 240), align 8, !tbaa !21
+  %.not7 = icmp eq ptr %.036, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.0310 = phi ptr [ %.03, %.lr.ph ], [ %.037, %1 ]
-  %.09 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
+  %.039 = phi ptr [ %.03, %.lr.ph ], [ %.036, %1 ]
+  %.08 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr @forward_signals_events, align 8, !tbaa !19
-  %6 = zext i32 %.09 to i64
+  %6 = zext i32 %.08 to i64
   %7 = getelementptr inbounds nuw %struct.event, ptr %5, i64 %6
   %8 = tail call i32 @event_del(ptr noundef %7) #18
-  %9 = add i32 %.09, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.0310, i64 120
+  %9 = add i32 %.08, 1
+  %10 = getelementptr inbounds nuw i8, ptr %.039, i64 120
   %.03 = load ptr, ptr %10, align 8, !tbaa !21
   %.not = icmp eq ptr %.03, getelementptr inbounds nuw (i8, ptr @prte_ess_base_signals, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
@@ -1114,8 +1114,8 @@ define noundef i32 @prte_ess_base_prted_finalize() local_unnamed_addr #0 {
 
 12:                                               ; preds = %._crit_edge, %0
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_errmgr, i64 8), align 8, !tbaa !112
-  %.not6 = icmp eq ptr %13, null
-  br i1 %.not6, label %16, label %14
+  %.not5 = icmp eq ptr %13, null
+  br i1 %.not5, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 %13() #18

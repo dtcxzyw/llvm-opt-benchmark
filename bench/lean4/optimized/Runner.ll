@@ -105431,8 +105431,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_Test_Runner(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -105461,25 +105461,25 @@ define ptr @initialize_Lean_Server_Test_Runner(i8 noundef zeroext %0, ptr nounde
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Widget(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %1060, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -106069,8 +106069,8 @@ _init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_T
   tail call void @lean_mark_persistent(ptr noundef %262) #6
   %263 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__2, align 8, !tbaa !4
   %264 = getelementptr i8, ptr %263, i64 24
-  %.val.i13 = load i64, ptr %264, align 8, !tbaa !12
-  %265 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %264, align 8, !tbaa !12
+  %265 = shl i64 %.val.i12, 1
   %266 = or disjoint i64 %265, 1
   %267 = inttoptr i64 %266 to ptr
   store ptr %267, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__3, align 8, !tbaa !4
@@ -106078,10 +106078,10 @@ _init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_T
   %268 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__3, align 8, !tbaa !4
   %269 = ptrtoint ptr %268 to i64
   %270 = and i64 %269, 1
-  %.not.i.i14 = icmp eq i64 %270, 0
+  %.not.i.i13 = icmp eq i64 %270, 0
   %271 = icmp ult ptr %268, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %271, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4.exit, label %272
+  %or.cond.i.i14 = or i1 %271, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4.exit, label %272
 
 272:                                              ; preds = %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__1.exit
   %273 = lshr i64 %269, 1
@@ -106089,9 +106089,9 @@ _init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_T
   br label %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4.exit
 
 _init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__1.exit, %272
-  %.1.i.i16 = phi ptr [ %274, %272 ], [ %268, %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__1.exit ]
-  store ptr %.1.i.i16, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #6
+  %.1.i.i15 = phi ptr [ %274, %272 ], [ %268, %_init_l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__1.exit ]
+  store ptr %.1.i.i15, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__4, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #6
   %275 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Server_Test_Runner_0__Lean_Server_Test_Runner_Client_reprHyp____x40_Lean_Server_Test_Runner___hyg_417____spec__2___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %276 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -107668,8 +107668,8 @@ _init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___lambd
   tail call void @lean_mark_persistent(ptr noundef %859) #6
   %860 = load ptr, ptr @l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___lambda__9___closed__1, align 8, !tbaa !4
   %861 = getelementptr i8, ptr %860, i64 8
-  %.val.i51 = load i64, ptr %861, align 8, !tbaa !12
-  %862 = shl i64 %.val.i51, 1
+  %.val.i50 = load i64, ptr %861, align 8, !tbaa !12
+  %862 = shl i64 %.val.i50, 1
   %863 = add i64 %862, -1
   %864 = inttoptr i64 %863 to ptr
   store ptr %864, ptr @l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___lambda__9___closed__2, align 8, !tbaa !4
@@ -107787,10 +107787,10 @@ _init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___close
 
 904:                                              ; preds = %_init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___closed__1.exit
   %905 = getelementptr i8, ptr %901, i64 8
-  %.val.i.i.i52 = load i64, ptr %905, align 8, !tbaa !12
+  %.val.i.i.i51 = load i64, ptr %905, align 8, !tbaa !12
   %906 = getelementptr i8, ptr %902, i64 8
-  %.val7.i.i.i53 = load i64, ptr %906, align 8, !tbaa !12
-  %907 = icmp eq i64 %.val.i.i.i52, %.val7.i.i.i53
+  %.val7.i.i.i52 = load i64, ptr %906, align 8, !tbaa !12
+  %907 = icmp eq i64 %.val.i.i.i51, %.val7.i.i.i52
   br i1 %907, label %908, label %_init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___closed__2.exit
 
 908:                                              ; preds = %904
@@ -107817,10 +107817,10 @@ _init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___close
 
 918:                                              ; preds = %_init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__32___closed__2.exit
   %919 = getelementptr i8, ptr %915, i64 8
-  %.val.i.i.i54 = load i64, ptr %919, align 8, !tbaa !12
+  %.val.i.i.i53 = load i64, ptr %919, align 8, !tbaa !12
   %920 = getelementptr i8, ptr %916, i64 8
-  %.val7.i.i.i55 = load i64, ptr %920, align 8, !tbaa !12
-  %921 = icmp eq i64 %.val.i.i.i54, %.val7.i.i.i55
+  %.val7.i.i.i54 = load i64, ptr %920, align 8, !tbaa !12
+  %921 = icmp eq i64 %.val.i.i.i53, %.val7.i.i.i54
   br i1 %921, label %922, label %_init_l_List_forIn_x27_loop___at_Lean_Server_Test_Runner_main___spec__36___lambda__1___closed__4.exit
 
 922:                                              ; preds = %918
@@ -107906,10 +107906,10 @@ _init_l_Lean_Server_Test_Runner_main___lambda__1___closed__2.exit: ; preds = %_i
 
 952:                                              ; preds = %_init_l_Lean_Server_Test_Runner_main___lambda__1___closed__2.exit
   %953 = getelementptr i8, ptr %949, i64 8
-  %.val.i.i.i56 = load i64, ptr %953, align 8, !tbaa !12
+  %.val.i.i.i55 = load i64, ptr %953, align 8, !tbaa !12
   %954 = getelementptr i8, ptr %950, i64 8
-  %.val7.i.i.i57 = load i64, ptr %954, align 8, !tbaa !12
-  %955 = icmp eq i64 %.val.i.i.i56, %.val7.i.i.i57
+  %.val7.i.i.i56 = load i64, ptr %954, align 8, !tbaa !12
+  %955 = icmp eq i64 %.val.i.i.i55, %.val7.i.i.i56
   br i1 %955, label %956, label %_init_l_Lean_Server_Test_Runner_main___lambda__1___closed__4.exit
 
 956:                                              ; preds = %952
@@ -108187,18 +108187,18 @@ _init_l_Lean_Server_Test_Runner_main___closed__19.exit: ; preds = %_init_l_Lean_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_Test_Runner_main___closed__19.exit, %3
-  %.sink176 = phi ptr [ %4, %3 ], [ %1054, %_init_l_Lean_Server_Test_Runner_main___closed__19.exit ]
-  %1057 = getelementptr inbounds nuw i8, ptr %.sink176, i64 4
-  store i32 1, ptr %.sink176, align 4, !tbaa !8
+  %.sink175 = phi ptr [ %4, %3 ], [ %1054, %_init_l_Lean_Server_Test_Runner_main___closed__19.exit ]
+  %1057 = getelementptr inbounds nuw i8, ptr %.sink175, i64 4
+  store i32 1, ptr %.sink175, align 4, !tbaa !8
   store i32 131096, ptr %1057, align 4
-  %1058 = getelementptr inbounds nuw i8, ptr %.sink176, i64 8
+  %1058 = getelementptr inbounds nuw i8, ptr %.sink175, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1058, align 8, !tbaa !4
-  %1059 = getelementptr inbounds nuw i8, ptr %.sink176, i64 16
+  %1059 = getelementptr inbounds nuw i8, ptr %.sink175, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1059, align 8, !tbaa !4
   br label %1060
 
-1060:                                             ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink176, %.sink.split ]
+1060:                                             ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink175, %.sink.split ]
   ret ptr %.0
 }
 

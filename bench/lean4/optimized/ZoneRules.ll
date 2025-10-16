@@ -5636,8 +5636,8 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Zoned_ZoneRules(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -5679,9 +5679,9 @@ define ptr @initialize_Std_Time_Zoned_ZoneRules(i8 noundef zeroext %0, ptr nound
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Time_Zoned_TimeZone(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %468, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -5692,27 +5692,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #6
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Std_Time_TimeZone_UTLocal_noConfusion___rarg___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Std_Time_TimeZone_UTLocal_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Std_Time_TimeZone_UTLocal_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !4
   store i32 -184549352, ptr %31, align 4
@@ -6681,8 +6681,8 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_Tim
   tail call void @lean_mark_persistent(ptr noundef %359) #6
   %360 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__2, align 8, !tbaa !10
   %361 = getelementptr i8, ptr %360, i64 24
-  %.val.i13 = load i64, ptr %361, align 8, !tbaa !16
-  %362 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %361, align 8, !tbaa !16
+  %362 = shl i64 %.val.i12, 1
   %363 = or disjoint i64 %362, 1
   %364 = inttoptr i64 %363 to ptr
   store ptr %364, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__3, align 8, !tbaa !10
@@ -6690,10 +6690,10 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_Tim
   %365 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__3, align 8, !tbaa !10
   %366 = ptrtoint ptr %365 to i64
   %367 = and i64 %366, 1
-  %.not.i.i14 = icmp eq i64 %367, 0
+  %.not.i.i13 = icmp eq i64 %367, 0
   %368 = icmp ult ptr %365, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %368, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4.exit, label %369
+  %or.cond.i.i14 = or i1 %368, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4.exit, label %369
 
 369:                                              ; preds = %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__1.exit
   %370 = lshr i64 %366, 1
@@ -6701,9 +6701,9 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_Tim
   br label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4.exit
 
 _init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4.exit: ; preds = %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__1.exit, %369
-  %.1.i.i16 = phi ptr [ %371, %369 ], [ %365, %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__1.exit ]
-  store ptr %.1.i.i16, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #6
+  %.1.i.i15 = phi ptr [ %371, %369 ], [ %365, %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__1.exit ]
+  store ptr %.1.i.i15, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__4, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #6
   %372 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_ZoneRules_0__Std_Time_TimeZone_reprZoneRules____x40_Std_Time_Zoned_ZoneRules___hyg_532____spec__1___closed__2, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #6
   %373 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -6974,18 +6974,18 @@ _init_l_Std_Time_TimeZone_ZoneRules_UTC___closed__2.exit: ; preds = %_init_l_Std
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_TimeZone_ZoneRules_UTC___closed__2.exit, %3
-  %.sink81 = phi ptr [ %4, %3 ], [ %462, %_init_l_Std_Time_TimeZone_ZoneRules_UTC___closed__2.exit ]
-  %465 = getelementptr inbounds nuw i8, ptr %.sink81, i64 4
-  store i32 1, ptr %.sink81, align 4, !tbaa !4
+  %.sink80 = phi ptr [ %4, %3 ], [ %462, %_init_l_Std_Time_TimeZone_ZoneRules_UTC___closed__2.exit ]
+  %465 = getelementptr inbounds nuw i8, ptr %.sink80, i64 4
+  store i32 1, ptr %.sink80, align 4, !tbaa !4
   store i32 131096, ptr %465, align 4
-  %466 = getelementptr inbounds nuw i8, ptr %.sink81, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %.sink80, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %466, align 8, !tbaa !10
-  %467 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
+  %467 = getelementptr inbounds nuw i8, ptr %.sink80, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %467, align 8, !tbaa !10
   br label %468
 
 468:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink81, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink80, %.sink.split ]
   ret ptr %.0
 }
 

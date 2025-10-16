@@ -558,8 +558,8 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
 13:                                               ; preds = %5, %9
   %14 = load ptr, ptr @SlotSyncCtx, align 8
   store i32 -1, ptr %14, align 8
-  %.b2 = load i1, ptr @syncing_slots, align 1
-  br i1 %.b2, label %15, label %17
+  %.b = load i1, ptr @syncing_slots, align 1
+  br i1 %.b, label %15, label %17
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 5
@@ -1738,8 +1738,8 @@ declare i64 @time(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @IsSyncingReplicationSlots() local_unnamed_addr #7 {
-  %.b1 = load i1, ptr @syncing_slots, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @syncing_slots, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1842,8 +1842,8 @@ define internal void @slotsync_failure_callback(i32 %0, i64 noundef %1) #0 {
 
 5:                                                ; preds = %4, %2
   tail call void @ReplicationSlotCleanup(i1 noundef zeroext true) #14
-  %.b1 = load i1, ptr @syncing_slots, align 1
-  br i1 %.b1, label %6, label %18
+  %.b = load i1, ptr @syncing_slots, align 1
+  br i1 %.b, label %6, label %18
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr @SlotSyncCtx, align 8

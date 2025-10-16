@@ -27282,8 +27282,8 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %7
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_AbstractNestedProofs(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -27312,25 +27312,25 @@ define ptr @initialize_Lean_Meta_AbstractNestedProofs(i8 noundef zeroext %0, ptr
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_Closure(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %112, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -27338,25 +27338,25 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lean_Meta_Transform(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %112, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !8
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -27578,18 +27578,18 @@ _init_l_Lean_Meta_abstractNestedProofs___closed__3.exit: ; preds = %_init_l_Lean
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_abstractNestedProofs___closed__3.exit, %3
-  %.sink40 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Meta_abstractNestedProofs___closed__3.exit ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
-  store i32 1, ptr %.sink40, align 4, !tbaa !8
+  %.sink39 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Meta_abstractNestedProofs___closed__3.exit ]
+  %109 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
+  store i32 1, ptr %.sink39, align 4, !tbaa !8
   store i32 131096, ptr %109, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %110, align 8, !tbaa !4
-  %111 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %111, align 8, !tbaa !4
   br label %112
 
-112:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink40, %.sink.split ]
+112:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink39, %.sink.split ]
   ret ptr %.0
 }
 

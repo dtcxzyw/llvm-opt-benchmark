@@ -4411,8 +4411,8 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %l_Sy
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_System_Uri(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -4454,9 +4454,9 @@ define ptr @initialize_Init_System_Uri(i8 noundef zeroext %0, ptr noundef readno
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Init_Data_Nat_Linear(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %274, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -4467,25 +4467,25 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Init_System_FilePath(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %274, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -4493,17 +4493,17 @@ lean_dec_ref.exit14:                              ; preds = %24, %26, %27
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
   store i32 %35, ptr %28, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 36:                                               ; preds = %31
-  %.not.i15 = icmp eq i32 %32, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %37
+  %.not.i14 = icmp eq i32 %32, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %37
 
 37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #3
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %34, %36, %37
+lean_dec_ref.exit15:                              ; preds = %34, %36, %37
   store i8 48, ptr @l_System_Uri_UriEscape_zero, align 1, !tbaa !13
   store i8 57, ptr @l_System_Uri_UriEscape_nine, align 1, !tbaa !13
   store i8 97, ptr @l_System_Uri_UriEscape_lettera, align 1, !tbaa !13
@@ -4516,11 +4516,11 @@ lean_dec_ref.exit16:                              ; preds = %34, %36, %37
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %_init_l_System_Uri_UriEscape_decodeUri___closed__1.exit
 
-41:                                               ; preds = %lean_dec_ref.exit16
+41:                                               ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_System_Uri_UriEscape_decodeUri___closed__1.exit: ; preds = %lean_dec_ref.exit16
+_init_l_System_Uri_UriEscape_decodeUri___closed__1.exit: ; preds = %lean_dec_ref.exit15
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 1, ptr %39, align 4, !tbaa !4
   store i32 131096, ptr %42, align 4
@@ -5003,8 +5003,8 @@ _init_l_System_Uri_UriEscape_rfc3986ReservedChars___closed__19.exit: ; preds = %
   tail call void @lean_mark_persistent(ptr noundef nonnull %211) #3
   %212 = load ptr, ptr @l_System_Uri_pathToUri___lambda__1___closed__1, align 8, !tbaa !9
   %213 = getelementptr i8, ptr %212, i64 8
-  %.val.i21 = load i64, ptr %213, align 8, !tbaa !15
-  %214 = shl i64 %.val.i21, 1
+  %.val.i20 = load i64, ptr %213, align 8, !tbaa !15
+  %214 = shl i64 %.val.i20, 1
   %215 = add i64 %214, -1
   %216 = inttoptr i64 %215 to ptr
   store ptr %216, ptr @l_System_Uri_pathToUri___lambda__1___closed__3, align 8, !tbaa !9
@@ -5061,16 +5061,16 @@ _init_l_System_Uri_pathToUri___closed__1.exit:    ; preds = %_init_l_System_Uri_
   tail call void @lean_mark_persistent(ptr noundef nonnull %228) #3
   %235 = load ptr, ptr @l_System_Uri_pathToUri___lambda__1___closed__6, align 8, !tbaa !9
   %236 = getelementptr i8, ptr %235, i64 24
-  %.val.i22 = load i64, ptr %236, align 8, !tbaa !15
-  %237 = shl i64 %.val.i22, 1
+  %.val.i21 = load i64, ptr %236, align 8, !tbaa !15
+  %237 = shl i64 %.val.i21, 1
   %238 = or disjoint i64 %237, 1
   %239 = inttoptr i64 %238 to ptr
   store ptr %239, ptr @l_System_Uri_fileUriToPath_x3f___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %239) #3
   %240 = load ptr, ptr @l_System_Uri_pathToUri___lambda__1___closed__6, align 8, !tbaa !9
   %241 = getelementptr i8, ptr %240, i64 8
-  %.val.i23 = load i64, ptr %241, align 8, !tbaa !15
-  %242 = shl i64 %.val.i23, 1
+  %.val.i22 = load i64, ptr %241, align 8, !tbaa !15
+  %242 = shl i64 %.val.i22, 1
   %243 = add i64 %242, -1
   %244 = inttoptr i64 %243 to ptr
   store ptr %244, ptr @l_System_Uri_fileUriToPath_x3f___closed__2, align 8, !tbaa !9
@@ -5150,18 +5150,18 @@ _init_l_System_Uri_fileUriToPath_x3f___closed__5.exit: ; preds = %_init_l_System
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_System_Uri_fileUriToPath_x3f___closed__5.exit, %3
-  %.sink60 = phi ptr [ %4, %3 ], [ %268, %_init_l_System_Uri_fileUriToPath_x3f___closed__5.exit ]
-  %271 = getelementptr inbounds nuw i8, ptr %.sink60, i64 4
-  store i32 1, ptr %.sink60, align 4, !tbaa !4
+  %.sink59 = phi ptr [ %4, %3 ], [ %268, %_init_l_System_Uri_fileUriToPath_x3f___closed__5.exit ]
+  %271 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  store i32 1, ptr %.sink59, align 4, !tbaa !4
   store i32 131096, ptr %271, align 4
-  %272 = getelementptr inbounds nuw i8, ptr %.sink60, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %272, align 8, !tbaa !9
-  %273 = getelementptr inbounds nuw i8, ptr %.sink60, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %273, align 8, !tbaa !9
   br label %274
 
-274:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink60, %.sink.split ]
+274:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink59, %.sink.split ]
   ret ptr %.0
 }
 

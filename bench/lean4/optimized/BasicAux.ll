@@ -6231,8 +6231,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_Data_List_BasicAux(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -6762,18 +6762,18 @@ _init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSize
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit, %3
-  %.sink18 = phi ptr [ %4, %3 ], [ %246, %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit ]
-  %249 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
-  store i32 1, ptr %.sink18, align 4, !tbaa !4
+  %.sink17 = phi ptr [ %4, %3 ], [ %246, %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit ]
+  %249 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
+  store i32 1, ptr %.sink17, align 4, !tbaa !4
   store i32 131096, ptr %249, align 4
-  %250 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %250, align 8, !tbaa !10
-  %251 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %251, align 8, !tbaa !10
   br label %252
 
 252:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 

@@ -17015,8 +17015,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Setup(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -17045,25 +17045,25 @@ define ptr @initialize_Lean_Setup(i8 noundef zeroext %0, ptr noundef readnone ca
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Util_LeanOptions(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %682, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -17988,8 +17988,8 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   tail call void @lean_mark_persistent(ptr noundef %376) #6
   %377 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__2, align 8, !tbaa !4
   %378 = getelementptr i8, ptr %377, i64 24
-  %.val.i13 = load i64, ptr %378, align 8, !tbaa !12
-  %379 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %378, align 8, !tbaa !12
+  %379 = shl i64 %.val.i12, 1
   %380 = or disjoint i64 %379, 1
   %381 = inttoptr i64 %380 to ptr
   store ptr %381, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__3, align 8, !tbaa !4
@@ -17997,10 +17997,10 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   %382 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__3, align 8, !tbaa !4
   %383 = ptrtoint ptr %382 to i64
   %384 = and i64 %383, 1
-  %.not.i.i14 = icmp eq i64 %384, 0
+  %.not.i.i13 = icmp eq i64 %384, 0
   %385 = icmp ult ptr %382, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %385, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4.exit, label %386
+  %or.cond.i.i14 = or i1 %385, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4.exit, label %386
 
 386:                                              ; preds = %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__1.exit
   %387 = lshr i64 %383, 1
@@ -18008,9 +18008,9 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   br label %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4.exit
 
 _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__1.exit, %386
-  %.1.i.i16 = phi ptr [ %388, %386 ], [ %382, %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__1.exit ]
-  store ptr %.1.i.i16, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #6
+  %.1.i.i15 = phi ptr [ %388, %386 ], [ %382, %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__1.exit ]
+  store ptr %.1.i.i15, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__4, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #6
   %389 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__2, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %390 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -18076,8 +18076,8 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   tail call void @lean_mark_persistent(ptr noundef %409) #6
   %410 = load ptr, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__1, align 8, !tbaa !4
   %411 = getelementptr i8, ptr %410, i64 24
-  %.val.i17 = load i64, ptr %411, align 8, !tbaa !12
-  %412 = shl i64 %.val.i17, 1
+  %.val.i16 = load i64, ptr %411, align 8, !tbaa !12
+  %412 = shl i64 %.val.i16, 1
   %413 = or disjoint i64 %412, 1
   %414 = inttoptr i64 %413 to ptr
   store ptr %414, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__2, align 8, !tbaa !4
@@ -18085,10 +18085,10 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   %415 = load ptr, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__2, align 8, !tbaa !4
   %416 = ptrtoint ptr %415 to i64
   %417 = and i64 %416, 1
-  %.not.i.i18 = icmp eq i64 %417, 0
+  %.not.i.i17 = icmp eq i64 %417, 0
   %418 = icmp ult ptr %415, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i19 = or i1 %418, %.not.i.i18
-  br i1 %or.cond.i.i19, label %_init_l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3.exit, label %419
+  %or.cond.i.i18 = or i1 %418, %.not.i.i17
+  br i1 %or.cond.i.i18, label %_init_l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3.exit, label %419
 
 419:                                              ; preds = %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__9.exit
   %420 = lshr i64 %416, 1
@@ -18096,9 +18096,9 @@ _init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x4
   br label %_init_l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3.exit
 
 _init_l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__9.exit, %419
-  %.1.i.i20 = phi ptr [ %421, %419 ], [ %415, %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__9.exit ]
-  store ptr %.1.i.i20, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i20) #6
+  %.1.i.i19 = phi ptr [ %421, %419 ], [ %415, %_init_l_Array_Array_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__1___closed__9.exit ]
+  store ptr %.1.i.i19, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__3, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i19) #6
   %422 = load ptr, ptr @l_Prod_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__9___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %423 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -18164,8 +18164,8 @@ _init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_
   tail call void @lean_mark_persistent(ptr noundef %442) #6
   %443 = load ptr, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__3, align 8, !tbaa !4
   %444 = getelementptr i8, ptr %443, i64 24
-  %.val.i21 = load i64, ptr %444, align 8, !tbaa !12
-  %445 = shl i64 %.val.i21, 1
+  %.val.i20 = load i64, ptr %444, align 8, !tbaa !12
+  %445 = shl i64 %.val.i20, 1
   %446 = or disjoint i64 %445, 1
   %447 = inttoptr i64 %446 to ptr
   store ptr %447, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__4, align 8, !tbaa !4
@@ -18173,10 +18173,10 @@ _init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_
   %448 = load ptr, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__4, align 8, !tbaa !4
   %449 = ptrtoint ptr %448 to i64
   %450 = and i64 %449, 1
-  %.not.i.i22 = icmp eq i64 %450, 0
+  %.not.i.i21 = icmp eq i64 %450, 0
   %451 = icmp ult ptr %448, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i23 = or i1 %451, %.not.i.i22
-  br i1 %or.cond.i.i23, label %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5.exit, label %452
+  %or.cond.i.i22 = or i1 %451, %.not.i.i21
+  br i1 %or.cond.i.i22, label %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5.exit, label %452
 
 452:                                              ; preds = %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__2.exit
   %453 = lshr i64 %449, 1
@@ -18184,9 +18184,9 @@ _init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_
   br label %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5.exit
 
 _init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5.exit: ; preds = %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__2.exit, %452
-  %.1.i.i24 = phi ptr [ %454, %452 ], [ %448, %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__2.exit ]
-  store ptr %.1.i.i24, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i24) #6
+  %.1.i.i23 = phi ptr [ %454, %452 ], [ %448, %_init_l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__2.exit ]
+  store ptr %.1.i.i23, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__5, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i23) #6
   %455 = load ptr, ptr @l_List_repr___at___private_Lean_Setup_0__Lean_reprModuleSetup____x40_Lean_Setup___hyg_913____spec__7___closed__3, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %456 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -18739,18 +18739,18 @@ _init_l_Lean_ModuleSetup_load___closed__1.exit:   ; preds = %_init_l_Lean_instFr
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_ModuleSetup_load___closed__1.exit, %3
-  %.sink86 = phi ptr [ %4, %3 ], [ %676, %_init_l_Lean_ModuleSetup_load___closed__1.exit ]
-  %679 = getelementptr inbounds nuw i8, ptr %.sink86, i64 4
-  store i32 1, ptr %.sink86, align 4, !tbaa !8
+  %.sink85 = phi ptr [ %4, %3 ], [ %676, %_init_l_Lean_ModuleSetup_load___closed__1.exit ]
+  %679 = getelementptr inbounds nuw i8, ptr %.sink85, i64 4
+  store i32 1, ptr %.sink85, align 4, !tbaa !8
   store i32 131096, ptr %679, align 4
-  %680 = getelementptr inbounds nuw i8, ptr %.sink86, i64 8
+  %680 = getelementptr inbounds nuw i8, ptr %.sink85, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %680, align 8, !tbaa !4
-  %681 = getelementptr inbounds nuw i8, ptr %.sink86, i64 16
+  %681 = getelementptr inbounds nuw i8, ptr %.sink85, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %681, align 8, !tbaa !4
   br label %682
 
-682:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink86, %.sink.split ]
+682:                                              ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink85, %.sink.split ]
   ret ptr %.0
 }
 

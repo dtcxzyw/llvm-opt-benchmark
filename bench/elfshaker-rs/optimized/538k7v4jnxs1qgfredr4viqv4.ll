@@ -8011,7 +8011,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hebcd1768b7e26d75E.exit.i.
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %31, ptr noundef nonnull align 1 dereferenceable(7) %26, i64 7, i1 false), !noalias !584
   %.sroa.8.1.copyload11.i = load ptr, ptr %.sroa.8.1..sroa_idx10.i, align 1, !noalias !594
-  %.sroa.11.1.copyload21.i = load i40, ptr %.sroa.11.1..sroa_idx12.i, align 1, !noalias !594
+  %.sroa.11.1.copyload.i = load i40, ptr %.sroa.11.1..sroa_idx12.i, align 1, !noalias !594
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !576
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !576
   invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17habea23a93376a385E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %29)
@@ -8045,7 +8045,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hebcd1768b7e26d75E.exit.i.
 243:                                              ; preds = %241
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !576
   store ptr %.sroa.8.1.copyload11.i, ptr %.sroa.8.1..sroa_idx.i, align 1, !noalias !584
-  store i40 %.sroa.11.1.copyload21.i, ptr %.sroa.11.1..sroa_idx.i, align 1, !noalias !584
+  store i40 %.sroa.11.1.copyload.i, ptr %.sroa.11.1..sroa_idx.i, align 1, !noalias !584
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %31, ptr noundef nonnull readonly align 1 dereferenceable(20) %206, i64 20), !noalias !595
   %244 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !584

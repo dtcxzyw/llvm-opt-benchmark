@@ -219381,8 +219381,8 @@ define ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_R
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_RCases(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b32 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b32, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -219421,17 +219421,17 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
 19:                                               ; preds = %14
-  %.not.i45 = icmp eq i32 %15, 0
-  br i1 %.not.i45, label %lean_dec_ref.exit46, label %20
+  %.not.i44 = icmp eq i32 %15, 0
+  br i1 %.not.i44, label %lean_dec_ref.exit45, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
-lean_dec_ref.exit46:                              ; preds = %17, %19, %20
+lean_dec_ref.exit45:                              ; preds = %17, %19, %20
   %21 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 6, i64 noundef 6) #5
   store ptr %21, ptr @l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %21) #5
@@ -219456,11 +219456,11 @@ lean_dec_ref.exit46:                              ; preds = %17, %19, %20
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %_init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__6.exit
 
-32:                                               ; preds = %lean_dec_ref.exit46
+32:                                               ; preds = %lean_dec_ref.exit45
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__6.exit: ; preds = %lean_dec_ref.exit46
+_init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__6.exit: ; preds = %lean_dec_ref.exit45
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 1, ptr %30, align 4, !tbaa !8
   store i32 196640, ptr %33, align 4
@@ -219498,16 +219498,16 @@ _init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6___
   %50 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__11, align 8, !tbaa !4
   %51 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %52 = getelementptr i8, ptr %51, i64 4
-  %.val47 = load i32, ptr %52, align 4
-  %.mask.i55 = and i32 %.val47, -16777216
-  %53 = icmp eq i32 %.mask.i55, 16777216
+  %.val46 = load i32, ptr %52, align 4
+  %.mask.i54 = and i32 %.val46, -16777216
+  %53 = icmp eq i32 %.mask.i54, 16777216
   br i1 %53, label %905, label %54
 
 54:                                               ; preds = %_init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6____closed__6.exit
   %55 = getelementptr i8, ptr %51, i64 8
-  %.val54 = load ptr, ptr %55, align 8, !tbaa !4
-  store ptr %.val54, ptr @l_Lean_Elab_Tactic_RCases_linter_unusedRCasesPattern, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val54) #5
+  %.val53 = load ptr, ptr %55, align 8, !tbaa !4
+  store ptr %.val53, ptr @l_Lean_Elab_Tactic_RCases_linter_unusedRCasesPattern, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val53) #5
   %56 = load i32, ptr %51, align 8, !tbaa !8
   %57 = icmp sgt i32 %56, 1
   br i1 %57, label %58, label %60, !prof !11
@@ -219515,17 +219515,17 @@ _init_l_Lean_Elab_Tactic_RCases_initFn____x40_Lean_Elab_Tactic_RCases___hyg_6___
 58:                                               ; preds = %54
   %59 = add nsw i32 %56, -1
   store i32 %59, ptr %51, align 4, !tbaa !8
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
 60:                                               ; preds = %54
-  %.not.i43 = icmp eq i32 %56, 0
-  br i1 %.not.i43, label %lean_dec_ref.exit44, label %61
+  %.not.i42 = icmp eq i32 %56, 0
+  br i1 %.not.i42, label %lean_dec_ref.exit43, label %61
 
 61:                                               ; preds = %60
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %51) #5
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
-lean_dec_ref.exit44:                              ; preds = %58, %60, %61
+lean_dec_ref.exit43:                              ; preds = %58, %60, %61
   %62 = tail call ptr @l_Lean_SourceInfo_fromRef(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0) #5
   store ptr %62, ptr @l_Lean_Elab_Tactic_RCases_instCoeIdentTSyntaxConsSyntaxNodeKindMkStr1Nil__lean___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %62) #5
@@ -219592,11 +219592,11 @@ lean_dec_ref.exit44:                              ; preds = %58, %60, %61
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %_init_l_Lean_Elab_Tactic_RCases_instCoeTSyntaxConsSyntaxNodeKindMkStr4Nil__lean___closed__4.exit
 
-98:                                               ; preds = %lean_dec_ref.exit44
+98:                                               ; preds = %lean_dec_ref.exit43
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_instCoeTSyntaxConsSyntaxNodeKindMkStr4Nil__lean___closed__4.exit: ; preds = %lean_dec_ref.exit44
+_init_l_Lean_Elab_Tactic_RCases_instCoeTSyntaxConsSyntaxNodeKindMkStr4Nil__lean___closed__4.exit: ; preds = %lean_dec_ref.exit43
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 1, ptr %96, align 4, !tbaa !8
   store i32 16973856, ptr %99, align 4
@@ -221028,7 +221028,7 @@ _init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_
   store ptr %656, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %656) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit42, label %663
+  br i1 %.not, label %lean_dec_ref.exit41, label %663
 
 663:                                              ; preds = %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__4.exit
   %664 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__3, align 8, !tbaa !4
@@ -221037,9 +221037,9 @@ _init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_
   %667 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__4, align 8, !tbaa !4
   %668 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %664, ptr noundef %665, ptr noundef %666, ptr noundef %667, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %669 = getelementptr i8, ptr %668, i64 4
-  %.val48 = load i32, ptr %669, align 4
-  %.mask.i56 = and i32 %.val48, -16777216
-  %670 = icmp eq i32 %.mask.i56, 16777216
+  %.val47 = load i32, ptr %669, align 4
+  %.mask.i55 = and i32 %.val47, -16777216
+  %670 = icmp eq i32 %.mask.i55, 16777216
   br i1 %670, label %905, label %671
 
 671:                                              ; preds = %663
@@ -221050,27 +221050,27 @@ _init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_
 674:                                              ; preds = %671
   %675 = add nsw i32 %672, -1
   store i32 %675, ptr %668, align 4, !tbaa !8
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
 676:                                              ; preds = %671
-  %.not.i41 = icmp eq i32 %672, 0
-  br i1 %.not.i41, label %lean_dec_ref.exit42, label %677
+  %.not.i40 = icmp eq i32 %672, 0
+  br i1 %.not.i40, label %lean_dec_ref.exit41, label %677
 
 677:                                              ; preds = %676
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %668) #5
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
-lean_dec_ref.exit42:                              ; preds = %677, %676, %674, %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__4.exit
+lean_dec_ref.exit41:                              ; preds = %677, %676, %674, %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__4.exit
   tail call void @lean_inc_heartbeat() #5
   %678 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %679 = icmp eq ptr %678, null
   br i1 %679, label %680, label %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__1.exit
 
-680:                                              ; preds = %lean_dec_ref.exit42
+680:                                              ; preds = %lean_dec_ref.exit41
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit42
+_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit41
   %681 = getelementptr inbounds nuw i8, ptr %678, i64 4
   store i32 1, ptr %678, align 4, !tbaa !8
   store i32 131096, ptr %681, align 4
@@ -221208,16 +221208,16 @@ _init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_
   store ptr %723, ptr %729, align 8, !tbaa !4
   store ptr %724, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %724) #5
-  br i1 %.not, label %lean_dec_ref.exit40, label %730
+  br i1 %.not, label %lean_dec_ref.exit39, label %730
 
 730:                                              ; preds = %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__7.exit
   %731 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__2, align 8, !tbaa !4
   %732 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__7, align 8, !tbaa !4
   %733 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %731, ptr noundef %732, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %734 = getelementptr i8, ptr %733, i64 4
-  %.val49 = load i32, ptr %734, align 4
-  %.mask.i57 = and i32 %.val49, -16777216
-  %735 = icmp eq i32 %.mask.i57, 16777216
+  %.val48 = load i32, ptr %734, align 4
+  %.mask.i56 = and i32 %.val48, -16777216
+  %735 = icmp eq i32 %.mask.i56, 16777216
   br i1 %735, label %905, label %736
 
 736:                                              ; preds = %730
@@ -221228,17 +221228,17 @@ _init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_
 739:                                              ; preds = %736
   %740 = add nsw i32 %737, -1
   store i32 %740, ptr %733, align 4, !tbaa !8
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
 741:                                              ; preds = %736
-  %.not.i39 = icmp eq i32 %737, 0
-  br i1 %.not.i39, label %lean_dec_ref.exit40, label %742
+  %.not.i38 = icmp eq i32 %737, 0
+  br i1 %.not.i38, label %lean_dec_ref.exit39, label %742
 
 742:                                              ; preds = %741
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %733) #5
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
-lean_dec_ref.exit40:                              ; preds = %742, %741, %739, %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__7.exit
+lean_dec_ref.exit39:                              ; preds = %742, %741, %739, %_init_l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases_declRange__3___closed__7.exit
   %743 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.65, i64 noundef 139, i64 noundef 131) #5
   store ptr %743, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___lambda__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %743) #5
@@ -221279,11 +221279,11 @@ lean_dec_ref.exit40:                              ; preds = %742, %741, %739, %_
   %763 = icmp eq ptr %762, null
   br i1 %763, label %764, label %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit
 
-764:                                              ; preds = %lean_dec_ref.exit40
+764:                                              ; preds = %lean_dec_ref.exit39
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit: ; preds = %lean_dec_ref.exit40
+_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit: ; preds = %lean_dec_ref.exit39
   %765 = getelementptr inbounds nuw i8, ptr %762, i64 4
   store i32 1, ptr %762, align 4, !tbaa !8
   store i32 -184549352, ptr %765, align 4
@@ -221295,7 +221295,7 @@ _init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_
   store i16 0, ptr %768, align 2, !tbaa !18
   store ptr %762, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %762) #5
-  br i1 %.not, label %lean_dec_ref.exit38, label %769
+  br i1 %.not, label %lean_dec_ref.exit37, label %769
 
 769:                                              ; preds = %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit
   %770 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__3, align 8, !tbaa !4
@@ -221304,9 +221304,9 @@ _init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_
   %773 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3, align 8, !tbaa !4
   %774 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %770, ptr noundef %771, ptr noundef %772, ptr noundef %773, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %775 = getelementptr i8, ptr %774, i64 4
-  %.val50 = load i32, ptr %775, align 4
-  %.mask.i58 = and i32 %.val50, -16777216
-  %776 = icmp eq i32 %.mask.i58, 16777216
+  %.val49 = load i32, ptr %775, align 4
+  %.mask.i57 = and i32 %.val49, -16777216
+  %776 = icmp eq i32 %.mask.i57, 16777216
   br i1 %776, label %905, label %777
 
 777:                                              ; preds = %769
@@ -221317,27 +221317,27 @@ _init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_
 780:                                              ; preds = %777
   %781 = add nsw i32 %778, -1
   store i32 %781, ptr %774, align 4, !tbaa !8
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
 782:                                              ; preds = %777
-  %.not.i37 = icmp eq i32 %778, 0
-  br i1 %.not.i37, label %lean_dec_ref.exit38, label %783
+  %.not.i36 = icmp eq i32 %778, 0
+  br i1 %.not.i36, label %lean_dec_ref.exit37, label %783
 
 783:                                              ; preds = %782
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %774) #5
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
-lean_dec_ref.exit38:                              ; preds = %783, %782, %780, %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit
+lean_dec_ref.exit37:                              ; preds = %783, %782, %780, %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__3.exit
   tail call void @lean_inc_heartbeat() #5
   %784 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %785 = icmp eq ptr %784, null
   br i1 %785, label %786, label %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__1.exit
 
-786:                                              ; preds = %lean_dec_ref.exit38
+786:                                              ; preds = %lean_dec_ref.exit37
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit38
+_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit37
   %787 = getelementptr inbounds nuw i8, ptr %784, i64 4
   store i32 1, ptr %784, align 4, !tbaa !8
   store i32 131096, ptr %787, align 4
@@ -221475,16 +221475,16 @@ _init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_
   store ptr %829, ptr %835, align 8, !tbaa !4
   store ptr %830, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %830) #5
-  br i1 %.not, label %lean_dec_ref.exit36, label %836
+  br i1 %.not, label %lean_dec_ref.exit35, label %836
 
 836:                                              ; preds = %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__7.exit
   %837 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain__1___closed__2, align 8, !tbaa !4
   %838 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__7, align 8, !tbaa !4
   %839 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %837, ptr noundef %838, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %840 = getelementptr i8, ptr %839, i64 4
-  %.val51 = load i32, ptr %840, align 4
-  %.mask.i59 = and i32 %.val51, -16777216
-  %841 = icmp eq i32 %.mask.i59, 16777216
+  %.val50 = load i32, ptr %840, align 4
+  %.mask.i58 = and i32 %.val50, -16777216
+  %841 = icmp eq i32 %.mask.i58, 16777216
   br i1 %841, label %905, label %842
 
 842:                                              ; preds = %836
@@ -221495,17 +221495,17 @@ _init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_
 845:                                              ; preds = %842
   %846 = add nsw i32 %843, -1
   store i32 %846, ptr %839, align 4, !tbaa !8
-  br label %lean_dec_ref.exit36
+  br label %lean_dec_ref.exit35
 
 847:                                              ; preds = %842
-  %.not.i35 = icmp eq i32 %843, 0
-  br i1 %.not.i35, label %lean_dec_ref.exit36, label %848
+  %.not.i34 = icmp eq i32 %843, 0
+  br i1 %.not.i34, label %lean_dec_ref.exit35, label %848
 
 848:                                              ; preds = %847
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %839) #5
-  br label %lean_dec_ref.exit36
+  br label %lean_dec_ref.exit35
 
-lean_dec_ref.exit36:                              ; preds = %848, %847, %845, %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__7.exit
+lean_dec_ref.exit35:                              ; preds = %848, %847, %845, %_init_l_Lean_Elab_Tactic_RCases_evalObtain___regBuiltin_Lean_Elab_Tactic_RCases_evalObtain_declRange__3___closed__7.exit
   %849 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.69, i64 noundef 6, i64 noundef 6) #5
   store ptr %849, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %849) #5
@@ -221532,11 +221532,11 @@ lean_dec_ref.exit36:                              ; preds = %848, %847, %845, %_
   %863 = icmp eq ptr %862, null
   br i1 %863, label %864, label %_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit
 
-864:                                              ; preds = %lean_dec_ref.exit36
+864:                                              ; preds = %lean_dec_ref.exit35
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit: ; preds = %lean_dec_ref.exit36
+_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit: ; preds = %lean_dec_ref.exit35
   %865 = getelementptr inbounds nuw i8, ptr %862, i64 4
   store i32 1, ptr %862, align 4, !tbaa !8
   store i32 -184549352, ptr %865, align 4
@@ -221548,7 +221548,7 @@ _init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_
   store i16 0, ptr %868, align 2, !tbaa !18
   store ptr %862, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %862) #5
-  br i1 %.not, label %lean_dec_ref.exit34, label %869
+  br i1 %.not, label %lean_dec_ref.exit33, label %869
 
 869:                                              ; preds = %_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit
   %870 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRCases___regBuiltin_Lean_Elab_Tactic_RCases_evalRCases__1___closed__3, align 8, !tbaa !4
@@ -221557,9 +221557,9 @@ _init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_
   %873 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3, align 8, !tbaa !4
   %874 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %870, ptr noundef %871, ptr noundef %872, ptr noundef %873, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %875 = getelementptr i8, ptr %874, i64 4
-  %.val52 = load i32, ptr %875, align 4
-  %.mask.i60 = and i32 %.val52, -16777216
-  %876 = icmp eq i32 %.mask.i60, 16777216
+  %.val51 = load i32, ptr %875, align 4
+  %.mask.i59 = and i32 %.val51, -16777216
+  %876 = icmp eq i32 %.mask.i59, 16777216
   br i1 %876, label %905, label %877
 
 877:                                              ; preds = %869
@@ -221570,17 +221570,17 @@ _init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_
 880:                                              ; preds = %877
   %881 = add nsw i32 %878, -1
   store i32 %881, ptr %874, align 4, !tbaa !8
-  br label %lean_dec_ref.exit34
+  br label %lean_dec_ref.exit33
 
 882:                                              ; preds = %877
-  %.not.i33 = icmp eq i32 %878, 0
-  br i1 %.not.i33, label %lean_dec_ref.exit34, label %883
+  %.not.i32 = icmp eq i32 %878, 0
+  br i1 %.not.i32, label %lean_dec_ref.exit33, label %883
 
 883:                                              ; preds = %882
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %874) #5
-  br label %lean_dec_ref.exit34
+  br label %lean_dec_ref.exit33
 
-lean_dec_ref.exit34:                              ; preds = %883, %882, %880, %_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit
+lean_dec_ref.exit33:                              ; preds = %883, %882, %880, %_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__3.exit
   %884 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro_declRange__3___closed__1()
   store ptr %884, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %884) #5
@@ -221604,14 +221604,14 @@ lean_dec_ref.exit34:                              ; preds = %883, %882, %880, %_
   tail call void @lean_mark_persistent(ptr noundef nonnull %890) #5
   br i1 %.not, label %lean_dec_ref.exit, label %891
 
-891:                                              ; preds = %lean_dec_ref.exit34
+891:                                              ; preds = %lean_dec_ref.exit33
   %892 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro__1___closed__2, align 8, !tbaa !4
   %893 = load ptr, ptr @l_Lean_Elab_Tactic_RCases_evalRIntro___regBuiltin_Lean_Elab_Tactic_RCases_evalRIntro_declRange__3___closed__7, align 8, !tbaa !4
   %894 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %892, ptr noundef %893, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %895 = getelementptr i8, ptr %894, i64 4
-  %.val53 = load i32, ptr %895, align 4
-  %.mask.i61 = and i32 %.val53, -16777216
-  %896 = icmp eq i32 %.mask.i61, 16777216
+  %.val52 = load i32, ptr %895, align 4
+  %.mask.i60 = and i32 %.val52, -16777216
+  %896 = icmp eq i32 %.mask.i60, 16777216
   br i1 %896, label %905, label %897
 
 897:                                              ; preds = %891
@@ -221632,7 +221632,7 @@ lean_dec_ref.exit34:                              ; preds = %883, %882, %880, %_
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %894) #5
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %903, %902, %900, %lean_dec_ref.exit34
+lean_dec_ref.exit:                                ; preds = %903, %902, %900, %lean_dec_ref.exit33
   %904 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %905
 

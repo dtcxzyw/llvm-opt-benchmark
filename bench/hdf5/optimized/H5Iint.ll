@@ -2585,13 +2585,13 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %21 = and i32 %tr.sh.diff, -16777216
   %22 = add i32 %21, -1640531527
+  %sh.diff285 = lshr i64 %1, 32
+  %tr.sh.diff286 = trunc nuw i64 %sh.diff285 to i32
+  %23 = and i32 %tr.sh.diff286, 16711680
+  %24 = add i32 %22, %23
   %sh.diff287 = lshr i64 %1, 32
   %tr.sh.diff288 = trunc nuw i64 %sh.diff287 to i32
-  %23 = and i32 %tr.sh.diff288, 16711680
-  %24 = add i32 %22, %23
-  %sh.diff289 = lshr i64 %1, 32
-  %tr.sh.diff290 = trunc nuw i64 %sh.diff289 to i32
-  %25 = and i32 %tr.sh.diff290, 65280
+  %25 = and i32 %tr.sh.diff288, 65280
   %26 = add i32 %24, %25
   %27 = and i32 %11, 255
   %28 = add i32 %26, %27
@@ -2658,27 +2658,27 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br label %85
 
 85:                                               ; preds = %100, %.lr.ph
-  %.1274 = phi ptr [ %83, %.lr.ph ], [ %103, %100 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.1274, i64 108
+  %.1272 = phi ptr [ %83, %.lr.ph ], [ %103, %100 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.1272, i64 108
   %87 = load i32, ptr %86, align 4, !tbaa !67
   %88 = icmp eq i32 %87, %69
   br i1 %88, label %89, label %97
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %.1274, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %.1272, i64 104
   %91 = load i32, ptr %90, align 8, !tbaa !69
   %92 = icmp eq i32 %91, 8
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %.1274, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %.1272, i64 96
   %95 = load ptr, ptr %94, align 8, !tbaa !68
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %95, ptr noundef nonnull dereferenceable(8) %3, i64 8)
   %96 = icmp eq i32 %bcmp, 0
   br i1 %96, label %104, label %97
 
 97:                                               ; preds = %93, %89, %85
-  %98 = getelementptr inbounds nuw i8, ptr %.1274, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %.1272, i64 88
   %99 = load ptr, ptr %98, align 8, !tbaa !73
   %.not247 = icmp eq ptr %99, null
   br i1 %.not247, label %.loopexit, label %100
@@ -2690,18 +2690,18 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br label %85, !llvm.loop !86
 
 104:                                              ; preds = %93
-  %.b243249 = load i1, ptr @H5I_marking_s, align 1
-  br i1 %.b243249, label %166, label %105
+  %.b243 = load i1, ptr @H5I_marking_s, align 1
+  br i1 %.b243, label %166, label %105
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds nuw i8, ptr %.1274, i64 56
-  %107 = getelementptr inbounds nuw i8, ptr %.1274, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %.1272, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %.1272, i64 64
   %108 = load ptr, ptr %107, align 8, !tbaa !48
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %118
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %.1274, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %.1272, i64 72
   %112 = load ptr, ptr %111, align 8, !tbaa !49
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %118
@@ -2728,7 +2728,7 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br label %125
 
 125:                                              ; preds = %122, %118
-  %126 = getelementptr inbounds nuw i8, ptr %.1274, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %.1272, i64 72
   %127 = load ptr, ptr %126, align 8, !tbaa !49
   br i1 %109, label %132, label %128
 
@@ -2745,10 +2745,10 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
 
 133:                                              ; preds = %132, %128
   %134 = phi ptr [ %127, %132 ], [ %19, %128 ]
-  %.not251 = icmp eq ptr %127, null
+  %.not250 = icmp eq ptr %127, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %134, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
-  br i1 %.not251, label %._crit_edge, label %135
+  br i1 %.not250, label %._crit_edge, label %135
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
@@ -2775,34 +2775,34 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %._crit_edge
-  %153 = getelementptr inbounds nuw i8, ptr %.1274, i64 88
+  %153 = getelementptr inbounds nuw i8, ptr %.1272, i64 88
   %154 = load ptr, ptr %153, align 8, !tbaa !61
   store ptr %154, ptr %146, align 8, !tbaa !60
   br label %155
 
 155:                                              ; preds = %152, %._crit_edge
-  %156 = getelementptr inbounds nuw i8, ptr %.1274, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %.1272, i64 80
   %157 = load ptr, ptr %156, align 8, !tbaa !62
-  %.not252 = icmp eq ptr %157, null
-  %.phi.trans.insert277 = getelementptr inbounds nuw i8, ptr %.1274, i64 88
-  %.pre278 = load ptr, ptr %.phi.trans.insert277, align 8, !tbaa !61
-  br i1 %.not252, label %._crit_edge276, label %158
+  %.not251 = icmp eq ptr %157, null
+  %.phi.trans.insert275 = getelementptr inbounds nuw i8, ptr %.1272, i64 88
+  %.pre276 = load ptr, ptr %.phi.trans.insert275, align 8, !tbaa !61
+  br i1 %.not251, label %._crit_edge274, label %158
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  store ptr %.pre278, ptr %159, align 8, !tbaa !61
-  br label %._crit_edge276
+  store ptr %.pre276, ptr %159, align 8, !tbaa !61
+  br label %._crit_edge274
 
-._crit_edge276:                                   ; preds = %155, %158
-  %.not253 = icmp eq ptr %.pre278, null
-  br i1 %.not253, label %162, label %160
+._crit_edge274:                                   ; preds = %155, %158
+  %.not252 = icmp eq ptr %.pre276, null
+  br i1 %.not252, label %162, label %160
 
-160:                                              ; preds = %._crit_edge276
-  %161 = getelementptr inbounds nuw i8, ptr %.pre278, i64 24
+160:                                              ; preds = %._crit_edge274
+  %161 = getelementptr inbounds nuw i8, ptr %.pre276, i64 24
   store ptr %157, ptr %161, align 8, !tbaa !62
   br label %162
 
-162:                                              ; preds = %160, %._crit_edge276
+162:                                              ; preds = %160, %._crit_edge274
   %163 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %164 = load i32, ptr %163, align 8, !tbaa !63
   %165 = add i32 %164, -1
@@ -2810,7 +2810,7 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br label %171
 
 166:                                              ; preds = %104
-  %167 = getelementptr inbounds nuw i8, ptr %.1274, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %.1272, i64 48
   store i8 1, ptr %167, align 8, !tbaa !41
   br label %171
 
@@ -2823,7 +2823,7 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
 171:                                              ; preds = %114, %162, %166
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %173 = load ptr, ptr %172, align 8, !tbaa !82
-  %174 = icmp eq ptr %173, %.1274
+  %174 = icmp eq ptr %173, %.1272
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %171
@@ -2831,12 +2831,12 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   br label %176
 
 176:                                              ; preds = %175, %171
-  %177 = getelementptr inbounds nuw i8, ptr %.1274, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %.1272, i64 16
   %178 = load ptr, ptr %177, align 8, !tbaa !43
-  br i1 %.b243249, label %181, label %179
+  br i1 %.b243, label %181, label %179
 
 179:                                              ; preds = %176
-  %180 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5I_id_info_t_reg_free_list, ptr noundef nonnull %.1274) #8
+  %180 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5I_id_info_t_reg_free_list, ptr noundef nonnull %.1272) #8
   br label %181
 
 181:                                              ; preds = %179, %176

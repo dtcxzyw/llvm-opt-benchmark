@@ -316,8 +316,8 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b28 = load i1, ptr @start_postmaster.exit_hook_registered, align 1
-  br i1 %.b28, label %8, label %6
+  %.b = load i1, ptr @start_postmaster.exit_hook_registered, align 1
+  br i1 %.b, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i32 @atexit(ptr noundef nonnull @stop_postmaster_atexit) #10
@@ -376,8 +376,8 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   %37 = load ptr, ptr %5, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %39 = load ptr, ptr %38, align 8
-  %.not29 = icmp eq ptr %39, null
-  %spec.select = select i1 %.not29, ptr @.str.21, ptr %39
+  %.not28 = icmp eq ptr %39, null
+  %spec.select = select i1 %.not28, ptr @.str.21, ptr %39
   %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 5096, ptr noundef nonnull @.str.19, ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.20, ptr noundef %33, i32 noundef %36, ptr noundef %37, ptr noundef nonnull %spec.select, ptr noundef nonnull %4) #10
   call void @termPQExpBuffer(ptr noundef nonnull %5) #10
   %41 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext %1, i1 noundef zeroext false, ptr noundef nonnull @.str, ptr noundef nonnull %3) #10
@@ -398,8 +398,8 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
 
 47:                                               ; preds = %44
   %48 = call i32 @PQstatus(ptr noundef nonnull %45) #10
-  %.not30 = icmp eq i32 %48, 0
-  br i1 %.not30, label %56, label %49
+  %.not29 = icmp eq i32 %48, 0
+  br i1 %.not29, label %56, label %49
 
 49:                                               ; preds = %47
   %50 = call ptr @PQerrorMessage(ptr noundef nonnull %45) #10

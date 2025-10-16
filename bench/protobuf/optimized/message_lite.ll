@@ -3904,8 +3904,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf23ShutdownProtobufLibraryEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %.b1 = load i1, ptr @_ZZN6google8protobuf23ShutdownProtobufLibraryEvE11is_shutdown, align 1
-  br i1 %.b1, label %if.end, label %if.then
+  %.b = load i1, ptr @_ZZN6google8protobuf23ShutdownProtobufLibraryEvE11is_shutdown, align 1
+  br i1 %.b, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data acquire, align 8

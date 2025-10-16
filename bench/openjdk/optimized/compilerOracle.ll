@@ -549,8 +549,8 @@ declare noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle19has_any_command_setEv() local_unnamed_addr #6 align 2 {
-  %.b1 = load i1, ptr @_ZL7any_set, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @_ZL7any_set, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1176,8 +1176,8 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle22should_collect_memstatEv(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle33should_print_final_memstat_reportEv() local_unnamed_addr #6 align 2 {
-  %.b1 = load i1, ptr @_ZL26print_final_memstat_report, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @_ZL26print_final_memstat_report, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

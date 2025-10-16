@@ -3315,8 +3315,8 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define void @_ZN4pkpy8Compiler16init_pratt_rulesEv() local_unnamed_addr #8 align 2 {
-  %.b365 = load i1, ptr @_ZZN4pkpy8Compiler16init_pratt_rulesEvE11initialized, align 1
-  br i1 %.b365, label %768, label %1
+  %.b = load i1, ptr @_ZZN4pkpy8Compiler16init_pratt_rulesEvE11initialized, align 1
+  br i1 %.b, label %768, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN4pkpy8Compiler16init_pratt_rulesEvE11initialized, align 1
@@ -3382,47 +3382,47 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %18, %16
   br label %20
 
 20:                                               ; preds = %35, %_ZN4pkpy2TKEPKc.exit
-  %indvars.iv.i366 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit ], [ %indvars.iv.next.i374, %35 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i366
+  %indvars.iv.i365 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit ], [ %indvars.iv.next.i373, %35 ]
+  %21 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i365
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
-  %.not20.i367 = icmp eq i8 %23, 0
-  br i1 %.not20.i367, label %.critedge.i371, label %.lr.ph.i368
+  %.not20.i366 = icmp eq i8 %23, 0
+  br i1 %.not20.i366, label %.critedge.i370, label %.lr.ph.i367
 
-.lr.ph.i368:                                      ; preds = %20, %27
+.lr.ph.i367:                                      ; preds = %20, %27
   %24 = phi i8 [ %30, %27 ], [ %23, %20 ]
-  %.022.i369 = phi ptr [ %29, %27 ], [ @.str.13, %20 ]
-  %.01321.i370 = phi ptr [ %28, %27 ], [ %22, %20 ]
-  %25 = load i8, ptr %.022.i369, align 1
+  %.022.i368 = phi ptr [ %29, %27 ], [ @.str.13, %20 ]
+  %.01321.i369 = phi ptr [ %28, %27 ], [ %22, %20 ]
+  %25 = load i8, ptr %.022.i368, align 1
   %26 = icmp eq i8 %24, %25
-  br i1 %26, label %27, label %.critedge.i371
+  br i1 %26, label %27, label %.critedge.i370
 
-27:                                               ; preds = %.lr.ph.i368
-  %28 = getelementptr inbounds nuw i8, ptr %.01321.i370, i64 1
-  %29 = getelementptr inbounds nuw i8, ptr %.022.i369, i64 1
+27:                                               ; preds = %.lr.ph.i367
+  %28 = getelementptr inbounds nuw i8, ptr %.01321.i369, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.022.i368, i64 1
   %30 = load i8, ptr %28, align 1
-  %.not.i377 = icmp eq i8 %30, 0
-  br i1 %.not.i377, label %.critedge.i371, label %.lr.ph.i368, !llvm.loop !15
+  %.not.i376 = icmp eq i8 %30, 0
+  br i1 %.not.i376, label %.critedge.i370, label %.lr.ph.i367, !llvm.loop !15
 
-.critedge.i371:                                   ; preds = %27, %.lr.ph.i368, %20
-  %.0.lcssa.i372 = phi ptr [ @.str.13, %20 ], [ %29, %27 ], [ %.022.i369, %.lr.ph.i368 ]
-  %.lcssa.i373 = phi i8 [ 0, %20 ], [ 0, %27 ], [ %24, %.lr.ph.i368 ]
-  %31 = load i8, ptr %.0.lcssa.i372, align 1
-  %32 = icmp eq i8 %.lcssa.i373, %31
+.critedge.i370:                                   ; preds = %27, %.lr.ph.i367, %20
+  %.0.lcssa.i371 = phi ptr [ @.str.13, %20 ], [ %29, %27 ], [ %.022.i368, %.lr.ph.i367 ]
+  %.lcssa.i372 = phi i8 [ 0, %20 ], [ 0, %27 ], [ %24, %.lr.ph.i367 ]
+  %31 = load i8, ptr %.0.lcssa.i371, align 1
+  %32 = icmp eq i8 %.lcssa.i372, %31
   br i1 %32, label %33, label %35
 
-33:                                               ; preds = %.critedge.i371
-  %34 = and i64 %indvars.iv.i366, 255
-  br label %_ZN4pkpy2TKEPKc.exit378
+33:                                               ; preds = %.critedge.i370
+  %34 = and i64 %indvars.iv.i365, 255
+  br label %_ZN4pkpy2TKEPKc.exit377
 
-35:                                               ; preds = %.critedge.i371
-  %indvars.iv.next.i374 = add nuw nsw i64 %indvars.iv.i366, 1
-  %exitcond.not.i375 = icmp eq i64 %indvars.iv.next.i374, 95
-  br i1 %exitcond.not.i375, label %_ZN4pkpy2TKEPKc.exit378, label %20, !llvm.loop !16
+35:                                               ; preds = %.critedge.i370
+  %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i365, 1
+  %exitcond.not.i374 = icmp eq i64 %indvars.iv.next.i373, 95
+  br i1 %exitcond.not.i374, label %_ZN4pkpy2TKEPKc.exit377, label %20, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit378:                          ; preds = %35, %33
-  %.015.i376 = phi i64 [ %34, %33 ], [ 255, %35 ]
-  %36 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i376
+_ZN4pkpy2TKEPKc.exit377:                          ; preds = %35, %33
+  %.015.i375 = phi i64 [ %34, %33 ], [ 255, %35 ]
+  %36 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i375
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler9exprGroupEv to i64), ptr %36, align 8
   %.sroa.2342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %.sroa.2342.0..sroa_idx, align 8
@@ -3434,48 +3434,48 @@ _ZN4pkpy2TKEPKc.exit378:                          ; preds = %35, %33
   store i32 15, ptr %.sroa.5345.0..sroa_idx, align 8
   br label %37
 
-37:                                               ; preds = %52, %_ZN4pkpy2TKEPKc.exit378
-  %indvars.iv.i379 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit378 ], [ %indvars.iv.next.i387, %52 ]
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i379
+37:                                               ; preds = %52, %_ZN4pkpy2TKEPKc.exit377
+  %indvars.iv.i378 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit377 ], [ %indvars.iv.next.i386, %52 ]
+  %38 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i378
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
-  %.not20.i380 = icmp eq i8 %40, 0
-  br i1 %.not20.i380, label %.critedge.i384, label %.lr.ph.i381
+  %.not20.i379 = icmp eq i8 %40, 0
+  br i1 %.not20.i379, label %.critedge.i383, label %.lr.ph.i380
 
-.lr.ph.i381:                                      ; preds = %37, %44
+.lr.ph.i380:                                      ; preds = %37, %44
   %41 = phi i8 [ %47, %44 ], [ %40, %37 ]
-  %.022.i382 = phi ptr [ %46, %44 ], [ @.str.14, %37 ]
-  %.01321.i383 = phi ptr [ %45, %44 ], [ %39, %37 ]
-  %42 = load i8, ptr %.022.i382, align 1
+  %.022.i381 = phi ptr [ %46, %44 ], [ @.str.14, %37 ]
+  %.01321.i382 = phi ptr [ %45, %44 ], [ %39, %37 ]
+  %42 = load i8, ptr %.022.i381, align 1
   %43 = icmp eq i8 %41, %42
-  br i1 %43, label %44, label %.critedge.i384
+  br i1 %43, label %44, label %.critedge.i383
 
-44:                                               ; preds = %.lr.ph.i381
-  %45 = getelementptr inbounds nuw i8, ptr %.01321.i383, i64 1
-  %46 = getelementptr inbounds nuw i8, ptr %.022.i382, i64 1
+44:                                               ; preds = %.lr.ph.i380
+  %45 = getelementptr inbounds nuw i8, ptr %.01321.i382, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.022.i381, i64 1
   %47 = load i8, ptr %45, align 1
-  %.not.i390 = icmp eq i8 %47, 0
-  br i1 %.not.i390, label %.critedge.i384, label %.lr.ph.i381, !llvm.loop !15
+  %.not.i389 = icmp eq i8 %47, 0
+  br i1 %.not.i389, label %.critedge.i383, label %.lr.ph.i380, !llvm.loop !15
 
-.critedge.i384:                                   ; preds = %44, %.lr.ph.i381, %37
-  %.0.lcssa.i385 = phi ptr [ @.str.14, %37 ], [ %46, %44 ], [ %.022.i382, %.lr.ph.i381 ]
-  %.lcssa.i386 = phi i8 [ 0, %37 ], [ 0, %44 ], [ %41, %.lr.ph.i381 ]
-  %48 = load i8, ptr %.0.lcssa.i385, align 1
-  %49 = icmp eq i8 %.lcssa.i386, %48
+.critedge.i383:                                   ; preds = %44, %.lr.ph.i380, %37
+  %.0.lcssa.i384 = phi ptr [ @.str.14, %37 ], [ %46, %44 ], [ %.022.i381, %.lr.ph.i380 ]
+  %.lcssa.i385 = phi i8 [ 0, %37 ], [ 0, %44 ], [ %41, %.lr.ph.i380 ]
+  %48 = load i8, ptr %.0.lcssa.i384, align 1
+  %49 = icmp eq i8 %.lcssa.i385, %48
   br i1 %49, label %50, label %52
 
-50:                                               ; preds = %.critedge.i384
-  %51 = and i64 %indvars.iv.i379, 255
-  br label %_ZN4pkpy2TKEPKc.exit391
+50:                                               ; preds = %.critedge.i383
+  %51 = and i64 %indvars.iv.i378, 255
+  br label %_ZN4pkpy2TKEPKc.exit390
 
-52:                                               ; preds = %.critedge.i384
-  %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i379, 1
-  %exitcond.not.i388 = icmp eq i64 %indvars.iv.next.i387, 95
-  br i1 %exitcond.not.i388, label %_ZN4pkpy2TKEPKc.exit391, label %37, !llvm.loop !16
+52:                                               ; preds = %.critedge.i383
+  %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i378, 1
+  %exitcond.not.i387 = icmp eq i64 %indvars.iv.next.i386, 95
+  br i1 %exitcond.not.i387, label %_ZN4pkpy2TKEPKc.exit390, label %37, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit391:                          ; preds = %52, %50
-  %.015.i389 = phi i64 [ %51, %50 ], [ 255, %52 ]
-  %53 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i389
+_ZN4pkpy2TKEPKc.exit390:                          ; preds = %52, %50
+  %.015.i388 = phi i64 [ %51, %50 ], [ 255, %52 ]
+  %53 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i388
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprListEv to i64), ptr %53, align 8
   %.sroa.2334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 0, ptr %.sroa.2334.0..sroa_idx, align 8
@@ -3487,95 +3487,95 @@ _ZN4pkpy2TKEPKc.exit391:                          ; preds = %52, %50
   store i32 15, ptr %.sroa.5337.0..sroa_idx, align 8
   br label %54
 
-54:                                               ; preds = %69, %_ZN4pkpy2TKEPKc.exit391
-  %indvars.iv.i392 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit391 ], [ %indvars.iv.next.i400, %69 ]
-  %55 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i392
+54:                                               ; preds = %69, %_ZN4pkpy2TKEPKc.exit390
+  %indvars.iv.i391 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit390 ], [ %indvars.iv.next.i399, %69 ]
+  %55 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i391
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr %56, align 1
-  %.not20.i393 = icmp eq i8 %57, 0
-  br i1 %.not20.i393, label %.critedge.i397, label %.lr.ph.i394
+  %.not20.i392 = icmp eq i8 %57, 0
+  br i1 %.not20.i392, label %.critedge.i396, label %.lr.ph.i393
 
-.lr.ph.i394:                                      ; preds = %54, %61
+.lr.ph.i393:                                      ; preds = %54, %61
   %58 = phi i8 [ %64, %61 ], [ %57, %54 ]
-  %.022.i395 = phi ptr [ %63, %61 ], [ @.str.15, %54 ]
-  %.01321.i396 = phi ptr [ %62, %61 ], [ %56, %54 ]
-  %59 = load i8, ptr %.022.i395, align 1
+  %.022.i394 = phi ptr [ %63, %61 ], [ @.str.15, %54 ]
+  %.01321.i395 = phi ptr [ %62, %61 ], [ %56, %54 ]
+  %59 = load i8, ptr %.022.i394, align 1
   %60 = icmp eq i8 %58, %59
-  br i1 %60, label %61, label %.critedge.i397
+  br i1 %60, label %61, label %.critedge.i396
 
-61:                                               ; preds = %.lr.ph.i394
-  %62 = getelementptr inbounds nuw i8, ptr %.01321.i396, i64 1
-  %63 = getelementptr inbounds nuw i8, ptr %.022.i395, i64 1
+61:                                               ; preds = %.lr.ph.i393
+  %62 = getelementptr inbounds nuw i8, ptr %.01321.i395, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.022.i394, i64 1
   %64 = load i8, ptr %62, align 1
-  %.not.i403 = icmp eq i8 %64, 0
-  br i1 %.not.i403, label %.critedge.i397, label %.lr.ph.i394, !llvm.loop !15
+  %.not.i402 = icmp eq i8 %64, 0
+  br i1 %.not.i402, label %.critedge.i396, label %.lr.ph.i393, !llvm.loop !15
 
-.critedge.i397:                                   ; preds = %61, %.lr.ph.i394, %54
-  %.0.lcssa.i398 = phi ptr [ @.str.15, %54 ], [ %63, %61 ], [ %.022.i395, %.lr.ph.i394 ]
-  %.lcssa.i399 = phi i8 [ 0, %54 ], [ 0, %61 ], [ %58, %.lr.ph.i394 ]
-  %65 = load i8, ptr %.0.lcssa.i398, align 1
-  %66 = icmp eq i8 %.lcssa.i399, %65
+.critedge.i396:                                   ; preds = %61, %.lr.ph.i393, %54
+  %.0.lcssa.i397 = phi ptr [ @.str.15, %54 ], [ %63, %61 ], [ %.022.i394, %.lr.ph.i393 ]
+  %.lcssa.i398 = phi i8 [ 0, %54 ], [ 0, %61 ], [ %58, %.lr.ph.i393 ]
+  %65 = load i8, ptr %.0.lcssa.i397, align 1
+  %66 = icmp eq i8 %.lcssa.i398, %65
   br i1 %66, label %67, label %69
 
-67:                                               ; preds = %.critedge.i397
-  %68 = and i64 %indvars.iv.i392, 255
-  br label %_ZN4pkpy2TKEPKc.exit404
+67:                                               ; preds = %.critedge.i396
+  %68 = and i64 %indvars.iv.i391, 255
+  br label %_ZN4pkpy2TKEPKc.exit403
 
-69:                                               ; preds = %.critedge.i397
-  %indvars.iv.next.i400 = add nuw nsw i64 %indvars.iv.i392, 1
-  %exitcond.not.i401 = icmp eq i64 %indvars.iv.next.i400, 95
-  br i1 %exitcond.not.i401, label %_ZN4pkpy2TKEPKc.exit404, label %54, !llvm.loop !16
+69:                                               ; preds = %.critedge.i396
+  %indvars.iv.next.i399 = add nuw nsw i64 %indvars.iv.i391, 1
+  %exitcond.not.i400 = icmp eq i64 %indvars.iv.next.i399, 95
+  br i1 %exitcond.not.i400, label %_ZN4pkpy2TKEPKc.exit403, label %54, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit404:                          ; preds = %69, %67
-  %.015.i402 = phi i64 [ %68, %67 ], [ 255, %69 ]
-  %70 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i402
+_ZN4pkpy2TKEPKc.exit403:                          ; preds = %69, %67
+  %.015.i401 = phi i64 [ %68, %67 ], [ 255, %69 ]
+  %70 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i401
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprMapEv to i64), ptr %70, align 8
   %.sroa.2326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.2326.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %71
 
-71:                                               ; preds = %86, %_ZN4pkpy2TKEPKc.exit404
-  %indvars.iv.i405 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit404 ], [ %indvars.iv.next.i413, %86 ]
-  %72 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i405
+71:                                               ; preds = %86, %_ZN4pkpy2TKEPKc.exit403
+  %indvars.iv.i404 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit403 ], [ %indvars.iv.next.i412, %86 ]
+  %72 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i404
   %73 = load ptr, ptr %72, align 8
   %74 = load i8, ptr %73, align 1
-  %.not20.i406 = icmp eq i8 %74, 0
-  br i1 %.not20.i406, label %.critedge.i410, label %.lr.ph.i407
+  %.not20.i405 = icmp eq i8 %74, 0
+  br i1 %.not20.i405, label %.critedge.i409, label %.lr.ph.i406
 
-.lr.ph.i407:                                      ; preds = %71, %78
+.lr.ph.i406:                                      ; preds = %71, %78
   %75 = phi i8 [ %81, %78 ], [ %74, %71 ]
-  %.022.i408 = phi ptr [ %80, %78 ], [ @.str.16, %71 ]
-  %.01321.i409 = phi ptr [ %79, %78 ], [ %73, %71 ]
-  %76 = load i8, ptr %.022.i408, align 1
+  %.022.i407 = phi ptr [ %80, %78 ], [ @.str.16, %71 ]
+  %.01321.i408 = phi ptr [ %79, %78 ], [ %73, %71 ]
+  %76 = load i8, ptr %.022.i407, align 1
   %77 = icmp eq i8 %75, %76
-  br i1 %77, label %78, label %.critedge.i410
+  br i1 %77, label %78, label %.critedge.i409
 
-78:                                               ; preds = %.lr.ph.i407
-  %79 = getelementptr inbounds nuw i8, ptr %.01321.i409, i64 1
-  %80 = getelementptr inbounds nuw i8, ptr %.022.i408, i64 1
+78:                                               ; preds = %.lr.ph.i406
+  %79 = getelementptr inbounds nuw i8, ptr %.01321.i408, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.022.i407, i64 1
   %81 = load i8, ptr %79, align 1
-  %.not.i416 = icmp eq i8 %81, 0
-  br i1 %.not.i416, label %.critedge.i410, label %.lr.ph.i407, !llvm.loop !15
+  %.not.i415 = icmp eq i8 %81, 0
+  br i1 %.not.i415, label %.critedge.i409, label %.lr.ph.i406, !llvm.loop !15
 
-.critedge.i410:                                   ; preds = %78, %.lr.ph.i407, %71
-  %.0.lcssa.i411 = phi ptr [ @.str.16, %71 ], [ %80, %78 ], [ %.022.i408, %.lr.ph.i407 ]
-  %.lcssa.i412 = phi i8 [ 0, %71 ], [ 0, %78 ], [ %75, %.lr.ph.i407 ]
-  %82 = load i8, ptr %.0.lcssa.i411, align 1
-  %83 = icmp eq i8 %.lcssa.i412, %82
+.critedge.i409:                                   ; preds = %78, %.lr.ph.i406, %71
+  %.0.lcssa.i410 = phi ptr [ @.str.16, %71 ], [ %80, %78 ], [ %.022.i407, %.lr.ph.i406 ]
+  %.lcssa.i411 = phi i8 [ 0, %71 ], [ 0, %78 ], [ %75, %.lr.ph.i406 ]
+  %82 = load i8, ptr %.0.lcssa.i410, align 1
+  %83 = icmp eq i8 %.lcssa.i411, %82
   br i1 %83, label %84, label %86
 
-84:                                               ; preds = %.critedge.i410
-  %85 = and i64 %indvars.iv.i405, 255
-  br label %_ZN4pkpy2TKEPKc.exit417
+84:                                               ; preds = %.critedge.i409
+  %85 = and i64 %indvars.iv.i404, 255
+  br label %_ZN4pkpy2TKEPKc.exit416
 
-86:                                               ; preds = %.critedge.i410
-  %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i405, 1
-  %exitcond.not.i414 = icmp eq i64 %indvars.iv.next.i413, 95
-  br i1 %exitcond.not.i414, label %_ZN4pkpy2TKEPKc.exit417, label %71, !llvm.loop !16
+86:                                               ; preds = %.critedge.i409
+  %indvars.iv.next.i412 = add nuw nsw i64 %indvars.iv.i404, 1
+  %exitcond.not.i413 = icmp eq i64 %indvars.iv.next.i412, 95
+  br i1 %exitcond.not.i413, label %_ZN4pkpy2TKEPKc.exit416, label %71, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit417:                          ; preds = %86, %84
-  %.015.i415 = phi i64 [ %85, %84 ], [ 255, %86 ]
-  %87 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i415
+_ZN4pkpy2TKEPKc.exit416:                          ; preds = %86, %84
+  %.015.i414 = phi i64 [ %85, %84 ], [ 255, %86 ]
+  %87 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i414
   %.sroa.3319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3319.0..sroa_idx, align 8
@@ -3585,48 +3585,48 @@ _ZN4pkpy2TKEPKc.exit417:                          ; preds = %86, %84
   store i32 12, ptr %.sroa.5321.0..sroa_idx, align 8
   br label %88
 
-88:                                               ; preds = %103, %_ZN4pkpy2TKEPKc.exit417
-  %indvars.iv.i418 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit417 ], [ %indvars.iv.next.i426, %103 ]
-  %89 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i418
+88:                                               ; preds = %103, %_ZN4pkpy2TKEPKc.exit416
+  %indvars.iv.i417 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit416 ], [ %indvars.iv.next.i425, %103 ]
+  %89 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i417
   %90 = load ptr, ptr %89, align 8
   %91 = load i8, ptr %90, align 1
-  %.not20.i419 = icmp eq i8 %91, 0
-  br i1 %.not20.i419, label %.critedge.i423, label %.lr.ph.i420
+  %.not20.i418 = icmp eq i8 %91, 0
+  br i1 %.not20.i418, label %.critedge.i422, label %.lr.ph.i419
 
-.lr.ph.i420:                                      ; preds = %88, %95
+.lr.ph.i419:                                      ; preds = %88, %95
   %92 = phi i8 [ %98, %95 ], [ %91, %88 ]
-  %.022.i421 = phi ptr [ %97, %95 ], [ @.str.17, %88 ]
-  %.01321.i422 = phi ptr [ %96, %95 ], [ %90, %88 ]
-  %93 = load i8, ptr %.022.i421, align 1
+  %.022.i420 = phi ptr [ %97, %95 ], [ @.str.17, %88 ]
+  %.01321.i421 = phi ptr [ %96, %95 ], [ %90, %88 ]
+  %93 = load i8, ptr %.022.i420, align 1
   %94 = icmp eq i8 %92, %93
-  br i1 %94, label %95, label %.critedge.i423
+  br i1 %94, label %95, label %.critedge.i422
 
-95:                                               ; preds = %.lr.ph.i420
-  %96 = getelementptr inbounds nuw i8, ptr %.01321.i422, i64 1
-  %97 = getelementptr inbounds nuw i8, ptr %.022.i421, i64 1
+95:                                               ; preds = %.lr.ph.i419
+  %96 = getelementptr inbounds nuw i8, ptr %.01321.i421, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.022.i420, i64 1
   %98 = load i8, ptr %96, align 1
-  %.not.i429 = icmp eq i8 %98, 0
-  br i1 %.not.i429, label %.critedge.i423, label %.lr.ph.i420, !llvm.loop !15
+  %.not.i428 = icmp eq i8 %98, 0
+  br i1 %.not.i428, label %.critedge.i422, label %.lr.ph.i419, !llvm.loop !15
 
-.critedge.i423:                                   ; preds = %95, %.lr.ph.i420, %88
-  %.0.lcssa.i424 = phi ptr [ @.str.17, %88 ], [ %97, %95 ], [ %.022.i421, %.lr.ph.i420 ]
-  %.lcssa.i425 = phi i8 [ 0, %88 ], [ 0, %95 ], [ %92, %.lr.ph.i420 ]
-  %99 = load i8, ptr %.0.lcssa.i424, align 1
-  %100 = icmp eq i8 %.lcssa.i425, %99
+.critedge.i422:                                   ; preds = %95, %.lr.ph.i419, %88
+  %.0.lcssa.i423 = phi ptr [ @.str.17, %88 ], [ %97, %95 ], [ %.022.i420, %.lr.ph.i419 ]
+  %.lcssa.i424 = phi i8 [ 0, %88 ], [ 0, %95 ], [ %92, %.lr.ph.i419 ]
+  %99 = load i8, ptr %.0.lcssa.i423, align 1
+  %100 = icmp eq i8 %.lcssa.i424, %99
   br i1 %100, label %101, label %103
 
-101:                                              ; preds = %.critedge.i423
-  %102 = and i64 %indvars.iv.i418, 255
-  br label %_ZN4pkpy2TKEPKc.exit430
+101:                                              ; preds = %.critedge.i422
+  %102 = and i64 %indvars.iv.i417, 255
+  br label %_ZN4pkpy2TKEPKc.exit429
 
-103:                                              ; preds = %.critedge.i423
-  %indvars.iv.next.i426 = add nuw nsw i64 %indvars.iv.i418, 1
-  %exitcond.not.i427 = icmp eq i64 %indvars.iv.next.i426, 95
-  br i1 %exitcond.not.i427, label %_ZN4pkpy2TKEPKc.exit430, label %88, !llvm.loop !16
+103:                                              ; preds = %.critedge.i422
+  %indvars.iv.next.i425 = add nuw nsw i64 %indvars.iv.i417, 1
+  %exitcond.not.i426 = icmp eq i64 %indvars.iv.next.i425, 95
+  br i1 %exitcond.not.i426, label %_ZN4pkpy2TKEPKc.exit429, label %88, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit430:                          ; preds = %103, %101
-  %.015.i428 = phi i64 [ %102, %101 ], [ 255, %103 ]
-  %104 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i428
+_ZN4pkpy2TKEPKc.exit429:                          ; preds = %103, %101
+  %.015.i427 = phi i64 [ %102, %101 ], [ 255, %103 ]
+  %104 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i427
   %.sroa.3311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3311.0..sroa_idx, align 8
@@ -3636,48 +3636,48 @@ _ZN4pkpy2TKEPKc.exit430:                          ; preds = %103, %101
   store i32 11, ptr %.sroa.5313.0..sroa_idx, align 8
   br label %105
 
-105:                                              ; preds = %120, %_ZN4pkpy2TKEPKc.exit430
-  %indvars.iv.i431 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit430 ], [ %indvars.iv.next.i439, %120 ]
-  %106 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i431
+105:                                              ; preds = %120, %_ZN4pkpy2TKEPKc.exit429
+  %indvars.iv.i430 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit429 ], [ %indvars.iv.next.i438, %120 ]
+  %106 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i430
   %107 = load ptr, ptr %106, align 8
   %108 = load i8, ptr %107, align 1
-  %.not20.i432 = icmp eq i8 %108, 0
-  br i1 %.not20.i432, label %.critedge.i436, label %.lr.ph.i433
+  %.not20.i431 = icmp eq i8 %108, 0
+  br i1 %.not20.i431, label %.critedge.i435, label %.lr.ph.i432
 
-.lr.ph.i433:                                      ; preds = %105, %112
+.lr.ph.i432:                                      ; preds = %105, %112
   %109 = phi i8 [ %115, %112 ], [ %108, %105 ]
-  %.022.i434 = phi ptr [ %114, %112 ], [ @.str.18, %105 ]
-  %.01321.i435 = phi ptr [ %113, %112 ], [ %107, %105 ]
-  %110 = load i8, ptr %.022.i434, align 1
+  %.022.i433 = phi ptr [ %114, %112 ], [ @.str.18, %105 ]
+  %.01321.i434 = phi ptr [ %113, %112 ], [ %107, %105 ]
+  %110 = load i8, ptr %.022.i433, align 1
   %111 = icmp eq i8 %109, %110
-  br i1 %111, label %112, label %.critedge.i436
+  br i1 %111, label %112, label %.critedge.i435
 
-112:                                              ; preds = %.lr.ph.i433
-  %113 = getelementptr inbounds nuw i8, ptr %.01321.i435, i64 1
-  %114 = getelementptr inbounds nuw i8, ptr %.022.i434, i64 1
+112:                                              ; preds = %.lr.ph.i432
+  %113 = getelementptr inbounds nuw i8, ptr %.01321.i434, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.022.i433, i64 1
   %115 = load i8, ptr %113, align 1
-  %.not.i442 = icmp eq i8 %115, 0
-  br i1 %.not.i442, label %.critedge.i436, label %.lr.ph.i433, !llvm.loop !15
+  %.not.i441 = icmp eq i8 %115, 0
+  br i1 %.not.i441, label %.critedge.i435, label %.lr.ph.i432, !llvm.loop !15
 
-.critedge.i436:                                   ; preds = %112, %.lr.ph.i433, %105
-  %.0.lcssa.i437 = phi ptr [ @.str.18, %105 ], [ %114, %112 ], [ %.022.i434, %.lr.ph.i433 ]
-  %.lcssa.i438 = phi i8 [ 0, %105 ], [ 0, %112 ], [ %109, %.lr.ph.i433 ]
-  %116 = load i8, ptr %.0.lcssa.i437, align 1
-  %117 = icmp eq i8 %.lcssa.i438, %116
+.critedge.i435:                                   ; preds = %112, %.lr.ph.i432, %105
+  %.0.lcssa.i436 = phi ptr [ @.str.18, %105 ], [ %114, %112 ], [ %.022.i433, %.lr.ph.i432 ]
+  %.lcssa.i437 = phi i8 [ 0, %105 ], [ 0, %112 ], [ %109, %.lr.ph.i432 ]
+  %116 = load i8, ptr %.0.lcssa.i436, align 1
+  %117 = icmp eq i8 %.lcssa.i437, %116
   br i1 %117, label %118, label %120
 
-118:                                              ; preds = %.critedge.i436
-  %119 = and i64 %indvars.iv.i431, 255
-  br label %_ZN4pkpy2TKEPKc.exit443
+118:                                              ; preds = %.critedge.i435
+  %119 = and i64 %indvars.iv.i430, 255
+  br label %_ZN4pkpy2TKEPKc.exit442
 
-120:                                              ; preds = %.critedge.i436
-  %indvars.iv.next.i439 = add nuw nsw i64 %indvars.iv.i431, 1
-  %exitcond.not.i440 = icmp eq i64 %indvars.iv.next.i439, 95
-  br i1 %exitcond.not.i440, label %_ZN4pkpy2TKEPKc.exit443, label %105, !llvm.loop !16
+120:                                              ; preds = %.critedge.i435
+  %indvars.iv.next.i438 = add nuw nsw i64 %indvars.iv.i430, 1
+  %exitcond.not.i439 = icmp eq i64 %indvars.iv.next.i438, 95
+  br i1 %exitcond.not.i439, label %_ZN4pkpy2TKEPKc.exit442, label %105, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit443:                          ; preds = %120, %118
-  %.015.i441 = phi i64 [ %119, %118 ], [ 255, %120 ]
-  %121 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i441
+_ZN4pkpy2TKEPKc.exit442:                          ; preds = %120, %118
+  %.015.i440 = phi i64 [ %119, %118 ], [ 255, %120 ]
+  %121 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i440
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %121, align 8
   %.sroa.2302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i64 0, ptr %.sroa.2302.0..sroa_idx, align 8
@@ -3689,48 +3689,48 @@ _ZN4pkpy2TKEPKc.exit443:                          ; preds = %120, %118
   store i32 11, ptr %.sroa.5305.0..sroa_idx, align 8
   br label %122
 
-122:                                              ; preds = %137, %_ZN4pkpy2TKEPKc.exit443
-  %indvars.iv.i444 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit443 ], [ %indvars.iv.next.i452, %137 ]
-  %123 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i444
+122:                                              ; preds = %137, %_ZN4pkpy2TKEPKc.exit442
+  %indvars.iv.i443 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit442 ], [ %indvars.iv.next.i451, %137 ]
+  %123 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i443
   %124 = load ptr, ptr %123, align 8
   %125 = load i8, ptr %124, align 1
-  %.not20.i445 = icmp eq i8 %125, 0
-  br i1 %.not20.i445, label %.critedge.i449, label %.lr.ph.i446
+  %.not20.i444 = icmp eq i8 %125, 0
+  br i1 %.not20.i444, label %.critedge.i448, label %.lr.ph.i445
 
-.lr.ph.i446:                                      ; preds = %122, %129
+.lr.ph.i445:                                      ; preds = %122, %129
   %126 = phi i8 [ %132, %129 ], [ %125, %122 ]
-  %.022.i447 = phi ptr [ %131, %129 ], [ @.str.19, %122 ]
-  %.01321.i448 = phi ptr [ %130, %129 ], [ %124, %122 ]
-  %127 = load i8, ptr %.022.i447, align 1
+  %.022.i446 = phi ptr [ %131, %129 ], [ @.str.19, %122 ]
+  %.01321.i447 = phi ptr [ %130, %129 ], [ %124, %122 ]
+  %127 = load i8, ptr %.022.i446, align 1
   %128 = icmp eq i8 %126, %127
-  br i1 %128, label %129, label %.critedge.i449
+  br i1 %128, label %129, label %.critedge.i448
 
-129:                                              ; preds = %.lr.ph.i446
-  %130 = getelementptr inbounds nuw i8, ptr %.01321.i448, i64 1
-  %131 = getelementptr inbounds nuw i8, ptr %.022.i447, i64 1
+129:                                              ; preds = %.lr.ph.i445
+  %130 = getelementptr inbounds nuw i8, ptr %.01321.i447, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.022.i446, i64 1
   %132 = load i8, ptr %130, align 1
-  %.not.i455 = icmp eq i8 %132, 0
-  br i1 %.not.i455, label %.critedge.i449, label %.lr.ph.i446, !llvm.loop !15
+  %.not.i454 = icmp eq i8 %132, 0
+  br i1 %.not.i454, label %.critedge.i448, label %.lr.ph.i445, !llvm.loop !15
 
-.critedge.i449:                                   ; preds = %129, %.lr.ph.i446, %122
-  %.0.lcssa.i450 = phi ptr [ @.str.19, %122 ], [ %131, %129 ], [ %.022.i447, %.lr.ph.i446 ]
-  %.lcssa.i451 = phi i8 [ 0, %122 ], [ 0, %129 ], [ %126, %.lr.ph.i446 ]
-  %133 = load i8, ptr %.0.lcssa.i450, align 1
-  %134 = icmp eq i8 %.lcssa.i451, %133
+.critedge.i448:                                   ; preds = %129, %.lr.ph.i445, %122
+  %.0.lcssa.i449 = phi ptr [ @.str.19, %122 ], [ %131, %129 ], [ %.022.i446, %.lr.ph.i445 ]
+  %.lcssa.i450 = phi i8 [ 0, %122 ], [ 0, %129 ], [ %126, %.lr.ph.i445 ]
+  %133 = load i8, ptr %.0.lcssa.i449, align 1
+  %134 = icmp eq i8 %.lcssa.i450, %133
   br i1 %134, label %135, label %137
 
-135:                                              ; preds = %.critedge.i449
-  %136 = and i64 %indvars.iv.i444, 255
-  br label %_ZN4pkpy2TKEPKc.exit456
+135:                                              ; preds = %.critedge.i448
+  %136 = and i64 %indvars.iv.i443, 255
+  br label %_ZN4pkpy2TKEPKc.exit455
 
-137:                                              ; preds = %.critedge.i449
-  %indvars.iv.next.i452 = add nuw nsw i64 %indvars.iv.i444, 1
-  %exitcond.not.i453 = icmp eq i64 %indvars.iv.next.i452, 95
-  br i1 %exitcond.not.i453, label %_ZN4pkpy2TKEPKc.exit456, label %122, !llvm.loop !16
+137:                                              ; preds = %.critedge.i448
+  %indvars.iv.next.i451 = add nuw nsw i64 %indvars.iv.i443, 1
+  %exitcond.not.i452 = icmp eq i64 %indvars.iv.next.i451, 95
+  br i1 %exitcond.not.i452, label %_ZN4pkpy2TKEPKc.exit455, label %122, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit456:                          ; preds = %137, %135
-  %.015.i454 = phi i64 [ %136, %135 ], [ 255, %137 ]
-  %138 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i454
+_ZN4pkpy2TKEPKc.exit455:                          ; preds = %137, %135
+  %.015.i453 = phi i64 [ %136, %135 ], [ 255, %137 ]
+  %138 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i453
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %138, align 8
   %.sroa.2294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i64 0, ptr %.sroa.2294.0..sroa_idx, align 8
@@ -3742,48 +3742,48 @@ _ZN4pkpy2TKEPKc.exit456:                          ; preds = %137, %135
   store i32 12, ptr %.sroa.5297.0..sroa_idx, align 8
   br label %139
 
-139:                                              ; preds = %154, %_ZN4pkpy2TKEPKc.exit456
-  %indvars.iv.i457 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit456 ], [ %indvars.iv.next.i465, %154 ]
-  %140 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i457
+139:                                              ; preds = %154, %_ZN4pkpy2TKEPKc.exit455
+  %indvars.iv.i456 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit455 ], [ %indvars.iv.next.i464, %154 ]
+  %140 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i456
   %141 = load ptr, ptr %140, align 8
   %142 = load i8, ptr %141, align 1
-  %.not20.i458 = icmp eq i8 %142, 0
-  br i1 %.not20.i458, label %.critedge.i462, label %.lr.ph.i459
+  %.not20.i457 = icmp eq i8 %142, 0
+  br i1 %.not20.i457, label %.critedge.i461, label %.lr.ph.i458
 
-.lr.ph.i459:                                      ; preds = %139, %146
+.lr.ph.i458:                                      ; preds = %139, %146
   %143 = phi i8 [ %149, %146 ], [ %142, %139 ]
-  %.022.i460 = phi ptr [ %148, %146 ], [ @.str.20, %139 ]
-  %.01321.i461 = phi ptr [ %147, %146 ], [ %141, %139 ]
-  %144 = load i8, ptr %.022.i460, align 1
+  %.022.i459 = phi ptr [ %148, %146 ], [ @.str.20, %139 ]
+  %.01321.i460 = phi ptr [ %147, %146 ], [ %141, %139 ]
+  %144 = load i8, ptr %.022.i459, align 1
   %145 = icmp eq i8 %143, %144
-  br i1 %145, label %146, label %.critedge.i462
+  br i1 %145, label %146, label %.critedge.i461
 
-146:                                              ; preds = %.lr.ph.i459
-  %147 = getelementptr inbounds nuw i8, ptr %.01321.i461, i64 1
-  %148 = getelementptr inbounds nuw i8, ptr %.022.i460, i64 1
+146:                                              ; preds = %.lr.ph.i458
+  %147 = getelementptr inbounds nuw i8, ptr %.01321.i460, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %.022.i459, i64 1
   %149 = load i8, ptr %147, align 1
-  %.not.i468 = icmp eq i8 %149, 0
-  br i1 %.not.i468, label %.critedge.i462, label %.lr.ph.i459, !llvm.loop !15
+  %.not.i467 = icmp eq i8 %149, 0
+  br i1 %.not.i467, label %.critedge.i461, label %.lr.ph.i458, !llvm.loop !15
 
-.critedge.i462:                                   ; preds = %146, %.lr.ph.i459, %139
-  %.0.lcssa.i463 = phi ptr [ @.str.20, %139 ], [ %148, %146 ], [ %.022.i460, %.lr.ph.i459 ]
-  %.lcssa.i464 = phi i8 [ 0, %139 ], [ 0, %146 ], [ %143, %.lr.ph.i459 ]
-  %150 = load i8, ptr %.0.lcssa.i463, align 1
-  %151 = icmp eq i8 %.lcssa.i464, %150
+.critedge.i461:                                   ; preds = %146, %.lr.ph.i458, %139
+  %.0.lcssa.i462 = phi ptr [ @.str.20, %139 ], [ %148, %146 ], [ %.022.i459, %.lr.ph.i458 ]
+  %.lcssa.i463 = phi i8 [ 0, %139 ], [ 0, %146 ], [ %143, %.lr.ph.i458 ]
+  %150 = load i8, ptr %.0.lcssa.i462, align 1
+  %151 = icmp eq i8 %.lcssa.i463, %150
   br i1 %151, label %152, label %154
 
-152:                                              ; preds = %.critedge.i462
-  %153 = and i64 %indvars.iv.i457, 255
-  br label %_ZN4pkpy2TKEPKc.exit469
+152:                                              ; preds = %.critedge.i461
+  %153 = and i64 %indvars.iv.i456, 255
+  br label %_ZN4pkpy2TKEPKc.exit468
 
-154:                                              ; preds = %.critedge.i462
-  %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i457, 1
-  %exitcond.not.i466 = icmp eq i64 %indvars.iv.next.i465, 95
-  br i1 %exitcond.not.i466, label %_ZN4pkpy2TKEPKc.exit469, label %139, !llvm.loop !16
+154:                                              ; preds = %.critedge.i461
+  %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i456, 1
+  %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, 95
+  br i1 %exitcond.not.i465, label %_ZN4pkpy2TKEPKc.exit468, label %139, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit469:                          ; preds = %154, %152
-  %.015.i467 = phi i64 [ %153, %152 ], [ 255, %154 ]
-  %155 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i467
+_ZN4pkpy2TKEPKc.exit468:                          ; preds = %154, %152
+  %.015.i466 = phi i64 [ %153, %152 ], [ 255, %154 ]
+  %155 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i466
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %155, align 8
   %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.sroa.5289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 32
@@ -3791,48 +3791,48 @@ _ZN4pkpy2TKEPKc.exit469:                          ; preds = %154, %152
   store i32 13, ptr %.sroa.5289.0..sroa_idx, align 8
   br label %156
 
-156:                                              ; preds = %171, %_ZN4pkpy2TKEPKc.exit469
-  %indvars.iv.i470 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit469 ], [ %indvars.iv.next.i478, %171 ]
-  %157 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i470
+156:                                              ; preds = %171, %_ZN4pkpy2TKEPKc.exit468
+  %indvars.iv.i469 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit468 ], [ %indvars.iv.next.i477, %171 ]
+  %157 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i469
   %158 = load ptr, ptr %157, align 8
   %159 = load i8, ptr %158, align 1
-  %.not20.i471 = icmp eq i8 %159, 0
-  br i1 %.not20.i471, label %.critedge.i475, label %.lr.ph.i472
+  %.not20.i470 = icmp eq i8 %159, 0
+  br i1 %.not20.i470, label %.critedge.i474, label %.lr.ph.i471
 
-.lr.ph.i472:                                      ; preds = %156, %163
+.lr.ph.i471:                                      ; preds = %156, %163
   %160 = phi i8 [ %166, %163 ], [ %159, %156 ]
-  %.022.i473 = phi ptr [ %165, %163 ], [ @.str.21, %156 ]
-  %.01321.i474 = phi ptr [ %164, %163 ], [ %158, %156 ]
-  %161 = load i8, ptr %.022.i473, align 1
+  %.022.i472 = phi ptr [ %165, %163 ], [ @.str.21, %156 ]
+  %.01321.i473 = phi ptr [ %164, %163 ], [ %158, %156 ]
+  %161 = load i8, ptr %.022.i472, align 1
   %162 = icmp eq i8 %160, %161
-  br i1 %162, label %163, label %.critedge.i475
+  br i1 %162, label %163, label %.critedge.i474
 
-163:                                              ; preds = %.lr.ph.i472
-  %164 = getelementptr inbounds nuw i8, ptr %.01321.i474, i64 1
-  %165 = getelementptr inbounds nuw i8, ptr %.022.i473, i64 1
+163:                                              ; preds = %.lr.ph.i471
+  %164 = getelementptr inbounds nuw i8, ptr %.01321.i473, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.022.i472, i64 1
   %166 = load i8, ptr %164, align 1
-  %.not.i481 = icmp eq i8 %166, 0
-  br i1 %.not.i481, label %.critedge.i475, label %.lr.ph.i472, !llvm.loop !15
+  %.not.i480 = icmp eq i8 %166, 0
+  br i1 %.not.i480, label %.critedge.i474, label %.lr.ph.i471, !llvm.loop !15
 
-.critedge.i475:                                   ; preds = %163, %.lr.ph.i472, %156
-  %.0.lcssa.i476 = phi ptr [ @.str.21, %156 ], [ %165, %163 ], [ %.022.i473, %.lr.ph.i472 ]
-  %.lcssa.i477 = phi i8 [ 0, %156 ], [ 0, %163 ], [ %160, %.lr.ph.i472 ]
-  %167 = load i8, ptr %.0.lcssa.i476, align 1
-  %168 = icmp eq i8 %.lcssa.i477, %167
+.critedge.i474:                                   ; preds = %163, %.lr.ph.i471, %156
+  %.0.lcssa.i475 = phi ptr [ @.str.21, %156 ], [ %165, %163 ], [ %.022.i472, %.lr.ph.i471 ]
+  %.lcssa.i476 = phi i8 [ 0, %156 ], [ 0, %163 ], [ %160, %.lr.ph.i471 ]
+  %167 = load i8, ptr %.0.lcssa.i475, align 1
+  %168 = icmp eq i8 %.lcssa.i476, %167
   br i1 %168, label %169, label %171
 
-169:                                              ; preds = %.critedge.i475
-  %170 = and i64 %indvars.iv.i470, 255
-  br label %_ZN4pkpy2TKEPKc.exit482
+169:                                              ; preds = %.critedge.i474
+  %170 = and i64 %indvars.iv.i469, 255
+  br label %_ZN4pkpy2TKEPKc.exit481
 
-171:                                              ; preds = %.critedge.i475
-  %indvars.iv.next.i478 = add nuw nsw i64 %indvars.iv.i470, 1
-  %exitcond.not.i479 = icmp eq i64 %indvars.iv.next.i478, 95
-  br i1 %exitcond.not.i479, label %_ZN4pkpy2TKEPKc.exit482, label %156, !llvm.loop !16
+171:                                              ; preds = %.critedge.i474
+  %indvars.iv.next.i477 = add nuw nsw i64 %indvars.iv.i469, 1
+  %exitcond.not.i478 = icmp eq i64 %indvars.iv.next.i477, 95
+  br i1 %exitcond.not.i478, label %_ZN4pkpy2TKEPKc.exit481, label %156, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit482:                          ; preds = %171, %169
-  %.015.i480 = phi i64 [ %170, %169 ], [ 255, %171 ]
-  %172 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i480
+_ZN4pkpy2TKEPKc.exit481:                          ; preds = %171, %169
+  %.015.i479 = phi i64 [ %170, %169 ], [ 255, %171 ]
+  %172 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i479
   %.sroa.3279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3279.0..sroa_idx, align 8
@@ -3842,48 +3842,48 @@ _ZN4pkpy2TKEPKc.exit482:                          ; preds = %171, %169
   store i32 12, ptr %.sroa.5281.0..sroa_idx, align 8
   br label %173
 
-173:                                              ; preds = %188, %_ZN4pkpy2TKEPKc.exit482
-  %indvars.iv.i483 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit482 ], [ %indvars.iv.next.i491, %188 ]
-  %174 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i483
+173:                                              ; preds = %188, %_ZN4pkpy2TKEPKc.exit481
+  %indvars.iv.i482 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit481 ], [ %indvars.iv.next.i490, %188 ]
+  %174 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i482
   %175 = load ptr, ptr %174, align 8
   %176 = load i8, ptr %175, align 1
-  %.not20.i484 = icmp eq i8 %176, 0
-  br i1 %.not20.i484, label %.critedge.i488, label %.lr.ph.i485
+  %.not20.i483 = icmp eq i8 %176, 0
+  br i1 %.not20.i483, label %.critedge.i487, label %.lr.ph.i484
 
-.lr.ph.i485:                                      ; preds = %173, %180
+.lr.ph.i484:                                      ; preds = %173, %180
   %177 = phi i8 [ %183, %180 ], [ %176, %173 ]
-  %.022.i486 = phi ptr [ %182, %180 ], [ @.str.22, %173 ]
-  %.01321.i487 = phi ptr [ %181, %180 ], [ %175, %173 ]
-  %178 = load i8, ptr %.022.i486, align 1
+  %.022.i485 = phi ptr [ %182, %180 ], [ @.str.22, %173 ]
+  %.01321.i486 = phi ptr [ %181, %180 ], [ %175, %173 ]
+  %178 = load i8, ptr %.022.i485, align 1
   %179 = icmp eq i8 %177, %178
-  br i1 %179, label %180, label %.critedge.i488
+  br i1 %179, label %180, label %.critedge.i487
 
-180:                                              ; preds = %.lr.ph.i485
-  %181 = getelementptr inbounds nuw i8, ptr %.01321.i487, i64 1
-  %182 = getelementptr inbounds nuw i8, ptr %.022.i486, i64 1
+180:                                              ; preds = %.lr.ph.i484
+  %181 = getelementptr inbounds nuw i8, ptr %.01321.i486, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.022.i485, i64 1
   %183 = load i8, ptr %181, align 1
-  %.not.i494 = icmp eq i8 %183, 0
-  br i1 %.not.i494, label %.critedge.i488, label %.lr.ph.i485, !llvm.loop !15
+  %.not.i493 = icmp eq i8 %183, 0
+  br i1 %.not.i493, label %.critedge.i487, label %.lr.ph.i484, !llvm.loop !15
 
-.critedge.i488:                                   ; preds = %180, %.lr.ph.i485, %173
-  %.0.lcssa.i489 = phi ptr [ @.str.22, %173 ], [ %182, %180 ], [ %.022.i486, %.lr.ph.i485 ]
-  %.lcssa.i490 = phi i8 [ 0, %173 ], [ 0, %180 ], [ %177, %.lr.ph.i485 ]
-  %184 = load i8, ptr %.0.lcssa.i489, align 1
-  %185 = icmp eq i8 %.lcssa.i490, %184
+.critedge.i487:                                   ; preds = %180, %.lr.ph.i484, %173
+  %.0.lcssa.i488 = phi ptr [ @.str.22, %173 ], [ %182, %180 ], [ %.022.i485, %.lr.ph.i484 ]
+  %.lcssa.i489 = phi i8 [ 0, %173 ], [ 0, %180 ], [ %177, %.lr.ph.i484 ]
+  %184 = load i8, ptr %.0.lcssa.i488, align 1
+  %185 = icmp eq i8 %.lcssa.i489, %184
   br i1 %185, label %186, label %188
 
-186:                                              ; preds = %.critedge.i488
-  %187 = and i64 %indvars.iv.i483, 255
-  br label %_ZN4pkpy2TKEPKc.exit495
+186:                                              ; preds = %.critedge.i487
+  %187 = and i64 %indvars.iv.i482, 255
+  br label %_ZN4pkpy2TKEPKc.exit494
 
-188:                                              ; preds = %.critedge.i488
-  %indvars.iv.next.i491 = add nuw nsw i64 %indvars.iv.i483, 1
-  %exitcond.not.i492 = icmp eq i64 %indvars.iv.next.i491, 95
-  br i1 %exitcond.not.i492, label %_ZN4pkpy2TKEPKc.exit495, label %173, !llvm.loop !16
+188:                                              ; preds = %.critedge.i487
+  %indvars.iv.next.i490 = add nuw nsw i64 %indvars.iv.i482, 1
+  %exitcond.not.i491 = icmp eq i64 %indvars.iv.next.i490, 95
+  br i1 %exitcond.not.i491, label %_ZN4pkpy2TKEPKc.exit494, label %173, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit495:                          ; preds = %188, %186
-  %.015.i493 = phi i64 [ %187, %186 ], [ 255, %188 ]
-  %189 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i493
+_ZN4pkpy2TKEPKc.exit494:                          ; preds = %188, %186
+  %.015.i492 = phi i64 [ %187, %186 ], [ 255, %188 ]
+  %189 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i492
   %.sroa.3271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3271.0..sroa_idx, align 8
@@ -3893,48 +3893,48 @@ _ZN4pkpy2TKEPKc.exit495:                          ; preds = %188, %186
   store i32 12, ptr %.sroa.5273.0..sroa_idx, align 8
   br label %190
 
-190:                                              ; preds = %205, %_ZN4pkpy2TKEPKc.exit495
-  %indvars.iv.i496 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit495 ], [ %indvars.iv.next.i504, %205 ]
-  %191 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i496
+190:                                              ; preds = %205, %_ZN4pkpy2TKEPKc.exit494
+  %indvars.iv.i495 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit494 ], [ %indvars.iv.next.i503, %205 ]
+  %191 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i495
   %192 = load ptr, ptr %191, align 8
   %193 = load i8, ptr %192, align 1
-  %.not20.i497 = icmp eq i8 %193, 0
-  br i1 %.not20.i497, label %.critedge.i501, label %.lr.ph.i498
+  %.not20.i496 = icmp eq i8 %193, 0
+  br i1 %.not20.i496, label %.critedge.i500, label %.lr.ph.i497
 
-.lr.ph.i498:                                      ; preds = %190, %197
+.lr.ph.i497:                                      ; preds = %190, %197
   %194 = phi i8 [ %200, %197 ], [ %193, %190 ]
-  %.022.i499 = phi ptr [ %199, %197 ], [ @.str.23, %190 ]
-  %.01321.i500 = phi ptr [ %198, %197 ], [ %192, %190 ]
-  %195 = load i8, ptr %.022.i499, align 1
+  %.022.i498 = phi ptr [ %199, %197 ], [ @.str.23, %190 ]
+  %.01321.i499 = phi ptr [ %198, %197 ], [ %192, %190 ]
+  %195 = load i8, ptr %.022.i498, align 1
   %196 = icmp eq i8 %194, %195
-  br i1 %196, label %197, label %.critedge.i501
+  br i1 %196, label %197, label %.critedge.i500
 
-197:                                              ; preds = %.lr.ph.i498
-  %198 = getelementptr inbounds nuw i8, ptr %.01321.i500, i64 1
-  %199 = getelementptr inbounds nuw i8, ptr %.022.i499, i64 1
+197:                                              ; preds = %.lr.ph.i497
+  %198 = getelementptr inbounds nuw i8, ptr %.01321.i499, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %.022.i498, i64 1
   %200 = load i8, ptr %198, align 1
-  %.not.i507 = icmp eq i8 %200, 0
-  br i1 %.not.i507, label %.critedge.i501, label %.lr.ph.i498, !llvm.loop !15
+  %.not.i506 = icmp eq i8 %200, 0
+  br i1 %.not.i506, label %.critedge.i500, label %.lr.ph.i497, !llvm.loop !15
 
-.critedge.i501:                                   ; preds = %197, %.lr.ph.i498, %190
-  %.0.lcssa.i502 = phi ptr [ @.str.23, %190 ], [ %199, %197 ], [ %.022.i499, %.lr.ph.i498 ]
-  %.lcssa.i503 = phi i8 [ 0, %190 ], [ 0, %197 ], [ %194, %.lr.ph.i498 ]
-  %201 = load i8, ptr %.0.lcssa.i502, align 1
-  %202 = icmp eq i8 %.lcssa.i503, %201
+.critedge.i500:                                   ; preds = %197, %.lr.ph.i497, %190
+  %.0.lcssa.i501 = phi ptr [ @.str.23, %190 ], [ %199, %197 ], [ %.022.i498, %.lr.ph.i497 ]
+  %.lcssa.i502 = phi i8 [ 0, %190 ], [ 0, %197 ], [ %194, %.lr.ph.i497 ]
+  %201 = load i8, ptr %.0.lcssa.i501, align 1
+  %202 = icmp eq i8 %.lcssa.i502, %201
   br i1 %202, label %203, label %205
 
-203:                                              ; preds = %.critedge.i501
-  %204 = and i64 %indvars.iv.i496, 255
-  br label %_ZN4pkpy2TKEPKc.exit508
+203:                                              ; preds = %.critedge.i500
+  %204 = and i64 %indvars.iv.i495, 255
+  br label %_ZN4pkpy2TKEPKc.exit507
 
-205:                                              ; preds = %.critedge.i501
-  %indvars.iv.next.i504 = add nuw nsw i64 %indvars.iv.i496, 1
-  %exitcond.not.i505 = icmp eq i64 %indvars.iv.next.i504, 95
-  br i1 %exitcond.not.i505, label %_ZN4pkpy2TKEPKc.exit508, label %190, !llvm.loop !16
+205:                                              ; preds = %.critedge.i500
+  %indvars.iv.next.i503 = add nuw nsw i64 %indvars.iv.i495, 1
+  %exitcond.not.i504 = icmp eq i64 %indvars.iv.next.i503, 95
+  br i1 %exitcond.not.i504, label %_ZN4pkpy2TKEPKc.exit507, label %190, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit508:                          ; preds = %205, %203
-  %.015.i506 = phi i64 [ %204, %203 ], [ 255, %205 ]
-  %206 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i506
+_ZN4pkpy2TKEPKc.exit507:                          ; preds = %205, %203
+  %.015.i505 = phi i64 [ %204, %203 ], [ 255, %205 ]
+  %206 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i505
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprUnaryOpEv to i64), ptr %206, align 8
   %.sroa.2262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 0, ptr %.sroa.2262.0..sroa_idx, align 8
@@ -3946,48 +3946,48 @@ _ZN4pkpy2TKEPKc.exit508:                          ; preds = %205, %203
   store i32 14, ptr %.sroa.5265.0..sroa_idx, align 8
   br label %207
 
-207:                                              ; preds = %222, %_ZN4pkpy2TKEPKc.exit508
-  %indvars.iv.i509 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit508 ], [ %indvars.iv.next.i517, %222 ]
-  %208 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i509
+207:                                              ; preds = %222, %_ZN4pkpy2TKEPKc.exit507
+  %indvars.iv.i508 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit507 ], [ %indvars.iv.next.i516, %222 ]
+  %208 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i508
   %209 = load ptr, ptr %208, align 8
   %210 = load i8, ptr %209, align 1
-  %.not20.i510 = icmp eq i8 %210, 0
-  br i1 %.not20.i510, label %.critedge.i514, label %.lr.ph.i511
+  %.not20.i509 = icmp eq i8 %210, 0
+  br i1 %.not20.i509, label %.critedge.i513, label %.lr.ph.i510
 
-.lr.ph.i511:                                      ; preds = %207, %214
+.lr.ph.i510:                                      ; preds = %207, %214
   %211 = phi i8 [ %217, %214 ], [ %210, %207 ]
-  %.022.i512 = phi ptr [ %216, %214 ], [ @.str.24, %207 ]
-  %.01321.i513 = phi ptr [ %215, %214 ], [ %209, %207 ]
-  %212 = load i8, ptr %.022.i512, align 1
+  %.022.i511 = phi ptr [ %216, %214 ], [ @.str.24, %207 ]
+  %.01321.i512 = phi ptr [ %215, %214 ], [ %209, %207 ]
+  %212 = load i8, ptr %.022.i511, align 1
   %213 = icmp eq i8 %211, %212
-  br i1 %213, label %214, label %.critedge.i514
+  br i1 %213, label %214, label %.critedge.i513
 
-214:                                              ; preds = %.lr.ph.i511
-  %215 = getelementptr inbounds nuw i8, ptr %.01321.i513, i64 1
-  %216 = getelementptr inbounds nuw i8, ptr %.022.i512, i64 1
+214:                                              ; preds = %.lr.ph.i510
+  %215 = getelementptr inbounds nuw i8, ptr %.01321.i512, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %.022.i511, i64 1
   %217 = load i8, ptr %215, align 1
-  %.not.i520 = icmp eq i8 %217, 0
-  br i1 %.not.i520, label %.critedge.i514, label %.lr.ph.i511, !llvm.loop !15
+  %.not.i519 = icmp eq i8 %217, 0
+  br i1 %.not.i519, label %.critedge.i513, label %.lr.ph.i510, !llvm.loop !15
 
-.critedge.i514:                                   ; preds = %214, %.lr.ph.i511, %207
-  %.0.lcssa.i515 = phi ptr [ @.str.24, %207 ], [ %216, %214 ], [ %.022.i512, %.lr.ph.i511 ]
-  %.lcssa.i516 = phi i8 [ 0, %207 ], [ 0, %214 ], [ %211, %.lr.ph.i511 ]
-  %218 = load i8, ptr %.0.lcssa.i515, align 1
-  %219 = icmp eq i8 %.lcssa.i516, %218
+.critedge.i513:                                   ; preds = %214, %.lr.ph.i510, %207
+  %.0.lcssa.i514 = phi ptr [ @.str.24, %207 ], [ %216, %214 ], [ %.022.i511, %.lr.ph.i510 ]
+  %.lcssa.i515 = phi i8 [ 0, %207 ], [ 0, %214 ], [ %211, %.lr.ph.i510 ]
+  %218 = load i8, ptr %.0.lcssa.i514, align 1
+  %219 = icmp eq i8 %.lcssa.i515, %218
   br i1 %219, label %220, label %222
 
-220:                                              ; preds = %.critedge.i514
-  %221 = and i64 %indvars.iv.i509, 255
-  br label %_ZN4pkpy2TKEPKc.exit521
+220:                                              ; preds = %.critedge.i513
+  %221 = and i64 %indvars.iv.i508, 255
+  br label %_ZN4pkpy2TKEPKc.exit520
 
-222:                                              ; preds = %.critedge.i514
-  %indvars.iv.next.i517 = add nuw nsw i64 %indvars.iv.i509, 1
-  %exitcond.not.i518 = icmp eq i64 %indvars.iv.next.i517, 95
-  br i1 %exitcond.not.i518, label %_ZN4pkpy2TKEPKc.exit521, label %207, !llvm.loop !16
+222:                                              ; preds = %.critedge.i513
+  %indvars.iv.next.i516 = add nuw nsw i64 %indvars.iv.i508, 1
+  %exitcond.not.i517 = icmp eq i64 %indvars.iv.next.i516, 95
+  br i1 %exitcond.not.i517, label %_ZN4pkpy2TKEPKc.exit520, label %207, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit521:                          ; preds = %222, %220
-  %.015.i519 = phi i64 [ %221, %220 ], [ 255, %222 ]
-  %223 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i519
+_ZN4pkpy2TKEPKc.exit520:                          ; preds = %222, %220
+  %.015.i518 = phi i64 [ %221, %220 ], [ 255, %222 ]
+  %223 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i518
   %.sroa.3255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3255.0..sroa_idx, align 8
@@ -3997,48 +3997,48 @@ _ZN4pkpy2TKEPKc.exit521:                          ; preds = %222, %220
   store i32 6, ptr %.sroa.5257.0..sroa_idx, align 8
   br label %224
 
-224:                                              ; preds = %239, %_ZN4pkpy2TKEPKc.exit521
-  %indvars.iv.i522 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit521 ], [ %indvars.iv.next.i530, %239 ]
-  %225 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i522
+224:                                              ; preds = %239, %_ZN4pkpy2TKEPKc.exit520
+  %indvars.iv.i521 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit520 ], [ %indvars.iv.next.i529, %239 ]
+  %225 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i521
   %226 = load ptr, ptr %225, align 8
   %227 = load i8, ptr %226, align 1
-  %.not20.i523 = icmp eq i8 %227, 0
-  br i1 %.not20.i523, label %.critedge.i527, label %.lr.ph.i524
+  %.not20.i522 = icmp eq i8 %227, 0
+  br i1 %.not20.i522, label %.critedge.i526, label %.lr.ph.i523
 
-.lr.ph.i524:                                      ; preds = %224, %231
+.lr.ph.i523:                                      ; preds = %224, %231
   %228 = phi i8 [ %234, %231 ], [ %227, %224 ]
-  %.022.i525 = phi ptr [ %233, %231 ], [ @.str.25, %224 ]
-  %.01321.i526 = phi ptr [ %232, %231 ], [ %226, %224 ]
-  %229 = load i8, ptr %.022.i525, align 1
+  %.022.i524 = phi ptr [ %233, %231 ], [ @.str.25, %224 ]
+  %.01321.i525 = phi ptr [ %232, %231 ], [ %226, %224 ]
+  %229 = load i8, ptr %.022.i524, align 1
   %230 = icmp eq i8 %228, %229
-  br i1 %230, label %231, label %.critedge.i527
+  br i1 %230, label %231, label %.critedge.i526
 
-231:                                              ; preds = %.lr.ph.i524
-  %232 = getelementptr inbounds nuw i8, ptr %.01321.i526, i64 1
-  %233 = getelementptr inbounds nuw i8, ptr %.022.i525, i64 1
+231:                                              ; preds = %.lr.ph.i523
+  %232 = getelementptr inbounds nuw i8, ptr %.01321.i525, i64 1
+  %233 = getelementptr inbounds nuw i8, ptr %.022.i524, i64 1
   %234 = load i8, ptr %232, align 1
-  %.not.i533 = icmp eq i8 %234, 0
-  br i1 %.not.i533, label %.critedge.i527, label %.lr.ph.i524, !llvm.loop !15
+  %.not.i532 = icmp eq i8 %234, 0
+  br i1 %.not.i532, label %.critedge.i526, label %.lr.ph.i523, !llvm.loop !15
 
-.critedge.i527:                                   ; preds = %231, %.lr.ph.i524, %224
-  %.0.lcssa.i528 = phi ptr [ @.str.25, %224 ], [ %233, %231 ], [ %.022.i525, %.lr.ph.i524 ]
-  %.lcssa.i529 = phi i8 [ 0, %224 ], [ 0, %231 ], [ %228, %.lr.ph.i524 ]
-  %235 = load i8, ptr %.0.lcssa.i528, align 1
-  %236 = icmp eq i8 %.lcssa.i529, %235
+.critedge.i526:                                   ; preds = %231, %.lr.ph.i523, %224
+  %.0.lcssa.i527 = phi ptr [ @.str.25, %224 ], [ %233, %231 ], [ %.022.i524, %.lr.ph.i523 ]
+  %.lcssa.i528 = phi i8 [ 0, %224 ], [ 0, %231 ], [ %228, %.lr.ph.i523 ]
+  %235 = load i8, ptr %.0.lcssa.i527, align 1
+  %236 = icmp eq i8 %.lcssa.i528, %235
   br i1 %236, label %237, label %239
 
-237:                                              ; preds = %.critedge.i527
-  %238 = and i64 %indvars.iv.i522, 255
-  br label %_ZN4pkpy2TKEPKc.exit534
+237:                                              ; preds = %.critedge.i526
+  %238 = and i64 %indvars.iv.i521, 255
+  br label %_ZN4pkpy2TKEPKc.exit533
 
-239:                                              ; preds = %.critedge.i527
-  %indvars.iv.next.i530 = add nuw nsw i64 %indvars.iv.i522, 1
-  %exitcond.not.i531 = icmp eq i64 %indvars.iv.next.i530, 95
-  br i1 %exitcond.not.i531, label %_ZN4pkpy2TKEPKc.exit534, label %224, !llvm.loop !16
+239:                                              ; preds = %.critedge.i526
+  %indvars.iv.next.i529 = add nuw nsw i64 %indvars.iv.i521, 1
+  %exitcond.not.i530 = icmp eq i64 %indvars.iv.next.i529, 95
+  br i1 %exitcond.not.i530, label %_ZN4pkpy2TKEPKc.exit533, label %224, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit534:                          ; preds = %239, %237
-  %.015.i532 = phi i64 [ %238, %237 ], [ 255, %239 ]
-  %240 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i532
+_ZN4pkpy2TKEPKc.exit533:                          ; preds = %239, %237
+  %.015.i531 = phi i64 [ %238, %237 ], [ 255, %239 ]
+  %240 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i531
   %.sroa.3247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3247.0..sroa_idx, align 8
@@ -4048,48 +4048,48 @@ _ZN4pkpy2TKEPKc.exit534:                          ; preds = %239, %237
   store i32 6, ptr %.sroa.5249.0..sroa_idx, align 8
   br label %241
 
-241:                                              ; preds = %256, %_ZN4pkpy2TKEPKc.exit534
-  %indvars.iv.i535 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit534 ], [ %indvars.iv.next.i543, %256 ]
-  %242 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i535
+241:                                              ; preds = %256, %_ZN4pkpy2TKEPKc.exit533
+  %indvars.iv.i534 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit533 ], [ %indvars.iv.next.i542, %256 ]
+  %242 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i534
   %243 = load ptr, ptr %242, align 8
   %244 = load i8, ptr %243, align 1
-  %.not20.i536 = icmp eq i8 %244, 0
-  br i1 %.not20.i536, label %.critedge.i540, label %.lr.ph.i537
+  %.not20.i535 = icmp eq i8 %244, 0
+  br i1 %.not20.i535, label %.critedge.i539, label %.lr.ph.i536
 
-.lr.ph.i537:                                      ; preds = %241, %248
+.lr.ph.i536:                                      ; preds = %241, %248
   %245 = phi i8 [ %251, %248 ], [ %244, %241 ]
-  %.022.i538 = phi ptr [ %250, %248 ], [ @.str.26, %241 ]
-  %.01321.i539 = phi ptr [ %249, %248 ], [ %243, %241 ]
-  %246 = load i8, ptr %.022.i538, align 1
+  %.022.i537 = phi ptr [ %250, %248 ], [ @.str.26, %241 ]
+  %.01321.i538 = phi ptr [ %249, %248 ], [ %243, %241 ]
+  %246 = load i8, ptr %.022.i537, align 1
   %247 = icmp eq i8 %245, %246
-  br i1 %247, label %248, label %.critedge.i540
+  br i1 %247, label %248, label %.critedge.i539
 
-248:                                              ; preds = %.lr.ph.i537
-  %249 = getelementptr inbounds nuw i8, ptr %.01321.i539, i64 1
-  %250 = getelementptr inbounds nuw i8, ptr %.022.i538, i64 1
+248:                                              ; preds = %.lr.ph.i536
+  %249 = getelementptr inbounds nuw i8, ptr %.01321.i538, i64 1
+  %250 = getelementptr inbounds nuw i8, ptr %.022.i537, i64 1
   %251 = load i8, ptr %249, align 1
-  %.not.i546 = icmp eq i8 %251, 0
-  br i1 %.not.i546, label %.critedge.i540, label %.lr.ph.i537, !llvm.loop !15
+  %.not.i545 = icmp eq i8 %251, 0
+  br i1 %.not.i545, label %.critedge.i539, label %.lr.ph.i536, !llvm.loop !15
 
-.critedge.i540:                                   ; preds = %248, %.lr.ph.i537, %241
-  %.0.lcssa.i541 = phi ptr [ @.str.26, %241 ], [ %250, %248 ], [ %.022.i538, %.lr.ph.i537 ]
-  %.lcssa.i542 = phi i8 [ 0, %241 ], [ 0, %248 ], [ %245, %.lr.ph.i537 ]
-  %252 = load i8, ptr %.0.lcssa.i541, align 1
-  %253 = icmp eq i8 %.lcssa.i542, %252
+.critedge.i539:                                   ; preds = %248, %.lr.ph.i536, %241
+  %.0.lcssa.i540 = phi ptr [ @.str.26, %241 ], [ %250, %248 ], [ %.022.i537, %.lr.ph.i536 ]
+  %.lcssa.i541 = phi i8 [ 0, %241 ], [ 0, %248 ], [ %245, %.lr.ph.i536 ]
+  %252 = load i8, ptr %.0.lcssa.i540, align 1
+  %253 = icmp eq i8 %.lcssa.i541, %252
   br i1 %253, label %254, label %256
 
-254:                                              ; preds = %.critedge.i540
-  %255 = and i64 %indvars.iv.i535, 255
-  br label %_ZN4pkpy2TKEPKc.exit547
+254:                                              ; preds = %.critedge.i539
+  %255 = and i64 %indvars.iv.i534, 255
+  br label %_ZN4pkpy2TKEPKc.exit546
 
-256:                                              ; preds = %.critedge.i540
-  %indvars.iv.next.i543 = add nuw nsw i64 %indvars.iv.i535, 1
-  %exitcond.not.i544 = icmp eq i64 %indvars.iv.next.i543, 95
-  br i1 %exitcond.not.i544, label %_ZN4pkpy2TKEPKc.exit547, label %241, !llvm.loop !16
+256:                                              ; preds = %.critedge.i539
+  %indvars.iv.next.i542 = add nuw nsw i64 %indvars.iv.i534, 1
+  %exitcond.not.i543 = icmp eq i64 %indvars.iv.next.i542, 95
+  br i1 %exitcond.not.i543, label %_ZN4pkpy2TKEPKc.exit546, label %241, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit547:                          ; preds = %256, %254
-  %.015.i545 = phi i64 [ %255, %254 ], [ 255, %256 ]
-  %257 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i545
+_ZN4pkpy2TKEPKc.exit546:                          ; preds = %256, %254
+  %.015.i544 = phi i64 [ %255, %254 ], [ 255, %256 ]
+  %257 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i544
   %.sroa.3239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %257, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3239.0..sroa_idx, align 8
@@ -4099,48 +4099,48 @@ _ZN4pkpy2TKEPKc.exit547:                          ; preds = %256, %254
   store i32 6, ptr %.sroa.5241.0..sroa_idx, align 8
   br label %258
 
-258:                                              ; preds = %273, %_ZN4pkpy2TKEPKc.exit547
-  %indvars.iv.i548 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit547 ], [ %indvars.iv.next.i556, %273 ]
-  %259 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i548
+258:                                              ; preds = %273, %_ZN4pkpy2TKEPKc.exit546
+  %indvars.iv.i547 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit546 ], [ %indvars.iv.next.i555, %273 ]
+  %259 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i547
   %260 = load ptr, ptr %259, align 8
   %261 = load i8, ptr %260, align 1
-  %.not20.i549 = icmp eq i8 %261, 0
-  br i1 %.not20.i549, label %.critedge.i553, label %.lr.ph.i550
+  %.not20.i548 = icmp eq i8 %261, 0
+  br i1 %.not20.i548, label %.critedge.i552, label %.lr.ph.i549
 
-.lr.ph.i550:                                      ; preds = %258, %265
+.lr.ph.i549:                                      ; preds = %258, %265
   %262 = phi i8 [ %268, %265 ], [ %261, %258 ]
-  %.022.i551 = phi ptr [ %267, %265 ], [ @.str.27, %258 ]
-  %.01321.i552 = phi ptr [ %266, %265 ], [ %260, %258 ]
-  %263 = load i8, ptr %.022.i551, align 1
+  %.022.i550 = phi ptr [ %267, %265 ], [ @.str.27, %258 ]
+  %.01321.i551 = phi ptr [ %266, %265 ], [ %260, %258 ]
+  %263 = load i8, ptr %.022.i550, align 1
   %264 = icmp eq i8 %262, %263
-  br i1 %264, label %265, label %.critedge.i553
+  br i1 %264, label %265, label %.critedge.i552
 
-265:                                              ; preds = %.lr.ph.i550
-  %266 = getelementptr inbounds nuw i8, ptr %.01321.i552, i64 1
-  %267 = getelementptr inbounds nuw i8, ptr %.022.i551, i64 1
+265:                                              ; preds = %.lr.ph.i549
+  %266 = getelementptr inbounds nuw i8, ptr %.01321.i551, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.022.i550, i64 1
   %268 = load i8, ptr %266, align 1
-  %.not.i559 = icmp eq i8 %268, 0
-  br i1 %.not.i559, label %.critedge.i553, label %.lr.ph.i550, !llvm.loop !15
+  %.not.i558 = icmp eq i8 %268, 0
+  br i1 %.not.i558, label %.critedge.i552, label %.lr.ph.i549, !llvm.loop !15
 
-.critedge.i553:                                   ; preds = %265, %.lr.ph.i550, %258
-  %.0.lcssa.i554 = phi ptr [ @.str.27, %258 ], [ %267, %265 ], [ %.022.i551, %.lr.ph.i550 ]
-  %.lcssa.i555 = phi i8 [ 0, %258 ], [ 0, %265 ], [ %262, %.lr.ph.i550 ]
-  %269 = load i8, ptr %.0.lcssa.i554, align 1
-  %270 = icmp eq i8 %.lcssa.i555, %269
+.critedge.i552:                                   ; preds = %265, %.lr.ph.i549, %258
+  %.0.lcssa.i553 = phi ptr [ @.str.27, %258 ], [ %267, %265 ], [ %.022.i550, %.lr.ph.i549 ]
+  %.lcssa.i554 = phi i8 [ 0, %258 ], [ 0, %265 ], [ %262, %.lr.ph.i549 ]
+  %269 = load i8, ptr %.0.lcssa.i553, align 1
+  %270 = icmp eq i8 %.lcssa.i554, %269
   br i1 %270, label %271, label %273
 
-271:                                              ; preds = %.critedge.i553
-  %272 = and i64 %indvars.iv.i548, 255
-  br label %_ZN4pkpy2TKEPKc.exit560
+271:                                              ; preds = %.critedge.i552
+  %272 = and i64 %indvars.iv.i547, 255
+  br label %_ZN4pkpy2TKEPKc.exit559
 
-273:                                              ; preds = %.critedge.i553
-  %indvars.iv.next.i556 = add nuw nsw i64 %indvars.iv.i548, 1
-  %exitcond.not.i557 = icmp eq i64 %indvars.iv.next.i556, 95
-  br i1 %exitcond.not.i557, label %_ZN4pkpy2TKEPKc.exit560, label %258, !llvm.loop !16
+273:                                              ; preds = %.critedge.i552
+  %indvars.iv.next.i555 = add nuw nsw i64 %indvars.iv.i547, 1
+  %exitcond.not.i556 = icmp eq i64 %indvars.iv.next.i555, 95
+  br i1 %exitcond.not.i556, label %_ZN4pkpy2TKEPKc.exit559, label %258, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit560:                          ; preds = %273, %271
-  %.015.i558 = phi i64 [ %272, %271 ], [ 255, %273 ]
-  %274 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i558
+_ZN4pkpy2TKEPKc.exit559:                          ; preds = %273, %271
+  %.015.i557 = phi i64 [ %272, %271 ], [ 255, %273 ]
+  %274 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i557
   %.sroa.3231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %274, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3231.0..sroa_idx, align 8
@@ -4150,48 +4150,48 @@ _ZN4pkpy2TKEPKc.exit560:                          ; preds = %273, %271
   store i32 6, ptr %.sroa.5233.0..sroa_idx, align 8
   br label %275
 
-275:                                              ; preds = %290, %_ZN4pkpy2TKEPKc.exit560
-  %indvars.iv.i561 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit560 ], [ %indvars.iv.next.i569, %290 ]
-  %276 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i561
+275:                                              ; preds = %290, %_ZN4pkpy2TKEPKc.exit559
+  %indvars.iv.i560 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit559 ], [ %indvars.iv.next.i568, %290 ]
+  %276 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i560
   %277 = load ptr, ptr %276, align 8
   %278 = load i8, ptr %277, align 1
-  %.not20.i562 = icmp eq i8 %278, 0
-  br i1 %.not20.i562, label %.critedge.i566, label %.lr.ph.i563
+  %.not20.i561 = icmp eq i8 %278, 0
+  br i1 %.not20.i561, label %.critedge.i565, label %.lr.ph.i562
 
-.lr.ph.i563:                                      ; preds = %275, %282
+.lr.ph.i562:                                      ; preds = %275, %282
   %279 = phi i8 [ %285, %282 ], [ %278, %275 ]
-  %.022.i564 = phi ptr [ %284, %282 ], [ @.str.28, %275 ]
-  %.01321.i565 = phi ptr [ %283, %282 ], [ %277, %275 ]
-  %280 = load i8, ptr %.022.i564, align 1
+  %.022.i563 = phi ptr [ %284, %282 ], [ @.str.28, %275 ]
+  %.01321.i564 = phi ptr [ %283, %282 ], [ %277, %275 ]
+  %280 = load i8, ptr %.022.i563, align 1
   %281 = icmp eq i8 %279, %280
-  br i1 %281, label %282, label %.critedge.i566
+  br i1 %281, label %282, label %.critedge.i565
 
-282:                                              ; preds = %.lr.ph.i563
-  %283 = getelementptr inbounds nuw i8, ptr %.01321.i565, i64 1
-  %284 = getelementptr inbounds nuw i8, ptr %.022.i564, i64 1
+282:                                              ; preds = %.lr.ph.i562
+  %283 = getelementptr inbounds nuw i8, ptr %.01321.i564, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %.022.i563, i64 1
   %285 = load i8, ptr %283, align 1
-  %.not.i572 = icmp eq i8 %285, 0
-  br i1 %.not.i572, label %.critedge.i566, label %.lr.ph.i563, !llvm.loop !15
+  %.not.i571 = icmp eq i8 %285, 0
+  br i1 %.not.i571, label %.critedge.i565, label %.lr.ph.i562, !llvm.loop !15
 
-.critedge.i566:                                   ; preds = %282, %.lr.ph.i563, %275
-  %.0.lcssa.i567 = phi ptr [ @.str.28, %275 ], [ %284, %282 ], [ %.022.i564, %.lr.ph.i563 ]
-  %.lcssa.i568 = phi i8 [ 0, %275 ], [ 0, %282 ], [ %279, %.lr.ph.i563 ]
-  %286 = load i8, ptr %.0.lcssa.i567, align 1
-  %287 = icmp eq i8 %.lcssa.i568, %286
+.critedge.i565:                                   ; preds = %282, %.lr.ph.i562, %275
+  %.0.lcssa.i566 = phi ptr [ @.str.28, %275 ], [ %284, %282 ], [ %.022.i563, %.lr.ph.i562 ]
+  %.lcssa.i567 = phi i8 [ 0, %275 ], [ 0, %282 ], [ %279, %.lr.ph.i562 ]
+  %286 = load i8, ptr %.0.lcssa.i566, align 1
+  %287 = icmp eq i8 %.lcssa.i567, %286
   br i1 %287, label %288, label %290
 
-288:                                              ; preds = %.critedge.i566
-  %289 = and i64 %indvars.iv.i561, 255
-  br label %_ZN4pkpy2TKEPKc.exit573
+288:                                              ; preds = %.critedge.i565
+  %289 = and i64 %indvars.iv.i560, 255
+  br label %_ZN4pkpy2TKEPKc.exit572
 
-290:                                              ; preds = %.critedge.i566
-  %indvars.iv.next.i569 = add nuw nsw i64 %indvars.iv.i561, 1
-  %exitcond.not.i570 = icmp eq i64 %indvars.iv.next.i569, 95
-  br i1 %exitcond.not.i570, label %_ZN4pkpy2TKEPKc.exit573, label %275, !llvm.loop !16
+290:                                              ; preds = %.critedge.i565
+  %indvars.iv.next.i568 = add nuw nsw i64 %indvars.iv.i560, 1
+  %exitcond.not.i569 = icmp eq i64 %indvars.iv.next.i568, 95
+  br i1 %exitcond.not.i569, label %_ZN4pkpy2TKEPKc.exit572, label %275, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit573:                          ; preds = %290, %288
-  %.015.i571 = phi i64 [ %289, %288 ], [ 255, %290 ]
-  %291 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i571
+_ZN4pkpy2TKEPKc.exit572:                          ; preds = %290, %288
+  %.015.i570 = phi i64 [ %289, %288 ], [ 255, %290 ]
+  %291 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i570
   %.sroa.3223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %291, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3223.0..sroa_idx, align 8
@@ -4201,48 +4201,48 @@ _ZN4pkpy2TKEPKc.exit573:                          ; preds = %290, %288
   store i32 6, ptr %.sroa.5225.0..sroa_idx, align 8
   br label %292
 
-292:                                              ; preds = %307, %_ZN4pkpy2TKEPKc.exit573
-  %indvars.iv.i574 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit573 ], [ %indvars.iv.next.i582, %307 ]
-  %293 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i574
+292:                                              ; preds = %307, %_ZN4pkpy2TKEPKc.exit572
+  %indvars.iv.i573 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit572 ], [ %indvars.iv.next.i581, %307 ]
+  %293 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i573
   %294 = load ptr, ptr %293, align 8
   %295 = load i8, ptr %294, align 1
-  %.not20.i575 = icmp eq i8 %295, 0
-  br i1 %.not20.i575, label %.critedge.i579, label %.lr.ph.i576
+  %.not20.i574 = icmp eq i8 %295, 0
+  br i1 %.not20.i574, label %.critedge.i578, label %.lr.ph.i575
 
-.lr.ph.i576:                                      ; preds = %292, %299
+.lr.ph.i575:                                      ; preds = %292, %299
   %296 = phi i8 [ %302, %299 ], [ %295, %292 ]
-  %.022.i577 = phi ptr [ %301, %299 ], [ @.str.29, %292 ]
-  %.01321.i578 = phi ptr [ %300, %299 ], [ %294, %292 ]
-  %297 = load i8, ptr %.022.i577, align 1
+  %.022.i576 = phi ptr [ %301, %299 ], [ @.str.29, %292 ]
+  %.01321.i577 = phi ptr [ %300, %299 ], [ %294, %292 ]
+  %297 = load i8, ptr %.022.i576, align 1
   %298 = icmp eq i8 %296, %297
-  br i1 %298, label %299, label %.critedge.i579
+  br i1 %298, label %299, label %.critedge.i578
 
-299:                                              ; preds = %.lr.ph.i576
-  %300 = getelementptr inbounds nuw i8, ptr %.01321.i578, i64 1
-  %301 = getelementptr inbounds nuw i8, ptr %.022.i577, i64 1
+299:                                              ; preds = %.lr.ph.i575
+  %300 = getelementptr inbounds nuw i8, ptr %.01321.i577, i64 1
+  %301 = getelementptr inbounds nuw i8, ptr %.022.i576, i64 1
   %302 = load i8, ptr %300, align 1
-  %.not.i585 = icmp eq i8 %302, 0
-  br i1 %.not.i585, label %.critedge.i579, label %.lr.ph.i576, !llvm.loop !15
+  %.not.i584 = icmp eq i8 %302, 0
+  br i1 %.not.i584, label %.critedge.i578, label %.lr.ph.i575, !llvm.loop !15
 
-.critedge.i579:                                   ; preds = %299, %.lr.ph.i576, %292
-  %.0.lcssa.i580 = phi ptr [ @.str.29, %292 ], [ %301, %299 ], [ %.022.i577, %.lr.ph.i576 ]
-  %.lcssa.i581 = phi i8 [ 0, %292 ], [ 0, %299 ], [ %296, %.lr.ph.i576 ]
-  %303 = load i8, ptr %.0.lcssa.i580, align 1
-  %304 = icmp eq i8 %.lcssa.i581, %303
+.critedge.i578:                                   ; preds = %299, %.lr.ph.i575, %292
+  %.0.lcssa.i579 = phi ptr [ @.str.29, %292 ], [ %301, %299 ], [ %.022.i576, %.lr.ph.i575 ]
+  %.lcssa.i580 = phi i8 [ 0, %292 ], [ 0, %299 ], [ %296, %.lr.ph.i575 ]
+  %303 = load i8, ptr %.0.lcssa.i579, align 1
+  %304 = icmp eq i8 %.lcssa.i580, %303
   br i1 %304, label %305, label %307
 
-305:                                              ; preds = %.critedge.i579
-  %306 = and i64 %indvars.iv.i574, 255
-  br label %_ZN4pkpy2TKEPKc.exit586
+305:                                              ; preds = %.critedge.i578
+  %306 = and i64 %indvars.iv.i573, 255
+  br label %_ZN4pkpy2TKEPKc.exit585
 
-307:                                              ; preds = %.critedge.i579
-  %indvars.iv.next.i582 = add nuw nsw i64 %indvars.iv.i574, 1
-  %exitcond.not.i583 = icmp eq i64 %indvars.iv.next.i582, 95
-  br i1 %exitcond.not.i583, label %_ZN4pkpy2TKEPKc.exit586, label %292, !llvm.loop !16
+307:                                              ; preds = %.critedge.i578
+  %indvars.iv.next.i581 = add nuw nsw i64 %indvars.iv.i573, 1
+  %exitcond.not.i582 = icmp eq i64 %indvars.iv.next.i581, 95
+  br i1 %exitcond.not.i582, label %_ZN4pkpy2TKEPKc.exit585, label %292, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit586:                          ; preds = %307, %305
-  %.015.i584 = phi i64 [ %306, %305 ], [ 255, %307 ]
-  %308 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i584
+_ZN4pkpy2TKEPKc.exit585:                          ; preds = %307, %305
+  %.015.i583 = phi i64 [ %306, %305 ], [ 255, %307 ]
+  %308 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i583
   %.sroa.3215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %308, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3215.0..sroa_idx, align 8
@@ -4252,48 +4252,48 @@ _ZN4pkpy2TKEPKc.exit586:                          ; preds = %307, %305
   store i32 6, ptr %.sroa.5217.0..sroa_idx, align 8
   br label %309
 
-309:                                              ; preds = %324, %_ZN4pkpy2TKEPKc.exit586
-  %indvars.iv.i587 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit586 ], [ %indvars.iv.next.i595, %324 ]
-  %310 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i587
+309:                                              ; preds = %324, %_ZN4pkpy2TKEPKc.exit585
+  %indvars.iv.i586 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit585 ], [ %indvars.iv.next.i594, %324 ]
+  %310 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i586
   %311 = load ptr, ptr %310, align 8
   %312 = load i8, ptr %311, align 1
-  %.not20.i588 = icmp eq i8 %312, 0
-  br i1 %.not20.i588, label %.critedge.i592, label %.lr.ph.i589
+  %.not20.i587 = icmp eq i8 %312, 0
+  br i1 %.not20.i587, label %.critedge.i591, label %.lr.ph.i588
 
-.lr.ph.i589:                                      ; preds = %309, %316
+.lr.ph.i588:                                      ; preds = %309, %316
   %313 = phi i8 [ %319, %316 ], [ %312, %309 ]
-  %.022.i590 = phi ptr [ %318, %316 ], [ @.str.30, %309 ]
-  %.01321.i591 = phi ptr [ %317, %316 ], [ %311, %309 ]
-  %314 = load i8, ptr %.022.i590, align 1
+  %.022.i589 = phi ptr [ %318, %316 ], [ @.str.30, %309 ]
+  %.01321.i590 = phi ptr [ %317, %316 ], [ %311, %309 ]
+  %314 = load i8, ptr %.022.i589, align 1
   %315 = icmp eq i8 %313, %314
-  br i1 %315, label %316, label %.critedge.i592
+  br i1 %315, label %316, label %.critedge.i591
 
-316:                                              ; preds = %.lr.ph.i589
-  %317 = getelementptr inbounds nuw i8, ptr %.01321.i591, i64 1
-  %318 = getelementptr inbounds nuw i8, ptr %.022.i590, i64 1
+316:                                              ; preds = %.lr.ph.i588
+  %317 = getelementptr inbounds nuw i8, ptr %.01321.i590, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %.022.i589, i64 1
   %319 = load i8, ptr %317, align 1
-  %.not.i598 = icmp eq i8 %319, 0
-  br i1 %.not.i598, label %.critedge.i592, label %.lr.ph.i589, !llvm.loop !15
+  %.not.i597 = icmp eq i8 %319, 0
+  br i1 %.not.i597, label %.critedge.i591, label %.lr.ph.i588, !llvm.loop !15
 
-.critedge.i592:                                   ; preds = %316, %.lr.ph.i589, %309
-  %.0.lcssa.i593 = phi ptr [ @.str.30, %309 ], [ %318, %316 ], [ %.022.i590, %.lr.ph.i589 ]
-  %.lcssa.i594 = phi i8 [ 0, %309 ], [ 0, %316 ], [ %313, %.lr.ph.i589 ]
-  %320 = load i8, ptr %.0.lcssa.i593, align 1
-  %321 = icmp eq i8 %.lcssa.i594, %320
+.critedge.i591:                                   ; preds = %316, %.lr.ph.i588, %309
+  %.0.lcssa.i592 = phi ptr [ @.str.30, %309 ], [ %318, %316 ], [ %.022.i589, %.lr.ph.i588 ]
+  %.lcssa.i593 = phi i8 [ 0, %309 ], [ 0, %316 ], [ %313, %.lr.ph.i588 ]
+  %320 = load i8, ptr %.0.lcssa.i592, align 1
+  %321 = icmp eq i8 %.lcssa.i593, %320
   br i1 %321, label %322, label %324
 
-322:                                              ; preds = %.critedge.i592
-  %323 = and i64 %indvars.iv.i587, 255
-  br label %_ZN4pkpy2TKEPKc.exit599
+322:                                              ; preds = %.critedge.i591
+  %323 = and i64 %indvars.iv.i586, 255
+  br label %_ZN4pkpy2TKEPKc.exit598
 
-324:                                              ; preds = %.critedge.i592
-  %indvars.iv.next.i595 = add nuw nsw i64 %indvars.iv.i587, 1
-  %exitcond.not.i596 = icmp eq i64 %indvars.iv.next.i595, 95
-  br i1 %exitcond.not.i596, label %_ZN4pkpy2TKEPKc.exit599, label %309, !llvm.loop !16
+324:                                              ; preds = %.critedge.i591
+  %indvars.iv.next.i594 = add nuw nsw i64 %indvars.iv.i586, 1
+  %exitcond.not.i595 = icmp eq i64 %indvars.iv.next.i594, 95
+  br i1 %exitcond.not.i595, label %_ZN4pkpy2TKEPKc.exit598, label %309, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit599:                          ; preds = %324, %322
-  %.015.i597 = phi i64 [ %323, %322 ], [ 255, %324 ]
-  %325 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i597
+_ZN4pkpy2TKEPKc.exit598:                          ; preds = %324, %322
+  %.015.i596 = phi i64 [ %323, %322 ], [ 255, %324 ]
+  %325 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i596
   %.sroa.3207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %325, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %325, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3207.0..sroa_idx, align 8
@@ -4303,48 +4303,48 @@ _ZN4pkpy2TKEPKc.exit599:                          ; preds = %324, %322
   store i32 6, ptr %.sroa.5209.0..sroa_idx, align 8
   br label %326
 
-326:                                              ; preds = %341, %_ZN4pkpy2TKEPKc.exit599
-  %indvars.iv.i600 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit599 ], [ %indvars.iv.next.i608, %341 ]
-  %327 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i600
+326:                                              ; preds = %341, %_ZN4pkpy2TKEPKc.exit598
+  %indvars.iv.i599 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit598 ], [ %indvars.iv.next.i607, %341 ]
+  %327 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i599
   %328 = load ptr, ptr %327, align 8
   %329 = load i8, ptr %328, align 1
-  %.not20.i601 = icmp eq i8 %329, 0
-  br i1 %.not20.i601, label %.critedge.i605, label %.lr.ph.i602
+  %.not20.i600 = icmp eq i8 %329, 0
+  br i1 %.not20.i600, label %.critedge.i604, label %.lr.ph.i601
 
-.lr.ph.i602:                                      ; preds = %326, %333
+.lr.ph.i601:                                      ; preds = %326, %333
   %330 = phi i8 [ %336, %333 ], [ %329, %326 ]
-  %.022.i603 = phi ptr [ %335, %333 ], [ @.str.31, %326 ]
-  %.01321.i604 = phi ptr [ %334, %333 ], [ %328, %326 ]
-  %331 = load i8, ptr %.022.i603, align 1
+  %.022.i602 = phi ptr [ %335, %333 ], [ @.str.31, %326 ]
+  %.01321.i603 = phi ptr [ %334, %333 ], [ %328, %326 ]
+  %331 = load i8, ptr %.022.i602, align 1
   %332 = icmp eq i8 %330, %331
-  br i1 %332, label %333, label %.critedge.i605
+  br i1 %332, label %333, label %.critedge.i604
 
-333:                                              ; preds = %.lr.ph.i602
-  %334 = getelementptr inbounds nuw i8, ptr %.01321.i604, i64 1
-  %335 = getelementptr inbounds nuw i8, ptr %.022.i603, i64 1
+333:                                              ; preds = %.lr.ph.i601
+  %334 = getelementptr inbounds nuw i8, ptr %.01321.i603, i64 1
+  %335 = getelementptr inbounds nuw i8, ptr %.022.i602, i64 1
   %336 = load i8, ptr %334, align 1
-  %.not.i611 = icmp eq i8 %336, 0
-  br i1 %.not.i611, label %.critedge.i605, label %.lr.ph.i602, !llvm.loop !15
+  %.not.i610 = icmp eq i8 %336, 0
+  br i1 %.not.i610, label %.critedge.i604, label %.lr.ph.i601, !llvm.loop !15
 
-.critedge.i605:                                   ; preds = %333, %.lr.ph.i602, %326
-  %.0.lcssa.i606 = phi ptr [ @.str.31, %326 ], [ %335, %333 ], [ %.022.i603, %.lr.ph.i602 ]
-  %.lcssa.i607 = phi i8 [ 0, %326 ], [ 0, %333 ], [ %330, %.lr.ph.i602 ]
-  %337 = load i8, ptr %.0.lcssa.i606, align 1
-  %338 = icmp eq i8 %.lcssa.i607, %337
+.critedge.i604:                                   ; preds = %333, %.lr.ph.i601, %326
+  %.0.lcssa.i605 = phi ptr [ @.str.31, %326 ], [ %335, %333 ], [ %.022.i602, %.lr.ph.i601 ]
+  %.lcssa.i606 = phi i8 [ 0, %326 ], [ 0, %333 ], [ %330, %.lr.ph.i601 ]
+  %337 = load i8, ptr %.0.lcssa.i605, align 1
+  %338 = icmp eq i8 %.lcssa.i606, %337
   br i1 %338, label %339, label %341
 
-339:                                              ; preds = %.critedge.i605
-  %340 = and i64 %indvars.iv.i600, 255
-  br label %_ZN4pkpy2TKEPKc.exit612
+339:                                              ; preds = %.critedge.i604
+  %340 = and i64 %indvars.iv.i599, 255
+  br label %_ZN4pkpy2TKEPKc.exit611
 
-341:                                              ; preds = %.critedge.i605
-  %indvars.iv.next.i608 = add nuw nsw i64 %indvars.iv.i600, 1
-  %exitcond.not.i609 = icmp eq i64 %indvars.iv.next.i608, 95
-  br i1 %exitcond.not.i609, label %_ZN4pkpy2TKEPKc.exit612, label %326, !llvm.loop !16
+341:                                              ; preds = %.critedge.i604
+  %indvars.iv.next.i607 = add nuw nsw i64 %indvars.iv.i599, 1
+  %exitcond.not.i608 = icmp eq i64 %indvars.iv.next.i607, 95
+  br i1 %exitcond.not.i608, label %_ZN4pkpy2TKEPKc.exit611, label %326, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit612:                          ; preds = %341, %339
-  %.015.i610 = phi i64 [ %340, %339 ], [ 255, %341 ]
-  %342 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i610
+_ZN4pkpy2TKEPKc.exit611:                          ; preds = %341, %339
+  %.015.i609 = phi i64 [ %340, %339 ], [ 255, %341 ]
+  %342 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i609
   %.sroa.3199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %342, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3199.0..sroa_idx, align 8
@@ -4354,48 +4354,48 @@ _ZN4pkpy2TKEPKc.exit612:                          ; preds = %341, %339
   store i32 6, ptr %.sroa.5201.0..sroa_idx, align 8
   br label %343
 
-343:                                              ; preds = %358, %_ZN4pkpy2TKEPKc.exit612
-  %indvars.iv.i613 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit612 ], [ %indvars.iv.next.i621, %358 ]
-  %344 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i613
+343:                                              ; preds = %358, %_ZN4pkpy2TKEPKc.exit611
+  %indvars.iv.i612 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit611 ], [ %indvars.iv.next.i620, %358 ]
+  %344 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i612
   %345 = load ptr, ptr %344, align 8
   %346 = load i8, ptr %345, align 1
-  %.not20.i614 = icmp eq i8 %346, 0
-  br i1 %.not20.i614, label %.critedge.i618, label %.lr.ph.i615
+  %.not20.i613 = icmp eq i8 %346, 0
+  br i1 %.not20.i613, label %.critedge.i617, label %.lr.ph.i614
 
-.lr.ph.i615:                                      ; preds = %343, %350
+.lr.ph.i614:                                      ; preds = %343, %350
   %347 = phi i8 [ %353, %350 ], [ %346, %343 ]
-  %.022.i616 = phi ptr [ %352, %350 ], [ @.str.32, %343 ]
-  %.01321.i617 = phi ptr [ %351, %350 ], [ %345, %343 ]
-  %348 = load i8, ptr %.022.i616, align 1
+  %.022.i615 = phi ptr [ %352, %350 ], [ @.str.32, %343 ]
+  %.01321.i616 = phi ptr [ %351, %350 ], [ %345, %343 ]
+  %348 = load i8, ptr %.022.i615, align 1
   %349 = icmp eq i8 %347, %348
-  br i1 %349, label %350, label %.critedge.i618
+  br i1 %349, label %350, label %.critedge.i617
 
-350:                                              ; preds = %.lr.ph.i615
-  %351 = getelementptr inbounds nuw i8, ptr %.01321.i617, i64 1
-  %352 = getelementptr inbounds nuw i8, ptr %.022.i616, i64 1
+350:                                              ; preds = %.lr.ph.i614
+  %351 = getelementptr inbounds nuw i8, ptr %.01321.i616, i64 1
+  %352 = getelementptr inbounds nuw i8, ptr %.022.i615, i64 1
   %353 = load i8, ptr %351, align 1
-  %.not.i624 = icmp eq i8 %353, 0
-  br i1 %.not.i624, label %.critedge.i618, label %.lr.ph.i615, !llvm.loop !15
+  %.not.i623 = icmp eq i8 %353, 0
+  br i1 %.not.i623, label %.critedge.i617, label %.lr.ph.i614, !llvm.loop !15
 
-.critedge.i618:                                   ; preds = %350, %.lr.ph.i615, %343
-  %.0.lcssa.i619 = phi ptr [ @.str.32, %343 ], [ %352, %350 ], [ %.022.i616, %.lr.ph.i615 ]
-  %.lcssa.i620 = phi i8 [ 0, %343 ], [ 0, %350 ], [ %347, %.lr.ph.i615 ]
-  %354 = load i8, ptr %.0.lcssa.i619, align 1
-  %355 = icmp eq i8 %.lcssa.i620, %354
+.critedge.i617:                                   ; preds = %350, %.lr.ph.i614, %343
+  %.0.lcssa.i618 = phi ptr [ @.str.32, %343 ], [ %352, %350 ], [ %.022.i615, %.lr.ph.i614 ]
+  %.lcssa.i619 = phi i8 [ 0, %343 ], [ 0, %350 ], [ %347, %.lr.ph.i614 ]
+  %354 = load i8, ptr %.0.lcssa.i618, align 1
+  %355 = icmp eq i8 %.lcssa.i619, %354
   br i1 %355, label %356, label %358
 
-356:                                              ; preds = %.critedge.i618
-  %357 = and i64 %indvars.iv.i613, 255
-  br label %_ZN4pkpy2TKEPKc.exit625
+356:                                              ; preds = %.critedge.i617
+  %357 = and i64 %indvars.iv.i612, 255
+  br label %_ZN4pkpy2TKEPKc.exit624
 
-358:                                              ; preds = %.critedge.i618
-  %indvars.iv.next.i621 = add nuw nsw i64 %indvars.iv.i613, 1
-  %exitcond.not.i622 = icmp eq i64 %indvars.iv.next.i621, 95
-  br i1 %exitcond.not.i622, label %_ZN4pkpy2TKEPKc.exit625, label %343, !llvm.loop !16
+358:                                              ; preds = %.critedge.i617
+  %indvars.iv.next.i620 = add nuw nsw i64 %indvars.iv.i612, 1
+  %exitcond.not.i621 = icmp eq i64 %indvars.iv.next.i620, 95
+  br i1 %exitcond.not.i621, label %_ZN4pkpy2TKEPKc.exit624, label %343, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit625:                          ; preds = %358, %356
-  %.015.i623 = phi i64 [ %357, %356 ], [ 255, %358 ]
-  %359 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i623
+_ZN4pkpy2TKEPKc.exit624:                          ; preds = %358, %356
+  %.015.i622 = phi i64 [ %357, %356 ], [ 255, %358 ]
+  %359 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i622
   %.sroa.3191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %359, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3191.0..sroa_idx, align 8
@@ -4405,48 +4405,48 @@ _ZN4pkpy2TKEPKc.exit625:                          ; preds = %358, %356
   store i32 10, ptr %.sroa.5193.0..sroa_idx, align 8
   br label %360
 
-360:                                              ; preds = %375, %_ZN4pkpy2TKEPKc.exit625
-  %indvars.iv.i626 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit625 ], [ %indvars.iv.next.i634, %375 ]
-  %361 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i626
+360:                                              ; preds = %375, %_ZN4pkpy2TKEPKc.exit624
+  %indvars.iv.i625 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit624 ], [ %indvars.iv.next.i633, %375 ]
+  %361 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i625
   %362 = load ptr, ptr %361, align 8
   %363 = load i8, ptr %362, align 1
-  %.not20.i627 = icmp eq i8 %363, 0
-  br i1 %.not20.i627, label %.critedge.i631, label %.lr.ph.i628
+  %.not20.i626 = icmp eq i8 %363, 0
+  br i1 %.not20.i626, label %.critedge.i630, label %.lr.ph.i627
 
-.lr.ph.i628:                                      ; preds = %360, %367
+.lr.ph.i627:                                      ; preds = %360, %367
   %364 = phi i8 [ %370, %367 ], [ %363, %360 ]
-  %.022.i629 = phi ptr [ %369, %367 ], [ @.str.33, %360 ]
-  %.01321.i630 = phi ptr [ %368, %367 ], [ %362, %360 ]
-  %365 = load i8, ptr %.022.i629, align 1
+  %.022.i628 = phi ptr [ %369, %367 ], [ @.str.33, %360 ]
+  %.01321.i629 = phi ptr [ %368, %367 ], [ %362, %360 ]
+  %365 = load i8, ptr %.022.i628, align 1
   %366 = icmp eq i8 %364, %365
-  br i1 %366, label %367, label %.critedge.i631
+  br i1 %366, label %367, label %.critedge.i630
 
-367:                                              ; preds = %.lr.ph.i628
-  %368 = getelementptr inbounds nuw i8, ptr %.01321.i630, i64 1
-  %369 = getelementptr inbounds nuw i8, ptr %.022.i629, i64 1
+367:                                              ; preds = %.lr.ph.i627
+  %368 = getelementptr inbounds nuw i8, ptr %.01321.i629, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %.022.i628, i64 1
   %370 = load i8, ptr %368, align 1
-  %.not.i637 = icmp eq i8 %370, 0
-  br i1 %.not.i637, label %.critedge.i631, label %.lr.ph.i628, !llvm.loop !15
+  %.not.i636 = icmp eq i8 %370, 0
+  br i1 %.not.i636, label %.critedge.i630, label %.lr.ph.i627, !llvm.loop !15
 
-.critedge.i631:                                   ; preds = %367, %.lr.ph.i628, %360
-  %.0.lcssa.i632 = phi ptr [ @.str.33, %360 ], [ %369, %367 ], [ %.022.i629, %.lr.ph.i628 ]
-  %.lcssa.i633 = phi i8 [ 0, %360 ], [ 0, %367 ], [ %364, %.lr.ph.i628 ]
-  %371 = load i8, ptr %.0.lcssa.i632, align 1
-  %372 = icmp eq i8 %.lcssa.i633, %371
+.critedge.i630:                                   ; preds = %367, %.lr.ph.i627, %360
+  %.0.lcssa.i631 = phi ptr [ @.str.33, %360 ], [ %369, %367 ], [ %.022.i628, %.lr.ph.i627 ]
+  %.lcssa.i632 = phi i8 [ 0, %360 ], [ 0, %367 ], [ %364, %.lr.ph.i627 ]
+  %371 = load i8, ptr %.0.lcssa.i631, align 1
+  %372 = icmp eq i8 %.lcssa.i632, %371
   br i1 %372, label %373, label %375
 
-373:                                              ; preds = %.critedge.i631
-  %374 = and i64 %indvars.iv.i626, 255
-  br label %_ZN4pkpy2TKEPKc.exit638
+373:                                              ; preds = %.critedge.i630
+  %374 = and i64 %indvars.iv.i625, 255
+  br label %_ZN4pkpy2TKEPKc.exit637
 
-375:                                              ; preds = %.critedge.i631
-  %indvars.iv.next.i634 = add nuw nsw i64 %indvars.iv.i626, 1
-  %exitcond.not.i635 = icmp eq i64 %indvars.iv.next.i634, 95
-  br i1 %exitcond.not.i635, label %_ZN4pkpy2TKEPKc.exit638, label %360, !llvm.loop !16
+375:                                              ; preds = %.critedge.i630
+  %indvars.iv.next.i633 = add nuw nsw i64 %indvars.iv.i625, 1
+  %exitcond.not.i634 = icmp eq i64 %indvars.iv.next.i633, 95
+  br i1 %exitcond.not.i634, label %_ZN4pkpy2TKEPKc.exit637, label %360, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit638:                          ; preds = %375, %373
-  %.015.i636 = phi i64 [ %374, %373 ], [ 255, %375 ]
-  %376 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i636
+_ZN4pkpy2TKEPKc.exit637:                          ; preds = %375, %373
+  %.015.i635 = phi i64 [ %374, %373 ], [ 255, %375 ]
+  %376 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i635
   %.sroa.3183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3183.0..sroa_idx, align 8
@@ -4456,48 +4456,48 @@ _ZN4pkpy2TKEPKc.exit638:                          ; preds = %375, %373
   store i32 10, ptr %.sroa.5185.0..sroa_idx, align 8
   br label %377
 
-377:                                              ; preds = %392, %_ZN4pkpy2TKEPKc.exit638
-  %indvars.iv.i639 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit638 ], [ %indvars.iv.next.i647, %392 ]
-  %378 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i639
+377:                                              ; preds = %392, %_ZN4pkpy2TKEPKc.exit637
+  %indvars.iv.i638 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit637 ], [ %indvars.iv.next.i646, %392 ]
+  %378 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i638
   %379 = load ptr, ptr %378, align 8
   %380 = load i8, ptr %379, align 1
-  %.not20.i640 = icmp eq i8 %380, 0
-  br i1 %.not20.i640, label %.critedge.i644, label %.lr.ph.i641
+  %.not20.i639 = icmp eq i8 %380, 0
+  br i1 %.not20.i639, label %.critedge.i643, label %.lr.ph.i640
 
-.lr.ph.i641:                                      ; preds = %377, %384
+.lr.ph.i640:                                      ; preds = %377, %384
   %381 = phi i8 [ %387, %384 ], [ %380, %377 ]
-  %.022.i642 = phi ptr [ %386, %384 ], [ @.str.34, %377 ]
-  %.01321.i643 = phi ptr [ %385, %384 ], [ %379, %377 ]
-  %382 = load i8, ptr %.022.i642, align 1
+  %.022.i641 = phi ptr [ %386, %384 ], [ @.str.34, %377 ]
+  %.01321.i642 = phi ptr [ %385, %384 ], [ %379, %377 ]
+  %382 = load i8, ptr %.022.i641, align 1
   %383 = icmp eq i8 %381, %382
-  br i1 %383, label %384, label %.critedge.i644
+  br i1 %383, label %384, label %.critedge.i643
 
-384:                                              ; preds = %.lr.ph.i641
-  %385 = getelementptr inbounds nuw i8, ptr %.01321.i643, i64 1
-  %386 = getelementptr inbounds nuw i8, ptr %.022.i642, i64 1
+384:                                              ; preds = %.lr.ph.i640
+  %385 = getelementptr inbounds nuw i8, ptr %.01321.i642, i64 1
+  %386 = getelementptr inbounds nuw i8, ptr %.022.i641, i64 1
   %387 = load i8, ptr %385, align 1
-  %.not.i650 = icmp eq i8 %387, 0
-  br i1 %.not.i650, label %.critedge.i644, label %.lr.ph.i641, !llvm.loop !15
+  %.not.i649 = icmp eq i8 %387, 0
+  br i1 %.not.i649, label %.critedge.i643, label %.lr.ph.i640, !llvm.loop !15
 
-.critedge.i644:                                   ; preds = %384, %.lr.ph.i641, %377
-  %.0.lcssa.i645 = phi ptr [ @.str.34, %377 ], [ %386, %384 ], [ %.022.i642, %.lr.ph.i641 ]
-  %.lcssa.i646 = phi i8 [ 0, %377 ], [ 0, %384 ], [ %381, %.lr.ph.i641 ]
-  %388 = load i8, ptr %.0.lcssa.i645, align 1
-  %389 = icmp eq i8 %.lcssa.i646, %388
+.critedge.i643:                                   ; preds = %384, %.lr.ph.i640, %377
+  %.0.lcssa.i644 = phi ptr [ @.str.34, %377 ], [ %386, %384 ], [ %.022.i641, %.lr.ph.i640 ]
+  %.lcssa.i645 = phi i8 [ 0, %377 ], [ 0, %384 ], [ %381, %.lr.ph.i640 ]
+  %388 = load i8, ptr %.0.lcssa.i644, align 1
+  %389 = icmp eq i8 %.lcssa.i645, %388
   br i1 %389, label %390, label %392
 
-390:                                              ; preds = %.critedge.i644
-  %391 = and i64 %indvars.iv.i639, 255
-  br label %_ZN4pkpy2TKEPKc.exit651
+390:                                              ; preds = %.critedge.i643
+  %391 = and i64 %indvars.iv.i638, 255
+  br label %_ZN4pkpy2TKEPKc.exit650
 
-392:                                              ; preds = %.critedge.i644
-  %indvars.iv.next.i647 = add nuw nsw i64 %indvars.iv.i639, 1
-  %exitcond.not.i648 = icmp eq i64 %indvars.iv.next.i647, 95
-  br i1 %exitcond.not.i648, label %_ZN4pkpy2TKEPKc.exit651, label %377, !llvm.loop !16
+392:                                              ; preds = %.critedge.i643
+  %indvars.iv.next.i646 = add nuw nsw i64 %indvars.iv.i638, 1
+  %exitcond.not.i647 = icmp eq i64 %indvars.iv.next.i646, 95
+  br i1 %exitcond.not.i647, label %_ZN4pkpy2TKEPKc.exit650, label %377, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit651:                          ; preds = %392, %390
-  %.015.i649 = phi i64 [ %391, %390 ], [ 255, %392 ]
-  %393 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i649
+_ZN4pkpy2TKEPKc.exit650:                          ; preds = %392, %390
+  %.015.i648 = phi i64 [ %391, %390 ], [ 255, %392 ]
+  %393 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i648
   %.sroa.3175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %393, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %393, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3175.0..sroa_idx, align 8
@@ -4507,48 +4507,48 @@ _ZN4pkpy2TKEPKc.exit651:                          ; preds = %392, %390
   store i32 9, ptr %.sroa.5177.0..sroa_idx, align 8
   br label %394
 
-394:                                              ; preds = %409, %_ZN4pkpy2TKEPKc.exit651
-  %indvars.iv.i652 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit651 ], [ %indvars.iv.next.i660, %409 ]
-  %395 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i652
+394:                                              ; preds = %409, %_ZN4pkpy2TKEPKc.exit650
+  %indvars.iv.i651 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit650 ], [ %indvars.iv.next.i659, %409 ]
+  %395 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i651
   %396 = load ptr, ptr %395, align 8
   %397 = load i8, ptr %396, align 1
-  %.not20.i653 = icmp eq i8 %397, 0
-  br i1 %.not20.i653, label %.critedge.i657, label %.lr.ph.i654
+  %.not20.i652 = icmp eq i8 %397, 0
+  br i1 %.not20.i652, label %.critedge.i656, label %.lr.ph.i653
 
-.lr.ph.i654:                                      ; preds = %394, %401
+.lr.ph.i653:                                      ; preds = %394, %401
   %398 = phi i8 [ %404, %401 ], [ %397, %394 ]
-  %.022.i655 = phi ptr [ %403, %401 ], [ @.str.35, %394 ]
-  %.01321.i656 = phi ptr [ %402, %401 ], [ %396, %394 ]
-  %399 = load i8, ptr %.022.i655, align 1
+  %.022.i654 = phi ptr [ %403, %401 ], [ @.str.35, %394 ]
+  %.01321.i655 = phi ptr [ %402, %401 ], [ %396, %394 ]
+  %399 = load i8, ptr %.022.i654, align 1
   %400 = icmp eq i8 %398, %399
-  br i1 %400, label %401, label %.critedge.i657
+  br i1 %400, label %401, label %.critedge.i656
 
-401:                                              ; preds = %.lr.ph.i654
-  %402 = getelementptr inbounds nuw i8, ptr %.01321.i656, i64 1
-  %403 = getelementptr inbounds nuw i8, ptr %.022.i655, i64 1
+401:                                              ; preds = %.lr.ph.i653
+  %402 = getelementptr inbounds nuw i8, ptr %.01321.i655, i64 1
+  %403 = getelementptr inbounds nuw i8, ptr %.022.i654, i64 1
   %404 = load i8, ptr %402, align 1
-  %.not.i663 = icmp eq i8 %404, 0
-  br i1 %.not.i663, label %.critedge.i657, label %.lr.ph.i654, !llvm.loop !15
+  %.not.i662 = icmp eq i8 %404, 0
+  br i1 %.not.i662, label %.critedge.i656, label %.lr.ph.i653, !llvm.loop !15
 
-.critedge.i657:                                   ; preds = %401, %.lr.ph.i654, %394
-  %.0.lcssa.i658 = phi ptr [ @.str.35, %394 ], [ %403, %401 ], [ %.022.i655, %.lr.ph.i654 ]
-  %.lcssa.i659 = phi i8 [ 0, %394 ], [ 0, %401 ], [ %398, %.lr.ph.i654 ]
-  %405 = load i8, ptr %.0.lcssa.i658, align 1
-  %406 = icmp eq i8 %.lcssa.i659, %405
+.critedge.i656:                                   ; preds = %401, %.lr.ph.i653, %394
+  %.0.lcssa.i657 = phi ptr [ @.str.35, %394 ], [ %403, %401 ], [ %.022.i654, %.lr.ph.i653 ]
+  %.lcssa.i658 = phi i8 [ 0, %394 ], [ 0, %401 ], [ %398, %.lr.ph.i653 ]
+  %405 = load i8, ptr %.0.lcssa.i657, align 1
+  %406 = icmp eq i8 %.lcssa.i658, %405
   br i1 %406, label %407, label %409
 
-407:                                              ; preds = %.critedge.i657
-  %408 = and i64 %indvars.iv.i652, 255
-  br label %_ZN4pkpy2TKEPKc.exit664
+407:                                              ; preds = %.critedge.i656
+  %408 = and i64 %indvars.iv.i651, 255
+  br label %_ZN4pkpy2TKEPKc.exit663
 
-409:                                              ; preds = %.critedge.i657
-  %indvars.iv.next.i660 = add nuw nsw i64 %indvars.iv.i652, 1
-  %exitcond.not.i661 = icmp eq i64 %indvars.iv.next.i660, 95
-  br i1 %exitcond.not.i661, label %_ZN4pkpy2TKEPKc.exit664, label %394, !llvm.loop !16
+409:                                              ; preds = %.critedge.i656
+  %indvars.iv.next.i659 = add nuw nsw i64 %indvars.iv.i651, 1
+  %exitcond.not.i660 = icmp eq i64 %indvars.iv.next.i659, 95
+  br i1 %exitcond.not.i660, label %_ZN4pkpy2TKEPKc.exit663, label %394, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit664:                          ; preds = %409, %407
-  %.015.i662 = phi i64 [ %408, %407 ], [ 255, %409 ]
-  %410 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i662
+_ZN4pkpy2TKEPKc.exit663:                          ; preds = %409, %407
+  %.015.i661 = phi i64 [ %408, %407 ], [ 255, %409 ]
+  %410 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i661
   %.sroa.3167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %410, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3167.0..sroa_idx, align 8
@@ -4558,48 +4558,48 @@ _ZN4pkpy2TKEPKc.exit664:                          ; preds = %409, %407
   store i32 7, ptr %.sroa.5169.0..sroa_idx, align 8
   br label %411
 
-411:                                              ; preds = %426, %_ZN4pkpy2TKEPKc.exit664
-  %indvars.iv.i665 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit664 ], [ %indvars.iv.next.i673, %426 ]
-  %412 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i665
+411:                                              ; preds = %426, %_ZN4pkpy2TKEPKc.exit663
+  %indvars.iv.i664 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit663 ], [ %indvars.iv.next.i672, %426 ]
+  %412 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i664
   %413 = load ptr, ptr %412, align 8
   %414 = load i8, ptr %413, align 1
-  %.not20.i666 = icmp eq i8 %414, 0
-  br i1 %.not20.i666, label %.critedge.i670, label %.lr.ph.i667
+  %.not20.i665 = icmp eq i8 %414, 0
+  br i1 %.not20.i665, label %.critedge.i669, label %.lr.ph.i666
 
-.lr.ph.i667:                                      ; preds = %411, %418
+.lr.ph.i666:                                      ; preds = %411, %418
   %415 = phi i8 [ %421, %418 ], [ %414, %411 ]
-  %.022.i668 = phi ptr [ %420, %418 ], [ @.str.36, %411 ]
-  %.01321.i669 = phi ptr [ %419, %418 ], [ %413, %411 ]
-  %416 = load i8, ptr %.022.i668, align 1
+  %.022.i667 = phi ptr [ %420, %418 ], [ @.str.36, %411 ]
+  %.01321.i668 = phi ptr [ %419, %418 ], [ %413, %411 ]
+  %416 = load i8, ptr %.022.i667, align 1
   %417 = icmp eq i8 %415, %416
-  br i1 %417, label %418, label %.critedge.i670
+  br i1 %417, label %418, label %.critedge.i669
 
-418:                                              ; preds = %.lr.ph.i667
-  %419 = getelementptr inbounds nuw i8, ptr %.01321.i669, i64 1
-  %420 = getelementptr inbounds nuw i8, ptr %.022.i668, i64 1
+418:                                              ; preds = %.lr.ph.i666
+  %419 = getelementptr inbounds nuw i8, ptr %.01321.i668, i64 1
+  %420 = getelementptr inbounds nuw i8, ptr %.022.i667, i64 1
   %421 = load i8, ptr %419, align 1
-  %.not.i676 = icmp eq i8 %421, 0
-  br i1 %.not.i676, label %.critedge.i670, label %.lr.ph.i667, !llvm.loop !15
+  %.not.i675 = icmp eq i8 %421, 0
+  br i1 %.not.i675, label %.critedge.i669, label %.lr.ph.i666, !llvm.loop !15
 
-.critedge.i670:                                   ; preds = %418, %.lr.ph.i667, %411
-  %.0.lcssa.i671 = phi ptr [ @.str.36, %411 ], [ %420, %418 ], [ %.022.i668, %.lr.ph.i667 ]
-  %.lcssa.i672 = phi i8 [ 0, %411 ], [ 0, %418 ], [ %415, %.lr.ph.i667 ]
-  %422 = load i8, ptr %.0.lcssa.i671, align 1
-  %423 = icmp eq i8 %.lcssa.i672, %422
+.critedge.i669:                                   ; preds = %418, %.lr.ph.i666, %411
+  %.0.lcssa.i670 = phi ptr [ @.str.36, %411 ], [ %420, %418 ], [ %.022.i667, %.lr.ph.i666 ]
+  %.lcssa.i671 = phi i8 [ 0, %411 ], [ 0, %418 ], [ %415, %.lr.ph.i666 ]
+  %422 = load i8, ptr %.0.lcssa.i670, align 1
+  %423 = icmp eq i8 %.lcssa.i671, %422
   br i1 %423, label %424, label %426
 
-424:                                              ; preds = %.critedge.i670
-  %425 = and i64 %indvars.iv.i665, 255
-  br label %_ZN4pkpy2TKEPKc.exit677
+424:                                              ; preds = %.critedge.i669
+  %425 = and i64 %indvars.iv.i664, 255
+  br label %_ZN4pkpy2TKEPKc.exit676
 
-426:                                              ; preds = %.critedge.i670
-  %indvars.iv.next.i673 = add nuw nsw i64 %indvars.iv.i665, 1
-  %exitcond.not.i674 = icmp eq i64 %indvars.iv.next.i673, 95
-  br i1 %exitcond.not.i674, label %_ZN4pkpy2TKEPKc.exit677, label %411, !llvm.loop !16
+426:                                              ; preds = %.critedge.i669
+  %indvars.iv.next.i672 = add nuw nsw i64 %indvars.iv.i664, 1
+  %exitcond.not.i673 = icmp eq i64 %indvars.iv.next.i672, 95
+  br i1 %exitcond.not.i673, label %_ZN4pkpy2TKEPKc.exit676, label %411, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit677:                          ; preds = %426, %424
-  %.015.i675 = phi i64 [ %425, %424 ], [ 255, %426 ]
-  %427 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i675
+_ZN4pkpy2TKEPKc.exit676:                          ; preds = %426, %424
+  %.015.i674 = phi i64 [ %425, %424 ], [ 255, %426 ]
+  %427 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i674
   %.sroa.3159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %427, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %427, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3159.0..sroa_idx, align 8
@@ -4609,48 +4609,48 @@ _ZN4pkpy2TKEPKc.exit677:                          ; preds = %426, %424
   store i32 8, ptr %.sroa.5161.0..sroa_idx, align 8
   br label %428
 
-428:                                              ; preds = %443, %_ZN4pkpy2TKEPKc.exit677
-  %indvars.iv.i678 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit677 ], [ %indvars.iv.next.i686, %443 ]
-  %429 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i678
+428:                                              ; preds = %443, %_ZN4pkpy2TKEPKc.exit676
+  %indvars.iv.i677 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit676 ], [ %indvars.iv.next.i685, %443 ]
+  %429 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i677
   %430 = load ptr, ptr %429, align 8
   %431 = load i8, ptr %430, align 1
-  %.not20.i679 = icmp eq i8 %431, 0
-  br i1 %.not20.i679, label %.critedge.i683, label %.lr.ph.i680
+  %.not20.i678 = icmp eq i8 %431, 0
+  br i1 %.not20.i678, label %.critedge.i682, label %.lr.ph.i679
 
-.lr.ph.i680:                                      ; preds = %428, %435
+.lr.ph.i679:                                      ; preds = %428, %435
   %432 = phi i8 [ %438, %435 ], [ %431, %428 ]
-  %.022.i681 = phi ptr [ %437, %435 ], [ @.str.37, %428 ]
-  %.01321.i682 = phi ptr [ %436, %435 ], [ %430, %428 ]
-  %433 = load i8, ptr %.022.i681, align 1
+  %.022.i680 = phi ptr [ %437, %435 ], [ @.str.37, %428 ]
+  %.01321.i681 = phi ptr [ %436, %435 ], [ %430, %428 ]
+  %433 = load i8, ptr %.022.i680, align 1
   %434 = icmp eq i8 %432, %433
-  br i1 %434, label %435, label %.critedge.i683
+  br i1 %434, label %435, label %.critedge.i682
 
-435:                                              ; preds = %.lr.ph.i680
-  %436 = getelementptr inbounds nuw i8, ptr %.01321.i682, i64 1
-  %437 = getelementptr inbounds nuw i8, ptr %.022.i681, i64 1
+435:                                              ; preds = %.lr.ph.i679
+  %436 = getelementptr inbounds nuw i8, ptr %.01321.i681, i64 1
+  %437 = getelementptr inbounds nuw i8, ptr %.022.i680, i64 1
   %438 = load i8, ptr %436, align 1
-  %.not.i689 = icmp eq i8 %438, 0
-  br i1 %.not.i689, label %.critedge.i683, label %.lr.ph.i680, !llvm.loop !15
+  %.not.i688 = icmp eq i8 %438, 0
+  br i1 %.not.i688, label %.critedge.i682, label %.lr.ph.i679, !llvm.loop !15
 
-.critedge.i683:                                   ; preds = %435, %.lr.ph.i680, %428
-  %.0.lcssa.i684 = phi ptr [ @.str.37, %428 ], [ %437, %435 ], [ %.022.i681, %.lr.ph.i680 ]
-  %.lcssa.i685 = phi i8 [ 0, %428 ], [ 0, %435 ], [ %432, %.lr.ph.i680 ]
-  %439 = load i8, ptr %.0.lcssa.i684, align 1
-  %440 = icmp eq i8 %.lcssa.i685, %439
+.critedge.i682:                                   ; preds = %435, %.lr.ph.i679, %428
+  %.0.lcssa.i683 = phi ptr [ @.str.37, %428 ], [ %437, %435 ], [ %.022.i680, %.lr.ph.i679 ]
+  %.lcssa.i684 = phi i8 [ 0, %428 ], [ 0, %435 ], [ %432, %.lr.ph.i679 ]
+  %439 = load i8, ptr %.0.lcssa.i683, align 1
+  %440 = icmp eq i8 %.lcssa.i684, %439
   br i1 %440, label %441, label %443
 
-441:                                              ; preds = %.critedge.i683
-  %442 = and i64 %indvars.iv.i678, 255
-  br label %_ZN4pkpy2TKEPKc.exit690
+441:                                              ; preds = %.critedge.i682
+  %442 = and i64 %indvars.iv.i677, 255
+  br label %_ZN4pkpy2TKEPKc.exit689
 
-443:                                              ; preds = %.critedge.i683
-  %indvars.iv.next.i686 = add nuw nsw i64 %indvars.iv.i678, 1
-  %exitcond.not.i687 = icmp eq i64 %indvars.iv.next.i686, 95
-  br i1 %exitcond.not.i687, label %_ZN4pkpy2TKEPKc.exit690, label %428, !llvm.loop !16
+443:                                              ; preds = %.critedge.i682
+  %indvars.iv.next.i685 = add nuw nsw i64 %indvars.iv.i677, 1
+  %exitcond.not.i686 = icmp eq i64 %indvars.iv.next.i685, 95
+  br i1 %exitcond.not.i686, label %_ZN4pkpy2TKEPKc.exit689, label %428, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit690:                          ; preds = %443, %441
-  %.015.i688 = phi i64 [ %442, %441 ], [ 255, %443 ]
-  %444 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i688
+_ZN4pkpy2TKEPKc.exit689:                          ; preds = %443, %441
+  %.015.i687 = phi i64 [ %442, %441 ], [ 255, %443 ]
+  %444 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i687
   %.sroa.3151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %444, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %444, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3151.0..sroa_idx, align 8
@@ -4660,48 +4660,48 @@ _ZN4pkpy2TKEPKc.exit690:                          ; preds = %443, %441
   store i32 12, ptr %.sroa.5153.0..sroa_idx, align 8
   br label %445
 
-445:                                              ; preds = %460, %_ZN4pkpy2TKEPKc.exit690
-  %indvars.iv.i691 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit690 ], [ %indvars.iv.next.i699, %460 ]
-  %446 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i691
+445:                                              ; preds = %460, %_ZN4pkpy2TKEPKc.exit689
+  %indvars.iv.i690 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit689 ], [ %indvars.iv.next.i698, %460 ]
+  %446 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i690
   %447 = load ptr, ptr %446, align 8
   %448 = load i8, ptr %447, align 1
-  %.not20.i692 = icmp eq i8 %448, 0
-  br i1 %.not20.i692, label %.critedge.i696, label %.lr.ph.i693
+  %.not20.i691 = icmp eq i8 %448, 0
+  br i1 %.not20.i691, label %.critedge.i695, label %.lr.ph.i692
 
-.lr.ph.i693:                                      ; preds = %445, %452
+.lr.ph.i692:                                      ; preds = %445, %452
   %449 = phi i8 [ %455, %452 ], [ %448, %445 ]
-  %.022.i694 = phi ptr [ %454, %452 ], [ @.str.38, %445 ]
-  %.01321.i695 = phi ptr [ %453, %452 ], [ %447, %445 ]
-  %450 = load i8, ptr %.022.i694, align 1
+  %.022.i693 = phi ptr [ %454, %452 ], [ @.str.38, %445 ]
+  %.01321.i694 = phi ptr [ %453, %452 ], [ %447, %445 ]
+  %450 = load i8, ptr %.022.i693, align 1
   %451 = icmp eq i8 %449, %450
-  br i1 %451, label %452, label %.critedge.i696
+  br i1 %451, label %452, label %.critedge.i695
 
-452:                                              ; preds = %.lr.ph.i693
-  %453 = getelementptr inbounds nuw i8, ptr %.01321.i695, i64 1
-  %454 = getelementptr inbounds nuw i8, ptr %.022.i694, i64 1
+452:                                              ; preds = %.lr.ph.i692
+  %453 = getelementptr inbounds nuw i8, ptr %.01321.i694, i64 1
+  %454 = getelementptr inbounds nuw i8, ptr %.022.i693, i64 1
   %455 = load i8, ptr %453, align 1
-  %.not.i702 = icmp eq i8 %455, 0
-  br i1 %.not.i702, label %.critedge.i696, label %.lr.ph.i693, !llvm.loop !15
+  %.not.i701 = icmp eq i8 %455, 0
+  br i1 %.not.i701, label %.critedge.i695, label %.lr.ph.i692, !llvm.loop !15
 
-.critedge.i696:                                   ; preds = %452, %.lr.ph.i693, %445
-  %.0.lcssa.i697 = phi ptr [ @.str.38, %445 ], [ %454, %452 ], [ %.022.i694, %.lr.ph.i693 ]
-  %.lcssa.i698 = phi i8 [ 0, %445 ], [ 0, %452 ], [ %449, %.lr.ph.i693 ]
-  %456 = load i8, ptr %.0.lcssa.i697, align 1
-  %457 = icmp eq i8 %.lcssa.i698, %456
+.critedge.i695:                                   ; preds = %452, %.lr.ph.i692, %445
+  %.0.lcssa.i696 = phi ptr [ @.str.38, %445 ], [ %454, %452 ], [ %.022.i693, %.lr.ph.i692 ]
+  %.lcssa.i697 = phi i8 [ 0, %445 ], [ 0, %452 ], [ %449, %.lr.ph.i692 ]
+  %456 = load i8, ptr %.0.lcssa.i696, align 1
+  %457 = icmp eq i8 %.lcssa.i697, %456
   br i1 %457, label %458, label %460
 
-458:                                              ; preds = %.critedge.i696
-  %459 = and i64 %indvars.iv.i691, 255
-  br label %_ZN4pkpy2TKEPKc.exit703
+458:                                              ; preds = %.critedge.i695
+  %459 = and i64 %indvars.iv.i690, 255
+  br label %_ZN4pkpy2TKEPKc.exit702
 
-460:                                              ; preds = %.critedge.i696
-  %indvars.iv.next.i699 = add nuw nsw i64 %indvars.iv.i691, 1
-  %exitcond.not.i700 = icmp eq i64 %indvars.iv.next.i699, 95
-  br i1 %exitcond.not.i700, label %_ZN4pkpy2TKEPKc.exit703, label %445, !llvm.loop !16
+460:                                              ; preds = %.critedge.i695
+  %indvars.iv.next.i698 = add nuw nsw i64 %indvars.iv.i690, 1
+  %exitcond.not.i699 = icmp eq i64 %indvars.iv.next.i698, 95
+  br i1 %exitcond.not.i699, label %_ZN4pkpy2TKEPKc.exit702, label %445, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit703:                          ; preds = %460, %458
-  %.015.i701 = phi i64 [ %459, %458 ], [ 255, %460 ]
-  %461 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i701
+_ZN4pkpy2TKEPKc.exit702:                          ; preds = %460, %458
+  %.015.i700 = phi i64 [ %459, %458 ], [ 255, %460 ]
+  %461 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i700
   %.sroa.3143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %461, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %461, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprTernaryEv to i64), ptr %.sroa.3143.0..sroa_idx, align 8
@@ -4711,48 +4711,48 @@ _ZN4pkpy2TKEPKc.exit703:                          ; preds = %460, %458
   store i32 2, ptr %.sroa.5145.0..sroa_idx, align 8
   br label %462
 
-462:                                              ; preds = %477, %_ZN4pkpy2TKEPKc.exit703
-  %indvars.iv.i704 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit703 ], [ %indvars.iv.next.i712, %477 ]
-  %463 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i704
+462:                                              ; preds = %477, %_ZN4pkpy2TKEPKc.exit702
+  %indvars.iv.i703 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit702 ], [ %indvars.iv.next.i711, %477 ]
+  %463 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i703
   %464 = load ptr, ptr %463, align 8
   %465 = load i8, ptr %464, align 1
-  %.not20.i705 = icmp eq i8 %465, 0
-  br i1 %.not20.i705, label %.critedge.i709, label %.lr.ph.i706
+  %.not20.i704 = icmp eq i8 %465, 0
+  br i1 %.not20.i704, label %.critedge.i708, label %.lr.ph.i705
 
-.lr.ph.i706:                                      ; preds = %462, %469
+.lr.ph.i705:                                      ; preds = %462, %469
   %466 = phi i8 [ %472, %469 ], [ %465, %462 ]
-  %.022.i707 = phi ptr [ %471, %469 ], [ @.str.39, %462 ]
-  %.01321.i708 = phi ptr [ %470, %469 ], [ %464, %462 ]
-  %467 = load i8, ptr %.022.i707, align 1
+  %.022.i706 = phi ptr [ %471, %469 ], [ @.str.39, %462 ]
+  %.01321.i707 = phi ptr [ %470, %469 ], [ %464, %462 ]
+  %467 = load i8, ptr %.022.i706, align 1
   %468 = icmp eq i8 %466, %467
-  br i1 %468, label %469, label %.critedge.i709
+  br i1 %468, label %469, label %.critedge.i708
 
-469:                                              ; preds = %.lr.ph.i706
-  %470 = getelementptr inbounds nuw i8, ptr %.01321.i708, i64 1
-  %471 = getelementptr inbounds nuw i8, ptr %.022.i707, i64 1
+469:                                              ; preds = %.lr.ph.i705
+  %470 = getelementptr inbounds nuw i8, ptr %.01321.i707, i64 1
+  %471 = getelementptr inbounds nuw i8, ptr %.022.i706, i64 1
   %472 = load i8, ptr %470, align 1
-  %.not.i715 = icmp eq i8 %472, 0
-  br i1 %.not.i715, label %.critedge.i709, label %.lr.ph.i706, !llvm.loop !15
+  %.not.i714 = icmp eq i8 %472, 0
+  br i1 %.not.i714, label %.critedge.i708, label %.lr.ph.i705, !llvm.loop !15
 
-.critedge.i709:                                   ; preds = %469, %.lr.ph.i706, %462
-  %.0.lcssa.i710 = phi ptr [ @.str.39, %462 ], [ %471, %469 ], [ %.022.i707, %.lr.ph.i706 ]
-  %.lcssa.i711 = phi i8 [ 0, %462 ], [ 0, %469 ], [ %466, %.lr.ph.i706 ]
-  %473 = load i8, ptr %.0.lcssa.i710, align 1
-  %474 = icmp eq i8 %.lcssa.i711, %473
+.critedge.i708:                                   ; preds = %469, %.lr.ph.i705, %462
+  %.0.lcssa.i709 = phi ptr [ @.str.39, %462 ], [ %471, %469 ], [ %.022.i706, %.lr.ph.i705 ]
+  %.lcssa.i710 = phi i8 [ 0, %462 ], [ 0, %469 ], [ %466, %.lr.ph.i705 ]
+  %473 = load i8, ptr %.0.lcssa.i709, align 1
+  %474 = icmp eq i8 %.lcssa.i710, %473
   br i1 %474, label %475, label %477
 
-475:                                              ; preds = %.critedge.i709
-  %476 = and i64 %indvars.iv.i704, 255
-  br label %_ZN4pkpy2TKEPKc.exit716
+475:                                              ; preds = %.critedge.i708
+  %476 = and i64 %indvars.iv.i703, 255
+  br label %_ZN4pkpy2TKEPKc.exit715
 
-477:                                              ; preds = %.critedge.i709
-  %indvars.iv.next.i712 = add nuw nsw i64 %indvars.iv.i704, 1
-  %exitcond.not.i713 = icmp eq i64 %indvars.iv.next.i712, 95
-  br i1 %exitcond.not.i713, label %_ZN4pkpy2TKEPKc.exit716, label %462, !llvm.loop !16
+477:                                              ; preds = %.critedge.i708
+  %indvars.iv.next.i711 = add nuw nsw i64 %indvars.iv.i703, 1
+  %exitcond.not.i712 = icmp eq i64 %indvars.iv.next.i711, 95
+  br i1 %exitcond.not.i712, label %_ZN4pkpy2TKEPKc.exit715, label %462, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit716:                          ; preds = %477, %475
-  %.015.i714 = phi i64 [ %476, %475 ], [ 255, %477 ]
-  %478 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i714
+_ZN4pkpy2TKEPKc.exit715:                          ; preds = %477, %475
+  %.015.i713 = phi i64 [ %476, %475 ], [ 255, %477 ]
+  %478 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i713
   %.sroa.3135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %478, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %478, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3135.0..sroa_idx, align 8
@@ -4762,48 +4762,48 @@ _ZN4pkpy2TKEPKc.exit716:                          ; preds = %477, %475
   store i32 6, ptr %.sroa.5137.0..sroa_idx, align 8
   br label %479
 
-479:                                              ; preds = %494, %_ZN4pkpy2TKEPKc.exit716
-  %indvars.iv.i717 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit716 ], [ %indvars.iv.next.i725, %494 ]
-  %480 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i717
+479:                                              ; preds = %494, %_ZN4pkpy2TKEPKc.exit715
+  %indvars.iv.i716 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit715 ], [ %indvars.iv.next.i724, %494 ]
+  %480 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i716
   %481 = load ptr, ptr %480, align 8
   %482 = load i8, ptr %481, align 1
-  %.not20.i718 = icmp eq i8 %482, 0
-  br i1 %.not20.i718, label %.critedge.i722, label %.lr.ph.i719
+  %.not20.i717 = icmp eq i8 %482, 0
+  br i1 %.not20.i717, label %.critedge.i721, label %.lr.ph.i718
 
-.lr.ph.i719:                                      ; preds = %479, %486
+.lr.ph.i718:                                      ; preds = %479, %486
   %483 = phi i8 [ %489, %486 ], [ %482, %479 ]
-  %.022.i720 = phi ptr [ %488, %486 ], [ @.str.40, %479 ]
-  %.01321.i721 = phi ptr [ %487, %486 ], [ %481, %479 ]
-  %484 = load i8, ptr %.022.i720, align 1
+  %.022.i719 = phi ptr [ %488, %486 ], [ @.str.40, %479 ]
+  %.01321.i720 = phi ptr [ %487, %486 ], [ %481, %479 ]
+  %484 = load i8, ptr %.022.i719, align 1
   %485 = icmp eq i8 %483, %484
-  br i1 %485, label %486, label %.critedge.i722
+  br i1 %485, label %486, label %.critedge.i721
 
-486:                                              ; preds = %.lr.ph.i719
-  %487 = getelementptr inbounds nuw i8, ptr %.01321.i721, i64 1
-  %488 = getelementptr inbounds nuw i8, ptr %.022.i720, i64 1
+486:                                              ; preds = %.lr.ph.i718
+  %487 = getelementptr inbounds nuw i8, ptr %.01321.i720, i64 1
+  %488 = getelementptr inbounds nuw i8, ptr %.022.i719, i64 1
   %489 = load i8, ptr %487, align 1
-  %.not.i728 = icmp eq i8 %489, 0
-  br i1 %.not.i728, label %.critedge.i722, label %.lr.ph.i719, !llvm.loop !15
+  %.not.i727 = icmp eq i8 %489, 0
+  br i1 %.not.i727, label %.critedge.i721, label %.lr.ph.i718, !llvm.loop !15
 
-.critedge.i722:                                   ; preds = %486, %.lr.ph.i719, %479
-  %.0.lcssa.i723 = phi ptr [ @.str.40, %479 ], [ %488, %486 ], [ %.022.i720, %.lr.ph.i719 ]
-  %.lcssa.i724 = phi i8 [ 0, %479 ], [ 0, %486 ], [ %483, %.lr.ph.i719 ]
-  %490 = load i8, ptr %.0.lcssa.i723, align 1
-  %491 = icmp eq i8 %.lcssa.i724, %490
+.critedge.i721:                                   ; preds = %486, %.lr.ph.i718, %479
+  %.0.lcssa.i722 = phi ptr [ @.str.40, %479 ], [ %488, %486 ], [ %.022.i719, %.lr.ph.i718 ]
+  %.lcssa.i723 = phi i8 [ 0, %479 ], [ 0, %486 ], [ %483, %.lr.ph.i718 ]
+  %490 = load i8, ptr %.0.lcssa.i722, align 1
+  %491 = icmp eq i8 %.lcssa.i723, %490
   br i1 %491, label %492, label %494
 
-492:                                              ; preds = %.critedge.i722
-  %493 = and i64 %indvars.iv.i717, 255
-  br label %_ZN4pkpy2TKEPKc.exit729
+492:                                              ; preds = %.critedge.i721
+  %493 = and i64 %indvars.iv.i716, 255
+  br label %_ZN4pkpy2TKEPKc.exit728
 
-494:                                              ; preds = %.critedge.i722
-  %indvars.iv.next.i725 = add nuw nsw i64 %indvars.iv.i717, 1
-  %exitcond.not.i726 = icmp eq i64 %indvars.iv.next.i725, 95
-  br i1 %exitcond.not.i726, label %_ZN4pkpy2TKEPKc.exit729, label %479, !llvm.loop !16
+494:                                              ; preds = %.critedge.i721
+  %indvars.iv.next.i724 = add nuw nsw i64 %indvars.iv.i716, 1
+  %exitcond.not.i725 = icmp eq i64 %indvars.iv.next.i724, 95
+  br i1 %exitcond.not.i725, label %_ZN4pkpy2TKEPKc.exit728, label %479, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit729:                          ; preds = %494, %492
-  %.015.i727 = phi i64 [ %493, %492 ], [ 255, %494 ]
-  %495 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i727
+_ZN4pkpy2TKEPKc.exit728:                          ; preds = %494, %492
+  %.015.i726 = phi i64 [ %493, %492 ], [ 255, %494 ]
+  %495 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i726
   %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %495, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %495, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprBinaryOpEv to i64), ptr %.sroa.3127.0..sroa_idx, align 8
@@ -4813,48 +4813,48 @@ _ZN4pkpy2TKEPKc.exit729:                          ; preds = %494, %492
   store i32 6, ptr %.sroa.5129.0..sroa_idx, align 8
   br label %496
 
-496:                                              ; preds = %511, %_ZN4pkpy2TKEPKc.exit729
-  %indvars.iv.i730 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit729 ], [ %indvars.iv.next.i738, %511 ]
-  %497 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i730
+496:                                              ; preds = %511, %_ZN4pkpy2TKEPKc.exit728
+  %indvars.iv.i729 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit728 ], [ %indvars.iv.next.i737, %511 ]
+  %497 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i729
   %498 = load ptr, ptr %497, align 8
   %499 = load i8, ptr %498, align 1
-  %.not20.i731 = icmp eq i8 %499, 0
-  br i1 %.not20.i731, label %.critedge.i735, label %.lr.ph.i732
+  %.not20.i730 = icmp eq i8 %499, 0
+  br i1 %.not20.i730, label %.critedge.i734, label %.lr.ph.i731
 
-.lr.ph.i732:                                      ; preds = %496, %503
+.lr.ph.i731:                                      ; preds = %496, %503
   %500 = phi i8 [ %506, %503 ], [ %499, %496 ]
-  %.022.i733 = phi ptr [ %505, %503 ], [ @.str.41, %496 ]
-  %.01321.i734 = phi ptr [ %504, %503 ], [ %498, %496 ]
-  %501 = load i8, ptr %.022.i733, align 1
+  %.022.i732 = phi ptr [ %505, %503 ], [ @.str.41, %496 ]
+  %.01321.i733 = phi ptr [ %504, %503 ], [ %498, %496 ]
+  %501 = load i8, ptr %.022.i732, align 1
   %502 = icmp eq i8 %500, %501
-  br i1 %502, label %503, label %.critedge.i735
+  br i1 %502, label %503, label %.critedge.i734
 
-503:                                              ; preds = %.lr.ph.i732
-  %504 = getelementptr inbounds nuw i8, ptr %.01321.i734, i64 1
-  %505 = getelementptr inbounds nuw i8, ptr %.022.i733, i64 1
+503:                                              ; preds = %.lr.ph.i731
+  %504 = getelementptr inbounds nuw i8, ptr %.01321.i733, i64 1
+  %505 = getelementptr inbounds nuw i8, ptr %.022.i732, i64 1
   %506 = load i8, ptr %504, align 1
-  %.not.i741 = icmp eq i8 %506, 0
-  br i1 %.not.i741, label %.critedge.i735, label %.lr.ph.i732, !llvm.loop !15
+  %.not.i740 = icmp eq i8 %506, 0
+  br i1 %.not.i740, label %.critedge.i734, label %.lr.ph.i731, !llvm.loop !15
 
-.critedge.i735:                                   ; preds = %503, %.lr.ph.i732, %496
-  %.0.lcssa.i736 = phi ptr [ @.str.41, %496 ], [ %505, %503 ], [ %.022.i733, %.lr.ph.i732 ]
-  %.lcssa.i737 = phi i8 [ 0, %496 ], [ 0, %503 ], [ %500, %.lr.ph.i732 ]
-  %507 = load i8, ptr %.0.lcssa.i736, align 1
-  %508 = icmp eq i8 %.lcssa.i737, %507
+.critedge.i734:                                   ; preds = %503, %.lr.ph.i731, %496
+  %.0.lcssa.i735 = phi ptr [ @.str.41, %496 ], [ %505, %503 ], [ %.022.i732, %.lr.ph.i731 ]
+  %.lcssa.i736 = phi i8 [ 0, %496 ], [ 0, %503 ], [ %500, %.lr.ph.i731 ]
+  %507 = load i8, ptr %.0.lcssa.i735, align 1
+  %508 = icmp eq i8 %.lcssa.i736, %507
   br i1 %508, label %509, label %511
 
-509:                                              ; preds = %.critedge.i735
-  %510 = and i64 %indvars.iv.i730, 255
-  br label %_ZN4pkpy2TKEPKc.exit742
+509:                                              ; preds = %.critedge.i734
+  %510 = and i64 %indvars.iv.i729, 255
+  br label %_ZN4pkpy2TKEPKc.exit741
 
-511:                                              ; preds = %.critedge.i735
-  %indvars.iv.next.i738 = add nuw nsw i64 %indvars.iv.i730, 1
-  %exitcond.not.i739 = icmp eq i64 %indvars.iv.next.i738, 95
-  br i1 %exitcond.not.i739, label %_ZN4pkpy2TKEPKc.exit742, label %496, !llvm.loop !16
+511:                                              ; preds = %.critedge.i734
+  %indvars.iv.next.i737 = add nuw nsw i64 %indvars.iv.i729, 1
+  %exitcond.not.i738 = icmp eq i64 %indvars.iv.next.i737, 95
+  br i1 %exitcond.not.i738, label %_ZN4pkpy2TKEPKc.exit741, label %496, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit742:                          ; preds = %511, %509
-  %.015.i740 = phi i64 [ %510, %509 ], [ 255, %511 ]
-  %512 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i740
+_ZN4pkpy2TKEPKc.exit741:                          ; preds = %511, %509
+  %.015.i739 = phi i64 [ %510, %509 ], [ 255, %511 ]
+  %512 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i739
   %.sroa.3119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %512, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprAndEv to i64), ptr %.sroa.3119.0..sroa_idx, align 8
@@ -4864,48 +4864,48 @@ _ZN4pkpy2TKEPKc.exit742:                          ; preds = %511, %509
   store i32 4, ptr %.sroa.5121.0..sroa_idx, align 8
   br label %513
 
-513:                                              ; preds = %528, %_ZN4pkpy2TKEPKc.exit742
-  %indvars.iv.i743 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit742 ], [ %indvars.iv.next.i751, %528 ]
-  %514 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i743
+513:                                              ; preds = %528, %_ZN4pkpy2TKEPKc.exit741
+  %indvars.iv.i742 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit741 ], [ %indvars.iv.next.i750, %528 ]
+  %514 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i742
   %515 = load ptr, ptr %514, align 8
   %516 = load i8, ptr %515, align 1
-  %.not20.i744 = icmp eq i8 %516, 0
-  br i1 %.not20.i744, label %.critedge.i748, label %.lr.ph.i745
+  %.not20.i743 = icmp eq i8 %516, 0
+  br i1 %.not20.i743, label %.critedge.i747, label %.lr.ph.i744
 
-.lr.ph.i745:                                      ; preds = %513, %520
+.lr.ph.i744:                                      ; preds = %513, %520
   %517 = phi i8 [ %523, %520 ], [ %516, %513 ]
-  %.022.i746 = phi ptr [ %522, %520 ], [ @.str.42, %513 ]
-  %.01321.i747 = phi ptr [ %521, %520 ], [ %515, %513 ]
-  %518 = load i8, ptr %.022.i746, align 1
+  %.022.i745 = phi ptr [ %522, %520 ], [ @.str.42, %513 ]
+  %.01321.i746 = phi ptr [ %521, %520 ], [ %515, %513 ]
+  %518 = load i8, ptr %.022.i745, align 1
   %519 = icmp eq i8 %517, %518
-  br i1 %519, label %520, label %.critedge.i748
+  br i1 %519, label %520, label %.critedge.i747
 
-520:                                              ; preds = %.lr.ph.i745
-  %521 = getelementptr inbounds nuw i8, ptr %.01321.i747, i64 1
-  %522 = getelementptr inbounds nuw i8, ptr %.022.i746, i64 1
+520:                                              ; preds = %.lr.ph.i744
+  %521 = getelementptr inbounds nuw i8, ptr %.01321.i746, i64 1
+  %522 = getelementptr inbounds nuw i8, ptr %.022.i745, i64 1
   %523 = load i8, ptr %521, align 1
-  %.not.i754 = icmp eq i8 %523, 0
-  br i1 %.not.i754, label %.critedge.i748, label %.lr.ph.i745, !llvm.loop !15
+  %.not.i753 = icmp eq i8 %523, 0
+  br i1 %.not.i753, label %.critedge.i747, label %.lr.ph.i744, !llvm.loop !15
 
-.critedge.i748:                                   ; preds = %520, %.lr.ph.i745, %513
-  %.0.lcssa.i749 = phi ptr [ @.str.42, %513 ], [ %522, %520 ], [ %.022.i746, %.lr.ph.i745 ]
-  %.lcssa.i750 = phi i8 [ 0, %513 ], [ 0, %520 ], [ %517, %.lr.ph.i745 ]
-  %524 = load i8, ptr %.0.lcssa.i749, align 1
-  %525 = icmp eq i8 %.lcssa.i750, %524
+.critedge.i747:                                   ; preds = %520, %.lr.ph.i744, %513
+  %.0.lcssa.i748 = phi ptr [ @.str.42, %513 ], [ %522, %520 ], [ %.022.i745, %.lr.ph.i744 ]
+  %.lcssa.i749 = phi i8 [ 0, %513 ], [ 0, %520 ], [ %517, %.lr.ph.i744 ]
+  %524 = load i8, ptr %.0.lcssa.i748, align 1
+  %525 = icmp eq i8 %.lcssa.i749, %524
   br i1 %525, label %526, label %528
 
-526:                                              ; preds = %.critedge.i748
-  %527 = and i64 %indvars.iv.i743, 255
-  br label %_ZN4pkpy2TKEPKc.exit755
+526:                                              ; preds = %.critedge.i747
+  %527 = and i64 %indvars.iv.i742, 255
+  br label %_ZN4pkpy2TKEPKc.exit754
 
-528:                                              ; preds = %.critedge.i748
-  %indvars.iv.next.i751 = add nuw nsw i64 %indvars.iv.i743, 1
-  %exitcond.not.i752 = icmp eq i64 %indvars.iv.next.i751, 95
-  br i1 %exitcond.not.i752, label %_ZN4pkpy2TKEPKc.exit755, label %513, !llvm.loop !16
+528:                                              ; preds = %.critedge.i747
+  %indvars.iv.next.i750 = add nuw nsw i64 %indvars.iv.i742, 1
+  %exitcond.not.i751 = icmp eq i64 %indvars.iv.next.i750, 95
+  br i1 %exitcond.not.i751, label %_ZN4pkpy2TKEPKc.exit754, label %513, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit755:                          ; preds = %528, %526
-  %.015.i753 = phi i64 [ %527, %526 ], [ 255, %528 ]
-  %529 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i753
+_ZN4pkpy2TKEPKc.exit754:                          ; preds = %528, %526
+  %.015.i752 = phi i64 [ %527, %526 ], [ 255, %528 ]
+  %529 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i752
   %.sroa.3111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %529, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %529, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler6exprOrEv to i64), ptr %.sroa.3111.0..sroa_idx, align 8
@@ -4915,48 +4915,48 @@ _ZN4pkpy2TKEPKc.exit755:                          ; preds = %528, %526
   store i32 3, ptr %.sroa.5113.0..sroa_idx, align 8
   br label %530
 
-530:                                              ; preds = %545, %_ZN4pkpy2TKEPKc.exit755
-  %indvars.iv.i756 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit755 ], [ %indvars.iv.next.i764, %545 ]
-  %531 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i756
+530:                                              ; preds = %545, %_ZN4pkpy2TKEPKc.exit754
+  %indvars.iv.i755 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit754 ], [ %indvars.iv.next.i763, %545 ]
+  %531 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i755
   %532 = load ptr, ptr %531, align 8
   %533 = load i8, ptr %532, align 1
-  %.not20.i757 = icmp eq i8 %533, 0
-  br i1 %.not20.i757, label %.critedge.i761, label %.lr.ph.i758
+  %.not20.i756 = icmp eq i8 %533, 0
+  br i1 %.not20.i756, label %.critedge.i760, label %.lr.ph.i757
 
-.lr.ph.i758:                                      ; preds = %530, %537
+.lr.ph.i757:                                      ; preds = %530, %537
   %534 = phi i8 [ %540, %537 ], [ %533, %530 ]
-  %.022.i759 = phi ptr [ %539, %537 ], [ @.str.43, %530 ]
-  %.01321.i760 = phi ptr [ %538, %537 ], [ %532, %530 ]
-  %535 = load i8, ptr %.022.i759, align 1
+  %.022.i758 = phi ptr [ %539, %537 ], [ @.str.43, %530 ]
+  %.01321.i759 = phi ptr [ %538, %537 ], [ %532, %530 ]
+  %535 = load i8, ptr %.022.i758, align 1
   %536 = icmp eq i8 %534, %535
-  br i1 %536, label %537, label %.critedge.i761
+  br i1 %536, label %537, label %.critedge.i760
 
-537:                                              ; preds = %.lr.ph.i758
-  %538 = getelementptr inbounds nuw i8, ptr %.01321.i760, i64 1
-  %539 = getelementptr inbounds nuw i8, ptr %.022.i759, i64 1
+537:                                              ; preds = %.lr.ph.i757
+  %538 = getelementptr inbounds nuw i8, ptr %.01321.i759, i64 1
+  %539 = getelementptr inbounds nuw i8, ptr %.022.i758, i64 1
   %540 = load i8, ptr %538, align 1
-  %.not.i767 = icmp eq i8 %540, 0
-  br i1 %.not.i767, label %.critedge.i761, label %.lr.ph.i758, !llvm.loop !15
+  %.not.i766 = icmp eq i8 %540, 0
+  br i1 %.not.i766, label %.critedge.i760, label %.lr.ph.i757, !llvm.loop !15
 
-.critedge.i761:                                   ; preds = %537, %.lr.ph.i758, %530
-  %.0.lcssa.i762 = phi ptr [ @.str.43, %530 ], [ %539, %537 ], [ %.022.i759, %.lr.ph.i758 ]
-  %.lcssa.i763 = phi i8 [ 0, %530 ], [ 0, %537 ], [ %534, %.lr.ph.i758 ]
-  %541 = load i8, ptr %.0.lcssa.i762, align 1
-  %542 = icmp eq i8 %.lcssa.i763, %541
+.critedge.i760:                                   ; preds = %537, %.lr.ph.i757, %530
+  %.0.lcssa.i761 = phi ptr [ @.str.43, %530 ], [ %539, %537 ], [ %.022.i758, %.lr.ph.i757 ]
+  %.lcssa.i762 = phi i8 [ 0, %530 ], [ 0, %537 ], [ %534, %.lr.ph.i757 ]
+  %541 = load i8, ptr %.0.lcssa.i761, align 1
+  %542 = icmp eq i8 %.lcssa.i762, %541
   br i1 %542, label %543, label %545
 
-543:                                              ; preds = %.critedge.i761
-  %544 = and i64 %indvars.iv.i756, 255
-  br label %_ZN4pkpy2TKEPKc.exit768
+543:                                              ; preds = %.critedge.i760
+  %544 = and i64 %indvars.iv.i755, 255
+  br label %_ZN4pkpy2TKEPKc.exit767
 
-545:                                              ; preds = %.critedge.i761
-  %indvars.iv.next.i764 = add nuw nsw i64 %indvars.iv.i756, 1
-  %exitcond.not.i765 = icmp eq i64 %indvars.iv.next.i764, 95
-  br i1 %exitcond.not.i765, label %_ZN4pkpy2TKEPKc.exit768, label %530, !llvm.loop !16
+545:                                              ; preds = %.critedge.i760
+  %indvars.iv.next.i763 = add nuw nsw i64 %indvars.iv.i755, 1
+  %exitcond.not.i764 = icmp eq i64 %indvars.iv.next.i763, 95
+  br i1 %exitcond.not.i764, label %_ZN4pkpy2TKEPKc.exit767, label %530, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit768:                          ; preds = %545, %543
-  %.015.i766 = phi i64 [ %544, %543 ], [ 255, %545 ]
-  %546 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i766
+_ZN4pkpy2TKEPKc.exit767:                          ; preds = %545, %543
+  %.015.i765 = phi i64 [ %544, %543 ], [ 255, %545 ]
+  %546 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i765
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler7exprNotEv to i64), ptr %546, align 8
   %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 8
   %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 32
@@ -4964,612 +4964,612 @@ _ZN4pkpy2TKEPKc.exit768:                          ; preds = %545, %543
   store i32 5, ptr %.sroa.5105.0..sroa_idx, align 8
   br label %547
 
-547:                                              ; preds = %562, %_ZN4pkpy2TKEPKc.exit768
-  %indvars.iv.i769 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit768 ], [ %indvars.iv.next.i777, %562 ]
-  %548 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i769
+547:                                              ; preds = %562, %_ZN4pkpy2TKEPKc.exit767
+  %indvars.iv.i768 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit767 ], [ %indvars.iv.next.i776, %562 ]
+  %548 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i768
   %549 = load ptr, ptr %548, align 8
   %550 = load i8, ptr %549, align 1
-  %.not20.i770 = icmp eq i8 %550, 0
-  br i1 %.not20.i770, label %.critedge.i774, label %.lr.ph.i771
+  %.not20.i769 = icmp eq i8 %550, 0
+  br i1 %.not20.i769, label %.critedge.i773, label %.lr.ph.i770
 
-.lr.ph.i771:                                      ; preds = %547, %554
+.lr.ph.i770:                                      ; preds = %547, %554
   %551 = phi i8 [ %557, %554 ], [ %550, %547 ]
-  %.022.i772 = phi ptr [ %556, %554 ], [ @.str.44, %547 ]
-  %.01321.i773 = phi ptr [ %555, %554 ], [ %549, %547 ]
-  %552 = load i8, ptr %.022.i772, align 1
+  %.022.i771 = phi ptr [ %556, %554 ], [ @.str.44, %547 ]
+  %.01321.i772 = phi ptr [ %555, %554 ], [ %549, %547 ]
+  %552 = load i8, ptr %.022.i771, align 1
   %553 = icmp eq i8 %551, %552
-  br i1 %553, label %554, label %.critedge.i774
+  br i1 %553, label %554, label %.critedge.i773
 
-554:                                              ; preds = %.lr.ph.i771
-  %555 = getelementptr inbounds nuw i8, ptr %.01321.i773, i64 1
-  %556 = getelementptr inbounds nuw i8, ptr %.022.i772, i64 1
+554:                                              ; preds = %.lr.ph.i770
+  %555 = getelementptr inbounds nuw i8, ptr %.01321.i772, i64 1
+  %556 = getelementptr inbounds nuw i8, ptr %.022.i771, i64 1
   %557 = load i8, ptr %555, align 1
-  %.not.i780 = icmp eq i8 %557, 0
-  br i1 %.not.i780, label %.critedge.i774, label %.lr.ph.i771, !llvm.loop !15
+  %.not.i779 = icmp eq i8 %557, 0
+  br i1 %.not.i779, label %.critedge.i773, label %.lr.ph.i770, !llvm.loop !15
 
-.critedge.i774:                                   ; preds = %554, %.lr.ph.i771, %547
-  %.0.lcssa.i775 = phi ptr [ @.str.44, %547 ], [ %556, %554 ], [ %.022.i772, %.lr.ph.i771 ]
-  %.lcssa.i776 = phi i8 [ 0, %547 ], [ 0, %554 ], [ %551, %.lr.ph.i771 ]
-  %558 = load i8, ptr %.0.lcssa.i775, align 1
-  %559 = icmp eq i8 %.lcssa.i776, %558
+.critedge.i773:                                   ; preds = %554, %.lr.ph.i770, %547
+  %.0.lcssa.i774 = phi ptr [ @.str.44, %547 ], [ %556, %554 ], [ %.022.i771, %.lr.ph.i770 ]
+  %.lcssa.i775 = phi i8 [ 0, %547 ], [ 0, %554 ], [ %551, %.lr.ph.i770 ]
+  %558 = load i8, ptr %.0.lcssa.i774, align 1
+  %559 = icmp eq i8 %.lcssa.i775, %558
   br i1 %559, label %560, label %562
 
-560:                                              ; preds = %.critedge.i774
-  %561 = and i64 %indvars.iv.i769, 255
-  br label %_ZN4pkpy2TKEPKc.exit781
+560:                                              ; preds = %.critedge.i773
+  %561 = and i64 %indvars.iv.i768, 255
+  br label %_ZN4pkpy2TKEPKc.exit780
 
-562:                                              ; preds = %.critedge.i774
-  %indvars.iv.next.i777 = add nuw nsw i64 %indvars.iv.i769, 1
-  %exitcond.not.i778 = icmp eq i64 %indvars.iv.next.i777, 95
-  br i1 %exitcond.not.i778, label %_ZN4pkpy2TKEPKc.exit781, label %547, !llvm.loop !16
+562:                                              ; preds = %.critedge.i773
+  %indvars.iv.next.i776 = add nuw nsw i64 %indvars.iv.i768, 1
+  %exitcond.not.i777 = icmp eq i64 %indvars.iv.next.i776, 95
+  br i1 %exitcond.not.i777, label %_ZN4pkpy2TKEPKc.exit780, label %547, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit781:                          ; preds = %562, %560
-  %.015.i779 = phi i64 [ %561, %560 ], [ 255, %562 ]
-  %563 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i779
+_ZN4pkpy2TKEPKc.exit780:                          ; preds = %562, %560
+  %.015.i778 = phi i64 [ %561, %560 ], [ 255, %562 ]
+  %563 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i778
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %563, align 8
   %.sroa.294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.294.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %564
 
-564:                                              ; preds = %579, %_ZN4pkpy2TKEPKc.exit781
-  %indvars.iv.i782 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit781 ], [ %indvars.iv.next.i790, %579 ]
-  %565 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i782
+564:                                              ; preds = %579, %_ZN4pkpy2TKEPKc.exit780
+  %indvars.iv.i781 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit780 ], [ %indvars.iv.next.i789, %579 ]
+  %565 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i781
   %566 = load ptr, ptr %565, align 8
   %567 = load i8, ptr %566, align 1
-  %.not20.i783 = icmp eq i8 %567, 0
-  br i1 %.not20.i783, label %.critedge.i787, label %.lr.ph.i784
+  %.not20.i782 = icmp eq i8 %567, 0
+  br i1 %.not20.i782, label %.critedge.i786, label %.lr.ph.i783
 
-.lr.ph.i784:                                      ; preds = %564, %571
+.lr.ph.i783:                                      ; preds = %564, %571
   %568 = phi i8 [ %574, %571 ], [ %567, %564 ]
-  %.022.i785 = phi ptr [ %573, %571 ], [ @.str.45, %564 ]
-  %.01321.i786 = phi ptr [ %572, %571 ], [ %566, %564 ]
-  %569 = load i8, ptr %.022.i785, align 1
+  %.022.i784 = phi ptr [ %573, %571 ], [ @.str.45, %564 ]
+  %.01321.i785 = phi ptr [ %572, %571 ], [ %566, %564 ]
+  %569 = load i8, ptr %.022.i784, align 1
   %570 = icmp eq i8 %568, %569
-  br i1 %570, label %571, label %.critedge.i787
+  br i1 %570, label %571, label %.critedge.i786
 
-571:                                              ; preds = %.lr.ph.i784
-  %572 = getelementptr inbounds nuw i8, ptr %.01321.i786, i64 1
-  %573 = getelementptr inbounds nuw i8, ptr %.022.i785, i64 1
+571:                                              ; preds = %.lr.ph.i783
+  %572 = getelementptr inbounds nuw i8, ptr %.01321.i785, i64 1
+  %573 = getelementptr inbounds nuw i8, ptr %.022.i784, i64 1
   %574 = load i8, ptr %572, align 1
-  %.not.i793 = icmp eq i8 %574, 0
-  br i1 %.not.i793, label %.critedge.i787, label %.lr.ph.i784, !llvm.loop !15
+  %.not.i792 = icmp eq i8 %574, 0
+  br i1 %.not.i792, label %.critedge.i786, label %.lr.ph.i783, !llvm.loop !15
 
-.critedge.i787:                                   ; preds = %571, %.lr.ph.i784, %564
-  %.0.lcssa.i788 = phi ptr [ @.str.45, %564 ], [ %573, %571 ], [ %.022.i785, %.lr.ph.i784 ]
-  %.lcssa.i789 = phi i8 [ 0, %564 ], [ 0, %571 ], [ %568, %.lr.ph.i784 ]
-  %575 = load i8, ptr %.0.lcssa.i788, align 1
-  %576 = icmp eq i8 %.lcssa.i789, %575
+.critedge.i786:                                   ; preds = %571, %.lr.ph.i783, %564
+  %.0.lcssa.i787 = phi ptr [ @.str.45, %564 ], [ %573, %571 ], [ %.022.i784, %.lr.ph.i783 ]
+  %.lcssa.i788 = phi i8 [ 0, %564 ], [ 0, %571 ], [ %568, %.lr.ph.i783 ]
+  %575 = load i8, ptr %.0.lcssa.i787, align 1
+  %576 = icmp eq i8 %.lcssa.i788, %575
   br i1 %576, label %577, label %579
 
-577:                                              ; preds = %.critedge.i787
-  %578 = and i64 %indvars.iv.i782, 255
-  br label %_ZN4pkpy2TKEPKc.exit794
+577:                                              ; preds = %.critedge.i786
+  %578 = and i64 %indvars.iv.i781, 255
+  br label %_ZN4pkpy2TKEPKc.exit793
 
-579:                                              ; preds = %.critedge.i787
-  %indvars.iv.next.i790 = add nuw nsw i64 %indvars.iv.i782, 1
-  %exitcond.not.i791 = icmp eq i64 %indvars.iv.next.i790, 95
-  br i1 %exitcond.not.i791, label %_ZN4pkpy2TKEPKc.exit794, label %564, !llvm.loop !16
+579:                                              ; preds = %.critedge.i786
+  %indvars.iv.next.i789 = add nuw nsw i64 %indvars.iv.i781, 1
+  %exitcond.not.i790 = icmp eq i64 %indvars.iv.next.i789, 95
+  br i1 %exitcond.not.i790, label %_ZN4pkpy2TKEPKc.exit793, label %564, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit794:                          ; preds = %579, %577
-  %.015.i792 = phi i64 [ %578, %577 ], [ 255, %579 ]
-  %580 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i792
+_ZN4pkpy2TKEPKc.exit793:                          ; preds = %579, %577
+  %.015.i791 = phi i64 [ %578, %577 ], [ 255, %579 ]
+  %580 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i791
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %580, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %580, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.286.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %581
 
-581:                                              ; preds = %596, %_ZN4pkpy2TKEPKc.exit794
-  %indvars.iv.i795 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit794 ], [ %indvars.iv.next.i803, %596 ]
-  %582 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i795
+581:                                              ; preds = %596, %_ZN4pkpy2TKEPKc.exit793
+  %indvars.iv.i794 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit793 ], [ %indvars.iv.next.i802, %596 ]
+  %582 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i794
   %583 = load ptr, ptr %582, align 8
   %584 = load i8, ptr %583, align 1
-  %.not20.i796 = icmp eq i8 %584, 0
-  br i1 %.not20.i796, label %.critedge.i800, label %.lr.ph.i797
+  %.not20.i795 = icmp eq i8 %584, 0
+  br i1 %.not20.i795, label %.critedge.i799, label %.lr.ph.i796
 
-.lr.ph.i797:                                      ; preds = %581, %588
+.lr.ph.i796:                                      ; preds = %581, %588
   %585 = phi i8 [ %591, %588 ], [ %584, %581 ]
-  %.022.i798 = phi ptr [ %590, %588 ], [ @.str.46, %581 ]
-  %.01321.i799 = phi ptr [ %589, %588 ], [ %583, %581 ]
-  %586 = load i8, ptr %.022.i798, align 1
+  %.022.i797 = phi ptr [ %590, %588 ], [ @.str.46, %581 ]
+  %.01321.i798 = phi ptr [ %589, %588 ], [ %583, %581 ]
+  %586 = load i8, ptr %.022.i797, align 1
   %587 = icmp eq i8 %585, %586
-  br i1 %587, label %588, label %.critedge.i800
+  br i1 %587, label %588, label %.critedge.i799
 
-588:                                              ; preds = %.lr.ph.i797
-  %589 = getelementptr inbounds nuw i8, ptr %.01321.i799, i64 1
-  %590 = getelementptr inbounds nuw i8, ptr %.022.i798, i64 1
+588:                                              ; preds = %.lr.ph.i796
+  %589 = getelementptr inbounds nuw i8, ptr %.01321.i798, i64 1
+  %590 = getelementptr inbounds nuw i8, ptr %.022.i797, i64 1
   %591 = load i8, ptr %589, align 1
-  %.not.i806 = icmp eq i8 %591, 0
-  br i1 %.not.i806, label %.critedge.i800, label %.lr.ph.i797, !llvm.loop !15
+  %.not.i805 = icmp eq i8 %591, 0
+  br i1 %.not.i805, label %.critedge.i799, label %.lr.ph.i796, !llvm.loop !15
 
-.critedge.i800:                                   ; preds = %588, %.lr.ph.i797, %581
-  %.0.lcssa.i801 = phi ptr [ @.str.46, %581 ], [ %590, %588 ], [ %.022.i798, %.lr.ph.i797 ]
-  %.lcssa.i802 = phi i8 [ 0, %581 ], [ 0, %588 ], [ %585, %.lr.ph.i797 ]
-  %592 = load i8, ptr %.0.lcssa.i801, align 1
-  %593 = icmp eq i8 %.lcssa.i802, %592
+.critedge.i799:                                   ; preds = %588, %.lr.ph.i796, %581
+  %.0.lcssa.i800 = phi ptr [ @.str.46, %581 ], [ %590, %588 ], [ %.022.i797, %.lr.ph.i796 ]
+  %.lcssa.i801 = phi i8 [ 0, %581 ], [ 0, %588 ], [ %585, %.lr.ph.i796 ]
+  %592 = load i8, ptr %.0.lcssa.i800, align 1
+  %593 = icmp eq i8 %.lcssa.i801, %592
   br i1 %593, label %594, label %596
 
-594:                                              ; preds = %.critedge.i800
-  %595 = and i64 %indvars.iv.i795, 255
-  br label %_ZN4pkpy2TKEPKc.exit807
+594:                                              ; preds = %.critedge.i799
+  %595 = and i64 %indvars.iv.i794, 255
+  br label %_ZN4pkpy2TKEPKc.exit806
 
-596:                                              ; preds = %.critedge.i800
-  %indvars.iv.next.i803 = add nuw nsw i64 %indvars.iv.i795, 1
-  %exitcond.not.i804 = icmp eq i64 %indvars.iv.next.i803, 95
-  br i1 %exitcond.not.i804, label %_ZN4pkpy2TKEPKc.exit807, label %581, !llvm.loop !16
+596:                                              ; preds = %.critedge.i799
+  %indvars.iv.next.i802 = add nuw nsw i64 %indvars.iv.i794, 1
+  %exitcond.not.i803 = icmp eq i64 %indvars.iv.next.i802, 95
+  br i1 %exitcond.not.i803, label %_ZN4pkpy2TKEPKc.exit806, label %581, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit807:                          ; preds = %596, %594
-  %.015.i805 = phi i64 [ %595, %594 ], [ 255, %596 ]
-  %597 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i805
+_ZN4pkpy2TKEPKc.exit806:                          ; preds = %596, %594
+  %.015.i804 = phi i64 [ %595, %594 ], [ 255, %596 ]
+  %597 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i804
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %597, align 8
   %.sroa.278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %597, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.278.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %598
 
-598:                                              ; preds = %613, %_ZN4pkpy2TKEPKc.exit807
-  %indvars.iv.i808 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit807 ], [ %indvars.iv.next.i816, %613 ]
-  %599 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i808
+598:                                              ; preds = %613, %_ZN4pkpy2TKEPKc.exit806
+  %indvars.iv.i807 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit806 ], [ %indvars.iv.next.i815, %613 ]
+  %599 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i807
   %600 = load ptr, ptr %599, align 8
   %601 = load i8, ptr %600, align 1
-  %.not20.i809 = icmp eq i8 %601, 0
-  br i1 %.not20.i809, label %.critedge.i813, label %.lr.ph.i810
+  %.not20.i808 = icmp eq i8 %601, 0
+  br i1 %.not20.i808, label %.critedge.i812, label %.lr.ph.i809
 
-.lr.ph.i810:                                      ; preds = %598, %605
+.lr.ph.i809:                                      ; preds = %598, %605
   %602 = phi i8 [ %608, %605 ], [ %601, %598 ]
-  %.022.i811 = phi ptr [ %607, %605 ], [ @.str.47, %598 ]
-  %.01321.i812 = phi ptr [ %606, %605 ], [ %600, %598 ]
-  %603 = load i8, ptr %.022.i811, align 1
+  %.022.i810 = phi ptr [ %607, %605 ], [ @.str.47, %598 ]
+  %.01321.i811 = phi ptr [ %606, %605 ], [ %600, %598 ]
+  %603 = load i8, ptr %.022.i810, align 1
   %604 = icmp eq i8 %602, %603
-  br i1 %604, label %605, label %.critedge.i813
+  br i1 %604, label %605, label %.critedge.i812
 
-605:                                              ; preds = %.lr.ph.i810
-  %606 = getelementptr inbounds nuw i8, ptr %.01321.i812, i64 1
-  %607 = getelementptr inbounds nuw i8, ptr %.022.i811, i64 1
+605:                                              ; preds = %.lr.ph.i809
+  %606 = getelementptr inbounds nuw i8, ptr %.01321.i811, i64 1
+  %607 = getelementptr inbounds nuw i8, ptr %.022.i810, i64 1
   %608 = load i8, ptr %606, align 1
-  %.not.i819 = icmp eq i8 %608, 0
-  br i1 %.not.i819, label %.critedge.i813, label %.lr.ph.i810, !llvm.loop !15
+  %.not.i818 = icmp eq i8 %608, 0
+  br i1 %.not.i818, label %.critedge.i812, label %.lr.ph.i809, !llvm.loop !15
 
-.critedge.i813:                                   ; preds = %605, %.lr.ph.i810, %598
-  %.0.lcssa.i814 = phi ptr [ @.str.47, %598 ], [ %607, %605 ], [ %.022.i811, %.lr.ph.i810 ]
-  %.lcssa.i815 = phi i8 [ 0, %598 ], [ 0, %605 ], [ %602, %.lr.ph.i810 ]
-  %609 = load i8, ptr %.0.lcssa.i814, align 1
-  %610 = icmp eq i8 %.lcssa.i815, %609
+.critedge.i812:                                   ; preds = %605, %.lr.ph.i809, %598
+  %.0.lcssa.i813 = phi ptr [ @.str.47, %598 ], [ %607, %605 ], [ %.022.i810, %.lr.ph.i809 ]
+  %.lcssa.i814 = phi i8 [ 0, %598 ], [ 0, %605 ], [ %602, %.lr.ph.i809 ]
+  %609 = load i8, ptr %.0.lcssa.i813, align 1
+  %610 = icmp eq i8 %.lcssa.i814, %609
   br i1 %610, label %611, label %613
 
-611:                                              ; preds = %.critedge.i813
-  %612 = and i64 %indvars.iv.i808, 255
-  br label %_ZN4pkpy2TKEPKc.exit820
+611:                                              ; preds = %.critedge.i812
+  %612 = and i64 %indvars.iv.i807, 255
+  br label %_ZN4pkpy2TKEPKc.exit819
 
-613:                                              ; preds = %.critedge.i813
-  %indvars.iv.next.i816 = add nuw nsw i64 %indvars.iv.i808, 1
-  %exitcond.not.i817 = icmp eq i64 %indvars.iv.next.i816, 95
-  br i1 %exitcond.not.i817, label %_ZN4pkpy2TKEPKc.exit820, label %598, !llvm.loop !16
+613:                                              ; preds = %.critedge.i812
+  %indvars.iv.next.i815 = add nuw nsw i64 %indvars.iv.i807, 1
+  %exitcond.not.i816 = icmp eq i64 %indvars.iv.next.i815, 95
+  br i1 %exitcond.not.i816, label %_ZN4pkpy2TKEPKc.exit819, label %598, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit820:                          ; preds = %613, %611
-  %.015.i818 = phi i64 [ %612, %611 ], [ 255, %613 ]
-  %614 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i818
+_ZN4pkpy2TKEPKc.exit819:                          ; preds = %613, %611
+  %.015.i817 = phi i64 [ %612, %611 ], [ 255, %613 ]
+  %614 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i817
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler12exprLiteral0Ev to i64), ptr %614, align 8
   %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %614, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.270.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %615
 
-615:                                              ; preds = %630, %_ZN4pkpy2TKEPKc.exit820
-  %indvars.iv.i821 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit820 ], [ %indvars.iv.next.i829, %630 ]
-  %616 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i821
+615:                                              ; preds = %630, %_ZN4pkpy2TKEPKc.exit819
+  %indvars.iv.i820 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit819 ], [ %indvars.iv.next.i828, %630 ]
+  %616 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i820
   %617 = load ptr, ptr %616, align 8
   %618 = load i8, ptr %617, align 1
-  %.not20.i822 = icmp eq i8 %618, 0
-  br i1 %.not20.i822, label %.critedge.i826, label %.lr.ph.i823
+  %.not20.i821 = icmp eq i8 %618, 0
+  br i1 %.not20.i821, label %.critedge.i825, label %.lr.ph.i822
 
-.lr.ph.i823:                                      ; preds = %615, %622
+.lr.ph.i822:                                      ; preds = %615, %622
   %619 = phi i8 [ %625, %622 ], [ %618, %615 ]
-  %.022.i824 = phi ptr [ %624, %622 ], [ @.str.48, %615 ]
-  %.01321.i825 = phi ptr [ %623, %622 ], [ %617, %615 ]
-  %620 = load i8, ptr %.022.i824, align 1
+  %.022.i823 = phi ptr [ %624, %622 ], [ @.str.48, %615 ]
+  %.01321.i824 = phi ptr [ %623, %622 ], [ %617, %615 ]
+  %620 = load i8, ptr %.022.i823, align 1
   %621 = icmp eq i8 %619, %620
-  br i1 %621, label %622, label %.critedge.i826
+  br i1 %621, label %622, label %.critedge.i825
 
-622:                                              ; preds = %.lr.ph.i823
-  %623 = getelementptr inbounds nuw i8, ptr %.01321.i825, i64 1
-  %624 = getelementptr inbounds nuw i8, ptr %.022.i824, i64 1
+622:                                              ; preds = %.lr.ph.i822
+  %623 = getelementptr inbounds nuw i8, ptr %.01321.i824, i64 1
+  %624 = getelementptr inbounds nuw i8, ptr %.022.i823, i64 1
   %625 = load i8, ptr %623, align 1
-  %.not.i832 = icmp eq i8 %625, 0
-  br i1 %.not.i832, label %.critedge.i826, label %.lr.ph.i823, !llvm.loop !15
+  %.not.i831 = icmp eq i8 %625, 0
+  br i1 %.not.i831, label %.critedge.i825, label %.lr.ph.i822, !llvm.loop !15
 
-.critedge.i826:                                   ; preds = %622, %.lr.ph.i823, %615
-  %.0.lcssa.i827 = phi ptr [ @.str.48, %615 ], [ %624, %622 ], [ %.022.i824, %.lr.ph.i823 ]
-  %.lcssa.i828 = phi i8 [ 0, %615 ], [ 0, %622 ], [ %619, %.lr.ph.i823 ]
-  %626 = load i8, ptr %.0.lcssa.i827, align 1
-  %627 = icmp eq i8 %.lcssa.i828, %626
+.critedge.i825:                                   ; preds = %622, %.lr.ph.i822, %615
+  %.0.lcssa.i826 = phi ptr [ @.str.48, %615 ], [ %624, %622 ], [ %.022.i823, %.lr.ph.i822 ]
+  %.lcssa.i827 = phi i8 [ 0, %615 ], [ 0, %622 ], [ %619, %.lr.ph.i822 ]
+  %626 = load i8, ptr %.0.lcssa.i826, align 1
+  %627 = icmp eq i8 %.lcssa.i827, %626
   br i1 %627, label %628, label %630
 
-628:                                              ; preds = %.critedge.i826
-  %629 = and i64 %indvars.iv.i821, 255
-  br label %_ZN4pkpy2TKEPKc.exit833
+628:                                              ; preds = %.critedge.i825
+  %629 = and i64 %indvars.iv.i820, 255
+  br label %_ZN4pkpy2TKEPKc.exit832
 
-630:                                              ; preds = %.critedge.i826
-  %indvars.iv.next.i829 = add nuw nsw i64 %indvars.iv.i821, 1
-  %exitcond.not.i830 = icmp eq i64 %indvars.iv.next.i829, 95
-  br i1 %exitcond.not.i830, label %_ZN4pkpy2TKEPKc.exit833, label %615, !llvm.loop !16
+630:                                              ; preds = %.critedge.i825
+  %indvars.iv.next.i828 = add nuw nsw i64 %indvars.iv.i820, 1
+  %exitcond.not.i829 = icmp eq i64 %indvars.iv.next.i828, 95
+  br i1 %exitcond.not.i829, label %_ZN4pkpy2TKEPKc.exit832, label %615, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit833:                          ; preds = %630, %628
-  %.015.i831 = phi i64 [ %629, %628 ], [ 255, %630 ]
-  %631 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i831
+_ZN4pkpy2TKEPKc.exit832:                          ; preds = %630, %628
+  %.015.i830 = phi i64 [ %629, %628 ], [ 255, %630 ]
+  %631 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i830
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler10exprLambdaEv to i64), ptr %631, align 8
   %.sroa.262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %631, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.262.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %632
 
-632:                                              ; preds = %647, %_ZN4pkpy2TKEPKc.exit833
-  %indvars.iv.i834 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit833 ], [ %indvars.iv.next.i842, %647 ]
-  %633 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i834
+632:                                              ; preds = %647, %_ZN4pkpy2TKEPKc.exit832
+  %indvars.iv.i833 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit832 ], [ %indvars.iv.next.i841, %647 ]
+  %633 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i833
   %634 = load ptr, ptr %633, align 8
   %635 = load i8, ptr %634, align 1
-  %.not20.i835 = icmp eq i8 %635, 0
-  br i1 %.not20.i835, label %.critedge.i839, label %.lr.ph.i836
+  %.not20.i834 = icmp eq i8 %635, 0
+  br i1 %.not20.i834, label %.critedge.i838, label %.lr.ph.i835
 
-.lr.ph.i836:                                      ; preds = %632, %639
+.lr.ph.i835:                                      ; preds = %632, %639
   %636 = phi i8 [ %642, %639 ], [ %635, %632 ]
-  %.022.i837 = phi ptr [ %641, %639 ], [ @.str.49, %632 ]
-  %.01321.i838 = phi ptr [ %640, %639 ], [ %634, %632 ]
-  %637 = load i8, ptr %.022.i837, align 1
+  %.022.i836 = phi ptr [ %641, %639 ], [ @.str.49, %632 ]
+  %.01321.i837 = phi ptr [ %640, %639 ], [ %634, %632 ]
+  %637 = load i8, ptr %.022.i836, align 1
   %638 = icmp eq i8 %636, %637
-  br i1 %638, label %639, label %.critedge.i839
+  br i1 %638, label %639, label %.critedge.i838
 
-639:                                              ; preds = %.lr.ph.i836
-  %640 = getelementptr inbounds nuw i8, ptr %.01321.i838, i64 1
-  %641 = getelementptr inbounds nuw i8, ptr %.022.i837, i64 1
+639:                                              ; preds = %.lr.ph.i835
+  %640 = getelementptr inbounds nuw i8, ptr %.01321.i837, i64 1
+  %641 = getelementptr inbounds nuw i8, ptr %.022.i836, i64 1
   %642 = load i8, ptr %640, align 1
-  %.not.i845 = icmp eq i8 %642, 0
-  br i1 %.not.i845, label %.critedge.i839, label %.lr.ph.i836, !llvm.loop !15
+  %.not.i844 = icmp eq i8 %642, 0
+  br i1 %.not.i844, label %.critedge.i838, label %.lr.ph.i835, !llvm.loop !15
 
-.critedge.i839:                                   ; preds = %639, %.lr.ph.i836, %632
-  %.0.lcssa.i840 = phi ptr [ @.str.49, %632 ], [ %641, %639 ], [ %.022.i837, %.lr.ph.i836 ]
-  %.lcssa.i841 = phi i8 [ 0, %632 ], [ 0, %639 ], [ %636, %.lr.ph.i836 ]
-  %643 = load i8, ptr %.0.lcssa.i840, align 1
-  %644 = icmp eq i8 %.lcssa.i841, %643
+.critedge.i838:                                   ; preds = %639, %.lr.ph.i835, %632
+  %.0.lcssa.i839 = phi ptr [ @.str.49, %632 ], [ %641, %639 ], [ %.022.i836, %.lr.ph.i835 ]
+  %.lcssa.i840 = phi i8 [ 0, %632 ], [ 0, %639 ], [ %636, %.lr.ph.i835 ]
+  %643 = load i8, ptr %.0.lcssa.i839, align 1
+  %644 = icmp eq i8 %.lcssa.i840, %643
   br i1 %644, label %645, label %647
 
-645:                                              ; preds = %.critedge.i839
-  %646 = and i64 %indvars.iv.i834, 255
-  br label %_ZN4pkpy2TKEPKc.exit846
+645:                                              ; preds = %.critedge.i838
+  %646 = and i64 %indvars.iv.i833, 255
+  br label %_ZN4pkpy2TKEPKc.exit845
 
-647:                                              ; preds = %.critedge.i839
-  %indvars.iv.next.i842 = add nuw nsw i64 %indvars.iv.i834, 1
-  %exitcond.not.i843 = icmp eq i64 %indvars.iv.next.i842, 95
-  br i1 %exitcond.not.i843, label %_ZN4pkpy2TKEPKc.exit846, label %632, !llvm.loop !16
+647:                                              ; preds = %.critedge.i838
+  %indvars.iv.next.i841 = add nuw nsw i64 %indvars.iv.i833, 1
+  %exitcond.not.i842 = icmp eq i64 %indvars.iv.next.i841, 95
+  br i1 %exitcond.not.i842, label %_ZN4pkpy2TKEPKc.exit845, label %632, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit846:                          ; preds = %647, %645
-  %.015.i844 = phi i64 [ %646, %645 ], [ 255, %647 ]
-  %648 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i844
+_ZN4pkpy2TKEPKc.exit845:                          ; preds = %647, %645
+  %.015.i843 = phi i64 [ %646, %645 ], [ 255, %647 ]
+  %648 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i843
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprNameEv to i64), ptr %648, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %648, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.254.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %649
 
-649:                                              ; preds = %664, %_ZN4pkpy2TKEPKc.exit846
-  %indvars.iv.i847 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit846 ], [ %indvars.iv.next.i855, %664 ]
-  %650 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i847
+649:                                              ; preds = %664, %_ZN4pkpy2TKEPKc.exit845
+  %indvars.iv.i846 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit845 ], [ %indvars.iv.next.i854, %664 ]
+  %650 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i846
   %651 = load ptr, ptr %650, align 8
   %652 = load i8, ptr %651, align 1
-  %.not20.i848 = icmp eq i8 %652, 0
-  br i1 %.not20.i848, label %.critedge.i852, label %.lr.ph.i849
+  %.not20.i847 = icmp eq i8 %652, 0
+  br i1 %.not20.i847, label %.critedge.i851, label %.lr.ph.i848
 
-.lr.ph.i849:                                      ; preds = %649, %656
+.lr.ph.i848:                                      ; preds = %649, %656
   %653 = phi i8 [ %659, %656 ], [ %652, %649 ]
-  %.022.i850 = phi ptr [ %658, %656 ], [ @.str.50, %649 ]
-  %.01321.i851 = phi ptr [ %657, %656 ], [ %651, %649 ]
-  %654 = load i8, ptr %.022.i850, align 1
+  %.022.i849 = phi ptr [ %658, %656 ], [ @.str.50, %649 ]
+  %.01321.i850 = phi ptr [ %657, %656 ], [ %651, %649 ]
+  %654 = load i8, ptr %.022.i849, align 1
   %655 = icmp eq i8 %653, %654
-  br i1 %655, label %656, label %.critedge.i852
+  br i1 %655, label %656, label %.critedge.i851
 
-656:                                              ; preds = %.lr.ph.i849
-  %657 = getelementptr inbounds nuw i8, ptr %.01321.i851, i64 1
-  %658 = getelementptr inbounds nuw i8, ptr %.022.i850, i64 1
+656:                                              ; preds = %.lr.ph.i848
+  %657 = getelementptr inbounds nuw i8, ptr %.01321.i850, i64 1
+  %658 = getelementptr inbounds nuw i8, ptr %.022.i849, i64 1
   %659 = load i8, ptr %657, align 1
-  %.not.i858 = icmp eq i8 %659, 0
-  br i1 %.not.i858, label %.critedge.i852, label %.lr.ph.i849, !llvm.loop !15
+  %.not.i857 = icmp eq i8 %659, 0
+  br i1 %.not.i857, label %.critedge.i851, label %.lr.ph.i848, !llvm.loop !15
 
-.critedge.i852:                                   ; preds = %656, %.lr.ph.i849, %649
-  %.0.lcssa.i853 = phi ptr [ @.str.50, %649 ], [ %658, %656 ], [ %.022.i850, %.lr.ph.i849 ]
-  %.lcssa.i854 = phi i8 [ 0, %649 ], [ 0, %656 ], [ %653, %.lr.ph.i849 ]
-  %660 = load i8, ptr %.0.lcssa.i853, align 1
-  %661 = icmp eq i8 %.lcssa.i854, %660
+.critedge.i851:                                   ; preds = %656, %.lr.ph.i848, %649
+  %.0.lcssa.i852 = phi ptr [ @.str.50, %649 ], [ %658, %656 ], [ %.022.i849, %.lr.ph.i848 ]
+  %.lcssa.i853 = phi i8 [ 0, %649 ], [ 0, %656 ], [ %653, %.lr.ph.i848 ]
+  %660 = load i8, ptr %.0.lcssa.i852, align 1
+  %661 = icmp eq i8 %.lcssa.i853, %660
   br i1 %661, label %662, label %664
 
-662:                                              ; preds = %.critedge.i852
-  %663 = and i64 %indvars.iv.i847, 255
-  br label %_ZN4pkpy2TKEPKc.exit859
+662:                                              ; preds = %.critedge.i851
+  %663 = and i64 %indvars.iv.i846, 255
+  br label %_ZN4pkpy2TKEPKc.exit858
 
-664:                                              ; preds = %.critedge.i852
-  %indvars.iv.next.i855 = add nuw nsw i64 %indvars.iv.i847, 1
-  %exitcond.not.i856 = icmp eq i64 %indvars.iv.next.i855, 95
-  br i1 %exitcond.not.i856, label %_ZN4pkpy2TKEPKc.exit859, label %649, !llvm.loop !16
+664:                                              ; preds = %.critedge.i851
+  %indvars.iv.next.i854 = add nuw nsw i64 %indvars.iv.i846, 1
+  %exitcond.not.i855 = icmp eq i64 %indvars.iv.next.i854, 95
+  br i1 %exitcond.not.i855, label %_ZN4pkpy2TKEPKc.exit858, label %649, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit859:                          ; preds = %664, %662
-  %.015.i857 = phi i64 [ %663, %662 ], [ 255, %664 ]
-  %665 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i857
+_ZN4pkpy2TKEPKc.exit858:                          ; preds = %664, %662
+  %.015.i856 = phi i64 [ %663, %662 ], [ 255, %664 ]
+  %665 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i856
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprLiteralEv to i64), ptr %665, align 8
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %665, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.246.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %666
 
-666:                                              ; preds = %681, %_ZN4pkpy2TKEPKc.exit859
-  %indvars.iv.i860 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit859 ], [ %indvars.iv.next.i868, %681 ]
-  %667 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i860
+666:                                              ; preds = %681, %_ZN4pkpy2TKEPKc.exit858
+  %indvars.iv.i859 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit858 ], [ %indvars.iv.next.i867, %681 ]
+  %667 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i859
   %668 = load ptr, ptr %667, align 8
   %669 = load i8, ptr %668, align 1
-  %.not20.i861 = icmp eq i8 %669, 0
-  br i1 %.not20.i861, label %.critedge.i865, label %.lr.ph.i862
+  %.not20.i860 = icmp eq i8 %669, 0
+  br i1 %.not20.i860, label %.critedge.i864, label %.lr.ph.i861
 
-.lr.ph.i862:                                      ; preds = %666, %673
+.lr.ph.i861:                                      ; preds = %666, %673
   %670 = phi i8 [ %676, %673 ], [ %669, %666 ]
-  %.022.i863 = phi ptr [ %675, %673 ], [ @.str.51, %666 ]
-  %.01321.i864 = phi ptr [ %674, %673 ], [ %668, %666 ]
-  %671 = load i8, ptr %.022.i863, align 1
+  %.022.i862 = phi ptr [ %675, %673 ], [ @.str.51, %666 ]
+  %.01321.i863 = phi ptr [ %674, %673 ], [ %668, %666 ]
+  %671 = load i8, ptr %.022.i862, align 1
   %672 = icmp eq i8 %670, %671
-  br i1 %672, label %673, label %.critedge.i865
+  br i1 %672, label %673, label %.critedge.i864
 
-673:                                              ; preds = %.lr.ph.i862
-  %674 = getelementptr inbounds nuw i8, ptr %.01321.i864, i64 1
-  %675 = getelementptr inbounds nuw i8, ptr %.022.i863, i64 1
+673:                                              ; preds = %.lr.ph.i861
+  %674 = getelementptr inbounds nuw i8, ptr %.01321.i863, i64 1
+  %675 = getelementptr inbounds nuw i8, ptr %.022.i862, i64 1
   %676 = load i8, ptr %674, align 1
-  %.not.i871 = icmp eq i8 %676, 0
-  br i1 %.not.i871, label %.critedge.i865, label %.lr.ph.i862, !llvm.loop !15
+  %.not.i870 = icmp eq i8 %676, 0
+  br i1 %.not.i870, label %.critedge.i864, label %.lr.ph.i861, !llvm.loop !15
 
-.critedge.i865:                                   ; preds = %673, %.lr.ph.i862, %666
-  %.0.lcssa.i866 = phi ptr [ @.str.51, %666 ], [ %675, %673 ], [ %.022.i863, %.lr.ph.i862 ]
-  %.lcssa.i867 = phi i8 [ 0, %666 ], [ 0, %673 ], [ %670, %.lr.ph.i862 ]
-  %677 = load i8, ptr %.0.lcssa.i866, align 1
-  %678 = icmp eq i8 %.lcssa.i867, %677
+.critedge.i864:                                   ; preds = %673, %.lr.ph.i861, %666
+  %.0.lcssa.i865 = phi ptr [ @.str.51, %666 ], [ %675, %673 ], [ %.022.i862, %.lr.ph.i861 ]
+  %.lcssa.i866 = phi i8 [ 0, %666 ], [ 0, %673 ], [ %670, %.lr.ph.i861 ]
+  %677 = load i8, ptr %.0.lcssa.i865, align 1
+  %678 = icmp eq i8 %.lcssa.i866, %677
   br i1 %678, label %679, label %681
 
-679:                                              ; preds = %.critedge.i865
-  %680 = and i64 %indvars.iv.i860, 255
-  br label %_ZN4pkpy2TKEPKc.exit872
+679:                                              ; preds = %.critedge.i864
+  %680 = and i64 %indvars.iv.i859, 255
+  br label %_ZN4pkpy2TKEPKc.exit871
 
-681:                                              ; preds = %.critedge.i865
-  %indvars.iv.next.i868 = add nuw nsw i64 %indvars.iv.i860, 1
-  %exitcond.not.i869 = icmp eq i64 %indvars.iv.next.i868, 95
-  br i1 %exitcond.not.i869, label %_ZN4pkpy2TKEPKc.exit872, label %666, !llvm.loop !16
+681:                                              ; preds = %.critedge.i864
+  %indvars.iv.next.i867 = add nuw nsw i64 %indvars.iv.i859, 1
+  %exitcond.not.i868 = icmp eq i64 %indvars.iv.next.i867, 95
+  br i1 %exitcond.not.i868, label %_ZN4pkpy2TKEPKc.exit871, label %666, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit872:                          ; preds = %681, %679
-  %.015.i870 = phi i64 [ %680, %679 ], [ 255, %681 ]
-  %682 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i870
+_ZN4pkpy2TKEPKc.exit871:                          ; preds = %681, %679
+  %.015.i869 = phi i64 [ %680, %679 ], [ 255, %681 ]
+  %682 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i869
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprLiteralEv to i64), ptr %682, align 8
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %682, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.238.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %683
 
-683:                                              ; preds = %698, %_ZN4pkpy2TKEPKc.exit872
-  %indvars.iv.i873 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit872 ], [ %indvars.iv.next.i881, %698 ]
-  %684 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i873
+683:                                              ; preds = %698, %_ZN4pkpy2TKEPKc.exit871
+  %indvars.iv.i872 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit871 ], [ %indvars.iv.next.i880, %698 ]
+  %684 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i872
   %685 = load ptr, ptr %684, align 8
   %686 = load i8, ptr %685, align 1
-  %.not20.i874 = icmp eq i8 %686, 0
-  br i1 %.not20.i874, label %.critedge.i878, label %.lr.ph.i875
+  %.not20.i873 = icmp eq i8 %686, 0
+  br i1 %.not20.i873, label %.critedge.i877, label %.lr.ph.i874
 
-.lr.ph.i875:                                      ; preds = %683, %690
+.lr.ph.i874:                                      ; preds = %683, %690
   %687 = phi i8 [ %693, %690 ], [ %686, %683 ]
-  %.022.i876 = phi ptr [ %692, %690 ], [ @.str.52, %683 ]
-  %.01321.i877 = phi ptr [ %691, %690 ], [ %685, %683 ]
-  %688 = load i8, ptr %.022.i876, align 1
+  %.022.i875 = phi ptr [ %692, %690 ], [ @.str.52, %683 ]
+  %.01321.i876 = phi ptr [ %691, %690 ], [ %685, %683 ]
+  %688 = load i8, ptr %.022.i875, align 1
   %689 = icmp eq i8 %687, %688
-  br i1 %689, label %690, label %.critedge.i878
+  br i1 %689, label %690, label %.critedge.i877
 
-690:                                              ; preds = %.lr.ph.i875
-  %691 = getelementptr inbounds nuw i8, ptr %.01321.i877, i64 1
-  %692 = getelementptr inbounds nuw i8, ptr %.022.i876, i64 1
+690:                                              ; preds = %.lr.ph.i874
+  %691 = getelementptr inbounds nuw i8, ptr %.01321.i876, i64 1
+  %692 = getelementptr inbounds nuw i8, ptr %.022.i875, i64 1
   %693 = load i8, ptr %691, align 1
-  %.not.i884 = icmp eq i8 %693, 0
-  br i1 %.not.i884, label %.critedge.i878, label %.lr.ph.i875, !llvm.loop !15
+  %.not.i883 = icmp eq i8 %693, 0
+  br i1 %.not.i883, label %.critedge.i877, label %.lr.ph.i874, !llvm.loop !15
 
-.critedge.i878:                                   ; preds = %690, %.lr.ph.i875, %683
-  %.0.lcssa.i879 = phi ptr [ @.str.52, %683 ], [ %692, %690 ], [ %.022.i876, %.lr.ph.i875 ]
-  %.lcssa.i880 = phi i8 [ 0, %683 ], [ 0, %690 ], [ %687, %.lr.ph.i875 ]
-  %694 = load i8, ptr %.0.lcssa.i879, align 1
-  %695 = icmp eq i8 %.lcssa.i880, %694
+.critedge.i877:                                   ; preds = %690, %.lr.ph.i874, %683
+  %.0.lcssa.i878 = phi ptr [ @.str.52, %683 ], [ %692, %690 ], [ %.022.i875, %.lr.ph.i874 ]
+  %.lcssa.i879 = phi i8 [ 0, %683 ], [ 0, %690 ], [ %687, %.lr.ph.i874 ]
+  %694 = load i8, ptr %.0.lcssa.i878, align 1
+  %695 = icmp eq i8 %.lcssa.i879, %694
   br i1 %695, label %696, label %698
 
-696:                                              ; preds = %.critedge.i878
-  %697 = and i64 %indvars.iv.i873, 255
-  br label %_ZN4pkpy2TKEPKc.exit885
+696:                                              ; preds = %.critedge.i877
+  %697 = and i64 %indvars.iv.i872, 255
+  br label %_ZN4pkpy2TKEPKc.exit884
 
-698:                                              ; preds = %.critedge.i878
-  %indvars.iv.next.i881 = add nuw nsw i64 %indvars.iv.i873, 1
-  %exitcond.not.i882 = icmp eq i64 %indvars.iv.next.i881, 95
-  br i1 %exitcond.not.i882, label %_ZN4pkpy2TKEPKc.exit885, label %683, !llvm.loop !16
+698:                                              ; preds = %.critedge.i877
+  %indvars.iv.next.i880 = add nuw nsw i64 %indvars.iv.i872, 1
+  %exitcond.not.i881 = icmp eq i64 %indvars.iv.next.i880, 95
+  br i1 %exitcond.not.i881, label %_ZN4pkpy2TKEPKc.exit884, label %683, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit885:                          ; preds = %698, %696
-  %.015.i883 = phi i64 [ %697, %696 ], [ 255, %698 ]
-  %699 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i883
+_ZN4pkpy2TKEPKc.exit884:                          ; preds = %698, %696
+  %.015.i882 = phi i64 [ %697, %696 ], [ 255, %698 ]
+  %699 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i882
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler11exprFStringEv to i64), ptr %699, align 8
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %699, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.230.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %700
 
-700:                                              ; preds = %715, %_ZN4pkpy2TKEPKc.exit885
-  %indvars.iv.i886 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit885 ], [ %indvars.iv.next.i894, %715 ]
-  %701 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i886
+700:                                              ; preds = %715, %_ZN4pkpy2TKEPKc.exit884
+  %indvars.iv.i885 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit884 ], [ %indvars.iv.next.i893, %715 ]
+  %701 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i885
   %702 = load ptr, ptr %701, align 8
   %703 = load i8, ptr %702, align 1
-  %.not20.i887 = icmp eq i8 %703, 0
-  br i1 %.not20.i887, label %.critedge.i891, label %.lr.ph.i888
+  %.not20.i886 = icmp eq i8 %703, 0
+  br i1 %.not20.i886, label %.critedge.i890, label %.lr.ph.i887
 
-.lr.ph.i888:                                      ; preds = %700, %707
+.lr.ph.i887:                                      ; preds = %700, %707
   %704 = phi i8 [ %710, %707 ], [ %703, %700 ]
-  %.022.i889 = phi ptr [ %709, %707 ], [ @.str.53, %700 ]
-  %.01321.i890 = phi ptr [ %708, %707 ], [ %702, %700 ]
-  %705 = load i8, ptr %.022.i889, align 1
+  %.022.i888 = phi ptr [ %709, %707 ], [ @.str.53, %700 ]
+  %.01321.i889 = phi ptr [ %708, %707 ], [ %702, %700 ]
+  %705 = load i8, ptr %.022.i888, align 1
   %706 = icmp eq i8 %704, %705
-  br i1 %706, label %707, label %.critedge.i891
+  br i1 %706, label %707, label %.critedge.i890
 
-707:                                              ; preds = %.lr.ph.i888
-  %708 = getelementptr inbounds nuw i8, ptr %.01321.i890, i64 1
-  %709 = getelementptr inbounds nuw i8, ptr %.022.i889, i64 1
+707:                                              ; preds = %.lr.ph.i887
+  %708 = getelementptr inbounds nuw i8, ptr %.01321.i889, i64 1
+  %709 = getelementptr inbounds nuw i8, ptr %.022.i888, i64 1
   %710 = load i8, ptr %708, align 1
-  %.not.i897 = icmp eq i8 %710, 0
-  br i1 %.not.i897, label %.critedge.i891, label %.lr.ph.i888, !llvm.loop !15
+  %.not.i896 = icmp eq i8 %710, 0
+  br i1 %.not.i896, label %.critedge.i890, label %.lr.ph.i887, !llvm.loop !15
 
-.critedge.i891:                                   ; preds = %707, %.lr.ph.i888, %700
-  %.0.lcssa.i892 = phi ptr [ @.str.53, %700 ], [ %709, %707 ], [ %.022.i889, %.lr.ph.i888 ]
-  %.lcssa.i893 = phi i8 [ 0, %700 ], [ 0, %707 ], [ %704, %.lr.ph.i888 ]
-  %711 = load i8, ptr %.0.lcssa.i892, align 1
-  %712 = icmp eq i8 %.lcssa.i893, %711
+.critedge.i890:                                   ; preds = %707, %.lr.ph.i887, %700
+  %.0.lcssa.i891 = phi ptr [ @.str.53, %700 ], [ %709, %707 ], [ %.022.i888, %.lr.ph.i887 ]
+  %.lcssa.i892 = phi i8 [ 0, %700 ], [ 0, %707 ], [ %704, %.lr.ph.i887 ]
+  %711 = load i8, ptr %.0.lcssa.i891, align 1
+  %712 = icmp eq i8 %.lcssa.i892, %711
   br i1 %712, label %713, label %715
 
-713:                                              ; preds = %.critedge.i891
-  %714 = and i64 %indvars.iv.i886, 255
-  br label %_ZN4pkpy2TKEPKc.exit898
+713:                                              ; preds = %.critedge.i890
+  %714 = and i64 %indvars.iv.i885, 255
+  br label %_ZN4pkpy2TKEPKc.exit897
 
-715:                                              ; preds = %.critedge.i891
-  %indvars.iv.next.i894 = add nuw nsw i64 %indvars.iv.i886, 1
-  %exitcond.not.i895 = icmp eq i64 %indvars.iv.next.i894, 95
-  br i1 %exitcond.not.i895, label %_ZN4pkpy2TKEPKc.exit898, label %700, !llvm.loop !16
+715:                                              ; preds = %.critedge.i890
+  %indvars.iv.next.i893 = add nuw nsw i64 %indvars.iv.i885, 1
+  %exitcond.not.i894 = icmp eq i64 %indvars.iv.next.i893, 95
+  br i1 %exitcond.not.i894, label %_ZN4pkpy2TKEPKc.exit897, label %700, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit898:                          ; preds = %715, %713
-  %.015.i896 = phi i64 [ %714, %713 ], [ 255, %715 ]
-  %716 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i896
+_ZN4pkpy2TKEPKc.exit897:                          ; preds = %715, %713
+  %.015.i895 = phi i64 [ %714, %713 ], [ 255, %715 ]
+  %716 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i895
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprLongEv to i64), ptr %716, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %716, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.222.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %717
 
-717:                                              ; preds = %732, %_ZN4pkpy2TKEPKc.exit898
-  %indvars.iv.i899 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit898 ], [ %indvars.iv.next.i907, %732 ]
-  %718 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i899
+717:                                              ; preds = %732, %_ZN4pkpy2TKEPKc.exit897
+  %indvars.iv.i898 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit897 ], [ %indvars.iv.next.i906, %732 ]
+  %718 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i898
   %719 = load ptr, ptr %718, align 8
   %720 = load i8, ptr %719, align 1
-  %.not20.i900 = icmp eq i8 %720, 0
-  br i1 %.not20.i900, label %.critedge.i904, label %.lr.ph.i901
+  %.not20.i899 = icmp eq i8 %720, 0
+  br i1 %.not20.i899, label %.critedge.i903, label %.lr.ph.i900
 
-.lr.ph.i901:                                      ; preds = %717, %724
+.lr.ph.i900:                                      ; preds = %717, %724
   %721 = phi i8 [ %727, %724 ], [ %720, %717 ]
-  %.022.i902 = phi ptr [ %726, %724 ], [ @.str.54, %717 ]
-  %.01321.i903 = phi ptr [ %725, %724 ], [ %719, %717 ]
-  %722 = load i8, ptr %.022.i902, align 1
+  %.022.i901 = phi ptr [ %726, %724 ], [ @.str.54, %717 ]
+  %.01321.i902 = phi ptr [ %725, %724 ], [ %719, %717 ]
+  %722 = load i8, ptr %.022.i901, align 1
   %723 = icmp eq i8 %721, %722
-  br i1 %723, label %724, label %.critedge.i904
+  br i1 %723, label %724, label %.critedge.i903
 
-724:                                              ; preds = %.lr.ph.i901
-  %725 = getelementptr inbounds nuw i8, ptr %.01321.i903, i64 1
-  %726 = getelementptr inbounds nuw i8, ptr %.022.i902, i64 1
+724:                                              ; preds = %.lr.ph.i900
+  %725 = getelementptr inbounds nuw i8, ptr %.01321.i902, i64 1
+  %726 = getelementptr inbounds nuw i8, ptr %.022.i901, i64 1
   %727 = load i8, ptr %725, align 1
-  %.not.i910 = icmp eq i8 %727, 0
-  br i1 %.not.i910, label %.critedge.i904, label %.lr.ph.i901, !llvm.loop !15
+  %.not.i909 = icmp eq i8 %727, 0
+  br i1 %.not.i909, label %.critedge.i903, label %.lr.ph.i900, !llvm.loop !15
 
-.critedge.i904:                                   ; preds = %724, %.lr.ph.i901, %717
-  %.0.lcssa.i905 = phi ptr [ @.str.54, %717 ], [ %726, %724 ], [ %.022.i902, %.lr.ph.i901 ]
-  %.lcssa.i906 = phi i8 [ 0, %717 ], [ 0, %724 ], [ %721, %.lr.ph.i901 ]
-  %728 = load i8, ptr %.0.lcssa.i905, align 1
-  %729 = icmp eq i8 %.lcssa.i906, %728
+.critedge.i903:                                   ; preds = %724, %.lr.ph.i900, %717
+  %.0.lcssa.i904 = phi ptr [ @.str.54, %717 ], [ %726, %724 ], [ %.022.i901, %.lr.ph.i900 ]
+  %.lcssa.i905 = phi i8 [ 0, %717 ], [ 0, %724 ], [ %721, %.lr.ph.i900 ]
+  %728 = load i8, ptr %.0.lcssa.i904, align 1
+  %729 = icmp eq i8 %.lcssa.i905, %728
   br i1 %729, label %730, label %732
 
-730:                                              ; preds = %.critedge.i904
-  %731 = and i64 %indvars.iv.i899, 255
-  br label %_ZN4pkpy2TKEPKc.exit911
+730:                                              ; preds = %.critedge.i903
+  %731 = and i64 %indvars.iv.i898, 255
+  br label %_ZN4pkpy2TKEPKc.exit910
 
-732:                                              ; preds = %.critedge.i904
-  %indvars.iv.next.i907 = add nuw nsw i64 %indvars.iv.i899, 1
-  %exitcond.not.i908 = icmp eq i64 %indvars.iv.next.i907, 95
-  br i1 %exitcond.not.i908, label %_ZN4pkpy2TKEPKc.exit911, label %717, !llvm.loop !16
+732:                                              ; preds = %.critedge.i903
+  %indvars.iv.next.i906 = add nuw nsw i64 %indvars.iv.i898, 1
+  %exitcond.not.i907 = icmp eq i64 %indvars.iv.next.i906, 95
+  br i1 %exitcond.not.i907, label %_ZN4pkpy2TKEPKc.exit910, label %717, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit911:                          ; preds = %732, %730
-  %.015.i909 = phi i64 [ %731, %730 ], [ 255, %732 ]
-  %733 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i909
+_ZN4pkpy2TKEPKc.exit910:                          ; preds = %732, %730
+  %.015.i908 = phi i64 [ %731, %730 ], [ 255, %732 ]
+  %733 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i908
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler8exprImagEv to i64), ptr %733, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %733, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.214.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %734
 
-734:                                              ; preds = %749, %_ZN4pkpy2TKEPKc.exit911
-  %indvars.iv.i912 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit911 ], [ %indvars.iv.next.i920, %749 ]
-  %735 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i912
+734:                                              ; preds = %749, %_ZN4pkpy2TKEPKc.exit910
+  %indvars.iv.i911 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit910 ], [ %indvars.iv.next.i919, %749 ]
+  %735 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i911
   %736 = load ptr, ptr %735, align 8
   %737 = load i8, ptr %736, align 1
-  %.not20.i913 = icmp eq i8 %737, 0
-  br i1 %.not20.i913, label %.critedge.i917, label %.lr.ph.i914
+  %.not20.i912 = icmp eq i8 %737, 0
+  br i1 %.not20.i912, label %.critedge.i916, label %.lr.ph.i913
 
-.lr.ph.i914:                                      ; preds = %734, %741
+.lr.ph.i913:                                      ; preds = %734, %741
   %738 = phi i8 [ %744, %741 ], [ %737, %734 ]
-  %.022.i915 = phi ptr [ %743, %741 ], [ @.str.55, %734 ]
-  %.01321.i916 = phi ptr [ %742, %741 ], [ %736, %734 ]
-  %739 = load i8, ptr %.022.i915, align 1
+  %.022.i914 = phi ptr [ %743, %741 ], [ @.str.55, %734 ]
+  %.01321.i915 = phi ptr [ %742, %741 ], [ %736, %734 ]
+  %739 = load i8, ptr %.022.i914, align 1
   %740 = icmp eq i8 %738, %739
-  br i1 %740, label %741, label %.critedge.i917
+  br i1 %740, label %741, label %.critedge.i916
 
-741:                                              ; preds = %.lr.ph.i914
-  %742 = getelementptr inbounds nuw i8, ptr %.01321.i916, i64 1
-  %743 = getelementptr inbounds nuw i8, ptr %.022.i915, i64 1
+741:                                              ; preds = %.lr.ph.i913
+  %742 = getelementptr inbounds nuw i8, ptr %.01321.i915, i64 1
+  %743 = getelementptr inbounds nuw i8, ptr %.022.i914, i64 1
   %744 = load i8, ptr %742, align 1
-  %.not.i923 = icmp eq i8 %744, 0
-  br i1 %.not.i923, label %.critedge.i917, label %.lr.ph.i914, !llvm.loop !15
+  %.not.i922 = icmp eq i8 %744, 0
+  br i1 %.not.i922, label %.critedge.i916, label %.lr.ph.i913, !llvm.loop !15
 
-.critedge.i917:                                   ; preds = %741, %.lr.ph.i914, %734
-  %.0.lcssa.i918 = phi ptr [ @.str.55, %734 ], [ %743, %741 ], [ %.022.i915, %.lr.ph.i914 ]
-  %.lcssa.i919 = phi i8 [ 0, %734 ], [ 0, %741 ], [ %738, %.lr.ph.i914 ]
-  %745 = load i8, ptr %.0.lcssa.i918, align 1
-  %746 = icmp eq i8 %.lcssa.i919, %745
+.critedge.i916:                                   ; preds = %741, %.lr.ph.i913, %734
+  %.0.lcssa.i917 = phi ptr [ @.str.55, %734 ], [ %743, %741 ], [ %.022.i914, %.lr.ph.i913 ]
+  %.lcssa.i918 = phi i8 [ 0, %734 ], [ 0, %741 ], [ %738, %.lr.ph.i913 ]
+  %745 = load i8, ptr %.0.lcssa.i917, align 1
+  %746 = icmp eq i8 %.lcssa.i918, %745
   br i1 %746, label %747, label %749
 
-747:                                              ; preds = %.critedge.i917
-  %748 = and i64 %indvars.iv.i912, 255
-  br label %_ZN4pkpy2TKEPKc.exit924
+747:                                              ; preds = %.critedge.i916
+  %748 = and i64 %indvars.iv.i911, 255
+  br label %_ZN4pkpy2TKEPKc.exit923
 
-749:                                              ; preds = %.critedge.i917
-  %indvars.iv.next.i920 = add nuw nsw i64 %indvars.iv.i912, 1
-  %exitcond.not.i921 = icmp eq i64 %indvars.iv.next.i920, 95
-  br i1 %exitcond.not.i921, label %_ZN4pkpy2TKEPKc.exit924, label %734, !llvm.loop !16
+749:                                              ; preds = %.critedge.i916
+  %indvars.iv.next.i919 = add nuw nsw i64 %indvars.iv.i911, 1
+  %exitcond.not.i920 = icmp eq i64 %indvars.iv.next.i919, 95
+  br i1 %exitcond.not.i920, label %_ZN4pkpy2TKEPKc.exit923, label %734, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit924:                          ; preds = %749, %747
-  %.015.i922 = phi i64 [ %748, %747 ], [ 255, %749 ]
-  %750 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i922
+_ZN4pkpy2TKEPKc.exit923:                          ; preds = %749, %747
+  %.015.i921 = phi i64 [ %748, %747 ], [ 255, %749 ]
+  %750 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i921
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler9exprBytesEv to i64), ptr %750, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %750, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.26.0..sroa_idx, i8 0, i64 28, i1 false)
   br label %751
 
-751:                                              ; preds = %766, %_ZN4pkpy2TKEPKc.exit924
-  %indvars.iv.i925 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit924 ], [ %indvars.iv.next.i933, %766 ]
-  %752 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i925
+751:                                              ; preds = %766, %_ZN4pkpy2TKEPKc.exit923
+  %indvars.iv.i924 = phi i64 [ 0, %_ZN4pkpy2TKEPKc.exit923 ], [ %indvars.iv.next.i932, %766 ]
+  %752 = getelementptr inbounds nuw ptr, ptr @_ZN4pkpyL7kTokensE, i64 %indvars.iv.i924
   %753 = load ptr, ptr %752, align 8
   %754 = load i8, ptr %753, align 1
-  %.not20.i926 = icmp eq i8 %754, 0
-  br i1 %.not20.i926, label %.critedge.i930, label %.lr.ph.i927
+  %.not20.i925 = icmp eq i8 %754, 0
+  br i1 %.not20.i925, label %.critedge.i929, label %.lr.ph.i926
 
-.lr.ph.i927:                                      ; preds = %751, %758
+.lr.ph.i926:                                      ; preds = %751, %758
   %755 = phi i8 [ %761, %758 ], [ %754, %751 ]
-  %.022.i928 = phi ptr [ %760, %758 ], [ @.str.10, %751 ]
-  %.01321.i929 = phi ptr [ %759, %758 ], [ %753, %751 ]
-  %756 = load i8, ptr %.022.i928, align 1
+  %.022.i927 = phi ptr [ %760, %758 ], [ @.str.10, %751 ]
+  %.01321.i928 = phi ptr [ %759, %758 ], [ %753, %751 ]
+  %756 = load i8, ptr %.022.i927, align 1
   %757 = icmp eq i8 %755, %756
-  br i1 %757, label %758, label %.critedge.i930
+  br i1 %757, label %758, label %.critedge.i929
 
-758:                                              ; preds = %.lr.ph.i927
-  %759 = getelementptr inbounds nuw i8, ptr %.01321.i929, i64 1
-  %760 = getelementptr inbounds nuw i8, ptr %.022.i928, i64 1
+758:                                              ; preds = %.lr.ph.i926
+  %759 = getelementptr inbounds nuw i8, ptr %.01321.i928, i64 1
+  %760 = getelementptr inbounds nuw i8, ptr %.022.i927, i64 1
   %761 = load i8, ptr %759, align 1
-  %.not.i936 = icmp eq i8 %761, 0
-  br i1 %.not.i936, label %.critedge.i930, label %.lr.ph.i927, !llvm.loop !15
+  %.not.i935 = icmp eq i8 %761, 0
+  br i1 %.not.i935, label %.critedge.i929, label %.lr.ph.i926, !llvm.loop !15
 
-.critedge.i930:                                   ; preds = %758, %.lr.ph.i927, %751
-  %.0.lcssa.i931 = phi ptr [ @.str.10, %751 ], [ %760, %758 ], [ %.022.i928, %.lr.ph.i927 ]
-  %.lcssa.i932 = phi i8 [ 0, %751 ], [ 0, %758 ], [ %755, %.lr.ph.i927 ]
-  %762 = load i8, ptr %.0.lcssa.i931, align 1
-  %763 = icmp eq i8 %.lcssa.i932, %762
+.critedge.i929:                                   ; preds = %758, %.lr.ph.i926, %751
+  %.0.lcssa.i930 = phi ptr [ @.str.10, %751 ], [ %760, %758 ], [ %.022.i927, %.lr.ph.i926 ]
+  %.lcssa.i931 = phi i8 [ 0, %751 ], [ 0, %758 ], [ %755, %.lr.ph.i926 ]
+  %762 = load i8, ptr %.0.lcssa.i930, align 1
+  %763 = icmp eq i8 %.lcssa.i931, %762
   br i1 %763, label %764, label %766
 
-764:                                              ; preds = %.critedge.i930
-  %765 = and i64 %indvars.iv.i925, 255
-  br label %_ZN4pkpy2TKEPKc.exit937
+764:                                              ; preds = %.critedge.i929
+  %765 = and i64 %indvars.iv.i924, 255
+  br label %_ZN4pkpy2TKEPKc.exit936
 
-766:                                              ; preds = %.critedge.i930
-  %indvars.iv.next.i933 = add nuw nsw i64 %indvars.iv.i925, 1
-  %exitcond.not.i934 = icmp eq i64 %indvars.iv.next.i933, 95
-  br i1 %exitcond.not.i934, label %_ZN4pkpy2TKEPKc.exit937, label %751, !llvm.loop !16
+766:                                              ; preds = %.critedge.i929
+  %indvars.iv.next.i932 = add nuw nsw i64 %indvars.iv.i924, 1
+  %exitcond.not.i933 = icmp eq i64 %indvars.iv.next.i932, 95
+  br i1 %exitcond.not.i933, label %_ZN4pkpy2TKEPKc.exit936, label %751, !llvm.loop !16
 
-_ZN4pkpy2TKEPKc.exit937:                          ; preds = %766, %764
-  %.015.i935 = phi i64 [ %765, %764 ], [ 255, %766 ]
-  %767 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i935
+_ZN4pkpy2TKEPKc.exit936:                          ; preds = %766, %764
+  %.015.i934 = phi i64 [ %765, %764 ], [ 255, %766 ]
+  %767 = getelementptr inbounds nuw %"struct.pkpy::PrattRule", ptr @_ZN4pkpy8Compiler5rulesE, i64 %.015.i934
   store i64 ptrtoint (ptr @_ZN4pkpy8Compiler10exprSlice0Ev to i64), ptr %767, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %767, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -5581,7 +5581,7 @@ _ZN4pkpy2TKEPKc.exit937:                          ; preds = %766, %764
   store i32 15, ptr %.sroa.5.0..sroa_idx, align 8
   br label %768
 
-768:                                              ; preds = %0, %_ZN4pkpy2TKEPKc.exit937
+768:                                              ; preds = %0, %_ZN4pkpy2TKEPKc.exit936
   ret void
 }
 

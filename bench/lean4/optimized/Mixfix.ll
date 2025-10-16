@@ -19983,8 +19983,8 @@ declare ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Mixfix(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -20013,17 +20013,17 @@ define ptr @initialize_Lean_Elab_Mixfix(i8 noundef zeroext %0, ptr noundef readn
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #5
   store ptr %18, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #5
@@ -20272,11 +20272,11 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %147 = icmp eq ptr %146, null
   br i1 %147, label %148, label %_init_l_Lean_Elab_Command_expandMixfix___closed__1.exit
 
-148:                                              ; preds = %lean_dec_ref.exit16
+148:                                              ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Command_expandMixfix___closed__1.exit: ; preds = %lean_dec_ref.exit16
+_init_l_Lean_Elab_Command_expandMixfix___closed__1.exit: ; preds = %lean_dec_ref.exit15
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 1, ptr %146, align 4, !tbaa !8
   store i32 -184549352, ptr %149, align 4
@@ -20326,7 +20326,7 @@ _init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixf
   store ptr %161, ptr @l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %161) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit14, label %168
+  br i1 %.not, label %lean_dec_ref.exit13, label %168
 
 168:                                              ; preds = %_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__5.exit
   %169 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__4, align 8, !tbaa !4
@@ -20335,9 +20335,9 @@ _init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixf
   %172 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__5, align 8, !tbaa !4
   %173 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %174 = getelementptr i8, ptr %173, i64 4
-  %.val17 = load i32, ptr %174, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %175 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %174, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %175 = icmp eq i32 %.mask.i18, 16777216
   br i1 %175, label %254, label %176
 
 176:                                              ; preds = %168
@@ -20348,27 +20348,27 @@ _init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixf
 179:                                              ; preds = %176
   %180 = add nsw i32 %177, -1
   store i32 %180, ptr %173, align 4, !tbaa !8
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 181:                                              ; preds = %176
-  %.not.i13 = icmp eq i32 %177, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %182
+  %.not.i12 = icmp eq i32 %177, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %182
 
 182:                                              ; preds = %181
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %173) #5
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %182, %181, %179, %_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__5.exit
+lean_dec_ref.exit13:                              ; preds = %182, %181, %179, %_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix__1___closed__5.exit
   tail call void @lean_inc_heartbeat() #5
   %183 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %184 = icmp eq ptr %183, null
   br i1 %184, label %185, label %_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix_declRange__3___closed__1.exit
 
-185:                                              ; preds = %lean_dec_ref.exit14
+185:                                              ; preds = %lean_dec_ref.exit13
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit14
+_init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit13
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 1, ptr %183, align 4, !tbaa !8
   store i32 131096, ptr %186, align 4
@@ -20513,9 +20513,9 @@ _init_l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixf
   %237 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___regBuiltin_Lean_Elab_Command_expandMixfix_declRange__3___closed__7, align 8, !tbaa !4
   %238 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %236, ptr noundef %237, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %239 = getelementptr i8, ptr %238, i64 4
-  %.val18 = load i32, ptr %239, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %240 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %239, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %240 = icmp eq i32 %.mask.i19, 16777216
   br i1 %240, label %254, label %241
 
 241:                                              ; preds = %235
@@ -20547,18 +20547,18 @@ lean_dec_ref.exit:                                ; preds = %247, %246, %244, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink41 = phi ptr [ %4, %3 ], [ %248, %lean_dec_ref.exit ]
-  %251 = getelementptr inbounds nuw i8, ptr %.sink41, i64 4
-  store i32 1, ptr %.sink41, align 4, !tbaa !8
+  %.sink40 = phi ptr [ %4, %3 ], [ %248, %lean_dec_ref.exit ]
+  %251 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  store i32 1, ptr %.sink40, align 4, !tbaa !8
   store i32 131096, ptr %251, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %252, align 8, !tbaa !4
-  %253 = getelementptr inbounds nuw i8, ptr %.sink41, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %253, align 8, !tbaa !4
   br label %254
 
 254:                                              ; preds = %.sink.split, %235, %168, %7
-  %.0 = phi ptr [ %8, %7 ], [ %173, %168 ], [ %238, %235 ], [ %.sink41, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %173, %168 ], [ %238, %235 ], [ %.sink40, %.sink.split ]
   ret ptr %.0
 }
 

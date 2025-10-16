@@ -7278,8 +7278,8 @@ declare void @_ZN13sentencepiece5error4ExitEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4absl12CleanupFlagsEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %.b2 = load i1, ptr @_ZZN4absl12CleanupFlagsEvE11is_shutdown, align 1
-  br i1 %.b2, label %72, label %1
+  %.b = load i1, ptr @_ZZN4absl12CleanupFlagsEvE11is_shutdown, align 1
+  br i1 %.b, label %72, label %1
 
 1:                                                ; preds = %0
   %2 = load atomic i8, ptr @_ZGVZN4absl8internal12_GLOBAL__N_111GetFlagListEvE9flag_list acquire, align 8
@@ -7409,8 +7409,8 @@ _ZNSt6vectorISt10shared_ptrIN4absl8internal8FlagFuncEESaIS4_EED2Ev.exit: ; preds
 
 51:                                               ; preds = %48
   %52 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4absl8internal12_GLOBAL__N_110GetFlagMapB5cxx11EvE8flag_mapB5cxx11) #26
-  %.not.i3 = icmp eq i32 %52, 0
-  br i1 %.not.i3, label %_ZN4absl8internal12_GLOBAL__N_110GetFlagMapB5cxx11Ev.exit, label %53
+  %.not.i2 = icmp eq i32 %52, 0
+  br i1 %.not.i2, label %_ZN4absl8internal12_GLOBAL__N_110GetFlagMapB5cxx11Ev.exit, label %53
 
 53:                                               ; preds = %51
   %54 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22

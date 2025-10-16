@@ -34,8 +34,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @pg_open_tzfile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b1.i = load i1, ptr @pg_TZDIR.done_tzdir, align 1
-  br i1 %.b1.i, label %pg_TZDIR.exit, label %4
+  %.b.i = load i1, ptr @pg_TZDIR.done_tzdir, align 1
+  br i1 %.b.i, label %pg_TZDIR.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull @pg_TZDIR.tzdir) #9
@@ -375,8 +375,8 @@ define dso_local void @pg_timezone_initialize() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pg_tzenumerate_start() local_unnamed_addr #0 {
   %1 = tail call ptr @palloc0(i64 noundef 23864) #9
-  %.b1.i = load i1, ptr @pg_TZDIR.done_tzdir, align 1
-  br i1 %.b1.i, label %pg_TZDIR.exit, label %2
+  %.b.i = load i1, ptr @pg_TZDIR.done_tzdir, align 1
+  br i1 %.b.i, label %pg_TZDIR.exit, label %2
 
 2:                                                ; preds = %0
   tail call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull @pg_TZDIR.tzdir) #9

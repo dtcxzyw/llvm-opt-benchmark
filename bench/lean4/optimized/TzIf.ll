@@ -25884,8 +25884,8 @@ lean_alloc_ctor.exit112:                          ; preds = %lean_dec.exit
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Zoned_Database_TzIf(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -25914,25 +25914,25 @@ define ptr @initialize_Std_Time_Zoned_Database_TzIf(i8 noundef zeroext %0, ptr n
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !7
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Internal_Parsec(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %585, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !7
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !15
@@ -25940,25 +25940,25 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !7
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Std_Internal_Parsec_ByteArray(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %585, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !7
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !15
@@ -26642,8 +26642,8 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time
   tail call void @lean_mark_persistent(ptr noundef %260) #5
   %261 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__2, align 8, !tbaa !10
   %262 = getelementptr i8, ptr %261, i64 24
-  %.val.i21 = load i64, ptr %262, align 8, !tbaa !12
-  %263 = shl i64 %.val.i21, 1
+  %.val.i20 = load i64, ptr %262, align 8, !tbaa !12
+  %263 = shl i64 %.val.i20, 1
   %264 = or disjoint i64 %263, 1
   %265 = inttoptr i64 %264 to ptr
   store ptr %265, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__3, align 8, !tbaa !10
@@ -26651,10 +26651,10 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time
   %266 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__3, align 8, !tbaa !10
   %267 = ptrtoint ptr %266 to i64
   %268 = and i64 %267, 1
-  %.not.i.i22 = icmp eq i64 %268, 0
+  %.not.i.i21 = icmp eq i64 %268, 0
   %269 = icmp ult ptr %266, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i23 = or i1 %269, %.not.i.i22
-  br i1 %or.cond.i.i23, label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4.exit, label %270
+  %or.cond.i.i22 = or i1 %269, %.not.i.i21
+  br i1 %or.cond.i.i22, label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4.exit, label %270
 
 270:                                              ; preds = %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__1.exit
   %271 = lshr i64 %267, 1
@@ -26662,9 +26662,9 @@ _init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time
   br label %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4.exit
 
 _init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4.exit: ; preds = %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__1.exit, %270
-  %.1.i.i24 = phi ptr [ %272, %270 ], [ %266, %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__1.exit ]
-  store ptr %.1.i.i24, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i24) #5
+  %.1.i.i23 = phi ptr [ %272, %270 ], [ %266, %_init_l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__1.exit ]
+  store ptr %.1.i.i23, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__4, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i23) #5
   %273 = load ptr, ptr @l_Array_Array_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__1___closed__2, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #5
   %274 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -27550,18 +27550,18 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZ
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit, %3
-  %.sink102 = phi ptr [ %4, %3 ], [ %579, %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit ]
-  %582 = getelementptr inbounds nuw i8, ptr %.sink102, i64 4
-  store i32 1, ptr %.sink102, align 4, !tbaa !7
+  %.sink101 = phi ptr [ %4, %3 ], [ %579, %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit ]
+  %582 = getelementptr inbounds nuw i8, ptr %.sink101, i64 4
+  store i32 1, ptr %.sink101, align 4, !tbaa !7
   store i32 131096, ptr %582, align 4
-  %583 = getelementptr inbounds nuw i8, ptr %.sink102, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %583, align 8, !tbaa !10
-  %584 = getelementptr inbounds nuw i8, ptr %.sink102, i64 16
+  %584 = getelementptr inbounds nuw i8, ptr %.sink101, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %584, align 8, !tbaa !10
   br label %585
 
-585:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink102, %.sink.split ]
+585:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink101, %.sink.split ]
   ret ptr %.0
 }
 

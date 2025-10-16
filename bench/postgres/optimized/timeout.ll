@@ -221,8 +221,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @reschedule_timeouts() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @all_timeouts_initialized, align 1
-  br i1 %.b1, label %1, label %6
+  %.b = load i1, ptr @all_timeouts_initialized, align 1
+  br i1 %.b, label %1, label %6
 
 1:                                                ; preds = %0
   store volatile i32 0, ptr @alarm_enabled, align 4

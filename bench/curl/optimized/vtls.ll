@@ -996,8 +996,8 @@ multissl_setup.exit:                              ; preds = %multissl_setup.exit
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_ssl_init() local_unnamed_addr #2 {
-  %.b2 = load i1, ptr @init_ssl, align 1
-  br i1 %.b2, label %7, label %1
+  %.b = load i1, ptr @init_ssl, align 1
+  br i1 %.b, label %7, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @init_ssl, align 1
@@ -1783,8 +1783,8 @@ define hidden zeroext i1 @Curl_ssl_false_start() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_cleanup() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @init_ssl, align 1
-  br i1 %.b1, label %1, label %7
+  %.b = load i1, ptr @init_ssl, align 1
+  br i1 %.b, label %1, label %7
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @Curl_ssl, align 8, !tbaa !140

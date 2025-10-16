@@ -2215,8 +2215,8 @@ define hidden noundef i32 @SDL_hid_exit_REAL() local_unnamed_addr #1 {
 
 6:                                                ; preds = %3
   store i32 0, ptr @SDL_hidapi_refcount, align 4
-  %.b4.i = load i1, ptr @SDL_HIDAPI_discovery.0, align 8
-  br i1 %.b4.i, label %7, label %HIDAPI_ShutdownDiscovery.exit
+  %.b.i = load i1, ptr @SDL_HIDAPI_discovery.0, align 8
+  br i1 %.b.i, label %7, label %HIDAPI_ShutdownDiscovery.exit
 
 7:                                                ; preds = %6
   %8 = load i32, ptr @linux_enumeration_method, align 4
@@ -2230,8 +2230,8 @@ define hidden noundef i32 @SDL_hid_exit_REAL() local_unnamed_addr #1 {
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @SDL_HIDAPI_discovery.5, align 8
-  %.not5.i = icmp eq ptr %13, null
-  br i1 %.not5.i, label %17, label %14
+  %.not4.i = icmp eq ptr %13, null
+  br i1 %.not4.i, label %17, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 176
@@ -2241,8 +2241,8 @@ define hidden noundef i32 @SDL_hid_exit_REAL() local_unnamed_addr #1 {
 
 17:                                               ; preds = %14, %12
   %18 = load ptr, ptr @SDL_HIDAPI_discovery.4, align 8
-  %.not6.i = icmp eq ptr %18, null
-  br i1 %.not6.i, label %23, label %19
+  %.not5.i = icmp eq ptr %18, null
+  br i1 %.not5.i, label %23, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @usyms, align 8
@@ -2316,8 +2316,8 @@ define hidden i32 @SDL_hid_device_change_count_REAL() local_unnamed_addr #1 {
   br i1 %7, label %116, label %8
 
 8:                                                ; preds = %5, %0
-  %.b23.i = load i1, ptr @SDL_HIDAPI_discovery.0, align 8
-  br i1 %.b23.i, label %HIDAPI_InitializeDiscovery.exit.i, label %9
+  %.b.i = load i1, ptr @SDL_HIDAPI_discovery.0, align 8
+  br i1 %.b.i, label %HIDAPI_InitializeDiscovery.exit.i, label %9
 
 9:                                                ; preds = %8
   store i1 true, ptr @SDL_HIDAPI_discovery.0, align 8
@@ -2393,16 +2393,16 @@ HIDAPI_InitializeDiscovery.exit.sink.split.i:     ; preds = %39, %33
   br label %HIDAPI_InitializeDiscovery.exit.i
 
 HIDAPI_InitializeDiscovery.exit.i:                ; preds = %HIDAPI_InitializeDiscovery.exit.sink.split.i, %18, %14, %12, %8
-  %.b2224.pr.i = load i1, ptr @SDL_HIDAPI_discovery.2, align 8
-  br i1 %.b2224.pr.i, label %HIDAPI_InitializeDiscovery.exit.thread.i, label %45
+  %.b22.pr.i = load i1, ptr @SDL_HIDAPI_discovery.2, align 8
+  br i1 %.b22.pr.i, label %HIDAPI_InitializeDiscovery.exit.thread.i, label %45
 
 45:                                               ; preds = %HIDAPI_InitializeDiscovery.exit.i
   %46 = tail call i64 @SDL_GetTicks_REAL() #22
   %47 = load i64, ptr @SDL_HIDAPI_discovery.3, align 8
   %.not.i = icmp ne i64 %47, 0
   %48 = add i64 %47, 3000
-  %.not25.i = icmp ult i64 %46, %48
-  %or.cond.i = select i1 %.not.i, i1 %.not25.i, i1 false
+  %.not23.i = icmp ult i64 %46, %48
+  %or.cond.i = select i1 %.not.i, i1 %.not23.i, i1 false
   br i1 %or.cond.i, label %HIDAPI_UpdateDiscovery.exitthread-pre-split, label %49
 
 49:                                               ; preds = %45
@@ -2432,23 +2432,23 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   store i32 %55, ptr %1, align 4
   store i16 1, ptr %57, align 4
   %58 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef 0) #22
-  %.not3141.i = icmp eq i32 %58, 1
-  br i1 %.not3141.i, label %.lr.ph42.i, label %.thread.i
+  %.not2939.i = icmp eq i32 %58, 1
+  br i1 %.not2939.i, label %.lr.ph40.i, label %.thread.i
 
 .thread.i:                                        ; preds = %82, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %HIDAPI_UpdateDiscovery.exitthread-pre-split
 
-.lr.ph42.i:                                       ; preds = %.preheader.i, %82
+.lr.ph40.i:                                       ; preds = %.preheader.i, %82
   %59 = load ptr, ptr @usyms, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @SDL_HIDAPI_discovery.5, align 8
   %63 = call ptr %61(ptr noundef %62) #22
-  %.not32.i = icmp eq ptr %63, null
-  br i1 %.not32.i, label %82, label %64
+  %.not30.i = icmp eq ptr %63, null
+  br i1 %.not30.i, label %82, label %64
 
-64:                                               ; preds = %.lr.ph42.i
+64:                                               ; preds = %.lr.ph40.i
   %65 = load ptr, ptr @usyms, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr %66(ptr noundef nonnull %63) #22
@@ -2478,15 +2478,15 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   call void %81(ptr noundef nonnull %63) #22
   br label %82
 
-82:                                               ; preds = %78, %.lr.ph42.i
+82:                                               ; preds = %78, %.lr.ph40.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %83 = load i32, ptr @SDL_HIDAPI_discovery.6, align 8
   store i32 %83, ptr %1, align 4
   store i16 1, ptr %57, align 4
   %84 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef 0) #22
-  %.not31.i = icmp eq i32 %84, 1
-  br i1 %.not31.i, label %.lr.ph42.i, label %.thread.i
+  %.not29.i = icmp eq i32 %84, 1
+  br i1 %.not29.i, label %.lr.ph40.i, label %.thread.i
 
 85:                                               ; preds = %HIDAPI_InitializeDiscovery.exit.thread.i
   %86 = load i32, ptr @inotify_fd, align 4
@@ -2496,8 +2496,8 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %89 = call i64 @read(i32 noundef %86, ptr noundef nonnull %2, i64 noundef 4096) #22
-  %.not2639.i = icmp slt i64 %89, 1
-  br i1 %.not2639.i, label %select.unfold._crit_edge.i, label %.lr.ph.i
+  %.not2437.i = icmp slt i64 %89, 1
+  br i1 %.not2437.i, label %select.unfold._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -2505,16 +2505,16 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
   br label %92
 
 92:                                               ; preds = %select.unfold.i, %.lr.ph.i
-  %.140.i = phi i64 [ %89, %.lr.ph.i ], [ %111, %select.unfold.i ]
+  %.138.i = phi i64 [ %89, %.lr.ph.i ], [ %111, %select.unfold.i ]
   %93 = load i32, ptr %90, align 4
-  %.not27.i = icmp eq i32 %93, 0
-  br i1 %.not27.i, label %StrIsInteger.exit.thread.i, label %94
+  %.not25.i = icmp eq i32 %93, 0
+  br i1 %.not25.i, label %StrIsInteger.exit.thread.i, label %94
 
 94:                                               ; preds = %92
   %95 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.3) #22
   %96 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull %91, ptr noundef nonnull @.str.3, i64 noundef %95) #22
-  %.not38.i = icmp eq i32 %96, 0
-  br i1 %.not38.i, label %97, label %StrIsInteger.exit.thread.i
+  %.not36.i = icmp eq i32 %96, 0
+  br i1 %.not36.i, label %97, label %StrIsInteger.exit.thread.i
 
 97:                                               ; preds = %94
   %98 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.3) #22
@@ -2533,8 +2533,8 @@ HIDAPI_InitializeDiscovery.exit.thread.i:         ; preds = %HIDAPI_InitializeDi
 104:                                              ; preds = %.preheader.i.i
   %105 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %.pr.i.i = load i8, ptr %105, align 1
-  %.not.i33.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not.i33.i, label %StrIsInteger.exit.i, label %.preheader.i.i, !llvm.loop !15
+  %.not.i31.i = icmp eq i8 %.pr.i.i, 0
+  br i1 %.not.i31.i, label %StrIsInteger.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 StrIsInteger.exit.i:                              ; preds = %104
   %106 = load i32, ptr @SDL_HIDAPI_discovery.1, align 4
@@ -2546,7 +2546,7 @@ StrIsInteger.exit.thread.i:                       ; preds = %.preheader.i.i, %St
   %108 = load i32, ptr %90, align 4
   %109 = zext i32 %108 to i64
   %110 = add nuw nsw i64 %109, 16
-  %111 = sub i64 %.140.i, %110
+  %111 = sub i64 %.138.i, %110
   %cond.i = icmp eq i64 %111, 0
   br i1 %cond.i, label %select.unfold._crit_edge.i, label %select.unfold.i
 

@@ -2796,17 +2796,17 @@ mid_pred.exit:                                    ; preds = %325, %327, %328, %3
 
 331:                                              ; preds = %mid_pred.exit
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
-  %.sroa.5.0..sroa.5.0.613 = load i32, ptr %.sroa.5, align 4
+  %.sroa.5.0..sroa.5.0. = load i32, ptr %.sroa.5, align 4
   %332 = add i32 %.sroa.0.0..sroa.0.0., -8
   %or.cond.i334 = icmp ult i32 %332, -15
-  %333 = add i32 %.sroa.5.0..sroa.5.0.613, -8
+  %333 = add i32 %.sroa.5.0..sroa.5.0., -8
   %or.cond3.i335 = icmp ult i32 %333, -15
   %or.cond29.i336 = select i1 %or.cond.i334, i1 true, i1 %or.cond3.i335
   br i1 %or.cond29.i336, label %eval_motion_dist.exit358, label %334
 
 334:                                              ; preds = %331
   %335 = add nsw i32 %.pre-phi, %.sroa.0.0..sroa.0.0.
-  %336 = add nsw i32 %.sroa.5.0..sroa.5.0.613, %23
+  %336 = add nsw i32 %.sroa.5.0..sroa.5.0., %23
   %337 = icmp ugt i32 %335, %29
   br i1 %337, label %eval_motion_dist.exit358, label %338
 
@@ -2889,7 +2889,7 @@ eval_motion_dist.exit358:                         ; preds = %379, %331, %334, %3
   %.0.i357 = phi i32 [ 2147483647, %331 ], [ 2147483647, %338 ], [ 2147483647, %334 ], [ %378, %379 ]
   %380 = icmp slt i32 %.0.i357, %.3
   %.sroa.090.4 = select i1 %380, i32 %.sroa.0.0..sroa.0.0., i32 %.sroa.090.3
-  %.sroa.15.4 = select i1 %380, i32 %.sroa.5.0..sroa.5.0.613, i32 %.sroa.15.3
+  %.sroa.15.4 = select i1 %380, i32 %.sroa.5.0..sroa.5.0., i32 %.sroa.15.3
   %.4 = tail call i32 @llvm.smin.i32(i32 %.0.i357, i32 %.3)
   br label %381
 

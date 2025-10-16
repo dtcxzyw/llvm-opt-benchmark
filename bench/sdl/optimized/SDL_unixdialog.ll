@@ -27,8 +27,8 @@ define internal fastcc range(i32 0, 3) i32 @detect_available_methods(ptr noundef
 
 4:                                                ; preds = %1, %2
   %5 = phi ptr [ %3, %2 ], [ %0, %1 ]
-  %.b1.i = load i1, ptr @set_callback.is_set, align 1
-  br i1 %.b1.i, label %set_callback.exit, label %6
+  %.b.i = load i1, ptr @set_callback.is_set, align 1
+  br i1 %.b.i, label %set_callback.exit, label %6
 
 6:                                                ; preds = %4
   store i1 true, ptr @set_callback.is_set, align 1

@@ -947,8 +947,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_jxta() #0 {
-  %.b3 = load i1, ptr @proto_reg_handoff_jxta.init_done, align 1
-  br i1 %.b3, label %12, label %1
+  %.b = load i1, ptr @proto_reg_handoff_jxta.init_done, align 1
+  br i1 %.b, label %12, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_message_jxta, align 4
@@ -974,11 +974,11 @@ define hidden void @proto_reg_handoff_jxta() #0 {
 12:                                               ; preds = %1, %0
   %13 = load i8, ptr @gMSG_MEDIA, align 1, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
-  %.b25 = load i1, ptr @proto_reg_handoff_jxta.msg_media_register_done, align 1
+  %.b2 = load i1, ptr @proto_reg_handoff_jxta.msg_media_register_done, align 1
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  br i1 %.b25, label %21, label %16
+  br i1 %.b2, label %21, label %16
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @proto_reg_handoff_jxta.message_jxta_handle, align 8
@@ -986,7 +986,7 @@ define hidden void @proto_reg_handoff_jxta() #0 {
   br label %.sink.split
 
 18:                                               ; preds = %12
-  br i1 %.b25, label %19, label %21
+  br i1 %.b2, label %19, label %21
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @proto_reg_handoff_jxta.message_jxta_handle, align 8

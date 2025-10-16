@@ -4124,8 +4124,8 @@ outChar.exit:                                     ; preds = %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
   call void @outNode(ptr noundef %0, ptr noundef %21)
-  %.b20 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b20, label %22, label %25
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %22, label %25
 
 22:                                               ; preds = %outChar.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4217,8 +4217,8 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %39 = load i32, ptr %38, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %39) #6
-  %.b49 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b49, label %40, label %43
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %40, label %43
 
 40:                                               ; preds = %outBitmapset.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -4319,8 +4319,8 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
   %28 = load i16, ptr %27, align 4
   %29 = sext i16 %28 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %29) #6
-  %.b24 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b24, label %30, label %33
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %30, label %33
 
 30:                                               ; preds = %outBitmapset.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4358,8 +4358,8 @@ define internal fastcc void @_outConst(ptr noundef %0, ptr noundef nonnull reado
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull %18) #6
-  %.b22 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b22, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -4409,8 +4409,8 @@ define internal fastcc void @_outParam(ptr noundef %0, ptr noundef nonnull reado
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %12) #6
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4513,8 +4513,8 @@ outChar.exit:                                     ; preds = %37, %38
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %51 = load i32, ptr %50, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.93, i32 noundef %51) #6
-  %.b48 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b48, label %52, label %55
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %52, label %55
 
 52:                                               ; preds = %outChar.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -4545,8 +4545,8 @@ define internal fastcc void @_outGroupingFunc(ptr noundef %0, ptr noundef nonnul
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.90, i32 noundef %10) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -4599,8 +4599,8 @@ define internal fastcc void @_outWindowFunc(ptr noundef %0, ptr noundef nonnull 
   %25 = trunc nuw i8 %24 to i1
   %26 = select i1 %25, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %26) #6
-  %.b26 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b26, label %27, label %30
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %27, label %30
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4643,8 +4643,8 @@ define internal fastcc void @_outMergeSupportFunc(ptr noundef %0, ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef %6) #6
-  %.b7 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b7, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -4726,8 +4726,8 @@ define internal fastcc void @_outFuncExpr(ptr noundef %0, ptr noundef nonnull re
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %22)
-  %.b20 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b20, label %23, label %26
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %23, label %26
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4754,8 +4754,8 @@ define internal fastcc void @_outNamedArgExpr(ptr noundef %0, ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.131, i32 noundef %8) #6
-  %.b11 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b11, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4795,8 +4795,8 @@ define internal fastcc void @_outOpExpr(ptr noundef %0, ptr noundef nonnull read
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
-  %.b18 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b18, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4836,8 +4836,8 @@ define internal fastcc void @_outDistinctExpr(ptr noundef %0, ptr noundef nonnul
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
-  %.b18 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b18, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4877,8 +4877,8 @@ define internal fastcc void @_outNullIfExpr(ptr noundef %0, ptr noundef nonnull 
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
-  %.b18 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b18, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4918,8 +4918,8 @@ define internal fastcc void @_outScalarArrayOpExpr(ptr noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
-  %.b18 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b18, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4954,8 +4954,8 @@ switch.lookup:                                    ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %9)
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %10, label %13
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %10, label %13
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4989,8 +4989,8 @@ define internal fastcc void @_outSubLink(ptr noundef %0, ptr noundef nonnull rea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
-  %.b16 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b16, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5152,8 +5152,8 @@ define internal fastcc void @_outRelabelType(ptr noundef %0, ptr noundef nonnull
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.179, i32 noundef %12) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5182,8 +5182,8 @@ define internal fastcc void @_outCoerceViaIO(ptr noundef %0, ptr noundef nonnull
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.181, i32 noundef %10) #6
-  %.b12 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b12, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5219,8 +5219,8 @@ define internal fastcc void @_outArrayCoerceExpr(ptr noundef %0, ptr noundef non
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.181, i32 noundef %14) #6
-  %.b17 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b17, label %15, label %18
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5246,8 +5246,8 @@ define internal fastcc void @_outConvertRowtypeExpr(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.185, i32 noundef %8) #6
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5270,8 +5270,8 @@ define internal fastcc void @_outCollateExpr(ptr noundef %0, ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.187, i32 noundef %6) #6
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -5305,8 +5305,8 @@ define internal fastcc void @_outCaseExpr(ptr noundef %0, ptr noundef nonnull re
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
-  %.b16 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b16, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5330,8 +5330,8 @@ define internal fastcc void @_outCaseWhen(ptr noundef %0, ptr noundef nonnull re
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5380,8 +5380,8 @@ define internal fastcc void @_outArrayExpr(ptr noundef %0, ptr noundef nonnull r
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.204, ptr noundef nonnull %14) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %15, label %18
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5411,8 +5411,8 @@ define internal fastcc void @_outRowExpr(ptr noundef %0, ptr noundef nonnull rea
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5467,8 +5467,8 @@ define internal fastcc void @_outCoalesceExpr(ptr noundef %0, ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5500,8 +5500,8 @@ define internal fastcc void @_outMinMaxExpr(ptr noundef %0, ptr noundef nonnull 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5526,8 +5526,8 @@ define internal fastcc void @_outSQLValueFunction(ptr noundef %0, ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.224, i32 noundef %8) #6
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5576,8 +5576,8 @@ define internal fastcc void @_outXmlExpr(ptr noundef %0, ptr noundef nonnull rea
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %22 = load i32, ptr %21, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.224, i32 noundef %22) #6
-  %.b25 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b25, label %23, label %26
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %23, label %26
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5599,8 +5599,8 @@ define internal fastcc void @_outJsonFormat(ptr noundef %0, ptr noundef nonnull 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.232, i32 noundef %6) #6
-  %.b7 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b7, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5679,8 +5679,8 @@ define internal fastcc void @_outJsonConstructorExpr(ptr noundef %0, ptr noundef
   %19 = trunc nuw i8 %18 to i1
   %20 = select i1 %19, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.245, ptr noundef nonnull %20) #6
-  %.b21 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b21, label %21, label %24
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -5712,8 +5712,8 @@ define internal fastcc void @_outJsonIsPredicate(ptr noundef %0, ptr noundef non
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.248, ptr noundef nonnull %12) #6
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5741,8 +5741,8 @@ define internal fastcc void @_outJsonBehavior(ptr noundef %0, ptr noundef nonnul
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.251, ptr noundef nonnull %10) #6
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -5818,8 +5818,8 @@ define internal fastcc void @_outJsonExpr(ptr noundef %0, ptr noundef nonnull re
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %38 = load i32, ptr %37, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.198, i32 noundef %38) #6
-  %.b42 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b42, label %39, label %42
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %39, label %42
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -5900,8 +5900,8 @@ define internal fastcc void @_outNullTest(ptr noundef %0, ptr noundef nonnull re
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.276, ptr noundef nonnull %10) #6
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5924,8 +5924,8 @@ define internal fastcc void @_outBooleanTest(ptr noundef %0, ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.278, i32 noundef %6) #6
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -5984,8 +5984,8 @@ define internal fastcc void @_outCoerceToDomain(ptr noundef %0, ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.287, i32 noundef %12) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6010,8 +6010,8 @@ define internal fastcc void @_outCoerceToDomainValue(ptr noundef %0, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.198, i32 noundef %8) #6
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6036,8 +6036,8 @@ define internal fastcc void @_outSetToDefault(ptr noundef %0, ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.198, i32 noundef %8) #6
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6426,8 +6426,8 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr noundef nonnull reado
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %114 = load ptr, ptr %113, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %114)
-  %.b115116 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b115116, label %115, label %118
+  %.b115 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b115, label %115, label %118
 
 115:                                              ; preds = %2
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -6437,8 +6437,8 @@ define internal fastcc void @_outQuery(ptr noundef %0, ptr noundef nonnull reado
 118:                                              ; preds = %2, %115
   %119 = phi i32 [ %117, %115 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %119) #6
-  %.b117 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b117, label %120, label %123
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %120, label %123
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 276
@@ -6482,8 +6482,8 @@ define internal fastcc void @_outTypeName(ptr noundef %0, ptr noundef nonnull re
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %20)
-  %.b20 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b20, label %21, label %24
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6503,8 +6503,8 @@ define internal fastcc void @_outColumnRef(ptr noundef %0, ptr noundef nonnull r
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
-  %.b6 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b6, label %5, label %8
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6523,8 +6523,8 @@ define internal fastcc void @_outParamRef(ptr noundef %0, ptr noundef nonnull re
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.385, i32 noundef %4) #6
-  %.b5 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b5, label %5, label %8
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6620,8 +6620,8 @@ define internal fastcc void @_outA_Expr(ptr noundef %0, ptr noundef nonnull read
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %27)
-  %.b67 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b67, label %28, label %31
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %28, label %31
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6653,8 +6653,8 @@ define internal fastcc void @_outA_Const(ptr noundef %0, ptr noundef nonnull %1)
   br label %9
 
 9:                                                ; preds = %7, %6
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %10, label %13
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %10, label %13
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6678,8 +6678,8 @@ define internal fastcc void @_outTypeCast(ptr noundef %0, ptr noundef nonnull re
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6703,8 +6703,8 @@ define internal fastcc void @_outCollateClause(ptr noundef %0, ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6727,8 +6727,8 @@ define internal fastcc void @_outRoleSpec(ptr noundef %0, ptr noundef nonnull re
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6787,8 +6787,8 @@ define internal fastcc void @_outFuncCall(ptr noundef %0, ptr noundef nonnull re
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %30 = load i32, ptr %29, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.127, i32 noundef %30) #6
-  %.b28 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b28, label %31, label %34
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %31, label %34
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -6841,8 +6841,8 @@ define internal fastcc void @_outA_ArrayExpr(ptr noundef %0, ptr noundef nonnull
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
-  %.b6 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b6, label %5, label %8
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6870,8 +6870,8 @@ define internal fastcc void @_outResTarget(ptr noundef %0, ptr noundef nonnull r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
-  %.b12 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b12, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6917,8 +6917,8 @@ define internal fastcc void @_outSortBy(ptr noundef %0, ptr noundef nonnull read
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6961,8 +6961,8 @@ define internal fastcc void @_outWindowDef(ptr noundef %0, ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %16)
-  %.b23 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b23, label %17, label %20
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %17, label %20
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -7055,8 +7055,8 @@ define internal fastcc void @_outRangeTableFunc(ptr noundef %0, ptr noundef nonn
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %16)
-  %.b20 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b20, label %17, label %20
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %17, label %20
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7098,8 +7098,8 @@ define internal fastcc void @_outRangeTableFuncCol(ptr noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %18)
-  %.b19 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b19, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7131,8 +7131,8 @@ define internal fastcc void @_outRangeTableSample(ptr noundef %0, ptr noundef no
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b15 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b15, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -7273,8 +7273,8 @@ outChar.exit53:                                   ; preds = %50, %51
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %60 = load ptr, ptr %59, align 8
   call void @outNode(ptr noundef %0, ptr noundef %60)
-  %.b56 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b56, label %61, label %64
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %61, label %64
 
 61:                                               ; preds = %outChar.exit53
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -7357,8 +7357,8 @@ define internal fastcc void @_outDefElem(ptr noundef %0, ptr noundef nonnull rea
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.496, i32 noundef %10) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -7406,8 +7406,8 @@ define internal fastcc void @_outXmlSerialize(ptr noundef %0, ptr noundef nonnul
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.229, ptr noundef nonnull %12) #6
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -7439,8 +7439,8 @@ define internal fastcc void @_outPartitionElem(ptr noundef %0, ptr noundef nonnu
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b15 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b15, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -7463,8 +7463,8 @@ define internal fastcc void @_outPartitionSpec(ptr noundef %0, ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7524,8 +7524,8 @@ outChar.exit:                                     ; preds = %7, %8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   call void @outNode(ptr noundef %0, ptr noundef %23)
-  %.b21 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b21, label %24, label %27
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %24, label %27
 
 24:                                               ; preds = %outChar.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -7548,8 +7548,8 @@ define internal fastcc void @_outPartitionRangeDatum(ptr noundef %0, ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8054,8 +8054,8 @@ define internal fastcc void @_outGroupingSet(ptr noundef %0, ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8160,8 +8160,8 @@ define internal fastcc void @_outWithClause(ptr noundef %0, ptr noundef nonnull 
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.584, ptr noundef nonnull %8) #6
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8189,8 +8189,8 @@ define internal fastcc void @_outInferClause(ptr noundef %0, ptr noundef nonnull
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %8)
-  %.b12 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b12, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8221,8 +8221,8 @@ define internal fastcc void @_outOnConflictClause(ptr noundef %0, ptr noundef no
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8251,8 +8251,8 @@ define internal fastcc void @_outCTESearchClause(ptr noundef %0, ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %10)
-  %.b11 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b11, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8288,8 +8288,8 @@ define internal fastcc void @_outCTECycleClause(ptr noundef %0, ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %12)
-  %.b26 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b26, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -8340,8 +8340,8 @@ define internal fastcc void @_outCommonTableExpr(ptr noundef %0, ptr noundef non
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
-  %.b36 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b36, label %15, label %18
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -8415,8 +8415,8 @@ define internal fastcc void @_outReturningOption(ptr noundef %0, ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8531,8 +8531,8 @@ define internal fastcc void @_outJsonFuncExpr(ptr noundef %0, ptr noundef nonnul
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %22 = load i32, ptr %21, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.634, i32 noundef %22) #6
-  %.b30 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b30, label %23, label %26
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %23, label %26
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8556,8 +8556,8 @@ define internal fastcc void @_outJsonTablePathSpec(ptr noundef %0, ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outToken(ptr noundef %0, ptr noundef %6)
-  %.b1112 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b1112, label %7, label %10
+  %.b11 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b11, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8567,8 +8567,8 @@ define internal fastcc void @_outJsonTablePathSpec(ptr noundef %0, ptr noundef n
 10:                                               ; preds = %2, %7
   %11 = phi i32 [ %9, %7 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.637, i32 noundef %11) #6
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %12, label %15
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %12, label %15
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8613,8 +8613,8 @@ define internal fastcc void @_outJsonTable(ptr noundef %0, ptr noundef nonnull r
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %17, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.448, ptr noundef nonnull %18) #6
-  %.b23 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b23, label %19, label %22
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %19, label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -8667,8 +8667,8 @@ define internal fastcc void @_outJsonTableColumn(ptr noundef %0, ptr noundef non
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load ptr, ptr %21, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %22)
-  %.b30 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b30, label %23, label %26
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %23, label %26
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8711,8 +8711,8 @@ define internal fastcc void @_outJsonParseExpr(ptr noundef %0, ptr noundef nonnu
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.248, ptr noundef nonnull %10) #6
-  %.b11 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b11, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8736,8 +8736,8 @@ define internal fastcc void @_outJsonScalarExpr(ptr noundef %0, ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8761,8 +8761,8 @@ define internal fastcc void @_outJsonSerializeExpr(ptr noundef %0, ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %6)
-  %.b9 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b9, label %7, label %10
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8796,8 +8796,8 @@ define internal fastcc void @_outJsonObjectConstructor(ptr noundef %0, ptr nound
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.245, ptr noundef nonnull %14) #6
-  %.b13 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b13, label %15, label %18
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8826,8 +8826,8 @@ define internal fastcc void @_outJsonArrayConstructor(ptr noundef %0, ptr nounde
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.244, ptr noundef nonnull %10) #6
-  %.b11 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b11, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8860,8 +8860,8 @@ define internal fastcc void @_outJsonArrayQueryConstructor(ptr noundef %0, ptr n
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.244, ptr noundef nonnull %12) #6
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %13, label %16
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -8893,8 +8893,8 @@ define internal fastcc void @_outJsonAggConstructor(ptr noundef %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b15 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b15, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8957,8 +8957,8 @@ define internal fastcc void @_outRawStmt(ptr noundef %0, ptr noundef nonnull rea
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %4)
-  %.b89 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b89, label %5, label %8
+  %.b8 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b8, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8968,8 +8968,8 @@ define internal fastcc void @_outRawStmt(ptr noundef %0, ptr noundef nonnull rea
 8:                                                ; preds = %2, %5
   %9 = phi i32 [ %7, %5 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %9) #6
-  %.b10 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b10, label %10, label %13
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %10, label %13
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -9012,8 +9012,8 @@ define internal fastcc void @_outInsertStmt(ptr noundef %0, ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load i32, ptr %15, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.282, i32 noundef %16) #6
-  %.b2526 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b2526, label %17, label %20
+  %.b25 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b25, label %17, label %20
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -9023,8 +9023,8 @@ define internal fastcc void @_outInsertStmt(ptr noundef %0, ptr noundef nonnull 
 20:                                               ; preds = %2, %17
   %21 = phi i32 [ %19, %17 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %21) #6
-  %.b27 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b27, label %22, label %25
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %22, label %25
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -9060,8 +9060,8 @@ define internal fastcc void @_outDeleteStmt(ptr noundef %0, ptr noundef nonnull 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %12)
-  %.b2021 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b2021, label %13, label %16
+  %.b20 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b20, label %13, label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9071,8 +9071,8 @@ define internal fastcc void @_outDeleteStmt(ptr noundef %0, ptr noundef nonnull 
 16:                                               ; preds = %2, %13
   %17 = phi i32 [ %15, %13 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %17) #6
-  %.b22 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b22, label %18, label %21
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %18, label %21
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -9112,8 +9112,8 @@ define internal fastcc void @_outUpdateStmt(ptr noundef %0, ptr noundef nonnull 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
-  %.b2324 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b2324, label %15, label %18
+  %.b23 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b23, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -9123,8 +9123,8 @@ define internal fastcc void @_outUpdateStmt(ptr noundef %0, ptr noundef nonnull 
 18:                                               ; preds = %2, %15
   %19 = phi i32 [ %17, %15 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %19) #6
-  %.b25 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b25, label %20, label %23
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %20, label %23
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -9164,8 +9164,8 @@ define internal fastcc void @_outMergeStmt(ptr noundef %0, ptr noundef nonnull r
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %14)
-  %.b2324 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b2324, label %15, label %18
+  %.b23 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b23, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -9175,8 +9175,8 @@ define internal fastcc void @_outMergeStmt(ptr noundef %0, ptr noundef nonnull r
 18:                                               ; preds = %2, %15
   %19 = phi i32 [ %17, %15 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %19) #6
-  %.b25 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b25, label %20, label %23
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %20, label %23
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -9272,8 +9272,8 @@ define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr noundef nonnull 
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %46 = load ptr, ptr %45, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %46)
-  %.b6162 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b6162, label %47, label %50
+  %.b61 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b61, label %47, label %50
 
 47:                                               ; preds = %2
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -9283,8 +9283,8 @@ define internal fastcc void @_outSelectStmt(ptr noundef %0, ptr noundef nonnull 
 50:                                               ; preds = %2, %47
   %51 = phi i32 [ %49, %47 ], [ -1, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %51) #6
-  %.b63 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b63, label %52, label %55
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %52, label %55
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 164
@@ -9363,8 +9363,8 @@ define internal fastcc void @_outPLAssignStmt(ptr noundef %0, ptr noundef nonnul
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9734,8 +9734,8 @@ define internal fastcc void @_outVariableSetStmt(ptr noundef %0, ptr noundef non
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %15, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.471, ptr noundef nonnull %16) #6
-  %.b15 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b15, label %17, label %20
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %17, label %20
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10049,8 +10049,8 @@ outChar.exit95:                                   ; preds = %109, %110
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %117 = load i32, ptr %116, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.772, i32 noundef %117) #6
-  %.b100 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b100, label %118, label %121
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %118, label %121
 
 118:                                              ; preds = %outChar.exit95
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 180
@@ -11333,8 +11333,8 @@ define internal fastcc void @_outFunctionParameter(ptr noundef %0, ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %10)
-  %.b14 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b14, label %11, label %14
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11621,8 +11621,8 @@ define internal fastcc void @_outTransactionStmt(ptr noundef %0, ptr noundef non
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.967, ptr noundef nonnull %14) #6
-  %.b16 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b16, label %15, label %18
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %15, label %18
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -12132,8 +12132,8 @@ define internal fastcc void @_outDeallocateStmt(ptr noundef %0, ptr noundef nonn
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %7, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1031, ptr noundef nonnull %8) #6
-  %.b8 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b8, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -12255,8 +12255,8 @@ define internal fastcc void @_outPublicationObjSpec(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %8)
-  %.b11 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b11, label %9, label %12
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20350,8 +20350,8 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %70 = load ptr, ptr %69, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %70)
-  %.b6869 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b6869, label %71, label %74
+  %.b68 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b68, label %71, label %74
 
 71:                                               ; preds = %outBitmapset.exit66
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -20361,8 +20361,8 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
 74:                                               ; preds = %outBitmapset.exit66, %71
   %75 = phi i32 [ %73, %71 ], [ -1, %outBitmapset.exit66 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %75) #6
-  %.b70 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b70, label %76, label %79
+  %.b = load i1, ptr @write_location_fields, align 1
+  br i1 %.b, label %76, label %79
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 148

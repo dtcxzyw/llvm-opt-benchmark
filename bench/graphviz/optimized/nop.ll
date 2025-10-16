@@ -81,13 +81,13 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   %21 = phi ptr [ %.pre, %.init.exit_crit_edge ], [ %20, %18 ]
   %22 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %21) #8
   %23 = call ptr @nextGraph(ptr noundef nonnull %3) #8
-  %.not5 = icmp eq ptr %23, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph
+  %.not4 = icmp eq ptr %23, null
+  br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %init.exit, %28
   %24 = phi ptr [ %30, %28 ], [ %23, %init.exit ]
-  %.b4 = load i1, ptr @chkOnly, align 1
-  br i1 %.b4, label %28, label %25
+  %.b = load i1, ptr @chkOnly, align 1
+  br i1 %.b, label %28, label %25
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr @stdout, align 8, !tbaa !10

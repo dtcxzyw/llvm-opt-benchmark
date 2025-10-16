@@ -2353,10 +2353,10 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   %15 = load i32, ptr @cluster_flags, align 4
   %16 = trunc i32 %15 to i16
   %17 = lshr i16 %16, 5
-  %spec.select4659 = and i16 %17, 64
+  %spec.select4558 = and i16 %17, 64
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 510), align 2, !range !18, !noundef !19
   %19 = zext nneg i8 %18 to i16
-  %.160 = or disjoint i16 %spec.select4659, %19
+  %.159 = or disjoint i16 %spec.select4558, %19
   br label %28
 
 20:                                               ; preds = %9
@@ -2364,8 +2364,8 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   %.not = icmp eq ptr %21, %6
   %spec.select = select i1 %.not, i32 1900, i32 0
   store ptr %6, ptr %0, align 8
-  %.b35 = load i1, ptr @get_new_info_job.changed, align 1
-  %spec.select48 = select i1 %.b35, i32 0, i32 %spec.select
+  %.b = load i1, ptr @get_new_info_job.changed, align 1
+  %spec.select47 = select i1 %.b, i32 0, i32 %spec.select
   br label %81
 
 22:                                               ; preds = %2
@@ -2373,18 +2373,18 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   %23 = load i32, ptr @cluster_flags, align 4
   %24 = trunc i32 %23 to i16
   %25 = lshr i16 %24, 5
-  %spec.select46 = and i16 %25, 64
+  %spec.select45 = and i16 %25, 64
   %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 510), align 2, !range !18, !noundef !19
   %27 = zext nneg i8 %26 to i16
-  %.1 = or disjoint i16 %spec.select46, %27
+  %.1 = or disjoint i16 %spec.select45, %27
   br i1 %7, label %43, label %28
 
 28:                                               ; preds = %.thread, %22
-  %.161 = phi i16 [ %.160, %.thread ], [ %.1, %22 ]
+  %.160 = phi i16 [ %.159, %.thread ], [ %.1, %22 ]
   %29 = load i16, ptr @get_new_info_job.last_flags, align 2
-  %.not38 = icmp eq i16 %.161, %29
+  %.not37 = icmp eq i16 %.160, %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not38, label %._crit_edge, label %30
+  br i1 %.not37, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %28
   %.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -2396,7 +2396,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 31:                                               ; preds = %._crit_edge, %30
   %32 = phi i64 [ %.pre, %._crit_edge ], [ 0, %30 ]
-  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.161) #17
+  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.160) #17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -2423,31 +2423,31 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 .sink.split:                                      ; preds = %43, %41, %35
   %.sink = phi i1 [ true, %35 ], [ false, %41 ], [ true, %43 ]
-  %.162.ph = phi i16 [ %.161, %35 ], [ %.161, %41 ], [ %.1, %43 ]
+  %.161.ph = phi i16 [ %.160, %35 ], [ %.160, %41 ], [ %.1, %43 ]
   %.2.ph = phi i32 [ 0, %35 ], [ 1900, %41 ], [ %44, %43 ]
   store i1 %.sink, ptr @get_new_info_job.changed, align 1
   br label %45
 
 45:                                               ; preds = %.sink.split, %37
-  %.162 = phi i16 [ %.161, %37 ], [ %.162.ph, %.sink.split ]
+  %.161 = phi i16 [ %.160, %37 ], [ %.161.ph, %.sink.split ]
   %.2 = phi i32 [ %33, %37 ], [ %.2.ph, %.sink.split ]
   %46 = load ptr, ptr @working_cluster_rec, align 8
-  %.not39 = icmp eq ptr %46, null
-  br i1 %.not39, label %50, label %47
+  %.not38 = icmp eq ptr %46, null
+  br i1 %.not38, label %50, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 280
   %49 = load ptr, ptr %48, align 8
-  %.not40 = icmp eq ptr %49, null
-  br i1 %.not40, label %50, label %52
+  %.not39 = icmp eq ptr %49, null
+  br i1 %.not39, label %50, label %52
 
 50:                                               ; preds = %47, %45
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   br label %52
 
 52:                                               ; preds = %47, %50
-  %.sink63 = phi ptr [ %51, %50 ], [ %49, %47 ]
-  %53 = call ptr @xstrdup(ptr noundef %.sink63) #17
+  %.sink62 = phi ptr [ %51, %50 ], [ %49, %47 ]
+  %53 = call ptr @xstrdup(ptr noundef %.sink62) #17
   store ptr %53, ptr %4, align 8
   %54 = icmp eq i32 %.2, 0
   br i1 %54, label %55, label %.loopexit
@@ -2456,8 +2456,8 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
-  %.not51 = icmp eq i32 %58, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph.preheader
+  %.not50 = icmp eq i32 %58, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -2465,23 +2465,23 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %.050 = phi ptr [ %72, %70 ], [ %60, %.lr.ph.preheader ]
-  %.02449 = phi i32 [ %71, %70 ], [ 0, %.lr.ph.preheader ]
-  %61 = getelementptr inbounds nuw i8, ptr %.050, i64 528
+  %.049 = phi ptr [ %72, %70 ], [ %60, %.lr.ph.preheader ]
+  %.02448 = phi i32 [ %71, %70 ], [ 0, %.lr.ph.preheader ]
+  %61 = getelementptr inbounds nuw i8, ptr %.049, i64 528
   %62 = load ptr, ptr %61, align 8
-  %.not43 = icmp eq ptr %62, null
-  br i1 %.not43, label %70, label %63
+  %.not42 = icmp eq ptr %62, null
+  br i1 %.not42, label %70, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds nuw i8, ptr %.050, i64 136
+  %64 = getelementptr inbounds nuw i8, ptr %.049, i64 136
   %65 = load ptr, ptr %64, align 8
-  %.not44 = icmp eq ptr %65, null
-  br i1 %.not44, label %70, label %66
+  %.not43 = icmp eq ptr %65, null
+  br i1 %.not43, label %70, label %66
 
 66:                                               ; preds = %63
   %67 = call i32 @xstrcmp(ptr noundef nonnull %65, ptr noundef %53) #17
-  %.not45 = icmp eq i32 %67, 0
-  br i1 %.not45, label %70, label %68
+  %.not44 = icmp eq i32 %67, 0
+  br i1 %.not44, label %70, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %61, align 8
@@ -2489,8 +2489,8 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br label %70
 
 70:                                               ; preds = %.lr.ph, %63, %66, %68
-  %71 = add nuw nsw i32 %.02449, 1
-  %72 = getelementptr inbounds nuw i8, ptr %.050, i64 968
+  %71 = add nuw nsw i32 %.02448, 1
+  %72 = getelementptr inbounds nuw i8, ptr %.049, i64 968
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
@@ -2499,25 +2499,25 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 .loopexit:                                        ; preds = %70, %55, %52
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  store i16 %.162, ptr @get_new_info_job.last_flags, align 2
+  store i16 %.161, ptr @get_new_info_job.last_flags, align 2
   %77 = load ptr, ptr %3, align 8
   store ptr %77, ptr @g_job_info_ptr, align 8
-  %.not41 = icmp eq ptr %77, null
-  br i1 %.not41, label %80, label %78
+  %.not40 = icmp eq ptr %77, null
+  br i1 %.not40, label %80, label %78
 
 78:                                               ; preds = %.loopexit
   %79 = load ptr, ptr %0, align 8
-  %.not42 = icmp eq ptr %79, %77
-  %spec.select47 = select i1 %.not42, i32 %.2, i32 0
+  %.not41 = icmp eq ptr %79, %77
+  %spec.select46 = select i1 %.not41, i32 %.2, i32 0
   br label %80
 
 80:                                               ; preds = %78, %.loopexit
-  %.3 = phi i32 [ %.2, %.loopexit ], [ %spec.select47, %78 ]
+  %.3 = phi i32 [ %.2, %.loopexit ], [ %spec.select46, %78 ]
   store ptr %77, ptr %0, align 8
   br label %81
 
 81:                                               ; preds = %20, %80
-  %.126 = phi i32 [ %.3, %80 ], [ %spec.select48, %20 ]
+  %.126 = phi i32 [ %.3, %80 ], [ %spec.select47, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.126
@@ -2566,8 +2566,8 @@ define dso_local i32 @get_new_info_job_step(ptr noundef captures(none) %0, i32 n
   %.not = icmp eq ptr %15, %5
   %spec.select = select i1 %.not, i32 1900, i32 0
   store ptr %5, ptr %0, align 8
-  %.b16 = load i1, ptr @get_new_info_job_step.changed, align 1
-  %spec.select21 = select i1 %.b16, i32 0, i32 %spec.select
+  %.b = load i1, ptr @get_new_info_job_step.changed, align 1
+  %spec.select20 = select i1 %.b, i32 0, i32 %spec.select
   br label %35
 
 16:                                               ; preds = %2
@@ -2614,22 +2614,22 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %31 = phi ptr [ %.pr, %thread-pre-split ], [ %27, %26 ]
   %.2 = phi i32 [ %.2.ph, %thread-pre-split ], [ 1900, %26 ]
   store ptr %31, ptr @g_step_info_ptr, align 8
-  %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %34, label %32
+  %.not17 = icmp eq ptr %31, null
+  br i1 %.not17, label %34, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %0, align 8
-  %.not19 = icmp eq ptr %33, %31
-  %spec.select20 = select i1 %.not19, i32 %.2, i32 0
+  %.not18 = icmp eq ptr %33, %31
+  %spec.select19 = select i1 %.not18, i32 %.2, i32 0
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.3 = phi i32 [ %.2, %30 ], [ %spec.select20, %32 ]
+  %.3 = phi i32 [ %.2, %30 ], [ %spec.select19, %32 ]
   store ptr %31, ptr %0, align 8
   br label %35
 
 35:                                               ; preds = %14, %34
-  %.1 = phi i32 [ %.3, %34 ], [ %spec.select21, %14 ]
+  %.1 = phi i32 [ %.3, %34 ], [ %spec.select20, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -4389,8 +4389,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %.b92 = load i1, ptr @get_info_job.set_opts, align 1
-  br i1 %.b92, label %9, label %8
+  %.b = load i1, ptr @get_info_job.set_opts, align 1
+  br i1 %.b, label %9, label %8
 
 8:                                                ; preds = %2
   tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17
@@ -4464,8 +4464,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not94 = icmp eq ptr %37, null
-  br i1 %.not94, label %39, label %38
+  %.not93 = icmp eq ptr %37, null
+  br i1 %.not93, label %39, label %38
 
 38:                                               ; preds = %36
   tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #17
@@ -4502,8 +4502,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not93 = icmp eq ptr %56, null
-  br i1 %.not93, label %58, label %57
+  %.not92 = icmp eq ptr %56, null
+  br i1 %.not92, label %58, label %57
 
 57:                                               ; preds = %55
   tail call void @gtk_widget_destroy(ptr noundef nonnull %56) #17
@@ -4528,19 +4528,19 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %68 = load ptr, ptr @get_info_job.job_info_ptr, align 8
   %69 = load ptr, ptr @get_info_job.step_info_ptr, align 8
   %70 = tail call fastcc ptr @_create_job_info_list(ptr noundef %68, ptr noundef %69, i32 noundef 0)
-  %.not95 = icmp eq ptr %70, null
-  br i1 %.not95, label %153, label %71
+  %.not94 = icmp eq ptr %70, null
+  br i1 %.not94, label %153, label %71
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not96 = icmp eq ptr %72, null
-  br i1 %.not96, label %.thread145, label %73
+  %.not95 = icmp eq ptr %72, null
+  br i1 %.not95, label %.thread144, label %73
 
 73:                                               ; preds = %71
   %74 = tail call i64 @gtk_tree_view_get_type() #18
   %75 = load ptr, ptr %72, align 8
-  %.not97 = icmp eq ptr %75, null
-  br i1 %.not97, label %79, label %76
+  %.not96 = icmp eq ptr %75, null
+  br i1 %.not96, label %79, label %76
 
 76:                                               ; preds = %73
   %77 = load i64, ptr %75, align 8
@@ -4550,14 +4550,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 79:                                               ; preds = %76, %73
   %80 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %72, i64 noundef %74) #20
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread145, label %.critedge
+  br i1 %81, label %.thread144, label %.critedge
 
 .critedge:                                        ; preds = %76, %79
   %82 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %72, i64 noundef %74) #17
   %83 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %82) #17
   %84 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %83) #17
-  %.not99 = icmp eq i32 %84, 0
-  br i1 %.not99, label %.thread145, label %85
+  %.not98 = icmp eq i32 %84, 0
+  br i1 %.not98, label %.thread144, label %85
 
 85:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4568,9 +4568,9 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %.pre, null
-  br i1 %88, label %.thread145, label %126
+  br i1 %88, label %.thread144, label %126
 
-.thread145:                                       ; preds = %71, %79, %.critedge, %85
+.thread144:                                       ; preds = %71, %79, %.critedge, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3827, ptr noundef nonnull @__func__.get_info_job) #17
   store ptr %89, ptr %6, align 8
@@ -4579,48 +4579,48 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %90, ptr %7, align 8
   %91 = call ptr @list_iterator_create(ptr noundef nonnull %70) #17
   %92 = call ptr @list_next(ptr noundef %91) #17
-  %.not101116 = icmp eq ptr %92, null
-  br i1 %.not101116, label %._crit_edge120, label %.lr.ph119
+  %.not100115 = icmp eq ptr %92, null
+  br i1 %.not100115, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph119:                                        ; preds = %.thread145, %.loopexit
-  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread145 ]
-  %.0117 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread145 ]
+.lr.ph118:                                        ; preds = %.thread144, %.loopexit
+  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread144 ]
+  %.0116 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread144 ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 432
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 255
-  %.not102 = icmp eq i32 %98, 1
-  br i1 %.not102, label %.preheader108, label %.loopexit, !llvm.loop !33
+  %.not101 = icmp eq i32 %98, 1
+  br i1 %.not101, label %.preheader107, label %.loopexit, !llvm.loop !33
 
-.preheader108:                                    ; preds = %.lr.ph119
+.preheader107:                                    ; preds = %.lr.ph118
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 528
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %100, align 4
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.lr.ph115, label %.loopexit
+  br i1 %102, label %.lr.ph114, label %.loopexit
 
-.lr.ph115:                                        ; preds = %.preheader108, %._crit_edge
-  %103 = phi ptr [ %118, %._crit_edge ], [ %100, %.preheader108 ]
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge ], [ 0, %.preheader108 ]
-  %104 = phi i32 [ %120, %._crit_edge ], [ %101, %.preheader108 ]
-  %.2114 = phi i32 [ %.2., %._crit_edge ], [ %.0117, %.preheader108 ]
-  %105 = or disjoint i64 %indvars.iv124, 1
+.lr.ph114:                                        ; preds = %.preheader107, %._crit_edge
+  %103 = phi ptr [ %118, %._crit_edge ], [ %100, %.preheader107 ]
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %._crit_edge ], [ 0, %.preheader107 ]
+  %104 = phi i32 [ %120, %._crit_edge ], [ %101, %.preheader107 ]
+  %.2113 = phi i32 [ %.2., %._crit_edge ], [ %.0116, %.preheader107 ]
+  %105 = or disjoint i64 %indvars.iv123, 1
   %106 = getelementptr inbounds nuw i32, ptr %103, i64 %105
   %107 = load i32, ptr %106, align 4
-  %.2. = call i32 @llvm.smax.i32(i32 %.2114, i32 %107)
+  %.2. = call i32 @llvm.smax.i32(i32 %.2113, i32 %107)
   %108 = icmp sgt i32 %.2., 24576
   br i1 %108, label %110, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph115
-  %.not103111 = icmp sgt i32 %104, %107
-  br i1 %.not103111, label %._crit_edge, label %.lr.ph.preheader
+.preheader:                                       ; preds = %.lr.ph114
+  %.not102110 = icmp sgt i32 %104, %107
+  br i1 %.not102110, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %109 = zext nneg i32 %104 to i64
   br label %.lr.ph
 
-110:                                              ; preds = %.lr.ph115
+110:                                              ; preds = %.lr.ph114
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #19
   unreachable
 
@@ -4636,29 +4636,29 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %115 = getelementptr inbounds nuw i32, ptr %114, i64 %105
   %116 = load i32, ptr %115, align 4
   %117 = trunc nuw i64 %indvars.iv to i32
-  %.not103.not = icmp sgt i32 %116, %117
-  br i1 %.not103.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  %.not102.not = icmp sgt i32 %116, %117
+  br i1 %.not102.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %118 = phi ptr [ %103, %.preheader ], [ %114, %.lr.ph ]
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 2
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.next125
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 2
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.next124
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %120, -1
-  br i1 %121, label %.lr.ph115, label %.loopexit, !llvm.loop !35
+  br i1 %121, label %.lr.ph114, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader108, %.lr.ph119
-  %.1 = phi i32 [ %.0117, %.lr.ph119 ], [ %.0117, %.preheader108 ], [ %.2., %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.preheader107, %.lr.ph118
+  %.1 = phi i32 [ %.0116, %.lr.ph118 ], [ %.0116, %.preheader107 ], [ %.2., %._crit_edge ]
   %122 = call ptr @list_next(ptr noundef %91) #17
-  %.not101 = icmp eq ptr %122, null
-  br i1 %.not101, label %._crit_edge120.loopexit, label %.lr.ph119
+  %.not100 = icmp eq ptr %122, null
+  br i1 %.not100, label %._crit_edge119.loopexit, label %.lr.ph118
 
-._crit_edge120.loopexit:                          ; preds = %.loopexit
+._crit_edge119.loopexit:                          ; preds = %.loopexit
   %123 = add nuw nsw i32 %.1, 1
-  br label %._crit_edge120
+  br label %._crit_edge119
 
-._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %.thread145
-  %.0.lcssa = phi i32 [ 1, %.thread145 ], [ %123, %._crit_edge120.loopexit ]
+._crit_edge119:                                   ; preds = %._crit_edge119.loopexit, %.thread144
+  %.0.lcssa = phi i32 [ 1, %.thread144 ], [ %123, %._crit_edge119.loopexit ]
   call void @list_iterator_destroy(ptr noundef %91) #17
   %124 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0.lcssa, ptr noundef %89, ptr noundef %90, i1 noundef zeroext true, i32 noundef 0) #17
@@ -4680,7 +4680,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @gtk_tree_path_free(ptr noundef %131) #17
   br label %132
 
-132:                                              ; preds = %126, %._crit_edge120
+132:                                              ; preds = %126, %._crit_edge119
   %133 = load i32, ptr @get_info_job.view, align 4
   %134 = icmp eq i32 %133, 0
   %135 = load ptr, ptr @get_info_job.display_widget, align 8
@@ -4694,8 +4694,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br label %138
 
 137:                                              ; preds = %132
-  %.not104 = icmp eq ptr %135, null
-  br i1 %.not104, label %138, label %148
+  %.not103 = icmp eq ptr %135, null
+  br i1 %.not103, label %138, label %148
 
 138:                                              ; preds = %.thread, %137
   %139 = load ptr, ptr @local_display_data, align 8
@@ -4715,11 +4715,11 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 49, i32 noundef 100) #17
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 50, i32 noundef 100) #17
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 51, i32 noundef 100) #17
-  %.pre127 = load ptr, ptr @get_info_job.display_widget, align 8
+  %.pre126 = load ptr, ptr @get_info_job.display_widget, align 8
   br label %148
 
 148:                                              ; preds = %138, %137
-  %149 = phi ptr [ %.pre127, %138 ], [ %135, %137 ]
+  %149 = phi ptr [ %.pre126, %138 ], [ %135, %137 ]
   store i32 1, ptr @get_info_job.view, align 4
   %150 = tail call i64 @gtk_tree_view_get_type() #18
   %151 = call ptr @g_type_check_instance_cast(ptr noundef %149, i64 noundef %150) #17
@@ -4733,14 +4733,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 153:                                              ; preds = %67, %152
   %154 = load ptr, ptr @main_window, align 8
-  %.not105 = icmp eq ptr %154, null
-  br i1 %.not105, label %159, label %155
+  %.not104 = icmp eq ptr %154, null
+  br i1 %.not104, label %159, label %155
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %157 = load ptr, ptr %156, align 8
-  %.not106 = icmp eq ptr %157, null
-  br i1 %.not106, label %159, label %158
+  %.not105 = icmp eq ptr %157, null
+  br i1 %.not105, label %159, label %158
 
 158:                                              ; preds = %155
   call void @gdk_window_set_cursor(ptr noundef nonnull %157, ptr noundef null) #17
@@ -5988,8 +5988,8 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %18, %9, %0
-  %.b92.i = load i1, ptr @get_info_job.set_opts, align 1
-  br i1 %.b92.i, label %24, label %23
+  %.b.i = load i1, ptr @get_info_job.set_opts, align 1
+  br i1 %.b.i, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
   tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17

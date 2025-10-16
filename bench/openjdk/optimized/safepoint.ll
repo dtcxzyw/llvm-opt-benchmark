@@ -767,14 +767,14 @@ define hidden void @_ZN20SafepointSynchronize23print_safepoint_timeoutEv() local
   %1 = alloca %class.LogStream, align 8
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
-  %.b7 = load i1, ptr @_ZL21timeout_error_printed, align 1
-  br i1 %.b7, label %_ZN12ResourceMarkD2Ev.exit, label %4
+  %.b = load i1, ptr @_ZL21timeout_error_printed, align 1
+  br i1 %.b, label %_ZN12ResourceMarkD2Ev.exit, label %4
 
 4:                                                ; preds = %0
   store i1 true, ptr @_ZL21timeout_error_printed, align 1
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE132ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not19 = icmp eq ptr %5, null
-  br i1 %.not19, label %_ZN12ResourceMarkD2Ev.exit, label %6
+  %.not18 = icmp eq ptr %5, null
+  br i1 %.not18, label %_ZN12ResourceMarkD2Ev.exit, label %6
 
 6:                                                ; preds = %4
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -811,8 +811,8 @@ define hidden void @_ZN20SafepointSynchronize23print_safepoint_timeoutEv() local
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
-  %.not.i20.not = icmp eq i32 %27, 0
-  br i1 %.not.i20.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+  %.not.i19.not = icmp eq i32 %27, 0
+  br i1 %.not.i19.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %51
   %28 = phi ptr [ %52, %51 ], [ %25, %6 ]
@@ -867,11 +867,11 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   call void %50(ptr noundef nonnull align 8 dereferenceable(1800) %35, ptr noundef nonnull %1) #16
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #16
   %.pre = load i32, ptr %23, align 8
-  %.pre23 = load ptr, ptr %24, align 8
+  %.pre22 = load ptr, ptr %24, align 8
   br label %51
 
 51:                                               ; preds = %47, %41
-  %52 = phi ptr [ %.pre23, %47 ], [ %28, %41 ]
+  %52 = phi ptr [ %.pre22, %47 ], [ %28, %41 ]
   %53 = phi i32 [ %.pre, %47 ], [ %30, %41 ]
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %55 = load i32, ptr %54, align 4
@@ -902,10 +902,10 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %4, %0
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
-  %.not.i921.not = icmp eq i32 %72, 0
-  br i1 %.not.i921.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11
+  %.not.i820.not = icmp eq i32 %72, 0
+  br i1 %.not.i820.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit11:  ; preds = %64, %90
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit10:  ; preds = %64, %90
   %73 = phi ptr [ %91, %90 ], [ %70, %64 ]
   %74 = phi i32 [ %92, %90 ], [ 0, %64 ]
   %75 = add nuw i32 %74, 1
@@ -915,10 +915,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit11:  ; preds = %64, %90
   %78 = zext i32 %74 to i64
   %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8
-  %.not8 = icmp eq ptr %80, null
-  br i1 %.not8, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11.thread, label %81
+  %.not7 = icmp eq ptr %80, null
+  br i1 %.not7, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10.thread, label %81
 
-81:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11
+81:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 1112
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -928,23 +928,23 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit11:  ; preds = %64, %90
 
 87:                                               ; preds = %81
   %88 = call noundef zeroext i1 @_ZN2os13signal_threadEP6ThreadiPKc(ptr noundef nonnull %80, i32 noundef 4, ptr noundef nonnull @.str.14) #16
-  br i1 %88, label %89, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11.thread
+  br i1 %88, label %89, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10.thread
 
 89:                                               ; preds = %87
   call void @_ZN2os11naked_sleepEl(i64 noundef 3000) #16
-  %.pre24 = load i32, ptr %68, align 8
-  %.pre25 = load ptr, ptr %69, align 8
+  %.pre23 = load i32, ptr %68, align 8
+  %.pre24 = load ptr, ptr %69, align 8
   br label %90
 
 90:                                               ; preds = %89, %81
-  %91 = phi ptr [ %.pre25, %89 ], [ %73, %81 ]
-  %92 = phi i32 [ %.pre24, %89 ], [ %75, %81 ]
+  %91 = phi ptr [ %.pre24, %89 ], [ %73, %81 ]
+  %92 = phi i32 [ %.pre23, %89 ], [ %75, %81 ]
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4
-  %.not.i9 = icmp ult i32 %92, %94
-  br i1 %.not.i9, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11.thread, !llvm.loop !12
+  %.not.i8 = icmp ult i32 %92, %94
+  br i1 %.not.i8, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10.thread, !llvm.loop !12
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit11.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit11, %87, %90, %64
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit10.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit10, %87, %90, %64
   call void @_ZN28JavaThreadIteratorWithHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %3) #16
   %95 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %95, align 1

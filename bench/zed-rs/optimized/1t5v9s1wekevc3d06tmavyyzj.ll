@@ -95799,10 +95799,10 @@ define hidden void @"_ZN7bincode2de25Deserializer$LT$R$C$O$GT$11read_string17hb2
   %10 = load ptr, ptr %1, align 8, !alias.scope !15971, !noalias !15972, !nonnull !4, !align !205, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = add i64 %7, -8
-  %.sroa.0.0.copyload.i.i24.i = load i64, ptr %10, align 1, !alias.scope !15975, !noalias !15979
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %10, align 1, !alias.scope !15975, !noalias !15979
   store ptr %11, ptr %1, align 8, !alias.scope !15971, !noalias !15972
   store i64 %12, ptr %6, align 8, !alias.scope !15971, !noalias !15972
-  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i24.i), !noalias !15981
+  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i), !noalias !15981
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h0aacfd0581426b7bE.exit.i
 
 14:                                               ; preds = %2
@@ -117580,10 +117580,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %10 = load ptr, ptr %1, align 8, !alias.scope !21879, !noalias !21880, !nonnull !4, !align !205, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = add i64 %7, -8
-  %.sroa.0.0.copyload.i.i26 = load i64, ptr %10, align 1, !alias.scope !21882, !noalias !21886
+  %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 1, !alias.scope !21882, !noalias !21886
   store ptr %11, ptr %1, align 8, !alias.scope !21879, !noalias !21880
   store i64 %12, ptr %6, align 8, !alias.scope !21879, !noalias !21880
-  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i26)
+  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h0aacfd0581426b7bE.exit
 
 14:                                               ; preds = %2
@@ -117736,10 +117736,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %10 = load ptr, ptr %1, align 8, !alias.scope !21916, !noalias !21917, !nonnull !4, !align !205, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = add i64 %7, -8
-  %.sroa.0.0.copyload.i.i26 = load i64, ptr %10, align 1, !alias.scope !21919, !noalias !21923
+  %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 1, !alias.scope !21919, !noalias !21923
   store ptr %11, ptr %1, align 8, !alias.scope !21916, !noalias !21917
   store i64 %12, ptr %6, align 8, !alias.scope !21916, !noalias !21917
-  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i26)
+  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h0aacfd0581426b7bE.exit
 
 14:                                               ; preds = %2
@@ -117974,10 +117974,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %8 = load ptr, ptr %1, align 8, !alias.scope !21983, !noalias !21984, !nonnull !4, !align !205, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = add i64 %5, -8
-  %.sroa.0.0.copyload.i.i22 = load i64, ptr %8, align 1, !alias.scope !21986, !noalias !21990
+  %.sroa.0.0.copyload.i.i = load i64, ptr %8, align 1, !alias.scope !21986, !noalias !21990
   store ptr %9, ptr %1, align 8, !alias.scope !21983, !noalias !21984
   store i64 %10, ptr %4, align 8, !alias.scope !21983, !noalias !21984
-  %11 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i22)
+  %11 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h0aacfd0581426b7bE.exit
 
 12:                                               ; preds = %2

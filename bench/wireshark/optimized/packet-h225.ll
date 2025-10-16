@@ -4027,8 +4027,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_h225() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_h225.h225_prefs_initialized, align 1
-  br i1 %.b1, label %9, label %1
+  %.b = load i1, ptr @proto_reg_handoff_h225.h225_prefs_initialized, align 1
+  br i1 %.b, label %9, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @h225ras_handle, align 8
@@ -6841,8 +6841,8 @@ define internal i32 @dissect_h225_T_h323_message_body(ptr noundef %0, i32 nounde
   br label %30
 
 30:                                               ; preds = %26, %28, %5
-  %.b16 = load i1, ptr @contains_faststart, align 1
-  br i1 %.b16, label %31, label %35
+  %.b = load i1, ptr @contains_faststart, align 1
+  br i1 %.b, label %31, label %35
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %9, align 8
@@ -6935,10 +6935,10 @@ define internal i32 @dissect_h225_Setup_UUIE(ptr noundef %0, i32 noundef %1, ptr
   br i1 %15, label %h225_set_cs_type.exit, label %16
 
 16:                                               ; preds = %5
-  %.b8 = load i1, ptr @contains_faststart, align 1
+  %.b = load i1, ptr @contains_faststart, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %17, align 4
-  br i1 %.b8, label %18, label %23
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6974,10 +6974,10 @@ define internal i32 @dissect_h225_CallProceeding_UUIE(ptr noundef %0, i32 nounde
   br i1 %15, label %h225_set_cs_type.exit, label %16
 
 16:                                               ; preds = %5
-  %.b8 = load i1, ptr @contains_faststart, align 1
+  %.b = load i1, ptr @contains_faststart, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 1, ptr %17, align 4
-  br i1 %.b8, label %18, label %23
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -7013,10 +7013,10 @@ define internal i32 @dissect_h225_Connect_UUIE(ptr noundef %0, i32 noundef %1, p
   br i1 %15, label %h225_set_cs_type.exit, label %16
 
 16:                                               ; preds = %5
-  %.b8 = load i1, ptr @contains_faststart, align 1
+  %.b = load i1, ptr @contains_faststart, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 2, ptr %17, align 4
-  br i1 %.b8, label %18, label %23
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -7052,10 +7052,10 @@ define internal i32 @dissect_h225_Alerting_UUIE(ptr noundef %0, i32 noundef %1, 
   br i1 %15, label %h225_set_cs_type.exit, label %16
 
 16:                                               ; preds = %5
-  %.b8 = load i1, ptr @contains_faststart, align 1
+  %.b = load i1, ptr @contains_faststart, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 3, ptr %17, align 4
-  br i1 %.b8, label %18, label %23
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -7166,10 +7166,10 @@ define internal i32 @dissect_h225_Progress_UUIE(ptr noundef %0, i32 noundef %1, 
   br i1 %15, label %h225_set_cs_type.exit, label %16
 
 16:                                               ; preds = %5
-  %.b8 = load i1, ptr @contains_faststart, align 1
+  %.b = load i1, ptr @contains_faststart, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 7, ptr %17, align 4
-  br i1 %.b8, label %18, label %23
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

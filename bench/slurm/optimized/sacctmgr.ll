@@ -2234,8 +2234,8 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
   br label %_set_ping_exit_code.exit
 
 48:                                               ; preds = %.lr.ph
-  %.b1.i = load i1, ptr @_set_ping_exit_code.slurmdbd_up, align 1
-  br i1 %.b1.i, label %_set_ping_exit_code.exit, label %49
+  %.b.i = load i1, ptr @_set_ping_exit_code.slurmdbd_up, align 1
+  br i1 %.b.i, label %_set_ping_exit_code.exit, label %49
 
 49:                                               ; preds = %48
   store i32 1, ptr @exit_code, align 4

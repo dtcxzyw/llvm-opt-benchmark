@@ -100,8 +100,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @in_stepd() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @run_in_stepd, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @run_in_stepd, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -614,8 +614,8 @@ declare i32 @pmix_ring_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pmi2_cleanup_stepd() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @run_in_stepd, align 1
-  br i1 %.b1, label %1, label %_remove_tree_sock.exit
+  %.b = load i1, ptr @run_in_stepd, align 1
+  br i1 %.b, label %1, label %_remove_tree_sock.exit
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @tree_sock, align 4

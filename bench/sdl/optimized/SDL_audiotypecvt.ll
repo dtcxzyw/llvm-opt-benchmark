@@ -460,8 +460,8 @@ SDL_Convert_Swap16_Scalar.exit:                   ; preds = %.lr.ph.i8, %.lr.ph.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @SDL_ChooseAudioConverters() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @SDL_ChooseAudioConverters.converters_chosen, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @SDL_ChooseAudioConverters.converters_chosen, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @SDL_ChooseAudioConverters.converters_chosen, align 1

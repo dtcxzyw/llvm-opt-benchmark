@@ -4673,8 +4673,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 71:                                               ; preds = %67
   %72 = load i32, ptr %22, align 8
-  %.not101 = icmp eq i32 %72, -1
-  %. = select i1 %.not101, ptr %12, ptr %13
+  %.not96 = icmp eq i32 %72, -1
+  %. = select i1 %.not96, ptr %12, ptr %13
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %.) #21
   %73 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   %74 = trunc i8 %73 to i1
@@ -4743,13 +4743,13 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br i1 %106, label %107, label %116
 
 107:                                              ; preds = %104
-  %.b7479 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8recursed, align 1
-  br i1 %.b7479, label %115, label %108
+  %.b74 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8recursed, align 1
+  br i1 %.b74, label %115, label %108
 
 108:                                              ; preds = %107
   store i1 true, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8recursed, align 1
-  %.not80 = icmp eq ptr %6, null
-  br i1 %.not80, label %110, label %109
+  %.not79 = icmp eq ptr %6, null
+  br i1 %.not79, label %110, label %109
 
 109:                                              ; preds = %108
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %., ptr noundef nonnull @.str.154) #21
@@ -4759,8 +4759,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 110:                                              ; preds = %109, %108
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %., ptr noundef nonnull @.str.155) #21
-  %.not81 = icmp eq ptr %7, null
-  br i1 %.not81, label %112, label %111
+  %.not80 = icmp eq ptr %7, null
+  br i1 %.not80, label %112, label %111
 
 111:                                              ; preds = %110
   call void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %15, ptr noundef nonnull %7) #21
@@ -4781,16 +4781,16 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br label %116
 
 116:                                              ; preds = %115, %104, %75, %48
-  %.b82 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8out_done, align 1
-  br i1 %.b82, label %124, label %117
+  %.b = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8out_done, align 1
+  br i1 %.b, label %124, label %117
 
 117:                                              ; preds = %116
   %118 = load i8, ptr @ErrorFileToStdout, align 1
   %119 = trunc i8 %118 to i1
   %120 = load i32, ptr %18, align 8
   %121 = icmp eq i32 %120, 1
-  %or.cond100 = select i1 %119, i1 %121, i1 false
-  br i1 %or.cond100, label %123, label %122
+  %or.cond95 = select i1 %119, i1 %121, i1 false
+  br i1 %or.cond95, label %123, label %122
 
 122:                                              ; preds = %117
   call void @_ZN7VMError6reportEP12outputStreamb(ptr noundef nonnull %12, i1 noundef zeroext false)
@@ -4803,13 +4803,13 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br label %124
 
 124:                                              ; preds = %123, %116
-  %.b7383 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8log_done, align 1
-  br i1 %.b7383, label %148, label %125
+  %.b73 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE8log_done, align 1
+  br i1 %.b73, label %148, label %125
 
 125:                                              ; preds = %124
   %126 = load i32, ptr %22, align 8
-  %.not102 = icmp eq i32 %126, -1
-  br i1 %.not102, label %127, label %142
+  %.not97 = icmp eq i32 %126, -1
+  br i1 %.not97, label %127, label %142
 
 127:                                              ; preds = %125
   %128 = load i8, ptr @ErrorFileToStdout, align 1
@@ -4833,8 +4833,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   %136 = load ptr, ptr @ErrorFile, align 8
   %137 = call noundef i32 @_ZN7VMError16prepare_log_fileEPKcS1_bPcm(ptr noundef %136, ptr noundef nonnull @.str.156, i1 noundef zeroext true, ptr noundef nonnull @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6buffer, i64 noundef 2000)
   store i32 %137, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6fd_log, align 4
-  %.not84 = icmp eq i32 %137, -1
-  br i1 %.not84, label %139, label %138
+  %.not81 = icmp eq i32 %137, -1
+  br i1 %.not81, label %139, label %138
 
 138:                                              ; preds = %135
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.157, i64 noundef 60) #21
@@ -4891,8 +4891,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 156:                                              ; preds = %153
   %157 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE11skip_replay) #21
-  %.not85 = icmp eq i32 %157, 0
-  br i1 %.not85, label %165, label %158
+  %.not82 = icmp eq i32 %157, 0
+  br i1 %.not82, label %165, label %158
 
 158:                                              ; preds = %156
   %159 = load i8, ptr @ReplayCompiles, align 1
@@ -4930,19 +4930,19 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 1808
   %181 = load ptr, ptr %180, align 8
-  %.not86 = icmp eq ptr %181, null
-  br i1 %.not86, label %195, label %182
+  %.not83 = icmp eq ptr %181, null
+  br i1 %.not83, label %195, label %182
 
 182:                                              ; preds = %177
   %183 = load ptr, ptr @ReplayDataFile, align 8
   %184 = call noundef i32 @_ZN7VMError16prepare_log_fileEPKcS1_bPcm(ptr noundef %183, ptr noundef nonnull @.str.159, i1 noundef zeroext false, ptr noundef nonnull @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6buffer, i64 noundef 2000)
-  %.not87 = icmp eq i32 %184, -1
-  br i1 %.not87, label %195, label %185
+  %.not84 = icmp eq i32 %184, -1
+  br i1 %.not84, label %195, label %185
 
 185:                                              ; preds = %182
   %186 = call noundef ptr @_ZN2os6fdopenEiPKc(i32 noundef %184, ptr noundef nonnull @.str.160) #21
-  %.not88 = icmp eq ptr %186, null
-  br i1 %.not88, label %190, label %187
+  %.not85 = icmp eq ptr %186, null
+  br i1 %.not85, label %190, label %187
 
 187:                                              ; preds = %185
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %17, i1 noundef zeroext false) #21
@@ -4968,8 +4968,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 195:                                              ; preds = %177, %187, %190, %182, %170, %165
   %196 = load ptr, ptr @_ZN5JVMCI19_fatal_log_filenameE, align 8
-  %.not89 = icmp eq ptr %196, null
-  br i1 %.not89, label %200, label %197
+  %.not86 = icmp eq ptr %196, null
+  br i1 %.not86, label %200, label %197
 
 197:                                              ; preds = %195
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.163, i64 noundef 62) #21
@@ -4986,16 +4986,16 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
 
 203:                                              ; preds = %200
   %204 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_bug_url) #21
-  %.not90 = icmp eq i32 %204, 0
-  br i1 %.not90, label %211, label %205
+  %.not87 = icmp eq i32 %204, 0
+  br i1 %.not87, label %211, label %205
 
 205:                                              ; preds = %203
   %206 = load i32, ptr @_ZN7VMError3_idE, align 4
   %207 = add i32 %206, 536870911
   %208 = icmp ult i32 %207, 2
   %209 = icmp eq i32 %206, -536870908
-  %.not105 = or i1 %209, %208
-  %210 = zext i1 %.not105 to i8
+  %.not100 = or i1 %209, %208
+  %210 = zext i1 %.not100 to i8
   store i8 %210, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_bug_url, align 1
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_bug_url) #21
   br label %211
@@ -5014,16 +5014,16 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br label %216
 
 216:                                              ; preds = %214, %211
-  %.b7591 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_OnError, align 1
+  %.b75 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_OnError, align 1
   %217 = load ptr, ptr @OnError, align 8
   %218 = icmp eq ptr %217, null
-  %or.cond8.not = select i1 %.b7591, i1 true, i1 %218
+  %or.cond8.not = select i1 %.b75, i1 true, i1 %218
   br i1 %or.cond8.not, label %249, label %219
 
 219:                                              ; preds = %216
   %220 = load i8, ptr %217, align 1
-  %.not93 = icmp eq i8 %220, 0
-  br i1 %.not93, label %249, label %221
+  %.not89 = icmp eq i8 %220, 0
+  br i1 %.not89, label %249, label %221
 
 221:                                              ; preds = %219
   store i1 true, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE12skip_OnError, align 1
@@ -5105,8 +5105,8 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %.preheader
   br label %249
 
 249:                                              ; preds = %.loopexit, %219, %216
-  %.b7695 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE13skip_os_abort, align 1
-  br i1 %.b7695, label %259, label %250
+  %.b76 = load i1, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE13skip_os_abort, align 1
+  br i1 %.b76, label %259, label %250
 
 250:                                              ; preds = %249
   store i1 true, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE13skip_os_abort, align 1

@@ -916,8 +916,8 @@ multissl_setup.exit:                              ; preds = %multissl_setup.exit
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_ssl_init() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @init_ssl, align 1
-  br i1 %.b1, label %6, label %1
+  %.b = load i1, ptr @init_ssl, align 1
+  br i1 %.b, label %6, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @init_ssl, align 1
@@ -2631,8 +2631,8 @@ define dso_local noundef zeroext i1 @Curl_none_false_start() #8 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_ssl_cleanup() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @init_ssl, align 1
-  br i1 %.b1, label %1, label %5
+  %.b = load i1, ptr @init_ssl, align 1
+  br i1 %.b, label %1, label %5
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @Curl_ssl, align 8, !tbaa !136

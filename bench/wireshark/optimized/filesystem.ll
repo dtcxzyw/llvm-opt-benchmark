@@ -593,10 +593,10 @@ configuration_environment_variable.exit:          ; preds = %2, %4
   br label %27
 
 13:                                               ; preds = %8, %configuration_environment_variable.exit
-  %.b8 = load i1, ptr @running_in_build_directory_flag, align 1
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
   %14 = load ptr, ptr @progfile_dir, align 8
   %15 = icmp ne ptr %14, null
-  %or.cond = select i1 %.b8, i1 %15, i1 false
+  %or.cond = select i1 %.b, i1 %15, i1 false
   br i1 %or.cond, label %16, label %18
 
 16:                                               ; preds = %13
@@ -605,8 +605,8 @@ configuration_environment_variable.exit:          ; preds = %2, %4
 
 18:                                               ; preds = %13
   %19 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.2)
-  %.not9 = icmp eq i32 %19, 0
-  br i1 %.not9, label %23, label %20
+  %.not8 = icmp eq i32 %19, 0
+  br i1 %.not8, label %23, label %20
 
 20:                                               ; preds = %18
   %21 = tail call ptr @application_flavor_name_lower()
@@ -659,10 +659,10 @@ define ptr @get_doc_dir() local_unnamed_addr #6 {
   br i1 %.not, label %2, label %14
 
 2:                                                ; preds = %0
-  %.b4 = load i1, ptr @running_in_build_directory_flag, align 1
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
   %3 = load ptr, ptr @progfile_dir, align 8
   %4 = icmp ne ptr %3, null
-  %or.cond = select i1 %.b4, i1 %4, i1 false
+  %or.cond = select i1 %.b, i1 %4, i1 false
   br i1 %or.cond, label %5, label %7
 
 5:                                                ; preds = %2
@@ -671,8 +671,8 @@ define ptr @get_doc_dir() local_unnamed_addr #6 {
 
 7:                                                ; preds = %2
   %8 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.3)
-  %.not5 = icmp eq i32 %8, 0
-  br i1 %.not5, label %11, label %9
+  %.not4 = icmp eq i32 %8, 0
+  br i1 %.not4, label %11, label %9
 
 9:                                                ; preds = %7
   %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
@@ -741,8 +741,8 @@ configuration_environment_variable.exit:          ; preds = %0, %2
   br label %22
 
 11:                                               ; preds = %6, %configuration_environment_variable.exit
-  %.b3 = load i1, ptr @running_in_build_directory_flag, align 1
-  br i1 %.b3, label %12, label %15
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
+  br i1 %.b, label %12, label %15
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr @progfile_dir, align 8
@@ -751,8 +751,8 @@ configuration_environment_variable.exit:          ; preds = %0, %2
 
 15:                                               ; preds = %11
   %16 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.55)
-  %.not4 = icmp eq i32 %16, 0
-  br i1 %.not4, label %19, label %17
+  %.not3 = icmp eq i32 %16, 0
+  br i1 %.not3, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.55)
@@ -885,8 +885,8 @@ configuration_environment_variable.exit.i:        ; preds = %4, %2
   br label %init_extcap_dir.exit
 
 13:                                               ; preds = %8, %configuration_environment_variable.exit.i
-  %.b3.i = load i1, ptr @running_in_build_directory_flag, align 1
-  br i1 %.b3.i, label %14, label %18
+  %.b.i = load i1, ptr @running_in_build_directory_flag, align 1
+  br i1 %.b.i, label %14, label %18
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @progfile_dir, align 8
@@ -896,8 +896,8 @@ configuration_environment_variable.exit.i:        ; preds = %4, %2
 
 18:                                               ; preds = %13
   %19 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.58)
-  %.not4.i = icmp eq i32 %19, 0
-  br i1 %.not4.i, label %25, label %20
+  %.not3.i = icmp eq i32 %19, 0
+  br i1 %.not3.i, label %25, label %20
 
 20:                                               ; preds = %18
   %21 = tail call i32 @get_application_flavor()
@@ -946,8 +946,8 @@ define ptr @get_extcap_pers_dir() local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @running_in_build_directory() local_unnamed_addr #8 {
-  %.b1 = load i1, ptr @running_in_build_directory_flag, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
@@ -2030,8 +2030,8 @@ profile_register_persconffile.exit:               ; preds = %3, %6, %9
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias ptr @get_datafile_path(ptr noundef %0) local_unnamed_addr #6 {
-  %.b4 = load i1, ptr @running_in_build_directory_flag, align 1
-  br i1 %.b4, label %2, label %6
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
+  br i1 %.b, label %2, label %6
 
 2:                                                ; preds = %1
   %3 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.10) #21
@@ -2054,8 +2054,8 @@ define noalias ptr @get_datafile_path(ptr noundef %0) local_unnamed_addr #6 {
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias ptr @get_docfile_path(ptr noundef %0) local_unnamed_addr #6 {
-  %.b3 = load i1, ptr @running_in_build_directory_flag, align 1
-  br i1 %.b3, label %2, label %4
+  %.b = load i1, ptr @running_in_build_directory_flag, align 1
+  br i1 %.b, label %2, label %4
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @progfile_dir, align 8
@@ -2068,8 +2068,8 @@ define noalias ptr @get_docfile_path(ptr noundef %0) local_unnamed_addr #6 {
 
 6:                                                ; preds = %4
   %7 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.3)
-  %.not5.i = icmp eq i32 %7, 0
-  br i1 %.not5.i, label %10, label %8
+  %.not4.i = icmp eq i32 %7, 0
+  br i1 %.not4.i, label %10, label %8
 
 8:                                                ; preds = %6
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
@@ -2501,10 +2501,10 @@ define noalias ptr @doc_file_url(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not.i, label %7, label %get_doc_dir.exit
 
 7:                                                ; preds = %5
-  %.b4.i = load i1, ptr @running_in_build_directory_flag, align 1
+  %.b.i = load i1, ptr @running_in_build_directory_flag, align 1
   %8 = load ptr, ptr @progfile_dir, align 8
   %9 = icmp ne ptr %8, null
-  %or.cond.i = select i1 %.b4.i, i1 %9, i1 false
+  %or.cond.i = select i1 %.b.i, i1 %9, i1 false
   br i1 %or.cond.i, label %10, label %12
 
 10:                                               ; preds = %7
@@ -2513,8 +2513,8 @@ define noalias ptr @doc_file_url(ptr noundef %0) local_unnamed_addr #6 {
 
 12:                                               ; preds = %7
   %13 = tail call i32 @g_path_is_absolute(ptr noundef nonnull @.str.3)
-  %.not5.i = icmp eq i32 %13, 0
-  br i1 %.not5.i, label %16, label %14
+  %.not4.i = icmp eq i32 %13, 0
+  br i1 %.not4.i, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)

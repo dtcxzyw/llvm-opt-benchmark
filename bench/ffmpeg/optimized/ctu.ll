@@ -172,7 +172,7 @@ define range(i32 -2147483648, 1) i32 @ff_vvc_coding_tree_unit(ptr noundef initia
   %114 = mul nsw i64 %78, 148
   %115 = getelementptr i8, ptr %71, i64 %114
   %brmerge.i = select i1 %102, i1 true, i1 %.0218.i.i
-  %.mux87.i = select i1 %102, i32 %105, i32 %67
+  %.mux88.i = select i1 %102, i32 %105, i32 %67
   %.mux.i = select i1 %102, i32 %68, i32 %104
   br label %116
 
@@ -363,7 +363,7 @@ define range(i32 -2147483648, 1) i32 @ff_vvc_coding_tree_unit(ptr noundef initia
   %208 = load i16, ptr %207, align 2, !tbaa !83
   %209 = zext i16 %208 to i32
   %210 = mul nsw i32 %.mux.i, %209
-  %211 = add nsw i32 %210, %.mux87.i
+  %211 = add nsw i32 %210, %.mux88.i
   %.sink278.i.i = load ptr, ptr %70, align 8, !tbaa !82
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds %struct.SAOParams, ptr %.sink278.i.i, i64 %212
@@ -601,7 +601,7 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
   %352 = getelementptr inbounds nuw i8, ptr %335, i64 1347
   %353 = load i8, ptr %352, align 1, !tbaa !114
   %.not.i65.i = icmp eq i8 %353, 0
-  br i1 %.not.i65.i, label %.loopexit.i69.i, label %354
+  br i1 %.not.i65.i, label %.loopexit.i70.i, label %354
 
 354:                                              ; preds = %hls_sao.exit.i
   %355 = tail call i32 @ff_vvc_alf_ctb_flag(ptr noundef nonnull %0, i32 noundef %330, i32 noundef %331, i32 noundef 0) #14
@@ -654,9 +654,9 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
   %exitcond.not.i66.i = phi i1 [ false, %376 ], [ true, %399 ]
   %indvars.iv.i67.i = phi i64 [ 1, %376 ], [ 2, %399 ]
   %.in.in.i68.i = getelementptr inbounds nuw i8, ptr %335, i64 %.in.in.v.i.i
-  %.in75.i.i = load i8, ptr %.in.in.i68.i, align 1, !tbaa !93
-  %.not76.i.i = icmp eq i8 %.in75.i.i, 0
-  br i1 %.not76.i.i, label %399, label %380
+  %.in.i69.i = load i8, ptr %.in.in.i68.i, align 1, !tbaa !93
+  %.not75.i.i = icmp eq i8 %.in.i69.i, 0
+  br i1 %.not75.i.i, label %399, label %380
 
 380:                                              ; preds = %379
   %381 = load i8, ptr %378, align 1, !tbaa !118
@@ -671,8 +671,8 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
   %389 = getelementptr i8, ptr %388, i64 3
   store i8 0, ptr %389, align 1, !tbaa !93
   %390 = and i32 %386, 255
-  %.not77.i.i = icmp eq i32 %390, 0
-  br i1 %.not77.i.i, label %399, label %391
+  %.not76.i.i = icmp eq i32 %390, 0
+  br i1 %.not76.i.i, label %399, label %391
 
 391:                                              ; preds = %380
   %392 = getelementptr inbounds nuw i8, ptr %384, i64 908
@@ -688,9 +688,9 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
   br label %399
 
 399:                                              ; preds = %395, %391, %380, %379
-  br i1 %exitcond.not.i66.i, label %.loopexit.i69.i, label %379, !llvm.loop !124
+  br i1 %exitcond.not.i66.i, label %.loopexit.i70.i, label %379, !llvm.loop !124
 
-.loopexit.i69.i:                                  ; preds = %399, %hls_sao.exit.i
+.loopexit.i70.i:                                  ; preds = %399, %hls_sao.exit.i
   %400 = load ptr, ptr %338, align 8, !tbaa !18
   %401 = load ptr, ptr %400, align 8, !tbaa !100
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 16177
@@ -698,7 +698,7 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
   %.not73.i.i = icmp eq i8 %403, 0
   br i1 %.not73.i.i, label %alf_params.exit.i, label %404
 
-404:                                              ; preds = %.loopexit.i69.i
+404:                                              ; preds = %.loopexit.i70.i
   %405 = getelementptr inbounds nuw i8, ptr %335, i64 1360
   %406 = load i8, ptr %405, align 4, !tbaa !126
   %407 = getelementptr inbounds nuw i8, ptr %335, i64 1362
@@ -721,32 +721,32 @@ hls_sao.exit.i:                                   ; preds = %.loopexit.i.i
 
 415:                                              ; preds = %430, %404
   %416 = phi i1 [ true, %404 ], [ false, %430 ]
-  %indvars.iv81.i.sroa.phi.i = phi ptr [ %.sroa.0.i, %404 ], [ %.sroa.4.i, %430 ]
-  %indvars.iv81.i.sroa.phi71.sroa.speculated.i = phi i8 [ %406, %404 ], [ %408, %430 ]
-  %indvars.iv81.i.i = phi i64 [ 0, %404 ], [ 1, %430 ]
-  %.not74.i.i = icmp eq i8 %indvars.iv81.i.sroa.phi71.sroa.speculated.i, 0
+  %indvars.iv80.i.sroa.phi.i = phi ptr [ %.sroa.0.i, %404 ], [ %.sroa.4.i, %430 ]
+  %indvars.iv80.i.sroa.phi72.sroa.speculated.i = phi i8 [ %406, %404 ], [ %408, %430 ]
+  %indvars.iv80.i.i = phi i64 [ 0, %404 ], [ 1, %430 ]
+  %.not74.i.i = icmp eq i8 %indvars.iv80.i.sroa.phi72.sroa.speculated.i, 0
   br i1 %.not74.i.i, label %430, label %417
 
 417:                                              ; preds = %415
-  %418 = load i8, ptr %indvars.iv81.i.sroa.phi.i, align 1, !tbaa !93
+  %418 = load i8, ptr %indvars.iv80.i.sroa.phi.i, align 1, !tbaa !93
   %419 = zext i8 %418 to i64
   %420 = getelementptr inbounds nuw ptr, ptr %413, i64 %419
   %421 = load ptr, ptr %420, align 8, !tbaa !119
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 1054
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 %indvars.iv81.i.i
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 %indvars.iv80.i.i
   %424 = load i8, ptr %423, align 1, !tbaa !93
   %425 = zext i8 %424 to i32
-  %426 = trunc nuw nsw i64 %indvars.iv81.i.i to i32
+  %426 = trunc nuw nsw i64 %indvars.iv80.i.i to i32
   %427 = tail call i32 @ff_vvc_alf_ctb_cc_idc(ptr noundef %0, i32 noundef %330, i32 noundef %331, i32 noundef %426, i32 noundef %425) #14
   %428 = trunc i32 %427 to i8
-  %429 = getelementptr inbounds nuw i8, ptr %350, i64 %indvars.iv81.i.i
+  %429 = getelementptr inbounds nuw i8, ptr %350, i64 %indvars.iv80.i.i
   store i8 %428, ptr %429, align 1, !tbaa !93
   br label %430
 
 430:                                              ; preds = %417, %415
   br i1 %416, label %415, label %414, !llvm.loop !130
 
-alf_params.exit.i:                                ; preds = %414, %.loopexit.i69.i
+alf_params.exit.i:                                ; preds = %414, %.loopexit.i70.i
   %431 = load i8, ptr %64, align 2, !tbaa !55
   %432 = zext i8 %431 to i32
   %433 = ashr i32 %15, %432

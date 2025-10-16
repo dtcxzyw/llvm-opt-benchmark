@@ -6103,8 +6103,8 @@ define i32 @H5T_top_term_package() local_unnamed_addr #0 {
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  %.b5 = load i1, ptr @H5T_top_package_initialize_s, align 1
-  %or.cond = select i1 %8, i1 %.b5, i1 false, !prof !55
+  %.b = load i1, ptr @H5T_top_package_initialize_s, align 1
+  %or.cond = select i1 %8, i1 %.b, i1 false, !prof !55
   br i1 %or.cond, label %9, label %46, !prof !55
 
 9:                                                ; preds = %0

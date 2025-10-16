@@ -1864,7 +1864,7 @@ default.unreachable:                              ; preds = %.noexc131.i
 379:                                              ; preds = %.noexc102.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.014.i.i, ptr noundef nonnull align 1 dereferenceable(7) %322, i64 7, i1 false), !noalias !257
   %.sroa.483.0.copyload.i.i = load ptr, ptr %.sroa.483.0..sroa_idx.i.i, align 8, !noalias !257
-  %.sroa.584.0.copyload214.i.i = load i40, ptr %.sroa.584.0..sroa_idx.i.i, align 8, !noalias !257
+  %.sroa.584.0.copyload.i.i = load i40, ptr %.sroa.584.0..sroa_idx.i.i, align 8, !noalias !257
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !257
   %380 = call fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha63b088709aec0c2E(ptr noalias noundef align 8 dereferenceable(64) %46)
   %381 = extractvalue { ptr, i64 } %380, 0
@@ -2028,7 +2028,7 @@ default.unreachable:                              ; preds = %.noexc131.i
   store i32 %405, ptr %.sroa.5.sroa.24.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !noalias !238
   store i32 %427, ptr %.sroa.5.sroa.25.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !noalias !238
   store ptr %.sroa.483.0.copyload.i.i, ptr %.sroa.5.sroa.27.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !noalias !238
-  store i40 %.sroa.584.0.copyload214.i.i, ptr %.sroa.5.sroa.28.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !noalias !238
+  store i40 %.sroa.584.0.copyload.i.i, ptr %.sroa.5.sroa.28.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !noalias !238
   store i32 %.sroa.5127.0.extract.trunc.i.i, ptr %.sroa.5.sroa.29.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !noalias !238
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %428 = load i64, ptr %323, align 8, !alias.scope !270, !noalias !273, !noundef !4

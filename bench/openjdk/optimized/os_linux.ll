@@ -4320,8 +4320,8 @@ define hidden void @_ZN2os13print_os_infoEP12outputStream(ptr noundef nonnull %0
 
 _ZN2os5Linux17print_uptime_infoEP12outputStream.exit: ; preds = %1, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.b21 = load i1, ptr @_ZL22unsafe_chroot_detected, align 1
-  br i1 %.b21, label %8, label %9
+  %.b = load i1, ptr @_ZL22unsafe_chroot_detected, align 1
+  br i1 %.b, label %8, label %9
 
 8:                                                ; preds = %_ZN2os5Linux17print_uptime_infoEP12outputStream.exit
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.283) #26
@@ -4369,8 +4369,8 @@ _ZN2os5Linux17print_uptime_infoEP12outputStream.exit: ; preds = %1, %6
 17:                                               ; preds = %16, %14
   call void @_ZN10VM_Version34print_platform_virtualization_infoEP12outputStream(ptr noundef nonnull %0) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b10.i = load i1, ptr @_ZL21has_initial_tick_info, align 1
-  br i1 %.b10.i, label %18, label %_ZN2os5Linux16print_steal_infoEP12outputStream.exit
+  %.b.i = load i1, ptr @_ZL21has_initial_tick_info, align 1
+  br i1 %.b.i, label %18, label %_ZN2os5Linux16print_steal_infoEP12outputStream.exit
 
 18:                                               ; preds = %17
   %19 = call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %2, i32 noundef -1)
@@ -4612,8 +4612,8 @@ declare void @_ZN10VM_Version34print_platform_virtualization_infoEP12outputStrea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2os5Linux16print_steal_infoEP12outputStream(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.os::Linux::CPUPerfTicks", align 8
-  %.b10 = load i1, ptr @_ZL21has_initial_tick_info, align 1
-  br i1 %.b10, label %3, label %20
+  %.b = load i1, ptr @_ZL21has_initial_tick_info, align 1
+  br i1 %.b, label %3, label %20
 
 3:                                                ; preds = %1
   %4 = call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %2, i32 noundef -1)

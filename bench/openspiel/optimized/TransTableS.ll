@@ -93,8 +93,8 @@ define void @_ZN11TransTableSC2Ev(ptr noundef nonnull writeonly align 8 captures
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %.b1 = load i1, ptr @_ZL13_constantsSet, align 1
-  br i1 %.b1, label %_ZN11TransTableS12SetConstantsEv.exit, label %3
+  %.b = load i1, ptr @_ZL13_constantsSet, align 1
+  br i1 %.b, label %_ZN11TransTableS12SetConstantsEv.exit, label %3
 
 3:                                                ; preds = %1
   store i1 true, ptr @_ZL13_constantsSet, align 1

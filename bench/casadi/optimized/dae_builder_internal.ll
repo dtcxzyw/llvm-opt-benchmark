@@ -40594,8 +40594,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
-  %.b6 = load i1, ptr @_ZZN6casadi18DaeBuilderInternal13generate_guidB5cxx11EvE11initialized, align 1
-  br i1 %.b6, label %6, label %3
+  %.b = load i1, ptr @_ZZN6casadi18DaeBuilderInternal13generate_guidB5cxx11EvE11initialized, align 1
+  br i1 %.b, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i64 @time(ptr noundef null) #30
@@ -40615,18 +40615,18 @@ define void @_ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev(ptr dead_on_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 32, ptr %2, align 8, !tbaa !9
   %10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-          to label %_ZNSt6vectorIcSaIcEED2Ev.exit unwind label %_ZNSt6vectorIcSaIcEED2Ev.exit10
+          to label %_ZNSt6vectorIcSaIcEED2Ev.exit unwind label %_ZNSt6vectorIcSaIcEED2Ev.exit9
 
 11:                                               ; preds = %6, %11
-  %.017 = phi i64 [ 0, %6 ], [ %18, %11 ]
+  %.016 = phi i64 [ 0, %6 ], [ %18, %11 ]
   %12 = tail call i32 @rand() #30
   %13 = srem i32 %12, 16
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr @__const._ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev.h, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !13
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.017
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.016
   store i8 %16, ptr %17, align 1, !tbaa !13
-  %18 = add nuw nsw i64 %.017, 1
+  %18 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %18, 32
   br i1 %exitcond.not, label %8, label %11, !llvm.loop !496
 
@@ -40644,7 +40644,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %8
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 32) #31
   ret void
 
-_ZNSt6vectorIcSaIcEED2Ev.exit10:                  ; preds = %8
+_ZNSt6vectorIcSaIcEED2Ev.exit9:                   ; preds = %8
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 32) #31

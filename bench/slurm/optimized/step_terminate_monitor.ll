@@ -73,13 +73,13 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
   unreachable
 
 6:                                                ; preds = %1
-  %.b27 = load i1, ptr @running_flag, align 1
-  br i1 %.b27, label %7, label %11
+  %.b = load i1, ptr @running_flag, align 1
+  br i1 %.b, label %7, label %11
 
 7:                                                ; preds = %6
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not34 = icmp eq i32 %8, 0
-  br i1 %.not34, label %48, label %9
+  %.not33 = icmp eq i32 %8, 0
+  br i1 %.not33, label %48, label %9
 
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #8
@@ -100,8 +100,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
   store i1 true, ptr @running_flag, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #7
-  %.not28 = icmp eq i32 %18, 0
-  br i1 %.not28, label %21, label %19
+  %.not27 = icmp eq i32 %18, 0
+  br i1 %.not27, label %21, label %19
 
 19:                                               ; preds = %11
   %20 = tail call ptr @__errno_location() #8
@@ -111,8 +111,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 
 21:                                               ; preds = %11
   %22 = call i32 @pthread_attr_setscope(ptr noundef nonnull %2, i32 noundef 0) #7
-  %.not29 = icmp eq i32 %22, 0
-  br i1 %.not29, label %26, label %23
+  %.not28 = icmp eq i32 %22, 0
+  br i1 %.not28, label %26, label %23
 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #8
@@ -122,8 +122,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 
 26:                                               ; preds = %23, %21
   %27 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %2, i64 noundef 1048576) #7
-  %.not30 = icmp eq i32 %27, 0
-  br i1 %.not30, label %31, label %28
+  %.not29 = icmp eq i32 %27, 0
+  br i1 %.not29, label %31, label %28
 
 28:                                               ; preds = %26
   %29 = tail call ptr @__errno_location() #8
@@ -133,8 +133,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 
 31:                                               ; preds = %28, %26
   %32 = call i32 @pthread_create(ptr noundef nonnull @tid, ptr noundef nonnull %2, ptr noundef nonnull @_monitor, ptr noundef %0) #7
-  %.not31 = icmp eq i32 %32, 0
-  br i1 %.not31, label %35, label %33
+  %.not30 = icmp eq i32 %32, 0
+  br i1 %.not30, label %35, label %33
 
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #8
@@ -144,8 +144,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 
 35:                                               ; preds = %31
   %36 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #7
-  %.not32 = icmp eq i32 %36, 0
-  br i1 %.not32, label %40, label %37
+  %.not31 = icmp eq i32 %36, 0
+  br i1 %.not31, label %40, label %37
 
 37:                                               ; preds = %35
   %38 = tail call ptr @__errno_location() #8
@@ -162,8 +162,8 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
   %44 = load i32, ptr %43, align 8
   store i32 %44, ptr @recorded_stepid, align 4
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not33 = icmp eq i32 %45, 0
-  br i1 %.not33, label %48, label %46
+  %.not32 = icmp eq i32 %45, 0
+  br i1 %.not32, label %48, label %46
 
 46:                                               ; preds = %40
   %47 = tail call ptr @__errno_location() #8
@@ -251,8 +251,8 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   unreachable
 
 25:                                               ; preds = %16
-  %.b30 = load i1, ptr @running_flag, align 1
-  br i1 %.b30, label %26, label %148
+  %.b = load i1, ptr @running_flag, align 1
+  br i1 %.b, label %26, label %148
 
 26:                                               ; preds = %25
   %27 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @cond, ptr noundef nonnull @lock, ptr noundef nonnull %5) #7
@@ -447,13 +447,13 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 
 129:                                              ; preds = %118
   %130 = load i32, ptr %100, align 8
-  %.not32 = icmp eq i32 %130, -4
-  br i1 %.not32, label %.loopexit, label %.preheader
+  %.not31 = icmp eq i32 %130, -4
+  br i1 %.not31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %129, %.preheader
   %131 = call i32 @stepd_send_pending_exit_msgs(ptr noundef nonnull %0) #7
-  %.not33 = icmp eq i32 %131, 0
-  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !12
+  %.not32 = icmp eq i32 %131, 0
+  br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %129
   %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
@@ -505,8 +505,8 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 
 152:                                              ; preds = %148, %151
   %153 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not34 = icmp eq i32 %153, 0
-  br i1 %.not34, label %156, label %154
+  %.not33 = icmp eq i32 %153, 0
+  br i1 %.not33, label %156, label %154
 
 154:                                              ; preds = %152
   %155 = tail call ptr @__errno_location() #8
@@ -535,14 +535,14 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %.b15 = load i1, ptr @running_flag, align 1
-  br i1 %.b15, label %10, label %5
+  %.b = load i1, ptr @running_flag, align 1
+  br i1 %.b, label %10, label %5
 
 5:                                                ; preds = %4
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
   %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not16 = icmp eq i32 %7, 0
-  br i1 %.not16, label %30, label %8
+  %.not15 = icmp eq i32 %7, 0
+  br i1 %.not15, label %30, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @__errno_location() #8
@@ -562,8 +562,8 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 
 14:                                               ; preds = %10, %13
   %15 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @cond) #7
-  %.not17 = icmp eq i32 %15, 0
-  br i1 %.not17, label %19, label %16
+  %.not16 = icmp eq i32 %15, 0
+  br i1 %.not16, label %19, label %16
 
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #8
@@ -573,8 +573,8 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 
 19:                                               ; preds = %16, %14
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %23, label %21
+  %.not17 = icmp eq i32 %20, 0
+  br i1 %.not17, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #8
@@ -584,14 +584,14 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 
 23:                                               ; preds = %19
   %24 = load i64, ptr @tid, align 8
-  %.not19 = icmp eq i64 %24, 0
-  br i1 %.not19, label %.thread, label %25
+  %.not18 = icmp eq i64 %24, 0
+  br i1 %.not18, label %.thread, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @pthread_join(i64 noundef %24, ptr noundef null) #7
   store i64 0, ptr @tid, align 8
-  %.not20 = icmp eq i32 %26, 0
-  br i1 %.not20, label %.thread, label %27
+  %.not19 = icmp eq i32 %26, 0
+  br i1 %.not19, label %.thread, label %27
 
 27:                                               ; preds = %25
   %28 = tail call ptr @__errno_location() #8

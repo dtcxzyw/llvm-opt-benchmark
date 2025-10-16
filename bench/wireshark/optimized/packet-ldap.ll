@@ -2775,12 +2775,12 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %28 = load i32, ptr %27, align 4
   %.not149.not = icmp ult i32 %28, %24
   %29 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0)
-  br i1 %.not149.not, label %30, label %.critedge159
+  br i1 %.not149.not, label %30, label %.critedge158
 
 30:                                               ; preds = %.thread, %26
   %31 = phi i32 [ %25, %.thread ], [ %29, %26 ]
   %32 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 6)
-  br i1 %32, label %33, label %.critedge159
+  br i1 %32, label %33, label %.critedge158
 
 33:                                               ; preds = %30
   %34 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -2789,17 +2789,17 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %38 = add i32 %34, 4
   %39 = icmp ugt i32 %38, %35
-  br i1 %39, label %.critedge159, label %40
+  br i1 %39, label %.critedge158, label %40
 
 40:                                               ; preds = %33
   %41 = icmp eq i8 %37, 4
   %42 = icmp eq i8 %36, 5
   %or.cond = select i1 %42, i1 %41, i1 false
   %43 = icmp eq i8 %36, 96
-  %or.cond167 = or i1 %43, %or.cond
-  br i1 %or.cond167, label %.critedge160, label %.critedge159
+  %or.cond166 = or i1 %43, %or.cond
+  br i1 %or.cond166, label %.critedge159, label %.critedge158
 
-.critedge160:                                     ; preds = %40
+.critedge159:                                     ; preds = %40
   store i32 3, ptr %.0128, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
@@ -2809,26 +2809,26 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %48 = tail call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef nonnull @.str.853)
   %49 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   store ptr %48, ptr %49, align 8
-  br label %.critedge159
+  br label %.critedge158
 
-.critedge159:                                     ; preds = %40, %33, %30, %26, %.critedge160
-  %50 = phi i32 [ %31, %.critedge160 ], [ %29, %26 ], [ %31, %30 ], [ %31, %33 ], [ %31, %40 ]
-  %.1 = phi i1 [ true, %.critedge160 ], [ true, %26 ], [ false, %30 ], [ false, %33 ], [ false, %40 ]
+.critedge158:                                     ; preds = %40, %33, %30, %26, %.critedge159
+  %50 = phi i32 [ %31, %.critedge159 ], [ %29, %26 ], [ %31, %30 ], [ %31, %33 ], [ %31, %40 ]
+  %.1 = phi i1 [ true, %.critedge159 ], [ true, %26 ], [ false, %30 ], [ false, %33 ], [ false, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %1, align 8
   tail call void @col_set_str(ptr noundef %52, i32 noundef 35, ptr noundef %53)
-  %.b151 = load i1, ptr @ldap_found_in_frame, align 1
+  %.b = load i1, ptr @ldap_found_in_frame, align 1
   %54 = load ptr, ptr %51, align 8
-  br i1 %.b151, label %55, label %57
+  br i1 %.b, label %55, label %57
 
-55:                                               ; preds = %.critedge159
+55:                                               ; preds = %.critedge158
   tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.854)
   %56 = load ptr, ptr %51, align 8
   tail call void @col_set_fence(ptr noundef %56, i32 noundef 25)
   br label %58
 
-57:                                               ; preds = %.critedge159
+57:                                               ; preds = %.critedge158
   tail call void @col_clear(ptr noundef %54, i32 noundef 25)
   tail call void @register_frame_end_routine(ptr noundef %1, ptr noundef nonnull @ldap_frame_end)
   store i1 true, ptr @ldap_found_in_frame, align 1
@@ -2855,20 +2855,20 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
 
 71:                                               ; preds = %68
   tail call void @show_reported_bounds_error(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.critedge166
+  br label %.critedge165
 
 72:                                               ; preds = %68
   %73 = add nuw i32 %69, 4
-  %spec.select161 = tail call i32 @llvm.umin.i32(i32 %50, i32 %73)
-  %74 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select161, i32 noundef %73)
+  %spec.select160 = tail call i32 @llvm.umin.i32(i32 %50, i32 %73)
+  %74 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select160, i32 noundef %73)
   %75 = load i32, ptr @hf_ldap_sasl_buffer_length, align 4
   %76 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %75, ptr noundef %74, i32 noundef 0, i32 noundef 4, i32 noundef %69)
   %77 = load i32, ptr @ett_ldap_sasl_blob, align 4
   %78 = tail call ptr @proto_tree_add_subtree(ptr noundef %64, ptr noundef %74, i32 noundef 4, i32 noundef %69, i32 noundef %77, ptr noundef null, ptr noundef nonnull @.str.855)
   %79 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %80 = load ptr, ptr %79, align 8
-  %.not152 = icmp eq ptr %80, null
-  br i1 %.not152, label %.critedge166, label %81
+  %.not151 = icmp eq ptr %80, null
+  br i1 %.not151, label %.critedge165, label %81
 
 81:                                               ; preds = %72
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(11) @.str.853) #14
@@ -2878,19 +2878,19 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
 84:                                               ; preds = %81
   %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(7) @.str.856) #14
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.critedge166
+  br i1 %86, label %87, label %.critedge165
 
 87:                                               ; preds = %84, %81
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %74, i32 noundef 4)
-  %spec.select162 = tail call i32 @llvm.umin.i32(i32 %88, i32 %69)
-  %89 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %74, i32 noundef 4, i32 noundef %spec.select162, i32 noundef %69)
+  %spec.select161 = tail call i32 @llvm.umin.i32(i32 %88, i32 %69)
+  %89 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %74, i32 noundef 4, i32 noundef %spec.select161, i32 noundef %69)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef 0, i64 noundef 56, i1 noundef false) #18
   store i16 1, ptr %5, align 8
   %90 = load ptr, ptr @gssapi_wrap_handle, align 8
   %91 = call i32 @call_dissector_with_data(ptr noundef %90, ptr noundef %89, ptr noundef %1, ptr noundef %78, ptr noundef nonnull %5)
-  %.not157 = icmp eq i32 %91, 0
-  br i1 %.not157, label %.critedge164, label %92
+  %.not156 = icmp eq i32 %91, 0
+  br i1 %.not156, label %.critedge163, label %92
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2898,17 +2898,17 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %95 = trunc nuw i8 %94 to i1
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %97 = load ptr, ptr %96, align 8
-  %.not155 = icmp eq ptr %97, null
+  %.not154 = icmp eq ptr %97, null
   br i1 %95, label %98, label %114
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %51, align 8
-  br i1 %.not155, label %108, label %100
+  br i1 %.not154, label %108, label %100
 
 100:                                              ; preds = %98
   call void @col_set_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.857)
-  %.not156 = icmp eq ptr %78, null
-  br i1 %.not156, label %107, label %101
+  %.not155 = icmp eq ptr %78, null
+  br i1 %.not155, label %107, label %101
 
 101:                                              ; preds = %100
   %102 = call i32 @tvb_reported_length(ptr noundef nonnull %97)
@@ -2933,7 +2933,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %126
 
 114:                                              ; preds = %92
-  br i1 %.not155, label %115, label %117
+  br i1 %.not154, label %115, label %117
 
 115:                                              ; preds = %114
   %116 = call ptr @tvb_new_subset_remaining(ptr noundef %89, i32 noundef %91)
@@ -2943,8 +2943,8 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %.0127 = phi ptr [ %116, %115 ], [ %97, %114 ]
   %118 = load ptr, ptr %51, align 8
   call void @col_set_str(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.861)
-  %.not154 = icmp eq ptr %78, null
-  br i1 %.not154, label %125, label %119
+  %.not153 = icmp eq ptr %78, null
+  br i1 %.not153, label %125, label %119
 
 119:                                              ; preds = %117
   %120 = call i32 @tvb_reported_length(ptr noundef %.0127)
@@ -2961,17 +2961,17 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
 
 126:                                              ; preds = %125, %108, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge166
+  br label %.critedge165
 
-.critedge164:                                     ; preds = %87
+.critedge163:                                     ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge166
+  br label %.critedge165
 
 127:                                              ; preds = %65, %58
   tail call fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %64, ptr noundef %.0128, i1 noundef zeroext %3)
-  br label %.critedge166
+  br label %.critedge165
 
-.critedge166:                                     ; preds = %126, %72, %84, %71, %.critedge164, %127
+.critedge165:                                     ; preds = %126, %72, %84, %71, %.critedge163, %127
   ret void
 }
 
@@ -3570,8 +3570,8 @@ define internal i32 @dissect_ldap_BindResponse(i1 noundef zeroext %0, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ldap_UnbindRequest(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext true, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull @dissect_ldap_NULL)
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %8, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %8, label %ldap_do_protocolop.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3620,8 +3620,8 @@ define internal i32 @dissect_ldap_SearchResultDone(i1 noundef zeroext %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ldap_SearchResultReference(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 19, i1 noundef zeroext true, ptr noundef nonnull @dissect_ldap_SEQUENCE_OF_LDAPURL)
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %8, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %8, label %ldap_do_protocolop.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3712,8 +3712,8 @@ define internal i32 @dissect_ldap_CompareResponse(i1 noundef zeroext %0, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ldap_AbandonRequest(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 16, i1 noundef zeroext true, ptr noundef nonnull @dissect_ldap_MessageID)
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %8, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %8, label %ldap_do_protocolop.exit
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3789,8 +3789,8 @@ define internal i32 @dissect_ldap_AuthenticationChoice(i1 zeroext %0, ptr nounde
   %8 = load i32, ptr @ett_ldap_AuthenticationChoice, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @AuthenticationChoice_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %11, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %11, label %ldap_do_protocolop.exit
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %10, align 8
@@ -3869,8 +3869,8 @@ define internal i32 @dissect_ldap_LDAPString(i1 noundef zeroext %0, ptr noundef 
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %14, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %14, label %ldap_do_protocolop.exit
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %13, align 8
@@ -4136,8 +4136,8 @@ define internal i32 @dissect_ldap_SaslCredentials(i1 noundef zeroext %0, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ldap_T_ntlmsspNegotiate(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %8, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %8, label %ldap_do_protocolop.exit
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %7, align 8
@@ -4172,8 +4172,8 @@ ldap_do_protocolop.exit:                          ; preds = %6, %18
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ldap_T_ntlmsspAuth(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %8, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %8, label %ldap_do_protocolop.exit
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %7, align 8
@@ -4351,8 +4351,8 @@ define internal i32 @dissect_ldap_BindResponse_U(i1 noundef zeroext %0, ptr noun
 define internal i32 @dissect_ldap_BindResponse_resultCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @result)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %9, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %9, label %ldap_do_protocolop.exit
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %8, align 8
@@ -4418,8 +4418,8 @@ define internal i32 @dissect_ldap_T_bindResponse_matchedDN(i1 zeroext %0, ptr no
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %19, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %19, label %ldap_do_protocolop.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %18, align 8
@@ -4604,8 +4604,8 @@ define internal i32 @dissect_ldap_T_scope(i1 noundef zeroext %0, ptr noundef %1,
   store i32 65535, ptr %7, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %10, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %10, label %ldap_do_protocolop.exit
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %9, align 8
@@ -5472,8 +5472,8 @@ define internal i32 @dissect_ldap_LDAPResult(i1 noundef zeroext %0, ptr noundef 
 define internal i32 @dissect_ldap_T_resultCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @result)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %9, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %9, label %ldap_do_protocolop.exit
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %8, align 8
@@ -5643,8 +5643,8 @@ define internal i32 @dissect_ldap_LDAPOID(i1 noundef zeroext %0, ptr noundef %1,
   br i1 %or.cond, label %30, label %45
 
 30:                                               ; preds = %23
-  %.b3.i = load i1, ptr @do_protocolop, align 1
-  br i1 %.b3.i, label %31, label %ldap_do_protocolop.exit
+  %.b.i = load i1, ptr @do_protocolop, align 1
+  br i1 %.b.i, label %31, label %ldap_do_protocolop.exit
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %13, align 8

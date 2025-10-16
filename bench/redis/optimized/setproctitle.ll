@@ -269,13 +269,13 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   br i1 %12, label %36, label %13
 
 13:                                               ; preds = %11
-  %.b15 = load i1, ptr @SPT.4, align 8
+  %.b = load i1, ptr @SPT.4, align 8
   %14 = load ptr, ptr @SPT.1, align 8, !tbaa !24
   %15 = load ptr, ptr @SPT.2, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %14 to i64
   %18 = sub i64 %16, %17
-  br i1 %.b15, label %20, label %19
+  br i1 %.b, label %20, label %19
 
 19:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %18, i1 false)
@@ -289,9 +289,9 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   br label %22
 
 22:                                               ; preds = %20, %19
-  %.pre-phi18 = phi i64 [ %21, %20 ], [ %.pre, %19 ]
+  %.pre-phi17 = phi i64 [ %21, %20 ], [ %.pre, %19 ]
   %23 = zext nneg i32 %.0 to i64
-  %24 = add nsw i64 %.pre-phi18, -1
+  %24 = add nsw i64 %.pre-phi17, -1
   %25 = call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 range(i64 1, 2147483648) %23, i64 %24)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 16 %2, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25

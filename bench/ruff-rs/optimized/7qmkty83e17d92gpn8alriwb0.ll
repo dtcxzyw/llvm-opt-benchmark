@@ -845,15 +845,15 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h188e228690cc
   br label %48
 
 48:                                               ; preds = %74, %47
-  %.sink19.i.i.i = phi i32 [ 0, %47 ], [ %67, %74 ]
-  %.sink18.i.i.i = phi i32 [ 0, %47 ], [ %72, %74 ]
+  %.sink18.i.i.i = phi i32 [ 0, %47 ], [ %67, %74 ]
+  %.sink17.i.i.i = phi i32 [ 0, %47 ], [ %72, %74 ]
   %.sink.i.i.i = phi i8 [ %.sroa.454.0.extract.trunc.i.i.i, %47 ], [ %59, %74 ]
   %49 = load ptr, ptr %6, align 8, !noalias !66, !noundef !4
   br label %92
 
 50:                                               ; preds = %62, %46
-  %.sink22.i.i.i = phi i32 [ %61, %62 ], [ %.sroa.656.0.extract.trunc.i.i.i, %46 ]
-  %.sroa.0.0.insert.ext.i = zext i32 %.sink22.i.i.i to i64
+  %.sink21.i.i.i = phi i32 [ %61, %62 ], [ %.sroa.656.0.extract.trunc.i.i.i, %46 ]
+  %.sroa.0.0.insert.ext.i = zext i32 %.sink21.i.i.i to i64
   %51 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %52 = load ptr, ptr %6, align 8, !alias.scope !77, !noalias !66, !noundef !4
@@ -986,8 +986,8 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h188e228690cc
 92:                                               ; preds = %56, %53, %50, %48
   %.sroa.0.0.i = phi ptr [ %51, %50 ], [ %51, %56 ], [ %51, %53 ], [ %49, %48 ]
   %.sroa.9.0.i = phi i8 [ undef, %50 ], [ undef, %56 ], [ undef, %53 ], [ %.sink.i.i.i, %48 ]
-  %.sroa.8.0.i = phi i32 [ undef, %50 ], [ undef, %56 ], [ undef, %53 ], [ %.sink18.i.i.i, %48 ]
-  %.sroa.7.0.i = phi i32 [ undef, %50 ], [ undef, %56 ], [ undef, %53 ], [ %.sink19.i.i.i, %48 ]
+  %.sroa.8.0.i = phi i32 [ undef, %50 ], [ undef, %56 ], [ undef, %53 ], [ %.sink17.i.i.i, %48 ]
+  %.sroa.7.0.i = phi i32 [ undef, %50 ], [ undef, %56 ], [ undef, %53 ], [ %.sink18.i.i.i, %48 ]
   %.sroa.5.0.i = phi i32 [ 2, %50 ], [ 2, %56 ], [ 2, %53 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !62
@@ -1718,15 +1718,15 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd1aeb3625950
   br label %52
 
 52:                                               ; preds = %78, %48
-  %.sink19.i.i.i = phi i32 [ 0, %48 ], [ %71, %78 ]
-  %.sink18.i.i.i = phi i32 [ 0, %48 ], [ %76, %78 ]
+  %.sink18.i.i.i = phi i32 [ 0, %48 ], [ %71, %78 ]
+  %.sink17.i.i.i = phi i32 [ 0, %48 ], [ %76, %78 ]
   %.sink.i.i.i = phi i8 [ %51, %48 ], [ %63, %78 ]
   %53 = load ptr, ptr %6, align 8, !noalias !149, !noundef !4
   br label %96
 
 54:                                               ; preds = %66, %47
-  %.sink22.i.i.i = phi i32 [ %65, %66 ], [ %.sroa.656.0.extract.trunc.i.i.i, %47 ]
-  %.sroa.0.0.insert.ext.i = zext i32 %.sink22.i.i.i to i64
+  %.sink21.i.i.i = phi i32 [ %65, %66 ], [ %.sroa.656.0.extract.trunc.i.i.i, %47 ]
+  %.sroa.0.0.insert.ext.i = zext i32 %.sink21.i.i.i to i64
   %55 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %56 = load ptr, ptr %6, align 8, !alias.scope !160, !noalias !149, !noundef !4
@@ -1859,8 +1859,8 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd1aeb3625950
 96:                                               ; preds = %60, %57, %54, %52
   %.sroa.0.0.i = phi ptr [ %55, %54 ], [ %55, %60 ], [ %55, %57 ], [ %53, %52 ]
   %.sroa.9.0.i = phi i8 [ undef, %54 ], [ undef, %60 ], [ undef, %57 ], [ %.sink.i.i.i, %52 ]
-  %.sroa.8.0.i = phi i32 [ undef, %54 ], [ undef, %60 ], [ undef, %57 ], [ %.sink18.i.i.i, %52 ]
-  %.sroa.7.0.i = phi i32 [ undef, %54 ], [ undef, %60 ], [ undef, %57 ], [ %.sink19.i.i.i, %52 ]
+  %.sroa.8.0.i = phi i32 [ undef, %54 ], [ undef, %60 ], [ undef, %57 ], [ %.sink17.i.i.i, %52 ]
+  %.sroa.7.0.i = phi i32 [ undef, %54 ], [ undef, %60 ], [ undef, %57 ], [ %.sink18.i.i.i, %52 ]
   %.sroa.5.0.i = phi i32 [ 2, %54 ], [ 2, %60 ], [ 2, %57 ], [ 1, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !149
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !146

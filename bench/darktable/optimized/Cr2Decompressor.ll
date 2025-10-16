@@ -224,12 +224,12 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %28 = icmp eq i32 %23, %4
   %.0.in.v.i.i.i.i = select i1 %28, i64 8, i64 4
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i.i.i.i
-  %.0.i.i.i5.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
   %29 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %29)
   %30 = icmp sgt i32 %26, -1
   tail call void @llvm.assume(i1 %30)
-  %31 = add nsw i32 %.0.i.i.i5.i, %.sroa.1951.sroa.0.0243
+  %31 = add nsw i32 %.0.i.i.i.i, %.sroa.1951.sroa.0.0243
   %32 = add nsw i32 %.sroa.speculated.i.i.i.i.i245, %.sroa.1951.sroa.12.0244
   %33 = icmp eq i32 %31, %12
   %34 = icmp eq i32 %32, %11
@@ -241,7 +241,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %.lr.ph
   tail call void @llvm.assume(i1 %36)
   %37 = icmp sle i32 %24, %7
   tail call void @llvm.assume(i1 %37)
-  %38 = select i1 %34, i32 %.0.i.i.i5.i, i32 0
+  %38 = select i1 %34, i32 %.0.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1 = add nsw i32 %38, %.sroa.1951.sroa.0.0243
   %.sroa.1951.sroa.12.1 = select i1 %34, i32 0, i32 %32
   %39 = sub nsw i32 %7, %21
@@ -271,7 +271,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %.lr.ph
   %55 = icmp eq i32 %52, %4
   %.0.in.v.i.i.i.i.i1 = select i1 %55, i64 8, i64 4
   %.0.in.i.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i.i.i.i.i1
-  %.0.i.i.i5.i7.i3 = load i32, ptr %.0.in.i.i.i.i.i2, align 4, !tbaa !13
+  %.0.i.i.i.i.i3 = load i32, ptr %.0.in.i.i.i.i.i2, align 4, !tbaa !13
   tail call void @llvm.assume(i1 %50)
   tail call void @llvm.assume(i1 %49)
   %56 = icmp sgt i32 %51, -1
@@ -279,7 +279,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %.lr.ph
   %57 = icmp sle i32 %51, %7
   tail call void @llvm.assume(i1 %57)
   %58 = icmp eq i32 %.pre-phi, %11
-  %59 = select i1 %58, i32 %.0.i.i.i5.i7.i3, i32 0
+  %59 = select i1 %58, i32 %.0.i.i.i.i.i3, i32 0
   %.sroa.1951.sroa.0.2 = add nsw i32 %59, %.sroa.1951.sroa.0.0237
   %.sroa.1951.sroa.12.2 = select i1 %58, i32 0, i32 %.pre-phi
   %.sroa.1951.sroa.12.0.insert.ext83 = zext i32 %.sroa.1951.sroa.12.2 to i64
@@ -361,8 +361,8 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %23 = icmp eq i32 %20, %4
   %.0.in.v.i.i.i.i.i = select i1 %23, i64 8, i64 4
   %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i.i.i.i.i
-  %.0.i.i.i5.i.i = load i32, ptr %.0.in.i.i.i.i.i, align 4, !tbaa !13, !noalias !42
-  %24 = add nsw i32 %.0.i.i.i5.i.i, %.sroa.1951.sroa.0.0.i145
+  %.0.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i, align 4, !tbaa !13, !noalias !42
+  %24 = add nsw i32 %.0.i.i.i.i.i, %.sroa.1951.sroa.0.0.i145
   %25 = add nsw i32 %.sroa.speculated.i.i.i.i.i.i147, %.sroa.1951.sroa.12.0.i146
   %26 = icmp eq i32 %24, %12
   %27 = icmp eq i32 %25, %11
@@ -372,7 +372,7 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i:   ; preds = %.lr.ph
   %29 = icmp sle i32 %21, %7
   tail call void @llvm.assume(i1 %29)
-  %30 = select i1 %27, i32 %.0.i.i.i5.i.i, i32 0
+  %30 = select i1 %27, i32 %.0.i.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1.i = add nsw i32 %30, %.sroa.1951.sroa.0.0.i145
   %.sroa.1951.sroa.12.1.i = select i1 %27, i32 0, i32 %25
   %31 = sub nsw i32 %7, %18
@@ -398,11 +398,11 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %45 = icmp eq i32 %42, %4
   %.0.in.v.i.i.i.i.i1.i = select i1 %45, i64 8, i64 4
   %.0.in.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i.i.i.i.i1.i
-  %.0.i.i.i5.i7.i3.i = load i32, ptr %.0.in.i.i.i.i.i2.i, align 4, !tbaa !13, !noalias !42
+  %.0.i.i.i.i.i3.i = load i32, ptr %.0.in.i.i.i.i.i2.i, align 4, !tbaa !13, !noalias !42
   %46 = icmp sle i32 %41, %7
   tail call void @llvm.assume(i1 %46)
   %47 = icmp eq i32 %.pre-phi.i, %11
-  %48 = select i1 %47, i32 %.0.i.i.i5.i7.i3.i, i32 0
+  %48 = select i1 %47, i32 %.0.i.i.i.i.i3.i, i32 0
   %.sroa.1951.sroa.0.2.i = add nsw i32 %48, %.sroa.1951.sroa.0.0.i139
   %.sroa.1951.sroa.12.2.i = select i1 %47, i32 0, i32 %.pre-phi.i
   %.sroa.1951.sroa.12.0.insert.ext83.i = zext i32 %.sroa.1951.sroa.12.2.i to i64
@@ -828,7 +828,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %175 = icmp eq i32 %174, %170
   %.0.in.v.i.i.i.i = select i1 %175, i64 8, i64 4
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 %.0.in.v.i.i.i.i
-  %.0.i.i.i5.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
   %176 = sub nsw i32 %153, %.sroa.17106.sroa.8.0214
   %177 = icmp sgt i32 %176, -1
   tail call void @llvm.assume(i1 %177)
@@ -838,7 +838,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %178, i32 %176)
   %.sroa.5.8.insert.ext.i = zext nneg i32 %.sroa.speculated.i to i64
   %.sroa.5.8.insert.shift.i = shl nuw nsw i64 %.sroa.5.8.insert.ext.i, 32
-  %.sroa.3.8.insert.ext.i = zext i32 %.0.i.i.i5.i to i64
+  %.sroa.3.8.insert.ext.i = zext i32 %.0.i.i.i.i to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
   br i1 %.sroa.14.0217, label %180, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread
 
@@ -853,7 +853,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %183 = icmp eq i32 %181, %.sroa.17106.sroa.8.0214
   %184 = select i1 %182, i1 %183, i1 false
   %.sroa.8.8.extract.trunc133 = trunc i64 %.sroa.8.0216 to i32
-  %185 = icmp eq i32 %.0.i.i.i5.i, %.sroa.8.8.extract.trunc133
+  %185 = icmp eq i32 %.0.i.i.i.i, %.sroa.8.8.extract.trunc133
   %or.cond = select i1 %184, i1 %185, i1 false
   br i1 %or.cond, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread, label %.critedge.i
 
@@ -870,7 +870,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   br label %215
 
 _ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread: ; preds = %.critedge.i, %180, %.lr.ph219
-  %191 = add nsw i32 %.0.i.i.i5.i, %.sroa.17106.sroa.0.0213
+  %191 = add nsw i32 %.0.i.i.i.i, %.sroa.17106.sroa.0.0213
   %.not.i62.not = icmp sgt i32 %191, %150
   br i1 %.not.i62.not, label %192, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit
 
@@ -901,7 +901,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   %spec.select = select i1 %200, i32 %174, i32 %.sroa.13.0211
   %spec.select194 = select i1 %200, i32 0, i32 %198
   %201 = icmp eq i32 %197, %153
-  %202 = select i1 %201, i32 %.0.i.i.i5.i, i32 0
+  %202 = select i1 %201, i32 %.0.i.i.i.i, i32 0
   %.sroa.17106.sroa.0.1 = add nsw i32 %202, %.sroa.17106.sroa.0.0213
   %.sroa.17106.sroa.8.1 = select i1 %201, i32 0, i32 %197
   %203 = icmp eq i32 %spec.select, %170
@@ -1228,8 +1228,8 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %66 = icmp eq i32 %63, %47
   %.0.in.v.i.i.i.i.i.i = select i1 %66, i64 8, i64 4
   %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.0.in.v.i.i.i.i.i.i
-  %.0.i.i.i5.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !209
-  %67 = add nsw i32 %.0.i.i.i5.i.i.i, %.sroa.1951.sroa.0.0.i145.i
+  %.0.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !209
+  %67 = add nsw i32 %.0.i.i.i.i.i.i, %.sroa.1951.sroa.0.0.i145.i
   %68 = add nsw i32 %.sroa.1951.sroa.12.0.i146.i, %.sroa.speculated.i.i.i.i.i.i147.i
   %69 = icmp eq i32 %67, %55
   %70 = icmp eq i32 %68, %54
@@ -1239,7 +1239,7 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i: ; preds = %.lr.ph.i
   %72 = icmp sle i32 %64, %50
   tail call void @llvm.assume(i1 %72)
-  %73 = select i1 %70, i32 %.0.i.i.i5.i.i.i, i32 0
+  %73 = select i1 %70, i32 %.0.i.i.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1.i.i = add nsw i32 %73, %.sroa.1951.sroa.0.0.i145.i
   %.sroa.1951.sroa.12.1.i.i = select i1 %70, i32 0, i32 %68
   %74 = sub nsw i32 %50, %61
@@ -1265,11 +1265,11 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %88 = icmp eq i32 %85, %47
   %.0.in.v.i.i.i.i.i1.i.i = select i1 %88, i64 8, i64 4
   %.0.in.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.0.in.v.i.i.i.i.i1.i.i
-  %.0.i.i.i5.i7.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !209
+  %.0.i.i.i.i.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !209
   %89 = icmp sle i32 %84, %50
   tail call void @llvm.assume(i1 %89)
   %90 = icmp eq i32 %.pre-phi.i.i, %54
-  %91 = select i1 %90, i32 %.0.i.i.i5.i7.i3.i.i, i32 0
+  %91 = select i1 %90, i32 %.0.i.i.i.i.i3.i.i, i32 0
   %.sroa.1951.sroa.0.2.i.i = add nsw i32 %91, %.sroa.1951.sroa.0.0.i139.i
   %.sroa.1951.sroa.12.2.i.i = select i1 %90, i32 0, i32 %.pre-phi.i.i
   %.sroa.1951.sroa.12.0.insert.ext83.i.i = zext i32 %.sroa.1951.sroa.12.2.i.i to i64
@@ -1398,7 +1398,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %117 = icmp eq i32 %116, %111
   %.0.in.v.i.i.i.i.i.i.i.i = select i1 %117, i64 8, i64 4
   %.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre420, i64 %.0.in.v.i.i.i.i.i.i.i.i
-  %.0.i.i.i5.i7.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
   %118 = load i64, ptr %.sroa.7100.0..sroa_idx, align 8
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %118, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
@@ -1443,7 +1443,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
 
 138:                                              ; preds = %133
   store i32 0, ptr %97, align 4, !tbaa !221
-  %139 = add nsw i32 %.0.i.i.i5.i7.i.i.i.i, %131
+  %139 = add nsw i32 %.0.i.i.i.i.i.i.i.i, %131
   store i32 %139, ptr %.sroa.7100.0..sroa_idx, align 8, !tbaa !222
   br label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i.i
 
@@ -2074,8 +2074,8 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %66 = icmp eq i32 %63, %47
   %.0.in.v.i.i.i.i.i.i = select i1 %66, i64 8, i64 4
   %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.0.in.v.i.i.i.i.i.i
-  %.0.i.i.i5.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !265
-  %67 = add nsw i32 %.0.i.i.i5.i.i.i, %.sroa.1951.sroa.0.0.i145.i
+  %.0.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !265
+  %67 = add nsw i32 %.0.i.i.i.i.i.i, %.sroa.1951.sroa.0.0.i145.i
   %68 = add nsw i32 %.sroa.1951.sroa.12.0.i146.i, %.sroa.speculated.i.i.i.i.i.i147.i
   %69 = icmp eq i32 %67, %55
   %70 = icmp eq i32 %68, %54
@@ -2085,7 +2085,7 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i: ; preds = %.lr.ph.i
   %72 = icmp sle i32 %64, %50
   tail call void @llvm.assume(i1 %72)
-  %73 = select i1 %70, i32 %.0.i.i.i5.i.i.i, i32 0
+  %73 = select i1 %70, i32 %.0.i.i.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1.i.i = add nsw i32 %73, %.sroa.1951.sroa.0.0.i145.i
   %.sroa.1951.sroa.12.1.i.i = select i1 %70, i32 0, i32 %68
   %74 = sub nsw i32 %50, %61
@@ -2111,11 +2111,11 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %88 = icmp eq i32 %85, %47
   %.0.in.v.i.i.i.i.i1.i.i = select i1 %88, i64 8, i64 4
   %.0.in.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.0.in.v.i.i.i.i.i1.i.i
-  %.0.i.i.i5.i7.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !265
+  %.0.i.i.i.i.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !265
   %89 = icmp sle i32 %84, %50
   tail call void @llvm.assume(i1 %89)
   %90 = icmp eq i32 %.pre-phi.i.i, %54
-  %91 = select i1 %90, i32 %.0.i.i.i5.i7.i3.i.i, i32 0
+  %91 = select i1 %90, i32 %.0.i.i.i.i.i3.i.i, i32 0
   %.sroa.1951.sroa.0.2.i.i = add nsw i32 %91, %.sroa.1951.sroa.0.0.i139.i
   %.sroa.1951.sroa.12.2.i.i = select i1 %90, i32 0, i32 %.pre-phi.i.i
   %.sroa.1951.sroa.12.0.insert.ext83.i.i = zext i32 %.sroa.1951.sroa.12.2.i.i to i64
@@ -2244,7 +2244,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %117 = icmp eq i32 %116, %111
   %.0.in.v.i.i.i.i.i.i.i.i = select i1 %117, i64 8, i64 4
   %.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre423, i64 %.0.in.v.i.i.i.i.i.i.i.i
-  %.0.i.i.i5.i7.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
   %118 = load i64, ptr %.sroa.7100.0..sroa_idx, align 8
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %118, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
@@ -2289,7 +2289,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
 
 138:                                              ; preds = %133
   store i32 0, ptr %97, align 4, !tbaa !221
-  %139 = add nsw i32 %.0.i.i.i5.i7.i.i.i.i, %131
+  %139 = add nsw i32 %.0.i.i.i.i.i.i.i.i, %131
   store i32 %139, ptr %.sroa.7100.0..sroa_idx, align 8, !tbaa !222
   br label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i.i
 
@@ -2915,8 +2915,8 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %61 = icmp eq i32 %58, %42
   %.0.in.v.i.i.i.i.i.i = select i1 %61, i64 8, i64 4
   %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.0.in.v.i.i.i.i.i.i
-  %.0.i.i.i5.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !287
-  %62 = add nsw i32 %.0.i.i.i5.i.i.i, %.sroa.1951.sroa.0.0.i145.i
+  %.0.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !287
+  %62 = add nsw i32 %.0.i.i.i.i.i.i, %.sroa.1951.sroa.0.0.i145.i
   %63 = add nsw i32 %.sroa.1951.sroa.12.0.i146.i, %.sroa.speculated.i.i.i.i.i.i147.i
   %64 = icmp eq i32 %62, %50
   %65 = icmp eq i32 %63, %49
@@ -2926,7 +2926,7 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i: ; preds = %.lr.ph.i
   %67 = icmp sle i32 %59, %45
   tail call void @llvm.assume(i1 %67)
-  %68 = select i1 %65, i32 %.0.i.i.i5.i.i.i, i32 0
+  %68 = select i1 %65, i32 %.0.i.i.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1.i.i = add nsw i32 %68, %.sroa.1951.sroa.0.0.i145.i
   %.sroa.1951.sroa.12.1.i.i = select i1 %65, i32 0, i32 %63
   %69 = sub nsw i32 %45, %56
@@ -2952,11 +2952,11 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %83 = icmp eq i32 %80, %42
   %.0.in.v.i.i.i.i.i1.i.i = select i1 %83, i64 8, i64 4
   %.0.in.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.0.in.v.i.i.i.i.i1.i.i
-  %.0.i.i.i5.i7.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !287
+  %.0.i.i.i.i.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !287
   %84 = icmp sle i32 %79, %45
   tail call void @llvm.assume(i1 %84)
   %85 = icmp eq i32 %.pre-phi.i.i, %49
-  %86 = select i1 %85, i32 %.0.i.i.i5.i7.i3.i.i, i32 0
+  %86 = select i1 %85, i32 %.0.i.i.i.i.i3.i.i, i32 0
   %.sroa.1951.sroa.0.2.i.i = add nsw i32 %86, %.sroa.1951.sroa.0.0.i139.i
   %.sroa.1951.sroa.12.2.i.i = select i1 %85, i32 0, i32 %.pre-phi.i.i
   %.sroa.1951.sroa.12.0.insert.ext83.i.i = zext i32 %.sroa.1951.sroa.12.2.i.i to i64
@@ -3085,7 +3085,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %112 = icmp eq i32 %111, %106
   %.0.in.v.i.i.i.i.i.i.i.i = select i1 %112, i64 8, i64 4
   %.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre424, i64 %.0.in.v.i.i.i.i.i.i.i.i
-  %.0.i.i.i5.i7.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
   %113 = load i64, ptr %.sroa.7102.0..sroa_idx, align 8
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %113, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
@@ -3130,7 +3130,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
 
 133:                                              ; preds = %128
   store i32 0, ptr %92, align 4, !tbaa !221
-  %134 = add nsw i32 %.0.i.i.i5.i7.i.i.i.i, %126
+  %134 = add nsw i32 %.0.i.i.i.i.i.i.i.i, %126
   store i32 %134, ptr %.sroa.7102.0..sroa_idx, align 8, !tbaa !222
   br label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i.i
 
@@ -3749,8 +3749,8 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %70 = icmp eq i32 %67, %51
   %.0.in.v.i.i.i.i.i.i = select i1 %70, i64 8, i64 4
   %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 %.0.in.v.i.i.i.i.i.i
-  %.0.i.i.i5.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !315
-  %71 = add nsw i32 %.0.i.i.i5.i.i.i, %.sroa.1951.sroa.0.0.i145.i
+  %.0.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i, align 4, !tbaa !13, !noalias !315
+  %71 = add nsw i32 %.0.i.i.i.i.i.i, %.sroa.1951.sroa.0.0.i145.i
   %72 = add nsw i32 %.sroa.1951.sroa.12.0.i146.i, %.sroa.speculated.i.i.i.i.i.i147.i
   %73 = icmp eq i32 %71, %59
   %74 = icmp eq i32 %72, %58
@@ -3760,7 +3760,7 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i: ; preds = %.lr.ph.i
   %76 = icmp sle i32 %68, %54
   tail call void @llvm.assume(i1 %76)
-  %77 = select i1 %74, i32 %.0.i.i.i5.i.i.i, i32 0
+  %77 = select i1 %74, i32 %.0.i.i.i.i.i.i, i32 0
   %.sroa.1951.sroa.0.1.i.i = add nsw i32 %77, %.sroa.1951.sroa.0.0.i145.i
   %.sroa.1951.sroa.12.1.i.i = select i1 %74, i32 0, i32 %72
   %78 = sub nsw i32 %54, %65
@@ -3786,11 +3786,11 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %92 = icmp eq i32 %89, %51
   %.0.in.v.i.i.i.i.i1.i.i = select i1 %92, i64 8, i64 4
   %.0.in.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %50, i64 %.0.in.v.i.i.i.i.i1.i.i
-  %.0.i.i.i5.i7.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !315
+  %.0.i.i.i.i.i3.i.i = load i32, ptr %.0.in.i.i.i.i.i2.i.i, align 4, !tbaa !13, !noalias !315
   %93 = icmp sle i32 %88, %54
   tail call void @llvm.assume(i1 %93)
   %94 = icmp eq i32 %.pre-phi.i.i, %58
-  %95 = select i1 %94, i32 %.0.i.i.i5.i7.i3.i.i, i32 0
+  %95 = select i1 %94, i32 %.0.i.i.i.i.i3.i.i, i32 0
   %.sroa.1951.sroa.0.2.i.i = add nsw i32 %95, %.sroa.1951.sroa.0.0.i139.i
   %.sroa.1951.sroa.12.2.i.i = select i1 %94, i32 0, i32 %.pre-phi.i.i
   %.sroa.1951.sroa.12.0.insert.ext83.i.i = zext i32 %.sroa.1951.sroa.12.2.i.i to i64
@@ -3919,7 +3919,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %121 = icmp eq i32 %120, %115
   %.0.in.v.i.i.i.i.i.i.i.i = select i1 %121, i64 8, i64 4
   %.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre423, i64 %.0.in.v.i.i.i.i.i.i.i.i
-  %.0.i.i.i5.i7.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i.i.i.i.i = load i32, ptr %.0.in.i.i.i.i.i.i.i.i, align 4, !tbaa !13
   %122 = load i64, ptr %.sroa.7100.0..sroa_idx, align 8
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %122, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
@@ -3964,7 +3964,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
 
 142:                                              ; preds = %137
   store i32 0, ptr %101, align 4, !tbaa !221
-  %143 = add nsw i32 %.0.i.i.i5.i7.i.i.i.i, %135
+  %143 = add nsw i32 %.0.i.i.i.i.i.i.i.i, %135
   store i32 %143, ptr %.sroa.7100.0..sroa_idx, align 8, !tbaa !222
   br label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit.i.i.i
 
@@ -4628,7 +4628,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   %19 = icmp eq i32 %18, %15
   %.0.in.v.i.i.i.i = select i1 %19, i64 8, i64 4
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.1546.0.copyload, i64 %.0.in.v.i.i.i.i
-  %.0.i.i.i5.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
+  %.0.i.i.i.i = load i32, ptr %.0.in.i.i.i.i, align 4, !tbaa !13
   %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.2957.0.copyload, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.copyload, i64 4
@@ -4642,7 +4642,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %24, i32 %22)
   %.sroa.5.8.insert.ext.i = zext nneg i32 %.sroa.speculated.i to i64
   %.sroa.5.8.insert.shift.i = shl nuw nsw i64 %.sroa.5.8.insert.ext.i, 32
-  %.sroa.3.8.insert.ext.i = zext i32 %.0.i.i.i5.i to i64
+  %.sroa.3.8.insert.ext.i = zext i32 %.0.i.i.i.i to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
   %26 = add nsw i32 %.sroa.speculated.i, %.sroa.39.0.copyload
   %27 = icmp sgt i32 %26, -1
@@ -4661,7 +4661,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   %33 = add nsw i32 %.sroa.speculated.i, %.sroa.2.0.extract.trunc.i
   %34 = icmp eq i32 %33, %21
   %.sroa.2957.sroa.11.1 = select i1 %34, i32 0, i32 %33
-  %35 = select i1 %34, i32 %.0.i.i.i5.i, i32 0
+  %35 = select i1 %34, i32 %.0.i.i.i.i, i32 0
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27
@@ -4677,7 +4677,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   %38 = icmp eq i32 %37, %15
   %.0.in.v.i.i.i.i5 = select i1 %38, i64 8, i64 4
   %.0.in.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %.sroa.1546.0.copyload, i64 %.0.in.v.i.i.i.i5
-  %.0.i.i.i5.i7 = load i32, ptr %.0.in.i.i.i.i6, align 4, !tbaa !13
+  %.0.i.i.i.i7 = load i32, ptr %.0.in.i.i.i.i6, align 4, !tbaa !13
   %39 = sub nsw i32 %21, %.sroa.2957.sroa.11.0114
   %40 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %40)
@@ -4692,7 +4692,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   %45 = icmp eq i32 %43, %.sroa.2957.sroa.11.0114
   %46 = select i1 %44, i1 %45, i1 false
   %.sroa.6.8.extract.trunc31 = trunc i64 %.sroa.6.0111 to i32
-  %47 = icmp eq i32 %.0.i.i.i5.i7, %.sroa.6.8.extract.trunc31
+  %47 = icmp eq i32 %.0.i.i.i.i7, %.sroa.6.8.extract.trunc31
   %or.cond = select i1 %46, i1 %47, i1 false
   br i1 %or.cond, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27, label %.critedge.i
 
@@ -4720,7 +4720,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27:   ; preds = %.lr.ph, %.critedge.
   %spec.select105 = select i1 %55, i32 %37, i32 %.sroa.21.0109
   %spec.select106 = select i1 %55, i32 0, i32 %52
   %56 = icmp eq i32 %53, %21
-  %57 = select i1 %56, i32 %.0.i.i.i5.i7, i32 0
+  %57 = select i1 %56, i32 %.0.i.i.i.i7, i32 0
   %.sroa.2957.sroa.11.2 = select i1 %56, i32 0, i32 %53
   %58 = icmp eq i32 %spec.select105, %12
   %59 = icmp eq i32 %spec.select106, %14

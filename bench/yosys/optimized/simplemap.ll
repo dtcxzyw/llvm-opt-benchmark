@@ -24388,8 +24388,8 @@ define void @_ZN5Yosys9simplemapEPNS_5RTLIL6ModuleEPNS0_4CellE(ptr noundef %0, p
   br label %9
 
 9:                                                ; preds = %7, %5, %2
-  %.b3 = load i1, ptr @_ZZN5Yosys9simplemapEPNS_5RTLIL6ModuleEPNS0_4CellEE19initialized_mappers, align 1
-  br i1 %.b3, label %11, label %10
+  %.b = load i1, ptr @_ZZN5Yosys9simplemapEPNS_5RTLIL6ModuleEPNS0_4CellEE19initialized_mappers, align 1
+  br i1 %.b, label %11, label %10
 
 10:                                               ; preds = %9
   tail call void @_ZN5Yosys21simplemap_get_mappersERNS_7hashlib4dictINS_5RTLIL8IdStringEPFvPNS2_6ModuleEPNS2_4CellEENS0_8hash_opsIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(49) @_ZZN5Yosys9simplemapEPNS_5RTLIL6ModuleEPNS0_4CellEE7mappers)

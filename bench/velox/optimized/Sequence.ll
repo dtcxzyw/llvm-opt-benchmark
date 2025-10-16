@@ -10188,10 +10188,10 @@ if.end.i.i26:                                     ; preds = %for.body
   %cmp.i.not.i.i = icmp eq i32 %add.i.i.i.i, -32768
   %27 = add i8 %outCalDate.i.sroa.5.0.extract.trunc.i, -13
   %spec.select.i.i.i = icmp ult i8 %27, -12
-  %or.cond.not59.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
-  %or.cond54.i = select i1 %or.cond.not59.i, i1 true, i1 %cmp.i.i.not.i.i
+  %or.cond.not60.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
+  %or.cond55.i = select i1 %or.cond.not60.i, i1 true, i1 %cmp.i.i.not.i.i
   %.pre.i = and i32 %26, 255
-  br i1 %or.cond54.i, label %if.then31.i.i, label %land.rhs.i.i
+  br i1 %or.cond55.i, label %if.then31.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i.i26
   %cmp.i.i.not.i.i.i = icmp eq i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 2
@@ -10221,46 +10221,46 @@ _ZNK4date14year_month_day2okEv.exit.i:            ; preds = %cond.true.i.i.i, %l
   br i1 %cmp.i.i6.i.not.i, label %if.then31.i.i, label %if.end44.i.i
 
 if.then31.i.i:                                    ; preds = %_ZNK4date14year_month_day2okEv.exit.i, %if.end.i.i26
-  %cmp.i.i.not.i.i24.i = icmp eq i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 2
-  br i1 %cmp.i.i.not.i.i24.i, label %lor.lhs.false.i.i.i, label %land.lhs.true.i.i.i
+  %cmp.i.i.not.i.i25.i = icmp eq i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 2
+  br i1 %cmp.i.i.not.i.i25.i, label %lor.lhs.false.i.i.i, label %land.lhs.true.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then31.i.i
   %31 = and i32 %add.i.i.i.i, 3
   %cmp.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i33.i, label %cond.true.i.i28.i
+  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i34.i, label %cond.true.i.i29.i
 
-land.rhs.i.i.i33.i:                               ; preds = %lor.lhs.false.i.i.i
-  %rem3.i.i.i34.i = srem i32 %add.i.i.i.i, 100
-  %cmp4.not.i.i.i35.i = icmp ne i32 %rem3.i.i.i34.i, 0
-  %rem6.i.i.i36.i = srem i32 %add.i.i.i.i, 400
-  %cmp7.i.i.i37.i = icmp eq i32 %rem6.i.i.i36.i, 0
-  %or.cond.i.i38.i = or i1 %cmp4.not.i.i.i35.i, %cmp7.i.i.i37.i
-  br i1 %or.cond.i.i38.i, label %if.end44.i.i, label %cond.true.i.i28.i
+land.rhs.i.i.i34.i:                               ; preds = %lor.lhs.false.i.i.i
+  %rem3.i.i.i35.i = srem i32 %add.i.i.i.i, 100
+  %cmp4.not.i.i.i36.i = icmp ne i32 %rem3.i.i.i35.i, 0
+  %rem6.i.i.i37.i = srem i32 %add.i.i.i.i, 400
+  %cmp7.i.i.i38.i = icmp eq i32 %rem6.i.i.i37.i, 0
+  %or.cond.i.i39.i = or i1 %cmp4.not.i.i.i36.i, %cmp7.i.i.i38.i
+  br i1 %or.cond.i.i39.i, label %if.end44.i.i, label %cond.true.i.i29.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then31.i.i
   %32 = add i8 %outCalDate.i.sroa.5.0.extract.trunc.i, -1
   %spec.select.i.i.i.i.i = icmp ult i8 %32, 12
-  br i1 %spec.select.i.i.i.i.i, label %cond.true.i.i28.i, label %if.end44.i.i
+  br i1 %spec.select.i.i.i.i.i, label %cond.true.i.i29.i, label %if.end44.i.i
 
-cond.true.i.i28.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i33.i, %lor.lhs.false.i.i.i
+cond.true.i.i29.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i34.i, %lor.lhs.false.i.i.i
   %33 = add nsw i32 %.pre.i, -1
-  %idxprom.i.i31.i = zext i32 %33 to i64
-  %arrayidx.i.i32.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i31.i
-  %34 = load i8, ptr %arrayidx.i.i32.i, align 1
+  %idxprom.i.i32.i = zext i32 %33 to i64
+  %arrayidx.i.i33.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i32.i
+  %34 = load i8, ptr %arrayidx.i.i33.i, align 1
   br label %if.end44.i.i
 
-if.end44.i.i:                                     ; preds = %cond.true.i.i28.i, %land.lhs.true.i.i.i, %land.rhs.i.i.i33.i, %_ZNK4date14year_month_day2okEv.exit.i
-  %outCalDate.i.sroa.9.0.i = phi i8 [ %outCalDate.i.sroa.9.0.extract.trunc.i, %_ZNK4date14year_month_day2okEv.exit.i ], [ 29, %land.rhs.i.i.i33.i ], [ 29, %land.lhs.true.i.i.i ], [ %34, %cond.true.i.i28.i ]
+if.end44.i.i:                                     ; preds = %cond.true.i.i29.i, %land.lhs.true.i.i.i, %land.rhs.i.i.i34.i, %_ZNK4date14year_month_day2okEv.exit.i
+  %outCalDate.i.sroa.9.0.i = phi i8 [ %outCalDate.i.sroa.9.0.extract.trunc.i, %_ZNK4date14year_month_day2okEv.exit.i ], [ 29, %land.rhs.i.i.i34.i ], [ 29, %land.lhs.true.i.i.i ], [ %34, %cond.true.i.i29.i ]
   %cmp.i.i.i.i.i = icmp ult i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 3
   %conv.neg.i.i.i = sext i1 %cmp.i.i.i.i.i to i32
-  %sub.i.i40.i = add nsw i32 %add.i.i.i.i, %conv.neg.i.i.i
+  %sub.i.i41.i = add nsw i32 %add.i.i.i.i, %conv.neg.i.i.i
   %conv.i11.i.i.i = zext i8 %outCalDate.i.sroa.9.0.i to i32
-  %sub6.i.i.i = add nsw i32 %sub.i.i40.i, -399
-  %cmp9.i.i.i = icmp slt i32 %sub.i.i40.i, 0
-  %cond.i.i43.i = select i1 %cmp9.i.i.i, i32 %sub6.i.i.i, i32 %sub.i.i40.i
-  %div.i.i44.i = sdiv i32 %cond.i.i43.i, 400
-  %mul.neg.i.i45.i = mul nsw i32 %div.i.i44.i, -400
-  %sub7.i.i.i = add nsw i32 %mul.neg.i.i45.i, %sub.i.i40.i
+  %sub6.i.i.i = add nsw i32 %sub.i.i41.i, -399
+  %cmp9.i.i.i = icmp slt i32 %sub.i.i41.i, 0
+  %cond.i.i44.i = select i1 %cmp9.i.i.i, i32 %sub6.i.i.i, i32 %sub.i.i41.i
+  %div.i.i45.i = sdiv i32 %cond.i.i44.i, 400
+  %mul.neg.i.i46.i = mul nsw i32 %div.i.i45.i, -400
+  %sub7.i.i.i = add nsw i32 %mul.neg.i.i46.i, %sub.i.i41.i
   %cmp8.i.i.i = icmp ugt i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 2
   %spec.select.i = select i1 %cmp8.i.i.i, i32 -3, i32 9
   %cond13.i.i.i = add nsw i32 %spec.select.i, %.pre.i
@@ -10269,13 +10269,13 @@ if.end44.i.i:                                     ; preds = %cond.true.i.i28.i, 
   %div16.i.i.i = udiv i32 %add15.i.i.i, 5
   %mul19.i.i.i = mul i32 %sub7.i.i.i, 365
   %div2010.i.i.i = lshr i32 %sub7.i.i.i, 2
-  %div22.i.i46.i = udiv i32 %sub7.i.i.i, 100
-  %mul25.i.i.i = mul nsw i32 %div.i.i44.i, 146097
+  %div22.i.i47.i = udiv i32 %sub7.i.i.i, 100
+  %mul25.i.i.i = mul nsw i32 %div.i.i45.i, 146097
   %sub23.i.i.i = add nsw i32 %div16.i.i.i, -719469
   %add17.i.i.i = add i32 %sub23.i.i.i, %mul25.i.i.i
   %sub18.i.i.i = add i32 %add17.i.i.i, %div2010.i.i.i
-  %add24.i.i47.i = add i32 %sub18.i.i.i, %mul19.i.i.i
-  %add26.i.i.i = sub i32 %add24.i.i47.i, %div22.i.i46.i
+  %add24.i.i48.i = add i32 %sub18.i.i.i, %mul19.i.i.i
+  %add26.i.i.i = sub i32 %add24.i.i48.i, %div22.i.i47.i
   %sub27.i.i.i = add i32 %add26.i.i.i, %conv.i11.i.i.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addIiiEET_S4_T0_i.exit
 
@@ -21428,10 +21428,10 @@ if.end.i.i40:                                     ; preds = %for.body
   %cmp.i.not.i.i = icmp eq i32 %add.i.i.i.i, -32768
   %27 = add i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, -13
   %spec.select.i.i.i = icmp ult i8 %27, -12
-  %or.cond.not86.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
-  %or.cond81.i = select i1 %or.cond.not86.i, i1 true, i1 %cmp.i.i.not.i.i
+  %or.cond.not87.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
+  %or.cond82.i = select i1 %or.cond.not87.i, i1 true, i1 %cmp.i.i.not.i.i
   %.pre.i = and i32 %26, 255
-  br i1 %or.cond81.i, label %if.then31.i.i.i, label %land.rhs.i.i
+  br i1 %or.cond82.i, label %if.then31.i.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i.i40
   %cmp.i.i.not.i.i.i = icmp eq i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
@@ -21461,46 +21461,46 @@ _ZNK4date14year_month_day2okEv.exit.i:            ; preds = %cond.true.i.i.i, %l
   br i1 %cmp.i.i6.i.not.i, label %if.then31.i.i.i, label %if.end44.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %_ZNK4date14year_month_day2okEv.exit.i, %if.end.i.i40
-  %cmp.i.i.not.i.i37.i = icmp eq i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
-  br i1 %cmp.i.i.not.i.i37.i, label %lor.lhs.false.i.i.i, label %land.lhs.true.i.i.i
+  %cmp.i.i.not.i.i38.i = icmp eq i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
+  br i1 %cmp.i.i.not.i.i38.i, label %lor.lhs.false.i.i.i, label %land.lhs.true.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then31.i.i.i
   %31 = and i32 %add.i.i.i.i, 3
   %cmp.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i46.i, label %cond.true.i.i41.i
+  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i47.i, label %cond.true.i.i42.i
 
-land.rhs.i.i.i46.i:                               ; preds = %lor.lhs.false.i.i.i
-  %rem3.i.i.i47.i = srem i32 %add.i.i.i.i, 100
-  %cmp4.not.i.i.i48.i = icmp ne i32 %rem3.i.i.i47.i, 0
-  %rem6.i.i.i49.i = srem i32 %add.i.i.i.i, 400
-  %cmp7.i.i.i50.i = icmp eq i32 %rem6.i.i.i49.i, 0
-  %or.cond.i.i51.i = or i1 %cmp4.not.i.i.i48.i, %cmp7.i.i.i50.i
-  br i1 %or.cond.i.i51.i, label %if.end44.i.i.i, label %cond.true.i.i41.i
+land.rhs.i.i.i47.i:                               ; preds = %lor.lhs.false.i.i.i
+  %rem3.i.i.i48.i = srem i32 %add.i.i.i.i, 100
+  %cmp4.not.i.i.i49.i = icmp ne i32 %rem3.i.i.i48.i, 0
+  %rem6.i.i.i50.i = srem i32 %add.i.i.i.i, 400
+  %cmp7.i.i.i51.i = icmp eq i32 %rem6.i.i.i50.i, 0
+  %or.cond.i.i52.i = or i1 %cmp4.not.i.i.i49.i, %cmp7.i.i.i51.i
+  br i1 %or.cond.i.i52.i, label %if.end44.i.i.i, label %cond.true.i.i42.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then31.i.i.i
   %32 = add i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, -1
   %spec.select.i.i.i.i.i = icmp ult i8 %32, 12
-  br i1 %spec.select.i.i.i.i.i, label %cond.true.i.i41.i, label %if.end44.i.i.i
+  br i1 %spec.select.i.i.i.i.i, label %cond.true.i.i42.i, label %if.end44.i.i.i
 
-cond.true.i.i41.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i46.i, %lor.lhs.false.i.i.i
+cond.true.i.i42.i:                                ; preds = %land.lhs.true.i.i.i, %land.rhs.i.i.i47.i, %lor.lhs.false.i.i.i
   %33 = add nsw i32 %.pre.i, -1
-  %idxprom.i.i44.i = zext i32 %33 to i64
-  %arrayidx.i.i45.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i44.i
-  %34 = load i8, ptr %arrayidx.i.i45.i, align 1
+  %idxprom.i.i45.i = zext i32 %33 to i64
+  %arrayidx.i.i46.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i45.i
+  %34 = load i8, ptr %arrayidx.i.i46.i, align 1
   br label %if.end44.i.i.i
 
-if.end44.i.i.i:                                   ; preds = %cond.true.i.i41.i, %land.lhs.true.i.i.i, %land.rhs.i.i.i46.i, %_ZNK4date14year_month_day2okEv.exit.i
-  %outCalDate.i.i.sroa.9.0.i = phi i8 [ %outCalDate.i.i.sroa.9.0.extract.trunc.i, %_ZNK4date14year_month_day2okEv.exit.i ], [ 29, %land.rhs.i.i.i46.i ], [ 29, %land.lhs.true.i.i.i ], [ %34, %cond.true.i.i41.i ]
+if.end44.i.i.i:                                   ; preds = %cond.true.i.i42.i, %land.lhs.true.i.i.i, %land.rhs.i.i.i47.i, %_ZNK4date14year_month_day2okEv.exit.i
+  %outCalDate.i.i.sroa.9.0.i = phi i8 [ %outCalDate.i.i.sroa.9.0.extract.trunc.i, %_ZNK4date14year_month_day2okEv.exit.i ], [ 29, %land.rhs.i.i.i47.i ], [ 29, %land.lhs.true.i.i.i ], [ %34, %cond.true.i.i42.i ]
   %cmp.i.i.i.i.i = icmp ult i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 3
   %conv.neg.i.i.i = sext i1 %cmp.i.i.i.i.i to i32
-  %sub.i.i53.i = add nsw i32 %add.i.i.i.i, %conv.neg.i.i.i
+  %sub.i.i54.i = add nsw i32 %add.i.i.i.i, %conv.neg.i.i.i
   %conv.i11.i.i.i = zext i8 %outCalDate.i.i.sroa.9.0.i to i32
-  %sub6.i.i.i = add nsw i32 %sub.i.i53.i, -399
-  %cmp9.i.i.i = icmp slt i32 %sub.i.i53.i, 0
-  %cond.i.i56.i = select i1 %cmp9.i.i.i, i32 %sub6.i.i.i, i32 %sub.i.i53.i
-  %div.i.i57.i = sdiv i32 %cond.i.i56.i, 400
-  %mul.neg.i.i58.i = mul nsw i32 %div.i.i57.i, -400
-  %sub7.i.i.i = add nsw i32 %mul.neg.i.i58.i, %sub.i.i53.i
+  %sub6.i.i.i = add nsw i32 %sub.i.i54.i, -399
+  %cmp9.i.i.i = icmp slt i32 %sub.i.i54.i, 0
+  %cond.i.i57.i = select i1 %cmp9.i.i.i, i32 %sub6.i.i.i, i32 %sub.i.i54.i
+  %div.i.i58.i = sdiv i32 %cond.i.i57.i, 400
+  %mul.neg.i.i59.i = mul nsw i32 %div.i.i58.i, -400
+  %sub7.i.i.i = add nsw i32 %mul.neg.i.i59.i, %sub.i.i54.i
   %cmp8.i.i.i = icmp ugt i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
   %spec.select.i = select i1 %cmp8.i.i.i, i32 -3, i32 9
   %cond13.i.i.i = add nsw i32 %spec.select.i, %.pre.i
@@ -21509,37 +21509,37 @@ if.end44.i.i.i:                                   ; preds = %cond.true.i.i41.i, 
   %div16.i.i.i = udiv i32 %add15.i.i.i, 5
   %mul19.i.i.i = mul i32 %sub7.i.i.i, 365
   %div2010.i.i.i = lshr i32 %sub7.i.i.i, 2
-  %div22.i.i59.i = udiv i32 %sub7.i.i.i, 100
-  %mul25.i.i.i = mul nsw i32 %div.i.i57.i, 146097
+  %div22.i.i60.i = udiv i32 %sub7.i.i.i, 100
+  %mul25.i.i.i = mul nsw i32 %div.i.i58.i, 146097
   %reass.sub = sub i32 %div16.i.i.i, %conv.i.i.i
   %sub23.i.i.i = add i32 %reass.sub, -719469
   %add17.i.i.i = add i32 %sub23.i.i.i, %mul25.i.i.i
   %sub18.i.i.i = add i32 %add17.i.i.i, %div2010.i.i.i
-  %add24.i.i60.i = add i32 %sub18.i.i.i, %mul19.i.i.i
-  %add26.i.i.i = sub i32 %add24.i.i60.i, %div22.i.i59.i
+  %add24.i.i61.i = add i32 %sub18.i.i.i, %mul19.i.i.i
+  %add26.i.i.i = sub i32 %add24.i.i61.i, %div22.i.i60.i
   %sub.i.i = add i32 %add26.i.i.i, %conv.i11.i.i.i
   %conv.i.i.i.i.i.i = sext i32 %sub.i.i to i64
   %mul.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i, 86400000
-  %add.i.i63.i = add nsw i64 %mul.i.i.i.i.i.i, %conv7.i.i
-  %cmp.i65.i = icmp sgt i64 %add.i.i63.i, -1
-  %rem.i66.i = srem i64 %add.i.i63.i, 1000
-  %div.i71.i = sdiv i64 %add.i.i63.i, 1000
-  %cmp1.i.i = icmp eq i64 %rem.i66.i, 0
-  %or.cond.i67.i = or i1 %cmp.i65.i, %cmp1.i.i
-  br i1 %or.cond.i67.i, label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i, label %if.end.i68.i
+  %add.i.i64.i = add nsw i64 %mul.i.i.i.i.i.i, %conv7.i.i
+  %cmp.i66.i = icmp sgt i64 %add.i.i64.i, -1
+  %rem.i67.i = srem i64 %add.i.i64.i, 1000
+  %div.i72.i = sdiv i64 %add.i.i64.i, 1000
+  %cmp1.i.i = icmp eq i64 %rem.i67.i, 0
+  %or.cond.i68.i = or i1 %cmp.i66.i, %cmp1.i.i
+  br i1 %or.cond.i68.i, label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i, label %if.end.i69.i
 
-if.end.i68.i:                                     ; preds = %if.end44.i.i.i
-  %millis.nonneg.i.i = sub i64 0, %add.i.i63.i
+if.end.i69.i:                                     ; preds = %if.end44.i.i.i
+  %millis.nonneg.i.i = sub i64 0, %add.i.i64.i
   %div38.i.i = udiv i64 %millis.nonneg.i.i, 1000
-  %sub.i69.i = xor i64 %div38.i.i, -1
-  %mul4.neg.i.i = mul i64 %sub.i69.i, -1000
-  %sub5.i.i = add i64 %mul4.neg.i.i, %add.i.i63.i
+  %sub.i70.i = xor i64 %div38.i.i, -1
+  %mul4.neg.i.i = mul i64 %sub.i70.i, -1000
+  %sub5.i.i = add i64 %mul4.neg.i.i, %add.i.i64.i
   %rem6.i.i = srem i64 %sub5.i.i, 1000
   br label %_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i
 
-_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i: ; preds = %if.end44.i.i.i, %if.end.i68.i
-  %retval.sroa.3.0.in.i.i = phi i64 [ %rem6.i.i, %if.end.i68.i ], [ %rem.i66.i, %if.end44.i.i.i ]
-  %retval.sroa.0.0.i.i = phi i64 [ %sub.i69.i, %if.end.i68.i ], [ %div.i71.i, %if.end44.i.i.i ]
+_ZN8facebook5velox9Timestamp10fromMillisEl.exit.i: ; preds = %if.end44.i.i.i, %if.end.i69.i
+  %retval.sroa.3.0.in.i.i = phi i64 [ %rem6.i.i, %if.end.i69.i ], [ %rem.i67.i, %if.end44.i.i.i ]
+  %retval.sroa.0.0.i.i = phi i64 [ %sub.i70.i, %if.end.i69.i ], [ %div.i72.i, %if.end44.i.i.i ]
   %retval.sroa.3.0.i.i = mul nsw i64 %retval.sroa.3.0.in.i.i, 1000000
   %add.i.i49 = add nsw i64 %retval.sroa.3.0.i.i, %rem.i.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addINS0_9TimestampEiEET_S5_T0_i.exit

@@ -12747,8 +12747,8 @@ lean_dec.exit:                                    ; preds = %59, %58, %56, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_BVDecide_ReifiedBVLogical(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -13177,18 +13177,18 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit, %3
-  %.sink14 = phi ptr [ %4, %3 ], [ %227, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit ]
-  %230 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
-  store i32 1, ptr %.sink14, align 4, !tbaa !8
+  %.sink13 = phi ptr [ %4, %3 ], [ %227, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkBoolConst___closed__4.exit ]
+  %230 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !8
   store i32 131096, ptr %230, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %231, align 8, !tbaa !4
-  %232 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %232, align 8, !tbaa !4
   br label %233
 
 233:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

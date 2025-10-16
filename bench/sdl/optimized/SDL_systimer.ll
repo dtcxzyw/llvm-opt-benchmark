@@ -14,8 +14,8 @@ define hidden i64 @SDL_GetPerformanceCounter_REAL() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timeval, align 8
-  %.b6 = load i1, ptr @checked_monotonic_time, align 1
-  br i1 %.b6, label %8, label %4
+  %.b = load i1, ptr @checked_monotonic_time, align 1
+  br i1 %.b, label %8, label %4
 
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -33,8 +33,8 @@ CheckMonotonicTime.exit:                          ; preds = %4, %7
   br label %8
 
 8:                                                ; preds = %CheckMonotonicTime.exit, %0
-  %.b57 = load i1, ptr @has_monotonic_time, align 1
-  br i1 %.b57, label %9, label %16
+  %.b5 = load i1, ptr @has_monotonic_time, align 1
+  br i1 %.b5, label %9, label %16
 
 9:                                                ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -72,8 +72,8 @@ declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captur
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 1000000, 1000000001) i64 @SDL_GetPerformanceFrequency_REAL() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
-  %.b2 = load i1, ptr @checked_monotonic_time, align 1
-  br i1 %.b2, label %6, label %2
+  %.b = load i1, ptr @checked_monotonic_time, align 1
+  br i1 %.b, label %6, label %2
 
 2:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -91,8 +91,8 @@ CheckMonotonicTime.exit:                          ; preds = %2, %5
   br label %6
 
 6:                                                ; preds = %CheckMonotonicTime.exit, %0
-  %.b13 = load i1, ptr @has_monotonic_time, align 1
-  %. = select i1 %.b13, i64 1000000000, i64 1000000
+  %.b1 = load i1, ptr @has_monotonic_time, align 1
+  %. = select i1 %.b1, i64 1000000000, i64 1000000
   ret i64 %.
 }
 

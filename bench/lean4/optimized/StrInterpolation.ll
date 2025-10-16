@@ -1332,8 +1332,8 @@ declare ptr @l_Lean_Parser_withAntiquot(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Parser_StrInterpolation(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -1490,16 +1490,16 @@ _init_l_Lean_Parser_interpolatedStrNoAntiquot___closed__3.exit: ; preds = %_init
   store ptr %61, ptr @l_Lean_Parser_interpolatedStr___regBuiltin_Lean_Parser_interpolatedStr_docString__1___closed__4, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %61) #3
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit10, label %62
+  br i1 %.not, label %lean_dec_ref.exit9, label %62
 
 62:                                               ; preds = %_init_l_Lean_Parser_interpolatedStrNoAntiquot___closed__3.exit
   %63 = load ptr, ptr @l_Lean_Parser_interpolatedStr___regBuiltin_Lean_Parser_interpolatedStr_docString__1___closed__3, align 8, !tbaa !10
   %64 = load ptr, ptr @l_Lean_Parser_interpolatedStr___regBuiltin_Lean_Parser_interpolatedStr_docString__1___closed__4, align 8, !tbaa !10
   %65 = tail call ptr @l_Lean_addBuiltinDocString(ptr noundef %63, ptr noundef %64, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %66 = getelementptr i8, ptr %65, i64 4
-  %.val11 = load i32, ptr %66, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %67 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %66, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %67 = icmp eq i32 %.mask.i11, 16777216
   br i1 %67, label %84, label %68
 
 68:                                               ; preds = %62
@@ -1510,17 +1510,17 @@ _init_l_Lean_Parser_interpolatedStrNoAntiquot___closed__3.exit: ; preds = %_init
 71:                                               ; preds = %68
   %72 = add nsw i32 %69, -1
   store i32 %72, ptr %65, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 73:                                               ; preds = %68
-  %.not.i9 = icmp eq i32 %69, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %74
+  %.not.i8 = icmp eq i32 %69, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %74
 
 74:                                               ; preds = %73
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %65) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %74, %73, %71, %_init_l_Lean_Parser_interpolatedStrNoAntiquot___closed__3.exit
+lean_dec_ref.exit9:                               ; preds = %74, %73, %71, %_init_l_Lean_Parser_interpolatedStrNoAntiquot___closed__3.exit
   %75 = load ptr, ptr @l_Lean_Parser_interpolatedStrNoAntiquot___closed__1, align 8, !tbaa !10
   %76 = load ptr, ptr @l_Lean_Parser_interpolatedStrFn_parse___closed__5, align 8, !tbaa !10
   %77 = tail call ptr @l_Lean_Parser_mkAntiquot(ptr noundef %75, ptr noundef %76, i8 noundef zeroext 1, i8 noundef zeroext 0) #3
@@ -1531,23 +1531,23 @@ lean_dec_ref.exit10:                              ; preds = %74, %73, %71, %_ini
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %.sink.split
 
-80:                                               ; preds = %lean_dec_ref.exit10
+80:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit10, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %78, %lean_dec_ref.exit10 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+.sink.split:                                      ; preds = %lean_dec_ref.exit9, %3
+  %.sink24 = phi ptr [ %4, %3 ], [ %78, %lean_dec_ref.exit9 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !4
   store i32 131096, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %82, align 8, !tbaa !10
-  %83 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %83, align 8, !tbaa !10
   br label %84
 
 84:                                               ; preds = %.sink.split, %62, %7
-  %.0 = phi ptr [ %8, %7 ], [ %65, %62 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %65, %62 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

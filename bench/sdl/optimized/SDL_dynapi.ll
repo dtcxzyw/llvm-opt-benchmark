@@ -20404,8 +20404,8 @@ define internal i32 @SDL_GetEventDescription_DEFAULT(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_InitDynamicAPI() unnamed_addr #0 {
   tail call void @SDL_LockSpinlock_REAL(ptr noundef nonnull @SDL_InitDynamicAPI.lock) #12
-  %.b1 = load i1, ptr @SDL_InitDynamicAPI.already_initialized, align 1
-  br i1 %.b1, label %23, label %1
+  %.b = load i1, ptr @SDL_InitDynamicAPI.already_initialized, align 1
+  br i1 %.b, label %23, label %1
 
 1:                                                ; preds = %0
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #12

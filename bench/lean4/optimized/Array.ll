@@ -9565,8 +9565,8 @@ define ptr @l_Array_reduceGetElem_x21___regBuiltin_Array_reduceGetElem_x21_decla
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b44 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b44, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -9605,25 +9605,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit74
+  br label %lean_dec_ref.exit73
 
 19:                                               ; preds = %14
-  %.not.i73 = icmp eq i32 %15, 0
-  br i1 %.not.i73, label %lean_dec_ref.exit74, label %20
+  %.not.i72 = icmp eq i32 %15, 0
+  br i1 %.not.i72, label %lean_dec_ref.exit73, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #4
-  br label %lean_dec_ref.exit74
+  br label %lean_dec_ref.exit73
 
-lean_dec_ref.exit74:                              ; preds = %17, %19, %20
+lean_dec_ref.exit73:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Nat(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val75 = load i32, ptr %22, align 4
-  %.mask.i85 = and i32 %.val75, -16777216
-  %23 = icmp eq i32 %.mask.i85, 16777216
+  %.val74 = load i32, ptr %22, align 4
+  %.mask.i84 = and i32 %.val74, -16777216
+  %23 = icmp eq i32 %.mask.i84, 16777216
   br i1 %23, label %435, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit74
+24:                                               ; preds = %lean_dec_ref.exit73
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -9631,27 +9631,27 @@ lean_dec_ref.exit74:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit72
+  br label %lean_dec_ref.exit71
 
 29:                                               ; preds = %24
-  %.not.i71 = icmp eq i32 %25, 0
-  br i1 %.not.i71, label %lean_dec_ref.exit72, label %30
+  %.not.i70 = icmp eq i32 %25, 0
+  br i1 %.not.i70, label %lean_dec_ref.exit71, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #4
-  br label %lean_dec_ref.exit72
+  br label %lean_dec_ref.exit71
 
-lean_dec_ref.exit72:                              ; preds = %27, %29, %30
+lean_dec_ref.exit71:                              ; preds = %27, %29, %30
   tail call void @lean_inc_heartbeat() #4
   %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_init_l_Array_reduceGetElem___lambda__1___closed__1.exit
 
-33:                                               ; preds = %lean_dec_ref.exit72
+33:                                               ; preds = %lean_dec_ref.exit71
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Array_reduceGetElem___lambda__1___closed__1.exit: ; preds = %lean_dec_ref.exit72
+_init_l_Array_reduceGetElem___lambda__1___closed__1.exit: ; preds = %lean_dec_ref.exit71
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 1, ptr %31, align 4, !tbaa !8
   store i32 33619984, ptr %34, align 4
@@ -10051,9 +10051,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   %177 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_declare__5____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_425____closed__21, align 8, !tbaa !12
   %178 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %175, ptr noundef %176, ptr noundef %177, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %179 = getelementptr i8, ptr %178, i64 4
-  %.val76 = load i32, ptr %179, align 4
-  %.mask.i86 = and i32 %.val76, -16777216
-  %180 = icmp eq i32 %.mask.i86, 16777216
+  %.val75 = load i32, ptr %179, align 4
+  %.mask.i85 = and i32 %.val75, -16777216
+  %180 = icmp eq i32 %.mask.i85, 16777216
   br i1 %180, label %435, label %181
 
 181:                                              ; preds = %174
@@ -10064,28 +10064,28 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
 184:                                              ; preds = %181
   %185 = add nsw i32 %182, -1
   store i32 %185, ptr %178, align 4, !tbaa !8
-  br label %lean_dec_ref.exit70
+  br label %lean_dec_ref.exit69
 
 186:                                              ; preds = %181
-  %.not.i69 = icmp eq i32 %182, 0
-  br i1 %.not.i69, label %lean_dec_ref.exit70, label %187
+  %.not.i68 = icmp eq i32 %182, 0
+  br i1 %.not.i68, label %lean_dec_ref.exit69, label %187
 
 187:                                              ; preds = %186
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %178) #4
-  br label %lean_dec_ref.exit70
+  br label %lean_dec_ref.exit69
 
-lean_dec_ref.exit70:                              ; preds = %184, %186, %187
+lean_dec_ref.exit69:                              ; preds = %184, %186, %187
   %188 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_declare__5____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_425____closed__21, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #4
   %189 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %192
 
-191:                                              ; preds = %lean_dec_ref.exit70
+191:                                              ; preds = %lean_dec_ref.exit69
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-192:                                              ; preds = %lean_dec_ref.exit70
+192:                                              ; preds = %lean_dec_ref.exit69
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i32 1, ptr %189, align 4, !tbaa !8
   store i32 16842768, ptr %193, align 4
@@ -10101,9 +10101,9 @@ lean_dec_ref.exit70:                              ; preds = %184, %186, %187
   %198 = load ptr, ptr @l_Array_reduceGetElem___regBuiltin_Array_reduceGetElem_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_427____closed__1, align 8, !tbaa !12
   %199 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %196, ptr noundef %197, i8 noundef zeroext 1, ptr noundef %198, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %200 = getelementptr i8, ptr %199, i64 4
-  %.val77 = load i32, ptr %200, align 4
-  %.mask.i87 = and i32 %.val77, -16777216
-  %201 = icmp eq i32 %.mask.i87, 16777216
+  %.val76 = load i32, ptr %200, align 4
+  %.mask.i86 = and i32 %.val76, -16777216
+  %201 = icmp eq i32 %.mask.i86, 16777216
   br i1 %201, label %435, label %202
 
 202:                                              ; preds = %192
@@ -10117,8 +10117,8 @@ lean_dec_ref.exit70:                              ; preds = %184, %186, %187
   br label %217
 
 207:                                              ; preds = %202
-  %.not.i67 = icmp eq i32 %203, 0
-  br i1 %.not.i67, label %217, label %208
+  %.not.i66 = icmp eq i32 %203, 0
+  br i1 %.not.i66, label %217, label %208
 
 208:                                              ; preds = %207
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %199) #4
@@ -10129,13 +10129,13 @@ lean_dec_ref.exit70:                              ; preds = %184, %186, %187
   tail call void @lean_inc_heartbeat() #4
   %210 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %lean_dec_ref.exit68
+  br i1 %211, label %212, label %lean_dec_ref.exit67
 
 212:                                              ; preds = %.critedge
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-lean_dec_ref.exit68:                              ; preds = %.critedge
+lean_dec_ref.exit67:                              ; preds = %.critedge
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 4
   store i32 1, ptr %210, align 4, !tbaa !8
   store i32 16842768, ptr %213, align 4
@@ -10149,7 +10149,7 @@ lean_dec_ref.exit68:                              ; preds = %.critedge
   %216 = load ptr, ptr @l_Lean_Meta_Simp_builtinSEvalprocsRef, align 8, !tbaa !12
   store ptr %216, ptr @l_Array_reduceGetElem___regBuiltin_Array_reduceGetElem_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_429____closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %216) #4
-  br label %lean_dec_ref.exit66
+  br label %lean_dec_ref.exit65
 
 217:                                              ; preds = %208, %207, %205
   %218 = load ptr, ptr @l_Lean_Meta_Simp_builtinSEvalprocsRef, align 8, !tbaa !12
@@ -10160,9 +10160,9 @@ lean_dec_ref.exit68:                              ; preds = %.critedge
   %221 = load ptr, ptr @l_Array_reduceGetElem___regBuiltin_Array_reduceGetElem_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_427____closed__1, align 8, !tbaa !12
   %222 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %219, ptr noundef %220, i8 noundef zeroext 1, ptr noundef %221, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %223 = getelementptr i8, ptr %222, i64 4
-  %.val78 = load i32, ptr %223, align 4
-  %.mask.i89 = and i32 %.val78, -16777216
-  %224 = icmp eq i32 %.mask.i89, 16777216
+  %.val77 = load i32, ptr %223, align 4
+  %.mask.i88 = and i32 %.val77, -16777216
+  %224 = icmp eq i32 %.mask.i88, 16777216
   br i1 %224, label %435, label %225
 
 225:                                              ; preds = %217
@@ -10173,27 +10173,27 @@ lean_dec_ref.exit68:                              ; preds = %.critedge
 228:                                              ; preds = %225
   %229 = add nsw i32 %226, -1
   store i32 %229, ptr %222, align 4, !tbaa !8
-  br label %lean_dec_ref.exit66
+  br label %lean_dec_ref.exit65
 
 230:                                              ; preds = %225
-  %.not.i65 = icmp eq i32 %226, 0
-  br i1 %.not.i65, label %lean_dec_ref.exit66, label %231
+  %.not.i64 = icmp eq i32 %226, 0
+  br i1 %.not.i64, label %lean_dec_ref.exit65, label %231
 
 231:                                              ; preds = %230
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %222) #4
-  br label %lean_dec_ref.exit66
+  br label %lean_dec_ref.exit65
 
-lean_dec_ref.exit66:                              ; preds = %231, %230, %228, %lean_dec_ref.exit68
+lean_dec_ref.exit65:                              ; preds = %231, %230, %228, %lean_dec_ref.exit67
   tail call void @lean_inc_heartbeat() #4
   %232 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %233 = icmp eq ptr %232, null
   br i1 %233, label %234, label %_init_l_Array_reduceGetElem_x3f___lambda__2___closed__1.exit
 
-234:                                              ; preds = %lean_dec_ref.exit66
+234:                                              ; preds = %lean_dec_ref.exit65
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Array_reduceGetElem_x3f___lambda__2___closed__1.exit: ; preds = %lean_dec_ref.exit66
+_init_l_Array_reduceGetElem_x3f___lambda__2___closed__1.exit: ; preds = %lean_dec_ref.exit65
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 4
   store i32 1, ptr %232, align 4, !tbaa !8
   store i32 -184549352, ptr %235, align 4
@@ -10373,7 +10373,7 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   store i16 0, ptr %301, align 2, !tbaa !15
   store ptr %295, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %295) #4
-  br i1 %.not, label %.critedge48, label %302
+  br i1 %.not, label %.critedge47, label %302
 
 302:                                              ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9.exit
   %303 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__2, align 8, !tbaa !12
@@ -10381,9 +10381,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   %305 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9, align 8, !tbaa !12
   %306 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %303, ptr noundef %304, ptr noundef %305, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %307 = getelementptr i8, ptr %306, i64 4
-  %.val79 = load i32, ptr %307, align 4
-  %.mask.i90 = and i32 %.val79, -16777216
-  %308 = icmp eq i32 %.mask.i90, 16777216
+  %.val78 = load i32, ptr %307, align 4
+  %.mask.i89 = and i32 %.val78, -16777216
+  %308 = icmp eq i32 %.mask.i89, 16777216
   br i1 %308, label %435, label %309
 
 309:                                              ; preds = %302
@@ -10397,8 +10397,8 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   br label %316
 
 314:                                              ; preds = %309
-  %.not.i63 = icmp eq i32 %310, 0
-  br i1 %.not.i63, label %316, label %315
+  %.not.i62 = icmp eq i32 %310, 0
+  br i1 %.not.i62, label %316, label %315
 
 315:                                              ; preds = %314
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %306) #4
@@ -10413,9 +10413,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   %320 = load ptr, ptr @l_Array_reduceGetElem_x3f___regBuiltin_Array_reduceGetElem_x3f_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_911____closed__1, align 8, !tbaa !12
   %321 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %318, ptr noundef %319, i8 noundef zeroext 1, ptr noundef %320, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %322 = getelementptr i8, ptr %321, i64 4
-  %.val80 = load i32, ptr %322, align 4
-  %.mask.i91 = and i32 %.val80, -16777216
-  %323 = icmp eq i32 %.mask.i91, 16777216
+  %.val79 = load i32, ptr %322, align 4
+  %.mask.i90 = and i32 %.val79, -16777216
+  %323 = icmp eq i32 %.mask.i90, 16777216
   br i1 %323, label %435, label %324
 
 324:                                              ; preds = %316
@@ -10429,25 +10429,25 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   br label %337
 
 329:                                              ; preds = %324
-  %.not.i61 = icmp eq i32 %325, 0
-  br i1 %.not.i61, label %337, label %330
+  %.not.i60 = icmp eq i32 %325, 0
+  br i1 %.not.i60, label %337, label %330
 
 330:                                              ; preds = %329
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %321) #4
   br label %337
 
-.critedge48:                                      ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9.exit
+.critedge47:                                      ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9.exit
   %331 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x3f_declare__10____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_909____closed__9, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #4
   %332 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %333 = icmp eq ptr %332, null
-  br i1 %333, label %334, label %lean_dec_ref.exit62
+  br i1 %333, label %334, label %lean_dec_ref.exit61
 
-334:                                              ; preds = %.critedge48
+334:                                              ; preds = %.critedge47
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-lean_dec_ref.exit62:                              ; preds = %.critedge48
+lean_dec_ref.exit61:                              ; preds = %.critedge47
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 4
   store i32 1, ptr %332, align 4, !tbaa !8
   store i32 16842768, ptr %335, align 4
@@ -10455,7 +10455,7 @@ lean_dec_ref.exit62:                              ; preds = %.critedge48
   store ptr %331, ptr %336, align 8, !tbaa !12
   store ptr %332, ptr @l_Array_reduceGetElem_x3f___regBuiltin_Array_reduceGetElem_x3f_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_911____closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %332) #4
-  br label %.critedge50
+  br label %.critedge49
 
 337:                                              ; preds = %330, %329, %327
   %338 = load ptr, ptr @l_Array_reduceGetElem___regBuiltin_Array_reduceGetElem_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_429____closed__1, align 8, !tbaa !12
@@ -10463,9 +10463,9 @@ lean_dec_ref.exit62:                              ; preds = %.critedge48
   %340 = load ptr, ptr @l_Array_reduceGetElem_x3f___regBuiltin_Array_reduceGetElem_x3f_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_911____closed__1, align 8, !tbaa !12
   %341 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %338, ptr noundef %339, i8 noundef zeroext 1, ptr noundef %340, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %342 = getelementptr i8, ptr %341, i64 4
-  %.val81 = load i32, ptr %342, align 4
-  %.mask.i92 = and i32 %.val81, -16777216
-  %343 = icmp eq i32 %.mask.i92, 16777216
+  %.val80 = load i32, ptr %342, align 4
+  %.mask.i91 = and i32 %.val80, -16777216
+  %343 = icmp eq i32 %.mask.i91, 16777216
   br i1 %343, label %435, label %344
 
 344:                                              ; preds = %337
@@ -10476,27 +10476,27 @@ lean_dec_ref.exit62:                              ; preds = %.critedge48
 347:                                              ; preds = %344
   %348 = add nsw i32 %345, -1
   store i32 %348, ptr %341, align 4, !tbaa !8
-  br label %.critedge50
+  br label %.critedge49
 
 349:                                              ; preds = %344
-  %.not.i59 = icmp eq i32 %345, 0
-  br i1 %.not.i59, label %.critedge50, label %350
+  %.not.i58 = icmp eq i32 %345, 0
+  br i1 %.not.i58, label %.critedge49, label %350
 
 350:                                              ; preds = %349
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %341) #4
-  br label %.critedge50
+  br label %.critedge49
 
-.critedge50:                                      ; preds = %350, %349, %347, %lean_dec_ref.exit62
+.critedge49:                                      ; preds = %350, %349, %347, %lean_dec_ref.exit61
   tail call void @lean_inc_heartbeat() #4
   %351 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %352 = icmp eq ptr %351, null
   br i1 %352, label %353, label %_init_l_Array_reduceGetElem_x21___closed__1.exit
 
-353:                                              ; preds = %.critedge50
+353:                                              ; preds = %.critedge49
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Array_reduceGetElem_x21___closed__1.exit: ; preds = %.critedge50
+_init_l_Array_reduceGetElem_x21___closed__1.exit: ; preds = %.critedge49
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
   store i32 1, ptr %351, align 4, !tbaa !8
   store i32 -184549352, ptr %354, align 4
@@ -10590,7 +10590,7 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   store i16 0, ptr %389, align 2, !tbaa !15
   store ptr %383, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__6, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %383) #4
-  br i1 %.not, label %lean_dec_ref.exit56, label %390
+  br i1 %.not, label %lean_dec_ref.exit55, label %390
 
 390:                                              ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__6.exit
   %391 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__2, align 8, !tbaa !12
@@ -10598,9 +10598,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   %393 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__6, align 8, !tbaa !12
   %394 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %391, ptr noundef %392, ptr noundef %393, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %395 = getelementptr i8, ptr %394, i64 4
-  %.val82 = load i32, ptr %395, align 4
-  %.mask.i93 = and i32 %.val82, -16777216
-  %396 = icmp eq i32 %.mask.i93, 16777216
+  %.val81 = load i32, ptr %395, align 4
+  %.mask.i92 = and i32 %.val81, -16777216
+  %396 = icmp eq i32 %.mask.i92, 16777216
   br i1 %396, label %435, label %397
 
 397:                                              ; preds = %390
@@ -10614,8 +10614,8 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   br label %404
 
 402:                                              ; preds = %397
-  %.not.i57 = icmp eq i32 %398, 0
-  br i1 %.not.i57, label %404, label %403
+  %.not.i56 = icmp eq i32 %398, 0
+  br i1 %.not.i56, label %404, label %403
 
 403:                                              ; preds = %402
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %394) #4
@@ -10630,9 +10630,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   %408 = load ptr, ptr @l_Array_reduceGetElem_x21___regBuiltin_Array_reduceGetElem_x21_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1424____closed__1, align 8, !tbaa !12
   %409 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %406, ptr noundef %407, i8 noundef zeroext 1, ptr noundef %408, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %410 = getelementptr i8, ptr %409, i64 4
-  %.val83 = load i32, ptr %410, align 4
-  %.mask.i94 = and i32 %.val83, -16777216
-  %411 = icmp eq i32 %.mask.i94, 16777216
+  %.val82 = load i32, ptr %410, align 4
+  %.mask.i93 = and i32 %.val82, -16777216
+  %411 = icmp eq i32 %.mask.i93, 16777216
   br i1 %411, label %435, label %412
 
 412:                                              ; preds = %404
@@ -10646,18 +10646,18 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Ar
   br label %420
 
 417:                                              ; preds = %412
-  %.not.i55 = icmp eq i32 %413, 0
-  br i1 %.not.i55, label %420, label %418
+  %.not.i54 = icmp eq i32 %413, 0
+  br i1 %.not.i54, label %420, label %418
 
 418:                                              ; preds = %417
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %409) #4
   br label %420
 
-lean_dec_ref.exit56:                              ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__6.exit
+lean_dec_ref.exit55:                              ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array_0____regBuiltin_Array_reduceGetElem_x21_declare__15____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1422____closed__6.exit
   %419 = tail call fastcc ptr @_init_l_Array_reduceGetElem_x21___regBuiltin_Array_reduceGetElem_x21_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1424____closed__1()
   store ptr %419, ptr @l_Array_reduceGetElem_x21___regBuiltin_Array_reduceGetElem_x21_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1424____closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %419) #4
-  br label %.critedge54
+  br label %.critedge53
 
 420:                                              ; preds = %418, %417, %415
   %421 = load ptr, ptr @l_Array_reduceGetElem___regBuiltin_Array_reduceGetElem_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_429____closed__1, align 8, !tbaa !12
@@ -10665,9 +10665,9 @@ lean_dec_ref.exit56:                              ; preds = %_init_l___private_L
   %423 = load ptr, ptr @l_Array_reduceGetElem_x21___regBuiltin_Array_reduceGetElem_x21_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Array___hyg_1424____closed__1, align 8, !tbaa !12
   %424 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %421, ptr noundef %422, i8 noundef zeroext 1, ptr noundef %423, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %425 = getelementptr i8, ptr %424, i64 4
-  %.val84 = load i32, ptr %425, align 4
-  %.mask.i95 = and i32 %.val84, -16777216
-  %426 = icmp eq i32 %.mask.i95, 16777216
+  %.val83 = load i32, ptr %425, align 4
+  %.mask.i94 = and i32 %.val83, -16777216
+  %426 = icmp eq i32 %.mask.i94, 16777216
   br i1 %426, label %435, label %427
 
 427:                                              ; preds = %420
@@ -10678,22 +10678,22 @@ lean_dec_ref.exit56:                              ; preds = %_init_l___private_L
 430:                                              ; preds = %427
   %431 = add nsw i32 %428, -1
   store i32 %431, ptr %424, align 4, !tbaa !8
-  br label %.critedge54
+  br label %.critedge53
 
 432:                                              ; preds = %427
   %.not.i = icmp eq i32 %428, 0
-  br i1 %.not.i, label %.critedge54, label %433
+  br i1 %.not.i, label %.critedge53, label %433
 
 433:                                              ; preds = %432
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %424) #4
-  br label %.critedge54
+  br label %.critedge53
 
-.critedge54:                                      ; preds = %433, %432, %430, %lean_dec_ref.exit56
+.critedge53:                                      ; preds = %433, %432, %430, %lean_dec_ref.exit55
   %434 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %435
 
-435:                                              ; preds = %420, %404, %390, %337, %316, %302, %217, %192, %174, %lean_dec_ref.exit74, %10, %.critedge54, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %434, %.critedge54 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit74 ], [ %178, %174 ], [ %199, %192 ], [ %222, %217 ], [ %306, %302 ], [ %321, %316 ], [ %341, %337 ], [ %394, %390 ], [ %409, %404 ], [ %424, %420 ]
+435:                                              ; preds = %420, %404, %390, %337, %316, %302, %217, %192, %174, %lean_dec_ref.exit73, %10, %.critedge53, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %434, %.critedge53 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit73 ], [ %178, %174 ], [ %199, %192 ], [ %222, %217 ], [ %306, %302 ], [ %321, %316 ], [ %341, %337 ], [ %394, %390 ], [ %409, %404 ], [ %424, %420 ]
   ret ptr %.0
 }
 

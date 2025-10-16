@@ -235,37 +235,37 @@ define range(i32 0, 3) i32 @H5S_top_term_package() local_unnamed_addr #0 {
   %4 = trunc nuw i8 %3 to i1
   %5 = xor i1 %4, true
   %6 = select i1 %2, i1 true, i1 %5
-  %.b5 = load i1, ptr @H5S_top_package_initialize_s, align 1
-  %or.cond = select i1 %6, i1 %.b5, i1 false, !prof !12
-  br i1 %or.cond, label %7, label %.thread10, !prof !12
+  %.b = load i1, ptr @H5S_top_package_initialize_s, align 1
+  %or.cond = select i1 %6, i1 %.b, i1 false, !prof !12
+  br i1 %or.cond, label %7, label %.thread9, !prof !12
 
 7:                                                ; preds = %0
   %8 = tail call i64 @H5I_nmembers(i32 noundef 4) #10
   %9 = icmp slt i64 %8, 1
-  br i1 %9, label %10, label %.thread7
+  br i1 %9, label %10, label %.thread6
 
 10:                                               ; preds = %7
   %11 = tail call i64 @H5I_nmembers(i32 noundef 15) #10
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.thread, label %17
 
-.thread7:                                         ; preds = %7
+.thread6:                                         ; preds = %7
   %13 = tail call i32 @H5I_clear_type(i32 noundef 4, i1 noundef zeroext false, i1 noundef zeroext false) #10
   %14 = tail call i64 @H5I_nmembers(i32 noundef 15) #10
   %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %.thread, label %.thread10
+  br i1 %15, label %.thread, label %.thread9
 
-.thread:                                          ; preds = %.thread7, %10
-  %.19 = phi i32 [ 2, %.thread7 ], [ 1, %10 ]
+.thread:                                          ; preds = %.thread6, %10
+  %.18 = phi i32 [ 2, %.thread6 ], [ 1, %10 ]
   %16 = tail call i32 @H5I_clear_type(i32 noundef 15, i1 noundef zeroext false, i1 noundef zeroext false) #10
-  br label %.thread10
+  br label %.thread9
 
 17:                                               ; preds = %10
   store i1 false, ptr @H5S_top_package_initialize_s, align 1
-  br label %.thread10
+  br label %.thread9
 
-.thread10:                                        ; preds = %.thread7, %.thread, %17, %0
-  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.19, %.thread ], [ 1, %.thread7 ]
+.thread9:                                         ; preds = %.thread6, %.thread, %17, %0
+  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.18, %.thread ], [ 1, %.thread6 ]
   ret i32 %.0
 }
 

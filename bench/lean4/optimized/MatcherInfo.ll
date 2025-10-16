@@ -10927,8 +10927,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Match_MatcherInfo(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -10957,17 +10957,17 @@ define ptr @initialize_Lean_Meta_Match_MatcherInfo(i8 noundef zeroext %0, ptr no
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 16:                                               ; preds = %11
-  %.not.i10 = icmp eq i32 %12, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %17
+  %.not.i9 = icmp eq i32 %12, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %14, %16, %17
+lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   store ptr inttoptr (i64 1 to ptr), ptr @l_Lean_Meta_Match_instInhabitedDiscrInfo, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %18 = tail call ptr @l_Nat_nextPowerOfTwo_go(ptr noundef nonnull inttoptr (i64 21 to ptr), ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
@@ -10983,11 +10983,11 @@ lean_dec_ref.exit11:                              ; preds = %14, %16, %17
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %_init_l_Lean_Meta_Match_Extension_instInhabitedState___closed__3.exit
 
-24:                                               ; preds = %lean_dec_ref.exit11
+24:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_Match_Extension_instInhabitedState___closed__3.exit: ; preds = %lean_dec_ref.exit11
+_init_l_Lean_Meta_Match_Extension_instInhabitedState___closed__3.exit: ; preds = %lean_dec_ref.exit10
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 1, ptr %22, align 4, !tbaa !4
   store i32 131096, ptr %25, align 4
@@ -11172,16 +11172,16 @@ _init_l_Lean_Meta_Match_Extension_initFn____x40_Lean_Meta_Match_MatcherInfo___hy
   %93 = load ptr, ptr @l_Lean_Meta_Match_Extension_initFn____x40_Lean_Meta_Match_MatcherInfo___hyg_394____closed__10, align 8, !tbaa !9
   %94 = tail call ptr @l_Lean_registerSimplePersistentEnvExtension___rarg(ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %95 = getelementptr i8, ptr %94, i64 4
-  %.val12 = load i32, ptr %95, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %96 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %95, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %96 = icmp eq i32 %.mask.i13, 16777216
   br i1 %96, label %123, label %97
 
 97:                                               ; preds = %92
   %98 = getelementptr i8, ptr %94, i64 8
-  %.val13 = load ptr, ptr %98, align 8, !tbaa !9
-  store ptr %.val13, ptr @l_Lean_Meta_Match_Extension_extension, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #5
+  %.val12 = load ptr, ptr %98, align 8, !tbaa !9
+  store ptr %.val12, ptr @l_Lean_Meta_Match_Extension_extension, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #5
   %99 = load i32, ptr %94, align 8, !tbaa !4
   %100 = icmp sgt i32 %99, 1
   br i1 %100, label %101, label %103, !prof !11
@@ -11236,18 +11236,18 @@ lean_dec_ref.exit:                                ; preds = %104, %103, %101, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink31 = phi ptr [ %4, %3 ], [ %117, %lean_dec_ref.exit ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sink31, i64 4
-  store i32 1, ptr %.sink31, align 4, !tbaa !4
+  %.sink30 = phi ptr [ %4, %3 ], [ %117, %lean_dec_ref.exit ]
+  %120 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !4
   store i32 131096, ptr %120, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %121, align 8, !tbaa !9
-  %122 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %122, align 8, !tbaa !9
   br label %123
 
 123:                                              ; preds = %.sink.split, %92, %7
-  %.0 = phi ptr [ %8, %7 ], [ %94, %92 ], [ %.sink31, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %94, %92 ], [ %.sink30, %.sink.split ]
   ret ptr %.0
 }
 

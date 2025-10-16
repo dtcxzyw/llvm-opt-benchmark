@@ -6211,8 +6211,8 @@ lean_dec.exit:                                    ; preds = %48, %47, %45, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_DSL_Attributes(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -6241,17 +6241,17 @@ define ptr @initialize_Lake_DSL_Attributes(i8 noundef zeroext %0, ptr noundef re
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 0) #4
   store ptr %18, ptr @l_Lean_logAt___at_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____spec__1___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #4
@@ -6275,11 +6275,11 @@ lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %_init_l_Lean_logAt___at_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____spec__1___closed__1.exit
 
-26:                                               ; preds = %lean_dec_ref.exit10
+26:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_logAt___at_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____spec__1___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lean_logAt___at_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____spec__1___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 1, ptr %24, align 4, !tbaa !8
   store i32 -184549352, ptr %27, align 4
@@ -6388,9 +6388,9 @@ _init_l_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____lambda__1___closed__2.
 72:                                               ; preds = %_init_l_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4____lambda__1___closed__2.exit
   %73 = tail call ptr @l_Lake_initFn____x40_Lake_DSL_Attributes___hyg_4_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %74 = getelementptr i8, ptr %73, i64 4
-  %.val11 = load i32, ptr %74, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %75 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %74, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %75 = icmp eq i32 %.mask.i11, 16777216
   br i1 %75, label %89, label %76
 
 76:                                               ; preds = %72
@@ -6422,18 +6422,18 @@ lean_dec_ref.exit:                                ; preds = %82, %81, %79, %_ini
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink24 = phi ptr [ %4, %3 ], [ %83, %lean_dec_ref.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !8
+  %.sink23 = phi ptr [ %4, %3 ], [ %83, %lean_dec_ref.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !8
   store i32 131096, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %87, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %88, align 8, !tbaa !4
   br label %89
 
 89:                                               ; preds = %.sink.split, %72, %7
-  %.0 = phi ptr [ %8, %7 ], [ %73, %72 ], [ %.sink24, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %73, %72 ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

@@ -309139,8 +309139,8 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %l_Ar
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Util_Profiler(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #8
@@ -311652,8 +311652,8 @@ lean_obj_tag.exit.i:                              ; preds = %1181, %1178
   %1189 = load ptr, ptr %1188, align 8, !tbaa !4
   %1190 = ptrtoint ptr %1189 to i64
   %1191 = and i64 %1190, 1
-  %.not.i5 = icmp eq i64 %1191, 0
-  br i1 %.not.i5, label %1192, label %lean_inc.exit.i
+  %.not.i4 = icmp eq i64 %1191, 0
+  br i1 %.not.i4, label %1192, label %lean_inc.exit.i
 
 1192:                                             ; preds = %1187
   %.val.i12.i = load i32, ptr %1189, align 4, !tbaa !8
@@ -312621,18 +312621,18 @@ _init_l_Lean_Firefox_Profile_collide___closed__5.exit: ; preds = %_init_l_Lean_F
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Firefox_Profile_collide___closed__5.exit, %3
-  %.sink111 = phi ptr [ %4, %3 ], [ %1533, %_init_l_Lean_Firefox_Profile_collide___closed__5.exit ]
-  %1536 = getelementptr inbounds nuw i8, ptr %.sink111, i64 4
-  store i32 1, ptr %.sink111, align 4, !tbaa !8
+  %.sink110 = phi ptr [ %4, %3 ], [ %1533, %_init_l_Lean_Firefox_Profile_collide___closed__5.exit ]
+  %1536 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
+  store i32 1, ptr %.sink110, align 4, !tbaa !8
   store i32 131096, ptr %1536, align 4
-  %1537 = getelementptr inbounds nuw i8, ptr %.sink111, i64 8
+  %1537 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1537, align 8, !tbaa !4
-  %1538 = getelementptr inbounds nuw i8, ptr %.sink111, i64 16
+  %1538 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1538, align 8, !tbaa !4
   br label %1539
 
 1539:                                             ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink111, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink110, %.sink.split ]
   ret ptr %.0
 }
 

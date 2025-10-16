@@ -1908,12 +1908,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_initCompressedState(pt
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
-  %.in8 = load i16, ptr %.in.in, align 2
-  %.not9 = icmp eq i16 %.in8, 0
-  br i1 %.not9, label %6, label %5
+  %.in = load i16, ptr %.in.in, align 2
+  %.not8 = icmp eq i16 %.in, 0
+  br i1 %.not8, label %6, label %5
 
 5:                                                ; preds = %4
-  store i16 %.in8, ptr %2, align 1
+  store i16 %.in, ptr %2, align 1
   br label %6
 
 6:                                                ; preds = %4, %5

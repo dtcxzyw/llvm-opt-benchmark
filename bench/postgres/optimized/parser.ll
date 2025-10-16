@@ -22,8 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 333, 332) i32 @filtered_base_yylex() local_unnamed_addr #0 {
   %.sroa.0 = alloca %struct.this_type, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  %.b23 = load i1, ptr @have_lookahead, align 1
-  br i1 %.b23, label %1, label %5
+  %.b = load i1, ptr @have_lookahead, align 1
+  br i1 %.b, label %1, label %5
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @lookahead_token, align 4
@@ -90,47 +90,47 @@ base_yylex_location.exit:                         ; preds = %17, %10, %7, %1
   %21 = load ptr, ptr @base_yylloc, align 8
   %22 = load ptr, ptr @base_yytext, align 8
   %23 = tail call i32 @base_yylex() #6
-  %.off.i29 = add i32 %23, -324
-  %switch.i30 = icmp ult i32 %.off.i29, 12
-  br i1 %switch.i30, label %24, label %27
+  %.off.i28 = add i32 %23, -324
+  %switch.i29 = icmp ult i32 %.off.i28, 12
+  br i1 %switch.i29, label %24, label %27
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @base_yylval, align 8
   %26 = tail call ptr @loc_strdup(ptr noundef %25) #6
-  br label %base_yylex_location.exit37
+  br label %base_yylex_location.exit36
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr @base_yytext, align 8
   %29 = tail call ptr @loc_strdup(ptr noundef %28) #6
   store ptr %29, ptr @base_yylloc, align 8
   %30 = load i8, ptr %29, align 1
-  %.not8.i31 = icmp eq i8 %30, 0
-  br i1 %.not8.i31, label %base_yylex_location.exit37, label %.lr.ph.i32
+  %.not8.i30 = icmp eq i8 %30, 0
+  br i1 %.not8.i30, label %base_yylex_location.exit36, label %.lr.ph.i31
 
-.lr.ph.i32:                                       ; preds = %27, %34
+.lr.ph.i31:                                       ; preds = %27, %34
   %31 = phi i8 [ %36, %34 ], [ %30, %27 ]
-  %.09.i33 = phi ptr [ %35, %34 ], [ %29, %27 ]
+  %.09.i32 = phi ptr [ %35, %34 ], [ %29, %27 ]
   %32 = add i8 %31, -65
-  %or.cond.i34 = icmp ult i8 %32, 26
-  br i1 %or.cond.i34, label %33, label %34
+  %or.cond.i33 = icmp ult i8 %32, 26
+  br i1 %or.cond.i33, label %33, label %34
 
-33:                                               ; preds = %.lr.ph.i32
-  %narrow.i36 = or disjoint i8 %31, 32
-  store i8 %narrow.i36, ptr %.09.i33, align 1
+33:                                               ; preds = %.lr.ph.i31
+  %narrow.i35 = or disjoint i8 %31, 32
+  store i8 %narrow.i35, ptr %.09.i32, align 1
   br label %34
 
-34:                                               ; preds = %33, %.lr.ph.i32
-  %35 = getelementptr inbounds nuw i8, ptr %.09.i33, i64 1
+34:                                               ; preds = %33, %.lr.ph.i31
+  %35 = getelementptr inbounds nuw i8, ptr %.09.i32, i64 1
   %36 = load i8, ptr %35, align 1
-  %.not.i35 = icmp eq i8 %36, 0
-  br i1 %.not.i35, label %base_yylex_location.exit37.loopexit, label %.lr.ph.i32, !llvm.loop !4
+  %.not.i34 = icmp eq i8 %36, 0
+  br i1 %.not.i34, label %base_yylex_location.exit36.loopexit, label %.lr.ph.i31, !llvm.loop !4
 
-base_yylex_location.exit37.loopexit:              ; preds = %34
+base_yylex_location.exit36.loopexit:              ; preds = %34
   %.pre = load ptr, ptr @base_yylloc, align 8
-  br label %base_yylex_location.exit37
+  br label %base_yylex_location.exit36
 
-base_yylex_location.exit37:                       ; preds = %base_yylex_location.exit37.loopexit, %24, %27
-  %37 = phi ptr [ %.pre, %base_yylex_location.exit37.loopexit ], [ %26, %24 ], [ %29, %27 ]
+base_yylex_location.exit36:                       ; preds = %base_yylex_location.exit36.loopexit, %24, %27
+  %37 = phi ptr [ %.pre, %base_yylex_location.exit36.loopexit ], [ %26, %24 ], [ %29, %27 ]
   store i32 %23, ptr @lookahead_token, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @lookahead_yylval, ptr noundef nonnull align 8 dereferenceable(48) @base_yylval, i64 48, i1 false)
   store ptr %37, ptr @lookahead_yylloc, align 8
@@ -150,12 +150,12 @@ base_yylex_location.exit37:                       ; preds = %base_yylex_location
     i32 332, label %47
   ]
 
-39:                                               ; preds = %base_yylex_location.exit37
+39:                                               ; preds = %base_yylex_location.exit36
   %cond1 = icmp eq i32 %23, 554
   %spec.select = select i1 %cond1, i32 838, i32 500
   br label %84
 
-40:                                               ; preds = %base_yylex_location.exit37
+40:                                               ; preds = %base_yylex_location.exit36
   switch i32 %23, label %84 [
     i32 377, label %41
     i32 527, label %41
@@ -167,80 +167,80 @@ base_yylex_location.exit37:                       ; preds = %base_yylex_location
 41:                                               ; preds = %40, %40, %40, %40, %40
   br label %84
 
-42:                                               ; preds = %base_yylex_location.exit37
+42:                                               ; preds = %base_yylex_location.exit36
   %switch.selectcmp.case1 = icmp eq i32 %23, 494
   %switch.selectcmp.case2 = icmp eq i32 %23, 571
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %43 = select i1 %switch.selectcmp, i32 840, i32 625
   br label %84
 
-44:                                               ; preds = %base_yylex_location.exit37
-  %switch.selectcmp.case125 = icmp eq i32 %23, 770
-  %switch.selectcmp.case226 = icmp eq i32 %23, 641
-  %switch.selectcmp27 = or i1 %switch.selectcmp.case125, %switch.selectcmp.case226
-  %45 = select i1 %switch.selectcmp27, i32 841, i32 817
+44:                                               ; preds = %base_yylex_location.exit36
+  %switch.selectcmp.case124 = icmp eq i32 %23, 770
+  %switch.selectcmp.case225 = icmp eq i32 %23, 641
+  %switch.selectcmp26 = or i1 %switch.selectcmp.case124, %switch.selectcmp.case225
+  %45 = select i1 %switch.selectcmp26, i32 841, i32 817
   br label %84
 
-46:                                               ; preds = %base_yylex_location.exit37
+46:                                               ; preds = %base_yylex_location.exit36
   %cond = icmp eq i32 %23, 770
-  %spec.select28 = select i1 %cond, i32 842, i32 819
+  %spec.select27 = select i1 %cond, i32 842, i32 819
   br label %84
 
-47:                                               ; preds = %base_yylex_location.exit37, %base_yylex_location.exit37
+47:                                               ; preds = %base_yylex_location.exit36, %base_yylex_location.exit36
   %48 = icmp eq i32 %23, 784
   br i1 %48, label %49, label %80
 
 49:                                               ; preds = %47
   %50 = tail call i32 @base_yylex() #6
-  %.off.i38 = add i32 %50, -324
-  %switch.i39 = icmp ult i32 %.off.i38, 12
-  br i1 %switch.i39, label %51, label %54
+  %.off.i37 = add i32 %50, -324
+  %switch.i38 = icmp ult i32 %.off.i37, 12
+  br i1 %switch.i38, label %51, label %54
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @base_yylval, align 8
   %53 = tail call ptr @loc_strdup(ptr noundef %52) #6
   store ptr %53, ptr @base_yylloc, align 8
-  br label %base_yylex_location.exit46
+  br label %base_yylex_location.exit45
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr @base_yytext, align 8
   %56 = tail call ptr @loc_strdup(ptr noundef %55) #6
   store ptr %56, ptr @base_yylloc, align 8
   %57 = load i8, ptr %56, align 1
-  %.not8.i40 = icmp eq i8 %57, 0
-  br i1 %.not8.i40, label %base_yylex_location.exit46.thread, label %.lr.ph.i41
+  %.not8.i39 = icmp eq i8 %57, 0
+  br i1 %.not8.i39, label %base_yylex_location.exit45.thread, label %.lr.ph.i40
 
-.lr.ph.i41:                                       ; preds = %54, %61
+.lr.ph.i40:                                       ; preds = %54, %61
   %58 = phi i8 [ %63, %61 ], [ %57, %54 ]
-  %.09.i42 = phi ptr [ %62, %61 ], [ %56, %54 ]
+  %.09.i41 = phi ptr [ %62, %61 ], [ %56, %54 ]
   %59 = add i8 %58, -65
-  %or.cond.i43 = icmp ult i8 %59, 26
-  br i1 %or.cond.i43, label %60, label %61
+  %or.cond.i42 = icmp ult i8 %59, 26
+  br i1 %or.cond.i42, label %60, label %61
 
-60:                                               ; preds = %.lr.ph.i41
-  %narrow.i45 = or disjoint i8 %58, 32
-  store i8 %narrow.i45, ptr %.09.i42, align 1
+60:                                               ; preds = %.lr.ph.i40
+  %narrow.i44 = or disjoint i8 %58, 32
+  store i8 %narrow.i44, ptr %.09.i41, align 1
   br label %61
 
-61:                                               ; preds = %60, %.lr.ph.i41
-  %62 = getelementptr inbounds nuw i8, ptr %.09.i42, i64 1
+61:                                               ; preds = %60, %.lr.ph.i40
+  %62 = getelementptr inbounds nuw i8, ptr %.09.i41, i64 1
   %63 = load i8, ptr %62, align 1
-  %.not.i44 = icmp eq i8 %63, 0
-  br i1 %.not.i44, label %base_yylex_location.exit46, label %.lr.ph.i41, !llvm.loop !4
+  %.not.i43 = icmp eq i8 %63, 0
+  br i1 %.not.i43, label %base_yylex_location.exit45, label %.lr.ph.i40, !llvm.loop !4
 
-base_yylex_location.exit46:                       ; preds = %61, %51
+base_yylex_location.exit45:                       ; preds = %61, %51
   %.not = icmp eq i32 %50, 331
-  br i1 %.not, label %64, label %base_yylex_location.exit46.thread
+  br i1 %.not, label %64, label %base_yylex_location.exit45.thread
 
-base_yylex_location.exit46.thread:                ; preds = %54, %base_yylex_location.exit46
+base_yylex_location.exit45.thread:                ; preds = %54, %base_yylex_location.exit45
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str) #6
   br label %64
 
-64:                                               ; preds = %base_yylex_location.exit46.thread, %base_yylex_location.exit46
+64:                                               ; preds = %base_yylex_location.exit45.thread, %base_yylex_location.exit45
   %65 = load ptr, ptr @base_yylval, align 8
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #7
-  %.not24 = icmp eq i64 %66, 3
-  br i1 %.not24, label %67, label %check_uescapechar.exit.thread
+  %.not23 = icmp eq i64 %66, 3
+  br i1 %.not23, label %67, label %check_uescapechar.exit.thread
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
@@ -252,8 +252,8 @@ base_yylex_location.exit46.thread:                ; preds = %54, %base_yylex_loc
   %74 = load i16, ptr %73, align 2
   %.fr.i = freeze i16 %74
   %75 = and i16 %.fr.i, 4096
-  %.not.i47 = icmp eq i16 %75, 0
-  br i1 %.not.i47, label %switch.early.test.i, label %check_uescapechar.exit.thread
+  %.not.i46 = icmp eq i16 %75, 0
+  br i1 %.not.i46, label %switch.early.test.i, label %check_uescapechar.exit.thread
 
 switch.early.test.i:                              ; preds = %67
   switch i8 %69, label %76 [
@@ -292,8 +292,8 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
   %spec.store.select = select i1 %83, i32 331, i32 %.022
   br label %84
 
-84:                                               ; preds = %46, %39, %base_yylex_location.exit37, %41, %40, %82, %42, %44, %80, %base_yylex_location.exit
-  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit37 ], [ 618, %40 ], [ 839, %41 ], [ %spec.store.select, %82 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select28, %46 ], [ 328, %80 ]
+84:                                               ; preds = %46, %39, %base_yylex_location.exit36, %41, %40, %82, %42, %44, %80, %base_yylex_location.exit
+  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit36 ], [ 618, %40 ], [ 839, %41 ], [ %spec.store.select, %82 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select27, %46 ], [ 328, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i32 %.0
 }

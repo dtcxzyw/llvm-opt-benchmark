@@ -134024,56 +134024,56 @@ define dso_local void @_ZNK11AstRefDType4dumpERSo(ptr noundef nonnull align 8 de
   br i1 %or.cond, label %37, label %7
 
 7:                                                ; preds = %2
-  %.b13 = load i1, ptr @_ZZNK11AstRefDType4dumpERSoE11s_recursing, align 1
-  br i1 %.b13, label %39, label %8
+  %.b = load i1, ptr @_ZZNK11AstRefDType4dumpERSoE11s_recursing, align 1
+  br i1 %.b, label %39, label %8
 
 8:                                                ; preds = %7
   store i1 true, ptr @_ZZNK11AstRefDType4dumpERSoE11s_recursing, align 1
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1281, i64 noundef 4)
   %10 = load ptr, ptr %3, align 8, !tbaa !317
-  %.not.i17 = icmp eq ptr %10, null
-  br i1 %.not.i17, label %_ZNK11AstRefDType9subDTypepEv.exit20, label %_ZNK11AstRefDType9subDTypepEv.exit20.thread
+  %.not.i16 = icmp eq ptr %10, null
+  br i1 %.not.i16, label %_ZNK11AstRefDType9subDTypepEv.exit19, label %_ZNK11AstRefDType9subDTypepEv.exit19.thread
 
-_ZNK11AstRefDType9subDTypepEv.exit20:             ; preds = %8
+_ZNK11AstRefDType9subDTypepEv.exit19:             ; preds = %8
   %11 = load ptr, ptr %5, align 8, !tbaa !320
-  %.not14 = icmp eq ptr %11, null
-  br i1 %.not14, label %_ZNK10AstTypedef4dumpERSo.exit, label %_ZNK10AstTypedef4dumpERSo.exit.sink.split
+  %.not13 = icmp eq ptr %11, null
+  br i1 %.not13, label %_ZNK10AstTypedef4dumpERSo.exit, label %_ZNK10AstTypedef4dumpERSo.exit.sink.split
 
-_ZNK11AstRefDType9subDTypepEv.exit20.thread:      ; preds = %8
+_ZNK11AstRefDType9subDTypepEv.exit19.thread:      ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !126
-  %.not.i.i18 = icmp eq ptr %13, null
+  %.not.i.i17 = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = select i1 %.not.i.i18, ptr %15, ptr %13
-  %.not1424 = icmp eq ptr %16, null
-  br i1 %.not1424, label %.thread29, label %.thread
+  %16 = select i1 %.not.i.i17, ptr %15, ptr %13
+  %.not1323 = icmp eq ptr %16, null
+  br i1 %.not1323, label %.thread28, label %.thread
 
-.thread:                                          ; preds = %_ZNK11AstRefDType9subDTypepEv.exit20.thread
+.thread:                                          ; preds = %_ZNK11AstRefDType9subDTypepEv.exit19.thread
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1354, i64 noundef 8)
   %18 = load ptr, ptr %3, align 8, !tbaa !317
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %18)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.1281, i64 noundef 4)
   br label %_ZNK10AstTypedef4dumpERSo.exit.sink.split
 
-.thread29:                                        ; preds = %_ZNK11AstRefDType9subDTypepEv.exit20.thread
+.thread28:                                        ; preds = %_ZNK11AstRefDType9subDTypepEv.exit19.thread
   tail call void @_ZNK7AstNode4dumpERSo(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %22 = load i8, ptr %21, align 8, !tbaa !949, !range !95, !noundef !96
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %.thread29
+24:                                               ; preds = %.thread28
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1350, i64 noundef 9)
   br label %26
 
-26:                                               ; preds = %24, %.thread29
+26:                                               ; preds = %24, %.thread28
   %27 = load ptr, ptr %12, align 8, !tbaa !126
-  %.not.i.i21 = icmp eq ptr %27, null
+  %.not.i.i20 = icmp eq ptr %27, null
   %28 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %28, null
-  %.not.i22 = select i1 %.not.i.i21, i1 %.not6.i, i1 false
-  br i1 %.not.i22, label %_ZNK10AstTypedef4dumpERSo.exit, label %29
+  %.not.i21 = select i1 %.not.i.i20, i1 %.not6.i, i1 false
+  br i1 %.not.i21, label %_ZNK10AstTypedef4dumpERSo.exit, label %29
 
 29:                                               ; preds = %26
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1281, i64 noundef 4)
@@ -134083,15 +134083,15 @@ _ZNK11AstRefDType9subDTypepEv.exit20.thread:      ; preds = %8
   %33 = select i1 %.not.i5.i, ptr %32, ptr %31
   br label %_ZNK10AstTypedef4dumpERSo.exit.sink.split
 
-_ZNK10AstTypedef4dumpERSo.exit.sink.split:        ; preds = %.thread, %_ZNK11AstRefDType9subDTypepEv.exit20, %29
-  %.sink36 = phi ptr [ %33, %29 ], [ %16, %.thread ], [ %11, %_ZNK11AstRefDType9subDTypepEv.exit20 ]
-  %34 = load ptr, ptr %.sink36, align 8, !tbaa !24
+_ZNK10AstTypedef4dumpERSo.exit.sink.split:        ; preds = %.thread, %_ZNK11AstRefDType9subDTypepEv.exit19, %29
+  %.sink35 = phi ptr [ %33, %29 ], [ %16, %.thread ], [ %11, %_ZNK11AstRefDType9subDTypepEv.exit19 ]
+  %34 = load ptr, ptr %.sink35, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(162) %.sink36, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(162) %.sink35, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %_ZNK10AstTypedef4dumpERSo.exit
 
-_ZNK10AstTypedef4dumpERSo.exit:                   ; preds = %_ZNK10AstTypedef4dumpERSo.exit.sink.split, %_ZNK11AstRefDType9subDTypepEv.exit20, %26
+_ZNK10AstTypedef4dumpERSo.exit:                   ; preds = %_ZNK10AstTypedef4dumpERSo.exit.sink.split, %_ZNK11AstRefDType9subDTypepEv.exit19, %26
   store i1 false, ptr @_ZZNK11AstRefDType4dumpERSoE11s_recursing, align 1
   br label %39
 
@@ -146255,14 +146255,14 @@ define dso_local void @_ZNK12AstCoverDecl4dumpERSo(ptr noundef nonnull align 8 d
 
 25:                                               ; preds = %22
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1281, i64 noundef 4)
-  %.b9 = load i1, ptr @_ZZNK12AstCoverDecl4dumpERSoE11s_recursing, align 1
-  br i1 %.b9, label %27, label %29
+  %.b = load i1, ptr @_ZZNK12AstCoverDecl4dumpERSoE11s_recursing, align 1
+  br i1 %.b, label %27, label %29
 
 27:                                               ; preds = %25
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1508, i64 noundef 15)
-  br label %common.ret10
+  br label %common.ret9
 
-common.ret10:                                     ; preds = %31, %34, %27, %29
+common.ret9:                                      ; preds = %31, %34, %27, %29
   ret void
 
 29:                                               ; preds = %25
@@ -146270,13 +146270,13 @@ common.ret10:                                     ; preds = %31, %34, %27, %29
   %30 = load ptr, ptr %23, align 8, !tbaa !197
   tail call void @_ZNK12AstCoverDecl4dumpERSo(ptr noundef nonnull align 8 dereferenceable(296) %30, ptr noundef nonnull align 8 dereferenceable(8) %1)
   store i1 false, ptr @_ZZNK12AstCoverDecl4dumpERSoE11s_recursing, align 1
-  br label %common.ret10
+  br label %common.ret9
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %33 = load i32, ptr %32, align 4, !tbaa !1135
   %.not8 = icmp eq i32 %33, 0
-  br i1 %.not8, label %common.ret10, label %34
+  br i1 %.not8, label %common.ret9, label %34
 
 34:                                               ; preds = %31
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1509, i64 noundef 4)
@@ -146291,7 +146291,7 @@ common.ret10:                                     ; preds = %31, %34, %27, %29
   store i32 %43, ptr %40, align 8, !tbaa !388
   %44 = load i32, ptr %32, align 4, !tbaa !1135
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %44)
-  br label %common.ret10
+  br label %common.ret9
 }
 
 ; Function Attrs: mustprogress uwtable

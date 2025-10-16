@@ -486,14 +486,14 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
 
 4:                                                ; preds = %3
   %5 = tail call ptr @strtok(ptr noundef nonnull %1, ptr noundef nonnull @.str.12) #12
-  %.b30 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
-  br i1 %.b30, label %6, label %7
+  %.b = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
+  br i1 %.b, label %6, label %7
 
 .thread:                                          ; preds = %3
-  %.b3040 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
-  br i1 %.b3040, label %6, label %.thread41
+  %.b39 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
+  br i1 %.b39, label %6, label %.thread40
 
-.thread41:                                        ; preds = %.thread
+.thread40:                                        ; preds = %.thread
   store i1 true, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
   br label %.loopexit
 
@@ -503,21 +503,21 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %4
   store i1 true, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
-  %.not3134 = icmp eq ptr %5, null
-  br i1 %.not3134, label %.loopexit, label %.lr.ph
+  %.not3033 = icmp eq ptr %5, null
+  br i1 %.not3033, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %9
-  %.02735 = phi ptr [ %16, %9 ], [ %5, %7 ]
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02735, i32 noundef 61) #16
-  %.not32 = icmp eq ptr %8, null
-  br i1 %.not32, label %17, label %9
+  %.02734 = phi ptr [ %16, %9 ], [ %5, %7 ]
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02734, i32 noundef 61) #16
+  %.not31 = icmp eq ptr %8, null
+  br i1 %.not31, label %17, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #15
   store i8 0, ptr %8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %0, ptr %10, align 8
-  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.02735) #12
+  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.02734) #12
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull %11) #12
@@ -525,14 +525,14 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
   store ptr %14, ptr %15, align 8
   tail call void @qdev_prop_register_global(ptr noundef nonnull %10) #12
   %16 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.12) #12
-  %.not31 = icmp eq ptr %16, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  %.not30 = icmp eq ptr %16, null
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.14, ptr noundef nonnull %.02735) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.14, ptr noundef nonnull %.02734) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %.thread41, %7, %17
+.loopexit:                                        ; preds = %9, %.thread40, %7, %17
   ret void
 }
 

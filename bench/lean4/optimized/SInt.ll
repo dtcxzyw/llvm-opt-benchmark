@@ -225926,8 +225926,8 @@ define ptr @l_ISize_reduceToInt___regBuiltin_ISize_reduceToInt_declare__1____x40
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b984 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b984, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -225966,25 +225966,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1800
+  br label %lean_dec_ref.exit1799
 
 19:                                               ; preds = %14
-  %.not.i1799 = icmp eq i32 %15, 0
-  br i1 %.not.i1799, label %lean_dec_ref.exit1800, label %20
+  %.not.i1798 = icmp eq i32 %15, 0
+  br i1 %.not.i1798, label %lean_dec_ref.exit1799, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br label %lean_dec_ref.exit1800
+  br label %lean_dec_ref.exit1799
 
-lean_dec_ref.exit1800:                            ; preds = %17, %19, %20
+lean_dec_ref.exit1799:                            ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Init_Data_SInt_Lemmas(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val1801 = load i32, ptr %22, align 4
-  %.mask.i2046 = and i32 %.val1801, -16777216
-  %23 = icmp eq i32 %.mask.i2046, 16777216
+  %.val1800 = load i32, ptr %22, align 4
+  %.mask.i2045 = and i32 %.val1800, -16777216
+  %23 = icmp eq i32 %.mask.i2045, 16777216
   br i1 %23, label %6668, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit1800
+24:                                               ; preds = %lean_dec_ref.exit1799
   %25 = load i32, ptr %21, align 4, !tbaa !9
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !12
@@ -225992,25 +225992,25 @@ lean_dec_ref.exit1800:                            ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1798
+  br label %lean_dec_ref.exit1797
 
 29:                                               ; preds = %24
-  %.not.i1797 = icmp eq i32 %25, 0
-  br i1 %.not.i1797, label %lean_dec_ref.exit1798, label %30
+  %.not.i1796 = icmp eq i32 %25, 0
+  br i1 %.not.i1796, label %lean_dec_ref.exit1797, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #5
-  br label %lean_dec_ref.exit1798
+  br label %lean_dec_ref.exit1797
 
-lean_dec_ref.exit1798:                            ; preds = %27, %29, %30
+lean_dec_ref.exit1797:                            ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Nat(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val1802 = load i32, ptr %32, align 4
-  %.mask.i2047 = and i32 %.val1802, -16777216
-  %33 = icmp eq i32 %.mask.i2047, 16777216
+  %.val1801 = load i32, ptr %32, align 4
+  %.mask.i2046 = and i32 %.val1801, -16777216
+  %33 = icmp eq i32 %.mask.i2046, 16777216
   br i1 %33, label %6668, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit1798
+34:                                               ; preds = %lean_dec_ref.exit1797
   %35 = load i32, ptr %31, align 4, !tbaa !9
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !12
@@ -226018,25 +226018,25 @@ lean_dec_ref.exit1798:                            ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1796
+  br label %lean_dec_ref.exit1795
 
 39:                                               ; preds = %34
-  %.not.i1795 = icmp eq i32 %35, 0
-  br i1 %.not.i1795, label %lean_dec_ref.exit1796, label %40
+  %.not.i1794 = icmp eq i32 %35, 0
+  br i1 %.not.i1794, label %lean_dec_ref.exit1795, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #5
-  br label %lean_dec_ref.exit1796
+  br label %lean_dec_ref.exit1795
 
-lean_dec_ref.exit1796:                            ; preds = %37, %39, %40
+lean_dec_ref.exit1795:                            ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Lean_Meta_Tactic_Simp_BuiltinSimprocs_Int(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val1803 = load i32, ptr %42, align 4
-  %.mask.i2048 = and i32 %.val1803, -16777216
-  %43 = icmp eq i32 %.mask.i2048, 16777216
+  %.val1802 = load i32, ptr %42, align 4
+  %.mask.i2047 = and i32 %.val1802, -16777216
+  %43 = icmp eq i32 %.mask.i2047, 16777216
   br i1 %43, label %6668, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit1796
+44:                                               ; preds = %lean_dec_ref.exit1795
   %45 = load i32, ptr %41, align 4, !tbaa !9
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !12
@@ -226044,17 +226044,17 @@ lean_dec_ref.exit1796:                            ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1794
+  br label %lean_dec_ref.exit1793
 
 49:                                               ; preds = %44
-  %.not.i1793 = icmp eq i32 %45, 0
-  br i1 %.not.i1793, label %lean_dec_ref.exit1794, label %50
+  %.not.i1792 = icmp eq i32 %45, 0
+  br i1 %.not.i1792, label %lean_dec_ref.exit1793, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #5
-  br label %lean_dec_ref.exit1794
+  br label %lean_dec_ref.exit1793
 
-lean_dec_ref.exit1794:                            ; preds = %47, %49, %50
+lean_dec_ref.exit1793:                            ; preds = %47, %49, %50
   %51 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 29, i64 noundef 29) #5
   store ptr %51, ptr @l_commandDeclare__sint__simprocs_____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %51) #5
@@ -226078,11 +226078,11 @@ lean_dec_ref.exit1794:                            ; preds = %47, %49, %50
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %_init_l_commandDeclare__sint__simprocs_____closed__6.exit
 
-61:                                               ; preds = %lean_dec_ref.exit1794
+61:                                               ; preds = %lean_dec_ref.exit1793
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_commandDeclare__sint__simprocs_____closed__6.exit: ; preds = %lean_dec_ref.exit1794
+_init_l_commandDeclare__sint__simprocs_____closed__6.exit: ; preds = %lean_dec_ref.exit1793
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 1, ptr %59, align 4, !tbaa !9
   store i32 83951632, ptr %62, align 4
@@ -230160,7 +230160,7 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int
   store ptr %1757, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__23, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1757) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit1790, label %1764
+  br i1 %.not, label %lean_dec_ref.exit1789, label %1764
 
 1764:                                             ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__23.exit
   %1765 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__15, align 8, !tbaa !5
@@ -230168,9 +230168,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int
   %1767 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__23, align 8, !tbaa !5
   %1768 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %1765, ptr noundef %1766, ptr noundef %1767, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1769 = getelementptr i8, ptr %1768, i64 4
-  %.val1804 = load i32, ptr %1769, align 4
-  %.mask.i2049 = and i32 %.val1804, -16777216
-  %1770 = icmp eq i32 %.mask.i2049, 16777216
+  %.val1803 = load i32, ptr %1769, align 4
+  %.mask.i2048 = and i32 %.val1803, -16777216
+  %1770 = icmp eq i32 %.mask.i2048, 16777216
   br i1 %1770, label %6668, label %1771
 
 1771:                                             ; preds = %1764
@@ -230184,8 +230184,8 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int
   br label %1778
 
 1776:                                             ; preds = %1771
-  %.not.i1791 = icmp eq i32 %1772, 0
-  br i1 %.not.i1791, label %1778, label %1777
+  %.not.i1790 = icmp eq i32 %1772, 0
+  br i1 %.not.i1790, label %1778, label %1777
 
 1777:                                             ; preds = %1776
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1768) #5
@@ -230203,9 +230203,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int
   %1783 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %1784 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1781, ptr noundef %1782, i8 noundef zeroext 1, ptr noundef %1783, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1785 = getelementptr i8, ptr %1784, i64 4
-  %.val1805 = load i32, ptr %1785, align 4
-  %.mask.i2050 = and i32 %.val1805, -16777216
-  %1786 = icmp eq i32 %.mask.i2050, 16777216
+  %.val1804 = load i32, ptr %1785, align 4
+  %.mask.i2049 = and i32 %.val1804, -16777216
+  %1786 = icmp eq i32 %.mask.i2049, 16777216
   br i1 %1786, label %6668, label %1787
 
 1787:                                             ; preds = %1778
@@ -230219,14 +230219,14 @@ _init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int
   br label %1797
 
 1792:                                             ; preds = %1787
-  %.not.i1789 = icmp eq i32 %1788, 0
-  br i1 %.not.i1789, label %1797, label %1793
+  %.not.i1788 = icmp eq i32 %1788, 0
+  br i1 %.not.i1788, label %1797, label %1793
 
 1793:                                             ; preds = %1792
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1784) #5
   br label %1797
 
-lean_dec_ref.exit1790:                            ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__23.exit
+lean_dec_ref.exit1789:                            ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNeg_declare__17____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__10789____closed__23.exit
   %1794 = tail call fastcc ptr @_init_l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %1794, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1794) #5
@@ -230236,7 +230236,7 @@ lean_dec_ref.exit1790:                            ; preds = %_init_l___private_L
   %1796 = load ptr, ptr @l_Lean_Meta_Simp_builtinSEvalprocsRef, align 8, !tbaa !5
   store ptr %1796, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %1796) #5
-  br label %lean_dec_ref.exit1788
+  br label %lean_dec_ref.exit1787
 
 1797:                                             ; preds = %1793, %1792, %1790
   %1798 = load ptr, ptr @l_Lean_Meta_Simp_builtinSEvalprocsRef, align 8, !tbaa !5
@@ -230247,9 +230247,9 @@ lean_dec_ref.exit1790:                            ; preds = %_init_l___private_L
   %1801 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %1802 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1799, ptr noundef %1800, i8 noundef zeroext 1, ptr noundef %1801, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1803 = getelementptr i8, ptr %1802, i64 4
-  %.val1806 = load i32, ptr %1803, align 4
-  %.mask.i2051 = and i32 %.val1806, -16777216
-  %1804 = icmp eq i32 %.mask.i2051, 16777216
+  %.val1805 = load i32, ptr %1803, align 4
+  %.mask.i2050 = and i32 %.val1805, -16777216
+  %1804 = icmp eq i32 %.mask.i2050, 16777216
   br i1 %1804, label %6668, label %1805
 
 1805:                                             ; preds = %1797
@@ -230260,17 +230260,17 @@ lean_dec_ref.exit1790:                            ; preds = %_init_l___private_L
 1808:                                             ; preds = %1805
   %1809 = add nsw i32 %1806, -1
   store i32 %1809, ptr %1802, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1788
+  br label %lean_dec_ref.exit1787
 
 1810:                                             ; preds = %1805
-  %.not.i1787 = icmp eq i32 %1806, 0
-  br i1 %.not.i1787, label %lean_dec_ref.exit1788, label %1811
+  %.not.i1786 = icmp eq i32 %1806, 0
+  br i1 %.not.i1786, label %lean_dec_ref.exit1787, label %1811
 
 1811:                                             ; preds = %1810
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1802) #5
-  br label %lean_dec_ref.exit1788
+  br label %lean_dec_ref.exit1787
 
-lean_dec_ref.exit1788:                            ; preds = %1811, %1810, %1808, %lean_dec_ref.exit1790
+lean_dec_ref.exit1787:                            ; preds = %1811, %1810, %1808, %lean_dec_ref.exit1789
   %1812 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %1813 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__325, align 8, !tbaa !5
   %1814 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %1812, ptr noundef %1813) #5
@@ -230301,17 +230301,17 @@ lean_dec_ref.exit1788:                            ; preds = %1811, %1810, %1808,
   %1823 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceAdd_declare__21____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10827____closed__9()
   store ptr %1823, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceAdd_declare__21____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10827____closed__9, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1823) #5
-  br i1 %.not, label %lean_dec_ref.exit1784, label %1824
+  br i1 %.not, label %lean_dec_ref.exit1783, label %1824
 
-1824:                                             ; preds = %lean_dec_ref.exit1788
+1824:                                             ; preds = %lean_dec_ref.exit1787
   %1825 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceAdd_declare__21____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10827____closed__1, align 8, !tbaa !5
   %1826 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceAdd_declare__21____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10827____closed__8, align 8, !tbaa !5
   %1827 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceAdd_declare__21____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10827____closed__9, align 8, !tbaa !5
   %1828 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %1825, ptr noundef %1826, ptr noundef %1827, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1829 = getelementptr i8, ptr %1828, i64 4
-  %.val1807 = load i32, ptr %1829, align 4
-  %.mask.i2052 = and i32 %.val1807, -16777216
-  %1830 = icmp eq i32 %.mask.i2052, 16777216
+  %.val1806 = load i32, ptr %1829, align 4
+  %.mask.i2051 = and i32 %.val1806, -16777216
+  %1830 = icmp eq i32 %.mask.i2051, 16777216
   br i1 %1830, label %6668, label %1831
 
 1831:                                             ; preds = %1824
@@ -230325,8 +230325,8 @@ lean_dec_ref.exit1788:                            ; preds = %1811, %1810, %1808,
   br label %1838
 
 1836:                                             ; preds = %1831
-  %.not.i1785 = icmp eq i32 %1832, 0
-  br i1 %.not.i1785, label %1838, label %1837
+  %.not.i1784 = icmp eq i32 %1832, 0
+  br i1 %.not.i1784, label %1838, label %1837
 
 1837:                                             ; preds = %1836
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1828) #5
@@ -230341,9 +230341,9 @@ lean_dec_ref.exit1788:                            ; preds = %1811, %1810, %1808,
   %1842 = load ptr, ptr @l_Int8_reduceAdd___regBuiltin_Int8_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10829____closed__1, align 8, !tbaa !5
   %1843 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1840, ptr noundef %1841, i8 noundef zeroext 1, ptr noundef %1842, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1844 = getelementptr i8, ptr %1843, i64 4
-  %.val1808 = load i32, ptr %1844, align 4
-  %.mask.i2053 = and i32 %.val1808, -16777216
-  %1845 = icmp eq i32 %.mask.i2053, 16777216
+  %.val1807 = load i32, ptr %1844, align 4
+  %.mask.i2052 = and i32 %.val1807, -16777216
+  %1845 = icmp eq i32 %.mask.i2052, 16777216
   br i1 %1845, label %6668, label %1846
 
 1846:                                             ; preds = %1838
@@ -230357,18 +230357,18 @@ lean_dec_ref.exit1788:                            ; preds = %1811, %1810, %1808,
   br label %1854
 
 1851:                                             ; preds = %1846
-  %.not.i1783 = icmp eq i32 %1847, 0
-  br i1 %.not.i1783, label %1854, label %1852
+  %.not.i1782 = icmp eq i32 %1847, 0
+  br i1 %.not.i1782, label %1854, label %1852
 
 1852:                                             ; preds = %1851
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1843) #5
   br label %1854
 
-lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit1788
+lean_dec_ref.exit1783:                            ; preds = %lean_dec_ref.exit1787
   %1853 = tail call fastcc ptr @_init_l_Int8_reduceAdd___regBuiltin_Int8_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10829____closed__1()
   store ptr %1853, ptr @l_Int8_reduceAdd___regBuiltin_Int8_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10829____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1853) #5
-  br label %.critedge990
+  br label %.critedge989
 
 1854:                                             ; preds = %1852, %1851, %1849
   %1855 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230376,9 +230376,9 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
   %1857 = load ptr, ptr @l_Int8_reduceAdd___regBuiltin_Int8_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10829____closed__1, align 8, !tbaa !5
   %1858 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1855, ptr noundef %1856, i8 noundef zeroext 1, ptr noundef %1857, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1859 = getelementptr i8, ptr %1858, i64 4
-  %.val1809 = load i32, ptr %1859, align 4
-  %.mask.i2054 = and i32 %.val1809, -16777216
-  %1860 = icmp eq i32 %.mask.i2054, 16777216
+  %.val1808 = load i32, ptr %1859, align 4
+  %.mask.i2053 = and i32 %.val1808, -16777216
+  %1860 = icmp eq i32 %.mask.i2053, 16777216
   br i1 %1860, label %6668, label %1861
 
 1861:                                             ; preds = %1854
@@ -230389,17 +230389,17 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
 1864:                                             ; preds = %1861
   %1865 = add nsw i32 %1862, -1
   store i32 %1865, ptr %1858, align 4, !tbaa !9
-  br label %.critedge990
+  br label %.critedge989
 
 1866:                                             ; preds = %1861
-  %.not.i1781 = icmp eq i32 %1862, 0
-  br i1 %.not.i1781, label %.critedge990, label %1867
+  %.not.i1780 = icmp eq i32 %1862, 0
+  br i1 %.not.i1780, label %.critedge989, label %1867
 
 1867:                                             ; preds = %1866
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1858) #5
-  br label %.critedge990
+  br label %.critedge989
 
-.critedge990:                                     ; preds = %1867, %1866, %1864, %lean_dec_ref.exit1784
+.critedge989:                                     ; preds = %1867, %1866, %1864, %lean_dec_ref.exit1783
   %1868 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %1869 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__342, align 8, !tbaa !5
   %1870 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %1868, ptr noundef %1869) #5
@@ -230418,17 +230418,17 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
   %1875 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMul_declare__25____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10865____closed__5()
   store ptr %1875, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMul_declare__25____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10865____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1875) #5
-  br i1 %.not, label %lean_dec_ref.exit1778, label %1876
+  br i1 %.not, label %lean_dec_ref.exit1777, label %1876
 
-1876:                                             ; preds = %.critedge990
+1876:                                             ; preds = %.critedge989
   %1877 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMul_declare__25____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10865____closed__1, align 8, !tbaa !5
   %1878 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMul_declare__25____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10865____closed__4, align 8, !tbaa !5
   %1879 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMul_declare__25____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10865____closed__5, align 8, !tbaa !5
   %1880 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %1877, ptr noundef %1878, ptr noundef %1879, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1881 = getelementptr i8, ptr %1880, i64 4
-  %.val1810 = load i32, ptr %1881, align 4
-  %.mask.i2055 = and i32 %.val1810, -16777216
-  %1882 = icmp eq i32 %.mask.i2055, 16777216
+  %.val1809 = load i32, ptr %1881, align 4
+  %.mask.i2054 = and i32 %.val1809, -16777216
+  %1882 = icmp eq i32 %.mask.i2054, 16777216
   br i1 %1882, label %6668, label %1883
 
 1883:                                             ; preds = %1876
@@ -230442,8 +230442,8 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
   br label %1890
 
 1888:                                             ; preds = %1883
-  %.not.i1779 = icmp eq i32 %1884, 0
-  br i1 %.not.i1779, label %1890, label %1889
+  %.not.i1778 = icmp eq i32 %1884, 0
+  br i1 %.not.i1778, label %1890, label %1889
 
 1889:                                             ; preds = %1888
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1880) #5
@@ -230458,9 +230458,9 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
   %1894 = load ptr, ptr @l_Int8_reduceMul___regBuiltin_Int8_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10867____closed__1, align 8, !tbaa !5
   %1895 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1892, ptr noundef %1893, i8 noundef zeroext 1, ptr noundef %1894, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1896 = getelementptr i8, ptr %1895, i64 4
-  %.val1811 = load i32, ptr %1896, align 4
-  %.mask.i2056 = and i32 %.val1811, -16777216
-  %1897 = icmp eq i32 %.mask.i2056, 16777216
+  %.val1810 = load i32, ptr %1896, align 4
+  %.mask.i2055 = and i32 %.val1810, -16777216
+  %1897 = icmp eq i32 %.mask.i2055, 16777216
   br i1 %1897, label %6668, label %1898
 
 1898:                                             ; preds = %1890
@@ -230474,18 +230474,18 @@ lean_dec_ref.exit1784:                            ; preds = %lean_dec_ref.exit17
   br label %1906
 
 1903:                                             ; preds = %1898
-  %.not.i1777 = icmp eq i32 %1899, 0
-  br i1 %.not.i1777, label %1906, label %1904
+  %.not.i1776 = icmp eq i32 %1899, 0
+  br i1 %.not.i1776, label %1906, label %1904
 
 1904:                                             ; preds = %1903
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1895) #5
   br label %1906
 
-lean_dec_ref.exit1778:                            ; preds = %.critedge990
+lean_dec_ref.exit1777:                            ; preds = %.critedge989
   %1905 = tail call fastcc ptr @_init_l_Int8_reduceMul___regBuiltin_Int8_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10867____closed__1()
   store ptr %1905, ptr @l_Int8_reduceMul___regBuiltin_Int8_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10867____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1905) #5
-  br label %.critedge994
+  br label %.critedge993
 
 1906:                                             ; preds = %1904, %1903, %1901
   %1907 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230493,9 +230493,9 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
   %1909 = load ptr, ptr @l_Int8_reduceMul___regBuiltin_Int8_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10867____closed__1, align 8, !tbaa !5
   %1910 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1907, ptr noundef %1908, i8 noundef zeroext 1, ptr noundef %1909, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1911 = getelementptr i8, ptr %1910, i64 4
-  %.val1812 = load i32, ptr %1911, align 4
-  %.mask.i2057 = and i32 %.val1812, -16777216
-  %1912 = icmp eq i32 %.mask.i2057, 16777216
+  %.val1811 = load i32, ptr %1911, align 4
+  %.mask.i2056 = and i32 %.val1811, -16777216
+  %1912 = icmp eq i32 %.mask.i2056, 16777216
   br i1 %1912, label %6668, label %1913
 
 1913:                                             ; preds = %1906
@@ -230506,17 +230506,17 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
 1916:                                             ; preds = %1913
   %1917 = add nsw i32 %1914, -1
   store i32 %1917, ptr %1910, align 4, !tbaa !9
-  br label %.critedge994
+  br label %.critedge993
 
 1918:                                             ; preds = %1913
-  %.not.i1775 = icmp eq i32 %1914, 0
-  br i1 %.not.i1775, label %.critedge994, label %1919
+  %.not.i1774 = icmp eq i32 %1914, 0
+  br i1 %.not.i1774, label %.critedge993, label %1919
 
 1919:                                             ; preds = %1918
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1910) #5
-  br label %.critedge994
+  br label %.critedge993
 
-.critedge994:                                     ; preds = %1919, %1918, %1916, %lean_dec_ref.exit1778
+.critedge993:                                     ; preds = %1919, %1918, %1916, %lean_dec_ref.exit1777
   %1920 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %1921 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__355, align 8, !tbaa !5
   %1922 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %1920, ptr noundef %1921) #5
@@ -230535,17 +230535,17 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
   %1927 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceSub_declare__29____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10903____closed__5()
   store ptr %1927, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceSub_declare__29____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10903____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1927) #5
-  br i1 %.not, label %lean_dec_ref.exit1772, label %1928
+  br i1 %.not, label %lean_dec_ref.exit1771, label %1928
 
-1928:                                             ; preds = %.critedge994
+1928:                                             ; preds = %.critedge993
   %1929 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceSub_declare__29____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10903____closed__1, align 8, !tbaa !5
   %1930 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceSub_declare__29____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10903____closed__4, align 8, !tbaa !5
   %1931 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceSub_declare__29____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10903____closed__5, align 8, !tbaa !5
   %1932 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %1929, ptr noundef %1930, ptr noundef %1931, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1933 = getelementptr i8, ptr %1932, i64 4
-  %.val1813 = load i32, ptr %1933, align 4
-  %.mask.i2058 = and i32 %.val1813, -16777216
-  %1934 = icmp eq i32 %.mask.i2058, 16777216
+  %.val1812 = load i32, ptr %1933, align 4
+  %.mask.i2057 = and i32 %.val1812, -16777216
+  %1934 = icmp eq i32 %.mask.i2057, 16777216
   br i1 %1934, label %6668, label %1935
 
 1935:                                             ; preds = %1928
@@ -230559,8 +230559,8 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
   br label %1942
 
 1940:                                             ; preds = %1935
-  %.not.i1773 = icmp eq i32 %1936, 0
-  br i1 %.not.i1773, label %1942, label %1941
+  %.not.i1772 = icmp eq i32 %1936, 0
+  br i1 %.not.i1772, label %1942, label %1941
 
 1941:                                             ; preds = %1940
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1932) #5
@@ -230575,9 +230575,9 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
   %1946 = load ptr, ptr @l_Int8_reduceSub___regBuiltin_Int8_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10905____closed__1, align 8, !tbaa !5
   %1947 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1944, ptr noundef %1945, i8 noundef zeroext 1, ptr noundef %1946, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1948 = getelementptr i8, ptr %1947, i64 4
-  %.val1814 = load i32, ptr %1948, align 4
-  %.mask.i2059 = and i32 %.val1814, -16777216
-  %1949 = icmp eq i32 %.mask.i2059, 16777216
+  %.val1813 = load i32, ptr %1948, align 4
+  %.mask.i2058 = and i32 %.val1813, -16777216
+  %1949 = icmp eq i32 %.mask.i2058, 16777216
   br i1 %1949, label %6668, label %1950
 
 1950:                                             ; preds = %1942
@@ -230591,18 +230591,18 @@ lean_dec_ref.exit1778:                            ; preds = %.critedge990
   br label %1958
 
 1955:                                             ; preds = %1950
-  %.not.i1771 = icmp eq i32 %1951, 0
-  br i1 %.not.i1771, label %1958, label %1956
+  %.not.i1770 = icmp eq i32 %1951, 0
+  br i1 %.not.i1770, label %1958, label %1956
 
 1956:                                             ; preds = %1955
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1947) #5
   br label %1958
 
-lean_dec_ref.exit1772:                            ; preds = %.critedge994
+lean_dec_ref.exit1771:                            ; preds = %.critedge993
   %1957 = tail call fastcc ptr @_init_l_Int8_reduceSub___regBuiltin_Int8_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10905____closed__1()
   store ptr %1957, ptr @l_Int8_reduceSub___regBuiltin_Int8_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10905____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1957) #5
-  br label %.critedge998
+  br label %.critedge997
 
 1958:                                             ; preds = %1956, %1955, %1953
   %1959 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230610,9 +230610,9 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
   %1961 = load ptr, ptr @l_Int8_reduceSub___regBuiltin_Int8_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10905____closed__1, align 8, !tbaa !5
   %1962 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1959, ptr noundef %1960, i8 noundef zeroext 1, ptr noundef %1961, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1963 = getelementptr i8, ptr %1962, i64 4
-  %.val1815 = load i32, ptr %1963, align 4
-  %.mask.i2060 = and i32 %.val1815, -16777216
-  %1964 = icmp eq i32 %.mask.i2060, 16777216
+  %.val1814 = load i32, ptr %1963, align 4
+  %.mask.i2059 = and i32 %.val1814, -16777216
+  %1964 = icmp eq i32 %.mask.i2059, 16777216
   br i1 %1964, label %6668, label %1965
 
 1965:                                             ; preds = %1958
@@ -230623,17 +230623,17 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
 1968:                                             ; preds = %1965
   %1969 = add nsw i32 %1966, -1
   store i32 %1969, ptr %1962, align 4, !tbaa !9
-  br label %.critedge998
+  br label %.critedge997
 
 1970:                                             ; preds = %1965
-  %.not.i1769 = icmp eq i32 %1966, 0
-  br i1 %.not.i1769, label %.critedge998, label %1971
+  %.not.i1768 = icmp eq i32 %1966, 0
+  br i1 %.not.i1768, label %.critedge997, label %1971
 
 1971:                                             ; preds = %1970
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1962) #5
-  br label %.critedge998
+  br label %.critedge997
 
-.critedge998:                                     ; preds = %1971, %1970, %1968, %lean_dec_ref.exit1772
+.critedge997:                                     ; preds = %1971, %1970, %1968, %lean_dec_ref.exit1771
   %1972 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %1973 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__367, align 8, !tbaa !5
   %1974 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %1972, ptr noundef %1973) #5
@@ -230652,17 +230652,17 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
   %1979 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceDiv_declare__33____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10941____closed__5()
   store ptr %1979, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceDiv_declare__33____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10941____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %1979) #5
-  br i1 %.not, label %lean_dec_ref.exit1766, label %1980
+  br i1 %.not, label %lean_dec_ref.exit1765, label %1980
 
-1980:                                             ; preds = %.critedge998
+1980:                                             ; preds = %.critedge997
   %1981 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceDiv_declare__33____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10941____closed__1, align 8, !tbaa !5
   %1982 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceDiv_declare__33____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10941____closed__4, align 8, !tbaa !5
   %1983 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceDiv_declare__33____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10941____closed__5, align 8, !tbaa !5
   %1984 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %1981, ptr noundef %1982, ptr noundef %1983, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1985 = getelementptr i8, ptr %1984, i64 4
-  %.val1816 = load i32, ptr %1985, align 4
-  %.mask.i2061 = and i32 %.val1816, -16777216
-  %1986 = icmp eq i32 %.mask.i2061, 16777216
+  %.val1815 = load i32, ptr %1985, align 4
+  %.mask.i2060 = and i32 %.val1815, -16777216
+  %1986 = icmp eq i32 %.mask.i2060, 16777216
   br i1 %1986, label %6668, label %1987
 
 1987:                                             ; preds = %1980
@@ -230676,8 +230676,8 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
   br label %1994
 
 1992:                                             ; preds = %1987
-  %.not.i1767 = icmp eq i32 %1988, 0
-  br i1 %.not.i1767, label %1994, label %1993
+  %.not.i1766 = icmp eq i32 %1988, 0
+  br i1 %.not.i1766, label %1994, label %1993
 
 1993:                                             ; preds = %1992
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1984) #5
@@ -230692,9 +230692,9 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
   %1998 = load ptr, ptr @l_Int8_reduceDiv___regBuiltin_Int8_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10943____closed__1, align 8, !tbaa !5
   %1999 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1996, ptr noundef %1997, i8 noundef zeroext 1, ptr noundef %1998, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2000 = getelementptr i8, ptr %1999, i64 4
-  %.val1817 = load i32, ptr %2000, align 4
-  %.mask.i2062 = and i32 %.val1817, -16777216
-  %2001 = icmp eq i32 %.mask.i2062, 16777216
+  %.val1816 = load i32, ptr %2000, align 4
+  %.mask.i2061 = and i32 %.val1816, -16777216
+  %2001 = icmp eq i32 %.mask.i2061, 16777216
   br i1 %2001, label %6668, label %2002
 
 2002:                                             ; preds = %1994
@@ -230708,18 +230708,18 @@ lean_dec_ref.exit1772:                            ; preds = %.critedge994
   br label %2010
 
 2007:                                             ; preds = %2002
-  %.not.i1765 = icmp eq i32 %2003, 0
-  br i1 %.not.i1765, label %2010, label %2008
+  %.not.i1764 = icmp eq i32 %2003, 0
+  br i1 %.not.i1764, label %2010, label %2008
 
 2008:                                             ; preds = %2007
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1999) #5
   br label %2010
 
-lean_dec_ref.exit1766:                            ; preds = %.critedge998
+lean_dec_ref.exit1765:                            ; preds = %.critedge997
   %2009 = tail call fastcc ptr @_init_l_Int8_reduceDiv___regBuiltin_Int8_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10943____closed__1()
   store ptr %2009, ptr @l_Int8_reduceDiv___regBuiltin_Int8_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10943____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2009) #5
-  br label %.critedge1002
+  br label %.critedge1001
 
 2010:                                             ; preds = %2008, %2007, %2005
   %2011 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230727,9 +230727,9 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
   %2013 = load ptr, ptr @l_Int8_reduceDiv___regBuiltin_Int8_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10943____closed__1, align 8, !tbaa !5
   %2014 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2011, ptr noundef %2012, i8 noundef zeroext 1, ptr noundef %2013, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2015 = getelementptr i8, ptr %2014, i64 4
-  %.val1818 = load i32, ptr %2015, align 4
-  %.mask.i2063 = and i32 %.val1818, -16777216
-  %2016 = icmp eq i32 %.mask.i2063, 16777216
+  %.val1817 = load i32, ptr %2015, align 4
+  %.mask.i2062 = and i32 %.val1817, -16777216
+  %2016 = icmp eq i32 %.mask.i2062, 16777216
   br i1 %2016, label %6668, label %2017
 
 2017:                                             ; preds = %2010
@@ -230740,17 +230740,17 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
 2020:                                             ; preds = %2017
   %2021 = add nsw i32 %2018, -1
   store i32 %2021, ptr %2014, align 4, !tbaa !9
-  br label %.critedge1002
+  br label %.critedge1001
 
 2022:                                             ; preds = %2017
-  %.not.i1763 = icmp eq i32 %2018, 0
-  br i1 %.not.i1763, label %.critedge1002, label %2023
+  %.not.i1762 = icmp eq i32 %2018, 0
+  br i1 %.not.i1762, label %.critedge1001, label %2023
 
 2023:                                             ; preds = %2022
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2014) #5
-  br label %.critedge1002
+  br label %.critedge1001
 
-.critedge1002:                                    ; preds = %2023, %2022, %2020, %lean_dec_ref.exit1766
+.critedge1001:                                    ; preds = %2023, %2022, %2020, %lean_dec_ref.exit1765
   %2024 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2025 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__380, align 8, !tbaa !5
   %2026 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2024, ptr noundef %2025) #5
@@ -230769,17 +230769,17 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
   %2031 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMod_declare__37____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10979____closed__5()
   store ptr %2031, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMod_declare__37____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10979____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2031) #5
-  br i1 %.not, label %lean_dec_ref.exit1760, label %2032
+  br i1 %.not, label %lean_dec_ref.exit1759, label %2032
 
-2032:                                             ; preds = %.critedge1002
+2032:                                             ; preds = %.critedge1001
   %2033 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMod_declare__37____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10979____closed__1, align 8, !tbaa !5
   %2034 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMod_declare__37____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10979____closed__4, align 8, !tbaa !5
   %2035 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceMod_declare__37____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10979____closed__5, align 8, !tbaa !5
   %2036 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2033, ptr noundef %2034, ptr noundef %2035, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2037 = getelementptr i8, ptr %2036, i64 4
-  %.val1819 = load i32, ptr %2037, align 4
-  %.mask.i2064 = and i32 %.val1819, -16777216
-  %2038 = icmp eq i32 %.mask.i2064, 16777216
+  %.val1818 = load i32, ptr %2037, align 4
+  %.mask.i2063 = and i32 %.val1818, -16777216
+  %2038 = icmp eq i32 %.mask.i2063, 16777216
   br i1 %2038, label %6668, label %2039
 
 2039:                                             ; preds = %2032
@@ -230793,8 +230793,8 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
   br label %2046
 
 2044:                                             ; preds = %2039
-  %.not.i1761 = icmp eq i32 %2040, 0
-  br i1 %.not.i1761, label %2046, label %2045
+  %.not.i1760 = icmp eq i32 %2040, 0
+  br i1 %.not.i1760, label %2046, label %2045
 
 2045:                                             ; preds = %2044
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2036) #5
@@ -230809,9 +230809,9 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
   %2050 = load ptr, ptr @l_Int8_reduceMod___regBuiltin_Int8_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10981____closed__1, align 8, !tbaa !5
   %2051 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2048, ptr noundef %2049, i8 noundef zeroext 1, ptr noundef %2050, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2052 = getelementptr i8, ptr %2051, i64 4
-  %.val1820 = load i32, ptr %2052, align 4
-  %.mask.i2065 = and i32 %.val1820, -16777216
-  %2053 = icmp eq i32 %.mask.i2065, 16777216
+  %.val1819 = load i32, ptr %2052, align 4
+  %.mask.i2064 = and i32 %.val1819, -16777216
+  %2053 = icmp eq i32 %.mask.i2064, 16777216
   br i1 %2053, label %6668, label %2054
 
 2054:                                             ; preds = %2046
@@ -230825,18 +230825,18 @@ lean_dec_ref.exit1766:                            ; preds = %.critedge998
   br label %2062
 
 2059:                                             ; preds = %2054
-  %.not.i1759 = icmp eq i32 %2055, 0
-  br i1 %.not.i1759, label %2062, label %2060
+  %.not.i1758 = icmp eq i32 %2055, 0
+  br i1 %.not.i1758, label %2062, label %2060
 
 2060:                                             ; preds = %2059
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2051) #5
   br label %2062
 
-lean_dec_ref.exit1760:                            ; preds = %.critedge1002
+lean_dec_ref.exit1759:                            ; preds = %.critedge1001
   %2061 = tail call fastcc ptr @_init_l_Int8_reduceMod___regBuiltin_Int8_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10981____closed__1()
   store ptr %2061, ptr @l_Int8_reduceMod___regBuiltin_Int8_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10981____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2061) #5
-  br label %.critedge1006
+  br label %.critedge1005
 
 2062:                                             ; preds = %2060, %2059, %2057
   %2063 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230844,9 +230844,9 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
   %2065 = load ptr, ptr @l_Int8_reduceMod___regBuiltin_Int8_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_10981____closed__1, align 8, !tbaa !5
   %2066 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2063, ptr noundef %2064, i8 noundef zeroext 1, ptr noundef %2065, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2067 = getelementptr i8, ptr %2066, i64 4
-  %.val1821 = load i32, ptr %2067, align 4
-  %.mask.i2066 = and i32 %.val1821, -16777216
-  %2068 = icmp eq i32 %.mask.i2066, 16777216
+  %.val1820 = load i32, ptr %2067, align 4
+  %.mask.i2065 = and i32 %.val1820, -16777216
+  %2068 = icmp eq i32 %.mask.i2065, 16777216
   br i1 %2068, label %6668, label %2069
 
 2069:                                             ; preds = %2062
@@ -230857,17 +230857,17 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
 2072:                                             ; preds = %2069
   %2073 = add nsw i32 %2070, -1
   store i32 %2073, ptr %2066, align 4, !tbaa !9
-  br label %.critedge1006
+  br label %.critedge1005
 
 2074:                                             ; preds = %2069
-  %.not.i1757 = icmp eq i32 %2070, 0
-  br i1 %.not.i1757, label %.critedge1006, label %2075
+  %.not.i1756 = icmp eq i32 %2070, 0
+  br i1 %.not.i1756, label %.critedge1005, label %2075
 
 2075:                                             ; preds = %2074
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2066) #5
-  br label %.critedge1006
+  br label %.critedge1005
 
-.critedge1006:                                    ; preds = %2075, %2074, %2072, %lean_dec_ref.exit1760
+.critedge1005:                                    ; preds = %2075, %2074, %2072, %lean_dec_ref.exit1759
   %2076 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2077 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__396, align 8, !tbaa !5
   %2078 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2076, ptr noundef %2077) #5
@@ -230886,17 +230886,17 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
   %2083 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLT_declare__41____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11018____closed__5()
   store ptr %2083, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLT_declare__41____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11018____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2083) #5
-  br i1 %.not, label %lean_dec_ref.exit1754, label %2084
+  br i1 %.not, label %lean_dec_ref.exit1753, label %2084
 
-2084:                                             ; preds = %.critedge1006
+2084:                                             ; preds = %.critedge1005
   %2085 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLT_declare__41____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11018____closed__1, align 8, !tbaa !5
   %2086 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLT_declare__41____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11018____closed__4, align 8, !tbaa !5
   %2087 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLT_declare__41____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11018____closed__5, align 8, !tbaa !5
   %2088 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2085, ptr noundef %2086, ptr noundef %2087, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2089 = getelementptr i8, ptr %2088, i64 4
-  %.val1822 = load i32, ptr %2089, align 4
-  %.mask.i2067 = and i32 %.val1822, -16777216
-  %2090 = icmp eq i32 %.mask.i2067, 16777216
+  %.val1821 = load i32, ptr %2089, align 4
+  %.mask.i2066 = and i32 %.val1821, -16777216
+  %2090 = icmp eq i32 %.mask.i2066, 16777216
   br i1 %2090, label %6668, label %2091
 
 2091:                                             ; preds = %2084
@@ -230910,8 +230910,8 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
   br label %2098
 
 2096:                                             ; preds = %2091
-  %.not.i1755 = icmp eq i32 %2092, 0
-  br i1 %.not.i1755, label %2098, label %2097
+  %.not.i1754 = icmp eq i32 %2092, 0
+  br i1 %.not.i1754, label %2098, label %2097
 
 2097:                                             ; preds = %2096
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2088) #5
@@ -230926,9 +230926,9 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
   %2102 = load ptr, ptr @l_Int8_reduceLT___regBuiltin_Int8_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11020____closed__1, align 8, !tbaa !5
   %2103 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2100, ptr noundef %2101, i8 noundef zeroext 1, ptr noundef %2102, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2104 = getelementptr i8, ptr %2103, i64 4
-  %.val1823 = load i32, ptr %2104, align 4
-  %.mask.i2068 = and i32 %.val1823, -16777216
-  %2105 = icmp eq i32 %.mask.i2068, 16777216
+  %.val1822 = load i32, ptr %2104, align 4
+  %.mask.i2067 = and i32 %.val1822, -16777216
+  %2105 = icmp eq i32 %.mask.i2067, 16777216
   br i1 %2105, label %6668, label %2106
 
 2106:                                             ; preds = %2098
@@ -230942,18 +230942,18 @@ lean_dec_ref.exit1760:                            ; preds = %.critedge1002
   br label %2114
 
 2111:                                             ; preds = %2106
-  %.not.i1753 = icmp eq i32 %2107, 0
-  br i1 %.not.i1753, label %2114, label %2112
+  %.not.i1752 = icmp eq i32 %2107, 0
+  br i1 %.not.i1752, label %2114, label %2112
 
 2112:                                             ; preds = %2111
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2103) #5
   br label %2114
 
-lean_dec_ref.exit1754:                            ; preds = %.critedge1006
+lean_dec_ref.exit1753:                            ; preds = %.critedge1005
   %2113 = tail call fastcc ptr @_init_l_Int8_reduceLT___regBuiltin_Int8_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11020____closed__1()
   store ptr %2113, ptr @l_Int8_reduceLT___regBuiltin_Int8_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11020____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2113) #5
-  br label %.critedge1010
+  br label %.critedge1009
 
 2114:                                             ; preds = %2112, %2111, %2109
   %2115 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -230961,9 +230961,9 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2117 = load ptr, ptr @l_Int8_reduceLT___regBuiltin_Int8_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11020____closed__1, align 8, !tbaa !5
   %2118 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2115, ptr noundef %2116, i8 noundef zeroext 1, ptr noundef %2117, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2119 = getelementptr i8, ptr %2118, i64 4
-  %.val1824 = load i32, ptr %2119, align 4
-  %.mask.i2069 = and i32 %.val1824, -16777216
-  %2120 = icmp eq i32 %.mask.i2069, 16777216
+  %.val1823 = load i32, ptr %2119, align 4
+  %.mask.i2068 = and i32 %.val1823, -16777216
+  %2120 = icmp eq i32 %.mask.i2068, 16777216
   br i1 %2120, label %6668, label %2121
 
 2121:                                             ; preds = %2114
@@ -230974,17 +230974,17 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
 2124:                                             ; preds = %2121
   %2125 = add nsw i32 %2122, -1
   store i32 %2125, ptr %2118, align 4, !tbaa !9
-  br label %.critedge1010
+  br label %.critedge1009
 
 2126:                                             ; preds = %2121
-  %.not.i1751 = icmp eq i32 %2122, 0
-  br i1 %.not.i1751, label %.critedge1010, label %2127
+  %.not.i1750 = icmp eq i32 %2122, 0
+  br i1 %.not.i1750, label %.critedge1009, label %2127
 
 2127:                                             ; preds = %2126
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2118) #5
-  br label %.critedge1010
+  br label %.critedge1009
 
-.critedge1010:                                    ; preds = %2127, %2126, %2124, %lean_dec_ref.exit1754
+.critedge1009:                                    ; preds = %2127, %2126, %2124, %lean_dec_ref.exit1753
   %2128 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2129 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__410, align 8, !tbaa !5
   %2130 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2128, ptr noundef %2129) #5
@@ -231003,17 +231003,17 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2135 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLE_declare__45____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11057____closed__5()
   store ptr %2135, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLE_declare__45____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11057____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2135) #5
-  br i1 %.not, label %.critedge1015, label %2136
+  br i1 %.not, label %.critedge1014, label %2136
 
-2136:                                             ; preds = %.critedge1010
+2136:                                             ; preds = %.critedge1009
   %2137 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLE_declare__45____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11057____closed__1, align 8, !tbaa !5
   %2138 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLE_declare__45____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11057____closed__4, align 8, !tbaa !5
   %2139 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceLE_declare__45____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11057____closed__5, align 8, !tbaa !5
   %2140 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2137, ptr noundef %2138, ptr noundef %2139, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2141 = getelementptr i8, ptr %2140, i64 4
-  %.val1825 = load i32, ptr %2141, align 4
-  %.mask.i2070 = and i32 %.val1825, -16777216
-  %2142 = icmp eq i32 %.mask.i2070, 16777216
+  %.val1824 = load i32, ptr %2141, align 4
+  %.mask.i2069 = and i32 %.val1824, -16777216
+  %2142 = icmp eq i32 %.mask.i2069, 16777216
   br i1 %2142, label %6668, label %2143
 
 2143:                                             ; preds = %2136
@@ -231027,8 +231027,8 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   br label %2150
 
 2148:                                             ; preds = %2143
-  %.not.i1749 = icmp eq i32 %2144, 0
-  br i1 %.not.i1749, label %2150, label %2149
+  %.not.i1748 = icmp eq i32 %2144, 0
+  br i1 %.not.i1748, label %2150, label %2149
 
 2149:                                             ; preds = %2148
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2140) #5
@@ -231043,9 +231043,9 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2154 = load ptr, ptr @l_Int8_reduceLE___regBuiltin_Int8_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11059____closed__1, align 8, !tbaa !5
   %2155 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2152, ptr noundef %2153, i8 noundef zeroext 1, ptr noundef %2154, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2156 = getelementptr i8, ptr %2155, i64 4
-  %.val1826 = load i32, ptr %2156, align 4
-  %.mask.i2071 = and i32 %.val1826, -16777216
-  %2157 = icmp eq i32 %.mask.i2071, 16777216
+  %.val1825 = load i32, ptr %2156, align 4
+  %.mask.i2070 = and i32 %.val1825, -16777216
+  %2157 = icmp eq i32 %.mask.i2070, 16777216
   br i1 %2157, label %6668, label %2158
 
 2158:                                             ; preds = %2150
@@ -231059,8 +231059,8 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   br label %2165
 
 2163:                                             ; preds = %2158
-  %.not.i1747 = icmp eq i32 %2159, 0
-  br i1 %.not.i1747, label %2165, label %2164
+  %.not.i1746 = icmp eq i32 %2159, 0
+  br i1 %.not.i1746, label %2165, label %2164
 
 2164:                                             ; preds = %2163
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2155) #5
@@ -231072,24 +231072,24 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2168 = load ptr, ptr @l_Int8_reduceLE___regBuiltin_Int8_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11059____closed__1, align 8, !tbaa !5
   %2169 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2166, ptr noundef %2167, i8 noundef zeroext 1, ptr noundef %2168, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2170 = getelementptr i8, ptr %2169, i64 4
-  %.val1827 = load i32, ptr %2170, align 4
-  %.mask.i2072 = and i32 %.val1827, -16777216
-  %2171 = icmp eq i32 %.mask.i2072, 16777216
-  br i1 %2171, label %6668, label %.critedge1014
+  %.val1826 = load i32, ptr %2170, align 4
+  %.mask.i2071 = and i32 %.val1826, -16777216
+  %2171 = icmp eq i32 %.mask.i2071, 16777216
+  br i1 %2171, label %6668, label %.critedge1013
 
-.critedge1014:                                    ; preds = %2165
+.critedge1013:                                    ; preds = %2165
   %2172 = load i32, ptr %2169, align 4, !tbaa !9
   %2173 = icmp sgt i32 %2172, 1
   br i1 %2173, label %2174, label %2176, !prof !12
 
-2174:                                             ; preds = %.critedge1014
+2174:                                             ; preds = %.critedge1013
   %2175 = add nsw i32 %2172, -1
   store i32 %2175, ptr %2169, align 4, !tbaa !9
   br label %2178
 
-2176:                                             ; preds = %.critedge1014
-  %.not.i1745 = icmp eq i32 %2172, 0
-  br i1 %.not.i1745, label %2178, label %2177
+2176:                                             ; preds = %.critedge1013
+  %.not.i1744 = icmp eq i32 %2172, 0
+  br i1 %.not.i1744, label %2178, label %2177
 
 2177:                                             ; preds = %2176
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2169) #5
@@ -231109,9 +231109,9 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2185 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGT_declare__49____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11096____closed__2, align 8, !tbaa !5
   %2186 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2183, ptr noundef %2184, ptr noundef %2185, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2187 = getelementptr i8, ptr %2186, i64 4
-  %.val1828 = load i32, ptr %2187, align 4
-  %.mask.i2073 = and i32 %.val1828, -16777216
-  %2188 = icmp eq i32 %.mask.i2073, 16777216
+  %.val1827 = load i32, ptr %2187, align 4
+  %.mask.i2072 = and i32 %.val1827, -16777216
+  %2188 = icmp eq i32 %.mask.i2072, 16777216
   br i1 %2188, label %6668, label %2189
 
 2189:                                             ; preds = %2178
@@ -231122,17 +231122,17 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
 2192:                                             ; preds = %2189
   %2193 = add nsw i32 %2190, -1
   store i32 %2193, ptr %2186, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1744
+  br label %lean_dec_ref.exit1743
 
 2194:                                             ; preds = %2189
-  %.not.i1743 = icmp eq i32 %2190, 0
-  br i1 %.not.i1743, label %lean_dec_ref.exit1744, label %2195
+  %.not.i1742 = icmp eq i32 %2190, 0
+  br i1 %.not.i1742, label %lean_dec_ref.exit1743, label %2195
 
 2195:                                             ; preds = %2194
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2186) #5
-  br label %lean_dec_ref.exit1744
+  br label %lean_dec_ref.exit1743
 
-.critedge1015:                                    ; preds = %.critedge1010
+.critedge1014:                                    ; preds = %.critedge1009
   %2196 = tail call fastcc ptr @_init_l_Int8_reduceLE___regBuiltin_Int8_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11059____closed__1()
   store ptr %2196, ptr @l_Int8_reduceLE___regBuiltin_Int8_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11059____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2196) #5
@@ -231144,23 +231144,23 @@ lean_dec_ref.exit1754:                            ; preds = %.critedge1006
   %2200 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGT_declare__49____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11096____closed__2()
   store ptr %2200, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGT_declare__49____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11096____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2200) #5
-  br label %lean_dec_ref.exit1744
+  br label %lean_dec_ref.exit1743
 
-lean_dec_ref.exit1744:                            ; preds = %2195, %2194, %2192, %.critedge1015
+lean_dec_ref.exit1743:                            ; preds = %2195, %2194, %2192, %.critedge1014
   %2201 = tail call fastcc ptr @_init_l_Int8_reduceGT___regBuiltin_Int8_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11098____closed__1()
   store ptr %2201, ptr @l_Int8_reduceGT___regBuiltin_Int8_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11098____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2201) #5
-  br i1 %.not, label %.critedge1020, label %2202
+  br i1 %.not, label %.critedge1019, label %2202
 
-2202:                                             ; preds = %lean_dec_ref.exit1744
+2202:                                             ; preds = %lean_dec_ref.exit1743
   %2203 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %2204 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGT_declare__49____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11096____closed__1, align 8, !tbaa !5
   %2205 = load ptr, ptr @l_Int8_reduceGT___regBuiltin_Int8_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11098____closed__1, align 8, !tbaa !5
   %2206 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2203, ptr noundef %2204, i8 noundef zeroext 1, ptr noundef %2205, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2207 = getelementptr i8, ptr %2206, i64 4
-  %.val1829 = load i32, ptr %2207, align 4
-  %.mask.i2074 = and i32 %.val1829, -16777216
-  %2208 = icmp eq i32 %.mask.i2074, 16777216
+  %.val1828 = load i32, ptr %2207, align 4
+  %.mask.i2073 = and i32 %.val1828, -16777216
+  %2208 = icmp eq i32 %.mask.i2073, 16777216
   br i1 %2208, label %6668, label %2209
 
 2209:                                             ; preds = %2202
@@ -231171,40 +231171,40 @@ lean_dec_ref.exit1744:                            ; preds = %2195, %2194, %2192,
 2212:                                             ; preds = %2209
   %2213 = add nsw i32 %2210, -1
   store i32 %2213, ptr %2206, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1742
+  br label %lean_dec_ref.exit1741
 
 2214:                                             ; preds = %2209
-  %.not.i1741 = icmp eq i32 %2210, 0
-  br i1 %.not.i1741, label %lean_dec_ref.exit1742, label %2215
+  %.not.i1740 = icmp eq i32 %2210, 0
+  br i1 %.not.i1740, label %lean_dec_ref.exit1741, label %2215
 
 2215:                                             ; preds = %2214
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2206) #5
-  br label %lean_dec_ref.exit1742
+  br label %lean_dec_ref.exit1741
 
-lean_dec_ref.exit1742:                            ; preds = %2212, %2214, %2215
+lean_dec_ref.exit1741:                            ; preds = %2212, %2214, %2215
   %2216 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2217 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGT_declare__49____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11096____closed__1, align 8, !tbaa !5
   %2218 = load ptr, ptr @l_Int8_reduceGT___regBuiltin_Int8_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11098____closed__1, align 8, !tbaa !5
   %2219 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2216, ptr noundef %2217, i8 noundef zeroext 1, ptr noundef %2218, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2220 = getelementptr i8, ptr %2219, i64 4
-  %.val1830 = load i32, ptr %2220, align 4
-  %.mask.i2075 = and i32 %.val1830, -16777216
-  %2221 = icmp eq i32 %.mask.i2075, 16777216
-  br i1 %2221, label %6668, label %.critedge1019
+  %.val1829 = load i32, ptr %2220, align 4
+  %.mask.i2074 = and i32 %.val1829, -16777216
+  %2221 = icmp eq i32 %.mask.i2074, 16777216
+  br i1 %2221, label %6668, label %.critedge1018
 
-.critedge1019:                                    ; preds = %lean_dec_ref.exit1742
+.critedge1018:                                    ; preds = %lean_dec_ref.exit1741
   %2222 = load i32, ptr %2219, align 4, !tbaa !9
   %2223 = icmp sgt i32 %2222, 1
   br i1 %2223, label %2224, label %2226, !prof !12
 
-2224:                                             ; preds = %.critedge1019
+2224:                                             ; preds = %.critedge1018
   %2225 = add nsw i32 %2222, -1
   store i32 %2225, ptr %2219, align 4, !tbaa !9
   br label %2228
 
-2226:                                             ; preds = %.critedge1019
-  %.not.i1739 = icmp eq i32 %2222, 0
-  br i1 %.not.i1739, label %2228, label %2227
+2226:                                             ; preds = %.critedge1018
+  %.not.i1738 = icmp eq i32 %2222, 0
+  br i1 %.not.i1738, label %2228, label %2227
 
 2227:                                             ; preds = %2226
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2219) #5
@@ -231224,9 +231224,9 @@ lean_dec_ref.exit1742:                            ; preds = %2212, %2214, %2215
   %2235 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGE_declare__53____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11135____closed__2, align 8, !tbaa !5
   %2236 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2233, ptr noundef %2234, ptr noundef %2235, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2237 = getelementptr i8, ptr %2236, i64 4
-  %.val1831 = load i32, ptr %2237, align 4
-  %.mask.i2076 = and i32 %.val1831, -16777216
-  %2238 = icmp eq i32 %.mask.i2076, 16777216
+  %.val1830 = load i32, ptr %2237, align 4
+  %.mask.i2075 = and i32 %.val1830, -16777216
+  %2238 = icmp eq i32 %.mask.i2075, 16777216
   br i1 %2238, label %6668, label %2239
 
 2239:                                             ; preds = %2228
@@ -231237,17 +231237,17 @@ lean_dec_ref.exit1742:                            ; preds = %2212, %2214, %2215
 2242:                                             ; preds = %2239
   %2243 = add nsw i32 %2240, -1
   store i32 %2243, ptr %2236, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1738
+  br label %lean_dec_ref.exit1737
 
 2244:                                             ; preds = %2239
-  %.not.i1737 = icmp eq i32 %2240, 0
-  br i1 %.not.i1737, label %lean_dec_ref.exit1738, label %2245
+  %.not.i1736 = icmp eq i32 %2240, 0
+  br i1 %.not.i1736, label %lean_dec_ref.exit1737, label %2245
 
 2245:                                             ; preds = %2244
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2236) #5
-  br label %lean_dec_ref.exit1738
+  br label %lean_dec_ref.exit1737
 
-.critedge1020:                                    ; preds = %lean_dec_ref.exit1744
+.critedge1019:                                    ; preds = %lean_dec_ref.exit1743
   %2246 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2247 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__436, align 8, !tbaa !5
   %2248 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2246, ptr noundef %2247) #5
@@ -231256,23 +231256,23 @@ lean_dec_ref.exit1742:                            ; preds = %2212, %2214, %2215
   %2249 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGE_declare__53____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11135____closed__2()
   store ptr %2249, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGE_declare__53____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11135____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2249) #5
-  br label %lean_dec_ref.exit1738
+  br label %lean_dec_ref.exit1737
 
-lean_dec_ref.exit1738:                            ; preds = %2245, %2244, %2242, %.critedge1020
+lean_dec_ref.exit1737:                            ; preds = %2245, %2244, %2242, %.critedge1019
   %2250 = tail call fastcc ptr @_init_l_Int8_reduceGE___regBuiltin_Int8_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11137____closed__1()
   store ptr %2250, ptr @l_Int8_reduceGE___regBuiltin_Int8_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11137____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2250) #5
-  br i1 %.not, label %.critedge1024, label %2251
+  br i1 %.not, label %.critedge1023, label %2251
 
-2251:                                             ; preds = %lean_dec_ref.exit1738
+2251:                                             ; preds = %lean_dec_ref.exit1737
   %2252 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %2253 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGE_declare__53____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11135____closed__1, align 8, !tbaa !5
   %2254 = load ptr, ptr @l_Int8_reduceGE___regBuiltin_Int8_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11137____closed__1, align 8, !tbaa !5
   %2255 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2252, ptr noundef %2253, i8 noundef zeroext 1, ptr noundef %2254, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2256 = getelementptr i8, ptr %2255, i64 4
-  %.val1832 = load i32, ptr %2256, align 4
-  %.mask.i2077 = and i32 %.val1832, -16777216
-  %2257 = icmp eq i32 %.mask.i2077, 16777216
+  %.val1831 = load i32, ptr %2256, align 4
+  %.mask.i2076 = and i32 %.val1831, -16777216
+  %2257 = icmp eq i32 %.mask.i2076, 16777216
   br i1 %2257, label %6668, label %2258
 
 2258:                                             ; preds = %2251
@@ -231283,28 +231283,28 @@ lean_dec_ref.exit1738:                            ; preds = %2245, %2244, %2242,
 2261:                                             ; preds = %2258
   %2262 = add nsw i32 %2259, -1
   store i32 %2262, ptr %2255, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1736
+  br label %lean_dec_ref.exit1735
 
 2263:                                             ; preds = %2258
-  %.not.i1735 = icmp eq i32 %2259, 0
-  br i1 %.not.i1735, label %lean_dec_ref.exit1736, label %2264
+  %.not.i1734 = icmp eq i32 %2259, 0
+  br i1 %.not.i1734, label %lean_dec_ref.exit1735, label %2264
 
 2264:                                             ; preds = %2263
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2255) #5
-  br label %lean_dec_ref.exit1736
+  br label %lean_dec_ref.exit1735
 
-lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
+lean_dec_ref.exit1735:                            ; preds = %2261, %2263, %2264
   %2265 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2266 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceGE_declare__53____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11135____closed__1, align 8, !tbaa !5
   %2267 = load ptr, ptr @l_Int8_reduceGE___regBuiltin_Int8_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11137____closed__1, align 8, !tbaa !5
   %2268 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2265, ptr noundef %2266, i8 noundef zeroext 1, ptr noundef %2267, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2269 = getelementptr i8, ptr %2268, i64 4
-  %.val1833 = load i32, ptr %2269, align 4
-  %.mask.i2078 = and i32 %.val1833, -16777216
-  %2270 = icmp eq i32 %.mask.i2078, 16777216
+  %.val1832 = load i32, ptr %2269, align 4
+  %.mask.i2077 = and i32 %.val1832, -16777216
+  %2270 = icmp eq i32 %.mask.i2077, 16777216
   br i1 %2270, label %6668, label %2271
 
-2271:                                             ; preds = %lean_dec_ref.exit1736
+2271:                                             ; preds = %lean_dec_ref.exit1735
   %2272 = load i32, ptr %2268, align 4, !tbaa !9
   %2273 = icmp sgt i32 %2272, 1
   br i1 %2273, label %2274, label %2276, !prof !12
@@ -231312,17 +231312,17 @@ lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
 2274:                                             ; preds = %2271
   %2275 = add nsw i32 %2272, -1
   store i32 %2275, ptr %2268, align 4, !tbaa !9
-  br label %.critedge1024
+  br label %.critedge1023
 
 2276:                                             ; preds = %2271
-  %.not.i1733 = icmp eq i32 %2272, 0
-  br i1 %.not.i1733, label %.critedge1024, label %2277
+  %.not.i1732 = icmp eq i32 %2272, 0
+  br i1 %.not.i1732, label %.critedge1023, label %2277
 
 2277:                                             ; preds = %2276
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2268) #5
-  br label %.critedge1024
+  br label %.critedge1023
 
-.critedge1024:                                    ; preds = %2277, %2276, %2274, %lean_dec_ref.exit1738
+.critedge1023:                                    ; preds = %2277, %2276, %2274, %lean_dec_ref.exit1737
   %2278 = load ptr, ptr @l_Int8_fromExpr___closed__2, align 8, !tbaa !5
   %2279 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__449, align 8, !tbaa !5
   %2280 = tail call ptr @l_Lean_Name_str___override(ptr noundef %2278, ptr noundef %2279) #5
@@ -231385,17 +231385,17 @@ lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
   %2311 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceEq_declare__57____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11174____closed__14()
   store ptr %2311, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceEq_declare__57____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11174____closed__14, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2311) #5
-  br i1 %.not, label %lean_dec_ref.exit1730, label %2312
+  br i1 %.not, label %lean_dec_ref.exit1729, label %2312
 
-2312:                                             ; preds = %.critedge1024
+2312:                                             ; preds = %.critedge1023
   %2313 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceEq_declare__57____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11174____closed__10, align 8, !tbaa !5
   %2314 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceEq_declare__57____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11174____closed__13, align 8, !tbaa !5
   %2315 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceEq_declare__57____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11174____closed__14, align 8, !tbaa !5
   %2316 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2313, ptr noundef %2314, ptr noundef %2315, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2317 = getelementptr i8, ptr %2316, i64 4
-  %.val1834 = load i32, ptr %2317, align 4
-  %.mask.i2079 = and i32 %.val1834, -16777216
-  %2318 = icmp eq i32 %.mask.i2079, 16777216
+  %.val1833 = load i32, ptr %2317, align 4
+  %.mask.i2078 = and i32 %.val1833, -16777216
+  %2318 = icmp eq i32 %.mask.i2078, 16777216
   br i1 %2318, label %6668, label %2319
 
 2319:                                             ; preds = %2312
@@ -231409,8 +231409,8 @@ lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
   br label %2326
 
 2324:                                             ; preds = %2319
-  %.not.i1731 = icmp eq i32 %2320, 0
-  br i1 %.not.i1731, label %2326, label %2325
+  %.not.i1730 = icmp eq i32 %2320, 0
+  br i1 %.not.i1730, label %2326, label %2325
 
 2325:                                             ; preds = %2324
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2316) #5
@@ -231425,9 +231425,9 @@ lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
   %2330 = load ptr, ptr @l_Int8_reduceEq___regBuiltin_Int8_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2331 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2328, ptr noundef %2329, i8 noundef zeroext 1, ptr noundef %2330, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2332 = getelementptr i8, ptr %2331, i64 4
-  %.val1835 = load i32, ptr %2332, align 4
-  %.mask.i2080 = and i32 %.val1835, -16777216
-  %2333 = icmp eq i32 %.mask.i2080, 16777216
+  %.val1834 = load i32, ptr %2332, align 4
+  %.mask.i2079 = and i32 %.val1834, -16777216
+  %2333 = icmp eq i32 %.mask.i2079, 16777216
   br i1 %2333, label %6668, label %2334
 
 2334:                                             ; preds = %2326
@@ -231441,18 +231441,18 @@ lean_dec_ref.exit1736:                            ; preds = %2261, %2263, %2264
   br label %2342
 
 2339:                                             ; preds = %2334
-  %.not.i1729 = icmp eq i32 %2335, 0
-  br i1 %.not.i1729, label %2342, label %2340
+  %.not.i1728 = icmp eq i32 %2335, 0
+  br i1 %.not.i1728, label %2342, label %2340
 
 2340:                                             ; preds = %2339
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2331) #5
   br label %2342
 
-lean_dec_ref.exit1730:                            ; preds = %.critedge1024
+lean_dec_ref.exit1729:                            ; preds = %.critedge1023
   %2341 = tail call fastcc ptr @_init_l_Int8_reduceEq___regBuiltin_Int8_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %2341, ptr @l_Int8_reduceEq___regBuiltin_Int8_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2341) #5
-  br label %.critedge1028
+  br label %.critedge1027
 
 2342:                                             ; preds = %2340, %2339, %2337
   %2343 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -231460,9 +231460,9 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
   %2345 = load ptr, ptr @l_Int8_reduceEq___regBuiltin_Int8_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2346 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2343, ptr noundef %2344, i8 noundef zeroext 1, ptr noundef %2345, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2347 = getelementptr i8, ptr %2346, i64 4
-  %.val1836 = load i32, ptr %2347, align 4
-  %.mask.i2081 = and i32 %.val1836, -16777216
-  %2348 = icmp eq i32 %.mask.i2081, 16777216
+  %.val1835 = load i32, ptr %2347, align 4
+  %.mask.i2080 = and i32 %.val1835, -16777216
+  %2348 = icmp eq i32 %.mask.i2080, 16777216
   br i1 %2348, label %6668, label %2349
 
 2349:                                             ; preds = %2342
@@ -231473,17 +231473,17 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
 2352:                                             ; preds = %2349
   %2353 = add nsw i32 %2350, -1
   store i32 %2353, ptr %2346, align 4, !tbaa !9
-  br label %.critedge1028
+  br label %.critedge1027
 
 2354:                                             ; preds = %2349
-  %.not.i1727 = icmp eq i32 %2350, 0
-  br i1 %.not.i1727, label %.critedge1028, label %2355
+  %.not.i1726 = icmp eq i32 %2350, 0
+  br i1 %.not.i1726, label %.critedge1027, label %2355
 
 2355:                                             ; preds = %2354
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2346) #5
-  br label %.critedge1028
+  br label %.critedge1027
 
-.critedge1028:                                    ; preds = %2355, %2354, %2352, %lean_dec_ref.exit1730
+.critedge1027:                                    ; preds = %2355, %2354, %2352, %lean_dec_ref.exit1729
   %2356 = load ptr, ptr @l_Int8_fromExpr___closed__2, align 8, !tbaa !5
   %2357 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__462, align 8, !tbaa !5
   %2358 = tail call ptr @l_Lean_Name_str___override(ptr noundef %2356, ptr noundef %2357) #5
@@ -231553,17 +231553,17 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
   %2392 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNe_declare__61____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11212____closed__16()
   store ptr %2392, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNe_declare__61____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11212____closed__16, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2392) #5
-  br i1 %.not, label %lean_dec_ref.exit1724, label %2393
+  br i1 %.not, label %lean_dec_ref.exit1723, label %2393
 
-2393:                                             ; preds = %.critedge1028
+2393:                                             ; preds = %.critedge1027
   %2394 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNe_declare__61____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11212____closed__10, align 8, !tbaa !5
   %2395 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNe_declare__61____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11212____closed__15, align 8, !tbaa !5
   %2396 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceNe_declare__61____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11212____closed__16, align 8, !tbaa !5
   %2397 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2394, ptr noundef %2395, ptr noundef %2396, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2398 = getelementptr i8, ptr %2397, i64 4
-  %.val1837 = load i32, ptr %2398, align 4
-  %.mask.i2082 = and i32 %.val1837, -16777216
-  %2399 = icmp eq i32 %.mask.i2082, 16777216
+  %.val1836 = load i32, ptr %2398, align 4
+  %.mask.i2081 = and i32 %.val1836, -16777216
+  %2399 = icmp eq i32 %.mask.i2081, 16777216
   br i1 %2399, label %6668, label %2400
 
 2400:                                             ; preds = %2393
@@ -231577,8 +231577,8 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
   br label %2407
 
 2405:                                             ; preds = %2400
-  %.not.i1725 = icmp eq i32 %2401, 0
-  br i1 %.not.i1725, label %2407, label %2406
+  %.not.i1724 = icmp eq i32 %2401, 0
+  br i1 %.not.i1724, label %2407, label %2406
 
 2406:                                             ; preds = %2405
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2397) #5
@@ -231593,9 +231593,9 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
   %2411 = load ptr, ptr @l_Int8_reduceNe___regBuiltin_Int8_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2412 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2409, ptr noundef %2410, i8 noundef zeroext 1, ptr noundef %2411, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2413 = getelementptr i8, ptr %2412, i64 4
-  %.val1838 = load i32, ptr %2413, align 4
-  %.mask.i2083 = and i32 %.val1838, -16777216
-  %2414 = icmp eq i32 %.mask.i2083, 16777216
+  %.val1837 = load i32, ptr %2413, align 4
+  %.mask.i2082 = and i32 %.val1837, -16777216
+  %2414 = icmp eq i32 %.mask.i2082, 16777216
   br i1 %2414, label %6668, label %2415
 
 2415:                                             ; preds = %2407
@@ -231609,18 +231609,18 @@ lean_dec_ref.exit1730:                            ; preds = %.critedge1024
   br label %2423
 
 2420:                                             ; preds = %2415
-  %.not.i1723 = icmp eq i32 %2416, 0
-  br i1 %.not.i1723, label %2423, label %2421
+  %.not.i1722 = icmp eq i32 %2416, 0
+  br i1 %.not.i1722, label %2423, label %2421
 
 2421:                                             ; preds = %2420
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2412) #5
   br label %2423
 
-lean_dec_ref.exit1724:                            ; preds = %.critedge1028
+lean_dec_ref.exit1723:                            ; preds = %.critedge1027
   %2422 = tail call fastcc ptr @_init_l_Int8_reduceNe___regBuiltin_Int8_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %2422, ptr @l_Int8_reduceNe___regBuiltin_Int8_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2422) #5
-  br label %.critedge1032
+  br label %.critedge1031
 
 2423:                                             ; preds = %2421, %2420, %2418
   %2424 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -231628,9 +231628,9 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
   %2426 = load ptr, ptr @l_Int8_reduceNe___regBuiltin_Int8_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2427 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2424, ptr noundef %2425, i8 noundef zeroext 1, ptr noundef %2426, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2428 = getelementptr i8, ptr %2427, i64 4
-  %.val1839 = load i32, ptr %2428, align 4
-  %.mask.i2084 = and i32 %.val1839, -16777216
-  %2429 = icmp eq i32 %.mask.i2084, 16777216
+  %.val1838 = load i32, ptr %2428, align 4
+  %.mask.i2083 = and i32 %.val1838, -16777216
+  %2429 = icmp eq i32 %.mask.i2083, 16777216
   br i1 %2429, label %6668, label %2430
 
 2430:                                             ; preds = %2423
@@ -231641,17 +231641,17 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
 2433:                                             ; preds = %2430
   %2434 = add nsw i32 %2431, -1
   store i32 %2434, ptr %2427, align 4, !tbaa !9
-  br label %.critedge1032
+  br label %.critedge1031
 
 2435:                                             ; preds = %2430
-  %.not.i1721 = icmp eq i32 %2431, 0
-  br i1 %.not.i1721, label %.critedge1032, label %2436
+  %.not.i1720 = icmp eq i32 %2431, 0
+  br i1 %.not.i1720, label %.critedge1031, label %2436
 
 2436:                                             ; preds = %2435
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2427) #5
-  br label %.critedge1032
+  br label %.critedge1031
 
-.critedge1032:                                    ; preds = %2436, %2435, %2433, %lean_dec_ref.exit1724
+.critedge1031:                                    ; preds = %2436, %2435, %2433, %lean_dec_ref.exit1723
   %2437 = load ptr, ptr @l_Int8_fromExpr___closed__2, align 8, !tbaa !5
   %2438 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__475, align 8, !tbaa !5
   %2439 = tail call ptr @l_Lean_Name_str___override(ptr noundef %2437, ptr noundef %2438) #5
@@ -231714,17 +231714,17 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
   %2470 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBEq_declare__65____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11251____closed__14()
   store ptr %2470, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBEq_declare__65____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11251____closed__14, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2470) #5
-  br i1 %.not, label %lean_dec_ref.exit1718, label %2471
+  br i1 %.not, label %lean_dec_ref.exit1717, label %2471
 
-2471:                                             ; preds = %.critedge1032
+2471:                                             ; preds = %.critedge1031
   %2472 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBEq_declare__65____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11251____closed__10, align 8, !tbaa !5
   %2473 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBEq_declare__65____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11251____closed__13, align 8, !tbaa !5
   %2474 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBEq_declare__65____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11251____closed__14, align 8, !tbaa !5
   %2475 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2472, ptr noundef %2473, ptr noundef %2474, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2476 = getelementptr i8, ptr %2475, i64 4
-  %.val1840 = load i32, ptr %2476, align 4
-  %.mask.i2085 = and i32 %.val1840, -16777216
-  %2477 = icmp eq i32 %.mask.i2085, 16777216
+  %.val1839 = load i32, ptr %2476, align 4
+  %.mask.i2084 = and i32 %.val1839, -16777216
+  %2477 = icmp eq i32 %.mask.i2084, 16777216
   br i1 %2477, label %6668, label %2478
 
 2478:                                             ; preds = %2471
@@ -231738,8 +231738,8 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
   br label %2485
 
 2483:                                             ; preds = %2478
-  %.not.i1719 = icmp eq i32 %2479, 0
-  br i1 %.not.i1719, label %2485, label %2484
+  %.not.i1718 = icmp eq i32 %2479, 0
+  br i1 %.not.i1718, label %2485, label %2484
 
 2484:                                             ; preds = %2483
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2475) #5
@@ -231754,9 +231754,9 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
   %2489 = load ptr, ptr @l_Int8_reduceBEq___regBuiltin_Int8_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2490 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2487, ptr noundef %2488, i8 noundef zeroext 1, ptr noundef %2489, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2491 = getelementptr i8, ptr %2490, i64 4
-  %.val1841 = load i32, ptr %2491, align 4
-  %.mask.i2086 = and i32 %.val1841, -16777216
-  %2492 = icmp eq i32 %.mask.i2086, 16777216
+  %.val1840 = load i32, ptr %2491, align 4
+  %.mask.i2085 = and i32 %.val1840, -16777216
+  %2492 = icmp eq i32 %.mask.i2085, 16777216
   br i1 %2492, label %6668, label %2493
 
 2493:                                             ; preds = %2485
@@ -231770,18 +231770,18 @@ lean_dec_ref.exit1724:                            ; preds = %.critedge1028
   br label %2501
 
 2498:                                             ; preds = %2493
-  %.not.i1717 = icmp eq i32 %2494, 0
-  br i1 %.not.i1717, label %2501, label %2499
+  %.not.i1716 = icmp eq i32 %2494, 0
+  br i1 %.not.i1716, label %2501, label %2499
 
 2499:                                             ; preds = %2498
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2490) #5
   br label %2501
 
-lean_dec_ref.exit1718:                            ; preds = %.critedge1032
+lean_dec_ref.exit1717:                            ; preds = %.critedge1031
   %2500 = tail call fastcc ptr @_init_l_Int8_reduceBEq___regBuiltin_Int8_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %2500, ptr @l_Int8_reduceBEq___regBuiltin_Int8_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2500) #5
-  br label %.critedge1036
+  br label %.critedge1035
 
 2501:                                             ; preds = %2499, %2498, %2496
   %2502 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -231789,9 +231789,9 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
   %2504 = load ptr, ptr @l_Int8_reduceBEq___regBuiltin_Int8_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2505 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2502, ptr noundef %2503, i8 noundef zeroext 1, ptr noundef %2504, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2506 = getelementptr i8, ptr %2505, i64 4
-  %.val1842 = load i32, ptr %2506, align 4
-  %.mask.i2087 = and i32 %.val1842, -16777216
-  %2507 = icmp eq i32 %.mask.i2087, 16777216
+  %.val1841 = load i32, ptr %2506, align 4
+  %.mask.i2086 = and i32 %.val1841, -16777216
+  %2507 = icmp eq i32 %.mask.i2086, 16777216
   br i1 %2507, label %6668, label %2508
 
 2508:                                             ; preds = %2501
@@ -231802,17 +231802,17 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
 2511:                                             ; preds = %2508
   %2512 = add nsw i32 %2509, -1
   store i32 %2512, ptr %2505, align 4, !tbaa !9
-  br label %.critedge1036
+  br label %.critedge1035
 
 2513:                                             ; preds = %2508
-  %.not.i1715 = icmp eq i32 %2509, 0
-  br i1 %.not.i1715, label %.critedge1036, label %2514
+  %.not.i1714 = icmp eq i32 %2509, 0
+  br i1 %.not.i1714, label %.critedge1035, label %2514
 
 2514:                                             ; preds = %2513
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2505) #5
-  br label %.critedge1036
+  br label %.critedge1035
 
-.critedge1036:                                    ; preds = %2514, %2513, %2511, %lean_dec_ref.exit1718
+.critedge1035:                                    ; preds = %2514, %2513, %2511, %lean_dec_ref.exit1717
   %2515 = load ptr, ptr @l_Int8_fromExpr___closed__2, align 8, !tbaa !5
   %2516 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__488, align 8, !tbaa !5
   %2517 = tail call ptr @l_Lean_Name_str___override(ptr noundef %2515, ptr noundef %2516) #5
@@ -231875,17 +231875,17 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
   %2548 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBNe_declare__69____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11289____closed__14()
   store ptr %2548, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBNe_declare__69____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11289____closed__14, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2548) #5
-  br i1 %.not, label %lean_dec_ref.exit1712, label %2549
+  br i1 %.not, label %lean_dec_ref.exit1711, label %2549
 
-2549:                                             ; preds = %.critedge1036
+2549:                                             ; preds = %.critedge1035
   %2550 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBNe_declare__69____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11289____closed__10, align 8, !tbaa !5
   %2551 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBNe_declare__69____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11289____closed__13, align 8, !tbaa !5
   %2552 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceBNe_declare__69____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11289____closed__14, align 8, !tbaa !5
   %2553 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2550, ptr noundef %2551, ptr noundef %2552, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2554 = getelementptr i8, ptr %2553, i64 4
-  %.val1843 = load i32, ptr %2554, align 4
-  %.mask.i2088 = and i32 %.val1843, -16777216
-  %2555 = icmp eq i32 %.mask.i2088, 16777216
+  %.val1842 = load i32, ptr %2554, align 4
+  %.mask.i2087 = and i32 %.val1842, -16777216
+  %2555 = icmp eq i32 %.mask.i2087, 16777216
   br i1 %2555, label %6668, label %2556
 
 2556:                                             ; preds = %2549
@@ -231899,8 +231899,8 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
   br label %2563
 
 2561:                                             ; preds = %2556
-  %.not.i1713 = icmp eq i32 %2557, 0
-  br i1 %.not.i1713, label %2563, label %2562
+  %.not.i1712 = icmp eq i32 %2557, 0
+  br i1 %.not.i1712, label %2563, label %2562
 
 2562:                                             ; preds = %2561
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2553) #5
@@ -231915,9 +231915,9 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
   %2567 = load ptr, ptr @l_Int8_reduceBNe___regBuiltin_Int8_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2568 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2565, ptr noundef %2566, i8 noundef zeroext 1, ptr noundef %2567, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2569 = getelementptr i8, ptr %2568, i64 4
-  %.val1844 = load i32, ptr %2569, align 4
-  %.mask.i2089 = and i32 %.val1844, -16777216
-  %2570 = icmp eq i32 %.mask.i2089, 16777216
+  %.val1843 = load i32, ptr %2569, align 4
+  %.mask.i2088 = and i32 %.val1843, -16777216
+  %2570 = icmp eq i32 %.mask.i2088, 16777216
   br i1 %2570, label %6668, label %2571
 
 2571:                                             ; preds = %2563
@@ -231931,18 +231931,18 @@ lean_dec_ref.exit1718:                            ; preds = %.critedge1032
   br label %2579
 
 2576:                                             ; preds = %2571
-  %.not.i1711 = icmp eq i32 %2572, 0
-  br i1 %.not.i1711, label %2579, label %2577
+  %.not.i1710 = icmp eq i32 %2572, 0
+  br i1 %.not.i1710, label %2579, label %2577
 
 2577:                                             ; preds = %2576
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2568) #5
   br label %2579
 
-lean_dec_ref.exit1712:                            ; preds = %.critedge1036
+lean_dec_ref.exit1711:                            ; preds = %.critedge1035
   %2578 = tail call fastcc ptr @_init_l_Int8_reduceBNe___regBuiltin_Int8_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %2578, ptr @l_Int8_reduceBNe___regBuiltin_Int8_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2578) #5
-  br label %.critedge1040
+  br label %.critedge1039
 
 2579:                                             ; preds = %2577, %2576, %2574
   %2580 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -231950,9 +231950,9 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
   %2582 = load ptr, ptr @l_Int8_reduceBNe___regBuiltin_Int8_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2583 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2580, ptr noundef %2581, i8 noundef zeroext 1, ptr noundef %2582, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2584 = getelementptr i8, ptr %2583, i64 4
-  %.val1845 = load i32, ptr %2584, align 4
-  %.mask.i2090 = and i32 %.val1845, -16777216
-  %2585 = icmp eq i32 %.mask.i2090, 16777216
+  %.val1844 = load i32, ptr %2584, align 4
+  %.mask.i2089 = and i32 %.val1844, -16777216
+  %2585 = icmp eq i32 %.mask.i2089, 16777216
   br i1 %2585, label %6668, label %2586
 
 2586:                                             ; preds = %2579
@@ -231963,17 +231963,17 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
 2589:                                             ; preds = %2586
   %2590 = add nsw i32 %2587, -1
   store i32 %2590, ptr %2583, align 4, !tbaa !9
-  br label %.critedge1040
+  br label %.critedge1039
 
 2591:                                             ; preds = %2586
-  %.not.i1709 = icmp eq i32 %2587, 0
-  br i1 %.not.i1709, label %.critedge1040, label %2592
+  %.not.i1708 = icmp eq i32 %2587, 0
+  br i1 %.not.i1708, label %.critedge1039, label %2592
 
 2592:                                             ; preds = %2591
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2583) #5
-  br label %.critedge1040
+  br label %.critedge1039
 
-.critedge1040:                                    ; preds = %2592, %2591, %2589, %lean_dec_ref.exit1712
+.critedge1039:                                    ; preds = %2592, %2591, %2589, %lean_dec_ref.exit1711
   %2593 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2594 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__5, align 8, !tbaa !5
   %2595 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2593, ptr noundef %2594) #5
@@ -231997,17 +231997,17 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
   %2603 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfIntLE_declare__73____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11405____closed__5()
   store ptr %2603, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfIntLE_declare__73____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11405____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2603) #5
-  br i1 %.not, label %lean_dec_ref.exit1706, label %2604
+  br i1 %.not, label %lean_dec_ref.exit1705, label %2604
 
-2604:                                             ; preds = %.critedge1040
+2604:                                             ; preds = %.critedge1039
   %2605 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfIntLE_declare__73____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11405____closed__1, align 8, !tbaa !5
   %2606 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfIntLE_declare__73____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11405____closed__4, align 8, !tbaa !5
   %2607 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfIntLE_declare__73____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11405____closed__5, align 8, !tbaa !5
   %2608 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2605, ptr noundef %2606, ptr noundef %2607, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2609 = getelementptr i8, ptr %2608, i64 4
-  %.val1846 = load i32, ptr %2609, align 4
-  %.mask.i2091 = and i32 %.val1846, -16777216
-  %2610 = icmp eq i32 %.mask.i2091, 16777216
+  %.val1845 = load i32, ptr %2609, align 4
+  %.mask.i2090 = and i32 %.val1845, -16777216
+  %2610 = icmp eq i32 %.mask.i2090, 16777216
   br i1 %2610, label %6668, label %2611
 
 2611:                                             ; preds = %2604
@@ -232021,8 +232021,8 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
   br label %2618
 
 2616:                                             ; preds = %2611
-  %.not.i1707 = icmp eq i32 %2612, 0
-  br i1 %.not.i1707, label %2618, label %2617
+  %.not.i1706 = icmp eq i32 %2612, 0
+  br i1 %.not.i1706, label %2618, label %2617
 
 2617:                                             ; preds = %2616
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2608) #5
@@ -232037,9 +232037,9 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
   %2622 = load ptr, ptr @l_Int8_reduceOfIntLE___regBuiltin_Int8_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11407____closed__1, align 8, !tbaa !5
   %2623 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2620, ptr noundef %2621, i8 noundef zeroext 1, ptr noundef %2622, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2624 = getelementptr i8, ptr %2623, i64 4
-  %.val1847 = load i32, ptr %2624, align 4
-  %.mask.i2092 = and i32 %.val1847, -16777216
-  %2625 = icmp eq i32 %.mask.i2092, 16777216
+  %.val1846 = load i32, ptr %2624, align 4
+  %.mask.i2091 = and i32 %.val1846, -16777216
+  %2625 = icmp eq i32 %.mask.i2091, 16777216
   br i1 %2625, label %6668, label %2626
 
 2626:                                             ; preds = %2618
@@ -232053,18 +232053,18 @@ lean_dec_ref.exit1712:                            ; preds = %.critedge1036
   br label %2634
 
 2631:                                             ; preds = %2626
-  %.not.i1705 = icmp eq i32 %2627, 0
-  br i1 %.not.i1705, label %2634, label %2632
+  %.not.i1704 = icmp eq i32 %2627, 0
+  br i1 %.not.i1704, label %2634, label %2632
 
 2632:                                             ; preds = %2631
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2623) #5
   br label %2634
 
-lean_dec_ref.exit1706:                            ; preds = %.critedge1040
+lean_dec_ref.exit1705:                            ; preds = %.critedge1039
   %2633 = tail call fastcc ptr @_init_l_Int8_reduceOfIntLE___regBuiltin_Int8_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11407____closed__1()
   store ptr %2633, ptr @l_Int8_reduceOfIntLE___regBuiltin_Int8_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11407____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2633) #5
-  br label %.critedge1044
+  br label %.critedge1043
 
 2634:                                             ; preds = %2632, %2631, %2629
   %2635 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232072,9 +232072,9 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
   %2637 = load ptr, ptr @l_Int8_reduceOfIntLE___regBuiltin_Int8_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11407____closed__1, align 8, !tbaa !5
   %2638 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2635, ptr noundef %2636, i8 noundef zeroext 1, ptr noundef %2637, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2639 = getelementptr i8, ptr %2638, i64 4
-  %.val1848 = load i32, ptr %2639, align 4
-  %.mask.i2093 = and i32 %.val1848, -16777216
-  %2640 = icmp eq i32 %.mask.i2093, 16777216
+  %.val1847 = load i32, ptr %2639, align 4
+  %.mask.i2092 = and i32 %.val1847, -16777216
+  %2640 = icmp eq i32 %.mask.i2092, 16777216
   br i1 %2640, label %6668, label %2641
 
 2641:                                             ; preds = %2634
@@ -232085,17 +232085,17 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
 2644:                                             ; preds = %2641
   %2645 = add nsw i32 %2642, -1
   store i32 %2645, ptr %2638, align 4, !tbaa !9
-  br label %.critedge1044
+  br label %.critedge1043
 
 2646:                                             ; preds = %2641
-  %.not.i1703 = icmp eq i32 %2642, 0
-  br i1 %.not.i1703, label %.critedge1044, label %2647
+  %.not.i1702 = icmp eq i32 %2642, 0
+  br i1 %.not.i1702, label %.critedge1043, label %2647
 
 2647:                                             ; preds = %2646
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2638) #5
-  br label %.critedge1044
+  br label %.critedge1043
 
-.critedge1044:                                    ; preds = %2647, %2646, %2644, %lean_dec_ref.exit1706
+.critedge1043:                                    ; preds = %2647, %2646, %2644, %lean_dec_ref.exit1705
   %2648 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2649 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__1, align 8, !tbaa !5
   %2650 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2648, ptr noundef %2649) #5
@@ -232119,17 +232119,17 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
   %2658 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfNat_declare__77____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11519____closed__5()
   store ptr %2658, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfNat_declare__77____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11519____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2658) #5
-  br i1 %.not, label %lean_dec_ref.exit1700, label %2659
+  br i1 %.not, label %lean_dec_ref.exit1699, label %2659
 
-2659:                                             ; preds = %.critedge1044
+2659:                                             ; preds = %.critedge1043
   %2660 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfNat_declare__77____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11519____closed__1, align 8, !tbaa !5
   %2661 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfNat_declare__77____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11519____closed__4, align 8, !tbaa !5
   %2662 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfNat_declare__77____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11519____closed__5, align 8, !tbaa !5
   %2663 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2660, ptr noundef %2661, ptr noundef %2662, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2664 = getelementptr i8, ptr %2663, i64 4
-  %.val1849 = load i32, ptr %2664, align 4
-  %.mask.i2094 = and i32 %.val1849, -16777216
-  %2665 = icmp eq i32 %.mask.i2094, 16777216
+  %.val1848 = load i32, ptr %2664, align 4
+  %.mask.i2093 = and i32 %.val1848, -16777216
+  %2665 = icmp eq i32 %.mask.i2093, 16777216
   br i1 %2665, label %6668, label %2666
 
 2666:                                             ; preds = %2659
@@ -232143,8 +232143,8 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
   br label %2673
 
 2671:                                             ; preds = %2666
-  %.not.i1701 = icmp eq i32 %2667, 0
-  br i1 %.not.i1701, label %2673, label %2672
+  %.not.i1700 = icmp eq i32 %2667, 0
+  br i1 %.not.i1700, label %2673, label %2672
 
 2672:                                             ; preds = %2671
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2663) #5
@@ -232159,9 +232159,9 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
   %2677 = load ptr, ptr @l_Int8_reduceOfNat___regBuiltin_Int8_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11521____closed__1, align 8, !tbaa !5
   %2678 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2675, ptr noundef %2676, i8 noundef zeroext 1, ptr noundef %2677, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2679 = getelementptr i8, ptr %2678, i64 4
-  %.val1850 = load i32, ptr %2679, align 4
-  %.mask.i2095 = and i32 %.val1850, -16777216
-  %2680 = icmp eq i32 %.mask.i2095, 16777216
+  %.val1849 = load i32, ptr %2679, align 4
+  %.mask.i2094 = and i32 %.val1849, -16777216
+  %2680 = icmp eq i32 %.mask.i2094, 16777216
   br i1 %2680, label %6668, label %2681
 
 2681:                                             ; preds = %2673
@@ -232175,18 +232175,18 @@ lean_dec_ref.exit1706:                            ; preds = %.critedge1040
   br label %2689
 
 2686:                                             ; preds = %2681
-  %.not.i1699 = icmp eq i32 %2682, 0
-  br i1 %.not.i1699, label %2689, label %2687
+  %.not.i1698 = icmp eq i32 %2682, 0
+  br i1 %.not.i1698, label %2689, label %2687
 
 2687:                                             ; preds = %2686
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2678) #5
   br label %2689
 
-lean_dec_ref.exit1700:                            ; preds = %.critedge1044
+lean_dec_ref.exit1699:                            ; preds = %.critedge1043
   %2688 = tail call fastcc ptr @_init_l_Int8_reduceOfNat___regBuiltin_Int8_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11521____closed__1()
   store ptr %2688, ptr @l_Int8_reduceOfNat___regBuiltin_Int8_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11521____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2688) #5
-  br label %.critedge1048
+  br label %.critedge1047
 
 2689:                                             ; preds = %2687, %2686, %2684
   %2690 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232194,9 +232194,9 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
   %2692 = load ptr, ptr @l_Int8_reduceOfNat___regBuiltin_Int8_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11521____closed__1, align 8, !tbaa !5
   %2693 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2690, ptr noundef %2691, i8 noundef zeroext 1, ptr noundef %2692, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2694 = getelementptr i8, ptr %2693, i64 4
-  %.val1851 = load i32, ptr %2694, align 4
-  %.mask.i2096 = and i32 %.val1851, -16777216
-  %2695 = icmp eq i32 %.mask.i2096, 16777216
+  %.val1850 = load i32, ptr %2694, align 4
+  %.mask.i2095 = and i32 %.val1850, -16777216
+  %2695 = icmp eq i32 %.mask.i2095, 16777216
   br i1 %2695, label %6668, label %2696
 
 2696:                                             ; preds = %2689
@@ -232207,17 +232207,17 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
 2699:                                             ; preds = %2696
   %2700 = add nsw i32 %2697, -1
   store i32 %2700, ptr %2693, align 4, !tbaa !9
-  br label %.critedge1048
+  br label %.critedge1047
 
 2701:                                             ; preds = %2696
-  %.not.i1697 = icmp eq i32 %2697, 0
-  br i1 %.not.i1697, label %.critedge1048, label %2702
+  %.not.i1696 = icmp eq i32 %2697, 0
+  br i1 %.not.i1696, label %.critedge1047, label %2702
 
 2702:                                             ; preds = %2701
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2693) #5
-  br label %.critedge1048
+  br label %.critedge1047
 
-.critedge1048:                                    ; preds = %2702, %2701, %2699, %lean_dec_ref.exit1700
+.critedge1047:                                    ; preds = %2702, %2701, %2699, %lean_dec_ref.exit1699
   %2703 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2704 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__3, align 8, !tbaa !5
   %2705 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2703, ptr noundef %2704) #5
@@ -232241,17 +232241,17 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
   %2713 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfInt_declare__81____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11633____closed__5()
   store ptr %2713, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfInt_declare__81____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11633____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2713) #5
-  br i1 %.not, label %lean_dec_ref.exit1694, label %2714
+  br i1 %.not, label %lean_dec_ref.exit1693, label %2714
 
-2714:                                             ; preds = %.critedge1048
+2714:                                             ; preds = %.critedge1047
   %2715 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfInt_declare__81____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11633____closed__1, align 8, !tbaa !5
   %2716 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfInt_declare__81____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11633____closed__4, align 8, !tbaa !5
   %2717 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceOfInt_declare__81____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11633____closed__5, align 8, !tbaa !5
   %2718 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2715, ptr noundef %2716, ptr noundef %2717, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2719 = getelementptr i8, ptr %2718, i64 4
-  %.val1852 = load i32, ptr %2719, align 4
-  %.mask.i2097 = and i32 %.val1852, -16777216
-  %2720 = icmp eq i32 %.mask.i2097, 16777216
+  %.val1851 = load i32, ptr %2719, align 4
+  %.mask.i2096 = and i32 %.val1851, -16777216
+  %2720 = icmp eq i32 %.mask.i2096, 16777216
   br i1 %2720, label %6668, label %2721
 
 2721:                                             ; preds = %2714
@@ -232265,8 +232265,8 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
   br label %2728
 
 2726:                                             ; preds = %2721
-  %.not.i1695 = icmp eq i32 %2722, 0
-  br i1 %.not.i1695, label %2728, label %2727
+  %.not.i1694 = icmp eq i32 %2722, 0
+  br i1 %.not.i1694, label %2728, label %2727
 
 2727:                                             ; preds = %2726
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2718) #5
@@ -232281,9 +232281,9 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
   %2732 = load ptr, ptr @l_Int8_reduceOfInt___regBuiltin_Int8_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11635____closed__1, align 8, !tbaa !5
   %2733 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2730, ptr noundef %2731, i8 noundef zeroext 1, ptr noundef %2732, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2734 = getelementptr i8, ptr %2733, i64 4
-  %.val1853 = load i32, ptr %2734, align 4
-  %.mask.i2098 = and i32 %.val1853, -16777216
-  %2735 = icmp eq i32 %.mask.i2098, 16777216
+  %.val1852 = load i32, ptr %2734, align 4
+  %.mask.i2097 = and i32 %.val1852, -16777216
+  %2735 = icmp eq i32 %.mask.i2097, 16777216
   br i1 %2735, label %6668, label %2736
 
 2736:                                             ; preds = %2728
@@ -232297,18 +232297,18 @@ lean_dec_ref.exit1700:                            ; preds = %.critedge1044
   br label %2744
 
 2741:                                             ; preds = %2736
-  %.not.i1693 = icmp eq i32 %2737, 0
-  br i1 %.not.i1693, label %2744, label %2742
+  %.not.i1692 = icmp eq i32 %2737, 0
+  br i1 %.not.i1692, label %2744, label %2742
 
 2742:                                             ; preds = %2741
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2733) #5
   br label %2744
 
-lean_dec_ref.exit1694:                            ; preds = %.critedge1048
+lean_dec_ref.exit1693:                            ; preds = %.critedge1047
   %2743 = tail call fastcc ptr @_init_l_Int8_reduceOfInt___regBuiltin_Int8_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11635____closed__1()
   store ptr %2743, ptr @l_Int8_reduceOfInt___regBuiltin_Int8_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11635____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2743) #5
-  br label %.critedge1052
+  br label %.critedge1051
 
 2744:                                             ; preds = %2742, %2741, %2739
   %2745 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232316,9 +232316,9 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
   %2747 = load ptr, ptr @l_Int8_reduceOfInt___regBuiltin_Int8_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11635____closed__1, align 8, !tbaa !5
   %2748 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2745, ptr noundef %2746, i8 noundef zeroext 1, ptr noundef %2747, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2749 = getelementptr i8, ptr %2748, i64 4
-  %.val1854 = load i32, ptr %2749, align 4
-  %.mask.i2099 = and i32 %.val1854, -16777216
-  %2750 = icmp eq i32 %.mask.i2099, 16777216
+  %.val1853 = load i32, ptr %2749, align 4
+  %.mask.i2098 = and i32 %.val1853, -16777216
+  %2750 = icmp eq i32 %.mask.i2098, 16777216
   br i1 %2750, label %6668, label %2751
 
 2751:                                             ; preds = %2744
@@ -232329,17 +232329,17 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
 2754:                                             ; preds = %2751
   %2755 = add nsw i32 %2752, -1
   store i32 %2755, ptr %2748, align 4, !tbaa !9
-  br label %.critedge1052
+  br label %.critedge1051
 
 2756:                                             ; preds = %2751
-  %.not.i1691 = icmp eq i32 %2752, 0
-  br i1 %.not.i1691, label %.critedge1052, label %2757
+  %.not.i1690 = icmp eq i32 %2752, 0
+  br i1 %.not.i1690, label %.critedge1051, label %2757
 
 2757:                                             ; preds = %2756
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2748) #5
-  br label %.critedge1052
+  br label %.critedge1051
 
-.critedge1052:                                    ; preds = %2757, %2756, %2754, %lean_dec_ref.exit1694
+.critedge1051:                                    ; preds = %2757, %2756, %2754, %lean_dec_ref.exit1693
   store ptr inttoptr (i64 1 to ptr), ptr @l_Int8_reduceToInt___lambda__1___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2758 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__507, align 8, !tbaa !5
@@ -232385,17 +232385,17 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
   %2778 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToInt_declare__85____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11749____closed__5()
   store ptr %2778, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToInt_declare__85____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11749____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2778) #5
-  br i1 %.not, label %lean_dec_ref.exit1688, label %2779
+  br i1 %.not, label %lean_dec_ref.exit1687, label %2779
 
-2779:                                             ; preds = %.critedge1052
+2779:                                             ; preds = %.critedge1051
   %2780 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToInt_declare__85____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11749____closed__1, align 8, !tbaa !5
   %2781 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToInt_declare__85____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11749____closed__4, align 8, !tbaa !5
   %2782 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToInt_declare__85____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11749____closed__5, align 8, !tbaa !5
   %2783 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2780, ptr noundef %2781, ptr noundef %2782, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2784 = getelementptr i8, ptr %2783, i64 4
-  %.val1855 = load i32, ptr %2784, align 4
-  %.mask.i2100 = and i32 %.val1855, -16777216
-  %2785 = icmp eq i32 %.mask.i2100, 16777216
+  %.val1854 = load i32, ptr %2784, align 4
+  %.mask.i2099 = and i32 %.val1854, -16777216
+  %2785 = icmp eq i32 %.mask.i2099, 16777216
   br i1 %2785, label %6668, label %2786
 
 2786:                                             ; preds = %2779
@@ -232409,8 +232409,8 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
   br label %2793
 
 2791:                                             ; preds = %2786
-  %.not.i1689 = icmp eq i32 %2787, 0
-  br i1 %.not.i1689, label %2793, label %2792
+  %.not.i1688 = icmp eq i32 %2787, 0
+  br i1 %.not.i1688, label %2793, label %2792
 
 2792:                                             ; preds = %2791
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2783) #5
@@ -232425,9 +232425,9 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
   %2797 = load ptr, ptr @l_Int8_reduceToInt___regBuiltin_Int8_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11751____closed__1, align 8, !tbaa !5
   %2798 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2795, ptr noundef %2796, i8 noundef zeroext 1, ptr noundef %2797, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2799 = getelementptr i8, ptr %2798, i64 4
-  %.val1856 = load i32, ptr %2799, align 4
-  %.mask.i2101 = and i32 %.val1856, -16777216
-  %2800 = icmp eq i32 %.mask.i2101, 16777216
+  %.val1855 = load i32, ptr %2799, align 4
+  %.mask.i2100 = and i32 %.val1855, -16777216
+  %2800 = icmp eq i32 %.mask.i2100, 16777216
   br i1 %2800, label %6668, label %2801
 
 2801:                                             ; preds = %2793
@@ -232441,18 +232441,18 @@ lean_dec_ref.exit1694:                            ; preds = %.critedge1048
   br label %2809
 
 2806:                                             ; preds = %2801
-  %.not.i1687 = icmp eq i32 %2802, 0
-  br i1 %.not.i1687, label %2809, label %2807
+  %.not.i1686 = icmp eq i32 %2802, 0
+  br i1 %.not.i1686, label %2809, label %2807
 
 2807:                                             ; preds = %2806
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2798) #5
   br label %2809
 
-lean_dec_ref.exit1688:                            ; preds = %.critedge1052
+lean_dec_ref.exit1687:                            ; preds = %.critedge1051
   %2808 = tail call fastcc ptr @_init_l_Int8_reduceToInt___regBuiltin_Int8_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11751____closed__1()
   store ptr %2808, ptr @l_Int8_reduceToInt___regBuiltin_Int8_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11751____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2808) #5
-  br label %.critedge1056
+  br label %.critedge1055
 
 2809:                                             ; preds = %2807, %2806, %2804
   %2810 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232460,9 +232460,9 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
   %2812 = load ptr, ptr @l_Int8_reduceToInt___regBuiltin_Int8_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11751____closed__1, align 8, !tbaa !5
   %2813 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2810, ptr noundef %2811, i8 noundef zeroext 1, ptr noundef %2812, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2814 = getelementptr i8, ptr %2813, i64 4
-  %.val1857 = load i32, ptr %2814, align 4
-  %.mask.i2102 = and i32 %.val1857, -16777216
-  %2815 = icmp eq i32 %.mask.i2102, 16777216
+  %.val1856 = load i32, ptr %2814, align 4
+  %.mask.i2101 = and i32 %.val1856, -16777216
+  %2815 = icmp eq i32 %.mask.i2101, 16777216
   br i1 %2815, label %6668, label %2816
 
 2816:                                             ; preds = %2809
@@ -232473,17 +232473,17 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
 2819:                                             ; preds = %2816
   %2820 = add nsw i32 %2817, -1
   store i32 %2820, ptr %2813, align 4, !tbaa !9
-  br label %.critedge1056
+  br label %.critedge1055
 
 2821:                                             ; preds = %2816
-  %.not.i1685 = icmp eq i32 %2817, 0
-  br i1 %.not.i1685, label %.critedge1056, label %2822
+  %.not.i1684 = icmp eq i32 %2817, 0
+  br i1 %.not.i1684, label %.critedge1055, label %2822
 
 2822:                                             ; preds = %2821
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2813) #5
-  br label %.critedge1056
+  br label %.critedge1055
 
-.critedge1056:                                    ; preds = %2822, %2821, %2819, %lean_dec_ref.exit1688
+.critedge1055:                                    ; preds = %2822, %2821, %2819, %lean_dec_ref.exit1687
   %2823 = load ptr, ptr @l_Int8_fromExpr___closed__1, align 8, !tbaa !5
   %2824 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__9, align 8, !tbaa !5
   %2825 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %2823, ptr noundef %2824) #5
@@ -232507,17 +232507,17 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
   %2833 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToNatClampNeg_declare__89____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11865____closed__5()
   store ptr %2833, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToNatClampNeg_declare__89____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11865____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2833) #5
-  br i1 %.not, label %lean_dec_ref.exit1682, label %2834
+  br i1 %.not, label %lean_dec_ref.exit1681, label %2834
 
-2834:                                             ; preds = %.critedge1056
+2834:                                             ; preds = %.critedge1055
   %2835 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToNatClampNeg_declare__89____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11865____closed__1, align 8, !tbaa !5
   %2836 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToNatClampNeg_declare__89____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11865____closed__4, align 8, !tbaa !5
   %2837 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_reduceToNatClampNeg_declare__89____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11865____closed__5, align 8, !tbaa !5
   %2838 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2835, ptr noundef %2836, ptr noundef %2837, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2839 = getelementptr i8, ptr %2838, i64 4
-  %.val1858 = load i32, ptr %2839, align 4
-  %.mask.i2103 = and i32 %.val1858, -16777216
-  %2840 = icmp eq i32 %.mask.i2103, 16777216
+  %.val1857 = load i32, ptr %2839, align 4
+  %.mask.i2102 = and i32 %.val1857, -16777216
+  %2840 = icmp eq i32 %.mask.i2102, 16777216
   br i1 %2840, label %6668, label %2841
 
 2841:                                             ; preds = %2834
@@ -232531,8 +232531,8 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
   br label %2848
 
 2846:                                             ; preds = %2841
-  %.not.i1683 = icmp eq i32 %2842, 0
-  br i1 %.not.i1683, label %2848, label %2847
+  %.not.i1682 = icmp eq i32 %2842, 0
+  br i1 %.not.i1682, label %2848, label %2847
 
 2847:                                             ; preds = %2846
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2838) #5
@@ -232547,9 +232547,9 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
   %2852 = load ptr, ptr @l_Int8_reduceToNatClampNeg___regBuiltin_Int8_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11867____closed__1, align 8, !tbaa !5
   %2853 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2850, ptr noundef %2851, i8 noundef zeroext 1, ptr noundef %2852, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2854 = getelementptr i8, ptr %2853, i64 4
-  %.val1859 = load i32, ptr %2854, align 4
-  %.mask.i2104 = and i32 %.val1859, -16777216
-  %2855 = icmp eq i32 %.mask.i2104, 16777216
+  %.val1858 = load i32, ptr %2854, align 4
+  %.mask.i2103 = and i32 %.val1858, -16777216
+  %2855 = icmp eq i32 %.mask.i2103, 16777216
   br i1 %2855, label %6668, label %2856
 
 2856:                                             ; preds = %2848
@@ -232563,18 +232563,18 @@ lean_dec_ref.exit1688:                            ; preds = %.critedge1052
   br label %2864
 
 2861:                                             ; preds = %2856
-  %.not.i1681 = icmp eq i32 %2857, 0
-  br i1 %.not.i1681, label %2864, label %2862
+  %.not.i1680 = icmp eq i32 %2857, 0
+  br i1 %.not.i1680, label %2864, label %2862
 
 2862:                                             ; preds = %2861
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2853) #5
   br label %2864
 
-lean_dec_ref.exit1682:                            ; preds = %.critedge1056
+lean_dec_ref.exit1681:                            ; preds = %.critedge1055
   %2863 = tail call fastcc ptr @_init_l_Int8_reduceToNatClampNeg___regBuiltin_Int8_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11867____closed__1()
   store ptr %2863, ptr @l_Int8_reduceToNatClampNeg___regBuiltin_Int8_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11867____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2863) #5
-  br label %.critedge1060
+  br label %.critedge1059
 
 2864:                                             ; preds = %2862, %2861, %2859
   %2865 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232582,9 +232582,9 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
   %2867 = load ptr, ptr @l_Int8_reduceToNatClampNeg___regBuiltin_Int8_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11867____closed__1, align 8, !tbaa !5
   %2868 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2865, ptr noundef %2866, i8 noundef zeroext 1, ptr noundef %2867, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2869 = getelementptr i8, ptr %2868, i64 4
-  %.val1860 = load i32, ptr %2869, align 4
-  %.mask.i2105 = and i32 %.val1860, -16777216
-  %2870 = icmp eq i32 %.mask.i2105, 16777216
+  %.val1859 = load i32, ptr %2869, align 4
+  %.mask.i2104 = and i32 %.val1859, -16777216
+  %2870 = icmp eq i32 %.mask.i2104, 16777216
   br i1 %2870, label %6668, label %2871
 
 2871:                                             ; preds = %2864
@@ -232595,17 +232595,17 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
 2874:                                             ; preds = %2871
   %2875 = add nsw i32 %2872, -1
   store i32 %2875, ptr %2868, align 4, !tbaa !9
-  br label %.critedge1060
+  br label %.critedge1059
 
 2876:                                             ; preds = %2871
-  %.not.i1679 = icmp eq i32 %2872, 0
-  br i1 %.not.i1679, label %.critedge1060, label %2877
+  %.not.i1678 = icmp eq i32 %2872, 0
+  br i1 %.not.i1678, label %.critedge1059, label %2877
 
 2877:                                             ; preds = %2876
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2868) #5
-  br label %.critedge1060
+  br label %.critedge1059
 
-.critedge1060:                                    ; preds = %2877, %2876, %2874, %lean_dec_ref.exit1682
+.critedge1059:                                    ; preds = %2877, %2876, %2874, %lean_dec_ref.exit1681
   %2878 = load ptr, ptr @l_Int8_fromExpr___closed__2, align 8, !tbaa !5
   %2879 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__543, align 8, !tbaa !5
   %2880 = tail call ptr @l_Lean_Name_str___override(ptr noundef %2878, ptr noundef %2879) #5
@@ -232668,17 +232668,17 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
   %2911 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_isValue_declare__93____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11939____closed__14()
   store ptr %2911, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_isValue_declare__93____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11939____closed__14, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2911) #5
-  br i1 %.not, label %.critedge1062, label %2912
+  br i1 %.not, label %.critedge1061, label %2912
 
-2912:                                             ; preds = %.critedge1060
+2912:                                             ; preds = %.critedge1059
   %2913 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_isValue_declare__93____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11939____closed__10, align 8, !tbaa !5
   %2914 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_isValue_declare__93____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11939____closed__13, align 8, !tbaa !5
   %2915 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int8_isValue_declare__93____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811__11939____closed__14, align 8, !tbaa !5
   %2916 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2913, ptr noundef %2914, ptr noundef %2915, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2917 = getelementptr i8, ptr %2916, i64 4
-  %.val1861 = load i32, ptr %2917, align 4
-  %.mask.i2106 = and i32 %.val1861, -16777216
-  %2918 = icmp eq i32 %.mask.i2106, 16777216
+  %.val1860 = load i32, ptr %2917, align 4
+  %.mask.i2105 = and i32 %.val1860, -16777216
+  %2918 = icmp eq i32 %.mask.i2105, 16777216
   br i1 %2918, label %6668, label %2919
 
 2919:                                             ; preds = %2912
@@ -232692,8 +232692,8 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
   br label %2926
 
 2924:                                             ; preds = %2919
-  %.not.i1677 = icmp eq i32 %2920, 0
-  br i1 %.not.i1677, label %2926, label %2925
+  %.not.i1676 = icmp eq i32 %2920, 0
+  br i1 %.not.i1676, label %2926, label %2925
 
 2925:                                             ; preds = %2924
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2916) #5
@@ -232708,9 +232708,9 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
   %2930 = load ptr, ptr @l_Int8_isValue___regBuiltin_Int8_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %2931 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2928, ptr noundef %2929, i8 noundef zeroext 1, ptr noundef %2930, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2932 = getelementptr i8, ptr %2931, i64 4
-  %.val1862 = load i32, ptr %2932, align 4
-  %.mask.i2107 = and i32 %.val1862, -16777216
-  %2933 = icmp eq i32 %.mask.i2107, 16777216
+  %.val1861 = load i32, ptr %2932, align 4
+  %.mask.i2106 = and i32 %.val1861, -16777216
+  %2933 = icmp eq i32 %.mask.i2106, 16777216
   br i1 %2933, label %6668, label %2934
 
 2934:                                             ; preds = %2926
@@ -232721,23 +232721,23 @@ lean_dec_ref.exit1682:                            ; preds = %.critedge1056
 2937:                                             ; preds = %2934
   %2938 = add nsw i32 %2935, -1
   store i32 %2938, ptr %2931, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1676
+  br label %lean_dec_ref.exit1675
 
 2939:                                             ; preds = %2934
-  %.not.i1675 = icmp eq i32 %2935, 0
-  br i1 %.not.i1675, label %lean_dec_ref.exit1676, label %2940
+  %.not.i1674 = icmp eq i32 %2935, 0
+  br i1 %.not.i1674, label %lean_dec_ref.exit1675, label %2940
 
 2940:                                             ; preds = %2939
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2931) #5
-  br label %lean_dec_ref.exit1676
+  br label %lean_dec_ref.exit1675
 
-.critedge1062:                                    ; preds = %.critedge1060
+.critedge1061:                                    ; preds = %.critedge1059
   %2941 = tail call fastcc ptr @_init_l_Int8_isValue___regBuiltin_Int8_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1()
   store ptr %2941, ptr @l_Int8_isValue___regBuiltin_Int8_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2941) #5
-  br label %lean_dec_ref.exit1676
+  br label %lean_dec_ref.exit1675
 
-lean_dec_ref.exit1676:                            ; preds = %2940, %2939, %2937, %.critedge1062
+lean_dec_ref.exit1675:                            ; preds = %2940, %2939, %2937, %.critedge1061
   %2942 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.241, i64 noundef 5, i64 noundef 5) #5
   store ptr %2942, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %2942) #5
@@ -232823,17 +232823,17 @@ lean_dec_ref.exit1676:                            ; preds = %2940, %2939, %2937,
   %2986 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNeg_declare__106____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__12922____closed__15()
   store ptr %2986, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNeg_declare__106____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__12922____closed__15, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %2986) #5
-  br i1 %.not, label %lean_dec_ref.exit1672, label %2987
+  br i1 %.not, label %lean_dec_ref.exit1671, label %2987
 
-2987:                                             ; preds = %lean_dec_ref.exit1676
+2987:                                             ; preds = %lean_dec_ref.exit1675
   %2988 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNeg_declare__106____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__12922____closed__10, align 8, !tbaa !5
   %2989 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNeg_declare__106____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__12922____closed__14, align 8, !tbaa !5
   %2990 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNeg_declare__106____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__12922____closed__15, align 8, !tbaa !5
   %2991 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %2988, ptr noundef %2989, ptr noundef %2990, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2992 = getelementptr i8, ptr %2991, i64 4
-  %.val1863 = load i32, ptr %2992, align 4
-  %.mask.i2108 = and i32 %.val1863, -16777216
-  %2993 = icmp eq i32 %.mask.i2108, 16777216
+  %.val1862 = load i32, ptr %2992, align 4
+  %.mask.i2107 = and i32 %.val1862, -16777216
+  %2993 = icmp eq i32 %.mask.i2107, 16777216
   br i1 %2993, label %6668, label %2994
 
 2994:                                             ; preds = %2987
@@ -232847,8 +232847,8 @@ lean_dec_ref.exit1676:                            ; preds = %2940, %2939, %2937,
   br label %3001
 
 2999:                                             ; preds = %2994
-  %.not.i1673 = icmp eq i32 %2995, 0
-  br i1 %.not.i1673, label %3001, label %3000
+  %.not.i1672 = icmp eq i32 %2995, 0
+  br i1 %.not.i1672, label %3001, label %3000
 
 3000:                                             ; preds = %2999
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2991) #5
@@ -232863,9 +232863,9 @@ lean_dec_ref.exit1676:                            ; preds = %2940, %2939, %2937,
   %3005 = load ptr, ptr @l_Int16_reduceNeg___regBuiltin_Int16_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3006 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3003, ptr noundef %3004, i8 noundef zeroext 1, ptr noundef %3005, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3007 = getelementptr i8, ptr %3006, i64 4
-  %.val1864 = load i32, ptr %3007, align 4
-  %.mask.i2109 = and i32 %.val1864, -16777216
-  %3008 = icmp eq i32 %.mask.i2109, 16777216
+  %.val1863 = load i32, ptr %3007, align 4
+  %.mask.i2108 = and i32 %.val1863, -16777216
+  %3008 = icmp eq i32 %.mask.i2108, 16777216
   br i1 %3008, label %6668, label %3009
 
 3009:                                             ; preds = %3001
@@ -232879,18 +232879,18 @@ lean_dec_ref.exit1676:                            ; preds = %2940, %2939, %2937,
   br label %3017
 
 3014:                                             ; preds = %3009
-  %.not.i1671 = icmp eq i32 %3010, 0
-  br i1 %.not.i1671, label %3017, label %3015
+  %.not.i1670 = icmp eq i32 %3010, 0
+  br i1 %.not.i1670, label %3017, label %3015
 
 3015:                                             ; preds = %3014
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3006) #5
   br label %3017
 
-lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit1676
+lean_dec_ref.exit1671:                            ; preds = %lean_dec_ref.exit1675
   %3016 = tail call fastcc ptr @_init_l_Int16_reduceNeg___regBuiltin_Int16_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %3016, ptr @l_Int16_reduceNeg___regBuiltin_Int16_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3016) #5
-  br label %.critedge1066
+  br label %.critedge1065
 
 3017:                                             ; preds = %3015, %3014, %3012
   %3018 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -232898,9 +232898,9 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
   %3020 = load ptr, ptr @l_Int16_reduceNeg___regBuiltin_Int16_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3021 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3018, ptr noundef %3019, i8 noundef zeroext 1, ptr noundef %3020, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3022 = getelementptr i8, ptr %3021, i64 4
-  %.val1865 = load i32, ptr %3022, align 4
-  %.mask.i2110 = and i32 %.val1865, -16777216
-  %3023 = icmp eq i32 %.mask.i2110, 16777216
+  %.val1864 = load i32, ptr %3022, align 4
+  %.mask.i2109 = and i32 %.val1864, -16777216
+  %3023 = icmp eq i32 %.mask.i2109, 16777216
   br i1 %3023, label %6668, label %3024
 
 3024:                                             ; preds = %3017
@@ -232911,17 +232911,17 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
 3027:                                             ; preds = %3024
   %3028 = add nsw i32 %3025, -1
   store i32 %3028, ptr %3021, align 4, !tbaa !9
-  br label %.critedge1066
+  br label %.critedge1065
 
 3029:                                             ; preds = %3024
-  %.not.i1669 = icmp eq i32 %3025, 0
-  br i1 %.not.i1669, label %.critedge1066, label %3030
+  %.not.i1668 = icmp eq i32 %3025, 0
+  br i1 %.not.i1668, label %.critedge1065, label %3030
 
 3030:                                             ; preds = %3029
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3021) #5
-  br label %.critedge1066
+  br label %.critedge1065
 
-.critedge1066:                                    ; preds = %3030, %3029, %3027, %lean_dec_ref.exit1672
+.critedge1065:                                    ; preds = %3030, %3029, %3027, %lean_dec_ref.exit1671
   %3031 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3032 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__325, align 8, !tbaa !5
   %3033 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3031, ptr noundef %3032) #5
@@ -232946,17 +232946,17 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
   %3040 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceAdd_declare__110____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12960____closed__7()
   store ptr %3040, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceAdd_declare__110____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12960____closed__7, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3040) #5
-  br i1 %.not, label %lean_dec_ref.exit1666, label %3041
+  br i1 %.not, label %lean_dec_ref.exit1665, label %3041
 
-3041:                                             ; preds = %.critedge1066
+3041:                                             ; preds = %.critedge1065
   %3042 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceAdd_declare__110____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12960____closed__1, align 8, !tbaa !5
   %3043 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceAdd_declare__110____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12960____closed__6, align 8, !tbaa !5
   %3044 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceAdd_declare__110____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12960____closed__7, align 8, !tbaa !5
   %3045 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3042, ptr noundef %3043, ptr noundef %3044, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3046 = getelementptr i8, ptr %3045, i64 4
-  %.val1866 = load i32, ptr %3046, align 4
-  %.mask.i2111 = and i32 %.val1866, -16777216
-  %3047 = icmp eq i32 %.mask.i2111, 16777216
+  %.val1865 = load i32, ptr %3046, align 4
+  %.mask.i2110 = and i32 %.val1865, -16777216
+  %3047 = icmp eq i32 %.mask.i2110, 16777216
   br i1 %3047, label %6668, label %3048
 
 3048:                                             ; preds = %3041
@@ -232970,8 +232970,8 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
   br label %3055
 
 3053:                                             ; preds = %3048
-  %.not.i1667 = icmp eq i32 %3049, 0
-  br i1 %.not.i1667, label %3055, label %3054
+  %.not.i1666 = icmp eq i32 %3049, 0
+  br i1 %.not.i1666, label %3055, label %3054
 
 3054:                                             ; preds = %3053
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3045) #5
@@ -232986,9 +232986,9 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
   %3059 = load ptr, ptr @l_Int16_reduceAdd___regBuiltin_Int16_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12962____closed__1, align 8, !tbaa !5
   %3060 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3057, ptr noundef %3058, i8 noundef zeroext 1, ptr noundef %3059, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3061 = getelementptr i8, ptr %3060, i64 4
-  %.val1867 = load i32, ptr %3061, align 4
-  %.mask.i2112 = and i32 %.val1867, -16777216
-  %3062 = icmp eq i32 %.mask.i2112, 16777216
+  %.val1866 = load i32, ptr %3061, align 4
+  %.mask.i2111 = and i32 %.val1866, -16777216
+  %3062 = icmp eq i32 %.mask.i2111, 16777216
   br i1 %3062, label %6668, label %3063
 
 3063:                                             ; preds = %3055
@@ -233002,18 +233002,18 @@ lean_dec_ref.exit1672:                            ; preds = %lean_dec_ref.exit16
   br label %3071
 
 3068:                                             ; preds = %3063
-  %.not.i1665 = icmp eq i32 %3064, 0
-  br i1 %.not.i1665, label %3071, label %3069
+  %.not.i1664 = icmp eq i32 %3064, 0
+  br i1 %.not.i1664, label %3071, label %3069
 
 3069:                                             ; preds = %3068
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3060) #5
   br label %3071
 
-lean_dec_ref.exit1666:                            ; preds = %.critedge1066
+lean_dec_ref.exit1665:                            ; preds = %.critedge1065
   %3070 = tail call fastcc ptr @_init_l_Int16_reduceAdd___regBuiltin_Int16_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12962____closed__1()
   store ptr %3070, ptr @l_Int16_reduceAdd___regBuiltin_Int16_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12962____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3070) #5
-  br label %.critedge1070
+  br label %.critedge1069
 
 3071:                                             ; preds = %3069, %3068, %3066
   %3072 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233021,9 +233021,9 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
   %3074 = load ptr, ptr @l_Int16_reduceAdd___regBuiltin_Int16_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12962____closed__1, align 8, !tbaa !5
   %3075 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3072, ptr noundef %3073, i8 noundef zeroext 1, ptr noundef %3074, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3076 = getelementptr i8, ptr %3075, i64 4
-  %.val1868 = load i32, ptr %3076, align 4
-  %.mask.i2113 = and i32 %.val1868, -16777216
-  %3077 = icmp eq i32 %.mask.i2113, 16777216
+  %.val1867 = load i32, ptr %3076, align 4
+  %.mask.i2112 = and i32 %.val1867, -16777216
+  %3077 = icmp eq i32 %.mask.i2112, 16777216
   br i1 %3077, label %6668, label %3078
 
 3078:                                             ; preds = %3071
@@ -233034,17 +233034,17 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
 3081:                                             ; preds = %3078
   %3082 = add nsw i32 %3079, -1
   store i32 %3082, ptr %3075, align 4, !tbaa !9
-  br label %.critedge1070
+  br label %.critedge1069
 
 3083:                                             ; preds = %3078
-  %.not.i1663 = icmp eq i32 %3079, 0
-  br i1 %.not.i1663, label %.critedge1070, label %3084
+  %.not.i1662 = icmp eq i32 %3079, 0
+  br i1 %.not.i1662, label %.critedge1069, label %3084
 
 3084:                                             ; preds = %3083
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3075) #5
-  br label %.critedge1070
+  br label %.critedge1069
 
-.critedge1070:                                    ; preds = %3084, %3083, %3081, %lean_dec_ref.exit1666
+.critedge1069:                                    ; preds = %3084, %3083, %3081, %lean_dec_ref.exit1665
   %3085 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3086 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__342, align 8, !tbaa !5
   %3087 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3085, ptr noundef %3086) #5
@@ -233060,17 +233060,17 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
   %3091 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMul_declare__114____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12998____closed__4()
   store ptr %3091, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMul_declare__114____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12998____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3091) #5
-  br i1 %.not, label %lean_dec_ref.exit1660, label %3092
+  br i1 %.not, label %lean_dec_ref.exit1659, label %3092
 
-3092:                                             ; preds = %.critedge1070
+3092:                                             ; preds = %.critedge1069
   %3093 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMul_declare__114____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12998____closed__1, align 8, !tbaa !5
   %3094 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMul_declare__114____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12998____closed__3, align 8, !tbaa !5
   %3095 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMul_declare__114____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_12998____closed__4, align 8, !tbaa !5
   %3096 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3093, ptr noundef %3094, ptr noundef %3095, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3097 = getelementptr i8, ptr %3096, i64 4
-  %.val1869 = load i32, ptr %3097, align 4
-  %.mask.i2114 = and i32 %.val1869, -16777216
-  %3098 = icmp eq i32 %.mask.i2114, 16777216
+  %.val1868 = load i32, ptr %3097, align 4
+  %.mask.i2113 = and i32 %.val1868, -16777216
+  %3098 = icmp eq i32 %.mask.i2113, 16777216
   br i1 %3098, label %6668, label %3099
 
 3099:                                             ; preds = %3092
@@ -233084,8 +233084,8 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
   br label %3106
 
 3104:                                             ; preds = %3099
-  %.not.i1661 = icmp eq i32 %3100, 0
-  br i1 %.not.i1661, label %3106, label %3105
+  %.not.i1660 = icmp eq i32 %3100, 0
+  br i1 %.not.i1660, label %3106, label %3105
 
 3105:                                             ; preds = %3104
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3096) #5
@@ -233100,9 +233100,9 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
   %3110 = load ptr, ptr @l_Int16_reduceMul___regBuiltin_Int16_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13000____closed__1, align 8, !tbaa !5
   %3111 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3108, ptr noundef %3109, i8 noundef zeroext 1, ptr noundef %3110, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3112 = getelementptr i8, ptr %3111, i64 4
-  %.val1870 = load i32, ptr %3112, align 4
-  %.mask.i2115 = and i32 %.val1870, -16777216
-  %3113 = icmp eq i32 %.mask.i2115, 16777216
+  %.val1869 = load i32, ptr %3112, align 4
+  %.mask.i2114 = and i32 %.val1869, -16777216
+  %3113 = icmp eq i32 %.mask.i2114, 16777216
   br i1 %3113, label %6668, label %3114
 
 3114:                                             ; preds = %3106
@@ -233116,18 +233116,18 @@ lean_dec_ref.exit1666:                            ; preds = %.critedge1066
   br label %3122
 
 3119:                                             ; preds = %3114
-  %.not.i1659 = icmp eq i32 %3115, 0
-  br i1 %.not.i1659, label %3122, label %3120
+  %.not.i1658 = icmp eq i32 %3115, 0
+  br i1 %.not.i1658, label %3122, label %3120
 
 3120:                                             ; preds = %3119
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3111) #5
   br label %3122
 
-lean_dec_ref.exit1660:                            ; preds = %.critedge1070
+lean_dec_ref.exit1659:                            ; preds = %.critedge1069
   %3121 = tail call fastcc ptr @_init_l_Int16_reduceMul___regBuiltin_Int16_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13000____closed__1()
   store ptr %3121, ptr @l_Int16_reduceMul___regBuiltin_Int16_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13000____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3121) #5
-  br label %.critedge1074
+  br label %.critedge1073
 
 3122:                                             ; preds = %3120, %3119, %3117
   %3123 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233135,9 +233135,9 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
   %3125 = load ptr, ptr @l_Int16_reduceMul___regBuiltin_Int16_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13000____closed__1, align 8, !tbaa !5
   %3126 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3123, ptr noundef %3124, i8 noundef zeroext 1, ptr noundef %3125, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3127 = getelementptr i8, ptr %3126, i64 4
-  %.val1871 = load i32, ptr %3127, align 4
-  %.mask.i2116 = and i32 %.val1871, -16777216
-  %3128 = icmp eq i32 %.mask.i2116, 16777216
+  %.val1870 = load i32, ptr %3127, align 4
+  %.mask.i2115 = and i32 %.val1870, -16777216
+  %3128 = icmp eq i32 %.mask.i2115, 16777216
   br i1 %3128, label %6668, label %3129
 
 3129:                                             ; preds = %3122
@@ -233148,17 +233148,17 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
 3132:                                             ; preds = %3129
   %3133 = add nsw i32 %3130, -1
   store i32 %3133, ptr %3126, align 4, !tbaa !9
-  br label %.critedge1074
+  br label %.critedge1073
 
 3134:                                             ; preds = %3129
-  %.not.i1657 = icmp eq i32 %3130, 0
-  br i1 %.not.i1657, label %.critedge1074, label %3135
+  %.not.i1656 = icmp eq i32 %3130, 0
+  br i1 %.not.i1656, label %.critedge1073, label %3135
 
 3135:                                             ; preds = %3134
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3126) #5
-  br label %.critedge1074
+  br label %.critedge1073
 
-.critedge1074:                                    ; preds = %3135, %3134, %3132, %lean_dec_ref.exit1660
+.critedge1073:                                    ; preds = %3135, %3134, %3132, %lean_dec_ref.exit1659
   %3136 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3137 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__355, align 8, !tbaa !5
   %3138 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3136, ptr noundef %3137) #5
@@ -233174,17 +233174,17 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
   %3142 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceSub_declare__118____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13036____closed__4()
   store ptr %3142, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceSub_declare__118____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13036____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3142) #5
-  br i1 %.not, label %lean_dec_ref.exit1654, label %3143
+  br i1 %.not, label %lean_dec_ref.exit1653, label %3143
 
-3143:                                             ; preds = %.critedge1074
+3143:                                             ; preds = %.critedge1073
   %3144 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceSub_declare__118____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13036____closed__1, align 8, !tbaa !5
   %3145 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceSub_declare__118____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13036____closed__3, align 8, !tbaa !5
   %3146 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceSub_declare__118____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13036____closed__4, align 8, !tbaa !5
   %3147 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3144, ptr noundef %3145, ptr noundef %3146, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3148 = getelementptr i8, ptr %3147, i64 4
-  %.val1872 = load i32, ptr %3148, align 4
-  %.mask.i2117 = and i32 %.val1872, -16777216
-  %3149 = icmp eq i32 %.mask.i2117, 16777216
+  %.val1871 = load i32, ptr %3148, align 4
+  %.mask.i2116 = and i32 %.val1871, -16777216
+  %3149 = icmp eq i32 %.mask.i2116, 16777216
   br i1 %3149, label %6668, label %3150
 
 3150:                                             ; preds = %3143
@@ -233198,8 +233198,8 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
   br label %3157
 
 3155:                                             ; preds = %3150
-  %.not.i1655 = icmp eq i32 %3151, 0
-  br i1 %.not.i1655, label %3157, label %3156
+  %.not.i1654 = icmp eq i32 %3151, 0
+  br i1 %.not.i1654, label %3157, label %3156
 
 3156:                                             ; preds = %3155
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3147) #5
@@ -233214,9 +233214,9 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
   %3161 = load ptr, ptr @l_Int16_reduceSub___regBuiltin_Int16_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13038____closed__1, align 8, !tbaa !5
   %3162 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3159, ptr noundef %3160, i8 noundef zeroext 1, ptr noundef %3161, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3163 = getelementptr i8, ptr %3162, i64 4
-  %.val1873 = load i32, ptr %3163, align 4
-  %.mask.i2118 = and i32 %.val1873, -16777216
-  %3164 = icmp eq i32 %.mask.i2118, 16777216
+  %.val1872 = load i32, ptr %3163, align 4
+  %.mask.i2117 = and i32 %.val1872, -16777216
+  %3164 = icmp eq i32 %.mask.i2117, 16777216
   br i1 %3164, label %6668, label %3165
 
 3165:                                             ; preds = %3157
@@ -233230,18 +233230,18 @@ lean_dec_ref.exit1660:                            ; preds = %.critedge1070
   br label %3173
 
 3170:                                             ; preds = %3165
-  %.not.i1653 = icmp eq i32 %3166, 0
-  br i1 %.not.i1653, label %3173, label %3171
+  %.not.i1652 = icmp eq i32 %3166, 0
+  br i1 %.not.i1652, label %3173, label %3171
 
 3171:                                             ; preds = %3170
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3162) #5
   br label %3173
 
-lean_dec_ref.exit1654:                            ; preds = %.critedge1074
+lean_dec_ref.exit1653:                            ; preds = %.critedge1073
   %3172 = tail call fastcc ptr @_init_l_Int16_reduceSub___regBuiltin_Int16_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13038____closed__1()
   store ptr %3172, ptr @l_Int16_reduceSub___regBuiltin_Int16_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13038____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3172) #5
-  br label %.critedge1078
+  br label %.critedge1077
 
 3173:                                             ; preds = %3171, %3170, %3168
   %3174 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233249,9 +233249,9 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
   %3176 = load ptr, ptr @l_Int16_reduceSub___regBuiltin_Int16_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13038____closed__1, align 8, !tbaa !5
   %3177 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3174, ptr noundef %3175, i8 noundef zeroext 1, ptr noundef %3176, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3178 = getelementptr i8, ptr %3177, i64 4
-  %.val1874 = load i32, ptr %3178, align 4
-  %.mask.i2119 = and i32 %.val1874, -16777216
-  %3179 = icmp eq i32 %.mask.i2119, 16777216
+  %.val1873 = load i32, ptr %3178, align 4
+  %.mask.i2118 = and i32 %.val1873, -16777216
+  %3179 = icmp eq i32 %.mask.i2118, 16777216
   br i1 %3179, label %6668, label %3180
 
 3180:                                             ; preds = %3173
@@ -233262,17 +233262,17 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
 3183:                                             ; preds = %3180
   %3184 = add nsw i32 %3181, -1
   store i32 %3184, ptr %3177, align 4, !tbaa !9
-  br label %.critedge1078
+  br label %.critedge1077
 
 3185:                                             ; preds = %3180
-  %.not.i1651 = icmp eq i32 %3181, 0
-  br i1 %.not.i1651, label %.critedge1078, label %3186
+  %.not.i1650 = icmp eq i32 %3181, 0
+  br i1 %.not.i1650, label %.critedge1077, label %3186
 
 3186:                                             ; preds = %3185
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3177) #5
-  br label %.critedge1078
+  br label %.critedge1077
 
-.critedge1078:                                    ; preds = %3186, %3185, %3183, %lean_dec_ref.exit1654
+.critedge1077:                                    ; preds = %3186, %3185, %3183, %lean_dec_ref.exit1653
   %3187 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3188 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__367, align 8, !tbaa !5
   %3189 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3187, ptr noundef %3188) #5
@@ -233288,17 +233288,17 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
   %3193 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceDiv_declare__122____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13074____closed__4()
   store ptr %3193, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceDiv_declare__122____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13074____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3193) #5
-  br i1 %.not, label %lean_dec_ref.exit1648, label %3194
+  br i1 %.not, label %lean_dec_ref.exit1647, label %3194
 
-3194:                                             ; preds = %.critedge1078
+3194:                                             ; preds = %.critedge1077
   %3195 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceDiv_declare__122____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13074____closed__1, align 8, !tbaa !5
   %3196 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceDiv_declare__122____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13074____closed__3, align 8, !tbaa !5
   %3197 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceDiv_declare__122____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13074____closed__4, align 8, !tbaa !5
   %3198 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3195, ptr noundef %3196, ptr noundef %3197, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3199 = getelementptr i8, ptr %3198, i64 4
-  %.val1875 = load i32, ptr %3199, align 4
-  %.mask.i2120 = and i32 %.val1875, -16777216
-  %3200 = icmp eq i32 %.mask.i2120, 16777216
+  %.val1874 = load i32, ptr %3199, align 4
+  %.mask.i2119 = and i32 %.val1874, -16777216
+  %3200 = icmp eq i32 %.mask.i2119, 16777216
   br i1 %3200, label %6668, label %3201
 
 3201:                                             ; preds = %3194
@@ -233312,8 +233312,8 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
   br label %3208
 
 3206:                                             ; preds = %3201
-  %.not.i1649 = icmp eq i32 %3202, 0
-  br i1 %.not.i1649, label %3208, label %3207
+  %.not.i1648 = icmp eq i32 %3202, 0
+  br i1 %.not.i1648, label %3208, label %3207
 
 3207:                                             ; preds = %3206
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3198) #5
@@ -233328,9 +233328,9 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
   %3212 = load ptr, ptr @l_Int16_reduceDiv___regBuiltin_Int16_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13076____closed__1, align 8, !tbaa !5
   %3213 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3210, ptr noundef %3211, i8 noundef zeroext 1, ptr noundef %3212, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3214 = getelementptr i8, ptr %3213, i64 4
-  %.val1876 = load i32, ptr %3214, align 4
-  %.mask.i2121 = and i32 %.val1876, -16777216
-  %3215 = icmp eq i32 %.mask.i2121, 16777216
+  %.val1875 = load i32, ptr %3214, align 4
+  %.mask.i2120 = and i32 %.val1875, -16777216
+  %3215 = icmp eq i32 %.mask.i2120, 16777216
   br i1 %3215, label %6668, label %3216
 
 3216:                                             ; preds = %3208
@@ -233344,18 +233344,18 @@ lean_dec_ref.exit1654:                            ; preds = %.critedge1074
   br label %3224
 
 3221:                                             ; preds = %3216
-  %.not.i1647 = icmp eq i32 %3217, 0
-  br i1 %.not.i1647, label %3224, label %3222
+  %.not.i1646 = icmp eq i32 %3217, 0
+  br i1 %.not.i1646, label %3224, label %3222
 
 3222:                                             ; preds = %3221
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3213) #5
   br label %3224
 
-lean_dec_ref.exit1648:                            ; preds = %.critedge1078
+lean_dec_ref.exit1647:                            ; preds = %.critedge1077
   %3223 = tail call fastcc ptr @_init_l_Int16_reduceDiv___regBuiltin_Int16_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13076____closed__1()
   store ptr %3223, ptr @l_Int16_reduceDiv___regBuiltin_Int16_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13076____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3223) #5
-  br label %.critedge1082
+  br label %.critedge1081
 
 3224:                                             ; preds = %3222, %3221, %3219
   %3225 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233363,9 +233363,9 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
   %3227 = load ptr, ptr @l_Int16_reduceDiv___regBuiltin_Int16_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13076____closed__1, align 8, !tbaa !5
   %3228 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3225, ptr noundef %3226, i8 noundef zeroext 1, ptr noundef %3227, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3229 = getelementptr i8, ptr %3228, i64 4
-  %.val1877 = load i32, ptr %3229, align 4
-  %.mask.i2122 = and i32 %.val1877, -16777216
-  %3230 = icmp eq i32 %.mask.i2122, 16777216
+  %.val1876 = load i32, ptr %3229, align 4
+  %.mask.i2121 = and i32 %.val1876, -16777216
+  %3230 = icmp eq i32 %.mask.i2121, 16777216
   br i1 %3230, label %6668, label %3231
 
 3231:                                             ; preds = %3224
@@ -233376,17 +233376,17 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
 3234:                                             ; preds = %3231
   %3235 = add nsw i32 %3232, -1
   store i32 %3235, ptr %3228, align 4, !tbaa !9
-  br label %.critedge1082
+  br label %.critedge1081
 
 3236:                                             ; preds = %3231
-  %.not.i1645 = icmp eq i32 %3232, 0
-  br i1 %.not.i1645, label %.critedge1082, label %3237
+  %.not.i1644 = icmp eq i32 %3232, 0
+  br i1 %.not.i1644, label %.critedge1081, label %3237
 
 3237:                                             ; preds = %3236
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3228) #5
-  br label %.critedge1082
+  br label %.critedge1081
 
-.critedge1082:                                    ; preds = %3237, %3236, %3234, %lean_dec_ref.exit1648
+.critedge1081:                                    ; preds = %3237, %3236, %3234, %lean_dec_ref.exit1647
   %3238 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3239 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__380, align 8, !tbaa !5
   %3240 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3238, ptr noundef %3239) #5
@@ -233402,17 +233402,17 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
   %3244 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMod_declare__126____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13112____closed__4()
   store ptr %3244, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMod_declare__126____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13112____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3244) #5
-  br i1 %.not, label %lean_dec_ref.exit1642, label %3245
+  br i1 %.not, label %lean_dec_ref.exit1641, label %3245
 
-3245:                                             ; preds = %.critedge1082
+3245:                                             ; preds = %.critedge1081
   %3246 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMod_declare__126____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13112____closed__1, align 8, !tbaa !5
   %3247 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMod_declare__126____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13112____closed__3, align 8, !tbaa !5
   %3248 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceMod_declare__126____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13112____closed__4, align 8, !tbaa !5
   %3249 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3246, ptr noundef %3247, ptr noundef %3248, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3250 = getelementptr i8, ptr %3249, i64 4
-  %.val1878 = load i32, ptr %3250, align 4
-  %.mask.i2123 = and i32 %.val1878, -16777216
-  %3251 = icmp eq i32 %.mask.i2123, 16777216
+  %.val1877 = load i32, ptr %3250, align 4
+  %.mask.i2122 = and i32 %.val1877, -16777216
+  %3251 = icmp eq i32 %.mask.i2122, 16777216
   br i1 %3251, label %6668, label %3252
 
 3252:                                             ; preds = %3245
@@ -233426,8 +233426,8 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
   br label %3259
 
 3257:                                             ; preds = %3252
-  %.not.i1643 = icmp eq i32 %3253, 0
-  br i1 %.not.i1643, label %3259, label %3258
+  %.not.i1642 = icmp eq i32 %3253, 0
+  br i1 %.not.i1642, label %3259, label %3258
 
 3258:                                             ; preds = %3257
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3249) #5
@@ -233442,9 +233442,9 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
   %3263 = load ptr, ptr @l_Int16_reduceMod___regBuiltin_Int16_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13114____closed__1, align 8, !tbaa !5
   %3264 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3261, ptr noundef %3262, i8 noundef zeroext 1, ptr noundef %3263, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3265 = getelementptr i8, ptr %3264, i64 4
-  %.val1879 = load i32, ptr %3265, align 4
-  %.mask.i2124 = and i32 %.val1879, -16777216
-  %3266 = icmp eq i32 %.mask.i2124, 16777216
+  %.val1878 = load i32, ptr %3265, align 4
+  %.mask.i2123 = and i32 %.val1878, -16777216
+  %3266 = icmp eq i32 %.mask.i2123, 16777216
   br i1 %3266, label %6668, label %3267
 
 3267:                                             ; preds = %3259
@@ -233458,18 +233458,18 @@ lean_dec_ref.exit1648:                            ; preds = %.critedge1078
   br label %3275
 
 3272:                                             ; preds = %3267
-  %.not.i1641 = icmp eq i32 %3268, 0
-  br i1 %.not.i1641, label %3275, label %3273
+  %.not.i1640 = icmp eq i32 %3268, 0
+  br i1 %.not.i1640, label %3275, label %3273
 
 3273:                                             ; preds = %3272
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3264) #5
   br label %3275
 
-lean_dec_ref.exit1642:                            ; preds = %.critedge1082
+lean_dec_ref.exit1641:                            ; preds = %.critedge1081
   %3274 = tail call fastcc ptr @_init_l_Int16_reduceMod___regBuiltin_Int16_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13114____closed__1()
   store ptr %3274, ptr @l_Int16_reduceMod___regBuiltin_Int16_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13114____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3274) #5
-  br label %.critedge1086
+  br label %.critedge1085
 
 3275:                                             ; preds = %3273, %3272, %3270
   %3276 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233477,9 +233477,9 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
   %3278 = load ptr, ptr @l_Int16_reduceMod___regBuiltin_Int16_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13114____closed__1, align 8, !tbaa !5
   %3279 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3276, ptr noundef %3277, i8 noundef zeroext 1, ptr noundef %3278, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3280 = getelementptr i8, ptr %3279, i64 4
-  %.val1880 = load i32, ptr %3280, align 4
-  %.mask.i2125 = and i32 %.val1880, -16777216
-  %3281 = icmp eq i32 %.mask.i2125, 16777216
+  %.val1879 = load i32, ptr %3280, align 4
+  %.mask.i2124 = and i32 %.val1879, -16777216
+  %3281 = icmp eq i32 %.mask.i2124, 16777216
   br i1 %3281, label %6668, label %3282
 
 3282:                                             ; preds = %3275
@@ -233490,17 +233490,17 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
 3285:                                             ; preds = %3282
   %3286 = add nsw i32 %3283, -1
   store i32 %3286, ptr %3279, align 4, !tbaa !9
-  br label %.critedge1086
+  br label %.critedge1085
 
 3287:                                             ; preds = %3282
-  %.not.i1639 = icmp eq i32 %3283, 0
-  br i1 %.not.i1639, label %.critedge1086, label %3288
+  %.not.i1638 = icmp eq i32 %3283, 0
+  br i1 %.not.i1638, label %.critedge1085, label %3288
 
 3288:                                             ; preds = %3287
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3279) #5
-  br label %.critedge1086
+  br label %.critedge1085
 
-.critedge1086:                                    ; preds = %3288, %3287, %3285, %lean_dec_ref.exit1642
+.critedge1085:                                    ; preds = %3288, %3287, %3285, %lean_dec_ref.exit1641
   %3289 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3290 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__396, align 8, !tbaa !5
   %3291 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3289, ptr noundef %3290) #5
@@ -233516,17 +233516,17 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
   %3295 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLT_declare__130____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13151____closed__4()
   store ptr %3295, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLT_declare__130____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13151____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3295) #5
-  br i1 %.not, label %lean_dec_ref.exit1636, label %3296
+  br i1 %.not, label %lean_dec_ref.exit1635, label %3296
 
-3296:                                             ; preds = %.critedge1086
+3296:                                             ; preds = %.critedge1085
   %3297 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLT_declare__130____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13151____closed__1, align 8, !tbaa !5
   %3298 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLT_declare__130____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13151____closed__3, align 8, !tbaa !5
   %3299 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLT_declare__130____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13151____closed__4, align 8, !tbaa !5
   %3300 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3297, ptr noundef %3298, ptr noundef %3299, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3301 = getelementptr i8, ptr %3300, i64 4
-  %.val1881 = load i32, ptr %3301, align 4
-  %.mask.i2126 = and i32 %.val1881, -16777216
-  %3302 = icmp eq i32 %.mask.i2126, 16777216
+  %.val1880 = load i32, ptr %3301, align 4
+  %.mask.i2125 = and i32 %.val1880, -16777216
+  %3302 = icmp eq i32 %.mask.i2125, 16777216
   br i1 %3302, label %6668, label %3303
 
 3303:                                             ; preds = %3296
@@ -233540,8 +233540,8 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
   br label %3310
 
 3308:                                             ; preds = %3303
-  %.not.i1637 = icmp eq i32 %3304, 0
-  br i1 %.not.i1637, label %3310, label %3309
+  %.not.i1636 = icmp eq i32 %3304, 0
+  br i1 %.not.i1636, label %3310, label %3309
 
 3309:                                             ; preds = %3308
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3300) #5
@@ -233556,9 +233556,9 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
   %3314 = load ptr, ptr @l_Int16_reduceLT___regBuiltin_Int16_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13153____closed__1, align 8, !tbaa !5
   %3315 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3312, ptr noundef %3313, i8 noundef zeroext 1, ptr noundef %3314, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3316 = getelementptr i8, ptr %3315, i64 4
-  %.val1882 = load i32, ptr %3316, align 4
-  %.mask.i2127 = and i32 %.val1882, -16777216
-  %3317 = icmp eq i32 %.mask.i2127, 16777216
+  %.val1881 = load i32, ptr %3316, align 4
+  %.mask.i2126 = and i32 %.val1881, -16777216
+  %3317 = icmp eq i32 %.mask.i2126, 16777216
   br i1 %3317, label %6668, label %3318
 
 3318:                                             ; preds = %3310
@@ -233572,18 +233572,18 @@ lean_dec_ref.exit1642:                            ; preds = %.critedge1082
   br label %3326
 
 3323:                                             ; preds = %3318
-  %.not.i1635 = icmp eq i32 %3319, 0
-  br i1 %.not.i1635, label %3326, label %3324
+  %.not.i1634 = icmp eq i32 %3319, 0
+  br i1 %.not.i1634, label %3326, label %3324
 
 3324:                                             ; preds = %3323
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3315) #5
   br label %3326
 
-lean_dec_ref.exit1636:                            ; preds = %.critedge1086
+lean_dec_ref.exit1635:                            ; preds = %.critedge1085
   %3325 = tail call fastcc ptr @_init_l_Int16_reduceLT___regBuiltin_Int16_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13153____closed__1()
   store ptr %3325, ptr @l_Int16_reduceLT___regBuiltin_Int16_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13153____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3325) #5
-  br label %.critedge1090
+  br label %.critedge1089
 
 3326:                                             ; preds = %3324, %3323, %3321
   %3327 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -233591,9 +233591,9 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3329 = load ptr, ptr @l_Int16_reduceLT___regBuiltin_Int16_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13153____closed__1, align 8, !tbaa !5
   %3330 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3327, ptr noundef %3328, i8 noundef zeroext 1, ptr noundef %3329, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3331 = getelementptr i8, ptr %3330, i64 4
-  %.val1883 = load i32, ptr %3331, align 4
-  %.mask.i2128 = and i32 %.val1883, -16777216
-  %3332 = icmp eq i32 %.mask.i2128, 16777216
+  %.val1882 = load i32, ptr %3331, align 4
+  %.mask.i2127 = and i32 %.val1882, -16777216
+  %3332 = icmp eq i32 %.mask.i2127, 16777216
   br i1 %3332, label %6668, label %3333
 
 3333:                                             ; preds = %3326
@@ -233604,17 +233604,17 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
 3336:                                             ; preds = %3333
   %3337 = add nsw i32 %3334, -1
   store i32 %3337, ptr %3330, align 4, !tbaa !9
-  br label %.critedge1090
+  br label %.critedge1089
 
 3338:                                             ; preds = %3333
-  %.not.i1633 = icmp eq i32 %3334, 0
-  br i1 %.not.i1633, label %.critedge1090, label %3339
+  %.not.i1632 = icmp eq i32 %3334, 0
+  br i1 %.not.i1632, label %.critedge1089, label %3339
 
 3339:                                             ; preds = %3338
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3330) #5
-  br label %.critedge1090
+  br label %.critedge1089
 
-.critedge1090:                                    ; preds = %3339, %3338, %3336, %lean_dec_ref.exit1636
+.critedge1089:                                    ; preds = %3339, %3338, %3336, %lean_dec_ref.exit1635
   %3340 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3341 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__410, align 8, !tbaa !5
   %3342 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3340, ptr noundef %3341) #5
@@ -233630,17 +233630,17 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3346 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLE_declare__134____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13190____closed__4()
   store ptr %3346, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLE_declare__134____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13190____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3346) #5
-  br i1 %.not, label %.critedge1095, label %3347
+  br i1 %.not, label %.critedge1094, label %3347
 
-3347:                                             ; preds = %.critedge1090
+3347:                                             ; preds = %.critedge1089
   %3348 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLE_declare__134____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13190____closed__1, align 8, !tbaa !5
   %3349 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLE_declare__134____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13190____closed__3, align 8, !tbaa !5
   %3350 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceLE_declare__134____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13190____closed__4, align 8, !tbaa !5
   %3351 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3348, ptr noundef %3349, ptr noundef %3350, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3352 = getelementptr i8, ptr %3351, i64 4
-  %.val1884 = load i32, ptr %3352, align 4
-  %.mask.i2129 = and i32 %.val1884, -16777216
-  %3353 = icmp eq i32 %.mask.i2129, 16777216
+  %.val1883 = load i32, ptr %3352, align 4
+  %.mask.i2128 = and i32 %.val1883, -16777216
+  %3353 = icmp eq i32 %.mask.i2128, 16777216
   br i1 %3353, label %6668, label %3354
 
 3354:                                             ; preds = %3347
@@ -233654,8 +233654,8 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   br label %3361
 
 3359:                                             ; preds = %3354
-  %.not.i1631 = icmp eq i32 %3355, 0
-  br i1 %.not.i1631, label %3361, label %3360
+  %.not.i1630 = icmp eq i32 %3355, 0
+  br i1 %.not.i1630, label %3361, label %3360
 
 3360:                                             ; preds = %3359
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3351) #5
@@ -233670,9 +233670,9 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3365 = load ptr, ptr @l_Int16_reduceLE___regBuiltin_Int16_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13192____closed__1, align 8, !tbaa !5
   %3366 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3363, ptr noundef %3364, i8 noundef zeroext 1, ptr noundef %3365, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3367 = getelementptr i8, ptr %3366, i64 4
-  %.val1885 = load i32, ptr %3367, align 4
-  %.mask.i2130 = and i32 %.val1885, -16777216
-  %3368 = icmp eq i32 %.mask.i2130, 16777216
+  %.val1884 = load i32, ptr %3367, align 4
+  %.mask.i2129 = and i32 %.val1884, -16777216
+  %3368 = icmp eq i32 %.mask.i2129, 16777216
   br i1 %3368, label %6668, label %3369
 
 3369:                                             ; preds = %3361
@@ -233686,8 +233686,8 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   br label %3376
 
 3374:                                             ; preds = %3369
-  %.not.i1629 = icmp eq i32 %3370, 0
-  br i1 %.not.i1629, label %3376, label %3375
+  %.not.i1628 = icmp eq i32 %3370, 0
+  br i1 %.not.i1628, label %3376, label %3375
 
 3375:                                             ; preds = %3374
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3366) #5
@@ -233699,24 +233699,24 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3379 = load ptr, ptr @l_Int16_reduceLE___regBuiltin_Int16_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13192____closed__1, align 8, !tbaa !5
   %3380 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3377, ptr noundef %3378, i8 noundef zeroext 1, ptr noundef %3379, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3381 = getelementptr i8, ptr %3380, i64 4
-  %.val1886 = load i32, ptr %3381, align 4
-  %.mask.i2131 = and i32 %.val1886, -16777216
-  %3382 = icmp eq i32 %.mask.i2131, 16777216
-  br i1 %3382, label %6668, label %.critedge1094
+  %.val1885 = load i32, ptr %3381, align 4
+  %.mask.i2130 = and i32 %.val1885, -16777216
+  %3382 = icmp eq i32 %.mask.i2130, 16777216
+  br i1 %3382, label %6668, label %.critedge1093
 
-.critedge1094:                                    ; preds = %3376
+.critedge1093:                                    ; preds = %3376
   %3383 = load i32, ptr %3380, align 4, !tbaa !9
   %3384 = icmp sgt i32 %3383, 1
   br i1 %3384, label %3385, label %3387, !prof !12
 
-3385:                                             ; preds = %.critedge1094
+3385:                                             ; preds = %.critedge1093
   %3386 = add nsw i32 %3383, -1
   store i32 %3386, ptr %3380, align 4, !tbaa !9
   br label %3389
 
-3387:                                             ; preds = %.critedge1094
-  %.not.i1627 = icmp eq i32 %3383, 0
-  br i1 %.not.i1627, label %3389, label %3388
+3387:                                             ; preds = %.critedge1093
+  %.not.i1626 = icmp eq i32 %3383, 0
+  br i1 %.not.i1626, label %3389, label %3388
 
 3388:                                             ; preds = %3387
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3380) #5
@@ -233736,9 +233736,9 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3396 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGT_declare__138____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13229____closed__2, align 8, !tbaa !5
   %3397 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3394, ptr noundef %3395, ptr noundef %3396, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3398 = getelementptr i8, ptr %3397, i64 4
-  %.val1887 = load i32, ptr %3398, align 4
-  %.mask.i2132 = and i32 %.val1887, -16777216
-  %3399 = icmp eq i32 %.mask.i2132, 16777216
+  %.val1886 = load i32, ptr %3398, align 4
+  %.mask.i2131 = and i32 %.val1886, -16777216
+  %3399 = icmp eq i32 %.mask.i2131, 16777216
   br i1 %3399, label %6668, label %3400
 
 3400:                                             ; preds = %3389
@@ -233749,17 +233749,17 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
 3403:                                             ; preds = %3400
   %3404 = add nsw i32 %3401, -1
   store i32 %3404, ptr %3397, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1626
+  br label %lean_dec_ref.exit1625
 
 3405:                                             ; preds = %3400
-  %.not.i1625 = icmp eq i32 %3401, 0
-  br i1 %.not.i1625, label %lean_dec_ref.exit1626, label %3406
+  %.not.i1624 = icmp eq i32 %3401, 0
+  br i1 %.not.i1624, label %lean_dec_ref.exit1625, label %3406
 
 3406:                                             ; preds = %3405
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3397) #5
-  br label %lean_dec_ref.exit1626
+  br label %lean_dec_ref.exit1625
 
-.critedge1095:                                    ; preds = %.critedge1090
+.critedge1094:                                    ; preds = %.critedge1089
   %3407 = tail call fastcc ptr @_init_l_Int16_reduceLE___regBuiltin_Int16_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13192____closed__1()
   store ptr %3407, ptr @l_Int16_reduceLE___regBuiltin_Int16_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13192____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3407) #5
@@ -233771,23 +233771,23 @@ lean_dec_ref.exit1636:                            ; preds = %.critedge1086
   %3411 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGT_declare__138____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13229____closed__2()
   store ptr %3411, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGT_declare__138____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13229____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3411) #5
-  br label %lean_dec_ref.exit1626
+  br label %lean_dec_ref.exit1625
 
-lean_dec_ref.exit1626:                            ; preds = %3406, %3405, %3403, %.critedge1095
+lean_dec_ref.exit1625:                            ; preds = %3406, %3405, %3403, %.critedge1094
   %3412 = tail call fastcc ptr @_init_l_Int16_reduceGT___regBuiltin_Int16_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13231____closed__1()
   store ptr %3412, ptr @l_Int16_reduceGT___regBuiltin_Int16_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13231____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3412) #5
-  br i1 %.not, label %.critedge1100, label %3413
+  br i1 %.not, label %.critedge1099, label %3413
 
-3413:                                             ; preds = %lean_dec_ref.exit1626
+3413:                                             ; preds = %lean_dec_ref.exit1625
   %3414 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %3415 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGT_declare__138____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13229____closed__1, align 8, !tbaa !5
   %3416 = load ptr, ptr @l_Int16_reduceGT___regBuiltin_Int16_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13231____closed__1, align 8, !tbaa !5
   %3417 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3414, ptr noundef %3415, i8 noundef zeroext 1, ptr noundef %3416, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3418 = getelementptr i8, ptr %3417, i64 4
-  %.val1888 = load i32, ptr %3418, align 4
-  %.mask.i2133 = and i32 %.val1888, -16777216
-  %3419 = icmp eq i32 %.mask.i2133, 16777216
+  %.val1887 = load i32, ptr %3418, align 4
+  %.mask.i2132 = and i32 %.val1887, -16777216
+  %3419 = icmp eq i32 %.mask.i2132, 16777216
   br i1 %3419, label %6668, label %3420
 
 3420:                                             ; preds = %3413
@@ -233798,40 +233798,40 @@ lean_dec_ref.exit1626:                            ; preds = %3406, %3405, %3403,
 3423:                                             ; preds = %3420
   %3424 = add nsw i32 %3421, -1
   store i32 %3424, ptr %3417, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1624
+  br label %lean_dec_ref.exit1623
 
 3425:                                             ; preds = %3420
-  %.not.i1623 = icmp eq i32 %3421, 0
-  br i1 %.not.i1623, label %lean_dec_ref.exit1624, label %3426
+  %.not.i1622 = icmp eq i32 %3421, 0
+  br i1 %.not.i1622, label %lean_dec_ref.exit1623, label %3426
 
 3426:                                             ; preds = %3425
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3417) #5
-  br label %lean_dec_ref.exit1624
+  br label %lean_dec_ref.exit1623
 
-lean_dec_ref.exit1624:                            ; preds = %3423, %3425, %3426
+lean_dec_ref.exit1623:                            ; preds = %3423, %3425, %3426
   %3427 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %3428 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGT_declare__138____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13229____closed__1, align 8, !tbaa !5
   %3429 = load ptr, ptr @l_Int16_reduceGT___regBuiltin_Int16_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13231____closed__1, align 8, !tbaa !5
   %3430 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3427, ptr noundef %3428, i8 noundef zeroext 1, ptr noundef %3429, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3431 = getelementptr i8, ptr %3430, i64 4
-  %.val1889 = load i32, ptr %3431, align 4
-  %.mask.i2134 = and i32 %.val1889, -16777216
-  %3432 = icmp eq i32 %.mask.i2134, 16777216
-  br i1 %3432, label %6668, label %.critedge1099
+  %.val1888 = load i32, ptr %3431, align 4
+  %.mask.i2133 = and i32 %.val1888, -16777216
+  %3432 = icmp eq i32 %.mask.i2133, 16777216
+  br i1 %3432, label %6668, label %.critedge1098
 
-.critedge1099:                                    ; preds = %lean_dec_ref.exit1624
+.critedge1098:                                    ; preds = %lean_dec_ref.exit1623
   %3433 = load i32, ptr %3430, align 4, !tbaa !9
   %3434 = icmp sgt i32 %3433, 1
   br i1 %3434, label %3435, label %3437, !prof !12
 
-3435:                                             ; preds = %.critedge1099
+3435:                                             ; preds = %.critedge1098
   %3436 = add nsw i32 %3433, -1
   store i32 %3436, ptr %3430, align 4, !tbaa !9
   br label %3439
 
-3437:                                             ; preds = %.critedge1099
-  %.not.i1621 = icmp eq i32 %3433, 0
-  br i1 %.not.i1621, label %3439, label %3438
+3437:                                             ; preds = %.critedge1098
+  %.not.i1620 = icmp eq i32 %3433, 0
+  br i1 %.not.i1620, label %3439, label %3438
 
 3438:                                             ; preds = %3437
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3430) #5
@@ -233851,9 +233851,9 @@ lean_dec_ref.exit1624:                            ; preds = %3423, %3425, %3426
   %3446 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGE_declare__142____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13268____closed__2, align 8, !tbaa !5
   %3447 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3444, ptr noundef %3445, ptr noundef %3446, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3448 = getelementptr i8, ptr %3447, i64 4
-  %.val1890 = load i32, ptr %3448, align 4
-  %.mask.i2135 = and i32 %.val1890, -16777216
-  %3449 = icmp eq i32 %.mask.i2135, 16777216
+  %.val1889 = load i32, ptr %3448, align 4
+  %.mask.i2134 = and i32 %.val1889, -16777216
+  %3449 = icmp eq i32 %.mask.i2134, 16777216
   br i1 %3449, label %6668, label %3450
 
 3450:                                             ; preds = %3439
@@ -233864,17 +233864,17 @@ lean_dec_ref.exit1624:                            ; preds = %3423, %3425, %3426
 3453:                                             ; preds = %3450
   %3454 = add nsw i32 %3451, -1
   store i32 %3454, ptr %3447, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1620
+  br label %lean_dec_ref.exit1619
 
 3455:                                             ; preds = %3450
-  %.not.i1619 = icmp eq i32 %3451, 0
-  br i1 %.not.i1619, label %lean_dec_ref.exit1620, label %3456
+  %.not.i1618 = icmp eq i32 %3451, 0
+  br i1 %.not.i1618, label %lean_dec_ref.exit1619, label %3456
 
 3456:                                             ; preds = %3455
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3447) #5
-  br label %lean_dec_ref.exit1620
+  br label %lean_dec_ref.exit1619
 
-.critedge1100:                                    ; preds = %lean_dec_ref.exit1626
+.critedge1099:                                    ; preds = %lean_dec_ref.exit1625
   %3457 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3458 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__436, align 8, !tbaa !5
   %3459 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3457, ptr noundef %3458) #5
@@ -233883,23 +233883,23 @@ lean_dec_ref.exit1624:                            ; preds = %3423, %3425, %3426
   %3460 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGE_declare__142____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13268____closed__2()
   store ptr %3460, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGE_declare__142____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13268____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3460) #5
-  br label %lean_dec_ref.exit1620
+  br label %lean_dec_ref.exit1619
 
-lean_dec_ref.exit1620:                            ; preds = %3456, %3455, %3453, %.critedge1100
+lean_dec_ref.exit1619:                            ; preds = %3456, %3455, %3453, %.critedge1099
   %3461 = tail call fastcc ptr @_init_l_Int16_reduceGE___regBuiltin_Int16_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13270____closed__1()
   store ptr %3461, ptr @l_Int16_reduceGE___regBuiltin_Int16_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13270____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3461) #5
-  br i1 %.not, label %.critedge1104, label %3462
+  br i1 %.not, label %.critedge1103, label %3462
 
-3462:                                             ; preds = %lean_dec_ref.exit1620
+3462:                                             ; preds = %lean_dec_ref.exit1619
   %3463 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %3464 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGE_declare__142____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13268____closed__1, align 8, !tbaa !5
   %3465 = load ptr, ptr @l_Int16_reduceGE___regBuiltin_Int16_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13270____closed__1, align 8, !tbaa !5
   %3466 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3463, ptr noundef %3464, i8 noundef zeroext 1, ptr noundef %3465, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3467 = getelementptr i8, ptr %3466, i64 4
-  %.val1891 = load i32, ptr %3467, align 4
-  %.mask.i2136 = and i32 %.val1891, -16777216
-  %3468 = icmp eq i32 %.mask.i2136, 16777216
+  %.val1890 = load i32, ptr %3467, align 4
+  %.mask.i2135 = and i32 %.val1890, -16777216
+  %3468 = icmp eq i32 %.mask.i2135, 16777216
   br i1 %3468, label %6668, label %3469
 
 3469:                                             ; preds = %3462
@@ -233910,28 +233910,28 @@ lean_dec_ref.exit1620:                            ; preds = %3456, %3455, %3453,
 3472:                                             ; preds = %3469
   %3473 = add nsw i32 %3470, -1
   store i32 %3473, ptr %3466, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1618
+  br label %lean_dec_ref.exit1617
 
 3474:                                             ; preds = %3469
-  %.not.i1617 = icmp eq i32 %3470, 0
-  br i1 %.not.i1617, label %lean_dec_ref.exit1618, label %3475
+  %.not.i1616 = icmp eq i32 %3470, 0
+  br i1 %.not.i1616, label %lean_dec_ref.exit1617, label %3475
 
 3475:                                             ; preds = %3474
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3466) #5
-  br label %lean_dec_ref.exit1618
+  br label %lean_dec_ref.exit1617
 
-lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
+lean_dec_ref.exit1617:                            ; preds = %3472, %3474, %3475
   %3476 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %3477 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceGE_declare__142____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13268____closed__1, align 8, !tbaa !5
   %3478 = load ptr, ptr @l_Int16_reduceGE___regBuiltin_Int16_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13270____closed__1, align 8, !tbaa !5
   %3479 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3476, ptr noundef %3477, i8 noundef zeroext 1, ptr noundef %3478, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3480 = getelementptr i8, ptr %3479, i64 4
-  %.val1892 = load i32, ptr %3480, align 4
-  %.mask.i2137 = and i32 %.val1892, -16777216
-  %3481 = icmp eq i32 %.mask.i2137, 16777216
+  %.val1891 = load i32, ptr %3480, align 4
+  %.mask.i2136 = and i32 %.val1891, -16777216
+  %3481 = icmp eq i32 %.mask.i2136, 16777216
   br i1 %3481, label %6668, label %3482
 
-3482:                                             ; preds = %lean_dec_ref.exit1618
+3482:                                             ; preds = %lean_dec_ref.exit1617
   %3483 = load i32, ptr %3479, align 4, !tbaa !9
   %3484 = icmp sgt i32 %3483, 1
   br i1 %3484, label %3485, label %3487, !prof !12
@@ -233939,17 +233939,17 @@ lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
 3485:                                             ; preds = %3482
   %3486 = add nsw i32 %3483, -1
   store i32 %3486, ptr %3479, align 4, !tbaa !9
-  br label %.critedge1104
+  br label %.critedge1103
 
 3487:                                             ; preds = %3482
-  %.not.i1615 = icmp eq i32 %3483, 0
-  br i1 %.not.i1615, label %.critedge1104, label %3488
+  %.not.i1614 = icmp eq i32 %3483, 0
+  br i1 %.not.i1614, label %.critedge1103, label %3488
 
 3488:                                             ; preds = %3487
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3479) #5
-  br label %.critedge1104
+  br label %.critedge1103
 
-.critedge1104:                                    ; preds = %3488, %3487, %3485, %lean_dec_ref.exit1620
+.critedge1103:                                    ; preds = %3488, %3487, %3485, %lean_dec_ref.exit1619
   %3489 = load ptr, ptr @l_Int16_fromExpr___closed__2, align 8, !tbaa !5
   %3490 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__449, align 8, !tbaa !5
   %3491 = tail call ptr @l_Lean_Name_str___override(ptr noundef %3489, ptr noundef %3490) #5
@@ -234009,17 +234009,17 @@ lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
   %3521 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceEq_declare__146____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13307____closed__13()
   store ptr %3521, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceEq_declare__146____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13307____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3521) #5
-  br i1 %.not, label %lean_dec_ref.exit1612, label %3522
+  br i1 %.not, label %lean_dec_ref.exit1611, label %3522
 
-3522:                                             ; preds = %.critedge1104
+3522:                                             ; preds = %.critedge1103
   %3523 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceEq_declare__146____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13307____closed__10, align 8, !tbaa !5
   %3524 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceEq_declare__146____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13307____closed__12, align 8, !tbaa !5
   %3525 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceEq_declare__146____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13307____closed__13, align 8, !tbaa !5
   %3526 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3523, ptr noundef %3524, ptr noundef %3525, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3527 = getelementptr i8, ptr %3526, i64 4
-  %.val1893 = load i32, ptr %3527, align 4
-  %.mask.i2138 = and i32 %.val1893, -16777216
-  %3528 = icmp eq i32 %.mask.i2138, 16777216
+  %.val1892 = load i32, ptr %3527, align 4
+  %.mask.i2137 = and i32 %.val1892, -16777216
+  %3528 = icmp eq i32 %.mask.i2137, 16777216
   br i1 %3528, label %6668, label %3529
 
 3529:                                             ; preds = %3522
@@ -234033,8 +234033,8 @@ lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
   br label %3536
 
 3534:                                             ; preds = %3529
-  %.not.i1613 = icmp eq i32 %3530, 0
-  br i1 %.not.i1613, label %3536, label %3535
+  %.not.i1612 = icmp eq i32 %3530, 0
+  br i1 %.not.i1612, label %3536, label %3535
 
 3535:                                             ; preds = %3534
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3526) #5
@@ -234049,9 +234049,9 @@ lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
   %3540 = load ptr, ptr @l_Int16_reduceEq___regBuiltin_Int16_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3541 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3538, ptr noundef %3539, i8 noundef zeroext 1, ptr noundef %3540, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3542 = getelementptr i8, ptr %3541, i64 4
-  %.val1894 = load i32, ptr %3542, align 4
-  %.mask.i2139 = and i32 %.val1894, -16777216
-  %3543 = icmp eq i32 %.mask.i2139, 16777216
+  %.val1893 = load i32, ptr %3542, align 4
+  %.mask.i2138 = and i32 %.val1893, -16777216
+  %3543 = icmp eq i32 %.mask.i2138, 16777216
   br i1 %3543, label %6668, label %3544
 
 3544:                                             ; preds = %3536
@@ -234065,18 +234065,18 @@ lean_dec_ref.exit1618:                            ; preds = %3472, %3474, %3475
   br label %3552
 
 3549:                                             ; preds = %3544
-  %.not.i1611 = icmp eq i32 %3545, 0
-  br i1 %.not.i1611, label %3552, label %3550
+  %.not.i1610 = icmp eq i32 %3545, 0
+  br i1 %.not.i1610, label %3552, label %3550
 
 3550:                                             ; preds = %3549
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3541) #5
   br label %3552
 
-lean_dec_ref.exit1612:                            ; preds = %.critedge1104
+lean_dec_ref.exit1611:                            ; preds = %.critedge1103
   %3551 = tail call fastcc ptr @_init_l_Int16_reduceEq___regBuiltin_Int16_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %3551, ptr @l_Int16_reduceEq___regBuiltin_Int16_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3551) #5
-  br label %.critedge1108
+  br label %.critedge1107
 
 3552:                                             ; preds = %3550, %3549, %3547
   %3553 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234084,9 +234084,9 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
   %3555 = load ptr, ptr @l_Int16_reduceEq___regBuiltin_Int16_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3556 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3553, ptr noundef %3554, i8 noundef zeroext 1, ptr noundef %3555, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3557 = getelementptr i8, ptr %3556, i64 4
-  %.val1895 = load i32, ptr %3557, align 4
-  %.mask.i2140 = and i32 %.val1895, -16777216
-  %3558 = icmp eq i32 %.mask.i2140, 16777216
+  %.val1894 = load i32, ptr %3557, align 4
+  %.mask.i2139 = and i32 %.val1894, -16777216
+  %3558 = icmp eq i32 %.mask.i2139, 16777216
   br i1 %3558, label %6668, label %3559
 
 3559:                                             ; preds = %3552
@@ -234097,17 +234097,17 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
 3562:                                             ; preds = %3559
   %3563 = add nsw i32 %3560, -1
   store i32 %3563, ptr %3556, align 4, !tbaa !9
-  br label %.critedge1108
+  br label %.critedge1107
 
 3564:                                             ; preds = %3559
-  %.not.i1609 = icmp eq i32 %3560, 0
-  br i1 %.not.i1609, label %.critedge1108, label %3565
+  %.not.i1608 = icmp eq i32 %3560, 0
+  br i1 %.not.i1608, label %.critedge1107, label %3565
 
 3565:                                             ; preds = %3564
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3556) #5
-  br label %.critedge1108
+  br label %.critedge1107
 
-.critedge1108:                                    ; preds = %3565, %3564, %3562, %lean_dec_ref.exit1612
+.critedge1107:                                    ; preds = %3565, %3564, %3562, %lean_dec_ref.exit1611
   %3566 = load ptr, ptr @l_Int16_fromExpr___closed__2, align 8, !tbaa !5
   %3567 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__462, align 8, !tbaa !5
   %3568 = tail call ptr @l_Lean_Name_str___override(ptr noundef %3566, ptr noundef %3567) #5
@@ -234167,17 +234167,17 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
   %3598 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNe_declare__150____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13345____closed__13()
   store ptr %3598, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNe_declare__150____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13345____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3598) #5
-  br i1 %.not, label %lean_dec_ref.exit1606, label %3599
+  br i1 %.not, label %lean_dec_ref.exit1605, label %3599
 
-3599:                                             ; preds = %.critedge1108
+3599:                                             ; preds = %.critedge1107
   %3600 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNe_declare__150____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13345____closed__10, align 8, !tbaa !5
   %3601 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNe_declare__150____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13345____closed__12, align 8, !tbaa !5
   %3602 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceNe_declare__150____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13345____closed__13, align 8, !tbaa !5
   %3603 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %3600, ptr noundef %3601, ptr noundef %3602, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3604 = getelementptr i8, ptr %3603, i64 4
-  %.val1896 = load i32, ptr %3604, align 4
-  %.mask.i2141 = and i32 %.val1896, -16777216
-  %3605 = icmp eq i32 %.mask.i2141, 16777216
+  %.val1895 = load i32, ptr %3604, align 4
+  %.mask.i2140 = and i32 %.val1895, -16777216
+  %3605 = icmp eq i32 %.mask.i2140, 16777216
   br i1 %3605, label %6668, label %3606
 
 3606:                                             ; preds = %3599
@@ -234191,8 +234191,8 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
   br label %3613
 
 3611:                                             ; preds = %3606
-  %.not.i1607 = icmp eq i32 %3607, 0
-  br i1 %.not.i1607, label %3613, label %3612
+  %.not.i1606 = icmp eq i32 %3607, 0
+  br i1 %.not.i1606, label %3613, label %3612
 
 3612:                                             ; preds = %3611
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3603) #5
@@ -234207,9 +234207,9 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
   %3617 = load ptr, ptr @l_Int16_reduceNe___regBuiltin_Int16_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3618 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3615, ptr noundef %3616, i8 noundef zeroext 1, ptr noundef %3617, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3619 = getelementptr i8, ptr %3618, i64 4
-  %.val1897 = load i32, ptr %3619, align 4
-  %.mask.i2142 = and i32 %.val1897, -16777216
-  %3620 = icmp eq i32 %.mask.i2142, 16777216
+  %.val1896 = load i32, ptr %3619, align 4
+  %.mask.i2141 = and i32 %.val1896, -16777216
+  %3620 = icmp eq i32 %.mask.i2141, 16777216
   br i1 %3620, label %6668, label %3621
 
 3621:                                             ; preds = %3613
@@ -234223,18 +234223,18 @@ lean_dec_ref.exit1612:                            ; preds = %.critedge1104
   br label %3629
 
 3626:                                             ; preds = %3621
-  %.not.i1605 = icmp eq i32 %3622, 0
-  br i1 %.not.i1605, label %3629, label %3627
+  %.not.i1604 = icmp eq i32 %3622, 0
+  br i1 %.not.i1604, label %3629, label %3627
 
 3627:                                             ; preds = %3626
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3618) #5
   br label %3629
 
-lean_dec_ref.exit1606:                            ; preds = %.critedge1108
+lean_dec_ref.exit1605:                            ; preds = %.critedge1107
   %3628 = tail call fastcc ptr @_init_l_Int16_reduceNe___regBuiltin_Int16_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %3628, ptr @l_Int16_reduceNe___regBuiltin_Int16_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3628) #5
-  br label %.critedge1112
+  br label %.critedge1111
 
 3629:                                             ; preds = %3627, %3626, %3624
   %3630 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234242,9 +234242,9 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
   %3632 = load ptr, ptr @l_Int16_reduceNe___regBuiltin_Int16_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3633 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3630, ptr noundef %3631, i8 noundef zeroext 1, ptr noundef %3632, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3634 = getelementptr i8, ptr %3633, i64 4
-  %.val1898 = load i32, ptr %3634, align 4
-  %.mask.i2143 = and i32 %.val1898, -16777216
-  %3635 = icmp eq i32 %.mask.i2143, 16777216
+  %.val1897 = load i32, ptr %3634, align 4
+  %.mask.i2142 = and i32 %.val1897, -16777216
+  %3635 = icmp eq i32 %.mask.i2142, 16777216
   br i1 %3635, label %6668, label %3636
 
 3636:                                             ; preds = %3629
@@ -234255,17 +234255,17 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
 3639:                                             ; preds = %3636
   %3640 = add nsw i32 %3637, -1
   store i32 %3640, ptr %3633, align 4, !tbaa !9
-  br label %.critedge1112
+  br label %.critedge1111
 
 3641:                                             ; preds = %3636
-  %.not.i1603 = icmp eq i32 %3637, 0
-  br i1 %.not.i1603, label %.critedge1112, label %3642
+  %.not.i1602 = icmp eq i32 %3637, 0
+  br i1 %.not.i1602, label %.critedge1111, label %3642
 
 3642:                                             ; preds = %3641
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3633) #5
-  br label %.critedge1112
+  br label %.critedge1111
 
-.critedge1112:                                    ; preds = %3642, %3641, %3639, %lean_dec_ref.exit1606
+.critedge1111:                                    ; preds = %3642, %3641, %3639, %lean_dec_ref.exit1605
   %3643 = load ptr, ptr @l_Int16_fromExpr___closed__2, align 8, !tbaa !5
   %3644 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__475, align 8, !tbaa !5
   %3645 = tail call ptr @l_Lean_Name_str___override(ptr noundef %3643, ptr noundef %3644) #5
@@ -234325,17 +234325,17 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
   %3675 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBEq_declare__154____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13384____closed__13()
   store ptr %3675, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBEq_declare__154____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13384____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3675) #5
-  br i1 %.not, label %lean_dec_ref.exit1600, label %3676
+  br i1 %.not, label %lean_dec_ref.exit1599, label %3676
 
-3676:                                             ; preds = %.critedge1112
+3676:                                             ; preds = %.critedge1111
   %3677 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBEq_declare__154____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13384____closed__10, align 8, !tbaa !5
   %3678 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBEq_declare__154____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13384____closed__12, align 8, !tbaa !5
   %3679 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBEq_declare__154____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13384____closed__13, align 8, !tbaa !5
   %3680 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3677, ptr noundef %3678, ptr noundef %3679, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3681 = getelementptr i8, ptr %3680, i64 4
-  %.val1899 = load i32, ptr %3681, align 4
-  %.mask.i2144 = and i32 %.val1899, -16777216
-  %3682 = icmp eq i32 %.mask.i2144, 16777216
+  %.val1898 = load i32, ptr %3681, align 4
+  %.mask.i2143 = and i32 %.val1898, -16777216
+  %3682 = icmp eq i32 %.mask.i2143, 16777216
   br i1 %3682, label %6668, label %3683
 
 3683:                                             ; preds = %3676
@@ -234349,8 +234349,8 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
   br label %3690
 
 3688:                                             ; preds = %3683
-  %.not.i1601 = icmp eq i32 %3684, 0
-  br i1 %.not.i1601, label %3690, label %3689
+  %.not.i1600 = icmp eq i32 %3684, 0
+  br i1 %.not.i1600, label %3690, label %3689
 
 3689:                                             ; preds = %3688
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3680) #5
@@ -234365,9 +234365,9 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
   %3694 = load ptr, ptr @l_Int16_reduceBEq___regBuiltin_Int16_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3695 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3692, ptr noundef %3693, i8 noundef zeroext 1, ptr noundef %3694, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3696 = getelementptr i8, ptr %3695, i64 4
-  %.val1900 = load i32, ptr %3696, align 4
-  %.mask.i2145 = and i32 %.val1900, -16777216
-  %3697 = icmp eq i32 %.mask.i2145, 16777216
+  %.val1899 = load i32, ptr %3696, align 4
+  %.mask.i2144 = and i32 %.val1899, -16777216
+  %3697 = icmp eq i32 %.mask.i2144, 16777216
   br i1 %3697, label %6668, label %3698
 
 3698:                                             ; preds = %3690
@@ -234381,18 +234381,18 @@ lean_dec_ref.exit1606:                            ; preds = %.critedge1108
   br label %3706
 
 3703:                                             ; preds = %3698
-  %.not.i1599 = icmp eq i32 %3699, 0
-  br i1 %.not.i1599, label %3706, label %3704
+  %.not.i1598 = icmp eq i32 %3699, 0
+  br i1 %.not.i1598, label %3706, label %3704
 
 3704:                                             ; preds = %3703
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3695) #5
   br label %3706
 
-lean_dec_ref.exit1600:                            ; preds = %.critedge1112
+lean_dec_ref.exit1599:                            ; preds = %.critedge1111
   %3705 = tail call fastcc ptr @_init_l_Int16_reduceBEq___regBuiltin_Int16_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %3705, ptr @l_Int16_reduceBEq___regBuiltin_Int16_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3705) #5
-  br label %.critedge1116
+  br label %.critedge1115
 
 3706:                                             ; preds = %3704, %3703, %3701
   %3707 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234400,9 +234400,9 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
   %3709 = load ptr, ptr @l_Int16_reduceBEq___regBuiltin_Int16_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3710 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3707, ptr noundef %3708, i8 noundef zeroext 1, ptr noundef %3709, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3711 = getelementptr i8, ptr %3710, i64 4
-  %.val1901 = load i32, ptr %3711, align 4
-  %.mask.i2146 = and i32 %.val1901, -16777216
-  %3712 = icmp eq i32 %.mask.i2146, 16777216
+  %.val1900 = load i32, ptr %3711, align 4
+  %.mask.i2145 = and i32 %.val1900, -16777216
+  %3712 = icmp eq i32 %.mask.i2145, 16777216
   br i1 %3712, label %6668, label %3713
 
 3713:                                             ; preds = %3706
@@ -234413,17 +234413,17 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
 3716:                                             ; preds = %3713
   %3717 = add nsw i32 %3714, -1
   store i32 %3717, ptr %3710, align 4, !tbaa !9
-  br label %.critedge1116
+  br label %.critedge1115
 
 3718:                                             ; preds = %3713
-  %.not.i1597 = icmp eq i32 %3714, 0
-  br i1 %.not.i1597, label %.critedge1116, label %3719
+  %.not.i1596 = icmp eq i32 %3714, 0
+  br i1 %.not.i1596, label %.critedge1115, label %3719
 
 3719:                                             ; preds = %3718
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3710) #5
-  br label %.critedge1116
+  br label %.critedge1115
 
-.critedge1116:                                    ; preds = %3719, %3718, %3716, %lean_dec_ref.exit1600
+.critedge1115:                                    ; preds = %3719, %3718, %3716, %lean_dec_ref.exit1599
   %3720 = load ptr, ptr @l_Int16_fromExpr___closed__2, align 8, !tbaa !5
   %3721 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__488, align 8, !tbaa !5
   %3722 = tail call ptr @l_Lean_Name_str___override(ptr noundef %3720, ptr noundef %3721) #5
@@ -234483,17 +234483,17 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
   %3752 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBNe_declare__158____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13422____closed__13()
   store ptr %3752, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBNe_declare__158____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13422____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3752) #5
-  br i1 %.not, label %lean_dec_ref.exit1594, label %3753
+  br i1 %.not, label %lean_dec_ref.exit1593, label %3753
 
-3753:                                             ; preds = %.critedge1116
+3753:                                             ; preds = %.critedge1115
   %3754 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBNe_declare__158____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13422____closed__10, align 8, !tbaa !5
   %3755 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBNe_declare__158____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13422____closed__12, align 8, !tbaa !5
   %3756 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceBNe_declare__158____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__13422____closed__13, align 8, !tbaa !5
   %3757 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3754, ptr noundef %3755, ptr noundef %3756, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3758 = getelementptr i8, ptr %3757, i64 4
-  %.val1902 = load i32, ptr %3758, align 4
-  %.mask.i2147 = and i32 %.val1902, -16777216
-  %3759 = icmp eq i32 %.mask.i2147, 16777216
+  %.val1901 = load i32, ptr %3758, align 4
+  %.mask.i2146 = and i32 %.val1901, -16777216
+  %3759 = icmp eq i32 %.mask.i2146, 16777216
   br i1 %3759, label %6668, label %3760
 
 3760:                                             ; preds = %3753
@@ -234507,8 +234507,8 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
   br label %3767
 
 3765:                                             ; preds = %3760
-  %.not.i1595 = icmp eq i32 %3761, 0
-  br i1 %.not.i1595, label %3767, label %3766
+  %.not.i1594 = icmp eq i32 %3761, 0
+  br i1 %.not.i1594, label %3767, label %3766
 
 3766:                                             ; preds = %3765
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3757) #5
@@ -234523,9 +234523,9 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
   %3771 = load ptr, ptr @l_Int16_reduceBNe___regBuiltin_Int16_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3772 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3769, ptr noundef %3770, i8 noundef zeroext 1, ptr noundef %3771, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3773 = getelementptr i8, ptr %3772, i64 4
-  %.val1903 = load i32, ptr %3773, align 4
-  %.mask.i2148 = and i32 %.val1903, -16777216
-  %3774 = icmp eq i32 %.mask.i2148, 16777216
+  %.val1902 = load i32, ptr %3773, align 4
+  %.mask.i2147 = and i32 %.val1902, -16777216
+  %3774 = icmp eq i32 %.mask.i2147, 16777216
   br i1 %3774, label %6668, label %3775
 
 3775:                                             ; preds = %3767
@@ -234539,18 +234539,18 @@ lean_dec_ref.exit1600:                            ; preds = %.critedge1112
   br label %3783
 
 3780:                                             ; preds = %3775
-  %.not.i1593 = icmp eq i32 %3776, 0
-  br i1 %.not.i1593, label %3783, label %3781
+  %.not.i1592 = icmp eq i32 %3776, 0
+  br i1 %.not.i1592, label %3783, label %3781
 
 3781:                                             ; preds = %3780
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3772) #5
   br label %3783
 
-lean_dec_ref.exit1594:                            ; preds = %.critedge1116
+lean_dec_ref.exit1593:                            ; preds = %.critedge1115
   %3782 = tail call fastcc ptr @_init_l_Int16_reduceBNe___regBuiltin_Int16_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %3782, ptr @l_Int16_reduceBNe___regBuiltin_Int16_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3782) #5
-  br label %.critedge1120
+  br label %.critedge1119
 
 3783:                                             ; preds = %3781, %3780, %3778
   %3784 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234558,9 +234558,9 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
   %3786 = load ptr, ptr @l_Int16_reduceBNe___regBuiltin_Int16_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %3787 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3784, ptr noundef %3785, i8 noundef zeroext 1, ptr noundef %3786, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3788 = getelementptr i8, ptr %3787, i64 4
-  %.val1904 = load i32, ptr %3788, align 4
-  %.mask.i2149 = and i32 %.val1904, -16777216
-  %3789 = icmp eq i32 %.mask.i2149, 16777216
+  %.val1903 = load i32, ptr %3788, align 4
+  %.mask.i2148 = and i32 %.val1903, -16777216
+  %3789 = icmp eq i32 %.mask.i2148, 16777216
   br i1 %3789, label %6668, label %3790
 
 3790:                                             ; preds = %3783
@@ -234571,17 +234571,17 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
 3793:                                             ; preds = %3790
   %3794 = add nsw i32 %3791, -1
   store i32 %3794, ptr %3787, align 4, !tbaa !9
-  br label %.critedge1120
+  br label %.critedge1119
 
 3795:                                             ; preds = %3790
-  %.not.i1591 = icmp eq i32 %3791, 0
-  br i1 %.not.i1591, label %.critedge1120, label %3796
+  %.not.i1590 = icmp eq i32 %3791, 0
+  br i1 %.not.i1590, label %.critedge1119, label %3796
 
 3796:                                             ; preds = %3795
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3787) #5
-  br label %.critedge1120
+  br label %.critedge1119
 
-.critedge1120:                                    ; preds = %3796, %3795, %3793, %lean_dec_ref.exit1594
+.critedge1119:                                    ; preds = %3796, %3795, %3793, %lean_dec_ref.exit1593
   %3797 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3798 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__5, align 8, !tbaa !5
   %3799 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3797, ptr noundef %3798) #5
@@ -234605,17 +234605,17 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
   %3807 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfIntLE_declare__162____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13538____closed__5()
   store ptr %3807, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfIntLE_declare__162____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13538____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3807) #5
-  br i1 %.not, label %lean_dec_ref.exit1588, label %3808
+  br i1 %.not, label %lean_dec_ref.exit1587, label %3808
 
-3808:                                             ; preds = %.critedge1120
+3808:                                             ; preds = %.critedge1119
   %3809 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfIntLE_declare__162____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13538____closed__1, align 8, !tbaa !5
   %3810 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfIntLE_declare__162____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13538____closed__4, align 8, !tbaa !5
   %3811 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfIntLE_declare__162____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13538____closed__5, align 8, !tbaa !5
   %3812 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3809, ptr noundef %3810, ptr noundef %3811, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3813 = getelementptr i8, ptr %3812, i64 4
-  %.val1905 = load i32, ptr %3813, align 4
-  %.mask.i2150 = and i32 %.val1905, -16777216
-  %3814 = icmp eq i32 %.mask.i2150, 16777216
+  %.val1904 = load i32, ptr %3813, align 4
+  %.mask.i2149 = and i32 %.val1904, -16777216
+  %3814 = icmp eq i32 %.mask.i2149, 16777216
   br i1 %3814, label %6668, label %3815
 
 3815:                                             ; preds = %3808
@@ -234629,8 +234629,8 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
   br label %3822
 
 3820:                                             ; preds = %3815
-  %.not.i1589 = icmp eq i32 %3816, 0
-  br i1 %.not.i1589, label %3822, label %3821
+  %.not.i1588 = icmp eq i32 %3816, 0
+  br i1 %.not.i1588, label %3822, label %3821
 
 3821:                                             ; preds = %3820
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3812) #5
@@ -234645,9 +234645,9 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
   %3826 = load ptr, ptr @l_Int16_reduceOfIntLE___regBuiltin_Int16_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13540____closed__1, align 8, !tbaa !5
   %3827 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3824, ptr noundef %3825, i8 noundef zeroext 1, ptr noundef %3826, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3828 = getelementptr i8, ptr %3827, i64 4
-  %.val1906 = load i32, ptr %3828, align 4
-  %.mask.i2151 = and i32 %.val1906, -16777216
-  %3829 = icmp eq i32 %.mask.i2151, 16777216
+  %.val1905 = load i32, ptr %3828, align 4
+  %.mask.i2150 = and i32 %.val1905, -16777216
+  %3829 = icmp eq i32 %.mask.i2150, 16777216
   br i1 %3829, label %6668, label %3830
 
 3830:                                             ; preds = %3822
@@ -234661,18 +234661,18 @@ lean_dec_ref.exit1594:                            ; preds = %.critedge1116
   br label %3838
 
 3835:                                             ; preds = %3830
-  %.not.i1587 = icmp eq i32 %3831, 0
-  br i1 %.not.i1587, label %3838, label %3836
+  %.not.i1586 = icmp eq i32 %3831, 0
+  br i1 %.not.i1586, label %3838, label %3836
 
 3836:                                             ; preds = %3835
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3827) #5
   br label %3838
 
-lean_dec_ref.exit1588:                            ; preds = %.critedge1120
+lean_dec_ref.exit1587:                            ; preds = %.critedge1119
   %3837 = tail call fastcc ptr @_init_l_Int16_reduceOfIntLE___regBuiltin_Int16_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13540____closed__1()
   store ptr %3837, ptr @l_Int16_reduceOfIntLE___regBuiltin_Int16_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13540____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3837) #5
-  br label %.critedge1124
+  br label %.critedge1123
 
 3838:                                             ; preds = %3836, %3835, %3833
   %3839 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234680,9 +234680,9 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
   %3841 = load ptr, ptr @l_Int16_reduceOfIntLE___regBuiltin_Int16_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13540____closed__1, align 8, !tbaa !5
   %3842 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3839, ptr noundef %3840, i8 noundef zeroext 1, ptr noundef %3841, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3843 = getelementptr i8, ptr %3842, i64 4
-  %.val1907 = load i32, ptr %3843, align 4
-  %.mask.i2152 = and i32 %.val1907, -16777216
-  %3844 = icmp eq i32 %.mask.i2152, 16777216
+  %.val1906 = load i32, ptr %3843, align 4
+  %.mask.i2151 = and i32 %.val1906, -16777216
+  %3844 = icmp eq i32 %.mask.i2151, 16777216
   br i1 %3844, label %6668, label %3845
 
 3845:                                             ; preds = %3838
@@ -234693,17 +234693,17 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
 3848:                                             ; preds = %3845
   %3849 = add nsw i32 %3846, -1
   store i32 %3849, ptr %3842, align 4, !tbaa !9
-  br label %.critedge1124
+  br label %.critedge1123
 
 3850:                                             ; preds = %3845
-  %.not.i1585 = icmp eq i32 %3846, 0
-  br i1 %.not.i1585, label %.critedge1124, label %3851
+  %.not.i1584 = icmp eq i32 %3846, 0
+  br i1 %.not.i1584, label %.critedge1123, label %3851
 
 3851:                                             ; preds = %3850
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3842) #5
-  br label %.critedge1124
+  br label %.critedge1123
 
-.critedge1124:                                    ; preds = %3851, %3850, %3848, %lean_dec_ref.exit1588
+.critedge1123:                                    ; preds = %3851, %3850, %3848, %lean_dec_ref.exit1587
   %3852 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3853 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__1, align 8, !tbaa !5
   %3854 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3852, ptr noundef %3853) #5
@@ -234727,17 +234727,17 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
   %3862 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfNat_declare__166____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13652____closed__5()
   store ptr %3862, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfNat_declare__166____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13652____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3862) #5
-  br i1 %.not, label %lean_dec_ref.exit1582, label %3863
+  br i1 %.not, label %lean_dec_ref.exit1581, label %3863
 
-3863:                                             ; preds = %.critedge1124
+3863:                                             ; preds = %.critedge1123
   %3864 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfNat_declare__166____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13652____closed__1, align 8, !tbaa !5
   %3865 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfNat_declare__166____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13652____closed__4, align 8, !tbaa !5
   %3866 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfNat_declare__166____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13652____closed__5, align 8, !tbaa !5
   %3867 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3864, ptr noundef %3865, ptr noundef %3866, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3868 = getelementptr i8, ptr %3867, i64 4
-  %.val1908 = load i32, ptr %3868, align 4
-  %.mask.i2153 = and i32 %.val1908, -16777216
-  %3869 = icmp eq i32 %.mask.i2153, 16777216
+  %.val1907 = load i32, ptr %3868, align 4
+  %.mask.i2152 = and i32 %.val1907, -16777216
+  %3869 = icmp eq i32 %.mask.i2152, 16777216
   br i1 %3869, label %6668, label %3870
 
 3870:                                             ; preds = %3863
@@ -234751,8 +234751,8 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
   br label %3877
 
 3875:                                             ; preds = %3870
-  %.not.i1583 = icmp eq i32 %3871, 0
-  br i1 %.not.i1583, label %3877, label %3876
+  %.not.i1582 = icmp eq i32 %3871, 0
+  br i1 %.not.i1582, label %3877, label %3876
 
 3876:                                             ; preds = %3875
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3867) #5
@@ -234767,9 +234767,9 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
   %3881 = load ptr, ptr @l_Int16_reduceOfNat___regBuiltin_Int16_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13654____closed__1, align 8, !tbaa !5
   %3882 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3879, ptr noundef %3880, i8 noundef zeroext 1, ptr noundef %3881, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3883 = getelementptr i8, ptr %3882, i64 4
-  %.val1909 = load i32, ptr %3883, align 4
-  %.mask.i2154 = and i32 %.val1909, -16777216
-  %3884 = icmp eq i32 %.mask.i2154, 16777216
+  %.val1908 = load i32, ptr %3883, align 4
+  %.mask.i2153 = and i32 %.val1908, -16777216
+  %3884 = icmp eq i32 %.mask.i2153, 16777216
   br i1 %3884, label %6668, label %3885
 
 3885:                                             ; preds = %3877
@@ -234783,18 +234783,18 @@ lean_dec_ref.exit1588:                            ; preds = %.critedge1120
   br label %3893
 
 3890:                                             ; preds = %3885
-  %.not.i1581 = icmp eq i32 %3886, 0
-  br i1 %.not.i1581, label %3893, label %3891
+  %.not.i1580 = icmp eq i32 %3886, 0
+  br i1 %.not.i1580, label %3893, label %3891
 
 3891:                                             ; preds = %3890
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3882) #5
   br label %3893
 
-lean_dec_ref.exit1582:                            ; preds = %.critedge1124
+lean_dec_ref.exit1581:                            ; preds = %.critedge1123
   %3892 = tail call fastcc ptr @_init_l_Int16_reduceOfNat___regBuiltin_Int16_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13654____closed__1()
   store ptr %3892, ptr @l_Int16_reduceOfNat___regBuiltin_Int16_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13654____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3892) #5
-  br label %.critedge1128
+  br label %.critedge1127
 
 3893:                                             ; preds = %3891, %3890, %3888
   %3894 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234802,9 +234802,9 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
   %3896 = load ptr, ptr @l_Int16_reduceOfNat___regBuiltin_Int16_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13654____closed__1, align 8, !tbaa !5
   %3897 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3894, ptr noundef %3895, i8 noundef zeroext 1, ptr noundef %3896, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3898 = getelementptr i8, ptr %3897, i64 4
-  %.val1910 = load i32, ptr %3898, align 4
-  %.mask.i2155 = and i32 %.val1910, -16777216
-  %3899 = icmp eq i32 %.mask.i2155, 16777216
+  %.val1909 = load i32, ptr %3898, align 4
+  %.mask.i2154 = and i32 %.val1909, -16777216
+  %3899 = icmp eq i32 %.mask.i2154, 16777216
   br i1 %3899, label %6668, label %3900
 
 3900:                                             ; preds = %3893
@@ -234815,17 +234815,17 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
 3903:                                             ; preds = %3900
   %3904 = add nsw i32 %3901, -1
   store i32 %3904, ptr %3897, align 4, !tbaa !9
-  br label %.critedge1128
+  br label %.critedge1127
 
 3905:                                             ; preds = %3900
-  %.not.i1579 = icmp eq i32 %3901, 0
-  br i1 %.not.i1579, label %.critedge1128, label %3906
+  %.not.i1578 = icmp eq i32 %3901, 0
+  br i1 %.not.i1578, label %.critedge1127, label %3906
 
 3906:                                             ; preds = %3905
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3897) #5
-  br label %.critedge1128
+  br label %.critedge1127
 
-.critedge1128:                                    ; preds = %3906, %3905, %3903, %lean_dec_ref.exit1582
+.critedge1127:                                    ; preds = %3906, %3905, %3903, %lean_dec_ref.exit1581
   %3907 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3908 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__3, align 8, !tbaa !5
   %3909 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3907, ptr noundef %3908) #5
@@ -234849,17 +234849,17 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
   %3917 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfInt_declare__170____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13766____closed__5()
   store ptr %3917, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfInt_declare__170____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13766____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3917) #5
-  br i1 %.not, label %lean_dec_ref.exit1576, label %3918
+  br i1 %.not, label %lean_dec_ref.exit1575, label %3918
 
-3918:                                             ; preds = %.critedge1128
+3918:                                             ; preds = %.critedge1127
   %3919 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfInt_declare__170____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13766____closed__1, align 8, !tbaa !5
   %3920 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfInt_declare__170____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13766____closed__4, align 8, !tbaa !5
   %3921 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceOfInt_declare__170____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13766____closed__5, align 8, !tbaa !5
   %3922 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3919, ptr noundef %3920, ptr noundef %3921, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3923 = getelementptr i8, ptr %3922, i64 4
-  %.val1911 = load i32, ptr %3923, align 4
-  %.mask.i2156 = and i32 %.val1911, -16777216
-  %3924 = icmp eq i32 %.mask.i2156, 16777216
+  %.val1910 = load i32, ptr %3923, align 4
+  %.mask.i2155 = and i32 %.val1910, -16777216
+  %3924 = icmp eq i32 %.mask.i2155, 16777216
   br i1 %3924, label %6668, label %3925
 
 3925:                                             ; preds = %3918
@@ -234873,8 +234873,8 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
   br label %3932
 
 3930:                                             ; preds = %3925
-  %.not.i1577 = icmp eq i32 %3926, 0
-  br i1 %.not.i1577, label %3932, label %3931
+  %.not.i1576 = icmp eq i32 %3926, 0
+  br i1 %.not.i1576, label %3932, label %3931
 
 3931:                                             ; preds = %3930
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3922) #5
@@ -234889,9 +234889,9 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
   %3936 = load ptr, ptr @l_Int16_reduceOfInt___regBuiltin_Int16_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13768____closed__1, align 8, !tbaa !5
   %3937 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3934, ptr noundef %3935, i8 noundef zeroext 1, ptr noundef %3936, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3938 = getelementptr i8, ptr %3937, i64 4
-  %.val1912 = load i32, ptr %3938, align 4
-  %.mask.i2157 = and i32 %.val1912, -16777216
-  %3939 = icmp eq i32 %.mask.i2157, 16777216
+  %.val1911 = load i32, ptr %3938, align 4
+  %.mask.i2156 = and i32 %.val1911, -16777216
+  %3939 = icmp eq i32 %.mask.i2156, 16777216
   br i1 %3939, label %6668, label %3940
 
 3940:                                             ; preds = %3932
@@ -234905,18 +234905,18 @@ lean_dec_ref.exit1582:                            ; preds = %.critedge1124
   br label %3948
 
 3945:                                             ; preds = %3940
-  %.not.i1575 = icmp eq i32 %3941, 0
-  br i1 %.not.i1575, label %3948, label %3946
+  %.not.i1574 = icmp eq i32 %3941, 0
+  br i1 %.not.i1574, label %3948, label %3946
 
 3946:                                             ; preds = %3945
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3937) #5
   br label %3948
 
-lean_dec_ref.exit1576:                            ; preds = %.critedge1128
+lean_dec_ref.exit1575:                            ; preds = %.critedge1127
   %3947 = tail call fastcc ptr @_init_l_Int16_reduceOfInt___regBuiltin_Int16_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13768____closed__1()
   store ptr %3947, ptr @l_Int16_reduceOfInt___regBuiltin_Int16_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13768____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3947) #5
-  br label %.critedge1132
+  br label %.critedge1131
 
 3948:                                             ; preds = %3946, %3945, %3943
   %3949 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -234924,9 +234924,9 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
   %3951 = load ptr, ptr @l_Int16_reduceOfInt___regBuiltin_Int16_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13768____closed__1, align 8, !tbaa !5
   %3952 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3949, ptr noundef %3950, i8 noundef zeroext 1, ptr noundef %3951, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3953 = getelementptr i8, ptr %3952, i64 4
-  %.val1913 = load i32, ptr %3953, align 4
-  %.mask.i2158 = and i32 %.val1913, -16777216
-  %3954 = icmp eq i32 %.mask.i2158, 16777216
+  %.val1912 = load i32, ptr %3953, align 4
+  %.mask.i2157 = and i32 %.val1912, -16777216
+  %3954 = icmp eq i32 %.mask.i2157, 16777216
   br i1 %3954, label %6668, label %3955
 
 3955:                                             ; preds = %3948
@@ -234937,17 +234937,17 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
 3958:                                             ; preds = %3955
   %3959 = add nsw i32 %3956, -1
   store i32 %3959, ptr %3952, align 4, !tbaa !9
-  br label %.critedge1132
+  br label %.critedge1131
 
 3960:                                             ; preds = %3955
-  %.not.i1573 = icmp eq i32 %3956, 0
-  br i1 %.not.i1573, label %.critedge1132, label %3961
+  %.not.i1572 = icmp eq i32 %3956, 0
+  br i1 %.not.i1572, label %.critedge1131, label %3961
 
 3961:                                             ; preds = %3960
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3952) #5
-  br label %.critedge1132
+  br label %.critedge1131
 
-.critedge1132:                                    ; preds = %3961, %3960, %3958, %lean_dec_ref.exit1576
+.critedge1131:                                    ; preds = %3961, %3960, %3958, %lean_dec_ref.exit1575
   %3962 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %3963 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__7, align 8, !tbaa !5
   %3964 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %3962, ptr noundef %3963) #5
@@ -234971,17 +234971,17 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
   %3972 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToInt_declare__174____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13882____closed__5()
   store ptr %3972, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToInt_declare__174____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13882____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %3972) #5
-  br i1 %.not, label %lean_dec_ref.exit1570, label %3973
+  br i1 %.not, label %lean_dec_ref.exit1569, label %3973
 
-3973:                                             ; preds = %.critedge1132
+3973:                                             ; preds = %.critedge1131
   %3974 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToInt_declare__174____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13882____closed__1, align 8, !tbaa !5
   %3975 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToInt_declare__174____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13882____closed__4, align 8, !tbaa !5
   %3976 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToInt_declare__174____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13882____closed__5, align 8, !tbaa !5
   %3977 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %3974, ptr noundef %3975, ptr noundef %3976, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3978 = getelementptr i8, ptr %3977, i64 4
-  %.val1914 = load i32, ptr %3978, align 4
-  %.mask.i2159 = and i32 %.val1914, -16777216
-  %3979 = icmp eq i32 %.mask.i2159, 16777216
+  %.val1913 = load i32, ptr %3978, align 4
+  %.mask.i2158 = and i32 %.val1913, -16777216
+  %3979 = icmp eq i32 %.mask.i2158, 16777216
   br i1 %3979, label %6668, label %3980
 
 3980:                                             ; preds = %3973
@@ -234995,8 +234995,8 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
   br label %3987
 
 3985:                                             ; preds = %3980
-  %.not.i1571 = icmp eq i32 %3981, 0
-  br i1 %.not.i1571, label %3987, label %3986
+  %.not.i1570 = icmp eq i32 %3981, 0
+  br i1 %.not.i1570, label %3987, label %3986
 
 3986:                                             ; preds = %3985
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3977) #5
@@ -235011,9 +235011,9 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
   %3991 = load ptr, ptr @l_Int16_reduceToInt___regBuiltin_Int16_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13884____closed__1, align 8, !tbaa !5
   %3992 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %3989, ptr noundef %3990, i8 noundef zeroext 1, ptr noundef %3991, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %3993 = getelementptr i8, ptr %3992, i64 4
-  %.val1915 = load i32, ptr %3993, align 4
-  %.mask.i2160 = and i32 %.val1915, -16777216
-  %3994 = icmp eq i32 %.mask.i2160, 16777216
+  %.val1914 = load i32, ptr %3993, align 4
+  %.mask.i2159 = and i32 %.val1914, -16777216
+  %3994 = icmp eq i32 %.mask.i2159, 16777216
   br i1 %3994, label %6668, label %3995
 
 3995:                                             ; preds = %3987
@@ -235027,18 +235027,18 @@ lean_dec_ref.exit1576:                            ; preds = %.critedge1128
   br label %4003
 
 4000:                                             ; preds = %3995
-  %.not.i1569 = icmp eq i32 %3996, 0
-  br i1 %.not.i1569, label %4003, label %4001
+  %.not.i1568 = icmp eq i32 %3996, 0
+  br i1 %.not.i1568, label %4003, label %4001
 
 4001:                                             ; preds = %4000
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3992) #5
   br label %4003
 
-lean_dec_ref.exit1570:                            ; preds = %.critedge1132
+lean_dec_ref.exit1569:                            ; preds = %.critedge1131
   %4002 = tail call fastcc ptr @_init_l_Int16_reduceToInt___regBuiltin_Int16_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13884____closed__1()
   store ptr %4002, ptr @l_Int16_reduceToInt___regBuiltin_Int16_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13884____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4002) #5
-  br label %.critedge1136
+  br label %.critedge1135
 
 4003:                                             ; preds = %4001, %4000, %3998
   %4004 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235046,9 +235046,9 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
   %4006 = load ptr, ptr @l_Int16_reduceToInt___regBuiltin_Int16_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13884____closed__1, align 8, !tbaa !5
   %4007 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4004, ptr noundef %4005, i8 noundef zeroext 1, ptr noundef %4006, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4008 = getelementptr i8, ptr %4007, i64 4
-  %.val1916 = load i32, ptr %4008, align 4
-  %.mask.i2161 = and i32 %.val1916, -16777216
-  %4009 = icmp eq i32 %.mask.i2161, 16777216
+  %.val1915 = load i32, ptr %4008, align 4
+  %.mask.i2160 = and i32 %.val1915, -16777216
+  %4009 = icmp eq i32 %.mask.i2160, 16777216
   br i1 %4009, label %6668, label %4010
 
 4010:                                             ; preds = %4003
@@ -235059,17 +235059,17 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
 4013:                                             ; preds = %4010
   %4014 = add nsw i32 %4011, -1
   store i32 %4014, ptr %4007, align 4, !tbaa !9
-  br label %.critedge1136
+  br label %.critedge1135
 
 4015:                                             ; preds = %4010
-  %.not.i1567 = icmp eq i32 %4011, 0
-  br i1 %.not.i1567, label %.critedge1136, label %4016
+  %.not.i1566 = icmp eq i32 %4011, 0
+  br i1 %.not.i1566, label %.critedge1135, label %4016
 
 4016:                                             ; preds = %4015
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4007) #5
-  br label %.critedge1136
+  br label %.critedge1135
 
-.critedge1136:                                    ; preds = %4016, %4015, %4013, %lean_dec_ref.exit1570
+.critedge1135:                                    ; preds = %4016, %4015, %4013, %lean_dec_ref.exit1569
   %4017 = load ptr, ptr @l_Int16_fromExpr___closed__1, align 8, !tbaa !5
   %4018 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__9, align 8, !tbaa !5
   %4019 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4017, ptr noundef %4018) #5
@@ -235093,17 +235093,17 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
   %4027 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToNatClampNeg_declare__178____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13998____closed__5()
   store ptr %4027, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToNatClampNeg_declare__178____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13998____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4027) #5
-  br i1 %.not, label %lean_dec_ref.exit1564, label %4028
+  br i1 %.not, label %lean_dec_ref.exit1563, label %4028
 
-4028:                                             ; preds = %.critedge1136
+4028:                                             ; preds = %.critedge1135
   %4029 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToNatClampNeg_declare__178____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13998____closed__1, align 8, !tbaa !5
   %4030 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToNatClampNeg_declare__178____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13998____closed__4, align 8, !tbaa !5
   %4031 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_reduceToNatClampNeg_declare__178____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_13998____closed__5, align 8, !tbaa !5
   %4032 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4029, ptr noundef %4030, ptr noundef %4031, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4033 = getelementptr i8, ptr %4032, i64 4
-  %.val1917 = load i32, ptr %4033, align 4
-  %.mask.i2162 = and i32 %.val1917, -16777216
-  %4034 = icmp eq i32 %.mask.i2162, 16777216
+  %.val1916 = load i32, ptr %4033, align 4
+  %.mask.i2161 = and i32 %.val1916, -16777216
+  %4034 = icmp eq i32 %.mask.i2161, 16777216
   br i1 %4034, label %6668, label %4035
 
 4035:                                             ; preds = %4028
@@ -235117,8 +235117,8 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
   br label %4042
 
 4040:                                             ; preds = %4035
-  %.not.i1565 = icmp eq i32 %4036, 0
-  br i1 %.not.i1565, label %4042, label %4041
+  %.not.i1564 = icmp eq i32 %4036, 0
+  br i1 %.not.i1564, label %4042, label %4041
 
 4041:                                             ; preds = %4040
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4032) #5
@@ -235133,9 +235133,9 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
   %4046 = load ptr, ptr @l_Int16_reduceToNatClampNeg___regBuiltin_Int16_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14000____closed__1, align 8, !tbaa !5
   %4047 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4044, ptr noundef %4045, i8 noundef zeroext 1, ptr noundef %4046, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4048 = getelementptr i8, ptr %4047, i64 4
-  %.val1918 = load i32, ptr %4048, align 4
-  %.mask.i2163 = and i32 %.val1918, -16777216
-  %4049 = icmp eq i32 %.mask.i2163, 16777216
+  %.val1917 = load i32, ptr %4048, align 4
+  %.mask.i2162 = and i32 %.val1917, -16777216
+  %4049 = icmp eq i32 %.mask.i2162, 16777216
   br i1 %4049, label %6668, label %4050
 
 4050:                                             ; preds = %4042
@@ -235149,18 +235149,18 @@ lean_dec_ref.exit1570:                            ; preds = %.critedge1132
   br label %4058
 
 4055:                                             ; preds = %4050
-  %.not.i1563 = icmp eq i32 %4051, 0
-  br i1 %.not.i1563, label %4058, label %4056
+  %.not.i1562 = icmp eq i32 %4051, 0
+  br i1 %.not.i1562, label %4058, label %4056
 
 4056:                                             ; preds = %4055
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4047) #5
   br label %4058
 
-lean_dec_ref.exit1564:                            ; preds = %.critedge1136
+lean_dec_ref.exit1563:                            ; preds = %.critedge1135
   %4057 = tail call fastcc ptr @_init_l_Int16_reduceToNatClampNeg___regBuiltin_Int16_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14000____closed__1()
   store ptr %4057, ptr @l_Int16_reduceToNatClampNeg___regBuiltin_Int16_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14000____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4057) #5
-  br label %.critedge1140
+  br label %.critedge1139
 
 4058:                                             ; preds = %4056, %4055, %4053
   %4059 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235168,9 +235168,9 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
   %4061 = load ptr, ptr @l_Int16_reduceToNatClampNeg___regBuiltin_Int16_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14000____closed__1, align 8, !tbaa !5
   %4062 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4059, ptr noundef %4060, i8 noundef zeroext 1, ptr noundef %4061, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4063 = getelementptr i8, ptr %4062, i64 4
-  %.val1919 = load i32, ptr %4063, align 4
-  %.mask.i2164 = and i32 %.val1919, -16777216
-  %4064 = icmp eq i32 %.mask.i2164, 16777216
+  %.val1918 = load i32, ptr %4063, align 4
+  %.mask.i2163 = and i32 %.val1918, -16777216
+  %4064 = icmp eq i32 %.mask.i2163, 16777216
   br i1 %4064, label %6668, label %4065
 
 4065:                                             ; preds = %4058
@@ -235181,17 +235181,17 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
 4068:                                             ; preds = %4065
   %4069 = add nsw i32 %4066, -1
   store i32 %4069, ptr %4062, align 4, !tbaa !9
-  br label %.critedge1140
+  br label %.critedge1139
 
 4070:                                             ; preds = %4065
-  %.not.i1561 = icmp eq i32 %4066, 0
-  br i1 %.not.i1561, label %.critedge1140, label %4071
+  %.not.i1560 = icmp eq i32 %4066, 0
+  br i1 %.not.i1560, label %.critedge1139, label %4071
 
 4071:                                             ; preds = %4070
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4062) #5
-  br label %.critedge1140
+  br label %.critedge1139
 
-.critedge1140:                                    ; preds = %4071, %4070, %4068, %lean_dec_ref.exit1564
+.critedge1139:                                    ; preds = %4071, %4070, %4068, %lean_dec_ref.exit1563
   %4072 = load ptr, ptr @l_Int16_fromExpr___closed__2, align 8, !tbaa !5
   %4073 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__543, align 8, !tbaa !5
   %4074 = tail call ptr @l_Lean_Name_str___override(ptr noundef %4072, ptr noundef %4073) #5
@@ -235251,17 +235251,17 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
   %4104 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_isValue_declare__182____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__14072____closed__13()
   store ptr %4104, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_isValue_declare__182____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__14072____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4104) #5
-  br i1 %.not, label %.critedge1142, label %4105
+  br i1 %.not, label %.critedge1141, label %4105
 
-4105:                                             ; preds = %.critedge1140
+4105:                                             ; preds = %.critedge1139
   %4106 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_isValue_declare__182____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__14072____closed__10, align 8, !tbaa !5
   %4107 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_isValue_declare__182____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__14072____closed__12, align 8, !tbaa !5
   %4108 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int16_isValue_declare__182____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944__14072____closed__13, align 8, !tbaa !5
   %4109 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4106, ptr noundef %4107, ptr noundef %4108, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4110 = getelementptr i8, ptr %4109, i64 4
-  %.val1920 = load i32, ptr %4110, align 4
-  %.mask.i2165 = and i32 %.val1920, -16777216
-  %4111 = icmp eq i32 %.mask.i2165, 16777216
+  %.val1919 = load i32, ptr %4110, align 4
+  %.mask.i2164 = and i32 %.val1919, -16777216
+  %4111 = icmp eq i32 %.mask.i2164, 16777216
   br i1 %4111, label %6668, label %4112
 
 4112:                                             ; preds = %4105
@@ -235275,8 +235275,8 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
   br label %4119
 
 4117:                                             ; preds = %4112
-  %.not.i1559 = icmp eq i32 %4113, 0
-  br i1 %.not.i1559, label %4119, label %4118
+  %.not.i1558 = icmp eq i32 %4113, 0
+  br i1 %.not.i1558, label %4119, label %4118
 
 4118:                                             ; preds = %4117
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4109) #5
@@ -235291,9 +235291,9 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
   %4123 = load ptr, ptr @l_Int16_isValue___regBuiltin_Int16_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   %4124 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4121, ptr noundef %4122, i8 noundef zeroext 1, ptr noundef %4123, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4125 = getelementptr i8, ptr %4124, i64 4
-  %.val1921 = load i32, ptr %4125, align 4
-  %.mask.i2166 = and i32 %.val1921, -16777216
-  %4126 = icmp eq i32 %.mask.i2166, 16777216
+  %.val1920 = load i32, ptr %4125, align 4
+  %.mask.i2165 = and i32 %.val1920, -16777216
+  %4126 = icmp eq i32 %.mask.i2165, 16777216
   br i1 %4126, label %6668, label %4127
 
 4127:                                             ; preds = %4119
@@ -235304,23 +235304,23 @@ lean_dec_ref.exit1564:                            ; preds = %.critedge1136
 4130:                                             ; preds = %4127
   %4131 = add nsw i32 %4128, -1
   store i32 %4131, ptr %4124, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1558
+  br label %lean_dec_ref.exit1557
 
 4132:                                             ; preds = %4127
-  %.not.i1557 = icmp eq i32 %4128, 0
-  br i1 %.not.i1557, label %lean_dec_ref.exit1558, label %4133
+  %.not.i1556 = icmp eq i32 %4128, 0
+  br i1 %.not.i1556, label %lean_dec_ref.exit1557, label %4133
 
 4133:                                             ; preds = %4132
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4124) #5
-  br label %lean_dec_ref.exit1558
+  br label %lean_dec_ref.exit1557
 
-.critedge1142:                                    ; preds = %.critedge1140
+.critedge1141:                                    ; preds = %.critedge1139
   %4134 = tail call fastcc ptr @_init_l_Int16_isValue___regBuiltin_Int16_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1()
   store ptr %4134, ptr @l_Int16_isValue___regBuiltin_Int16_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_11944____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4134) #5
-  br label %lean_dec_ref.exit1558
+  br label %lean_dec_ref.exit1557
 
-lean_dec_ref.exit1558:                            ; preds = %4133, %4132, %4130, %.critedge1142
+lean_dec_ref.exit1557:                            ; preds = %4133, %4132, %4130, %.critedge1141
   %4135 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.242, i64 noundef 5, i64 noundef 5) #5
   store ptr %4135, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %4135) #5
@@ -235406,17 +235406,17 @@ lean_dec_ref.exit1558:                            ; preds = %4133, %4132, %4130,
   %4179 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNeg_declare__195____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15055____closed__15()
   store ptr %4179, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNeg_declare__195____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15055____closed__15, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4179) #5
-  br i1 %.not, label %lean_dec_ref.exit1554, label %4180
+  br i1 %.not, label %lean_dec_ref.exit1553, label %4180
 
-4180:                                             ; preds = %lean_dec_ref.exit1558
+4180:                                             ; preds = %lean_dec_ref.exit1557
   %4181 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNeg_declare__195____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15055____closed__10, align 8, !tbaa !5
   %4182 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNeg_declare__195____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15055____closed__14, align 8, !tbaa !5
   %4183 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNeg_declare__195____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15055____closed__15, align 8, !tbaa !5
   %4184 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4181, ptr noundef %4182, ptr noundef %4183, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4185 = getelementptr i8, ptr %4184, i64 4
-  %.val1922 = load i32, ptr %4185, align 4
-  %.mask.i2167 = and i32 %.val1922, -16777216
-  %4186 = icmp eq i32 %.mask.i2167, 16777216
+  %.val1921 = load i32, ptr %4185, align 4
+  %.mask.i2166 = and i32 %.val1921, -16777216
+  %4186 = icmp eq i32 %.mask.i2166, 16777216
   br i1 %4186, label %6668, label %4187
 
 4187:                                             ; preds = %4180
@@ -235430,8 +235430,8 @@ lean_dec_ref.exit1558:                            ; preds = %4133, %4132, %4130,
   br label %4194
 
 4192:                                             ; preds = %4187
-  %.not.i1555 = icmp eq i32 %4188, 0
-  br i1 %.not.i1555, label %4194, label %4193
+  %.not.i1554 = icmp eq i32 %4188, 0
+  br i1 %.not.i1554, label %4194, label %4193
 
 4193:                                             ; preds = %4192
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4184) #5
@@ -235446,9 +235446,9 @@ lean_dec_ref.exit1558:                            ; preds = %4133, %4132, %4130,
   %4198 = load ptr, ptr @l_Int32_reduceNeg___regBuiltin_Int32_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4199 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4196, ptr noundef %4197, i8 noundef zeroext 1, ptr noundef %4198, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4200 = getelementptr i8, ptr %4199, i64 4
-  %.val1923 = load i32, ptr %4200, align 4
-  %.mask.i2168 = and i32 %.val1923, -16777216
-  %4201 = icmp eq i32 %.mask.i2168, 16777216
+  %.val1922 = load i32, ptr %4200, align 4
+  %.mask.i2167 = and i32 %.val1922, -16777216
+  %4201 = icmp eq i32 %.mask.i2167, 16777216
   br i1 %4201, label %6668, label %4202
 
 4202:                                             ; preds = %4194
@@ -235462,18 +235462,18 @@ lean_dec_ref.exit1558:                            ; preds = %4133, %4132, %4130,
   br label %4210
 
 4207:                                             ; preds = %4202
-  %.not.i1553 = icmp eq i32 %4203, 0
-  br i1 %.not.i1553, label %4210, label %4208
+  %.not.i1552 = icmp eq i32 %4203, 0
+  br i1 %.not.i1552, label %4210, label %4208
 
 4208:                                             ; preds = %4207
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4199) #5
   br label %4210
 
-lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit1558
+lean_dec_ref.exit1553:                            ; preds = %lean_dec_ref.exit1557
   %4209 = tail call fastcc ptr @_init_l_Int32_reduceNeg___regBuiltin_Int32_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %4209, ptr @l_Int32_reduceNeg___regBuiltin_Int32_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4209) #5
-  br label %.critedge1146
+  br label %.critedge1145
 
 4210:                                             ; preds = %4208, %4207, %4205
   %4211 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235481,9 +235481,9 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
   %4213 = load ptr, ptr @l_Int32_reduceNeg___regBuiltin_Int32_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4214 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4211, ptr noundef %4212, i8 noundef zeroext 1, ptr noundef %4213, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4215 = getelementptr i8, ptr %4214, i64 4
-  %.val1924 = load i32, ptr %4215, align 4
-  %.mask.i2169 = and i32 %.val1924, -16777216
-  %4216 = icmp eq i32 %.mask.i2169, 16777216
+  %.val1923 = load i32, ptr %4215, align 4
+  %.mask.i2168 = and i32 %.val1923, -16777216
+  %4216 = icmp eq i32 %.mask.i2168, 16777216
   br i1 %4216, label %6668, label %4217
 
 4217:                                             ; preds = %4210
@@ -235494,17 +235494,17 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
 4220:                                             ; preds = %4217
   %4221 = add nsw i32 %4218, -1
   store i32 %4221, ptr %4214, align 4, !tbaa !9
-  br label %.critedge1146
+  br label %.critedge1145
 
 4222:                                             ; preds = %4217
-  %.not.i1551 = icmp eq i32 %4218, 0
-  br i1 %.not.i1551, label %.critedge1146, label %4223
+  %.not.i1550 = icmp eq i32 %4218, 0
+  br i1 %.not.i1550, label %.critedge1145, label %4223
 
 4223:                                             ; preds = %4222
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4214) #5
-  br label %.critedge1146
+  br label %.critedge1145
 
-.critedge1146:                                    ; preds = %4223, %4222, %4220, %lean_dec_ref.exit1554
+.critedge1145:                                    ; preds = %4223, %4222, %4220, %lean_dec_ref.exit1553
   %4224 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4225 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__325, align 8, !tbaa !5
   %4226 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4224, ptr noundef %4225) #5
@@ -235529,17 +235529,17 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
   %4233 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceAdd_declare__199____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15093____closed__7()
   store ptr %4233, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceAdd_declare__199____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15093____closed__7, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4233) #5
-  br i1 %.not, label %lean_dec_ref.exit1548, label %4234
+  br i1 %.not, label %lean_dec_ref.exit1547, label %4234
 
-4234:                                             ; preds = %.critedge1146
+4234:                                             ; preds = %.critedge1145
   %4235 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceAdd_declare__199____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15093____closed__1, align 8, !tbaa !5
   %4236 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceAdd_declare__199____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15093____closed__6, align 8, !tbaa !5
   %4237 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceAdd_declare__199____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15093____closed__7, align 8, !tbaa !5
   %4238 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4235, ptr noundef %4236, ptr noundef %4237, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4239 = getelementptr i8, ptr %4238, i64 4
-  %.val1925 = load i32, ptr %4239, align 4
-  %.mask.i2170 = and i32 %.val1925, -16777216
-  %4240 = icmp eq i32 %.mask.i2170, 16777216
+  %.val1924 = load i32, ptr %4239, align 4
+  %.mask.i2169 = and i32 %.val1924, -16777216
+  %4240 = icmp eq i32 %.mask.i2169, 16777216
   br i1 %4240, label %6668, label %4241
 
 4241:                                             ; preds = %4234
@@ -235553,8 +235553,8 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
   br label %4248
 
 4246:                                             ; preds = %4241
-  %.not.i1549 = icmp eq i32 %4242, 0
-  br i1 %.not.i1549, label %4248, label %4247
+  %.not.i1548 = icmp eq i32 %4242, 0
+  br i1 %.not.i1548, label %4248, label %4247
 
 4247:                                             ; preds = %4246
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4238) #5
@@ -235569,9 +235569,9 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
   %4252 = load ptr, ptr @l_Int32_reduceAdd___regBuiltin_Int32_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15095____closed__1, align 8, !tbaa !5
   %4253 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4250, ptr noundef %4251, i8 noundef zeroext 1, ptr noundef %4252, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4254 = getelementptr i8, ptr %4253, i64 4
-  %.val1926 = load i32, ptr %4254, align 4
-  %.mask.i2171 = and i32 %.val1926, -16777216
-  %4255 = icmp eq i32 %.mask.i2171, 16777216
+  %.val1925 = load i32, ptr %4254, align 4
+  %.mask.i2170 = and i32 %.val1925, -16777216
+  %4255 = icmp eq i32 %.mask.i2170, 16777216
   br i1 %4255, label %6668, label %4256
 
 4256:                                             ; preds = %4248
@@ -235585,18 +235585,18 @@ lean_dec_ref.exit1554:                            ; preds = %lean_dec_ref.exit15
   br label %4264
 
 4261:                                             ; preds = %4256
-  %.not.i1547 = icmp eq i32 %4257, 0
-  br i1 %.not.i1547, label %4264, label %4262
+  %.not.i1546 = icmp eq i32 %4257, 0
+  br i1 %.not.i1546, label %4264, label %4262
 
 4262:                                             ; preds = %4261
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4253) #5
   br label %4264
 
-lean_dec_ref.exit1548:                            ; preds = %.critedge1146
+lean_dec_ref.exit1547:                            ; preds = %.critedge1145
   %4263 = tail call fastcc ptr @_init_l_Int32_reduceAdd___regBuiltin_Int32_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15095____closed__1()
   store ptr %4263, ptr @l_Int32_reduceAdd___regBuiltin_Int32_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15095____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4263) #5
-  br label %.critedge1150
+  br label %.critedge1149
 
 4264:                                             ; preds = %4262, %4261, %4259
   %4265 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235604,9 +235604,9 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
   %4267 = load ptr, ptr @l_Int32_reduceAdd___regBuiltin_Int32_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15095____closed__1, align 8, !tbaa !5
   %4268 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4265, ptr noundef %4266, i8 noundef zeroext 1, ptr noundef %4267, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4269 = getelementptr i8, ptr %4268, i64 4
-  %.val1927 = load i32, ptr %4269, align 4
-  %.mask.i2172 = and i32 %.val1927, -16777216
-  %4270 = icmp eq i32 %.mask.i2172, 16777216
+  %.val1926 = load i32, ptr %4269, align 4
+  %.mask.i2171 = and i32 %.val1926, -16777216
+  %4270 = icmp eq i32 %.mask.i2171, 16777216
   br i1 %4270, label %6668, label %4271
 
 4271:                                             ; preds = %4264
@@ -235617,17 +235617,17 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
 4274:                                             ; preds = %4271
   %4275 = add nsw i32 %4272, -1
   store i32 %4275, ptr %4268, align 4, !tbaa !9
-  br label %.critedge1150
+  br label %.critedge1149
 
 4276:                                             ; preds = %4271
-  %.not.i1545 = icmp eq i32 %4272, 0
-  br i1 %.not.i1545, label %.critedge1150, label %4277
+  %.not.i1544 = icmp eq i32 %4272, 0
+  br i1 %.not.i1544, label %.critedge1149, label %4277
 
 4277:                                             ; preds = %4276
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4268) #5
-  br label %.critedge1150
+  br label %.critedge1149
 
-.critedge1150:                                    ; preds = %4277, %4276, %4274, %lean_dec_ref.exit1548
+.critedge1149:                                    ; preds = %4277, %4276, %4274, %lean_dec_ref.exit1547
   %4278 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4279 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__342, align 8, !tbaa !5
   %4280 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4278, ptr noundef %4279) #5
@@ -235643,17 +235643,17 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
   %4284 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMul_declare__203____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15131____closed__4()
   store ptr %4284, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMul_declare__203____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15131____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4284) #5
-  br i1 %.not, label %lean_dec_ref.exit1542, label %4285
+  br i1 %.not, label %lean_dec_ref.exit1541, label %4285
 
-4285:                                             ; preds = %.critedge1150
+4285:                                             ; preds = %.critedge1149
   %4286 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMul_declare__203____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15131____closed__1, align 8, !tbaa !5
   %4287 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMul_declare__203____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15131____closed__3, align 8, !tbaa !5
   %4288 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMul_declare__203____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15131____closed__4, align 8, !tbaa !5
   %4289 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4286, ptr noundef %4287, ptr noundef %4288, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4290 = getelementptr i8, ptr %4289, i64 4
-  %.val1928 = load i32, ptr %4290, align 4
-  %.mask.i2173 = and i32 %.val1928, -16777216
-  %4291 = icmp eq i32 %.mask.i2173, 16777216
+  %.val1927 = load i32, ptr %4290, align 4
+  %.mask.i2172 = and i32 %.val1927, -16777216
+  %4291 = icmp eq i32 %.mask.i2172, 16777216
   br i1 %4291, label %6668, label %4292
 
 4292:                                             ; preds = %4285
@@ -235667,8 +235667,8 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
   br label %4299
 
 4297:                                             ; preds = %4292
-  %.not.i1543 = icmp eq i32 %4293, 0
-  br i1 %.not.i1543, label %4299, label %4298
+  %.not.i1542 = icmp eq i32 %4293, 0
+  br i1 %.not.i1542, label %4299, label %4298
 
 4298:                                             ; preds = %4297
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4289) #5
@@ -235683,9 +235683,9 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
   %4303 = load ptr, ptr @l_Int32_reduceMul___regBuiltin_Int32_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15133____closed__1, align 8, !tbaa !5
   %4304 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4301, ptr noundef %4302, i8 noundef zeroext 1, ptr noundef %4303, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4305 = getelementptr i8, ptr %4304, i64 4
-  %.val1929 = load i32, ptr %4305, align 4
-  %.mask.i2174 = and i32 %.val1929, -16777216
-  %4306 = icmp eq i32 %.mask.i2174, 16777216
+  %.val1928 = load i32, ptr %4305, align 4
+  %.mask.i2173 = and i32 %.val1928, -16777216
+  %4306 = icmp eq i32 %.mask.i2173, 16777216
   br i1 %4306, label %6668, label %4307
 
 4307:                                             ; preds = %4299
@@ -235699,18 +235699,18 @@ lean_dec_ref.exit1548:                            ; preds = %.critedge1146
   br label %4315
 
 4312:                                             ; preds = %4307
-  %.not.i1541 = icmp eq i32 %4308, 0
-  br i1 %.not.i1541, label %4315, label %4313
+  %.not.i1540 = icmp eq i32 %4308, 0
+  br i1 %.not.i1540, label %4315, label %4313
 
 4313:                                             ; preds = %4312
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4304) #5
   br label %4315
 
-lean_dec_ref.exit1542:                            ; preds = %.critedge1150
+lean_dec_ref.exit1541:                            ; preds = %.critedge1149
   %4314 = tail call fastcc ptr @_init_l_Int32_reduceMul___regBuiltin_Int32_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15133____closed__1()
   store ptr %4314, ptr @l_Int32_reduceMul___regBuiltin_Int32_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15133____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4314) #5
-  br label %.critedge1154
+  br label %.critedge1153
 
 4315:                                             ; preds = %4313, %4312, %4310
   %4316 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235718,9 +235718,9 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
   %4318 = load ptr, ptr @l_Int32_reduceMul___regBuiltin_Int32_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15133____closed__1, align 8, !tbaa !5
   %4319 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4316, ptr noundef %4317, i8 noundef zeroext 1, ptr noundef %4318, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4320 = getelementptr i8, ptr %4319, i64 4
-  %.val1930 = load i32, ptr %4320, align 4
-  %.mask.i2175 = and i32 %.val1930, -16777216
-  %4321 = icmp eq i32 %.mask.i2175, 16777216
+  %.val1929 = load i32, ptr %4320, align 4
+  %.mask.i2174 = and i32 %.val1929, -16777216
+  %4321 = icmp eq i32 %.mask.i2174, 16777216
   br i1 %4321, label %6668, label %4322
 
 4322:                                             ; preds = %4315
@@ -235731,17 +235731,17 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
 4325:                                             ; preds = %4322
   %4326 = add nsw i32 %4323, -1
   store i32 %4326, ptr %4319, align 4, !tbaa !9
-  br label %.critedge1154
+  br label %.critedge1153
 
 4327:                                             ; preds = %4322
-  %.not.i1539 = icmp eq i32 %4323, 0
-  br i1 %.not.i1539, label %.critedge1154, label %4328
+  %.not.i1538 = icmp eq i32 %4323, 0
+  br i1 %.not.i1538, label %.critedge1153, label %4328
 
 4328:                                             ; preds = %4327
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4319) #5
-  br label %.critedge1154
+  br label %.critedge1153
 
-.critedge1154:                                    ; preds = %4328, %4327, %4325, %lean_dec_ref.exit1542
+.critedge1153:                                    ; preds = %4328, %4327, %4325, %lean_dec_ref.exit1541
   %4329 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4330 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__355, align 8, !tbaa !5
   %4331 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4329, ptr noundef %4330) #5
@@ -235757,17 +235757,17 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
   %4335 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceSub_declare__207____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15169____closed__4()
   store ptr %4335, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceSub_declare__207____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15169____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4335) #5
-  br i1 %.not, label %lean_dec_ref.exit1536, label %4336
+  br i1 %.not, label %lean_dec_ref.exit1535, label %4336
 
-4336:                                             ; preds = %.critedge1154
+4336:                                             ; preds = %.critedge1153
   %4337 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceSub_declare__207____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15169____closed__1, align 8, !tbaa !5
   %4338 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceSub_declare__207____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15169____closed__3, align 8, !tbaa !5
   %4339 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceSub_declare__207____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15169____closed__4, align 8, !tbaa !5
   %4340 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4337, ptr noundef %4338, ptr noundef %4339, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4341 = getelementptr i8, ptr %4340, i64 4
-  %.val1931 = load i32, ptr %4341, align 4
-  %.mask.i2176 = and i32 %.val1931, -16777216
-  %4342 = icmp eq i32 %.mask.i2176, 16777216
+  %.val1930 = load i32, ptr %4341, align 4
+  %.mask.i2175 = and i32 %.val1930, -16777216
+  %4342 = icmp eq i32 %.mask.i2175, 16777216
   br i1 %4342, label %6668, label %4343
 
 4343:                                             ; preds = %4336
@@ -235781,8 +235781,8 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
   br label %4350
 
 4348:                                             ; preds = %4343
-  %.not.i1537 = icmp eq i32 %4344, 0
-  br i1 %.not.i1537, label %4350, label %4349
+  %.not.i1536 = icmp eq i32 %4344, 0
+  br i1 %.not.i1536, label %4350, label %4349
 
 4349:                                             ; preds = %4348
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4340) #5
@@ -235797,9 +235797,9 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
   %4354 = load ptr, ptr @l_Int32_reduceSub___regBuiltin_Int32_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15171____closed__1, align 8, !tbaa !5
   %4355 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4352, ptr noundef %4353, i8 noundef zeroext 1, ptr noundef %4354, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4356 = getelementptr i8, ptr %4355, i64 4
-  %.val1932 = load i32, ptr %4356, align 4
-  %.mask.i2177 = and i32 %.val1932, -16777216
-  %4357 = icmp eq i32 %.mask.i2177, 16777216
+  %.val1931 = load i32, ptr %4356, align 4
+  %.mask.i2176 = and i32 %.val1931, -16777216
+  %4357 = icmp eq i32 %.mask.i2176, 16777216
   br i1 %4357, label %6668, label %4358
 
 4358:                                             ; preds = %4350
@@ -235813,18 +235813,18 @@ lean_dec_ref.exit1542:                            ; preds = %.critedge1150
   br label %4366
 
 4363:                                             ; preds = %4358
-  %.not.i1535 = icmp eq i32 %4359, 0
-  br i1 %.not.i1535, label %4366, label %4364
+  %.not.i1534 = icmp eq i32 %4359, 0
+  br i1 %.not.i1534, label %4366, label %4364
 
 4364:                                             ; preds = %4363
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4355) #5
   br label %4366
 
-lean_dec_ref.exit1536:                            ; preds = %.critedge1154
+lean_dec_ref.exit1535:                            ; preds = %.critedge1153
   %4365 = tail call fastcc ptr @_init_l_Int32_reduceSub___regBuiltin_Int32_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15171____closed__1()
   store ptr %4365, ptr @l_Int32_reduceSub___regBuiltin_Int32_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15171____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4365) #5
-  br label %.critedge1158
+  br label %.critedge1157
 
 4366:                                             ; preds = %4364, %4363, %4361
   %4367 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235832,9 +235832,9 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
   %4369 = load ptr, ptr @l_Int32_reduceSub___regBuiltin_Int32_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15171____closed__1, align 8, !tbaa !5
   %4370 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4367, ptr noundef %4368, i8 noundef zeroext 1, ptr noundef %4369, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4371 = getelementptr i8, ptr %4370, i64 4
-  %.val1933 = load i32, ptr %4371, align 4
-  %.mask.i2178 = and i32 %.val1933, -16777216
-  %4372 = icmp eq i32 %.mask.i2178, 16777216
+  %.val1932 = load i32, ptr %4371, align 4
+  %.mask.i2177 = and i32 %.val1932, -16777216
+  %4372 = icmp eq i32 %.mask.i2177, 16777216
   br i1 %4372, label %6668, label %4373
 
 4373:                                             ; preds = %4366
@@ -235845,17 +235845,17 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
 4376:                                             ; preds = %4373
   %4377 = add nsw i32 %4374, -1
   store i32 %4377, ptr %4370, align 4, !tbaa !9
-  br label %.critedge1158
+  br label %.critedge1157
 
 4378:                                             ; preds = %4373
-  %.not.i1533 = icmp eq i32 %4374, 0
-  br i1 %.not.i1533, label %.critedge1158, label %4379
+  %.not.i1532 = icmp eq i32 %4374, 0
+  br i1 %.not.i1532, label %.critedge1157, label %4379
 
 4379:                                             ; preds = %4378
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4370) #5
-  br label %.critedge1158
+  br label %.critedge1157
 
-.critedge1158:                                    ; preds = %4379, %4378, %4376, %lean_dec_ref.exit1536
+.critedge1157:                                    ; preds = %4379, %4378, %4376, %lean_dec_ref.exit1535
   %4380 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4381 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__367, align 8, !tbaa !5
   %4382 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4380, ptr noundef %4381) #5
@@ -235871,17 +235871,17 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
   %4386 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceDiv_declare__211____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15207____closed__4()
   store ptr %4386, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceDiv_declare__211____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15207____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4386) #5
-  br i1 %.not, label %lean_dec_ref.exit1530, label %4387
+  br i1 %.not, label %lean_dec_ref.exit1529, label %4387
 
-4387:                                             ; preds = %.critedge1158
+4387:                                             ; preds = %.critedge1157
   %4388 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceDiv_declare__211____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15207____closed__1, align 8, !tbaa !5
   %4389 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceDiv_declare__211____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15207____closed__3, align 8, !tbaa !5
   %4390 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceDiv_declare__211____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15207____closed__4, align 8, !tbaa !5
   %4391 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4388, ptr noundef %4389, ptr noundef %4390, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4392 = getelementptr i8, ptr %4391, i64 4
-  %.val1934 = load i32, ptr %4392, align 4
-  %.mask.i2179 = and i32 %.val1934, -16777216
-  %4393 = icmp eq i32 %.mask.i2179, 16777216
+  %.val1933 = load i32, ptr %4392, align 4
+  %.mask.i2178 = and i32 %.val1933, -16777216
+  %4393 = icmp eq i32 %.mask.i2178, 16777216
   br i1 %4393, label %6668, label %4394
 
 4394:                                             ; preds = %4387
@@ -235895,8 +235895,8 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
   br label %4401
 
 4399:                                             ; preds = %4394
-  %.not.i1531 = icmp eq i32 %4395, 0
-  br i1 %.not.i1531, label %4401, label %4400
+  %.not.i1530 = icmp eq i32 %4395, 0
+  br i1 %.not.i1530, label %4401, label %4400
 
 4400:                                             ; preds = %4399
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4391) #5
@@ -235911,9 +235911,9 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
   %4405 = load ptr, ptr @l_Int32_reduceDiv___regBuiltin_Int32_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15209____closed__1, align 8, !tbaa !5
   %4406 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4403, ptr noundef %4404, i8 noundef zeroext 1, ptr noundef %4405, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4407 = getelementptr i8, ptr %4406, i64 4
-  %.val1935 = load i32, ptr %4407, align 4
-  %.mask.i2180 = and i32 %.val1935, -16777216
-  %4408 = icmp eq i32 %.mask.i2180, 16777216
+  %.val1934 = load i32, ptr %4407, align 4
+  %.mask.i2179 = and i32 %.val1934, -16777216
+  %4408 = icmp eq i32 %.mask.i2179, 16777216
   br i1 %4408, label %6668, label %4409
 
 4409:                                             ; preds = %4401
@@ -235927,18 +235927,18 @@ lean_dec_ref.exit1536:                            ; preds = %.critedge1154
   br label %4417
 
 4414:                                             ; preds = %4409
-  %.not.i1529 = icmp eq i32 %4410, 0
-  br i1 %.not.i1529, label %4417, label %4415
+  %.not.i1528 = icmp eq i32 %4410, 0
+  br i1 %.not.i1528, label %4417, label %4415
 
 4415:                                             ; preds = %4414
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4406) #5
   br label %4417
 
-lean_dec_ref.exit1530:                            ; preds = %.critedge1158
+lean_dec_ref.exit1529:                            ; preds = %.critedge1157
   %4416 = tail call fastcc ptr @_init_l_Int32_reduceDiv___regBuiltin_Int32_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15209____closed__1()
   store ptr %4416, ptr @l_Int32_reduceDiv___regBuiltin_Int32_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15209____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4416) #5
-  br label %.critedge1162
+  br label %.critedge1161
 
 4417:                                             ; preds = %4415, %4414, %4412
   %4418 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -235946,9 +235946,9 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
   %4420 = load ptr, ptr @l_Int32_reduceDiv___regBuiltin_Int32_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15209____closed__1, align 8, !tbaa !5
   %4421 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4418, ptr noundef %4419, i8 noundef zeroext 1, ptr noundef %4420, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4422 = getelementptr i8, ptr %4421, i64 4
-  %.val1936 = load i32, ptr %4422, align 4
-  %.mask.i2181 = and i32 %.val1936, -16777216
-  %4423 = icmp eq i32 %.mask.i2181, 16777216
+  %.val1935 = load i32, ptr %4422, align 4
+  %.mask.i2180 = and i32 %.val1935, -16777216
+  %4423 = icmp eq i32 %.mask.i2180, 16777216
   br i1 %4423, label %6668, label %4424
 
 4424:                                             ; preds = %4417
@@ -235959,17 +235959,17 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
 4427:                                             ; preds = %4424
   %4428 = add nsw i32 %4425, -1
   store i32 %4428, ptr %4421, align 4, !tbaa !9
-  br label %.critedge1162
+  br label %.critedge1161
 
 4429:                                             ; preds = %4424
-  %.not.i1527 = icmp eq i32 %4425, 0
-  br i1 %.not.i1527, label %.critedge1162, label %4430
+  %.not.i1526 = icmp eq i32 %4425, 0
+  br i1 %.not.i1526, label %.critedge1161, label %4430
 
 4430:                                             ; preds = %4429
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4421) #5
-  br label %.critedge1162
+  br label %.critedge1161
 
-.critedge1162:                                    ; preds = %4430, %4429, %4427, %lean_dec_ref.exit1530
+.critedge1161:                                    ; preds = %4430, %4429, %4427, %lean_dec_ref.exit1529
   %4431 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4432 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__380, align 8, !tbaa !5
   %4433 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4431, ptr noundef %4432) #5
@@ -235985,17 +235985,17 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
   %4437 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMod_declare__215____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15245____closed__4()
   store ptr %4437, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMod_declare__215____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15245____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4437) #5
-  br i1 %.not, label %lean_dec_ref.exit1524, label %4438
+  br i1 %.not, label %lean_dec_ref.exit1523, label %4438
 
-4438:                                             ; preds = %.critedge1162
+4438:                                             ; preds = %.critedge1161
   %4439 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMod_declare__215____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15245____closed__1, align 8, !tbaa !5
   %4440 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMod_declare__215____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15245____closed__3, align 8, !tbaa !5
   %4441 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceMod_declare__215____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15245____closed__4, align 8, !tbaa !5
   %4442 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4439, ptr noundef %4440, ptr noundef %4441, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4443 = getelementptr i8, ptr %4442, i64 4
-  %.val1937 = load i32, ptr %4443, align 4
-  %.mask.i2182 = and i32 %.val1937, -16777216
-  %4444 = icmp eq i32 %.mask.i2182, 16777216
+  %.val1936 = load i32, ptr %4443, align 4
+  %.mask.i2181 = and i32 %.val1936, -16777216
+  %4444 = icmp eq i32 %.mask.i2181, 16777216
   br i1 %4444, label %6668, label %4445
 
 4445:                                             ; preds = %4438
@@ -236009,8 +236009,8 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
   br label %4452
 
 4450:                                             ; preds = %4445
-  %.not.i1525 = icmp eq i32 %4446, 0
-  br i1 %.not.i1525, label %4452, label %4451
+  %.not.i1524 = icmp eq i32 %4446, 0
+  br i1 %.not.i1524, label %4452, label %4451
 
 4451:                                             ; preds = %4450
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4442) #5
@@ -236025,9 +236025,9 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
   %4456 = load ptr, ptr @l_Int32_reduceMod___regBuiltin_Int32_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15247____closed__1, align 8, !tbaa !5
   %4457 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4454, ptr noundef %4455, i8 noundef zeroext 1, ptr noundef %4456, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4458 = getelementptr i8, ptr %4457, i64 4
-  %.val1938 = load i32, ptr %4458, align 4
-  %.mask.i2183 = and i32 %.val1938, -16777216
-  %4459 = icmp eq i32 %.mask.i2183, 16777216
+  %.val1937 = load i32, ptr %4458, align 4
+  %.mask.i2182 = and i32 %.val1937, -16777216
+  %4459 = icmp eq i32 %.mask.i2182, 16777216
   br i1 %4459, label %6668, label %4460
 
 4460:                                             ; preds = %4452
@@ -236041,18 +236041,18 @@ lean_dec_ref.exit1530:                            ; preds = %.critedge1158
   br label %4468
 
 4465:                                             ; preds = %4460
-  %.not.i1523 = icmp eq i32 %4461, 0
-  br i1 %.not.i1523, label %4468, label %4466
+  %.not.i1522 = icmp eq i32 %4461, 0
+  br i1 %.not.i1522, label %4468, label %4466
 
 4466:                                             ; preds = %4465
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4457) #5
   br label %4468
 
-lean_dec_ref.exit1524:                            ; preds = %.critedge1162
+lean_dec_ref.exit1523:                            ; preds = %.critedge1161
   %4467 = tail call fastcc ptr @_init_l_Int32_reduceMod___regBuiltin_Int32_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15247____closed__1()
   store ptr %4467, ptr @l_Int32_reduceMod___regBuiltin_Int32_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15247____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4467) #5
-  br label %.critedge1166
+  br label %.critedge1165
 
 4468:                                             ; preds = %4466, %4465, %4463
   %4469 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -236060,9 +236060,9 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
   %4471 = load ptr, ptr @l_Int32_reduceMod___regBuiltin_Int32_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15247____closed__1, align 8, !tbaa !5
   %4472 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4469, ptr noundef %4470, i8 noundef zeroext 1, ptr noundef %4471, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4473 = getelementptr i8, ptr %4472, i64 4
-  %.val1939 = load i32, ptr %4473, align 4
-  %.mask.i2184 = and i32 %.val1939, -16777216
-  %4474 = icmp eq i32 %.mask.i2184, 16777216
+  %.val1938 = load i32, ptr %4473, align 4
+  %.mask.i2183 = and i32 %.val1938, -16777216
+  %4474 = icmp eq i32 %.mask.i2183, 16777216
   br i1 %4474, label %6668, label %4475
 
 4475:                                             ; preds = %4468
@@ -236073,17 +236073,17 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
 4478:                                             ; preds = %4475
   %4479 = add nsw i32 %4476, -1
   store i32 %4479, ptr %4472, align 4, !tbaa !9
-  br label %.critedge1166
+  br label %.critedge1165
 
 4480:                                             ; preds = %4475
-  %.not.i1521 = icmp eq i32 %4476, 0
-  br i1 %.not.i1521, label %.critedge1166, label %4481
+  %.not.i1520 = icmp eq i32 %4476, 0
+  br i1 %.not.i1520, label %.critedge1165, label %4481
 
 4481:                                             ; preds = %4480
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4472) #5
-  br label %.critedge1166
+  br label %.critedge1165
 
-.critedge1166:                                    ; preds = %4481, %4480, %4478, %lean_dec_ref.exit1524
+.critedge1165:                                    ; preds = %4481, %4480, %4478, %lean_dec_ref.exit1523
   %4482 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4483 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__396, align 8, !tbaa !5
   %4484 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4482, ptr noundef %4483) #5
@@ -236099,17 +236099,17 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
   %4488 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLT_declare__219____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15284____closed__4()
   store ptr %4488, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLT_declare__219____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15284____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4488) #5
-  br i1 %.not, label %lean_dec_ref.exit1518, label %4489
+  br i1 %.not, label %lean_dec_ref.exit1517, label %4489
 
-4489:                                             ; preds = %.critedge1166
+4489:                                             ; preds = %.critedge1165
   %4490 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLT_declare__219____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15284____closed__1, align 8, !tbaa !5
   %4491 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLT_declare__219____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15284____closed__3, align 8, !tbaa !5
   %4492 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLT_declare__219____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15284____closed__4, align 8, !tbaa !5
   %4493 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4490, ptr noundef %4491, ptr noundef %4492, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4494 = getelementptr i8, ptr %4493, i64 4
-  %.val1940 = load i32, ptr %4494, align 4
-  %.mask.i2185 = and i32 %.val1940, -16777216
-  %4495 = icmp eq i32 %.mask.i2185, 16777216
+  %.val1939 = load i32, ptr %4494, align 4
+  %.mask.i2184 = and i32 %.val1939, -16777216
+  %4495 = icmp eq i32 %.mask.i2184, 16777216
   br i1 %4495, label %6668, label %4496
 
 4496:                                             ; preds = %4489
@@ -236123,8 +236123,8 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
   br label %4503
 
 4501:                                             ; preds = %4496
-  %.not.i1519 = icmp eq i32 %4497, 0
-  br i1 %.not.i1519, label %4503, label %4502
+  %.not.i1518 = icmp eq i32 %4497, 0
+  br i1 %.not.i1518, label %4503, label %4502
 
 4502:                                             ; preds = %4501
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4493) #5
@@ -236139,9 +236139,9 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
   %4507 = load ptr, ptr @l_Int32_reduceLT___regBuiltin_Int32_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15286____closed__1, align 8, !tbaa !5
   %4508 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4505, ptr noundef %4506, i8 noundef zeroext 1, ptr noundef %4507, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4509 = getelementptr i8, ptr %4508, i64 4
-  %.val1941 = load i32, ptr %4509, align 4
-  %.mask.i2186 = and i32 %.val1941, -16777216
-  %4510 = icmp eq i32 %.mask.i2186, 16777216
+  %.val1940 = load i32, ptr %4509, align 4
+  %.mask.i2185 = and i32 %.val1940, -16777216
+  %4510 = icmp eq i32 %.mask.i2185, 16777216
   br i1 %4510, label %6668, label %4511
 
 4511:                                             ; preds = %4503
@@ -236155,18 +236155,18 @@ lean_dec_ref.exit1524:                            ; preds = %.critedge1162
   br label %4519
 
 4516:                                             ; preds = %4511
-  %.not.i1517 = icmp eq i32 %4512, 0
-  br i1 %.not.i1517, label %4519, label %4517
+  %.not.i1516 = icmp eq i32 %4512, 0
+  br i1 %.not.i1516, label %4519, label %4517
 
 4517:                                             ; preds = %4516
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4508) #5
   br label %4519
 
-lean_dec_ref.exit1518:                            ; preds = %.critedge1166
+lean_dec_ref.exit1517:                            ; preds = %.critedge1165
   %4518 = tail call fastcc ptr @_init_l_Int32_reduceLT___regBuiltin_Int32_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15286____closed__1()
   store ptr %4518, ptr @l_Int32_reduceLT___regBuiltin_Int32_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15286____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4518) #5
-  br label %.critedge1170
+  br label %.critedge1169
 
 4519:                                             ; preds = %4517, %4516, %4514
   %4520 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -236174,9 +236174,9 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4522 = load ptr, ptr @l_Int32_reduceLT___regBuiltin_Int32_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15286____closed__1, align 8, !tbaa !5
   %4523 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4520, ptr noundef %4521, i8 noundef zeroext 1, ptr noundef %4522, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4524 = getelementptr i8, ptr %4523, i64 4
-  %.val1942 = load i32, ptr %4524, align 4
-  %.mask.i2187 = and i32 %.val1942, -16777216
-  %4525 = icmp eq i32 %.mask.i2187, 16777216
+  %.val1941 = load i32, ptr %4524, align 4
+  %.mask.i2186 = and i32 %.val1941, -16777216
+  %4525 = icmp eq i32 %.mask.i2186, 16777216
   br i1 %4525, label %6668, label %4526
 
 4526:                                             ; preds = %4519
@@ -236187,17 +236187,17 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
 4529:                                             ; preds = %4526
   %4530 = add nsw i32 %4527, -1
   store i32 %4530, ptr %4523, align 4, !tbaa !9
-  br label %.critedge1170
+  br label %.critedge1169
 
 4531:                                             ; preds = %4526
-  %.not.i1515 = icmp eq i32 %4527, 0
-  br i1 %.not.i1515, label %.critedge1170, label %4532
+  %.not.i1514 = icmp eq i32 %4527, 0
+  br i1 %.not.i1514, label %.critedge1169, label %4532
 
 4532:                                             ; preds = %4531
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4523) #5
-  br label %.critedge1170
+  br label %.critedge1169
 
-.critedge1170:                                    ; preds = %4532, %4531, %4529, %lean_dec_ref.exit1518
+.critedge1169:                                    ; preds = %4532, %4531, %4529, %lean_dec_ref.exit1517
   %4533 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4534 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__410, align 8, !tbaa !5
   %4535 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4533, ptr noundef %4534) #5
@@ -236213,17 +236213,17 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4539 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLE_declare__223____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15323____closed__4()
   store ptr %4539, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLE_declare__223____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15323____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4539) #5
-  br i1 %.not, label %.critedge1175, label %4540
+  br i1 %.not, label %.critedge1174, label %4540
 
-4540:                                             ; preds = %.critedge1170
+4540:                                             ; preds = %.critedge1169
   %4541 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLE_declare__223____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15323____closed__1, align 8, !tbaa !5
   %4542 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLE_declare__223____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15323____closed__3, align 8, !tbaa !5
   %4543 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceLE_declare__223____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15323____closed__4, align 8, !tbaa !5
   %4544 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4541, ptr noundef %4542, ptr noundef %4543, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4545 = getelementptr i8, ptr %4544, i64 4
-  %.val1943 = load i32, ptr %4545, align 4
-  %.mask.i2188 = and i32 %.val1943, -16777216
-  %4546 = icmp eq i32 %.mask.i2188, 16777216
+  %.val1942 = load i32, ptr %4545, align 4
+  %.mask.i2187 = and i32 %.val1942, -16777216
+  %4546 = icmp eq i32 %.mask.i2187, 16777216
   br i1 %4546, label %6668, label %4547
 
 4547:                                             ; preds = %4540
@@ -236237,8 +236237,8 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   br label %4554
 
 4552:                                             ; preds = %4547
-  %.not.i1513 = icmp eq i32 %4548, 0
-  br i1 %.not.i1513, label %4554, label %4553
+  %.not.i1512 = icmp eq i32 %4548, 0
+  br i1 %.not.i1512, label %4554, label %4553
 
 4553:                                             ; preds = %4552
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4544) #5
@@ -236253,9 +236253,9 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4558 = load ptr, ptr @l_Int32_reduceLE___regBuiltin_Int32_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15325____closed__1, align 8, !tbaa !5
   %4559 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4556, ptr noundef %4557, i8 noundef zeroext 1, ptr noundef %4558, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4560 = getelementptr i8, ptr %4559, i64 4
-  %.val1944 = load i32, ptr %4560, align 4
-  %.mask.i2189 = and i32 %.val1944, -16777216
-  %4561 = icmp eq i32 %.mask.i2189, 16777216
+  %.val1943 = load i32, ptr %4560, align 4
+  %.mask.i2188 = and i32 %.val1943, -16777216
+  %4561 = icmp eq i32 %.mask.i2188, 16777216
   br i1 %4561, label %6668, label %4562
 
 4562:                                             ; preds = %4554
@@ -236269,8 +236269,8 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   br label %4569
 
 4567:                                             ; preds = %4562
-  %.not.i1511 = icmp eq i32 %4563, 0
-  br i1 %.not.i1511, label %4569, label %4568
+  %.not.i1510 = icmp eq i32 %4563, 0
+  br i1 %.not.i1510, label %4569, label %4568
 
 4568:                                             ; preds = %4567
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4559) #5
@@ -236282,24 +236282,24 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4572 = load ptr, ptr @l_Int32_reduceLE___regBuiltin_Int32_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15325____closed__1, align 8, !tbaa !5
   %4573 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4570, ptr noundef %4571, i8 noundef zeroext 1, ptr noundef %4572, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4574 = getelementptr i8, ptr %4573, i64 4
-  %.val1945 = load i32, ptr %4574, align 4
-  %.mask.i2190 = and i32 %.val1945, -16777216
-  %4575 = icmp eq i32 %.mask.i2190, 16777216
-  br i1 %4575, label %6668, label %.critedge1174
+  %.val1944 = load i32, ptr %4574, align 4
+  %.mask.i2189 = and i32 %.val1944, -16777216
+  %4575 = icmp eq i32 %.mask.i2189, 16777216
+  br i1 %4575, label %6668, label %.critedge1173
 
-.critedge1174:                                    ; preds = %4569
+.critedge1173:                                    ; preds = %4569
   %4576 = load i32, ptr %4573, align 4, !tbaa !9
   %4577 = icmp sgt i32 %4576, 1
   br i1 %4577, label %4578, label %4580, !prof !12
 
-4578:                                             ; preds = %.critedge1174
+4578:                                             ; preds = %.critedge1173
   %4579 = add nsw i32 %4576, -1
   store i32 %4579, ptr %4573, align 4, !tbaa !9
   br label %4582
 
-4580:                                             ; preds = %.critedge1174
-  %.not.i1509 = icmp eq i32 %4576, 0
-  br i1 %.not.i1509, label %4582, label %4581
+4580:                                             ; preds = %.critedge1173
+  %.not.i1508 = icmp eq i32 %4576, 0
+  br i1 %.not.i1508, label %4582, label %4581
 
 4581:                                             ; preds = %4580
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4573) #5
@@ -236319,9 +236319,9 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4589 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGT_declare__227____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15362____closed__2, align 8, !tbaa !5
   %4590 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4587, ptr noundef %4588, ptr noundef %4589, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4591 = getelementptr i8, ptr %4590, i64 4
-  %.val1946 = load i32, ptr %4591, align 4
-  %.mask.i2191 = and i32 %.val1946, -16777216
-  %4592 = icmp eq i32 %.mask.i2191, 16777216
+  %.val1945 = load i32, ptr %4591, align 4
+  %.mask.i2190 = and i32 %.val1945, -16777216
+  %4592 = icmp eq i32 %.mask.i2190, 16777216
   br i1 %4592, label %6668, label %4593
 
 4593:                                             ; preds = %4582
@@ -236332,17 +236332,17 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
 4596:                                             ; preds = %4593
   %4597 = add nsw i32 %4594, -1
   store i32 %4597, ptr %4590, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1508
+  br label %lean_dec_ref.exit1507
 
 4598:                                             ; preds = %4593
-  %.not.i1507 = icmp eq i32 %4594, 0
-  br i1 %.not.i1507, label %lean_dec_ref.exit1508, label %4599
+  %.not.i1506 = icmp eq i32 %4594, 0
+  br i1 %.not.i1506, label %lean_dec_ref.exit1507, label %4599
 
 4599:                                             ; preds = %4598
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4590) #5
-  br label %lean_dec_ref.exit1508
+  br label %lean_dec_ref.exit1507
 
-.critedge1175:                                    ; preds = %.critedge1170
+.critedge1174:                                    ; preds = %.critedge1169
   %4600 = tail call fastcc ptr @_init_l_Int32_reduceLE___regBuiltin_Int32_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15325____closed__1()
   store ptr %4600, ptr @l_Int32_reduceLE___regBuiltin_Int32_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15325____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4600) #5
@@ -236354,23 +236354,23 @@ lean_dec_ref.exit1518:                            ; preds = %.critedge1166
   %4604 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGT_declare__227____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15362____closed__2()
   store ptr %4604, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGT_declare__227____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15362____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4604) #5
-  br label %lean_dec_ref.exit1508
+  br label %lean_dec_ref.exit1507
 
-lean_dec_ref.exit1508:                            ; preds = %4599, %4598, %4596, %.critedge1175
+lean_dec_ref.exit1507:                            ; preds = %4599, %4598, %4596, %.critedge1174
   %4605 = tail call fastcc ptr @_init_l_Int32_reduceGT___regBuiltin_Int32_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15364____closed__1()
   store ptr %4605, ptr @l_Int32_reduceGT___regBuiltin_Int32_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15364____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4605) #5
-  br i1 %.not, label %.critedge1180, label %4606
+  br i1 %.not, label %.critedge1179, label %4606
 
-4606:                                             ; preds = %lean_dec_ref.exit1508
+4606:                                             ; preds = %lean_dec_ref.exit1507
   %4607 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %4608 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGT_declare__227____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15362____closed__1, align 8, !tbaa !5
   %4609 = load ptr, ptr @l_Int32_reduceGT___regBuiltin_Int32_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15364____closed__1, align 8, !tbaa !5
   %4610 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4607, ptr noundef %4608, i8 noundef zeroext 1, ptr noundef %4609, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4611 = getelementptr i8, ptr %4610, i64 4
-  %.val1947 = load i32, ptr %4611, align 4
-  %.mask.i2192 = and i32 %.val1947, -16777216
-  %4612 = icmp eq i32 %.mask.i2192, 16777216
+  %.val1946 = load i32, ptr %4611, align 4
+  %.mask.i2191 = and i32 %.val1946, -16777216
+  %4612 = icmp eq i32 %.mask.i2191, 16777216
   br i1 %4612, label %6668, label %4613
 
 4613:                                             ; preds = %4606
@@ -236381,40 +236381,40 @@ lean_dec_ref.exit1508:                            ; preds = %4599, %4598, %4596,
 4616:                                             ; preds = %4613
   %4617 = add nsw i32 %4614, -1
   store i32 %4617, ptr %4610, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1506
+  br label %lean_dec_ref.exit1505
 
 4618:                                             ; preds = %4613
-  %.not.i1505 = icmp eq i32 %4614, 0
-  br i1 %.not.i1505, label %lean_dec_ref.exit1506, label %4619
+  %.not.i1504 = icmp eq i32 %4614, 0
+  br i1 %.not.i1504, label %lean_dec_ref.exit1505, label %4619
 
 4619:                                             ; preds = %4618
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4610) #5
-  br label %lean_dec_ref.exit1506
+  br label %lean_dec_ref.exit1505
 
-lean_dec_ref.exit1506:                            ; preds = %4616, %4618, %4619
+lean_dec_ref.exit1505:                            ; preds = %4616, %4618, %4619
   %4620 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %4621 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGT_declare__227____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15362____closed__1, align 8, !tbaa !5
   %4622 = load ptr, ptr @l_Int32_reduceGT___regBuiltin_Int32_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15364____closed__1, align 8, !tbaa !5
   %4623 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4620, ptr noundef %4621, i8 noundef zeroext 1, ptr noundef %4622, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4624 = getelementptr i8, ptr %4623, i64 4
-  %.val1948 = load i32, ptr %4624, align 4
-  %.mask.i2193 = and i32 %.val1948, -16777216
-  %4625 = icmp eq i32 %.mask.i2193, 16777216
-  br i1 %4625, label %6668, label %.critedge1179
+  %.val1947 = load i32, ptr %4624, align 4
+  %.mask.i2192 = and i32 %.val1947, -16777216
+  %4625 = icmp eq i32 %.mask.i2192, 16777216
+  br i1 %4625, label %6668, label %.critedge1178
 
-.critedge1179:                                    ; preds = %lean_dec_ref.exit1506
+.critedge1178:                                    ; preds = %lean_dec_ref.exit1505
   %4626 = load i32, ptr %4623, align 4, !tbaa !9
   %4627 = icmp sgt i32 %4626, 1
   br i1 %4627, label %4628, label %4630, !prof !12
 
-4628:                                             ; preds = %.critedge1179
+4628:                                             ; preds = %.critedge1178
   %4629 = add nsw i32 %4626, -1
   store i32 %4629, ptr %4623, align 4, !tbaa !9
   br label %4632
 
-4630:                                             ; preds = %.critedge1179
-  %.not.i1503 = icmp eq i32 %4626, 0
-  br i1 %.not.i1503, label %4632, label %4631
+4630:                                             ; preds = %.critedge1178
+  %.not.i1502 = icmp eq i32 %4626, 0
+  br i1 %.not.i1502, label %4632, label %4631
 
 4631:                                             ; preds = %4630
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4623) #5
@@ -236434,9 +236434,9 @@ lean_dec_ref.exit1506:                            ; preds = %4616, %4618, %4619
   %4639 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGE_declare__231____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15401____closed__2, align 8, !tbaa !5
   %4640 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4637, ptr noundef %4638, ptr noundef %4639, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4641 = getelementptr i8, ptr %4640, i64 4
-  %.val1949 = load i32, ptr %4641, align 4
-  %.mask.i2194 = and i32 %.val1949, -16777216
-  %4642 = icmp eq i32 %.mask.i2194, 16777216
+  %.val1948 = load i32, ptr %4641, align 4
+  %.mask.i2193 = and i32 %.val1948, -16777216
+  %4642 = icmp eq i32 %.mask.i2193, 16777216
   br i1 %4642, label %6668, label %4643
 
 4643:                                             ; preds = %4632
@@ -236447,17 +236447,17 @@ lean_dec_ref.exit1506:                            ; preds = %4616, %4618, %4619
 4646:                                             ; preds = %4643
   %4647 = add nsw i32 %4644, -1
   store i32 %4647, ptr %4640, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1502
+  br label %lean_dec_ref.exit1501
 
 4648:                                             ; preds = %4643
-  %.not.i1501 = icmp eq i32 %4644, 0
-  br i1 %.not.i1501, label %lean_dec_ref.exit1502, label %4649
+  %.not.i1500 = icmp eq i32 %4644, 0
+  br i1 %.not.i1500, label %lean_dec_ref.exit1501, label %4649
 
 4649:                                             ; preds = %4648
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4640) #5
-  br label %lean_dec_ref.exit1502
+  br label %lean_dec_ref.exit1501
 
-.critedge1180:                                    ; preds = %lean_dec_ref.exit1508
+.critedge1179:                                    ; preds = %lean_dec_ref.exit1507
   %4650 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4651 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__436, align 8, !tbaa !5
   %4652 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4650, ptr noundef %4651) #5
@@ -236466,23 +236466,23 @@ lean_dec_ref.exit1506:                            ; preds = %4616, %4618, %4619
   %4653 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGE_declare__231____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15401____closed__2()
   store ptr %4653, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGE_declare__231____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15401____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4653) #5
-  br label %lean_dec_ref.exit1502
+  br label %lean_dec_ref.exit1501
 
-lean_dec_ref.exit1502:                            ; preds = %4649, %4648, %4646, %.critedge1180
+lean_dec_ref.exit1501:                            ; preds = %4649, %4648, %4646, %.critedge1179
   %4654 = tail call fastcc ptr @_init_l_Int32_reduceGE___regBuiltin_Int32_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15403____closed__1()
   store ptr %4654, ptr @l_Int32_reduceGE___regBuiltin_Int32_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15403____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4654) #5
-  br i1 %.not, label %.critedge1184, label %4655
+  br i1 %.not, label %.critedge1183, label %4655
 
-4655:                                             ; preds = %lean_dec_ref.exit1502
+4655:                                             ; preds = %lean_dec_ref.exit1501
   %4656 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %4657 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGE_declare__231____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15401____closed__1, align 8, !tbaa !5
   %4658 = load ptr, ptr @l_Int32_reduceGE___regBuiltin_Int32_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15403____closed__1, align 8, !tbaa !5
   %4659 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4656, ptr noundef %4657, i8 noundef zeroext 1, ptr noundef %4658, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4660 = getelementptr i8, ptr %4659, i64 4
-  %.val1950 = load i32, ptr %4660, align 4
-  %.mask.i2195 = and i32 %.val1950, -16777216
-  %4661 = icmp eq i32 %.mask.i2195, 16777216
+  %.val1949 = load i32, ptr %4660, align 4
+  %.mask.i2194 = and i32 %.val1949, -16777216
+  %4661 = icmp eq i32 %.mask.i2194, 16777216
   br i1 %4661, label %6668, label %4662
 
 4662:                                             ; preds = %4655
@@ -236493,28 +236493,28 @@ lean_dec_ref.exit1502:                            ; preds = %4649, %4648, %4646,
 4665:                                             ; preds = %4662
   %4666 = add nsw i32 %4663, -1
   store i32 %4666, ptr %4659, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1500
+  br label %lean_dec_ref.exit1499
 
 4667:                                             ; preds = %4662
-  %.not.i1499 = icmp eq i32 %4663, 0
-  br i1 %.not.i1499, label %lean_dec_ref.exit1500, label %4668
+  %.not.i1498 = icmp eq i32 %4663, 0
+  br i1 %.not.i1498, label %lean_dec_ref.exit1499, label %4668
 
 4668:                                             ; preds = %4667
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4659) #5
-  br label %lean_dec_ref.exit1500
+  br label %lean_dec_ref.exit1499
 
-lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
+lean_dec_ref.exit1499:                            ; preds = %4665, %4667, %4668
   %4669 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %4670 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceGE_declare__231____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15401____closed__1, align 8, !tbaa !5
   %4671 = load ptr, ptr @l_Int32_reduceGE___regBuiltin_Int32_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15403____closed__1, align 8, !tbaa !5
   %4672 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4669, ptr noundef %4670, i8 noundef zeroext 1, ptr noundef %4671, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4673 = getelementptr i8, ptr %4672, i64 4
-  %.val1951 = load i32, ptr %4673, align 4
-  %.mask.i2196 = and i32 %.val1951, -16777216
-  %4674 = icmp eq i32 %.mask.i2196, 16777216
+  %.val1950 = load i32, ptr %4673, align 4
+  %.mask.i2195 = and i32 %.val1950, -16777216
+  %4674 = icmp eq i32 %.mask.i2195, 16777216
   br i1 %4674, label %6668, label %4675
 
-4675:                                             ; preds = %lean_dec_ref.exit1500
+4675:                                             ; preds = %lean_dec_ref.exit1499
   %4676 = load i32, ptr %4672, align 4, !tbaa !9
   %4677 = icmp sgt i32 %4676, 1
   br i1 %4677, label %4678, label %4680, !prof !12
@@ -236522,17 +236522,17 @@ lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
 4678:                                             ; preds = %4675
   %4679 = add nsw i32 %4676, -1
   store i32 %4679, ptr %4672, align 4, !tbaa !9
-  br label %.critedge1184
+  br label %.critedge1183
 
 4680:                                             ; preds = %4675
-  %.not.i1497 = icmp eq i32 %4676, 0
-  br i1 %.not.i1497, label %.critedge1184, label %4681
+  %.not.i1496 = icmp eq i32 %4676, 0
+  br i1 %.not.i1496, label %.critedge1183, label %4681
 
 4681:                                             ; preds = %4680
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4672) #5
-  br label %.critedge1184
+  br label %.critedge1183
 
-.critedge1184:                                    ; preds = %4681, %4680, %4678, %lean_dec_ref.exit1502
+.critedge1183:                                    ; preds = %4681, %4680, %4678, %lean_dec_ref.exit1501
   %4682 = load ptr, ptr @l_Int32_fromExpr___closed__2, align 8, !tbaa !5
   %4683 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__449, align 8, !tbaa !5
   %4684 = tail call ptr @l_Lean_Name_str___override(ptr noundef %4682, ptr noundef %4683) #5
@@ -236592,17 +236592,17 @@ lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
   %4714 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceEq_declare__235____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15440____closed__13()
   store ptr %4714, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceEq_declare__235____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15440____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4714) #5
-  br i1 %.not, label %lean_dec_ref.exit1494, label %4715
+  br i1 %.not, label %lean_dec_ref.exit1493, label %4715
 
-4715:                                             ; preds = %.critedge1184
+4715:                                             ; preds = %.critedge1183
   %4716 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceEq_declare__235____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15440____closed__10, align 8, !tbaa !5
   %4717 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceEq_declare__235____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15440____closed__12, align 8, !tbaa !5
   %4718 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceEq_declare__235____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15440____closed__13, align 8, !tbaa !5
   %4719 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4716, ptr noundef %4717, ptr noundef %4718, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4720 = getelementptr i8, ptr %4719, i64 4
-  %.val1952 = load i32, ptr %4720, align 4
-  %.mask.i2197 = and i32 %.val1952, -16777216
-  %4721 = icmp eq i32 %.mask.i2197, 16777216
+  %.val1951 = load i32, ptr %4720, align 4
+  %.mask.i2196 = and i32 %.val1951, -16777216
+  %4721 = icmp eq i32 %.mask.i2196, 16777216
   br i1 %4721, label %6668, label %4722
 
 4722:                                             ; preds = %4715
@@ -236616,8 +236616,8 @@ lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
   br label %4729
 
 4727:                                             ; preds = %4722
-  %.not.i1495 = icmp eq i32 %4723, 0
-  br i1 %.not.i1495, label %4729, label %4728
+  %.not.i1494 = icmp eq i32 %4723, 0
+  br i1 %.not.i1494, label %4729, label %4728
 
 4728:                                             ; preds = %4727
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4719) #5
@@ -236632,9 +236632,9 @@ lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
   %4733 = load ptr, ptr @l_Int32_reduceEq___regBuiltin_Int32_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4734 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4731, ptr noundef %4732, i8 noundef zeroext 1, ptr noundef %4733, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4735 = getelementptr i8, ptr %4734, i64 4
-  %.val1953 = load i32, ptr %4735, align 4
-  %.mask.i2198 = and i32 %.val1953, -16777216
-  %4736 = icmp eq i32 %.mask.i2198, 16777216
+  %.val1952 = load i32, ptr %4735, align 4
+  %.mask.i2197 = and i32 %.val1952, -16777216
+  %4736 = icmp eq i32 %.mask.i2197, 16777216
   br i1 %4736, label %6668, label %4737
 
 4737:                                             ; preds = %4729
@@ -236648,18 +236648,18 @@ lean_dec_ref.exit1500:                            ; preds = %4665, %4667, %4668
   br label %4745
 
 4742:                                             ; preds = %4737
-  %.not.i1493 = icmp eq i32 %4738, 0
-  br i1 %.not.i1493, label %4745, label %4743
+  %.not.i1492 = icmp eq i32 %4738, 0
+  br i1 %.not.i1492, label %4745, label %4743
 
 4743:                                             ; preds = %4742
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4734) #5
   br label %4745
 
-lean_dec_ref.exit1494:                            ; preds = %.critedge1184
+lean_dec_ref.exit1493:                            ; preds = %.critedge1183
   %4744 = tail call fastcc ptr @_init_l_Int32_reduceEq___regBuiltin_Int32_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %4744, ptr @l_Int32_reduceEq___regBuiltin_Int32_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4744) #5
-  br label %.critedge1188
+  br label %.critedge1187
 
 4745:                                             ; preds = %4743, %4742, %4740
   %4746 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -236667,9 +236667,9 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
   %4748 = load ptr, ptr @l_Int32_reduceEq___regBuiltin_Int32_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4749 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4746, ptr noundef %4747, i8 noundef zeroext 1, ptr noundef %4748, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4750 = getelementptr i8, ptr %4749, i64 4
-  %.val1954 = load i32, ptr %4750, align 4
-  %.mask.i2199 = and i32 %.val1954, -16777216
-  %4751 = icmp eq i32 %.mask.i2199, 16777216
+  %.val1953 = load i32, ptr %4750, align 4
+  %.mask.i2198 = and i32 %.val1953, -16777216
+  %4751 = icmp eq i32 %.mask.i2198, 16777216
   br i1 %4751, label %6668, label %4752
 
 4752:                                             ; preds = %4745
@@ -236680,17 +236680,17 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
 4755:                                             ; preds = %4752
   %4756 = add nsw i32 %4753, -1
   store i32 %4756, ptr %4749, align 4, !tbaa !9
-  br label %.critedge1188
+  br label %.critedge1187
 
 4757:                                             ; preds = %4752
-  %.not.i1491 = icmp eq i32 %4753, 0
-  br i1 %.not.i1491, label %.critedge1188, label %4758
+  %.not.i1490 = icmp eq i32 %4753, 0
+  br i1 %.not.i1490, label %.critedge1187, label %4758
 
 4758:                                             ; preds = %4757
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4749) #5
-  br label %.critedge1188
+  br label %.critedge1187
 
-.critedge1188:                                    ; preds = %4758, %4757, %4755, %lean_dec_ref.exit1494
+.critedge1187:                                    ; preds = %4758, %4757, %4755, %lean_dec_ref.exit1493
   %4759 = load ptr, ptr @l_Int32_fromExpr___closed__2, align 8, !tbaa !5
   %4760 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__462, align 8, !tbaa !5
   %4761 = tail call ptr @l_Lean_Name_str___override(ptr noundef %4759, ptr noundef %4760) #5
@@ -236750,17 +236750,17 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
   %4791 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNe_declare__239____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15478____closed__13()
   store ptr %4791, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNe_declare__239____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15478____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4791) #5
-  br i1 %.not, label %lean_dec_ref.exit1488, label %4792
+  br i1 %.not, label %lean_dec_ref.exit1487, label %4792
 
-4792:                                             ; preds = %.critedge1188
+4792:                                             ; preds = %.critedge1187
   %4793 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNe_declare__239____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15478____closed__10, align 8, !tbaa !5
   %4794 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNe_declare__239____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15478____closed__12, align 8, !tbaa !5
   %4795 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceNe_declare__239____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15478____closed__13, align 8, !tbaa !5
   %4796 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %4793, ptr noundef %4794, ptr noundef %4795, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4797 = getelementptr i8, ptr %4796, i64 4
-  %.val1955 = load i32, ptr %4797, align 4
-  %.mask.i2200 = and i32 %.val1955, -16777216
-  %4798 = icmp eq i32 %.mask.i2200, 16777216
+  %.val1954 = load i32, ptr %4797, align 4
+  %.mask.i2199 = and i32 %.val1954, -16777216
+  %4798 = icmp eq i32 %.mask.i2199, 16777216
   br i1 %4798, label %6668, label %4799
 
 4799:                                             ; preds = %4792
@@ -236774,8 +236774,8 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
   br label %4806
 
 4804:                                             ; preds = %4799
-  %.not.i1489 = icmp eq i32 %4800, 0
-  br i1 %.not.i1489, label %4806, label %4805
+  %.not.i1488 = icmp eq i32 %4800, 0
+  br i1 %.not.i1488, label %4806, label %4805
 
 4805:                                             ; preds = %4804
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4796) #5
@@ -236790,9 +236790,9 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
   %4810 = load ptr, ptr @l_Int32_reduceNe___regBuiltin_Int32_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4811 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4808, ptr noundef %4809, i8 noundef zeroext 1, ptr noundef %4810, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4812 = getelementptr i8, ptr %4811, i64 4
-  %.val1956 = load i32, ptr %4812, align 4
-  %.mask.i2201 = and i32 %.val1956, -16777216
-  %4813 = icmp eq i32 %.mask.i2201, 16777216
+  %.val1955 = load i32, ptr %4812, align 4
+  %.mask.i2200 = and i32 %.val1955, -16777216
+  %4813 = icmp eq i32 %.mask.i2200, 16777216
   br i1 %4813, label %6668, label %4814
 
 4814:                                             ; preds = %4806
@@ -236806,18 +236806,18 @@ lean_dec_ref.exit1494:                            ; preds = %.critedge1184
   br label %4822
 
 4819:                                             ; preds = %4814
-  %.not.i1487 = icmp eq i32 %4815, 0
-  br i1 %.not.i1487, label %4822, label %4820
+  %.not.i1486 = icmp eq i32 %4815, 0
+  br i1 %.not.i1486, label %4822, label %4820
 
 4820:                                             ; preds = %4819
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4811) #5
   br label %4822
 
-lean_dec_ref.exit1488:                            ; preds = %.critedge1188
+lean_dec_ref.exit1487:                            ; preds = %.critedge1187
   %4821 = tail call fastcc ptr @_init_l_Int32_reduceNe___regBuiltin_Int32_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %4821, ptr @l_Int32_reduceNe___regBuiltin_Int32_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4821) #5
-  br label %.critedge1192
+  br label %.critedge1191
 
 4822:                                             ; preds = %4820, %4819, %4817
   %4823 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -236825,9 +236825,9 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
   %4825 = load ptr, ptr @l_Int32_reduceNe___regBuiltin_Int32_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4826 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4823, ptr noundef %4824, i8 noundef zeroext 1, ptr noundef %4825, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4827 = getelementptr i8, ptr %4826, i64 4
-  %.val1957 = load i32, ptr %4827, align 4
-  %.mask.i2202 = and i32 %.val1957, -16777216
-  %4828 = icmp eq i32 %.mask.i2202, 16777216
+  %.val1956 = load i32, ptr %4827, align 4
+  %.mask.i2201 = and i32 %.val1956, -16777216
+  %4828 = icmp eq i32 %.mask.i2201, 16777216
   br i1 %4828, label %6668, label %4829
 
 4829:                                             ; preds = %4822
@@ -236838,17 +236838,17 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
 4832:                                             ; preds = %4829
   %4833 = add nsw i32 %4830, -1
   store i32 %4833, ptr %4826, align 4, !tbaa !9
-  br label %.critedge1192
+  br label %.critedge1191
 
 4834:                                             ; preds = %4829
-  %.not.i1485 = icmp eq i32 %4830, 0
-  br i1 %.not.i1485, label %.critedge1192, label %4835
+  %.not.i1484 = icmp eq i32 %4830, 0
+  br i1 %.not.i1484, label %.critedge1191, label %4835
 
 4835:                                             ; preds = %4834
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4826) #5
-  br label %.critedge1192
+  br label %.critedge1191
 
-.critedge1192:                                    ; preds = %4835, %4834, %4832, %lean_dec_ref.exit1488
+.critedge1191:                                    ; preds = %4835, %4834, %4832, %lean_dec_ref.exit1487
   %4836 = load ptr, ptr @l_Int32_fromExpr___closed__2, align 8, !tbaa !5
   %4837 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__475, align 8, !tbaa !5
   %4838 = tail call ptr @l_Lean_Name_str___override(ptr noundef %4836, ptr noundef %4837) #5
@@ -236908,17 +236908,17 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
   %4868 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBEq_declare__243____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15517____closed__13()
   store ptr %4868, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBEq_declare__243____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15517____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4868) #5
-  br i1 %.not, label %lean_dec_ref.exit1482, label %4869
+  br i1 %.not, label %lean_dec_ref.exit1481, label %4869
 
-4869:                                             ; preds = %.critedge1192
+4869:                                             ; preds = %.critedge1191
   %4870 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBEq_declare__243____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15517____closed__10, align 8, !tbaa !5
   %4871 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBEq_declare__243____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15517____closed__12, align 8, !tbaa !5
   %4872 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBEq_declare__243____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15517____closed__13, align 8, !tbaa !5
   %4873 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4870, ptr noundef %4871, ptr noundef %4872, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4874 = getelementptr i8, ptr %4873, i64 4
-  %.val1958 = load i32, ptr %4874, align 4
-  %.mask.i2203 = and i32 %.val1958, -16777216
-  %4875 = icmp eq i32 %.mask.i2203, 16777216
+  %.val1957 = load i32, ptr %4874, align 4
+  %.mask.i2202 = and i32 %.val1957, -16777216
+  %4875 = icmp eq i32 %.mask.i2202, 16777216
   br i1 %4875, label %6668, label %4876
 
 4876:                                             ; preds = %4869
@@ -236932,8 +236932,8 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
   br label %4883
 
 4881:                                             ; preds = %4876
-  %.not.i1483 = icmp eq i32 %4877, 0
-  br i1 %.not.i1483, label %4883, label %4882
+  %.not.i1482 = icmp eq i32 %4877, 0
+  br i1 %.not.i1482, label %4883, label %4882
 
 4882:                                             ; preds = %4881
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4873) #5
@@ -236948,9 +236948,9 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
   %4887 = load ptr, ptr @l_Int32_reduceBEq___regBuiltin_Int32_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4888 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4885, ptr noundef %4886, i8 noundef zeroext 1, ptr noundef %4887, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4889 = getelementptr i8, ptr %4888, i64 4
-  %.val1959 = load i32, ptr %4889, align 4
-  %.mask.i2204 = and i32 %.val1959, -16777216
-  %4890 = icmp eq i32 %.mask.i2204, 16777216
+  %.val1958 = load i32, ptr %4889, align 4
+  %.mask.i2203 = and i32 %.val1958, -16777216
+  %4890 = icmp eq i32 %.mask.i2203, 16777216
   br i1 %4890, label %6668, label %4891
 
 4891:                                             ; preds = %4883
@@ -236964,18 +236964,18 @@ lean_dec_ref.exit1488:                            ; preds = %.critedge1188
   br label %4899
 
 4896:                                             ; preds = %4891
-  %.not.i1481 = icmp eq i32 %4892, 0
-  br i1 %.not.i1481, label %4899, label %4897
+  %.not.i1480 = icmp eq i32 %4892, 0
+  br i1 %.not.i1480, label %4899, label %4897
 
 4897:                                             ; preds = %4896
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4888) #5
   br label %4899
 
-lean_dec_ref.exit1482:                            ; preds = %.critedge1192
+lean_dec_ref.exit1481:                            ; preds = %.critedge1191
   %4898 = tail call fastcc ptr @_init_l_Int32_reduceBEq___regBuiltin_Int32_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %4898, ptr @l_Int32_reduceBEq___regBuiltin_Int32_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4898) #5
-  br label %.critedge1196
+  br label %.critedge1195
 
 4899:                                             ; preds = %4897, %4896, %4894
   %4900 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -236983,9 +236983,9 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
   %4902 = load ptr, ptr @l_Int32_reduceBEq___regBuiltin_Int32_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4903 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4900, ptr noundef %4901, i8 noundef zeroext 1, ptr noundef %4902, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4904 = getelementptr i8, ptr %4903, i64 4
-  %.val1960 = load i32, ptr %4904, align 4
-  %.mask.i2205 = and i32 %.val1960, -16777216
-  %4905 = icmp eq i32 %.mask.i2205, 16777216
+  %.val1959 = load i32, ptr %4904, align 4
+  %.mask.i2204 = and i32 %.val1959, -16777216
+  %4905 = icmp eq i32 %.mask.i2204, 16777216
   br i1 %4905, label %6668, label %4906
 
 4906:                                             ; preds = %4899
@@ -236996,17 +236996,17 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
 4909:                                             ; preds = %4906
   %4910 = add nsw i32 %4907, -1
   store i32 %4910, ptr %4903, align 4, !tbaa !9
-  br label %.critedge1196
+  br label %.critedge1195
 
 4911:                                             ; preds = %4906
-  %.not.i1479 = icmp eq i32 %4907, 0
-  br i1 %.not.i1479, label %.critedge1196, label %4912
+  %.not.i1478 = icmp eq i32 %4907, 0
+  br i1 %.not.i1478, label %.critedge1195, label %4912
 
 4912:                                             ; preds = %4911
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4903) #5
-  br label %.critedge1196
+  br label %.critedge1195
 
-.critedge1196:                                    ; preds = %4912, %4911, %4909, %lean_dec_ref.exit1482
+.critedge1195:                                    ; preds = %4912, %4911, %4909, %lean_dec_ref.exit1481
   %4913 = load ptr, ptr @l_Int32_fromExpr___closed__2, align 8, !tbaa !5
   %4914 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__488, align 8, !tbaa !5
   %4915 = tail call ptr @l_Lean_Name_str___override(ptr noundef %4913, ptr noundef %4914) #5
@@ -237066,17 +237066,17 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
   %4945 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBNe_declare__247____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15555____closed__13()
   store ptr %4945, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBNe_declare__247____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15555____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4945) #5
-  br i1 %.not, label %lean_dec_ref.exit1476, label %4946
+  br i1 %.not, label %lean_dec_ref.exit1475, label %4946
 
-4946:                                             ; preds = %.critedge1196
+4946:                                             ; preds = %.critedge1195
   %4947 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBNe_declare__247____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15555____closed__10, align 8, !tbaa !5
   %4948 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBNe_declare__247____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15555____closed__12, align 8, !tbaa !5
   %4949 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceBNe_declare__247____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__15555____closed__13, align 8, !tbaa !5
   %4950 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %4947, ptr noundef %4948, ptr noundef %4949, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4951 = getelementptr i8, ptr %4950, i64 4
-  %.val1961 = load i32, ptr %4951, align 4
-  %.mask.i2206 = and i32 %.val1961, -16777216
-  %4952 = icmp eq i32 %.mask.i2206, 16777216
+  %.val1960 = load i32, ptr %4951, align 4
+  %.mask.i2205 = and i32 %.val1960, -16777216
+  %4952 = icmp eq i32 %.mask.i2205, 16777216
   br i1 %4952, label %6668, label %4953
 
 4953:                                             ; preds = %4946
@@ -237090,8 +237090,8 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
   br label %4960
 
 4958:                                             ; preds = %4953
-  %.not.i1477 = icmp eq i32 %4954, 0
-  br i1 %.not.i1477, label %4960, label %4959
+  %.not.i1476 = icmp eq i32 %4954, 0
+  br i1 %.not.i1476, label %4960, label %4959
 
 4959:                                             ; preds = %4958
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4950) #5
@@ -237106,9 +237106,9 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
   %4964 = load ptr, ptr @l_Int32_reduceBNe___regBuiltin_Int32_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4965 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4962, ptr noundef %4963, i8 noundef zeroext 1, ptr noundef %4964, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4966 = getelementptr i8, ptr %4965, i64 4
-  %.val1962 = load i32, ptr %4966, align 4
-  %.mask.i2207 = and i32 %.val1962, -16777216
-  %4967 = icmp eq i32 %.mask.i2207, 16777216
+  %.val1961 = load i32, ptr %4966, align 4
+  %.mask.i2206 = and i32 %.val1961, -16777216
+  %4967 = icmp eq i32 %.mask.i2206, 16777216
   br i1 %4967, label %6668, label %4968
 
 4968:                                             ; preds = %4960
@@ -237122,18 +237122,18 @@ lean_dec_ref.exit1482:                            ; preds = %.critedge1192
   br label %4976
 
 4973:                                             ; preds = %4968
-  %.not.i1475 = icmp eq i32 %4969, 0
-  br i1 %.not.i1475, label %4976, label %4974
+  %.not.i1474 = icmp eq i32 %4969, 0
+  br i1 %.not.i1474, label %4976, label %4974
 
 4974:                                             ; preds = %4973
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4965) #5
   br label %4976
 
-lean_dec_ref.exit1476:                            ; preds = %.critedge1196
+lean_dec_ref.exit1475:                            ; preds = %.critedge1195
   %4975 = tail call fastcc ptr @_init_l_Int32_reduceBNe___regBuiltin_Int32_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %4975, ptr @l_Int32_reduceBNe___regBuiltin_Int32_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %4975) #5
-  br label %.critedge1200
+  br label %.critedge1199
 
 4976:                                             ; preds = %4974, %4973, %4971
   %4977 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237141,9 +237141,9 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
   %4979 = load ptr, ptr @l_Int32_reduceBNe___regBuiltin_Int32_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %4980 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %4977, ptr noundef %4978, i8 noundef zeroext 1, ptr noundef %4979, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %4981 = getelementptr i8, ptr %4980, i64 4
-  %.val1963 = load i32, ptr %4981, align 4
-  %.mask.i2208 = and i32 %.val1963, -16777216
-  %4982 = icmp eq i32 %.mask.i2208, 16777216
+  %.val1962 = load i32, ptr %4981, align 4
+  %.mask.i2207 = and i32 %.val1962, -16777216
+  %4982 = icmp eq i32 %.mask.i2207, 16777216
   br i1 %4982, label %6668, label %4983
 
 4983:                                             ; preds = %4976
@@ -237154,17 +237154,17 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
 4986:                                             ; preds = %4983
   %4987 = add nsw i32 %4984, -1
   store i32 %4987, ptr %4980, align 4, !tbaa !9
-  br label %.critedge1200
+  br label %.critedge1199
 
 4988:                                             ; preds = %4983
-  %.not.i1473 = icmp eq i32 %4984, 0
-  br i1 %.not.i1473, label %.critedge1200, label %4989
+  %.not.i1472 = icmp eq i32 %4984, 0
+  br i1 %.not.i1472, label %.critedge1199, label %4989
 
 4989:                                             ; preds = %4988
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4980) #5
-  br label %.critedge1200
+  br label %.critedge1199
 
-.critedge1200:                                    ; preds = %4989, %4988, %4986, %lean_dec_ref.exit1476
+.critedge1199:                                    ; preds = %4989, %4988, %4986, %lean_dec_ref.exit1475
   %4990 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %4991 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__5, align 8, !tbaa !5
   %4992 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %4990, ptr noundef %4991) #5
@@ -237188,17 +237188,17 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
   %5000 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfIntLE_declare__251____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15671____closed__5()
   store ptr %5000, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfIntLE_declare__251____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15671____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5000) #5
-  br i1 %.not, label %lean_dec_ref.exit1470, label %5001
+  br i1 %.not, label %lean_dec_ref.exit1469, label %5001
 
-5001:                                             ; preds = %.critedge1200
+5001:                                             ; preds = %.critedge1199
   %5002 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfIntLE_declare__251____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15671____closed__1, align 8, !tbaa !5
   %5003 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfIntLE_declare__251____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15671____closed__4, align 8, !tbaa !5
   %5004 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfIntLE_declare__251____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15671____closed__5, align 8, !tbaa !5
   %5005 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5002, ptr noundef %5003, ptr noundef %5004, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5006 = getelementptr i8, ptr %5005, i64 4
-  %.val1964 = load i32, ptr %5006, align 4
-  %.mask.i2209 = and i32 %.val1964, -16777216
-  %5007 = icmp eq i32 %.mask.i2209, 16777216
+  %.val1963 = load i32, ptr %5006, align 4
+  %.mask.i2208 = and i32 %.val1963, -16777216
+  %5007 = icmp eq i32 %.mask.i2208, 16777216
   br i1 %5007, label %6668, label %5008
 
 5008:                                             ; preds = %5001
@@ -237212,8 +237212,8 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
   br label %5015
 
 5013:                                             ; preds = %5008
-  %.not.i1471 = icmp eq i32 %5009, 0
-  br i1 %.not.i1471, label %5015, label %5014
+  %.not.i1470 = icmp eq i32 %5009, 0
+  br i1 %.not.i1470, label %5015, label %5014
 
 5014:                                             ; preds = %5013
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5005) #5
@@ -237228,9 +237228,9 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
   %5019 = load ptr, ptr @l_Int32_reduceOfIntLE___regBuiltin_Int32_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15673____closed__1, align 8, !tbaa !5
   %5020 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5017, ptr noundef %5018, i8 noundef zeroext 1, ptr noundef %5019, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5021 = getelementptr i8, ptr %5020, i64 4
-  %.val1965 = load i32, ptr %5021, align 4
-  %.mask.i2210 = and i32 %.val1965, -16777216
-  %5022 = icmp eq i32 %.mask.i2210, 16777216
+  %.val1964 = load i32, ptr %5021, align 4
+  %.mask.i2209 = and i32 %.val1964, -16777216
+  %5022 = icmp eq i32 %.mask.i2209, 16777216
   br i1 %5022, label %6668, label %5023
 
 5023:                                             ; preds = %5015
@@ -237244,18 +237244,18 @@ lean_dec_ref.exit1476:                            ; preds = %.critedge1196
   br label %5031
 
 5028:                                             ; preds = %5023
-  %.not.i1469 = icmp eq i32 %5024, 0
-  br i1 %.not.i1469, label %5031, label %5029
+  %.not.i1468 = icmp eq i32 %5024, 0
+  br i1 %.not.i1468, label %5031, label %5029
 
 5029:                                             ; preds = %5028
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5020) #5
   br label %5031
 
-lean_dec_ref.exit1470:                            ; preds = %.critedge1200
+lean_dec_ref.exit1469:                            ; preds = %.critedge1199
   %5030 = tail call fastcc ptr @_init_l_Int32_reduceOfIntLE___regBuiltin_Int32_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15673____closed__1()
   store ptr %5030, ptr @l_Int32_reduceOfIntLE___regBuiltin_Int32_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15673____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5030) #5
-  br label %.critedge1204
+  br label %.critedge1203
 
 5031:                                             ; preds = %5029, %5028, %5026
   %5032 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237263,9 +237263,9 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
   %5034 = load ptr, ptr @l_Int32_reduceOfIntLE___regBuiltin_Int32_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15673____closed__1, align 8, !tbaa !5
   %5035 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5032, ptr noundef %5033, i8 noundef zeroext 1, ptr noundef %5034, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5036 = getelementptr i8, ptr %5035, i64 4
-  %.val1966 = load i32, ptr %5036, align 4
-  %.mask.i2211 = and i32 %.val1966, -16777216
-  %5037 = icmp eq i32 %.mask.i2211, 16777216
+  %.val1965 = load i32, ptr %5036, align 4
+  %.mask.i2210 = and i32 %.val1965, -16777216
+  %5037 = icmp eq i32 %.mask.i2210, 16777216
   br i1 %5037, label %6668, label %5038
 
 5038:                                             ; preds = %5031
@@ -237276,17 +237276,17 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
 5041:                                             ; preds = %5038
   %5042 = add nsw i32 %5039, -1
   store i32 %5042, ptr %5035, align 4, !tbaa !9
-  br label %.critedge1204
+  br label %.critedge1203
 
 5043:                                             ; preds = %5038
-  %.not.i1467 = icmp eq i32 %5039, 0
-  br i1 %.not.i1467, label %.critedge1204, label %5044
+  %.not.i1466 = icmp eq i32 %5039, 0
+  br i1 %.not.i1466, label %.critedge1203, label %5044
 
 5044:                                             ; preds = %5043
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5035) #5
-  br label %.critedge1204
+  br label %.critedge1203
 
-.critedge1204:                                    ; preds = %5044, %5043, %5041, %lean_dec_ref.exit1470
+.critedge1203:                                    ; preds = %5044, %5043, %5041, %lean_dec_ref.exit1469
   %5045 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %5046 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__1, align 8, !tbaa !5
   %5047 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5045, ptr noundef %5046) #5
@@ -237310,17 +237310,17 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
   %5055 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfNat_declare__255____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15785____closed__5()
   store ptr %5055, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfNat_declare__255____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15785____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5055) #5
-  br i1 %.not, label %lean_dec_ref.exit1464, label %5056
+  br i1 %.not, label %lean_dec_ref.exit1463, label %5056
 
-5056:                                             ; preds = %.critedge1204
+5056:                                             ; preds = %.critedge1203
   %5057 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfNat_declare__255____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15785____closed__1, align 8, !tbaa !5
   %5058 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfNat_declare__255____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15785____closed__4, align 8, !tbaa !5
   %5059 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfNat_declare__255____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15785____closed__5, align 8, !tbaa !5
   %5060 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5057, ptr noundef %5058, ptr noundef %5059, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5061 = getelementptr i8, ptr %5060, i64 4
-  %.val1967 = load i32, ptr %5061, align 4
-  %.mask.i2212 = and i32 %.val1967, -16777216
-  %5062 = icmp eq i32 %.mask.i2212, 16777216
+  %.val1966 = load i32, ptr %5061, align 4
+  %.mask.i2211 = and i32 %.val1966, -16777216
+  %5062 = icmp eq i32 %.mask.i2211, 16777216
   br i1 %5062, label %6668, label %5063
 
 5063:                                             ; preds = %5056
@@ -237334,8 +237334,8 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
   br label %5070
 
 5068:                                             ; preds = %5063
-  %.not.i1465 = icmp eq i32 %5064, 0
-  br i1 %.not.i1465, label %5070, label %5069
+  %.not.i1464 = icmp eq i32 %5064, 0
+  br i1 %.not.i1464, label %5070, label %5069
 
 5069:                                             ; preds = %5068
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5060) #5
@@ -237350,9 +237350,9 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
   %5074 = load ptr, ptr @l_Int32_reduceOfNat___regBuiltin_Int32_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15787____closed__1, align 8, !tbaa !5
   %5075 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5072, ptr noundef %5073, i8 noundef zeroext 1, ptr noundef %5074, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5076 = getelementptr i8, ptr %5075, i64 4
-  %.val1968 = load i32, ptr %5076, align 4
-  %.mask.i2213 = and i32 %.val1968, -16777216
-  %5077 = icmp eq i32 %.mask.i2213, 16777216
+  %.val1967 = load i32, ptr %5076, align 4
+  %.mask.i2212 = and i32 %.val1967, -16777216
+  %5077 = icmp eq i32 %.mask.i2212, 16777216
   br i1 %5077, label %6668, label %5078
 
 5078:                                             ; preds = %5070
@@ -237366,18 +237366,18 @@ lean_dec_ref.exit1470:                            ; preds = %.critedge1200
   br label %5086
 
 5083:                                             ; preds = %5078
-  %.not.i1463 = icmp eq i32 %5079, 0
-  br i1 %.not.i1463, label %5086, label %5084
+  %.not.i1462 = icmp eq i32 %5079, 0
+  br i1 %.not.i1462, label %5086, label %5084
 
 5084:                                             ; preds = %5083
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5075) #5
   br label %5086
 
-lean_dec_ref.exit1464:                            ; preds = %.critedge1204
+lean_dec_ref.exit1463:                            ; preds = %.critedge1203
   %5085 = tail call fastcc ptr @_init_l_Int32_reduceOfNat___regBuiltin_Int32_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15787____closed__1()
   store ptr %5085, ptr @l_Int32_reduceOfNat___regBuiltin_Int32_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15787____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5085) #5
-  br label %.critedge1208
+  br label %.critedge1207
 
 5086:                                             ; preds = %5084, %5083, %5081
   %5087 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237385,9 +237385,9 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
   %5089 = load ptr, ptr @l_Int32_reduceOfNat___regBuiltin_Int32_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15787____closed__1, align 8, !tbaa !5
   %5090 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5087, ptr noundef %5088, i8 noundef zeroext 1, ptr noundef %5089, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5091 = getelementptr i8, ptr %5090, i64 4
-  %.val1969 = load i32, ptr %5091, align 4
-  %.mask.i2214 = and i32 %.val1969, -16777216
-  %5092 = icmp eq i32 %.mask.i2214, 16777216
+  %.val1968 = load i32, ptr %5091, align 4
+  %.mask.i2213 = and i32 %.val1968, -16777216
+  %5092 = icmp eq i32 %.mask.i2213, 16777216
   br i1 %5092, label %6668, label %5093
 
 5093:                                             ; preds = %5086
@@ -237398,17 +237398,17 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
 5096:                                             ; preds = %5093
   %5097 = add nsw i32 %5094, -1
   store i32 %5097, ptr %5090, align 4, !tbaa !9
-  br label %.critedge1208
+  br label %.critedge1207
 
 5098:                                             ; preds = %5093
-  %.not.i1461 = icmp eq i32 %5094, 0
-  br i1 %.not.i1461, label %.critedge1208, label %5099
+  %.not.i1460 = icmp eq i32 %5094, 0
+  br i1 %.not.i1460, label %.critedge1207, label %5099
 
 5099:                                             ; preds = %5098
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5090) #5
-  br label %.critedge1208
+  br label %.critedge1207
 
-.critedge1208:                                    ; preds = %5099, %5098, %5096, %lean_dec_ref.exit1464
+.critedge1207:                                    ; preds = %5099, %5098, %5096, %lean_dec_ref.exit1463
   %5100 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %5101 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__3, align 8, !tbaa !5
   %5102 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5100, ptr noundef %5101) #5
@@ -237432,17 +237432,17 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
   %5110 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfInt_declare__259____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15899____closed__5()
   store ptr %5110, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfInt_declare__259____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15899____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5110) #5
-  br i1 %.not, label %lean_dec_ref.exit1458, label %5111
+  br i1 %.not, label %lean_dec_ref.exit1457, label %5111
 
-5111:                                             ; preds = %.critedge1208
+5111:                                             ; preds = %.critedge1207
   %5112 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfInt_declare__259____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15899____closed__1, align 8, !tbaa !5
   %5113 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfInt_declare__259____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15899____closed__4, align 8, !tbaa !5
   %5114 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceOfInt_declare__259____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15899____closed__5, align 8, !tbaa !5
   %5115 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5112, ptr noundef %5113, ptr noundef %5114, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5116 = getelementptr i8, ptr %5115, i64 4
-  %.val1970 = load i32, ptr %5116, align 4
-  %.mask.i2215 = and i32 %.val1970, -16777216
-  %5117 = icmp eq i32 %.mask.i2215, 16777216
+  %.val1969 = load i32, ptr %5116, align 4
+  %.mask.i2214 = and i32 %.val1969, -16777216
+  %5117 = icmp eq i32 %.mask.i2214, 16777216
   br i1 %5117, label %6668, label %5118
 
 5118:                                             ; preds = %5111
@@ -237456,8 +237456,8 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
   br label %5125
 
 5123:                                             ; preds = %5118
-  %.not.i1459 = icmp eq i32 %5119, 0
-  br i1 %.not.i1459, label %5125, label %5124
+  %.not.i1458 = icmp eq i32 %5119, 0
+  br i1 %.not.i1458, label %5125, label %5124
 
 5124:                                             ; preds = %5123
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5115) #5
@@ -237472,9 +237472,9 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
   %5129 = load ptr, ptr @l_Int32_reduceOfInt___regBuiltin_Int32_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15901____closed__1, align 8, !tbaa !5
   %5130 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5127, ptr noundef %5128, i8 noundef zeroext 1, ptr noundef %5129, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5131 = getelementptr i8, ptr %5130, i64 4
-  %.val1971 = load i32, ptr %5131, align 4
-  %.mask.i2216 = and i32 %.val1971, -16777216
-  %5132 = icmp eq i32 %.mask.i2216, 16777216
+  %.val1970 = load i32, ptr %5131, align 4
+  %.mask.i2215 = and i32 %.val1970, -16777216
+  %5132 = icmp eq i32 %.mask.i2215, 16777216
   br i1 %5132, label %6668, label %5133
 
 5133:                                             ; preds = %5125
@@ -237488,18 +237488,18 @@ lean_dec_ref.exit1464:                            ; preds = %.critedge1204
   br label %5141
 
 5138:                                             ; preds = %5133
-  %.not.i1457 = icmp eq i32 %5134, 0
-  br i1 %.not.i1457, label %5141, label %5139
+  %.not.i1456 = icmp eq i32 %5134, 0
+  br i1 %.not.i1456, label %5141, label %5139
 
 5139:                                             ; preds = %5138
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5130) #5
   br label %5141
 
-lean_dec_ref.exit1458:                            ; preds = %.critedge1208
+lean_dec_ref.exit1457:                            ; preds = %.critedge1207
   %5140 = tail call fastcc ptr @_init_l_Int32_reduceOfInt___regBuiltin_Int32_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15901____closed__1()
   store ptr %5140, ptr @l_Int32_reduceOfInt___regBuiltin_Int32_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15901____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5140) #5
-  br label %.critedge1212
+  br label %.critedge1211
 
 5141:                                             ; preds = %5139, %5138, %5136
   %5142 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237507,9 +237507,9 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
   %5144 = load ptr, ptr @l_Int32_reduceOfInt___regBuiltin_Int32_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_15901____closed__1, align 8, !tbaa !5
   %5145 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5142, ptr noundef %5143, i8 noundef zeroext 1, ptr noundef %5144, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5146 = getelementptr i8, ptr %5145, i64 4
-  %.val1972 = load i32, ptr %5146, align 4
-  %.mask.i2217 = and i32 %.val1972, -16777216
-  %5147 = icmp eq i32 %.mask.i2217, 16777216
+  %.val1971 = load i32, ptr %5146, align 4
+  %.mask.i2216 = and i32 %.val1971, -16777216
+  %5147 = icmp eq i32 %.mask.i2216, 16777216
   br i1 %5147, label %6668, label %5148
 
 5148:                                             ; preds = %5141
@@ -237520,17 +237520,17 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
 5151:                                             ; preds = %5148
   %5152 = add nsw i32 %5149, -1
   store i32 %5152, ptr %5145, align 4, !tbaa !9
-  br label %.critedge1212
+  br label %.critedge1211
 
 5153:                                             ; preds = %5148
-  %.not.i1455 = icmp eq i32 %5149, 0
-  br i1 %.not.i1455, label %.critedge1212, label %5154
+  %.not.i1454 = icmp eq i32 %5149, 0
+  br i1 %.not.i1454, label %.critedge1211, label %5154
 
 5154:                                             ; preds = %5153
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5145) #5
-  br label %.critedge1212
+  br label %.critedge1211
 
-.critedge1212:                                    ; preds = %5154, %5153, %5151, %lean_dec_ref.exit1458
+.critedge1211:                                    ; preds = %5154, %5153, %5151, %lean_dec_ref.exit1457
   %5155 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %5156 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__7, align 8, !tbaa !5
   %5157 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5155, ptr noundef %5156) #5
@@ -237554,17 +237554,17 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
   %5165 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToInt_declare__263____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16015____closed__5()
   store ptr %5165, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToInt_declare__263____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16015____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5165) #5
-  br i1 %.not, label %lean_dec_ref.exit1452, label %5166
+  br i1 %.not, label %lean_dec_ref.exit1451, label %5166
 
-5166:                                             ; preds = %.critedge1212
+5166:                                             ; preds = %.critedge1211
   %5167 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToInt_declare__263____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16015____closed__1, align 8, !tbaa !5
   %5168 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToInt_declare__263____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16015____closed__4, align 8, !tbaa !5
   %5169 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToInt_declare__263____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16015____closed__5, align 8, !tbaa !5
   %5170 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5167, ptr noundef %5168, ptr noundef %5169, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5171 = getelementptr i8, ptr %5170, i64 4
-  %.val1973 = load i32, ptr %5171, align 4
-  %.mask.i2218 = and i32 %.val1973, -16777216
-  %5172 = icmp eq i32 %.mask.i2218, 16777216
+  %.val1972 = load i32, ptr %5171, align 4
+  %.mask.i2217 = and i32 %.val1972, -16777216
+  %5172 = icmp eq i32 %.mask.i2217, 16777216
   br i1 %5172, label %6668, label %5173
 
 5173:                                             ; preds = %5166
@@ -237578,8 +237578,8 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
   br label %5180
 
 5178:                                             ; preds = %5173
-  %.not.i1453 = icmp eq i32 %5174, 0
-  br i1 %.not.i1453, label %5180, label %5179
+  %.not.i1452 = icmp eq i32 %5174, 0
+  br i1 %.not.i1452, label %5180, label %5179
 
 5179:                                             ; preds = %5178
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5170) #5
@@ -237594,9 +237594,9 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
   %5184 = load ptr, ptr @l_Int32_reduceToInt___regBuiltin_Int32_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16017____closed__1, align 8, !tbaa !5
   %5185 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5182, ptr noundef %5183, i8 noundef zeroext 1, ptr noundef %5184, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5186 = getelementptr i8, ptr %5185, i64 4
-  %.val1974 = load i32, ptr %5186, align 4
-  %.mask.i2219 = and i32 %.val1974, -16777216
-  %5187 = icmp eq i32 %.mask.i2219, 16777216
+  %.val1973 = load i32, ptr %5186, align 4
+  %.mask.i2218 = and i32 %.val1973, -16777216
+  %5187 = icmp eq i32 %.mask.i2218, 16777216
   br i1 %5187, label %6668, label %5188
 
 5188:                                             ; preds = %5180
@@ -237610,18 +237610,18 @@ lean_dec_ref.exit1458:                            ; preds = %.critedge1208
   br label %5196
 
 5193:                                             ; preds = %5188
-  %.not.i1451 = icmp eq i32 %5189, 0
-  br i1 %.not.i1451, label %5196, label %5194
+  %.not.i1450 = icmp eq i32 %5189, 0
+  br i1 %.not.i1450, label %5196, label %5194
 
 5194:                                             ; preds = %5193
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5185) #5
   br label %5196
 
-lean_dec_ref.exit1452:                            ; preds = %.critedge1212
+lean_dec_ref.exit1451:                            ; preds = %.critedge1211
   %5195 = tail call fastcc ptr @_init_l_Int32_reduceToInt___regBuiltin_Int32_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16017____closed__1()
   store ptr %5195, ptr @l_Int32_reduceToInt___regBuiltin_Int32_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16017____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5195) #5
-  br label %.critedge1216
+  br label %.critedge1215
 
 5196:                                             ; preds = %5194, %5193, %5191
   %5197 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237629,9 +237629,9 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
   %5199 = load ptr, ptr @l_Int32_reduceToInt___regBuiltin_Int32_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16017____closed__1, align 8, !tbaa !5
   %5200 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5197, ptr noundef %5198, i8 noundef zeroext 1, ptr noundef %5199, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5201 = getelementptr i8, ptr %5200, i64 4
-  %.val1975 = load i32, ptr %5201, align 4
-  %.mask.i2220 = and i32 %.val1975, -16777216
-  %5202 = icmp eq i32 %.mask.i2220, 16777216
+  %.val1974 = load i32, ptr %5201, align 4
+  %.mask.i2219 = and i32 %.val1974, -16777216
+  %5202 = icmp eq i32 %.mask.i2219, 16777216
   br i1 %5202, label %6668, label %5203
 
 5203:                                             ; preds = %5196
@@ -237642,17 +237642,17 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
 5206:                                             ; preds = %5203
   %5207 = add nsw i32 %5204, -1
   store i32 %5207, ptr %5200, align 4, !tbaa !9
-  br label %.critedge1216
+  br label %.critedge1215
 
 5208:                                             ; preds = %5203
-  %.not.i1449 = icmp eq i32 %5204, 0
-  br i1 %.not.i1449, label %.critedge1216, label %5209
+  %.not.i1448 = icmp eq i32 %5204, 0
+  br i1 %.not.i1448, label %.critedge1215, label %5209
 
 5209:                                             ; preds = %5208
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5200) #5
-  br label %.critedge1216
+  br label %.critedge1215
 
-.critedge1216:                                    ; preds = %5209, %5208, %5206, %lean_dec_ref.exit1452
+.critedge1215:                                    ; preds = %5209, %5208, %5206, %lean_dec_ref.exit1451
   %5210 = load ptr, ptr @l_Int32_fromExpr___closed__1, align 8, !tbaa !5
   %5211 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__9, align 8, !tbaa !5
   %5212 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5210, ptr noundef %5211) #5
@@ -237676,17 +237676,17 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
   %5220 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToNatClampNeg_declare__267____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16131____closed__5()
   store ptr %5220, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToNatClampNeg_declare__267____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16131____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5220) #5
-  br i1 %.not, label %lean_dec_ref.exit1446, label %5221
+  br i1 %.not, label %lean_dec_ref.exit1445, label %5221
 
-5221:                                             ; preds = %.critedge1216
+5221:                                             ; preds = %.critedge1215
   %5222 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToNatClampNeg_declare__267____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16131____closed__1, align 8, !tbaa !5
   %5223 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToNatClampNeg_declare__267____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16131____closed__4, align 8, !tbaa !5
   %5224 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_reduceToNatClampNeg_declare__267____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16131____closed__5, align 8, !tbaa !5
   %5225 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5222, ptr noundef %5223, ptr noundef %5224, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5226 = getelementptr i8, ptr %5225, i64 4
-  %.val1976 = load i32, ptr %5226, align 4
-  %.mask.i2221 = and i32 %.val1976, -16777216
-  %5227 = icmp eq i32 %.mask.i2221, 16777216
+  %.val1975 = load i32, ptr %5226, align 4
+  %.mask.i2220 = and i32 %.val1975, -16777216
+  %5227 = icmp eq i32 %.mask.i2220, 16777216
   br i1 %5227, label %6668, label %5228
 
 5228:                                             ; preds = %5221
@@ -237700,8 +237700,8 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
   br label %5235
 
 5233:                                             ; preds = %5228
-  %.not.i1447 = icmp eq i32 %5229, 0
-  br i1 %.not.i1447, label %5235, label %5234
+  %.not.i1446 = icmp eq i32 %5229, 0
+  br i1 %.not.i1446, label %5235, label %5234
 
 5234:                                             ; preds = %5233
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5225) #5
@@ -237716,9 +237716,9 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
   %5239 = load ptr, ptr @l_Int32_reduceToNatClampNeg___regBuiltin_Int32_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16133____closed__1, align 8, !tbaa !5
   %5240 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5237, ptr noundef %5238, i8 noundef zeroext 1, ptr noundef %5239, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5241 = getelementptr i8, ptr %5240, i64 4
-  %.val1977 = load i32, ptr %5241, align 4
-  %.mask.i2222 = and i32 %.val1977, -16777216
-  %5242 = icmp eq i32 %.mask.i2222, 16777216
+  %.val1976 = load i32, ptr %5241, align 4
+  %.mask.i2221 = and i32 %.val1976, -16777216
+  %5242 = icmp eq i32 %.mask.i2221, 16777216
   br i1 %5242, label %6668, label %5243
 
 5243:                                             ; preds = %5235
@@ -237732,18 +237732,18 @@ lean_dec_ref.exit1452:                            ; preds = %.critedge1212
   br label %5251
 
 5248:                                             ; preds = %5243
-  %.not.i1445 = icmp eq i32 %5244, 0
-  br i1 %.not.i1445, label %5251, label %5249
+  %.not.i1444 = icmp eq i32 %5244, 0
+  br i1 %.not.i1444, label %5251, label %5249
 
 5249:                                             ; preds = %5248
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5240) #5
   br label %5251
 
-lean_dec_ref.exit1446:                            ; preds = %.critedge1216
+lean_dec_ref.exit1445:                            ; preds = %.critedge1215
   %5250 = tail call fastcc ptr @_init_l_Int32_reduceToNatClampNeg___regBuiltin_Int32_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16133____closed__1()
   store ptr %5250, ptr @l_Int32_reduceToNatClampNeg___regBuiltin_Int32_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16133____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5250) #5
-  br label %.critedge1220
+  br label %.critedge1219
 
 5251:                                             ; preds = %5249, %5248, %5246
   %5252 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -237751,9 +237751,9 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
   %5254 = load ptr, ptr @l_Int32_reduceToNatClampNeg___regBuiltin_Int32_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16133____closed__1, align 8, !tbaa !5
   %5255 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5252, ptr noundef %5253, i8 noundef zeroext 1, ptr noundef %5254, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5256 = getelementptr i8, ptr %5255, i64 4
-  %.val1978 = load i32, ptr %5256, align 4
-  %.mask.i2223 = and i32 %.val1978, -16777216
-  %5257 = icmp eq i32 %.mask.i2223, 16777216
+  %.val1977 = load i32, ptr %5256, align 4
+  %.mask.i2222 = and i32 %.val1977, -16777216
+  %5257 = icmp eq i32 %.mask.i2222, 16777216
   br i1 %5257, label %6668, label %5258
 
 5258:                                             ; preds = %5251
@@ -237764,17 +237764,17 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
 5261:                                             ; preds = %5258
   %5262 = add nsw i32 %5259, -1
   store i32 %5262, ptr %5255, align 4, !tbaa !9
-  br label %.critedge1220
+  br label %.critedge1219
 
 5263:                                             ; preds = %5258
-  %.not.i1443 = icmp eq i32 %5259, 0
-  br i1 %.not.i1443, label %.critedge1220, label %5264
+  %.not.i1442 = icmp eq i32 %5259, 0
+  br i1 %.not.i1442, label %.critedge1219, label %5264
 
 5264:                                             ; preds = %5263
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5255) #5
-  br label %.critedge1220
+  br label %.critedge1219
 
-.critedge1220:                                    ; preds = %5264, %5263, %5261, %lean_dec_ref.exit1446
+.critedge1219:                                    ; preds = %5264, %5263, %5261, %lean_dec_ref.exit1445
   %5265 = load ptr, ptr @l_Int32_fromExpr___closed__2, align 8, !tbaa !5
   %5266 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__543, align 8, !tbaa !5
   %5267 = tail call ptr @l_Lean_Name_str___override(ptr noundef %5265, ptr noundef %5266) #5
@@ -237834,17 +237834,17 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
   %5297 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_isValue_declare__271____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__16205____closed__13()
   store ptr %5297, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_isValue_declare__271____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__16205____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5297) #5
-  br i1 %.not, label %.critedge1222, label %5298
+  br i1 %.not, label %.critedge1221, label %5298
 
-5298:                                             ; preds = %.critedge1220
+5298:                                             ; preds = %.critedge1219
   %5299 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_isValue_declare__271____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__16205____closed__10, align 8, !tbaa !5
   %5300 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_isValue_declare__271____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__16205____closed__12, align 8, !tbaa !5
   %5301 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int32_isValue_declare__271____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077__16205____closed__13, align 8, !tbaa !5
   %5302 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5299, ptr noundef %5300, ptr noundef %5301, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5303 = getelementptr i8, ptr %5302, i64 4
-  %.val1979 = load i32, ptr %5303, align 4
-  %.mask.i2224 = and i32 %.val1979, -16777216
-  %5304 = icmp eq i32 %.mask.i2224, 16777216
+  %.val1978 = load i32, ptr %5303, align 4
+  %.mask.i2223 = and i32 %.val1978, -16777216
+  %5304 = icmp eq i32 %.mask.i2223, 16777216
   br i1 %5304, label %6668, label %5305
 
 5305:                                             ; preds = %5298
@@ -237858,8 +237858,8 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
   br label %5312
 
 5310:                                             ; preds = %5305
-  %.not.i1441 = icmp eq i32 %5306, 0
-  br i1 %.not.i1441, label %5312, label %5311
+  %.not.i1440 = icmp eq i32 %5306, 0
+  br i1 %.not.i1440, label %5312, label %5311
 
 5311:                                             ; preds = %5310
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5302) #5
@@ -237874,9 +237874,9 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
   %5316 = load ptr, ptr @l_Int32_isValue___regBuiltin_Int32_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   %5317 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5314, ptr noundef %5315, i8 noundef zeroext 1, ptr noundef %5316, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5318 = getelementptr i8, ptr %5317, i64 4
-  %.val1980 = load i32, ptr %5318, align 4
-  %.mask.i2225 = and i32 %.val1980, -16777216
-  %5319 = icmp eq i32 %.mask.i2225, 16777216
+  %.val1979 = load i32, ptr %5318, align 4
+  %.mask.i2224 = and i32 %.val1979, -16777216
+  %5319 = icmp eq i32 %.mask.i2224, 16777216
   br i1 %5319, label %6668, label %5320
 
 5320:                                             ; preds = %5312
@@ -237887,23 +237887,23 @@ lean_dec_ref.exit1446:                            ; preds = %.critedge1216
 5323:                                             ; preds = %5320
   %5324 = add nsw i32 %5321, -1
   store i32 %5324, ptr %5317, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1440
+  br label %lean_dec_ref.exit1439
 
 5325:                                             ; preds = %5320
-  %.not.i1439 = icmp eq i32 %5321, 0
-  br i1 %.not.i1439, label %lean_dec_ref.exit1440, label %5326
+  %.not.i1438 = icmp eq i32 %5321, 0
+  br i1 %.not.i1438, label %lean_dec_ref.exit1439, label %5326
 
 5326:                                             ; preds = %5325
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5317) #5
-  br label %lean_dec_ref.exit1440
+  br label %lean_dec_ref.exit1439
 
-.critedge1222:                                    ; preds = %.critedge1220
+.critedge1221:                                    ; preds = %.critedge1219
   %5327 = tail call fastcc ptr @_init_l_Int32_isValue___regBuiltin_Int32_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1()
   store ptr %5327, ptr @l_Int32_isValue___regBuiltin_Int32_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_14077____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5327) #5
-  br label %lean_dec_ref.exit1440
+  br label %lean_dec_ref.exit1439
 
-lean_dec_ref.exit1440:                            ; preds = %5326, %5325, %5323, %.critedge1222
+lean_dec_ref.exit1439:                            ; preds = %5326, %5325, %5323, %.critedge1221
   %5328 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.243, i64 noundef 5, i64 noundef 5) #5
   store ptr %5328, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %5328) #5
@@ -237989,17 +237989,17 @@ lean_dec_ref.exit1440:                            ; preds = %5326, %5325, %5323,
   %5372 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNeg_declare__284____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17188____closed__15()
   store ptr %5372, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNeg_declare__284____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17188____closed__15, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5372) #5
-  br i1 %.not, label %lean_dec_ref.exit1436, label %5373
+  br i1 %.not, label %lean_dec_ref.exit1435, label %5373
 
-5373:                                             ; preds = %lean_dec_ref.exit1440
+5373:                                             ; preds = %lean_dec_ref.exit1439
   %5374 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNeg_declare__284____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17188____closed__10, align 8, !tbaa !5
   %5375 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNeg_declare__284____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17188____closed__14, align 8, !tbaa !5
   %5376 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNeg_declare__284____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17188____closed__15, align 8, !tbaa !5
   %5377 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5374, ptr noundef %5375, ptr noundef %5376, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5378 = getelementptr i8, ptr %5377, i64 4
-  %.val1981 = load i32, ptr %5378, align 4
-  %.mask.i2226 = and i32 %.val1981, -16777216
-  %5379 = icmp eq i32 %.mask.i2226, 16777216
+  %.val1980 = load i32, ptr %5378, align 4
+  %.mask.i2225 = and i32 %.val1980, -16777216
+  %5379 = icmp eq i32 %.mask.i2225, 16777216
   br i1 %5379, label %6668, label %5380
 
 5380:                                             ; preds = %5373
@@ -238013,8 +238013,8 @@ lean_dec_ref.exit1440:                            ; preds = %5326, %5325, %5323,
   br label %5387
 
 5385:                                             ; preds = %5380
-  %.not.i1437 = icmp eq i32 %5381, 0
-  br i1 %.not.i1437, label %5387, label %5386
+  %.not.i1436 = icmp eq i32 %5381, 0
+  br i1 %.not.i1436, label %5387, label %5386
 
 5386:                                             ; preds = %5385
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5377) #5
@@ -238029,9 +238029,9 @@ lean_dec_ref.exit1440:                            ; preds = %5326, %5325, %5323,
   %5391 = load ptr, ptr @l_Int64_reduceNeg___regBuiltin_Int64_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %5392 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5389, ptr noundef %5390, i8 noundef zeroext 1, ptr noundef %5391, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5393 = getelementptr i8, ptr %5392, i64 4
-  %.val1982 = load i32, ptr %5393, align 4
-  %.mask.i2227 = and i32 %.val1982, -16777216
-  %5394 = icmp eq i32 %.mask.i2227, 16777216
+  %.val1981 = load i32, ptr %5393, align 4
+  %.mask.i2226 = and i32 %.val1981, -16777216
+  %5394 = icmp eq i32 %.mask.i2226, 16777216
   br i1 %5394, label %6668, label %5395
 
 5395:                                             ; preds = %5387
@@ -238045,18 +238045,18 @@ lean_dec_ref.exit1440:                            ; preds = %5326, %5325, %5323,
   br label %5403
 
 5400:                                             ; preds = %5395
-  %.not.i1435 = icmp eq i32 %5396, 0
-  br i1 %.not.i1435, label %5403, label %5401
+  %.not.i1434 = icmp eq i32 %5396, 0
+  br i1 %.not.i1434, label %5403, label %5401
 
 5401:                                             ; preds = %5400
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5392) #5
   br label %5403
 
-lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit1440
+lean_dec_ref.exit1435:                            ; preds = %lean_dec_ref.exit1439
   %5402 = tail call fastcc ptr @_init_l_Int64_reduceNeg___regBuiltin_Int64_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %5402, ptr @l_Int64_reduceNeg___regBuiltin_Int64_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5402) #5
-  br label %.critedge1226
+  br label %.critedge1225
 
 5403:                                             ; preds = %5401, %5400, %5398
   %5404 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238064,9 +238064,9 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
   %5406 = load ptr, ptr @l_Int64_reduceNeg___regBuiltin_Int64_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %5407 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5404, ptr noundef %5405, i8 noundef zeroext 1, ptr noundef %5406, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5408 = getelementptr i8, ptr %5407, i64 4
-  %.val1983 = load i32, ptr %5408, align 4
-  %.mask.i2228 = and i32 %.val1983, -16777216
-  %5409 = icmp eq i32 %.mask.i2228, 16777216
+  %.val1982 = load i32, ptr %5408, align 4
+  %.mask.i2227 = and i32 %.val1982, -16777216
+  %5409 = icmp eq i32 %.mask.i2227, 16777216
   br i1 %5409, label %6668, label %5410
 
 5410:                                             ; preds = %5403
@@ -238077,17 +238077,17 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
 5413:                                             ; preds = %5410
   %5414 = add nsw i32 %5411, -1
   store i32 %5414, ptr %5407, align 4, !tbaa !9
-  br label %.critedge1226
+  br label %.critedge1225
 
 5415:                                             ; preds = %5410
-  %.not.i1433 = icmp eq i32 %5411, 0
-  br i1 %.not.i1433, label %.critedge1226, label %5416
+  %.not.i1432 = icmp eq i32 %5411, 0
+  br i1 %.not.i1432, label %.critedge1225, label %5416
 
 5416:                                             ; preds = %5415
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5407) #5
-  br label %.critedge1226
+  br label %.critedge1225
 
-.critedge1226:                                    ; preds = %5416, %5415, %5413, %lean_dec_ref.exit1436
+.critedge1225:                                    ; preds = %5416, %5415, %5413, %lean_dec_ref.exit1435
   %5417 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5418 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__325, align 8, !tbaa !5
   %5419 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5417, ptr noundef %5418) #5
@@ -238112,17 +238112,17 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
   %5426 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceAdd_declare__288____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17226____closed__7()
   store ptr %5426, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceAdd_declare__288____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17226____closed__7, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5426) #5
-  br i1 %.not, label %lean_dec_ref.exit1430, label %5427
+  br i1 %.not, label %lean_dec_ref.exit1429, label %5427
 
-5427:                                             ; preds = %.critedge1226
+5427:                                             ; preds = %.critedge1225
   %5428 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceAdd_declare__288____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17226____closed__1, align 8, !tbaa !5
   %5429 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceAdd_declare__288____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17226____closed__6, align 8, !tbaa !5
   %5430 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceAdd_declare__288____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17226____closed__7, align 8, !tbaa !5
   %5431 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5428, ptr noundef %5429, ptr noundef %5430, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5432 = getelementptr i8, ptr %5431, i64 4
-  %.val1984 = load i32, ptr %5432, align 4
-  %.mask.i2229 = and i32 %.val1984, -16777216
-  %5433 = icmp eq i32 %.mask.i2229, 16777216
+  %.val1983 = load i32, ptr %5432, align 4
+  %.mask.i2228 = and i32 %.val1983, -16777216
+  %5433 = icmp eq i32 %.mask.i2228, 16777216
   br i1 %5433, label %6668, label %5434
 
 5434:                                             ; preds = %5427
@@ -238136,8 +238136,8 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
   br label %5441
 
 5439:                                             ; preds = %5434
-  %.not.i1431 = icmp eq i32 %5435, 0
-  br i1 %.not.i1431, label %5441, label %5440
+  %.not.i1430 = icmp eq i32 %5435, 0
+  br i1 %.not.i1430, label %5441, label %5440
 
 5440:                                             ; preds = %5439
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5431) #5
@@ -238152,9 +238152,9 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
   %5445 = load ptr, ptr @l_Int64_reduceAdd___regBuiltin_Int64_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17228____closed__1, align 8, !tbaa !5
   %5446 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5443, ptr noundef %5444, i8 noundef zeroext 1, ptr noundef %5445, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5447 = getelementptr i8, ptr %5446, i64 4
-  %.val1985 = load i32, ptr %5447, align 4
-  %.mask.i2230 = and i32 %.val1985, -16777216
-  %5448 = icmp eq i32 %.mask.i2230, 16777216
+  %.val1984 = load i32, ptr %5447, align 4
+  %.mask.i2229 = and i32 %.val1984, -16777216
+  %5448 = icmp eq i32 %.mask.i2229, 16777216
   br i1 %5448, label %6668, label %5449
 
 5449:                                             ; preds = %5441
@@ -238168,18 +238168,18 @@ lean_dec_ref.exit1436:                            ; preds = %lean_dec_ref.exit14
   br label %5457
 
 5454:                                             ; preds = %5449
-  %.not.i1429 = icmp eq i32 %5450, 0
-  br i1 %.not.i1429, label %5457, label %5455
+  %.not.i1428 = icmp eq i32 %5450, 0
+  br i1 %.not.i1428, label %5457, label %5455
 
 5455:                                             ; preds = %5454
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5446) #5
   br label %5457
 
-lean_dec_ref.exit1430:                            ; preds = %.critedge1226
+lean_dec_ref.exit1429:                            ; preds = %.critedge1225
   %5456 = tail call fastcc ptr @_init_l_Int64_reduceAdd___regBuiltin_Int64_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17228____closed__1()
   store ptr %5456, ptr @l_Int64_reduceAdd___regBuiltin_Int64_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17228____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5456) #5
-  br label %.critedge1230
+  br label %.critedge1229
 
 5457:                                             ; preds = %5455, %5454, %5452
   %5458 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238187,9 +238187,9 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
   %5460 = load ptr, ptr @l_Int64_reduceAdd___regBuiltin_Int64_reduceAdd_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17228____closed__1, align 8, !tbaa !5
   %5461 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5458, ptr noundef %5459, i8 noundef zeroext 1, ptr noundef %5460, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5462 = getelementptr i8, ptr %5461, i64 4
-  %.val1986 = load i32, ptr %5462, align 4
-  %.mask.i2231 = and i32 %.val1986, -16777216
-  %5463 = icmp eq i32 %.mask.i2231, 16777216
+  %.val1985 = load i32, ptr %5462, align 4
+  %.mask.i2230 = and i32 %.val1985, -16777216
+  %5463 = icmp eq i32 %.mask.i2230, 16777216
   br i1 %5463, label %6668, label %5464
 
 5464:                                             ; preds = %5457
@@ -238200,17 +238200,17 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
 5467:                                             ; preds = %5464
   %5468 = add nsw i32 %5465, -1
   store i32 %5468, ptr %5461, align 4, !tbaa !9
-  br label %.critedge1230
+  br label %.critedge1229
 
 5469:                                             ; preds = %5464
-  %.not.i1427 = icmp eq i32 %5465, 0
-  br i1 %.not.i1427, label %.critedge1230, label %5470
+  %.not.i1426 = icmp eq i32 %5465, 0
+  br i1 %.not.i1426, label %.critedge1229, label %5470
 
 5470:                                             ; preds = %5469
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5461) #5
-  br label %.critedge1230
+  br label %.critedge1229
 
-.critedge1230:                                    ; preds = %5470, %5469, %5467, %lean_dec_ref.exit1430
+.critedge1229:                                    ; preds = %5470, %5469, %5467, %lean_dec_ref.exit1429
   %5471 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5472 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__342, align 8, !tbaa !5
   %5473 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5471, ptr noundef %5472) #5
@@ -238226,17 +238226,17 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
   %5477 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMul_declare__292____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17264____closed__4()
   store ptr %5477, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMul_declare__292____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17264____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5477) #5
-  br i1 %.not, label %lean_dec_ref.exit1424, label %5478
+  br i1 %.not, label %lean_dec_ref.exit1423, label %5478
 
-5478:                                             ; preds = %.critedge1230
+5478:                                             ; preds = %.critedge1229
   %5479 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMul_declare__292____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17264____closed__1, align 8, !tbaa !5
   %5480 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMul_declare__292____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17264____closed__3, align 8, !tbaa !5
   %5481 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMul_declare__292____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17264____closed__4, align 8, !tbaa !5
   %5482 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5479, ptr noundef %5480, ptr noundef %5481, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5483 = getelementptr i8, ptr %5482, i64 4
-  %.val1987 = load i32, ptr %5483, align 4
-  %.mask.i2232 = and i32 %.val1987, -16777216
-  %5484 = icmp eq i32 %.mask.i2232, 16777216
+  %.val1986 = load i32, ptr %5483, align 4
+  %.mask.i2231 = and i32 %.val1986, -16777216
+  %5484 = icmp eq i32 %.mask.i2231, 16777216
   br i1 %5484, label %6668, label %5485
 
 5485:                                             ; preds = %5478
@@ -238250,8 +238250,8 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
   br label %5492
 
 5490:                                             ; preds = %5485
-  %.not.i1425 = icmp eq i32 %5486, 0
-  br i1 %.not.i1425, label %5492, label %5491
+  %.not.i1424 = icmp eq i32 %5486, 0
+  br i1 %.not.i1424, label %5492, label %5491
 
 5491:                                             ; preds = %5490
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5482) #5
@@ -238266,9 +238266,9 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
   %5496 = load ptr, ptr @l_Int64_reduceMul___regBuiltin_Int64_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17266____closed__1, align 8, !tbaa !5
   %5497 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5494, ptr noundef %5495, i8 noundef zeroext 1, ptr noundef %5496, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5498 = getelementptr i8, ptr %5497, i64 4
-  %.val1988 = load i32, ptr %5498, align 4
-  %.mask.i2233 = and i32 %.val1988, -16777216
-  %5499 = icmp eq i32 %.mask.i2233, 16777216
+  %.val1987 = load i32, ptr %5498, align 4
+  %.mask.i2232 = and i32 %.val1987, -16777216
+  %5499 = icmp eq i32 %.mask.i2232, 16777216
   br i1 %5499, label %6668, label %5500
 
 5500:                                             ; preds = %5492
@@ -238282,18 +238282,18 @@ lean_dec_ref.exit1430:                            ; preds = %.critedge1226
   br label %5508
 
 5505:                                             ; preds = %5500
-  %.not.i1423 = icmp eq i32 %5501, 0
-  br i1 %.not.i1423, label %5508, label %5506
+  %.not.i1422 = icmp eq i32 %5501, 0
+  br i1 %.not.i1422, label %5508, label %5506
 
 5506:                                             ; preds = %5505
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5497) #5
   br label %5508
 
-lean_dec_ref.exit1424:                            ; preds = %.critedge1230
+lean_dec_ref.exit1423:                            ; preds = %.critedge1229
   %5507 = tail call fastcc ptr @_init_l_Int64_reduceMul___regBuiltin_Int64_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17266____closed__1()
   store ptr %5507, ptr @l_Int64_reduceMul___regBuiltin_Int64_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17266____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5507) #5
-  br label %.critedge1234
+  br label %.critedge1233
 
 5508:                                             ; preds = %5506, %5505, %5503
   %5509 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238301,9 +238301,9 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
   %5511 = load ptr, ptr @l_Int64_reduceMul___regBuiltin_Int64_reduceMul_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17266____closed__1, align 8, !tbaa !5
   %5512 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5509, ptr noundef %5510, i8 noundef zeroext 1, ptr noundef %5511, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5513 = getelementptr i8, ptr %5512, i64 4
-  %.val1989 = load i32, ptr %5513, align 4
-  %.mask.i2234 = and i32 %.val1989, -16777216
-  %5514 = icmp eq i32 %.mask.i2234, 16777216
+  %.val1988 = load i32, ptr %5513, align 4
+  %.mask.i2233 = and i32 %.val1988, -16777216
+  %5514 = icmp eq i32 %.mask.i2233, 16777216
   br i1 %5514, label %6668, label %5515
 
 5515:                                             ; preds = %5508
@@ -238314,17 +238314,17 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
 5518:                                             ; preds = %5515
   %5519 = add nsw i32 %5516, -1
   store i32 %5519, ptr %5512, align 4, !tbaa !9
-  br label %.critedge1234
+  br label %.critedge1233
 
 5520:                                             ; preds = %5515
-  %.not.i1421 = icmp eq i32 %5516, 0
-  br i1 %.not.i1421, label %.critedge1234, label %5521
+  %.not.i1420 = icmp eq i32 %5516, 0
+  br i1 %.not.i1420, label %.critedge1233, label %5521
 
 5521:                                             ; preds = %5520
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5512) #5
-  br label %.critedge1234
+  br label %.critedge1233
 
-.critedge1234:                                    ; preds = %5521, %5520, %5518, %lean_dec_ref.exit1424
+.critedge1233:                                    ; preds = %5521, %5520, %5518, %lean_dec_ref.exit1423
   %5522 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5523 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__355, align 8, !tbaa !5
   %5524 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5522, ptr noundef %5523) #5
@@ -238340,17 +238340,17 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
   %5528 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceSub_declare__296____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17302____closed__4()
   store ptr %5528, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceSub_declare__296____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17302____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5528) #5
-  br i1 %.not, label %lean_dec_ref.exit1418, label %5529
+  br i1 %.not, label %lean_dec_ref.exit1417, label %5529
 
-5529:                                             ; preds = %.critedge1234
+5529:                                             ; preds = %.critedge1233
   %5530 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceSub_declare__296____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17302____closed__1, align 8, !tbaa !5
   %5531 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceSub_declare__296____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17302____closed__3, align 8, !tbaa !5
   %5532 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceSub_declare__296____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17302____closed__4, align 8, !tbaa !5
   %5533 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5530, ptr noundef %5531, ptr noundef %5532, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5534 = getelementptr i8, ptr %5533, i64 4
-  %.val1990 = load i32, ptr %5534, align 4
-  %.mask.i2235 = and i32 %.val1990, -16777216
-  %5535 = icmp eq i32 %.mask.i2235, 16777216
+  %.val1989 = load i32, ptr %5534, align 4
+  %.mask.i2234 = and i32 %.val1989, -16777216
+  %5535 = icmp eq i32 %.mask.i2234, 16777216
   br i1 %5535, label %6668, label %5536
 
 5536:                                             ; preds = %5529
@@ -238364,8 +238364,8 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
   br label %5543
 
 5541:                                             ; preds = %5536
-  %.not.i1419 = icmp eq i32 %5537, 0
-  br i1 %.not.i1419, label %5543, label %5542
+  %.not.i1418 = icmp eq i32 %5537, 0
+  br i1 %.not.i1418, label %5543, label %5542
 
 5542:                                             ; preds = %5541
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5533) #5
@@ -238380,9 +238380,9 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
   %5547 = load ptr, ptr @l_Int64_reduceSub___regBuiltin_Int64_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17304____closed__1, align 8, !tbaa !5
   %5548 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5545, ptr noundef %5546, i8 noundef zeroext 1, ptr noundef %5547, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5549 = getelementptr i8, ptr %5548, i64 4
-  %.val1991 = load i32, ptr %5549, align 4
-  %.mask.i2236 = and i32 %.val1991, -16777216
-  %5550 = icmp eq i32 %.mask.i2236, 16777216
+  %.val1990 = load i32, ptr %5549, align 4
+  %.mask.i2235 = and i32 %.val1990, -16777216
+  %5550 = icmp eq i32 %.mask.i2235, 16777216
   br i1 %5550, label %6668, label %5551
 
 5551:                                             ; preds = %5543
@@ -238396,18 +238396,18 @@ lean_dec_ref.exit1424:                            ; preds = %.critedge1230
   br label %5559
 
 5556:                                             ; preds = %5551
-  %.not.i1417 = icmp eq i32 %5552, 0
-  br i1 %.not.i1417, label %5559, label %5557
+  %.not.i1416 = icmp eq i32 %5552, 0
+  br i1 %.not.i1416, label %5559, label %5557
 
 5557:                                             ; preds = %5556
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5548) #5
   br label %5559
 
-lean_dec_ref.exit1418:                            ; preds = %.critedge1234
+lean_dec_ref.exit1417:                            ; preds = %.critedge1233
   %5558 = tail call fastcc ptr @_init_l_Int64_reduceSub___regBuiltin_Int64_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17304____closed__1()
   store ptr %5558, ptr @l_Int64_reduceSub___regBuiltin_Int64_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17304____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5558) #5
-  br label %.critedge1238
+  br label %.critedge1237
 
 5559:                                             ; preds = %5557, %5556, %5554
   %5560 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238415,9 +238415,9 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
   %5562 = load ptr, ptr @l_Int64_reduceSub___regBuiltin_Int64_reduceSub_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17304____closed__1, align 8, !tbaa !5
   %5563 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5560, ptr noundef %5561, i8 noundef zeroext 1, ptr noundef %5562, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5564 = getelementptr i8, ptr %5563, i64 4
-  %.val1992 = load i32, ptr %5564, align 4
-  %.mask.i2237 = and i32 %.val1992, -16777216
-  %5565 = icmp eq i32 %.mask.i2237, 16777216
+  %.val1991 = load i32, ptr %5564, align 4
+  %.mask.i2236 = and i32 %.val1991, -16777216
+  %5565 = icmp eq i32 %.mask.i2236, 16777216
   br i1 %5565, label %6668, label %5566
 
 5566:                                             ; preds = %5559
@@ -238428,17 +238428,17 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
 5569:                                             ; preds = %5566
   %5570 = add nsw i32 %5567, -1
   store i32 %5570, ptr %5563, align 4, !tbaa !9
-  br label %.critedge1238
+  br label %.critedge1237
 
 5571:                                             ; preds = %5566
-  %.not.i1415 = icmp eq i32 %5567, 0
-  br i1 %.not.i1415, label %.critedge1238, label %5572
+  %.not.i1414 = icmp eq i32 %5567, 0
+  br i1 %.not.i1414, label %.critedge1237, label %5572
 
 5572:                                             ; preds = %5571
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5563) #5
-  br label %.critedge1238
+  br label %.critedge1237
 
-.critedge1238:                                    ; preds = %5572, %5571, %5569, %lean_dec_ref.exit1418
+.critedge1237:                                    ; preds = %5572, %5571, %5569, %lean_dec_ref.exit1417
   %5573 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5574 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__367, align 8, !tbaa !5
   %5575 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5573, ptr noundef %5574) #5
@@ -238454,17 +238454,17 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
   %5579 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceDiv_declare__300____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17340____closed__4()
   store ptr %5579, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceDiv_declare__300____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17340____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5579) #5
-  br i1 %.not, label %lean_dec_ref.exit1412, label %5580
+  br i1 %.not, label %lean_dec_ref.exit1411, label %5580
 
-5580:                                             ; preds = %.critedge1238
+5580:                                             ; preds = %.critedge1237
   %5581 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceDiv_declare__300____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17340____closed__1, align 8, !tbaa !5
   %5582 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceDiv_declare__300____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17340____closed__3, align 8, !tbaa !5
   %5583 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceDiv_declare__300____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17340____closed__4, align 8, !tbaa !5
   %5584 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5581, ptr noundef %5582, ptr noundef %5583, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5585 = getelementptr i8, ptr %5584, i64 4
-  %.val1993 = load i32, ptr %5585, align 4
-  %.mask.i2238 = and i32 %.val1993, -16777216
-  %5586 = icmp eq i32 %.mask.i2238, 16777216
+  %.val1992 = load i32, ptr %5585, align 4
+  %.mask.i2237 = and i32 %.val1992, -16777216
+  %5586 = icmp eq i32 %.mask.i2237, 16777216
   br i1 %5586, label %6668, label %5587
 
 5587:                                             ; preds = %5580
@@ -238478,8 +238478,8 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
   br label %5594
 
 5592:                                             ; preds = %5587
-  %.not.i1413 = icmp eq i32 %5588, 0
-  br i1 %.not.i1413, label %5594, label %5593
+  %.not.i1412 = icmp eq i32 %5588, 0
+  br i1 %.not.i1412, label %5594, label %5593
 
 5593:                                             ; preds = %5592
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5584) #5
@@ -238494,9 +238494,9 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
   %5598 = load ptr, ptr @l_Int64_reduceDiv___regBuiltin_Int64_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17342____closed__1, align 8, !tbaa !5
   %5599 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5596, ptr noundef %5597, i8 noundef zeroext 1, ptr noundef %5598, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5600 = getelementptr i8, ptr %5599, i64 4
-  %.val1994 = load i32, ptr %5600, align 4
-  %.mask.i2239 = and i32 %.val1994, -16777216
-  %5601 = icmp eq i32 %.mask.i2239, 16777216
+  %.val1993 = load i32, ptr %5600, align 4
+  %.mask.i2238 = and i32 %.val1993, -16777216
+  %5601 = icmp eq i32 %.mask.i2238, 16777216
   br i1 %5601, label %6668, label %5602
 
 5602:                                             ; preds = %5594
@@ -238510,18 +238510,18 @@ lean_dec_ref.exit1418:                            ; preds = %.critedge1234
   br label %5610
 
 5607:                                             ; preds = %5602
-  %.not.i1411 = icmp eq i32 %5603, 0
-  br i1 %.not.i1411, label %5610, label %5608
+  %.not.i1410 = icmp eq i32 %5603, 0
+  br i1 %.not.i1410, label %5610, label %5608
 
 5608:                                             ; preds = %5607
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5599) #5
   br label %5610
 
-lean_dec_ref.exit1412:                            ; preds = %.critedge1238
+lean_dec_ref.exit1411:                            ; preds = %.critedge1237
   %5609 = tail call fastcc ptr @_init_l_Int64_reduceDiv___regBuiltin_Int64_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17342____closed__1()
   store ptr %5609, ptr @l_Int64_reduceDiv___regBuiltin_Int64_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17342____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5609) #5
-  br label %.critedge1242
+  br label %.critedge1241
 
 5610:                                             ; preds = %5608, %5607, %5605
   %5611 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238529,9 +238529,9 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
   %5613 = load ptr, ptr @l_Int64_reduceDiv___regBuiltin_Int64_reduceDiv_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17342____closed__1, align 8, !tbaa !5
   %5614 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5611, ptr noundef %5612, i8 noundef zeroext 1, ptr noundef %5613, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5615 = getelementptr i8, ptr %5614, i64 4
-  %.val1995 = load i32, ptr %5615, align 4
-  %.mask.i2240 = and i32 %.val1995, -16777216
-  %5616 = icmp eq i32 %.mask.i2240, 16777216
+  %.val1994 = load i32, ptr %5615, align 4
+  %.mask.i2239 = and i32 %.val1994, -16777216
+  %5616 = icmp eq i32 %.mask.i2239, 16777216
   br i1 %5616, label %6668, label %5617
 
 5617:                                             ; preds = %5610
@@ -238542,17 +238542,17 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
 5620:                                             ; preds = %5617
   %5621 = add nsw i32 %5618, -1
   store i32 %5621, ptr %5614, align 4, !tbaa !9
-  br label %.critedge1242
+  br label %.critedge1241
 
 5622:                                             ; preds = %5617
-  %.not.i1409 = icmp eq i32 %5618, 0
-  br i1 %.not.i1409, label %.critedge1242, label %5623
+  %.not.i1408 = icmp eq i32 %5618, 0
+  br i1 %.not.i1408, label %.critedge1241, label %5623
 
 5623:                                             ; preds = %5622
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5614) #5
-  br label %.critedge1242
+  br label %.critedge1241
 
-.critedge1242:                                    ; preds = %5623, %5622, %5620, %lean_dec_ref.exit1412
+.critedge1241:                                    ; preds = %5623, %5622, %5620, %lean_dec_ref.exit1411
   %5624 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5625 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__380, align 8, !tbaa !5
   %5626 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5624, ptr noundef %5625) #5
@@ -238568,17 +238568,17 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
   %5630 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMod_declare__304____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17378____closed__4()
   store ptr %5630, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMod_declare__304____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17378____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5630) #5
-  br i1 %.not, label %lean_dec_ref.exit1406, label %5631
+  br i1 %.not, label %lean_dec_ref.exit1405, label %5631
 
-5631:                                             ; preds = %.critedge1242
+5631:                                             ; preds = %.critedge1241
   %5632 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMod_declare__304____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17378____closed__1, align 8, !tbaa !5
   %5633 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMod_declare__304____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17378____closed__3, align 8, !tbaa !5
   %5634 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceMod_declare__304____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17378____closed__4, align 8, !tbaa !5
   %5635 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %5632, ptr noundef %5633, ptr noundef %5634, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5636 = getelementptr i8, ptr %5635, i64 4
-  %.val1996 = load i32, ptr %5636, align 4
-  %.mask.i2241 = and i32 %.val1996, -16777216
-  %5637 = icmp eq i32 %.mask.i2241, 16777216
+  %.val1995 = load i32, ptr %5636, align 4
+  %.mask.i2240 = and i32 %.val1995, -16777216
+  %5637 = icmp eq i32 %.mask.i2240, 16777216
   br i1 %5637, label %6668, label %5638
 
 5638:                                             ; preds = %5631
@@ -238592,8 +238592,8 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
   br label %5645
 
 5643:                                             ; preds = %5638
-  %.not.i1407 = icmp eq i32 %5639, 0
-  br i1 %.not.i1407, label %5645, label %5644
+  %.not.i1406 = icmp eq i32 %5639, 0
+  br i1 %.not.i1406, label %5645, label %5644
 
 5644:                                             ; preds = %5643
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5635) #5
@@ -238608,9 +238608,9 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
   %5649 = load ptr, ptr @l_Int64_reduceMod___regBuiltin_Int64_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17380____closed__1, align 8, !tbaa !5
   %5650 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5647, ptr noundef %5648, i8 noundef zeroext 1, ptr noundef %5649, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5651 = getelementptr i8, ptr %5650, i64 4
-  %.val1997 = load i32, ptr %5651, align 4
-  %.mask.i2242 = and i32 %.val1997, -16777216
-  %5652 = icmp eq i32 %.mask.i2242, 16777216
+  %.val1996 = load i32, ptr %5651, align 4
+  %.mask.i2241 = and i32 %.val1996, -16777216
+  %5652 = icmp eq i32 %.mask.i2241, 16777216
   br i1 %5652, label %6668, label %5653
 
 5653:                                             ; preds = %5645
@@ -238624,18 +238624,18 @@ lean_dec_ref.exit1412:                            ; preds = %.critedge1238
   br label %5661
 
 5658:                                             ; preds = %5653
-  %.not.i1405 = icmp eq i32 %5654, 0
-  br i1 %.not.i1405, label %5661, label %5659
+  %.not.i1404 = icmp eq i32 %5654, 0
+  br i1 %.not.i1404, label %5661, label %5659
 
 5659:                                             ; preds = %5658
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5650) #5
   br label %5661
 
-lean_dec_ref.exit1406:                            ; preds = %.critedge1242
+lean_dec_ref.exit1405:                            ; preds = %.critedge1241
   %5660 = tail call fastcc ptr @_init_l_Int64_reduceMod___regBuiltin_Int64_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17380____closed__1()
   store ptr %5660, ptr @l_Int64_reduceMod___regBuiltin_Int64_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17380____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5660) #5
-  br label %.critedge1246
+  br label %.critedge1245
 
 5661:                                             ; preds = %5659, %5658, %5656
   %5662 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238643,9 +238643,9 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
   %5664 = load ptr, ptr @l_Int64_reduceMod___regBuiltin_Int64_reduceMod_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17380____closed__1, align 8, !tbaa !5
   %5665 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5662, ptr noundef %5663, i8 noundef zeroext 1, ptr noundef %5664, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5666 = getelementptr i8, ptr %5665, i64 4
-  %.val1998 = load i32, ptr %5666, align 4
-  %.mask.i2243 = and i32 %.val1998, -16777216
-  %5667 = icmp eq i32 %.mask.i2243, 16777216
+  %.val1997 = load i32, ptr %5666, align 4
+  %.mask.i2242 = and i32 %.val1997, -16777216
+  %5667 = icmp eq i32 %.mask.i2242, 16777216
   br i1 %5667, label %6668, label %5668
 
 5668:                                             ; preds = %5661
@@ -238656,17 +238656,17 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
 5671:                                             ; preds = %5668
   %5672 = add nsw i32 %5669, -1
   store i32 %5672, ptr %5665, align 4, !tbaa !9
-  br label %.critedge1246
+  br label %.critedge1245
 
 5673:                                             ; preds = %5668
-  %.not.i1403 = icmp eq i32 %5669, 0
-  br i1 %.not.i1403, label %.critedge1246, label %5674
+  %.not.i1402 = icmp eq i32 %5669, 0
+  br i1 %.not.i1402, label %.critedge1245, label %5674
 
 5674:                                             ; preds = %5673
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5665) #5
-  br label %.critedge1246
+  br label %.critedge1245
 
-.critedge1246:                                    ; preds = %5674, %5673, %5671, %lean_dec_ref.exit1406
+.critedge1245:                                    ; preds = %5674, %5673, %5671, %lean_dec_ref.exit1405
   %5675 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5676 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__396, align 8, !tbaa !5
   %5677 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5675, ptr noundef %5676) #5
@@ -238682,17 +238682,17 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
   %5681 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLT_declare__308____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17417____closed__4()
   store ptr %5681, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLT_declare__308____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17417____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5681) #5
-  br i1 %.not, label %lean_dec_ref.exit1400, label %5682
+  br i1 %.not, label %lean_dec_ref.exit1399, label %5682
 
-5682:                                             ; preds = %.critedge1246
+5682:                                             ; preds = %.critedge1245
   %5683 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLT_declare__308____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17417____closed__1, align 8, !tbaa !5
   %5684 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLT_declare__308____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17417____closed__3, align 8, !tbaa !5
   %5685 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLT_declare__308____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17417____closed__4, align 8, !tbaa !5
   %5686 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5683, ptr noundef %5684, ptr noundef %5685, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5687 = getelementptr i8, ptr %5686, i64 4
-  %.val1999 = load i32, ptr %5687, align 4
-  %.mask.i2244 = and i32 %.val1999, -16777216
-  %5688 = icmp eq i32 %.mask.i2244, 16777216
+  %.val1998 = load i32, ptr %5687, align 4
+  %.mask.i2243 = and i32 %.val1998, -16777216
+  %5688 = icmp eq i32 %.mask.i2243, 16777216
   br i1 %5688, label %6668, label %5689
 
 5689:                                             ; preds = %5682
@@ -238706,8 +238706,8 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
   br label %5696
 
 5694:                                             ; preds = %5689
-  %.not.i1401 = icmp eq i32 %5690, 0
-  br i1 %.not.i1401, label %5696, label %5695
+  %.not.i1400 = icmp eq i32 %5690, 0
+  br i1 %.not.i1400, label %5696, label %5695
 
 5695:                                             ; preds = %5694
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5686) #5
@@ -238722,9 +238722,9 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
   %5700 = load ptr, ptr @l_Int64_reduceLT___regBuiltin_Int64_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17419____closed__1, align 8, !tbaa !5
   %5701 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5698, ptr noundef %5699, i8 noundef zeroext 1, ptr noundef %5700, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5702 = getelementptr i8, ptr %5701, i64 4
-  %.val2000 = load i32, ptr %5702, align 4
-  %.mask.i2245 = and i32 %.val2000, -16777216
-  %5703 = icmp eq i32 %.mask.i2245, 16777216
+  %.val1999 = load i32, ptr %5702, align 4
+  %.mask.i2244 = and i32 %.val1999, -16777216
+  %5703 = icmp eq i32 %.mask.i2244, 16777216
   br i1 %5703, label %6668, label %5704
 
 5704:                                             ; preds = %5696
@@ -238738,18 +238738,18 @@ lean_dec_ref.exit1406:                            ; preds = %.critedge1242
   br label %5712
 
 5709:                                             ; preds = %5704
-  %.not.i1399 = icmp eq i32 %5705, 0
-  br i1 %.not.i1399, label %5712, label %5710
+  %.not.i1398 = icmp eq i32 %5705, 0
+  br i1 %.not.i1398, label %5712, label %5710
 
 5710:                                             ; preds = %5709
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5701) #5
   br label %5712
 
-lean_dec_ref.exit1400:                            ; preds = %.critedge1246
+lean_dec_ref.exit1399:                            ; preds = %.critedge1245
   %5711 = tail call fastcc ptr @_init_l_Int64_reduceLT___regBuiltin_Int64_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17419____closed__1()
   store ptr %5711, ptr @l_Int64_reduceLT___regBuiltin_Int64_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17419____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5711) #5
-  br label %.critedge1250
+  br label %.critedge1249
 
 5712:                                             ; preds = %5710, %5709, %5707
   %5713 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -238757,9 +238757,9 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5715 = load ptr, ptr @l_Int64_reduceLT___regBuiltin_Int64_reduceLT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17419____closed__1, align 8, !tbaa !5
   %5716 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5713, ptr noundef %5714, i8 noundef zeroext 1, ptr noundef %5715, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5717 = getelementptr i8, ptr %5716, i64 4
-  %.val2001 = load i32, ptr %5717, align 4
-  %.mask.i2246 = and i32 %.val2001, -16777216
-  %5718 = icmp eq i32 %.mask.i2246, 16777216
+  %.val2000 = load i32, ptr %5717, align 4
+  %.mask.i2245 = and i32 %.val2000, -16777216
+  %5718 = icmp eq i32 %.mask.i2245, 16777216
   br i1 %5718, label %6668, label %5719
 
 5719:                                             ; preds = %5712
@@ -238770,17 +238770,17 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
 5722:                                             ; preds = %5719
   %5723 = add nsw i32 %5720, -1
   store i32 %5723, ptr %5716, align 4, !tbaa !9
-  br label %.critedge1250
+  br label %.critedge1249
 
 5724:                                             ; preds = %5719
-  %.not.i1397 = icmp eq i32 %5720, 0
-  br i1 %.not.i1397, label %.critedge1250, label %5725
+  %.not.i1396 = icmp eq i32 %5720, 0
+  br i1 %.not.i1396, label %.critedge1249, label %5725
 
 5725:                                             ; preds = %5724
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5716) #5
-  br label %.critedge1250
+  br label %.critedge1249
 
-.critedge1250:                                    ; preds = %5725, %5724, %5722, %lean_dec_ref.exit1400
+.critedge1249:                                    ; preds = %5725, %5724, %5722, %lean_dec_ref.exit1399
   %5726 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5727 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__410, align 8, !tbaa !5
   %5728 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5726, ptr noundef %5727) #5
@@ -238796,17 +238796,17 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5732 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLE_declare__312____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17456____closed__4()
   store ptr %5732, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLE_declare__312____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17456____closed__4, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5732) #5
-  br i1 %.not, label %.critedge1255, label %5733
+  br i1 %.not, label %.critedge1254, label %5733
 
-5733:                                             ; preds = %.critedge1250
+5733:                                             ; preds = %.critedge1249
   %5734 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLE_declare__312____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17456____closed__1, align 8, !tbaa !5
   %5735 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLE_declare__312____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17456____closed__3, align 8, !tbaa !5
   %5736 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceLE_declare__312____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17456____closed__4, align 8, !tbaa !5
   %5737 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5734, ptr noundef %5735, ptr noundef %5736, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5738 = getelementptr i8, ptr %5737, i64 4
-  %.val2002 = load i32, ptr %5738, align 4
-  %.mask.i2247 = and i32 %.val2002, -16777216
-  %5739 = icmp eq i32 %.mask.i2247, 16777216
+  %.val2001 = load i32, ptr %5738, align 4
+  %.mask.i2246 = and i32 %.val2001, -16777216
+  %5739 = icmp eq i32 %.mask.i2246, 16777216
   br i1 %5739, label %6668, label %5740
 
 5740:                                             ; preds = %5733
@@ -238820,8 +238820,8 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   br label %5747
 
 5745:                                             ; preds = %5740
-  %.not.i1395 = icmp eq i32 %5741, 0
-  br i1 %.not.i1395, label %5747, label %5746
+  %.not.i1394 = icmp eq i32 %5741, 0
+  br i1 %.not.i1394, label %5747, label %5746
 
 5746:                                             ; preds = %5745
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5737) #5
@@ -238836,9 +238836,9 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5751 = load ptr, ptr @l_Int64_reduceLE___regBuiltin_Int64_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17458____closed__1, align 8, !tbaa !5
   %5752 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5749, ptr noundef %5750, i8 noundef zeroext 1, ptr noundef %5751, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5753 = getelementptr i8, ptr %5752, i64 4
-  %.val2003 = load i32, ptr %5753, align 4
-  %.mask.i2248 = and i32 %.val2003, -16777216
-  %5754 = icmp eq i32 %.mask.i2248, 16777216
+  %.val2002 = load i32, ptr %5753, align 4
+  %.mask.i2247 = and i32 %.val2002, -16777216
+  %5754 = icmp eq i32 %.mask.i2247, 16777216
   br i1 %5754, label %6668, label %5755
 
 5755:                                             ; preds = %5747
@@ -238852,8 +238852,8 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   br label %5762
 
 5760:                                             ; preds = %5755
-  %.not.i1393 = icmp eq i32 %5756, 0
-  br i1 %.not.i1393, label %5762, label %5761
+  %.not.i1392 = icmp eq i32 %5756, 0
+  br i1 %.not.i1392, label %5762, label %5761
 
 5761:                                             ; preds = %5760
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5752) #5
@@ -238865,24 +238865,24 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5765 = load ptr, ptr @l_Int64_reduceLE___regBuiltin_Int64_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17458____closed__1, align 8, !tbaa !5
   %5766 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5763, ptr noundef %5764, i8 noundef zeroext 1, ptr noundef %5765, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5767 = getelementptr i8, ptr %5766, i64 4
-  %.val2004 = load i32, ptr %5767, align 4
-  %.mask.i2249 = and i32 %.val2004, -16777216
-  %5768 = icmp eq i32 %.mask.i2249, 16777216
-  br i1 %5768, label %6668, label %.critedge1254
+  %.val2003 = load i32, ptr %5767, align 4
+  %.mask.i2248 = and i32 %.val2003, -16777216
+  %5768 = icmp eq i32 %.mask.i2248, 16777216
+  br i1 %5768, label %6668, label %.critedge1253
 
-.critedge1254:                                    ; preds = %5762
+.critedge1253:                                    ; preds = %5762
   %5769 = load i32, ptr %5766, align 4, !tbaa !9
   %5770 = icmp sgt i32 %5769, 1
   br i1 %5770, label %5771, label %5773, !prof !12
 
-5771:                                             ; preds = %.critedge1254
+5771:                                             ; preds = %.critedge1253
   %5772 = add nsw i32 %5769, -1
   store i32 %5772, ptr %5766, align 4, !tbaa !9
   br label %5775
 
-5773:                                             ; preds = %.critedge1254
-  %.not.i1391 = icmp eq i32 %5769, 0
-  br i1 %.not.i1391, label %5775, label %5774
+5773:                                             ; preds = %.critedge1253
+  %.not.i1390 = icmp eq i32 %5769, 0
+  br i1 %.not.i1390, label %5775, label %5774
 
 5774:                                             ; preds = %5773
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5766) #5
@@ -238902,9 +238902,9 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5782 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGT_declare__316____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17495____closed__2, align 8, !tbaa !5
   %5783 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5780, ptr noundef %5781, ptr noundef %5782, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5784 = getelementptr i8, ptr %5783, i64 4
-  %.val2005 = load i32, ptr %5784, align 4
-  %.mask.i2250 = and i32 %.val2005, -16777216
-  %5785 = icmp eq i32 %.mask.i2250, 16777216
+  %.val2004 = load i32, ptr %5784, align 4
+  %.mask.i2249 = and i32 %.val2004, -16777216
+  %5785 = icmp eq i32 %.mask.i2249, 16777216
   br i1 %5785, label %6668, label %5786
 
 5786:                                             ; preds = %5775
@@ -238915,17 +238915,17 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
 5789:                                             ; preds = %5786
   %5790 = add nsw i32 %5787, -1
   store i32 %5790, ptr %5783, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1390
+  br label %lean_dec_ref.exit1389
 
 5791:                                             ; preds = %5786
-  %.not.i1389 = icmp eq i32 %5787, 0
-  br i1 %.not.i1389, label %lean_dec_ref.exit1390, label %5792
+  %.not.i1388 = icmp eq i32 %5787, 0
+  br i1 %.not.i1388, label %lean_dec_ref.exit1389, label %5792
 
 5792:                                             ; preds = %5791
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5783) #5
-  br label %lean_dec_ref.exit1390
+  br label %lean_dec_ref.exit1389
 
-.critedge1255:                                    ; preds = %.critedge1250
+.critedge1254:                                    ; preds = %.critedge1249
   %5793 = tail call fastcc ptr @_init_l_Int64_reduceLE___regBuiltin_Int64_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17458____closed__1()
   store ptr %5793, ptr @l_Int64_reduceLE___regBuiltin_Int64_reduceLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17458____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5793) #5
@@ -238937,23 +238937,23 @@ lean_dec_ref.exit1400:                            ; preds = %.critedge1246
   %5797 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGT_declare__316____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17495____closed__2()
   store ptr %5797, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGT_declare__316____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17495____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5797) #5
-  br label %lean_dec_ref.exit1390
+  br label %lean_dec_ref.exit1389
 
-lean_dec_ref.exit1390:                            ; preds = %5792, %5791, %5789, %.critedge1255
+lean_dec_ref.exit1389:                            ; preds = %5792, %5791, %5789, %.critedge1254
   %5798 = tail call fastcc ptr @_init_l_Int64_reduceGT___regBuiltin_Int64_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17497____closed__1()
   store ptr %5798, ptr @l_Int64_reduceGT___regBuiltin_Int64_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17497____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5798) #5
-  br i1 %.not, label %.critedge1260, label %5799
+  br i1 %.not, label %.critedge1259, label %5799
 
-5799:                                             ; preds = %lean_dec_ref.exit1390
+5799:                                             ; preds = %lean_dec_ref.exit1389
   %5800 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %5801 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGT_declare__316____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17495____closed__1, align 8, !tbaa !5
   %5802 = load ptr, ptr @l_Int64_reduceGT___regBuiltin_Int64_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17497____closed__1, align 8, !tbaa !5
   %5803 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5800, ptr noundef %5801, i8 noundef zeroext 1, ptr noundef %5802, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5804 = getelementptr i8, ptr %5803, i64 4
-  %.val2006 = load i32, ptr %5804, align 4
-  %.mask.i2251 = and i32 %.val2006, -16777216
-  %5805 = icmp eq i32 %.mask.i2251, 16777216
+  %.val2005 = load i32, ptr %5804, align 4
+  %.mask.i2250 = and i32 %.val2005, -16777216
+  %5805 = icmp eq i32 %.mask.i2250, 16777216
   br i1 %5805, label %6668, label %5806
 
 5806:                                             ; preds = %5799
@@ -238964,40 +238964,40 @@ lean_dec_ref.exit1390:                            ; preds = %5792, %5791, %5789,
 5809:                                             ; preds = %5806
   %5810 = add nsw i32 %5807, -1
   store i32 %5810, ptr %5803, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1388
+  br label %lean_dec_ref.exit1387
 
 5811:                                             ; preds = %5806
-  %.not.i1387 = icmp eq i32 %5807, 0
-  br i1 %.not.i1387, label %lean_dec_ref.exit1388, label %5812
+  %.not.i1386 = icmp eq i32 %5807, 0
+  br i1 %.not.i1386, label %lean_dec_ref.exit1387, label %5812
 
 5812:                                             ; preds = %5811
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5803) #5
-  br label %lean_dec_ref.exit1388
+  br label %lean_dec_ref.exit1387
 
-lean_dec_ref.exit1388:                            ; preds = %5809, %5811, %5812
+lean_dec_ref.exit1387:                            ; preds = %5809, %5811, %5812
   %5813 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %5814 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGT_declare__316____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17495____closed__1, align 8, !tbaa !5
   %5815 = load ptr, ptr @l_Int64_reduceGT___regBuiltin_Int64_reduceGT_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17497____closed__1, align 8, !tbaa !5
   %5816 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5813, ptr noundef %5814, i8 noundef zeroext 1, ptr noundef %5815, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5817 = getelementptr i8, ptr %5816, i64 4
-  %.val2007 = load i32, ptr %5817, align 4
-  %.mask.i2252 = and i32 %.val2007, -16777216
-  %5818 = icmp eq i32 %.mask.i2252, 16777216
-  br i1 %5818, label %6668, label %.critedge1259
+  %.val2006 = load i32, ptr %5817, align 4
+  %.mask.i2251 = and i32 %.val2006, -16777216
+  %5818 = icmp eq i32 %.mask.i2251, 16777216
+  br i1 %5818, label %6668, label %.critedge1258
 
-.critedge1259:                                    ; preds = %lean_dec_ref.exit1388
+.critedge1258:                                    ; preds = %lean_dec_ref.exit1387
   %5819 = load i32, ptr %5816, align 4, !tbaa !9
   %5820 = icmp sgt i32 %5819, 1
   br i1 %5820, label %5821, label %5823, !prof !12
 
-5821:                                             ; preds = %.critedge1259
+5821:                                             ; preds = %.critedge1258
   %5822 = add nsw i32 %5819, -1
   store i32 %5822, ptr %5816, align 4, !tbaa !9
   br label %5825
 
-5823:                                             ; preds = %.critedge1259
-  %.not.i1385 = icmp eq i32 %5819, 0
-  br i1 %.not.i1385, label %5825, label %5824
+5823:                                             ; preds = %.critedge1258
+  %.not.i1384 = icmp eq i32 %5819, 0
+  br i1 %.not.i1384, label %5825, label %5824
 
 5824:                                             ; preds = %5823
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5816) #5
@@ -239017,9 +239017,9 @@ lean_dec_ref.exit1388:                            ; preds = %5809, %5811, %5812
   %5832 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGE_declare__320____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17534____closed__2, align 8, !tbaa !5
   %5833 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5830, ptr noundef %5831, ptr noundef %5832, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5834 = getelementptr i8, ptr %5833, i64 4
-  %.val2008 = load i32, ptr %5834, align 4
-  %.mask.i2253 = and i32 %.val2008, -16777216
-  %5835 = icmp eq i32 %.mask.i2253, 16777216
+  %.val2007 = load i32, ptr %5834, align 4
+  %.mask.i2252 = and i32 %.val2007, -16777216
+  %5835 = icmp eq i32 %.mask.i2252, 16777216
   br i1 %5835, label %6668, label %5836
 
 5836:                                             ; preds = %5825
@@ -239030,17 +239030,17 @@ lean_dec_ref.exit1388:                            ; preds = %5809, %5811, %5812
 5839:                                             ; preds = %5836
   %5840 = add nsw i32 %5837, -1
   store i32 %5840, ptr %5833, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1384
+  br label %lean_dec_ref.exit1383
 
 5841:                                             ; preds = %5836
-  %.not.i1383 = icmp eq i32 %5837, 0
-  br i1 %.not.i1383, label %lean_dec_ref.exit1384, label %5842
+  %.not.i1382 = icmp eq i32 %5837, 0
+  br i1 %.not.i1382, label %lean_dec_ref.exit1383, label %5842
 
 5842:                                             ; preds = %5841
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5833) #5
-  br label %lean_dec_ref.exit1384
+  br label %lean_dec_ref.exit1383
 
-.critedge1260:                                    ; preds = %lean_dec_ref.exit1390
+.critedge1259:                                    ; preds = %lean_dec_ref.exit1389
   %5843 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %5844 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__436, align 8, !tbaa !5
   %5845 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %5843, ptr noundef %5844) #5
@@ -239049,23 +239049,23 @@ lean_dec_ref.exit1388:                            ; preds = %5809, %5811, %5812
   %5846 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGE_declare__320____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17534____closed__2()
   store ptr %5846, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGE_declare__320____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17534____closed__2, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5846) #5
-  br label %lean_dec_ref.exit1384
+  br label %lean_dec_ref.exit1383
 
-lean_dec_ref.exit1384:                            ; preds = %5842, %5841, %5839, %.critedge1260
+lean_dec_ref.exit1383:                            ; preds = %5842, %5841, %5839, %.critedge1259
   %5847 = tail call fastcc ptr @_init_l_Int64_reduceGE___regBuiltin_Int64_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17536____closed__1()
   store ptr %5847, ptr @l_Int64_reduceGE___regBuiltin_Int64_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17536____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5847) #5
-  br i1 %.not, label %.critedge1264, label %5848
+  br i1 %.not, label %.critedge1263, label %5848
 
-5848:                                             ; preds = %lean_dec_ref.exit1384
+5848:                                             ; preds = %lean_dec_ref.exit1383
   %5849 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__2, align 8, !tbaa !5
   %5850 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGE_declare__320____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17534____closed__1, align 8, !tbaa !5
   %5851 = load ptr, ptr @l_Int64_reduceGE___regBuiltin_Int64_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17536____closed__1, align 8, !tbaa !5
   %5852 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5849, ptr noundef %5850, i8 noundef zeroext 1, ptr noundef %5851, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5853 = getelementptr i8, ptr %5852, i64 4
-  %.val2009 = load i32, ptr %5853, align 4
-  %.mask.i2254 = and i32 %.val2009, -16777216
-  %5854 = icmp eq i32 %.mask.i2254, 16777216
+  %.val2008 = load i32, ptr %5853, align 4
+  %.mask.i2253 = and i32 %.val2008, -16777216
+  %5854 = icmp eq i32 %.mask.i2253, 16777216
   br i1 %5854, label %6668, label %5855
 
 5855:                                             ; preds = %5848
@@ -239076,28 +239076,28 @@ lean_dec_ref.exit1384:                            ; preds = %5842, %5841, %5839,
 5858:                                             ; preds = %5855
   %5859 = add nsw i32 %5856, -1
   store i32 %5859, ptr %5852, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1382
+  br label %lean_dec_ref.exit1381
 
 5860:                                             ; preds = %5855
-  %.not.i1381 = icmp eq i32 %5856, 0
-  br i1 %.not.i1381, label %lean_dec_ref.exit1382, label %5861
+  %.not.i1380 = icmp eq i32 %5856, 0
+  br i1 %.not.i1380, label %lean_dec_ref.exit1381, label %5861
 
 5861:                                             ; preds = %5860
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5852) #5
-  br label %lean_dec_ref.exit1382
+  br label %lean_dec_ref.exit1381
 
-lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
+lean_dec_ref.exit1381:                            ; preds = %5858, %5860, %5861
   %5862 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
   %5863 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceGE_declare__320____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17534____closed__1, align 8, !tbaa !5
   %5864 = load ptr, ptr @l_Int64_reduceGE___regBuiltin_Int64_reduceGE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17536____closed__1, align 8, !tbaa !5
   %5865 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5862, ptr noundef %5863, i8 noundef zeroext 1, ptr noundef %5864, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5866 = getelementptr i8, ptr %5865, i64 4
-  %.val2010 = load i32, ptr %5866, align 4
-  %.mask.i2255 = and i32 %.val2010, -16777216
-  %5867 = icmp eq i32 %.mask.i2255, 16777216
+  %.val2009 = load i32, ptr %5866, align 4
+  %.mask.i2254 = and i32 %.val2009, -16777216
+  %5867 = icmp eq i32 %.mask.i2254, 16777216
   br i1 %5867, label %6668, label %5868
 
-5868:                                             ; preds = %lean_dec_ref.exit1382
+5868:                                             ; preds = %lean_dec_ref.exit1381
   %5869 = load i32, ptr %5865, align 4, !tbaa !9
   %5870 = icmp sgt i32 %5869, 1
   br i1 %5870, label %5871, label %5873, !prof !12
@@ -239105,17 +239105,17 @@ lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
 5871:                                             ; preds = %5868
   %5872 = add nsw i32 %5869, -1
   store i32 %5872, ptr %5865, align 4, !tbaa !9
-  br label %.critedge1264
+  br label %.critedge1263
 
 5873:                                             ; preds = %5868
-  %.not.i1379 = icmp eq i32 %5869, 0
-  br i1 %.not.i1379, label %.critedge1264, label %5874
+  %.not.i1378 = icmp eq i32 %5869, 0
+  br i1 %.not.i1378, label %.critedge1263, label %5874
 
 5874:                                             ; preds = %5873
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5865) #5
-  br label %.critedge1264
+  br label %.critedge1263
 
-.critedge1264:                                    ; preds = %5874, %5873, %5871, %lean_dec_ref.exit1384
+.critedge1263:                                    ; preds = %5874, %5873, %5871, %lean_dec_ref.exit1383
   %5875 = load ptr, ptr @l_Int64_fromExpr___closed__2, align 8, !tbaa !5
   %5876 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__449, align 8, !tbaa !5
   %5877 = tail call ptr @l_Lean_Name_str___override(ptr noundef %5875, ptr noundef %5876) #5
@@ -239175,17 +239175,17 @@ lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
   %5907 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceEq_declare__324____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17573____closed__13()
   store ptr %5907, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceEq_declare__324____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17573____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5907) #5
-  br i1 %.not, label %lean_dec_ref.exit1376, label %5908
+  br i1 %.not, label %lean_dec_ref.exit1375, label %5908
 
-5908:                                             ; preds = %.critedge1264
+5908:                                             ; preds = %.critedge1263
   %5909 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceEq_declare__324____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17573____closed__10, align 8, !tbaa !5
   %5910 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceEq_declare__324____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17573____closed__12, align 8, !tbaa !5
   %5911 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceEq_declare__324____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17573____closed__13, align 8, !tbaa !5
   %5912 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5909, ptr noundef %5910, ptr noundef %5911, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5913 = getelementptr i8, ptr %5912, i64 4
-  %.val2011 = load i32, ptr %5913, align 4
-  %.mask.i2256 = and i32 %.val2011, -16777216
-  %5914 = icmp eq i32 %.mask.i2256, 16777216
+  %.val2010 = load i32, ptr %5913, align 4
+  %.mask.i2255 = and i32 %.val2010, -16777216
+  %5914 = icmp eq i32 %.mask.i2255, 16777216
   br i1 %5914, label %6668, label %5915
 
 5915:                                             ; preds = %5908
@@ -239199,8 +239199,8 @@ lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
   br label %5922
 
 5920:                                             ; preds = %5915
-  %.not.i1377 = icmp eq i32 %5916, 0
-  br i1 %.not.i1377, label %5922, label %5921
+  %.not.i1376 = icmp eq i32 %5916, 0
+  br i1 %.not.i1376, label %5922, label %5921
 
 5921:                                             ; preds = %5920
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5912) #5
@@ -239215,9 +239215,9 @@ lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
   %5926 = load ptr, ptr @l_Int64_reduceEq___regBuiltin_Int64_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %5927 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5924, ptr noundef %5925, i8 noundef zeroext 1, ptr noundef %5926, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5928 = getelementptr i8, ptr %5927, i64 4
-  %.val2012 = load i32, ptr %5928, align 4
-  %.mask.i2257 = and i32 %.val2012, -16777216
-  %5929 = icmp eq i32 %.mask.i2257, 16777216
+  %.val2011 = load i32, ptr %5928, align 4
+  %.mask.i2256 = and i32 %.val2011, -16777216
+  %5929 = icmp eq i32 %.mask.i2256, 16777216
   br i1 %5929, label %6668, label %5930
 
 5930:                                             ; preds = %5922
@@ -239231,18 +239231,18 @@ lean_dec_ref.exit1382:                            ; preds = %5858, %5860, %5861
   br label %5938
 
 5935:                                             ; preds = %5930
-  %.not.i1375 = icmp eq i32 %5931, 0
-  br i1 %.not.i1375, label %5938, label %5936
+  %.not.i1374 = icmp eq i32 %5931, 0
+  br i1 %.not.i1374, label %5938, label %5936
 
 5936:                                             ; preds = %5935
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5927) #5
   br label %5938
 
-lean_dec_ref.exit1376:                            ; preds = %.critedge1264
+lean_dec_ref.exit1375:                            ; preds = %.critedge1263
   %5937 = tail call fastcc ptr @_init_l_Int64_reduceEq___regBuiltin_Int64_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %5937, ptr @l_Int64_reduceEq___regBuiltin_Int64_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5937) #5
-  br label %.critedge1268
+  br label %.critedge1267
 
 5938:                                             ; preds = %5936, %5935, %5933
   %5939 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239250,9 +239250,9 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
   %5941 = load ptr, ptr @l_Int64_reduceEq___regBuiltin_Int64_reduceEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %5942 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %5939, ptr noundef %5940, i8 noundef zeroext 1, ptr noundef %5941, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5943 = getelementptr i8, ptr %5942, i64 4
-  %.val2013 = load i32, ptr %5943, align 4
-  %.mask.i2258 = and i32 %.val2013, -16777216
-  %5944 = icmp eq i32 %.mask.i2258, 16777216
+  %.val2012 = load i32, ptr %5943, align 4
+  %.mask.i2257 = and i32 %.val2012, -16777216
+  %5944 = icmp eq i32 %.mask.i2257, 16777216
   br i1 %5944, label %6668, label %5945
 
 5945:                                             ; preds = %5938
@@ -239263,17 +239263,17 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
 5948:                                             ; preds = %5945
   %5949 = add nsw i32 %5946, -1
   store i32 %5949, ptr %5942, align 4, !tbaa !9
-  br label %.critedge1268
+  br label %.critedge1267
 
 5950:                                             ; preds = %5945
-  %.not.i1373 = icmp eq i32 %5946, 0
-  br i1 %.not.i1373, label %.critedge1268, label %5951
+  %.not.i1372 = icmp eq i32 %5946, 0
+  br i1 %.not.i1372, label %.critedge1267, label %5951
 
 5951:                                             ; preds = %5950
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5942) #5
-  br label %.critedge1268
+  br label %.critedge1267
 
-.critedge1268:                                    ; preds = %5951, %5950, %5948, %lean_dec_ref.exit1376
+.critedge1267:                                    ; preds = %5951, %5950, %5948, %lean_dec_ref.exit1375
   %5952 = load ptr, ptr @l_Int64_fromExpr___closed__2, align 8, !tbaa !5
   %5953 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__462, align 8, !tbaa !5
   %5954 = tail call ptr @l_Lean_Name_str___override(ptr noundef %5952, ptr noundef %5953) #5
@@ -239333,17 +239333,17 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
   %5984 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNe_declare__328____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17611____closed__13()
   store ptr %5984, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNe_declare__328____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17611____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %5984) #5
-  br i1 %.not, label %lean_dec_ref.exit1370, label %5985
+  br i1 %.not, label %lean_dec_ref.exit1369, label %5985
 
-5985:                                             ; preds = %.critedge1268
+5985:                                             ; preds = %.critedge1267
   %5986 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNe_declare__328____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17611____closed__10, align 8, !tbaa !5
   %5987 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNe_declare__328____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17611____closed__12, align 8, !tbaa !5
   %5988 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceNe_declare__328____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17611____closed__13, align 8, !tbaa !5
   %5989 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %5986, ptr noundef %5987, ptr noundef %5988, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %5990 = getelementptr i8, ptr %5989, i64 4
-  %.val2014 = load i32, ptr %5990, align 4
-  %.mask.i2259 = and i32 %.val2014, -16777216
-  %5991 = icmp eq i32 %.mask.i2259, 16777216
+  %.val2013 = load i32, ptr %5990, align 4
+  %.mask.i2258 = and i32 %.val2013, -16777216
+  %5991 = icmp eq i32 %.mask.i2258, 16777216
   br i1 %5991, label %6668, label %5992
 
 5992:                                             ; preds = %5985
@@ -239357,8 +239357,8 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
   br label %5999
 
 5997:                                             ; preds = %5992
-  %.not.i1371 = icmp eq i32 %5993, 0
-  br i1 %.not.i1371, label %5999, label %5998
+  %.not.i1370 = icmp eq i32 %5993, 0
+  br i1 %.not.i1370, label %5999, label %5998
 
 5998:                                             ; preds = %5997
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %5989) #5
@@ -239373,9 +239373,9 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
   %6003 = load ptr, ptr @l_Int64_reduceNe___regBuiltin_Int64_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6004 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6001, ptr noundef %6002, i8 noundef zeroext 1, ptr noundef %6003, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6005 = getelementptr i8, ptr %6004, i64 4
-  %.val2015 = load i32, ptr %6005, align 4
-  %.mask.i2260 = and i32 %.val2015, -16777216
-  %6006 = icmp eq i32 %.mask.i2260, 16777216
+  %.val2014 = load i32, ptr %6005, align 4
+  %.mask.i2259 = and i32 %.val2014, -16777216
+  %6006 = icmp eq i32 %.mask.i2259, 16777216
   br i1 %6006, label %6668, label %6007
 
 6007:                                             ; preds = %5999
@@ -239389,18 +239389,18 @@ lean_dec_ref.exit1376:                            ; preds = %.critedge1264
   br label %6015
 
 6012:                                             ; preds = %6007
-  %.not.i1369 = icmp eq i32 %6008, 0
-  br i1 %.not.i1369, label %6015, label %6013
+  %.not.i1368 = icmp eq i32 %6008, 0
+  br i1 %.not.i1368, label %6015, label %6013
 
 6013:                                             ; preds = %6012
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6004) #5
   br label %6015
 
-lean_dec_ref.exit1370:                            ; preds = %.critedge1268
+lean_dec_ref.exit1369:                            ; preds = %.critedge1267
   %6014 = tail call fastcc ptr @_init_l_Int64_reduceNe___regBuiltin_Int64_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %6014, ptr @l_Int64_reduceNe___regBuiltin_Int64_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6014) #5
-  br label %.critedge1272
+  br label %.critedge1271
 
 6015:                                             ; preds = %6013, %6012, %6010
   %6016 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239408,9 +239408,9 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
   %6018 = load ptr, ptr @l_Int64_reduceNe___regBuiltin_Int64_reduceNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6019 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6016, ptr noundef %6017, i8 noundef zeroext 1, ptr noundef %6018, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6020 = getelementptr i8, ptr %6019, i64 4
-  %.val2016 = load i32, ptr %6020, align 4
-  %.mask.i2261 = and i32 %.val2016, -16777216
-  %6021 = icmp eq i32 %.mask.i2261, 16777216
+  %.val2015 = load i32, ptr %6020, align 4
+  %.mask.i2260 = and i32 %.val2015, -16777216
+  %6021 = icmp eq i32 %.mask.i2260, 16777216
   br i1 %6021, label %6668, label %6022
 
 6022:                                             ; preds = %6015
@@ -239421,17 +239421,17 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
 6025:                                             ; preds = %6022
   %6026 = add nsw i32 %6023, -1
   store i32 %6026, ptr %6019, align 4, !tbaa !9
-  br label %.critedge1272
+  br label %.critedge1271
 
 6027:                                             ; preds = %6022
-  %.not.i1367 = icmp eq i32 %6023, 0
-  br i1 %.not.i1367, label %.critedge1272, label %6028
+  %.not.i1366 = icmp eq i32 %6023, 0
+  br i1 %.not.i1366, label %.critedge1271, label %6028
 
 6028:                                             ; preds = %6027
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6019) #5
-  br label %.critedge1272
+  br label %.critedge1271
 
-.critedge1272:                                    ; preds = %6028, %6027, %6025, %lean_dec_ref.exit1370
+.critedge1271:                                    ; preds = %6028, %6027, %6025, %lean_dec_ref.exit1369
   %6029 = load ptr, ptr @l_Int64_fromExpr___closed__2, align 8, !tbaa !5
   %6030 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__475, align 8, !tbaa !5
   %6031 = tail call ptr @l_Lean_Name_str___override(ptr noundef %6029, ptr noundef %6030) #5
@@ -239491,17 +239491,17 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
   %6061 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBEq_declare__332____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17650____closed__13()
   store ptr %6061, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBEq_declare__332____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17650____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6061) #5
-  br i1 %.not, label %lean_dec_ref.exit1364, label %6062
+  br i1 %.not, label %lean_dec_ref.exit1363, label %6062
 
-6062:                                             ; preds = %.critedge1272
+6062:                                             ; preds = %.critedge1271
   %6063 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBEq_declare__332____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17650____closed__10, align 8, !tbaa !5
   %6064 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBEq_declare__332____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17650____closed__12, align 8, !tbaa !5
   %6065 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBEq_declare__332____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17650____closed__13, align 8, !tbaa !5
   %6066 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6063, ptr noundef %6064, ptr noundef %6065, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6067 = getelementptr i8, ptr %6066, i64 4
-  %.val2017 = load i32, ptr %6067, align 4
-  %.mask.i2262 = and i32 %.val2017, -16777216
-  %6068 = icmp eq i32 %.mask.i2262, 16777216
+  %.val2016 = load i32, ptr %6067, align 4
+  %.mask.i2261 = and i32 %.val2016, -16777216
+  %6068 = icmp eq i32 %.mask.i2261, 16777216
   br i1 %6068, label %6668, label %6069
 
 6069:                                             ; preds = %6062
@@ -239515,8 +239515,8 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
   br label %6076
 
 6074:                                             ; preds = %6069
-  %.not.i1365 = icmp eq i32 %6070, 0
-  br i1 %.not.i1365, label %6076, label %6075
+  %.not.i1364 = icmp eq i32 %6070, 0
+  br i1 %.not.i1364, label %6076, label %6075
 
 6075:                                             ; preds = %6074
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6066) #5
@@ -239531,9 +239531,9 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
   %6080 = load ptr, ptr @l_Int64_reduceBEq___regBuiltin_Int64_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6081 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6078, ptr noundef %6079, i8 noundef zeroext 1, ptr noundef %6080, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6082 = getelementptr i8, ptr %6081, i64 4
-  %.val2018 = load i32, ptr %6082, align 4
-  %.mask.i2263 = and i32 %.val2018, -16777216
-  %6083 = icmp eq i32 %.mask.i2263, 16777216
+  %.val2017 = load i32, ptr %6082, align 4
+  %.mask.i2262 = and i32 %.val2017, -16777216
+  %6083 = icmp eq i32 %.mask.i2262, 16777216
   br i1 %6083, label %6668, label %6084
 
 6084:                                             ; preds = %6076
@@ -239547,18 +239547,18 @@ lean_dec_ref.exit1370:                            ; preds = %.critedge1268
   br label %6092
 
 6089:                                             ; preds = %6084
-  %.not.i1363 = icmp eq i32 %6085, 0
-  br i1 %.not.i1363, label %6092, label %6090
+  %.not.i1362 = icmp eq i32 %6085, 0
+  br i1 %.not.i1362, label %6092, label %6090
 
 6090:                                             ; preds = %6089
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6081) #5
   br label %6092
 
-lean_dec_ref.exit1364:                            ; preds = %.critedge1272
+lean_dec_ref.exit1363:                            ; preds = %.critedge1271
   %6091 = tail call fastcc ptr @_init_l_Int64_reduceBEq___regBuiltin_Int64_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %6091, ptr @l_Int64_reduceBEq___regBuiltin_Int64_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6091) #5
-  br label %.critedge1276
+  br label %.critedge1275
 
 6092:                                             ; preds = %6090, %6089, %6087
   %6093 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239566,9 +239566,9 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
   %6095 = load ptr, ptr @l_Int64_reduceBEq___regBuiltin_Int64_reduceBEq_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6096 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6093, ptr noundef %6094, i8 noundef zeroext 1, ptr noundef %6095, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6097 = getelementptr i8, ptr %6096, i64 4
-  %.val2019 = load i32, ptr %6097, align 4
-  %.mask.i2264 = and i32 %.val2019, -16777216
-  %6098 = icmp eq i32 %.mask.i2264, 16777216
+  %.val2018 = load i32, ptr %6097, align 4
+  %.mask.i2263 = and i32 %.val2018, -16777216
+  %6098 = icmp eq i32 %.mask.i2263, 16777216
   br i1 %6098, label %6668, label %6099
 
 6099:                                             ; preds = %6092
@@ -239579,17 +239579,17 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
 6102:                                             ; preds = %6099
   %6103 = add nsw i32 %6100, -1
   store i32 %6103, ptr %6096, align 4, !tbaa !9
-  br label %.critedge1276
+  br label %.critedge1275
 
 6104:                                             ; preds = %6099
-  %.not.i1361 = icmp eq i32 %6100, 0
-  br i1 %.not.i1361, label %.critedge1276, label %6105
+  %.not.i1360 = icmp eq i32 %6100, 0
+  br i1 %.not.i1360, label %.critedge1275, label %6105
 
 6105:                                             ; preds = %6104
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6096) #5
-  br label %.critedge1276
+  br label %.critedge1275
 
-.critedge1276:                                    ; preds = %6105, %6104, %6102, %lean_dec_ref.exit1364
+.critedge1275:                                    ; preds = %6105, %6104, %6102, %lean_dec_ref.exit1363
   %6106 = load ptr, ptr @l_Int64_fromExpr___closed__2, align 8, !tbaa !5
   %6107 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__488, align 8, !tbaa !5
   %6108 = tail call ptr @l_Lean_Name_str___override(ptr noundef %6106, ptr noundef %6107) #5
@@ -239649,17 +239649,17 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
   %6138 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBNe_declare__336____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17688____closed__13()
   store ptr %6138, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBNe_declare__336____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17688____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6138) #5
-  br i1 %.not, label %lean_dec_ref.exit1358, label %6139
+  br i1 %.not, label %lean_dec_ref.exit1357, label %6139
 
-6139:                                             ; preds = %.critedge1276
+6139:                                             ; preds = %.critedge1275
   %6140 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBNe_declare__336____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17688____closed__10, align 8, !tbaa !5
   %6141 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBNe_declare__336____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17688____closed__12, align 8, !tbaa !5
   %6142 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceBNe_declare__336____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__17688____closed__13, align 8, !tbaa !5
   %6143 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6140, ptr noundef %6141, ptr noundef %6142, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6144 = getelementptr i8, ptr %6143, i64 4
-  %.val2020 = load i32, ptr %6144, align 4
-  %.mask.i2265 = and i32 %.val2020, -16777216
-  %6145 = icmp eq i32 %.mask.i2265, 16777216
+  %.val2019 = load i32, ptr %6144, align 4
+  %.mask.i2264 = and i32 %.val2019, -16777216
+  %6145 = icmp eq i32 %.mask.i2264, 16777216
   br i1 %6145, label %6668, label %6146
 
 6146:                                             ; preds = %6139
@@ -239673,8 +239673,8 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
   br label %6153
 
 6151:                                             ; preds = %6146
-  %.not.i1359 = icmp eq i32 %6147, 0
-  br i1 %.not.i1359, label %6153, label %6152
+  %.not.i1358 = icmp eq i32 %6147, 0
+  br i1 %.not.i1358, label %6153, label %6152
 
 6152:                                             ; preds = %6151
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6143) #5
@@ -239689,9 +239689,9 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
   %6157 = load ptr, ptr @l_Int64_reduceBNe___regBuiltin_Int64_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6158 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6155, ptr noundef %6156, i8 noundef zeroext 1, ptr noundef %6157, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6159 = getelementptr i8, ptr %6158, i64 4
-  %.val2021 = load i32, ptr %6159, align 4
-  %.mask.i2266 = and i32 %.val2021, -16777216
-  %6160 = icmp eq i32 %.mask.i2266, 16777216
+  %.val2020 = load i32, ptr %6159, align 4
+  %.mask.i2265 = and i32 %.val2020, -16777216
+  %6160 = icmp eq i32 %.mask.i2265, 16777216
   br i1 %6160, label %6668, label %6161
 
 6161:                                             ; preds = %6153
@@ -239705,18 +239705,18 @@ lean_dec_ref.exit1364:                            ; preds = %.critedge1272
   br label %6169
 
 6166:                                             ; preds = %6161
-  %.not.i1357 = icmp eq i32 %6162, 0
-  br i1 %.not.i1357, label %6169, label %6167
+  %.not.i1356 = icmp eq i32 %6162, 0
+  br i1 %.not.i1356, label %6169, label %6167
 
 6167:                                             ; preds = %6166
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6158) #5
   br label %6169
 
-lean_dec_ref.exit1358:                            ; preds = %.critedge1276
+lean_dec_ref.exit1357:                            ; preds = %.critedge1275
   %6168 = tail call fastcc ptr @_init_l_Int64_reduceBNe___regBuiltin_Int64_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %6168, ptr @l_Int64_reduceBNe___regBuiltin_Int64_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6168) #5
-  br label %.critedge1280
+  br label %.critedge1279
 
 6169:                                             ; preds = %6167, %6166, %6164
   %6170 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239724,9 +239724,9 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
   %6172 = load ptr, ptr @l_Int64_reduceBNe___regBuiltin_Int64_reduceBNe_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6173 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6170, ptr noundef %6171, i8 noundef zeroext 1, ptr noundef %6172, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6174 = getelementptr i8, ptr %6173, i64 4
-  %.val2022 = load i32, ptr %6174, align 4
-  %.mask.i2267 = and i32 %.val2022, -16777216
-  %6175 = icmp eq i32 %.mask.i2267, 16777216
+  %.val2021 = load i32, ptr %6174, align 4
+  %.mask.i2266 = and i32 %.val2021, -16777216
+  %6175 = icmp eq i32 %.mask.i2266, 16777216
   br i1 %6175, label %6668, label %6176
 
 6176:                                             ; preds = %6169
@@ -239737,17 +239737,17 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
 6179:                                             ; preds = %6176
   %6180 = add nsw i32 %6177, -1
   store i32 %6180, ptr %6173, align 4, !tbaa !9
-  br label %.critedge1280
+  br label %.critedge1279
 
 6181:                                             ; preds = %6176
-  %.not.i1355 = icmp eq i32 %6177, 0
-  br i1 %.not.i1355, label %.critedge1280, label %6182
+  %.not.i1354 = icmp eq i32 %6177, 0
+  br i1 %.not.i1354, label %.critedge1279, label %6182
 
 6182:                                             ; preds = %6181
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6173) #5
-  br label %.critedge1280
+  br label %.critedge1279
 
-.critedge1280:                                    ; preds = %6182, %6181, %6179, %lean_dec_ref.exit1358
+.critedge1279:                                    ; preds = %6182, %6181, %6179, %lean_dec_ref.exit1357
   %6183 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %6184 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__5, align 8, !tbaa !5
   %6185 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %6183, ptr noundef %6184) #5
@@ -239771,17 +239771,17 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
   %6193 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfIntLE_declare__340____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17804____closed__5()
   store ptr %6193, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfIntLE_declare__340____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17804____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6193) #5
-  br i1 %.not, label %lean_dec_ref.exit1352, label %6194
+  br i1 %.not, label %lean_dec_ref.exit1351, label %6194
 
-6194:                                             ; preds = %.critedge1280
+6194:                                             ; preds = %.critedge1279
   %6195 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfIntLE_declare__340____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17804____closed__1, align 8, !tbaa !5
   %6196 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfIntLE_declare__340____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17804____closed__4, align 8, !tbaa !5
   %6197 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfIntLE_declare__340____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17804____closed__5, align 8, !tbaa !5
   %6198 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6195, ptr noundef %6196, ptr noundef %6197, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6199 = getelementptr i8, ptr %6198, i64 4
-  %.val2023 = load i32, ptr %6199, align 4
-  %.mask.i2268 = and i32 %.val2023, -16777216
-  %6200 = icmp eq i32 %.mask.i2268, 16777216
+  %.val2022 = load i32, ptr %6199, align 4
+  %.mask.i2267 = and i32 %.val2022, -16777216
+  %6200 = icmp eq i32 %.mask.i2267, 16777216
   br i1 %6200, label %6668, label %6201
 
 6201:                                             ; preds = %6194
@@ -239795,8 +239795,8 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
   br label %6208
 
 6206:                                             ; preds = %6201
-  %.not.i1353 = icmp eq i32 %6202, 0
-  br i1 %.not.i1353, label %6208, label %6207
+  %.not.i1352 = icmp eq i32 %6202, 0
+  br i1 %.not.i1352, label %6208, label %6207
 
 6207:                                             ; preds = %6206
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6198) #5
@@ -239811,9 +239811,9 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
   %6212 = load ptr, ptr @l_Int64_reduceOfIntLE___regBuiltin_Int64_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17806____closed__1, align 8, !tbaa !5
   %6213 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6210, ptr noundef %6211, i8 noundef zeroext 1, ptr noundef %6212, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6214 = getelementptr i8, ptr %6213, i64 4
-  %.val2024 = load i32, ptr %6214, align 4
-  %.mask.i2269 = and i32 %.val2024, -16777216
-  %6215 = icmp eq i32 %.mask.i2269, 16777216
+  %.val2023 = load i32, ptr %6214, align 4
+  %.mask.i2268 = and i32 %.val2023, -16777216
+  %6215 = icmp eq i32 %.mask.i2268, 16777216
   br i1 %6215, label %6668, label %6216
 
 6216:                                             ; preds = %6208
@@ -239827,18 +239827,18 @@ lean_dec_ref.exit1358:                            ; preds = %.critedge1276
   br label %6224
 
 6221:                                             ; preds = %6216
-  %.not.i1351 = icmp eq i32 %6217, 0
-  br i1 %.not.i1351, label %6224, label %6222
+  %.not.i1350 = icmp eq i32 %6217, 0
+  br i1 %.not.i1350, label %6224, label %6222
 
 6222:                                             ; preds = %6221
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6213) #5
   br label %6224
 
-lean_dec_ref.exit1352:                            ; preds = %.critedge1280
+lean_dec_ref.exit1351:                            ; preds = %.critedge1279
   %6223 = tail call fastcc ptr @_init_l_Int64_reduceOfIntLE___regBuiltin_Int64_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17806____closed__1()
   store ptr %6223, ptr @l_Int64_reduceOfIntLE___regBuiltin_Int64_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17806____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6223) #5
-  br label %.critedge1284
+  br label %.critedge1283
 
 6224:                                             ; preds = %6222, %6221, %6219
   %6225 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239846,9 +239846,9 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
   %6227 = load ptr, ptr @l_Int64_reduceOfIntLE___regBuiltin_Int64_reduceOfIntLE_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17806____closed__1, align 8, !tbaa !5
   %6228 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6225, ptr noundef %6226, i8 noundef zeroext 1, ptr noundef %6227, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6229 = getelementptr i8, ptr %6228, i64 4
-  %.val2025 = load i32, ptr %6229, align 4
-  %.mask.i2270 = and i32 %.val2025, -16777216
-  %6230 = icmp eq i32 %.mask.i2270, 16777216
+  %.val2024 = load i32, ptr %6229, align 4
+  %.mask.i2269 = and i32 %.val2024, -16777216
+  %6230 = icmp eq i32 %.mask.i2269, 16777216
   br i1 %6230, label %6668, label %6231
 
 6231:                                             ; preds = %6224
@@ -239859,17 +239859,17 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
 6234:                                             ; preds = %6231
   %6235 = add nsw i32 %6232, -1
   store i32 %6235, ptr %6228, align 4, !tbaa !9
-  br label %.critedge1284
+  br label %.critedge1283
 
 6236:                                             ; preds = %6231
-  %.not.i1349 = icmp eq i32 %6232, 0
-  br i1 %.not.i1349, label %.critedge1284, label %6237
+  %.not.i1348 = icmp eq i32 %6232, 0
+  br i1 %.not.i1348, label %.critedge1283, label %6237
 
 6237:                                             ; preds = %6236
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6228) #5
-  br label %.critedge1284
+  br label %.critedge1283
 
-.critedge1284:                                    ; preds = %6237, %6236, %6234, %lean_dec_ref.exit1352
+.critedge1283:                                    ; preds = %6237, %6236, %6234, %lean_dec_ref.exit1351
   %6238 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %6239 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__1, align 8, !tbaa !5
   %6240 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %6238, ptr noundef %6239) #5
@@ -239893,17 +239893,17 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
   %6248 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfNat_declare__344____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17918____closed__5()
   store ptr %6248, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfNat_declare__344____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17918____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6248) #5
-  br i1 %.not, label %lean_dec_ref.exit1346, label %6249
+  br i1 %.not, label %lean_dec_ref.exit1345, label %6249
 
-6249:                                             ; preds = %.critedge1284
+6249:                                             ; preds = %.critedge1283
   %6250 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfNat_declare__344____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17918____closed__1, align 8, !tbaa !5
   %6251 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfNat_declare__344____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17918____closed__4, align 8, !tbaa !5
   %6252 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfNat_declare__344____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17918____closed__5, align 8, !tbaa !5
   %6253 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6250, ptr noundef %6251, ptr noundef %6252, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6254 = getelementptr i8, ptr %6253, i64 4
-  %.val2026 = load i32, ptr %6254, align 4
-  %.mask.i2271 = and i32 %.val2026, -16777216
-  %6255 = icmp eq i32 %.mask.i2271, 16777216
+  %.val2025 = load i32, ptr %6254, align 4
+  %.mask.i2270 = and i32 %.val2025, -16777216
+  %6255 = icmp eq i32 %.mask.i2270, 16777216
   br i1 %6255, label %6668, label %6256
 
 6256:                                             ; preds = %6249
@@ -239917,8 +239917,8 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
   br label %6263
 
 6261:                                             ; preds = %6256
-  %.not.i1347 = icmp eq i32 %6257, 0
-  br i1 %.not.i1347, label %6263, label %6262
+  %.not.i1346 = icmp eq i32 %6257, 0
+  br i1 %.not.i1346, label %6263, label %6262
 
 6262:                                             ; preds = %6261
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6253) #5
@@ -239933,9 +239933,9 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
   %6267 = load ptr, ptr @l_Int64_reduceOfNat___regBuiltin_Int64_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17920____closed__1, align 8, !tbaa !5
   %6268 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6265, ptr noundef %6266, i8 noundef zeroext 1, ptr noundef %6267, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6269 = getelementptr i8, ptr %6268, i64 4
-  %.val2027 = load i32, ptr %6269, align 4
-  %.mask.i2272 = and i32 %.val2027, -16777216
-  %6270 = icmp eq i32 %.mask.i2272, 16777216
+  %.val2026 = load i32, ptr %6269, align 4
+  %.mask.i2271 = and i32 %.val2026, -16777216
+  %6270 = icmp eq i32 %.mask.i2271, 16777216
   br i1 %6270, label %6668, label %6271
 
 6271:                                             ; preds = %6263
@@ -239949,18 +239949,18 @@ lean_dec_ref.exit1352:                            ; preds = %.critedge1280
   br label %6279
 
 6276:                                             ; preds = %6271
-  %.not.i1345 = icmp eq i32 %6272, 0
-  br i1 %.not.i1345, label %6279, label %6277
+  %.not.i1344 = icmp eq i32 %6272, 0
+  br i1 %.not.i1344, label %6279, label %6277
 
 6277:                                             ; preds = %6276
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6268) #5
   br label %6279
 
-lean_dec_ref.exit1346:                            ; preds = %.critedge1284
+lean_dec_ref.exit1345:                            ; preds = %.critedge1283
   %6278 = tail call fastcc ptr @_init_l_Int64_reduceOfNat___regBuiltin_Int64_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17920____closed__1()
   store ptr %6278, ptr @l_Int64_reduceOfNat___regBuiltin_Int64_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17920____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6278) #5
-  br label %.critedge1288
+  br label %.critedge1287
 
 6279:                                             ; preds = %6277, %6276, %6274
   %6280 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -239968,9 +239968,9 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
   %6282 = load ptr, ptr @l_Int64_reduceOfNat___regBuiltin_Int64_reduceOfNat_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_17920____closed__1, align 8, !tbaa !5
   %6283 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6280, ptr noundef %6281, i8 noundef zeroext 1, ptr noundef %6282, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6284 = getelementptr i8, ptr %6283, i64 4
-  %.val2028 = load i32, ptr %6284, align 4
-  %.mask.i2273 = and i32 %.val2028, -16777216
-  %6285 = icmp eq i32 %.mask.i2273, 16777216
+  %.val2027 = load i32, ptr %6284, align 4
+  %.mask.i2272 = and i32 %.val2027, -16777216
+  %6285 = icmp eq i32 %.mask.i2272, 16777216
   br i1 %6285, label %6668, label %6286
 
 6286:                                             ; preds = %6279
@@ -239981,17 +239981,17 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
 6289:                                             ; preds = %6286
   %6290 = add nsw i32 %6287, -1
   store i32 %6290, ptr %6283, align 4, !tbaa !9
-  br label %.critedge1288
+  br label %.critedge1287
 
 6291:                                             ; preds = %6286
-  %.not.i1343 = icmp eq i32 %6287, 0
-  br i1 %.not.i1343, label %.critedge1288, label %6292
+  %.not.i1342 = icmp eq i32 %6287, 0
+  br i1 %.not.i1342, label %.critedge1287, label %6292
 
 6292:                                             ; preds = %6291
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6283) #5
-  br label %.critedge1288
+  br label %.critedge1287
 
-.critedge1288:                                    ; preds = %6292, %6291, %6289, %lean_dec_ref.exit1346
+.critedge1287:                                    ; preds = %6292, %6291, %6289, %lean_dec_ref.exit1345
   %6293 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %6294 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__3, align 8, !tbaa !5
   %6295 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %6293, ptr noundef %6294) #5
@@ -240015,17 +240015,17 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
   %6303 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfInt_declare__348____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18032____closed__5()
   store ptr %6303, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfInt_declare__348____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18032____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6303) #5
-  br i1 %.not, label %lean_dec_ref.exit1340, label %6304
+  br i1 %.not, label %lean_dec_ref.exit1339, label %6304
 
-6304:                                             ; preds = %.critedge1288
+6304:                                             ; preds = %.critedge1287
   %6305 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfInt_declare__348____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18032____closed__1, align 8, !tbaa !5
   %6306 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfInt_declare__348____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18032____closed__4, align 8, !tbaa !5
   %6307 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceOfInt_declare__348____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18032____closed__5, align 8, !tbaa !5
   %6308 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6305, ptr noundef %6306, ptr noundef %6307, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6309 = getelementptr i8, ptr %6308, i64 4
-  %.val2029 = load i32, ptr %6309, align 4
-  %.mask.i2274 = and i32 %.val2029, -16777216
-  %6310 = icmp eq i32 %.mask.i2274, 16777216
+  %.val2028 = load i32, ptr %6309, align 4
+  %.mask.i2273 = and i32 %.val2028, -16777216
+  %6310 = icmp eq i32 %.mask.i2273, 16777216
   br i1 %6310, label %6668, label %6311
 
 6311:                                             ; preds = %6304
@@ -240039,8 +240039,8 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
   br label %6318
 
 6316:                                             ; preds = %6311
-  %.not.i1341 = icmp eq i32 %6312, 0
-  br i1 %.not.i1341, label %6318, label %6317
+  %.not.i1340 = icmp eq i32 %6312, 0
+  br i1 %.not.i1340, label %6318, label %6317
 
 6317:                                             ; preds = %6316
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6308) #5
@@ -240055,9 +240055,9 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
   %6322 = load ptr, ptr @l_Int64_reduceOfInt___regBuiltin_Int64_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18034____closed__1, align 8, !tbaa !5
   %6323 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6320, ptr noundef %6321, i8 noundef zeroext 1, ptr noundef %6322, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6324 = getelementptr i8, ptr %6323, i64 4
-  %.val2030 = load i32, ptr %6324, align 4
-  %.mask.i2275 = and i32 %.val2030, -16777216
-  %6325 = icmp eq i32 %.mask.i2275, 16777216
+  %.val2029 = load i32, ptr %6324, align 4
+  %.mask.i2274 = and i32 %.val2029, -16777216
+  %6325 = icmp eq i32 %.mask.i2274, 16777216
   br i1 %6325, label %6668, label %6326
 
 6326:                                             ; preds = %6318
@@ -240071,18 +240071,18 @@ lean_dec_ref.exit1346:                            ; preds = %.critedge1284
   br label %6334
 
 6331:                                             ; preds = %6326
-  %.not.i1339 = icmp eq i32 %6327, 0
-  br i1 %.not.i1339, label %6334, label %6332
+  %.not.i1338 = icmp eq i32 %6327, 0
+  br i1 %.not.i1338, label %6334, label %6332
 
 6332:                                             ; preds = %6331
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6323) #5
   br label %6334
 
-lean_dec_ref.exit1340:                            ; preds = %.critedge1288
+lean_dec_ref.exit1339:                            ; preds = %.critedge1287
   %6333 = tail call fastcc ptr @_init_l_Int64_reduceOfInt___regBuiltin_Int64_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18034____closed__1()
   store ptr %6333, ptr @l_Int64_reduceOfInt___regBuiltin_Int64_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18034____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6333) #5
-  br label %.critedge1292
+  br label %.critedge1291
 
 6334:                                             ; preds = %6332, %6331, %6329
   %6335 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -240090,9 +240090,9 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
   %6337 = load ptr, ptr @l_Int64_reduceOfInt___regBuiltin_Int64_reduceOfInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18034____closed__1, align 8, !tbaa !5
   %6338 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6335, ptr noundef %6336, i8 noundef zeroext 1, ptr noundef %6337, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6339 = getelementptr i8, ptr %6338, i64 4
-  %.val2031 = load i32, ptr %6339, align 4
-  %.mask.i2276 = and i32 %.val2031, -16777216
-  %6340 = icmp eq i32 %.mask.i2276, 16777216
+  %.val2030 = load i32, ptr %6339, align 4
+  %.mask.i2275 = and i32 %.val2030, -16777216
+  %6340 = icmp eq i32 %.mask.i2275, 16777216
   br i1 %6340, label %6668, label %6341
 
 6341:                                             ; preds = %6334
@@ -240103,17 +240103,17 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
 6344:                                             ; preds = %6341
   %6345 = add nsw i32 %6342, -1
   store i32 %6345, ptr %6338, align 4, !tbaa !9
-  br label %.critedge1292
+  br label %.critedge1291
 
 6346:                                             ; preds = %6341
-  %.not.i1337 = icmp eq i32 %6342, 0
-  br i1 %.not.i1337, label %.critedge1292, label %6347
+  %.not.i1336 = icmp eq i32 %6342, 0
+  br i1 %.not.i1336, label %.critedge1291, label %6347
 
 6347:                                             ; preds = %6346
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6338) #5
-  br label %.critedge1292
+  br label %.critedge1291
 
-.critedge1292:                                    ; preds = %6347, %6346, %6344, %lean_dec_ref.exit1340
+.critedge1291:                                    ; preds = %6347, %6346, %6344, %lean_dec_ref.exit1339
   %6348 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %6349 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__7, align 8, !tbaa !5
   %6350 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %6348, ptr noundef %6349) #5
@@ -240137,17 +240137,17 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
   %6358 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToInt_declare__352____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18148____closed__5()
   store ptr %6358, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToInt_declare__352____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18148____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6358) #5
-  br i1 %.not, label %lean_dec_ref.exit1334, label %6359
+  br i1 %.not, label %lean_dec_ref.exit1333, label %6359
 
-6359:                                             ; preds = %.critedge1292
+6359:                                             ; preds = %.critedge1291
   %6360 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToInt_declare__352____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18148____closed__1, align 8, !tbaa !5
   %6361 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToInt_declare__352____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18148____closed__4, align 8, !tbaa !5
   %6362 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToInt_declare__352____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18148____closed__5, align 8, !tbaa !5
   %6363 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6360, ptr noundef %6361, ptr noundef %6362, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6364 = getelementptr i8, ptr %6363, i64 4
-  %.val2032 = load i32, ptr %6364, align 4
-  %.mask.i2277 = and i32 %.val2032, -16777216
-  %6365 = icmp eq i32 %.mask.i2277, 16777216
+  %.val2031 = load i32, ptr %6364, align 4
+  %.mask.i2276 = and i32 %.val2031, -16777216
+  %6365 = icmp eq i32 %.mask.i2276, 16777216
   br i1 %6365, label %6668, label %6366
 
 6366:                                             ; preds = %6359
@@ -240161,8 +240161,8 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
   br label %6373
 
 6371:                                             ; preds = %6366
-  %.not.i1335 = icmp eq i32 %6367, 0
-  br i1 %.not.i1335, label %6373, label %6372
+  %.not.i1334 = icmp eq i32 %6367, 0
+  br i1 %.not.i1334, label %6373, label %6372
 
 6372:                                             ; preds = %6371
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6363) #5
@@ -240177,9 +240177,9 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
   %6377 = load ptr, ptr @l_Int64_reduceToInt___regBuiltin_Int64_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18150____closed__1, align 8, !tbaa !5
   %6378 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6375, ptr noundef %6376, i8 noundef zeroext 1, ptr noundef %6377, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6379 = getelementptr i8, ptr %6378, i64 4
-  %.val2033 = load i32, ptr %6379, align 4
-  %.mask.i2278 = and i32 %.val2033, -16777216
-  %6380 = icmp eq i32 %.mask.i2278, 16777216
+  %.val2032 = load i32, ptr %6379, align 4
+  %.mask.i2277 = and i32 %.val2032, -16777216
+  %6380 = icmp eq i32 %.mask.i2277, 16777216
   br i1 %6380, label %6668, label %6381
 
 6381:                                             ; preds = %6373
@@ -240193,18 +240193,18 @@ lean_dec_ref.exit1340:                            ; preds = %.critedge1288
   br label %6389
 
 6386:                                             ; preds = %6381
-  %.not.i1333 = icmp eq i32 %6382, 0
-  br i1 %.not.i1333, label %6389, label %6387
+  %.not.i1332 = icmp eq i32 %6382, 0
+  br i1 %.not.i1332, label %6389, label %6387
 
 6387:                                             ; preds = %6386
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6378) #5
   br label %6389
 
-lean_dec_ref.exit1334:                            ; preds = %.critedge1292
+lean_dec_ref.exit1333:                            ; preds = %.critedge1291
   %6388 = tail call fastcc ptr @_init_l_Int64_reduceToInt___regBuiltin_Int64_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18150____closed__1()
   store ptr %6388, ptr @l_Int64_reduceToInt___regBuiltin_Int64_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18150____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6388) #5
-  br label %.critedge1296
+  br label %.critedge1295
 
 6389:                                             ; preds = %6387, %6386, %6384
   %6390 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -240212,9 +240212,9 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
   %6392 = load ptr, ptr @l_Int64_reduceToInt___regBuiltin_Int64_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18150____closed__1, align 8, !tbaa !5
   %6393 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6390, ptr noundef %6391, i8 noundef zeroext 1, ptr noundef %6392, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6394 = getelementptr i8, ptr %6393, i64 4
-  %.val2034 = load i32, ptr %6394, align 4
-  %.mask.i2279 = and i32 %.val2034, -16777216
-  %6395 = icmp eq i32 %.mask.i2279, 16777216
+  %.val2033 = load i32, ptr %6394, align 4
+  %.mask.i2278 = and i32 %.val2033, -16777216
+  %6395 = icmp eq i32 %.mask.i2278, 16777216
   br i1 %6395, label %6668, label %6396
 
 6396:                                             ; preds = %6389
@@ -240225,17 +240225,17 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
 6399:                                             ; preds = %6396
   %6400 = add nsw i32 %6397, -1
   store i32 %6400, ptr %6393, align 4, !tbaa !9
-  br label %.critedge1296
+  br label %.critedge1295
 
 6401:                                             ; preds = %6396
-  %.not.i1331 = icmp eq i32 %6397, 0
-  br i1 %.not.i1331, label %.critedge1296, label %6402
+  %.not.i1330 = icmp eq i32 %6397, 0
+  br i1 %.not.i1330, label %.critedge1295, label %6402
 
 6402:                                             ; preds = %6401
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6393) #5
-  br label %.critedge1296
+  br label %.critedge1295
 
-.critedge1296:                                    ; preds = %6402, %6401, %6399, %lean_dec_ref.exit1334
+.critedge1295:                                    ; preds = %6402, %6401, %6399, %lean_dec_ref.exit1333
   %6403 = load ptr, ptr @l_Int64_fromExpr___closed__1, align 8, !tbaa !5
   %6404 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__9, align 8, !tbaa !5
   %6405 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %6403, ptr noundef %6404) #5
@@ -240259,17 +240259,17 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
   %6413 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToNatClampNeg_declare__356____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18264____closed__5()
   store ptr %6413, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToNatClampNeg_declare__356____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18264____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6413) #5
-  br i1 %.not, label %lean_dec_ref.exit1328, label %6414
+  br i1 %.not, label %lean_dec_ref.exit1327, label %6414
 
-6414:                                             ; preds = %.critedge1296
+6414:                                             ; preds = %.critedge1295
   %6415 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToNatClampNeg_declare__356____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18264____closed__1, align 8, !tbaa !5
   %6416 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToNatClampNeg_declare__356____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18264____closed__4, align 8, !tbaa !5
   %6417 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_reduceToNatClampNeg_declare__356____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18264____closed__5, align 8, !tbaa !5
   %6418 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6415, ptr noundef %6416, ptr noundef %6417, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6419 = getelementptr i8, ptr %6418, i64 4
-  %.val2035 = load i32, ptr %6419, align 4
-  %.mask.i2280 = and i32 %.val2035, -16777216
-  %6420 = icmp eq i32 %.mask.i2280, 16777216
+  %.val2034 = load i32, ptr %6419, align 4
+  %.mask.i2279 = and i32 %.val2034, -16777216
+  %6420 = icmp eq i32 %.mask.i2279, 16777216
   br i1 %6420, label %6668, label %6421
 
 6421:                                             ; preds = %6414
@@ -240283,8 +240283,8 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
   br label %6428
 
 6426:                                             ; preds = %6421
-  %.not.i1329 = icmp eq i32 %6422, 0
-  br i1 %.not.i1329, label %6428, label %6427
+  %.not.i1328 = icmp eq i32 %6422, 0
+  br i1 %.not.i1328, label %6428, label %6427
 
 6427:                                             ; preds = %6426
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6418) #5
@@ -240299,9 +240299,9 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
   %6432 = load ptr, ptr @l_Int64_reduceToNatClampNeg___regBuiltin_Int64_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18266____closed__1, align 8, !tbaa !5
   %6433 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6430, ptr noundef %6431, i8 noundef zeroext 1, ptr noundef %6432, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6434 = getelementptr i8, ptr %6433, i64 4
-  %.val2036 = load i32, ptr %6434, align 4
-  %.mask.i2281 = and i32 %.val2036, -16777216
-  %6435 = icmp eq i32 %.mask.i2281, 16777216
+  %.val2035 = load i32, ptr %6434, align 4
+  %.mask.i2280 = and i32 %.val2035, -16777216
+  %6435 = icmp eq i32 %.mask.i2280, 16777216
   br i1 %6435, label %6668, label %6436
 
 6436:                                             ; preds = %6428
@@ -240315,18 +240315,18 @@ lean_dec_ref.exit1334:                            ; preds = %.critedge1292
   br label %6444
 
 6441:                                             ; preds = %6436
-  %.not.i1327 = icmp eq i32 %6437, 0
-  br i1 %.not.i1327, label %6444, label %6442
+  %.not.i1326 = icmp eq i32 %6437, 0
+  br i1 %.not.i1326, label %6444, label %6442
 
 6442:                                             ; preds = %6441
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6433) #5
   br label %6444
 
-lean_dec_ref.exit1328:                            ; preds = %.critedge1296
+lean_dec_ref.exit1327:                            ; preds = %.critedge1295
   %6443 = tail call fastcc ptr @_init_l_Int64_reduceToNatClampNeg___regBuiltin_Int64_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18266____closed__1()
   store ptr %6443, ptr @l_Int64_reduceToNatClampNeg___regBuiltin_Int64_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18266____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6443) #5
-  br label %.critedge1300
+  br label %.critedge1299
 
 6444:                                             ; preds = %6442, %6441, %6439
   %6445 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -240334,9 +240334,9 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
   %6447 = load ptr, ptr @l_Int64_reduceToNatClampNeg___regBuiltin_Int64_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_18266____closed__1, align 8, !tbaa !5
   %6448 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6445, ptr noundef %6446, i8 noundef zeroext 1, ptr noundef %6447, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6449 = getelementptr i8, ptr %6448, i64 4
-  %.val2037 = load i32, ptr %6449, align 4
-  %.mask.i2282 = and i32 %.val2037, -16777216
-  %6450 = icmp eq i32 %.mask.i2282, 16777216
+  %.val2036 = load i32, ptr %6449, align 4
+  %.mask.i2281 = and i32 %.val2036, -16777216
+  %6450 = icmp eq i32 %.mask.i2281, 16777216
   br i1 %6450, label %6668, label %6451
 
 6451:                                             ; preds = %6444
@@ -240347,17 +240347,17 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
 6454:                                             ; preds = %6451
   %6455 = add nsw i32 %6452, -1
   store i32 %6455, ptr %6448, align 4, !tbaa !9
-  br label %.critedge1300
+  br label %.critedge1299
 
 6456:                                             ; preds = %6451
-  %.not.i1325 = icmp eq i32 %6452, 0
-  br i1 %.not.i1325, label %.critedge1300, label %6457
+  %.not.i1324 = icmp eq i32 %6452, 0
+  br i1 %.not.i1324, label %.critedge1299, label %6457
 
 6457:                                             ; preds = %6456
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6448) #5
-  br label %.critedge1300
+  br label %.critedge1299
 
-.critedge1300:                                    ; preds = %6457, %6456, %6454, %lean_dec_ref.exit1328
+.critedge1299:                                    ; preds = %6457, %6456, %6454, %lean_dec_ref.exit1327
   %6458 = load ptr, ptr @l_Int64_fromExpr___closed__2, align 8, !tbaa !5
   %6459 = load ptr, ptr @l___aux__Lean__Meta__Tactic__Simp__BuiltinSimprocs__SInt______macroRules__commandDeclare__sint__simprocs____1___closed__543, align 8, !tbaa !5
   %6460 = tail call ptr @l_Lean_Name_str___override(ptr noundef %6458, ptr noundef %6459) #5
@@ -240417,17 +240417,17 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
   %6490 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_isValue_declare__360____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__18338____closed__13()
   store ptr %6490, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_isValue_declare__360____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__18338____closed__13, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6490) #5
-  br i1 %.not, label %.critedge1302, label %6491
+  br i1 %.not, label %.critedge1301, label %6491
 
-6491:                                             ; preds = %.critedge1300
+6491:                                             ; preds = %.critedge1299
   %6492 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_isValue_declare__360____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__18338____closed__10, align 8, !tbaa !5
   %6493 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_isValue_declare__360____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__18338____closed__12, align 8, !tbaa !5
   %6494 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_Int64_isValue_declare__360____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210__18338____closed__13, align 8, !tbaa !5
   %6495 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinDSimproc(ptr noundef %6492, ptr noundef %6493, ptr noundef %6494, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6496 = getelementptr i8, ptr %6495, i64 4
-  %.val2038 = load i32, ptr %6496, align 4
-  %.mask.i2283 = and i32 %.val2038, -16777216
-  %6497 = icmp eq i32 %.mask.i2283, 16777216
+  %.val2037 = load i32, ptr %6496, align 4
+  %.mask.i2282 = and i32 %.val2037, -16777216
+  %6497 = icmp eq i32 %.mask.i2282, 16777216
   br i1 %6497, label %6668, label %6498
 
 6498:                                             ; preds = %6491
@@ -240441,8 +240441,8 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
   br label %6505
 
 6503:                                             ; preds = %6498
-  %.not.i1323 = icmp eq i32 %6499, 0
-  br i1 %.not.i1323, label %6505, label %6504
+  %.not.i1322 = icmp eq i32 %6499, 0
+  br i1 %.not.i1322, label %6505, label %6504
 
 6504:                                             ; preds = %6503
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6495) #5
@@ -240457,9 +240457,9 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
   %6509 = load ptr, ptr @l_Int64_isValue___regBuiltin_Int64_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   %6510 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6507, ptr noundef %6508, i8 noundef zeroext 1, ptr noundef %6509, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6511 = getelementptr i8, ptr %6510, i64 4
-  %.val2039 = load i32, ptr %6511, align 4
-  %.mask.i2284 = and i32 %.val2039, -16777216
-  %6512 = icmp eq i32 %.mask.i2284, 16777216
+  %.val2038 = load i32, ptr %6511, align 4
+  %.mask.i2283 = and i32 %.val2038, -16777216
+  %6512 = icmp eq i32 %.mask.i2283, 16777216
   br i1 %6512, label %6668, label %6513
 
 6513:                                             ; preds = %6505
@@ -240470,23 +240470,23 @@ lean_dec_ref.exit1328:                            ; preds = %.critedge1296
 6516:                                             ; preds = %6513
   %6517 = add nsw i32 %6514, -1
   store i32 %6517, ptr %6510, align 4, !tbaa !9
-  br label %lean_dec_ref.exit1322
+  br label %lean_dec_ref.exit1321
 
 6518:                                             ; preds = %6513
-  %.not.i1321 = icmp eq i32 %6514, 0
-  br i1 %.not.i1321, label %lean_dec_ref.exit1322, label %6519
+  %.not.i1320 = icmp eq i32 %6514, 0
+  br i1 %.not.i1320, label %lean_dec_ref.exit1321, label %6519
 
 6519:                                             ; preds = %6518
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6510) #5
-  br label %lean_dec_ref.exit1322
+  br label %lean_dec_ref.exit1321
 
-.critedge1302:                                    ; preds = %.critedge1300
+.critedge1301:                                    ; preds = %.critedge1299
   %6520 = tail call fastcc ptr @_init_l_Int64_isValue___regBuiltin_Int64_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1()
   store ptr %6520, ptr @l_Int64_isValue___regBuiltin_Int64_isValue_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_16210____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6520) #5
-  br label %lean_dec_ref.exit1322
+  br label %lean_dec_ref.exit1321
 
-lean_dec_ref.exit1322:                            ; preds = %6519, %6518, %6516, %.critedge1302
+lean_dec_ref.exit1321:                            ; preds = %6519, %6518, %6516, %.critedge1301
   %6521 = tail call ptr @l_Lean_mkNatLit(ptr noundef nonnull inttoptr (i64 4294967297 to ptr)) #5
   store ptr %6521, ptr @l_ISize_reduceToNatClampNeg___lambda__1___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %6521) #5
@@ -240553,17 +240553,17 @@ lean_dec_ref.exit1322:                            ; preds = %6519, %6518, %6516,
   %6550 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToNatClampNeg_declare__366____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19007____closed__5()
   store ptr %6550, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToNatClampNeg_declare__366____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19007____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6550) #5
-  br i1 %.not, label %lean_dec_ref.exit1318, label %6551
+  br i1 %.not, label %lean_dec_ref.exit1317, label %6551
 
-6551:                                             ; preds = %lean_dec_ref.exit1322
+6551:                                             ; preds = %lean_dec_ref.exit1321
   %6552 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToNatClampNeg_declare__366____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19007____closed__1, align 8, !tbaa !5
   %6553 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToNatClampNeg_declare__366____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19007____closed__4, align 8, !tbaa !5
   %6554 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToNatClampNeg_declare__366____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19007____closed__5, align 8, !tbaa !5
   %6555 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %6552, ptr noundef %6553, ptr noundef %6554, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6556 = getelementptr i8, ptr %6555, i64 4
-  %.val2040 = load i32, ptr %6556, align 4
-  %.mask.i2285 = and i32 %.val2040, -16777216
-  %6557 = icmp eq i32 %.mask.i2285, 16777216
+  %.val2039 = load i32, ptr %6556, align 4
+  %.mask.i2284 = and i32 %.val2039, -16777216
+  %6557 = icmp eq i32 %.mask.i2284, 16777216
   br i1 %6557, label %6668, label %6558
 
 6558:                                             ; preds = %6551
@@ -240577,8 +240577,8 @@ lean_dec_ref.exit1322:                            ; preds = %6519, %6518, %6516,
   br label %6565
 
 6563:                                             ; preds = %6558
-  %.not.i1319 = icmp eq i32 %6559, 0
-  br i1 %.not.i1319, label %6565, label %6564
+  %.not.i1318 = icmp eq i32 %6559, 0
+  br i1 %.not.i1318, label %6565, label %6564
 
 6564:                                             ; preds = %6563
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6555) #5
@@ -240593,9 +240593,9 @@ lean_dec_ref.exit1322:                            ; preds = %6519, %6518, %6516,
   %6569 = load ptr, ptr @l_ISize_reduceToNatClampNeg___regBuiltin_ISize_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19009____closed__1, align 8, !tbaa !5
   %6570 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6567, ptr noundef %6568, i8 noundef zeroext 1, ptr noundef %6569, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6571 = getelementptr i8, ptr %6570, i64 4
-  %.val2041 = load i32, ptr %6571, align 4
-  %.mask.i2286 = and i32 %.val2041, -16777216
-  %6572 = icmp eq i32 %.mask.i2286, 16777216
+  %.val2040 = load i32, ptr %6571, align 4
+  %.mask.i2285 = and i32 %.val2040, -16777216
+  %6572 = icmp eq i32 %.mask.i2285, 16777216
   br i1 %6572, label %6668, label %6573
 
 6573:                                             ; preds = %6565
@@ -240609,18 +240609,18 @@ lean_dec_ref.exit1322:                            ; preds = %6519, %6518, %6516,
   br label %6581
 
 6578:                                             ; preds = %6573
-  %.not.i1317 = icmp eq i32 %6574, 0
-  br i1 %.not.i1317, label %6581, label %6579
+  %.not.i1316 = icmp eq i32 %6574, 0
+  br i1 %.not.i1316, label %6581, label %6579
 
 6579:                                             ; preds = %6578
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6570) #5
   br label %6581
 
-lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit1322
+lean_dec_ref.exit1317:                            ; preds = %lean_dec_ref.exit1321
   %6580 = tail call fastcc ptr @_init_l_ISize_reduceToNatClampNeg___regBuiltin_ISize_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19009____closed__1()
   store ptr %6580, ptr @l_ISize_reduceToNatClampNeg___regBuiltin_ISize_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19009____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6580) #5
-  br label %.critedge1306
+  br label %.critedge1305
 
 6581:                                             ; preds = %6579, %6578, %6576
   %6582 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -240628,9 +240628,9 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
   %6584 = load ptr, ptr @l_ISize_reduceToNatClampNeg___regBuiltin_ISize_reduceToNatClampNeg_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19009____closed__1, align 8, !tbaa !5
   %6585 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6582, ptr noundef %6583, i8 noundef zeroext 1, ptr noundef %6584, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6586 = getelementptr i8, ptr %6585, i64 4
-  %.val2042 = load i32, ptr %6586, align 4
-  %.mask.i2287 = and i32 %.val2042, -16777216
-  %6587 = icmp eq i32 %.mask.i2287, 16777216
+  %.val2041 = load i32, ptr %6586, align 4
+  %.mask.i2286 = and i32 %.val2041, -16777216
+  %6587 = icmp eq i32 %.mask.i2286, 16777216
   br i1 %6587, label %6668, label %6588
 
 6588:                                             ; preds = %6581
@@ -240641,17 +240641,17 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
 6591:                                             ; preds = %6588
   %6592 = add nsw i32 %6589, -1
   store i32 %6592, ptr %6585, align 4, !tbaa !9
-  br label %.critedge1306
+  br label %.critedge1305
 
 6593:                                             ; preds = %6588
-  %.not.i1315 = icmp eq i32 %6589, 0
-  br i1 %.not.i1315, label %.critedge1306, label %6594
+  %.not.i1314 = icmp eq i32 %6589, 0
+  br i1 %.not.i1314, label %.critedge1305, label %6594
 
 6594:                                             ; preds = %6593
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6585) #5
-  br label %.critedge1306
+  br label %.critedge1305
 
-.critedge1306:                                    ; preds = %6594, %6593, %6591, %lean_dec_ref.exit1318
+.critedge1305:                                    ; preds = %6594, %6593, %6591, %lean_dec_ref.exit1317
   %6595 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.247, i64 noundef 21, i64 noundef 21) #5
   store ptr %6595, ptr @l_ISize_reduceToInt___lambda__1___closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef %6595) #5
@@ -240710,17 +240710,17 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
   %6622 = tail call fastcc ptr @_init_l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToInt_declare__371____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19686____closed__5()
   store ptr %6622, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToInt_declare__371____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19686____closed__5, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6622) #5
-  br i1 %.not, label %lean_dec_ref.exit1312, label %6623
+  br i1 %.not, label %lean_dec_ref.exit1311, label %6623
 
-6623:                                             ; preds = %.critedge1306
+6623:                                             ; preds = %.critedge1305
   %6624 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToInt_declare__371____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19686____closed__1, align 8, !tbaa !5
   %6625 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToInt_declare__371____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19686____closed__4, align 8, !tbaa !5
   %6626 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt_0____regBuiltin_ISize_reduceToInt_declare__371____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19686____closed__5, align 8, !tbaa !5
   %6627 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %6624, ptr noundef %6625, ptr noundef %6626, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6628 = getelementptr i8, ptr %6627, i64 4
-  %.val2043 = load i32, ptr %6628, align 4
-  %.mask.i2288 = and i32 %.val2043, -16777216
-  %6629 = icmp eq i32 %.mask.i2288, 16777216
+  %.val2042 = load i32, ptr %6628, align 4
+  %.mask.i2287 = and i32 %.val2042, -16777216
+  %6629 = icmp eq i32 %.mask.i2287, 16777216
   br i1 %6629, label %6668, label %6630
 
 6630:                                             ; preds = %6623
@@ -240734,8 +240734,8 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
   br label %6637
 
 6635:                                             ; preds = %6630
-  %.not.i1313 = icmp eq i32 %6631, 0
-  br i1 %.not.i1313, label %6637, label %6636
+  %.not.i1312 = icmp eq i32 %6631, 0
+  br i1 %.not.i1312, label %6637, label %6636
 
 6636:                                             ; preds = %6635
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6627) #5
@@ -240750,9 +240750,9 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
   %6641 = load ptr, ptr @l_ISize_reduceToInt___regBuiltin_ISize_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19688____closed__1, align 8, !tbaa !5
   %6642 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6639, ptr noundef %6640, i8 noundef zeroext 1, ptr noundef %6641, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6643 = getelementptr i8, ptr %6642, i64 4
-  %.val2044 = load i32, ptr %6643, align 4
-  %.mask.i2289 = and i32 %.val2044, -16777216
-  %6644 = icmp eq i32 %.mask.i2289, 16777216
+  %.val2043 = load i32, ptr %6643, align 4
+  %.mask.i2288 = and i32 %.val2043, -16777216
+  %6644 = icmp eq i32 %.mask.i2288, 16777216
   br i1 %6644, label %6668, label %6645
 
 6645:                                             ; preds = %6637
@@ -240766,18 +240766,18 @@ lean_dec_ref.exit1318:                            ; preds = %lean_dec_ref.exit13
   br label %6653
 
 6650:                                             ; preds = %6645
-  %.not.i1311 = icmp eq i32 %6646, 0
-  br i1 %.not.i1311, label %6653, label %6651
+  %.not.i1310 = icmp eq i32 %6646, 0
+  br i1 %.not.i1310, label %6653, label %6651
 
 6651:                                             ; preds = %6650
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6642) #5
   br label %6653
 
-lean_dec_ref.exit1312:                            ; preds = %.critedge1306
+lean_dec_ref.exit1311:                            ; preds = %.critedge1305
   %6652 = tail call fastcc ptr @_init_l_ISize_reduceToInt___regBuiltin_ISize_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19688____closed__1()
   store ptr %6652, ptr @l_ISize_reduceToInt___regBuiltin_ISize_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19688____closed__1, align 8, !tbaa !5
   tail call void @lean_mark_persistent(ptr noundef nonnull %6652) #5
-  br label %.critedge1310
+  br label %.critedge1309
 
 6653:                                             ; preds = %6651, %6650, %6648
   %6654 = load ptr, ptr @l_Int8_reduceNeg___regBuiltin_Int8_reduceNeg_declare__2____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_9811____closed__1, align 8, !tbaa !5
@@ -240785,9 +240785,9 @@ lean_dec_ref.exit1312:                            ; preds = %.critedge1306
   %6656 = load ptr, ptr @l_ISize_reduceToInt___regBuiltin_ISize_reduceToInt_declare__1____x40_Lean_Meta_Tactic_Simp_BuiltinSimprocs_SInt___hyg_19688____closed__1, align 8, !tbaa !5
   %6657 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %6654, ptr noundef %6655, i8 noundef zeroext 1, ptr noundef %6656, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %6658 = getelementptr i8, ptr %6657, i64 4
-  %.val2045 = load i32, ptr %6658, align 4
-  %.mask.i2290 = and i32 %.val2045, -16777216
-  %6659 = icmp eq i32 %.mask.i2290, 16777216
+  %.val2044 = load i32, ptr %6658, align 4
+  %.mask.i2289 = and i32 %.val2044, -16777216
+  %6659 = icmp eq i32 %.mask.i2289, 16777216
   br i1 %6659, label %6668, label %6660
 
 6660:                                             ; preds = %6653
@@ -240798,22 +240798,22 @@ lean_dec_ref.exit1312:                            ; preds = %.critedge1306
 6663:                                             ; preds = %6660
   %6664 = add nsw i32 %6661, -1
   store i32 %6664, ptr %6657, align 4, !tbaa !9
-  br label %.critedge1310
+  br label %.critedge1309
 
 6665:                                             ; preds = %6660
   %.not.i = icmp eq i32 %6661, 0
-  br i1 %.not.i, label %.critedge1310, label %6666
+  br i1 %.not.i, label %.critedge1309, label %6666
 
 6666:                                             ; preds = %6665
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6657) #5
-  br label %.critedge1310
+  br label %.critedge1309
 
-.critedge1310:                                    ; preds = %6666, %6665, %6663, %lean_dec_ref.exit1312
+.critedge1309:                                    ; preds = %6666, %6665, %6663, %lean_dec_ref.exit1311
   %6667 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %6668
 
-6668:                                             ; preds = %6653, %6637, %6623, %6581, %6565, %6551, %6505, %6491, %6444, %6428, %6414, %6389, %6373, %6359, %6334, %6318, %6304, %6279, %6263, %6249, %6224, %6208, %6194, %6169, %6153, %6139, %6092, %6076, %6062, %6015, %5999, %5985, %5938, %5922, %5908, %lean_dec_ref.exit1382, %5848, %5825, %lean_dec_ref.exit1388, %5799, %5775, %5762, %5747, %5733, %5712, %5696, %5682, %5661, %5645, %5631, %5610, %5594, %5580, %5559, %5543, %5529, %5508, %5492, %5478, %5457, %5441, %5427, %5403, %5387, %5373, %5312, %5298, %5251, %5235, %5221, %5196, %5180, %5166, %5141, %5125, %5111, %5086, %5070, %5056, %5031, %5015, %5001, %4976, %4960, %4946, %4899, %4883, %4869, %4822, %4806, %4792, %4745, %4729, %4715, %lean_dec_ref.exit1500, %4655, %4632, %lean_dec_ref.exit1506, %4606, %4582, %4569, %4554, %4540, %4519, %4503, %4489, %4468, %4452, %4438, %4417, %4401, %4387, %4366, %4350, %4336, %4315, %4299, %4285, %4264, %4248, %4234, %4210, %4194, %4180, %4119, %4105, %4058, %4042, %4028, %4003, %3987, %3973, %3948, %3932, %3918, %3893, %3877, %3863, %3838, %3822, %3808, %3783, %3767, %3753, %3706, %3690, %3676, %3629, %3613, %3599, %3552, %3536, %3522, %lean_dec_ref.exit1618, %3462, %3439, %lean_dec_ref.exit1624, %3413, %3389, %3376, %3361, %3347, %3326, %3310, %3296, %3275, %3259, %3245, %3224, %3208, %3194, %3173, %3157, %3143, %3122, %3106, %3092, %3071, %3055, %3041, %3017, %3001, %2987, %2926, %2912, %2864, %2848, %2834, %2809, %2793, %2779, %2744, %2728, %2714, %2689, %2673, %2659, %2634, %2618, %2604, %2579, %2563, %2549, %2501, %2485, %2471, %2423, %2407, %2393, %2342, %2326, %2312, %lean_dec_ref.exit1736, %2251, %2228, %lean_dec_ref.exit1742, %2202, %2178, %2165, %2150, %2136, %2114, %2098, %2084, %2062, %2046, %2032, %2010, %1994, %1980, %1958, %1942, %1928, %1906, %1890, %1876, %1854, %1838, %1824, %1797, %1778, %1764, %lean_dec_ref.exit1796, %lean_dec_ref.exit1798, %lean_dec_ref.exit1800, %10, %.critedge1310, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %6667, %.critedge1310 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit1800 ], [ %31, %lean_dec_ref.exit1798 ], [ %41, %lean_dec_ref.exit1796 ], [ %1768, %1764 ], [ %1784, %1778 ], [ %1802, %1797 ], [ %1828, %1824 ], [ %1843, %1838 ], [ %1858, %1854 ], [ %1880, %1876 ], [ %1895, %1890 ], [ %1910, %1906 ], [ %1932, %1928 ], [ %1947, %1942 ], [ %1962, %1958 ], [ %1984, %1980 ], [ %1999, %1994 ], [ %2014, %2010 ], [ %2036, %2032 ], [ %2051, %2046 ], [ %2066, %2062 ], [ %2088, %2084 ], [ %2103, %2098 ], [ %2118, %2114 ], [ %2140, %2136 ], [ %2155, %2150 ], [ %2169, %2165 ], [ %2186, %2178 ], [ %2206, %2202 ], [ %2219, %lean_dec_ref.exit1742 ], [ %2236, %2228 ], [ %2255, %2251 ], [ %2268, %lean_dec_ref.exit1736 ], [ %2316, %2312 ], [ %2331, %2326 ], [ %2346, %2342 ], [ %2397, %2393 ], [ %2412, %2407 ], [ %2427, %2423 ], [ %2475, %2471 ], [ %2490, %2485 ], [ %2505, %2501 ], [ %2553, %2549 ], [ %2568, %2563 ], [ %2583, %2579 ], [ %2608, %2604 ], [ %2623, %2618 ], [ %2638, %2634 ], [ %2663, %2659 ], [ %2678, %2673 ], [ %2693, %2689 ], [ %2718, %2714 ], [ %2733, %2728 ], [ %2748, %2744 ], [ %2783, %2779 ], [ %2798, %2793 ], [ %2813, %2809 ], [ %2838, %2834 ], [ %2853, %2848 ], [ %2868, %2864 ], [ %2916, %2912 ], [ %2931, %2926 ], [ %2991, %2987 ], [ %3006, %3001 ], [ %3021, %3017 ], [ %3045, %3041 ], [ %3060, %3055 ], [ %3075, %3071 ], [ %3096, %3092 ], [ %3111, %3106 ], [ %3126, %3122 ], [ %3147, %3143 ], [ %3162, %3157 ], [ %3177, %3173 ], [ %3198, %3194 ], [ %3213, %3208 ], [ %3228, %3224 ], [ %3249, %3245 ], [ %3264, %3259 ], [ %3279, %3275 ], [ %3300, %3296 ], [ %3315, %3310 ], [ %3330, %3326 ], [ %3351, %3347 ], [ %3366, %3361 ], [ %3380, %3376 ], [ %3397, %3389 ], [ %3417, %3413 ], [ %3430, %lean_dec_ref.exit1624 ], [ %3447, %3439 ], [ %3466, %3462 ], [ %3479, %lean_dec_ref.exit1618 ], [ %3526, %3522 ], [ %3541, %3536 ], [ %3556, %3552 ], [ %3603, %3599 ], [ %3618, %3613 ], [ %3633, %3629 ], [ %3680, %3676 ], [ %3695, %3690 ], [ %3710, %3706 ], [ %3757, %3753 ], [ %3772, %3767 ], [ %3787, %3783 ], [ %3812, %3808 ], [ %3827, %3822 ], [ %3842, %3838 ], [ %3867, %3863 ], [ %3882, %3877 ], [ %3897, %3893 ], [ %3922, %3918 ], [ %3937, %3932 ], [ %3952, %3948 ], [ %3977, %3973 ], [ %3992, %3987 ], [ %4007, %4003 ], [ %4032, %4028 ], [ %4047, %4042 ], [ %4062, %4058 ], [ %4109, %4105 ], [ %4124, %4119 ], [ %4184, %4180 ], [ %4199, %4194 ], [ %4214, %4210 ], [ %4238, %4234 ], [ %4253, %4248 ], [ %4268, %4264 ], [ %4289, %4285 ], [ %4304, %4299 ], [ %4319, %4315 ], [ %4340, %4336 ], [ %4355, %4350 ], [ %4370, %4366 ], [ %4391, %4387 ], [ %4406, %4401 ], [ %4421, %4417 ], [ %4442, %4438 ], [ %4457, %4452 ], [ %4472, %4468 ], [ %4493, %4489 ], [ %4508, %4503 ], [ %4523, %4519 ], [ %4544, %4540 ], [ %4559, %4554 ], [ %4573, %4569 ], [ %4590, %4582 ], [ %4610, %4606 ], [ %4623, %lean_dec_ref.exit1506 ], [ %4640, %4632 ], [ %4659, %4655 ], [ %4672, %lean_dec_ref.exit1500 ], [ %4719, %4715 ], [ %4734, %4729 ], [ %4749, %4745 ], [ %4796, %4792 ], [ %4811, %4806 ], [ %4826, %4822 ], [ %4873, %4869 ], [ %4888, %4883 ], [ %4903, %4899 ], [ %4950, %4946 ], [ %4965, %4960 ], [ %4980, %4976 ], [ %5005, %5001 ], [ %5020, %5015 ], [ %5035, %5031 ], [ %5060, %5056 ], [ %5075, %5070 ], [ %5090, %5086 ], [ %5115, %5111 ], [ %5130, %5125 ], [ %5145, %5141 ], [ %5170, %5166 ], [ %5185, %5180 ], [ %5200, %5196 ], [ %5225, %5221 ], [ %5240, %5235 ], [ %5255, %5251 ], [ %5302, %5298 ], [ %5317, %5312 ], [ %5377, %5373 ], [ %5392, %5387 ], [ %5407, %5403 ], [ %5431, %5427 ], [ %5446, %5441 ], [ %5461, %5457 ], [ %5482, %5478 ], [ %5497, %5492 ], [ %5512, %5508 ], [ %5533, %5529 ], [ %5548, %5543 ], [ %5563, %5559 ], [ %5584, %5580 ], [ %5599, %5594 ], [ %5614, %5610 ], [ %5635, %5631 ], [ %5650, %5645 ], [ %5665, %5661 ], [ %5686, %5682 ], [ %5701, %5696 ], [ %5716, %5712 ], [ %5737, %5733 ], [ %5752, %5747 ], [ %5766, %5762 ], [ %5783, %5775 ], [ %5803, %5799 ], [ %5816, %lean_dec_ref.exit1388 ], [ %5833, %5825 ], [ %5852, %5848 ], [ %5865, %lean_dec_ref.exit1382 ], [ %5912, %5908 ], [ %5927, %5922 ], [ %5942, %5938 ], [ %5989, %5985 ], [ %6004, %5999 ], [ %6019, %6015 ], [ %6066, %6062 ], [ %6081, %6076 ], [ %6096, %6092 ], [ %6143, %6139 ], [ %6158, %6153 ], [ %6173, %6169 ], [ %6198, %6194 ], [ %6213, %6208 ], [ %6228, %6224 ], [ %6253, %6249 ], [ %6268, %6263 ], [ %6283, %6279 ], [ %6308, %6304 ], [ %6323, %6318 ], [ %6338, %6334 ], [ %6363, %6359 ], [ %6378, %6373 ], [ %6393, %6389 ], [ %6418, %6414 ], [ %6433, %6428 ], [ %6448, %6444 ], [ %6495, %6491 ], [ %6510, %6505 ], [ %6555, %6551 ], [ %6570, %6565 ], [ %6585, %6581 ], [ %6627, %6623 ], [ %6642, %6637 ], [ %6657, %6653 ]
+6668:                                             ; preds = %6653, %6637, %6623, %6581, %6565, %6551, %6505, %6491, %6444, %6428, %6414, %6389, %6373, %6359, %6334, %6318, %6304, %6279, %6263, %6249, %6224, %6208, %6194, %6169, %6153, %6139, %6092, %6076, %6062, %6015, %5999, %5985, %5938, %5922, %5908, %lean_dec_ref.exit1381, %5848, %5825, %lean_dec_ref.exit1387, %5799, %5775, %5762, %5747, %5733, %5712, %5696, %5682, %5661, %5645, %5631, %5610, %5594, %5580, %5559, %5543, %5529, %5508, %5492, %5478, %5457, %5441, %5427, %5403, %5387, %5373, %5312, %5298, %5251, %5235, %5221, %5196, %5180, %5166, %5141, %5125, %5111, %5086, %5070, %5056, %5031, %5015, %5001, %4976, %4960, %4946, %4899, %4883, %4869, %4822, %4806, %4792, %4745, %4729, %4715, %lean_dec_ref.exit1499, %4655, %4632, %lean_dec_ref.exit1505, %4606, %4582, %4569, %4554, %4540, %4519, %4503, %4489, %4468, %4452, %4438, %4417, %4401, %4387, %4366, %4350, %4336, %4315, %4299, %4285, %4264, %4248, %4234, %4210, %4194, %4180, %4119, %4105, %4058, %4042, %4028, %4003, %3987, %3973, %3948, %3932, %3918, %3893, %3877, %3863, %3838, %3822, %3808, %3783, %3767, %3753, %3706, %3690, %3676, %3629, %3613, %3599, %3552, %3536, %3522, %lean_dec_ref.exit1617, %3462, %3439, %lean_dec_ref.exit1623, %3413, %3389, %3376, %3361, %3347, %3326, %3310, %3296, %3275, %3259, %3245, %3224, %3208, %3194, %3173, %3157, %3143, %3122, %3106, %3092, %3071, %3055, %3041, %3017, %3001, %2987, %2926, %2912, %2864, %2848, %2834, %2809, %2793, %2779, %2744, %2728, %2714, %2689, %2673, %2659, %2634, %2618, %2604, %2579, %2563, %2549, %2501, %2485, %2471, %2423, %2407, %2393, %2342, %2326, %2312, %lean_dec_ref.exit1735, %2251, %2228, %lean_dec_ref.exit1741, %2202, %2178, %2165, %2150, %2136, %2114, %2098, %2084, %2062, %2046, %2032, %2010, %1994, %1980, %1958, %1942, %1928, %1906, %1890, %1876, %1854, %1838, %1824, %1797, %1778, %1764, %lean_dec_ref.exit1795, %lean_dec_ref.exit1797, %lean_dec_ref.exit1799, %10, %.critedge1309, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %6667, %.critedge1309 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit1799 ], [ %31, %lean_dec_ref.exit1797 ], [ %41, %lean_dec_ref.exit1795 ], [ %1768, %1764 ], [ %1784, %1778 ], [ %1802, %1797 ], [ %1828, %1824 ], [ %1843, %1838 ], [ %1858, %1854 ], [ %1880, %1876 ], [ %1895, %1890 ], [ %1910, %1906 ], [ %1932, %1928 ], [ %1947, %1942 ], [ %1962, %1958 ], [ %1984, %1980 ], [ %1999, %1994 ], [ %2014, %2010 ], [ %2036, %2032 ], [ %2051, %2046 ], [ %2066, %2062 ], [ %2088, %2084 ], [ %2103, %2098 ], [ %2118, %2114 ], [ %2140, %2136 ], [ %2155, %2150 ], [ %2169, %2165 ], [ %2186, %2178 ], [ %2206, %2202 ], [ %2219, %lean_dec_ref.exit1741 ], [ %2236, %2228 ], [ %2255, %2251 ], [ %2268, %lean_dec_ref.exit1735 ], [ %2316, %2312 ], [ %2331, %2326 ], [ %2346, %2342 ], [ %2397, %2393 ], [ %2412, %2407 ], [ %2427, %2423 ], [ %2475, %2471 ], [ %2490, %2485 ], [ %2505, %2501 ], [ %2553, %2549 ], [ %2568, %2563 ], [ %2583, %2579 ], [ %2608, %2604 ], [ %2623, %2618 ], [ %2638, %2634 ], [ %2663, %2659 ], [ %2678, %2673 ], [ %2693, %2689 ], [ %2718, %2714 ], [ %2733, %2728 ], [ %2748, %2744 ], [ %2783, %2779 ], [ %2798, %2793 ], [ %2813, %2809 ], [ %2838, %2834 ], [ %2853, %2848 ], [ %2868, %2864 ], [ %2916, %2912 ], [ %2931, %2926 ], [ %2991, %2987 ], [ %3006, %3001 ], [ %3021, %3017 ], [ %3045, %3041 ], [ %3060, %3055 ], [ %3075, %3071 ], [ %3096, %3092 ], [ %3111, %3106 ], [ %3126, %3122 ], [ %3147, %3143 ], [ %3162, %3157 ], [ %3177, %3173 ], [ %3198, %3194 ], [ %3213, %3208 ], [ %3228, %3224 ], [ %3249, %3245 ], [ %3264, %3259 ], [ %3279, %3275 ], [ %3300, %3296 ], [ %3315, %3310 ], [ %3330, %3326 ], [ %3351, %3347 ], [ %3366, %3361 ], [ %3380, %3376 ], [ %3397, %3389 ], [ %3417, %3413 ], [ %3430, %lean_dec_ref.exit1623 ], [ %3447, %3439 ], [ %3466, %3462 ], [ %3479, %lean_dec_ref.exit1617 ], [ %3526, %3522 ], [ %3541, %3536 ], [ %3556, %3552 ], [ %3603, %3599 ], [ %3618, %3613 ], [ %3633, %3629 ], [ %3680, %3676 ], [ %3695, %3690 ], [ %3710, %3706 ], [ %3757, %3753 ], [ %3772, %3767 ], [ %3787, %3783 ], [ %3812, %3808 ], [ %3827, %3822 ], [ %3842, %3838 ], [ %3867, %3863 ], [ %3882, %3877 ], [ %3897, %3893 ], [ %3922, %3918 ], [ %3937, %3932 ], [ %3952, %3948 ], [ %3977, %3973 ], [ %3992, %3987 ], [ %4007, %4003 ], [ %4032, %4028 ], [ %4047, %4042 ], [ %4062, %4058 ], [ %4109, %4105 ], [ %4124, %4119 ], [ %4184, %4180 ], [ %4199, %4194 ], [ %4214, %4210 ], [ %4238, %4234 ], [ %4253, %4248 ], [ %4268, %4264 ], [ %4289, %4285 ], [ %4304, %4299 ], [ %4319, %4315 ], [ %4340, %4336 ], [ %4355, %4350 ], [ %4370, %4366 ], [ %4391, %4387 ], [ %4406, %4401 ], [ %4421, %4417 ], [ %4442, %4438 ], [ %4457, %4452 ], [ %4472, %4468 ], [ %4493, %4489 ], [ %4508, %4503 ], [ %4523, %4519 ], [ %4544, %4540 ], [ %4559, %4554 ], [ %4573, %4569 ], [ %4590, %4582 ], [ %4610, %4606 ], [ %4623, %lean_dec_ref.exit1505 ], [ %4640, %4632 ], [ %4659, %4655 ], [ %4672, %lean_dec_ref.exit1499 ], [ %4719, %4715 ], [ %4734, %4729 ], [ %4749, %4745 ], [ %4796, %4792 ], [ %4811, %4806 ], [ %4826, %4822 ], [ %4873, %4869 ], [ %4888, %4883 ], [ %4903, %4899 ], [ %4950, %4946 ], [ %4965, %4960 ], [ %4980, %4976 ], [ %5005, %5001 ], [ %5020, %5015 ], [ %5035, %5031 ], [ %5060, %5056 ], [ %5075, %5070 ], [ %5090, %5086 ], [ %5115, %5111 ], [ %5130, %5125 ], [ %5145, %5141 ], [ %5170, %5166 ], [ %5185, %5180 ], [ %5200, %5196 ], [ %5225, %5221 ], [ %5240, %5235 ], [ %5255, %5251 ], [ %5302, %5298 ], [ %5317, %5312 ], [ %5377, %5373 ], [ %5392, %5387 ], [ %5407, %5403 ], [ %5431, %5427 ], [ %5446, %5441 ], [ %5461, %5457 ], [ %5482, %5478 ], [ %5497, %5492 ], [ %5512, %5508 ], [ %5533, %5529 ], [ %5548, %5543 ], [ %5563, %5559 ], [ %5584, %5580 ], [ %5599, %5594 ], [ %5614, %5610 ], [ %5635, %5631 ], [ %5650, %5645 ], [ %5665, %5661 ], [ %5686, %5682 ], [ %5701, %5696 ], [ %5716, %5712 ], [ %5737, %5733 ], [ %5752, %5747 ], [ %5766, %5762 ], [ %5783, %5775 ], [ %5803, %5799 ], [ %5816, %lean_dec_ref.exit1387 ], [ %5833, %5825 ], [ %5852, %5848 ], [ %5865, %lean_dec_ref.exit1381 ], [ %5912, %5908 ], [ %5927, %5922 ], [ %5942, %5938 ], [ %5989, %5985 ], [ %6004, %5999 ], [ %6019, %6015 ], [ %6066, %6062 ], [ %6081, %6076 ], [ %6096, %6092 ], [ %6143, %6139 ], [ %6158, %6153 ], [ %6173, %6169 ], [ %6198, %6194 ], [ %6213, %6208 ], [ %6228, %6224 ], [ %6253, %6249 ], [ %6268, %6263 ], [ %6283, %6279 ], [ %6308, %6304 ], [ %6323, %6318 ], [ %6338, %6334 ], [ %6363, %6359 ], [ %6378, %6373 ], [ %6393, %6389 ], [ %6418, %6414 ], [ %6433, %6428 ], [ %6448, %6444 ], [ %6495, %6491 ], [ %6510, %6505 ], [ %6555, %6551 ], [ %6570, %6565 ], [ %6585, %6581 ], [ %6627, %6623 ], [ %6642, %6637 ], [ %6657, %6653 ]
   ret ptr %.0
 }
 

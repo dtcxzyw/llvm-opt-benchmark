@@ -3212,7 +3212,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
 
 229:                                              ; preds = %210
   %.sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sroa.015.0.copyload.i617.i.i = load i32, ptr %.sroa_idx5.i.i, align 4, !noalias !195
+  %.sroa.015.0.copyload.i6.i.i = load i32, ptr %.sroa_idx5.i.i, align 4, !noalias !195
   %.sroa.015.0.copyload.i4.i.i = load i32, ptr %212, align 8, !noalias !195
   %.sroa.7.8.insert.ext.i.i = zext i32 %.sroa.012.0.copyload.i2.i.i to i64
   %.sroa.7.12.insert.ext.i.i = zext i32 %.sroa.015.0.copyload.i4.i.i to i64
@@ -3224,7 +3224,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   %.sroa.541.i.sroa.0.0.copyload = load i32, ptr %29, align 4, !noalias !185
   %.sroa.541.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.sroa.541.i.sroa.5, ptr noundef nonnull align 4 dereferenceable(27) %.sroa.541.i.sroa.5.0..sroa_idx, i64 27, i1 false)
-  %.sroa.24.16.insert.ext.i = zext i32 %.sroa.015.0.copyload.i617.i.i to i64
+  %.sroa.24.16.insert.ext.i = zext i32 %.sroa.015.0.copyload.i6.i.i to i64
   %.sroa.24.20.insert.ext.i = zext i32 %133 to i64
   %.sroa.24.20.insert.shift.i = shl nuw i64 %.sroa.24.20.insert.ext.i, 32
   %.sroa.24.20.insert.insert.i = or disjoint i64 %.sroa.24.20.insert.shift.i, %.sroa.24.16.insert.ext.i

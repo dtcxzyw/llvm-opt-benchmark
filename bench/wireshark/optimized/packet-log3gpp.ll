@@ -226,8 +226,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_log3gpp() #0 {
-  %.b2 = load i1, ptr @proto_reg_handoff_log3gpp.init, align 1
-  br i1 %.b2, label %3, label %1
+  %.b = load i1, ptr @proto_reg_handoff_log3gpp.init, align 1
+  br i1 %.b, label %3, label %1
 
 1:                                                ; preds = %0
   %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str)
@@ -237,9 +237,9 @@ define hidden void @proto_reg_handoff_log3gpp() #0 {
 
 3:                                                ; preds = %1, %0
   %4 = load i32, ptr @lte_rrc_prot_version, align 4
-  switch i32 %4, label %update_dissector_name.exit92 [
+  switch i32 %4, label %update_dissector_name.exit91 [
     i32 1, label %.lr.ph.i.i
-    i32 0, label %.lr.ph.i.i93
+    i32 0, label %.lr.ph.i.i92
   ]
 
 .lr.ph.i.i:                                       ; preds = %3, %15
@@ -266,27 +266,27 @@ define hidden void @proto_reg_handoff_log3gpp() #0 {
   %.118.i.i = phi i64 [ %.01720.i.i, %13 ], [ %6, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %14, %13 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %16 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %16, label %.lr.ph.i.i, label %.lr.ph.i.i3.preheader, !llvm.loop !6
+  br i1 %16, label %.lr.ph.i.i, label %.lr.ph.i.i2.preheader, !llvm.loop !6
 
 bsearch.exit.i:                                   ; preds = %12
   %17 = getelementptr i8, ptr @dissector_lookup_table, i64 %7
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.lr.ph.i.i3.preheader, label %bsearch.exit.thread.sink.split.i
+  br i1 %.not.i, label %.lr.ph.i.i2.preheader, label %bsearch.exit.thread.sink.split.i
 
 bsearch.exit.thread.sink.split.i:                 ; preds = %bsearch.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @.str.3, ptr %19, align 8
-  br label %.lr.ph.i.i3.preheader
+  br label %.lr.ph.i.i2.preheader
 
-.lr.ph.i.i3.preheader:                            ; preds = %15, %bsearch.exit.i, %bsearch.exit.thread.sink.split.i
-  br label %.lr.ph.i.i3
+.lr.ph.i.i2.preheader:                            ; preds = %15, %bsearch.exit.i, %bsearch.exit.thread.sink.split.i
+  br label %.lr.ph.i.i2
 
-.lr.ph.i.i3:                                      ; preds = %.lr.ph.i.i3.preheader, %30
-  %.01621.i.i4 = phi i64 [ %.1.i.i8, %30 ], [ 0, %.lr.ph.i.i3.preheader ]
-  %.01720.i.i5 = phi i64 [ %.118.i.i7, %30 ], [ 67, %.lr.ph.i.i3.preheader ]
-  %20 = add i64 %.01720.i.i5, %.01621.i.i4
+.lr.ph.i.i2:                                      ; preds = %.lr.ph.i.i2.preheader, %30
+  %.01621.i.i3 = phi i64 [ %.1.i.i7, %30 ], [ 0, %.lr.ph.i.i2.preheader ]
+  %.01720.i.i4 = phi i64 [ %.118.i.i6, %30 ], [ 67, %.lr.ph.i.i2.preheader ]
+  %20 = add i64 %.01720.i.i4, %.01621.i.i3
   %21 = lshr i64 %20, 1
   %22 = mul i64 %21, 48
   %23 = getelementptr i8, ptr @dissector_lookup_table, i64 %22
@@ -295,39 +295,39 @@ bsearch.exit.thread.sink.split.i:                 ; preds = %bsearch.exit.i
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %30, label %27
 
-27:                                               ; preds = %.lr.ph.i.i3
-  %.not.i.i6 = icmp eq i32 %25, 0
-  br i1 %.not.i.i6, label %bsearch.exit.i9, label %28
+27:                                               ; preds = %.lr.ph.i.i2
+  %.not.i.i5 = icmp eq i32 %25, 0
+  br i1 %.not.i.i5, label %bsearch.exit.i8, label %28
 
 28:                                               ; preds = %27
   %29 = add nuw i64 %21, 1
   br label %30
 
-30:                                               ; preds = %28, %.lr.ph.i.i3
-  %.118.i.i7 = phi i64 [ %.01720.i.i5, %28 ], [ %21, %.lr.ph.i.i3 ]
-  %.1.i.i8 = phi i64 [ %29, %28 ], [ %.01621.i.i4, %.lr.ph.i.i3 ]
-  %31 = icmp ult i64 %.1.i.i8, %.118.i.i7
-  br i1 %31, label %.lr.ph.i.i3, label %.lr.ph.i.i13.preheader, !llvm.loop !6
+30:                                               ; preds = %28, %.lr.ph.i.i2
+  %.118.i.i6 = phi i64 [ %.01720.i.i4, %28 ], [ %21, %.lr.ph.i.i2 ]
+  %.1.i.i7 = phi i64 [ %29, %28 ], [ %.01621.i.i3, %.lr.ph.i.i2 ]
+  %31 = icmp ult i64 %.1.i.i7, %.118.i.i6
+  br i1 %31, label %.lr.ph.i.i2, label %.lr.ph.i.i12.preheader, !llvm.loop !6
 
-bsearch.exit.i9:                                  ; preds = %27
+bsearch.exit.i8:                                  ; preds = %27
   %32 = getelementptr i8, ptr @dissector_lookup_table, i64 %22
-  %.not.i10 = icmp eq ptr %32, null
-  br i1 %.not.i10, label %.lr.ph.i.i13.preheader, label %bsearch.exit.thread.sink.split.i11
+  %.not.i9 = icmp eq ptr %32, null
+  br i1 %.not.i9, label %.lr.ph.i.i12.preheader, label %bsearch.exit.thread.sink.split.i10
 
-bsearch.exit.thread.sink.split.i11:               ; preds = %bsearch.exit.i9
+bsearch.exit.thread.sink.split.i10:               ; preds = %bsearch.exit.i8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %33, align 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr @.str.3, ptr %34, align 16
-  br label %.lr.ph.i.i13.preheader
+  br label %.lr.ph.i.i12.preheader
 
-.lr.ph.i.i13.preheader:                           ; preds = %30, %bsearch.exit.i9, %bsearch.exit.thread.sink.split.i11
-  br label %.lr.ph.i.i13
+.lr.ph.i.i12.preheader:                           ; preds = %30, %bsearch.exit.i8, %bsearch.exit.thread.sink.split.i10
+  br label %.lr.ph.i.i12
 
-.lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13.preheader, %45
-  %.01621.i.i14 = phi i64 [ %.1.i.i18, %45 ], [ 0, %.lr.ph.i.i13.preheader ]
-  %.01720.i.i15 = phi i64 [ %.118.i.i17, %45 ], [ 67, %.lr.ph.i.i13.preheader ]
-  %35 = add i64 %.01720.i.i15, %.01621.i.i14
+.lr.ph.i.i12:                                     ; preds = %.lr.ph.i.i12.preheader, %45
+  %.01621.i.i13 = phi i64 [ %.1.i.i17, %45 ], [ 0, %.lr.ph.i.i12.preheader ]
+  %.01720.i.i14 = phi i64 [ %.118.i.i16, %45 ], [ 67, %.lr.ph.i.i12.preheader ]
+  %35 = add i64 %.01720.i.i14, %.01621.i.i13
   %36 = lshr i64 %35, 1
   %37 = mul i64 %36, 48
   %38 = getelementptr i8, ptr @dissector_lookup_table, i64 %37
@@ -336,39 +336,39 @@ bsearch.exit.thread.sink.split.i11:               ; preds = %bsearch.exit.i9
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %45, label %42
 
-42:                                               ; preds = %.lr.ph.i.i13
-  %.not.i.i16 = icmp eq i32 %40, 0
-  br i1 %.not.i.i16, label %bsearch.exit.i19, label %43
+42:                                               ; preds = %.lr.ph.i.i12
+  %.not.i.i15 = icmp eq i32 %40, 0
+  br i1 %.not.i.i15, label %bsearch.exit.i18, label %43
 
 43:                                               ; preds = %42
   %44 = add nuw i64 %36, 1
   br label %45
 
-45:                                               ; preds = %43, %.lr.ph.i.i13
-  %.118.i.i17 = phi i64 [ %.01720.i.i15, %43 ], [ %36, %.lr.ph.i.i13 ]
-  %.1.i.i18 = phi i64 [ %44, %43 ], [ %.01621.i.i14, %.lr.ph.i.i13 ]
-  %46 = icmp ult i64 %.1.i.i18, %.118.i.i17
-  br i1 %46, label %.lr.ph.i.i13, label %.lr.ph.i.i23.preheader, !llvm.loop !6
+45:                                               ; preds = %43, %.lr.ph.i.i12
+  %.118.i.i16 = phi i64 [ %.01720.i.i14, %43 ], [ %36, %.lr.ph.i.i12 ]
+  %.1.i.i17 = phi i64 [ %44, %43 ], [ %.01621.i.i13, %.lr.ph.i.i12 ]
+  %46 = icmp ult i64 %.1.i.i17, %.118.i.i16
+  br i1 %46, label %.lr.ph.i.i12, label %.lr.ph.i.i22.preheader, !llvm.loop !6
 
-bsearch.exit.i19:                                 ; preds = %42
+bsearch.exit.i18:                                 ; preds = %42
   %47 = getelementptr i8, ptr @dissector_lookup_table, i64 %37
-  %.not.i20 = icmp eq ptr %47, null
-  br i1 %.not.i20, label %.lr.ph.i.i23.preheader, label %bsearch.exit.thread.sink.split.i21
+  %.not.i19 = icmp eq ptr %47, null
+  br i1 %.not.i19, label %.lr.ph.i.i22.preheader, label %bsearch.exit.thread.sink.split.i20
 
-bsearch.exit.thread.sink.split.i21:               ; preds = %bsearch.exit.i19
+bsearch.exit.thread.sink.split.i20:               ; preds = %bsearch.exit.i18
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr @.str.5, ptr %49, align 8
-  br label %.lr.ph.i.i23.preheader
+  br label %.lr.ph.i.i22.preheader
 
-.lr.ph.i.i23.preheader:                           ; preds = %45, %bsearch.exit.i19, %bsearch.exit.thread.sink.split.i21
-  br label %.lr.ph.i.i23
+.lr.ph.i.i22.preheader:                           ; preds = %45, %bsearch.exit.i18, %bsearch.exit.thread.sink.split.i20
+  br label %.lr.ph.i.i22
 
-.lr.ph.i.i23:                                     ; preds = %.lr.ph.i.i23.preheader, %60
-  %.01621.i.i24 = phi i64 [ %.1.i.i28, %60 ], [ 0, %.lr.ph.i.i23.preheader ]
-  %.01720.i.i25 = phi i64 [ %.118.i.i27, %60 ], [ 67, %.lr.ph.i.i23.preheader ]
-  %50 = add i64 %.01720.i.i25, %.01621.i.i24
+.lr.ph.i.i22:                                     ; preds = %.lr.ph.i.i22.preheader, %60
+  %.01621.i.i23 = phi i64 [ %.1.i.i27, %60 ], [ 0, %.lr.ph.i.i22.preheader ]
+  %.01720.i.i24 = phi i64 [ %.118.i.i26, %60 ], [ 67, %.lr.ph.i.i22.preheader ]
+  %50 = add i64 %.01720.i.i24, %.01621.i.i23
   %51 = lshr i64 %50, 1
   %52 = mul i64 %51, 48
   %53 = getelementptr i8, ptr @dissector_lookup_table, i64 %52
@@ -377,39 +377,39 @@ bsearch.exit.thread.sink.split.i21:               ; preds = %bsearch.exit.i19
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %.lr.ph.i.i23
-  %.not.i.i26 = icmp eq i32 %55, 0
-  br i1 %.not.i.i26, label %bsearch.exit.i29, label %58
+57:                                               ; preds = %.lr.ph.i.i22
+  %.not.i.i25 = icmp eq i32 %55, 0
+  br i1 %.not.i.i25, label %bsearch.exit.i28, label %58
 
 58:                                               ; preds = %57
   %59 = add nuw i64 %51, 1
   br label %60
 
-60:                                               ; preds = %58, %.lr.ph.i.i23
-  %.118.i.i27 = phi i64 [ %.01720.i.i25, %58 ], [ %51, %.lr.ph.i.i23 ]
-  %.1.i.i28 = phi i64 [ %59, %58 ], [ %.01621.i.i24, %.lr.ph.i.i23 ]
-  %61 = icmp ult i64 %.1.i.i28, %.118.i.i27
-  br i1 %61, label %.lr.ph.i.i23, label %.lr.ph.i.i33.preheader, !llvm.loop !6
+60:                                               ; preds = %58, %.lr.ph.i.i22
+  %.118.i.i26 = phi i64 [ %.01720.i.i24, %58 ], [ %51, %.lr.ph.i.i22 ]
+  %.1.i.i27 = phi i64 [ %59, %58 ], [ %.01621.i.i23, %.lr.ph.i.i22 ]
+  %61 = icmp ult i64 %.1.i.i27, %.118.i.i26
+  br i1 %61, label %.lr.ph.i.i22, label %.lr.ph.i.i32.preheader, !llvm.loop !6
 
-bsearch.exit.i29:                                 ; preds = %57
+bsearch.exit.i28:                                 ; preds = %57
   %62 = getelementptr i8, ptr @dissector_lookup_table, i64 %52
-  %.not.i30 = icmp eq ptr %62, null
-  br i1 %.not.i30, label %.lr.ph.i.i33.preheader, label %bsearch.exit.thread.sink.split.i31
+  %.not.i29 = icmp eq ptr %62, null
+  br i1 %.not.i29, label %.lr.ph.i.i32.preheader, label %bsearch.exit.thread.sink.split.i30
 
-bsearch.exit.thread.sink.split.i31:               ; preds = %bsearch.exit.i29
+bsearch.exit.thread.sink.split.i30:               ; preds = %bsearch.exit.i28
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr null, ptr %63, align 16
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr @.str.5, ptr %64, align 16
-  br label %.lr.ph.i.i33.preheader
+  br label %.lr.ph.i.i32.preheader
 
-.lr.ph.i.i33.preheader:                           ; preds = %60, %bsearch.exit.i29, %bsearch.exit.thread.sink.split.i31
-  br label %.lr.ph.i.i33
+.lr.ph.i.i32.preheader:                           ; preds = %60, %bsearch.exit.i28, %bsearch.exit.thread.sink.split.i30
+  br label %.lr.ph.i.i32
 
-.lr.ph.i.i33:                                     ; preds = %.lr.ph.i.i33.preheader, %75
-  %.01621.i.i34 = phi i64 [ %.1.i.i38, %75 ], [ 0, %.lr.ph.i.i33.preheader ]
-  %.01720.i.i35 = phi i64 [ %.118.i.i37, %75 ], [ 67, %.lr.ph.i.i33.preheader ]
-  %65 = add i64 %.01720.i.i35, %.01621.i.i34
+.lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32.preheader, %75
+  %.01621.i.i33 = phi i64 [ %.1.i.i37, %75 ], [ 0, %.lr.ph.i.i32.preheader ]
+  %.01720.i.i34 = phi i64 [ %.118.i.i36, %75 ], [ 67, %.lr.ph.i.i32.preheader ]
+  %65 = add i64 %.01720.i.i34, %.01621.i.i33
   %66 = lshr i64 %65, 1
   %67 = mul i64 %66, 48
   %68 = getelementptr i8, ptr @dissector_lookup_table, i64 %67
@@ -418,39 +418,39 @@ bsearch.exit.thread.sink.split.i31:               ; preds = %bsearch.exit.i29
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %75, label %72
 
-72:                                               ; preds = %.lr.ph.i.i33
-  %.not.i.i36 = icmp eq i32 %70, 0
-  br i1 %.not.i.i36, label %bsearch.exit.i39, label %73
+72:                                               ; preds = %.lr.ph.i.i32
+  %.not.i.i35 = icmp eq i32 %70, 0
+  br i1 %.not.i.i35, label %bsearch.exit.i38, label %73
 
 73:                                               ; preds = %72
   %74 = add nuw i64 %66, 1
   br label %75
 
-75:                                               ; preds = %73, %.lr.ph.i.i33
-  %.118.i.i37 = phi i64 [ %.01720.i.i35, %73 ], [ %66, %.lr.ph.i.i33 ]
-  %.1.i.i38 = phi i64 [ %74, %73 ], [ %.01621.i.i34, %.lr.ph.i.i33 ]
-  %76 = icmp ult i64 %.1.i.i38, %.118.i.i37
-  br i1 %76, label %.lr.ph.i.i33, label %.lr.ph.i.i43.preheader, !llvm.loop !6
+75:                                               ; preds = %73, %.lr.ph.i.i32
+  %.118.i.i36 = phi i64 [ %.01720.i.i34, %73 ], [ %66, %.lr.ph.i.i32 ]
+  %.1.i.i37 = phi i64 [ %74, %73 ], [ %.01621.i.i33, %.lr.ph.i.i32 ]
+  %76 = icmp ult i64 %.1.i.i37, %.118.i.i36
+  br i1 %76, label %.lr.ph.i.i32, label %.lr.ph.i.i42.preheader, !llvm.loop !6
 
-bsearch.exit.i39:                                 ; preds = %72
+bsearch.exit.i38:                                 ; preds = %72
   %77 = getelementptr i8, ptr @dissector_lookup_table, i64 %67
-  %.not.i40 = icmp eq ptr %77, null
-  br i1 %.not.i40, label %.lr.ph.i.i43.preheader, label %bsearch.exit.thread.sink.split.i41
+  %.not.i39 = icmp eq ptr %77, null
+  br i1 %.not.i39, label %.lr.ph.i.i42.preheader, label %bsearch.exit.thread.sink.split.i40
 
-bsearch.exit.thread.sink.split.i41:               ; preds = %bsearch.exit.i39
+bsearch.exit.thread.sink.split.i40:               ; preds = %bsearch.exit.i38
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr @.str.7, ptr %79, align 8
-  br label %.lr.ph.i.i43.preheader
+  br label %.lr.ph.i.i42.preheader
 
-.lr.ph.i.i43.preheader:                           ; preds = %75, %bsearch.exit.i39, %bsearch.exit.thread.sink.split.i41
-  br label %.lr.ph.i.i43
+.lr.ph.i.i42.preheader:                           ; preds = %75, %bsearch.exit.i38, %bsearch.exit.thread.sink.split.i40
+  br label %.lr.ph.i.i42
 
-.lr.ph.i.i43:                                     ; preds = %.lr.ph.i.i43.preheader, %90
-  %.01621.i.i44 = phi i64 [ %.1.i.i48, %90 ], [ 0, %.lr.ph.i.i43.preheader ]
-  %.01720.i.i45 = phi i64 [ %.118.i.i47, %90 ], [ 67, %.lr.ph.i.i43.preheader ]
-  %80 = add i64 %.01720.i.i45, %.01621.i.i44
+.lr.ph.i.i42:                                     ; preds = %.lr.ph.i.i42.preheader, %90
+  %.01621.i.i43 = phi i64 [ %.1.i.i47, %90 ], [ 0, %.lr.ph.i.i42.preheader ]
+  %.01720.i.i44 = phi i64 [ %.118.i.i46, %90 ], [ 67, %.lr.ph.i.i42.preheader ]
+  %80 = add i64 %.01720.i.i44, %.01621.i.i43
   %81 = lshr i64 %80, 1
   %82 = mul i64 %81, 48
   %83 = getelementptr i8, ptr @dissector_lookup_table, i64 %82
@@ -459,39 +459,39 @@ bsearch.exit.thread.sink.split.i41:               ; preds = %bsearch.exit.i39
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %90, label %87
 
-87:                                               ; preds = %.lr.ph.i.i43
-  %.not.i.i46 = icmp eq i32 %85, 0
-  br i1 %.not.i.i46, label %bsearch.exit.i49, label %88
+87:                                               ; preds = %.lr.ph.i.i42
+  %.not.i.i45 = icmp eq i32 %85, 0
+  br i1 %.not.i.i45, label %bsearch.exit.i48, label %88
 
 88:                                               ; preds = %87
   %89 = add nuw i64 %81, 1
   br label %90
 
-90:                                               ; preds = %88, %.lr.ph.i.i43
-  %.118.i.i47 = phi i64 [ %.01720.i.i45, %88 ], [ %81, %.lr.ph.i.i43 ]
-  %.1.i.i48 = phi i64 [ %89, %88 ], [ %.01621.i.i44, %.lr.ph.i.i43 ]
-  %91 = icmp ult i64 %.1.i.i48, %.118.i.i47
-  br i1 %91, label %.lr.ph.i.i43, label %.lr.ph.i.i53.preheader, !llvm.loop !6
+90:                                               ; preds = %88, %.lr.ph.i.i42
+  %.118.i.i46 = phi i64 [ %.01720.i.i44, %88 ], [ %81, %.lr.ph.i.i42 ]
+  %.1.i.i47 = phi i64 [ %89, %88 ], [ %.01621.i.i43, %.lr.ph.i.i42 ]
+  %91 = icmp ult i64 %.1.i.i47, %.118.i.i46
+  br i1 %91, label %.lr.ph.i.i42, label %.lr.ph.i.i52.preheader, !llvm.loop !6
 
-bsearch.exit.i49:                                 ; preds = %87
+bsearch.exit.i48:                                 ; preds = %87
   %92 = getelementptr i8, ptr @dissector_lookup_table, i64 %82
-  %.not.i50 = icmp eq ptr %92, null
-  br i1 %.not.i50, label %.lr.ph.i.i53.preheader, label %bsearch.exit.thread.sink.split.i51
+  %.not.i49 = icmp eq ptr %92, null
+  br i1 %.not.i49, label %.lr.ph.i.i52.preheader, label %bsearch.exit.thread.sink.split.i50
 
-bsearch.exit.thread.sink.split.i51:               ; preds = %bsearch.exit.i49
+bsearch.exit.thread.sink.split.i50:               ; preds = %bsearch.exit.i48
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr null, ptr %93, align 16
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr @.str.8, ptr %94, align 16
-  br label %.lr.ph.i.i53.preheader
+  br label %.lr.ph.i.i52.preheader
 
-.lr.ph.i.i53.preheader:                           ; preds = %90, %bsearch.exit.i49, %bsearch.exit.thread.sink.split.i51
-  br label %.lr.ph.i.i53
+.lr.ph.i.i52.preheader:                           ; preds = %90, %bsearch.exit.i48, %bsearch.exit.thread.sink.split.i50
+  br label %.lr.ph.i.i52
 
-.lr.ph.i.i53:                                     ; preds = %.lr.ph.i.i53.preheader, %105
-  %.01621.i.i54 = phi i64 [ %.1.i.i58, %105 ], [ 0, %.lr.ph.i.i53.preheader ]
-  %.01720.i.i55 = phi i64 [ %.118.i.i57, %105 ], [ 67, %.lr.ph.i.i53.preheader ]
-  %95 = add i64 %.01720.i.i55, %.01621.i.i54
+.lr.ph.i.i52:                                     ; preds = %.lr.ph.i.i52.preheader, %105
+  %.01621.i.i53 = phi i64 [ %.1.i.i57, %105 ], [ 0, %.lr.ph.i.i52.preheader ]
+  %.01720.i.i54 = phi i64 [ %.118.i.i56, %105 ], [ 67, %.lr.ph.i.i52.preheader ]
+  %95 = add i64 %.01720.i.i54, %.01621.i.i53
   %96 = lshr i64 %95, 1
   %97 = mul i64 %96, 48
   %98 = getelementptr i8, ptr @dissector_lookup_table, i64 %97
@@ -500,39 +500,39 @@ bsearch.exit.thread.sink.split.i51:               ; preds = %bsearch.exit.i49
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %105, label %102
 
-102:                                              ; preds = %.lr.ph.i.i53
-  %.not.i.i56 = icmp eq i32 %100, 0
-  br i1 %.not.i.i56, label %bsearch.exit.i59, label %103
+102:                                              ; preds = %.lr.ph.i.i52
+  %.not.i.i55 = icmp eq i32 %100, 0
+  br i1 %.not.i.i55, label %bsearch.exit.i58, label %103
 
 103:                                              ; preds = %102
   %104 = add nuw i64 %96, 1
   br label %105
 
-105:                                              ; preds = %103, %.lr.ph.i.i53
-  %.118.i.i57 = phi i64 [ %.01720.i.i55, %103 ], [ %96, %.lr.ph.i.i53 ]
-  %.1.i.i58 = phi i64 [ %104, %103 ], [ %.01621.i.i54, %.lr.ph.i.i53 ]
-  %106 = icmp ult i64 %.1.i.i58, %.118.i.i57
-  br i1 %106, label %.lr.ph.i.i53, label %.lr.ph.i.i63.preheader, !llvm.loop !6
+105:                                              ; preds = %103, %.lr.ph.i.i52
+  %.118.i.i56 = phi i64 [ %.01720.i.i54, %103 ], [ %96, %.lr.ph.i.i52 ]
+  %.1.i.i57 = phi i64 [ %104, %103 ], [ %.01621.i.i53, %.lr.ph.i.i52 ]
+  %106 = icmp ult i64 %.1.i.i57, %.118.i.i56
+  br i1 %106, label %.lr.ph.i.i52, label %.lr.ph.i.i62.preheader, !llvm.loop !6
 
-bsearch.exit.i59:                                 ; preds = %102
+bsearch.exit.i58:                                 ; preds = %102
   %107 = getelementptr i8, ptr @dissector_lookup_table, i64 %97
-  %.not.i60 = icmp eq ptr %107, null
-  br i1 %.not.i60, label %.lr.ph.i.i63.preheader, label %bsearch.exit.thread.sink.split.i61
+  %.not.i59 = icmp eq ptr %107, null
+  br i1 %.not.i59, label %.lr.ph.i.i62.preheader, label %bsearch.exit.thread.sink.split.i60
 
-bsearch.exit.thread.sink.split.i61:               ; preds = %bsearch.exit.i59
+bsearch.exit.thread.sink.split.i60:               ; preds = %bsearch.exit.i58
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr @.str.10, ptr %109, align 8
-  br label %.lr.ph.i.i63.preheader
+  br label %.lr.ph.i.i62.preheader
 
-.lr.ph.i.i63.preheader:                           ; preds = %105, %bsearch.exit.i59, %bsearch.exit.thread.sink.split.i61
-  br label %.lr.ph.i.i63
+.lr.ph.i.i62.preheader:                           ; preds = %105, %bsearch.exit.i58, %bsearch.exit.thread.sink.split.i60
+  br label %.lr.ph.i.i62
 
-.lr.ph.i.i63:                                     ; preds = %.lr.ph.i.i63.preheader, %120
-  %.01621.i.i64 = phi i64 [ %.1.i.i68, %120 ], [ 0, %.lr.ph.i.i63.preheader ]
-  %.01720.i.i65 = phi i64 [ %.118.i.i67, %120 ], [ 67, %.lr.ph.i.i63.preheader ]
-  %110 = add i64 %.01720.i.i65, %.01621.i.i64
+.lr.ph.i.i62:                                     ; preds = %.lr.ph.i.i62.preheader, %120
+  %.01621.i.i63 = phi i64 [ %.1.i.i67, %120 ], [ 0, %.lr.ph.i.i62.preheader ]
+  %.01720.i.i64 = phi i64 [ %.118.i.i66, %120 ], [ 67, %.lr.ph.i.i62.preheader ]
+  %110 = add i64 %.01720.i.i64, %.01621.i.i63
   %111 = lshr i64 %110, 1
   %112 = mul i64 %111, 48
   %113 = getelementptr i8, ptr @dissector_lookup_table, i64 %112
@@ -541,39 +541,39 @@ bsearch.exit.thread.sink.split.i61:               ; preds = %bsearch.exit.i59
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %120, label %117
 
-117:                                              ; preds = %.lr.ph.i.i63
-  %.not.i.i66 = icmp eq i32 %115, 0
-  br i1 %.not.i.i66, label %bsearch.exit.i69, label %118
+117:                                              ; preds = %.lr.ph.i.i62
+  %.not.i.i65 = icmp eq i32 %115, 0
+  br i1 %.not.i.i65, label %bsearch.exit.i68, label %118
 
 118:                                              ; preds = %117
   %119 = add nuw i64 %111, 1
   br label %120
 
-120:                                              ; preds = %118, %.lr.ph.i.i63
-  %.118.i.i67 = phi i64 [ %.01720.i.i65, %118 ], [ %111, %.lr.ph.i.i63 ]
-  %.1.i.i68 = phi i64 [ %119, %118 ], [ %.01621.i.i64, %.lr.ph.i.i63 ]
-  %121 = icmp ult i64 %.1.i.i68, %.118.i.i67
-  br i1 %121, label %.lr.ph.i.i63, label %.lr.ph.i.i73.preheader, !llvm.loop !6
+120:                                              ; preds = %118, %.lr.ph.i.i62
+  %.118.i.i66 = phi i64 [ %.01720.i.i64, %118 ], [ %111, %.lr.ph.i.i62 ]
+  %.1.i.i67 = phi i64 [ %119, %118 ], [ %.01621.i.i63, %.lr.ph.i.i62 ]
+  %121 = icmp ult i64 %.1.i.i67, %.118.i.i66
+  br i1 %121, label %.lr.ph.i.i62, label %.lr.ph.i.i72.preheader, !llvm.loop !6
 
-bsearch.exit.i69:                                 ; preds = %117
+bsearch.exit.i68:                                 ; preds = %117
   %122 = getelementptr i8, ptr @dissector_lookup_table, i64 %112
-  %.not.i70 = icmp eq ptr %122, null
-  br i1 %.not.i70, label %.lr.ph.i.i73.preheader, label %bsearch.exit.thread.sink.split.i71
+  %.not.i69 = icmp eq ptr %122, null
+  br i1 %.not.i69, label %.lr.ph.i.i72.preheader, label %bsearch.exit.thread.sink.split.i70
 
-bsearch.exit.thread.sink.split.i71:               ; preds = %bsearch.exit.i69
+bsearch.exit.thread.sink.split.i70:               ; preds = %bsearch.exit.i68
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store ptr null, ptr %123, align 16
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr @.str.11, ptr %124, align 16
-  br label %.lr.ph.i.i73.preheader
+  br label %.lr.ph.i.i72.preheader
 
-.lr.ph.i.i73.preheader:                           ; preds = %120, %bsearch.exit.i69, %bsearch.exit.thread.sink.split.i71
-  br label %.lr.ph.i.i73
+.lr.ph.i.i72.preheader:                           ; preds = %120, %bsearch.exit.i68, %bsearch.exit.thread.sink.split.i70
+  br label %.lr.ph.i.i72
 
-.lr.ph.i.i73:                                     ; preds = %.lr.ph.i.i73.preheader, %135
-  %.01621.i.i74 = phi i64 [ %.1.i.i78, %135 ], [ 0, %.lr.ph.i.i73.preheader ]
-  %.01720.i.i75 = phi i64 [ %.118.i.i77, %135 ], [ 67, %.lr.ph.i.i73.preheader ]
-  %125 = add i64 %.01720.i.i75, %.01621.i.i74
+.lr.ph.i.i72:                                     ; preds = %.lr.ph.i.i72.preheader, %135
+  %.01621.i.i73 = phi i64 [ %.1.i.i77, %135 ], [ 0, %.lr.ph.i.i72.preheader ]
+  %.01720.i.i74 = phi i64 [ %.118.i.i76, %135 ], [ 67, %.lr.ph.i.i72.preheader ]
+  %125 = add i64 %.01720.i.i74, %.01621.i.i73
   %126 = lshr i64 %125, 1
   %127 = mul i64 %126, 48
   %128 = getelementptr i8, ptr @dissector_lookup_table, i64 %127
@@ -582,39 +582,39 @@ bsearch.exit.thread.sink.split.i71:               ; preds = %bsearch.exit.i69
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %135, label %132
 
-132:                                              ; preds = %.lr.ph.i.i73
-  %.not.i.i76 = icmp eq i32 %130, 0
-  br i1 %.not.i.i76, label %bsearch.exit.i79, label %133
+132:                                              ; preds = %.lr.ph.i.i72
+  %.not.i.i75 = icmp eq i32 %130, 0
+  br i1 %.not.i.i75, label %bsearch.exit.i78, label %133
 
 133:                                              ; preds = %132
   %134 = add nuw i64 %126, 1
   br label %135
 
-135:                                              ; preds = %133, %.lr.ph.i.i73
-  %.118.i.i77 = phi i64 [ %.01720.i.i75, %133 ], [ %126, %.lr.ph.i.i73 ]
-  %.1.i.i78 = phi i64 [ %134, %133 ], [ %.01621.i.i74, %.lr.ph.i.i73 ]
-  %136 = icmp ult i64 %.1.i.i78, %.118.i.i77
-  br i1 %136, label %.lr.ph.i.i73, label %.lr.ph.i.i83.preheader, !llvm.loop !6
+135:                                              ; preds = %133, %.lr.ph.i.i72
+  %.118.i.i76 = phi i64 [ %.01720.i.i74, %133 ], [ %126, %.lr.ph.i.i72 ]
+  %.1.i.i77 = phi i64 [ %134, %133 ], [ %.01621.i.i73, %.lr.ph.i.i72 ]
+  %136 = icmp ult i64 %.1.i.i77, %.118.i.i76
+  br i1 %136, label %.lr.ph.i.i72, label %.lr.ph.i.i82.preheader, !llvm.loop !6
 
-bsearch.exit.i79:                                 ; preds = %132
+bsearch.exit.i78:                                 ; preds = %132
   %137 = getelementptr i8, ptr @dissector_lookup_table, i64 %127
-  %.not.i80 = icmp eq ptr %137, null
-  br i1 %.not.i80, label %.lr.ph.i.i83.preheader, label %bsearch.exit.thread.sink.split.i81
+  %.not.i79 = icmp eq ptr %137, null
+  br i1 %.not.i79, label %.lr.ph.i.i82.preheader, label %bsearch.exit.thread.sink.split.i80
 
-bsearch.exit.thread.sink.split.i81:               ; preds = %bsearch.exit.i79
+bsearch.exit.thread.sink.split.i80:               ; preds = %bsearch.exit.i78
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr null, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr @.str.13, ptr %139, align 8
-  br label %.lr.ph.i.i83.preheader
+  br label %.lr.ph.i.i82.preheader
 
-.lr.ph.i.i83.preheader:                           ; preds = %135, %bsearch.exit.i79, %bsearch.exit.thread.sink.split.i81
-  br label %.lr.ph.i.i83
+.lr.ph.i.i82.preheader:                           ; preds = %135, %bsearch.exit.i78, %bsearch.exit.thread.sink.split.i80
+  br label %.lr.ph.i.i82
 
-.lr.ph.i.i83:                                     ; preds = %.lr.ph.i.i83.preheader, %150
-  %.01621.i.i84 = phi i64 [ %.1.i.i88, %150 ], [ 0, %.lr.ph.i.i83.preheader ]
-  %.01720.i.i85 = phi i64 [ %.118.i.i87, %150 ], [ 67, %.lr.ph.i.i83.preheader ]
-  %140 = add i64 %.01720.i.i85, %.01621.i.i84
+.lr.ph.i.i82:                                     ; preds = %.lr.ph.i.i82.preheader, %150
+  %.01621.i.i83 = phi i64 [ %.1.i.i87, %150 ], [ 0, %.lr.ph.i.i82.preheader ]
+  %.01720.i.i84 = phi i64 [ %.118.i.i86, %150 ], [ 67, %.lr.ph.i.i82.preheader ]
+  %140 = add i64 %.01720.i.i84, %.01621.i.i83
   %141 = lshr i64 %140, 1
   %142 = mul i64 %141, 48
   %143 = getelementptr i8, ptr @dissector_lookup_table, i64 %142
@@ -623,29 +623,29 @@ bsearch.exit.thread.sink.split.i81:               ; preds = %bsearch.exit.i79
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %150, label %147
 
-147:                                              ; preds = %.lr.ph.i.i83
-  %.not.i.i86 = icmp eq i32 %145, 0
-  br i1 %.not.i.i86, label %bsearch.exit.i89, label %148
+147:                                              ; preds = %.lr.ph.i.i82
+  %.not.i.i85 = icmp eq i32 %145, 0
+  br i1 %.not.i.i85, label %bsearch.exit.i88, label %148
 
 148:                                              ; preds = %147
   %149 = add nuw i64 %141, 1
   br label %150
 
-150:                                              ; preds = %148, %.lr.ph.i.i83
-  %.118.i.i87 = phi i64 [ %.01720.i.i85, %148 ], [ %141, %.lr.ph.i.i83 ]
-  %.1.i.i88 = phi i64 [ %149, %148 ], [ %.01621.i.i84, %.lr.ph.i.i83 ]
-  %151 = icmp ult i64 %.1.i.i88, %.118.i.i87
-  br i1 %151, label %.lr.ph.i.i83, label %update_dissector_name.exit92, !llvm.loop !6
+150:                                              ; preds = %148, %.lr.ph.i.i82
+  %.118.i.i86 = phi i64 [ %.01720.i.i84, %148 ], [ %141, %.lr.ph.i.i82 ]
+  %.1.i.i87 = phi i64 [ %149, %148 ], [ %.01621.i.i83, %.lr.ph.i.i82 ]
+  %151 = icmp ult i64 %.1.i.i87, %.118.i.i86
+  br i1 %151, label %.lr.ph.i.i82, label %update_dissector_name.exit91, !llvm.loop !6
 
-bsearch.exit.i89:                                 ; preds = %147
+bsearch.exit.i88:                                 ; preds = %147
   %152 = getelementptr i8, ptr @dissector_lookup_table, i64 %142
-  %.not.i90 = icmp eq ptr %152, null
-  br i1 %.not.i90, label %update_dissector_name.exit92, label %update_dissector_name.exit92.sink.split
+  %.not.i89 = icmp eq ptr %152, null
+  br i1 %.not.i89, label %update_dissector_name.exit91, label %update_dissector_name.exit91.sink.split
 
-.lr.ph.i.i93:                                     ; preds = %3, %163
-  %.01621.i.i94 = phi i64 [ %.1.i.i98, %163 ], [ 0, %3 ]
-  %.01720.i.i95 = phi i64 [ %.118.i.i97, %163 ], [ 67, %3 ]
-  %153 = add i64 %.01720.i.i95, %.01621.i.i94
+.lr.ph.i.i92:                                     ; preds = %3, %163
+  %.01621.i.i93 = phi i64 [ %.1.i.i97, %163 ], [ 0, %3 ]
+  %.01720.i.i94 = phi i64 [ %.118.i.i96, %163 ], [ 67, %3 ]
+  %153 = add i64 %.01720.i.i94, %.01621.i.i93
   %154 = lshr i64 %153, 1
   %155 = mul i64 %154, 48
   %156 = getelementptr i8, ptr @dissector_lookup_table, i64 %155
@@ -654,39 +654,39 @@ bsearch.exit.i89:                                 ; preds = %147
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %163, label %160
 
-160:                                              ; preds = %.lr.ph.i.i93
-  %.not.i.i96 = icmp eq i32 %158, 0
-  br i1 %.not.i.i96, label %bsearch.exit.i99, label %161
+160:                                              ; preds = %.lr.ph.i.i92
+  %.not.i.i95 = icmp eq i32 %158, 0
+  br i1 %.not.i.i95, label %bsearch.exit.i98, label %161
 
 161:                                              ; preds = %160
   %162 = add nuw i64 %154, 1
   br label %163
 
-163:                                              ; preds = %161, %.lr.ph.i.i93
-  %.118.i.i97 = phi i64 [ %.01720.i.i95, %161 ], [ %154, %.lr.ph.i.i93 ]
-  %.1.i.i98 = phi i64 [ %162, %161 ], [ %.01621.i.i94, %.lr.ph.i.i93 ]
-  %164 = icmp ult i64 %.1.i.i98, %.118.i.i97
-  br i1 %164, label %.lr.ph.i.i93, label %.lr.ph.i.i103.preheader, !llvm.loop !6
+163:                                              ; preds = %161, %.lr.ph.i.i92
+  %.118.i.i96 = phi i64 [ %.01720.i.i94, %161 ], [ %154, %.lr.ph.i.i92 ]
+  %.1.i.i97 = phi i64 [ %162, %161 ], [ %.01621.i.i93, %.lr.ph.i.i92 ]
+  %164 = icmp ult i64 %.1.i.i97, %.118.i.i96
+  br i1 %164, label %.lr.ph.i.i92, label %.lr.ph.i.i102.preheader, !llvm.loop !6
 
-bsearch.exit.i99:                                 ; preds = %160
+bsearch.exit.i98:                                 ; preds = %160
   %165 = getelementptr i8, ptr @dissector_lookup_table, i64 %155
-  %.not.i100 = icmp eq ptr %165, null
-  br i1 %.not.i100, label %.lr.ph.i.i103.preheader, label %bsearch.exit.thread.sink.split.i101
+  %.not.i99 = icmp eq ptr %165, null
+  br i1 %.not.i99, label %.lr.ph.i.i102.preheader, label %bsearch.exit.thread.sink.split.i100
 
-bsearch.exit.thread.sink.split.i101:              ; preds = %bsearch.exit.i99
+bsearch.exit.thread.sink.split.i100:              ; preds = %bsearch.exit.i98
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr @.str.14, ptr %167, align 8
-  br label %.lr.ph.i.i103.preheader
+  br label %.lr.ph.i.i102.preheader
 
-.lr.ph.i.i103.preheader:                          ; preds = %163, %bsearch.exit.i99, %bsearch.exit.thread.sink.split.i101
-  br label %.lr.ph.i.i103
+.lr.ph.i.i102.preheader:                          ; preds = %163, %bsearch.exit.i98, %bsearch.exit.thread.sink.split.i100
+  br label %.lr.ph.i.i102
 
-.lr.ph.i.i103:                                    ; preds = %.lr.ph.i.i103.preheader, %178
-  %.01621.i.i104 = phi i64 [ %.1.i.i108, %178 ], [ 0, %.lr.ph.i.i103.preheader ]
-  %.01720.i.i105 = phi i64 [ %.118.i.i107, %178 ], [ 67, %.lr.ph.i.i103.preheader ]
-  %168 = add i64 %.01720.i.i105, %.01621.i.i104
+.lr.ph.i.i102:                                    ; preds = %.lr.ph.i.i102.preheader, %178
+  %.01621.i.i103 = phi i64 [ %.1.i.i107, %178 ], [ 0, %.lr.ph.i.i102.preheader ]
+  %.01720.i.i104 = phi i64 [ %.118.i.i106, %178 ], [ 67, %.lr.ph.i.i102.preheader ]
+  %168 = add i64 %.01720.i.i104, %.01621.i.i103
   %169 = lshr i64 %168, 1
   %170 = mul i64 %169, 48
   %171 = getelementptr i8, ptr @dissector_lookup_table, i64 %170
@@ -695,39 +695,39 @@ bsearch.exit.thread.sink.split.i101:              ; preds = %bsearch.exit.i99
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %178, label %175
 
-175:                                              ; preds = %.lr.ph.i.i103
-  %.not.i.i106 = icmp eq i32 %173, 0
-  br i1 %.not.i.i106, label %bsearch.exit.i109, label %176
+175:                                              ; preds = %.lr.ph.i.i102
+  %.not.i.i105 = icmp eq i32 %173, 0
+  br i1 %.not.i.i105, label %bsearch.exit.i108, label %176
 
 176:                                              ; preds = %175
   %177 = add nuw i64 %169, 1
   br label %178
 
-178:                                              ; preds = %176, %.lr.ph.i.i103
-  %.118.i.i107 = phi i64 [ %.01720.i.i105, %176 ], [ %169, %.lr.ph.i.i103 ]
-  %.1.i.i108 = phi i64 [ %177, %176 ], [ %.01621.i.i104, %.lr.ph.i.i103 ]
-  %179 = icmp ult i64 %.1.i.i108, %.118.i.i107
-  br i1 %179, label %.lr.ph.i.i103, label %.lr.ph.i.i113.preheader, !llvm.loop !6
+178:                                              ; preds = %176, %.lr.ph.i.i102
+  %.118.i.i106 = phi i64 [ %.01720.i.i104, %176 ], [ %169, %.lr.ph.i.i102 ]
+  %.1.i.i107 = phi i64 [ %177, %176 ], [ %.01621.i.i103, %.lr.ph.i.i102 ]
+  %179 = icmp ult i64 %.1.i.i107, %.118.i.i106
+  br i1 %179, label %.lr.ph.i.i102, label %.lr.ph.i.i112.preheader, !llvm.loop !6
 
-bsearch.exit.i109:                                ; preds = %175
+bsearch.exit.i108:                                ; preds = %175
   %180 = getelementptr i8, ptr @dissector_lookup_table, i64 %170
-  %.not.i110 = icmp eq ptr %180, null
-  br i1 %.not.i110, label %.lr.ph.i.i113.preheader, label %bsearch.exit.thread.sink.split.i111
+  %.not.i109 = icmp eq ptr %180, null
+  br i1 %.not.i109, label %.lr.ph.i.i112.preheader, label %bsearch.exit.thread.sink.split.i110
 
-bsearch.exit.thread.sink.split.i111:              ; preds = %bsearch.exit.i109
+bsearch.exit.thread.sink.split.i110:              ; preds = %bsearch.exit.i108
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
   store ptr null, ptr %181, align 16
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store ptr @.str.14, ptr %182, align 16
-  br label %.lr.ph.i.i113.preheader
+  br label %.lr.ph.i.i112.preheader
 
-.lr.ph.i.i113.preheader:                          ; preds = %178, %bsearch.exit.i109, %bsearch.exit.thread.sink.split.i111
-  br label %.lr.ph.i.i113
+.lr.ph.i.i112.preheader:                          ; preds = %178, %bsearch.exit.i108, %bsearch.exit.thread.sink.split.i110
+  br label %.lr.ph.i.i112
 
-.lr.ph.i.i113:                                    ; preds = %.lr.ph.i.i113.preheader, %193
-  %.01621.i.i114 = phi i64 [ %.1.i.i118, %193 ], [ 0, %.lr.ph.i.i113.preheader ]
-  %.01720.i.i115 = phi i64 [ %.118.i.i117, %193 ], [ 67, %.lr.ph.i.i113.preheader ]
-  %183 = add i64 %.01720.i.i115, %.01621.i.i114
+.lr.ph.i.i112:                                    ; preds = %.lr.ph.i.i112.preheader, %193
+  %.01621.i.i113 = phi i64 [ %.1.i.i117, %193 ], [ 0, %.lr.ph.i.i112.preheader ]
+  %.01720.i.i114 = phi i64 [ %.118.i.i116, %193 ], [ 67, %.lr.ph.i.i112.preheader ]
+  %183 = add i64 %.01720.i.i114, %.01621.i.i113
   %184 = lshr i64 %183, 1
   %185 = mul i64 %184, 48
   %186 = getelementptr i8, ptr @dissector_lookup_table, i64 %185
@@ -736,39 +736,39 @@ bsearch.exit.thread.sink.split.i111:              ; preds = %bsearch.exit.i109
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %193, label %190
 
-190:                                              ; preds = %.lr.ph.i.i113
-  %.not.i.i116 = icmp eq i32 %188, 0
-  br i1 %.not.i.i116, label %bsearch.exit.i119, label %191
+190:                                              ; preds = %.lr.ph.i.i112
+  %.not.i.i115 = icmp eq i32 %188, 0
+  br i1 %.not.i.i115, label %bsearch.exit.i118, label %191
 
 191:                                              ; preds = %190
   %192 = add nuw i64 %184, 1
   br label %193
 
-193:                                              ; preds = %191, %.lr.ph.i.i113
-  %.118.i.i117 = phi i64 [ %.01720.i.i115, %191 ], [ %184, %.lr.ph.i.i113 ]
-  %.1.i.i118 = phi i64 [ %192, %191 ], [ %.01621.i.i114, %.lr.ph.i.i113 ]
-  %194 = icmp ult i64 %.1.i.i118, %.118.i.i117
-  br i1 %194, label %.lr.ph.i.i113, label %.lr.ph.i.i123.preheader, !llvm.loop !6
+193:                                              ; preds = %191, %.lr.ph.i.i112
+  %.118.i.i116 = phi i64 [ %.01720.i.i114, %191 ], [ %184, %.lr.ph.i.i112 ]
+  %.1.i.i117 = phi i64 [ %192, %191 ], [ %.01621.i.i113, %.lr.ph.i.i112 ]
+  %194 = icmp ult i64 %.1.i.i117, %.118.i.i116
+  br i1 %194, label %.lr.ph.i.i112, label %.lr.ph.i.i122.preheader, !llvm.loop !6
 
-bsearch.exit.i119:                                ; preds = %190
+bsearch.exit.i118:                                ; preds = %190
   %195 = getelementptr i8, ptr @dissector_lookup_table, i64 %185
-  %.not.i120 = icmp eq ptr %195, null
-  br i1 %.not.i120, label %.lr.ph.i.i123.preheader, label %bsearch.exit.thread.sink.split.i121
+  %.not.i119 = icmp eq ptr %195, null
+  br i1 %.not.i119, label %.lr.ph.i.i122.preheader, label %bsearch.exit.thread.sink.split.i120
 
-bsearch.exit.thread.sink.split.i121:              ; preds = %bsearch.exit.i119
+bsearch.exit.thread.sink.split.i120:              ; preds = %bsearch.exit.i118
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store ptr null, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr @.str.15, ptr %197, align 8
-  br label %.lr.ph.i.i123.preheader
+  br label %.lr.ph.i.i122.preheader
 
-.lr.ph.i.i123.preheader:                          ; preds = %193, %bsearch.exit.i119, %bsearch.exit.thread.sink.split.i121
-  br label %.lr.ph.i.i123
+.lr.ph.i.i122.preheader:                          ; preds = %193, %bsearch.exit.i118, %bsearch.exit.thread.sink.split.i120
+  br label %.lr.ph.i.i122
 
-.lr.ph.i.i123:                                    ; preds = %.lr.ph.i.i123.preheader, %208
-  %.01621.i.i124 = phi i64 [ %.1.i.i128, %208 ], [ 0, %.lr.ph.i.i123.preheader ]
-  %.01720.i.i125 = phi i64 [ %.118.i.i127, %208 ], [ 67, %.lr.ph.i.i123.preheader ]
-  %198 = add i64 %.01720.i.i125, %.01621.i.i124
+.lr.ph.i.i122:                                    ; preds = %.lr.ph.i.i122.preheader, %208
+  %.01621.i.i123 = phi i64 [ %.1.i.i127, %208 ], [ 0, %.lr.ph.i.i122.preheader ]
+  %.01720.i.i124 = phi i64 [ %.118.i.i126, %208 ], [ 67, %.lr.ph.i.i122.preheader ]
+  %198 = add i64 %.01720.i.i124, %.01621.i.i123
   %199 = lshr i64 %198, 1
   %200 = mul i64 %199, 48
   %201 = getelementptr i8, ptr @dissector_lookup_table, i64 %200
@@ -777,39 +777,39 @@ bsearch.exit.thread.sink.split.i121:              ; preds = %bsearch.exit.i119
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %208, label %205
 
-205:                                              ; preds = %.lr.ph.i.i123
-  %.not.i.i126 = icmp eq i32 %203, 0
-  br i1 %.not.i.i126, label %bsearch.exit.i129, label %206
+205:                                              ; preds = %.lr.ph.i.i122
+  %.not.i.i125 = icmp eq i32 %203, 0
+  br i1 %.not.i.i125, label %bsearch.exit.i128, label %206
 
 206:                                              ; preds = %205
   %207 = add nuw i64 %199, 1
   br label %208
 
-208:                                              ; preds = %206, %.lr.ph.i.i123
-  %.118.i.i127 = phi i64 [ %.01720.i.i125, %206 ], [ %199, %.lr.ph.i.i123 ]
-  %.1.i.i128 = phi i64 [ %207, %206 ], [ %.01621.i.i124, %.lr.ph.i.i123 ]
-  %209 = icmp ult i64 %.1.i.i128, %.118.i.i127
-  br i1 %209, label %.lr.ph.i.i123, label %.lr.ph.i.i133.preheader, !llvm.loop !6
+208:                                              ; preds = %206, %.lr.ph.i.i122
+  %.118.i.i126 = phi i64 [ %.01720.i.i124, %206 ], [ %199, %.lr.ph.i.i122 ]
+  %.1.i.i127 = phi i64 [ %207, %206 ], [ %.01621.i.i123, %.lr.ph.i.i122 ]
+  %209 = icmp ult i64 %.1.i.i127, %.118.i.i126
+  br i1 %209, label %.lr.ph.i.i122, label %.lr.ph.i.i132.preheader, !llvm.loop !6
 
-bsearch.exit.i129:                                ; preds = %205
+bsearch.exit.i128:                                ; preds = %205
   %210 = getelementptr i8, ptr @dissector_lookup_table, i64 %200
-  %.not.i130 = icmp eq ptr %210, null
-  br i1 %.not.i130, label %.lr.ph.i.i133.preheader, label %bsearch.exit.thread.sink.split.i131
+  %.not.i129 = icmp eq ptr %210, null
+  br i1 %.not.i129, label %.lr.ph.i.i132.preheader, label %bsearch.exit.thread.sink.split.i130
 
-bsearch.exit.thread.sink.split.i131:              ; preds = %bsearch.exit.i129
+bsearch.exit.thread.sink.split.i130:              ; preds = %bsearch.exit.i128
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 32
   store ptr null, ptr %211, align 16
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store ptr @.str.15, ptr %212, align 16
-  br label %.lr.ph.i.i133.preheader
+  br label %.lr.ph.i.i132.preheader
 
-.lr.ph.i.i133.preheader:                          ; preds = %208, %bsearch.exit.i129, %bsearch.exit.thread.sink.split.i131
-  br label %.lr.ph.i.i133
+.lr.ph.i.i132.preheader:                          ; preds = %208, %bsearch.exit.i128, %bsearch.exit.thread.sink.split.i130
+  br label %.lr.ph.i.i132
 
-.lr.ph.i.i133:                                    ; preds = %.lr.ph.i.i133.preheader, %223
-  %.01621.i.i134 = phi i64 [ %.1.i.i138, %223 ], [ 0, %.lr.ph.i.i133.preheader ]
-  %.01720.i.i135 = phi i64 [ %.118.i.i137, %223 ], [ 67, %.lr.ph.i.i133.preheader ]
-  %213 = add i64 %.01720.i.i135, %.01621.i.i134
+.lr.ph.i.i132:                                    ; preds = %.lr.ph.i.i132.preheader, %223
+  %.01621.i.i133 = phi i64 [ %.1.i.i137, %223 ], [ 0, %.lr.ph.i.i132.preheader ]
+  %.01720.i.i134 = phi i64 [ %.118.i.i136, %223 ], [ 67, %.lr.ph.i.i132.preheader ]
+  %213 = add i64 %.01720.i.i134, %.01621.i.i133
   %214 = lshr i64 %213, 1
   %215 = mul i64 %214, 48
   %216 = getelementptr i8, ptr @dissector_lookup_table, i64 %215
@@ -818,39 +818,39 @@ bsearch.exit.thread.sink.split.i131:              ; preds = %bsearch.exit.i129
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %223, label %220
 
-220:                                              ; preds = %.lr.ph.i.i133
-  %.not.i.i136 = icmp eq i32 %218, 0
-  br i1 %.not.i.i136, label %bsearch.exit.i139, label %221
+220:                                              ; preds = %.lr.ph.i.i132
+  %.not.i.i135 = icmp eq i32 %218, 0
+  br i1 %.not.i.i135, label %bsearch.exit.i138, label %221
 
 221:                                              ; preds = %220
   %222 = add nuw i64 %214, 1
   br label %223
 
-223:                                              ; preds = %221, %.lr.ph.i.i133
-  %.118.i.i137 = phi i64 [ %.01720.i.i135, %221 ], [ %214, %.lr.ph.i.i133 ]
-  %.1.i.i138 = phi i64 [ %222, %221 ], [ %.01621.i.i134, %.lr.ph.i.i133 ]
-  %224 = icmp ult i64 %.1.i.i138, %.118.i.i137
-  br i1 %224, label %.lr.ph.i.i133, label %.lr.ph.i.i143.preheader, !llvm.loop !6
+223:                                              ; preds = %221, %.lr.ph.i.i132
+  %.118.i.i136 = phi i64 [ %.01720.i.i134, %221 ], [ %214, %.lr.ph.i.i132 ]
+  %.1.i.i137 = phi i64 [ %222, %221 ], [ %.01621.i.i133, %.lr.ph.i.i132 ]
+  %224 = icmp ult i64 %.1.i.i137, %.118.i.i136
+  br i1 %224, label %.lr.ph.i.i132, label %.lr.ph.i.i142.preheader, !llvm.loop !6
 
-bsearch.exit.i139:                                ; preds = %220
+bsearch.exit.i138:                                ; preds = %220
   %225 = getelementptr i8, ptr @dissector_lookup_table, i64 %215
-  %.not.i140 = icmp eq ptr %225, null
-  br i1 %.not.i140, label %.lr.ph.i.i143.preheader, label %bsearch.exit.thread.sink.split.i141
+  %.not.i139 = icmp eq ptr %225, null
+  br i1 %.not.i139, label %.lr.ph.i.i142.preheader, label %bsearch.exit.thread.sink.split.i140
 
-bsearch.exit.thread.sink.split.i141:              ; preds = %bsearch.exit.i139
+bsearch.exit.thread.sink.split.i140:              ; preds = %bsearch.exit.i138
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr null, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr @.str.16, ptr %227, align 8
-  br label %.lr.ph.i.i143.preheader
+  br label %.lr.ph.i.i142.preheader
 
-.lr.ph.i.i143.preheader:                          ; preds = %223, %bsearch.exit.i139, %bsearch.exit.thread.sink.split.i141
-  br label %.lr.ph.i.i143
+.lr.ph.i.i142.preheader:                          ; preds = %223, %bsearch.exit.i138, %bsearch.exit.thread.sink.split.i140
+  br label %.lr.ph.i.i142
 
-.lr.ph.i.i143:                                    ; preds = %.lr.ph.i.i143.preheader, %238
-  %.01621.i.i144 = phi i64 [ %.1.i.i148, %238 ], [ 0, %.lr.ph.i.i143.preheader ]
-  %.01720.i.i145 = phi i64 [ %.118.i.i147, %238 ], [ 67, %.lr.ph.i.i143.preheader ]
-  %228 = add i64 %.01720.i.i145, %.01621.i.i144
+.lr.ph.i.i142:                                    ; preds = %.lr.ph.i.i142.preheader, %238
+  %.01621.i.i143 = phi i64 [ %.1.i.i147, %238 ], [ 0, %.lr.ph.i.i142.preheader ]
+  %.01720.i.i144 = phi i64 [ %.118.i.i146, %238 ], [ 67, %.lr.ph.i.i142.preheader ]
+  %228 = add i64 %.01720.i.i144, %.01621.i.i143
   %229 = lshr i64 %228, 1
   %230 = mul i64 %229, 48
   %231 = getelementptr i8, ptr @dissector_lookup_table, i64 %230
@@ -859,39 +859,39 @@ bsearch.exit.thread.sink.split.i141:              ; preds = %bsearch.exit.i139
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %238, label %235
 
-235:                                              ; preds = %.lr.ph.i.i143
-  %.not.i.i146 = icmp eq i32 %233, 0
-  br i1 %.not.i.i146, label %bsearch.exit.i149, label %236
+235:                                              ; preds = %.lr.ph.i.i142
+  %.not.i.i145 = icmp eq i32 %233, 0
+  br i1 %.not.i.i145, label %bsearch.exit.i148, label %236
 
 236:                                              ; preds = %235
   %237 = add nuw i64 %229, 1
   br label %238
 
-238:                                              ; preds = %236, %.lr.ph.i.i143
-  %.118.i.i147 = phi i64 [ %.01720.i.i145, %236 ], [ %229, %.lr.ph.i.i143 ]
-  %.1.i.i148 = phi i64 [ %237, %236 ], [ %.01621.i.i144, %.lr.ph.i.i143 ]
-  %239 = icmp ult i64 %.1.i.i148, %.118.i.i147
-  br i1 %239, label %.lr.ph.i.i143, label %.lr.ph.i.i153.preheader, !llvm.loop !6
+238:                                              ; preds = %236, %.lr.ph.i.i142
+  %.118.i.i146 = phi i64 [ %.01720.i.i144, %236 ], [ %229, %.lr.ph.i.i142 ]
+  %.1.i.i147 = phi i64 [ %237, %236 ], [ %.01621.i.i143, %.lr.ph.i.i142 ]
+  %239 = icmp ult i64 %.1.i.i147, %.118.i.i146
+  br i1 %239, label %.lr.ph.i.i142, label %.lr.ph.i.i152.preheader, !llvm.loop !6
 
-bsearch.exit.i149:                                ; preds = %235
+bsearch.exit.i148:                                ; preds = %235
   %240 = getelementptr i8, ptr @dissector_lookup_table, i64 %230
-  %.not.i150 = icmp eq ptr %240, null
-  br i1 %.not.i150, label %.lr.ph.i.i153.preheader, label %bsearch.exit.thread.sink.split.i151
+  %.not.i149 = icmp eq ptr %240, null
+  br i1 %.not.i149, label %.lr.ph.i.i152.preheader, label %bsearch.exit.thread.sink.split.i150
 
-bsearch.exit.thread.sink.split.i151:              ; preds = %bsearch.exit.i149
+bsearch.exit.thread.sink.split.i150:              ; preds = %bsearch.exit.i148
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 32
   store ptr null, ptr %241, align 16
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store ptr @.str.17, ptr %242, align 16
-  br label %.lr.ph.i.i153.preheader
+  br label %.lr.ph.i.i152.preheader
 
-.lr.ph.i.i153.preheader:                          ; preds = %238, %bsearch.exit.i149, %bsearch.exit.thread.sink.split.i151
-  br label %.lr.ph.i.i153
+.lr.ph.i.i152.preheader:                          ; preds = %238, %bsearch.exit.i148, %bsearch.exit.thread.sink.split.i150
+  br label %.lr.ph.i.i152
 
-.lr.ph.i.i153:                                    ; preds = %.lr.ph.i.i153.preheader, %253
-  %.01621.i.i154 = phi i64 [ %.1.i.i158, %253 ], [ 0, %.lr.ph.i.i153.preheader ]
-  %.01720.i.i155 = phi i64 [ %.118.i.i157, %253 ], [ 67, %.lr.ph.i.i153.preheader ]
-  %243 = add i64 %.01720.i.i155, %.01621.i.i154
+.lr.ph.i.i152:                                    ; preds = %.lr.ph.i.i152.preheader, %253
+  %.01621.i.i153 = phi i64 [ %.1.i.i157, %253 ], [ 0, %.lr.ph.i.i152.preheader ]
+  %.01720.i.i154 = phi i64 [ %.118.i.i156, %253 ], [ 67, %.lr.ph.i.i152.preheader ]
+  %243 = add i64 %.01720.i.i154, %.01621.i.i153
   %244 = lshr i64 %243, 1
   %245 = mul i64 %244, 48
   %246 = getelementptr i8, ptr @dissector_lookup_table, i64 %245
@@ -900,39 +900,39 @@ bsearch.exit.thread.sink.split.i151:              ; preds = %bsearch.exit.i149
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %253, label %250
 
-250:                                              ; preds = %.lr.ph.i.i153
-  %.not.i.i156 = icmp eq i32 %248, 0
-  br i1 %.not.i.i156, label %bsearch.exit.i159, label %251
+250:                                              ; preds = %.lr.ph.i.i152
+  %.not.i.i155 = icmp eq i32 %248, 0
+  br i1 %.not.i.i155, label %bsearch.exit.i158, label %251
 
 251:                                              ; preds = %250
   %252 = add nuw i64 %244, 1
   br label %253
 
-253:                                              ; preds = %251, %.lr.ph.i.i153
-  %.118.i.i157 = phi i64 [ %.01720.i.i155, %251 ], [ %244, %.lr.ph.i.i153 ]
-  %.1.i.i158 = phi i64 [ %252, %251 ], [ %.01621.i.i154, %.lr.ph.i.i153 ]
-  %254 = icmp ult i64 %.1.i.i158, %.118.i.i157
-  br i1 %254, label %.lr.ph.i.i153, label %.lr.ph.i.i163.preheader, !llvm.loop !6
+253:                                              ; preds = %251, %.lr.ph.i.i152
+  %.118.i.i156 = phi i64 [ %.01720.i.i154, %251 ], [ %244, %.lr.ph.i.i152 ]
+  %.1.i.i157 = phi i64 [ %252, %251 ], [ %.01621.i.i153, %.lr.ph.i.i152 ]
+  %254 = icmp ult i64 %.1.i.i157, %.118.i.i156
+  br i1 %254, label %.lr.ph.i.i152, label %.lr.ph.i.i162.preheader, !llvm.loop !6
 
-bsearch.exit.i159:                                ; preds = %250
+bsearch.exit.i158:                                ; preds = %250
   %255 = getelementptr i8, ptr @dissector_lookup_table, i64 %245
-  %.not.i160 = icmp eq ptr %255, null
-  br i1 %.not.i160, label %.lr.ph.i.i163.preheader, label %bsearch.exit.thread.sink.split.i161
+  %.not.i159 = icmp eq ptr %255, null
+  br i1 %.not.i159, label %.lr.ph.i.i162.preheader, label %bsearch.exit.thread.sink.split.i160
 
-bsearch.exit.thread.sink.split.i161:              ; preds = %bsearch.exit.i159
+bsearch.exit.thread.sink.split.i160:              ; preds = %bsearch.exit.i158
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store ptr null, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store ptr @.str.18, ptr %257, align 8
-  br label %.lr.ph.i.i163.preheader
+  br label %.lr.ph.i.i162.preheader
 
-.lr.ph.i.i163.preheader:                          ; preds = %253, %bsearch.exit.i159, %bsearch.exit.thread.sink.split.i161
-  br label %.lr.ph.i.i163
+.lr.ph.i.i162.preheader:                          ; preds = %253, %bsearch.exit.i158, %bsearch.exit.thread.sink.split.i160
+  br label %.lr.ph.i.i162
 
-.lr.ph.i.i163:                                    ; preds = %.lr.ph.i.i163.preheader, %268
-  %.01621.i.i164 = phi i64 [ %.1.i.i168, %268 ], [ 0, %.lr.ph.i.i163.preheader ]
-  %.01720.i.i165 = phi i64 [ %.118.i.i167, %268 ], [ 67, %.lr.ph.i.i163.preheader ]
-  %258 = add i64 %.01720.i.i165, %.01621.i.i164
+.lr.ph.i.i162:                                    ; preds = %.lr.ph.i.i162.preheader, %268
+  %.01621.i.i163 = phi i64 [ %.1.i.i167, %268 ], [ 0, %.lr.ph.i.i162.preheader ]
+  %.01720.i.i164 = phi i64 [ %.118.i.i166, %268 ], [ 67, %.lr.ph.i.i162.preheader ]
+  %258 = add i64 %.01720.i.i164, %.01621.i.i163
   %259 = lshr i64 %258, 1
   %260 = mul i64 %259, 48
   %261 = getelementptr i8, ptr @dissector_lookup_table, i64 %260
@@ -941,39 +941,39 @@ bsearch.exit.thread.sink.split.i161:              ; preds = %bsearch.exit.i159
   %264 = icmp slt i32 %263, 0
   br i1 %264, label %268, label %265
 
-265:                                              ; preds = %.lr.ph.i.i163
-  %.not.i.i166 = icmp eq i32 %263, 0
-  br i1 %.not.i.i166, label %bsearch.exit.i169, label %266
+265:                                              ; preds = %.lr.ph.i.i162
+  %.not.i.i165 = icmp eq i32 %263, 0
+  br i1 %.not.i.i165, label %bsearch.exit.i168, label %266
 
 266:                                              ; preds = %265
   %267 = add nuw i64 %259, 1
   br label %268
 
-268:                                              ; preds = %266, %.lr.ph.i.i163
-  %.118.i.i167 = phi i64 [ %.01720.i.i165, %266 ], [ %259, %.lr.ph.i.i163 ]
-  %.1.i.i168 = phi i64 [ %267, %266 ], [ %.01621.i.i164, %.lr.ph.i.i163 ]
-  %269 = icmp ult i64 %.1.i.i168, %.118.i.i167
-  br i1 %269, label %.lr.ph.i.i163, label %.lr.ph.i.i173.preheader, !llvm.loop !6
+268:                                              ; preds = %266, %.lr.ph.i.i162
+  %.118.i.i166 = phi i64 [ %.01720.i.i164, %266 ], [ %259, %.lr.ph.i.i162 ]
+  %.1.i.i167 = phi i64 [ %267, %266 ], [ %.01621.i.i163, %.lr.ph.i.i162 ]
+  %269 = icmp ult i64 %.1.i.i167, %.118.i.i166
+  br i1 %269, label %.lr.ph.i.i162, label %.lr.ph.i.i172.preheader, !llvm.loop !6
 
-bsearch.exit.i169:                                ; preds = %265
+bsearch.exit.i168:                                ; preds = %265
   %270 = getelementptr i8, ptr @dissector_lookup_table, i64 %260
-  %.not.i170 = icmp eq ptr %270, null
-  br i1 %.not.i170, label %.lr.ph.i.i173.preheader, label %bsearch.exit.thread.sink.split.i171
+  %.not.i169 = icmp eq ptr %270, null
+  br i1 %.not.i169, label %.lr.ph.i.i172.preheader, label %bsearch.exit.thread.sink.split.i170
 
-bsearch.exit.thread.sink.split.i171:              ; preds = %bsearch.exit.i169
+bsearch.exit.thread.sink.split.i170:              ; preds = %bsearch.exit.i168
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 32
   store ptr null, ptr %271, align 16
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 16
   store ptr @.str.19, ptr %272, align 16
-  br label %.lr.ph.i.i173.preheader
+  br label %.lr.ph.i.i172.preheader
 
-.lr.ph.i.i173.preheader:                          ; preds = %268, %bsearch.exit.i169, %bsearch.exit.thread.sink.split.i171
-  br label %.lr.ph.i.i173
+.lr.ph.i.i172.preheader:                          ; preds = %268, %bsearch.exit.i168, %bsearch.exit.thread.sink.split.i170
+  br label %.lr.ph.i.i172
 
-.lr.ph.i.i173:                                    ; preds = %.lr.ph.i.i173.preheader, %283
-  %.01621.i.i174 = phi i64 [ %.1.i.i178, %283 ], [ 0, %.lr.ph.i.i173.preheader ]
-  %.01720.i.i175 = phi i64 [ %.118.i.i177, %283 ], [ 67, %.lr.ph.i.i173.preheader ]
-  %273 = add i64 %.01720.i.i175, %.01621.i.i174
+.lr.ph.i.i172:                                    ; preds = %.lr.ph.i.i172.preheader, %283
+  %.01621.i.i173 = phi i64 [ %.1.i.i177, %283 ], [ 0, %.lr.ph.i.i172.preheader ]
+  %.01720.i.i174 = phi i64 [ %.118.i.i176, %283 ], [ 67, %.lr.ph.i.i172.preheader ]
+  %273 = add i64 %.01720.i.i174, %.01621.i.i173
   %274 = lshr i64 %273, 1
   %275 = mul i64 %274, 48
   %276 = getelementptr i8, ptr @dissector_lookup_table, i64 %275
@@ -982,39 +982,39 @@ bsearch.exit.thread.sink.split.i171:              ; preds = %bsearch.exit.i169
   %279 = icmp slt i32 %278, 0
   br i1 %279, label %283, label %280
 
-280:                                              ; preds = %.lr.ph.i.i173
-  %.not.i.i176 = icmp eq i32 %278, 0
-  br i1 %.not.i.i176, label %bsearch.exit.i179, label %281
+280:                                              ; preds = %.lr.ph.i.i172
+  %.not.i.i175 = icmp eq i32 %278, 0
+  br i1 %.not.i.i175, label %bsearch.exit.i178, label %281
 
 281:                                              ; preds = %280
   %282 = add nuw i64 %274, 1
   br label %283
 
-283:                                              ; preds = %281, %.lr.ph.i.i173
-  %.118.i.i177 = phi i64 [ %.01720.i.i175, %281 ], [ %274, %.lr.ph.i.i173 ]
-  %.1.i.i178 = phi i64 [ %282, %281 ], [ %.01621.i.i174, %.lr.ph.i.i173 ]
-  %284 = icmp ult i64 %.1.i.i178, %.118.i.i177
-  br i1 %284, label %.lr.ph.i.i173, label %.lr.ph.i.i183.preheader, !llvm.loop !6
+283:                                              ; preds = %281, %.lr.ph.i.i172
+  %.118.i.i176 = phi i64 [ %.01720.i.i174, %281 ], [ %274, %.lr.ph.i.i172 ]
+  %.1.i.i177 = phi i64 [ %282, %281 ], [ %.01621.i.i173, %.lr.ph.i.i172 ]
+  %284 = icmp ult i64 %.1.i.i177, %.118.i.i176
+  br i1 %284, label %.lr.ph.i.i172, label %.lr.ph.i.i182.preheader, !llvm.loop !6
 
-bsearch.exit.i179:                                ; preds = %280
+bsearch.exit.i178:                                ; preds = %280
   %285 = getelementptr i8, ptr @dissector_lookup_table, i64 %275
-  %.not.i180 = icmp eq ptr %285, null
-  br i1 %.not.i180, label %.lr.ph.i.i183.preheader, label %bsearch.exit.thread.sink.split.i181
+  %.not.i179 = icmp eq ptr %285, null
+  br i1 %.not.i179, label %.lr.ph.i.i182.preheader, label %bsearch.exit.thread.sink.split.i180
 
-bsearch.exit.thread.sink.split.i181:              ; preds = %bsearch.exit.i179
+bsearch.exit.thread.sink.split.i180:              ; preds = %bsearch.exit.i178
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   store ptr null, ptr %286, align 8
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store ptr @.str.20, ptr %287, align 8
-  br label %.lr.ph.i.i183.preheader
+  br label %.lr.ph.i.i182.preheader
 
-.lr.ph.i.i183.preheader:                          ; preds = %283, %bsearch.exit.i179, %bsearch.exit.thread.sink.split.i181
-  br label %.lr.ph.i.i183
+.lr.ph.i.i182.preheader:                          ; preds = %283, %bsearch.exit.i178, %bsearch.exit.thread.sink.split.i180
+  br label %.lr.ph.i.i182
 
-.lr.ph.i.i183:                                    ; preds = %.lr.ph.i.i183.preheader, %298
-  %.01621.i.i184 = phi i64 [ %.1.i.i188, %298 ], [ 0, %.lr.ph.i.i183.preheader ]
-  %.01720.i.i185 = phi i64 [ %.118.i.i187, %298 ], [ 67, %.lr.ph.i.i183.preheader ]
-  %288 = add i64 %.01720.i.i185, %.01621.i.i184
+.lr.ph.i.i182:                                    ; preds = %.lr.ph.i.i182.preheader, %298
+  %.01621.i.i183 = phi i64 [ %.1.i.i187, %298 ], [ 0, %.lr.ph.i.i182.preheader ]
+  %.01720.i.i184 = phi i64 [ %.118.i.i186, %298 ], [ 67, %.lr.ph.i.i182.preheader ]
+  %288 = add i64 %.01720.i.i184, %.01621.i.i183
   %289 = lshr i64 %288, 1
   %290 = mul i64 %289, 48
   %291 = getelementptr i8, ptr @dissector_lookup_table, i64 %290
@@ -1023,45 +1023,45 @@ bsearch.exit.thread.sink.split.i181:              ; preds = %bsearch.exit.i179
   %294 = icmp slt i32 %293, 0
   br i1 %294, label %298, label %295
 
-295:                                              ; preds = %.lr.ph.i.i183
-  %.not.i.i186 = icmp eq i32 %293, 0
-  br i1 %.not.i.i186, label %bsearch.exit.i189, label %296
+295:                                              ; preds = %.lr.ph.i.i182
+  %.not.i.i185 = icmp eq i32 %293, 0
+  br i1 %.not.i.i185, label %bsearch.exit.i188, label %296
 
 296:                                              ; preds = %295
   %297 = add nuw i64 %289, 1
   br label %298
 
-298:                                              ; preds = %296, %.lr.ph.i.i183
-  %.118.i.i187 = phi i64 [ %.01720.i.i185, %296 ], [ %289, %.lr.ph.i.i183 ]
-  %.1.i.i188 = phi i64 [ %297, %296 ], [ %.01621.i.i184, %.lr.ph.i.i183 ]
-  %299 = icmp ult i64 %.1.i.i188, %.118.i.i187
-  br i1 %299, label %.lr.ph.i.i183, label %update_dissector_name.exit92, !llvm.loop !6
+298:                                              ; preds = %296, %.lr.ph.i.i182
+  %.118.i.i186 = phi i64 [ %.01720.i.i184, %296 ], [ %289, %.lr.ph.i.i182 ]
+  %.1.i.i187 = phi i64 [ %297, %296 ], [ %.01621.i.i183, %.lr.ph.i.i182 ]
+  %299 = icmp ult i64 %.1.i.i187, %.118.i.i186
+  br i1 %299, label %.lr.ph.i.i182, label %update_dissector_name.exit91, !llvm.loop !6
 
-bsearch.exit.i189:                                ; preds = %295
+bsearch.exit.i188:                                ; preds = %295
   %300 = getelementptr i8, ptr @dissector_lookup_table, i64 %290
-  %.not.i190 = icmp eq ptr %300, null
-  br i1 %.not.i190, label %update_dissector_name.exit92, label %update_dissector_name.exit92.sink.split
+  %.not.i189 = icmp eq ptr %300, null
+  br i1 %.not.i189, label %update_dissector_name.exit91, label %update_dissector_name.exit91.sink.split
 
-update_dissector_name.exit92.sink.split:          ; preds = %bsearch.exit.i189, %bsearch.exit.i89
-  %.sink476 = phi ptr [ %152, %bsearch.exit.i89 ], [ %300, %bsearch.exit.i189 ]
-  %.str.20.sink = phi ptr [ @.str.13, %bsearch.exit.i89 ], [ @.str.20, %bsearch.exit.i189 ]
-  %301 = getelementptr inbounds nuw i8, ptr %.sink476, i64 32
+update_dissector_name.exit91.sink.split:          ; preds = %bsearch.exit.i188, %bsearch.exit.i88
+  %.sink475 = phi ptr [ %152, %bsearch.exit.i88 ], [ %300, %bsearch.exit.i188 ]
+  %.str.20.sink = phi ptr [ @.str.13, %bsearch.exit.i88 ], [ @.str.20, %bsearch.exit.i188 ]
+  %301 = getelementptr inbounds nuw i8, ptr %.sink475, i64 32
   store ptr null, ptr %301, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %.sink476, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %.sink475, i64 16
   store ptr %.str.20.sink, ptr %302, align 8
-  br label %update_dissector_name.exit92
+  br label %update_dissector_name.exit91
 
-update_dissector_name.exit92:                     ; preds = %298, %150, %update_dissector_name.exit92.sink.split, %bsearch.exit.i189, %bsearch.exit.i89, %3
+update_dissector_name.exit91:                     ; preds = %298, %150, %update_dissector_name.exit91.sink.split, %bsearch.exit.i188, %bsearch.exit.i88, %3
   %303 = load i32, ptr @nas_eps_prot_version, align 4
-  switch i32 %303, label %update_dissector_name.exit212 [
-    i32 1, label %.lr.ph.i.i193
-    i32 0, label %.lr.ph.i.i213
+  switch i32 %303, label %update_dissector_name.exit211 [
+    i32 1, label %.lr.ph.i.i192
+    i32 0, label %.lr.ph.i.i212
   ]
 
-.lr.ph.i.i193:                                    ; preds = %update_dissector_name.exit92, %314
-  %.01621.i.i194 = phi i64 [ %.1.i.i198, %314 ], [ 0, %update_dissector_name.exit92 ]
-  %.01720.i.i195 = phi i64 [ %.118.i.i197, %314 ], [ 67, %update_dissector_name.exit92 ]
-  %304 = add i64 %.01720.i.i195, %.01621.i.i194
+.lr.ph.i.i192:                                    ; preds = %update_dissector_name.exit91, %314
+  %.01621.i.i193 = phi i64 [ %.1.i.i197, %314 ], [ 0, %update_dissector_name.exit91 ]
+  %.01720.i.i194 = phi i64 [ %.118.i.i196, %314 ], [ 67, %update_dissector_name.exit91 ]
+  %304 = add i64 %.01720.i.i194, %.01621.i.i193
   %305 = lshr i64 %304, 1
   %306 = mul i64 %305, 48
   %307 = getelementptr i8, ptr @dissector_lookup_table, i64 %306
@@ -1070,39 +1070,39 @@ update_dissector_name.exit92:                     ; preds = %298, %150, %update_
   %310 = icmp slt i32 %309, 0
   br i1 %310, label %314, label %311
 
-311:                                              ; preds = %.lr.ph.i.i193
-  %.not.i.i196 = icmp eq i32 %309, 0
-  br i1 %.not.i.i196, label %bsearch.exit.i199, label %312
+311:                                              ; preds = %.lr.ph.i.i192
+  %.not.i.i195 = icmp eq i32 %309, 0
+  br i1 %.not.i.i195, label %bsearch.exit.i198, label %312
 
 312:                                              ; preds = %311
   %313 = add nuw i64 %305, 1
   br label %314
 
-314:                                              ; preds = %312, %.lr.ph.i.i193
-  %.118.i.i197 = phi i64 [ %.01720.i.i195, %312 ], [ %305, %.lr.ph.i.i193 ]
-  %.1.i.i198 = phi i64 [ %313, %312 ], [ %.01621.i.i194, %.lr.ph.i.i193 ]
-  %315 = icmp ult i64 %.1.i.i198, %.118.i.i197
-  br i1 %315, label %.lr.ph.i.i193, label %.lr.ph.i.i203.preheader, !llvm.loop !6
+314:                                              ; preds = %312, %.lr.ph.i.i192
+  %.118.i.i196 = phi i64 [ %.01720.i.i194, %312 ], [ %305, %.lr.ph.i.i192 ]
+  %.1.i.i197 = phi i64 [ %313, %312 ], [ %.01621.i.i193, %.lr.ph.i.i192 ]
+  %315 = icmp ult i64 %.1.i.i197, %.118.i.i196
+  br i1 %315, label %.lr.ph.i.i192, label %.lr.ph.i.i202.preheader, !llvm.loop !6
 
-bsearch.exit.i199:                                ; preds = %311
+bsearch.exit.i198:                                ; preds = %311
   %316 = getelementptr i8, ptr @dissector_lookup_table, i64 %306
-  %.not.i200 = icmp eq ptr %316, null
-  br i1 %.not.i200, label %.lr.ph.i.i203.preheader, label %bsearch.exit.thread.sink.split.i201
+  %.not.i199 = icmp eq ptr %316, null
+  br i1 %.not.i199, label %.lr.ph.i.i202.preheader, label %bsearch.exit.thread.sink.split.i200
 
-bsearch.exit.thread.sink.split.i201:              ; preds = %bsearch.exit.i199
+bsearch.exit.thread.sink.split.i200:              ; preds = %bsearch.exit.i198
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 24
   store ptr null, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store ptr @.str.22, ptr %318, align 8
-  br label %.lr.ph.i.i203.preheader
+  br label %.lr.ph.i.i202.preheader
 
-.lr.ph.i.i203.preheader:                          ; preds = %314, %bsearch.exit.i199, %bsearch.exit.thread.sink.split.i201
-  br label %.lr.ph.i.i203
+.lr.ph.i.i202.preheader:                          ; preds = %314, %bsearch.exit.i198, %bsearch.exit.thread.sink.split.i200
+  br label %.lr.ph.i.i202
 
-.lr.ph.i.i203:                                    ; preds = %.lr.ph.i.i203.preheader, %329
-  %.01621.i.i204 = phi i64 [ %.1.i.i208, %329 ], [ 0, %.lr.ph.i.i203.preheader ]
-  %.01720.i.i205 = phi i64 [ %.118.i.i207, %329 ], [ 67, %.lr.ph.i.i203.preheader ]
-  %319 = add i64 %.01720.i.i205, %.01621.i.i204
+.lr.ph.i.i202:                                    ; preds = %.lr.ph.i.i202.preheader, %329
+  %.01621.i.i203 = phi i64 [ %.1.i.i207, %329 ], [ 0, %.lr.ph.i.i202.preheader ]
+  %.01720.i.i204 = phi i64 [ %.118.i.i206, %329 ], [ 67, %.lr.ph.i.i202.preheader ]
+  %319 = add i64 %.01720.i.i204, %.01621.i.i203
   %320 = lshr i64 %319, 1
   %321 = mul i64 %320, 48
   %322 = getelementptr i8, ptr @dissector_lookup_table, i64 %321
@@ -1111,29 +1111,29 @@ bsearch.exit.thread.sink.split.i201:              ; preds = %bsearch.exit.i199
   %325 = icmp slt i32 %324, 0
   br i1 %325, label %329, label %326
 
-326:                                              ; preds = %.lr.ph.i.i203
-  %.not.i.i206 = icmp eq i32 %324, 0
-  br i1 %.not.i.i206, label %bsearch.exit.i209, label %327
+326:                                              ; preds = %.lr.ph.i.i202
+  %.not.i.i205 = icmp eq i32 %324, 0
+  br i1 %.not.i.i205, label %bsearch.exit.i208, label %327
 
 327:                                              ; preds = %326
   %328 = add nuw i64 %320, 1
   br label %329
 
-329:                                              ; preds = %327, %.lr.ph.i.i203
-  %.118.i.i207 = phi i64 [ %.01720.i.i205, %327 ], [ %320, %.lr.ph.i.i203 ]
-  %.1.i.i208 = phi i64 [ %328, %327 ], [ %.01621.i.i204, %.lr.ph.i.i203 ]
-  %330 = icmp ult i64 %.1.i.i208, %.118.i.i207
-  br i1 %330, label %.lr.ph.i.i203, label %update_dissector_name.exit212, !llvm.loop !6
+329:                                              ; preds = %327, %.lr.ph.i.i202
+  %.118.i.i206 = phi i64 [ %.01720.i.i204, %327 ], [ %320, %.lr.ph.i.i202 ]
+  %.1.i.i207 = phi i64 [ %328, %327 ], [ %.01621.i.i203, %.lr.ph.i.i202 ]
+  %330 = icmp ult i64 %.1.i.i207, %.118.i.i206
+  br i1 %330, label %.lr.ph.i.i202, label %update_dissector_name.exit211, !llvm.loop !6
 
-bsearch.exit.i209:                                ; preds = %326
+bsearch.exit.i208:                                ; preds = %326
   %331 = getelementptr i8, ptr @dissector_lookup_table, i64 %321
-  %.not.i210 = icmp eq ptr %331, null
-  br i1 %.not.i210, label %update_dissector_name.exit212, label %update_dissector_name.exit212.sink.split
+  %.not.i209 = icmp eq ptr %331, null
+  br i1 %.not.i209, label %update_dissector_name.exit211, label %update_dissector_name.exit211.sink.split
 
-.lr.ph.i.i213:                                    ; preds = %update_dissector_name.exit92, %342
-  %.01621.i.i214 = phi i64 [ %.1.i.i218, %342 ], [ 0, %update_dissector_name.exit92 ]
-  %.01720.i.i215 = phi i64 [ %.118.i.i217, %342 ], [ 67, %update_dissector_name.exit92 ]
-  %332 = add i64 %.01720.i.i215, %.01621.i.i214
+.lr.ph.i.i212:                                    ; preds = %update_dissector_name.exit91, %342
+  %.01621.i.i213 = phi i64 [ %.1.i.i217, %342 ], [ 0, %update_dissector_name.exit91 ]
+  %.01720.i.i214 = phi i64 [ %.118.i.i216, %342 ], [ 67, %update_dissector_name.exit91 ]
+  %332 = add i64 %.01720.i.i214, %.01621.i.i213
   %333 = lshr i64 %332, 1
   %334 = mul i64 %333, 48
   %335 = getelementptr i8, ptr @dissector_lookup_table, i64 %334
@@ -1142,39 +1142,39 @@ bsearch.exit.i209:                                ; preds = %326
   %338 = icmp slt i32 %337, 0
   br i1 %338, label %342, label %339
 
-339:                                              ; preds = %.lr.ph.i.i213
-  %.not.i.i216 = icmp eq i32 %337, 0
-  br i1 %.not.i.i216, label %bsearch.exit.i219, label %340
+339:                                              ; preds = %.lr.ph.i.i212
+  %.not.i.i215 = icmp eq i32 %337, 0
+  br i1 %.not.i.i215, label %bsearch.exit.i218, label %340
 
 340:                                              ; preds = %339
   %341 = add nuw i64 %333, 1
   br label %342
 
-342:                                              ; preds = %340, %.lr.ph.i.i213
-  %.118.i.i217 = phi i64 [ %.01720.i.i215, %340 ], [ %333, %.lr.ph.i.i213 ]
-  %.1.i.i218 = phi i64 [ %341, %340 ], [ %.01621.i.i214, %.lr.ph.i.i213 ]
-  %343 = icmp ult i64 %.1.i.i218, %.118.i.i217
-  br i1 %343, label %.lr.ph.i.i213, label %.lr.ph.i.i223.preheader, !llvm.loop !6
+342:                                              ; preds = %340, %.lr.ph.i.i212
+  %.118.i.i216 = phi i64 [ %.01720.i.i214, %340 ], [ %333, %.lr.ph.i.i212 ]
+  %.1.i.i217 = phi i64 [ %341, %340 ], [ %.01621.i.i213, %.lr.ph.i.i212 ]
+  %343 = icmp ult i64 %.1.i.i217, %.118.i.i216
+  br i1 %343, label %.lr.ph.i.i212, label %.lr.ph.i.i222.preheader, !llvm.loop !6
 
-bsearch.exit.i219:                                ; preds = %339
+bsearch.exit.i218:                                ; preds = %339
   %344 = getelementptr i8, ptr @dissector_lookup_table, i64 %334
-  %.not.i220 = icmp eq ptr %344, null
-  br i1 %.not.i220, label %.lr.ph.i.i223.preheader, label %bsearch.exit.thread.sink.split.i221
+  %.not.i219 = icmp eq ptr %344, null
+  br i1 %.not.i219, label %.lr.ph.i.i222.preheader, label %bsearch.exit.thread.sink.split.i220
 
-bsearch.exit.thread.sink.split.i221:              ; preds = %bsearch.exit.i219
+bsearch.exit.thread.sink.split.i220:              ; preds = %bsearch.exit.i218
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 24
   store ptr null, ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr @.str.23, ptr %346, align 8
-  br label %.lr.ph.i.i223.preheader
+  br label %.lr.ph.i.i222.preheader
 
-.lr.ph.i.i223.preheader:                          ; preds = %342, %bsearch.exit.i219, %bsearch.exit.thread.sink.split.i221
-  br label %.lr.ph.i.i223
+.lr.ph.i.i222.preheader:                          ; preds = %342, %bsearch.exit.i218, %bsearch.exit.thread.sink.split.i220
+  br label %.lr.ph.i.i222
 
-.lr.ph.i.i223:                                    ; preds = %.lr.ph.i.i223.preheader, %357
-  %.01621.i.i224 = phi i64 [ %.1.i.i228, %357 ], [ 0, %.lr.ph.i.i223.preheader ]
-  %.01720.i.i225 = phi i64 [ %.118.i.i227, %357 ], [ 67, %.lr.ph.i.i223.preheader ]
-  %347 = add i64 %.01720.i.i225, %.01621.i.i224
+.lr.ph.i.i222:                                    ; preds = %.lr.ph.i.i222.preheader, %357
+  %.01621.i.i223 = phi i64 [ %.1.i.i227, %357 ], [ 0, %.lr.ph.i.i222.preheader ]
+  %.01720.i.i224 = phi i64 [ %.118.i.i226, %357 ], [ 67, %.lr.ph.i.i222.preheader ]
+  %347 = add i64 %.01720.i.i224, %.01621.i.i223
   %348 = lshr i64 %347, 1
   %349 = mul i64 %348, 48
   %350 = getelementptr i8, ptr @dissector_lookup_table, i64 %349
@@ -1183,35 +1183,35 @@ bsearch.exit.thread.sink.split.i221:              ; preds = %bsearch.exit.i219
   %353 = icmp slt i32 %352, 0
   br i1 %353, label %357, label %354
 
-354:                                              ; preds = %.lr.ph.i.i223
-  %.not.i.i226 = icmp eq i32 %352, 0
-  br i1 %.not.i.i226, label %bsearch.exit.i229, label %355
+354:                                              ; preds = %.lr.ph.i.i222
+  %.not.i.i225 = icmp eq i32 %352, 0
+  br i1 %.not.i.i225, label %bsearch.exit.i228, label %355
 
 355:                                              ; preds = %354
   %356 = add nuw i64 %348, 1
   br label %357
 
-357:                                              ; preds = %355, %.lr.ph.i.i223
-  %.118.i.i227 = phi i64 [ %.01720.i.i225, %355 ], [ %348, %.lr.ph.i.i223 ]
-  %.1.i.i228 = phi i64 [ %356, %355 ], [ %.01621.i.i224, %.lr.ph.i.i223 ]
-  %358 = icmp ult i64 %.1.i.i228, %.118.i.i227
-  br i1 %358, label %.lr.ph.i.i223, label %update_dissector_name.exit212, !llvm.loop !6
+357:                                              ; preds = %355, %.lr.ph.i.i222
+  %.118.i.i226 = phi i64 [ %.01720.i.i224, %355 ], [ %348, %.lr.ph.i.i222 ]
+  %.1.i.i227 = phi i64 [ %356, %355 ], [ %.01621.i.i223, %.lr.ph.i.i222 ]
+  %358 = icmp ult i64 %.1.i.i227, %.118.i.i226
+  br i1 %358, label %.lr.ph.i.i222, label %update_dissector_name.exit211, !llvm.loop !6
 
-bsearch.exit.i229:                                ; preds = %354
+bsearch.exit.i228:                                ; preds = %354
   %359 = getelementptr i8, ptr @dissector_lookup_table, i64 %349
-  %.not.i230 = icmp eq ptr %359, null
-  br i1 %.not.i230, label %update_dissector_name.exit212, label %update_dissector_name.exit212.sink.split
+  %.not.i229 = icmp eq ptr %359, null
+  br i1 %.not.i229, label %update_dissector_name.exit211, label %update_dissector_name.exit211.sink.split
 
-update_dissector_name.exit212.sink.split:         ; preds = %bsearch.exit.i229, %bsearch.exit.i209
-  %.sink478 = phi ptr [ %331, %bsearch.exit.i209 ], [ %359, %bsearch.exit.i229 ]
-  %.str.23.sink = phi ptr [ @.str.22, %bsearch.exit.i209 ], [ @.str.23, %bsearch.exit.i229 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.sink478, i64 32
+update_dissector_name.exit211.sink.split:         ; preds = %bsearch.exit.i228, %bsearch.exit.i208
+  %.sink477 = phi ptr [ %331, %bsearch.exit.i208 ], [ %359, %bsearch.exit.i228 ]
+  %.str.23.sink = phi ptr [ @.str.22, %bsearch.exit.i208 ], [ @.str.23, %bsearch.exit.i228 ]
+  %360 = getelementptr inbounds nuw i8, ptr %.sink477, i64 32
   store ptr null, ptr %360, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %.sink478, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.sink477, i64 16
   store ptr %.str.23.sink, ptr %361, align 8
-  br label %update_dissector_name.exit212
+  br label %update_dissector_name.exit211
 
-update_dissector_name.exit212:                    ; preds = %357, %329, %update_dissector_name.exit212.sink.split, %bsearch.exit.i229, %bsearch.exit.i209, %update_dissector_name.exit92
+update_dissector_name.exit211:                    ; preds = %357, %329, %update_dissector_name.exit211.sink.split, %bsearch.exit.i228, %bsearch.exit.i208, %update_dissector_name.exit91
   ret void
 }
 

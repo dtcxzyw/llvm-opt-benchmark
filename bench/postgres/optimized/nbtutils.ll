@@ -3038,8 +3038,8 @@ BTreeTupleIsPosting.exit:                         ; preds = %_bt_keep_natts.exit
   %43 = and i16 %37, -8192
   store i16 %43, ptr %36, align 2
   %44 = getelementptr i8, ptr %2, i64 2
-  %.val3950 = load i16, ptr %44, align 2
-  %45 = add i16 %.val3950, 7
+  %.val39 = load i16, ptr %44, align 2
+  %45 = add i16 %.val39, 7
   %46 = and i16 %45, -8200
   %47 = or i16 %46, %43
   store i16 %47, ptr %36, align 2
@@ -3062,20 +3062,20 @@ BTreeTupleIsPivot.exit.i:                         ; preds = %BTreeTupleIsPosting
   %52 = and i16 %.val, 8191
   %narrow = add nuw nsw i16 %52, 7
   %53 = and i16 %narrow, 16376
-  %narrow51 = add nuw nsw i16 %53, 8
-  %54 = zext nneg i16 %narrow51 to i64
+  %narrow50 = add nuw nsw i16 %53, 8
+  %54 = zext nneg i16 %narrow50 to i64
   %55 = tail call ptr @palloc0(i64 noundef %54) #13
   %.val37 = load i16, ptr %36, align 2
   %56 = and i16 %.val37, 8191
-  %narrow52 = add nuw nsw i16 %56, 7
-  %57 = and i16 %narrow52, 16376
+  %narrow51 = add nuw nsw i16 %56, 7
+  %57 = and i16 %narrow51, 16376
   %58 = zext nneg i16 %57 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %55, ptr nonnull align 2 %35, i64 %58, i1 false)
   tail call void @pfree(ptr noundef nonnull %35) #13
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 6
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, -16384
-  %62 = or i16 %narrow51, %61
+  %62 = or i16 %narrow50, %61
   %63 = or i16 %62, 8192
   store i16 %63, ptr %59, align 2
   %64 = or i16 %12, 4096
@@ -3086,7 +3086,7 @@ BTreeTupleIsPivot.exit.i:                         ; preds = %BTreeTupleIsPosting
   br i1 %.not.i.i, label %67, label %BTreeTupleIsPosting.exit.i
 
 67:                                               ; preds = %BTreeTupleIsPivot.exit.i
-  %68 = and i16 %narrow51, 8184
+  %68 = and i16 %narrow50, 8184
   %69 = zext nneg i16 %68 to i64
   br label %BTreeTupleGetHeapTID.exit
 
@@ -3100,10 +3100,10 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.e
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleGetHeapTID.exit:                        ; preds = %67, %BTreeTupleIsPosting.exit.i
-  %.sink58 = phi i64 [ %69, %67 ], [ %72, %BTreeTupleIsPosting.exit.i ]
-  %.sink57 = phi i64 [ -6, %67 ], [ %73, %BTreeTupleIsPosting.exit.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %55, i64 %.sink58
-  %75 = getelementptr inbounds i8, ptr %74, i64 %.sink57
+  %.sink57 = phi i64 [ %69, %67 ], [ %72, %BTreeTupleIsPosting.exit.i ]
+  %.sink56 = phi i64 [ -6, %67 ], [ %73, %BTreeTupleIsPosting.exit.i ]
+  %74 = getelementptr inbounds nuw i8, ptr %55, i64 %.sink57
+  %75 = getelementptr inbounds i8, ptr %74, i64 %.sink56
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 8192

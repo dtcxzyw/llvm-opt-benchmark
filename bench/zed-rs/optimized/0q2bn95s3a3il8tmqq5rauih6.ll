@@ -143955,7 +143955,7 @@ define internal void @"_ZN118_$LT$assistant..slash_command..prompt_command..Prom
   %9 = alloca [24 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i8, ptr %10, align 8, !range !7746, !noundef !12
-  switch i8 %11, label %default.unreachable80 [
+  switch i8 %11, label %default.unreachable79 [
     i8 0, label %13
     i8 1, label %16
     i8 2, label %17
@@ -143963,7 +143963,7 @@ define internal void @"_ZN118_$LT$assistant..slash_command..prompt_command..Prom
     i8 4, label %12
   ]
 
-default.unreachable80:                            ; preds = %3
+default.unreachable79:                            ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -144073,12 +144073,12 @@ common.ret:                                       ; preds = %"_ZN4core3ptr54drop
   %.sroa.8.1..sroa_idx36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.8.1.copyload37 = load ptr, ptr %.sroa.8.1..sroa_idx36, align 8, !alias.scope !39703
   %.sroa.10.1..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.10.1.copyload74 = load i16, ptr %.sroa.10.1..sroa_idx38, align 8, !alias.scope !39703
+  %.sroa.10.1.copyload = load i16, ptr %.sroa.10.1..sroa_idx38, align 8, !alias.scope !39703
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.8.1..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 7
   store ptr %.sroa.8.1.copyload37, ptr %.sroa.8.1..sroa_idx, align 1
   %.sroa.10.1..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 15
-  store i16 %.sroa.10.1.copyload74, ptr %.sroa.10.1..sroa_idx, align 1
+  store i16 %.sroa.10.1.copyload, ptr %.sroa.10.1..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.val28 = load ptr, ptr %19, align 8, !nonnull !12, !noundef !12

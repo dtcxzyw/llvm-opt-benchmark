@@ -425,8 +425,8 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lbttcp() #0 {
-  %.b3 = load i1, ptr @proto_reg_handoff_lbttcp.already_registered, align 1
-  br i1 %.b3, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_lbttcp.already_registered, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @lbttcp_dissector_handle, align 8
@@ -449,8 +449,8 @@ define hidden void @proto_reg_handoff_lbttcp() #0 {
 8:                                                ; preds = %7, %4
   %9 = load i32, ptr @global_lbttcp_request_port_low, align 4
   %10 = load i32, ptr @global_lbttcp_request_port_high, align 4
-  %.not4 = icmp ugt i32 %9, %10
-  br i1 %.not4, label %12, label %11
+  %.not3 = icmp ugt i32 %9, %10
+  br i1 %.not3, label %12, label %11
 
 11:                                               ; preds = %8
   store i32 %9, ptr @lbttcp_request_port_low, align 4
@@ -460,8 +460,8 @@ define hidden void @proto_reg_handoff_lbttcp() #0 {
 12:                                               ; preds = %11, %8
   %13 = load i32, ptr @global_lbttcp_store_port_low, align 4
   %14 = load i32, ptr @global_lbttcp_store_port_high, align 4
-  %.not5 = icmp ugt i32 %13, %14
-  br i1 %.not5, label %16, label %15
+  %.not4 = icmp ugt i32 %13, %14
+  br i1 %.not4, label %16, label %15
 
 15:                                               ; preds = %12
   store i32 %13, ptr @lbttcp_store_port_low, align 4

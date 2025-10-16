@@ -1356,8 +1356,8 @@ _ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit.thread: ; preds = %
   br label %445
 
 13:                                               ; preds = %2
-  %.b1.i = load i1, ptr @_ZN2cv5utils5trace7detailsL13isInitializedE, align 1
-  br i1 %.b1.i, label %_ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit, label %14
+  %.b.i = load i1, ptr @_ZN2cv5utils5trace7detailsL13isInitializedE, align 1
+  br i1 %.b.i, label %_ZN2cv5utils5trace7details12TraceManager11isActivatedEv.exit, label %14
 
 14:                                               ; preds = %13
   %15 = load atomic i8, ptr @_ZGVZN2cv5utils5trace7details15getTraceManagerEvE8instance acquire, align 8
@@ -2248,8 +2248,8 @@ define noundef zeroext i1 @_ZN2cv5utils5trace7details12TraceManager11isActivated
   br label %17
 
 4:                                                ; preds = %0
-  %.b1 = load i1, ptr @_ZN2cv5utils5trace7detailsL13isInitializedE, align 1
-  br i1 %.b1, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %5
+  %.b = load i1, ptr @_ZN2cv5utils5trace7detailsL13isInitializedE, align 1
+  br i1 %.b, label %_ZN2cv5utils5trace7details15getTraceManagerEv.exit, label %5
 
 5:                                                ; preds = %4
   %6 = load atomic i8, ptr @_ZGVZN2cv5utils5trace7details15getTraceManagerEvE8instance acquire, align 8

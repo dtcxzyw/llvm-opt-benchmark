@@ -9851,8 +9851,8 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2765
   %158 = load i32, ptr %35, align 8, !range !2769, !noalias !2765, !noundef !4
   %159 = and i32 %158, 6
-  %switch183.i.i = icmp eq i32 %159, 4
-  br i1 %switch183.i.i, label %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17hdf8a74fb19074193E.exit.i", label %267
+  %switch182.i.i = icmp eq i32 %159, 4
+  br i1 %switch182.i.i, label %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17hdf8a74fb19074193E.exit.i", label %267
 
 160:                                              ; preds = %42
   %161 = urem i64 %38, %45
@@ -9981,7 +9981,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   %199 = load ptr, ptr %17, align 8, !noalias !2765, !noundef !4
   %200 = icmp eq ptr %199, null
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.075.0.copyload179.i.i = load i16, ptr %201, align 8, !noalias !2765
+  %.sroa.075.0.copyload.i.i = load i16, ptr %201, align 8, !noalias !2765
   %202 = load i64, ptr %201, align 8, !noalias !2765
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2765
   br i1 %200, label %203, label %206
@@ -10172,7 +10172,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   %.0.i.i.i.i.i = phi i1 [ %249, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36327222f10bc505E.exit.loopexit63.i.i.i" ], [ true, %.thread.i.i.i.i.i ], [ %250, %.thread.i.i.else.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2765
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %178, i64 24, i1 false), !noalias !2765
-  invoke void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..layout..ResolvableCell$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..grid..GridCell$GT$$GT$12resolve_cell17h48ac0e99319b53d5E"(ptr noalias noundef nonnull sret({ { i32, [5 x i32] }, { { { { ptr, ptr } }, {}, {} }, i64 }, i64, i64, { ptr, ptr, ptr, ptr }, { i8, i8, i8, i8 }, i8, [3 x i8] }) align 8 captures(none) dereferenceable(104) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, i64 noundef %161, i64 noundef %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i16 %.sroa.075.0.copyload179.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %12, i1 noundef zeroext %.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+  invoke void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..layout..ResolvableCell$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..grid..GridCell$GT$$GT$12resolve_cell17h48ac0e99319b53d5E"(ptr noalias noundef nonnull sret({ { i32, [5 x i32] }, { { { { ptr, ptr } }, {}, {} }, i64 }, i64, i64, { ptr, ptr, ptr, ptr }, { i8, i8, i8, i8 }, i8, [3 x i8] }) align 8 captures(none) dereferenceable(104) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, i64 noundef %161, i64 noundef %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i16 %.sroa.075.0.copyload.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %12, i1 noundef zeroext %.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
           to label %264 unwind label %262, !noalias !2765
 
 264:                                              ; preds = %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17heece7167500db01bE.exit.i.i"
@@ -10699,8 +10699,8 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2919
   %158 = load i32, ptr %35, align 8, !range !2769, !noalias !2919, !noundef !4
   %159 = and i32 %158, 6
-  %switch183.i.i = icmp eq i32 %159, 4
-  br i1 %switch183.i.i, label %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17h1d628ed77b2fda49E.exit.i", label %267
+  %switch182.i.i = icmp eq i32 %159, 4
+  br i1 %switch182.i.i, label %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17h1d628ed77b2fda49E.exit.i", label %267
 
 160:                                              ; preds = %42
   %161 = urem i64 %38, %45
@@ -10829,7 +10829,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   %199 = load ptr, ptr %17, align 8, !noalias !2919, !noundef !4
   %200 = icmp eq ptr %199, null
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.075.0.copyload179.i.i = load i16, ptr %201, align 8, !noalias !2919
+  %.sroa.075.0.copyload.i.i = load i16, ptr %201, align 8, !noalias !2919
   %202 = load i64, ptr %201, align 8, !noalias !2919
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2919
   br i1 %200, label %203, label %206
@@ -11020,7 +11020,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   %.0.i.i.i.i.i = phi i1 [ %249, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33fe69f6799b97f5E.exit.loopexit61.i.i.i" ], [ true, %.thread.i.i.i.i.i ], [ %250, %.thread.i.i.else.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2919
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %178, i64 24, i1 false), !noalias !2919
-  invoke void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..layout..ResolvableCell$u20$for$u20$typst..foundations..content..Packed$LT$typst..model..table..TableCell$GT$$GT$12resolve_cell17ha24bd10f64ee6c62E"(ptr noalias noundef nonnull sret({ { i32, [5 x i32] }, { { { { ptr, ptr } }, {}, {} }, i64 }, i64, i64, { ptr, ptr, ptr, ptr }, { i8, i8, i8, i8 }, i8, [3 x i8] }) align 8 captures(none) dereferenceable(104) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, i64 noundef %161, i64 noundef %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i16 %.sroa.075.0.copyload179.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %12, i1 noundef zeroext %.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+  invoke void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..layout..ResolvableCell$u20$for$u20$typst..foundations..content..Packed$LT$typst..model..table..TableCell$GT$$GT$12resolve_cell17ha24bd10f64ee6c62E"(ptr noalias noundef nonnull sret({ { i32, [5 x i32] }, { { { { ptr, ptr } }, {}, {} }, i64 }, i64, i64, { ptr, ptr, ptr, ptr }, { i8, i8, i8, i8 }, i8, [3 x i8] }) align 8 captures(none) dereferenceable(104) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, i64 noundef %161, i64 noundef %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i16 %.sroa.075.0.copyload.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %12, i1 noundef zeroext %.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
           to label %264 unwind label %262, !noalias !2919
 
 264:                                              ; preds = %"_ZN5typst6layout4grid6layout8CellGrid7resolve28_$u7b$$u7b$closure$u7d$$u7d$17h1e3a625847b2d7beE.exit.i.i"

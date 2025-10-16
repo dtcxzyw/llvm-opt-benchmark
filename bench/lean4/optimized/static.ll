@@ -15001,8 +15001,8 @@ _ZL14mi_atomic_oncePSt6atomicImE.exit:            ; preds = %4
           to label %11 unwind label %141
 
 11:                                               ; preds = %8
-  %.b1.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
-  br i1 %.b1.i, label %_ZL33mi_process_setup_auto_thread_donev.exit, label %12
+  %.b.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
+  br i1 %.b.i, label %_ZL33mi_process_setup_auto_thread_donev.exit, label %12
 
 12:                                               ; preds = %11
   store i1 true, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
@@ -15706,8 +15706,8 @@ define hidden void @_Z16_mi_process_loadv() local_unnamed_addr #5 {
   tail call fastcc void @_ZL17mi_heap_main_initv()
   store i1 true, ptr @_ZL13os_preloading, align 1
   tail call void @_Z16_mi_options_initv()
-  %.b1.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
-  br i1 %.b1.i, label %7, label %1
+  %.b.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
+  br i1 %.b.i, label %7, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
@@ -16062,8 +16062,8 @@ define hidden void @_Z16_mi_process_donev() local_unnamed_addr #5 personality pt
   %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !88, !range !86, !noundef !87
   %2 = trunc nuw i8 %1 to i1
   %.not = xor i1 %2, true
-  %.b3 = load i1, ptr @_ZZ16_mi_process_donevE12process_done, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b3
+  %.b = load i1, ptr @_ZZ16_mi_process_donevE12process_done, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %66, label %3
 
 3:                                                ; preds = %0
@@ -16089,8 +16089,8 @@ _Z30_mi_prim_thread_done_auto_donev.exit:         ; preds = %3, %7
 
 mi_option_is_enabled.exit:                        ; preds = %_Z30_mi_prim_thread_done_auto_donev.exit, %11
   %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 704), align 16, !tbaa !110
-  %.not8 = icmp eq i64 %12, 0
-  br i1 %.not8, label %_Z30_mi_segment_map_unsafe_destroyv.exit, label %13
+  %.not7 = icmp eq i64 %12, 0
+  br i1 %.not7, label %_Z30_mi_segment_map_unsafe_destroyv.exit, label %13
 
 13:                                               ; preds = %mi_option_is_enabled.exit
   invoke fastcc void @_ZL18mi_heap_collect_exP9mi_heap_s12mi_collect_e(ptr noundef %5, i32 noundef 1)
@@ -16137,8 +16137,8 @@ mi_heap_collect.exit:                             ; preds = %13
   br label %mi_heap_destroy.exit.i
 
 mi_heap_destroy.exit.i:                           ; preds = %29, %28, %27
-  %.not.i4 = icmp eq ptr %23, null
-  br i1 %.not.i4, label %_Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit, label %.lr.ph.i, !llvm.loop !222
+  %.not.i3 = icmp eq ptr %23, null
+  br i1 %.not.i3, label %_Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit, label %.lr.ph.i, !llvm.loop !222
 
 _Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit:  ; preds = %mi_heap_destroy.exit.i, %mi_heap_collect.exit, %18
   tail call void @_Z28_mi_arena_unsafe_destroy_allv()
@@ -16148,8 +16148,8 @@ _Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit:  ; preds = %mi_heap_destroy.exi
   %.06.i = phi i64 [ 0, %_Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit ], [ %35, %34 ]
   %31 = getelementptr inbounds nuw %"struct.std::atomic.12", ptr @_ZL14mi_segment_map, i64 %.06.i
   %32 = atomicrmw xchg ptr %31, i64 0 monotonic, align 8
-  %.not.i5 = icmp eq i64 %32, 0
-  br i1 %.not.i5, label %34, label %33
+  %.not.i4 = icmp eq i64 %32, 0
+  br i1 %.not.i4, label %34, label %33
 
 33:                                               ; preds = %30
   %.0.i.i.i.i = inttoptr i64 %32 to ptr
@@ -16164,32 +16164,32 @@ _Z27_mi_heap_unsafe_destroy_allP9mi_heap_s.exit:  ; preds = %mi_heap_destroy.exi
 _Z30_mi_segment_map_unsafe_destroyv.exit:         ; preds = %34, %mi_option_is_enabled.exit
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 40), align 8, !tbaa !106
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %mi_option_is_enabled.exit6, !prof !17
+  br i1 %37, label %38, label %mi_option_is_enabled.exit5, !prof !17
 
 38:                                               ; preds = %_Z30_mi_segment_map_unsafe_destroyv.exit
   tail call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 32))
-  br label %mi_option_is_enabled.exit6
+  br label %mi_option_is_enabled.exit5
 
-mi_option_is_enabled.exit6:                       ; preds = %_Z30_mi_segment_map_unsafe_destroyv.exit, %38
+mi_option_is_enabled.exit5:                       ; preds = %_Z30_mi_segment_map_unsafe_destroyv.exit, %38
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 32), align 16, !tbaa !110
-  %.not9 = icmp eq i64 %39, 0
-  br i1 %.not9, label %40, label %45
+  %.not8 = icmp eq i64 %39, 0
+  br i1 %.not8, label %40, label %45
 
-40:                                               ; preds = %mi_option_is_enabled.exit6
+40:                                               ; preds = %mi_option_is_enabled.exit5
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 72), align 8, !tbaa !106
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %mi_option_is_enabled.exit7, !prof !17
+  br i1 %42, label %43, label %mi_option_is_enabled.exit6, !prof !17
 
 43:                                               ; preds = %40
   tail call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 64))
-  br label %mi_option_is_enabled.exit7
+  br label %mi_option_is_enabled.exit6
 
-mi_option_is_enabled.exit7:                       ; preds = %40, %43
+mi_option_is_enabled.exit6:                       ; preds = %40, %43
   %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 64), align 16, !tbaa !110
-  %.not10 = icmp eq i64 %44, 0
-  br i1 %.not10, label %64, label %45
+  %.not9 = icmp eq i64 %44, 0
+  br i1 %.not9, label %64, label %45
 
-45:                                               ; preds = %mi_option_is_enabled.exit7, %mi_option_is_enabled.exit6
+45:                                               ; preds = %mi_option_is_enabled.exit6, %mi_option_is_enabled.exit5
   tail call void @mi_process_init() #55
   %46 = invoke fastcc noundef zeroext i1 @_ZL20_mi_thread_heap_initv()
           to label %47 unwind label %58
@@ -16233,7 +16233,7 @@ mi_stats_print.exit:                              ; preds = %47, %.loopexit.i.i.
   tail call fastcc void @_ZL15_mi_stats_printP10mi_stats_sPFvPKcPvES3_(ptr noundef nonnull @_mi_stats_main, ptr noundef null, ptr noundef null) #55
   br label %64
 
-64:                                               ; preds = %mi_stats_print.exit, %mi_option_is_enabled.exit7
+64:                                               ; preds = %mi_stats_print.exit, %mi_option_is_enabled.exit6
   %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !196
   tail call void (ptr, ...) @_Z19_mi_verbose_messagePKcz(ptr noundef nonnull @.str.24, i64 noundef %65)
   store i1 false, ptr @_ZL13os_preloading, align 1
@@ -31166,8 +31166,8 @@ define internal void @_ZL17mi_process_attachv() #5 {
   tail call fastcc void @_ZL17mi_heap_main_initv()
   store i1 true, ptr @_ZL13os_preloading, align 1
   tail call void @_Z16_mi_options_initv()
-  %.b1.i.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
-  br i1 %.b1.i.i, label %7, label %1
+  %.b.i.i = load i1, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1
+  br i1 %.b.i.i, label %7, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZL33mi_process_setup_auto_thread_donevE15tls_initialized, align 1

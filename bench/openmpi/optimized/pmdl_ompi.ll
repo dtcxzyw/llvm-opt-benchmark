@@ -1205,8 +1205,8 @@ pmix_obj_new_tma.exit226:                         ; preds = %25, %.lr.ph, %340, 
 define internal void @parse_file_envars(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b5.i = load i1, ptr @ompi_frameworks_setup, align 1
-  br i1 %.b5.i, label %setup_ompi_frameworks.exit, label %3
+  %.b.i = load i1, ptr @ompi_frameworks_setup, align 1
+  br i1 %.b.i, label %setup_ompi_frameworks.exit, label %3
 
 3:                                                ; preds = %1
   store i1 true, ptr @ompi_frameworks_setup, align 1

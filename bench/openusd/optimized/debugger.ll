@@ -432,16 +432,16 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchDebuggerTrapEv() local_unnamed_addr #0 {
   %1 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIsAttachedEv()
-  %.old.b3 = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
+  %.old.b = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
   br i1 %1, label %8, label %2
 
 2:                                                ; preds = %0
-  br i1 %.old.b3, label %3, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
+  br i1 %.old.b, label %3, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_archDebuggerAttachArgsE, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, label %5
+  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread7, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__37Arch_DebuggerRunUnrelatedProcessPosixEPFbPvES0_(ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L28Arch_DebuggerAttachExecPosixEPv, ptr noundef nonnull %4)
@@ -449,20 +449,20 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchDebuggerTrapEv() local_u
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread: ; preds = %5
   %7 = tail call i32 @sleep(i32 noundef 5)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit: ; preds = %5
-  %.b2.pre = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
-  br i1 %.b2.pre, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
+  %.b.pre = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
+  br i1 %.b.pre, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread7, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9
 
 8:                                                ; preds = %0
-  br i1 %.old.b3, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
+  br i1 %.old.b, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread7, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit, %8
+_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread7: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit, %8
   tail call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread11: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread, %8, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread9: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread, %8, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread7, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
   ret void
 }
 
@@ -608,8 +608,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchDebuggerAt
   br i1 %3, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit, label %4
 
 4:                                                ; preds = %2
-  %.b2.i = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
-  br i1 %.b2.i, label %5, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
+  %.b.i = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
+  br i1 %.b.i, label %5, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_archDebuggerAttachArgsE, align 8

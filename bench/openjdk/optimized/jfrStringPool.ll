@@ -428,8 +428,8 @@ _ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit4: ; preds =
 define hidden noundef zeroext i1 @_ZN13JfrStringPool10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca [11 x i8], align 1
-  %.b19 = load i1, ptr @_ZZL27initialize_java_string_poolvE11initialized, align 1
-  br i1 %.b19, label %_ZL27initialize_java_string_poolv.exit.thread, label %4
+  %.b = load i1, ptr @_ZZL27initialize_java_string_poolvE11initialized, align 1
+  br i1 %.b, label %_ZL27initialize_java_string_poolv.exit.thread, label %4
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

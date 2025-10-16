@@ -690,8 +690,8 @@ declare i32 @pmix_util_harvest_envars(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @pmix_pmdl_base_check_prte_param(ptr noundef %0) local_unnamed_addr #0 {
-  %.b5.i = load i1, ptr @prte_frameworks_setup, align 1
-  br i1 %.b5.i, label %setup_prte_frameworks.exit, label %2
+  %.b.i = load i1, ptr @prte_frameworks_setup, align 1
+  br i1 %.b.i, label %setup_prte_frameworks.exit, label %2
 
 2:                                                ; preds = %1
   store i1 true, ptr @prte_frameworks_setup, align 1

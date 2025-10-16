@@ -129,8 +129,8 @@ define void @_Z15low_do_autocorrPKcPK16gmx_output_env_tS0_iiiPPffmibbbffi(ptr no
   store ptr %0, ptr %27, align 8, !tbaa !4
   %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 24), align 8, !tbaa !9, !range !15, !noundef !16
   %37 = trunc nuw i8 %36 to i1
-  %.b1.i = load i1, ptr @_ZL8bACFinit, align 1
-  br i1 %.b1.i, label %_Z11get_acfnoutv.exit, label %38
+  %.b.i = load i1, ptr @_ZL8bACFinit, align 1
+  br i1 %.b.i, label %_Z11get_acfnoutv.exit, label %38
 
 38:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -1809,8 +1809,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z11get_acfnoutv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %.b1 = load i1, ptr @_ZL8bACFinit, align 1
-  br i1 %.b1, label %6, label %2
+  %.b = load i1, ptr @_ZL8bACFinit, align 1
+  br i1 %.b, label %6, label %2
 
 2:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -2854,8 +2854,8 @@ define noundef ptr @_Z13add_acf_pargsPiP7t_pargs(ptr noundef captures(none) %0, 
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z11do_autocorrPKcPK16gmx_output_env_tS0_iiPPffmb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, float noundef %6, i64 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
-  %.b11 = load i1, ptr @_ZL8bACFinit, align 1
-  br i1 %.b11, label %11, label %10
+  %.b = load i1, ptr @_ZL8bACFinit, align 1
+  br i1 %.b, label %11, label %10
 
 10:                                               ; preds = %9
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -2908,8 +2908,8 @@ declare noundef zeroext i1 @_Z10bDebugModev() local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z12get_acffitfnv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %.b1 = load i1, ptr @_ZL8bACFinit, align 1
-  br i1 %.b1, label %6, label %2
+  %.b = load i1, ptr @_ZL8bACFinit, align 1
+  br i1 %.b, label %6, label %2
 
 2:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)

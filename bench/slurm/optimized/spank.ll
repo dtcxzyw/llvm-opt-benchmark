@@ -4637,32 +4637,32 @@ get_global_option_cache.exit:                     ; preds = %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @spank_has_prolog() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @has_prolog, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @has_prolog, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @spank_has_epilog() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @has_epilog, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @has_epilog, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @spank_has_user_init() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @has_user_init, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @has_user_init, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @spank_has_task_post_fork() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @has_task_post_fork, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @has_task_post_fork, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @spank_has_task_exit() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @has_task_exit, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @has_task_exit, align 1
+  ret i1 %.b
 }
 
 declare ptr @slurm_conf_lock() local_unnamed_addr #1

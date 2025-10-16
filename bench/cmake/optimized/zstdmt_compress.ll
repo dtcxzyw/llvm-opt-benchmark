@@ -1924,21 +1924,21 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
   br label %145
 
 145:                                              ; preds = %145, %140
-  %.010.i.i60.i = phi i64 [ 0, %140 ], [ %152, %145 ]
-  %.089.i.i61.i = phi i64 [ 0, %140 ], [ %151, %145 ]
-  %146 = mul i64 %.089.i.i61.i, -3523014627327384477
-  %147 = getelementptr inbounds nuw i8, ptr %143, i64 %.010.i.i60.i
+  %.010.i.i59.i = phi i64 [ 0, %140 ], [ %152, %145 ]
+  %.089.i.i60.i = phi i64 [ 0, %140 ], [ %151, %145 ]
+  %146 = mul i64 %.089.i.i60.i, -3523014627327384477
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 %.010.i.i59.i
   %148 = load i8, ptr %147, align 1, !tbaa !130
   %149 = zext i8 %148 to i64
   %150 = add i64 %146, 10
   %151 = add i64 %150, %149
-  %152 = add nuw nsw i64 %.010.i.i60.i, 1
-  %exitcond.not.i.i62.i = icmp eq i64 %.010.i.i60.i, %144
-  br i1 %exitcond.not.i.i62.i, label %ZSTD_rollingHash_compute.exit63.i, label %145, !llvm.loop !131
+  %152 = add nuw nsw i64 %.010.i.i59.i, 1
+  %exitcond.not.i.i61.i = icmp eq i64 %.010.i.i59.i, %144
+  br i1 %exitcond.not.i.i61.i, label %ZSTD_rollingHash_compute.exit62.i, label %145, !llvm.loop !131
 
-ZSTD_rollingHash_compute.exit63.i:                ; preds = %145, %ZSTD_rollingHash_compute.exit63.i
-  %.010.i.i = phi i64 [ %159, %ZSTD_rollingHash_compute.exit63.i ], [ 0, %145 ]
-  %.089.i.i = phi i64 [ %158, %ZSTD_rollingHash_compute.exit63.i ], [ %151, %145 ]
+ZSTD_rollingHash_compute.exit62.i:                ; preds = %145, %ZSTD_rollingHash_compute.exit62.i
+  %.010.i.i = phi i64 [ %159, %ZSTD_rollingHash_compute.exit62.i ], [ 0, %145 ]
+  %.089.i.i = phi i64 [ %158, %ZSTD_rollingHash_compute.exit62.i ], [ %151, %145 ]
   %153 = mul i64 %.089.i.i, -3523014627327384477
   %154 = getelementptr inbounds nuw i8, ptr %106, i64 %.010.i.i
   %155 = load i8, ptr %154, align 1, !tbaa !130
@@ -1947,7 +1947,7 @@ ZSTD_rollingHash_compute.exit63.i:                ; preds = %145, %ZSTD_rollingH
   %158 = add i64 %157, %156
   %159 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i69 = icmp eq i64 %159, %127
-  br i1 %exitcond.not.i.i69, label %ZSTD_rollingHash_compute.exit.i, label %ZSTD_rollingHash_compute.exit63.i, !llvm.loop !131
+  br i1 %exitcond.not.i.i69, label %ZSTD_rollingHash_compute.exit.i, label %ZSTD_rollingHash_compute.exit62.i, !llvm.loop !131
 
 160:                                              ; preds = %124
   %161 = getelementptr inbounds nuw i8, ptr %105, i64 %115
@@ -1955,60 +1955,60 @@ ZSTD_rollingHash_compute.exit63.i:                ; preds = %145, %ZSTD_rollingH
   br label %163
 
 163:                                              ; preds = %163, %160
-  %.010.i.i64.i = phi i64 [ 0, %160 ], [ %170, %163 ]
-  %.089.i.i65.i = phi i64 [ 0, %160 ], [ %169, %163 ]
-  %164 = mul i64 %.089.i.i65.i, -3523014627327384477
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %.010.i.i64.i
+  %.010.i.i63.i = phi i64 [ 0, %160 ], [ %170, %163 ]
+  %.089.i.i64.i = phi i64 [ 0, %160 ], [ %169, %163 ]
+  %164 = mul i64 %.089.i.i64.i, -3523014627327384477
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %.010.i.i63.i
   %166 = load i8, ptr %165, align 1, !tbaa !130
   %167 = zext i8 %166 to i64
   %168 = add i64 %164, 10
   %169 = add i64 %168, %167
-  %170 = add nuw nsw i64 %.010.i.i64.i, 1
-  %exitcond.not.i.i66.i = icmp eq i64 %170, 32
-  br i1 %exitcond.not.i.i66.i, label %ZSTD_rollingHash_compute.exit67.i, label %163, !llvm.loop !131
+  %170 = add nuw nsw i64 %.010.i.i63.i, 1
+  %exitcond.not.i.i65.i = icmp eq i64 %170, 32
+  br i1 %exitcond.not.i.i65.i, label %ZSTD_rollingHash_compute.exit66.i, label %163, !llvm.loop !131
 
-ZSTD_rollingHash_compute.exit67.i:                ; preds = %163
+ZSTD_rollingHash_compute.exit66.i:                ; preds = %163
   %171 = and i64 %169, %110
   %172 = icmp eq i64 %171, %110
   br i1 %172, label %findSynchronizationPoint.exit, label %ZSTD_rollingHash_compute.exit.i
 
-ZSTD_rollingHash_compute.exit.i:                  ; preds = %ZSTD_rollingHash_compute.exit63.i, %132, %ZSTD_rollingHash_compute.exit67.i
-  %.050.i = phi i64 [ %169, %ZSTD_rollingHash_compute.exit67.i ], [ %138, %132 ], [ %158, %ZSTD_rollingHash_compute.exit63.i ]
-  %.049.i = phi ptr [ %162, %ZSTD_rollingHash_compute.exit67.i ], [ %131, %132 ], [ %142, %ZSTD_rollingHash_compute.exit63.i ]
-  %.048.i = phi i64 [ 0, %ZSTD_rollingHash_compute.exit67.i ], [ %127, %132 ], [ %127, %ZSTD_rollingHash_compute.exit63.i ]
+ZSTD_rollingHash_compute.exit.i:                  ; preds = %ZSTD_rollingHash_compute.exit62.i, %132, %ZSTD_rollingHash_compute.exit66.i
+  %.050.i = phi i64 [ %169, %ZSTD_rollingHash_compute.exit66.i ], [ %138, %132 ], [ %158, %ZSTD_rollingHash_compute.exit62.i ]
+  %.049.i = phi ptr [ %162, %ZSTD_rollingHash_compute.exit66.i ], [ %131, %132 ], [ %142, %ZSTD_rollingHash_compute.exit62.i ]
+  %.048.i = phi i64 [ 0, %ZSTD_rollingHash_compute.exit66.i ], [ %127, %132 ], [ %127, %ZSTD_rollingHash_compute.exit62.i ]
   %173 = icmp ult i64 %.048.i, %..i
   br i1 %173, label %.lr.ph.i, label %findSynchronizationPoint.exit
 
 .lr.ph.i:                                         ; preds = %ZSTD_rollingHash_compute.exit.i, %190
-  %.181.i = phi i64 [ %189, %190 ], [ %.048.i, %ZSTD_rollingHash_compute.exit.i ]
-  %.15180.i = phi i64 [ %186, %190 ], [ %.050.i, %ZSTD_rollingHash_compute.exit.i ]
-  %174 = icmp ult i64 %.181.i, 32
-  %175 = getelementptr inbounds nuw i8, ptr %.049.i, i64 %.181.i
-  %176 = getelementptr i8, ptr %106, i64 %.181.i
+  %.180.i = phi i64 [ %189, %190 ], [ %.048.i, %ZSTD_rollingHash_compute.exit.i ]
+  %.15179.i = phi i64 [ %186, %190 ], [ %.050.i, %ZSTD_rollingHash_compute.exit.i ]
+  %174 = icmp ult i64 %.180.i, 32
+  %175 = getelementptr inbounds nuw i8, ptr %.049.i, i64 %.180.i
+  %176 = getelementptr i8, ptr %106, i64 %.180.i
   %177 = getelementptr i8, ptr %176, i64 -32
   %.in.in.i = select i1 %174, ptr %175, ptr %177
-  %.in58.i = load i8, ptr %.in.in.i, align 1, !tbaa !130
+  %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !130
   %178 = load i8, ptr %176, align 1, !tbaa !130
-  %179 = zext i8 %.in58.i to i64
+  %179 = zext i8 %.in.i to i64
   %180 = add nuw nsw i64 %179, 10
   %181 = mul i64 %180, %108
-  %182 = sub i64 %.15180.i, %181
+  %182 = sub i64 %.15179.i, %181
   %183 = mul i64 %182, -3523014627327384477
   %184 = zext i8 %178 to i64
   %185 = add nuw nsw i64 %184, 10
   %186 = add i64 %185, %183
   %187 = and i64 %186, %110
   %188 = icmp eq i64 %187, %110
-  %189 = add nuw i64 %.181.i, 1
+  %189 = add nuw i64 %.180.i, 1
   br i1 %188, label %findSynchronizationPoint.exit, label %190
 
 190:                                              ; preds = %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %189, %..i
   br i1 %exitcond.not.i, label %findSynchronizationPoint.exit, label %.lr.ph.i, !llvm.loop !132
 
-findSynchronizationPoint.exit:                    ; preds = %190, %.lr.ph.i, %ZSTDMT_tryGetInputRange.exit.thread, %119, %ZSTD_rollingHash_compute.exit67.i, %ZSTD_rollingHash_compute.exit.i
-  %.sroa.0.0.i = phi i64 [ %..i, %ZSTDMT_tryGetInputRange.exit.thread ], [ %..i, %119 ], [ 0, %ZSTD_rollingHash_compute.exit67.i ], [ %..i, %ZSTD_rollingHash_compute.exit.i ], [ %..i, %190 ], [ %189, %.lr.ph.i ]
-  %191 = phi i1 [ false, %ZSTDMT_tryGetInputRange.exit.thread ], [ false, %119 ], [ true, %ZSTD_rollingHash_compute.exit67.i ], [ false, %ZSTD_rollingHash_compute.exit.i ], [ %188, %.lr.ph.i ], [ %188, %190 ]
+findSynchronizationPoint.exit:                    ; preds = %190, %.lr.ph.i, %ZSTDMT_tryGetInputRange.exit.thread, %119, %ZSTD_rollingHash_compute.exit66.i, %ZSTD_rollingHash_compute.exit.i
+  %.sroa.0.0.i = phi i64 [ %..i, %ZSTDMT_tryGetInputRange.exit.thread ], [ %..i, %119 ], [ 0, %ZSTD_rollingHash_compute.exit66.i ], [ %..i, %ZSTD_rollingHash_compute.exit.i ], [ %..i, %190 ], [ %189, %.lr.ph.i ]
+  %191 = phi i1 [ false, %ZSTDMT_tryGetInputRange.exit.thread ], [ false, %119 ], [ true, %ZSTD_rollingHash_compute.exit66.i ], [ false, %ZSTD_rollingHash_compute.exit.i ], [ %188, %.lr.ph.i ], [ %188, %190 ]
   %or.cond4 = and i1 %8, %191
   %spec.store.select = select i1 %or.cond4, i32 1, i32 %3
   %192 = getelementptr inbounds nuw i8, ptr %105, i64 %115

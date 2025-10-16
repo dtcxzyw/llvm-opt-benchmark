@@ -204,10 +204,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %8 = tail call ptr @get_progname(ptr noundef %7) #12
   store ptr %8, ptr @progname, align 8
   %9 = icmp sgt i32 %0, 1
-  br i1 %9, label %10, label %.tail52.thread.preheader
+  br i1 %9, label %10, label %.tail49.thread.preheader
 
-.tail52.thread.preheader:                         ; preds = %.tail.thread.thread, %sub_154, %.tail52, %2
-  br label %.tail52.thread
+.tail49.thread.preheader:                         ; preds = %.tail.thread.thread, %sub_151, %.tail49, %2
+  br label %.tail49.thread
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -224,8 +224,8 @@ sub_0:                                            ; preds = %10
 sub_1:                                            ; preds = %sub_0
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %17 = load i8, ptr %16, align 1
-  %.not60 = icmp eq i8 %17, 63
-  br i1 %.not60, label %.tail, label %.tail.thread
+  %.not57 = icmp eq i8 %17, 63
+  br i1 %.not57, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -241,37 +241,37 @@ sub_1:                                            ; preds = %sub_0
 .tail.thread:                                     ; preds = %sub_1
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.12) #13
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %33, label %sub_154
+  br i1 %23, label %33, label %sub_151
 
 .tail.thread.thread:                              ; preds = %sub_0
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.12) #13
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %33, label %.tail52.thread.preheader
+  br i1 %25, label %33, label %.tail49.thread.preheader
 
 .thread:                                          ; preds = %.tail
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.12) #13
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %33, label %sub_154
+  br i1 %27, label %33, label %sub_151
 
-sub_154:                                          ; preds = %.tail.thread, %.thread
+sub_151:                                          ; preds = %.tail.thread, %.thread
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %29 = load i8, ptr %28, align 1
-  %.not62 = icmp eq i8 %29, 86
-  br i1 %.not62, label %.tail52, label %.tail52.thread.preheader
+  %.not59 = icmp eq i8 %29, 86
+  br i1 %.not59, label %.tail49, label %.tail49.thread.preheader
 
-.tail52:                                          ; preds = %sub_154
+.tail49:                                          ; preds = %sub_151
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %.tail52.thread.preheader
+  br i1 %32, label %33, label %.tail49.thread.preheader
 
-33:                                               ; preds = %.tail.thread.thread, %.thread, %.tail52, %.tail.thread
+33:                                               ; preds = %.tail.thread.thread, %.thread, %.tail49, %.tail.thread
   %34 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.14)
   tail call void @exit(i32 noundef 0) #14
   unreachable
 
-.tail52.thread:                                   ; preds = %.tail52.thread.backedge, %.tail52.thread.preheader
-  %.0 = phi ptr [ null, %.tail52.thread.preheader ], [ %.0.be, %.tail52.thread.backedge ]
+.tail49.thread:                                   ; preds = %.tail49.thread.backedge, %.tail49.thread.preheader
+  %.0 = phi ptr [ null, %.tail49.thread.preheader ], [ %.0.be, %.tail49.thread.backedge ]
   %35 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.15, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #12
   switch i32 %35, label %55 [
     i32 -1, label %57
@@ -286,23 +286,23 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
     i32 1, label %51
   ]
 
-36:                                               ; preds = %.tail52.thread
+36:                                               ; preds = %.tail49.thread
   store i32 0, ptr @mode, align 4
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-37:                                               ; preds = %.tail52.thread
+37:                                               ; preds = %.tail49.thread
   store i32 1, ptr @mode, align 4
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-38:                                               ; preds = %.tail52.thread
+38:                                               ; preds = %.tail49.thread
   %39 = load ptr, ptr @optarg, align 8
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-40:                                               ; preds = %.tail52.thread
+40:                                               ; preds = %.tail49.thread
   store i32 2, ptr @mode, align 4
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-41:                                               ; preds = %.tail52.thread
+41:                                               ; preds = %.tail49.thread
   %42 = load ptr, ptr @optarg, align 8
   %43 = call zeroext i1 @option_parse_int(ptr noundef %42, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef 2147483647, ptr noundef null) #12
   br i1 %43, label %45, label %44
@@ -315,40 +315,40 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   %46 = load ptr, ptr @optarg, align 8
   %47 = call ptr @pstrdup(ptr noundef %46) #12
   store ptr %47, ptr @only_filenode, align 8
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-48:                                               ; preds = %.tail52.thread
+48:                                               ; preds = %.tail49.thread
   store i1 true, ptr @do_sync, align 1
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-49:                                               ; preds = %.tail52.thread
+49:                                               ; preds = %.tail49.thread
   store i1 true, ptr @showprogress, align 1
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-50:                                               ; preds = %.tail52.thread
+50:                                               ; preds = %.tail49.thread
   store i1 true, ptr @verbose, align 1
-  br label %.tail52.thread.backedge
+  br label %.tail49.thread.backedge
 
-51:                                               ; preds = %.tail52.thread
+51:                                               ; preds = %.tail49.thread
   %52 = load ptr, ptr @optarg, align 8
   %53 = call zeroext i1 @parse_sync_method(ptr noundef %52, ptr noundef nonnull @sync_method) #12
-  br i1 %53, label %.tail52.thread.backedge, label %54
+  br i1 %53, label %.tail49.thread.backedge, label %54
 
-.tail52.thread.backedge:                          ; preds = %51, %50, %49, %48, %45, %40, %38, %37, %36
+.tail49.thread.backedge:                          ; preds = %51, %50, %49, %48, %45, %40, %38, %37, %36
   %.0.be = phi ptr [ %.0, %36 ], [ %.0, %37 ], [ %39, %38 ], [ %.0, %40 ], [ %.0, %45 ], [ %.0, %48 ], [ %.0, %49 ], [ %.0, %50 ], [ %.0, %51 ]
-  br label %.tail52.thread, !llvm.loop !10
+  br label %.tail49.thread, !llvm.loop !10
 
 54:                                               ; preds = %51
   call void @exit(i32 noundef 1) #15
   unreachable
 
-55:                                               ; preds = %.tail52.thread
+55:                                               ; preds = %.tail49.thread
   %56 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %56) #12
   call void @exit(i32 noundef 1) #15
   unreachable
 
-57:                                               ; preds = %.tail52.thread
+57:                                               ; preds = %.tail49.thread
   %58 = icmp eq ptr %.0, null
   %.pre = load i32, ptr @optind, align 4
   br i1 %58, label %59, label %73
@@ -505,8 +505,8 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   ]
 
 123:                                              ; preds = %122, %122
-  %.b4349 = load i1, ptr @showprogress, align 1
-  br i1 %.b4349, label %124, label %132
+  %.b43 = load i1, ptr @showprogress, align 1
+  br i1 %.b43, label %124, label %132
 
 124:                                              ; preds = %123
   %125 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
@@ -525,8 +525,8 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   %133 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
   %134 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
   %135 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
-  %.b4250 = load i1, ptr @showprogress, align 1
-  br i1 %.b4250, label %136, label %155
+  %.b42 = load i1, ptr @showprogress, align 1
+  br i1 %.b42, label %136, label %155
 
 136:                                              ; preds = %132
   %137 = call i64 @time(ptr noundef null) #12
@@ -622,8 +622,8 @@ progress_report.exit:                             ; preds = %142, %144
   %.b = load i1, ptr @do_sync, align 1
   %not..b = xor i1 %.b, true
   call void @update_controlfile(ptr noundef nonnull %.2, ptr noundef %188, i1 noundef zeroext %not..b) #12
-  %.b4451 = load i1, ptr @verbose, align 1
-  br i1 %.b4451, label %189, label %.sink.split
+  %.b44 = load i1, ptr @verbose, align 1
+  br i1 %.b44, label %189, label %.sink.split
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr @ControlFile, align 8
@@ -1195,8 +1195,8 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
 
 85:                                               ; preds = %77, %pg_checksum_page.exit, %60, %69
   %.2 = phi i64 [ %.046, %69 ], [ %.046, %60 ], [ %.046, %pg_checksum_page.exit ], [ %78, %77 ]
-  %.b58 = load i1, ptr @showprogress, align 1
-  br i1 %.b58, label %86, label %.thread
+  %.b = load i1, ptr @showprogress, align 1
+  br i1 %.b, label %86, label %.thread
 
 86:                                               ; preds = %85
   tail call fastcc void @progress_report(i1 noundef zeroext false)
@@ -1208,8 +1208,8 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br label %17
 
 88:                                               ; preds = %17
-  %.b5459 = load i1, ptr @verbose, align 1
-  br i1 %.b5459, label %89, label %97
+  %.b54 = load i1, ptr @verbose, align 1
+  br i1 %.b54, label %89, label %97
 
 89:                                               ; preds = %88
   %90 = load i32, ptr @mode, align 4

@@ -114,8 +114,8 @@ define hidden noundef ptr @SDL_CreateTray_REAL(ptr noundef %0, ptr noundef readn
   br label %220
 
 6:                                                ; preds = %2
-  %.b55.i = load i1, ptr @gtk_is_init, align 1
-  br i1 %.b55.i, label %init_gtk.exit.thread, label %7
+  %.b.i = load i1, ptr @gtk_is_init, align 1
+  br i1 %.b.i, label %init_gtk.exit.thread, label %7
 
 7:                                                ; preds = %6
   %.pre.i.i = load ptr, ptr @appindicator_names, align 16
@@ -134,37 +134,37 @@ define hidden noundef ptr @SDL_CreateTray_REAL(ptr noundef %0, ptr noundef readn
 
 find_lib.exit.i:                                  ; preds = %8
   store ptr %10, ptr @libappindicator, align 8
-  %.pre.i56.i = load ptr, ptr @gtk_names, align 16
+  %.pre.i55.i = load ptr, ptr @gtk_names, align 16
   br label %15
 
 15:                                               ; preds = %15, %find_lib.exit.i
-  %16 = phi ptr [ %.pre.i56.i, %find_lib.exit.i ], [ %19, %15 ]
-  %.0.i57.i = phi ptr [ @gtk_names, %find_lib.exit.i ], [ %18, %15 ]
+  %16 = phi ptr [ %.pre.i55.i, %find_lib.exit.i ], [ %19, %15 ]
+  %.0.i56.i = phi ptr [ @gtk_names, %find_lib.exit.i ], [ %18, %15 ]
   %17 = tail call ptr @dlopen(ptr noundef %16, i32 noundef 1) #10
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i57.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i56.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
-  %.not.i58.i = icmp eq ptr %17, null
-  %21 = select i1 %20, i1 %.not.i58.i, i1 false
-  br i1 %21, label %15, label %find_lib.exit59.i, !llvm.loop !3
+  %.not.i57.i = icmp eq ptr %17, null
+  %21 = select i1 %20, i1 %.not.i57.i, i1 false
+  br i1 %21, label %15, label %find_lib.exit58.i, !llvm.loop !3
 
-find_lib.exit59.i:                                ; preds = %15
+find_lib.exit58.i:                                ; preds = %15
   store ptr %17, ptr @libgtk, align 8
-  %.pre.i60.i = load ptr, ptr @gdk_names, align 16
+  %.pre.i59.i = load ptr, ptr @gdk_names, align 16
   br label %22
 
-22:                                               ; preds = %22, %find_lib.exit59.i
-  %23 = phi ptr [ %.pre.i60.i, %find_lib.exit59.i ], [ %26, %22 ]
-  %.0.i61.i = phi ptr [ @gdk_names, %find_lib.exit59.i ], [ %25, %22 ]
+22:                                               ; preds = %22, %find_lib.exit58.i
+  %23 = phi ptr [ %.pre.i59.i, %find_lib.exit58.i ], [ %26, %22 ]
+  %.0.i60.i = phi ptr [ @gdk_names, %find_lib.exit58.i ], [ %25, %22 ]
   %24 = tail call ptr @dlopen(ptr noundef %23, i32 noundef 1) #10
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i61.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne ptr %26, null
-  %.not.i62.i = icmp eq ptr %24, null
-  %28 = select i1 %27, i1 %.not.i62.i, i1 false
-  br i1 %28, label %22, label %find_lib.exit63.i, !llvm.loop !3
+  %.not.i61.i = icmp eq ptr %24, null
+  %28 = select i1 %27, i1 %.not.i61.i, i1 false
+  br i1 %28, label %22, label %find_lib.exit62.i, !llvm.loop !3
 
-find_lib.exit63.i:                                ; preds = %22
+find_lib.exit62.i:                                ; preds = %22
   store ptr %24, ptr @libgdk, align 8
   %29 = load ptr, ptr @libappindicator, align 8
   %30 = icmp ne ptr %29, null
@@ -175,9 +175,9 @@ find_lib.exit63.i:                                ; preds = %22
   %or.cond3.i = select i1 %or.cond.i, i1 %33, i1 false
   br i1 %or.cond3.i, label %45, label %34
 
-34:                                               ; preds = %find_lib.exit63.i
-  %.not.i64.i = icmp eq ptr %29, null
-  br i1 %.not.i64.i, label %37, label %35
+34:                                               ; preds = %find_lib.exit62.i
+  %.not.i63.i = icmp eq ptr %29, null
+  br i1 %.not.i63.i, label %37, label %35
 
 35:                                               ; preds = %34
   %36 = tail call i32 @dlclose(ptr noundef nonnull %29) #10
@@ -205,7 +205,7 @@ find_lib.exit63.i:                                ; preds = %22
   store ptr null, ptr @libgdk, align 8
   br label %init_gtk.exit
 
-45:                                               ; preds = %find_lib.exit63.i
+45:                                               ; preds = %find_lib.exit62.i
   %46 = tail call ptr @dlsym(ptr noundef nonnull %31, ptr noundef nonnull @.str.16) #10
   store ptr %46, ptr @gtk_init_check, align 8
   %47 = load ptr, ptr @libgtk, align 8
@@ -363,8 +363,8 @@ find_lib.exit63.i:                                ; preds = %22
 
 148:                                              ; preds = %45
   %149 = load ptr, ptr @libappindicator, align 8
-  %.not.i65.i = icmp eq ptr %149, null
-  br i1 %.not.i65.i, label %152, label %150
+  %.not.i64.i = icmp eq ptr %149, null
+  br i1 %.not.i64.i, label %152, label %150
 
 150:                                              ; preds = %148
   %151 = tail call i32 @dlclose(ptr noundef nonnull %149) #10
@@ -373,8 +373,8 @@ find_lib.exit63.i:                                ; preds = %22
 
 152:                                              ; preds = %150, %148
   %153 = load ptr, ptr @libgtk, align 8
-  %.not3.i66.i = icmp eq ptr %153, null
-  br i1 %.not3.i66.i, label %156, label %154
+  %.not3.i65.i = icmp eq ptr %153, null
+  br i1 %.not3.i65.i, label %156, label %154
 
 154:                                              ; preds = %152
   %155 = tail call i32 @dlclose(ptr noundef nonnull %153) #10
@@ -383,15 +383,15 @@ find_lib.exit63.i:                                ; preds = %22
 
 156:                                              ; preds = %154, %152
   %157 = load ptr, ptr @libgdk, align 8
-  %.not4.i67.i = icmp eq ptr %157, null
-  br i1 %.not4.i67.i, label %quit_gtk.exit68.i, label %158
+  %.not4.i66.i = icmp eq ptr %157, null
+  br i1 %.not4.i66.i, label %quit_gtk.exit67.i, label %158
 
 158:                                              ; preds = %156
   %159 = tail call i32 @dlclose(ptr noundef nonnull %157) #10
   store ptr null, ptr @libgdk, align 8
-  br label %quit_gtk.exit68.i
+  br label %quit_gtk.exit67.i
 
-quit_gtk.exit68.i:                                ; preds = %158, %156
+quit_gtk.exit67.i:                                ; preds = %158, %156
   store i1 false, ptr @gtk_is_init, align 1
   %160 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42) #10
   br i1 %160, label %init_gtk.exit.thread, label %220
@@ -403,8 +403,8 @@ quit_gtk.exit68.i:                                ; preds = %158, %156
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr @libappindicator, align 8
-  %.not.i69.i = icmp eq ptr %165, null
-  br i1 %.not.i69.i, label %168, label %166
+  %.not.i68.i = icmp eq ptr %165, null
+  br i1 %.not.i68.i, label %168, label %166
 
 166:                                              ; preds = %164
   %167 = tail call i32 @dlclose(ptr noundef nonnull %165) #10
@@ -413,8 +413,8 @@ quit_gtk.exit68.i:                                ; preds = %158, %156
 
 168:                                              ; preds = %166, %164
   %169 = load ptr, ptr @libgtk, align 8
-  %.not3.i70.i = icmp eq ptr %169, null
-  br i1 %.not3.i70.i, label %172, label %170
+  %.not3.i69.i = icmp eq ptr %169, null
+  br i1 %.not3.i69.i, label %172, label %170
 
 170:                                              ; preds = %168
   %171 = tail call i32 @dlclose(ptr noundef nonnull %169) #10
@@ -423,15 +423,15 @@ quit_gtk.exit68.i:                                ; preds = %158, %156
 
 172:                                              ; preds = %170, %168
   %173 = load ptr, ptr @libgdk, align 8
-  %.not4.i71.i = icmp eq ptr %173, null
-  br i1 %.not4.i71.i, label %quit_gtk.exit72.i, label %174
+  %.not4.i70.i = icmp eq ptr %173, null
+  br i1 %.not4.i70.i, label %quit_gtk.exit71.i, label %174
 
 174:                                              ; preds = %172
   %175 = tail call i32 @dlclose(ptr noundef nonnull %173) #10
   store ptr null, ptr @libgdk, align 8
-  br label %quit_gtk.exit72.i
+  br label %quit_gtk.exit71.i
 
-quit_gtk.exit72.i:                                ; preds = %174, %172
+quit_gtk.exit71.i:                                ; preds = %174, %172
   store i1 false, ptr @gtk_is_init, align 1
   %176 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43) #10
   br i1 %176, label %init_gtk.exit.thread, label %220
@@ -445,7 +445,7 @@ init_gtk.exit:                                    ; preds = %41, %43
   %178 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #10
   br i1 %178, label %init_gtk.exit.thread, label %220
 
-init_gtk.exit.thread:                             ; preds = %6, %177, %quit_gtk.exit68.i, %quit_gtk.exit72.i, %init_gtk.exit
+init_gtk.exit.thread:                             ; preds = %6, %177, %quit_gtk.exit67.i, %quit_gtk.exit71.i, %init_gtk.exit
   %179 = tail call noalias dereferenceable_or_null(304) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 304) #11
   %.not = icmp eq ptr %179, null
   br i1 %.not, label %220, label %180
@@ -524,8 +524,8 @@ get_appindicator_id.exit:                         ; preds = %201, %208
   tail call void @SDL_RegisterTray(ptr noundef nonnull %179) #10
   br label %220
 
-220:                                              ; preds = %quit_gtk.exit68.i, %quit_gtk.exit72.i, %185, %197, %get_appindicator_id.exit, %init_gtk.exit.thread, %init_gtk.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %init_gtk.exit ], [ %179, %get_appindicator_id.exit ], [ null, %197 ], [ null, %185 ], [ null, %init_gtk.exit.thread ], [ null, %quit_gtk.exit72.i ], [ null, %quit_gtk.exit68.i ]
+220:                                              ; preds = %quit_gtk.exit67.i, %quit_gtk.exit71.i, %185, %197, %get_appindicator_id.exit, %init_gtk.exit.thread, %init_gtk.exit, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %init_gtk.exit ], [ %179, %get_appindicator_id.exit ], [ null, %197 ], [ null, %185 ], [ null, %init_gtk.exit.thread ], [ null, %quit_gtk.exit71.i ], [ null, %quit_gtk.exit67.i ]
   ret ptr %.0
 }
 

@@ -3313,8 +3313,8 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7P
   %1385 = getelementptr inbounds nuw i8, ptr %1378, i64 12
   %1386 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i413, i64 8
   %.0.shrunk.i.in.i.i = select i1 %1384, ptr %1385, ptr %1386
-  %.0.shrunk.i6.i.i = load i32, ptr %.0.shrunk.i.in.i.i, align 4, !tbaa !119
-  %1387 = udiv i32 %1383, %.0.shrunk.i6.i.i
+  %.0.shrunk.i.i.i = load i32, ptr %.0.shrunk.i.in.i.i, align 4, !tbaa !119
+  %1387 = udiv i32 %1383, %.0.shrunk.i.i.i
   br label %_ZNK5clang6interp7Pointer11getNumElemsEv.exit.i
 
 _ZNK5clang6interp7Pointer11getNumElemsEv.exit.i:  ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit.i
@@ -19681,9 +19681,9 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %_ZNK5clang6interp7P
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %.0.shrunk.i.in.i = select i1 %151, ptr %152, ptr %153
-  %.0.shrunk.i6.i = load i32, ptr %.0.shrunk.i.in.i, align 4, !tbaa !119
-  %154 = udiv i32 %150, %.0.shrunk.i6.i
-  %.not20 = icmp ugt i32 %.0.shrunk.i6.i, %150
+  %.0.shrunk.i.i = load i32, ptr %.0.shrunk.i.in.i, align 4, !tbaa !119
+  %154 = udiv i32 %150, %.0.shrunk.i.i
+  %.not20 = icmp ugt i32 %.0.shrunk.i.i, %150
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, %_ZNK5clang6interp7Pointer11getNumElemsEv.exit
@@ -21238,8 +21238,8 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %_ZNK5clang6interp7P
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 12
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %.0.shrunk.i.in.i = select i1 %211, ptr %212, ptr %213
-  %.0.shrunk.i6.i = load i32, ptr %.0.shrunk.i.in.i, align 4, !tbaa !119
-  %214 = udiv i32 %209, %.0.shrunk.i6.i
+  %.0.shrunk.i.i = load i32, ptr %.0.shrunk.i.in.i, align 4, !tbaa !119
+  %214 = udiv i32 %209, %.0.shrunk.i.i
   %215 = zext i32 %214 to i64
   br label %_ZNK5clang6interp7Pointer11getNumElemsEv.exit
 
@@ -21336,8 +21336,8 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i146: ; preds = %_ZNK5clang6interp7P
   %255 = getelementptr inbounds nuw i8, ptr %247, i64 12
   %256 = getelementptr inbounds nuw i8, ptr %.0.i.i143, i64 8
   %.0.shrunk.i.in.i154 = select i1 %254, ptr %255, ptr %256
-  %.0.shrunk.i6.i155 = load i32, ptr %.0.shrunk.i.in.i154, align 4, !tbaa !119
-  %257 = udiv i32 %252, %.0.shrunk.i6.i155
+  %.0.shrunk.i.i155 = load i32, ptr %.0.shrunk.i.in.i154, align 4, !tbaa !119
+  %257 = udiv i32 %252, %.0.shrunk.i.i155
   %258 = zext i32 %257 to i64
   br label %_ZNK5clang6interp7Pointer11getNumElemsEv.exit156
 

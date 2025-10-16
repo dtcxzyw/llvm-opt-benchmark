@@ -578,7 +578,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
-  %indvars.iv.sroa.gep175 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep174 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
@@ -641,13 +641,13 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @SPI_getrelname(ptr noundef %38) #17
-  %.b130 = load i1, ptr @ttoff, align 1
-  br i1 %.b130, label %40, label %43
+  %.b = load i1, ptr @ttoff, align 1
+  br i1 %.b, label %40, label %43
 
 40:                                               ; preds = %34
   tail call void @pfree(ptr noundef %39) #17
-  %.not140 = icmp eq ptr %.0119, null
-  %41 = select i1 %.not140, ptr %36, ptr %.0119
+  %.not139 = icmp eq ptr %.0119, null
+  %41 = select i1 %.not139, ptr %36, ptr %.0119
   %42 = ptrtoint ptr %41 to i64
   br label %204
 
@@ -656,8 +656,8 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 42
   %47 = load i16, ptr %46, align 2
-  %.not131 = icmp eq i16 %47, 2
-  br i1 %.not131, label %53, label %48
+  %.not130 = icmp eq i16 %47, 2
+  br i1 %.not130, label %53, label %48
 
 48:                                               ; preds = %43
   %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
@@ -680,7 +680,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 60:                                               ; preds = %53, %59
   %61 = phi i1 [ true, %53 ], [ false, %59 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep175, %59 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep174, %59 ]
   %indvars.iv = phi i64 [ 0, %53 ], [ 1, %59 ]
   %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
@@ -699,8 +699,8 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 71:                                               ; preds = %60
   %72 = tail call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %64) #17
-  %.not139 = icmp eq i32 %72, 23
-  br i1 %.not139, label %59, label %73
+  %.not138 = icmp eq i32 %72, 23
+  br i1 %.not138, label %59, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
@@ -741,8 +741,8 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   unreachable
 
 98:                                               ; preds = %87
-  %.not132 = icmp eq ptr %.0119, null
-  br i1 %.not132, label %126, label %99
+  %.not131 = icmp eq ptr %.0119, null
+  br i1 %.not131, label %126, label %99
 
 99:                                               ; preds = %98
   %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #17
@@ -772,9 +772,9 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   unreachable
 
 116:                                              ; preds = %107
-  %.not134 = icmp eq i64 %80, %100
-  %.not135 = icmp eq i64 %90, %108
-  %or.cond = select i1 %.not134, i1 %.not135, i1 false
+  %.not133 = icmp eq i64 %80, %100
+  %.not134 = icmp eq i64 %90, %108
+  %or.cond = select i1 %.not133, i1 %.not134, i1 false
   br i1 %or.cond, label %124, label %117
 
 117:                                              ; preds = %116
@@ -788,16 +788,16 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   unreachable
 
 124:                                              ; preds = %116
-  %.not136 = icmp eq i64 %90, 999999
-  br i1 %.not136, label %128, label %125
+  %.not135 = icmp eq i64 %90, 999999
+  br i1 %.not135, label %128, label %125
 
 125:                                              ; preds = %124
   call void @pfree(ptr noundef %39) #17
   br label %204
 
 126:                                              ; preds = %98
-  %.not133 = icmp eq i64 %90, 999999
-  br i1 %.not133, label %128, label %127
+  %.not132 = icmp eq i64 %90, 999999
+  br i1 %.not132, label %128, label %127
 
 127:                                              ; preds = %126
   call void @pfree(ptr noundef %39) #17
@@ -819,27 +819,27 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %138, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %128
-  %139 = select i1 %.not132, ptr %36, ptr %.0119
+  %139 = select i1 %.not131, ptr %36, ptr %.0119
   %wide.trip.count = zext nneg i32 %58 to i64
   br label %140
 
 140:                                              ; preds = %.lr.ph, %140
-  %indvars.iv154 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next155, %140 ]
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %141 = trunc nuw nsw i64 %indvars.iv.next155 to i32
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next154, %140 ]
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %141 = trunc nuw nsw i64 %indvars.iv.next154 to i32
   %142 = call i64 @SPI_getbinval(ptr noundef %139, ptr noundef nonnull %57, i32 noundef %141, ptr noundef nonnull %4) #17
-  %143 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv154
+  %143 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv153
   store i64 %142, ptr %143, align 8
   %144 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %145 = trunc nuw i8 %144 to i1
   %146 = select i1 %145, i8 110, i8 32
-  %147 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv154
+  %147 = getelementptr inbounds nuw i8, ptr %137, i64 %indvars.iv153
   store i8 %146, ptr %147, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %140, %128
-  br i1 %.not132, label %153, label %148
+  br i1 %.not131, label %153, label %148
 
 148:                                              ; preds = %._crit_edge
   %149 = add i32 %79, -1
@@ -870,31 +870,31 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %165 = sext i32 %164 to i64
   %166 = call ptr @palloc(i64 noundef %165) #17
   %167 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %166, ptr noundef nonnull @.str.16, ptr noundef %39) #17
-  %.not137146 = icmp slt i32 %58, 1
-  br i1 %.not137146, label %._crit_edge150, label %.lr.ph149
+  %.not136145 = icmp slt i32 %58, 1
+  br i1 %.not136145, label %._crit_edge149, label %.lr.ph148
 
-.lr.ph149:                                        ; preds = %160, %.lr.ph149
-  %.2147 = phi i32 [ %177, %.lr.ph149 ], [ 1, %160 ]
+.lr.ph148:                                        ; preds = %160, %.lr.ph148
+  %.2146 = phi i32 [ %177, %.lr.ph148 ], [ 1, %160 ]
   %168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %166) #19
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 %168
-  %170 = icmp slt i32 %.2147, %58
+  %170 = icmp slt i32 %.2146, %58
   %171 = select i1 %170, ptr @.str.18, ptr @.str.19
-  %172 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %169, ptr noundef nonnull @.str.17, i32 noundef %.2147, ptr noundef nonnull %171) #17
-  %173 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2147) #17
-  %174 = add i32 %.2147, -1
+  %172 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %169, ptr noundef nonnull @.str.17, i32 noundef %.2146, ptr noundef nonnull %171) #17
+  %173 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2146) #17
+  %174 = add i32 %.2146, -1
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i32, ptr %162, i64 %175
   store i32 %173, ptr %176, align 4
-  %177 = add i32 %.2147, 1
-  %.not137 = icmp sgt i32 %177, %58
-  br i1 %.not137, label %._crit_edge150, label %.lr.ph149, !llvm.loop !13
+  %177 = add i32 %.2146, 1
+  %.not136 = icmp sgt i32 %177, %58
+  br i1 %.not136, label %._crit_edge149, label %.lr.ph148, !llvm.loop !13
 
-._crit_edge150:                                   ; preds = %.lr.ph149, %160
+._crit_edge149:                                   ; preds = %.lr.ph148, %160
   %178 = call ptr @SPI_prepare(ptr noundef %166, i32 noundef %58, ptr noundef %162) #17
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %185
 
-180:                                              ; preds = %._crit_edge150
+180:                                              ; preds = %._crit_edge149
   %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %182 = load i32, ptr @SPI_result, align 4
   %183 = call ptr @SPI_result_code_string(i32 noundef %182) #17
@@ -902,10 +902,10 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
-185:                                              ; preds = %._crit_edge150
+185:                                              ; preds = %._crit_edge149
   %186 = call i32 @SPI_keepplan(ptr noundef nonnull %178) #17
-  %.not138 = icmp eq i32 %186, 0
-  br i1 %.not138, label %190, label %187
+  %.not137 = icmp eq i32 %186, 0
+  br i1 %.not137, label %190, label %187
 
 187:                                              ; preds = %185
   %188 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
@@ -930,7 +930,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   unreachable
 
 198:                                              ; preds = %191
-  br i1 %.not132, label %201, label %199
+  br i1 %.not131, label %201, label %199
 
 199:                                              ; preds = %198
   %200 = call ptr @SPI_modifytuple(ptr noundef %38, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %88, ptr noundef nonnull %3, ptr noundef null) #17
@@ -995,10 +995,10 @@ define noundef nonnull ptr @pg_finfo_set_ttdummy() local_unnamed_addr #0 {
 define range(i64 0, 2) i64 @set_ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %.b3 = load i1, ptr @ttoff, align 1
+  %.b = load i1, ptr @ttoff, align 1
   %4 = and i64 %3, 4294967295
   %5 = icmp eq i64 %4, 0
-  br i1 %.b3, label %6, label %7
+  br i1 %.b, label %6, label %7
 
 6:                                                ; preds = %1
   br i1 %5, label %8, label %.sink.split
@@ -1008,7 +1008,7 @@ define range(i64 0, 2) i64 @set_ttdummy(ptr noundef readonly captures(none) %0) 
 
 .sink.split:                                      ; preds = %7, %6
   %.0.ph = phi i64 [ 0, %6 ], [ 1, %7 ]
-  %.sink = xor i1 %.b3, true
+  %.sink = xor i1 %.b, true
   store i1 %.sink, ptr @ttoff, align 1
   br label %8
 

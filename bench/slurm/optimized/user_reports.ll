@@ -376,8 +376,8 @@ _set_cond.exit:                                   ; preds = %19, %151
 162:                                              ; preds = %.sink.split, %_set_cond.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %.not.i58 = icmp eq ptr %16, null
-  br i1 %.not.i58, label %165, label %163
+  %.not.i57 = icmp eq ptr %16, null
+  br i1 %.not.i57, label %165, label %163
 
 163:                                              ; preds = %162
   %164 = call i32 @list_count(ptr noundef nonnull %16) #9
@@ -404,23 +404,23 @@ _set_cond.exit:                                   ; preds = %19, %151
   %173 = call ptr @list_iterator_create(ptr noundef nonnull %16) #9
   %174 = call ptr @list_next(ptr noundef %173) #9
   %.not4658.i = icmp eq ptr %174, null
-  br i1 %.not4658.i, label %._crit_edge.i60, label %.lr.ph.i59
+  br i1 %.not4658.i, label %._crit_edge.i59, label %.lr.ph.i58
 
-.lr.ph.i59:                                       ; preds = %172, %257
+.lr.ph.i58:                                       ; preds = %172, %257
   %175 = phi ptr [ %258, %257 ], [ %174, %172 ]
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %175, i32 37)
   %.not47.i = icmp eq ptr %strchr.i, null
   br i1 %.not47.i, label %180, label %176
 
-176:                                              ; preds = %.lr.ph.i59
+176:                                              ; preds = %.lr.ph.i58
   %177 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
   %178 = call i64 @strtol(ptr noundef nonnull captures(none) %177, ptr noundef null, i32 noundef 10) #9
   %179 = trunc i64 %178 to i32
   store i8 0, ptr %strchr.i, align 1
   br label %180
 
-180:                                              ; preds = %176, %.lr.ph.i59
-  %.0.i = phi i32 [ %179, %176 ], [ 0, %.lr.ph.i59 ]
+180:                                              ; preds = %176, %.lr.ph.i58
+  %.0.i = phi i32 [ %179, %176 ], [ 0, %.lr.ph.i58 ]
   %181 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %175) #10
   %182 = trunc i64 %181 to i32
   %183 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__._setup_print_fields_list) #9
@@ -564,11 +564,11 @@ _set_cond.exit:                                   ; preds = %19, %151
 
 253:                                              ; preds = %250
   store i32 %.0.i, ptr %251, align 8
-  %.pre.i61 = load ptr, ptr %8, align 8
+  %.pre.i60 = load ptr, ptr %8, align 8
   br label %254
 
 254:                                              ; preds = %253, %250
-  %255 = phi ptr [ %.pre.i61, %253 ], [ %251, %250 ]
+  %255 = phi ptr [ %.pre.i60, %253 ], [ %251, %250 ]
   %256 = load ptr, ptr @print_fields_list, align 8
   call void @list_append(ptr noundef %256, ptr noundef %255) #9
   br label %257
@@ -576,15 +576,15 @@ _set_cond.exit:                                   ; preds = %19, %151
 257:                                              ; preds = %254, %247
   %258 = call ptr @list_next(ptr noundef %173) #9
   %.not46.i = icmp eq ptr %258, null
-  br i1 %.not46.i, label %._crit_edge.i60, label %.lr.ph.i59
+  br i1 %.not46.i, label %._crit_edge.i59, label %.lr.ph.i58
 
-._crit_edge.i60:                                  ; preds = %257, %172
+._crit_edge.i59:                                  ; preds = %257, %172
   call void @list_iterator_destroy(ptr noundef %173) #9
   br label %_setup_print_fields_list.exit
 
-_setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i60
+_setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i59
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not.i58, label %260, label %259
+  br i1 %.not.i57, label %260, label %259
 
 259:                                              ; preds = %_setup_print_fields_list.exit
   call void @list_destroy(ptr noundef nonnull %16) #9
@@ -592,10 +592,10 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 
 260:                                              ; preds = %259, %_setup_print_fields_list.exit
   %261 = load ptr, ptr @db_conn, align 8
-  %.b47 = load i1, ptr @group_accts, align 1
-  %262 = call ptr @slurmdb_report_user_top_usage(ptr noundef %261, ptr noundef %15, i1 noundef zeroext %.b47) #9
-  %.not48 = icmp eq ptr %262, null
-  br i1 %.not48, label %.thread, label %263
+  %.b = load i1, ptr @group_accts, align 1
+  %262 = call ptr @slurmdb_report_user_top_usage(ptr noundef %261, ptr noundef %15, i1 noundef zeroext %.b) #9
+  %.not47 = icmp eq ptr %262, null
+  br i1 %.not47, label %.thread, label %263
 
 .thread:                                          ; preds = %260
   store i32 1, ptr @exit_code, align 4
@@ -605,8 +605,8 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 
 263:                                              ; preds = %260
   %264 = load ptr, ptr @fed_name, align 8
-  %.not49 = icmp eq ptr %264, null
-  br i1 %.not49, label %_merge_user_report.exit, label %265
+  %.not48 = icmp eq ptr %264, null
+  br i1 %.not48, label %_merge_user_report.exit, label %265
 
 265:                                              ; preds = %263
   %266 = call i32 @list_count(ptr noundef nonnull %262) #9
@@ -617,16 +617,16 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
   %269 = call ptr @list_iterator_create(ptr noundef nonnull %262) #9
   %270 = call ptr @list_next(ptr noundef %269) #9
   %.not2530.i = icmp eq ptr %270, null
-  br i1 %.not2530.i, label %.outer._crit_edge.i, label %.lr.ph.i62
+  br i1 %.not2530.i, label %.outer._crit_edge.i, label %.lr.ph.i61
 
-.lr.ph.i62:                                       ; preds = %268, %.outer.i
+.lr.ph.i61:                                       ; preds = %268, %.outer.i
   %271 = phi ptr [ %289, %.outer.i ], [ %270, %268 ]
   %.0.ph31.i = phi ptr [ %271, %.outer.i ], [ null, %268 ]
   %.0.ph31.fr.i = freeze ptr %.0.ph31.i
   %.not21.i = icmp eq ptr %.0.ph31.fr.i, null
   br i1 %.not21.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i62
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i61
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %273 = load ptr, ptr %272, align 8
   %274 = call i32 @list_for_each(ptr noundef %273, ptr noundef nonnull @_set_user_acct, ptr noundef null) #9
@@ -636,7 +636,7 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
   %.not22.i = icmp eq ptr %276, null
   br i1 %.not22.i, label %287, label %286
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i62
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i61
   %277 = getelementptr inbounds nuw i8, ptr %.0.ph31.fr.i, i64 32
   %278 = getelementptr inbounds nuw i8, ptr %.0.ph31.fr.i, i64 24
   br label %279
@@ -663,7 +663,7 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 .outer.i:                                         ; preds = %287, %286
   %289 = call ptr @list_next(ptr noundef %269) #9
   %.not25.i = icmp eq ptr %289, null
-  br i1 %.not25.i, label %.outer._crit_edge.i, label %.lr.ph.i62, !llvm.loop !14
+  br i1 %.not25.i, label %.outer._crit_edge.i, label %.lr.ph.i61, !llvm.loop !14
 
 290:                                              ; preds = %279
   store ptr %285, ptr %277, align 8
@@ -680,8 +680,8 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 295:                                              ; preds = %291, %290
   %296 = call i32 @list_delete_item(ptr noundef %269) #9
   %297 = call ptr @list_next(ptr noundef %269) #9
-  %.not.i63 = icmp eq ptr %297, null
-  br i1 %.not.i63, label %.outer._crit_edge.i, label %279, !llvm.loop !14
+  %.not.i62 = icmp eq ptr %297, null
+  br i1 %.not.i62, label %.outer._crit_edge.i, label %279, !llvm.loop !14
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %295, %268
   call void @list_iterator_destroy(ptr noundef %269) #9
@@ -689,8 +689,8 @@ _setup_print_fields_list.exit:                    ; preds = %165, %._crit_edge.i
 
 _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i, %265, %263
   %298 = load i32, ptr @print_fields_have_header, align 4
-  %.not50 = icmp eq i32 %298, 0
-  br i1 %.not50, label %330, label %299
+  %.not49 = icmp eq i32 %298, 0
+  br i1 %.not49, label %330, label %299
 
 299:                                              ; preds = %_merge_user_report.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -710,8 +710,8 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
   call void @slurm_make_time_str(ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 256) #9
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %307 = load i32, ptr @top_limit, align 4
-  %.not51 = icmp eq i32 %307, -1
-  br i1 %.not51, label %310, label %308
+  %.not50 = icmp eq i32 %307, -1
+  br i1 %.not50, label %310, label %308
 
 308:                                              ; preds = %299
   %309 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %307)
@@ -746,7 +746,7 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
   br label %329
 
 329:                                              ; preds = %325, %322
-  %puts52 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %puts51 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -758,11 +758,11 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
   %332 = call ptr @list_iterator_create(ptr noundef %331) #9
   %333 = call ptr @list_next(ptr noundef %332) #9
   %.not12.i = icmp eq ptr %333, null
-  br i1 %.not12.i, label %_set_usage_column_width.exit, label %.lr.ph.i64
+  br i1 %.not12.i, label %_set_usage_column_width.exit, label %.lr.ph.i63
 
-.lr.ph.i64:                                       ; preds = %330, %339
+.lr.ph.i63:                                       ; preds = %330, %339
   %334 = phi ptr [ %340, %339 ], [ %333, %330 ]
-  %.014.i = phi ptr [ %.1.i65, %339 ], [ null, %330 ]
+  %.014.i = phi ptr [ %.1.i64, %339 ], [ null, %330 ]
   %.0913.i = phi ptr [ %.110.i, %339 ], [ null, %330 ]
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %336 = load i16, ptr %335, align 8
@@ -771,22 +771,22 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
     i16 5, label %338
   ]
 
-337:                                              ; preds = %.lr.ph.i64
+337:                                              ; preds = %.lr.ph.i63
   br label %339
 
-338:                                              ; preds = %.lr.ph.i64
+338:                                              ; preds = %.lr.ph.i63
   br label %339
 
-339:                                              ; preds = %338, %337, %.lr.ph.i64
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i64 ], [ %.0913.i, %337 ], [ %334, %338 ]
-  %.1.i65 = phi ptr [ %.014.i, %.lr.ph.i64 ], [ %334, %337 ], [ %.014.i, %338 ]
+339:                                              ; preds = %338, %337, %.lr.ph.i63
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i63 ], [ %.0913.i, %337 ], [ %334, %338 ]
+  %.1.i64 = phi ptr [ %.014.i, %.lr.ph.i63 ], [ %334, %337 ], [ %.014.i, %338 ]
   %340 = call ptr @list_next(ptr noundef %332) #9
-  %.not.i66 = icmp eq ptr %340, null
-  br i1 %.not.i66, label %_set_usage_column_width.exit, label %.lr.ph.i64, !llvm.loop !15
+  %.not.i65 = icmp eq ptr %340, null
+  br i1 %.not.i65, label %_set_usage_column_width.exit, label %.lr.ph.i63, !llvm.loop !15
 
 _set_usage_column_width.exit:                     ; preds = %339, %330
   %.09.lcssa.i = phi ptr [ null, %330 ], [ %.110.i, %339 ]
-  %.0.lcssa.i = phi ptr [ null, %330 ], [ %.1.i65, %339 ]
+  %.0.lcssa.i = phi ptr [ null, %330 ], [ %.1.i64, %339 ]
   call void @list_iterator_destroy(ptr noundef %332) #9
   call void @sreport_set_usage_column_width(ptr noundef %.0.lcssa.i, ptr noundef %.09.lcssa.i, ptr noundef nonnull %262) #9
   %341 = load ptr, ptr @print_fields_list, align 8
@@ -798,10 +798,10 @@ _set_usage_column_width.exit:                     ; preds = %339, %330
   store i32 %345, ptr @sort_user_tres_id, align 4
   %346 = call ptr @list_iterator_create(ptr noundef nonnull %262) #9
   %347 = call ptr @list_next(ptr noundef %346) #9
-  %.not5377 = icmp eq ptr %347, null
-  br i1 %.not5377, label %._crit_edge79, label %.lr.ph78
+  %.not5276 = icmp eq ptr %347, null
+  br i1 %.not5276, label %._crit_edge78, label %.lr.ph77
 
-.lr.ph78:                                         ; preds = %_set_usage_column_width.exit, %480
+.lr.ph77:                                         ; preds = %_set_usage_column_width.exit, %480
   %348 = phi ptr [ %481, %480 ], [ %347, %_set_usage_column_width.exit ]
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
   %350 = load ptr, ptr %349, align 8
@@ -812,18 +812,18 @@ _set_usage_column_width.exit:                     ; preds = %339, %330
   %354 = getelementptr inbounds nuw i8, ptr %348, i64 16
   br label %355
 
-355:                                              ; preds = %._crit_edge, %.lr.ph78
-  %.037 = phi i32 [ 0, %.lr.ph78 ], [ %478, %._crit_edge ]
+355:                                              ; preds = %._crit_edge, %.lr.ph77
+  %.037 = phi i32 [ 0, %.lr.ph77 ], [ %478, %._crit_edge ]
   %356 = call ptr @list_next(ptr noundef %352) #9
-  %.not55 = icmp eq ptr %356, null
-  br i1 %.not55, label %480, label %357
+  %.not54 = icmp eq ptr %356, null
+  br i1 %.not54, label %480, label %357
 
 357:                                              ; preds = %355
   %358 = load ptr, ptr @tres_list, align 8
   %359 = call ptr @list_iterator_create(ptr noundef %358) #9
   %360 = call ptr @list_next(ptr noundef %359) #9
-  %.not5676 = icmp eq ptr %360, null
-  br i1 %.not5676, label %._crit_edge, label %.lr.ph
+  %.not5575 = icmp eq ptr %360, null
+  br i1 %.not5575, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %357
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 32
@@ -855,18 +855,18 @@ _set_usage_column_width.exit:                     ; preds = %339, %330
   %375 = call ptr @list_iterator_create(ptr noundef %374) #9
   %376 = call ptr @list_next(ptr noundef %375) #9
   %.not76.i = icmp eq ptr %376, null
-  br i1 %.not76.i, label %_user_top_tres_report.exit, label %.lr.ph.i68
+  br i1 %.not76.i, label %_user_top_tres_report.exit, label %.lr.ph.i67
 
-.lr.ph.i68:                                       ; preds = %369
+.lr.ph.i67:                                       ; preds = %369
   %377 = getelementptr inbounds nuw i8, ptr %365, i64 40
   %378 = getelementptr inbounds nuw i8, ptr %365, i64 32
   br label %379
 
-379:                                              ; preds = %474, %.lr.ph.i68
-  %380 = phi ptr [ %376, %.lr.ph.i68 ], [ %476, %474 ]
-  %.079.i = phi i64 [ 0, %.lr.ph.i68 ], [ %.1.i69, %474 ]
-  %.05778.i = phi i64 [ 0, %.lr.ph.i68 ], [ %.158.i, %474 ]
-  %.06077.i = phi i32 [ 1, %.lr.ph.i68 ], [ %475, %474 ]
+379:                                              ; preds = %474, %.lr.ph.i67
+  %380 = phi ptr [ %376, %.lr.ph.i67 ], [ %476, %474 ]
+  %.079.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.1.i68, %474 ]
+  %.05778.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.158.i, %474 ]
+  %.06077.i = phi i32 [ 1, %.lr.ph.i67 ], [ %475, %474 ]
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %382 = load i16, ptr %381, align 8
   switch i16 %382, label %469 [
@@ -949,7 +949,7 @@ _set_user_acct.exit.i:                            ; preds = %393, %385
   br i1 %.not73.i, label %._crit_edge80.i, label %416
 
 ._crit_edge80.i:                                  ; preds = %413
-  %.pre.i72 = load ptr, ptr %6, align 8
+  %.pre.i71 = load ptr, ptr %6, align 8
   br label %422
 
 416:                                              ; preds = %413
@@ -966,7 +966,7 @@ _set_user_acct.exit.i:                            ; preds = %393, %385
   br label %422
 
 422:                                              ; preds = %420, %416, %._crit_edge80.i
-  %423 = phi ptr [ %.pre.i72, %._crit_edge80.i ], [ %419, %416 ], [ %421, %420 ]
+  %423 = phi ptr [ %.pre.i71, %._crit_edge80.i ], [ %419, %416 ], [ %421, %420 ]
   %424 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %425 = load ptr, ptr %424, align 8
   %426 = icmp eq i32 %.06077.i, %373
@@ -1066,11 +1066,11 @@ _set_user_acct.exit.i:                            ; preds = %393, %385
 
 474:                                              ; preds = %469, %460, %454, %437, %422, %407, %401, %395
   %.158.i = phi i64 [ %.05778.i, %469 ], [ %.05778.i, %395 ], [ %.05778.i, %401 ], [ %.05778.i, %407 ], [ %.05778.i, %422 ], [ %.05778.i, %437 ], [ %.259.i, %454 ], [ %.05778.i, %460 ]
-  %.1.i69 = phi i64 [ %.079.i, %469 ], [ %.079.i, %395 ], [ %.079.i, %401 ], [ %.079.i, %407 ], [ %.079.i, %422 ], [ %.079.i, %437 ], [ %.2.i, %454 ], [ %.079.i, %460 ]
+  %.1.i68 = phi i64 [ %.079.i, %469 ], [ %.079.i, %395 ], [ %.079.i, %401 ], [ %.079.i, %407 ], [ %.079.i, %422 ], [ %.079.i, %437 ], [ %.2.i, %454 ], [ %.079.i, %460 ]
   %475 = add nuw nsw i32 %.06077.i, 1
   %476 = call ptr @list_next(ptr noundef %375) #9
-  %.not.i70 = icmp eq ptr %476, null
-  br i1 %.not.i70, label %_user_top_tres_report.exit, label %379, !llvm.loop !17
+  %.not.i69 = icmp eq ptr %476, null
+  br i1 %.not.i69, label %_user_top_tres_report.exit, label %379, !llvm.loop !17
 
 _user_top_tres_report.exit:                       ; preds = %474, %369
   call void @list_iterator_destroy(ptr noundef %375) #9
@@ -1084,33 +1084,33 @@ _user_top_tres_report.exit:                       ; preds = %474, %369
 
 .backedge:                                        ; preds = %_user_top_tres_report.exit, %364
   %477 = call ptr @list_next(ptr noundef %359) #9
-  %.not56 = icmp eq ptr %477, null
-  br i1 %.not56, label %._crit_edge, label %364, !llvm.loop !18
+  %.not55 = icmp eq ptr %477, null
+  br i1 %.not55, label %._crit_edge, label %364, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.backedge, %357
   call void @list_iterator_destroy(ptr noundef %359) #9
   %478 = add nuw nsw i32 %.037, 1
   %479 = load i32, ptr @top_limit, align 4
-  %.not57 = icmp ult i32 %478, %479
-  br i1 %.not57, label %355, label %480
+  %.not56 = icmp ult i32 %478, %479
+  br i1 %.not56, label %355, label %480
 
 480:                                              ; preds = %._crit_edge, %355
   call void @list_iterator_destroy(ptr noundef %352) #9
   %481 = call ptr @list_next(ptr noundef %346) #9
-  %.not53 = icmp eq ptr %481, null
-  br i1 %.not53, label %._crit_edge79, label %.lr.ph78, !llvm.loop !19
+  %.not52 = icmp eq ptr %481, null
+  br i1 %.not52, label %._crit_edge78, label %.lr.ph77, !llvm.loop !19
 
-._crit_edge79:                                    ; preds = %480, %_set_usage_column_width.exit
+._crit_edge78:                                    ; preds = %480, %_set_usage_column_width.exit
   call void @list_iterator_destroy(ptr noundef %346) #9
   store i1 false, ptr @group_accts, align 1
   call void @slurmdb_destroy_user_cond(ptr noundef %15) #9
   call void @list_destroy(ptr noundef nonnull %262) #9
   br label %482
 
-482:                                              ; preds = %.thread, %._crit_edge79
+482:                                              ; preds = %.thread, %._crit_edge78
   %483 = load ptr, ptr @print_fields_list, align 8
-  %.not54 = icmp eq ptr %483, null
-  br i1 %.not54, label %485, label %484
+  %.not53 = icmp eq ptr %483, null
+  br i1 %.not53, label %485, label %484
 
 484:                                              ; preds = %482
   call void @list_destroy(ptr noundef nonnull %483) #9

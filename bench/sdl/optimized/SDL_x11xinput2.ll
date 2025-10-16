@@ -132,10 +132,10 @@ declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @X11_Xinput2IsMultitouchSupported() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @xinput2_initialized, align 1
+  %.b = load i1, ptr @xinput2_initialized, align 1
   %1 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %2 = trunc nuw i8 %1 to i1
-  %3 = select i1 %.b1, i1 %2, i1 false
+  %3 = select i1 %.b, i1 %2, i1 false
   ret i1 %3
 }
 
@@ -1699,10 +1699,10 @@ define hidden void @X11_Xinput2SelectTouch(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1835072, ptr %4, align 4
-  %.b1.i = load i1, ptr @xinput2_initialized, align 1
+  %.b.i = load i1, ptr @xinput2_initialized, align 1
   %5 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %.b1.i, i1 %6, i1 false
+  %7 = select i1 %.b.i, i1 %6, i1 false
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
@@ -1730,8 +1730,8 @@ define hidden void @X11_Xinput2SelectTouch(ptr noundef readonly captures(none) %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @X11_Xinput2IsInitialized() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @xinput2_initialized, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @xinput2_initialized, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1740,8 +1740,8 @@ define hidden zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef readonly
   %4 = alloca [4 x i8], align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %6 = load ptr, ptr %5, align 8
-  %.b1.i = load i1, ptr @xinput2_initialized, align 1
-  br i1 %.b1.i, label %7, label %21
+  %.b.i = load i1, ptr @xinput2_initialized, align 1
+  br i1 %.b.i, label %7, label %21
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -1809,10 +1809,10 @@ define hidden void @X11_Xinput2GrabTouch(ptr noundef readnone captures(none) %0,
   store i32 1835072, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b1.i = load i1, ptr @xinput2_initialized, align 1
+  %.b.i = load i1, ptr @xinput2_initialized, align 1
   %11 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %12 = trunc nuw i8 %11 to i1
-  %13 = select i1 %.b1.i, i1 %12, i1 false
+  %13 = select i1 %.b.i, i1 %12, i1 false
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %2
@@ -1846,10 +1846,10 @@ define hidden void @X11_Xinput2UngrabTouch(ptr noundef readnone captures(none) %
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b1.i = load i1, ptr @xinput2_initialized, align 1
+  %.b.i = load i1, ptr @xinput2_initialized, align 1
   %9 = load i8, ptr @xinput2_multitouch_supported, align 1, !range !3
   %10 = trunc nuw i8 %9 to i1
-  %11 = select i1 %.b1.i, i1 %10, i1 false
+  %11 = select i1 %.b.i, i1 %10, i1 false
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %2

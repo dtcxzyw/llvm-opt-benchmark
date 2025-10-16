@@ -83,8 +83,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   %1 = alloca [65 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %1, i8 0, i64 65, i1 false)
-  %.b26 = load i1, ptr @initialized, align 1
-  br i1 %.b26, label %71, label %2
+  %.b = load i1, ptr @initialized, align 1
+  br i1 %.b, label %71, label %2
 
 2:                                                ; preds = %0
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #22
@@ -99,8 +99,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
 
 7:                                                ; preds = %4, %2
   %8 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #22
-  %.not27 = icmp eq ptr %8, null
-  br i1 %.not27, label %13, label %9
+  %.not26 = icmp eq ptr %8, null
+  br i1 %.not26, label %13, label %9
 
 9:                                                ; preds = %7
   %10 = tail call i32 @strcasecmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.3) #23
@@ -113,8 +113,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
 
 13:                                               ; preds = %9, %12, %7
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #22
-  %.not28 = icmp eq ptr %14, null
-  br i1 %.not28, label %24, label %15
+  %.not27 = icmp eq ptr %14, null
+  br i1 %.not27, label %24, label %15
 
 15:                                               ; preds = %13
   %16 = tail call i32 @strcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.5) #23
@@ -136,8 +136,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   %.sink = phi i32 [ 6, %15 ], [ 3, %18 ], [ %., %21 ], [ 3, %13 ]
   store i32 %.sink, ptr @pmix_output_redirected_syslog_pri, align 4, !tbaa !14
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #22
-  %.not29 = icmp eq ptr %25, null
-  br i1 %.not29, label %28, label %26
+  %.not28 = icmp eq ptr %25, null
+  br i1 %.not28, label %28, label %26
 
 26:                                               ; preds = %24
   %27 = tail call noalias ptr @strdup(ptr noundef nonnull %25) #22
@@ -147,8 +147,8 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
 28:                                               ; preds = %24, %26
   %29 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !14
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_stream_t_class, i64 32), align 8, !tbaa !17
-  %.not30 = icmp eq i32 %29, %30
-  br i1 %.not30, label %32, label %31
+  %.not29 = icmp eq i32 %29, %30
+  br i1 %.not29, label %32, label %31
 
 31:                                               ; preds = %28
   tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_output_stream_t_class) #22
@@ -181,7 +181,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %32
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @verbose, i64 153), align 1, !tbaa !28
   %41 = load i32, ptr @pmix_output_redirected_syslog_pri, align 4, !tbaa !14
   store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @verbose, i64 124), align 4, !tbaa !29
-  br i1 %.not29, label %45, label %42
+  br i1 %.not28, label %45, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr @redirect_syslog_ident, align 8, !tbaa !16
@@ -287,8 +287,8 @@ define range(i32 0, -1) i32 @pmix_output_open(ptr noundef readonly captures(addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
-  %.b65 = load i1, ptr @initialized, align 1
-  br i1 %.b65, label %5, label %3
+  %.b = load i1, ptr @initialized, align 1
+  br i1 %.b, label %5, label %3
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i1 @pmix_output_init()
@@ -372,8 +372,8 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   store i32 %.sink, ptr %41, align 8, !tbaa !50
   %42 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 144
   %43 = load ptr, ptr %42, align 8, !tbaa !51
-  %.not66 = icmp eq ptr %43, null
-  br i1 %.not66, label %49, label %44
+  %.not65 = icmp eq ptr %43, null
+  br i1 %.not65, label %49, label %44
 
 44:                                               ; preds = %40
   %45 = tail call noalias ptr @strdup(ptr noundef nonnull %43) #22
@@ -389,9 +389,9 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   br label %51
 
 51:                                               ; preds = %49, %44
-  %.sink72 = phi i32 [ 0, %49 ], [ %48, %44 ]
+  %.sink71 = phi i32 [ 0, %49 ], [ %48, %44 ]
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store i32 %.sink72, ptr %52, align 8, !tbaa !53
+  store i32 %.sink71, ptr %52, align 8, !tbaa !53
   %53 = load i8, ptr @pmix_output_redirected_to_syslog, align 1, !tbaa !15, !range !26, !noundef !27
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %60
@@ -423,17 +423,17 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   br label %69
 
 69:                                               ; preds = %60, %61
-  %.sink75 = phi i8 [ %63, %61 ], [ 0, %60 ]
-  %.sink74 = phi i8 [ %65, %61 ], [ 0, %60 ]
-  %.sink73 = phi i8 [ %68, %61 ], [ 1, %60 ]
+  %.sink74 = phi i8 [ %63, %61 ], [ 0, %60 ]
+  %.sink73 = phi i8 [ %65, %61 ], [ 0, %60 ]
+  %.sink72 = phi i8 [ %68, %61 ], [ 1, %60 ]
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  store i8 %.sink75, ptr %70, align 4, !tbaa !54
+  store i8 %.sink74, ptr %70, align 4, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 53
-  store i8 %.sink74, ptr %71, align 1, !tbaa !55
+  store i8 %.sink73, ptr %71, align 1, !tbaa !55
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 54
-  store i8 %.sink73, ptr %72, align 2, !tbaa !38
-  %.not67 = icmp eq ptr %12, null
-  br i1 %.not67, label %73, label %.sink.split
+  store i8 %.sink72, ptr %72, align 2, !tbaa !38
+  %.not66 = icmp eq ptr %12, null
+  br i1 %.not66, label %73, label %.sink.split
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 160
@@ -442,14 +442,14 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   br i1 %76, label %78, label %.sink.split
 
 .sink.split:                                      ; preds = %73, %69
-  %.sink85 = phi ptr [ %12, %69 ], [ %75, %73 ]
-  %77 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink85) #22
+  %.sink84 = phi ptr [ %12, %69 ], [ %75, %73 ]
+  %77 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink84) #22
   br label %78
 
 78:                                               ; preds = %.sink.split, %73
-  %.sink83 = phi ptr [ null, %73 ], [ %77, %.sink.split ]
+  %.sink82 = phi ptr [ null, %73 ], [ %77, %.sink.split ]
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store ptr %.sink83, ptr %79, align 8, !tbaa !39
+  store ptr %.sink82, ptr %79, align 8, !tbaa !39
   %80 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 157
   %81 = load i8, ptr %80, align 1, !tbaa !57, !range !26, !noundef !27
   %82 = getelementptr inbounds nuw i8, ptr %22, i64 55
@@ -472,8 +472,8 @@ define range(i32 0, -1) i32 @pmix_output_reopen(i32 noundef %0, ptr noundef read
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @pmix_output_switch(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i1 %1 to i8
-  %.b8 = load i1, ptr @initialized, align 1
-  br i1 %.b8, label %6, label %4
+  %.b = load i1, ptr @initialized, align 1
+  br i1 %.b, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 @pmix_output_init()
@@ -544,10 +544,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_output_close(i32 noundef %0) local_unnamed_addr #2 {
-  %.b11 = load i1, ptr @initialized, align 1
+  %.b = load i1, ptr @initialized, align 1
   %or.cond = icmp ult i32 %0, 64
-  %or.cond12 = and i1 %or.cond, %.b11
-  br i1 %or.cond12, label %2, label %.loopexit
+  %or.cond11 = and i1 %or.cond, %.b
+  br i1 %or.cond11, label %2, label %.loopexit
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
@@ -663,8 +663,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !16
-  %.b33.i = load i1, ptr @initialized, align 1
-  br i1 %.b33.i, label %9, label %7
+  %.b.i = load i1, ptr @initialized, align 1
+  br i1 %.b.i, label %9, label %7
 
 7:                                                ; preds = %6
   %8 = call zeroext i1 @pmix_output_init()
@@ -837,8 +837,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
 97:                                               ; preds = %94, %91
   %98 = phi i32 [ %96, %94 ], [ %92, %91 ]
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #23
-  %sext34.i = shl i64 %99, 32
-  %100 = ashr exact i64 %sext34.i, 32
+  %sext33.i = shl i64 %99, 32
+  %100 = ashr exact i64 %sext33.i, 32
   %101 = call i64 @write(i32 noundef %98, ptr noundef nonnull %47, i64 noundef %100) #22
   %102 = icmp slt i64 %101, 0
   br i1 %102, label %make_string.exit.i, label %103
@@ -852,20 +852,20 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 54
   %108 = load i8, ptr %107, align 2, !tbaa !38, !range !26, !noundef !27
   %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %.thread62.i
+  br i1 %109, label %110, label %.thread61.i
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !41
   %113 = icmp eq i32 %112, -1
-  br i1 %113, label %114, label %.thread53.i
+  br i1 %113, label %114, label %.thread52.i
 
 114:                                              ; preds = %110
   %115 = call fastcc i32 @open_file(i32 noundef range(i32 0, 64) %0)
-  %.not35.i = icmp eq i32 %115, 0
+  %.not34.i = icmp eq i32 %115, 0
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %117 = load i32, ptr %116, align 4, !tbaa !42
-  br i1 %.not35.i, label %120, label %118
+  br i1 %.not34.i, label %120, label %118
 
 118:                                              ; preds = %114
   %119 = add nsw i32 %117, 1
@@ -887,8 +887,8 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   %126 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %4, i64 noundef 8191, ptr noundef nonnull @.str.21, i32 noundef %117) #22
   %127 = load i32, ptr %111, align 8, !tbaa !41
   %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %sext36.i = shl i64 %128, 32
-  %129 = ashr exact i64 %sext36.i, 32
+  %sext35.i = shl i64 %128, 32
+  %129 = ashr exact i64 %sext35.i, 32
   %130 = call i64 @write(i32 noundef %127, ptr noundef nonnull %4, i64 noundef %129) #22
   %131 = icmp slt i64 %130, 0
   br i1 %131, label %132, label %.thread.i
@@ -908,41 +908,41 @@ thread-pre-split.i:                               ; preds = %.thread.i, %120, %1
 
 133:                                              ; preds = %thread-pre-split.i, %122
   %134 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %123, %122 ]
-  %.not37.i = icmp eq i32 %134, -1
-  br i1 %.not37.i, label %.thread62.i, label %.thread53.i
+  %.not36.i = icmp eq i32 %134, -1
+  br i1 %.not36.i, label %.thread61.i, label %.thread52.i
 
-.thread53.i:                                      ; preds = %133, %110
+.thread52.i:                                      ; preds = %133, %110
   %135 = phi i32 [ %134, %133 ], [ %112, %110 ]
   %136 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #23
-  %sext38.i = shl i64 %136, 32
-  %137 = ashr exact i64 %sext38.i, 32
+  %sext37.i = shl i64 %136, 32
+  %137 = ashr exact i64 %sext37.i, 32
   %138 = call i64 @write(i32 noundef %135, ptr noundef nonnull %47, i64 noundef %137) #22
   %139 = icmp slt i64 %138, 0
-  br i1 %139, label %make_string.exit.i, label %.thread62.i
+  br i1 %139, label %make_string.exit.i, label %.thread61.i
 
-.thread62.i:                                      ; preds = %.thread53.i, %133, %106
+.thread61.i:                                      ; preds = %.thread52.i, %133, %106
   %140 = load ptr, ptr %3, align 8, !tbaa !16
   call void @free(ptr noundef %140) #22
   store ptr null, ptr %3, align 8, !tbaa !16
   br label %143
 
-make_string.exit.i:                               ; preds = %.thread53.i, %132, %97, %77, %45, %18, %14, %9
-  %.045.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %132 ], [ %47, %.thread53.i ], [ %47, %97 ], [ %47, %77 ]
-  %.pr55.i = load ptr, ptr %3, align 8, !tbaa !16
-  %.not39.i = icmp eq ptr %.pr55.i, null
-  br i1 %.not39.i, label %142, label %141
+make_string.exit.i:                               ; preds = %.thread52.i, %132, %97, %77, %45, %18, %14, %9
+  %.044.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %132 ], [ %47, %.thread52.i ], [ %47, %97 ], [ %47, %77 ]
+  %.pr54.i = load ptr, ptr %3, align 8, !tbaa !16
+  %.not38.i = icmp eq ptr %.pr54.i, null
+  br i1 %.not38.i, label %142, label %141
 
 141:                                              ; preds = %make_string.exit.i
-  call void @free(ptr noundef nonnull %.pr55.i) #22
+  call void @free(ptr noundef nonnull %.pr54.i) #22
   br label %142
 
 142:                                              ; preds = %141, %make_string.exit.i
-  %.not40.i = icmp eq ptr %.045.ph.i, null
-  br i1 %.not40.i, label %output.exit, label %143
+  %.not39.i = icmp eq ptr %.044.ph.i, null
+  br i1 %.not39.i, label %output.exit, label %143
 
-143:                                              ; preds = %142, %.thread62.i
-  %.0456068.i = phi ptr [ %47, %.thread62.i ], [ %.045.ph.i, %142 ]
-  call void @free(ptr noundef nonnull %.0456068.i) #22
+143:                                              ; preds = %142, %.thread61.i
+  %.0445967.i = phi ptr [ %47, %.thread61.i ], [ %.044.ph.i, %142 ]
+  call void @free(ptr noundef nonnull %.0445967.i) #22
   br label %output.exit
 
 output.exit:                                      ; preds = %142, %143
@@ -1153,8 +1153,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_output_finalize() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @initialized, align 1
-  br i1 %.b1, label %1, label %22
+  %.b = load i1, ptr @initialized, align 1
+  br i1 %.b, label %1, label %22
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @verbose_stream, align 4, !tbaa !14

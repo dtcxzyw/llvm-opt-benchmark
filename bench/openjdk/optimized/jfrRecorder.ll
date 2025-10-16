@@ -881,8 +881,8 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder22create_recorder_threadEv() l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN11JfrRecorder10is_createdEv() local_unnamed_addr #2 align 2 {
-  %.b1 = load i1, ptr @_ZL8_created, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @_ZL8_created, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

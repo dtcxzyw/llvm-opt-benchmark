@@ -2471,8 +2471,8 @@ proto_item_set_generated.exit277.i:               ; preds = %304, %301, %proto_i
   ]
 
 315:                                              ; preds = %313
-  %.b2325.i.i = load i1, ptr @udcomplen_heuristic_result_set, align 1
-  br i1 %.b2325.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %316
+  %.b23.i.i = load i1, ptr @udcomplen_heuristic_result_set, align 1
+  br i1 %.b23.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %316
 
 316:                                              ; preds = %315
   %317 = load i32, ptr %8, align 4
@@ -2501,12 +2501,12 @@ proto_item_set_generated.exit277.i:               ; preds = %304, %301, %proto_i
   br i1 %331, label %udcomplen_appears_present.exit.i, label %332
 
 332:                                              ; preds = %328
-  %.b26.pr.i.i = load i1, ptr @udcomplen_heuristic_result_set, align 1
-  br i1 %.b26.pr.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %319, !llvm.loop !10
+  %.b.pr.i.i = load i1, ptr @udcomplen_heuristic_result_set, align 1
+  br i1 %.b.pr.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %319, !llvm.loop !10
 
 udcomplen_appears_present.exitthread-pre-split.i: ; preds = %332, %315
-  %.b2427.i.pr.i = load i1, ptr @udcomplen_heuristic_result, align 1
-  br i1 %.b2427.i.pr.i, label %.critedge263.i, label %.fold.split261.i
+  %.b24.i.pr.i = load i1, ptr @udcomplen_heuristic_result, align 1
+  br i1 %.b24.i.pr.i, label %.critedge263.i, label %.fold.split261.i
 
 udcomplen_appears_present.exit.thread.i:          ; preds = %322, %319
   store i1 false, ptr @udcomplen_heuristic_result, align 1

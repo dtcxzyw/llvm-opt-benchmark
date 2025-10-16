@@ -8576,8 +8576,8 @@ lean_dec.exit:                                    ; preds = %33, %32, %30, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_BindersUtil(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -8691,8 +8691,8 @@ _init_l_Lean_Elab_Term_expandMatchAlt___closed__7.exit: ; preds = %lean_dec_ref.
   %50 = load ptr, ptr %49, align 8, !tbaa !12
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %51, 1
-  %.not.i5 = icmp eq i64 %52, 0
-  br i1 %.not.i5, label %53, label %lean_inc.exit.i
+  %.not.i4 = icmp eq i64 %52, 0
+  br i1 %.not.i4, label %53, label %lean_inc.exit.i
 
 53:                                               ; preds = %_init_l_Lean_Elab_Term_expandMatchAlt___closed__7.exit
   %.val.i.i = load i32, ptr %50, align 4, !tbaa !4
@@ -8720,7 +8720,7 @@ _init_l_Lean_Elab_Term_expandMatchAlt___closed__7.exit: ; preds = %lean_dec_ref.
 
 lean_inc.exit.i:                                  ; preds = %_init_l_Lean_Elab_Term_expandMatchAlt___closed__7.exit
   %60 = getelementptr i8, ptr %50, i64 8
-  %.val.i6 = load i64, ptr %60, align 8, !tbaa !10
+  %.val.i5 = load i64, ptr %60, align 8, !tbaa !10
   br label %_init_l_Lean_Elab_Term_shouldExpandMatchAlt___closed__3.exit
 
 61:                                               ; preds = %59, %55
@@ -8744,7 +8744,7 @@ lean_inc.exit.i:                                  ; preds = %_init_l_Lean_Elab_T
   br label %_init_l_Lean_Elab_Term_shouldExpandMatchAlt___closed__3.exit
 
 _init_l_Lean_Elab_Term_shouldExpandMatchAlt___closed__3.exit: ; preds = %.thread13.i, %lean_inc.exit.i, %65, %67, %68
-  %.in.in.in.i = phi i64 [ %.val.i6, %lean_inc.exit.i ], [ %.val11.i, %65 ], [ %.val11.i, %67 ], [ %.val11.i, %68 ], [ %.val1112.i, %.thread13.i ]
+  %.in.in.in.i = phi i64 [ %.val.i5, %lean_inc.exit.i ], [ %.val11.i, %65 ], [ %.val11.i, %67 ], [ %.val11.i, %68 ], [ %.val1112.i, %.thread13.i ]
   %69 = and i64 %.in.in.in.i, 9223372036854775806
   %70 = icmp ne i64 %69, 0
   %71 = zext i1 %70 to i8
@@ -8823,8 +8823,8 @@ _init_l_Lean_Elab_Term_clearInMatchAlt___closed__1.exit: ; preds = %_init_l_Lean
   %106 = load ptr, ptr @l_Lean_firstFrontendMacroScope, align 8, !tbaa !12
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 1
-  %.not.i7 = icmp eq i64 %108, 0
-  br i1 %.not.i7, label %.critedge.i.i, label %109, !prof !16
+  %.not.i6 = icmp eq i64 %108, 0
+  br i1 %.not.i6, label %.critedge.i.i, label %109, !prof !16
 
 109:                                              ; preds = %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__1.exit
   %110 = lshr i64 %107, 1
@@ -8860,18 +8860,18 @@ _init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit: ; preds = %113, %117, %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit, %3
-  %.sink20 = phi ptr [ %4, %3 ], [ %120, %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit ]
-  %123 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
-  store i32 1, ptr %.sink20, align 4, !tbaa !4
+  %.sink19 = phi ptr [ %4, %3 ], [ %120, %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit ]
+  %123 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
+  store i32 1, ptr %.sink19, align 4, !tbaa !4
   store i32 131096, ptr %123, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %124, align 8, !tbaa !12
-  %125 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %125, align 8, !tbaa !12
   br label %126
 
 126:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
   ret ptr %.0
 }
 

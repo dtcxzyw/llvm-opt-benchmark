@@ -979,8 +979,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.b2.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
-  br i1 %.b2.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %46
+  %.b.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
+  br i1 %.b.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %46
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2121,8 +2121,8 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   br i1 %.not6, label %_ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit, label %109
 
 109:                                              ; preds = %106
-  %.b2.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
-  br i1 %.b2.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit.thread
+  %.b.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
+  br i1 %.b.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit.thread
 
 _ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit.thread: ; preds = %109
   store i32 0, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock13lock_log_fileE, align 4, !tbaa !80

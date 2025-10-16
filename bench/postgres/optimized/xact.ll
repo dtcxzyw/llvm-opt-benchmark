@@ -896,8 +896,8 @@ define dso_local zeroext i1 @IsInParallelMode() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CommandCounterIncrement() local_unnamed_addr #1 {
-  %.b2 = load i1, ptr @currentCommandIdUsed, align 1
-  br i1 %.b2, label %1, label %22
+  %.b = load i1, ptr @currentCommandIdUsed, align 1
+  br i1 %.b, label %1, label %22
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @CurrentTransactionState, align 8
@@ -4219,7 +4219,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
 57:                                               ; preds = %56
   %58 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %59 = trunc i64 %58 to i32
-  %.not60.i = icmp eq i32 %59, 0
+  %.not59.i = icmp eq i32 %59, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
@@ -4263,7 +4263,7 @@ xactGetCommittedChildren.exit.i:                  ; preds = %69, %63
   %.045.i = phi i32 [ %76, %75 ], [ 0, %xactGetCommittedChildren.exit.i ]
   %78 = load i64, ptr @XactLastRecEnd, align 8
   %79 = icmp ne i64 %78, 0
-  br i1 %.not60.i, label %80, label %91
+  br i1 %.not59.i, label %80, label %91
 
 80:                                               ; preds = %77
   %81 = icmp ne i32 %64, 0
@@ -4321,7 +4321,7 @@ GetCurrentTransactionStopTimestamp.exit.i:        ; preds = %103, %91
   %110 = trunc nuw i8 %109 to i1
   %111 = load i32, ptr @MyXactFlags, align 4
   %112 = call i64 @XactLogCommitRecord(i64 noundef %105, i32 noundef %67, ptr noundef %storemerge.i.i, i32 noundef %64, ptr noundef %106, i32 noundef %72, ptr noundef %107, i32 noundef %.045.i, ptr noundef %108, i1 noundef zeroext %110, i32 noundef %111, i32 noundef 0, ptr noundef null)
-  br i1 %94, label %.thread58.i, label %113
+  br i1 %94, label %.thread57.i, label %113
 
 113:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit.i
   %114 = load i64, ptr @replorigin_session_origin_lsn, align 8
@@ -4329,25 +4329,25 @@ GetCurrentTransactionStopTimestamp.exit.i:        ; preds = %103, %91
   call void @replorigin_session_advance(i64 noundef %114, i64 noundef %115) #20
   %116 = load i64, ptr @replorigin_session_origin_timestamp, align 8
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %.thread58.i, label %123
+  br i1 %117, label %.thread57.i, label %123
 
-.thread58.i:                                      ; preds = %113, %GetCurrentTransactionStopTimestamp.exit.i
+.thread57.i:                                      ; preds = %113, %GetCurrentTransactionStopTimestamp.exit.i
   %118 = load i64, ptr @xactStopTimestamp, align 8
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %GetCurrentTransactionStopTimestamp.exit52.i
+  br i1 %119, label %120, label %GetCurrentTransactionStopTimestamp.exit51.i
 
-120:                                              ; preds = %.thread58.i
+120:                                              ; preds = %.thread57.i
   %121 = call i64 @GetCurrentTimestamp() #20
   store i64 %121, ptr @xactStopTimestamp, align 8
-  br label %GetCurrentTransactionStopTimestamp.exit52.i
+  br label %GetCurrentTransactionStopTimestamp.exit51.i
 
-GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
-  %122 = phi i64 [ %121, %120 ], [ %118, %.thread58.i ]
+GetCurrentTransactionStopTimestamp.exit51.i:      ; preds = %120, %.thread57.i
+  %122 = phi i64 [ %121, %120 ], [ %118, %.thread57.i ]
   store i64 %122, ptr @replorigin_session_origin_timestamp, align 8
   br label %123
 
-123:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit52.i, %113
-  %124 = phi i64 [ %116, %113 ], [ %122, %GetCurrentTransactionStopTimestamp.exit52.i ]
+123:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit51.i, %113
+  %124 = phi i64 [ %116, %113 ], [ %122, %GetCurrentTransactionStopTimestamp.exit51.i ]
   %125 = load i16, ptr @replorigin_session_origin, align 2
   call void @TransactionTreeSetCommitTsData(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i, i64 noundef %124, i16 noundef zeroext %125) #20
   br label %126
@@ -4357,8 +4357,8 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   %127 = load i32, ptr @synchronous_commit, align 4
   %128 = icmp sgt i32 %127, 0
   %or.cond7.i = select i1 %.1.i, i1 %128, i1 false
-  %.b50.i = load i1, ptr @forceSyncCommit, align 1
-  %or.cond9.i = select i1 %or.cond7.i, i1 true, i1 %.b50.i
+  %.b.i = load i1, ptr @forceSyncCommit, align 1
+  %or.cond9.i = select i1 %or.cond7.i, i1 true, i1 %.b.i
   %129 = icmp sgt i32 %64, 0
   %or.cond11.i = select i1 %or.cond9.i, i1 true, i1 %129
   %130 = load i64, ptr @XactLastRecEnd, align 8
@@ -4366,7 +4366,7 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
 
 131:                                              ; preds = %126
   call void @XLogFlush(i64 noundef %130) #20
-  br i1 %.not60.i, label %.critedge.i, label %132
+  br i1 %.not59.i, label %.critedge.i, label %132
 
 132:                                              ; preds = %131
   call void @TransactionIdCommitTree(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i) #20
@@ -4374,7 +4374,7 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
 
 133:                                              ; preds = %126
   call void @XLogSetAsyncXactLSN(i64 noundef %130) #20
-  br i1 %.not60.i, label %.critedge.i, label %134
+  br i1 %.not59.i, label %.critedge.i, label %134
 
 134:                                              ; preds = %133
   %135 = load i64, ptr @XactLastRecEnd, align 8
@@ -4418,8 +4418,8 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   br label %151
 
 151:                                              ; preds = %150, %148
-  %.not51.i = icmp eq i32 %72, 0
-  br i1 %.not51.i, label %RecordTransactionCommit.exit, label %152
+  %.not50.i = icmp eq i32 %72, 0
+  br i1 %.not50.i, label %RecordTransactionCommit.exit, label %152
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %2, align 8
@@ -4572,14 +4572,14 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
 
 24:                                               ; preds = %23, %13
   %25 = phi i32 [ 1073741824, %23 ], [ 0, %13 ]
-  %.b33 = load i1, ptr @forceSyncCommit, align 1
+  %.b = load i1, ptr @forceSyncCommit, align 1
   %26 = or disjoint i32 %25, -2147483648
-  %27 = select i1 %.b33, i32 %26, i32 %25
+  %27 = select i1 %.b, i32 %26, i32 %25
   %28 = and i32 %10, 2
-  %.not34 = icmp ne i32 %28, 0
+  %.not33 = icmp ne i32 %28, 0
   %29 = shl nuw nsw i32 %28, 5
   %30 = or disjoint i32 %27, %29
-  %31 = or i1 %.b33, %.not34
+  %31 = or i1 %.b, %.not33
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %24
@@ -4677,8 +4677,8 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
 74:                                               ; preds = %70, %72, %68
   %75 = phi i32 [ %71, %70 ], [ %73, %72 ], [ %69, %68 ]
   %76 = load i16, ptr @replorigin_session_origin, align 2
-  %.not35 = icmp eq i16 %76, 0
-  br i1 %.not35, label %82, label %77
+  %.not34 = icmp eq i16 %76, 0
+  br i1 %.not34, label %82, label %77
 
 77:                                               ; preds = %74
   %78 = or i32 %75, 32
@@ -4694,107 +4694,107 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   %83 = phi i32 [ 1, %77 ], [ %75, %74 ]
   tail call void @XLogBeginInsert() #20
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 8) #20
-  %.not37 = icmp eq i32 %83, 0
-  br i1 %.not37, label %.thread67, label %84
+  %.not36 = icmp eq i32 %83, 0
+  br i1 %.not36, label %.thread66, label %84
 
 84:                                               ; preds = %82
   call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #20
   %.pre = load i32, ptr %15, align 4
   %85 = and i32 %.pre, 1
-  %.not38 = icmp eq i32 %85, 0
-  br i1 %.not38, label %87, label %86
+  %.not37 = icmp eq i32 %85, 0
+  br i1 %.not37, label %87, label %86
 
 86:                                               ; preds = %84
   call void @XLogRegisterData(ptr noundef nonnull %16, i32 noundef 8) #20
-  %.pre46 = load i32, ptr %15, align 4
+  %.pre45 = load i32, ptr %15, align 4
   br label %87
 
 87:                                               ; preds = %86, %84
-  %88 = phi i32 [ %.pre46, %86 ], [ %.pre, %84 ]
+  %88 = phi i32 [ %.pre45, %86 ], [ %.pre, %84 ]
   %89 = and i32 %88, 2
-  %.not39 = icmp eq i32 %89, 0
-  br i1 %.not39, label %92, label %90
+  %.not38 = icmp eq i32 %89, 0
+  br i1 %.not38, label %92, label %90
 
 90:                                               ; preds = %87
   call void @XLogRegisterData(ptr noundef nonnull %17, i32 noundef 4) #20
   %91 = shl i32 %1, 2
   call void @XLogRegisterData(ptr noundef %2, i32 noundef %91) #20
-  %.pre47 = load i32, ptr %15, align 4
+  %.pre46 = load i32, ptr %15, align 4
   br label %92
 
 92:                                               ; preds = %90, %87
-  %93 = phi i32 [ %.pre47, %90 ], [ %88, %87 ]
+  %93 = phi i32 [ %.pre46, %90 ], [ %88, %87 ]
   %94 = and i32 %93, 4
-  %.not40 = icmp eq i32 %94, 0
-  br i1 %.not40, label %97, label %95
+  %.not39 = icmp eq i32 %94, 0
+  br i1 %.not39, label %97, label %95
 
 95:                                               ; preds = %92
   call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 4) #20
   %96 = mul i32 %3, 12
   call void @XLogRegisterData(ptr noundef %4, i32 noundef %96) #20
-  %.pre48 = load i32, ptr %15, align 4
+  %.pre47 = load i32, ptr %15, align 4
   br label %97
 
 97:                                               ; preds = %95, %92
-  %98 = phi i32 [ %.pre48, %95 ], [ %93, %92 ]
+  %98 = phi i32 [ %.pre47, %95 ], [ %93, %92 ]
   %99 = and i32 %98, 256
-  %.not41 = icmp eq i32 %99, 0
-  br i1 %.not41, label %102, label %100
+  %.not40 = icmp eq i32 %99, 0
+  br i1 %.not40, label %102, label %100
 
 100:                                              ; preds = %97
   call void @XLogRegisterData(ptr noundef nonnull %19, i32 noundef 4) #20
   %101 = shl i32 %5, 4
   call void @XLogRegisterData(ptr noundef %6, i32 noundef %101) #20
-  %.pre49 = load i32, ptr %15, align 4
+  %.pre48 = load i32, ptr %15, align 4
   br label %102
 
 102:                                              ; preds = %100, %97
-  %103 = phi i32 [ %.pre49, %100 ], [ %98, %97 ]
+  %103 = phi i32 [ %.pre48, %100 ], [ %98, %97 ]
   %104 = and i32 %103, 8
-  %.not42 = icmp eq i32 %104, 0
-  br i1 %.not42, label %107, label %105
+  %.not41 = icmp eq i32 %104, 0
+  br i1 %.not41, label %107, label %105
 
 105:                                              ; preds = %102
   call void @XLogRegisterData(ptr noundef nonnull %20, i32 noundef 4) #20
   %106 = shl i32 %7, 4
   call void @XLogRegisterData(ptr noundef %8, i32 noundef %106) #20
-  %.pre50 = load i32, ptr %15, align 4
+  %.pre49 = load i32, ptr %15, align 4
   br label %107
 
 107:                                              ; preds = %105, %102
-  %108 = phi i32 [ %.pre50, %105 ], [ %103, %102 ]
+  %108 = phi i32 [ %.pre49, %105 ], [ %103, %102 ]
   %109 = and i32 %108, 16
-  %.not43 = icmp eq i32 %109, 0
-  br i1 %.not43, label %117, label %110
+  %.not42 = icmp eq i32 %109, 0
+  br i1 %.not42, label %117, label %110
 
 110:                                              ; preds = %107
   call void @XLogRegisterData(ptr noundef nonnull %21, i32 noundef 4) #20
   %111 = load i32, ptr %15, align 4
   %112 = and i32 %111, 128
-  %.not44 = icmp eq i32 %112, 0
-  br i1 %.not44, label %117, label %113
+  %.not43 = icmp eq i32 %112, 0
+  br i1 %.not43, label %117, label %113
 
 113:                                              ; preds = %110
   %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %115 = trunc i64 %114 to i32
   %116 = add i32 %115, 1
   call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef %116) #20
-  %.pre51 = load i32, ptr %15, align 4
+  %.pre50 = load i32, ptr %15, align 4
   br label %117
 
 117:                                              ; preds = %110, %113, %107
-  %118 = phi i32 [ %111, %110 ], [ %.pre51, %113 ], [ %108, %107 ]
+  %118 = phi i32 [ %111, %110 ], [ %.pre50, %113 ], [ %108, %107 ]
   %119 = and i32 %118, 32
-  %.not45 = icmp eq i32 %119, 0
-  br i1 %.not45, label %.thread67, label %120
+  %.not44 = icmp eq i32 %119, 0
+  br i1 %.not44, label %.thread66, label %120
 
 120:                                              ; preds = %117
   call void @XLogRegisterData(ptr noundef nonnull %22, i32 noundef 16) #20
-  br label %.thread67
+  br label %.thread66
 
-.thread67:                                        ; preds = %82, %120, %117
+.thread66:                                        ; preds = %82, %120, %117
   %121 = or i8 %.1, -128
-  %spec.select = select i1 %.not37, i8 %.1, i8 %121
+  %spec.select = select i1 %.not36, i8 %.1, i8 %121
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #20
   %122 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -5525,25 +5525,25 @@ BlockStateAsString.exit:                          ; preds = %33, %switch.lookup
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = icmp ult i32 %43, 6
-  br i1 %44, label %switch.lookup25, label %TransStateAsString.exit
+  br i1 %44, label %switch.lookup24, label %TransStateAsString.exit
 
-switch.lookup25:                                  ; preds = %BlockStateAsString.exit
+switch.lookup24:                                  ; preds = %BlockStateAsString.exit
   %45 = zext nneg i32 %43 to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %45
-  %switch.load27 = load ptr, ptr %switch.gep26, align 8
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table.PopTransaction, i64 %45
+  %switch.load26 = load ptr, ptr %switch.gep25, align 8
   br label %TransStateAsString.exit
 
-TransStateAsString.exit:                          ; preds = %BlockStateAsString.exit, %switch.lookup25
-  %.0.i22 = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.54, %BlockStateAsString.exit ]
+TransStateAsString.exit:                          ; preds = %BlockStateAsString.exit, %switch.lookup24
+  %.0.i21 = phi ptr [ %switch.load26, %switch.lookup24 ], [ @.str.54, %BlockStateAsString.exit ]
   %46 = load i64, ptr %1, align 8
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = load i32, ptr @currentCommandId, align 4
-  %.b21 = load i1, ptr @currentCommandIdUsed, align 1
-  %51 = select i1 %.b21, ptr @.str.46, ptr @.str.47
+  %.b = load i1, ptr @currentCommandIdUsed, align 1
+  %51 = select i1 %.b, ptr @.str.46, ptr @.str.47
   %52 = load ptr, ptr %3, align 8
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, ptr noundef %0, i32 noundef %35, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i22, i32 noundef %47, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %51, ptr noundef %52) #20
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, ptr noundef %0, i32 noundef %35, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i21, i32 noundef %47, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %51, ptr noundef %52) #20
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5686, ptr noundef nonnull @__func__.ShowTransactionStateRec) #20
   br label %54
 

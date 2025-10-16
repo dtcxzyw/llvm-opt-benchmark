@@ -2756,8 +2756,8 @@ declare void @dissect_isup_redirection_information_parameter(ptr noundef, ptr no
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_inap() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_inap.inap_prefs_initialized, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @proto_reg_handoff_inap.inap_prefs_initialized, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_inap.inap_prefs_initialized, align 1
@@ -3474,8 +3474,8 @@ define internal i32 @dissect_inap_T_inkedIdPresent(i1 noundef zeroext %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_T_code_local(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @opcode)
-  %.b12 = load i1, ptr @is_ExtensionField, align 1
-  br i1 %.b12, label %29, label %8
+  %.b = load i1, ptr @is_ExtensionField, align 1
+  br i1 %.b, label %29, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @inap_opcode_type, align 4
@@ -3504,12 +3504,12 @@ define internal i32 @dissect_inap_T_code_local(i1 noundef zeroext %0, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %11
-  %.sink16.in = phi ptr [ %19, %18 ], [ %13, %11 ]
-  %.sink16 = load ptr, ptr %.sink16.in, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %.sink15.in = phi ptr [ %19, %18 ], [ %13, %11 ]
+  %.sink15 = load ptr, ptr %.sink15.in, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1442)
-  %.sink = load ptr, ptr %.sink16.in, align 8
+  %.sink = load ptr, ptr %.sink15.in, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_fence(ptr noundef %28, i32 noundef 25)

@@ -1171,14 +1171,14 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   store float %84, ptr %.sroa.276.0..sroa_idx, align 4
   br label %86
 
-.loopexit336:                                     ; preds = %102
-  %exitcond357.not = icmp eq i32 %87, 3
-  br i1 %exitcond357.not, label %.preheader335, label %86, !llvm.loop !12
+.loopexit333:                                     ; preds = %102
+  %exitcond354.not = icmp eq i32 %87, 3
+  br i1 %exitcond354.not, label %.preheader332, label %86, !llvm.loop !12
 
-86:                                               ; preds = %77, %.loopexit336
-  %.0179341 = phi ptr [ %85, %77 ], [ %110, %.loopexit336 ]
-  %.0181340 = phi i32 [ 0, %77 ], [ %87, %.loopexit336 ]
-  %87 = add nuw nsw i32 %.0181340, 1
+86:                                               ; preds = %77, %.loopexit333
+  %.0179338 = phi ptr [ %85, %77 ], [ %110, %.loopexit333 ]
+  %.0181337 = phi i32 [ 0, %77 ], [ %87, %.loopexit333 ]
+  %87 = add nuw nsw i32 %.0181337, 1
   %88 = uitofp nneg i32 %87 to float
   %89 = fmul float %88, 2.500000e-01
   %90 = fsub float 1.000000e+00, %89
@@ -1196,29 +1196,29 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   br label %102
 
 102:                                              ; preds = %86, %102
-  %indvars.iv353 = phi i64 [ 0, %86 ], [ %indvars.iv.next354, %102 ]
-  %.1180339 = phi ptr [ %.0179341, %86 ], [ %110, %102 ]
-  %103 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv353
+  %indvars.iv350 = phi i64 [ 0, %86 ], [ %indvars.iv.next351, %102 ]
+  %.1180336 = phi ptr [ %.0179338, %86 ], [ %110, %102 ]
+  %103 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv350
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %103, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %.sroa.6.0.copyload.i.i334 = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
+  %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 0
   %104 = fmul float %93, %.sroa.0.0.vec.extract.i.i
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 1
   %105 = fmul float %93, %.sroa.0.4.vec.extract.i.i
-  %106 = fmul float %93, %.sroa.6.0.copyload.i.i334
+  %106 = fmul float %93, %.sroa.6.0.copyload.i.i
   %107 = fadd float %98, %104
   %.sroa.0.0.vec.insert.i232 = insertelement <2 x float> poison, float %107, i64 0
   %108 = fadd float %99, %105
   %.sroa.0.4.vec.insert.i234 = insertelement <2 x float> %.sroa.0.0.vec.insert.i232, float %108, i64 1
   %109 = fadd float %106, %101
-  %110 = getelementptr inbounds nuw i8, ptr %.1180339, i64 12
-  store <2 x float> %.sroa.0.4.vec.insert.i234, ptr %.1180339, align 4
-  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1180339, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.1180336, i64 12
+  store <2 x float> %.sroa.0.4.vec.insert.i234, ptr %.1180336, align 4
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1180336, i64 8
   store float %109, ptr %.sroa.260.0..sroa_idx, align 4
-  %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
-  %exitcond356.not = icmp eq i64 %indvars.iv.next354, 10
-  br i1 %exitcond356.not, label %.loopexit336, label %102, !llvm.loop !13
+  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
+  %exitcond353.not = icmp eq i64 %indvars.iv.next351, 10
+  br i1 %exitcond353.not, label %.loopexit333, label %102, !llvm.loop !13
 
 111:                                              ; preds = %169, %155, %75
   %112 = landingpad { ptr, i32 }
@@ -1230,11 +1230,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %113 = fmul float %7, 5.000000e-01
   br label %131
 
-.preheader335:                                    ; preds = %.loopexit336, %130
-  %.2345 = phi ptr [ %129, %130 ], [ %110, %.loopexit336 ]
-  %114 = phi i1 [ false, %130 ], [ true, %.loopexit336 ]
-  %.0183344 = phi float [ 5.000000e-01, %130 ], [ -5.000000e-01, %.loopexit336 ]
-  %115 = fmul float %.0183344, %7
+.preheader332:                                    ; preds = %.loopexit333, %130
+  %.2342 = phi ptr [ %129, %130 ], [ %110, %.loopexit333 ]
+  %114 = phi i1 [ false, %130 ], [ true, %.loopexit333 ]
+  %.0183341 = phi float [ 5.000000e-01, %130 ], [ -5.000000e-01, %.loopexit333 ]
+  %115 = fmul float %.0183341, %7
   %116 = fpext float %115 to double
   %117 = fmul float %.sroa.0.0.vec.extract.i213, %115
   %118 = fmul float %.sroa.0.4.vec.extract.i215, %115
@@ -1242,42 +1242,42 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %120 = fptrunc double %119 to float
   br label %121
 
-121:                                              ; preds = %.preheader335, %121
-  %indvars.iv358 = phi i64 [ 0, %.preheader335 ], [ %indvars.iv.next359, %121 ]
-  %.3343 = phi ptr [ %.2345, %.preheader335 ], [ %129, %121 ]
-  %122 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv358
+121:                                              ; preds = %.preheader332, %121
+  %indvars.iv355 = phi i64 [ 0, %.preheader332 ], [ %indvars.iv.next356, %121 ]
+  %.3340 = phi ptr [ %.2342, %.preheader332 ], [ %129, %121 ]
+  %122 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv355
   %.sroa.0.0.copyload.i.i237 = load <2 x float>, ptr %122, align 4
   %.sroa.6.0..sroa_idx.i.i238 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %.sroa.6.0.copyload.i.i239333 = load float, ptr %.sroa.6.0..sroa_idx.i.i238, align 4
+  %.sroa.6.0.copyload.i.i239 = load float, ptr %.sroa.6.0..sroa_idx.i.i238, align 4
   %.sroa.0.0.vec.extract.i.i240 = extractelement <2 x float> %.sroa.0.0.copyload.i.i237, i64 0
   %123 = fmul float %.sroa.0.0.vec.extract.i.i240, %6
   %.sroa.0.4.vec.extract.i.i242 = extractelement <2 x float> %.sroa.0.0.copyload.i.i237, i64 1
   %124 = fmul float %.sroa.0.4.vec.extract.i.i242, %6
-  %125 = fmul float %.sroa.6.0.copyload.i.i239333, %6
+  %125 = fmul float %.sroa.6.0.copyload.i.i239, %6
   %126 = fadd float %117, %123
   %.sroa.0.0.vec.insert.i259 = insertelement <2 x float> poison, float %126, i64 0
   %127 = fadd float %118, %124
   %.sroa.0.4.vec.insert.i261 = insertelement <2 x float> %.sroa.0.0.vec.insert.i259, float %127, i64 1
   %128 = fadd float %125, %120
-  %129 = getelementptr inbounds nuw i8, ptr %.3343, i64 12
-  store <2 x float> %.sroa.0.4.vec.insert.i261, ptr %.3343, align 4
-  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.3343, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.3340, i64 12
+  store <2 x float> %.sroa.0.4.vec.insert.i261, ptr %.3340, align 4
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.3340, i64 8
   store float %128, ptr %.sroa.238.0..sroa_idx, align 4
-  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %exitcond361.not = icmp eq i64 %indvars.iv.next359, 10
-  br i1 %exitcond361.not, label %130, label %121, !llvm.loop !14
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
+  %exitcond358.not = icmp eq i64 %indvars.iv.next356, 10
+  br i1 %exitcond358.not, label %130, label %121, !llvm.loop !14
 
 130:                                              ; preds = %121
-  br i1 %114, label %.preheader335, label %.preheader, !llvm.loop !15
+  br i1 %114, label %.preheader332, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %146
-  %exitcond366.not = icmp eq i32 %132, 3
-  br i1 %exitcond366.not, label %155, label %131, !llvm.loop !16
+  %exitcond363.not = icmp eq i32 %132, 3
+  br i1 %exitcond363.not, label %155, label %131, !llvm.loop !16
 
 131:                                              ; preds = %.preheader, %.loopexit
-  %.4349 = phi ptr [ %129, %.preheader ], [ %154, %.loopexit ]
-  %.0185348 = phi i32 [ 0, %.preheader ], [ %132, %.loopexit ]
-  %132 = add nuw nsw i32 %.0185348, 1
+  %.4346 = phi ptr [ %129, %.preheader ], [ %154, %.loopexit ]
+  %.0185345 = phi i32 [ 0, %.preheader ], [ %132, %.loopexit ]
+  %132 = add nuw nsw i32 %.0185345, 1
   %133 = uitofp nneg i32 %132 to float
   %134 = fmul float %133, 2.500000e-01
   %135 = fmul float %134, 0x3FF921FB60000000
@@ -1294,29 +1294,29 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   br label %146
 
 146:                                              ; preds = %131, %146
-  %indvars.iv362 = phi i64 [ 0, %131 ], [ %indvars.iv.next363, %146 ]
-  %.5347 = phi ptr [ %.4349, %131 ], [ %154, %146 ]
-  %147 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv362
+  %indvars.iv359 = phi i64 [ 0, %131 ], [ %indvars.iv.next360, %146 ]
+  %.5344 = phi ptr [ %.4346, %131 ], [ %154, %146 ]
+  %147 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv359
   %.sroa.0.0.copyload.i.i264 = load <2 x float>, ptr %147, align 4
   %.sroa.6.0..sroa_idx.i.i265 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %.sroa.6.0.copyload.i.i266332 = load float, ptr %.sroa.6.0..sroa_idx.i.i265, align 4
+  %.sroa.6.0.copyload.i.i266 = load float, ptr %.sroa.6.0..sroa_idx.i.i265, align 4
   %.sroa.0.0.vec.extract.i.i267 = extractelement <2 x float> %.sroa.0.0.copyload.i.i264, i64 0
   %148 = fmul float %137, %.sroa.0.0.vec.extract.i.i267
   %.sroa.0.4.vec.extract.i.i269 = extractelement <2 x float> %.sroa.0.0.copyload.i.i264, i64 1
   %149 = fmul float %137, %.sroa.0.4.vec.extract.i.i269
-  %150 = fmul float %137, %.sroa.6.0.copyload.i.i266332
+  %150 = fmul float %137, %.sroa.6.0.copyload.i.i266
   %151 = fadd float %142, %148
   %.sroa.0.0.vec.insert.i286 = insertelement <2 x float> poison, float %151, i64 0
   %152 = fadd float %143, %149
   %.sroa.0.4.vec.insert.i288 = insertelement <2 x float> %.sroa.0.0.vec.insert.i286, float %152, i64 1
   %153 = fadd float %150, %145
-  %154 = getelementptr inbounds nuw i8, ptr %.5347, i64 12
-  store <2 x float> %.sroa.0.4.vec.insert.i288, ptr %.5347, align 4
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5347, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.5344, i64 12
+  store <2 x float> %.sroa.0.4.vec.insert.i288, ptr %.5344, align 4
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5344, i64 8
   store float %153, ptr %.sroa.216.0..sroa_idx, align 4
-  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
-  %exitcond365.not = icmp eq i64 %indvars.iv.next363, 10
-  br i1 %exitcond365.not, label %.loopexit, label %146, !llvm.loop !17
+  %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
+  %exitcond362.not = icmp eq i64 %indvars.iv.next360, 10
+  br i1 %exitcond362.not, label %.loopexit, label %146, !llvm.loop !17
 
 155:                                              ; preds = %.loopexit
   %156 = fadd float %113, %6
@@ -1328,13 +1328,13 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %160 = fmul double %.sroa.8327.0, %157
   %161 = fptrunc double %160 to float
   store <2 x float> %.sroa.0.4.vec.insert.i297, ptr %154, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5347, i64 20
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5344, i64 20
   store float %161, ptr %.sroa.22.0..sroa_idx, align 4
   %162 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %163 unwind label %111
 
 163:                                              ; preds = %155
-  %164 = getelementptr inbounds nuw i8, ptr %.5347, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.5344, i64 24
   %165 = ptrtoint ptr %164 to i64
   %166 = ptrtoint ptr %162 to i64
   %167 = sub i64 %165, %166

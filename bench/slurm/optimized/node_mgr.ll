@@ -1787,8 +1787,8 @@ define dso_local ptr @pack_all_nodes(i16 noundef zeroext %0, i32 noundef %1, i16
   tail call void @pack_time(i64 noundef %8, ptr noundef %13) #15
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %21 = load i32, ptr %20, align 4
-  %.not92 = icmp eq ptr %19, null
-  br i1 %.not92, label %29, label %22
+  %.not91 = icmp eq ptr %19, null
+  br i1 %.not91, label %29, label %22
 
 22:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1812,26 +1812,26 @@ define dso_local ptr @pack_all_nodes(i16 noundef zeroext %0, i32 noundef %1, i16
 30:                                               ; preds = %29, %22
   %31 = load i32, ptr @node_record_count, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph126, label %._crit_edge.thread
+  br i1 %32, label %.lr.ph125, label %._crit_edge.thread
 
-.lr.ph126:                                        ; preds = %30
+.lr.ph125:                                        ; preds = %30
   %33 = zext i16 %0 to i64
   %34 = and i64 %33, 1
   %35 = icmp ne i64 %34, 0
   %or.cond = or i1 %35, %9
   %36 = and i64 %33, 128
-  %.not96 = icmp eq i64 %36, 0
+  %.not95 = icmp eq i64 %36, 0
   br label %37
 
-37:                                               ; preds = %.lr.ph126, %78
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next148, %78 ]
-  %.0125 = phi i32 [ 0, %.lr.ph126 ], [ %79, %78 ]
-  %.081123 = phi i1 [ false, %.lr.ph126 ], [ %.182, %78 ]
+37:                                               ; preds = %.lr.ph125, %78
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next147, %78 ]
+  %.0124 = phi i32 [ 0, %.lr.ph125 ], [ %79, %78 ]
+  %.081122 = phi i1 [ false, %.lr.ph125 ], [ %.182, %78 ]
   %38 = load ptr, ptr @node_record_table_ptr, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv147
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv146
   %40 = load ptr, ptr %39, align 8
-  %.not95 = icmp eq ptr %40, null
-  br i1 %.not95, label %.critedge, label %41
+  %.not94 = icmp eq ptr %40, null
+  br i1 %.not94, label %.critedge, label %41
 
 41:                                               ; preds = %37
   br i1 %or.cond, label %_node_is_hidden.exit, label %42
@@ -1900,8 +1900,8 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 15
   %69 = icmp eq i32 %68, 6
-  %or.cond97 = and i1 %.not96, %69
-  br i1 %or.cond97, label %.critedge, label %70
+  %or.cond96 = and i1 %.not95, %69
+  br i1 %or.cond96, label %.critedge, label %70
 
 70:                                               ; preds = %_node_is_hidden.exit
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 272
@@ -1915,7 +1915,7 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
   br i1 %76, label %.critedge, label %77
 
 .critedge:                                        ; preds = %..critedge_crit_edge.i, %.preheader.i, %48, %_node_is_hidden.exit, %74, %70, %37
-  call void @bit_set(ptr noundef %19, i64 noundef %indvars.iv147) #15
+  call void @bit_set(ptr noundef %19, i64 noundef %indvars.iv146) #15
   br label %78
 
 77:                                               ; preds = %74
@@ -1923,12 +1923,12 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
   br label %78
 
 78:                                               ; preds = %77, %.critedge
-  %.182 = phi i1 [ true, %.critedge ], [ %.081123, %77 ]
-  %79 = add nuw nsw i32 %.0125, 1
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %.182 = phi i1 [ true, %.critedge ], [ %.081122, %77 ]
+  %79 = add nuw nsw i32 %.0124, 1
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %80 = load i32, ptr @node_record_count, align 4
   %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next148, %81
+  %82 = icmp slt i64 %indvars.iv.next147, %81
   br i1 %82, label %37, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %78
@@ -1937,7 +1937,7 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
 83:                                               ; preds = %._crit_edge
   %84 = load i32, ptr %20, align 4
   store i32 %21, ptr %20, align 4
-  br i1 %.not92, label %92, label %85
+  br i1 %.not91, label %92, label %85
 
 85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1963,8 +1963,8 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge, %93
-  %.079.lcssa167 = phi i32 [ %79, %._crit_edge ], [ %79, %93 ], [ 0, %30 ]
-  br i1 %.not92, label %95, label %94
+  %.079.lcssa166 = phi i32 [ %79, %._crit_edge ], [ %79, %93 ], [ 0, %30 ]
+  br i1 %.not91, label %95, label %94
 
 94:                                               ; preds = %._crit_edge.thread
   call void @slurm_bit_free(ptr noundef nonnull %5) #15
@@ -1998,88 +1998,88 @@ _node_is_hidden.exit:                             ; preds = %63, %52, %41
   br i1 %.not90, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %116
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %116 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %116 ], [ 0, %.lr.ph.split.us ]
   %105 = load ptr, ptr @node_record_table_ptr, align 8
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv137
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv136
   %107 = load ptr, ptr %106, align 8
   %.not.us.us = icmp eq ptr %107, null
-  br i1 %.not.us.us, label %.critedge100.us.us, label %_node_is_hidden.exit117.us.us
+  br i1 %.not.us.us, label %.critedge99.us.us, label %_node_is_hidden.exit116.us.us
 
-_node_is_hidden.exit117.us.us:                    ; preds = %.lr.ph.split.us.split.us
+_node_is_hidden.exit116.us.us:                    ; preds = %.lr.ph.split.us.split.us
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 272
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %.critedge100.us.us, label %111
+  br i1 %110, label %.critedge99.us.us, label %111
 
-111:                                              ; preds = %_node_is_hidden.exit117.us.us
+111:                                              ; preds = %_node_is_hidden.exit116.us.us
   %112 = load i8, ptr %109, align 1
   %113 = icmp eq i8 %112, 0
-  br i1 %113, label %.critedge100.us.us, label %116
+  br i1 %113, label %.critedge99.us.us, label %116
 
-.critedge100.us.us:                               ; preds = %111, %_node_is_hidden.exit117.us.us, %.lr.ph.split.us.split.us
-  %.b91.us.us = load i1, ptr @pack_all_nodes.inited, align 1
-  br i1 %.b91.us.us, label %116, label %114
+.critedge99.us.us:                                ; preds = %111, %_node_is_hidden.exit116.us.us, %.lr.ph.split.us.split.us
+  %.b.us.us = load i1, ptr @pack_all_nodes.inited, align 1
+  br i1 %.b.us.us, label %116, label %114
 
-114:                                              ; preds = %.critedge100.us.us
+114:                                              ; preds = %.critedge99.us.us
   store ptr @pack_all_nodes.blank_config, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 72), align 8
   %115 = tail call ptr @select_g_select_nodeinfo_alloc() #15
   store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 448), align 8
   store i1 true, ptr @pack_all_nodes.inited, align 1
   br label %116
 
-116:                                              ; preds = %.critedge100.us.us, %114, %111
-  %pack_all_nodes.blank_node.sink = phi ptr [ %107, %111 ], [ @pack_all_nodes.blank_node, %114 ], [ @pack_all_nodes.blank_node, %.critedge100.us.us ]
+116:                                              ; preds = %.critedge99.us.us, %114, %111
+  %pack_all_nodes.blank_node.sink = phi ptr [ %107, %111 ], [ @pack_all_nodes.blank_node, %114 ], [ @pack_all_nodes.blank_node, %.critedge99.us.us ]
   tail call fastcc void @_pack_node(ptr noundef nonnull %pack_all_nodes.blank_node.sink, ptr noundef %13, i16 noundef zeroext %2, i16 noundef zeroext %0)
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %117 = load i32, ptr @node_record_count, align 4
   %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv.next138, %118
-  br i1 %119, label %.lr.ph.split.us.split.us, label %.loopexit.loopexit129, !llvm.loop !17
+  %119 = icmp slt i64 %indvars.iv.next137, %118
+  br i1 %119, label %.lr.ph.split.us.split.us, label %.loopexit.loopexit128, !llvm.loop !17
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %136
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %136 ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %136 ], [ 0, %.lr.ph.split.us ]
   %120 = load ptr, ptr @node_record_table_ptr, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv142
+  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv141
   %122 = load ptr, ptr %121, align 8
   %.not.us = icmp eq ptr %122, null
-  br i1 %.not.us, label %.critedge100.us, label %_node_is_hidden.exit117.us
+  br i1 %.not.us, label %.critedge99.us, label %_node_is_hidden.exit116.us
 
-_node_is_hidden.exit117.us:                       ; preds = %.lr.ph.split.us.split
+_node_is_hidden.exit116.us:                       ; preds = %.lr.ph.split.us.split
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 320
   %124 = load i32, ptr %123, align 8
   %125 = and i32 %124, 15
   %126 = icmp eq i32 %125, 6
-  br i1 %126, label %.critedge100.us, label %127
+  br i1 %126, label %.critedge99.us, label %127
 
-127:                                              ; preds = %_node_is_hidden.exit117.us
+127:                                              ; preds = %_node_is_hidden.exit116.us
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 272
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %.critedge100.us, label %131
+  br i1 %130, label %.critedge99.us, label %131
 
 131:                                              ; preds = %127
   %132 = load i8, ptr %129, align 1
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %.critedge100.us, label %136
+  br i1 %133, label %.critedge99.us, label %136
 
-.critedge100.us:                                  ; preds = %131, %127, %_node_is_hidden.exit117.us, %.lr.ph.split.us.split
-  %.b91.us = load i1, ptr @pack_all_nodes.inited, align 1
-  br i1 %.b91.us, label %136, label %134
+.critedge99.us:                                   ; preds = %131, %127, %_node_is_hidden.exit116.us, %.lr.ph.split.us.split
+  %.b.us = load i1, ptr @pack_all_nodes.inited, align 1
+  br i1 %.b.us, label %136, label %134
 
-134:                                              ; preds = %.critedge100.us
+134:                                              ; preds = %.critedge99.us
   store ptr @pack_all_nodes.blank_config, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 72), align 8
   %135 = tail call ptr @select_g_select_nodeinfo_alloc() #15
   store ptr %135, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 448), align 8
   store i1 true, ptr @pack_all_nodes.inited, align 1
   br label %136
 
-136:                                              ; preds = %.critedge100.us, %134, %131
-  %pack_all_nodes.blank_node.sink168 = phi ptr [ %122, %131 ], [ @pack_all_nodes.blank_node, %134 ], [ @pack_all_nodes.blank_node, %.critedge100.us ]
-  tail call fastcc void @_pack_node(ptr noundef nonnull %pack_all_nodes.blank_node.sink168, ptr noundef %13, i16 noundef zeroext %2, i16 noundef zeroext %0)
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+136:                                              ; preds = %.critedge99.us, %134, %131
+  %pack_all_nodes.blank_node.sink167 = phi ptr [ %122, %131 ], [ @pack_all_nodes.blank_node, %134 ], [ @pack_all_nodes.blank_node, %.critedge99.us ]
+  tail call fastcc void @_pack_node(ptr noundef nonnull %pack_all_nodes.blank_node.sink167, ptr noundef %13, i16 noundef zeroext %2, i16 noundef zeroext %0)
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %137 = load i32, ptr @node_record_count, align 4
   %138 = sext i32 %137 to i64
-  %139 = icmp slt i64 %indvars.iv.next143, %138
+  %139 = icmp slt i64 %indvars.iv.next142, %138
   br i1 %139, label %.lr.ph.split.us.split, label %.loopexit.loopexit, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %180
@@ -2088,13 +2088,13 @@ _node_is_hidden.exit117.us:                       ; preds = %.lr.ph.split.us.spl
   %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8
   %.not = icmp eq ptr %142, null
-  br i1 %.not, label %.critedge100, label %143
+  br i1 %.not, label %.critedge99, label %143
 
 143:                                              ; preds = %.lr.ph.split
   %144 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %145 = and i16 %144, 2
-  %.not.i101 = icmp eq i16 %145, 0
-  br i1 %.not.i101, label %153, label %146
+  %.not.i100 = icmp eq i16 %145, 0
+  br i1 %.not.i100, label %153, label %146
 
 146:                                              ; preds = %143
   %147 = tail call i32 @slurm_mcs_get_privatedata() #15
@@ -2105,107 +2105,107 @@ _node_is_hidden.exit117.us:                       ; preds = %.lr.ph.split.us.spl
   %150 = getelementptr inbounds nuw i8, ptr %142, i64 256
   %151 = load ptr, ptr %150, align 8
   %152 = tail call i32 @mcs_g_check_mcs_label(i32 noundef %1, ptr noundef %151, i1 noundef zeroext false) #15
-  %.not21.i116 = icmp eq i32 %152, 0
-  br i1 %.not21.i116, label %153, label %.critedge100
+  %.not21.i115 = icmp eq i32 %152, 0
+  br i1 %.not21.i115, label %153, label %.critedge99
 
 153:                                              ; preds = %149, %146, %143
   %154 = getelementptr inbounds nuw i8, ptr %142, i64 342
   %155 = load i16, ptr %154, align 2
-  %.not22.i102 = icmp eq i16 %155, 0
-  br i1 %.not22.i102, label %_node_is_hidden.exit117, label %.preheader.i103
+  %.not22.i101 = icmp eq i16 %155, 0
+  br i1 %.not22.i101, label %_node_is_hidden.exit116, label %.preheader.i102
 
-.preheader.i103:                                  ; preds = %153
+.preheader.i102:                                  ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %142, i64 344
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %12, align 8
-  %.not2325.i104 = icmp eq ptr %158, null
-  br i1 %.not2325.i104, label %.critedge100, label %.lr.ph.preheader.i105
+  %.not2325.i103 = icmp eq ptr %158, null
+  br i1 %.not2325.i103, label %.critedge99, label %.lr.ph.preheader.i104
 
-.lr.ph.preheader.i105:                            ; preds = %.preheader.i103
-  %wide.trip.count.i106 = zext i16 %155 to i64
-  br label %.lr.ph.i107
+.lr.ph.preheader.i104:                            ; preds = %.preheader.i102
+  %wide.trip.count.i105 = zext i16 %155 to i64
+  br label %.lr.ph.i106
 
-.lr.ph.i107:                                      ; preds = %..critedge_crit_edge.i112, %.lr.ph.preheader.i105
-  %indvars.iv31.i108 = phi i64 [ 0, %.lr.ph.preheader.i105 ], [ %indvars.iv.next32.i113, %..critedge_crit_edge.i112 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv31.i108
+.lr.ph.i106:                                      ; preds = %..critedge_crit_edge.i111, %.lr.ph.preheader.i104
+  %indvars.iv31.i107 = phi i64 [ 0, %.lr.ph.preheader.i104 ], [ %indvars.iv.next32.i112, %..critedge_crit_edge.i111 ]
+  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv31.i107
   %160 = load ptr, ptr %159, align 8
   br label %164
 
 161:                                              ; preds = %164
-  %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
-  %162 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i110
+  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
+  %162 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i109
   %163 = load ptr, ptr %162, align 8
-  %.not23.i111 = icmp eq ptr %163, null
-  br i1 %.not23.i111, label %..critedge_crit_edge.i112, label %164, !llvm.loop !14
+  %.not23.i110 = icmp eq ptr %163, null
+  br i1 %.not23.i110, label %..critedge_crit_edge.i111, label %164, !llvm.loop !14
 
-164:                                              ; preds = %161, %.lr.ph.i107
-  %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i110, %161 ]
-  %165 = phi ptr [ %158, %.lr.ph.i107 ], [ %163, %161 ]
+164:                                              ; preds = %161, %.lr.ph.i106
+  %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i106 ], [ %indvars.iv.next.i109, %161 ]
+  %165 = phi ptr [ %158, %.lr.ph.i106 ], [ %163, %161 ]
   %166 = icmp eq ptr %165, %160
-  br i1 %166, label %_node_is_hidden.exit117, label %161
+  br i1 %166, label %_node_is_hidden.exit116, label %161
 
-..critedge_crit_edge.i112:                        ; preds = %161
-  %indvars.iv.next32.i113 = add nuw nsw i64 %indvars.iv31.i108, 1
-  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next32.i113, %wide.trip.count.i106
-  br i1 %exitcond.not.i114, label %.critedge100, label %.lr.ph.i107, !llvm.loop !15
+..critedge_crit_edge.i111:                        ; preds = %161
+  %indvars.iv.next32.i112 = add nuw nsw i64 %indvars.iv31.i107, 1
+  %exitcond.not.i113 = icmp eq i64 %indvars.iv.next32.i112, %wide.trip.count.i105
+  br i1 %exitcond.not.i113, label %.critedge99, label %.lr.ph.i106, !llvm.loop !15
 
-_node_is_hidden.exit117:                          ; preds = %164, %153
+_node_is_hidden.exit116:                          ; preds = %164, %153
   %167 = getelementptr inbounds nuw i8, ptr %142, i64 320
   %168 = load i32, ptr %167, align 8
   %169 = and i32 %168, 15
   %170 = icmp eq i32 %169, 6
-  %or.cond98 = and i1 %.not90, %170
-  br i1 %or.cond98, label %.critedge100, label %171
+  %or.cond97 = and i1 %.not90, %170
+  br i1 %or.cond97, label %.critedge99, label %171
 
-171:                                              ; preds = %_node_is_hidden.exit117
+171:                                              ; preds = %_node_is_hidden.exit116
   %172 = getelementptr inbounds nuw i8, ptr %142, i64 272
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %.critedge100, label %175
+  br i1 %174, label %.critedge99, label %175
 
 175:                                              ; preds = %171
   %176 = load i8, ptr %173, align 1
   %177 = icmp eq i8 %176, 0
-  br i1 %177, label %.critedge100, label %180
+  br i1 %177, label %.critedge99, label %180
 
-.critedge100:                                     ; preds = %..critedge_crit_edge.i112, %.preheader.i103, %149, %_node_is_hidden.exit117, %175, %171, %.lr.ph.split
-  %.b91 = load i1, ptr @pack_all_nodes.inited, align 1
-  br i1 %.b91, label %180, label %178
+.critedge99:                                      ; preds = %..critedge_crit_edge.i111, %.preheader.i102, %149, %_node_is_hidden.exit116, %175, %171, %.lr.ph.split
+  %.b = load i1, ptr @pack_all_nodes.inited, align 1
+  br i1 %.b, label %180, label %178
 
-178:                                              ; preds = %.critedge100
+178:                                              ; preds = %.critedge99
   store ptr @pack_all_nodes.blank_config, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 72), align 8
   %179 = tail call ptr @select_g_select_nodeinfo_alloc() #15
   store ptr %179, ptr getelementptr inbounds nuw (i8, ptr @pack_all_nodes.blank_node, i64 448), align 8
   store i1 true, ptr @pack_all_nodes.inited, align 1
   br label %180
 
-180:                                              ; preds = %175, %.critedge100, %178
-  %.sink = phi ptr [ @pack_all_nodes.blank_node, %178 ], [ @pack_all_nodes.blank_node, %.critedge100 ], [ %142, %175 ]
+180:                                              ; preds = %175, %.critedge99, %178
+  %.sink = phi ptr [ @pack_all_nodes.blank_node, %178 ], [ @pack_all_nodes.blank_node, %.critedge99 ], [ %142, %175 ]
   tail call fastcc void @_pack_node(ptr noundef nonnull %.sink, ptr noundef %13, i16 noundef zeroext %2, i16 noundef zeroext %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = load i32, ptr @node_record_count, align 4
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next, %182
-  br i1 %183, label %.lr.ph.split, label %.loopexit.loopexit130, !llvm.loop !17
+  br i1 %183, label %.lr.ph.split, label %.loopexit.loopexit129, !llvm.loop !17
 
 184:                                              ; preds = %96
   %185 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.pack_all_nodes, i32 noundef %14) #15
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %136
-  %indvars145 = trunc nsw i64 %indvars.iv.next143 to i32
+  %indvars144 = trunc nsw i64 %indvars.iv.next142 to i32
   br label %.loopexit
 
-.loopexit.loopexit129:                            ; preds = %116
-  %indvars140 = trunc nsw i64 %indvars.iv.next138 to i32
+.loopexit.loopexit128:                            ; preds = %116
+  %indvars139 = trunc nsw i64 %indvars.iv.next137 to i32
   br label %.loopexit
 
-.loopexit.loopexit130:                            ; preds = %180
-  %indvars135 = trunc i64 %indvars.iv.next to i32
+.loopexit.loopexit129:                            ; preds = %180
+  %indvars134 = trunc i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit130, %.loopexit.loopexit129, %.loopexit.loopexit, %98, %184, %95
-  %.180 = phi i32 [ %.079.lcssa167, %95 ], [ 0, %184 ], [ 0, %98 ], [ %indvars145, %.loopexit.loopexit ], [ %indvars140, %.loopexit.loopexit129 ], [ %indvars135, %.loopexit.loopexit130 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit129, %.loopexit.loopexit128, %.loopexit.loopexit, %98, %184, %95
+  %.180 = phi i32 [ %.079.lcssa166, %95 ], [ 0, %184 ], [ 0, %98 ], [ %indvars144, %.loopexit.loopexit ], [ %indvars139, %.loopexit.loopexit128 ], [ %indvars134, %.loopexit.loopexit129 ]
   %186 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %187 = load i32, ptr %186, align 4
   store i32 0, ptr %186, align 4
@@ -11685,10 +11685,10 @@ define dso_local void @consolidate_config_list(i1 noundef zeroext %0, i1 noundef
   unreachable
 
 8:                                                ; preds = %4
-  %.b6.i = load i1, ptr @config_list_update, align 1
+  %.b.i = load i1, ptr @config_list_update, align 1
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @config_list_update_mutex) #15
-  %.not7.i = icmp eq i32 %9, 0
-  br i1 %.not7.i, label %_get_config_list_update.exit, label %10
+  %.not6.i = icmp eq i32 %9, 0
+  br i1 %.not6.i, label %_get_config_list_update.exit, label %10
 
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #18
@@ -11697,7 +11697,7 @@ define dso_local void @consolidate_config_list(i1 noundef zeroext %0, i1 noundef
   unreachable
 
 _get_config_list_update.exit:                     ; preds = %8
-  br i1 %.b6.i, label %12, label %153
+  br i1 %.b.i, label %12, label %153
 
 12:                                               ; preds = %_get_config_list_update.exit, %2
   br i1 %0, label %14, label %13

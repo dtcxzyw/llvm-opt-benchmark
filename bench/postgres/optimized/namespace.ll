@@ -5970,8 +5970,8 @@ spcache_lookup.exit:                              ; preds = %nsphash_lookup.exit
 define internal fastcc void @spcache_init() unnamed_addr #0 {
   %1 = load ptr, ptr @SearchPathCache, align 8
   %2 = icmp ne ptr %1, null
-  %.b3 = load i1, ptr @searchPathCacheValid, align 1
-  %or.cond = select i1 %2, i1 %.b3, i1 false
+  %.b = load i1, ptr @searchPathCacheValid, align 1
+  %or.cond = select i1 %2, i1 %.b, i1 false
   br i1 %or.cond, label %3, label %7
 
 3:                                                ; preds = %0

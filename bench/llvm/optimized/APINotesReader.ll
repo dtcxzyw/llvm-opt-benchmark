@@ -2608,13 +2608,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !12
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !12
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !213
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -2979,13 +2979,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %95, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %95, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %95, align 4
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %99 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %99, align 8, !tbaa !231
+  store i32 %.0.copyload.i.i.i.i.i, ptr %99, align 8, !tbaa !231
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %100, align 4, !tbaa !234
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -3010,13 +3010,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 4) ]
-  %.0.copyload.i.i.i.i2.i45 = load i32, ptr %109, align 4
+  %.0.copyload.i.i.i.i.i45 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 4) ]
   %.0.copyload.i.i.i2.i.i46 = load i32, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i45, ptr %113, align 8, !tbaa !241
+  store i32 %.0.copyload.i.i.i.i.i45, ptr %113, align 8, !tbaa !241
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %.0.copyload.i.i.i2.i.i46, ptr %114, align 4, !tbaa !244
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -3378,13 +3378,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !264
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !264
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !267
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -3746,13 +3746,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !287
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !287
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !290
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -4114,13 +4114,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !310
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !310
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !313
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -4482,13 +4482,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !333
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !333
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !336
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -4850,13 +4850,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !67
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !67
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !354
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -5218,13 +5218,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !372
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !372
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !375
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -5586,13 +5586,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !395
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !395
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !398
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -5954,13 +5954,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !418
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !418
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !421
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -6322,13 +6322,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !441
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !441
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !444
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -6690,13 +6690,13 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableIN5clang9api_notes12_GLO
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 4) ]
-  %.0.copyload.i.i.i.i2.i = load i32, ptr %94, align 4
+  %.0.copyload.i.i.i.i.i = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 4) ]
   %.0.copyload.i.i.i2.i.i = load i32, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
-  store i32 %.0.copyload.i.i.i.i2.i, ptr %98, align 8, !tbaa !464
+  store i32 %.0.copyload.i.i.i.i.i, ptr %98, align 8, !tbaa !464
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.0.copyload.i.i.i2.i.i, ptr %99, align 4, !tbaa !467
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8

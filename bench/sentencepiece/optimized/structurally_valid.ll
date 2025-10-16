@@ -365,9 +365,9 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8EPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
-  %.b3 = load i1, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
+  %.b = load i1, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
   %4 = icmp ne i32 %1, 0
-  %or.cond.not = and i1 %4, %.b3
+  %or.cond.not = and i1 %4, %.b
   br i1 %or.cond.not, label %5, label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
 5:                                                ; preds = %2
@@ -475,9 +475,9 @@ _ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineO
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_11StringPieceE(ptr %0, i64 %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
-  %.b1 = load i1, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
+  %.b = load i1, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
   %4 = trunc i64 %1 to i32
-  br i1 %.b1, label %5, label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
+  br i1 %.b, label %5, label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
 5:                                                ; preds = %2
   %6 = icmp eq i32 %4, 0

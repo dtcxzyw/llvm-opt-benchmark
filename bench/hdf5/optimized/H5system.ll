@@ -85,8 +85,8 @@ define i64 @H5_make_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %21, !prof !15
 
 8:                                                ; preds = %1
-  %.b6 = load i1, ptr @H5_ntzset, align 1
-  br i1 %.b6, label %10, label %9
+  %.b = load i1, ptr @H5_ntzset, align 1
+  br i1 %.b, label %10, label %9
 
 9:                                                ; preds = %8
   tail call void @tzset() #15

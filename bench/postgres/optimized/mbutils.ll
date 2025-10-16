@@ -59,8 +59,8 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
   br i1 %or.cond, label %2, label %.loopexit
 
 2:                                                ; preds = %1
-  %.b47 = load i1, ptr @backend_startup_complete, align 1
-  br i1 %.b47, label %3, label %.loopexit
+  %.b = load i1, ptr @backend_startup_complete, align 1
+  br i1 %.b, label %3, label %.loopexit
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @DatabaseEncoding, align 8
@@ -79,13 +79,13 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
 
 12:                                               ; preds = %10
   %13 = tail call i32 @FindDefaultConversionProc(i32 noundef %0, i32 noundef %6) #12
-  %.not49 = icmp eq i32 %13, 0
-  br i1 %.not49, label %.loopexit, label %14
+  %.not48 = icmp eq i32 %13, 0
+  br i1 %.not48, label %.loopexit, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @FindDefaultConversionProc(i32 noundef %6, i32 noundef %0) #12
-  %.not50 = icmp eq i32 %15, 0
-  br i1 %.not50, label %.loopexit, label %16
+  %.not49 = icmp eq i32 %15, 0
+  br i1 %.not49, label %.loopexit, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @TopMemoryContext, align 8
@@ -117,16 +117,16 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph64, label %.loopexit
+  br i1 %32, label %.lr.ph63, label %.loopexit
 
-.lr.ph64:                                         ; preds = %.lr.ph
+.lr.ph63:                                         ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %34 = load ptr, ptr %33, align 8
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph64, %.critedge
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %.critedge ]
+35:                                               ; preds = %.lr.ph63, %.critedge
+  %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %.critedge ]
   %36 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
@@ -173,8 +173,8 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %or.cond, label %2, label %47
 
 2:                                                ; preds = %1
-  %.b33 = load i1, ptr @backend_startup_complete, align 1
-  br i1 %.b33, label %4, label %3
+  %.b = load i1, ptr @backend_startup_complete, align 1
+  br i1 %.b, label %4, label %3
 
 3:                                                ; preds = %2
   store i32 %0, ptr @pending_client_encoding, align 4
@@ -201,8 +201,8 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ConvProcList, align 8
-  %.not35 = icmp eq ptr %15, null
-  br i1 %.not35, label %.critedge, label %.lr.ph
+  %.not34 = icmp eq ptr %15, null
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %16 = zext nneg i32 %0 to i64
@@ -210,18 +210,18 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br label %18
 
 18:                                               ; preds = %.lr.ph, %45
-  %.sroa.0.038 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %45 ]
-  %.sroa.7.037 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
-  %.02936 = phi i8 [ 0, %.lr.ph ], [ %.1, %45 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 4
+  %.sroa.0.037 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %45 ]
+  %.sroa.7.036 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
+  %.02935 = phi i8 [ 0, %.lr.ph ], [ %.1, %45 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %.sroa.7.037, %20
+  %21 = icmp slt i32 %.sroa.7.036, %20
   br i1 %21, label %22, label %.critedge.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %.sroa.7.037 to i64
+  %25 = sext i32 %.sroa.7.036 to i64
   %26 = getelementptr inbounds %union.ListCell, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
@@ -229,7 +229,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %29, label %32, label %45
 
 .critedge.loopexit:                               ; preds = %45, %18
-  %.029.lcssa.ph = phi i8 [ %.02936, %18 ], [ %.1, %45 ]
+  %.029.lcssa.ph = phi i8 [ %.02935, %18 ], [ %.1, %45 ]
   %30 = xor i8 %.029.lcssa.ph, 1
   %31 = zext nneg i8 %30 to i32
   br label %.critedge
@@ -246,7 +246,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %32
-  %37 = trunc nuw i8 %.02936 to i1
+  %37 = trunc nuw i8 %.02935 to i1
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
@@ -259,16 +259,16 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr @ConvProcList, align 8
-  %43 = add i32 %.sroa.7.037, -1
-  %44 = tail call ptr @list_delete_nth_cell(ptr noundef %42, i32 noundef %.sroa.7.037) #12
+  %43 = add i32 %.sroa.7.036, -1
+  %44 = tail call ptr @list_delete_nth_cell(ptr noundef %42, i32 noundef %.sroa.7.036) #12
   store ptr %44, ptr @ConvProcList, align 8
   tail call void @pfree(ptr noundef nonnull %27) #12
   br label %45
 
 45:                                               ; preds = %38, %41, %32, %22
-  %.1 = phi i8 [ 1, %41 ], [ 1, %38 ], [ %.02936, %32 ], [ %.02936, %22 ]
-  %.sroa.7.1 = phi i32 [ %43, %41 ], [ %.sroa.7.037, %38 ], [ %.sroa.7.037, %32 ], [ %.sroa.7.037, %22 ]
-  %.sroa.0.1 = phi ptr [ %44, %41 ], [ %.sroa.0.038, %38 ], [ %.sroa.0.038, %32 ], [ %.sroa.0.038, %22 ]
+  %.1 = phi i8 [ 1, %41 ], [ 1, %38 ], [ %.02935, %32 ], [ %.02935, %22 ]
+  %.sroa.7.1 = phi i32 [ %43, %41 ], [ %.sroa.7.036, %38 ], [ %.sroa.7.036, %32 ], [ %.sroa.7.036, %22 ]
+  %.sroa.0.1 = phi ptr [ %44, %41 ], [ %.sroa.0.037, %38 ], [ %.sroa.0.037, %32 ], [ %.sroa.0.037, %22 ]
   %46 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
   br i1 %.not, label %.critedge.loopexit, label %18, !llvm.loop !4

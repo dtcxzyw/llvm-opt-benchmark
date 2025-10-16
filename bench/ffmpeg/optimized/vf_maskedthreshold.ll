@@ -189,9 +189,9 @@ define internal void @threshold8_abs(ptr noundef readonly captures(none) %0, ptr
   %13 = sub nsw i32 %9, %12
   %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
   %.not = icmp sgt i32 %14, %3
-  %.in22 = select i1 %.not, i8 %11, i8 %8
+  %.in = select i1 %.not, i8 %11, i8 %8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  store i8 %.in22, ptr %15, align 1, !tbaa !46
+  store i8 %.in, ptr %15, align 1, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
@@ -253,9 +253,9 @@ define internal void @threshold16_abs(ptr noundef readonly captures(none) %0, pt
   %13 = sub nsw i32 %9, %12
   %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
   %.not = icmp sgt i32 %14, %3
-  %.in25 = select i1 %.not, i16 %11, i16 %8
+  %.in = select i1 %.not, i16 %11, i16 %8
   %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  store i16 %.in25, ptr %15, align 2, !tbaa !50
+  store i16 %.in, ptr %15, align 2, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53

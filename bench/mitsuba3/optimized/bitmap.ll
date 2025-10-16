@@ -8781,8 +8781,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext405 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext405, 32
+  %sext399 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext399, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -8804,16 +8804,16 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0154410 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
-  %.0156409 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.0157408 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %.0154404 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %.0156403 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %.0157402 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw i8, ptr %.0156409, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %.0156403, i64 %indvars.iv
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %.0157408, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %.0157402, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, %48
   store i8 %51, ptr %49, align 1
@@ -8822,11 +8822,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %52 = getelementptr inbounds i8, ptr %.0156409, i64 %45
-  %53 = getelementptr inbounds i8, ptr %.0157408, i64 %46
-  %54 = add nuw nsw i32 %.0154410, 1
-  %exitcond412.not = icmp eq i32 %54, %25
-  br i1 %exitcond412.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !112
+  %52 = getelementptr inbounds i8, ptr %.0156403, i64 %45
+  %53 = getelementptr inbounds i8, ptr %.0157402, i64 %46
+  %54 = add nuw nsw i32 %.0154404, 1
+  %exitcond406.not = icmp eq i32 %54, %25
+  br i1 %exitcond406.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !112
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void
@@ -8884,8 +8884,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext405 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext405, 32
+  %sext399 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext399, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -8907,16 +8907,16 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0154410 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
-  %.0156409 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.0157408 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %.0154404 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %.0156403 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %.0157402 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw i16, ptr %.0156409, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %.0156403, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2
-  %49 = getelementptr inbounds nuw i16, ptr %.0157408, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i16, ptr %.0157402, i64 %indvars.iv
   %50 = load i16, ptr %49, align 2
   %51 = add i16 %50, %48
   store i16 %51, ptr %49, align 2
@@ -8925,11 +8925,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %52 = getelementptr inbounds i16, ptr %.0156409, i64 %45
-  %53 = getelementptr inbounds i16, ptr %.0157408, i64 %46
-  %54 = add nuw nsw i32 %.0154410, 1
-  %exitcond412.not = icmp eq i32 %54, %25
-  br i1 %exitcond412.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !114
+  %52 = getelementptr inbounds i16, ptr %.0156403, i64 %45
+  %53 = getelementptr inbounds i16, ptr %.0157402, i64 %46
+  %54 = add nuw nsw i32 %.0154404, 1
+  %exitcond406.not = icmp eq i32 %54, %25
+  br i1 %exitcond406.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !114
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void
@@ -8987,8 +8987,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext405 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext405, 32
+  %sext399 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext399, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -9010,16 +9010,16 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0154410 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
-  %.0156409 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.0157408 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %.0154404 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %.0156403 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %.0157402 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw i32, ptr %.0156409, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %.0156403, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i32, ptr %.0157408, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %.0157402, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, %48
   store i32 %51, ptr %49, align 4
@@ -9028,11 +9028,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %52 = getelementptr inbounds i32, ptr %.0156409, i64 %45
-  %53 = getelementptr inbounds i32, ptr %.0157408, i64 %46
-  %54 = add nuw nsw i32 %.0154410, 1
-  %exitcond412.not = icmp eq i32 %54, %25
-  br i1 %exitcond412.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !116
+  %52 = getelementptr inbounds i32, ptr %.0156403, i64 %45
+  %53 = getelementptr inbounds i32, ptr %.0157402, i64 %46
+  %54 = add nuw nsw i32 %.0154404, 1
+  %exitcond406.not = icmp eq i32 %54, %25
+  br i1 %exitcond406.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !116
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void
@@ -9090,8 +9090,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext406 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext406, 32
+  %sext400 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext400, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -9113,19 +9113,19 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0156412 = phi i32 [ 0, %.preheader.lr.ph ], [ %58, %._crit_edge ]
-  %.0157411 = phi ptr [ %43, %.preheader.lr.ph ], [ %56, %._crit_edge ]
-  %.0158410 = phi ptr [ %36, %.preheader.lr.ph ], [ %57, %._crit_edge ]
+  %.0156406 = phi i32 [ 0, %.preheader.lr.ph ], [ %58, %._crit_edge ]
+  %.0157405 = phi ptr [ %43, %.preheader.lr.ph ], [ %56, %._crit_edge ]
+  %.0158404 = phi ptr [ %36, %.preheader.lr.ph ], [ %57, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw %"struct.drjit::half", ptr %.0157411, i64 %indvars.iv
-  %.sroa.0.0.copyload407 = load half, ptr %47, align 2
-  %48 = getelementptr inbounds nuw %"struct.drjit::half", ptr %.0158410, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %"struct.drjit::half", ptr %.0157405, i64 %indvars.iv
+  %.sroa.0.0.copyload401 = load half, ptr %47, align 2
+  %48 = getelementptr inbounds nuw %"struct.drjit::half", ptr %.0158404, i64 %indvars.iv
   %49 = load half, ptr %48, align 2
   %50 = fpext half %49 to float
-  %51 = fpext half %.sroa.0.0.copyload407 to float
+  %51 = fpext half %.sroa.0.0.copyload401 to float
   %52 = fadd contract float %51, %50
   %53 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %52, i64 0
   %54 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %53, i32 4)
@@ -9136,11 +9136,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %56 = getelementptr inbounds %"struct.drjit::half", ptr %.0157411, i64 %45
-  %57 = getelementptr inbounds %"struct.drjit::half", ptr %.0158410, i64 %46
-  %58 = add nuw nsw i32 %.0156412, 1
-  %exitcond414.not = icmp eq i32 %58, %25
-  br i1 %exitcond414.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !118
+  %56 = getelementptr inbounds %"struct.drjit::half", ptr %.0157405, i64 %45
+  %57 = getelementptr inbounds %"struct.drjit::half", ptr %.0158404, i64 %46
+  %58 = add nuw nsw i32 %.0156406, 1
+  %exitcond408.not = icmp eq i32 %58, %25
+  br i1 %exitcond408.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !118
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void
@@ -9198,8 +9198,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext405 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext405, 32
+  %sext399 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext399, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -9221,16 +9221,16 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0154410 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
-  %.0156409 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.0157408 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %.0154404 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %.0156403 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %.0157402 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw float, ptr %.0156409, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw float, ptr %.0156403, i64 %indvars.iv
   %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds nuw float, ptr %.0157408, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw float, ptr %.0157402, i64 %indvars.iv
   %50 = load float, ptr %49, align 4
   %51 = fadd contract float %48, %50
   store float %51, ptr %49, align 4
@@ -9239,11 +9239,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %52 = getelementptr inbounds float, ptr %.0156409, i64 %45
-  %53 = getelementptr inbounds float, ptr %.0157408, i64 %46
-  %54 = add nuw nsw i32 %.0154410, 1
-  %exitcond412.not = icmp eq i32 %54, %25
-  br i1 %exitcond412.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !120
+  %52 = getelementptr inbounds float, ptr %.0156403, i64 %45
+  %53 = getelementptr inbounds float, ptr %.0157402, i64 %46
+  %54 = add nuw nsw i32 %.0154404, 1
+  %exitcond406.not = icmp eq i32 %54, %25
+  br i1 %exitcond406.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !120
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void
@@ -9301,8 +9301,8 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
 .preheader.lr.ph:                                 ; preds = %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   %28 = trunc i64 %7 to i32
   %29 = mul i32 %24, %28
-  %sext405 = shl i64 %3, 32
-  %30 = ashr exact i64 %sext405, 32
+  %sext399 = shl i64 %3, 32
+  %30 = ashr exact i64 %sext399, 32
   %31 = sext i32 %13 to i64
   %32 = mul nsw i64 %30, %31
   %33 = sext i32 %12 to i64
@@ -9324,16 +9324,16 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0154410 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
-  %.0156409 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
-  %.0157408 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
+  %.0154404 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge ]
+  %.0156403 = phi ptr [ %43, %.preheader.lr.ph ], [ %52, %._crit_edge ]
+  %.0157402 = phi ptr [ %36, %.preheader.lr.ph ], [ %53, %._crit_edge ]
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw double, ptr %.0156409, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw double, ptr %.0156403, i64 %indvars.iv
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw double, ptr %.0157408, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw double, ptr %.0157402, i64 %indvars.iv
   %50 = load double, ptr %49, align 8
   %51 = fadd contract double %48, %50
   store double %51, ptr %49, align 8
@@ -9342,11 +9342,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge:
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %52 = getelementptr inbounds double, ptr %.0156409, i64 %45
-  %53 = getelementptr inbounds double, ptr %.0157408, i64 %46
-  %54 = add nuw nsw i32 %.0154410, 1
-  %exitcond412.not = icmp eq i32 %54, %25
-  br i1 %exitcond412.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !122
+  %52 = getelementptr inbounds double, ptr %.0156403, i64 %45
+  %53 = getelementptr inbounds double, ptr %.0157402, i64 %46
+  %54 = add nuw nsw i32 %.0154404, 1
+  %exitcond406.not = icmp eq i32 %54, %25
+  br i1 %exitcond406.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread, label %.preheader, !llvm.loop !122
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIiLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge, %_ZNK5drjit9ArrayBaseIiLb0EN7mitsuba5PointIiLm2EEEE4neg_Ev.exit.critedge
   ret void

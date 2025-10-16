@@ -130,8 +130,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_ptl_base_start_listening(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %.b5 = load i1, ptr @setup_complete, align 1
-  br i1 %.b5, label %6, label %3
+  %.b = load i1, ptr @setup_complete, align 1
+  br i1 %.b, label %6, label %3
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl, i64 56), align 8, !tbaa !3

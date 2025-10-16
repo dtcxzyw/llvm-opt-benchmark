@@ -5243,8 +5243,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Impl_Substructure(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -5389,18 +5389,18 @@ _init_l_Std_Sat_AIG_empty___at_Std_Tactic_BVDecide_BVLogicalExpr_bitblast___spec
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Sat_AIG_empty___at_Std_Tactic_BVDecide_BVLogicalExpr_bitblast___spec__1___closed__6.exit, %3
-  %.sink16 = phi ptr [ %4, %3 ], [ %52, %_init_l_Std_Sat_AIG_empty___at_Std_Tactic_BVDecide_BVLogicalExpr_bitblast___spec__1___closed__6.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
-  store i32 1, ptr %.sink16, align 4, !tbaa !8
+  %.sink15 = phi ptr [ %4, %3 ], [ %52, %_init_l_Std_Sat_AIG_empty___at_Std_Tactic_BVDecide_BVLogicalExpr_bitblast___spec__1___closed__6.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !8
   store i32 131096, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %56, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %57, align 8, !tbaa !4
   br label %58
 
 58:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink15, %.sink.split ]
   ret ptr %.0
 }
 

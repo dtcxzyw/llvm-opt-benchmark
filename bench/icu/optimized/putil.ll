@@ -1761,8 +1761,8 @@ define internal noundef signext i8 @_ZL13putil_cleanupv() #1 personality ptr @__
   store ptr null, ptr @_ZL19gSearchTZFileResult, align 8, !tbaa !41
   %14 = load ptr, ptr @_ZL21gCorrectedPOSIXLocale, align 8, !tbaa !20
   %15 = icmp ne ptr %14, null
-  %.b6 = load i1, ptr @_ZL34gCorrectedPOSIXLocaleHeapAllocated, align 1
-  %or.cond = select i1 %15, i1 %.b6, i1 false
+  %.b = load i1, ptr @_ZL34gCorrectedPOSIXLocaleHeapAllocated, align 1
+  %or.cond = select i1 %15, i1 %.b, i1 false
   br i1 %or.cond, label %16, label %17
 
 16:                                               ; preds = %13

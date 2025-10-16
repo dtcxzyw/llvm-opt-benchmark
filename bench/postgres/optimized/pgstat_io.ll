@@ -626,8 +626,8 @@ declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @pgstat_io_have_pending_cb() local_unnamed_addr #5 {
-  %.b1 = load i1, ptr @have_iostats, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @have_iostats, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -638,8 +638,8 @@ define dso_local void @pgstat_flush_io(i1 noundef zeroext %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) local_unnamed_addr #2 {
-  %.b34 = load i1, ptr @have_iostats, align 1
-  br i1 %.b34, label %2, label %48
+  %.b = load i1, ptr @have_iostats, align 1
+  br i1 %.b, label %2, label %48
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @pgStatLocal, align 8
@@ -662,16 +662,16 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
 14:                                               ; preds = %12, %10
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 960
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1920
-  br label %.preheader35
+  br label %.preheader34
 
-.preheader35:                                     ; preds = %14, %30
-  %indvars.iv44 = phi i64 [ 0, %14 ], [ %indvars.iv.next45, %30 ]
-  %17 = getelementptr inbounds nuw [5 x [8 x i64]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 %indvars.iv44
-  %18 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %15, i64 %indvars.iv44
-  %19 = getelementptr inbounds nuw [5 x [8 x i64]], ptr @PendingIOStats, i64 %indvars.iv44
-  %20 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %9, i64 %indvars.iv44
-  %21 = getelementptr inbounds nuw [5 x [8 x %struct.instr_time]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 %indvars.iv44
-  %22 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %16, i64 %indvars.iv44
+.preheader34:                                     ; preds = %14, %30
+  %indvars.iv43 = phi i64 [ 0, %14 ], [ %indvars.iv.next44, %30 ]
+  %17 = getelementptr inbounds nuw [5 x [8 x i64]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 %indvars.iv43
+  %18 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %15, i64 %indvars.iv43
+  %19 = getelementptr inbounds nuw [5 x [8 x i64]], ptr @PendingIOStats, i64 %indvars.iv43
+  %20 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %9, i64 %indvars.iv43
+  %21 = getelementptr inbounds nuw [5 x [8 x %struct.instr_time]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 %indvars.iv43
+  %22 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %16, i64 %indvars.iv43
   br label %.preheader
 
 23:                                               ; preds = %30
@@ -680,25 +680,25 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
   store i1 false, ptr @have_iostats, align 1
   br label %48
 
-.preheader:                                       ; preds = %.preheader35, %31
-  %indvars.iv40 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next41, %31 ]
-  %24 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 %indvars.iv40
-  %25 = getelementptr inbounds nuw [8 x i64], ptr %18, i64 %indvars.iv40
-  %26 = getelementptr inbounds nuw [8 x i64], ptr %19, i64 %indvars.iv40
-  %27 = getelementptr inbounds nuw [8 x i64], ptr %20, i64 %indvars.iv40
-  %28 = getelementptr inbounds nuw [8 x %struct.instr_time], ptr %21, i64 %indvars.iv40
-  %29 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 %indvars.iv40
+.preheader:                                       ; preds = %.preheader34, %31
+  %indvars.iv39 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next40, %31 ]
+  %24 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 %indvars.iv39
+  %25 = getelementptr inbounds nuw [8 x i64], ptr %18, i64 %indvars.iv39
+  %26 = getelementptr inbounds nuw [8 x i64], ptr %19, i64 %indvars.iv39
+  %27 = getelementptr inbounds nuw [8 x i64], ptr %20, i64 %indvars.iv39
+  %28 = getelementptr inbounds nuw [8 x %struct.instr_time], ptr %21, i64 %indvars.iv39
+  %29 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 %indvars.iv39
   br label %32
 
 30:                                               ; preds = %31
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
-  br i1 %exitcond47.not, label %23, label %.preheader35, !llvm.loop !10
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 3
+  br i1 %exitcond46.not, label %23, label %.preheader34, !llvm.loop !10
 
 31:                                               ; preds = %32
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 5
-  br i1 %exitcond43.not, label %30, label %.preheader, !llvm.loop !11
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 5
+  br i1 %exitcond42.not, label %30, label %.preheader, !llvm.loop !11
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]

@@ -2072,12 +2072,12 @@ _ZN4abslltENS_4TimeES0_.exit.i:                   ; preds = %41
 
 60:                                               ; preds = %55
   %61 = call ptr @signal(i32 noundef 14, ptr noundef %.0100.i) #17
-  %.b102.i = load i1, ptr @_ZN12_GLOBAL__N_121alarm_handler_invokedE, align 1
-  br i1 %.b102.i, label %62, label %.backedge
+  %.b.i = load i1, ptr @_ZN12_GLOBAL__N_121alarm_handler_invokedE, align 1
+  br i1 %.b.i, label %62, label %.backedge
 
 62:                                               ; preds = %60, %55
-  %.not.i.i105.i = icmp eq i64 %.sroa.011.0.copyload.i.i.i, %.sroa.011.0.copyload.i
-  br i1 %.not.i.i105.i, label %65, label %63
+  %.not.i.i104.i = icmp eq i64 %.sroa.011.0.copyload.i.i.i, %.sroa.011.0.copyload.i
+  br i1 %.not.i.i104.i, label %65, label %63
 
 63:                                               ; preds = %62
   %64 = icmp slt i64 %.sroa.011.0.copyload.i.i.i, %.sroa.011.0.copyload.i
@@ -2096,29 +2096,29 @@ _ZN4abslleENS_8DurationES0_.exit.i:               ; preds = %65
   br i1 %69, label %.backedge, label %70
 
 70:                                               ; preds = %_ZN4abslleENS_8DurationES0_.exit.i, %66, %63
-  %.not.i.i106.i = icmp eq i64 %.sroa.011.0.copyload.i47, %.sroa.011.0.copyload.i.i.i
-  br i1 %.not.i.i106.i, label %73, label %71
+  %.not.i.i105.i = icmp eq i64 %.sroa.011.0.copyload.i47, %.sroa.011.0.copyload.i.i.i
+  br i1 %.not.i.i105.i, label %73, label %71
 
 71:                                               ; preds = %70
   %72 = icmp slt i64 %.sroa.011.0.copyload.i47, %.sroa.011.0.copyload.i.i.i
   br i1 %72, label %.backedge, label %78
 
 73:                                               ; preds = %70
-  br i1 %33, label %74, label %_ZN4abslleENS_8DurationES0_.exit107.i
+  br i1 %33, label %74, label %_ZN4abslleENS_8DurationES0_.exit106.i
 
 74:                                               ; preds = %73
   %75 = add i32 %.sroa.212.0.copyload.i.i.i, 1
   %76 = icmp ult i32 %34, %75
   br i1 %76, label %.backedge, label %78
 
-_ZN4abslleENS_8DurationES0_.exit107.i:            ; preds = %73
+_ZN4abslleENS_8DurationES0_.exit106.i:            ; preds = %73
   %77 = icmp ult i32 %.sroa.212.0.copyload.i49, %.sroa.212.0.copyload.i.i.i
   br i1 %77, label %.backedge, label %78
 
-.backedge:                                        ; preds = %_ZN4abslleENS_8DurationES0_.exit107.i, %74, %71, %_ZN4abslleENS_8DurationES0_.exit.i, %66, %63, %60
+.backedge:                                        ; preds = %_ZN4abslleENS_8DurationES0_.exit106.i, %74, %71, %_ZN4abslleENS_8DurationES0_.exit.i, %66, %63, %60
   br label %37, !llvm.loop !61
 
-78:                                               ; preds = %_ZN4abslleENS_8DurationES0_.exit107.i, %71, %74
+78:                                               ; preds = %_ZN4abslleENS_8DurationES0_.exit106.i, %71, %74
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %0)
   br label %257
 

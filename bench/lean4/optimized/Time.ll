@@ -1797,8 +1797,8 @@ declare ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Time(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -1827,17 +1827,17 @@ define ptr @initialize_Lean_Elab_Time(i8 noundef zeroext %0, ptr noundef readnon
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = load ptr, ptr @l_Lean_Elab_unsupportedSyntaxExceptionId, align 8, !tbaa !4
   store ptr %18, ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #3
@@ -1847,11 +1847,11 @@ lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg___closed__2.exit
 
-22:                                               ; preds = %lean_dec_ref.exit10
+22:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg___closed__2.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg___closed__2.exit: ; preds = %lean_dec_ref.exit9
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %20, align 4, !tbaa !8
   store i32 16908312, ptr %23, align 4
@@ -1940,9 +1940,9 @@ _init_l_Lean_Elab_Time_elabTimeCmd___regBuiltin_Lean_Elab_Time_elabTimeCmd__1___
   %59 = load ptr, ptr @l_Lean_Elab_Time_elabTimeCmd___regBuiltin_Lean_Elab_Time_elabTimeCmd__1___closed__6, align 8, !tbaa !4
   %60 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %61 = getelementptr i8, ptr %60, i64 4
-  %.val11 = load i32, ptr %61, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %62 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %61, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %62 = icmp eq i32 %.mask.i11, 16777216
   br i1 %62, label %76, label %63
 
 63:                                               ; preds = %55
@@ -1974,18 +1974,18 @@ lean_dec_ref.exit:                                ; preds = %69, %68, %66, %_ini
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink24 = phi ptr [ %4, %3 ], [ %70, %lean_dec_ref.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !8
+  %.sink23 = phi ptr [ %4, %3 ], [ %70, %lean_dec_ref.exit ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !8
   store i32 131096, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %74, align 8, !tbaa !4
-  %75 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %75, align 8, !tbaa !4
   br label %76
 
 76:                                               ; preds = %.sink.split, %55, %7
-  %.0 = phi ptr [ %8, %7 ], [ %60, %55 ], [ %.sink24, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %60, %55 ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

@@ -3537,8 +3537,8 @@ define hidden void @proto_reg_handoff_someip() #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %.b1 = load i1, ptr @proto_reg_handoff_someip.initialized, align 1
-  br i1 %.b1, label %14, label %5
+  %.b = load i1, ptr @proto_reg_handoff_someip.initialized, align 1
+  br i1 %.b, label %14, label %5
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr @someip_handle_udp, align 8
@@ -3629,56 +3629,56 @@ deregister_dynamic_hf_data.exit.i:                ; preds = %._crit_edge.i.i, %1
 
 update_dynamic_hf_entries_someip_parameter_list.exit: ; preds = %14, %deregister_dynamic_hf_data.exit.i
   %41 = load ptr, ptr @data_someip_parameter_arrays, align 8
-  %.not.i2 = icmp eq ptr %41, null
-  br i1 %.not.i2, label %update_dynamic_hf_entries_someip_parameter_arrays.exit, label %42
+  %.not.i1 = icmp eq ptr %41, null
+  br i1 %.not.i1, label %update_dynamic_hf_entries_someip_parameter_arrays.exit, label %42
 
 42:                                               ; preds = %update_dynamic_hf_entries_someip_parameter_list.exit
   %43 = load ptr, ptr @dynamic_hf_array, align 8
-  %.not.i.i3 = icmp eq ptr %43, null
-  br i1 %.not.i.i3, label %deregister_dynamic_hf_data.exit.i13, label %44
+  %.not.i.i2 = icmp eq ptr %43, null
+  br i1 %.not.i.i2, label %deregister_dynamic_hf_data.exit.i12, label %44
 
 44:                                               ; preds = %42
   %45 = load i32, ptr @proto_someip, align 4
   call void @proto_deregister_all_fields_with_prefix(i32 noundef %45, ptr noundef nonnull @.str.397)
   call void @proto_free_deregistered_fields()
   %46 = load i32, ptr @dynamic_hf_array_size, align 4
-  %.not15.i.i4 = icmp eq i32 %46, 0
-  %.pre2.i5 = load ptr, ptr @dynamic_hf_array, align 8
-  br i1 %.not15.i.i4, label %._crit_edge.i.i12, label %.lr.ph.i.i6
+  %.not15.i.i3 = icmp eq i32 %46, 0
+  %.pre2.i4 = load ptr, ptr @dynamic_hf_array, align 8
+  br i1 %.not15.i.i3, label %._crit_edge.i.i11, label %.lr.ph.i.i5
 
-._crit_edge.i.i12:                                ; preds = %55, %44
-  %47 = phi ptr [ %.pre2.i5, %44 ], [ %56, %55 ]
+._crit_edge.i.i11:                                ; preds = %55, %44
+  %47 = phi ptr [ %.pre2.i4, %44 ], [ %56, %55 ]
   call void @g_free(ptr noundef %47)
   store ptr null, ptr @dynamic_hf_array, align 8
   store i32 0, ptr @dynamic_hf_array_size, align 4
-  br label %deregister_dynamic_hf_data.exit.i13
+  br label %deregister_dynamic_hf_data.exit.i12
 
-.lr.ph.i.i6:                                      ; preds = %44, %55
-  %48 = phi ptr [ %56, %55 ], [ %.pre2.i5, %44 ]
+.lr.ph.i.i5:                                      ; preds = %44, %55
+  %48 = phi ptr [ %56, %55 ], [ %.pre2.i4, %44 ]
   %49 = phi i32 [ %57, %55 ], [ %46, %44 ]
-  %indvars.iv.i.i7 = phi i64 [ %indvars.iv.next.i.i11, %55 ], [ 0, %44 ]
-  %50 = getelementptr %struct.hf_register_info, ptr %48, i64 %indvars.iv.i.i7
+  %indvars.iv.i.i6 = phi i64 [ %indvars.iv.next.i.i10, %55 ], [ 0, %44 ]
+  %50 = getelementptr %struct.hf_register_info, ptr %48, i64 %indvars.iv.i.i6
   %51 = load ptr, ptr %50, align 8
-  %.not13.i.i8 = icmp eq ptr %51, null
-  br i1 %.not13.i.i8, label %55, label %52
+  %.not13.i.i7 = icmp eq ptr %51, null
+  br i1 %.not13.i.i7, label %55, label %52
 
-52:                                               ; preds = %.lr.ph.i.i6
+52:                                               ; preds = %.lr.ph.i.i5
   call void @g_free(ptr noundef nonnull %51)
   %53 = load ptr, ptr @dynamic_hf_array, align 8
-  %54 = getelementptr %struct.hf_register_info, ptr %53, i64 %indvars.iv.i.i7
+  %54 = getelementptr %struct.hf_register_info, ptr %53, i64 %indvars.iv.i.i6
   store ptr null, ptr %54, align 8
-  %.pre.i.i9 = load i32, ptr @dynamic_hf_array_size, align 4
+  %.pre.i.i8 = load i32, ptr @dynamic_hf_array_size, align 4
   br label %55
 
-55:                                               ; preds = %52, %.lr.ph.i.i6
-  %56 = phi ptr [ %48, %.lr.ph.i.i6 ], [ %53, %52 ]
-  %57 = phi i32 [ %49, %.lr.ph.i.i6 ], [ %.pre.i.i9, %52 ]
-  %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i7, 1
+55:                                               ; preds = %52, %.lr.ph.i.i5
+  %56 = phi ptr [ %48, %.lr.ph.i.i5 ], [ %53, %52 ]
+  %57 = phi i32 [ %49, %.lr.ph.i.i5 ], [ %.pre.i.i8, %52 ]
+  %indvars.iv.next.i.i10 = add nuw nsw i64 %indvars.iv.i.i6, 1
   %58 = zext i32 %57 to i64
-  %59 = icmp samesign ult i64 %indvars.iv.next.i.i11, %58
-  br i1 %59, label %.lr.ph.i.i6, label %._crit_edge.i.i12, !llvm.loop !8
+  %59 = icmp samesign ult i64 %indvars.iv.next.i.i10, %58
+  br i1 %59, label %.lr.ph.i.i5, label %._crit_edge.i.i11, !llvm.loop !8
 
-deregister_dynamic_hf_data.exit.i13:              ; preds = %._crit_edge.i.i12, %42
+deregister_dynamic_hf_data.exit.i12:              ; preds = %._crit_edge.i.i11, %42
   %60 = load i32, ptr @someip_parameter_arrays_num, align 4
   %61 = zext i32 %60 to i64
   %62 = call noalias ptr @g_malloc0_n(i64 noundef %61, i64 noundef 80) #20
@@ -3695,58 +3695,58 @@ deregister_dynamic_hf_data.exit.i13:              ; preds = %._crit_edge.i.i12, 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %update_dynamic_hf_entries_someip_parameter_arrays.exit
 
-update_dynamic_hf_entries_someip_parameter_arrays.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_list.exit, %deregister_dynamic_hf_data.exit.i13
+update_dynamic_hf_entries_someip_parameter_arrays.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_list.exit, %deregister_dynamic_hf_data.exit.i12
   %67 = load ptr, ptr @data_someip_parameter_structs, align 8
-  %.not.i16 = icmp eq ptr %67, null
-  br i1 %.not.i16, label %update_dynamic_hf_entries_someip_parameter_structs.exit, label %68
+  %.not.i15 = icmp eq ptr %67, null
+  br i1 %.not.i15, label %update_dynamic_hf_entries_someip_parameter_structs.exit, label %68
 
 68:                                               ; preds = %update_dynamic_hf_entries_someip_parameter_arrays.exit
   %69 = load ptr, ptr @dynamic_hf_struct, align 8
-  %.not.i.i17 = icmp eq ptr %69, null
-  br i1 %.not.i.i17, label %deregister_dynamic_hf_data.exit.i27, label %70
+  %.not.i.i16 = icmp eq ptr %69, null
+  br i1 %.not.i.i16, label %deregister_dynamic_hf_data.exit.i26, label %70
 
 70:                                               ; preds = %68
   %71 = load i32, ptr @proto_someip, align 4
   call void @proto_deregister_all_fields_with_prefix(i32 noundef %71, ptr noundef nonnull @.str.397)
   call void @proto_free_deregistered_fields()
   %72 = load i32, ptr @dynamic_hf_struct_size, align 4
-  %.not15.i.i18 = icmp eq i32 %72, 0
-  %.pre2.i19 = load ptr, ptr @dynamic_hf_struct, align 8
-  br i1 %.not15.i.i18, label %._crit_edge.i.i26, label %.lr.ph.i.i20
+  %.not15.i.i17 = icmp eq i32 %72, 0
+  %.pre2.i18 = load ptr, ptr @dynamic_hf_struct, align 8
+  br i1 %.not15.i.i17, label %._crit_edge.i.i25, label %.lr.ph.i.i19
 
-._crit_edge.i.i26:                                ; preds = %81, %70
-  %73 = phi ptr [ %.pre2.i19, %70 ], [ %82, %81 ]
+._crit_edge.i.i25:                                ; preds = %81, %70
+  %73 = phi ptr [ %.pre2.i18, %70 ], [ %82, %81 ]
   call void @g_free(ptr noundef %73)
   store ptr null, ptr @dynamic_hf_struct, align 8
   store i32 0, ptr @dynamic_hf_struct_size, align 4
-  br label %deregister_dynamic_hf_data.exit.i27
+  br label %deregister_dynamic_hf_data.exit.i26
 
-.lr.ph.i.i20:                                     ; preds = %70, %81
-  %74 = phi ptr [ %82, %81 ], [ %.pre2.i19, %70 ]
+.lr.ph.i.i19:                                     ; preds = %70, %81
+  %74 = phi ptr [ %82, %81 ], [ %.pre2.i18, %70 ]
   %75 = phi i32 [ %83, %81 ], [ %72, %70 ]
-  %indvars.iv.i.i21 = phi i64 [ %indvars.iv.next.i.i25, %81 ], [ 0, %70 ]
-  %76 = getelementptr %struct.hf_register_info, ptr %74, i64 %indvars.iv.i.i21
+  %indvars.iv.i.i20 = phi i64 [ %indvars.iv.next.i.i24, %81 ], [ 0, %70 ]
+  %76 = getelementptr %struct.hf_register_info, ptr %74, i64 %indvars.iv.i.i20
   %77 = load ptr, ptr %76, align 8
-  %.not13.i.i22 = icmp eq ptr %77, null
-  br i1 %.not13.i.i22, label %81, label %78
+  %.not13.i.i21 = icmp eq ptr %77, null
+  br i1 %.not13.i.i21, label %81, label %78
 
-78:                                               ; preds = %.lr.ph.i.i20
+78:                                               ; preds = %.lr.ph.i.i19
   call void @g_free(ptr noundef nonnull %77)
   %79 = load ptr, ptr @dynamic_hf_struct, align 8
-  %80 = getelementptr %struct.hf_register_info, ptr %79, i64 %indvars.iv.i.i21
+  %80 = getelementptr %struct.hf_register_info, ptr %79, i64 %indvars.iv.i.i20
   store ptr null, ptr %80, align 8
-  %.pre.i.i23 = load i32, ptr @dynamic_hf_struct_size, align 4
+  %.pre.i.i22 = load i32, ptr @dynamic_hf_struct_size, align 4
   br label %81
 
-81:                                               ; preds = %78, %.lr.ph.i.i20
-  %82 = phi ptr [ %74, %.lr.ph.i.i20 ], [ %79, %78 ]
-  %83 = phi i32 [ %75, %.lr.ph.i.i20 ], [ %.pre.i.i23, %78 ]
-  %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i21, 1
+81:                                               ; preds = %78, %.lr.ph.i.i19
+  %82 = phi ptr [ %74, %.lr.ph.i.i19 ], [ %79, %78 ]
+  %83 = phi i32 [ %75, %.lr.ph.i.i19 ], [ %.pre.i.i22, %78 ]
+  %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %84 = zext i32 %83 to i64
-  %85 = icmp samesign ult i64 %indvars.iv.next.i.i25, %84
-  br i1 %85, label %.lr.ph.i.i20, label %._crit_edge.i.i26, !llvm.loop !8
+  %85 = icmp samesign ult i64 %indvars.iv.next.i.i24, %84
+  br i1 %85, label %.lr.ph.i.i19, label %._crit_edge.i.i25, !llvm.loop !8
 
-deregister_dynamic_hf_data.exit.i27:              ; preds = %._crit_edge.i.i26, %68
+deregister_dynamic_hf_data.exit.i26:              ; preds = %._crit_edge.i.i25, %68
   %86 = load i32, ptr @someip_parameter_structs_num, align 4
   %87 = zext i32 %86 to i64
   %88 = call noalias ptr @g_malloc0_n(i64 noundef %87, i64 noundef 80) #20
@@ -3763,58 +3763,58 @@ deregister_dynamic_hf_data.exit.i27:              ; preds = %._crit_edge.i.i26, 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %update_dynamic_hf_entries_someip_parameter_structs.exit
 
-update_dynamic_hf_entries_someip_parameter_structs.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_arrays.exit, %deregister_dynamic_hf_data.exit.i27
+update_dynamic_hf_entries_someip_parameter_structs.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_arrays.exit, %deregister_dynamic_hf_data.exit.i26
   %93 = load ptr, ptr @data_someip_parameter_unions, align 8
-  %.not.i30 = icmp eq ptr %93, null
-  br i1 %.not.i30, label %update_dynamic_hf_entries_someip_parameter_unions.exit, label %94
+  %.not.i29 = icmp eq ptr %93, null
+  br i1 %.not.i29, label %update_dynamic_hf_entries_someip_parameter_unions.exit, label %94
 
 94:                                               ; preds = %update_dynamic_hf_entries_someip_parameter_structs.exit
   %95 = load ptr, ptr @dynamic_hf_union, align 8
-  %.not.i.i31 = icmp eq ptr %95, null
-  br i1 %.not.i.i31, label %deregister_dynamic_hf_data.exit.i41, label %96
+  %.not.i.i30 = icmp eq ptr %95, null
+  br i1 %.not.i.i30, label %deregister_dynamic_hf_data.exit.i40, label %96
 
 96:                                               ; preds = %94
   %97 = load i32, ptr @proto_someip, align 4
   call void @proto_deregister_all_fields_with_prefix(i32 noundef %97, ptr noundef nonnull @.str.397)
   call void @proto_free_deregistered_fields()
   %98 = load i32, ptr @dynamic_hf_union_size, align 4
-  %.not15.i.i32 = icmp eq i32 %98, 0
-  %.pre2.i33 = load ptr, ptr @dynamic_hf_union, align 8
-  br i1 %.not15.i.i32, label %._crit_edge.i.i40, label %.lr.ph.i.i34
+  %.not15.i.i31 = icmp eq i32 %98, 0
+  %.pre2.i32 = load ptr, ptr @dynamic_hf_union, align 8
+  br i1 %.not15.i.i31, label %._crit_edge.i.i39, label %.lr.ph.i.i33
 
-._crit_edge.i.i40:                                ; preds = %107, %96
-  %99 = phi ptr [ %.pre2.i33, %96 ], [ %108, %107 ]
+._crit_edge.i.i39:                                ; preds = %107, %96
+  %99 = phi ptr [ %.pre2.i32, %96 ], [ %108, %107 ]
   call void @g_free(ptr noundef %99)
   store ptr null, ptr @dynamic_hf_union, align 8
   store i32 0, ptr @dynamic_hf_union_size, align 4
-  br label %deregister_dynamic_hf_data.exit.i41
+  br label %deregister_dynamic_hf_data.exit.i40
 
-.lr.ph.i.i34:                                     ; preds = %96, %107
-  %100 = phi ptr [ %108, %107 ], [ %.pre2.i33, %96 ]
+.lr.ph.i.i33:                                     ; preds = %96, %107
+  %100 = phi ptr [ %108, %107 ], [ %.pre2.i32, %96 ]
   %101 = phi i32 [ %109, %107 ], [ %98, %96 ]
-  %indvars.iv.i.i35 = phi i64 [ %indvars.iv.next.i.i39, %107 ], [ 0, %96 ]
-  %102 = getelementptr %struct.hf_register_info, ptr %100, i64 %indvars.iv.i.i35
+  %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i38, %107 ], [ 0, %96 ]
+  %102 = getelementptr %struct.hf_register_info, ptr %100, i64 %indvars.iv.i.i34
   %103 = load ptr, ptr %102, align 8
-  %.not13.i.i36 = icmp eq ptr %103, null
-  br i1 %.not13.i.i36, label %107, label %104
+  %.not13.i.i35 = icmp eq ptr %103, null
+  br i1 %.not13.i.i35, label %107, label %104
 
-104:                                              ; preds = %.lr.ph.i.i34
+104:                                              ; preds = %.lr.ph.i.i33
   call void @g_free(ptr noundef nonnull %103)
   %105 = load ptr, ptr @dynamic_hf_union, align 8
-  %106 = getelementptr %struct.hf_register_info, ptr %105, i64 %indvars.iv.i.i35
+  %106 = getelementptr %struct.hf_register_info, ptr %105, i64 %indvars.iv.i.i34
   store ptr null, ptr %106, align 8
-  %.pre.i.i37 = load i32, ptr @dynamic_hf_union_size, align 4
+  %.pre.i.i36 = load i32, ptr @dynamic_hf_union_size, align 4
   br label %107
 
-107:                                              ; preds = %104, %.lr.ph.i.i34
-  %108 = phi ptr [ %100, %.lr.ph.i.i34 ], [ %105, %104 ]
-  %109 = phi i32 [ %101, %.lr.ph.i.i34 ], [ %.pre.i.i37, %104 ]
-  %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i35, 1
+107:                                              ; preds = %104, %.lr.ph.i.i33
+  %108 = phi ptr [ %100, %.lr.ph.i.i33 ], [ %105, %104 ]
+  %109 = phi i32 [ %101, %.lr.ph.i.i33 ], [ %.pre.i.i36, %104 ]
+  %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %110 = zext i32 %109 to i64
-  %111 = icmp samesign ult i64 %indvars.iv.next.i.i39, %110
-  br i1 %111, label %.lr.ph.i.i34, label %._crit_edge.i.i40, !llvm.loop !8
+  %111 = icmp samesign ult i64 %indvars.iv.next.i.i38, %110
+  br i1 %111, label %.lr.ph.i.i33, label %._crit_edge.i.i39, !llvm.loop !8
 
-deregister_dynamic_hf_data.exit.i41:              ; preds = %._crit_edge.i.i40, %94
+deregister_dynamic_hf_data.exit.i40:              ; preds = %._crit_edge.i.i39, %94
   %112 = load i32, ptr @someip_parameter_unions_num, align 4
   %113 = zext i32 %112 to i64
   %114 = call noalias ptr @g_malloc0_n(i64 noundef %113, i64 noundef 80) #20
@@ -3831,7 +3831,7 @@ deregister_dynamic_hf_data.exit.i41:              ; preds = %._crit_edge.i.i40, 
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %update_dynamic_hf_entries_someip_parameter_unions.exit
 
-update_dynamic_hf_entries_someip_parameter_unions.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_structs.exit, %deregister_dynamic_hf_data.exit.i41
+update_dynamic_hf_entries_someip_parameter_unions.exit: ; preds = %update_dynamic_hf_entries_someip_parameter_structs.exit, %deregister_dynamic_hf_data.exit.i40
   ret void
 }
 

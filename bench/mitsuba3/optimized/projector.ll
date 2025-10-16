@@ -1940,7 +1940,7 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %46 = load <4 x float>, ptr %45, align 16
   %47 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %46, <4 x float> %44, <4 x float> %43)
-  %.sroa.0622.8.vec.extract624 = extractelement <4 x float> %38, i64 2
+  %.sroa.0621.8.vec.extract623 = extractelement <4 x float> %38, i64 2
   %48 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %50 = load <4 x float>, ptr %49, align 16
@@ -1949,8 +1949,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %52 = fdiv contract float 1.000000e+00, %.sroa.0553.12.vec.extract
   %53 = insertelement <4 x float> poison, float %52, i64 0
   %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>
-  %.fr652 = freeze <4 x float> %54
-  %55 = fmul contract <4 x float> %51, %.fr652
+  %.fr651 = freeze <4 x float> %54
+  %55 = fmul contract <4 x float> %51, %.fr651
   %.sroa.0538.0.vec.extract = extractelement <4 x float> %55, i64 0
   %.sroa.0538.4.vec.extract = extractelement <4 x float> %55, i64 1
   %56 = fcmp contract oge float %.sroa.0538.0.vec.extract, 0.000000e+00
@@ -1972,7 +1972,7 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %67, i8 0, i64 112, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store <2 x float> zeroinitializer, ptr %68, align 16
-  %69 = fcmp contract ogt float %.sroa.0622.8.vec.extract624, 0.000000e+00
+  %69 = fcmp contract ogt float %.sroa.0621.8.vec.extract623, 0.000000e+00
   %70 = and i1 %60, %61
   %71 = and i1 %70, %69
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 200
@@ -1984,8 +1984,8 @@ _ZN7mitsuba5PointIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIfNS2_5ArrayI
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, ptr noundef nonnull align 16 dereferenceable(16) %74, i64 16, i1 false)
   store float %.sroa.0538.0.vec.extract, ptr %66, align 8
-  %.sroa_idx642 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store float %.sroa.0538.4.vec.extract, ptr %.sroa_idx642, align 4
+  %.sroa_idx641 = getelementptr inbounds nuw i8, ptr %7, i64 76
+  store float %.sroa.0538.4.vec.extract, ptr %.sroa_idx641, align 4
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %76 = load ptr, ptr %75, align 16
   %77 = load ptr, ptr %76, align 8
@@ -2038,15 +2038,15 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %105 = fmul contract <4 x float> %104, %104
   %shift = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %105, %shift
-  %shift636 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop637 = fadd contract <4 x float> %shift636, %foldExtExtBinop
-  %106 = extractelement <4 x float> %foldExtExtBinop637, i64 0
+  %shift635 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop636 = fadd contract <4 x float> %shift635, %foldExtExtBinop
+  %106 = extractelement <4 x float> %foldExtExtBinop636, i64 0
   %107 = call contract noundef float @llvm.sqrt.f32(float %106)
   %108 = fdiv contract float 1.000000e+00, %107
   %109 = insertelement <4 x float> poison, float %108, i64 0
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> zeroinitializer
   %111 = fmul contract <4 x float> %104, %110
-  %112 = fmul contract float %.sroa.0622.8.vec.extract624, %.sroa.0622.8.vec.extract624
+  %112 = fmul contract float %.sroa.0621.8.vec.extract623, %.sroa.0621.8.vec.extract623
   %113 = fmul contract float %91, 0x400921FB60000000
   %114 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %103, <4 x float> %111, i8 113)
   %115 = extractelement <4 x float> %114, i64 0
@@ -2064,11 +2064,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %126
 
 126:                                              ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %126
-  %.0463617 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %129, %126 ]
-  %127 = getelementptr inbounds nuw %"struct.drjit::Array.39", ptr %8, i64 %.0463617
-  %128 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %127, i64 %.0463617
+  %.0463616 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %129, %126 ]
+  %127 = getelementptr inbounds nuw %"struct.drjit::Array.39", ptr %8, i64 %.0463616
+  %128 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %127, i64 %.0463616
   store <4 x float> %125, ptr %128, align 16
-  %129 = add nuw nsw i64 %.0463617, 1
+  %129 = add nuw nsw i64 %.0463616, 1
   %exitcond.not = icmp eq i64 %129, 4
   br i1 %exitcond.not, label %130, label %126, !llvm.loop !214
 

@@ -5855,8 +5855,8 @@ define hidden i32 @dissect_h245_OpenLogicalChannel(ptr noundef %0, i32 noundef %
   br i1 %.not19, label %65, label %44
 
 44:                                               ; preds = %42
-  %.b20 = load i1, ptr @fast_start, align 1
-  br i1 %.b20, label %45, label %48
+  %.b = load i1, ptr @fast_start, align 1
+  br i1 %.b, label %45, label %48
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %6, align 8
@@ -5886,8 +5886,8 @@ define hidden i32 @dissect_h245_OpenLogicalChannel(ptr noundef %0, i32 noundef %
 65:                                               ; preds = %45, %48, %42
   store ptr null, ptr @upcoming_olc, align 8
   %66 = load ptr, ptr @h245_pi, align 8
-  %.not21 = icmp eq ptr %66, null
-  br i1 %.not21, label %68, label %67
+  %.not20 = icmp eq ptr %66, null
+  br i1 %.not20, label %68, label %67
 
 67:                                               ; preds = %65
   store i32 4, ptr %66, align 4

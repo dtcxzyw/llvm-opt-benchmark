@@ -235,8 +235,8 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  %.b77 = load i1, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE4init, align 1
-  br i1 %.b77, label %.loopexit78, label %10
+  %.b = load i1, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE4init, align 1
+  br i1 %.b, label %.loopexit77, label %10
 
 10:                                               ; preds = %9
   store i1 true, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE4init, align 1
@@ -258,9 +258,9 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   store float %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit78, label %11, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit77, label %11, !llvm.loop !4
 
-.loopexit78:                                      ; preds = %11, %9
+.loopexit77:                                      ; preds = %11, %9
   %21 = fadd float %1, %4
   %22 = fmul float %21, 5.000000e-01
   %23 = fadd float %3, %6
@@ -271,10 +271,10 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %28 = fmul float %27, 5.000000e-01
   br label %29
 
-29:                                               ; preds = %.loopexit78, %29
-  %indvars.iv84 = phi i64 [ 0, %.loopexit78 ], [ %indvars.iv.next85, %29 ]
-  %.07381 = phi i64 [ 15, %.loopexit78 ], [ %indvars.iv84, %29 ]
-  %30 = shl nuw i64 %.07381, 1
+29:                                               ; preds = %.loopexit77, %29
+  %indvars.iv83 = phi i64 [ 0, %.loopexit77 ], [ %indvars.iv.next84, %29 ]
+  %.07380 = phi i64 [ 15, %.loopexit77 ], [ %indvars.iv83, %29 ]
+  %30 = shl nuw i64 %.07380, 1
   %31 = and i64 %30, 4294967294
   %32 = getelementptr inbounds nuw float, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %31
   %33 = load float, ptr %32, align 8
@@ -286,8 +286,8 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %34, float noundef %2, float noundef %37, i32 noundef %7)
-  %.idx91 = shl nuw nsw i64 %indvars.iv84, 3
-  %41 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx91
+  %.idx90 = shl nuw nsw i64 %indvars.iv83, 3
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx90
   %42 = load float, ptr %41, align 8
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %26, float %22)
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -313,14 +313,14 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %58, float noundef %5, float noundef %60, i32 noundef %7)
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next85, 16
-  br i1 %exitcond87.not, label %.preheader, label %29, !llvm.loop !6
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next84, 16
+  br i1 %exitcond86.not, label %.preheader, label %29, !llvm.loop !6
 
 .preheader:                                       ; preds = %29, %.preheader
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader ], [ 0, %29 ]
-  %.idx92 = shl nuw nsw i64 %indvars.iv88, 3
-  %64 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx92
+  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader ], [ 0, %29 ]
+  %.idx91 = shl nuw nsw i64 %indvars.iv87, 3
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx91
   %65 = load float, ptr %64, align 16
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %26, float %22)
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -338,8 +338,8 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %74, float noundef %5, float noundef %76, i32 noundef %7)
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
-  %80 = icmp samesign ult i64 %indvars.iv88, 12
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 4
+  %80 = icmp samesign ult i64 %indvars.iv87, 12
   br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %8
@@ -713,8 +713,8 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, float noundef %6)
-  %.b30.i = load i1, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
-  br i1 %.b30.i, label %.loopexit31.i.preheader, label %12
+  %.b.i = load i1, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
+  br i1 %.b.i, label %.loopexit30.i.preheader, label %12
 
 12:                                               ; preds = %8
   store i1 true, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
@@ -736,15 +736,15 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   store float %21, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
-  br i1 %exitcond.not.i, label %.loopexit31.i.preheader, label %13, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit30.i.preheader, label %13, !llvm.loop !9
 
-.loopexit31.i.preheader:                          ; preds = %13, %8
-  br label %.loopexit31.i
+.loopexit30.i.preheader:                          ; preds = %13, %8
+  br label %.loopexit30.i
 
-.loopexit31.i:                                    ; preds = %.loopexit31.i.preheader, %.loopexit31.i
-  %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.loopexit31.i ], [ 0, %.loopexit31.i.preheader ]
-  %.034.i = phi i64 [ %indvars.iv36.i, %.loopexit31.i ], [ 39, %.loopexit31.i.preheader ]
-  %23 = shl nuw i64 %.034.i, 1
+.loopexit30.i:                                    ; preds = %.loopexit30.i.preheader, %.loopexit30.i
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.loopexit30.i ], [ 0, %.loopexit30.i.preheader ]
+  %.033.i = phi i64 [ %indvars.iv35.i, %.loopexit30.i ], [ 39, %.loopexit30.i.preheader ]
+  %23 = shl nuw i64 %.033.i, 1
   %24 = and i64 %23, 4294967294
   %25 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %24
   %26 = load float, ptr %25, align 8
@@ -756,8 +756,8 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %27, float noundef %2, float noundef %30, i32 noundef %5)
-  %.idx40.i = shl nuw nsw i64 %indvars.iv36.i, 3
-  %34 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx40.i
+  %.idx39.i = shl nuw nsw i64 %indvars.iv35.i, 3
+  %34 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx39.i
   %35 = load float, ptr %34, align 8
   %36 = tail call float @llvm.fmuladd.f32(float %35, float %4, float %1)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -767,11 +767,11 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %36, float noundef %2, float noundef %39, i32 noundef %5)
-  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 40
-  br i1 %exitcond39.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit31.i, !llvm.loop !10
+  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
+  %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 40
+  br i1 %exitcond38.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit30.i, !llvm.loop !10
 
-_Z14duAppendCircleP11duDebugDrawffffj.exit:       ; preds = %.loopexit31.i
+_Z14duAppendCircleP11duDebugDrawffffj.exit:       ; preds = %.loopexit30.i
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
@@ -788,8 +788,8 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  %.b30 = load i1, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
-  br i1 %.b30, label %.loopexit31.preheader, label %8
+  %.b = load i1, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
+  br i1 %.b, label %.loopexit30.preheader, label %8
 
 8:                                                ; preds = %7
   store i1 true, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE4init, align 1
@@ -811,15 +811,15 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %.loopexit31.preheader, label %9, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit30.preheader, label %9, !llvm.loop !9
 
-.loopexit31.preheader:                            ; preds = %9, %7
-  br label %.loopexit31
+.loopexit30.preheader:                            ; preds = %9, %7
+  br label %.loopexit30
 
-.loopexit31:                                      ; preds = %.loopexit31.preheader, %.loopexit31
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.loopexit31 ], [ 0, %.loopexit31.preheader ]
-  %.034 = phi i64 [ %indvars.iv36, %.loopexit31 ], [ 39, %.loopexit31.preheader ]
-  %19 = shl nuw i64 %.034, 1
+.loopexit30:                                      ; preds = %.loopexit30.preheader, %.loopexit30
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.loopexit30 ], [ 0, %.loopexit30.preheader ]
+  %.033 = phi i64 [ %indvars.iv35, %.loopexit30 ], [ 39, %.loopexit30.preheader ]
+  %19 = shl nuw i64 %.033, 1
   %20 = and i64 %19, 4294967294
   %21 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %20
   %22 = load float, ptr %21, align 8
@@ -831,8 +831,8 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %23, float noundef %2, float noundef %26, i32 noundef %5)
-  %.idx40 = shl nuw nsw i64 %indvars.iv36, 3
-  %30 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx40
+  %.idx39 = shl nuw nsw i64 %indvars.iv35, 3
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx39
   %31 = load float, ptr %30, align 8
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %4, float %1)
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -842,11 +842,11 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %32, float noundef %2, float noundef %35, i32 noundef %5)
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 40
-  br i1 %exitcond39.not, label %.loopexit, label %.loopexit31, !llvm.loop !10
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond38.not = icmp eq i64 %indvars.iv.next36, 40
+  br i1 %exitcond38.not, label %.loopexit, label %.loopexit30, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.loopexit31, %6
+.loopexit:                                        ; preds = %.loopexit30, %6
   ret void
 }
 
@@ -1098,8 +1098,8 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  %.b135 = load i1, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE4init, align 1
-  br i1 %.b135, label %.loopexit137, label %10
+  %.b = load i1, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE4init, align 1
+  br i1 %.b, label %.loopexit136, label %10
 
 10:                                               ; preds = %9
   store i1 true, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE4init, align 1
@@ -1121,9 +1121,9 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   store float %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit137, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit136, label %11, !llvm.loop !12
 
-.loopexit137:                                     ; preds = %11, %9
+.loopexit136:                                     ; preds = %11, %9
   %21 = and i32 %7, 255
   %22 = lshr i32 %7, 8
   %23 = and i32 %22, 255
@@ -1149,8 +1149,8 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %43 = fmul float %42, 5.000000e-01
   br label %44
 
-44:                                               ; preds = %.loopexit137, %44
-  %indvars.iv144 = phi i64 [ 2, %.loopexit137 ], [ %indvars.iv.next145, %44 ]
+44:                                               ; preds = %.loopexit136, %44
+  %indvars.iv143 = phi i64 [ 2, %.loopexit136 ], [ %indvars.iv.next144, %44 ]
   %45 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %41, float %37)
   %47 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
@@ -1159,8 +1159,8 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %46, float noundef %2, float noundef %48, i32 noundef %35)
-  %.idx156 = shl i64 %indvars.iv144, 3
-  %52 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx156
+  %.idx155 = shl i64 %indvars.iv143, 3
+  %52 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx155
   %53 = getelementptr i8, ptr %52, i64 -8
   %54 = load float, ptr %53, align 8
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %41, float %37)
@@ -1180,12 +1180,12 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %63, float noundef %2, float noundef %66, i32 noundef %35)
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next145, 16
-  br i1 %exitcond147.not, label %.preheader136, label %44, !llvm.loop !13
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next144, 16
+  br i1 %exitcond146.not, label %.preheader135, label %44, !llvm.loop !13
 
-.preheader136:                                    ; preds = %44, %.preheader136
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader136 ], [ 2, %44 ]
+.preheader135:                                    ; preds = %44, %.preheader135
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.preheader135 ], [ 2, %44 ]
   %70 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
   %71 = tail call float @llvm.fmuladd.f32(float %70, float %41, float %37)
   %72 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
@@ -1194,8 +1194,8 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %71, float noundef %5, float noundef %73, i32 noundef %7)
-  %.idx157 = shl i64 %indvars.iv148, 3
-  %77 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx157
+  %.idx156 = shl i64 %indvars.iv147, 3
+  %77 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx156
   %78 = load float, ptr %77, align 8
   %79 = tail call float @llvm.fmuladd.f32(float %78, float %41, float %37)
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -1215,15 +1215,15 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %88, float noundef %5, float noundef %91, i32 noundef %7)
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next149, 16
-  br i1 %exitcond151.not, label %.preheader, label %.preheader136, !llvm.loop !14
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next148, 16
+  br i1 %exitcond150.not, label %.preheader, label %.preheader135, !llvm.loop !14
 
-.preheader:                                       ; preds = %.preheader136, %.preheader
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader ], [ 0, %.preheader136 ]
-  %.0142 = phi i64 [ %indvars.iv152, %.preheader ], [ 15, %.preheader136 ]
-  %.idx158 = shl nuw nsw i64 %indvars.iv152, 3
-  %95 = getelementptr inbounds nuw i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx158
+.preheader:                                       ; preds = %.preheader135, %.preheader
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.preheader ], [ 0, %.preheader135 ]
+  %.0141 = phi i64 [ %indvars.iv151, %.preheader ], [ 15, %.preheader135 ]
+  %.idx157 = shl nuw nsw i64 %indvars.iv151, 3
+  %95 = getelementptr inbounds nuw i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx157
   %96 = load float, ptr %95, align 8
   %97 = tail call float @llvm.fmuladd.f32(float %96, float %41, float %37)
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -1233,7 +1233,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %97, float noundef %2, float noundef %100, i32 noundef %35)
-  %104 = shl nuw i64 %.0142, 1
+  %104 = shl nuw i64 %.0141, 1
   %105 = and i64 %104, 4294967294
   %106 = getelementptr inbounds nuw float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %105
   %107 = load float, ptr %106, align 8
@@ -1277,9 +1277,9 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %142 = load ptr, ptr %141, align 8
   tail call void %142(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %137, float noundef %5, float noundef %139, i32 noundef %7)
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next153, 16
-  br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next152, 16
+  br i1 %exitcond154.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %8
   ret void

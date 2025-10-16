@@ -255,8 +255,8 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %2, ptr %22, align 8
-  %.b2021 = load i1, ptr @nsip_is_recursive, align 1
-  br i1 %.b2021, label %27, label %23
+  %.b20 = load i1, ptr @nsip_is_recursive, align 1
+  br i1 %.b20, label %27, label %23
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -292,12 +292,12 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 41:                                               ; preds = %30, %27
   %42 = phi ptr [ %32, %30 ], [ null, %27 ]
   %43 = phi ptr [ %35, %30 ], [ null, %27 ]
-  %.b22 = load i1, ptr @nsip_is_recursive, align 1
+  %.b = load i1, ptr @nsip_is_recursive, align 1
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %28 to i32
   %47 = tail call ptr @val_to_str_const(i32 noundef %46, ptr noundef nonnull @tab_nsip_pdu_types, ptr noundef nonnull @.str.110)
-  br i1 %.b22, label %49, label %48
+  br i1 %.b, label %49, label %48
 
 48:                                               ; preds = %41
   tail call void @col_set_str(ptr noundef %45, i32 noundef 25, ptr noundef %47)

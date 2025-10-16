@@ -2610,9 +2610,9 @@ _ZN9Stockfish12_GLOBAL__N_110set_groupsINS0_7TBTableILNS0_6TBTypeE1EEEEEvRT_PNS0
   %.fr74.i.i.i.i = freeze i8 %294
   %295 = trunc i8 %.fr74.i.i.i.i to i1
   %296 = ptrtoint ptr %291 to i64
-  %.b3.i.i.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %.b3.i.fr.i.i.i.i = freeze i1 %.b3.i.i.i.i.i
-  br i1 %.b3.i.fr.i.i.i.i, label %.split41.us.i.i.i.i, label %.split41.i.i.i.i
+  %.b.i.i.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.fr.i.i.i.i = freeze i1 %.b.i.i.i.i.i
+  br i1 %.b.i.fr.i.i.i.i, label %.split41.us.i.i.i.i, label %.split41.i.i.i.i
 
 .split41.us.i.i.i.i:                              ; preds = %292, %.loopexit.us.i.i.i.i
   %indvars.iv113.i.i.i.i = phi i64 [ %indvars.iv.next114.i.i.i.i, %.loopexit.us.i.i.i.i ], [ 0, %292 ]
@@ -6946,8 +6946,8 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %14, %28, %24, %20, 
   %.sroa.3.0.extract.shift.i = lshr i32 %.val80, 8
   %.sroa.4.0.extract.shift.i = lshr i32 %.val80, 16
   %.sroa.5.0.extract.shift.i = lshr i32 %.val80, 24
-  %.b3.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZSt4findIPiiET_S1_S1_RKT0_.exit
   %63 = and i32 %.val80, 255
@@ -7032,7 +7032,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %89, %91, %93, %95
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
   %102 = add nuw nsw i64 %99, 4294967294
-  %.b3.i85 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i85 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   %103 = and i64 %102, 4294967295
   br label %105
 
@@ -7055,9 +7055,9 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %89, %91, %93, %95
   %.val81 = load i16, ptr %111, align 1
   %.sroa.4.0.extract.shift.i84 = lshr i16 %.val81, 8
   %112 = and i16 %.val81, 255
-  %.sroa.4.0.insert.ext.i86 = select i1 %.b3.i85, i16 %.sroa.4.0.extract.shift.i84, i16 %112
+  %.sroa.4.0.insert.ext.i86 = select i1 %.b.i85, i16 %.sroa.4.0.extract.shift.i84, i16 %112
   %.sroa.4.0.insert.shift.i87 = shl nuw i16 %.sroa.4.0.insert.ext.i86, 8
-  %.sroa.0.0.insert.ext.i88 = select i1 %.b3.i85, i16 %112, i16 %.sroa.4.0.extract.shift.i84
+  %.sroa.0.0.insert.ext.i88 = select i1 %.b.i85, i16 %112, i16 %.sroa.4.0.extract.shift.i84
   %.sroa.0.0.insert.insert.i89 = or disjoint i16 %.sroa.4.0.insert.shift.i87, %.sroa.0.0.insert.ext.i88
   %113 = zext i16 %.sroa.0.0.insert.insert.i89 to i64
   %114 = add i64 %109, %113
@@ -7065,9 +7065,9 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %89, %91, %93, %95
   %.val82 = load i16, ptr %115, align 1
   %.sroa.4.0.extract.shift.i90 = lshr i16 %.val82, 8
   %116 = and i16 %.val82, 255
-  %.sroa.4.0.insert.ext.i92 = select i1 %.b3.i85, i16 %.sroa.4.0.extract.shift.i90, i16 %116
+  %.sroa.4.0.insert.ext.i92 = select i1 %.b.i85, i16 %.sroa.4.0.extract.shift.i90, i16 %116
   %.sroa.4.0.insert.shift.i93 = shl nuw i16 %.sroa.4.0.insert.ext.i92, 8
-  %.sroa.0.0.insert.ext.i94 = select i1 %.b3.i85, i16 %116, i16 %.sroa.4.0.extract.shift.i90
+  %.sroa.0.0.insert.ext.i94 = select i1 %.b.i85, i16 %116, i16 %.sroa.4.0.extract.shift.i90
   %.sroa.0.0.insert.insert.i95 = or disjoint i16 %.sroa.4.0.insert.shift.i93, %.sroa.0.0.insert.ext.i94
   %117 = zext i16 %.sroa.0.0.insert.insert.i95 to i64
   %118 = sub i64 %114, %117
@@ -7101,11 +7101,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %89, %91, %93, %95
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val83 = load i16, ptr %131, align 1
   %.sroa.4.0.extract.shift.i96 = lshr i16 %.val83, 8
-  %.b3.i97 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i97 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   %133 = and i16 %.val83, 255
-  %.sroa.4.0.insert.ext.i98 = select i1 %.b3.i97, i16 %.sroa.4.0.extract.shift.i96, i16 %133
+  %.sroa.4.0.insert.ext.i98 = select i1 %.b.i97, i16 %.sroa.4.0.extract.shift.i96, i16 %133
   %.sroa.4.0.insert.shift.i99 = shl nuw i16 %.sroa.4.0.insert.ext.i98, 8
-  %.sroa.0.0.insert.ext.i100 = select i1 %.b3.i97, i16 %133, i16 %.sroa.4.0.extract.shift.i96
+  %.sroa.0.0.insert.ext.i100 = select i1 %.b.i97, i16 %133, i16 %.sroa.4.0.extract.shift.i96
   %.sroa.0.0.insert.insert.i101 = or disjoint i16 %.sroa.4.0.insert.shift.i99, %.sroa.0.0.insert.ext.i100
   %134 = zext i16 %.sroa.0.0.insert.insert.i101 to i64
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %132, i64 noundef %134)
@@ -7550,8 +7550,8 @@ define internal fastcc noundef range(i32 0, 4096) i32 @_ZN9Stockfish12_GLOBAL__N
   %.sroa.3.0.extract.shift.i = lshr i32 %.val, 8
   %.sroa.4.0.extract.shift.i = lshr i32 %.val, 16
   %.sroa.5.0.extract.shift.i = lshr i32 %.val, 24
-  %.b3.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
   %18 = and i32 %.val, 255
@@ -7575,9 +7575,9 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit: ; preds = %9, %.preheader.i
   %.val93 = load i16, ptr %19, align 1
   %.sroa.4.0.extract.shift.i101 = lshr i16 %.val93, 8
   %20 = and i16 %.val93, 255
-  %.sroa.4.0.insert.ext.i103 = select i1 %.b3.i, i16 %.sroa.4.0.extract.shift.i101, i16 %20
+  %.sroa.4.0.insert.ext.i103 = select i1 %.b.i, i16 %.sroa.4.0.extract.shift.i101, i16 %20
   %.sroa.4.0.insert.shift.i104 = shl nuw i16 %.sroa.4.0.insert.ext.i103, 8
-  %.sroa.0.0.insert.ext.i105 = select i1 %.b3.i, i16 %20, i16 %.sroa.4.0.extract.shift.i101
+  %.sroa.0.0.insert.ext.i105 = select i1 %.b.i, i16 %20, i16 %.sroa.4.0.extract.shift.i101
   %.sroa.0.0.insert.insert.i106 = or disjoint i16 %.sroa.4.0.insert.shift.i104, %.sroa.0.0.insert.ext.i105
   %21 = zext i16 %.sroa.0.0.insert.insert.i106 to i32
   %22 = lshr i64 %11, 1
@@ -7643,7 +7643,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader149_crit_edge: ; p
   %.val100 = load i64, ptr %51, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.val100, ptr %3, align 8
-  br i1 %.b3.i, label %.preheader.i108, label %_ZN9Stockfish12_GLOBAL__N_16numberImLi0EEET_Pv.exit
+  br i1 %.b.i, label %.preheader.i108, label %_ZN9Stockfish12_GLOBAL__N_16numberImLi0EEET_Pv.exit
 
 .preheader.i108:                                  ; preds = %._crit_edge, %.preheader.i108
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i108 ], [ 0, %._crit_edge ]
@@ -7710,9 +7710,9 @@ _ZN9Stockfish12_GLOBAL__N_16numberImLi0EEET_Pv.exit: ; preds = %._crit_edge, %_Z
   %.val92 = load i16, ptr %81, align 1
   %.sroa.4.0.extract.shift.i109 = lshr i16 %.val92, 8
   %82 = and i16 %.val92, 255
-  %.sroa.4.0.insert.ext.i111 = select i1 %.b3.i, i16 %.sroa.4.0.extract.shift.i109, i16 %82
+  %.sroa.4.0.insert.ext.i111 = select i1 %.b.i, i16 %.sroa.4.0.extract.shift.i109, i16 %82
   %.sroa.4.0.insert.shift.i112 = shl nuw i16 %.sroa.4.0.insert.ext.i111, 8
-  %.sroa.0.0.insert.ext.i113 = select i1 %.b3.i, i16 %82, i16 %.sroa.4.0.extract.shift.i109
+  %.sroa.0.0.insert.ext.i113 = select i1 %.b.i, i16 %82, i16 %.sroa.4.0.extract.shift.i109
   %.sroa.0.0.insert.insert.i114 = or disjoint i16 %.sroa.4.0.insert.shift.i112, %.sroa.0.0.insert.ext.i113
   %83 = add i16 %.sroa.0.0.insert.insert.i114, %80
   %84 = zext i16 %83 to i64
@@ -7748,7 +7748,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberImLi0EEET_Pv.exit: ; preds = %._crit_edge, %_Z
   %.sroa.4.0.extract.trunc.i123 = trunc i32 %.sroa.4.0.extract.shift.i122 to i8
   %.sroa.5.0.extract.shift.i124 = lshr i32 %.078.val, 24
   %.sroa.5.0.extract.trunc.i125 = trunc nuw i32 %.sroa.5.0.extract.shift.i124 to i8
-  br i1 %.b3.i, label %.preheader.i141, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi0EEET_Pv.exit
+  br i1 %.b.i, label %.preheader.i141, label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi0EEET_Pv.exit
 
 .preheader.i141:                                  ; preds = %94
   br label %_ZN9Stockfish12_GLOBAL__N_16numberIjLi0EEET_Pv.exit

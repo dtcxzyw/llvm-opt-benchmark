@@ -83932,13 +83932,13 @@ define hidden { i64, ptr } @"_ZN9workspace14WorkspaceStore23handle_update_follow
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %10 = load i8, ptr %9, align 8, !range !922, !noundef !9
-  switch i8 %10, label %default.unreachable56 [
+  switch i8 %10, label %default.unreachable54 [
     i8 0, label %11
     i8 1, label %116
     i8 2, label %117
   ]
 
-default.unreachable56:                            ; preds = %2
+default.unreachable54:                            ; preds = %2
   unreachable
 
 11:                                               ; preds = %2
@@ -83978,12 +83978,12 @@ default.unreachable56:                            ; preds = %2
 
 24:                                               ; preds = %11
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 416
-  %.sroa.5.0.copyload.i5152 = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !19791, !noalias !19794
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !19791, !noalias !19794
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 412
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !19791, !noalias !19794
   store i32 %.sroa.4.0.copyload.i, ptr %5, align 4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.sroa.5.0.copyload.i5152, ptr %25, align 4
+  store i32 %.sroa.5.0.copyload.i, ptr %25, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %4, ptr noundef nonnull align 8 dereferenceable(384) %0, i64 384, i1 false)
   %26 = invoke { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$u20$gpui..Context$GT$12update_model17h9347f94d413095b8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(384) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
@@ -84101,9 +84101,9 @@ default.unreachable56:                            ; preds = %2
   resume { ptr, i32 } %.pn19
 
 "_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$workspace..WorkspaceStore$GT$$GT$17h1ff2725be1b6ed7bE.exit33.sink.split": ; preds = %102, %67
-  %.sink57 = phi ptr [ %68, %67 ], [ %103, %102 ]
+  %.sink55 = phi ptr [ %68, %67 ], [ %103, %102 ]
   %.sroa.05.0.ph = phi ptr [ %33, %67 ], [ %.sroa.05.1, %102 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink57, i64 noundef 80, i64 noundef 8) #74, !noalias !9
+  call void @__rust_dealloc(ptr noundef nonnull %.sink55, i64 noundef 80, i64 noundef 8) #74, !noalias !9
   br label %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$workspace..WorkspaceStore$GT$$GT$17h1ff2725be1b6ed7bE.exit33"
 
 "_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$workspace..WorkspaceStore$GT$$GT$17h1ff2725be1b6ed7bE.exit33": ; preds = %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$workspace..WorkspaceStore$GT$$GT$17h1ff2725be1b6ed7bE.exit33.sink.split", %59, %63, %94, %98

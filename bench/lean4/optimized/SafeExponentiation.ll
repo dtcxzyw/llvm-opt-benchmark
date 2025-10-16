@@ -833,8 +833,8 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Util_SafeExponentiation(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -924,7 +924,7 @@ _init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exi
   store ptr %38, ptr @l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %38) #4
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit11, label %39
+  br i1 %.not, label %lean_dec_ref.exit10, label %39
 
 39:                                               ; preds = %_init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exit
   %40 = load ptr, ptr @l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__3, align 8, !tbaa !4
@@ -932,16 +932,16 @@ _init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exi
   %42 = load ptr, ptr @l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__8, align 8, !tbaa !4
   %43 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_40____spec__1(ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %44 = getelementptr i8, ptr %43, i64 4
-  %.val12 = load i32, ptr %44, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %45 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %44, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %45 = icmp eq i32 %.mask.i13, 16777216
   br i1 %45, label %97, label %46
 
 46:                                               ; preds = %39
   %47 = getelementptr i8, ptr %43, i64 8
-  %.val13 = load ptr, ptr %47, align 8, !tbaa !4
-  store ptr %.val13, ptr @l_Lean_exponentiation_threshold, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #4
+  %.val12 = load ptr, ptr %47, align 8, !tbaa !4
+  store ptr %.val12, ptr @l_Lean_exponentiation_threshold, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #4
   %48 = load i32, ptr %43, align 8, !tbaa !8
   %49 = icmp sgt i32 %48, 1
   br i1 %49, label %50, label %52, !prof !11
@@ -949,17 +949,17 @@ _init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exi
 50:                                               ; preds = %46
   %51 = add nsw i32 %48, -1
   store i32 %51, ptr %43, align 4, !tbaa !8
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 52:                                               ; preds = %46
-  %.not.i10 = icmp eq i32 %48, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %53
+  %.not.i9 = icmp eq i32 %48, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %53
 
 53:                                               ; preds = %52
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %43) #4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %53, %52, %50, %_init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exit
+lean_dec_ref.exit10:                              ; preds = %53, %52, %50, %_init_l_Lean_initFn____x40_Lean_Util_SafeExponentiation___hyg_5____closed__6.exit
   %54 = load ptr, ptr @l_Lean_warningAsError, align 8, !tbaa !4
   store ptr %54, ptr @l_Lean_logWarning___at_Lean_checkExponent___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %54) #4
@@ -979,11 +979,11 @@ lean_dec_ref.exit11:                              ; preds = %53, %52, %50, %_ini
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %_init_l_Lean_checkExponent___closed__4.exit
 
-62:                                               ; preds = %lean_dec_ref.exit11
+62:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_checkExponent___closed__4.exit:      ; preds = %lean_dec_ref.exit11
+_init_l_Lean_checkExponent___closed__4.exit:      ; preds = %lean_dec_ref.exit10
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 1, ptr %60, align 4, !tbaa !8
   store i32 -184549352, ptr %63, align 4
@@ -1030,8 +1030,8 @@ _init_l_Lean_checkExponent___closed__8.exit:      ; preds = %_init_l_Lean_checkE
   %79 = load ptr, ptr %78, align 8, !tbaa !4
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, 1
-  %.not.i15 = icmp eq i64 %81, 0
-  br i1 %.not.i15, label %82, label %_init_l_Lean_checkExponent___closed__9.exit
+  %.not.i14 = icmp eq i64 %81, 0
+  br i1 %.not.i14, label %82, label %_init_l_Lean_checkExponent___closed__9.exit
 
 82:                                               ; preds = %_init_l_Lean_checkExponent___closed__8.exit
   %.val.i.i = load i32, ptr %79, align 4, !tbaa !8
@@ -1069,18 +1069,18 @@ _init_l_Lean_checkExponent___closed__9.exit:      ; preds = %_init_l_Lean_checkE
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_checkExponent___closed__9.exit, %3
-  %.sink28 = phi ptr [ %4, %3 ], [ %91, %_init_l_Lean_checkExponent___closed__9.exit ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
-  store i32 1, ptr %.sink28, align 4, !tbaa !8
+  %.sink27 = phi ptr [ %4, %3 ], [ %91, %_init_l_Lean_checkExponent___closed__9.exit ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
+  store i32 1, ptr %.sink27, align 4, !tbaa !8
   store i32 131096, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !4
-  %96 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %96, align 8, !tbaa !4
   br label %97
 
 97:                                               ; preds = %.sink.split, %39, %7
-  %.0 = phi ptr [ %8, %7 ], [ %43, %39 ], [ %.sink28, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %43, %39 ], [ %.sink27, %.sink.split ]
   ret ptr %.0
 }
 

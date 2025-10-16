@@ -26,8 +26,8 @@ declare i64 @SDL_GetPerformanceCounter_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2147483647) i32 @SDL_rand_REAL(i32 noundef %0) local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_rand_initialized, align 1
-  br i1 %.b1, label %4, label %2
+  %.b = load i1, ptr @SDL_rand_initialized, align 1
+  br i1 %.b, label %4, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i64 @SDL_GetPerformanceCounter_REAL() #3
@@ -88,8 +88,8 @@ SDL_rand_bits_r_REAL.exit:                        ; preds = %4, %5
 
 ; Function Attrs: nounwind uwtable
 define hidden float @SDL_randf_REAL() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_rand_initialized, align 1
-  br i1 %.b1, label %._crit_edge, label %1
+  %.b = load i1, ptr @SDL_rand_initialized, align 1
+  br i1 %.b, label %._crit_edge, label %1
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i64, ptr @SDL_rand_state, align 8
@@ -135,8 +135,8 @@ SDL_rand_bits_r_REAL.exit:                        ; preds = %1, %2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_rand_bits_REAL() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_rand_initialized, align 1
-  br i1 %.b1, label %._crit_edge, label %1
+  %.b = load i1, ptr @SDL_rand_initialized, align 1
+  br i1 %.b, label %._crit_edge, label %1
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i64, ptr @SDL_rand_state, align 8

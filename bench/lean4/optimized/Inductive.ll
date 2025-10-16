@@ -107599,8 +107599,8 @@ define ptr @l_Lean_Elab_Command_elabInductiveCommand___regBuiltin_Lean_Elab_Comm
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Inductive(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -107629,17 +107629,17 @@ define ptr @initialize_Lean_Elab_Inductive(i8 noundef zeroext %0, ptr noundef re
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #6
   store ptr %18, ptr @l_Lean_Elab_addDeclarationRangesForBuiltin___at___private_Lean_Elab_Inductive_0__Lean_Elab_Command_inductiveSyntaxToView___spec__1___lambda__1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %18) #6
@@ -107683,11 +107683,11 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_Inductive_0__Lean_Elab_Command_inductiveSyntaxToView___spec__9___closed__4.exit
 
-38:                                               ; preds = %lean_dec_ref.exit16
+38:                                               ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_Inductive_0__Lean_Elab_Command_inductiveSyntaxToView___spec__9___closed__4.exit: ; preds = %lean_dec_ref.exit16
+_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_Inductive_0__Lean_Elab_Command_inductiveSyntaxToView___spec__9___closed__4.exit: ; preds = %lean_dec_ref.exit15
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 1, ptr %36, align 4, !tbaa !4
   store i32 50397200, ptr %39, align 4
@@ -108531,9 +108531,9 @@ _init_l_Lean_Elab_Command_elabInductiveCommand___closed__1.exit: ; preds = %_ini
   %378 = load ptr, ptr @l_Lean_Elab_Command_elabInductiveCommand, align 8, !tbaa !10
   %379 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %375, ptr noundef %376, ptr noundef %377, ptr noundef %378, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %380 = getelementptr i8, ptr %379, i64 4
-  %.val17 = load i32, ptr %380, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %381 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %380, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %381 = icmp eq i32 %.mask.i18, 16777216
   br i1 %381, label %409, label %382
 
 382:                                              ; preds = %374
@@ -108544,29 +108544,29 @@ _init_l_Lean_Elab_Command_elabInductiveCommand___closed__1.exit: ; preds = %_ini
 385:                                              ; preds = %382
   %386 = add nsw i32 %383, -1
   store i32 %386, ptr %379, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 387:                                              ; preds = %382
-  %.not.i13 = icmp eq i32 %383, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %388
+  %.not.i12 = icmp eq i32 %383, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %388
 
 388:                                              ; preds = %387
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %379) #6
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %388, %387, %385
+lean_dec_ref.exit13:                              ; preds = %388, %387, %385
   %389 = load ptr, ptr @l_Lean_Elab_Command_elabInductiveCommand___regBuiltin_Lean_Elab_Command_elabInductiveCommand__1___closed__4, align 8, !tbaa !10
   %390 = load ptr, ptr @l___private_Lean_Elab_Inductive_0__Lean_Elab_Command_inductiveSyntaxToView___closed__2, align 8, !tbaa !10
   %391 = load ptr, ptr @l_Lean_Elab_Command_elabInductiveCommand___regBuiltin_Lean_Elab_Command_elabInductiveCommand__1___closed__3, align 8, !tbaa !10
   %392 = load ptr, ptr @l_Lean_Elab_Command_elabInductiveCommand, align 8, !tbaa !10
   %393 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %389, ptr noundef %390, ptr noundef %391, ptr noundef %392, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %394 = getelementptr i8, ptr %393, i64 4
-  %.val18 = load i32, ptr %394, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %395 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %394, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %395 = icmp eq i32 %.mask.i19, 16777216
   br i1 %395, label %409, label %396
 
-396:                                              ; preds = %lean_dec_ref.exit14
+396:                                              ; preds = %lean_dec_ref.exit13
   %397 = load i32, ptr %393, align 4, !tbaa !4
   %398 = icmp sgt i32 %397, 1
   br i1 %398, label %399, label %401, !prof !9
@@ -108595,18 +108595,18 @@ lean_dec_ref.exit14:                              ; preds = %388, %387, %385
   unreachable
 
 .sink.split:                                      ; preds = %.critedge, %3
-  %.sink53 = phi ptr [ %4, %3 ], [ %403, %.critedge ]
-  %406 = getelementptr inbounds nuw i8, ptr %.sink53, i64 4
-  store i32 1, ptr %.sink53, align 4, !tbaa !4
+  %.sink52 = phi ptr [ %4, %3 ], [ %403, %.critedge ]
+  %406 = getelementptr inbounds nuw i8, ptr %.sink52, i64 4
+  store i32 1, ptr %.sink52, align 4, !tbaa !4
   store i32 131096, ptr %406, align 4
-  %407 = getelementptr inbounds nuw i8, ptr %.sink53, i64 8
+  %407 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %407, align 8, !tbaa !10
-  %408 = getelementptr inbounds nuw i8, ptr %.sink53, i64 16
+  %408 = getelementptr inbounds nuw i8, ptr %.sink52, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %408, align 8, !tbaa !10
   br label %409
 
-409:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %374, %7
-  %.0 = phi ptr [ %8, %7 ], [ %379, %374 ], [ %393, %lean_dec_ref.exit14 ], [ %.sink53, %.sink.split ]
+409:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %374, %7
+  %.0 = phi ptr [ %8, %7 ], [ %379, %374 ], [ %393, %lean_dec_ref.exit13 ], [ %.sink52, %.sink.split ]
   ret ptr %.0
 }
 

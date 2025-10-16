@@ -1575,8 +1575,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pq_buffer_remaining_dat
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pq_startmsgread() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @PqCommReadingMsg, align 1
-  br i1 %.b1, label %1, label %5
+  %.b = load i1, ptr @PqCommReadingMsg, align 1
+  br i1 %.b, label %1, label %5
 
 1:                                                ; preds = %0
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
@@ -1600,8 +1600,8 @@ define dso_local void @pq_endmsgread() local_unnamed_addr #11 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @pq_is_reading_msg() local_unnamed_addr #10 {
-  %.b1 = load i1, ptr @PqCommReadingMsg, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @PqCommReadingMsg, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1834,8 +1834,8 @@ declare void @pg_re_throw() local_unnamed_addr #14
 define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
-  %.b2 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b2, label %10, label %5
+  %.b = load i1, ptr @PqCommBusy, align 1
+  br i1 %.b, label %10, label %5
 
 5:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
@@ -1845,8 +1845,8 @@ define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, p
 
 7:                                                ; preds = %5
   %8 = call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2)
-  %.not3 = icmp eq i32 %8, 0
-  br i1 %.not3, label %.sink.split, label %9
+  %.not2 = icmp eq i32 %8, 0
+  br i1 %.not2, label %.sink.split, label %9
 
 9:                                                ; preds = %7, %5
   br label %.sink.split
@@ -2548,8 +2548,8 @@ define internal void @socket_comm_reset() #11 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @socket_flush() #0 {
-  %.b2 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b2, label %11, label %1
+  %.b = load i1, ptr @PqCommBusy, align 1
+  br i1 %.b, label %11, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @PqCommBusy, align 1
@@ -2585,8 +2585,8 @@ define internal range(i32 -1, 1) i32 @socket_flush_if_writable() #0 {
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %0
-  %.b2 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b2, label %15, label %5
+  %.b = load i1, ptr @PqCommBusy, align 1
+  br i1 %.b, label %15, label %5
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @MyProcPort, align 8
@@ -2628,8 +2628,8 @@ define internal range(i32 -1, 1) i32 @socket_putmessage(i8 noundef signext %0, p
   %5 = alloca i32, align 4
   store i8 %0, ptr %4, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b3 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b3, label %16, label %6
+  %.b = load i1, ptr @PqCommBusy, align 1
+  br i1 %.b, label %16, label %6
 
 6:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
@@ -2643,13 +2643,13 @@ define internal range(i32 -1, 1) i32 @socket_putmessage(i8 noundef signext %0, p
   %11 = call i32 @llvm.bswap.i32(i32 %10)
   store i32 %11, ptr %5, align 4
   %12 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %5, i64 noundef 4)
-  %.not4 = icmp eq i32 %12, 0
-  br i1 %.not4, label %13, label %15
+  %.not3 = icmp eq i32 %12, 0
+  br i1 %.not3, label %13, label %15
 
 13:                                               ; preds = %8
   %14 = call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2)
-  %.not5 = icmp eq i32 %14, 0
-  br i1 %.not5, label %.sink.split, label %15
+  %.not4 = icmp eq i32 %14, 0
+  br i1 %.not4, label %.sink.split, label %15
 
 15:                                               ; preds = %13, %8, %6
   br label %.sink.split

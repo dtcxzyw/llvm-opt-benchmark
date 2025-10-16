@@ -16698,14 +16698,14 @@ define internal fastcc void @"_ZN7channel12channel_chat14ChannelMessage10from_pr
   %16 = alloca [8 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %18 = load i8, ptr %17, align 8, !range !426, !noundef !5
-  switch i8 %18, label %default.unreachable139 [
+  switch i8 %18, label %default.unreachable138 [
     i8 0, label %19
     i8 1, label %43
     i8 2, label %44
     i8 3, label %28
   ]
 
-default.unreachable139:                           ; preds = %3
+default.unreachable138:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %3
@@ -17012,8 +17012,8 @@ common.ret:                                       ; preds = %128, %63
   %.sroa.696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.sroa.696.0.copyload = load i64, ptr %.sroa.696.0..sroa_idx, align 8
   %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.sroa.595.0.copyload123 = load i64, ptr %.sroa.595.0..sroa_idx, align 8
-  %116 = invoke noundef i128 @"_ZN5proto74_$LT$impl$u20$core..convert..From$LT$proto..Nonce$GT$$u20$for$u20$u128$GT$4from17h1319c01b3e4a6133E"(i64 noundef %.sroa.595.0.copyload123, i64 noundef %.sroa.696.0.copyload)
+  %.sroa.595.0.copyload = load i64, ptr %.sroa.595.0..sroa_idx, align 8
+  %116 = invoke noundef i128 @"_ZN5proto74_$LT$impl$u20$core..convert..From$LT$proto..Nonce$GT$$u20$for$u20$u128$GT$4from17h1319c01b3e4a6133E"(i64 noundef %.sroa.595.0.copyload, i64 noundef %.sroa.696.0.copyload)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h540cbf2c8564eba8E.exit" unwind label %117
 
 117:                                              ; preds = %115

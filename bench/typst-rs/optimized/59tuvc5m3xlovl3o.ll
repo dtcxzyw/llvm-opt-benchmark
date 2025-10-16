@@ -121900,7 +121900,7 @@ common.resume:                                    ; preds = %170, %31
   %98 = load ptr, ptr %13, align 8, !noundef !4
   %99 = icmp eq ptr %98, null
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.0111.0.copyload185 = load i16, ptr %100, align 8
+  %.sroa.0111.0.copyload = load i16, ptr %100, align 8
   %101 = load i64, ptr %100, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %99, label %102, label %103
@@ -122007,7 +122007,7 @@ common.resume:                                    ; preds = %170, %31
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store i64 %79, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  store i16 %.sroa.0111.0.copyload185, ptr %143, align 8
+  store i16 %.sroa.0111.0.copyload, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i64 %107, ptr %144, align 8
   %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104

@@ -2240,7 +2240,7 @@ define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captur
   unreachable
 
 22:                                               ; preds = %.lr.ph, %68
-  %.0134 = phi i8 [ 0, %.lr.ph ], [ %.2, %68 ]
+  %.0133 = phi i8 [ 0, %.lr.ph ], [ %.2, %68 ]
   %23 = load i8, ptr %15, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %30, label %25
@@ -2271,7 +2271,7 @@ define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captur
   br label %39
 
 39:                                               ; preds = %33, %30
-  %40 = trunc nuw i8 %.0134 to i1
+  %40 = trunc nuw i8 %.0133 to i1
   br i1 %40, label %53, label %41
 
 41:                                               ; preds = %39
@@ -2319,7 +2319,7 @@ define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captur
   br label %.thread
 
 68:                                               ; preds = %53, %25, %27
-  %.2 = phi i8 [ %.0134, %27 ], [ %.0134, %25 ], [ 1, %53 ]
+  %.2 = phi i8 [ %.0133, %27 ], [ %.0133, %25 ], [ 1, %53 ]
   %69 = load ptr, ptr %9, align 8
   %70 = call i32 @bit_set_count(ptr noundef %69) #14
   %71 = load i32, ptr %12, align 8
@@ -2349,10 +2349,10 @@ define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %64, %55, %77, %80, %._crit_edge
-  %.b109 = load i1, ptr @force_terminated_job, align 1
+  %.b = load i1, ptr @force_terminated_job, align 1
   %81 = load i32, ptr @task_exit_signal, align 4
   %82 = icmp eq i32 %81, 0
-  %or.cond4.not = select i1 %.b109, i1 true, i1 %82
+  %or.cond4.not = select i1 %.b, i1 true, i1 %82
   br i1 %or.cond4.not, label %90, label %83
 
 83:                                               ; preds = %.thread
@@ -2373,8 +2373,8 @@ thread-pre-split:                                 ; preds = %86, %83
 
 90:                                               ; preds = %thread-pre-split, %.thread
   %91 = phi i32 [ %.pr, %thread-pre-split ], [ %81, %.thread ]
-  %.not111 = icmp eq i32 %91, 0
-  br i1 %.not111, label %95, label %92
+  %.not110 = icmp eq i32 %91, 0
+  br i1 %.not110, label %95, label %92
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 192
@@ -2385,8 +2385,8 @@ thread-pre-split:                                 ; preds = %86, %83
 95:                                               ; preds = %92, %90
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %97 = load ptr, ptr %96, align 8
-  %.not112 = icmp eq ptr %97, null
-  br i1 %.not112, label %100, label %98
+  %.not111 = icmp eq ptr %97, null
+  br i1 %.not111, label %100, label %98
 
 98:                                               ; preds = %95
   %99 = call i32 @eio_signal_shutdown(ptr noundef nonnull %97) #14
@@ -2394,8 +2394,8 @@ thread-pre-split:                                 ; preds = %86, %83
 
 100:                                              ; preds = %95, %98
   %101 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #14
-  %.not113 = icmp eq i32 %101, 0
-  br i1 %.not113, label %104, label %102
+  %.not112 = icmp eq i32 %101, 0
+  br i1 %.not112, label %104, label %102
 
 102:                                              ; preds = %100
   %103 = tail call ptr @__errno_location() #15
@@ -2406,14 +2406,14 @@ thread-pre-split:                                 ; preds = %86, %83
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %106 = load i64, ptr %105, align 8
-  %.not114 = icmp eq i64 %106, 0
-  br i1 %.not114, label %112, label %107
+  %.not113 = icmp eq i64 %106, 0
+  br i1 %.not113, label %112, label %107
 
 107:                                              ; preds = %104
   %108 = call i32 @pthread_join(i64 noundef %106, ptr noundef null) #14
   store i64 0, ptr %105, align 8
-  %.not115 = icmp eq i32 %108, 0
-  br i1 %.not115, label %112, label %109
+  %.not114 = icmp eq i32 %108, 0
+  br i1 %.not114, label %112, label %109
 
 109:                                              ; preds = %107
   %110 = tail call ptr @__errno_location() #15
@@ -2423,8 +2423,8 @@ thread-pre-split:                                 ; preds = %86, %83
 
 112:                                              ; preds = %107, %109, %104
   %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #14
-  %.not116 = icmp eq i32 %113, 0
-  br i1 %.not116, label %116, label %114
+  %.not115 = icmp eq i32 %113, 0
+  br i1 %.not115, label %116, label %114
 
 114:                                              ; preds = %112
   %115 = tail call ptr @__errno_location() #15
@@ -2435,8 +2435,8 @@ thread-pre-split:                                 ; preds = %86, %83
 116:                                              ; preds = %112
   call void @pmi_kvs_free() #14
   %117 = load ptr, ptr %96, align 8
-  %.not117 = icmp eq ptr %117, null
-  br i1 %.not117, label %119, label %118
+  %.not116 = icmp eq ptr %117, null
+  br i1 %.not116, label %119, label %118
 
 118:                                              ; preds = %116
   call void @eio_handle_destroy(ptr noundef nonnull %117) #14
@@ -2454,8 +2454,8 @@ thread-pre-split:                                 ; preds = %86, %83
   store i8 1, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %126 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %125) #14
-  %.not118 = icmp eq i32 %126, 0
-  br i1 %.not118, label %130, label %127
+  %.not117 = icmp eq i32 %126, 0
+  br i1 %.not117, label %130, label %127
 
 127:                                              ; preds = %123
   %128 = tail call ptr @__errno_location() #15
@@ -2465,8 +2465,8 @@ thread-pre-split:                                 ; preds = %86, %83
 
 130:                                              ; preds = %127, %123
   %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #14
-  %.not119 = icmp eq i32 %131, 0
-  br i1 %.not119, label %134, label %132
+  %.not118 = icmp eq i32 %131, 0
+  br i1 %.not118, label %134, label %132
 
 132:                                              ; preds = %130
   %133 = tail call ptr @__errno_location() #15
@@ -2477,36 +2477,36 @@ thread-pre-split:                                 ; preds = %86, %83
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %136 = load i64, ptr %135, align 8
-  %.not120 = icmp eq i64 %136, 0
-  br i1 %.not120, label %.thread129, label %137
+  %.not119 = icmp eq i64 %136, 0
+  br i1 %.not119, label %.thread128, label %137
 
 137:                                              ; preds = %134
   %138 = call i32 @pthread_join(i64 noundef %136, ptr noundef null) #14
   store i64 0, ptr %135, align 8
-  %.not121 = icmp eq i32 %138, 0
-  br i1 %.not121, label %.thread129, label %139
+  %.not120 = icmp eq i32 %138, 0
+  br i1 %.not120, label %.thread128, label %139
 
 139:                                              ; preds = %137
   %140 = tail call ptr @__errno_location() #15
   store i32 %138, ptr %140, align 4
   %141 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.slurm_step_launch_wait_finish) #14
-  br label %.thread129
+  br label %.thread128
 
-.thread129:                                       ; preds = %134, %139, %137
+.thread128:                                       ; preds = %134, %139, %137
   %142 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #14
-  %.not122 = icmp eq i32 %142, 0
-  br i1 %.not122, label %145, label %143
+  %.not121 = icmp eq i32 %142, 0
+  br i1 %.not121, label %145, label %143
 
-143:                                              ; preds = %.thread129
+143:                                              ; preds = %.thread128
   %144 = tail call ptr @__errno_location() #15
   store i32 %142, ptr %144, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.slurm_step_launch_wait_finish) #16
   unreachable
 
-145:                                              ; preds = %.thread129, %119
+145:                                              ; preds = %.thread128, %119
   %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #14
-  %.not123 = icmp eq i32 %146, 0
-  br i1 %.not123, label %149, label %147
+  %.not122 = icmp eq i32 %146, 0
+  br i1 %.not122, label %149, label %147
 
 147:                                              ; preds = %145
   %148 = tail call ptr @__errno_location() #15
@@ -2519,8 +2519,8 @@ thread-pre-split:                                 ; preds = %86, %83
   %151 = load ptr, ptr %150, align 8
   call void @client_io_handler_finish(ptr noundef %151) #14
   %152 = call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #14
-  %.not124 = icmp eq i32 %152, 0
-  br i1 %.not124, label %155, label %153
+  %.not123 = icmp eq i32 %152, 0
+  br i1 %.not123, label %155, label %153
 
 153:                                              ; preds = %149
   %154 = tail call ptr @__errno_location() #15
@@ -2540,8 +2540,8 @@ thread-pre-split:                                 ; preds = %86, %83
   %. = call i32 @llvm.smax.i32(i32 %161, i32 %159)
   store i32 %., ptr %160, align 8
   %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #14
-  %.not125 = icmp eq i32 %162, 0
-  br i1 %.not125, label %165, label %163
+  %.not124 = icmp eq i32 %162, 0
+  br i1 %.not124, label %165, label %163
 
 163:                                              ; preds = %155
   %164 = tail call ptr @__errno_location() #15

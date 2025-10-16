@@ -620,8 +620,8 @@ define hidden void @proto_reg_handoff_c1222() #0 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  %.b1 = load i1, ptr @proto_reg_handoff_c1222.initialized, align 1
-  br i1 %.b1, label %5, label %2
+  %.b = load i1, ptr @proto_reg_handoff_c1222.initialized, align 1
+  br i1 %.b, label %5, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @c1222_handle, align 8
@@ -638,14 +638,14 @@ define hidden void @proto_reg_handoff_c1222() #0 {
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %6, align 1
-  %.not2 = icmp eq i8 %8, 0
-  br i1 %.not2, label %22, label %9
+  %.not1 = icmp eq i8 %8, 0
+  br i1 %.not1, label %22, label %9
 
 9:                                                ; preds = %7
   %10 = call i32 @oid_string2encoded(ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %1)
   store i32 %10, ptr @c1222_baseoid_len, align 4
-  %.not3 = icmp eq i32 %10, 0
-  br i1 %.not3, label %22, label %11
+  %.not2 = icmp eq i32 %10, 0
+  br i1 %.not2, label %22, label %11
 
 11:                                               ; preds = %9
   %12 = call ptr @wmem_epan_scope()
@@ -664,8 +664,8 @@ define hidden void @proto_reg_handoff_c1222() #0 {
 
 22:                                               ; preds = %9, %7, %5
   %23 = load ptr, ptr @c1222_baseoid, align 8
-  %.not4 = icmp eq ptr %23, null
-  br i1 %.not4, label %27, label %24
+  %.not3 = icmp eq ptr %23, null
+  br i1 %.not3, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = call ptr @wmem_epan_scope()

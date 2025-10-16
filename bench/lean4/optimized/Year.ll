@@ -2729,8 +2729,8 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Date_Unit_Year(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b16 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b16, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -2772,9 +2772,9 @@ define ptr @initialize_Std_Time_Date_Unit_Year(i8 noundef zeroext %0, ptr nounde
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Internal_Rat(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val23 = load i32, ptr %19, align 4
-  %.mask.i26 = and i32 %.val23, -16777216
-  %20 = icmp eq i32 %.mask.i26, 16777216
+  %.val22 = load i32, ptr %19, align 4
+  %.mask.i25 = and i32 %.val22, -16777216
+  %20 = icmp eq i32 %.mask.i25, 16777216
   br i1 %20, label %373, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -2785,25 +2785,25 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
 26:                                               ; preds = %21
-  %.not.i17 = icmp eq i32 %22, 0
-  br i1 %.not.i17, label %lean_dec_ref.exit18, label %27
+  %.not.i16 = icmp eq i32 %22, 0
+  br i1 %.not.i16, label %lean_dec_ref.exit17, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
-lean_dec_ref.exit18:                              ; preds = %24, %26, %27
+lean_dec_ref.exit17:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Std_Time_Date_Unit_Day(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val24 = load i32, ptr %29, align 4
-  %.mask.i27 = and i32 %.val24, -16777216
-  %30 = icmp eq i32 %.mask.i27, 16777216
+  %.val23 = load i32, ptr %29, align 4
+  %.mask.i26 = and i32 %.val23, -16777216
+  %30 = icmp eq i32 %.mask.i26, 16777216
   br i1 %30, label %373, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit18
+31:                                               ; preds = %lean_dec_ref.exit17
   %32 = load i32, ptr %28, align 4, !tbaa !4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !9
@@ -2811,25 +2811,25 @@ lean_dec_ref.exit18:                              ; preds = %24, %26, %27
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
   store i32 %35, ptr %28, align 4, !tbaa !4
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
 36:                                               ; preds = %31
-  %.not.i19 = icmp eq i32 %32, 0
-  br i1 %.not.i19, label %lean_dec_ref.exit20, label %37
+  %.not.i18 = icmp eq i32 %32, 0
+  br i1 %.not.i18, label %lean_dec_ref.exit19, label %37
 
 37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #6
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
-lean_dec_ref.exit20:                              ; preds = %34, %36, %37
+lean_dec_ref.exit19:                              ; preds = %34, %36, %37
   %38 = tail call ptr @initialize_Std_Time_Date_Unit_Month(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %39 = getelementptr i8, ptr %38, i64 4
-  %.val25 = load i32, ptr %39, align 4
-  %.mask.i28 = and i32 %.val25, -16777216
-  %40 = icmp eq i32 %.mask.i28, 16777216
+  %.val24 = load i32, ptr %39, align 4
+  %.mask.i27 = and i32 %.val24, -16777216
+  %40 = icmp eq i32 %.mask.i27, 16777216
   br i1 %40, label %373, label %41
 
-41:                                               ; preds = %lean_dec_ref.exit20
+41:                                               ; preds = %lean_dec_ref.exit19
   %42 = load i32, ptr %38, align 4, !tbaa !4
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %46, !prof !9
@@ -2837,27 +2837,27 @@ lean_dec_ref.exit20:                              ; preds = %34, %36, %37
 44:                                               ; preds = %41
   %45 = add nsw i32 %42, -1
   store i32 %45, ptr %38, align 4, !tbaa !4
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 46:                                               ; preds = %41
-  %.not.i21 = icmp eq i32 %42, 0
-  br i1 %.not.i21, label %lean_dec_ref.exit22, label %47
+  %.not.i20 = icmp eq i32 %42, 0
+  br i1 %.not.i20, label %lean_dec_ref.exit21, label %47
 
 47:                                               ; preds = %46
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %38) #6
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
-lean_dec_ref.exit22:                              ; preds = %44, %46, %47
+lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   tail call void @lean_inc_heartbeat() #6
   %48 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %_init_l_Std_Time_Year_Era_noConfusion___rarg___closed__1.exit
 
-50:                                               ; preds = %lean_dec_ref.exit22
+50:                                               ; preds = %lean_dec_ref.exit21
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Std_Time_Year_Era_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit22
+_init_l_Std_Time_Year_Era_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit21
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 1, ptr %48, align 4, !tbaa !4
   store i32 -184549352, ptr %51, align 4
@@ -3213,8 +3213,8 @@ _init_l_Std_Time_Year_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   %165 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__4, align 8, !tbaa !10
   %166 = ptrtoint ptr %165 to i64
   %167 = and i64 %166, 1
-  %.not.i.i29 = icmp eq i64 %167, 0
-  br i1 %.not.i.i29, label %.critedge.i.i32, label %168, !prof !15
+  %.not.i.i28 = icmp eq i64 %167, 0
+  br i1 %.not.i.i28, label %.critedge.i.i31, label %168, !prof !15
 
 168:                                              ; preds = %_init_l_Std_Time_Year_instOrdOffset___closed__1.exit
   %169 = shl i64 %166, 31
@@ -3234,28 +3234,28 @@ _init_l_Std_Time_Year_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   %179 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %171) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__5.exit
 
-.critedge.i.i32:                                  ; preds = %_init_l_Std_Time_Year_instOrdOffset___closed__1.exit
+.critedge.i.i31:                                  ; preds = %_init_l_Std_Time_Year_instOrdOffset___closed__1.exit
   %180 = tail call ptr @lean_int_big_add(ptr noundef %165, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__5.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__5.exit: ; preds = %173, %178, %.critedge.i.i32
-  %.0.i.i31 = phi ptr [ %180, %.critedge.i.i32 ], [ %177, %173 ], [ %179, %178 ]
-  store ptr %.0.i.i31, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i31) #6
+_init_l_Std_Time_Year_Offset_days___closed__5.exit: ; preds = %173, %178, %.critedge.i.i31
+  %.0.i.i30 = phi ptr [ %180, %.critedge.i.i31 ], [ %177, %173 ], [ %179, %178 ]
+  store ptr %.0.i.i30, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i30) #6
   store ptr inttoptr (i64 8589934573 to ptr), ptr @l_Std_Time_Year_Offset_days___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 8589934573 to ptr)) #6
   %181 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__6, align 8, !tbaa !10
   %182 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %183 = ptrtoint ptr %181 to i64
   %184 = and i64 %183, 1
-  %.not.i.i37 = icmp eq i64 %184, 0
-  br i1 %.not.i.i37, label %.critedge.i.i39, label %185, !prof !15
+  %.not.i.i36 = icmp eq i64 %184, 0
+  br i1 %.not.i.i36, label %.critedge.i.i38, label %185, !prof !15
 
 185:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__5.exit
   %186 = ptrtoint ptr %182 to i64
   %187 = and i64 %186, 1
   %.not21.i.i = icmp eq i64 %187, 0
-  br i1 %.not21.i.i, label %.critedge.i.i39, label %188, !prof !15
+  br i1 %.not21.i.i, label %.critedge.i.i38, label %188, !prof !15
 
 188:                                              ; preds = %185
   %189 = shl i64 %186, 31
@@ -3270,42 +3270,42 @@ _init_l_Std_Time_Year_Offset_days___closed__5.exit: ; preds = %173, %178, %.crit
   %196 = icmp slt i64 %195, 0
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %192, i1 true)
   %197 = select i1 %196, i64 %.p.i.i, i64 0
-  %.0.i.i38 = add nsw i64 %197, %195
-  %198 = add nsw i64 %.0.i.i38, 2147483648
+  %.0.i.i37 = add nsw i64 %197, %195
+  %198 = add nsw i64 %.0.i.i37, 2147483648
   %199 = icmp samesign ult i64 %198, 4294967296
   br i1 %199, label %200, label %205, !prof !9
 
 200:                                              ; preds = %191
-  %201 = shl nsw i64 %.0.i.i38, 1
+  %201 = shl nsw i64 %.0.i.i37, 1
   %202 = and i64 %201, 8589934590
   %203 = or disjoint i64 %202, 1
   %204 = inttoptr i64 %203 to ptr
   br label %_init_l_Std_Time_Year_Offset_days___closed__7.exit
 
 205:                                              ; preds = %191
-  %206 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i38) #6
+  %206 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i37) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__7.exit
 
-.critedge.i.i39:                                  ; preds = %185, %_init_l_Std_Time_Year_Offset_days___closed__5.exit
+.critedge.i.i38:                                  ; preds = %185, %_init_l_Std_Time_Year_Offset_days___closed__5.exit
   %207 = tail call ptr @lean_int_big_emod(ptr noundef %181, ptr noundef %182) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__7.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__7.exit: ; preds = %188, %200, %205, %.critedge.i.i39
-  %.1.i.i = phi ptr [ %207, %.critedge.i.i39 ], [ %181, %188 ], [ %204, %200 ], [ %206, %205 ]
+_init_l_Std_Time_Year_Offset_days___closed__7.exit: ; preds = %188, %200, %205, %.critedge.i.i38
+  %.1.i.i = phi ptr [ %207, %.critedge.i.i38 ], [ %181, %188 ], [ %204, %200 ], [ %206, %205 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Year_Offset_days___closed__7, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #6
   %208 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__7, align 8, !tbaa !10
   %209 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %210 = ptrtoint ptr %208 to i64
   %211 = and i64 %210, 1
-  %.not.i.i40 = icmp eq i64 %211, 0
-  br i1 %.not.i.i40, label %.critedge.i.i43, label %212, !prof !15
+  %.not.i.i39 = icmp eq i64 %211, 0
+  br i1 %.not.i.i39, label %.critedge.i.i42, label %212, !prof !15
 
 212:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__7.exit
   %213 = ptrtoint ptr %209 to i64
   %214 = and i64 %213, 1
-  %.not7.i.i41 = icmp eq i64 %214, 0
-  br i1 %.not7.i.i41, label %.critedge.i.i43, label %215, !prof !15
+  %.not7.i.i40 = icmp eq i64 %214, 0
+  br i1 %.not7.i.i40, label %.critedge.i.i42, label %215, !prof !15
 
 215:                                              ; preds = %212
   %216 = shl i64 %210, 31
@@ -3328,26 +3328,26 @@ _init_l_Std_Time_Year_Offset_days___closed__7.exit: ; preds = %188, %200, %205, 
   %229 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %220) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__8.exit
 
-.critedge.i.i43:                                  ; preds = %212, %_init_l_Std_Time_Year_Offset_days___closed__7.exit
+.critedge.i.i42:                                  ; preds = %212, %_init_l_Std_Time_Year_Offset_days___closed__7.exit
   %230 = tail call ptr @lean_int_big_add(ptr noundef %208, ptr noundef %209) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__8.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__8.exit: ; preds = %223, %228, %.critedge.i.i43
-  %.0.i.i42 = phi ptr [ %230, %.critedge.i.i43 ], [ %227, %223 ], [ %229, %228 ]
-  store ptr %.0.i.i42, ptr @l_Std_Time_Year_Offset_days___closed__8, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i42) #6
+_init_l_Std_Time_Year_Offset_days___closed__8.exit: ; preds = %223, %228, %.critedge.i.i42
+  %.0.i.i41 = phi ptr [ %230, %.critedge.i.i42 ], [ %227, %223 ], [ %229, %228 ]
+  store ptr %.0.i.i41, ptr @l_Std_Time_Year_Offset_days___closed__8, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i41) #6
   %231 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__8, align 8, !tbaa !10
   %232 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %233 = ptrtoint ptr %231 to i64
   %234 = and i64 %233, 1
-  %.not.i.i44 = icmp eq i64 %234, 0
-  br i1 %.not.i.i44, label %.critedge.i.i49, label %235, !prof !15
+  %.not.i.i43 = icmp eq i64 %234, 0
+  br i1 %.not.i.i43, label %.critedge.i.i48, label %235, !prof !15
 
 235:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__8.exit
   %236 = ptrtoint ptr %232 to i64
   %237 = and i64 %236, 1
-  %.not21.i.i45 = icmp eq i64 %237, 0
-  br i1 %.not21.i.i45, label %.critedge.i.i49, label %238, !prof !15
+  %.not21.i.i44 = icmp eq i64 %237, 0
+  br i1 %.not21.i.i44, label %.critedge.i.i48, label %238, !prof !15
 
 238:                                              ; preds = %235
   %239 = shl i64 %236, 31
@@ -3360,37 +3360,37 @@ _init_l_Std_Time_Year_Offset_days___closed__8.exit: ; preds = %223, %228, %.crit
   %244 = ashr i64 %243, 32
   %245 = srem i64 %244, %242
   %246 = icmp slt i64 %245, 0
-  %.p.i.i46 = tail call i64 @llvm.abs.i64(i64 %242, i1 true)
-  %247 = select i1 %246, i64 %.p.i.i46, i64 0
-  %.0.i.i47 = add nsw i64 %247, %245
-  %248 = add nsw i64 %.0.i.i47, 2147483648
+  %.p.i.i45 = tail call i64 @llvm.abs.i64(i64 %242, i1 true)
+  %247 = select i1 %246, i64 %.p.i.i45, i64 0
+  %.0.i.i46 = add nsw i64 %247, %245
+  %248 = add nsw i64 %.0.i.i46, 2147483648
   %249 = icmp samesign ult i64 %248, 4294967296
   br i1 %249, label %250, label %255, !prof !9
 
 250:                                              ; preds = %241
-  %251 = shl nsw i64 %.0.i.i47, 1
+  %251 = shl nsw i64 %.0.i.i46, 1
   %252 = and i64 %251, 8589934590
   %253 = or disjoint i64 %252, 1
   %254 = inttoptr i64 %253 to ptr
   br label %_init_l_Std_Time_Year_Offset_days___closed__9.exit
 
 255:                                              ; preds = %241
-  %256 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i47) #6
+  %256 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i46) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__9.exit
 
-.critedge.i.i49:                                  ; preds = %235, %_init_l_Std_Time_Year_Offset_days___closed__8.exit
+.critedge.i.i48:                                  ; preds = %235, %_init_l_Std_Time_Year_Offset_days___closed__8.exit
   %257 = tail call ptr @lean_int_big_emod(ptr noundef %231, ptr noundef %232) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__9.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__9.exit: ; preds = %238, %250, %255, %.critedge.i.i49
-  %.1.i.i48 = phi ptr [ %257, %.critedge.i.i49 ], [ %231, %238 ], [ %254, %250 ], [ %256, %255 ]
-  store ptr %.1.i.i48, ptr @l_Std_Time_Year_Offset_days___closed__9, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i48) #6
+_init_l_Std_Time_Year_Offset_days___closed__9.exit: ; preds = %238, %250, %255, %.critedge.i.i48
+  %.1.i.i47 = phi ptr [ %257, %.critedge.i.i48 ], [ %231, %238 ], [ %254, %250 ], [ %256, %255 ]
+  store ptr %.1.i.i47, ptr @l_Std_Time_Year_Offset_days___closed__9, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i47) #6
   %258 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__9, align 8, !tbaa !10
   %259 = ptrtoint ptr %258 to i64
   %260 = and i64 %259, 1
-  %.not.i.i50 = icmp eq i64 %260, 0
-  br i1 %.not.i.i50, label %.critedge.i.i53, label %261, !prof !15
+  %.not.i.i49 = icmp eq i64 %260, 0
+  br i1 %.not.i.i49, label %.critedge.i.i52, label %261, !prof !15
 
 261:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__9.exit
   %262 = shl i64 %259, 31
@@ -3410,26 +3410,26 @@ _init_l_Std_Time_Year_Offset_days___closed__9.exit: ; preds = %238, %250, %255, 
   %272 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %264) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__10.exit
 
-.critedge.i.i53:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__9.exit
+.critedge.i.i52:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__9.exit
   %273 = tail call ptr @lean_int_big_add(ptr noundef %258, ptr noundef nonnull inttoptr (i64 731 to ptr)) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__10.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__10.exit: ; preds = %266, %271, %.critedge.i.i53
-  %.0.i.i52 = phi ptr [ %273, %.critedge.i.i53 ], [ %270, %266 ], [ %272, %271 ]
-  store ptr %.0.i.i52, ptr @l_Std_Time_Year_Offset_days___closed__10, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i52) #6
+_init_l_Std_Time_Year_Offset_days___closed__10.exit: ; preds = %266, %271, %.critedge.i.i52
+  %.0.i.i51 = phi ptr [ %273, %.critedge.i.i52 ], [ %270, %266 ], [ %272, %271 ]
+  store ptr %.0.i.i51, ptr @l_Std_Time_Year_Offset_days___closed__10, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i51) #6
   %274 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__4, align 8, !tbaa !10
   %275 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %276 = ptrtoint ptr %274 to i64
   %277 = and i64 %276, 1
-  %.not.i.i54 = icmp eq i64 %277, 0
-  br i1 %.not.i.i54, label %.critedge.i.i59, label %278, !prof !15
+  %.not.i.i53 = icmp eq i64 %277, 0
+  br i1 %.not.i.i53, label %.critedge.i.i58, label %278, !prof !15
 
 278:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__10.exit
   %279 = ptrtoint ptr %275 to i64
   %280 = and i64 %279, 1
-  %.not21.i.i55 = icmp eq i64 %280, 0
-  br i1 %.not21.i.i55, label %.critedge.i.i59, label %281, !prof !15
+  %.not21.i.i54 = icmp eq i64 %280, 0
+  br i1 %.not21.i.i54, label %.critedge.i.i58, label %281, !prof !15
 
 281:                                              ; preds = %278
   %282 = shl i64 %279, 31
@@ -3442,44 +3442,44 @@ _init_l_Std_Time_Year_Offset_days___closed__10.exit: ; preds = %266, %271, %.cri
   %287 = ashr i64 %286, 32
   %288 = srem i64 %287, %285
   %289 = icmp slt i64 %288, 0
-  %.p.i.i56 = tail call i64 @llvm.abs.i64(i64 %285, i1 true)
-  %290 = select i1 %289, i64 %.p.i.i56, i64 0
-  %.0.i.i57 = add nsw i64 %290, %288
-  %291 = add nsw i64 %.0.i.i57, 2147483648
+  %.p.i.i55 = tail call i64 @llvm.abs.i64(i64 %285, i1 true)
+  %290 = select i1 %289, i64 %.p.i.i55, i64 0
+  %.0.i.i56 = add nsw i64 %290, %288
+  %291 = add nsw i64 %.0.i.i56, 2147483648
   %292 = icmp samesign ult i64 %291, 4294967296
   br i1 %292, label %293, label %298, !prof !9
 
 293:                                              ; preds = %284
-  %294 = shl nsw i64 %.0.i.i57, 1
+  %294 = shl nsw i64 %.0.i.i56, 1
   %295 = and i64 %294, 8589934590
   %296 = or disjoint i64 %295, 1
   %297 = inttoptr i64 %296 to ptr
   br label %_init_l_Std_Time_Year_Offset_days___closed__11.exit
 
 298:                                              ; preds = %284
-  %299 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i57) #6
+  %299 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i56) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__11.exit
 
-.critedge.i.i59:                                  ; preds = %278, %_init_l_Std_Time_Year_Offset_days___closed__10.exit
+.critedge.i.i58:                                  ; preds = %278, %_init_l_Std_Time_Year_Offset_days___closed__10.exit
   %300 = tail call ptr @lean_int_big_emod(ptr noundef %274, ptr noundef %275) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__11.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__11.exit: ; preds = %281, %293, %298, %.critedge.i.i59
-  %.1.i.i58 = phi ptr [ %300, %.critedge.i.i59 ], [ %274, %281 ], [ %297, %293 ], [ %299, %298 ]
-  store ptr %.1.i.i58, ptr @l_Std_Time_Year_Offset_days___closed__11, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i58) #6
+_init_l_Std_Time_Year_Offset_days___closed__11.exit: ; preds = %281, %293, %298, %.critedge.i.i58
+  %.1.i.i57 = phi ptr [ %300, %.critedge.i.i58 ], [ %274, %281 ], [ %297, %293 ], [ %299, %298 ]
+  store ptr %.1.i.i57, ptr @l_Std_Time_Year_Offset_days___closed__11, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i57) #6
   %301 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__11, align 8, !tbaa !10
   %302 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %303 = ptrtoint ptr %301 to i64
   %304 = and i64 %303, 1
-  %.not.i.i60 = icmp eq i64 %304, 0
-  br i1 %.not.i.i60, label %.critedge.i.i63, label %305, !prof !15
+  %.not.i.i59 = icmp eq i64 %304, 0
+  br i1 %.not.i.i59, label %.critedge.i.i62, label %305, !prof !15
 
 305:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__11.exit
   %306 = ptrtoint ptr %302 to i64
   %307 = and i64 %306, 1
-  %.not7.i.i61 = icmp eq i64 %307, 0
-  br i1 %.not7.i.i61, label %.critedge.i.i63, label %308, !prof !15
+  %.not7.i.i60 = icmp eq i64 %307, 0
+  br i1 %.not7.i.i60, label %.critedge.i.i62, label %308, !prof !15
 
 308:                                              ; preds = %305
   %309 = shl i64 %303, 31
@@ -3502,26 +3502,26 @@ _init_l_Std_Time_Year_Offset_days___closed__11.exit: ; preds = %281, %293, %298,
   %322 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %313) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__12.exit
 
-.critedge.i.i63:                                  ; preds = %305, %_init_l_Std_Time_Year_Offset_days___closed__11.exit
+.critedge.i.i62:                                  ; preds = %305, %_init_l_Std_Time_Year_Offset_days___closed__11.exit
   %323 = tail call ptr @lean_int_big_add(ptr noundef %301, ptr noundef %302) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__12.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__12.exit: ; preds = %316, %321, %.critedge.i.i63
-  %.0.i.i62 = phi ptr [ %323, %.critedge.i.i63 ], [ %320, %316 ], [ %322, %321 ]
-  store ptr %.0.i.i62, ptr @l_Std_Time_Year_Offset_days___closed__12, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i62) #6
+_init_l_Std_Time_Year_Offset_days___closed__12.exit: ; preds = %316, %321, %.critedge.i.i62
+  %.0.i.i61 = phi ptr [ %323, %.critedge.i.i62 ], [ %320, %316 ], [ %322, %321 ]
+  store ptr %.0.i.i61, ptr @l_Std_Time_Year_Offset_days___closed__12, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i61) #6
   %324 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__12, align 8, !tbaa !10
   %325 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__5, align 8, !tbaa !10
   %326 = ptrtoint ptr %324 to i64
   %327 = and i64 %326, 1
-  %.not.i.i64 = icmp eq i64 %327, 0
-  br i1 %.not.i.i64, label %.critedge.i.i69, label %328, !prof !15
+  %.not.i.i63 = icmp eq i64 %327, 0
+  br i1 %.not.i.i63, label %.critedge.i.i68, label %328, !prof !15
 
 328:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__12.exit
   %329 = ptrtoint ptr %325 to i64
   %330 = and i64 %329, 1
-  %.not21.i.i65 = icmp eq i64 %330, 0
-  br i1 %.not21.i.i65, label %.critedge.i.i69, label %331, !prof !15
+  %.not21.i.i64 = icmp eq i64 %330, 0
+  br i1 %.not21.i.i64, label %.critedge.i.i68, label %331, !prof !15
 
 331:                                              ; preds = %328
   %332 = shl i64 %329, 31
@@ -3534,37 +3534,37 @@ _init_l_Std_Time_Year_Offset_days___closed__12.exit: ; preds = %316, %321, %.cri
   %337 = ashr i64 %336, 32
   %338 = srem i64 %337, %335
   %339 = icmp slt i64 %338, 0
-  %.p.i.i66 = tail call i64 @llvm.abs.i64(i64 %335, i1 true)
-  %340 = select i1 %339, i64 %.p.i.i66, i64 0
-  %.0.i.i67 = add nsw i64 %340, %338
-  %341 = add nsw i64 %.0.i.i67, 2147483648
+  %.p.i.i65 = tail call i64 @llvm.abs.i64(i64 %335, i1 true)
+  %340 = select i1 %339, i64 %.p.i.i65, i64 0
+  %.0.i.i66 = add nsw i64 %340, %338
+  %341 = add nsw i64 %.0.i.i66, 2147483648
   %342 = icmp samesign ult i64 %341, 4294967296
   br i1 %342, label %343, label %348, !prof !9
 
 343:                                              ; preds = %334
-  %344 = shl nsw i64 %.0.i.i67, 1
+  %344 = shl nsw i64 %.0.i.i66, 1
   %345 = and i64 %344, 8589934590
   %346 = or disjoint i64 %345, 1
   %347 = inttoptr i64 %346 to ptr
   br label %_init_l_Std_Time_Year_Offset_days___closed__13.exit
 
 348:                                              ; preds = %334
-  %349 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i67) #6
+  %349 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i66) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__13.exit
 
-.critedge.i.i69:                                  ; preds = %328, %_init_l_Std_Time_Year_Offset_days___closed__12.exit
+.critedge.i.i68:                                  ; preds = %328, %_init_l_Std_Time_Year_Offset_days___closed__12.exit
   %350 = tail call ptr @lean_int_big_emod(ptr noundef %324, ptr noundef %325) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__13.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__13.exit: ; preds = %331, %343, %348, %.critedge.i.i69
-  %.1.i.i68 = phi ptr [ %350, %.critedge.i.i69 ], [ %324, %331 ], [ %347, %343 ], [ %349, %348 ]
-  store ptr %.1.i.i68, ptr @l_Std_Time_Year_Offset_days___closed__13, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i68) #6
+_init_l_Std_Time_Year_Offset_days___closed__13.exit: ; preds = %331, %343, %348, %.critedge.i.i68
+  %.1.i.i67 = phi ptr [ %350, %.critedge.i.i68 ], [ %324, %331 ], [ %347, %343 ], [ %349, %348 ]
+  store ptr %.1.i.i67, ptr @l_Std_Time_Year_Offset_days___closed__13, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i67) #6
   %351 = load ptr, ptr @l_Std_Time_Year_Offset_days___closed__13, align 8, !tbaa !10
   %352 = ptrtoint ptr %351 to i64
   %353 = and i64 %352, 1
-  %.not.i.i70 = icmp eq i64 %353, 0
-  br i1 %.not.i.i70, label %.critedge.i.i73, label %354, !prof !15
+  %.not.i.i69 = icmp eq i64 %353, 0
+  br i1 %.not.i.i69, label %.critedge.i.i72, label %354, !prof !15
 
 354:                                              ; preds = %_init_l_Std_Time_Year_Offset_days___closed__13.exit
   %355 = shl i64 %352, 31
@@ -3584,14 +3584,14 @@ _init_l_Std_Time_Year_Offset_days___closed__13.exit: ; preds = %331, %343, %348,
   %365 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %357) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__14.exit
 
-.critedge.i.i73:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__13.exit
+.critedge.i.i72:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__13.exit
   %366 = tail call ptr @lean_int_big_add(ptr noundef %351, ptr noundef nonnull inttoptr (i64 731 to ptr)) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__14.exit
 
-_init_l_Std_Time_Year_Offset_days___closed__14.exit: ; preds = %359, %364, %.critedge.i.i73
-  %.0.i.i72 = phi ptr [ %366, %.critedge.i.i73 ], [ %363, %359 ], [ %365, %364 ]
-  store ptr %.0.i.i72, ptr @l_Std_Time_Year_Offset_days___closed__14, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i72) #6
+_init_l_Std_Time_Year_Offset_days___closed__14.exit: ; preds = %359, %364, %.critedge.i.i72
+  %.0.i.i71 = phi ptr [ %366, %.critedge.i.i72 ], [ %363, %359 ], [ %365, %364 ]
+  store ptr %.0.i.i71, ptr @l_Std_Time_Year_Offset_days___closed__14, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i71) #6
   store ptr inttoptr (i64 15 to ptr), ptr @l_Std_Time_Year_Offset_weeks___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 15 to ptr)) #6
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 105 to ptr)) #6
@@ -3611,18 +3611,18 @@ _init_l_Std_Time_Year_Offset_days___closed__14.exit: ; preds = %359, %364, %.cri
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Year_Offset_days___closed__14.exit, %3
-  %.sink114 = phi ptr [ %4, %3 ], [ %367, %_init_l_Std_Time_Year_Offset_days___closed__14.exit ]
-  %370 = getelementptr inbounds nuw i8, ptr %.sink114, i64 4
-  store i32 1, ptr %.sink114, align 4, !tbaa !4
+  %.sink113 = phi ptr [ %4, %3 ], [ %367, %_init_l_Std_Time_Year_Offset_days___closed__14.exit ]
+  %370 = getelementptr inbounds nuw i8, ptr %.sink113, i64 4
+  store i32 1, ptr %.sink113, align 4, !tbaa !4
   store i32 131096, ptr %370, align 4
-  %371 = getelementptr inbounds nuw i8, ptr %.sink114, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %.sink113, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %371, align 8, !tbaa !10
-  %372 = getelementptr inbounds nuw i8, ptr %.sink114, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %.sink113, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %372, align 8, !tbaa !10
   br label %373
 
-373:                                              ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink114, %.sink.split ]
+373:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink113, %.sink.split ]
   ret ptr %.0
 }
 

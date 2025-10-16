@@ -61,8 +61,8 @@ define dso_local i32 @acct_gather_conf_init() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b22 = load i1, ptr @inited, align 1
-  br i1 %.b22, label %58, label %5
+  %.b = load i1, ptr @inited, align 1
+  br i1 %.b, label %58, label %5
 
 5:                                                ; preds = %0
   store i1 true, ptr @inited, align 1
@@ -721,26 +721,26 @@ declare ptr @s_p_unpack_hashtbl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @acct_gather_conf_destroy() local_unnamed_addr #0 {
-  %.b7 = load i1, ptr @inited, align 1
-  br i1 %.b7, label %1, label %14
+  %.b = load i1, ptr @inited, align 1
+  br i1 %.b, label %1, label %14
 
 1:                                                ; preds = %0
   store i1 false, ptr @inited, align 1
   %2 = tail call i32 @acct_gather_energy_fini() #9
   %.not = icmp ne i32 %2, 0
   %3 = tail call i32 @acct_gather_filesystem_fini() #9
-  %.not8 = icmp ne i32 %3, 0
+  %.not7 = icmp ne i32 %3, 0
   %4 = tail call i32 @acct_gather_interconnect_fini() #9
-  %.not9 = icmp ne i32 %4, 0
+  %.not8 = icmp ne i32 %4, 0
   %5 = tail call i32 @acct_gather_profile_fini() #9
-  %.not10 = icmp ne i32 %5, 0
-  %6 = select i1 %.not10, i1 true, i1 %.not9
-  %7 = select i1 %6, i1 true, i1 %.not8
+  %.not9 = icmp ne i32 %5, 0
+  %6 = select i1 %.not9, i1 true, i1 %.not8
+  %7 = select i1 %6, i1 true, i1 %.not7
   %narrow = select i1 %7, i1 true, i1 %.not
   %.3 = sext i1 %narrow to i32
   %8 = load ptr, ptr @acct_gather_options_buf, align 8
-  %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %10, label %9
+  %.not10 = icmp eq ptr %8, null
+  br i1 %.not10, label %10, label %9
 
 9:                                                ; preds = %1
   tail call void @free_buf(ptr noundef nonnull %8) #9
@@ -749,8 +749,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_conf_destroy() local_unnamed_
 10:                                               ; preds = %9, %1
   store ptr null, ptr @acct_gather_options_buf, align 8
   %11 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull @conf_mutex) #9
-  %.not12 = icmp eq i32 %11, 0
-  br i1 %.not12, label %14, label %12
+  %.not11 = icmp eq i32 %11, 0
+  br i1 %.not11, label %14, label %12
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #11
@@ -1132,10 +1132,10 @@ define dso_local zeroext i1 @acct_gather_suspend_test() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %.b6 = load i1, ptr @acct_gather_suspended, align 1
+  %.b = load i1, ptr @acct_gather_suspended, align 1
   %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @suspended_mutex) #9
-  %.not7 = icmp eq i32 %5, 0
-  br i1 %.not7, label %8, label %6
+  %.not6 = icmp eq i32 %5, 0
+  br i1 %.not6, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = tail call ptr @__errno_location() #11
@@ -1144,7 +1144,7 @@ define dso_local zeroext i1 @acct_gather_suspend_test() local_unnamed_addr #0 {
   unreachable
 
 8:                                                ; preds = %4
-  ret i1 %.b6
+  ret i1 %.b
 }
 
 declare i32 @acct_gather_energy_g_conf_set(ptr noundef) local_unnamed_addr #1

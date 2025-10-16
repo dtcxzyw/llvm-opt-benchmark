@@ -119099,7 +119099,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26767)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26770)
   %102 = icmp eq i64 %3, 4
-  br i1 %102, label %.preheader.i, label %.loopexit599
+  br i1 %102, label %.preheader.i, label %.loopexit597
 
 .preheader.i:                                     ; preds = %101, %104
   %103 = phi i64 [ %105, %104 ], [ 0, %101 ]
@@ -119121,7 +119121,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   %112 = or i8 %.0.i.i.i.i.i, %.val.i.i
   %113 = or i8 %.02.i.i.i.i.i, %.val6.i.i
   %.not.i.i = icmp eq i8 %112, %113
-  br i1 %.not.i.i, label %.preheader.i, label %.loopexit599
+  br i1 %.not.i.i, label %.preheader.i, label %.loopexit597
 
 114:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -119158,14 +119158,14 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
 125:                                              ; preds = %151, %174, %216, %225, %191, %200, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit371", %.loopexit, %222, %197, %163, %146, %144, %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17ha6bd8612f2a1ca84E.exit", %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17ha24be6096e3ab0ebE.exit", %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17he2c79210f65dd830E.exit", %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17hccfcc0dd168dda22E.exit", %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17h1dbe3c5b9b482a26E.exit", %"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$16str_parse_scalar17h73df2a4614ed4734E.exit", %34, %25
   ret void
 
-.loopexit599:                                     ; preds = %104, %101
+.loopexit597:                                     ; preds = %104, %101
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26797)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26800)
   %126 = icmp eq i64 %3, 5
   br i1 %126, label %.preheader.i364, label %.loopexit
 
-.preheader.i364:                                  ; preds = %.loopexit599, %128
-  %127 = phi i64 [ %129, %128 ], [ 0, %.loopexit599 ]
+.preheader.i364:                                  ; preds = %.loopexit597, %128
+  %127 = phi i64 [ %129, %128 ], [ 0, %.loopexit597 ]
   %exitcond.not.i365 = icmp eq i64 %127, 5
   br i1 %exitcond.not.i365, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit371", label %128
 
@@ -119194,7 +119194,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   store i64 34, ptr %0, align 16
   br label %125
 
-.loopexit:                                        ; preds = %128, %.loopexit599
+.loopexit:                                        ; preds = %128, %.loopexit597
   %139 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8ca70dbaa644b566E"(i64 noundef %3, i1 noundef zeroext false), !noalias !26806
   %140 = extractvalue { i64, ptr } %139, 0
   %141 = extractvalue { i64, ptr } %139, 1
@@ -119354,7 +119354,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
 176:                                              ; preds = %119
   %.sroa.4397.8.copyload399 = load i64, ptr %21, align 8, !alias.scope !26850, !noalias !26851
   %.sroa.8400.8..sroa_idx401 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.8400.0.copyload598 = load i32, ptr %.sroa.8400.8..sroa_idx401, align 8, !alias.scope !26850, !noalias !26851
+  %.sroa.8400.0.copyload = load i32, ptr %.sroa.8400.8..sroa_idx401, align 8, !alias.scope !26850, !noalias !26851
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %177 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref17h880efe2d37294e93E"(ptr noalias noundef nonnull readonly align 1 @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$12parse_scalar10UNIX_EPOCH17hd7cdaf2b1ca4cdffE")
@@ -119363,7 +119363,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !26852
   store i64 %.sroa.4397.8.copyload399, ptr %8, align 8, !noalias !26856
   %.sroa.0411.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.8400.0.copyload598, ptr %.sroa.0411.sroa.2.0..sroa_idx, align 8, !noalias !26856
+  store i32 %.sroa.8400.0.copyload, ptr %.sroa.0411.sroa.2.0..sroa_idx, align 8, !noalias !26856
   %178 = call { i64, i32 } @_ZN6chrono5naive8datetime13NaiveDateTime21signed_duration_since17h30af032f3fe9ac1cE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %7), !noalias !26852
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !26852
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !26852
@@ -119445,7 +119445,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
 201:                                              ; preds = %122
   %.sroa.4414.8.copyload416 = load i64, ptr %18, align 8, !alias.scope !26876, !noalias !26877
   %.sroa.8417.8..sroa_idx418 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.8417.0.copyload597 = load i32, ptr %.sroa.8417.8..sroa_idx418, align 8, !alias.scope !26876, !noalias !26877
+  %.sroa.8417.0.copyload = load i32, ptr %.sroa.8417.8..sroa_idx418, align 8, !alias.scope !26876, !noalias !26877
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %202 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref17h880efe2d37294e93E"(ptr noalias noundef nonnull readonly align 1 @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$12parse_scalar10UNIX_EPOCH17hd7cdaf2b1ca4cdffE")
@@ -119454,7 +119454,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !26878
   store i64 %.sroa.4414.8.copyload416, ptr %6, align 8, !noalias !26882
   %.sroa.0428.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %.sroa.8417.0.copyload597, ptr %.sroa.0428.sroa.2.0..sroa_idx, align 8, !noalias !26882
+  store i32 %.sroa.8417.0.copyload, ptr %.sroa.0428.sroa.2.0..sroa_idx, align 8, !noalias !26882
   %203 = call { i64, i32 } @_ZN6chrono5naive8datetime13NaiveDateTime21signed_duration_since17h30af032f3fe9ac1cE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5), !noalias !26878
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26878
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !26878
@@ -133337,7 +133337,7 @@ _ZN10serde_json5value5Value7get_mut17hba666b256ef4ba7aE.exit150: ; preds = %.thr
 403:                                              ; preds = %.noexc162
   %404 = load i64, ptr %140, align 8, !alias.scope !29126, !noalias !29129, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !29112
-  %.lobit249.i.i = lshr i64 %404, 63
+  %.lobit248.i.i = lshr i64 %404, 63
   br label %_ZN14deltalake_core8protocol11checkpoints40typed_partition_value_from_option_string17h68d703e2b6c88a3bE.exit.thread450
 
 405:                                              ; preds = %.noexc162
@@ -133538,7 +133538,7 @@ _ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i: ; pre
 
 .thread234.i.i:                                   ; preds = %.noexc175, %.noexc165
   %.sroa.4158.8.copyload160.i.i = load i64, ptr %26, align 8, !alias.scope !29170, !noalias !29171
-  %.sroa.8.0.copyload248.i.i = load i32, ptr %.sroa.8.8..sroa_idx161.i.i, align 8, !alias.scope !29170, !noalias !29171
+  %.sroa.8.0.copyload.i.i = load i32, ptr %.sroa.8.8..sroa_idx161.i.i, align 8, !alias.scope !29170, !noalias !29171
   %.sroa.0178.0.extract.trunc.i.i = trunc i64 %.sroa.4158.8.copyload160.i.i to i32
   %.sroa.0178.4.extract.shift.i.i = lshr i64 %.sroa.4158.8.copyload160.i.i, 32
   %453 = ashr i32 %.sroa.0178.0.extract.trunc.i.i, 13
@@ -133573,7 +133573,7 @@ _ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i: ; pre
   %473 = mul nsw i64 %472, 86400
   %474 = add nsw i64 %473, %.sroa.0178.4.extract.shift.i.i
   %475 = mul nsw i64 %474, 1000
-  %476 = udiv i32 %.sroa.8.0.copyload248.i.i, 1000000
+  %476 = udiv i32 %.sroa.8.0.copyload.i.i, 1000000
   %477 = zext nneg i32 %476 to i64
   %478 = add nsw i64 %475, %477
   %479 = mul i64 %478, 1000
@@ -133624,7 +133624,7 @@ _ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i: ; pre
 _ZN14deltalake_core8protocol11checkpoints40typed_partition_value_from_option_string17h68d703e2b6c88a3bE.exit.thread450: ; preds = %403, %.noexc168, %.noexc161, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i"
   %.sroa.35.2.ph = phi i64 [ %.sroa.35.0495, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ %.sroa.35.0495, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ %.sroa.35.0495, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ %.sroa.35.0495, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ %369, %.noexc161 ], [ %.sroa.35.8.copyload256, %.noexc168 ], [ %.sroa.35.0495, %403 ]
   %.sroa.31.2.ph = phi i64 [ %.sroa.31.0496, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ %.sroa.31.0496, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ %479, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ %.sroa.5107.0.i.i, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ %390, %.noexc161 ], [ %.sroa.31.8.copyload245, %.noexc168 ], [ %404, %403 ]
-  %.sroa.27223.2.ph = phi i64 [ %.sroa.27223.0497, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ %.sroa.27223.0497, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ %.lobit.i.i, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ %.sroa.0106.0.i.i, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ %387, %.noexc161 ], [ %.sroa.27223.8.copyload234, %.noexc168 ], [ %.lobit249.i.i, %403 ]
+  %.sroa.27223.2.ph = phi i64 [ %.sroa.27223.0497, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ %.sroa.27223.0497, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ %.lobit.i.i, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ %.sroa.0106.0.i.i, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ %387, %.noexc161 ], [ %.sroa.27223.8.copyload234, %.noexc168 ], [ %.lobit248.i.i, %403 ]
   %.sroa.26.2.ph = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ %.sroa.26.0498, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ %.sroa.26.0498, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ %.sroa.26.0498, %.noexc161 ], [ %.sroa.26.8.copyload217, %.noexc168 ], [ %.sroa.26.0498, %403 ]
   %.sroa.16.0.ph = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i.i.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit10.i.i.i" ], [ 2, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$16timestamp_millis17hed541c1b3434d2b5E.exit.i.i" ], [ 2, %_ZN6chrono6traits8Datelike16num_days_from_ce17hd80979fa50adf944E.exit.i.i ], [ 3, %.noexc161 ], [ %.sroa.16.8.copyload206, %.noexc168 ], [ 2, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !29107

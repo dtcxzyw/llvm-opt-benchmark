@@ -3965,34 +3965,34 @@ define dso_local void @AtEOXact_RelationCache(i1 noundef zeroext %0) local_unnam
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr @in_progress_list_len, align 4
-  %.b12 = load i1, ptr @eoxact_list_overflowed, align 1
-  br i1 %.b12, label %28, label %.preheader18
+  %.b = load i1, ptr @eoxact_list_overflowed, align 1
+  br i1 %.b, label %28, label %.preheader17
 
-.preheader18:                                     ; preds = %1
+.preheader17:                                     ; preds = %1
   %3 = load i32, ptr @eoxact_list_len, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader18
+.lr.ph:                                           ; preds = %.preheader17
   br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %AtEOXact_cleanup.exit17.us
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %AtEOXact_cleanup.exit17.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %AtEOXact_cleanup.exit16.us
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %AtEOXact_cleanup.exit16.us ], [ 0, %.lr.ph ]
   %5 = load ptr, ptr @RelationIdCache, align 8
-  %6 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv28
+  %6 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv27
   %7 = tail call ptr @hash_search(ptr noundef %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #12
   %.not.us = icmp eq ptr %7, null
-  br i1 %.not.us, label %AtEOXact_cleanup.exit17.us, label %8
+  br i1 %.not.us, label %AtEOXact_cleanup.exit16.us, label %8
 
 8:                                                ; preds = %.lr.ph.split.us
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.in.in.i15.us = load i32, ptr %11, align 4
-  %.in.not.i16.us = icmp eq i32 %.in.in.i15.us, 0
+  %.in.in.i14.us = load i32, ptr %11, align 4
+  %.in.not.i15.us = icmp eq i32 %.in.in.i14.us, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br i1 %.in.not.i16.us, label %AtEOXact_cleanup.exit17.us, label %13
+  br i1 %.in.not.i15.us, label %AtEOXact_cleanup.exit16.us, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4002,7 +4002,7 @@ define dso_local void @AtEOXact_RelationCache(i1 noundef zeroext %0) local_unnam
 
 17:                                               ; preds = %13
   %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
-  br i1 %18, label %19, label %AtEOXact_cleanup.exit17.us
+  br i1 %18, label %19, label %AtEOXact_cleanup.exit16.us
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -4010,27 +4010,27 @@ define dso_local void @AtEOXact_RelationCache(i1 noundef zeroext %0) local_unnam
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, ptr noundef nonnull %22) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3321, ptr noundef nonnull @__func__.AtEOXact_cleanup) #12
-  br label %AtEOXact_cleanup.exit17.us
+  br label %AtEOXact_cleanup.exit16.us
 
 24:                                               ; preds = %13
   tail call fastcc void @RelationClearRelation(ptr noundef nonnull %10)
-  br label %AtEOXact_cleanup.exit17.us
+  br label %AtEOXact_cleanup.exit16.us
 
-AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %.lr.ph.split.us
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+AtEOXact_cleanup.exit16.us:                       ; preds = %8, %24, %19, %17, %.lr.ph.split.us
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %25 = load i32, ptr @eoxact_list_len, align 4
   %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next29, %26
+  %27 = icmp slt i64 %indvars.iv.next28, %26
   br i1 %27, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !21
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr @RelationIdCache, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %29) #12
   %30 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
-  %.not1321 = icmp eq ptr %30, null
-  br i1 %.not1321, label %.loopexit, label %.lr.ph22
+  %.not1220 = icmp eq ptr %30, null
+  br i1 %.not1220, label %.loopexit, label %.lr.ph21
 
-.lr.ph22:                                         ; preds = %28, %AtEOXact_cleanup.exit
+.lr.ph21:                                         ; preds = %28, %AtEOXact_cleanup.exit
   %31 = phi ptr [ %48, %AtEOXact_cleanup.exit ], [ %30, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -4042,7 +4042,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br i1 %.in.not.i, label %AtEOXact_cleanup.exit, label %36
 
-36:                                               ; preds = %.lr.ph22
+36:                                               ; preds = %.lr.ph21
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
@@ -4064,27 +4064,27 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3321, ptr noundef nonnull @__func__.AtEOXact_cleanup) #12
   br label %AtEOXact_cleanup.exit
 
-AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41, %43
+AtEOXact_cleanup.exit:                            ; preds = %.lr.ph21, %40, %41, %43
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
-  %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !22
+  %.not12 = icmp eq ptr %48, null
+  br i1 %.not12, label %.loopexit, label %.lr.ph21, !llvm.loop !22
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit17
-  %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit17 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit16 ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr @RelationIdCache, align 8
   %50 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv
   %51 = tail call ptr @hash_search(ptr noundef %49, ptr noundef nonnull %50, i32 noundef 0, ptr noundef null) #12
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %AtEOXact_cleanup.exit17, label %52
+  br i1 %.not, label %AtEOXact_cleanup.exit16, label %52
 
 52:                                               ; preds = %.lr.ph.split
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %.in.in.i15 = load i32, ptr %55, align 4
-  %.in.not.i16 = icmp eq i32 %.in.in.i15, 0
+  %.in.in.i14 = load i32, ptr %55, align 4
+  %.in.not.i15 = icmp eq i32 %.in.in.i14, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  br i1 %.in.not.i16, label %AtEOXact_cleanup.exit17, label %56
+  br i1 %.in.not.i15, label %AtEOXact_cleanup.exit16, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -4094,11 +4094,11 @@ AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41,
 
 60:                                               ; preds = %56
   tail call fastcc void @RelationClearRelation(ptr noundef nonnull %54)
-  br label %AtEOXact_cleanup.exit17
+  br label %AtEOXact_cleanup.exit16
 
 61:                                               ; preds = %56
   %62 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
-  br i1 %62, label %63, label %AtEOXact_cleanup.exit17
+  br i1 %62, label %63, label %AtEOXact_cleanup.exit16
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 56
@@ -4106,16 +4106,16 @@ AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41,
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, ptr noundef nonnull %66) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3321, ptr noundef nonnull @__func__.AtEOXact_cleanup) #12
-  br label %AtEOXact_cleanup.exit17
+  br label %AtEOXact_cleanup.exit16
 
-AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, %.lr.ph.split
+AtEOXact_cleanup.exit16:                          ; preds = %63, %61, %60, %52, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr @eoxact_list_len, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %AtEOXact_cleanup.exit17, %AtEOXact_cleanup.exit17.us, %AtEOXact_cleanup.exit, %.preheader18, %28
+.loopexit:                                        ; preds = %AtEOXact_cleanup.exit16, %AtEOXact_cleanup.exit16.us, %AtEOXact_cleanup.exit, %.preheader17, %28
   %71 = load i32, ptr @EOXactTupleDescArrayLen, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.preheader, label %82
@@ -4123,21 +4123,21 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
 .preheader:                                       ; preds = %.loopexit
   %73 = load i32, ptr @NextEOXactTupleDescNum, align 4
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph24, label %._crit_edge
+  br i1 %74, label %.lr.ph23, label %._crit_edge
 
-.lr.ph24:                                         ; preds = %.preheader, %.lr.ph24
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph24 ], [ 0, %.preheader ]
+.lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph23 ], [ 0, %.preheader ]
   %75 = load ptr, ptr @EOXactTupleDescArray, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv31
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv30
   %77 = load ptr, ptr %76, align 8
   call void @FreeTupleDesc(ptr noundef %77) #12
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %78 = load i32, ptr @NextEOXactTupleDescNum, align 4
   %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next32, %79
-  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !23
+  %80 = icmp slt i64 %indvars.iv.next31, %79
+  br i1 %80, label %.lr.ph23, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.lr.ph24, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
   %81 = load ptr, ptr @EOXactTupleDescArray, align 8
   call void @pfree(ptr noundef %81) #12
   store ptr null, ptr @EOXactTupleDescArray, align 8
@@ -4161,8 +4161,8 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %4 = alloca %struct.HASH_SEQ_STATUS, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr @in_progress_list_len, align 4
-  %.b13 = load i1, ptr @eoxact_list_overflowed, align 1
-  br i1 %.b13, label %7, label %.preheader
+  %.b = load i1, ptr @eoxact_list_overflowed, align 1
+  br i1 %.b, label %7, label %.preheader
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr @eoxact_list_len, align 4
@@ -4173,17 +4173,17 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %8 = load ptr, ptr @RelationIdCache, align 8
   call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %8) #12
   %9 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
-  %.not1417 = icmp eq ptr %9, null
-  br i1 %.not1417, label %.loopexit, label %.lr.ph18
+  %.not1316 = icmp eq ptr %9, null
+  br i1 %.not1316, label %.loopexit, label %.lr.ph17
 
-.lr.ph18:                                         ; preds = %7, %.lr.ph18
-  %10 = phi ptr [ %13, %.lr.ph18 ], [ %9, %7 ]
+.lr.ph17:                                         ; preds = %7, %.lr.ph17
+  %10 = phi ptr [ %13, %.lr.ph17 ], [ %9, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   call fastcc void @AtEOSubXact_cleanup(ptr noundef %12, i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2)
   %13 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
-  %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !24
+  %.not13 = icmp eq ptr %13, null
+  br i1 %.not13, label %.loopexit, label %.lr.ph17, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
@@ -4206,7 +4206,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %23 = icmp slt i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %20, %.lr.ph18, %.preheader, %7
+.loopexit:                                        ; preds = %20, %.lr.ph17, %.preheader, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

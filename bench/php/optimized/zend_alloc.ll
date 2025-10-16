@@ -9732,8 +9732,8 @@ define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  %.b3436 = load i1, ptr @zend_mm_use_huge_pages, align 1
-  br i1 %.b3436, label %.sink.split, label %47
+  %.b34 = load i1, ptr @zend_mm_use_huge_pages, align 1
+  br i1 %.b34, label %.sink.split, label %47
 
 9:                                                ; preds = %4
   %10 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %0) #40
@@ -9761,8 +9761,8 @@ zend_mm_munmap.exit:                              ; preds = %9, %11
 23:                                               ; preds = %zend_mm_munmap.exit
   %24 = sub nuw nsw i64 2097152, %22
   %25 = tail call i32 @munmap(ptr noundef %20, i64 noundef %24) #40
-  %.not.i37 = icmp eq i32 %25, 0
-  br i1 %.not.i37, label %zend_mm_munmap.exit38, label %26
+  %.not.i35 = icmp eq i32 %25, 0
+  br i1 %.not.i35, label %zend_mm_munmap.exit36, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8, !tbaa !48
@@ -9770,25 +9770,25 @@ zend_mm_munmap.exit:                              ; preds = %9, %11
   %29 = load i32, ptr %28, align 4, !tbaa !24
   %30 = tail call ptr @strerror(i32 noundef %29) #40
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef %29, ptr noundef %30) #43
-  br label %zend_mm_munmap.exit38
+  br label %zend_mm_munmap.exit36
 
-zend_mm_munmap.exit38:                            ; preds = %23, %26
+zend_mm_munmap.exit36:                            ; preds = %23, %26
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 %24
   br label %33
 
-33:                                               ; preds = %zend_mm_munmap.exit38, %zend_mm_munmap.exit
-  %.029 = phi i64 [ %22, %zend_mm_munmap.exit38 ], [ 2097152, %zend_mm_munmap.exit ]
-  %.0 = phi ptr [ %32, %zend_mm_munmap.exit38 ], [ %20, %zend_mm_munmap.exit ]
+33:                                               ; preds = %zend_mm_munmap.exit36, %zend_mm_munmap.exit
+  %.029 = phi i64 [ %22, %zend_mm_munmap.exit36 ], [ 2097152, %zend_mm_munmap.exit ]
+  %.0 = phi ptr [ %32, %zend_mm_munmap.exit36 ], [ %20, %zend_mm_munmap.exit ]
   %34 = load i64, ptr @_real_page_size, align 8, !tbaa !32
   %35 = icmp ugt i64 %.029, %34
-  br i1 %35, label %36, label %zend_mm_munmap.exit40
+  br i1 %35, label %36, label %zend_mm_munmap.exit38
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 %0
   %38 = sub nuw nsw i64 %.029, %34
   %39 = tail call i32 @munmap(ptr noundef %37, i64 noundef %38) #40
-  %.not.i39 = icmp eq i32 %39, 0
-  br i1 %.not.i39, label %zend_mm_munmap.exit40, label %40
+  %.not.i37 = icmp eq i32 %39, 0
+  br i1 %.not.i37, label %zend_mm_munmap.exit38, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr @stderr, align 8, !tbaa !48
@@ -9796,27 +9796,27 @@ zend_mm_munmap.exit38:                            ; preds = %23, %26
   %43 = load i32, ptr %42, align 4, !tbaa !24
   %44 = tail call ptr @strerror(i32 noundef %43) #40
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, i32 noundef %43, ptr noundef %44) #43
-  br label %zend_mm_munmap.exit40
+  br label %zend_mm_munmap.exit38
 
-zend_mm_munmap.exit40:                            ; preds = %40, %36, %33
-  %.b35 = load i1, ptr @zend_mm_use_huge_pages, align 1
-  br i1 %.b35, label %.sink.split, label %47
+zend_mm_munmap.exit38:                            ; preds = %40, %36, %33
+  %.b = load i1, ptr @zend_mm_use_huge_pages, align 1
+  br i1 %.b, label %.sink.split, label %47
 
-.sink.split:                                      ; preds = %zend_mm_munmap.exit40, %8
-  %.0.sink = phi ptr [ %2, %8 ], [ %.0, %zend_mm_munmap.exit40 ]
+.sink.split:                                      ; preds = %zend_mm_munmap.exit38, %8
+  %.0.sink = phi ptr [ %2, %8 ], [ %.0, %zend_mm_munmap.exit38 ]
   %46 = tail call i32 @madvise(ptr noundef %.0.sink, i64 noundef %0, i32 noundef 14) #40
   br label %47
 
-47:                                               ; preds = %.sink.split, %zend_mm_munmap.exit40, %8, %1
-  %.030 = phi ptr [ null, %1 ], [ %2, %8 ], [ %.0, %zend_mm_munmap.exit40 ], [ %.0.sink, %.sink.split ]
+47:                                               ; preds = %.sink.split, %zend_mm_munmap.exit38, %8, %1
+  %.030 = phi ptr [ null, %1 ], [ %2, %8 ], [ %.0, %zend_mm_munmap.exit38 ], [ %.0.sink, %.sink.split ]
   ret ptr %.030
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_mm_mmap(i64 noundef %0) unnamed_addr #0 {
-  %.b20 = load i1, ptr @zend_mm_use_huge_pages, align 1
+  %.b = load i1, ptr @zend_mm_use_huge_pages, align 1
   %2 = icmp eq i64 %0, 2097152
-  %or.cond = and i1 %2, %.b20
+  %or.cond = and i1 %2, %.b
   br i1 %or.cond, label %3, label %.critedge
 
 3:                                                ; preds = %1

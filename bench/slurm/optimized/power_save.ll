@@ -434,26 +434,26 @@ _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_ed
   %85 = call ptr @xstrdup(ptr noundef nonnull %83) #12
   store ptr %85, ptr %1, align 8
   %86 = call ptr @strtok_r(ptr noundef %85, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #12
-  %.not13.i = icmp eq ptr %86, null
-  br i1 %.not13.i, label %._crit_edge.i21, label %.lr.ph.i19
+  %.not12.i = icmp eq ptr %86, null
+  br i1 %.not12.i, label %._crit_edge.i21, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %84, %98
-  %.014.i = phi ptr [ %99, %98 ], [ %86, %84 ]
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.014.i) #13
+  %.013.i = phi ptr [ %99, %98 ], [ %86, %84 ]
+  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i) #13
   %spec.select.i = call i64 @llvm.umax.i64(i64 %87, i64 2)
-  %88 = call i32 @xstrncasecmp(ptr noundef nonnull %.014.i, ptr noundef nonnull @.str.21, i64 noundef %spec.select.i) #12
-  %.not11.i = icmp eq i32 %88, 0
-  br i1 %.not11.i, label %89, label %90
+  %88 = call i32 @xstrncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.21, i64 noundef %spec.select.i) #12
+  %.not10.i = icmp eq i32 %88, 0
+  br i1 %.not10.i, label %89, label %90
 
 89:                                               ; preds = %.lr.ph.i19
   store i1 true, ptr @suspend_exc_down, align 1
   br label %98
 
 90:                                               ; preds = %.lr.ph.i19
-  %91 = call i32 @parse_node_state_flag(ptr noundef nonnull %.014.i) #12
+  %91 = call i32 @parse_node_state_flag(ptr noundef nonnull %.013.i) #12
   %92 = and i32 %91, 73968288
-  %.not12.i = icmp eq i32 %92, 0
-  br i1 %.not12.i, label %96, label %93
+  %.not11.i = icmp eq i32 %92, 0
+  br i1 %.not11.i, label %96, label %93
 
 93:                                               ; preds = %90
   %94 = load i32, ptr @suspend_exc_state_flags, align 4
@@ -462,7 +462,7 @@ _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_ed
   br label %98
 
 96:                                               ; preds = %90
-  %97 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %.014.i) #12
+  %97 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %.013.i) #12
   br label %98
 
 98:                                               ; preds = %96, %93, %89
@@ -492,8 +492,8 @@ _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_ed
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %107
-  %.b10.i = load i1, ptr @suspend_exc_down, align 1
-  %111 = zext i1 %.b10.i to i32
+  %.b.i = load i1, ptr @suspend_exc_down, align 1
+  %111 = zext i1 %.b.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef %111, ptr noundef %104) #12
   br label %112
 
@@ -1624,8 +1624,8 @@ _rl_get_tokens.exit228.i:                         ; preds = %220, %._crit_edge.i
   br i1 %.not215.i, label %243, label %228
 
 228:                                              ; preds = %_rl_get_tokens.exit228.i, %.lr.ph.i
-  %.b93106 = load i1, ptr @resume_rl_config.0, align 8
-  br i1 %.b93106, label %229, label %_rl_spend_token.exit.i
+  %.b93 = load i1, ptr @resume_rl_config.0, align 8
+  br i1 %.b93, label %229, label %_rl_spend_token.exit.i
 
 229:                                              ; preds = %228
   %230 = load i32, ptr @resume_rl_config.5, align 4
@@ -1872,8 +1872,8 @@ _rl_get_tokens.exit236.i:                         ; preds = %327, %._crit_edge.i
   %347 = zext i32 %346 to i64
   %348 = call i32 @slurm_bit_test(ptr noundef %304, i64 noundef %347) #12
   %.not199.i = icmp eq i32 %348, 0
-  %.b107 = load i1, ptr @resume_rl_config.0, align 8
-  %or.cond259.i = select i1 %.not199.i, i1 %.b107, i1 false
+  %.b = load i1, ptr @resume_rl_config.0, align 8
+  %or.cond259.i = select i1 %.not199.i, i1 %.b, i1 false
   br i1 %or.cond259.i, label %349, label %_rl_spend_token.exit238.i
 
 349:                                              ; preds = %345
@@ -2021,10 +2021,10 @@ _rl_get_tokens.exit245.i:                         ; preds = %403, %._crit_edge.i
   br i1 %426, label %427, label %_node_state_should_suspend.exit.thread.i
 
 427:                                              ; preds = %421
-  %.b3.i.i = load i1, ptr @suspend_exc_down, align 1
+  %.b.i.i = load i1, ptr @suspend_exc_down, align 1
   %428 = and i32 %416, 15
   %429 = icmp eq i32 %428, 1
-  %or.cond.i.i = and i1 %429, %.b3.i.i
+  %or.cond.i.i = and i1 %429, %.b.i.i
   br i1 %or.cond.i.i, label %_node_state_should_suspend.exit.thread.i, label %_node_state_should_suspend.exit.i
 
 _node_state_should_suspend.exit.i:                ; preds = %427
@@ -2071,8 +2071,8 @@ _node_state_should_suspend.exit.i:                ; preds = %427
 
 453:                                              ; preds = %451, %447
   %454 = phi i32 [ %452, %451 ], [ %449, %447 ]
-  %.b97108 = load i1, ptr @suspend_rl_config.0, align 8
-  br i1 %.b97108, label %455, label %_rl_spend_token.exit250.i
+  %.b97 = load i1, ptr @suspend_rl_config.0, align 8
+  br i1 %.b97, label %455, label %_rl_spend_token.exit250.i
 
 455:                                              ; preds = %453
   %456 = load i32, ptr @suspend_rl_config.5, align 4

@@ -210,13 +210,13 @@ define dso_local ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr nounde
 
 70:                                               ; preds = %67, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.b4548 = load i1, ptr @msg_thr_start_done, align 1
-  br i1 %.b4548, label %._crit_edge, label %.lr.ph
+  %.b47 = load i1, ptr @msg_thr_start_done, align 1
+  br i1 %.b47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70, %75
   %71 = call i32 @pthread_cond_wait(ptr noundef nonnull @msg_thr_start_cond, ptr noundef nonnull @msg_thr_start_lock) #8
-  %.not47 = icmp eq i32 %71, 0
-  br i1 %.not47, label %75, label %72
+  %.not46 = icmp eq i32 %71, 0
+  br i1 %.not46, label %75, label %72
 
 72:                                               ; preds = %.lr.ph
   %73 = tail call ptr @__errno_location() #9
@@ -225,13 +225,13 @@ define dso_local ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr nounde
   br label %75
 
 75:                                               ; preds = %72, %.lr.ph
-  %.b45 = load i1, ptr @msg_thr_start_done, align 1
-  br i1 %.b45, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %.b = load i1, ptr @msg_thr_start_done, align 1
+  br i1 %.b, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %75, %70
   %76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @msg_thr_start_lock) #8
-  %.not46 = icmp eq i32 %76, 0
-  br i1 %.not46, label %79, label %77
+  %.not45 = icmp eq i32 %76, 0
+  br i1 %.not45, label %79, label %77
 
 77:                                               ; preds = %._crit_edge
   %78 = tail call ptr @__errno_location() #9

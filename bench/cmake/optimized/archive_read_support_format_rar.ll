@@ -5948,48 +5948,48 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 .preheader.i32:                                   ; preds = %.critedge.i30
   %111 = add nsw i32 %99, -2
   %112 = icmp ult i32 %97, %111
-  br i1 %112, label %.lr.ph95.preheader.i, label %._crit_edge.i33
+  br i1 %112, label %.lr.ph94.preheader.i, label %._crit_edge.i33
 
-.lr.ph95.preheader.i:                             ; preds = %.preheader.i32
+.lr.ph94.preheader.i:                             ; preds = %.preheader.i32
   %113 = zext nneg i32 %97 to i64
   %114 = zext nneg i32 %111 to i64
-  br label %.lr.ph95.i
+  br label %.lr.ph94.i
 
 .lr.ph.preheader.i:                               ; preds = %.critedge.i30, %105
   %indvars.iv.i = phi i64 [ 0, %105 ], [ %indvars.iv.next.i, %.critedge.i30 ]
-  %.06693.i = phi ptr [ %106, %105 ], [ %134, %.critedge.i30 ]
+  %.06692.i = phi ptr [ %106, %105 ], [ %134, %.critedge.i30 ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   br label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %133, %.lr.ph.preheader.i
-  %indvars.iv96.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next97.i, %133 ]
-  %.16791.i = phi ptr [ %.06693.i, %.lr.ph.preheader.i ], [ %134, %133 ]
-  %.07090.i = phi ptr [ %gep.i, %.lr.ph.preheader.i ], [ %138, %133 ]
-  %.07189.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %136, %133 ]
-  %.not.i28 = icmp ult ptr %.16791.i, %108
+  %indvars.iv95.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next96.i, %133 ]
+  %.16790.i = phi ptr [ %.06692.i, %.lr.ph.preheader.i ], [ %134, %133 ]
+  %.07089.i = phi ptr [ %gep.i, %.lr.ph.preheader.i ], [ %138, %133 ]
+  %.07188.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %136, %133 ]
+  %.not.i28 = icmp ult ptr %.16790.i, %108
   br i1 %.not.i28, label %115, label %execute_filter_delta.exit
 
 115:                                              ; preds = %.lr.ph.i27
-  %.not81.i = icmp ult ptr %.07090.i, %108
+  %.not81.i = icmp ult ptr %.07089.i, %108
   br i1 %.not81.i, label %133, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds nuw i8, ptr %.07090.i, i64 3
+  %117 = getelementptr inbounds nuw i8, ptr %.07089.i, i64 3
   %118 = load i8, ptr %117, align 1, !tbaa !31
   %119 = zext i8 %118 to i32
-  %120 = load i8, ptr %.07090.i, align 1, !tbaa !31
+  %120 = load i8, ptr %.07089.i, align 1, !tbaa !31
   %121 = zext i8 %120 to i32
   %122 = sub nsw i32 %119, %121
   %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
-  %124 = zext i8 %.07189.i to i32
+  %124 = zext i8 %.07188.i to i32
   %125 = sub nsw i32 %124, %121
   %126 = tail call i32 @llvm.abs.i32(i32 %125, i1 true)
   %127 = add nsw i32 %125, %122
   %128 = tail call i32 @llvm.abs.i32(i32 %127, i1 true)
   %129 = icmp samesign ugt i32 %123, %126
   %130 = icmp samesign ugt i32 %123, %128
-  %or.cond85.i = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond85.i, label %131, label %133
+  %or.cond84.i = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond84.i, label %131, label %133
 
 131:                                              ; preds = %116
   %.not82.i = icmp samesign ugt i32 %126, %128
@@ -5997,25 +5997,25 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   br label %133
 
 133:                                              ; preds = %131, %116, %115
-  %.172.i = phi i8 [ %.07189.i, %115 ], [ %132, %131 ], [ %.07189.i, %116 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.16791.i, i64 1
-  %135 = load i8, ptr %.16791.i, align 1, !tbaa !31
+  %.172.i = phi i8 [ %.07188.i, %115 ], [ %132, %131 ], [ %.07188.i, %116 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.16790.i, i64 1
+  %135 = load i8, ptr %.16790.i, align 1, !tbaa !31
   %136 = sub i8 %.172.i, %135
-  %137 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv96.i
+  %137 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv95.i
   store i8 %136, ptr %137, align 1, !tbaa !31
-  %138 = getelementptr inbounds nuw i8, ptr %.07090.i, i64 3
-  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 3
-  %.not84.i = icmp samesign ult i64 %indvars.iv.next97.i, %107
-  br i1 %.not84.i, label %.lr.ph.i27, label %.critedge.i30, !llvm.loop !240
+  %138 = getelementptr inbounds nuw i8, ptr %.07089.i, i64 3
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 3
+  %.not83.i = icmp samesign ult i64 %indvars.iv.next96.i, %107
+  br i1 %.not83.i, label %.lr.ph.i27, label %.critedge.i30, !llvm.loop !240
 
 .critedge.i30:                                    ; preds = %133
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i31, label %.preheader.i32, label %.lr.ph.preheader.i, !llvm.loop !241
 
-.lr.ph95.i:                                       ; preds = %.lr.ph95.i, %.lr.ph95.preheader.i
-  %indvars.iv99.i = phi i64 [ %113, %.lr.ph95.preheader.i ], [ %indvars.iv.next100.i, %.lr.ph95.i ]
-  %139 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv99.i
+.lr.ph94.i:                                       ; preds = %.lr.ph94.i, %.lr.ph94.preheader.i
+  %indvars.iv98.i = phi i64 [ %113, %.lr.ph94.preheader.i ], [ %indvars.iv.next99.i, %.lr.ph94.i ]
+  %139 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv98.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
   %141 = load i8, ptr %140, align 1, !tbaa !31
   %142 = load i8, ptr %139, align 1, !tbaa !31
@@ -6025,11 +6025,11 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %145 = load i8, ptr %144, align 1, !tbaa !31
   %146 = add i8 %145, %141
   store i8 %146, ptr %144, align 1, !tbaa !31
-  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 3
-  %147 = icmp samesign ult i64 %indvars.iv.next100.i, %114
-  br i1 %147, label %.lr.ph95.i, label %._crit_edge.i33, !llvm.loop !242
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 3
+  %147 = icmp samesign ult i64 %indvars.iv.next99.i, %114
+  br i1 %147, label %.lr.ph94.i, label %._crit_edge.i33, !llvm.loop !242
 
-._crit_edge.i33:                                  ; preds = %.lr.ph95.i, %.preheader.i32
+._crit_edge.i33:                                  ; preds = %.lr.ph94.i, %.preheader.i32
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %99, ptr %148, align 4, !tbaa !169
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 72

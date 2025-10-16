@@ -11441,14 +11441,14 @@ define internal fastcc void @setup_connection(ptr noundef %0, ptr noundef %1, pt
 
 sub_0:                                            ; preds = %12
   %16 = load i8, ptr %15, align 1
-  %.not91 = icmp eq i8 %16, 111
-  br i1 %.not91, label %sub_1, label %.tail
+  %.not90 = icmp eq i8 %16, 111
+  br i1 %.not90, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %18 = load i8, ptr %17, align 1
-  %.not92 = icmp eq i8 %18, 110
-  br i1 %.not92, label %sub_2, label %.tail
+  %.not91 = icmp eq i8 %18, 110
+  br i1 %.not91, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -11471,9 +11471,9 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not77, label %35, label %.thread
 
 .thread:                                          ; preds = %.tail, %25
-  %.087 = phi ptr [ %27, %25 ], [ %3, %.tail ]
+  %.086 = phi ptr [ %27, %25 ], [ %3, %.tail ]
   %28 = tail call ptr @createPQExpBuffer() #13
-  %29 = tail call ptr @fmtId(ptr noundef nonnull %.087) #13
+  %29 = tail call ptr @fmtId(ptr noundef nonnull %.086) #13
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %28, ptr noundef nonnull @.str.604, ptr noundef %29) #13
   %30 = load ptr, ptr %28, align 8
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef %30) #13
@@ -11484,15 +11484,15 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not78, label %33, label %35
 
 33:                                               ; preds = %.thread
-  %34 = tail call ptr @pg_strdup(ptr noundef nonnull %.087) #13
+  %34 = tail call ptr @pg_strdup(ptr noundef nonnull %.086) #13
   store ptr %34, ptr %31, align 8
   br label %35
 
 35:                                               ; preds = %.thread, %33, %25
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.605) #13
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.606) #13
-  %.b79 = load i1, ptr @have_extra_float_digits, align 1
-  br i1 %.b79, label %36, label %40
+  %.b = load i1, ptr @have_extra_float_digits, align 1
+  br i1 %.b, label %36, label %40
 
 36:                                               ; preds = %35
   %37 = tail call ptr @createPQExpBuffer() #13
@@ -11513,34 +11513,34 @@ sub_2:                                            ; preds = %sub_1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 90299
-  br i1 %44, label %45, label %.thread90
+  br i1 %44, label %45, label %.thread89
 
 45:                                               ; preds = %41
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.610) #13
   %.pr = load i32, ptr %42, align 8
   %46 = icmp sgt i32 %.pr, 90599
-  br i1 %46, label %47, label %.thread90
+  br i1 %46, label %47, label %.thread89
 
 47:                                               ; preds = %45
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.611) #13
-  %.pr89 = load i32, ptr %42, align 8
-  %48 = icmp sgt i32 %.pr89, 169999
-  br i1 %48, label %49, label %.thread90
+  %.pr88 = load i32, ptr %42, align 8
+  %48 = icmp sgt i32 %.pr88, 169999
+  br i1 %48, label %49, label %.thread89
 
 49:                                               ; preds = %47
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.612) #13
-  br label %.thread90
+  br label %.thread89
 
-.thread90:                                        ; preds = %41, %45, %49, %47
+.thread89:                                        ; preds = %41, %45, %49, %47
   %50 = load i32, ptr @quote_all_identifiers, align 4
-  %.not80 = icmp eq i32 %50, 0
-  br i1 %.not80, label %52, label %51
+  %.not79 = icmp eq i32 %50, 0
+  br i1 %.not79, label %52, label %51
 
-51:                                               ; preds = %.thread90
+51:                                               ; preds = %.thread89
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.613) #13
   br label %52
 
-52:                                               ; preds = %51, %.thread90
+52:                                               ; preds = %51, %.thread89
   %53 = load i32, ptr %42, align 8
   %54 = icmp sgt i32 %53, 90499
   br i1 %54, label %.sink.split, label %57
@@ -11548,8 +11548,8 @@ sub_2:                                            ; preds = %sub_1
 .sink.split:                                      ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 132
   %56 = load i32, ptr %55, align 4
-  %.not81 = icmp eq i32 %56, 0
-  %.str.615..str.614 = select i1 %.not81, ptr @.str.615, ptr @.str.614
+  %.not80 = icmp eq i32 %56, 0
+  %.str.615..str.614 = select i1 %.not80, ptr @.str.615, ptr @.str.614
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull %.str.615..str.614) #13
   br label %57
 
@@ -11566,8 +11566,8 @@ sub_2:                                            ; preds = %sub_1
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.617) #13
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %64 = load i32, ptr %63, align 8
-  %.not82 = icmp eq i32 %64, 0
-  br i1 %.not82, label %69, label %65
+  %.not81 = icmp eq i32 %64, 0
+  br i1 %.not81, label %69, label %65
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11581,8 +11581,8 @@ sub_2:                                            ; preds = %sub_1
 70:                                               ; preds = %65, %69
   %.str.619.sink = phi ptr [ @.str.619, %69 ], [ @.str.618, %65 ]
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull %.str.619.sink) #13
-  %.not83 = icmp eq ptr %2, null
-  br i1 %.not83, label %._crit_edge, label %71
+  %.not82 = icmp eq ptr %2, null
+  br i1 %.not82, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %70
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11598,8 +11598,8 @@ sub_2:                                            ; preds = %sub_1
 74:                                               ; preds = %._crit_edge, %71
   %75 = phi ptr [ %.pre, %._crit_edge ], [ %72, %71 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.not84 = icmp eq ptr %75, null
-  br i1 %.not84, label %81, label %77
+  %.not83 = icmp eq ptr %75, null
+  br i1 %.not83, label %81, label %77
 
 77:                                               ; preds = %74
   %78 = tail call ptr @createPQExpBuffer() #13

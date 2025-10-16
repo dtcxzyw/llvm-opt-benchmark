@@ -578,8 +578,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12scoped_timer10initializeEv() local_unnamed_addr #3 align 2 {
-  %.b1 = load i1, ptr @_ZZN12scoped_timer10initializeEvE18pthread_atfork_set, align 1
-  br i1 %.b1, label %3, label %1
+  %.b = load i1, ptr @_ZZN12scoped_timer10initializeEvE18pthread_atfork_set, align 1
+  br i1 %.b, label %3, label %1
 
 1:                                                ; preds = %0
   %2 = tail call i32 @pthread_atfork(ptr noundef nonnull @_ZN12scoped_timer8finalizeEv, ptr noundef null, ptr noundef null) #23

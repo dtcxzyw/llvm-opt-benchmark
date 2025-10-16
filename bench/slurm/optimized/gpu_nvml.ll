@@ -1333,12 +1333,12 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %390, %387
   br label %473
 
 412:                                              ; preds = %.thread.i.i, %396
-  %.b67.i.i.i = load i1, ptr @_nvml_use_mig_uuid.set, align 1
-  br i1 %.b67.i.i.i, label %._crit_edge.i.i.i, label %413
+  %.b6.i.i.i = load i1, ptr @_nvml_use_mig_uuid.set, align 1
+  br i1 %.b6.i.i.i, label %._crit_edge.i.i.i, label %413
 
 ._crit_edge.i.i.i:                                ; preds = %412
-  %.b8.pre.i.i.i = load i1, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
-  br i1 %.b8.pre.i.i.i, label %428, label %429
+  %.b.pre.i.i.i = load i1, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
+  br i1 %.b.pre.i.i.i, label %428, label %429
 
 413:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1379,17 +1379,17 @@ _nvml_use_mig_uuid.exit.thread.i.i:               ; preds = %421, %_nvml_get_dri
 
 _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   %425 = icmp eq i32 %423, 42
-  %or.cond11.i.i.i = select i1 %422, i1 %425, i1 false
+  %or.cond9.i.i.i = select i1 %422, i1 %425, i1 false
   %426 = load i32, ptr %13, align 4
   %427 = icmp sgt i32 %426, 0
-  %or.cond13.i.i.i = select i1 %or.cond11.i.i.i, i1 %427, i1 false
-  store i1 %or.cond13.i.i.i, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
+  %or.cond11.i.i.i = select i1 %or.cond9.i.i.i, i1 %427, i1 false
+  store i1 %or.cond11.i.i.i, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
   store i1 true, ptr @_nvml_use_mig_uuid.set, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %or.cond13.i.i.i, label %428, label %429
+  br i1 %or.cond11.i.i.i, label %428, label %429
 
 428:                                              ; preds = %_nvml_use_mig_uuid.exit.i.i, %_nvml_use_mig_uuid.exit.thread.i.i, %._crit_edge.i.i.i
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %147, ptr noundef nonnull @.str.72, ptr noundef nonnull %20) #12

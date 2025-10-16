@@ -385,8 +385,8 @@ define nonnull ptr @l_Lean_hasNeverExtractAttribute___boxed(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_NeverExtractAttr(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b13 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b13, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -428,9 +428,9 @@ define ptr @initialize_Lean_Compiler_NeverExtractAttr(i8 noundef zeroext %0, ptr
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Attributes(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val18 = load i32, ptr %19, align 4
-  %.mask.i21 = and i32 %.val18, -16777216
-  %20 = icmp eq i32 %.mask.i21, 16777216
+  %.val17 = load i32, ptr %19, align 4
+  %.mask.i20 = and i32 %.val17, -16777216
+  %20 = icmp eq i32 %.mask.i20, 16777216
   br i1 %20, label %67, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -441,17 +441,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit15
+  br label %lean_dec_ref.exit14
 
 26:                                               ; preds = %21
-  %.not.i14 = icmp eq i32 %22, 0
-  br i1 %.not.i14, label %lean_dec_ref.exit15, label %27
+  %.not.i13 = icmp eq i32 %22, 0
+  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit15
+  br label %lean_dec_ref.exit14
 
-lean_dec_ref.exit15:                              ; preds = %24, %26, %27
+lean_dec_ref.exit14:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 13, i64 noundef 13) #3
   store ptr %28, ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -478,11 +478,11 @@ lean_dec_ref.exit15:                              ; preds = %24, %26, %27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit
 
-39:                                               ; preds = %lean_dec_ref.exit15
+39:                                               ; preds = %lean_dec_ref.exit14
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit: ; preds = %lean_dec_ref.exit15
+_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit: ; preds = %lean_dec_ref.exit14
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 1, ptr %37, align 4, !tbaa !4
   store i32 -184549352, ptr %40, align 4
@@ -495,7 +495,7 @@ _init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.e
   store ptr %37, ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %37) #3
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit17, label %44
+  br i1 %.not, label %lean_dec_ref.exit16, label %44
 
 44:                                               ; preds = %_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit
   %45 = load ptr, ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__2, align 8, !tbaa !9
@@ -504,16 +504,16 @@ _init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.e
   %48 = load ptr, ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__5, align 8, !tbaa !9
   %49 = tail call ptr @l_Lean_registerTagAttribute(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %50 = getelementptr i8, ptr %49, i64 4
-  %.val19 = load i32, ptr %50, align 4
-  %.mask.i22 = and i32 %.val19, -16777216
-  %51 = icmp eq i32 %.mask.i22, 16777216
+  %.val18 = load i32, ptr %50, align 4
+  %.mask.i21 = and i32 %.val18, -16777216
+  %51 = icmp eq i32 %.mask.i21, 16777216
   br i1 %51, label %67, label %52
 
 52:                                               ; preds = %44
   %53 = getelementptr i8, ptr %49, i64 8
-  %.val20 = load ptr, ptr %53, align 8, !tbaa !9
-  store ptr %.val20, ptr @l_Lean_neverExtractAttr, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val20) #3
+  %.val19 = load ptr, ptr %53, align 8, !tbaa !9
+  store ptr %.val19, ptr @l_Lean_neverExtractAttr, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val19) #3
   %54 = load i32, ptr %49, align 8, !tbaa !4
   %55 = icmp sgt i32 %54, 1
   br i1 %55, label %56, label %58, !prof !11
@@ -521,17 +521,17 @@ _init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.e
 56:                                               ; preds = %52
   %57 = add nsw i32 %54, -1
   store i32 %57, ptr %49, align 4, !tbaa !4
-  br label %lean_dec_ref.exit17
+  br label %lean_dec_ref.exit16
 
 58:                                               ; preds = %52
-  %.not.i16 = icmp eq i32 %54, 0
-  br i1 %.not.i16, label %lean_dec_ref.exit17, label %59
+  %.not.i15 = icmp eq i32 %54, 0
+  br i1 %.not.i15, label %lean_dec_ref.exit16, label %59
 
 59:                                               ; preds = %58
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %49) #3
-  br label %lean_dec_ref.exit17
+  br label %lean_dec_ref.exit16
 
-lean_dec_ref.exit17:                              ; preds = %59, %58, %56, %_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit
+lean_dec_ref.exit16:                              ; preds = %59, %58, %56, %_init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.exit
   %60 = load ptr, ptr @l_Lean_neverExtractAttr, align 8, !tbaa !9
   store ptr %60, ptr @l_Lean_hasNeverExtractAttribute_visit___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %60) #3
@@ -540,23 +540,23 @@ lean_dec_ref.exit17:                              ; preds = %59, %58, %56, %_ini
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %.sink.split
 
-63:                                               ; preds = %lean_dec_ref.exit17
+63:                                               ; preds = %lean_dec_ref.exit16
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit17, %3
-  %.sink35 = phi ptr [ %4, %3 ], [ %61, %lean_dec_ref.exit17 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink35, i64 4
-  store i32 1, ptr %.sink35, align 4, !tbaa !4
+.sink.split:                                      ; preds = %lean_dec_ref.exit16, %3
+  %.sink34 = phi ptr [ %4, %3 ], [ %61, %lean_dec_ref.exit16 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !4
   store i32 131096, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %65, align 8, !tbaa !9
-  %66 = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !9
   br label %67
 
 67:                                               ; preds = %.sink.split, %44, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %49, %44 ], [ %.sink35, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %49, %44 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

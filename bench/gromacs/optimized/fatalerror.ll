@@ -52,8 +52,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z14gmx_init_debugiRKNSt10filesystem7__cxx114pathE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @_ZL6bDebug, align 1
-  br i1 %.b1, label %7, label %3
+  %.b = load i1, ptr @_ZL6bDebug, align 1
+  br i1 %.b, label %7, label %3
 
 3:                                                ; preds = %2
   tail call void @_Z26gmx_disable_file_bufferingv()
@@ -77,8 +77,8 @@ declare noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z10bDebugModev() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @_ZL6bDebug, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @_ZL6bDebug, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable

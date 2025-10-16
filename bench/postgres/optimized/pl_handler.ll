@@ -77,8 +77,8 @@ define noundef nonnull ptr @Pg_magic_func() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @_PG_init() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @_PG_init.inited, align 1
-  br i1 %.b1, label %3, label %1
+  %.b = load i1, ptr @_PG_init.inited, align 1
+  br i1 %.b, label %3, label %1
 
 1:                                                ; preds = %0
   tail call void @pg_bindtextdomain(ptr noundef nonnull @.str) #10

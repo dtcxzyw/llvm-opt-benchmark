@@ -84,8 +84,8 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %.b58 = load i1, ptr @H5FD_stdio_init_s, align 1
-  br i1 %.b58, label %18, label %8
+  %.b = load i1, ptr @H5FD_stdio_init_s, align 1
+  br i1 %.b, label %18, label %8
 
 8:                                                ; preds = %4
   %9 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #12
@@ -128,8 +128,8 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 19:                                               ; preds = %18
   %20 = load i8, ptr %0, align 1, !tbaa !7
-  %.not59 = icmp eq i8 %20, 0
-  br i1 %.not59, label %21, label %50
+  %.not58 = icmp eq i8 %20, 0
+  br i1 %.not58, label %21, label %50
 
 21:                                               ; preds = %18, %19
   %22 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
@@ -141,13 +141,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 27:                                               ; preds = %21
   %28 = tail call i32 @H5open() #12
-  %.pre107 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre108 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre106 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre107 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %29
 
 29:                                               ; preds = %21, %27
-  %30 = phi i8 [ %24, %21 ], [ %.pre108, %27 ]
-  %31 = phi i8 [ %22, %21 ], [ %.pre107, %27 ]
+  %30 = phi i8 [ %24, %21 ], [ %.pre107, %27 ]
+  %31 = phi i8 [ %22, %21 ], [ %.pre106, %27 ]
   %32 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %33 = trunc nuw i8 %31 to i1
   %34 = trunc nuw i8 %30 to i1
@@ -156,13 +156,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 36:                                               ; preds = %29
   %37 = tail call i32 @H5open() #12
-  %.pre109 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre110 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre108 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre109 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %38
 
 38:                                               ; preds = %29, %36
-  %39 = phi i8 [ %30, %29 ], [ %.pre110, %36 ]
-  %40 = phi i8 [ %31, %29 ], [ %.pre109, %36 ]
+  %39 = phi i8 [ %30, %29 ], [ %.pre109, %36 ]
+  %40 = phi i8 [ %31, %29 ], [ %.pre108, %36 ]
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %42 = trunc nuw i8 %40 to i1
   %43 = trunc nuw i8 %39 to i1
@@ -193,13 +193,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 58:                                               ; preds = %52
   %59 = tail call i32 @H5open() #12
-  %.pre103 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre104 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre102 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre103 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %60
 
 60:                                               ; preds = %52, %58
-  %61 = phi i8 [ %55, %52 ], [ %.pre104, %58 ]
-  %62 = phi i8 [ %53, %52 ], [ %.pre103, %58 ]
+  %61 = phi i8 [ %55, %52 ], [ %.pre103, %58 ]
+  %62 = phi i8 [ %53, %52 ], [ %.pre102, %58 ]
   %63 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %64 = trunc nuw i8 %62 to i1
   %65 = trunc nuw i8 %61 to i1
@@ -208,13 +208,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 67:                                               ; preds = %60
   %68 = tail call i32 @H5open() #12
-  %.pre105 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre106 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre104 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre105 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %69
 
 69:                                               ; preds = %60, %67
-  %70 = phi i8 [ %61, %60 ], [ %.pre106, %67 ]
-  %71 = phi i8 [ %62, %60 ], [ %.pre105, %67 ]
+  %70 = phi i8 [ %61, %60 ], [ %.pre105, %67 ]
+  %71 = phi i8 [ %62, %60 ], [ %.pre104, %67 ]
   %72 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %73 = trunc nuw i8 %71 to i1
   %74 = trunc nuw i8 %70 to i1
@@ -244,13 +244,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 89:                                               ; preds = %83
   %90 = tail call i32 @H5open() #12
-  %.pre99 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre100 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre98 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre99 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %91
 
 91:                                               ; preds = %83, %89
-  %92 = phi i8 [ %86, %83 ], [ %.pre100, %89 ]
-  %93 = phi i8 [ %84, %83 ], [ %.pre99, %89 ]
+  %92 = phi i8 [ %86, %83 ], [ %.pre99, %89 ]
+  %93 = phi i8 [ %84, %83 ], [ %.pre98, %89 ]
   %94 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %95 = trunc nuw i8 %93 to i1
   %96 = trunc nuw i8 %92 to i1
@@ -259,13 +259,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 98:                                               ; preds = %91
   %99 = tail call i32 @H5open() #12
-  %.pre101 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre102 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre100 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre101 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %100
 
 100:                                              ; preds = %91, %98
-  %101 = phi i8 [ %92, %91 ], [ %.pre102, %98 ]
-  %102 = phi i8 [ %93, %91 ], [ %.pre101, %98 ]
+  %101 = phi i8 [ %92, %91 ], [ %.pre101, %98 ]
+  %102 = phi i8 [ %93, %91 ], [ %.pre100, %98 ]
   %103 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %104 = trunc nuw i8 %102 to i1
   %105 = trunc nuw i8 %101 to i1
@@ -283,16 +283,16 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 112:                                              ; preds = %81
   %113 = and i32 %1, 1
-  %.not60 = icmp eq i32 %113, 0
-  %.str.8..str.7 = select i1 %.not60, ptr @.str.8, ptr @.str.7
+  %.not59 = icmp eq i32 %113, 0
+  %.str.8..str.7 = select i1 %.not59, ptr @.str.8, ptr @.str.7
   %114 = tail call noalias ptr @fopen64(ptr noundef nonnull %0, ptr noundef nonnull %.str.8..str.7)
-  %.not61 = icmp eq ptr %114, null
-  br i1 %.not61, label %115, label %148
+  %.not60 = icmp eq ptr %114, null
+  br i1 %.not60, label %115, label %148
 
 115:                                              ; preds = %112
   %116 = and i32 %1, 16
-  %.not62 = icmp eq i32 %116, 0
-  br i1 %.not62, label %119, label %117
+  %.not61 = icmp eq i32 %116, 0
+  br i1 %.not61, label %119, label %117
 
 117:                                              ; preds = %115
   %118 = tail call noalias ptr @fopen64(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
@@ -308,13 +308,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 125:                                              ; preds = %119
   %126 = tail call i32 @H5open() #12
-  %.pre95 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre96 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre94 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre95 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %127
 
 127:                                              ; preds = %119, %125
-  %128 = phi i8 [ %122, %119 ], [ %.pre96, %125 ]
-  %129 = phi i8 [ %120, %119 ], [ %.pre95, %125 ]
+  %128 = phi i8 [ %122, %119 ], [ %.pre95, %125 ]
+  %129 = phi i8 [ %120, %119 ], [ %.pre94, %125 ]
   %130 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %131 = trunc nuw i8 %129 to i1
   %132 = trunc nuw i8 %128 to i1
@@ -323,13 +323,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 134:                                              ; preds = %127
   %135 = tail call i32 @H5open() #12
-  %.pre97 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre98 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre96 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre97 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %136
 
 136:                                              ; preds = %127, %134
-  %137 = phi i8 [ %128, %127 ], [ %.pre98, %134 ]
-  %138 = phi i8 [ %129, %127 ], [ %.pre97, %134 ]
+  %137 = phi i8 [ %128, %127 ], [ %.pre97, %134 ]
+  %138 = phi i8 [ %129, %127 ], [ %.pre96, %134 ]
   %139 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %140 = trunc nuw i8 %138 to i1
   %141 = trunc nuw i8 %137 to i1
@@ -347,8 +347,8 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 148:                                              ; preds = %112
   %149 = and i32 %1, 4
-  %.not63 = icmp eq i32 %149, 0
-  br i1 %.not63, label %180, label %150
+  %.not62 = icmp eq i32 %149, 0
+  br i1 %.not62, label %180, label %150
 
 150:                                              ; preds = %148
   %151 = tail call i32 @fclose(ptr noundef nonnull %114)
@@ -362,11 +362,11 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 157:                                              ; preds = %150
   %158 = tail call i32 @H5open() #12
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre72 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre71 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %159
 
 159:                                              ; preds = %150, %157
-  %160 = phi i8 [ %154, %150 ], [ %.pre72, %157 ]
+  %160 = phi i8 [ %154, %150 ], [ %.pre71, %157 ]
   %161 = phi i8 [ %152, %150 ], [ %.pre, %157 ]
   %162 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %163 = trunc nuw i8 %161 to i1
@@ -376,13 +376,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 166:                                              ; preds = %159
   %167 = tail call i32 @H5open() #12
-  %.pre73 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre74 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre72 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre73 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %168
 
 168:                                              ; preds = %159, %166
-  %169 = phi i8 [ %160, %159 ], [ %.pre74, %166 ]
-  %170 = phi i8 [ %161, %159 ], [ %.pre73, %166 ]
+  %169 = phi i8 [ %160, %159 ], [ %.pre73, %166 ]
+  %170 = phi i8 [ %161, %159 ], [ %.pre72, %166 ]
   %171 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %172 = trunc nuw i8 %170 to i1
   %173 = trunc nuw i8 %169 to i1
@@ -399,12 +399,12 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
   br label %372
 
 180:                                              ; preds = %148
-  br i1 %.not60, label %.thread, label %181
+  br i1 %.not59, label %.thread, label %181
 
 181:                                              ; preds = %180
   %182 = and i32 %1, 2
-  %.not64 = icmp eq i32 %182, 0
-  br i1 %.not64, label %.thread, label %183
+  %.not63 = icmp eq i32 %182, 0
+  br i1 %.not63, label %.thread, label %183
 
 183:                                              ; preds = %181
   %184 = tail call ptr @freopen64(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %114) #12
@@ -412,8 +412,8 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 185:                                              ; preds = %183, %117
   %.152 = phi ptr [ %118, %117 ], [ %184, %183 ]
-  %.not65 = icmp eq ptr %.152, null
-  br i1 %.not65, label %186, label %.thread
+  %.not64 = icmp eq ptr %.152, null
+  br i1 %.not64, label %186, label %.thread
 
 186:                                              ; preds = %185
   %187 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
@@ -425,13 +425,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 192:                                              ; preds = %186
   %193 = tail call i32 @H5open() #12
-  %.pre91 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre92 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre90 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre91 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %194
 
 194:                                              ; preds = %186, %192
-  %195 = phi i8 [ %189, %186 ], [ %.pre92, %192 ]
-  %196 = phi i8 [ %187, %186 ], [ %.pre91, %192 ]
+  %195 = phi i8 [ %189, %186 ], [ %.pre91, %192 ]
+  %196 = phi i8 [ %187, %186 ], [ %.pre90, %192 ]
   %197 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %198 = trunc nuw i8 %196 to i1
   %199 = trunc nuw i8 %195 to i1
@@ -440,13 +440,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 201:                                              ; preds = %194
   %202 = tail call i32 @H5open() #12
-  %.pre93 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre94 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre92 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre93 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %203
 
 203:                                              ; preds = %194, %201
-  %204 = phi i8 [ %195, %194 ], [ %.pre94, %201 ]
-  %205 = phi i8 [ %196, %194 ], [ %.pre93, %201 ]
+  %204 = phi i8 [ %195, %194 ], [ %.pre93, %201 ]
+  %205 = phi i8 [ %196, %194 ], [ %.pre92, %201 ]
   %206 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
   %207 = trunc nuw i8 %205 to i1
   %208 = trunc nuw i8 %204 to i1
@@ -463,14 +463,14 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
   br label %372
 
 .thread:                                          ; preds = %181, %180, %185
-  %.05071 = phi i32 [ 1, %185 ], [ 1, %181 ], [ 0, %180 ]
-  %.15270 = phi ptr [ %.152, %185 ], [ %114, %181 ], [ %114, %180 ]
+  %.05070 = phi i32 [ 1, %185 ], [ 1, %181 ], [ 0, %180 ]
+  %.15269 = phi ptr [ %.152, %185 ], [ %114, %181 ], [ %114, %180 ]
   %215 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #14
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %247
 
 217:                                              ; preds = %.thread
-  %218 = tail call i32 @fclose(ptr noundef nonnull %.15270)
+  %218 = tail call i32 @fclose(ptr noundef nonnull %.15269)
   %219 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
   %220 = trunc nuw i8 %219 to i1
   %221 = load i8, ptr @H5_libterm_g, align 1, !range !10
@@ -480,13 +480,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 224:                                              ; preds = %217
   %225 = tail call i32 @H5open() #12
-  %.pre87 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre88 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre86 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre87 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %226
 
 226:                                              ; preds = %217, %224
-  %227 = phi i8 [ %221, %217 ], [ %.pre88, %224 ]
-  %228 = phi i8 [ %219, %217 ], [ %.pre87, %224 ]
+  %227 = phi i8 [ %221, %217 ], [ %.pre87, %224 ]
+  %228 = phi i8 [ %219, %217 ], [ %.pre86, %224 ]
   %229 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %230 = trunc nuw i8 %228 to i1
   %231 = trunc nuw i8 %227 to i1
@@ -495,13 +495,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 233:                                              ; preds = %226
   %234 = tail call i32 @H5open() #12
-  %.pre89 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre90 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre88 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre89 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %235
 
 235:                                              ; preds = %226, %233
-  %236 = phi i8 [ %227, %226 ], [ %.pre90, %233 ]
-  %237 = phi i8 [ %228, %226 ], [ %.pre89, %233 ]
+  %236 = phi i8 [ %227, %226 ], [ %.pre89, %233 ]
+  %237 = phi i8 [ %228, %226 ], [ %.pre88, %233 ]
   %238 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %239 = trunc nuw i8 %237 to i1
   %240 = trunc nuw i8 %236 to i1
@@ -519,14 +519,14 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 247:                                              ; preds = %.thread
   %248 = getelementptr inbounds nuw i8, ptr %215, i64 80
-  store ptr %.15270, ptr %248, align 8, !tbaa !15
+  store ptr %.15269, ptr %248, align 8, !tbaa !15
   %249 = getelementptr inbounds nuw i8, ptr %215, i64 128
   store i32 3, ptr %249, align 8, !tbaa !21
   %250 = getelementptr inbounds nuw i8, ptr %215, i64 112
   store i64 -1, ptr %250, align 8, !tbaa !22
   %251 = getelementptr inbounds nuw i8, ptr %215, i64 120
-  store i32 %.05071, ptr %251, align 8, !tbaa !23
-  %252 = tail call i32 @fseeko64(ptr noundef nonnull %.15270, i64 noundef 0, i32 noundef 2)
+  store i32 %.05070, ptr %251, align 8, !tbaa !23
+  %252 = tail call i32 @fseeko64(ptr noundef nonnull %.15269, i64 noundef 0, i32 noundef 2)
   %253 = icmp slt i32 %252, 0
   br i1 %253, label %254, label %255
 
@@ -543,9 +543,9 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 259:                                              ; preds = %255, %254
   %260 = load i32, ptr @ignore_disabled_file_locks_s, align 4, !tbaa !3
-  %.not66 = icmp eq i32 %260, -1
+  %.not65 = icmp eq i32 %260, -1
   %261 = getelementptr inbounds nuw i8, ptr %215, i64 124
-  br i1 %.not66, label %265, label %262
+  br i1 %.not65, label %265, label %262
 
 262:                                              ; preds = %259
   %263 = icmp ne i32 %260, 0
@@ -561,7 +561,7 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 268:                                              ; preds = %265
   call void @free(ptr noundef nonnull %215) #12
-  %269 = call i32 @fclose(ptr noundef nonnull %.15270)
+  %269 = call i32 @fclose(ptr noundef nonnull %.15269)
   %270 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
   %271 = trunc nuw i8 %270 to i1
   %272 = load i8, ptr @H5_libterm_g, align 1, !range !10
@@ -571,13 +571,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 275:                                              ; preds = %268
   %276 = call i32 @H5open() #12
-  %.pre75 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre76 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre74 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre75 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %277
 
 277:                                              ; preds = %268, %275
-  %278 = phi i8 [ %272, %268 ], [ %.pre76, %275 ]
-  %279 = phi i8 [ %270, %268 ], [ %.pre75, %275 ]
+  %278 = phi i8 [ %272, %268 ], [ %.pre75, %275 ]
+  %279 = phi i8 [ %270, %268 ], [ %.pre74, %275 ]
   %280 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %281 = trunc nuw i8 %279 to i1
   %282 = trunc nuw i8 %278 to i1
@@ -586,13 +586,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 284:                                              ; preds = %277
   %285 = call i32 @H5open() #12
-  %.pre77 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre78 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre76 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre77 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %286
 
 286:                                              ; preds = %277, %284
-  %287 = phi i8 [ %278, %277 ], [ %.pre78, %284 ]
-  %288 = phi i8 [ %279, %277 ], [ %.pre77, %284 ]
+  %287 = phi i8 [ %278, %277 ], [ %.pre77, %284 ]
+  %288 = phi i8 [ %279, %277 ], [ %.pre76, %284 ]
   %289 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !13
   %290 = trunc nuw i8 %288 to i1
   %291 = trunc nuw i8 %287 to i1
@@ -623,7 +623,7 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 303:                                              ; preds = %298
   call void @free(ptr noundef nonnull %215) #12
-  %304 = call i32 @fclose(ptr noundef nonnull %.15270)
+  %304 = call i32 @fclose(ptr noundef nonnull %.15269)
   %305 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
   %306 = trunc nuw i8 %305 to i1
   %307 = load i8, ptr @H5_libterm_g, align 1, !range !10
@@ -633,13 +633,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 310:                                              ; preds = %303
   %311 = call i32 @H5open() #12
-  %.pre83 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre84 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre82 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre83 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %312
 
 312:                                              ; preds = %303, %310
-  %313 = phi i8 [ %307, %303 ], [ %.pre84, %310 ]
-  %314 = phi i8 [ %305, %303 ], [ %.pre83, %310 ]
+  %313 = phi i8 [ %307, %303 ], [ %.pre83, %310 ]
+  %314 = phi i8 [ %305, %303 ], [ %.pre82, %310 ]
   %315 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %316 = trunc nuw i8 %314 to i1
   %317 = trunc nuw i8 %313 to i1
@@ -648,13 +648,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 319:                                              ; preds = %312
   %320 = call i32 @H5open() #12
-  %.pre85 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre86 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre84 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre85 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %321
 
 321:                                              ; preds = %312, %319
-  %322 = phi i8 [ %313, %312 ], [ %.pre86, %319 ]
-  %323 = phi i8 [ %314, %312 ], [ %.pre85, %319 ]
+  %322 = phi i8 [ %313, %312 ], [ %.pre85, %319 ]
+  %323 = phi i8 [ %314, %312 ], [ %.pre84, %319 ]
   %324 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !13
   %325 = trunc nuw i8 %323 to i1
   %326 = trunc nuw i8 %322 to i1
@@ -677,7 +677,7 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 336:                                              ; preds = %333
   call void @free(ptr noundef nonnull %215) #12
-  %337 = call i32 @fclose(ptr noundef nonnull %.15270)
+  %337 = call i32 @fclose(ptr noundef nonnull %.15269)
   %338 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
   %339 = trunc nuw i8 %338 to i1
   %340 = load i8, ptr @H5_libterm_g, align 1, !range !10
@@ -687,13 +687,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 343:                                              ; preds = %336
   %344 = call i32 @H5open() #12
-  %.pre79 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre80 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre78 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre79 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %345
 
 345:                                              ; preds = %336, %343
-  %346 = phi i8 [ %340, %336 ], [ %.pre80, %343 ]
-  %347 = phi i8 [ %338, %336 ], [ %.pre79, %343 ]
+  %346 = phi i8 [ %340, %336 ], [ %.pre79, %343 ]
+  %347 = phi i8 [ %338, %336 ], [ %.pre78, %343 ]
   %348 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %349 = trunc nuw i8 %347 to i1
   %350 = trunc nuw i8 %346 to i1
@@ -702,13 +702,13 @@ H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, 
 
 352:                                              ; preds = %345
   %353 = call i32 @H5open() #12
-  %.pre81 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre82 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre80 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre81 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %354
 
 354:                                              ; preds = %345, %352
-  %355 = phi i8 [ %346, %345 ], [ %.pre82, %352 ]
-  %356 = phi i8 [ %347, %345 ], [ %.pre81, %352 ]
+  %355 = phi i8 [ %346, %345 ], [ %.pre81, %352 ]
+  %356 = phi i8 [ %347, %345 ], [ %.pre80, %352 ]
   %357 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !13
   %358 = trunc nuw i8 %356 to i1
   %359 = trunc nuw i8 %355 to i1
@@ -1951,8 +1951,8 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr noundef readonly cap
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_delete(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %.b1 = load i1, ptr @H5FD_stdio_init_s, align 1
-  br i1 %.b1, label %14, label %4
+  %.b = load i1, ptr @H5FD_stdio_init_s, align 1
+  br i1 %.b, label %14, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #12
@@ -2005,11 +2005,11 @@ H5FD__stdio_init.exit:                            ; preds = %6, %8, %.tail.i, %.
 23:                                               ; preds = %17
   %24 = tail call i32 @H5open() #12
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre2 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre1 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %25
 
 25:                                               ; preds = %17, %23
-  %26 = phi i8 [ %20, %17 ], [ %.pre2, %23 ]
+  %26 = phi i8 [ %20, %17 ], [ %.pre1, %23 ]
   %27 = phi i8 [ %18, %17 ], [ %.pre, %23 ]
   %28 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
   %29 = trunc nuw i8 %27 to i1
@@ -2019,13 +2019,13 @@ H5FD__stdio_init.exit:                            ; preds = %6, %8, %.tail.i, %.
 
 32:                                               ; preds = %25
   %33 = tail call i32 @H5open() #12
-  %.pre3 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre4 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %.pre2 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre3 = load i8, ptr @H5_libterm_g, align 1, !range !10
   br label %34
 
 34:                                               ; preds = %25, %32
-  %35 = phi i8 [ %26, %25 ], [ %.pre4, %32 ]
-  %36 = phi i8 [ %27, %25 ], [ %.pre3, %32 ]
+  %35 = phi i8 [ %26, %25 ], [ %.pre3, %32 ]
+  %36 = phi i8 [ %27, %25 ], [ %.pre2, %32 ]
   %37 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !13
   %38 = trunc nuw i8 %36 to i1
   %39 = trunc nuw i8 %35 to i1

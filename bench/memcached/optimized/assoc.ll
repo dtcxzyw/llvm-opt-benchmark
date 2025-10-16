@@ -87,10 +87,10 @@ declare void @STATS_UNLOCK() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %.b15 = load i1, ptr @expanding, align 1
+  %.b = load i1, ptr @expanding, align 1
   %.pre = load i32, ptr @hashpower, align 4, !tbaa !4
   %4 = zext i32 %2 to i64
-  br i1 %.b15, label %5, label %._crit_edge24
+  br i1 %.b, label %5, label %._crit_edge23
 
 5:                                                ; preds = %3
   %6 = add i32 %.pre, -1
@@ -100,39 +100,39 @@ define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %0, i64 nou
   %9 = and i64 %8, %4
   %10 = load i64, ptr @expand_bucket, align 8, !tbaa !19
   %.not = icmp ult i64 %9, %10
-  br i1 %.not, label %._crit_edge24, label %11
+  br i1 %.not, label %._crit_edge23, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %9
   br label %19
 
-._crit_edge24:                                    ; preds = %3, %5
+._crit_edge23:                                    ; preds = %3, %5
   %14 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
   %15 = zext nneg i32 %.pre to i64
-  %notmask16 = shl nsw i64 -1, %15
-  %16 = xor i64 %notmask16, -1
+  %notmask15 = shl nsw i64 -1, %15
+  %16 = xor i64 %notmask15, -1
   %17 = and i64 %4, %16
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   br label %19
 
-19:                                               ; preds = %._crit_edge24, %11
-  %.012.in = phi ptr [ %13, %11 ], [ %18, %._crit_edge24 ]
-  %.119 = load ptr, ptr %.012.in, align 8, !tbaa !20
-  %.not1720 = icmp eq ptr %.119, null
-  br i1 %.not1720, label %._crit_edge, label %.lr.ph
+19:                                               ; preds = %._crit_edge23, %11
+  %.012.in = phi ptr [ %13, %11 ], [ %18, %._crit_edge23 ]
+  %.118 = load ptr, ptr %.012.in, align 8, !tbaa !20
+  %.not1619 = icmp eq ptr %.118, null
+  br i1 %.not1619, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %33
-  %.121 = phi ptr [ %.1, %33 ], [ %.119, %19 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.121, i64 41
+  %.120 = phi ptr [ %.1, %33 ], [ %.118, %19 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.120, i64 41
   %21 = load i8, ptr %20, align 1, !tbaa !22
   %22 = zext i8 %21 to i64
   %23 = icmp eq i64 %1, %22
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.121, i64 48
-  %26 = getelementptr inbounds nuw i8, ptr %.121, i64 38
+  %25 = getelementptr inbounds nuw i8, ptr %.120, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.120, i64 38
   %27 = load i16, ptr %26, align 2, !tbaa !23
   %28 = shl i16 %27, 2
   %29 = and i16 %28, 8
@@ -143,13 +143,13 @@ define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %24, %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.121, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.120, i64 16
   %.1 = load ptr, ptr %34, align 8, !tbaa !20
-  %.not17 = icmp eq ptr %.1, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  %.not16 = icmp eq ptr %.1, null
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %33, %24, %19
-  %.1.lcssa = phi ptr [ null, %19 ], [ %.121, %24 ], [ null, %33 ]
+  %.1.lcssa = phi ptr [ null, %19 ], [ %.120, %24 ], [ null, %33 ]
   ret ptr %.1.lcssa
 }
 
@@ -192,10 +192,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %0, i32 noundef %1) local_unnamed_addr #7 {
-  %.b8 = load i1, ptr @expanding, align 1
+  %.b = load i1, ptr @expanding, align 1
   %.pre = load i32, ptr @hashpower, align 4, !tbaa !4
   %3 = zext i32 %1 to i64
-  br i1 %.b8, label %4, label %._crit_edge
+  br i1 %.b, label %4, label %._crit_edge
 
 4:                                                ; preds = %2
   %5 = add i32 %.pre, -1
@@ -219,8 +219,8 @@ define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %0,
 ._crit_edge:                                      ; preds = %2, %4
   %15 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
   %16 = zext nneg i32 %.pre to i64
-  %notmask9 = shl nsw i64 -1, %16
-  %17 = xor i64 %notmask9, -1
+  %notmask8 = shl nsw i64 -1, %16
+  %17 = xor i64 %notmask8, -1
   %18 = and i64 %3, %17
   %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !20
@@ -235,10 +235,10 @@ define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %0,
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
-  %.b16.i = load i1, ptr @expanding, align 1
+  %.b.i = load i1, ptr @expanding, align 1
   %.pre.i = load i32, ptr @hashpower, align 4, !tbaa !4
   %4 = zext i32 %2 to i64
-  br i1 %.b16.i, label %5, label %._crit_edge.i
+  br i1 %.b.i, label %5, label %._crit_edge.i
 
 5:                                                ; preds = %3
   %6 = add i32 %.pre.i, -1
@@ -258,8 +258,8 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
 ._crit_edge.i:                                    ; preds = %5, %3
   %14 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
   %15 = zext nneg i32 %.pre.i to i64
-  %notmask17.i = shl nsw i64 -1, %15
-  %16 = xor i64 %notmask17.i, -1
+  %notmask16.i = shl nsw i64 -1, %15
+  %16 = xor i64 %notmask16.i, -1
   %17 = and i64 %16, %4
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   br label %19
@@ -267,17 +267,17 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
 19:                                               ; preds = %._crit_edge.i, %11
   %.0.i = phi ptr [ %13, %11 ], [ %18, %._crit_edge.i ]
   %20 = load ptr, ptr %.0.i, align 8, !tbaa !20
-  %.not1822.i = icmp eq ptr %20, null
-  br i1 %.not1822.i, label %_hashitem_before.exit.thread, label %.lr.ph.i
+  %.not1721.i = icmp eq ptr %20, null
+  br i1 %.not1721.i, label %_hashitem_before.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.critedge2.i
   %.pr = phi ptr [ %33, %.critedge2.i ], [ %20, %19 ]
-  %.123.i = phi ptr [ %32, %.critedge2.i ], [ %.0.i, %19 ]
+  %.122.i = phi ptr [ %32, %.critedge2.i ], [ %.0.i, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.pr, i64 41
   %22 = load i8, ptr %21, align 1, !tbaa !22
   %23 = zext i8 %22 to i64
-  %.not19.i = icmp eq i64 %1, %23
-  br i1 %.not19.i, label %24, label %.critedge2.i
+  %.not18.i = icmp eq i64 %1, %23
+  br i1 %.not18.i, label %24, label %.critedge2.i
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.pr, i64 48
@@ -288,20 +288,20 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
   %30 = zext nneg i16 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
   %bcmp.i = tail call i32 @bcmp(ptr readonly %0, ptr nonnull %31, i64 %1)
-  %.not21.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not21.i, label %_hashitem_before.exit, label %.critedge2.i
+  %.not20.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not20.i, label %_hashitem_before.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %24, %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !20
-  %.not18.i = icmp eq ptr %33, null
-  br i1 %.not18.i, label %_hashitem_before.exit.thread, label %.lr.ph.i, !llvm.loop !27
+  %.not17.i = icmp eq ptr %33, null
+  br i1 %.not17.i, label %_hashitem_before.exit.thread, label %.lr.ph.i, !llvm.loop !27
 
 _hashitem_before.exit:                            ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !20
   store ptr null, ptr %34, align 8, !tbaa !20
-  store ptr %35, ptr %.123.i, align 8, !tbaa !20
+  store ptr %35, ptr %.122.i, align 8, !tbaa !20
   br label %_hashitem_before.exit.thread
 
 _hashitem_before.exit.thread:                     ; preds = %.critedge2.i, %19, %_hashitem_before.exit
@@ -352,49 +352,49 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @maintenance_lock) #18
   %3 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
-  %.not26 = icmp eq i32 %3, 0
-  br i1 %.not26, label %._crit_edge27, label %.preheader
+  %.not25 = icmp eq i32 %3, 0
+  br i1 %.not25, label %._crit_edge26, label %.preheader
 
 .preheader:                                       ; preds = %1, %87
   %4 = load i32, ptr @hash_bulk_move, align 4, !tbaa !4
   %5 = icmp sgt i32 %4, 0
-  %.b1522 = load i1, ptr @expanding, align 1
-  %6 = select i1 %5, i1 %.b1522, i1 false
-  br i1 %6, label %.lr.ph24, label %._crit_edge25
+  %.b21 = load i1, ptr @expanding, align 1
+  %6 = select i1 %5, i1 %.b21, i1 false
+  br i1 %6, label %.lr.ph23, label %._crit_edge24
 
-.lr.ph24:                                         ; preds = %.preheader, %59
-  %.023 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
+.lr.ph23:                                         ; preds = %.preheader, %59
+  %.022 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
   %7 = load i64, ptr @expand_bucket, align 8, !tbaa !19
   %8 = trunc i64 %7 to i32
   %9 = tail call ptr @item_trylock(i32 noundef %8) #18
-  %.not17 = icmp eq ptr %9, null
-  br i1 %.not17, label %.thread, label %10
+  %.not16 = icmp eq ptr %9, null
+  br i1 %.not16, label %.thread, label %10
 
-10:                                               ; preds = %.lr.ph24
+10:                                               ; preds = %.lr.ph23
   %11 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
   %12 = load i64, ptr @expand_bucket, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %.not1820 = icmp eq ptr %14, null
-  br i1 %.not1820, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not1719 = icmp eq ptr %14, null
+  br i1 %.not1719, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %10
-  %.pre30 = load i32, ptr @hashpower, align 4, !tbaa !4
+  %.pre29 = load i32, ptr @hashpower, align 4, !tbaa !4
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.01321 = phi ptr [ %16, %.lr.ph ], [ %14, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.01321, i64 16
+  %.01320 = phi ptr [ %16, %.lr.ph ], [ %14, %10 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.01320, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = load ptr, ptr @hash, align 8, !tbaa !28
-  %18 = getelementptr inbounds nuw i8, ptr %.01321, i64 48
-  %19 = getelementptr inbounds nuw i8, ptr %.01321, i64 38
+  %18 = getelementptr inbounds nuw i8, ptr %.01320, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.01320, i64 38
   %20 = load i16, ptr %19, align 2, !tbaa !23
   %21 = shl i16 %20, 2
   %22 = and i16 %21, 8
   %23 = zext nneg i16 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %.01321, i64 41
+  %25 = getelementptr inbounds nuw i8, ptr %.01320, i64 41
   %26 = load i8, ptr %25, align 1, !tbaa !22
   %27 = zext i8 %26 to i64
   %28 = tail call i32 %17(ptr noundef nonnull %24, i64 noundef %27) #18
@@ -408,18 +408,18 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   store ptr %36, ptr %15, align 8, !tbaa !20
-  store ptr %.01321, ptr %35, align 8, !tbaa !20
-  %.not18 = icmp eq ptr %16, null
-  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  store ptr %.01320, ptr %35, align 8, !tbaa !20
+  %.not17 = icmp eq ptr %16, null
+  br i1 %.not17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr @old_hashtable, align 8, !tbaa !8
-  %.pre29 = load i64, ptr @expand_bucket, align 8, !tbaa !19
+  %.pre28 = load i64, ptr @expand_bucket, align 8, !tbaa !19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %37 = phi i32 [ %30, %._crit_edge.loopexit ], [ %.pre30, %.._crit_edge_crit_edge ]
-  %38 = phi i64 [ %.pre29, %._crit_edge.loopexit ], [ %12, %.._crit_edge_crit_edge ]
+  %37 = phi i32 [ %30, %._crit_edge.loopexit ], [ %.pre29, %.._crit_edge_crit_edge ]
+  %38 = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %12, %.._crit_edge_crit_edge ]
   %39 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.._crit_edge_crit_edge ]
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %38
   store ptr null, ptr %40, align 8, !tbaa !20
@@ -453,7 +453,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %56 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %55) #16
   br label %58
 
-.thread:                                          ; preds = %.lr.ph24
+.thread:                                          ; preds = %.lr.ph23
   %57 = tail call i32 @usleep(i32 noundef 9999) #18
   br label %59
 
@@ -462,22 +462,22 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   br label %59
 
 59:                                               ; preds = %.thread, %58
-  %60 = add nuw nsw i32 %.023, 1
+  %60 = add nuw nsw i32 %.022, 1
   %61 = load i32, ptr @hash_bulk_move, align 4, !tbaa !4
   %62 = icmp slt i32 %60, %61
-  %.b15 = load i1, ptr @expanding, align 1
-  %63 = select i1 %62, i1 %.b15, i1 false
-  br i1 %63, label %.lr.ph24, label %._crit_edge25, !llvm.loop !36
+  %.b = load i1, ptr @expanding, align 1
+  %63 = select i1 %62, i1 %.b, i1 false
+  br i1 %63, label %.lr.ph23, label %._crit_edge24, !llvm.loop !36
 
-._crit_edge25:                                    ; preds = %59, %.preheader
-  %.b15.lcssa = phi i1 [ %.b1522, %.preheader ], [ %.b15, %59 ]
-  br i1 %.b15.lcssa, label %87, label %64
+._crit_edge24:                                    ; preds = %59, %.preheader
+  %.b.lcssa = phi i1 [ %.b21, %.preheader ], [ %.b, %59 ]
+  br i1 %.b.lcssa, label %87, label %64
 
-64:                                               ; preds = %._crit_edge25
+64:                                               ; preds = %._crit_edge24
   %65 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @maintenance_cond, ptr noundef nonnull @maintenance_lock) #18
   %66 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
-  %.not16 = icmp eq i32 %66, 0
-  br i1 %.not16, label %87, label %67
+  %.not15 = icmp eq i32 %66, 0
+  br i1 %.not15, label %87, label %67
 
 67:                                               ; preds = %64
   tail call void @pause_threads(i32 noundef 1) #18
@@ -529,12 +529,12 @@ assoc_expand.exit:                                ; preds = %80, %86
   tail call void @pause_threads(i32 noundef 2) #18
   br label %87
 
-87:                                               ; preds = %64, %assoc_expand.exit, %._crit_edge25
+87:                                               ; preds = %64, %assoc_expand.exit, %._crit_edge24
   %88 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
   %.not = icmp eq i32 %88, 0
-  br i1 %.not, label %._crit_edge27, label %.preheader, !llvm.loop !37
+  br i1 %.not, label %._crit_edge26, label %.preheader, !llvm.loop !37
 
-._crit_edge27:                                    ; preds = %87, %1
+._crit_edge26:                                    ; preds = %87, %1
   %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @maintenance_lock) #18
   ret ptr null
 }

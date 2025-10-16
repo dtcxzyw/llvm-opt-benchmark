@@ -2487,8 +2487,8 @@ define hidden noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #1 align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
   %1 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not2 = icmp eq ptr %1, null
-  br i1 %.not2, label %3, label %2
+  %.not1 = icmp eq ptr %1, null
+  br i1 %.not1, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.76)
@@ -2496,8 +2496,8 @@ define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
 
 3:                                                ; preds = %0, %2
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not3 = icmp eq ptr %4, null
-  br i1 %.not3, label %8, label %5
+  %.not2 = icmp eq ptr %4, null
+  br i1 %.not2, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @_ZL26_pthread_condattr_setclock, align 8
@@ -2508,12 +2508,12 @@ define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
 
 8:                                                ; preds = %3, %5
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not4 = icmp eq ptr %9, null
-  br i1 %.not4, label %12, label %10
+  %.not3 = icmp eq ptr %9, null
+  br i1 %.not3, label %12, label %10
 
 10:                                               ; preds = %8
-  %.b1 = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %11 = select i1 %.b1, ptr @.str.81, ptr @.str.82
+  %.b = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %11 = select i1 %.b, ptr @.str.81, ptr @.str.82
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.80, ptr noundef nonnull %11)
   br label %12
 
@@ -2860,8 +2860,8 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN13PlatformEvent10park_nanosEl(ptr
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %spec.select.i = zext i1 %.b11.i to i32
+  %.b.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %spec.select.i = zext i1 %.b.i to i32
   %18 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
   %19 = load i64, ptr %3, align 8
   %20 = icmp sgt i64 %1, 99999999999999999
@@ -3030,9 +3030,9 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
 
 16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %.b.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
   %not. = xor i1 %1, true
-  %not.or.cond3.i = select i1 %not., i1 %.b11.i, i1 false
+  %not.or.cond3.i = select i1 %not., i1 %.b.i, i1 false
   %spec.select.i = zext i1 %not.or.cond3.i to i32
   %17 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %4) #28
   %18 = load i64, ptr %4, align 8
@@ -3253,8 +3253,8 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN15PlatformMonitor4waitEm(ptr noun
   %7 = mul nuw nsw i64 %1, 1000000
   %8 = select i1 %6, i64 100000000000000000, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %spec.select.i = zext i1 %.b11.i to i32
+  %.b.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %spec.select.i = zext i1 %.b.i to i32
   %9 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
   %10 = load i64, ptr %3, align 8
   %11 = icmp samesign ugt i64 %8, 99999999999999999

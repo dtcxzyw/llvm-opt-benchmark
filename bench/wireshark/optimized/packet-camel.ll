@@ -3352,8 +3352,8 @@ define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_camel() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_camel.camel_prefs_initialized, align 1
-  br i1 %.b1, label %34, label %1
+  %.b = load i1, ptr @proto_reg_handoff_camel.camel_prefs_initialized, align 1
+  br i1 %.b, label %34, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_camel.camel_prefs_initialized, align 1

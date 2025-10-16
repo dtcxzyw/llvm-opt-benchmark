@@ -2858,27 +2858,27 @@ define hidden i64 @_ZN5gimli5write3cfi10FrameTable5write17h88625a023bb73879E(ptr
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %532, %549, %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i, %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.sink.split.i, %521, %519, %517, %494
-  %lpad.loopexit177 = landingpad { ptr, i32 }
+  %lpad.loopexit176 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %320
-  %lpad.loopexit180 = landingpad { ptr, i32 }
+  %lpad.loopexit179 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %461, %571, %.split4.i, %161, %172, %185, %199, %222, %231, %259, %274, %.critedge.i, %424, %414, %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$16write_eh_pointer17h9a364bc83c50c468E.exit.i", %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.i, %389, %377, %367, %344, %325, %312, %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.i, %299, %295, %289, %282, %248, %237, %212, %148, %145, %117, %95, %89, %86, %65
-  %lpad.loopexit182 = landingpad { ptr, i32 }
+  %lpad.loopexit181 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke698, %.invoke696, %.invoke, %56
-  %lpad.loopexit.split-lp183 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke697, %.invoke695, %.invoke, %56
+  %lpad.loopexit.split-lp182 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit177, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit182, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit176, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit181, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp182, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #36
           to label %604 unwind label %602
 
@@ -2929,7 +2929,7 @@ define hidden i64 @_ZN5gimli5write3cfi10FrameTable5write17h88625a023bb73879E(ptr
 57:                                               ; preds = %52
   %58 = load i64, ptr %25, align 8, !noundef !4
   %59 = icmp ult i64 %54, %58
-  br i1 %59, label %61, label %.invoke698, !prof !571
+  br i1 %59, label %61, label %.invoke697, !prof !571
 
 60:                                               ; preds = %56
   unreachable
@@ -3081,7 +3081,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit505.i: ; preds =
 118:                                              ; preds = %102
   %119 = and i32 %.sroa.0.0.copyload.i, -65536
   %120 = or disjoint i32 %119, 5
-  %.sroa.4.sroa.0.2.insert.insert954 = zext i32 %120 to i64
+  %.sroa.4.sroa.0.2.insert.insert953 = zext i32 %120 to i64
   br label %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i
 
 121:                                              ; preds = %.noexc57, %112
@@ -3539,10 +3539,10 @@ _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %335 = load i64, ptr %25, align 8, !noundef !4
   %336 = icmp ult i64 %54, %335
-  br i1 %336, label %338, label %.invoke698, !prof !571
+  br i1 %336, label %338, label %.invoke697, !prof !571
 
 _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %303, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %253, %.noexc67, %.noexc64, %118, %109, %77
-  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %77 ], [ %.sroa.4.sroa.0.2.insert.insert954, %118 ], [ %.sroa.4.sroa.0.2.insert.insert, %109 ], [ %216, %.noexc64 ], [ %241, %.noexc67 ], [ 3, %253 ], [ %250, %.noexc68 ], [ %285, %.noexc71 ], [ %291, %.noexc72 ], [ %296, %.noexc73 ], [ %300, %.noexc74 ], [ %307, %.noexc75 ], [ 3, %303 ], [ %317, %.noexc76 ], [ %328, %.noexc78 ], [ %321, %.noexc77 ]
+  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %77 ], [ %.sroa.4.sroa.0.2.insert.insert953, %118 ], [ %.sroa.4.sroa.0.2.insert.insert, %109 ], [ %216, %.noexc64 ], [ %241, %.noexc67 ], [ 3, %253 ], [ %250, %.noexc68 ], [ %285, %.noexc71 ], [ %291, %.noexc72 ], [ %296, %.noexc73 ], [ %300, %.noexc74 ], [ %307, %.noexc75 ], [ 3, %303 ], [ %317, %.noexc76 ], [ %328, %.noexc78 ], [ %321, %.noexc77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.4.sroa.0.0.extract.trunc = trunc i64 %.sroa.4.sroa.0.0 to i32
   %.sroa.4.sroa.0.4.extract.shift = lshr i64 %.sroa.4.sroa.0.0, 32
@@ -3553,7 +3553,7 @@ _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i:
   %337 = and i64 %.sroa.4.sroa.0.0, 4294967295
   %.1..1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 1
   %.1..1..1..1..sroa.4.sroa.0.0.copyload = load i56, ptr %.1..1..1..1..sroa_idx, align 1
-  br label %.loopexit185
+  br label %.loopexit184
 
 338:                                              ; preds = %334
   %339 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
@@ -3563,13 +3563,13 @@ _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i:
   store i64 %72, ptr %341, align 8
   br label %344
 
-.invoke698:                                       ; preds = %334, %57
+.invoke697:                                       ; preds = %334, %57
   %342 = phi i64 [ %58, %57 ], [ %335, %334 ]
   %343 = phi ptr [ @anon.acc04376d73b9d47b12eb9d1881f2d89.16, %57 ], [ @anon.acc04376d73b9d47b12eb9d1881f2d89.17, %334 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %54, i64 noundef %342, ptr noalias noundef readonly align 8 dereferenceable(24) %343) #35
-          to label %.cont699 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont698 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont699:                                         ; preds = %.invoke698
+.cont698:                                         ; preds = %.invoke697
   unreachable
 
 344:                                              ; preds = %338, %331
@@ -3742,7 +3742,7 @@ _ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.i: ; preds
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !811, !noalias !884
   %trunc.i305.i = trunc nuw i64 %.sroa.0.0.copyload.i81 to i1
-  br i1 %trunc.i305.i, label %.invoke696, label %405
+  br i1 %trunc.i305.i, label %.invoke695, label %405
 
 405:                                              ; preds = %404
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !885
@@ -3856,7 +3856,7 @@ _ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.i: ; preds
   %.sroa.4161.0.copyload = load i64, ptr %.sroa.4161.0..sroa_idx, align 8, !noalias !884
   call void @llvm.experimental.noalias.scope.decl(metadata !889)
   %trunc.i147 = trunc nuw i64 %.sroa.0160.0.copyload to i1
-  br i1 %trunc.i147, label %.invoke696, label %458
+  br i1 %trunc.i147, label %.invoke695, label %458
 
 458:                                              ; preds = %455
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !892
@@ -3865,11 +3865,11 @@ _ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.i: ; preds
   %460 = icmp eq i8 %459, 16
   br i1 %460, label %461, label %466
 
-.invoke696:                                       ; preds = %455, %404
+.invoke695:                                       ; preds = %455, %404
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.3dbee3e33c882d309e80a848958d12d3.179.llvm.8882213390170994431, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3dbee3e33c882d309e80a848958d12d3.180.llvm.8882213390170994431) #35
-          to label %.cont697 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont696 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont697:                                         ; preds = %.invoke696
+.cont696:                                         ; preds = %.invoke695
   unreachable
 
 461:                                              ; preds = %458
@@ -4177,9 +4177,9 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.spli
   br label %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i.sink.split
 
 _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i.sink.split: ; preds = %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.i, %.noexc104, %.noexc105
-  %.sink702 = phi i64 [ 2, %.noexc105 ], [ 4, %.noexc104 ], [ 1, %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.i ]
+  %.sink701 = phi i64 [ 2, %.noexc105 ], [ 4, %.noexc104 ], [ 1, %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.i ]
   %581 = load i64, ptr %33, align 8, !noalias !4, !noundef !4
-  %582 = add i64 %581, %.sink702
+  %582 = add i64 %581, %.sink701
   store i64 %582, ptr %33, align 8, !noalias !4
   br label %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i
 
@@ -4193,7 +4193,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   %586 = icmp eq i64 %585, 18
   br i1 %586, label %471, label %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i
 
-.loopexit185:                                     ; preds = %599, %.thread, %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i
+.loopexit184:                                     ; preds = %599, %.thread, %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i
   %.sroa.4.sroa.0.1 = phi i56 [ %.1..1..1..1..sroa.4.sroa.0.0.copyload, %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i ], [ 0, %.thread ], [ %.sroa.15.sroa.0.0.i, %599 ]
   %.sroa.0.1 = phi i64 [ %337, %_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i ], [ %.sroa.0.0.i80.ph, %.thread ], [ %.sroa.0.0.i80, %599 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1063
@@ -4203,7 +4203,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   %.not.i.i.i109 = icmp eq i64 %588, 0
   br i1 %.not.i.i.i109, label %"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit110", label %589
 
-589:                                              ; preds = %.loopexit185
+589:                                              ; preds = %.loopexit184
   %590 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %591 = load i64, ptr %590, align 8, !noalias !1063, !noundef !4
   %592 = icmp eq i64 %591, 0
@@ -4214,7 +4214,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   call void @__rust_dealloc(ptr noundef nonnull %594, i64 noundef %591, i64 noundef %588) #34
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit110"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit110": ; preds = %.loopexit185, %589, %593
+"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit110": ; preds = %.loopexit184, %589, %593
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1063
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %595 = zext i56 %.sroa.4.sroa.0.1 to i64
@@ -4226,7 +4226,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
 .thread:                                          ; preds = %400, %359, %.split.i
   %.sroa.0.0.i80.ph = phi i64 [ 3, %.split.i ], [ 3, %359 ], [ 7, %400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit185
+  br label %.loopexit184
 
 599:                                              ; preds = %.noexc106, %470, %.noexc96, %.noexc95, %.noexc94, %.noexc91, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i, %354
   %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.15.sroa.0.1.i, %470 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %354 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc91 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc95 ], [ %.sroa.4270.0.extract.trunc.i, %.noexc94 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc96 ], [ %spec.select300.i, %.noexc106 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ]
@@ -4234,7 +4234,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %600 = and i64 %.sroa.0.0.i80, 255
   %601 = icmp eq i64 %600, 18
-  br i1 %601, label %40, label %.loopexit185
+  br i1 %601, label %40, label %.loopexit184
 
 602:                                              ; preds = %.loopexit.split-lp
   %603 = landingpad { ptr, i32 }
@@ -4300,27 +4300,27 @@ define hidden i64 @_ZN5gimli5write3cfi10FrameTable5write17hf7deab00f61ee0f4E(ptr
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %572, %589, %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i, %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.sink.split.i, %561, %559, %557, %534
-  %lpad.loopexit181 = landingpad { ptr, i32 }
+  %lpad.loopexit180 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %319
-  %lpad.loopexit184 = landingpad { ptr, i32 }
+  %lpad.loopexit183 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %506, %611, %.split4.i, %160, %171, %184, %198, %221, %230, %258, %273, %.critedge.i, %465, %455, %450, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$13write_address17h705a88f1d664fbebE.exit.i", %435, %417, %401, %.split.i, %391, %376, %.split292.i, %366, %343, %324, %311, %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.i, %298, %294, %288, %281, %247, %236, %211, %147, %144, %116, %94, %88, %85, %64
-  %lpad.loopexit186 = landingpad { ptr, i32 }
+  %lpad.loopexit185 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %55
-  %lpad.loopexit.split-lp187 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp186 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit181, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit184, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit186, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp187, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit183, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit185, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #36
           to label %644 unwind label %642
 
@@ -4523,7 +4523,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit505.i: ; preds =
 117:                                              ; preds = %101
   %118 = and i32 %.sroa.0.0.copyload.i, -65536
   %119 = or disjoint i32 %118, 5
-  %.sroa.4.sroa.0.2.insert.insert929 = zext i32 %119 to i64
+  %.sroa.4.sroa.0.2.insert.insert928 = zext i32 %119 to i64
   br label %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i
 
 120:                                              ; preds = %.noexc57, %111
@@ -4984,7 +4984,7 @@ _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.i: ; pred
   br i1 %335, label %337, label %.invoke, !prof !571
 
 _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %302, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %252, %.noexc67, %.noexc64, %117, %108, %76
-  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %76 ], [ %.sroa.4.sroa.0.2.insert.insert929, %117 ], [ %.sroa.4.sroa.0.2.insert.insert, %108 ], [ %215, %.noexc64 ], [ %240, %.noexc67 ], [ 3, %252 ], [ %249, %.noexc68 ], [ %284, %.noexc71 ], [ %290, %.noexc72 ], [ %295, %.noexc73 ], [ %299, %.noexc74 ], [ %306, %.noexc75 ], [ 3, %302 ], [ %316, %.noexc76 ], [ %327, %.noexc78 ], [ %320, %.noexc77 ]
+  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %76 ], [ %.sroa.4.sroa.0.2.insert.insert928, %117 ], [ %.sroa.4.sroa.0.2.insert.insert, %108 ], [ %215, %.noexc64 ], [ %240, %.noexc67 ], [ 3, %252 ], [ %249, %.noexc68 ], [ %284, %.noexc71 ], [ %290, %.noexc72 ], [ %295, %.noexc73 ], [ %299, %.noexc74 ], [ %306, %.noexc75 ], [ 3, %302 ], [ %316, %.noexc76 ], [ %327, %.noexc78 ], [ %320, %.noexc77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.4.sroa.0.0.extract.trunc = trunc i64 %.sroa.4.sroa.0.0 to i32
   %.sroa.4.sroa.0.4.extract.shift = lshr i64 %.sroa.4.sroa.0.0, 32
@@ -4995,7 +4995,7 @@ _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i:
   %336 = and i64 %.sroa.4.sroa.0.0, 4294967295
   %.1..1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.1..1..1..1..sroa.4.sroa.0.0.copyload = load i56, ptr %.1..1..1..1..sroa_idx, align 1
-  br label %.loopexit189
+  br label %.loopexit188
 
 337:                                              ; preds = %333
   %338 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
@@ -5724,9 +5724,9 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.spli
   br label %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i.sink.split
 
 _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i.sink.split: ; preds = %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.i, %.noexc107, %.noexc108
-  %.sink683 = phi i64 [ 2, %.noexc108 ], [ 4, %.noexc107 ], [ 1, %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.i ]
+  %.sink682 = phi i64 [ 2, %.noexc108 ], [ 4, %.noexc107 ], [ 1, %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.i ]
   %621 = load i64, ptr %29, align 8, !noalias !4, !noundef !4
-  %622 = add i64 %621, %.sink683
+  %622 = add i64 %621, %.sink682
   store i64 %622, ptr %29, align 8, !noalias !4
   br label %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i
 
@@ -5740,7 +5740,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   %626 = icmp eq i64 %625, 18
   br i1 %626, label %511, label %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i
 
-.loopexit189:                                     ; preds = %639, %.thread, %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i
+.loopexit188:                                     ; preds = %639, %.thread, %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i
   %.sroa.4.sroa.0.1 = phi i56 [ %.1..1..1..1..sroa.4.sroa.0.0.copyload, %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i ], [ 0, %.thread ], [ %.sroa.15.sroa.0.0.i, %639 ]
   %.sroa.0.1 = phi i64 [ %336, %_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i ], [ %.sroa.0.0.i80.ph, %.thread ], [ %.sroa.0.0.i80, %639 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1585
@@ -5750,7 +5750,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   %.not.i.i.i112 = icmp eq i64 %628, 0
   br i1 %.not.i.i.i112, label %"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit113", label %629
 
-629:                                              ; preds = %.loopexit189
+629:                                              ; preds = %.loopexit188
   %630 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %631 = load i64, ptr %630, align 8, !noalias !1585, !noundef !4
   %632 = icmp eq i64 %631, 0
@@ -5761,7 +5761,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   call void @__rust_dealloc(ptr noundef nonnull %634, i64 noundef %631, i64 noundef %628) #34
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit113"
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit113": ; preds = %.loopexit189, %629, %633
+"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$usize$GT$$GT$$GT$17haa7422585935f968E.exit113": ; preds = %.loopexit188, %629, %633
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1585
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %635 = zext i56 %.sroa.4.sroa.0.1 to i64
@@ -5773,7 +5773,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
 .thread:                                          ; preds = %444, %358, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i"
   %.sroa.0.0.i80.ph = phi i64 [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i" ], [ 3, %358 ], [ 7, %444 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit189
+  br label %.loopexit188
 
 639:                                              ; preds = %.noexc109, %.noexc101.thread, %.noexc99, %.noexc98, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i, %.noexc96, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i, %353
   %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.15.sroa.0.1.i, %.noexc101.thread ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %353 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc96 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc98 ], [ %.sroa.4270.0.extract.trunc.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %.sroa.4272.0.extract.trunc.i, %.noexc99 ], [ %spec.select300.i, %.noexc109 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ]
@@ -5781,7 +5781,7 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %640 = and i64 %.sroa.0.0.i80, 255
   %641 = icmp eq i64 %640, 18
-  br i1 %641, label %39, label %.loopexit189
+  br i1 %641, label %39, label %.loopexit188
 
 642:                                              ; preds = %.loopexit.split-lp
   %643 = landingpad { ptr, i32 }

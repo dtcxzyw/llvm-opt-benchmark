@@ -222,8 +222,8 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
   br i1 %.not, label %.preheader, label %15
 
 .preheader:                                       ; preds = %12
-  %.b2329 = load i1, ptr @heart_beating, align 1
-  br i1 %.b2329, label %.lr.ph, label %._crit_edge
+  %.b28 = load i1, ptr @heart_beating, align 1
+  br i1 %.b28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %14 = zext nneg i16 %narrow to i64
@@ -266,8 +266,8 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
   %33 = call i64 @llvm.bswap.i64(i64 %18)
   store i64 %33, ptr %2, align 8
   %34 = call i64 @write(i32 noundef %27, ptr noundef nonnull %2, i64 noundef 8) #11
-  %.not25 = icmp eq i64 %34, 8
-  br i1 %.not25, label %41, label %35
+  %.not24 = icmp eq i64 %34, 8
+  br i1 %.not24, label %41, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %5, align 8
@@ -283,8 +283,8 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
   %44 = call i64 @llvm.bswap.i64(i64 %43)
   store i64 %44, ptr %2, align 8
   %45 = call i64 @write(i32 noundef %27, ptr noundef nonnull %2, i64 noundef 8) #11
-  %.not26 = icmp eq i64 %45, 8
-  br i1 %.not26, label %52, label %46
+  %.not25 = icmp eq i64 %45, 8
+  br i1 %.not25, label %52, label %46
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %5, align 8
@@ -296,8 +296,8 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
 
 52:                                               ; preds = %41
   %53 = call i32 @fsync_and_close(i32 noundef %27, ptr noundef nonnull @.str.20) #11
-  %.not27 = icmp eq i32 %53, 0
-  br i1 %.not27, label %57, label %54
+  %.not26 = icmp eq i32 %53, 0
+  br i1 %.not26, label %57, label %54
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %5, align 8
@@ -310,8 +310,8 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
   %60 = load ptr, ptr %5, align 8
   %61 = load ptr, ptr %4, align 8
   %62 = call i32 @link(ptr noundef %60, ptr noundef %61) #11
-  %.not28 = icmp eq i32 %62, 0
-  br i1 %.not28, label %69, label %63
+  %.not27 = icmp eq i32 %62, 0
+  br i1 %.not27, label %69, label %63
 
 63:                                               ; preds = %57
   %64 = call i32 @get_log_level() #11
@@ -345,13 +345,13 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr readnone captures(non
   br label %77
 
 77:                                               ; preds = %72, %72, %74
-  %.b23 = load i1, ptr @heart_beating, align 1
-  br i1 %.b23, label %17, label %._crit_edge, !llvm.loop !8
+  %.b = load i1, ptr @heart_beating, align 1
+  br i1 %.b, label %17, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @heartbeat_mutex) #11
-  %.not24 = icmp eq i32 %78, 0
-  br i1 %.not24, label %81, label %79
+  %.not23 = icmp eq i32 %78, 0
+  br i1 %.not23, label %81, label %79
 
 79:                                               ; preds = %._crit_edge
   %80 = tail call ptr @__errno_location() #12
@@ -386,14 +386,14 @@ define dso_local void @heartbeat_stop() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %.b8 = load i1, ptr @heart_beating, align 1
-  br i1 %.b8, label %5, label %10
+  %.b = load i1, ptr @heart_beating, align 1
+  br i1 %.b, label %5, label %10
 
 5:                                                ; preds = %4
   store i1 false, ptr @heart_beating, align 1
   %6 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @heartbeat_cond) #11
-  %.not9 = icmp eq i32 %6, 0
-  br i1 %.not9, label %10, label %7
+  %.not8 = icmp eq i32 %6, 0
+  br i1 %.not8, label %10, label %7
 
 7:                                                ; preds = %5
   %8 = tail call ptr @__errno_location() #12
@@ -403,8 +403,8 @@ define dso_local void @heartbeat_stop() local_unnamed_addr #0 {
 
 10:                                               ; preds = %5, %7, %4
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @heartbeat_mutex) #11
-  %.not10 = icmp eq i32 %11, 0
-  br i1 %.not10, label %14, label %12
+  %.not9 = icmp eq i32 %11, 0
+  br i1 %.not9, label %14, label %12
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #12

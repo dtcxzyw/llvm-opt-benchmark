@@ -7536,7 +7536,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !noalias !1119
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.10.0.copyload97 = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !noalias !1119
+  %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !noalias !1119
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = icmp samesign ugt i8 %.sroa.0.0.copyload1, 2
   %12 = zext nneg i8 %.sroa.0.0.copyload1 to i64
@@ -7554,7 +7554,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 "_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i9": ; preds = %2
   %cond = icmp eq i8 %.sroa.0.0.copyload1, 1
-  %16 = zext i32 %.sroa.10.0.copyload97 to i64
+  %16 = zext i32 %.sroa.10.0.copyload to i64
   %17 = shl nuw i64 %16, 32
   %.sroa.4.0.i12 = select i1 %cond, i8 %.sroa.4.0.copyload, i8 undef
   %.sroa.12.0.i13 = select i1 %cond, i64 %17, i64 0

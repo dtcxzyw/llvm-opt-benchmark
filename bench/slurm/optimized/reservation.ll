@@ -14581,15 +14581,15 @@ define dso_local noundef zeroext i1 @validate_resv_uid(ptr noundef %0, i32 nound
   br i1 %.not17, label %32, label %15
 
 15:                                               ; preds = %12
-  %.b18 = load i1, ptr @validate_resv_uid.user_resv_delete, align 1
-  br i1 %.b18, label %20, label %16
+  %.b = load i1, ptr @validate_resv_uid.user_resv_delete, align 1
+  br i1 %.b, label %20, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 549755813888
-  %.not19 = icmp eq i64 %19, 0
-  br i1 %.not19, label %32, label %20
+  %.not18 = icmp eq i64 %19, 0
+  br i1 %.not18, label %32, label %20
 
 20:                                               ; preds = %16, %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %3, i8 0, i64 320, i1 false)
@@ -14601,8 +14601,8 @@ define dso_local noundef zeroext i1 @validate_resv_uid(ptr noundef %0, i32 nound
   %24 = load i16, ptr @accounting_enforce, align 2
   %25 = zext i16 %24 to i32
   %26 = call i32 @assoc_mgr_get_user_assocs(ptr noundef %23, ptr noundef nonnull %3, i32 noundef %25, ptr noundef %22) #19
-  %.not20 = icmp eq i32 %26, 0
-  br i1 %.not20, label %27, label %29
+  %.not19 = icmp eq i32 %26, 0
+  br i1 %.not19, label %27, label %29
 
 27:                                               ; preds = %20
   %28 = call fastcc zeroext i1 @_validate_user_access(ptr noundef %14, ptr noundef %22, i32 noundef %1)
@@ -14610,8 +14610,8 @@ define dso_local noundef zeroext i1 @validate_resv_uid(ptr noundef %0, i32 nound
 
 29:                                               ; preds = %27, %20
   %.011 = phi i1 [ false, %20 ], [ %28, %27 ]
-  %.not21 = icmp eq ptr %22, null
-  br i1 %.not21, label %31, label %30
+  %.not20 = icmp eq ptr %22, null
+  br i1 %.not20, label %31, label %30
 
 30:                                               ; preds = %29
   call void @list_destroy(ptr noundef nonnull %22) #19

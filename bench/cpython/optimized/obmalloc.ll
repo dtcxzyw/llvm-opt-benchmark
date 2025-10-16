@@ -14301,8 +14301,8 @@ mi_atomic_once.exit:                              ; preds = %0
   %9 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #61, !srcloc !52
   %10 = ptrtoint ptr %9 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.18, i64 noundef %10)
-  %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %11
+  %.b.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
+  br i1 %.b.i, label %mi_process_setup_auto_thread_done.exit, label %11
 
 11:                                               ; preds = %8
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -15155,8 +15155,8 @@ define internal void @_mi_process_init() #1 {
   store i1 true, ptr @os_preloading, align 1
   %1 = tail call i32 @atexit(ptr noundef nonnull @mi_process_done) #54
   tail call void @_mi_options_init()
-  %.b1.i.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  br i1 %.b1.i.i, label %8, label %2
+  %.b.i.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
+  br i1 %.b.i.i, label %8, label %2
 
 2:                                                ; preds = %0
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -27934,8 +27934,8 @@ define hidden range(i32 -1, 1) i32 @_PyMem_init_obmalloc(ptr noundef %0) local_u
 5:                                                ; preds = %3, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10816
   store ptr @obmalloc_state_main, ptr %6, align 8, !tbaa !504
-  %.b8 = load i1, ptr @obmalloc_state_initialized, align 1
-  br i1 %.b8, label %47, label %7
+  %.b = load i1, ptr @obmalloc_state_initialized, align 1
+  br i1 %.b, label %47, label %7
 
 7:                                                ; preds = %5
   store ptr getelementptr (i8, ptr @obmalloc_state_main, i64 -16), ptr @obmalloc_state_main, align 8
@@ -28048,101 +28048,101 @@ define hidden range(i32 -1, 1) i32 @_PyMem_init_obmalloc(ptr noundef %0) local_u
   %45 = getelementptr i8, ptr %11, i64 480
   %46 = getelementptr i8, ptr %11, i64 496
   store ptr %15, ptr %11, align 8
-  %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %15, ptr %.sroa.4.0..sroa_idx.i10, align 8
+  %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %15, ptr %.sroa.4.0..sroa_idx.i9, align 8
   store ptr %11, ptr %16, align 8
-  %.sroa.6.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %11, ptr %.sroa.6.0..sroa_idx.i11, align 8
+  %.sroa.6.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %11, ptr %.sroa.6.0..sroa_idx.i10, align 8
   store ptr %16, ptr %17, align 8
-  %.sroa.8.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %16, ptr %.sroa.8.0..sroa_idx.i12, align 8
+  %.sroa.8.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr %16, ptr %.sroa.8.0..sroa_idx.i11, align 8
   store ptr %17, ptr %18, align 8
-  %.sroa.10.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %17, ptr %.sroa.10.0..sroa_idx.i13, align 8
+  %.sroa.10.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store ptr %17, ptr %.sroa.10.0..sroa_idx.i12, align 8
   store ptr %18, ptr %19, align 8
-  %.sroa.12.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %18, ptr %.sroa.12.0..sroa_idx.i14, align 8
+  %.sroa.12.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %18, ptr %.sroa.12.0..sroa_idx.i13, align 8
   store ptr %19, ptr %20, align 8
-  %.sroa.14.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store ptr %19, ptr %.sroa.14.0..sroa_idx.i15, align 8
+  %.sroa.14.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store ptr %19, ptr %.sroa.14.0..sroa_idx.i14, align 8
   store ptr %20, ptr %21, align 8
-  %.sroa.16.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store ptr %20, ptr %.sroa.16.0..sroa_idx.i16, align 8
+  %.sroa.16.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  store ptr %20, ptr %.sroa.16.0..sroa_idx.i15, align 8
   store ptr %21, ptr %22, align 8
-  %.sroa.18.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  store ptr %21, ptr %.sroa.18.0..sroa_idx.i17, align 8
+  %.sroa.18.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %11, i64 120
+  store ptr %21, ptr %.sroa.18.0..sroa_idx.i16, align 8
   store ptr %22, ptr %23, align 8
-  %.sroa.20.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  store ptr %22, ptr %.sroa.20.0..sroa_idx.i18, align 8
+  %.sroa.20.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  store ptr %22, ptr %.sroa.20.0..sroa_idx.i17, align 8
   store ptr %23, ptr %24, align 8
-  %.sroa.22.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %11, i64 152
-  store ptr %23, ptr %.sroa.22.0..sroa_idx.i19, align 8
+  %.sroa.22.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store ptr %23, ptr %.sroa.22.0..sroa_idx.i18, align 8
   store ptr %24, ptr %25, align 8
-  %.sroa.24.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  store ptr %24, ptr %.sroa.24.0..sroa_idx.i20, align 8
+  %.sroa.24.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  store ptr %24, ptr %.sroa.24.0..sroa_idx.i19, align 8
   store ptr %25, ptr %26, align 8
-  %.sroa.26.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %11, i64 184
-  store ptr %25, ptr %.sroa.26.0..sroa_idx.i21, align 8
+  %.sroa.26.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %11, i64 184
+  store ptr %25, ptr %.sroa.26.0..sroa_idx.i20, align 8
   store ptr %26, ptr %27, align 8
-  %.sroa.28.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  store ptr %26, ptr %.sroa.28.0..sroa_idx.i22, align 8
+  %.sroa.28.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  store ptr %26, ptr %.sroa.28.0..sroa_idx.i21, align 8
   store ptr %27, ptr %28, align 8
-  %.sroa.30.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  store ptr %27, ptr %.sroa.30.0..sroa_idx.i23, align 8
+  %.sroa.30.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  store ptr %27, ptr %.sroa.30.0..sroa_idx.i22, align 8
   store ptr %28, ptr %29, align 8
-  %.sroa.32.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store ptr %28, ptr %.sroa.32.0..sroa_idx.i24, align 8
+  %.sroa.32.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store ptr %28, ptr %.sroa.32.0..sroa_idx.i23, align 8
   store ptr %29, ptr %30, align 8
-  %.sroa.34.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %11, i64 248
-  store ptr %29, ptr %.sroa.34.0..sroa_idx.i25, align 8
+  %.sroa.34.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %11, i64 248
+  store ptr %29, ptr %.sroa.34.0..sroa_idx.i24, align 8
   store ptr %30, ptr %31, align 8
-  %.sroa.36.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  store ptr %30, ptr %.sroa.36.0..sroa_idx.i26, align 8
+  %.sroa.36.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  store ptr %30, ptr %.sroa.36.0..sroa_idx.i25, align 8
   store ptr %31, ptr %32, align 8
-  %.sroa.38.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  store ptr %31, ptr %.sroa.38.0..sroa_idx.i27, align 8
+  %.sroa.38.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  store ptr %31, ptr %.sroa.38.0..sroa_idx.i26, align 8
   store ptr %32, ptr %33, align 8
-  %.sroa.40.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %11, i64 296
-  store ptr %32, ptr %.sroa.40.0..sroa_idx.i28, align 8
+  %.sroa.40.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %11, i64 296
+  store ptr %32, ptr %.sroa.40.0..sroa_idx.i27, align 8
   store ptr %33, ptr %34, align 8
-  %.sroa.42.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %11, i64 312
-  store ptr %33, ptr %.sroa.42.0..sroa_idx.i29, align 8
+  %.sroa.42.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %11, i64 312
+  store ptr %33, ptr %.sroa.42.0..sroa_idx.i28, align 8
   store ptr %34, ptr %35, align 8
-  %.sroa.44.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  store ptr %34, ptr %.sroa.44.0..sroa_idx.i30, align 8
+  %.sroa.44.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %11, i64 328
+  store ptr %34, ptr %.sroa.44.0..sroa_idx.i29, align 8
   store ptr %35, ptr %36, align 8
-  %.sroa.46.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  store ptr %35, ptr %.sroa.46.0..sroa_idx.i31, align 8
+  %.sroa.46.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %11, i64 344
+  store ptr %35, ptr %.sroa.46.0..sroa_idx.i30, align 8
   store ptr %36, ptr %37, align 8
-  %.sroa.48.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %11, i64 360
-  store ptr %36, ptr %.sroa.48.0..sroa_idx.i32, align 8
+  %.sroa.48.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %11, i64 360
+  store ptr %36, ptr %.sroa.48.0..sroa_idx.i31, align 8
   store ptr %37, ptr %38, align 8
-  %.sroa.50.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  store ptr %37, ptr %.sroa.50.0..sroa_idx.i33, align 8
+  %.sroa.50.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %11, i64 376
+  store ptr %37, ptr %.sroa.50.0..sroa_idx.i32, align 8
   store ptr %38, ptr %39, align 8
-  %.sroa.52.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %11, i64 392
-  store ptr %38, ptr %.sroa.52.0..sroa_idx.i34, align 8
+  %.sroa.52.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %11, i64 392
+  store ptr %38, ptr %.sroa.52.0..sroa_idx.i33, align 8
   store ptr %39, ptr %40, align 8
-  %.sroa.54.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %11, i64 408
-  store ptr %39, ptr %.sroa.54.0..sroa_idx.i35, align 8
+  %.sroa.54.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %11, i64 408
+  store ptr %39, ptr %.sroa.54.0..sroa_idx.i34, align 8
   store ptr %40, ptr %41, align 8
-  %.sroa.56.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %11, i64 424
-  store ptr %40, ptr %.sroa.56.0..sroa_idx.i36, align 8
+  %.sroa.56.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %11, i64 424
+  store ptr %40, ptr %.sroa.56.0..sroa_idx.i35, align 8
   store ptr %41, ptr %42, align 8
-  %.sroa.58.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %11, i64 440
-  store ptr %41, ptr %.sroa.58.0..sroa_idx.i37, align 8
+  %.sroa.58.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %11, i64 440
+  store ptr %41, ptr %.sroa.58.0..sroa_idx.i36, align 8
   store ptr %42, ptr %43, align 8
-  %.sroa.60.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %11, i64 456
-  store ptr %42, ptr %.sroa.60.0..sroa_idx.i38, align 8
+  %.sroa.60.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  store ptr %42, ptr %.sroa.60.0..sroa_idx.i37, align 8
   store ptr %43, ptr %44, align 8
-  %.sroa.62.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %11, i64 472
-  store ptr %43, ptr %.sroa.62.0..sroa_idx.i39, align 8
+  %.sroa.62.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %11, i64 472
+  store ptr %43, ptr %.sroa.62.0..sroa_idx.i38, align 8
   store ptr %44, ptr %45, align 8
-  %.sroa.64.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %11, i64 488
-  store ptr %44, ptr %.sroa.64.0..sroa_idx.i40, align 8
+  %.sroa.64.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %11, i64 488
+  store ptr %44, ptr %.sroa.64.0..sroa_idx.i39, align 8
   store ptr %45, ptr %46, align 8
-  %.sroa.66.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %11, i64 504
-  store ptr %45, ptr %.sroa.66.0..sroa_idx.i41, align 8
+  %.sroa.66.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %11, i64 504
+  store ptr %45, ptr %.sroa.66.0..sroa_idx.i40, align 8
   br label %47
 
 47:                                               ; preds = %14, %7, %5, %8
@@ -29818,8 +29818,8 @@ define internal void @mi_process_done() #1 {
   %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !117, !range !38, !noundef !39
   %2 = trunc nuw i8 %1 to i1
   %.not = xor i1 %2, true
-  %.b2 = load i1, ptr @mi_process_done.process_done, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b2
+  %.b = load i1, ptr @mi_process_done.process_done, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %43, label %3
 
 3:                                                ; preds = %0
@@ -29837,8 +29837,8 @@ define internal void @mi_process_done() #1 {
 
 mi_option_is_enabled.exit:                        ; preds = %3, %8
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 704), align 16, !tbaa !107
-  %.not5 = icmp eq i64 %9, 0
-  br i1 %.not5, label %14, label %10
+  %.not4 = icmp eq i64 %9, 0
+  br i1 %.not4, label %14, label %10
 
 10:                                               ; preds = %mi_option_is_enabled.exit
   %11 = load ptr, ptr %4, align 8, !tbaa !48
@@ -29853,32 +29853,32 @@ mi_option_is_enabled.exit:                        ; preds = %3, %8
 14:                                               ; preds = %10, %mi_option_is_enabled.exit
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 40), align 8, !tbaa !105
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %mi_option_is_enabled.exit3, !prof !13
+  br i1 %16, label %17, label %mi_option_is_enabled.exit2, !prof !13
 
 17:                                               ; preds = %14
   tail call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 32))
-  br label %mi_option_is_enabled.exit3
+  br label %mi_option_is_enabled.exit2
 
-mi_option_is_enabled.exit3:                       ; preds = %14, %17
+mi_option_is_enabled.exit2:                       ; preds = %14, %17
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 32), align 16, !tbaa !107
-  %.not6 = icmp eq i64 %18, 0
-  br i1 %.not6, label %19, label %24
+  %.not5 = icmp eq i64 %18, 0
+  br i1 %.not5, label %19, label %24
 
-19:                                               ; preds = %mi_option_is_enabled.exit3
+19:                                               ; preds = %mi_option_is_enabled.exit2
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !105
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %mi_option_is_enabled.exit4, !prof !13
+  br i1 %21, label %22, label %mi_option_is_enabled.exit3, !prof !13
 
 22:                                               ; preds = %19
   tail call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 64))
-  br label %mi_option_is_enabled.exit4
+  br label %mi_option_is_enabled.exit3
 
-mi_option_is_enabled.exit4:                       ; preds = %19, %22
+mi_option_is_enabled.exit3:                       ; preds = %19, %22
   %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @options, i64 64), align 16, !tbaa !107
-  %.not7 = icmp eq i64 %23, 0
-  br i1 %.not7, label %41, label %24
+  %.not6 = icmp eq i64 %23, 0
+  br i1 %.not6, label %41, label %24
 
-24:                                               ; preds = %mi_option_is_enabled.exit4, %mi_option_is_enabled.exit3
+24:                                               ; preds = %mi_option_is_enabled.exit3, %mi_option_is_enabled.exit2
   tail call void @mi_process_init()
   %25 = tail call fastcc zeroext i1 @_mi_heap_init()
   br i1 %25, label %mi_stats_print.exit, label %26
@@ -29913,7 +29913,7 @@ mi_stats_print.exit:                              ; preds = %24, %_mi_stat_incre
   tail call fastcc void @_mi_stats_print(ptr noundef nonnull @_mi_stats_main, ptr noundef null, ptr noundef null)
   br label %41
 
-41:                                               ; preds = %mi_stats_print.exit, %mi_option_is_enabled.exit4
+41:                                               ; preds = %mi_stats_print.exit, %mi_option_is_enabled.exit3
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2848), align 8, !tbaa !173
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.52, i64 noundef %42)
   store i1 false, ptr @os_preloading, align 1

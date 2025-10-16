@@ -6338,8 +6338,8 @@ _ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %205, %209
   br i1 %.not.i262, label %_ZL25post_deoptimization_eventP7nmethodPK6MethodiiN14Deoptimization11DeoptReasonENS4_11DeoptActionE.exit, label %214
 
 214:                                              ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit
-  %.b8.i = load i1, ptr @_ZZL25post_deoptimization_eventP7nmethodPK6MethodiiN14Deoptimization11DeoptReasonENS4_11DeoptActionEE22serializers_registered, align 1
-  br i1 %.b8.i, label %226, label %215
+  %.b.i = load i1, ptr @_ZZL25post_deoptimization_eventP7nmethodPK6MethodiiN14Deoptimization11DeoptReasonENS4_11DeoptActionEE22serializers_registered, align 1
+  br i1 %.b.i, label %226, label %215
 
 215:                                              ; preds = %214
   %216 = load i32, ptr @_ZZL20register_serializersvE16critical_section, align 4

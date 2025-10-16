@@ -8650,8 +8650,8 @@ define ptr @l_Lean_PremiseSelection_evalSuggestPremises___regBuiltin_Lean_Premis
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_PremiseSelection(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b32 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b32, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -8690,25 +8690,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
 19:                                               ; preds = %14
-  %.not.i45 = icmp eq i32 %15, 0
-  br i1 %.not.i45, label %lean_dec_ref.exit46, label %20
+  %.not.i44 = icmp eq i32 %15, 0
+  br i1 %.not.i44, label %lean_dec_ref.exit45, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #4
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
-lean_dec_ref.exit46:                              ; preds = %17, %19, %20
+lean_dec_ref.exit45:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Meta_Eval(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val47 = load i32, ptr %22, align 4
-  %.mask.i55 = and i32 %.val47, -16777216
-  %23 = icmp eq i32 %.mask.i55, 16777216
+  %.val46 = load i32, ptr %22, align 4
+  %.mask.i54 = and i32 %.val46, -16777216
+  %23 = icmp eq i32 %.mask.i54, 16777216
   br i1 %23, label %182, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit46
+24:                                               ; preds = %lean_dec_ref.exit45
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !15
@@ -8716,25 +8716,25 @@ lean_dec_ref.exit46:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
 29:                                               ; preds = %24
-  %.not.i43 = icmp eq i32 %25, 0
-  br i1 %.not.i43, label %lean_dec_ref.exit44, label %30
+  %.not.i42 = icmp eq i32 %25, 0
+  br i1 %.not.i42, label %lean_dec_ref.exit43, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #4
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
-lean_dec_ref.exit44:                              ; preds = %27, %29, %30
+lean_dec_ref.exit43:                              ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Meta_CompletionName(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val48 = load i32, ptr %32, align 4
-  %.mask.i56 = and i32 %.val48, -16777216
-  %33 = icmp eq i32 %.mask.i56, 16777216
+  %.val47 = load i32, ptr %32, align 4
+  %.mask.i55 = and i32 %.val47, -16777216
+  %33 = icmp eq i32 %.mask.i55, 16777216
   br i1 %33, label %182, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit44
+34:                                               ; preds = %lean_dec_ref.exit43
   %35 = load i32, ptr %31, align 4, !tbaa !8
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !15
@@ -8742,25 +8742,25 @@ lean_dec_ref.exit44:                              ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !8
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
 39:                                               ; preds = %34
-  %.not.i41 = icmp eq i32 %35, 0
-  br i1 %.not.i41, label %lean_dec_ref.exit42, label %40
+  %.not.i40 = icmp eq i32 %35, 0
+  br i1 %.not.i40, label %lean_dec_ref.exit41, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #4
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
-lean_dec_ref.exit42:                              ; preds = %37, %39, %40
+lean_dec_ref.exit41:                              ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Init_Data_Random(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val49 = load i32, ptr %42, align 4
-  %.mask.i57 = and i32 %.val49, -16777216
-  %43 = icmp eq i32 %.mask.i57, 16777216
+  %.val48 = load i32, ptr %42, align 4
+  %.mask.i56 = and i32 %.val48, -16777216
+  %43 = icmp eq i32 %.mask.i56, 16777216
   br i1 %43, label %182, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit42
+44:                                               ; preds = %lean_dec_ref.exit41
   %45 = load i32, ptr %41, align 4, !tbaa !8
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !15
@@ -8768,17 +8768,17 @@ lean_dec_ref.exit42:                              ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !8
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
 49:                                               ; preds = %44
-  %.not.i39 = icmp eq i32 %45, 0
-  br i1 %.not.i39, label %lean_dec_ref.exit40, label %50
+  %.not.i38 = icmp eq i32 %45, 0
+  br i1 %.not.i38, label %lean_dec_ref.exit39, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #4
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
-lean_dec_ref.exit40:                              ; preds = %47, %49, %50
+lean_dec_ref.exit39:                              ; preds = %47, %49, %50
   %51 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   store ptr %51, ptr @l_Lean_PremiseSelection_empty___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %51) #4
@@ -8799,11 +8799,11 @@ lean_dec_ref.exit40:                              ; preds = %47, %49, %50
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit
 
-59:                                               ; preds = %lean_dec_ref.exit40
+59:                                               ; preds = %lean_dec_ref.exit39
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit: ; preds = %lean_dec_ref.exit40
+_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit: ; preds = %lean_dec_ref.exit39
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 1, ptr %57, align 4, !tbaa !8
   store i32 -184549344, ptr %60, align 4
@@ -8820,16 +8820,16 @@ _init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____c
   %65 = load ptr, ptr @l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1, align 8, !tbaa !4
   %66 = tail call ptr @l_Lean_registerEnvExtension___rarg(ptr noundef %65, ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %67 = getelementptr i8, ptr %66, i64 4
-  %.val50 = load i32, ptr %67, align 4
-  %.mask.i58 = and i32 %.val50, -16777216
-  %68 = icmp eq i32 %.mask.i58, 16777216
+  %.val49 = load i32, ptr %67, align 4
+  %.mask.i57 = and i32 %.val49, -16777216
+  %68 = icmp eq i32 %.mask.i57, 16777216
   br i1 %68, label %182, label %69
 
 69:                                               ; preds = %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit
   %70 = getelementptr i8, ptr %66, i64 8
-  %.val54 = load ptr, ptr %70, align 8, !tbaa !4
-  store ptr %.val54, ptr @l_Lean_PremiseSelection_premiseSelectorExt, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val54) #4
+  %.val53 = load ptr, ptr %70, align 8, !tbaa !4
+  store ptr %.val53, ptr @l_Lean_PremiseSelection_premiseSelectorExt, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val53) #4
   %71 = load i32, ptr %66, align 8, !tbaa !8
   %72 = icmp sgt i32 %71, 1
   br i1 %72, label %73, label %75, !prof !15
@@ -8837,17 +8837,17 @@ _init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____c
 73:                                               ; preds = %69
   %74 = add nsw i32 %71, -1
   store i32 %74, ptr %66, align 4, !tbaa !8
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
 75:                                               ; preds = %69
-  %.not.i37 = icmp eq i32 %71, 0
-  br i1 %.not.i37, label %lean_dec_ref.exit38, label %76
+  %.not.i36 = icmp eq i32 %71, 0
+  br i1 %.not.i36, label %lean_dec_ref.exit37, label %76
 
 76:                                               ; preds = %75
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %66) #4
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
-lean_dec_ref.exit38:                              ; preds = %73, %75, %76
+lean_dec_ref.exit37:                              ; preds = %73, %75, %76
   %77 = load ptr, ptr @l_Lean_PremiseSelection_premiseSelectorExt, align 8, !tbaa !4
   store ptr %77, ptr @l_Lean_PremiseSelection_select___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %77) #4
@@ -8932,16 +8932,16 @@ lean_dec_ref.exit38:                              ; preds = %73, %75, %76
   %.not = icmp eq i8 %0, 0
   br i1 %.not, label %.critedge, label %112
 
-112:                                              ; preds = %lean_dec_ref.exit38
+112:                                              ; preds = %lean_dec_ref.exit37
   %113 = load ptr, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___regBuiltin_Lean_PremiseSelection_elabSetPremiseSelector__1___closed__3, align 8, !tbaa !4
   %114 = load ptr, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___closed__2, align 8, !tbaa !4
   %115 = load ptr, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___regBuiltin_Lean_PremiseSelection_elabSetPremiseSelector__1___closed__2, align 8, !tbaa !4
   %116 = load ptr, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___regBuiltin_Lean_PremiseSelection_elabSetPremiseSelector__1___closed__4, align 8, !tbaa !4
   %117 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %118 = getelementptr i8, ptr %117, i64 4
-  %.val51 = load i32, ptr %118, align 4
-  %.mask.i59 = and i32 %.val51, -16777216
-  %119 = icmp eq i32 %.mask.i59, 16777216
+  %.val50 = load i32, ptr %118, align 4
+  %.mask.i58 = and i32 %.val50, -16777216
+  %119 = icmp eq i32 %.mask.i58, 16777216
   br i1 %119, label %182, label %120
 
 120:                                              ; preds = %112
@@ -8955,8 +8955,8 @@ lean_dec_ref.exit38:                              ; preds = %73, %75, %76
   br label %127
 
 125:                                              ; preds = %120
-  %.not.i35 = icmp eq i32 %121, 0
-  br i1 %.not.i35, label %127, label %126
+  %.not.i34 = icmp eq i32 %121, 0
+  br i1 %.not.i34, label %127, label %126
 
 126:                                              ; preds = %125
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %117) #4
@@ -8970,9 +8970,9 @@ lean_dec_ref.exit38:                              ; preds = %73, %75, %76
   %130 = load ptr, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___regBuiltin_Lean_PremiseSelection_elabSetPremiseSelector_docString__3___closed__1, align 8, !tbaa !4
   %131 = tail call ptr @l_Lean_addBuiltinDocString(ptr noundef %129, ptr noundef %130, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %132 = getelementptr i8, ptr %131, i64 4
-  %.val52 = load i32, ptr %132, align 4
-  %.mask.i60 = and i32 %.val52, -16777216
-  %133 = icmp eq i32 %.mask.i60, 16777216
+  %.val51 = load i32, ptr %132, align 4
+  %.mask.i59 = and i32 %.val51, -16777216
+  %133 = icmp eq i32 %.mask.i59, 16777216
   br i1 %133, label %182, label %134
 
 134:                                              ; preds = %127
@@ -8983,23 +8983,23 @@ lean_dec_ref.exit38:                              ; preds = %73, %75, %76
 137:                                              ; preds = %134
   %138 = add nsw i32 %135, -1
   store i32 %138, ptr %131, align 4, !tbaa !8
-  br label %lean_dec_ref.exit34
+  br label %lean_dec_ref.exit33
 
 139:                                              ; preds = %134
-  %.not.i33 = icmp eq i32 %135, 0
-  br i1 %.not.i33, label %lean_dec_ref.exit34, label %140
+  %.not.i32 = icmp eq i32 %135, 0
+  br i1 %.not.i32, label %lean_dec_ref.exit33, label %140
 
 140:                                              ; preds = %139
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %131) #4
-  br label %lean_dec_ref.exit34
+  br label %lean_dec_ref.exit33
 
-.critedge:                                        ; preds = %lean_dec_ref.exit38
+.critedge:                                        ; preds = %lean_dec_ref.exit37
   %141 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.8, i64 noundef 185, i64 noundef 185) #4
   store ptr %141, ptr @l_Lean_PremiseSelection_elabSetPremiseSelector___regBuiltin_Lean_PremiseSelection_elabSetPremiseSelector_docString__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %141) #4
-  br label %lean_dec_ref.exit34
+  br label %lean_dec_ref.exit33
 
-lean_dec_ref.exit34:                              ; preds = %140, %139, %137, %.critedge
+lean_dec_ref.exit33:                              ; preds = %140, %139, %137, %.critedge
   %142 = tail call fastcc ptr @_init_l_Lean_PremiseSelection_evalSuggestPremises___rarg___lambda__2___closed__1()
   store ptr %142, ptr @l_Lean_PremiseSelection_evalSuggestPremises___rarg___lambda__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %142) #4
@@ -9056,16 +9056,16 @@ lean_dec_ref.exit34:                              ; preds = %140, %139, %137, %.
   tail call void @lean_mark_persistent(ptr noundef nonnull %165) #4
   br i1 %.not, label %lean_dec_ref.exit, label %166
 
-166:                                              ; preds = %lean_dec_ref.exit34
+166:                                              ; preds = %lean_dec_ref.exit33
   %167 = load ptr, ptr @l_Lean_PremiseSelection_evalSuggestPremises___regBuiltin_Lean_PremiseSelection_evalSuggestPremises__1___closed__7, align 8, !tbaa !4
   %168 = load ptr, ptr @l_Lean_PremiseSelection_evalSuggestPremises___regBuiltin_Lean_PremiseSelection_evalSuggestPremises__1___closed__4, align 8, !tbaa !4
   %169 = load ptr, ptr @l_Lean_PremiseSelection_evalSuggestPremises___regBuiltin_Lean_PremiseSelection_evalSuggestPremises__1___closed__6, align 8, !tbaa !4
   %170 = load ptr, ptr @l_Lean_PremiseSelection_evalSuggestPremises___regBuiltin_Lean_PremiseSelection_evalSuggestPremises__1___closed__8, align 8, !tbaa !4
   %171 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %172 = getelementptr i8, ptr %171, i64 4
-  %.val53 = load i32, ptr %172, align 4
-  %.mask.i61 = and i32 %.val53, -16777216
-  %173 = icmp eq i32 %.mask.i61, 16777216
+  %.val52 = load i32, ptr %172, align 4
+  %.mask.i60 = and i32 %.val52, -16777216
+  %173 = icmp eq i32 %.mask.i60, 16777216
   br i1 %173, label %182, label %174
 
 174:                                              ; preds = %166
@@ -9086,12 +9086,12 @@ lean_dec_ref.exit34:                              ; preds = %140, %139, %137, %.
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %171) #4
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %180, %179, %177, %lean_dec_ref.exit34
+lean_dec_ref.exit:                                ; preds = %180, %179, %177, %lean_dec_ref.exit33
   %181 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %182
 
-182:                                              ; preds = %166, %127, %112, %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit, %lean_dec_ref.exit42, %lean_dec_ref.exit44, %lean_dec_ref.exit46, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %181, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit46 ], [ %31, %lean_dec_ref.exit44 ], [ %41, %lean_dec_ref.exit42 ], [ %66, %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit ], [ %117, %112 ], [ %131, %127 ], [ %171, %166 ]
+182:                                              ; preds = %166, %127, %112, %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit, %lean_dec_ref.exit41, %lean_dec_ref.exit43, %lean_dec_ref.exit45, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %181, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit45 ], [ %31, %lean_dec_ref.exit43 ], [ %41, %lean_dec_ref.exit41 ], [ %66, %_init_l_Lean_PremiseSelection_initFn____x40_Lean_PremiseSelection___hyg_326____closed__1.exit ], [ %117, %112 ], [ %131, %127 ], [ %171, %166 ]
   ret ptr %.0
 }
 

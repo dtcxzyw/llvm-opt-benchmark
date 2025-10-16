@@ -210,8 +210,8 @@ define hidden void @proto_reg_handoff_etch() #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %.b3 = load i1, ptr @proto_reg_handoff_etch.etch_prefs_initialized, align 1
-  br i1 %.b3, label %8, label %5
+  %.b = load i1, ptr @proto_reg_handoff_etch.etch_prefs_initialized, align 1
+  br i1 %.b, label %8, label %5
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @proto_etch, align 4
@@ -691,8 +691,8 @@ define internal fastcc void @read_struct(ptr noundef captures(none) %0, ptr noun
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
   %37 = load i32, ptr @hf_etch_value, align 4
   %38 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %3, i32 noundef %37)
-  %.b21.i = load i1, ptr @gbl_have_symbol, align 1
-  br i1 %.b21.i, label %39, label %read_key_value.exit
+  %.b.i = load i1, ptr @gbl_have_symbol, align 1
+  br i1 %.b.i, label %39, label %read_key_value.exit
 
 39:                                               ; preds = %.lr.ph
   %40 = load ptr, ptr @gbl_symbol_buffer, align 8

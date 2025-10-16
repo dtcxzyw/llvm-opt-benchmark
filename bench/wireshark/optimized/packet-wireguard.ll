@@ -2155,8 +2155,8 @@ define internal void @wg_key_uat_apply() #0 {
   %1 = alloca i64, align 8
   %2 = alloca [45 x i8], align 16
   %3 = alloca %struct.wg_qqword, align 1
-  %.b12 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b12, label %4, label %.loopexit
+  %.b = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b, label %4, label %.loopexit
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @wg_static_keys, align 8
@@ -2441,8 +2441,8 @@ decode_base64_key.exit.thread:                    ; preds = %61, %63
   br i1 %.not82, label %71, label %88
 
 71:                                               ; preds = %70
-  %.b116 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b116, label %72, label %wg_add_ephemeral_privkey.exit
+  %.b = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b, label %72, label %wg_add_ephemeral_privkey.exit
 
 72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2690,10 +2690,10 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wg_keylog_read() unnamed_addr #0 {
   %1 = alloca [512 x i8], align 16
-  %.b20 = load i1, ptr @wg_decryption_supported, align 1
+  %.b = load i1, ptr @wg_decryption_supported, align 1
   %2 = load ptr, ptr @pref_keylog_file, align 8
   %3 = icmp ne ptr %2, null
-  %or.cond = select i1 %.b20, i1 %3, i1 false
+  %or.cond = select i1 %.b, i1 %3, i1 false
   br i1 %or.cond, label %4, label %33
 
 4:                                                ; preds = %0
@@ -2882,8 +2882,8 @@ define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i
   %10 = load i32, ptr @hf_wg_static, align 4
   %11 = select i1 %3, i32 %9, i32 %10
   %12 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 32, ptr noundef %8)
-  %.b21 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b21, label %13, label %54
+  %.b = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b, label %13, label %54
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @ett_key_info, align 4
@@ -3433,8 +3433,8 @@ declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wg_add_static_key(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %.b33 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b33, label %4, label %36
+  %.b = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b, label %4, label %36
 
 4:                                                ; preds = %2
   %5 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0(i64 noundef 96) #23

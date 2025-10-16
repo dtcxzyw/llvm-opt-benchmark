@@ -158,8 +158,8 @@ define dso_local range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   unreachable
 
 8:                                                ; preds = %0
-  %.b7 = load i1, ptr @cg_conf_inited, align 1
-  br i1 %.b7, label %129, label %9
+  %.b = load i1, ptr @cg_conf_inited, align 1
+  br i1 %.b, label %129, label %9
 
 9:                                                ; preds = %8
   tail call void @slurm_xfree(ptr noundef nonnull @slurm_cgroup_conf) #12
@@ -364,8 +364,8 @@ _read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
 87:                                               ; preds = %84
   call void @packbool(i1 noundef zeroext true, ptr noundef %85) #12
   %88 = load ptr, ptr @slurm_cgroup_conf, align 8
-  %.not.i9 = icmp eq ptr %88, null
-  br i1 %.not.i9, label %93, label %89
+  %.not.i8 = icmp eq ptr %88, null
+  br i1 %.not.i8, label %93, label %89
 
 89:                                               ; preds = %87
   %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #15
@@ -377,8 +377,8 @@ _read_slurm_cgroup_conf.exit:                     ; preds = %22, %79
   %.023.i = phi i32 [ %92, %89 ], [ 0, %87 ]
   call void @packmem(ptr noundef %88, i32 noundef %.023.i, ptr noundef %85) #12
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 8), align 8
-  %.not27.i10 = icmp eq ptr %94, null
-  br i1 %.not27.i10, label %99, label %95
+  %.not27.i9 = icmp eq ptr %94, null
+  br i1 %.not27.i9, label %99, label %95
 
 95:                                               ; preds = %93
   %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #15
@@ -449,8 +449,8 @@ _pack_cgroup_conf.exit:                           ; preds = %119, %86, %_read_sl
 129:                                              ; preds = %8, %_pack_cgroup_conf.exit
   %.0 = phi i32 [ 0, %_pack_cgroup_conf.exit ], [ -1, %8 ]
   %130 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
-  %.not8 = icmp eq i32 %130, 0
-  br i1 %.not8, label %133, label %131
+  %.not7 = icmp eq i32 %130, 0
+  br i1 %.not7, label %133, label %131
 
 131:                                              ; preds = %129
   %132 = tail call ptr @__errno_location() #13

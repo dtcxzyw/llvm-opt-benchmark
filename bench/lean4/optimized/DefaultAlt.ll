@@ -7626,8 +7626,8 @@ lean_dec.exit:                                    ; preds = %59, %58, %56, %l_Ar
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_LCNF_Simp_DefaultAlt(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -7752,18 +7752,18 @@ _init_l_Lean_Compiler_LCNF_Simp_addDefaultAlt___closed__2.exit: ; preds = %_init
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Compiler_LCNF_Simp_addDefaultAlt___closed__2.exit, %3
-  %.sink14 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_Compiler_LCNF_Simp_addDefaultAlt___closed__2.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
-  store i32 1, ptr %.sink14, align 4, !tbaa !9
+  %.sink13 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_Compiler_LCNF_Simp_addDefaultAlt___closed__2.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !9
   store i32 131096, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %53, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !4
   br label %55
 
 55:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

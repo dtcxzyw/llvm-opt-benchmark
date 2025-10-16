@@ -1651,8 +1651,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 define hidden void @proto_reg_handoff_dvbci() #1 {
   %1 = alloca [3 x i8], align 1
   %2 = alloca [3 x i8], align 1
-  %.b1 = load i1, ptr @proto_reg_handoff_dvbci.initialized, align 1
-  br i1 %.b1, label %14, label %3
+  %.b = load i1, ptr @proto_reg_handoff_dvbci.initialized, align 1
+  br i1 %.b, label %14, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @dvbci_handle, align 8
@@ -1722,14 +1722,14 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = load ptr, ptr @dvbci_siv, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.not10 = icmp eq ptr %34, null
-  br i1 %.not10, label %pref_key_string_to_bin.exit9, label %35
+  %.not9 = icmp eq ptr %34, null
+  br i1 %.not9, label %pref_key_string_to_bin.exit8, label %35
 
 35:                                               ; preds = %pref_key_string_to_bin.exit
   %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #15
   %37 = and i64 %36, 4294967295
-  %.not.i3 = icmp eq i64 %37, 32
-  br i1 %.not.i3, label %38, label %pref_key_string_to_bin.exit9
+  %.not.i2 = icmp eq i64 %37, 32
+  br i1 %.not.i2, label %38, label %pref_key_string_to_bin.exit8
 
 38:                                               ; preds = %35
   %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
@@ -1740,9 +1740,9 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   br label %42
 
 42:                                               ; preds = %42, %38
-  %indvars.iv24.i4 = phi i64 [ 0, %38 ], [ %indvars.iv.next25.i7, %42 ]
-  %indvars.iv.i5 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i6, %42 ]
-  %43 = getelementptr i8, ptr %34, i64 %indvars.iv24.i4
+  %indvars.iv24.i3 = phi i64 [ 0, %38 ], [ %indvars.iv.next25.i6, %42 ]
+  %indvars.iv.i4 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i5, %42 ]
+  %43 = getelementptr i8, ptr %34, i64 %indvars.iv24.i3
   %44 = load i8, ptr %43, align 1
   store i8 %44, ptr %1, align 1
   %45 = getelementptr i8, ptr %43, i64 1
@@ -1751,14 +1751,14 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #17
   %48 = trunc i64 %47 to i8
   %49 = load ptr, ptr @dvbci_siv_bin, align 8
-  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
-  %50 = getelementptr i8, ptr %49, i64 %indvars.iv.i5
+  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
+  %50 = getelementptr i8, ptr %49, i64 %indvars.iv.i4
   store i8 %48, ptr %50, align 1
-  %indvars.iv.next25.i7 = add nuw nsw i64 %indvars.iv24.i4, 2
-  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i6, 16
-  br i1 %exitcond.not.i8, label %pref_key_string_to_bin.exit9, label %42, !llvm.loop !9
+  %indvars.iv.next25.i6 = add nuw nsw i64 %indvars.iv24.i3, 2
+  %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i5, 16
+  br i1 %exitcond.not.i7, label %pref_key_string_to_bin.exit8, label %42, !llvm.loop !9
 
-pref_key_string_to_bin.exit9:                     ; preds = %42, %pref_key_string_to_bin.exit, %35
+pref_key_string_to_bin.exit8:                     ; preds = %42, %pref_key_string_to_bin.exit, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

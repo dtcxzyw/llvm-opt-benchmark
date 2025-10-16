@@ -694,8 +694,8 @@ define hidden void @_ZN41utilities_InitGoogleLoggingDeathTest_Test8TestBodyEv(pt
 
 5:                                                ; preds = %4, %1
   store ptr %2, ptr @_ZN6google19g_logging_fail_funcE, align 8, !tbaa !51
-  %.b1 = load i1, ptr @_ZN6googleL14g_called_abortE, align 1
-  br i1 %.b1, label %9, label %6
+  %.b = load i1, ptr @_ZN6googleL14g_called_abortE, align 1
+  br i1 %.b, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr @stderr, align 8, !tbaa !53

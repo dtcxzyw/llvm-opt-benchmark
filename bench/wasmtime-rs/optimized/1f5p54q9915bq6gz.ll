@@ -26508,13 +26508,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17h1f02fb
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i8, ptr %9, align 4, !range !441, !noundef !4
-  switch i8 %10, label %default.unreachable108 [
+  switch i8 %10, label %default.unreachable109 [
     i8 0, label %11
     i8 1, label %14
     i8 2, label %17
   ]
 
-default.unreachable108:                           ; preds = %7
+default.unreachable109:                           ; preds = %7
   unreachable
 
 11:                                               ; preds = %7
@@ -26542,8 +26542,8 @@ default.unreachable108:                           ; preds = %7
   unreachable
 
 20:                                               ; preds = %11
-  %.val.i3.i = load i8, ptr %5, align 1, !alias.scope !5797, !noalias !5802
-  %21 = zext i8 %.val.i3.i to i32
+  %.val.i.i = load i8, ptr %5, align 1, !alias.scope !5797, !noalias !5802
+  %21 = zext i8 %.val.i.i to i32
   br label %22
 
 22:                                               ; preds = %37, %35, %20
@@ -26589,8 +26589,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hda23678a788b4777E.exit.thre
   br label %41
 
 35:                                               ; preds = %14
-  %.val.i.i = load i16, ptr %5, align 1, !alias.scope !5804, !noalias !5809
-  %36 = zext i16 %.val.i.i to i32
+  %.val.i.i78 = load i16, ptr %5, align 1, !alias.scope !5804, !noalias !5809
+  %36 = zext i16 %.val.i.i78 to i32
   br label %22
 
 37:                                               ; preds = %17
@@ -26603,12 +26603,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hda23678a788b4777E.exit.thre
   br label %41
 
 41:                                               ; preds = %39, %32
-  %.sink114 = phi i64 [ 16, %39 ], [ 8, %32 ]
-  %.sink112 = phi ptr [ null, %39 ], [ %34, %32 ]
-  %.sink111 = phi i64 [ 0, %39 ], [ 1, %32 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink114
-  store ptr %.sink112, ptr %42, align 8
-  store i64 %.sink111, ptr %0, align 8
+  %.sink115 = phi i64 [ 16, %39 ], [ 8, %32 ]
+  %.sink113 = phi ptr [ null, %39 ], [ %34, %32 ]
+  %.sink112 = phi i64 [ 0, %39 ], [ 1, %32 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink115
+  store ptr %.sink113, ptr %42, align 8
+  store i64 %.sink112, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -26626,13 +26626,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17h9c1b71
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i8, ptr %14, align 4, !range !441, !noundef !4
-  switch i8 %15, label %default.unreachable115 [
+  switch i8 %15, label %default.unreachable116 [
     i8 0, label %16
     i8 1, label %19
     i8 2, label %22
   ]
 
-default.unreachable115:                           ; preds = %7
+default.unreachable116:                           ; preds = %7
   unreachable
 
 16:                                               ; preds = %7
@@ -26660,8 +26660,8 @@ default.unreachable115:                           ; preds = %7
   unreachable
 
 25:                                               ; preds = %16
-  %.val.i3.i = load i8, ptr %5, align 1, !alias.scope !5829, !noalias !5834
-  %26 = zext i8 %.val.i3.i to i32
+  %.val.i.i = load i8, ptr %5, align 1, !alias.scope !5829, !noalias !5834
+  %26 = zext i8 %.val.i.i to i32
   br label %27
 
 27:                                               ; preds = %33, %31, %25
@@ -26673,8 +26673,8 @@ default.unreachable115:                           ; preds = %7
   br i1 %30, label %39, label %35
 
 31:                                               ; preds = %19
-  %.val.i.i = load i16, ptr %5, align 1, !alias.scope !5836, !noalias !5841
-  %32 = zext i16 %.val.i.i to i32
+  %.val.i.i78 = load i16, ptr %5, align 1, !alias.scope !5836, !noalias !5841
+  %32 = zext i16 %.val.i.i78 to i32
   br label %27
 
 33:                                               ; preds = %22
@@ -26728,13 +26728,13 @@ default.unreachable115:                           ; preds = %7
 59:                                               ; preds = %42
   %60 = sub nuw i64 %6, %47
   %61 = icmp ult i64 %60, %54
-  br i1 %61, label %62, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit81"
+  br i1 %61, label %62, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit82"
 
 62:                                               ; preds = %59
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %54, i64 noundef %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.227) #38, !noalias !5859
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit81": ; preds = %59
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit82": ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 %47
   call void @_ZN8wasmtime7runtime9component6values3Val4load17h582fcdf17faefaa5E(ptr noalias noundef nonnull sret({ i32, [11 x i32] }) align 16 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %37, i32 %44, ptr noalias noundef nonnull readonly align 1 %63, i64 noundef %54)
   %64 = load i32, ptr %9, align 16, !range !5675, !noundef !4
@@ -26745,7 +26745,7 @@ default.unreachable115:                           ; preds = %7
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %47, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.228) #38
   unreachable
 
-67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit81"
+67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit82"
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.452.0.copyload = load i32, ptr %.sroa.452.0..sroa_idx, align 4
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26791,7 +26791,7 @@ default.unreachable115:                           ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %56
 
-77:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit81"
+77:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit82"
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -26815,13 +26815,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17hf5a737
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i8, ptr %11, align 4, !range !441, !noundef !4
-  switch i8 %12, label %default.unreachable124 [
+  switch i8 %12, label %default.unreachable125 [
     i8 0, label %13
     i8 1, label %15
     i8 2, label %17
   ]
 
-default.unreachable124:                           ; preds = %6
+default.unreachable125:                           ; preds = %6
   unreachable
 
 13:                                               ; preds = %6
@@ -26849,8 +26849,8 @@ default.unreachable124:                           ; preds = %6
   unreachable
 
 19:                                               ; preds = %13
-  %.val.i3.i = load i8, ptr %4, align 1, !alias.scope !5865, !noalias !5870
-  %20 = zext i8 %.val.i3.i to i32
+  %.val.i.i = load i8, ptr %4, align 1, !alias.scope !5865, !noalias !5870
+  %20 = zext i8 %.val.i.i to i32
   br label %21
 
 21:                                               ; preds = %32, %30, %19
@@ -26872,8 +26872,8 @@ default.unreachable124:                           ; preds = %6
   br i1 %or.cond.i, label %34, label %37
 
 30:                                               ; preds = %15
-  %.val.i.i = load i16, ptr %4, align 1, !alias.scope !5877, !noalias !5882
-  %31 = zext i16 %.val.i.i to i32
+  %.val.i.i83 = load i16, ptr %4, align 1, !alias.scope !5877, !noalias !5882
+  %31 = zext i16 %.val.i.i83 to i32
   br label %21
 
 32:                                               ; preds = %17
@@ -26929,9 +26929,9 @@ default.unreachable124:                           ; preds = %6
 60:                                               ; preds = %46
   %61 = sub nuw i64 %5, %51
   %62 = icmp ult i64 %61, %58
-  br i1 %62, label %.noexc87, label %64
+  br i1 %62, label %.noexc88, label %64
 
-.noexc87:                                         ; preds = %60
+.noexc88:                                         ; preds = %60
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %58, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.227) #38
   unreachable
 
@@ -26967,9 +26967,9 @@ default.unreachable124:                           ; preds = %6
 
 72:                                               ; preds = %68
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 16, i64 noundef 48) #38
-          to label %.noexc89 unwind label %73
+          to label %.noexc90 unwind label %73
 
-.noexc89:                                         ; preds = %72
+.noexc90:                                         ; preds = %72
   unreachable
 
 73:                                               ; preds = %72

@@ -20635,8 +20635,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_DocString_Links(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -20695,8 +20695,8 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   tail call void @lean_mark_persistent(ptr noundef nonnull %25) #4
   %26 = load ptr, ptr @l_Lean_manualRoot___lambda__1___closed__1, align 8, !tbaa !12
   %27 = getelementptr i8, ptr %26, i64 8
-  %.val.i5 = load i64, ptr %27, align 8, !tbaa !4
-  %28 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %27, align 8, !tbaa !4
+  %28 = shl i64 %.val.i4, 1
   %29 = add i64 %28, -1
   %30 = inttoptr i64 %29 to ptr
   store ptr %30, ptr @l_Lean_manualRoot___lambda__1___closed__3, align 8, !tbaa !12
@@ -20753,8 +20753,8 @@ _init_l_Lean_manualRoot___closed__2.exit:         ; preds = %_init_l_Lean_manual
   tail call void @lean_mark_persistent(ptr noundef %48) #4
   %49 = load ptr, ptr @l_Lean_manualRoot___closed__3, align 8, !tbaa !12
   %50 = getelementptr i8, ptr %49, i64 8
-  %.val.i6 = load i64, ptr %50, align 8, !tbaa !4
-  %51 = shl i64 %.val.i6, 1
+  %.val.i5 = load i64, ptr %50, align 8, !tbaa !4
+  %51 = shl i64 %.val.i5, 1
   %52 = add i64 %51, -1
   %53 = inttoptr i64 %52 to ptr
   store ptr %53, ptr @l_Lean_manualRoot___closed__4, align 8, !tbaa !12
@@ -20762,8 +20762,8 @@ _init_l_Lean_manualRoot___closed__2.exit:         ; preds = %_init_l_Lean_manual
   %54 = load ptr, ptr @l_Lean_manualRoot___closed__4, align 8, !tbaa !12
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 1
-  %.not.i7 = icmp eq i64 %56, 0
-  br i1 %.not.i7, label %.critedge.i.i, label %57, !prof !14
+  %.not.i6 = icmp eq i64 %56, 0
+  br i1 %.not.i6, label %.critedge.i.i, label %57, !prof !14
 
 57:                                               ; preds = %_init_l_Lean_manualRoot___closed__2.exit
   %58 = icmp eq ptr %54, inttoptr (i64 1 to ptr)
@@ -20903,8 +20903,8 @@ _init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit: ; preds = %_init_l_Lea
   tail call void @lean_mark_persistent(ptr noundef %108) #4
   %109 = load ptr, ptr @l_Lean_Loop_forIn_loop___at_Lean_rewriteManualLinksCore___spec__2___lambda__1___closed__1, align 8, !tbaa !12
   %110 = getelementptr i8, ptr %109, i64 24
-  %.val.i8 = load i64, ptr %110, align 8, !tbaa !4
-  %111 = shl i64 %.val.i8, 1
+  %.val.i7 = load i64, ptr %110, align 8, !tbaa !4
+  %111 = shl i64 %.val.i7, 1
   %112 = or disjoint i64 %111, 1
   %113 = inttoptr i64 %112 to ptr
   store ptr %113, ptr @l_Lean_Loop_forIn_loop___at_Lean_rewriteManualLinksCore___spec__2___lambda__1___closed__2, align 8, !tbaa !12
@@ -20946,18 +20946,18 @@ _init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit: ; preds = %_init_l_Lea
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit, %3
-  %.sink23 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit ]
-  %126 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
-  store i32 1, ptr %.sink23, align 4, !tbaa !8
+  %.sink22 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit ]
+  %126 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !8
   store i32 131096, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %127, align 8, !tbaa !12
-  %128 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %128, align 8, !tbaa !12
   br label %129
 
 129:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink23, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

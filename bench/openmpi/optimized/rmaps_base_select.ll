@@ -38,24 +38,24 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b43 = load i1, ptr @selected, align 1
-  br i1 %.b43, label %.loopexit, label %3
+  %.b = load i1, ptr @selected, align 1
+  br i1 %.b, label %.loopexit, label %3
 
 3:                                                ; preds = %0
   store i1 true, ptr @selected, align 1
-  %.03750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 320), align 8, !tbaa !8
-  %.not51 = icmp eq ptr %.03750, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 200)
-  br i1 %.not51, label %._crit_edge, label %.lr.ph53
+  %.03749 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 320), align 8, !tbaa !8
+  %.not50 = icmp eq ptr %.03749, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 200)
+  br i1 %.not50, label %._crit_edge, label %.lr.ph52
 
-.lr.ph53:                                         ; preds = %3, %95
-  %.03752 = phi ptr [ %.037, %95 ], [ %.03750, %3 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.03752, i64 144
+.lr.ph52:                                         ; preds = %3, %95
+  %.03751 = phi ptr [ %.037, %95 ], [ %.03749, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.03751, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !18
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %15
 
-7:                                                ; preds = %.lr.ph53
+7:                                                ; preds = %.lr.ph52
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -68,7 +68,7 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @pmix_output(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %14) #6
   br label %15
 
-15:                                               ; preds = %13, %7, %.lr.ph53
+15:                                               ; preds = %13, %7, %.lr.ph52
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %18 = icmp eq ptr %17, null
@@ -184,21 +184,21 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   store ptr %42, ptr %74, align 8, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 160
   store ptr %5, ptr %75, align 8, !tbaa !43
-  %.03647 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !8
-  %.not45.not48 = icmp eq ptr %.03647, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not45.not48, label %.critedge, label %.lr.ph
+  %.03646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !8
+  %.not44.not47 = icmp eq ptr %.03646, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
+  br i1 %.not44.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %87
-  %.03649 = phi ptr [ %.036, %87 ], [ %.03647, %pmix_obj_new_tma.exit ]
-  %76 = getelementptr inbounds nuw i8, ptr %.03649, i64 144
+  %.03648 = phi ptr [ %.036, %87 ], [ %.03646, %pmix_obj_new_tma.exit ]
+  %76 = getelementptr inbounds nuw i8, ptr %.03648, i64 144
   %77 = load i32, ptr %76, align 8, !tbaa !39
   %78 = icmp sgt i32 %72, %77
   br i1 %78, label %79, label %87
 
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds nuw i8, ptr %56, i64 120
-  store ptr %.03649, ptr %80, align 8, !tbaa !8
-  %81 = getelementptr inbounds nuw i8, ptr %.03649, i64 128
+  store ptr %.03648, ptr %80, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw i8, ptr %.03648, i64 128
   %82 = load ptr, ptr %81, align 8, !tbaa !44
   %83 = getelementptr inbounds nuw i8, ptr %56, i64 128
   store ptr %82, ptr %83, align 8, !tbaa !44
@@ -211,10 +211,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   br label %95
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds nuw i8, ptr %.03649, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %.03648, i64 120
   %.036 = load ptr, ptr %88, align 8, !tbaa !8
-  %.not45.not = icmp eq ptr %.036, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not45.not, label %.critedge, label %.lr.ph, !llvm.loop !46
+  %.not44.not = icmp eq ptr %.036, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
+  br i1 %.not44.not, label %.critedge, label %.lr.ph, !llvm.loop !46
 
 .critedge:                                        ; preds = %87, %pmix_obj_new_tma.exit
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 248), align 8, !tbaa !44
@@ -231,10 +231,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   br label %95
 
 95:                                               ; preds = %79, %.critedge, %44, %46, %52, %20, %21, %27
-  %96 = getelementptr inbounds nuw i8, ptr %.03752, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %.03751, i64 120
   %.037 = load ptr, ptr %96, align 8, !tbaa !8
   %.not = icmp eq ptr %.037, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 200)
-  br i1 %.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %95, %3
   %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !18
@@ -245,24 +245,24 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
 100:                                              ; preds = %._crit_edge
   %101 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #6
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %101) #6
-  %.154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !8
-  %.not4455 = icmp eq ptr %.154, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not4455, label %.loopexit, label %.lr.ph58
+  %.153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !8
+  %.not4354 = icmp eq ptr %.153, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
+  br i1 %.not4354, label %.loopexit, label %.lr.ph57
 
-.lr.ph58:                                         ; preds = %100, %.lr.ph58
-  %.156 = phi ptr [ %.1, %.lr.ph58 ], [ %.154, %100 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.156, i64 160
+.lr.ph57:                                         ; preds = %100, %.lr.ph57
+  %.155 = phi ptr [ %.1, %.lr.ph57 ], [ %.153, %100 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.155, i64 160
   %103 = load ptr, ptr %102, align 8, !tbaa !43
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 84
-  %105 = getelementptr inbounds nuw i8, ptr %.156, i64 144
+  %105 = getelementptr inbounds nuw i8, ptr %.155, i64 144
   %106 = load i32, ptr %105, align 8, !tbaa !39
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %104, i32 noundef %106) #6
-  %107 = getelementptr inbounds nuw i8, ptr %.156, i64 120
+  %107 = getelementptr inbounds nuw i8, ptr %.155, i64 120
   %.1 = load ptr, ptr %107, align 8, !tbaa !8
-  %.not44 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not44, label %.loopexit, label %.lr.ph58, !llvm.loop !48
+  %.not43 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
+  br i1 %.not43, label %.loopexit, label %.lr.ph57, !llvm.loop !48
 
-.loopexit:                                        ; preds = %.lr.ph58, %100, %._crit_edge, %0
+.loopexit:                                        ; preds = %.lr.ph57, %100, %._crit_edge, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 0

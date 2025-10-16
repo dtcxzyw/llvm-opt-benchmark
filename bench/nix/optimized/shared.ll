@@ -1231,8 +1231,8 @@ define void @_ZN3nix14printGCWarningEv() local_unnamed_addr #5 personality ptr @
   %3 = load i8, ptr @_ZN3nixL9gcWarningE, align 1
   %4 = trunc i8 %3 to i1
   %.not = xor i1 %4, true
-  %.b3 = load i1, ptr @_ZZN3nix14printGCWarningEvE10haveWarned, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b3
+  %.b = load i1, ptr @_ZZN3nix14printGCWarningEvE10haveWarned, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %16, label %5
 
 5:                                                ; preds = %0

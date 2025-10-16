@@ -351,12 +351,12 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
   %1 = alloca %struct.lconv, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.b46 = load i1, ptr @CurrentLocaleConvValid, align 1
-  br i1 %.b46, label %131, label %3
+  %.b = load i1, ptr @CurrentLocaleConvValid, align 1
+  br i1 %.b, label %131, label %3
 
 3:                                                ; preds = %0
-  %.b4547 = load i1, ptr @PGLC_localeconv.CurrentLocaleConvAllocated, align 1
-  br i1 %.b4547, label %4, label %15
+  %.b45 = load i1, ptr @PGLC_localeconv.CurrentLocaleConvAllocated, align 1
+  br i1 %.b45, label %4, label %15
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @PGLC_localeconv.CurrentLocaleConv, align 8
@@ -398,8 +398,8 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
 21:                                               ; preds = %15
   %22 = call ptr @pstrdup(ptr noundef nonnull %17) #20
   %23 = call ptr @setlocale(i32 noundef 1, ptr noundef null) #20
-  %.not48 = icmp eq ptr %23, null
-  br i1 %.not48, label %24, label %27
+  %.not46 = icmp eq ptr %23, null
+  br i1 %.not46, label %24, label %27
 
 24:                                               ; preds = %21
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
@@ -496,8 +496,8 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 87
   store i8 %95, ptr %96, align 1
   %97 = call ptr @setlocale(i32 noundef 4, ptr noundef %22) #20
-  %.not49 = icmp eq ptr %97, null
-  br i1 %.not49, label %98, label %101
+  %.not47 = icmp eq ptr %97, null
+  br i1 %.not47, label %98, label %101
 
 98:                                               ; preds = %27
   %99 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
@@ -507,8 +507,8 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
 
 101:                                              ; preds = %27
   %102 = call ptr @setlocale(i32 noundef 1, ptr noundef %28) #20
-  %.not50 = icmp eq ptr %102, null
-  br i1 %.not50, label %103, label %106
+  %.not48 = icmp eq ptr %102, null
+  br i1 %.not48, label %103, label %106
 
 103:                                              ; preds = %101
   %104 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
@@ -530,24 +530,24 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
   call void @pfree(ptr noundef %28) #20
   %112 = icmp ne ptr %33, null
   %113 = icmp ne ptr %36, null
-  %or.cond.not71 = select i1 %112, i1 %113, i1 false
+  %or.cond.not69 = select i1 %112, i1 %113, i1 false
   %114 = icmp ne ptr %40, null
-  %or.cond52.not68 = select i1 %or.cond.not71, i1 %114, i1 false
+  %or.cond50.not66 = select i1 %or.cond.not69, i1 %114, i1 false
   %115 = icmp ne ptr %47, null
-  %or.cond53.not66 = select i1 %or.cond52.not68, i1 %115, i1 false
+  %or.cond51.not64 = select i1 %or.cond50.not66, i1 %115, i1 false
   %116 = icmp ne ptr %51, null
-  %or.cond54.not64 = select i1 %or.cond53.not66, i1 %116, i1 false
+  %or.cond52.not62 = select i1 %or.cond51.not64, i1 %116, i1 false
   %117 = icmp ne ptr %55, null
-  %or.cond55.not62 = select i1 %or.cond54.not64, i1 %117, i1 false
+  %or.cond53.not60 = select i1 %or.cond52.not62, i1 %117, i1 false
   %118 = icmp ne ptr %59, null
-  %or.cond56.not = select i1 %or.cond55.not62, i1 %118, i1 false
+  %or.cond54.not = select i1 %or.cond53.not60, i1 %118, i1 false
   %119 = icmp ne ptr %63, null
-  %or.cond57 = select i1 %or.cond56.not, i1 %119, i1 false
+  %or.cond55 = select i1 %or.cond54.not, i1 %119, i1 false
   %120 = icmp ne ptr %67, null
-  %or.cond58 = select i1 %or.cond57, i1 %120, i1 false
+  %or.cond56 = select i1 %or.cond55, i1 %120, i1 false
   %121 = icmp ne ptr %71, null
-  %or.cond59 = select i1 %or.cond58, i1 %121, i1 false
-  br i1 %or.cond59, label %125, label %struct_lconv_is_valid.exit.thread
+  %or.cond57 = select i1 %or.cond56, i1 %121, i1 false
+  br i1 %or.cond57, label %125, label %struct_lconv_is_valid.exit.thread
 
 struct_lconv_is_valid.exit.thread:                ; preds = %111
   %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
@@ -682,8 +682,8 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b56 = load i1, ptr @CurrentLCTimeValid, align 1
-  br i1 %.b56, label %102, label %4
+  %.b = load i1, ptr @CurrentLCTimeValid, align 1
+  br i1 %.b, label %102, label %4
 
 4:                                                ; preds = %0
   %5 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #20
@@ -724,44 +724,44 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   br label %33
 
 24:                                               ; preds = %14, %24
-  %.070 = phi i32 [ 0, %14 ], [ %32, %24 ]
-  %.04769 = phi i1 [ false, %14 ], [ %.249, %24 ]
-  %.05168 = phi ptr [ %1, %14 ], [ %31, %24 ]
-  store i32 %.070, ptr %21, align 8
-  %25 = call i64 @strftime(ptr noundef nonnull %.05168, i64 noundef 80, ptr noundef nonnull @.str.15, ptr noundef %19) #20
+  %.069 = phi i32 [ 0, %14 ], [ %32, %24 ]
+  %.04768 = phi i1 [ false, %14 ], [ %.249, %24 ]
+  %.05167 = phi ptr [ %1, %14 ], [ %31, %24 ]
+  store i32 %.069, ptr %21, align 8
+  %25 = call i64 @strftime(ptr noundef nonnull %.05167, i64 noundef 80, ptr noundef nonnull @.str.15, ptr noundef %19) #20
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds nuw i8, ptr %.05168, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %.05167, i64 80
   %28 = call i64 @strftime(ptr noundef nonnull %27, i64 noundef 80, ptr noundef nonnull @.str.16, ptr noundef %19) #20
   %29 = icmp eq i64 %28, 0
   %30 = select i1 %29, i1 true, i1 %26
-  %.249 = select i1 %30, i1 true, i1 %.04769
-  %31 = getelementptr inbounds nuw i8, ptr %.05168, i64 160
-  %32 = add nuw nsw i32 %.070, 1
+  %.249 = select i1 %30, i1 true, i1 %.04768
+  %31 = getelementptr inbounds nuw i8, ptr %.05167, i64 160
+  %32 = add nuw nsw i32 %.069, 1
   %exitcond.not = icmp eq i32 %32, 7
   br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !4
 
 33:                                               ; preds = %.preheader, %33
-  %.173 = phi i32 [ 0, %.preheader ], [ %41, %33 ]
-  %.35072 = phi i1 [ %.249, %.preheader ], [ %.5, %33 ]
-  %.15271 = phi ptr [ %31, %.preheader ], [ %40, %33 ]
-  store i32 %.173, ptr %22, align 8
+  %.172 = phi i32 [ 0, %.preheader ], [ %41, %33 ]
+  %.35071 = phi i1 [ %.249, %.preheader ], [ %.5, %33 ]
+  %.15270 = phi ptr [ %31, %.preheader ], [ %40, %33 ]
+  store i32 %.172, ptr %22, align 8
   store i32 1, ptr %23, align 4
-  %34 = call i64 @strftime(ptr noundef nonnull %.15271, i64 noundef 80, ptr noundef nonnull @.str.17, ptr noundef nonnull %19) #20
+  %34 = call i64 @strftime(ptr noundef nonnull %.15270, i64 noundef 80, ptr noundef nonnull @.str.17, ptr noundef nonnull %19) #20
   %35 = icmp eq i64 %34, 0
-  %36 = getelementptr inbounds nuw i8, ptr %.15271, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %.15270, i64 80
   %37 = call i64 @strftime(ptr noundef nonnull %36, i64 noundef 80, ptr noundef nonnull @.str.18, ptr noundef nonnull %19) #20
   %38 = icmp eq i64 %37, 0
   %39 = select i1 %38, i1 true, i1 %35
-  %.5 = select i1 %39, i1 true, i1 %.35072
-  %40 = getelementptr inbounds nuw i8, ptr %.15271, i64 160
-  %41 = add nuw nsw i32 %.173, 1
-  %exitcond79.not = icmp eq i32 %41, 12
-  br i1 %exitcond79.not, label %42, label %33, !llvm.loop !6
+  %.5 = select i1 %39, i1 true, i1 %.35071
+  %40 = getelementptr inbounds nuw i8, ptr %.15270, i64 160
+  %41 = add nuw nsw i32 %.172, 1
+  %exitcond78.not = icmp eq i32 %41, 12
+  br i1 %exitcond78.not, label %42, label %33, !llvm.loop !6
 
 42:                                               ; preds = %33
   %43 = call ptr @setlocale(i32 noundef 2, ptr noundef %15) #20
-  %.not57 = icmp eq ptr %43, null
-  br i1 %.not57, label %44, label %47
+  %.not56 = icmp eq ptr %43, null
+  br i1 %.not56, label %44, label %47
 
 44:                                               ; preds = %42
   %45 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
@@ -785,13 +785,13 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   %spec.store.select = call i32 @llvm.smax.i32(i32 %53, i32 0)
   br label %54
 
-54:                                               ; preds = %51, %cache_single_string.exit61
-  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %cache_single_string.exit61 ]
-  %.25374 = phi ptr [ %1, %51 ], [ %76, %cache_single_string.exit61 ]
+54:                                               ; preds = %51, %cache_single_string.exit60
+  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %cache_single_string.exit60 ]
+  %.25373 = phi ptr [ %1, %51 ], [ %76, %cache_single_string.exit60 ]
   %55 = getelementptr inbounds nuw ptr, ptr @localized_abbrev_days, i64 %indvars.iv
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.25374) #24
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.25373) #24
   %57 = trunc i64 %56 to i32
-  %58 = call ptr @pg_any_to_server(ptr noundef nonnull %.25374, i32 noundef %57, i32 noundef %spec.store.select) #20
+  %58 = call ptr @pg_any_to_server(ptr noundef nonnull %.25373, i32 noundef %57, i32 noundef %spec.store.select) #20
   %59 = load ptr, ptr %55, align 8
   %60 = load ptr, ptr @TopMemoryContext, align 8
   %61 = call ptr @MemoryContextStrdup(ptr noundef %60, ptr noundef %58) #20
@@ -804,7 +804,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   br label %63
 
 63:                                               ; preds = %62, %54
-  %.not11.i = icmp eq ptr %58, %.25374
+  %.not11.i = icmp eq ptr %58, %.25373
   br i1 %.not11.i, label %cache_single_string.exit, label %64
 
 64:                                               ; preds = %63
@@ -812,7 +812,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
   br label %cache_single_string.exit
 
 cache_single_string.exit:                         ; preds = %63, %64
-  %65 = getelementptr inbounds nuw i8, ptr %.25374, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %.25373, i64 80
   %66 = getelementptr inbounds nuw ptr, ptr @localized_full_days, i64 %indvars.iv
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
   %68 = trunc i64 %67 to i32
@@ -821,61 +821,61 @@ cache_single_string.exit:                         ; preds = %63, %64
   %71 = load ptr, ptr @TopMemoryContext, align 8
   %72 = call ptr @MemoryContextStrdup(ptr noundef %71, ptr noundef %69) #20
   store ptr %72, ptr %66, align 8
-  %.not.i59 = icmp eq ptr %70, null
-  br i1 %.not.i59, label %74, label %73
+  %.not.i58 = icmp eq ptr %70, null
+  br i1 %.not.i58, label %74, label %73
 
 73:                                               ; preds = %cache_single_string.exit
   call void @pfree(ptr noundef nonnull %70) #20
   br label %74
 
 74:                                               ; preds = %73, %cache_single_string.exit
-  %.not11.i60 = icmp eq ptr %69, %65
-  br i1 %.not11.i60, label %cache_single_string.exit61, label %75
+  %.not11.i59 = icmp eq ptr %69, %65
+  br i1 %.not11.i59, label %cache_single_string.exit60, label %75
 
 75:                                               ; preds = %74
   call void @pfree(ptr noundef %69) #20
-  br label %cache_single_string.exit61
+  br label %cache_single_string.exit60
 
-cache_single_string.exit61:                       ; preds = %74, %75
-  %76 = getelementptr inbounds nuw i8, ptr %.25374, i64 160
+cache_single_string.exit60:                       ; preds = %74, %75
+  %76 = getelementptr inbounds nuw i8, ptr %.25373, i64 160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond81.not, label %77, label %54, !llvm.loop !7
+  %exitcond80.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond80.not, label %77, label %54, !llvm.loop !7
 
-77:                                               ; preds = %cache_single_string.exit61
+77:                                               ; preds = %cache_single_string.exit60
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_days, i64 56), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_full_days, i64 56), align 8
   br label %78
 
-78:                                               ; preds = %77, %cache_single_string.exit67
-  %indvars.iv82 = phi i64 [ 0, %77 ], [ %indvars.iv.next83, %cache_single_string.exit67 ]
-  %.35476 = phi ptr [ %76, %77 ], [ %100, %cache_single_string.exit67 ]
-  %79 = getelementptr inbounds nuw ptr, ptr @localized_abbrev_months, i64 %indvars.iv82
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.35476) #24
+78:                                               ; preds = %77, %cache_single_string.exit66
+  %indvars.iv81 = phi i64 [ 0, %77 ], [ %indvars.iv.next82, %cache_single_string.exit66 ]
+  %.35475 = phi ptr [ %76, %77 ], [ %100, %cache_single_string.exit66 ]
+  %79 = getelementptr inbounds nuw ptr, ptr @localized_abbrev_months, i64 %indvars.iv81
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.35475) #24
   %81 = trunc i64 %80 to i32
-  %82 = call ptr @pg_any_to_server(ptr noundef nonnull %.35476, i32 noundef %81, i32 noundef %spec.store.select) #20
+  %82 = call ptr @pg_any_to_server(ptr noundef nonnull %.35475, i32 noundef %81, i32 noundef %spec.store.select) #20
   %83 = load ptr, ptr %79, align 8
   %84 = load ptr, ptr @TopMemoryContext, align 8
   %85 = call ptr @MemoryContextStrdup(ptr noundef %84, ptr noundef %82) #20
   store ptr %85, ptr %79, align 8
-  %.not.i62 = icmp eq ptr %83, null
-  br i1 %.not.i62, label %87, label %86
+  %.not.i61 = icmp eq ptr %83, null
+  br i1 %.not.i61, label %87, label %86
 
 86:                                               ; preds = %78
   call void @pfree(ptr noundef nonnull %83) #20
   br label %87
 
 87:                                               ; preds = %86, %78
-  %.not11.i63 = icmp eq ptr %82, %.35476
-  br i1 %.not11.i63, label %cache_single_string.exit64, label %88
+  %.not11.i62 = icmp eq ptr %82, %.35475
+  br i1 %.not11.i62, label %cache_single_string.exit63, label %88
 
 88:                                               ; preds = %87
   call void @pfree(ptr noundef %82) #20
-  br label %cache_single_string.exit64
+  br label %cache_single_string.exit63
 
-cache_single_string.exit64:                       ; preds = %87, %88
-  %89 = getelementptr inbounds nuw i8, ptr %.35476, i64 80
-  %90 = getelementptr inbounds nuw ptr, ptr @localized_full_months, i64 %indvars.iv82
+cache_single_string.exit63:                       ; preds = %87, %88
+  %89 = getelementptr inbounds nuw i8, ptr %.35475, i64 80
+  %90 = getelementptr inbounds nuw ptr, ptr @localized_full_months, i64 %indvars.iv81
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #24
   %92 = trunc i64 %91 to i32
   %93 = call ptr @pg_any_to_server(ptr noundef nonnull %89, i32 noundef %92, i32 noundef %spec.store.select) #20
@@ -883,28 +883,28 @@ cache_single_string.exit64:                       ; preds = %87, %88
   %95 = load ptr, ptr @TopMemoryContext, align 8
   %96 = call ptr @MemoryContextStrdup(ptr noundef %95, ptr noundef %93) #20
   store ptr %96, ptr %90, align 8
-  %.not.i65 = icmp eq ptr %94, null
-  br i1 %.not.i65, label %98, label %97
+  %.not.i64 = icmp eq ptr %94, null
+  br i1 %.not.i64, label %98, label %97
 
-97:                                               ; preds = %cache_single_string.exit64
+97:                                               ; preds = %cache_single_string.exit63
   call void @pfree(ptr noundef nonnull %94) #20
   br label %98
 
-98:                                               ; preds = %97, %cache_single_string.exit64
-  %.not11.i66 = icmp eq ptr %93, %89
-  br i1 %.not11.i66, label %cache_single_string.exit67, label %99
+98:                                               ; preds = %97, %cache_single_string.exit63
+  %.not11.i65 = icmp eq ptr %93, %89
+  br i1 %.not11.i65, label %cache_single_string.exit66, label %99
 
 99:                                               ; preds = %98
   call void @pfree(ptr noundef %93) #20
-  br label %cache_single_string.exit67
+  br label %cache_single_string.exit66
 
-cache_single_string.exit67:                       ; preds = %98, %99
-  %100 = getelementptr inbounds nuw i8, ptr %.35476, i64 160
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next83, 12
-  br i1 %exitcond85.not, label %101, label %78, !llvm.loop !8
+cache_single_string.exit66:                       ; preds = %98, %99
+  %100 = getelementptr inbounds nuw i8, ptr %.35475, i64 160
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next82, 12
+  br i1 %exitcond84.not, label %101, label %78, !llvm.loop !8
 
-101:                                              ; preds = %cache_single_string.exit67
+101:                                              ; preds = %cache_single_string.exit66
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_abbrev_months, i64 96), align 16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @localized_full_months, i64 96), align 16
   store i1 true, ptr @CurrentLCTimeValid, align 1

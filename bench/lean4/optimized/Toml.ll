@@ -278616,8 +278616,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Load_Toml(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b16 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b16, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -278646,25 +278646,25 @@ define ptr @initialize_Lake_Load_Toml(i8 noundef zeroext %0, ptr noundef readnon
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 16:                                               ; preds = %11
-  %.not.i21 = icmp eq i32 %12, 0
-  br i1 %.not.i21, label %lean_dec_ref.exit22, label %17
+  %.not.i20 = icmp eq i32 %12, 0
+  br i1 %.not.i20, label %lean_dec_ref.exit21, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
-lean_dec_ref.exit22:                              ; preds = %14, %16, %17
+lean_dec_ref.exit21:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Toml_Decode(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val23 = load i32, ptr %19, align 4
-  %.mask.i26 = and i32 %.val23, -16777216
-  %20 = icmp eq i32 %.mask.i26, 16777216
+  %.val22 = load i32, ptr %19, align 4
+  %.mask.i25 = and i32 %.val22, -16777216
+  %20 = icmp eq i32 %.mask.i25, 16777216
   br i1 %20, label %1708, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit22
+21:                                               ; preds = %lean_dec_ref.exit21
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -278672,25 +278672,25 @@ lean_dec_ref.exit22:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
 26:                                               ; preds = %21
-  %.not.i19 = icmp eq i32 %22, 0
-  br i1 %.not.i19, label %lean_dec_ref.exit20, label %27
+  %.not.i18 = icmp eq i32 %22, 0
+  br i1 %.not.i18, label %lean_dec_ref.exit19, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
-lean_dec_ref.exit20:                              ; preds = %24, %26, %27
+lean_dec_ref.exit19:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lake_Config_Package(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val24 = load i32, ptr %29, align 4
-  %.mask.i27 = and i32 %.val24, -16777216
-  %30 = icmp eq i32 %.mask.i27, 16777216
+  %.val23 = load i32, ptr %29, align 4
+  %.mask.i26 = and i32 %.val23, -16777216
+  %30 = icmp eq i32 %.mask.i26, 16777216
   br i1 %30, label %1708, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit20
+31:                                               ; preds = %lean_dec_ref.exit19
   %32 = load i32, ptr %28, align 4, !tbaa !8
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -278698,25 +278698,25 @@ lean_dec_ref.exit20:                              ; preds = %24, %26, %27
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
   store i32 %35, ptr %28, align 4, !tbaa !8
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
 36:                                               ; preds = %31
-  %.not.i17 = icmp eq i32 %32, 0
-  br i1 %.not.i17, label %lean_dec_ref.exit18, label %37
+  %.not.i16 = icmp eq i32 %32, 0
+  br i1 %.not.i16, label %lean_dec_ref.exit17, label %37
 
 37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #6
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
-lean_dec_ref.exit18:                              ; preds = %34, %36, %37
+lean_dec_ref.exit17:                              ; preds = %34, %36, %37
   %38 = tail call ptr @initialize_Lake_Util_Log(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %39 = getelementptr i8, ptr %38, i64 4
-  %.val25 = load i32, ptr %39, align 4
-  %.mask.i28 = and i32 %.val25, -16777216
-  %40 = icmp eq i32 %.mask.i28, 16777216
+  %.val24 = load i32, ptr %39, align 4
+  %.mask.i27 = and i32 %.val24, -16777216
+  %40 = icmp eq i32 %.mask.i27, 16777216
   br i1 %40, label %1708, label %41
 
-41:                                               ; preds = %lean_dec_ref.exit18
+41:                                               ; preds = %lean_dec_ref.exit17
   %42 = load i32, ptr %38, align 4, !tbaa !8
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %46, !prof !11
@@ -280373,8 +280373,8 @@ _init_l_Lake_commandGen__toml__decoders_x25____x40_Lake_Load_Toml___hyg_4481____
   %711 = load ptr, ptr %710, align 8, !tbaa !4
   %712 = ptrtoint ptr %711 to i64
   %713 = and i64 %712, 1
-  %.not.i29 = icmp eq i64 %713, 0
-  br i1 %.not.i29, label %714, label %lean_inc.exit.i
+  %.not.i28 = icmp eq i64 %713, 0
+  br i1 %.not.i28, label %714, label %lean_inc.exit.i
 
 714:                                              ; preds = %_init_l_Lake_commandGen__toml__decoders_x25____x40_Lake_Load_Toml___hyg_4481____closed__15.exit
   %.val.i.i = load i32, ptr %711, align 4, !tbaa !8
@@ -280435,8 +280435,8 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %731 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1, align 8, !tbaa !4
   %732 = ptrtoint ptr %731 to i64
   %733 = and i64 %732, 1
-  %.not.i30 = icmp eq i64 %733, 0
-  br i1 %.not.i30, label %.critedge.i.i, label %734, !prof !16
+  %.not.i29 = icmp eq i64 %733, 0
+  br i1 %.not.i29, label %.critedge.i.i, label %734, !prof !16
 
 734:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1.exit
   %735 = icmp ugt ptr %731, inttoptr (i64 1 to ptr)
@@ -280445,37 +280445,37 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
 .critedge.i.i:                                    ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1.exit
   %736 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %731) #6
   %.pre = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1, align 8, !tbaa !4
-  %.pre196 = ptrtoint ptr %.pre to i64
+  %.pre195 = ptrtoint ptr %.pre to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit
 
 _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit: ; preds = %734, %.critedge.i.i
-  %.pre-phi = phi i64 [ %732, %734 ], [ %.pre196, %.critedge.i.i ]
+  %.pre-phi = phi i64 [ %732, %734 ], [ %.pre195, %.critedge.i.i ]
   %737 = phi ptr [ %731, %734 ], [ %.pre, %.critedge.i.i ]
   %.0.i.i = phi i1 [ %735, %734 ], [ %736, %.critedge.i.i ]
   %738 = zext i1 %.0.i.i to i8
   store i8 %738, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2, align 1, !tbaa !18
   %739 = and i64 %.pre-phi, 1
-  %.not.i31 = icmp eq i64 %739, 0
-  br i1 %.not.i31, label %.critedge.i.i33, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit, !prof !16
+  %.not.i30 = icmp eq i64 %739, 0
+  br i1 %.not.i30, label %.critedge.i.i32, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit, !prof !16
 
-.critedge.i.i33:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit
+.critedge.i.i32:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit
   %740 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %737, ptr noundef %737) #6
   %741 = zext i1 %740 to i8
-  %.pre183 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1, align 8, !tbaa !4
-  %.pre197 = ptrtoint ptr %.pre183 to i64
+  %.pre182 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__1, align 8, !tbaa !4
+  %.pre196 = ptrtoint ptr %.pre182 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit, %.critedge.i.i33
-  %.pre-phi198 = phi i64 [ %.pre-phi, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %.pre197, %.critedge.i.i33 ]
-  %742 = phi ptr [ %737, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %.pre183, %.critedge.i.i33 ]
-  %.0.i.i32 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %741, %.critedge.i.i33 ]
-  store i8 %.0.i.i32, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3, align 1, !tbaa !18
-  %743 = and i64 %.pre-phi198, 1
-  %.not.i.i34 = icmp eq i64 %743, 0
-  br i1 %.not.i.i34, label %746, label %744
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit, %.critedge.i.i32
+  %.pre-phi197 = phi i64 [ %.pre-phi, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %.pre196, %.critedge.i.i32 ]
+  %742 = phi ptr [ %737, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %.pre182, %.critedge.i.i32 ]
+  %.0.i.i31 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__2.exit ], [ %741, %.critedge.i.i32 ]
+  store i8 %.0.i.i31, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3, align 1, !tbaa !18
+  %743 = and i64 %.pre-phi197, 1
+  %.not.i.i33 = icmp eq i64 %743, 0
+  br i1 %.not.i.i33, label %746, label %744
 
 744:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit
-  %745 = lshr i64 %.pre-phi198, 1
+  %745 = lshr i64 %.pre-phi197, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__4.exit
 
 746:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__3.exit
@@ -280490,42 +280490,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %751 = load ptr, ptr %750, align 8, !tbaa !4
   %752 = ptrtoint ptr %751 to i64
   %753 = and i64 %752, 1
-  %.not.i35 = icmp eq i64 %753, 0
-  br i1 %.not.i35, label %754, label %lean_inc.exit.i36
+  %.not.i34 = icmp eq i64 %753, 0
+  br i1 %.not.i34, label %754, label %lean_inc.exit.i35
 
 754:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__4.exit
-  %.val.i.i41 = load i32, ptr %751, align 4, !tbaa !8
-  %755 = icmp sgt i32 %.val.i.i41, 0
+  %.val.i.i40 = load i32, ptr %751, align 4, !tbaa !8
+  %755 = icmp sgt i32 %.val.i.i40, 0
   br i1 %755, label %756, label %758, !prof !11
 
 756:                                              ; preds = %754
-  %757 = add nuw i32 %.val.i.i41, 1
+  %757 = add nuw i32 %.val.i.i40, 1
   store i32 %757, ptr %751, align 4, !tbaa !8
   br label %762
 
 758:                                              ; preds = %754
-  %.not.i5.i42 = icmp eq i32 %.val.i.i41, 0
-  br i1 %.not.i5.i42, label %.thread8.i46, label %760
+  %.not.i5.i41 = icmp eq i32 %.val.i.i40, 0
+  br i1 %.not.i5.i41, label %.thread8.i45, label %760
 
-.thread8.i46:                                     ; preds = %758
+.thread8.i45:                                     ; preds = %758
   %759 = getelementptr i8, ptr %751, i64 8
-  %.val67.i47 = load i64, ptr %759, align 8, !tbaa !12
+  %.val67.i46 = load i64, ptr %759, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
 
 760:                                              ; preds = %758
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %751) #6
-  %.pr.i43 = load i32, ptr %751, align 4, !tbaa !8
+  %.pr.i42 = load i32, ptr %751, align 4, !tbaa !8
   br label %762
 
-lean_inc.exit.i36:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__4.exit
+lean_inc.exit.i35:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__1___closed__4.exit
   %761 = getelementptr i8, ptr %751, i64 8
-  %.val.i37 = load i64, ptr %761, align 8, !tbaa !12
+  %.val.i36 = load i64, ptr %761, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
 
 762:                                              ; preds = %760, %756
-  %763 = phi i32 [ %.pr.i43, %760 ], [ %757, %756 ]
+  %763 = phi i32 [ %.pr.i42, %760 ], [ %757, %756 ]
   %764 = getelementptr i8, ptr %751, i64 8
-  %.val6.i44 = load i64, ptr %764, align 8, !tbaa !12
+  %.val6.i43 = load i64, ptr %764, align 8, !tbaa !12
   %765 = icmp sgt i32 %763, 1
   br i1 %765, label %766, label %768, !prof !20
 
@@ -280535,64 +280535,64 @@ lean_inc.exit.i36:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
 
 768:                                              ; preds = %762
-  %.not.i.i45 = icmp eq i32 %763, 0
-  br i1 %.not.i.i45, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit, label %769
+  %.not.i.i44 = icmp eq i32 %763, 0
+  br i1 %.not.i.i44, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit, label %769
 
 769:                                              ; preds = %768
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %751) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit: ; preds = %.thread8.i46, %lean_inc.exit.i36, %766, %768, %769
-  %.in.in.in.i38 = phi i64 [ %.val.i37, %lean_inc.exit.i36 ], [ %.val6.i44, %766 ], [ %.val6.i44, %768 ], [ %.val6.i44, %769 ], [ %.val67.i47, %.thread8.i46 ]
-  %.in.in.i39 = shl i64 %.in.in.in.i38, 1
-  %.in.i40 = or disjoint i64 %.in.in.i39, 1
-  %770 = inttoptr i64 %.in.i40 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit: ; preds = %.thread8.i45, %lean_inc.exit.i35, %766, %768, %769
+  %.in.in.in.i37 = phi i64 [ %.val.i36, %lean_inc.exit.i35 ], [ %.val6.i43, %766 ], [ %.val6.i43, %768 ], [ %.val6.i43, %769 ], [ %.val67.i46, %.thread8.i45 ]
+  %.in.in.i38 = shl i64 %.in.in.in.i37, 1
+  %.in.i39 = or disjoint i64 %.in.in.i38, 1
+  %770 = inttoptr i64 %.in.i39 to ptr
   store ptr %770, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %770) #6
   %771 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
   %772 = ptrtoint ptr %771 to i64
   %773 = and i64 %772, 1
-  %.not.i48 = icmp eq i64 %773, 0
-  br i1 %.not.i48, label %.critedge.i.i50, label %774, !prof !16
+  %.not.i47 = icmp eq i64 %773, 0
+  br i1 %.not.i47, label %.critedge.i.i49, label %774, !prof !16
 
 774:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
   %775 = icmp ugt ptr %771, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit
 
-.critedge.i.i50:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
+.critedge.i.i49:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1.exit
   %776 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %771) #6
-  %.pre184 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
-  %.pre199 = ptrtoint ptr %.pre184 to i64
+  %.pre183 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
+  %.pre198 = ptrtoint ptr %.pre183 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit: ; preds = %774, %.critedge.i.i50
-  %.pre-phi200 = phi i64 [ %772, %774 ], [ %.pre199, %.critedge.i.i50 ]
-  %777 = phi ptr [ %771, %774 ], [ %.pre184, %.critedge.i.i50 ]
-  %.0.i.i49 = phi i1 [ %775, %774 ], [ %776, %.critedge.i.i50 ]
-  %778 = zext i1 %.0.i.i49 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit: ; preds = %774, %.critedge.i.i49
+  %.pre-phi199 = phi i64 [ %772, %774 ], [ %.pre198, %.critedge.i.i49 ]
+  %777 = phi ptr [ %771, %774 ], [ %.pre183, %.critedge.i.i49 ]
+  %.0.i.i48 = phi i1 [ %775, %774 ], [ %776, %.critedge.i.i49 ]
+  %778 = zext i1 %.0.i.i48 to i8
   store i8 %778, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2, align 1, !tbaa !18
-  %779 = and i64 %.pre-phi200, 1
-  %.not.i51 = icmp eq i64 %779, 0
-  br i1 %.not.i51, label %.critedge.i.i53, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit, !prof !16
+  %779 = and i64 %.pre-phi199, 1
+  %.not.i50 = icmp eq i64 %779, 0
+  br i1 %.not.i50, label %.critedge.i.i52, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit, !prof !16
 
-.critedge.i.i53:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit
+.critedge.i.i52:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit
   %780 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %777, ptr noundef %777) #6
   %781 = zext i1 %780 to i8
-  %.pre185 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
-  %.pre201 = ptrtoint ptr %.pre185 to i64
+  %.pre184 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__1, align 8, !tbaa !4
+  %.pre200 = ptrtoint ptr %.pre184 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit, %.critedge.i.i53
-  %.pre-phi202 = phi i64 [ %.pre-phi200, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %.pre201, %.critedge.i.i53 ]
-  %782 = phi ptr [ %777, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %.pre185, %.critedge.i.i53 ]
-  %.0.i.i52 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %781, %.critedge.i.i53 ]
-  store i8 %.0.i.i52, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3, align 1, !tbaa !18
-  %783 = and i64 %.pre-phi202, 1
-  %.not.i.i54 = icmp eq i64 %783, 0
-  br i1 %.not.i.i54, label %786, label %784
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit, %.critedge.i.i52
+  %.pre-phi201 = phi i64 [ %.pre-phi199, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %.pre200, %.critedge.i.i52 ]
+  %782 = phi ptr [ %777, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %.pre184, %.critedge.i.i52 ]
+  %.0.i.i51 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__2.exit ], [ %781, %.critedge.i.i52 ]
+  store i8 %.0.i.i51, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3, align 1, !tbaa !18
+  %783 = and i64 %.pre-phi201, 1
+  %.not.i.i53 = icmp eq i64 %783, 0
+  br i1 %.not.i.i53, label %786, label %784
 
 784:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit
-  %785 = lshr i64 %.pre-phi202, 1
+  %785 = lshr i64 %.pre-phi201, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__4.exit
 
 786:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__3.exit
@@ -280607,42 +280607,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %791 = load ptr, ptr %790, align 8, !tbaa !4
   %792 = ptrtoint ptr %791 to i64
   %793 = and i64 %792, 1
-  %.not.i55 = icmp eq i64 %793, 0
-  br i1 %.not.i55, label %794, label %lean_inc.exit.i56
+  %.not.i54 = icmp eq i64 %793, 0
+  br i1 %.not.i54, label %794, label %lean_inc.exit.i55
 
 794:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__4.exit
-  %.val.i.i61 = load i32, ptr %791, align 4, !tbaa !8
-  %795 = icmp sgt i32 %.val.i.i61, 0
+  %.val.i.i60 = load i32, ptr %791, align 4, !tbaa !8
+  %795 = icmp sgt i32 %.val.i.i60, 0
   br i1 %795, label %796, label %798, !prof !11
 
 796:                                              ; preds = %794
-  %797 = add nuw i32 %.val.i.i61, 1
+  %797 = add nuw i32 %.val.i.i60, 1
   store i32 %797, ptr %791, align 4, !tbaa !8
   br label %802
 
 798:                                              ; preds = %794
-  %.not.i5.i62 = icmp eq i32 %.val.i.i61, 0
-  br i1 %.not.i5.i62, label %.thread8.i66, label %800
+  %.not.i5.i61 = icmp eq i32 %.val.i.i60, 0
+  br i1 %.not.i5.i61, label %.thread8.i65, label %800
 
-.thread8.i66:                                     ; preds = %798
+.thread8.i65:                                     ; preds = %798
   %799 = getelementptr i8, ptr %791, i64 8
-  %.val67.i67 = load i64, ptr %799, align 8, !tbaa !12
+  %.val67.i66 = load i64, ptr %799, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
 
 800:                                              ; preds = %798
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %791) #6
-  %.pr.i63 = load i32, ptr %791, align 4, !tbaa !8
+  %.pr.i62 = load i32, ptr %791, align 4, !tbaa !8
   br label %802
 
-lean_inc.exit.i56:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__4.exit
+lean_inc.exit.i55:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__3___closed__4.exit
   %801 = getelementptr i8, ptr %791, i64 8
-  %.val.i57 = load i64, ptr %801, align 8, !tbaa !12
+  %.val.i56 = load i64, ptr %801, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
 
 802:                                              ; preds = %800, %796
-  %803 = phi i32 [ %.pr.i63, %800 ], [ %797, %796 ]
+  %803 = phi i32 [ %.pr.i62, %800 ], [ %797, %796 ]
   %804 = getelementptr i8, ptr %791, i64 8
-  %.val6.i64 = load i64, ptr %804, align 8, !tbaa !12
+  %.val6.i63 = load i64, ptr %804, align 8, !tbaa !12
   %805 = icmp sgt i32 %803, 1
   br i1 %805, label %806, label %808, !prof !20
 
@@ -280652,64 +280652,64 @@ lean_inc.exit.i56:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
 
 808:                                              ; preds = %802
-  %.not.i.i65 = icmp eq i32 %803, 0
-  br i1 %.not.i.i65, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit, label %809
+  %.not.i.i64 = icmp eq i32 %803, 0
+  br i1 %.not.i.i64, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit, label %809
 
 809:                                              ; preds = %808
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %791) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit: ; preds = %.thread8.i66, %lean_inc.exit.i56, %806, %808, %809
-  %.in.in.in.i58 = phi i64 [ %.val.i57, %lean_inc.exit.i56 ], [ %.val6.i64, %806 ], [ %.val6.i64, %808 ], [ %.val6.i64, %809 ], [ %.val67.i67, %.thread8.i66 ]
-  %.in.in.i59 = shl i64 %.in.in.in.i58, 1
-  %.in.i60 = or disjoint i64 %.in.in.i59, 1
-  %810 = inttoptr i64 %.in.i60 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit: ; preds = %.thread8.i65, %lean_inc.exit.i55, %806, %808, %809
+  %.in.in.in.i57 = phi i64 [ %.val.i56, %lean_inc.exit.i55 ], [ %.val6.i63, %806 ], [ %.val6.i63, %808 ], [ %.val6.i63, %809 ], [ %.val67.i66, %.thread8.i65 ]
+  %.in.in.i58 = shl i64 %.in.in.in.i57, 1
+  %.in.i59 = or disjoint i64 %.in.in.i58, 1
+  %810 = inttoptr i64 %.in.i59 to ptr
   store ptr %810, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %810) #6
   %811 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
   %812 = ptrtoint ptr %811 to i64
   %813 = and i64 %812, 1
-  %.not.i68 = icmp eq i64 %813, 0
-  br i1 %.not.i68, label %.critedge.i.i70, label %814, !prof !16
+  %.not.i67 = icmp eq i64 %813, 0
+  br i1 %.not.i67, label %.critedge.i.i69, label %814, !prof !16
 
 814:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
   %815 = icmp ugt ptr %811, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit
 
-.critedge.i.i70:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
+.critedge.i.i69:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1.exit
   %816 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %811) #6
-  %.pre186 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
-  %.pre203 = ptrtoint ptr %.pre186 to i64
+  %.pre185 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
+  %.pre202 = ptrtoint ptr %.pre185 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit: ; preds = %814, %.critedge.i.i70
-  %.pre-phi204 = phi i64 [ %812, %814 ], [ %.pre203, %.critedge.i.i70 ]
-  %817 = phi ptr [ %811, %814 ], [ %.pre186, %.critedge.i.i70 ]
-  %.0.i.i69 = phi i1 [ %815, %814 ], [ %816, %.critedge.i.i70 ]
-  %818 = zext i1 %.0.i.i69 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit: ; preds = %814, %.critedge.i.i69
+  %.pre-phi203 = phi i64 [ %812, %814 ], [ %.pre202, %.critedge.i.i69 ]
+  %817 = phi ptr [ %811, %814 ], [ %.pre185, %.critedge.i.i69 ]
+  %.0.i.i68 = phi i1 [ %815, %814 ], [ %816, %.critedge.i.i69 ]
+  %818 = zext i1 %.0.i.i68 to i8
   store i8 %818, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2, align 1, !tbaa !18
-  %819 = and i64 %.pre-phi204, 1
-  %.not.i71 = icmp eq i64 %819, 0
-  br i1 %.not.i71, label %.critedge.i.i73, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit, !prof !16
+  %819 = and i64 %.pre-phi203, 1
+  %.not.i70 = icmp eq i64 %819, 0
+  br i1 %.not.i70, label %.critedge.i.i72, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit, !prof !16
 
-.critedge.i.i73:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit
+.critedge.i.i72:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit
   %820 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %817, ptr noundef %817) #6
   %821 = zext i1 %820 to i8
-  %.pre187 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
-  %.pre205 = ptrtoint ptr %.pre187 to i64
+  %.pre186 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__1, align 8, !tbaa !4
+  %.pre204 = ptrtoint ptr %.pre186 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit, %.critedge.i.i73
-  %.pre-phi206 = phi i64 [ %.pre-phi204, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %.pre205, %.critedge.i.i73 ]
-  %822 = phi ptr [ %817, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %.pre187, %.critedge.i.i73 ]
-  %.0.i.i72 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %821, %.critedge.i.i73 ]
-  store i8 %.0.i.i72, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3, align 1, !tbaa !18
-  %823 = and i64 %.pre-phi206, 1
-  %.not.i.i74 = icmp eq i64 %823, 0
-  br i1 %.not.i.i74, label %826, label %824
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit, %.critedge.i.i72
+  %.pre-phi205 = phi i64 [ %.pre-phi203, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %.pre204, %.critedge.i.i72 ]
+  %822 = phi ptr [ %817, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %.pre186, %.critedge.i.i72 ]
+  %.0.i.i71 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__2.exit ], [ %821, %.critedge.i.i72 ]
+  store i8 %.0.i.i71, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3, align 1, !tbaa !18
+  %823 = and i64 %.pre-phi205, 1
+  %.not.i.i73 = icmp eq i64 %823, 0
+  br i1 %.not.i.i73, label %826, label %824
 
 824:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit
-  %825 = lshr i64 %.pre-phi206, 1
+  %825 = lshr i64 %.pre-phi205, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__4.exit
 
 826:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__3.exit
@@ -280724,42 +280724,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %831 = load ptr, ptr %830, align 8, !tbaa !4
   %832 = ptrtoint ptr %831 to i64
   %833 = and i64 %832, 1
-  %.not.i75 = icmp eq i64 %833, 0
-  br i1 %.not.i75, label %834, label %lean_inc.exit.i76
+  %.not.i74 = icmp eq i64 %833, 0
+  br i1 %.not.i74, label %834, label %lean_inc.exit.i75
 
 834:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__4.exit
-  %.val.i.i81 = load i32, ptr %831, align 4, !tbaa !8
-  %835 = icmp sgt i32 %.val.i.i81, 0
+  %.val.i.i80 = load i32, ptr %831, align 4, !tbaa !8
+  %835 = icmp sgt i32 %.val.i.i80, 0
   br i1 %835, label %836, label %838, !prof !11
 
 836:                                              ; preds = %834
-  %837 = add nuw i32 %.val.i.i81, 1
+  %837 = add nuw i32 %.val.i.i80, 1
   store i32 %837, ptr %831, align 4, !tbaa !8
   br label %842
 
 838:                                              ; preds = %834
-  %.not.i5.i82 = icmp eq i32 %.val.i.i81, 0
-  br i1 %.not.i5.i82, label %.thread8.i86, label %840
+  %.not.i5.i81 = icmp eq i32 %.val.i.i80, 0
+  br i1 %.not.i5.i81, label %.thread8.i85, label %840
 
-.thread8.i86:                                     ; preds = %838
+.thread8.i85:                                     ; preds = %838
   %839 = getelementptr i8, ptr %831, i64 8
-  %.val67.i87 = load i64, ptr %839, align 8, !tbaa !12
+  %.val67.i86 = load i64, ptr %839, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
 
 840:                                              ; preds = %838
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %831) #6
-  %.pr.i83 = load i32, ptr %831, align 4, !tbaa !8
+  %.pr.i82 = load i32, ptr %831, align 4, !tbaa !8
   br label %842
 
-lean_inc.exit.i76:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__4.exit
+lean_inc.exit.i75:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__5___closed__4.exit
   %841 = getelementptr i8, ptr %831, i64 8
-  %.val.i77 = load i64, ptr %841, align 8, !tbaa !12
+  %.val.i76 = load i64, ptr %841, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
 
 842:                                              ; preds = %840, %836
-  %843 = phi i32 [ %.pr.i83, %840 ], [ %837, %836 ]
+  %843 = phi i32 [ %.pr.i82, %840 ], [ %837, %836 ]
   %844 = getelementptr i8, ptr %831, i64 8
-  %.val6.i84 = load i64, ptr %844, align 8, !tbaa !12
+  %.val6.i83 = load i64, ptr %844, align 8, !tbaa !12
   %845 = icmp sgt i32 %843, 1
   br i1 %845, label %846, label %848, !prof !20
 
@@ -280769,64 +280769,64 @@ lean_inc.exit.i76:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
 
 848:                                              ; preds = %842
-  %.not.i.i85 = icmp eq i32 %843, 0
-  br i1 %.not.i.i85, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit, label %849
+  %.not.i.i84 = icmp eq i32 %843, 0
+  br i1 %.not.i.i84, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit, label %849
 
 849:                                              ; preds = %848
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %831) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit: ; preds = %.thread8.i86, %lean_inc.exit.i76, %846, %848, %849
-  %.in.in.in.i78 = phi i64 [ %.val.i77, %lean_inc.exit.i76 ], [ %.val6.i84, %846 ], [ %.val6.i84, %848 ], [ %.val6.i84, %849 ], [ %.val67.i87, %.thread8.i86 ]
-  %.in.in.i79 = shl i64 %.in.in.in.i78, 1
-  %.in.i80 = or disjoint i64 %.in.in.i79, 1
-  %850 = inttoptr i64 %.in.i80 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit: ; preds = %.thread8.i85, %lean_inc.exit.i75, %846, %848, %849
+  %.in.in.in.i77 = phi i64 [ %.val.i76, %lean_inc.exit.i75 ], [ %.val6.i83, %846 ], [ %.val6.i83, %848 ], [ %.val6.i83, %849 ], [ %.val67.i86, %.thread8.i85 ]
+  %.in.in.i78 = shl i64 %.in.in.in.i77, 1
+  %.in.i79 = or disjoint i64 %.in.in.i78, 1
+  %850 = inttoptr i64 %.in.i79 to ptr
   store ptr %850, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %850) #6
   %851 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
   %852 = ptrtoint ptr %851 to i64
   %853 = and i64 %852, 1
-  %.not.i88 = icmp eq i64 %853, 0
-  br i1 %.not.i88, label %.critedge.i.i90, label %854, !prof !16
+  %.not.i87 = icmp eq i64 %853, 0
+  br i1 %.not.i87, label %.critedge.i.i89, label %854, !prof !16
 
 854:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
   %855 = icmp ugt ptr %851, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit
 
-.critedge.i.i90:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
+.critedge.i.i89:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1.exit
   %856 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %851) #6
-  %.pre188 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
-  %.pre207 = ptrtoint ptr %.pre188 to i64
+  %.pre187 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
+  %.pre206 = ptrtoint ptr %.pre187 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit: ; preds = %854, %.critedge.i.i90
-  %.pre-phi208 = phi i64 [ %852, %854 ], [ %.pre207, %.critedge.i.i90 ]
-  %857 = phi ptr [ %851, %854 ], [ %.pre188, %.critedge.i.i90 ]
-  %.0.i.i89 = phi i1 [ %855, %854 ], [ %856, %.critedge.i.i90 ]
-  %858 = zext i1 %.0.i.i89 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit: ; preds = %854, %.critedge.i.i89
+  %.pre-phi207 = phi i64 [ %852, %854 ], [ %.pre206, %.critedge.i.i89 ]
+  %857 = phi ptr [ %851, %854 ], [ %.pre187, %.critedge.i.i89 ]
+  %.0.i.i88 = phi i1 [ %855, %854 ], [ %856, %.critedge.i.i89 ]
+  %858 = zext i1 %.0.i.i88 to i8
   store i8 %858, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2, align 1, !tbaa !18
-  %859 = and i64 %.pre-phi208, 1
-  %.not.i91 = icmp eq i64 %859, 0
-  br i1 %.not.i91, label %.critedge.i.i93, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit, !prof !16
+  %859 = and i64 %.pre-phi207, 1
+  %.not.i90 = icmp eq i64 %859, 0
+  br i1 %.not.i90, label %.critedge.i.i92, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit, !prof !16
 
-.critedge.i.i93:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit
+.critedge.i.i92:                                  ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit
   %860 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %857, ptr noundef %857) #6
   %861 = zext i1 %860 to i8
-  %.pre189 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
-  %.pre209 = ptrtoint ptr %.pre189 to i64
+  %.pre188 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__1, align 8, !tbaa !4
+  %.pre208 = ptrtoint ptr %.pre188 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit, %.critedge.i.i93
-  %.pre-phi210 = phi i64 [ %.pre-phi208, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %.pre209, %.critedge.i.i93 ]
-  %862 = phi ptr [ %857, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %.pre189, %.critedge.i.i93 ]
-  %.0.i.i92 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %861, %.critedge.i.i93 ]
-  store i8 %.0.i.i92, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3, align 1, !tbaa !18
-  %863 = and i64 %.pre-phi210, 1
-  %.not.i.i94 = icmp eq i64 %863, 0
-  br i1 %.not.i.i94, label %866, label %864
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit, %.critedge.i.i92
+  %.pre-phi209 = phi i64 [ %.pre-phi207, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %.pre208, %.critedge.i.i92 ]
+  %862 = phi ptr [ %857, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %.pre188, %.critedge.i.i92 ]
+  %.0.i.i91 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__2.exit ], [ %861, %.critedge.i.i92 ]
+  store i8 %.0.i.i91, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3, align 1, !tbaa !18
+  %863 = and i64 %.pre-phi209, 1
+  %.not.i.i93 = icmp eq i64 %863, 0
+  br i1 %.not.i.i93, label %866, label %864
 
 864:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit
-  %865 = lshr i64 %.pre-phi210, 1
+  %865 = lshr i64 %.pre-phi209, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__4.exit
 
 866:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__3.exit
@@ -280841,42 +280841,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %871 = load ptr, ptr %870, align 8, !tbaa !4
   %872 = ptrtoint ptr %871 to i64
   %873 = and i64 %872, 1
-  %.not.i95 = icmp eq i64 %873, 0
-  br i1 %.not.i95, label %874, label %lean_inc.exit.i96
+  %.not.i94 = icmp eq i64 %873, 0
+  br i1 %.not.i94, label %874, label %lean_inc.exit.i95
 
 874:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__4.exit
-  %.val.i.i101 = load i32, ptr %871, align 4, !tbaa !8
-  %875 = icmp sgt i32 %.val.i.i101, 0
+  %.val.i.i100 = load i32, ptr %871, align 4, !tbaa !8
+  %875 = icmp sgt i32 %.val.i.i100, 0
   br i1 %875, label %876, label %878, !prof !11
 
 876:                                              ; preds = %874
-  %877 = add nuw i32 %.val.i.i101, 1
+  %877 = add nuw i32 %.val.i.i100, 1
   store i32 %877, ptr %871, align 4, !tbaa !8
   br label %882
 
 878:                                              ; preds = %874
-  %.not.i5.i102 = icmp eq i32 %.val.i.i101, 0
-  br i1 %.not.i5.i102, label %.thread8.i106, label %880
+  %.not.i5.i101 = icmp eq i32 %.val.i.i100, 0
+  br i1 %.not.i5.i101, label %.thread8.i105, label %880
 
-.thread8.i106:                                    ; preds = %878
+.thread8.i105:                                    ; preds = %878
   %879 = getelementptr i8, ptr %871, i64 8
-  %.val67.i107 = load i64, ptr %879, align 8, !tbaa !12
+  %.val67.i106 = load i64, ptr %879, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
 
 880:                                              ; preds = %878
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %871) #6
-  %.pr.i103 = load i32, ptr %871, align 4, !tbaa !8
+  %.pr.i102 = load i32, ptr %871, align 4, !tbaa !8
   br label %882
 
-lean_inc.exit.i96:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__4.exit
+lean_inc.exit.i95:                                ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__7___closed__4.exit
   %881 = getelementptr i8, ptr %871, i64 8
-  %.val.i97 = load i64, ptr %881, align 8, !tbaa !12
+  %.val.i96 = load i64, ptr %881, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
 
 882:                                              ; preds = %880, %876
-  %883 = phi i32 [ %.pr.i103, %880 ], [ %877, %876 ]
+  %883 = phi i32 [ %.pr.i102, %880 ], [ %877, %876 ]
   %884 = getelementptr i8, ptr %871, i64 8
-  %.val6.i104 = load i64, ptr %884, align 8, !tbaa !12
+  %.val6.i103 = load i64, ptr %884, align 8, !tbaa !12
   %885 = icmp sgt i32 %883, 1
   br i1 %885, label %886, label %888, !prof !20
 
@@ -280886,64 +280886,64 @@ lean_inc.exit.i96:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
 
 888:                                              ; preds = %882
-  %.not.i.i105 = icmp eq i32 %883, 0
-  br i1 %.not.i.i105, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit, label %889
+  %.not.i.i104 = icmp eq i32 %883, 0
+  br i1 %.not.i.i104, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit, label %889
 
 889:                                              ; preds = %888
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %871) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit: ; preds = %.thread8.i106, %lean_inc.exit.i96, %886, %888, %889
-  %.in.in.in.i98 = phi i64 [ %.val.i97, %lean_inc.exit.i96 ], [ %.val6.i104, %886 ], [ %.val6.i104, %888 ], [ %.val6.i104, %889 ], [ %.val67.i107, %.thread8.i106 ]
-  %.in.in.i99 = shl i64 %.in.in.in.i98, 1
-  %.in.i100 = or disjoint i64 %.in.in.i99, 1
-  %890 = inttoptr i64 %.in.i100 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit: ; preds = %.thread8.i105, %lean_inc.exit.i95, %886, %888, %889
+  %.in.in.in.i97 = phi i64 [ %.val.i96, %lean_inc.exit.i95 ], [ %.val6.i103, %886 ], [ %.val6.i103, %888 ], [ %.val6.i103, %889 ], [ %.val67.i106, %.thread8.i105 ]
+  %.in.in.i98 = shl i64 %.in.in.in.i97, 1
+  %.in.i99 = or disjoint i64 %.in.in.i98, 1
+  %890 = inttoptr i64 %.in.i99 to ptr
   store ptr %890, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %890) #6
   %891 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
   %892 = ptrtoint ptr %891 to i64
   %893 = and i64 %892, 1
-  %.not.i108 = icmp eq i64 %893, 0
-  br i1 %.not.i108, label %.critedge.i.i110, label %894, !prof !16
+  %.not.i107 = icmp eq i64 %893, 0
+  br i1 %.not.i107, label %.critedge.i.i109, label %894, !prof !16
 
 894:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
   %895 = icmp ugt ptr %891, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit
 
-.critedge.i.i110:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
+.critedge.i.i109:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1.exit
   %896 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %891) #6
-  %.pre190 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
-  %.pre211 = ptrtoint ptr %.pre190 to i64
+  %.pre189 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
+  %.pre210 = ptrtoint ptr %.pre189 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit: ; preds = %894, %.critedge.i.i110
-  %.pre-phi212 = phi i64 [ %892, %894 ], [ %.pre211, %.critedge.i.i110 ]
-  %897 = phi ptr [ %891, %894 ], [ %.pre190, %.critedge.i.i110 ]
-  %.0.i.i109 = phi i1 [ %895, %894 ], [ %896, %.critedge.i.i110 ]
-  %898 = zext i1 %.0.i.i109 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit: ; preds = %894, %.critedge.i.i109
+  %.pre-phi211 = phi i64 [ %892, %894 ], [ %.pre210, %.critedge.i.i109 ]
+  %897 = phi ptr [ %891, %894 ], [ %.pre189, %.critedge.i.i109 ]
+  %.0.i.i108 = phi i1 [ %895, %894 ], [ %896, %.critedge.i.i109 ]
+  %898 = zext i1 %.0.i.i108 to i8
   store i8 %898, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2, align 1, !tbaa !18
-  %899 = and i64 %.pre-phi212, 1
-  %.not.i111 = icmp eq i64 %899, 0
-  br i1 %.not.i111, label %.critedge.i.i113, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit, !prof !16
+  %899 = and i64 %.pre-phi211, 1
+  %.not.i110 = icmp eq i64 %899, 0
+  br i1 %.not.i110, label %.critedge.i.i112, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit, !prof !16
 
-.critedge.i.i113:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit
+.critedge.i.i112:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit
   %900 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %897, ptr noundef %897) #6
   %901 = zext i1 %900 to i8
-  %.pre191 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
-  %.pre213 = ptrtoint ptr %.pre191 to i64
+  %.pre190 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__1, align 8, !tbaa !4
+  %.pre212 = ptrtoint ptr %.pre190 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit, %.critedge.i.i113
-  %.pre-phi214 = phi i64 [ %.pre-phi212, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %.pre213, %.critedge.i.i113 ]
-  %902 = phi ptr [ %897, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %.pre191, %.critedge.i.i113 ]
-  %.0.i.i112 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %901, %.critedge.i.i113 ]
-  store i8 %.0.i.i112, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3, align 1, !tbaa !18
-  %903 = and i64 %.pre-phi214, 1
-  %.not.i.i114 = icmp eq i64 %903, 0
-  br i1 %.not.i.i114, label %906, label %904
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit, %.critedge.i.i112
+  %.pre-phi213 = phi i64 [ %.pre-phi211, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %.pre212, %.critedge.i.i112 ]
+  %902 = phi ptr [ %897, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %.pre190, %.critedge.i.i112 ]
+  %.0.i.i111 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__2.exit ], [ %901, %.critedge.i.i112 ]
+  store i8 %.0.i.i111, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3, align 1, !tbaa !18
+  %903 = and i64 %.pre-phi213, 1
+  %.not.i.i113 = icmp eq i64 %903, 0
+  br i1 %.not.i.i113, label %906, label %904
 
 904:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit
-  %905 = lshr i64 %.pre-phi214, 1
+  %905 = lshr i64 %.pre-phi213, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__4.exit
 
 906:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__3.exit
@@ -280958,42 +280958,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %911 = load ptr, ptr %910, align 8, !tbaa !4
   %912 = ptrtoint ptr %911 to i64
   %913 = and i64 %912, 1
-  %.not.i115 = icmp eq i64 %913, 0
-  br i1 %.not.i115, label %914, label %lean_inc.exit.i116
+  %.not.i114 = icmp eq i64 %913, 0
+  br i1 %.not.i114, label %914, label %lean_inc.exit.i115
 
 914:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__4.exit
-  %.val.i.i121 = load i32, ptr %911, align 4, !tbaa !8
-  %915 = icmp sgt i32 %.val.i.i121, 0
+  %.val.i.i120 = load i32, ptr %911, align 4, !tbaa !8
+  %915 = icmp sgt i32 %.val.i.i120, 0
   br i1 %915, label %916, label %918, !prof !11
 
 916:                                              ; preds = %914
-  %917 = add nuw i32 %.val.i.i121, 1
+  %917 = add nuw i32 %.val.i.i120, 1
   store i32 %917, ptr %911, align 4, !tbaa !8
   br label %922
 
 918:                                              ; preds = %914
-  %.not.i5.i122 = icmp eq i32 %.val.i.i121, 0
-  br i1 %.not.i5.i122, label %.thread8.i126, label %920
+  %.not.i5.i121 = icmp eq i32 %.val.i.i120, 0
+  br i1 %.not.i5.i121, label %.thread8.i125, label %920
 
-.thread8.i126:                                    ; preds = %918
+.thread8.i125:                                    ; preds = %918
   %919 = getelementptr i8, ptr %911, i64 8
-  %.val67.i127 = load i64, ptr %919, align 8, !tbaa !12
+  %.val67.i126 = load i64, ptr %919, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
 
 920:                                              ; preds = %918
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %911) #6
-  %.pr.i123 = load i32, ptr %911, align 4, !tbaa !8
+  %.pr.i122 = load i32, ptr %911, align 4, !tbaa !8
   br label %922
 
-lean_inc.exit.i116:                               ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__4.exit
+lean_inc.exit.i115:                               ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__9___closed__4.exit
   %921 = getelementptr i8, ptr %911, i64 8
-  %.val.i117 = load i64, ptr %921, align 8, !tbaa !12
+  %.val.i116 = load i64, ptr %921, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
 
 922:                                              ; preds = %920, %916
-  %923 = phi i32 [ %.pr.i123, %920 ], [ %917, %916 ]
+  %923 = phi i32 [ %.pr.i122, %920 ], [ %917, %916 ]
   %924 = getelementptr i8, ptr %911, i64 8
-  %.val6.i124 = load i64, ptr %924, align 8, !tbaa !12
+  %.val6.i123 = load i64, ptr %924, align 8, !tbaa !12
   %925 = icmp sgt i32 %923, 1
   br i1 %925, label %926, label %928, !prof !20
 
@@ -281003,64 +281003,64 @@ lean_inc.exit.i116:                               ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
 
 928:                                              ; preds = %922
-  %.not.i.i125 = icmp eq i32 %923, 0
-  br i1 %.not.i.i125, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit, label %929
+  %.not.i.i124 = icmp eq i32 %923, 0
+  br i1 %.not.i.i124, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit, label %929
 
 929:                                              ; preds = %928
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %911) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit: ; preds = %.thread8.i126, %lean_inc.exit.i116, %926, %928, %929
-  %.in.in.in.i118 = phi i64 [ %.val.i117, %lean_inc.exit.i116 ], [ %.val6.i124, %926 ], [ %.val6.i124, %928 ], [ %.val6.i124, %929 ], [ %.val67.i127, %.thread8.i126 ]
-  %.in.in.i119 = shl i64 %.in.in.in.i118, 1
-  %.in.i120 = or disjoint i64 %.in.in.i119, 1
-  %930 = inttoptr i64 %.in.i120 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit: ; preds = %.thread8.i125, %lean_inc.exit.i115, %926, %928, %929
+  %.in.in.in.i117 = phi i64 [ %.val.i116, %lean_inc.exit.i115 ], [ %.val6.i123, %926 ], [ %.val6.i123, %928 ], [ %.val6.i123, %929 ], [ %.val67.i126, %.thread8.i125 ]
+  %.in.in.i118 = shl i64 %.in.in.in.i117, 1
+  %.in.i119 = or disjoint i64 %.in.in.i118, 1
+  %930 = inttoptr i64 %.in.i119 to ptr
   store ptr %930, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %930) #6
   %931 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
   %932 = ptrtoint ptr %931 to i64
   %933 = and i64 %932, 1
-  %.not.i128 = icmp eq i64 %933, 0
-  br i1 %.not.i128, label %.critedge.i.i130, label %934, !prof !16
+  %.not.i127 = icmp eq i64 %933, 0
+  br i1 %.not.i127, label %.critedge.i.i129, label %934, !prof !16
 
 934:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
   %935 = icmp ugt ptr %931, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit
 
-.critedge.i.i130:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
+.critedge.i.i129:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1.exit
   %936 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %931) #6
-  %.pre192 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
-  %.pre215 = ptrtoint ptr %.pre192 to i64
+  %.pre191 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
+  %.pre214 = ptrtoint ptr %.pre191 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit: ; preds = %934, %.critedge.i.i130
-  %.pre-phi216 = phi i64 [ %932, %934 ], [ %.pre215, %.critedge.i.i130 ]
-  %937 = phi ptr [ %931, %934 ], [ %.pre192, %.critedge.i.i130 ]
-  %.0.i.i129 = phi i1 [ %935, %934 ], [ %936, %.critedge.i.i130 ]
-  %938 = zext i1 %.0.i.i129 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit: ; preds = %934, %.critedge.i.i129
+  %.pre-phi215 = phi i64 [ %932, %934 ], [ %.pre214, %.critedge.i.i129 ]
+  %937 = phi ptr [ %931, %934 ], [ %.pre191, %.critedge.i.i129 ]
+  %.0.i.i128 = phi i1 [ %935, %934 ], [ %936, %.critedge.i.i129 ]
+  %938 = zext i1 %.0.i.i128 to i8
   store i8 %938, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2, align 1, !tbaa !18
-  %939 = and i64 %.pre-phi216, 1
-  %.not.i131 = icmp eq i64 %939, 0
-  br i1 %.not.i131, label %.critedge.i.i133, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit, !prof !16
+  %939 = and i64 %.pre-phi215, 1
+  %.not.i130 = icmp eq i64 %939, 0
+  br i1 %.not.i130, label %.critedge.i.i132, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit, !prof !16
 
-.critedge.i.i133:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit
+.critedge.i.i132:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit
   %940 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %937, ptr noundef %937) #6
   %941 = zext i1 %940 to i8
-  %.pre193 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
-  %.pre217 = ptrtoint ptr %.pre193 to i64
+  %.pre192 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__1, align 8, !tbaa !4
+  %.pre216 = ptrtoint ptr %.pre192 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit, %.critedge.i.i133
-  %.pre-phi218 = phi i64 [ %.pre-phi216, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %.pre217, %.critedge.i.i133 ]
-  %942 = phi ptr [ %937, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %.pre193, %.critedge.i.i133 ]
-  %.0.i.i132 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %941, %.critedge.i.i133 ]
-  store i8 %.0.i.i132, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3, align 1, !tbaa !18
-  %943 = and i64 %.pre-phi218, 1
-  %.not.i.i134 = icmp eq i64 %943, 0
-  br i1 %.not.i.i134, label %946, label %944
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit, %.critedge.i.i132
+  %.pre-phi217 = phi i64 [ %.pre-phi215, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %.pre216, %.critedge.i.i132 ]
+  %942 = phi ptr [ %937, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %.pre192, %.critedge.i.i132 ]
+  %.0.i.i131 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__2.exit ], [ %941, %.critedge.i.i132 ]
+  store i8 %.0.i.i131, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3, align 1, !tbaa !18
+  %943 = and i64 %.pre-phi217, 1
+  %.not.i.i133 = icmp eq i64 %943, 0
+  br i1 %.not.i.i133, label %946, label %944
 
 944:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit
-  %945 = lshr i64 %.pre-phi218, 1
+  %945 = lshr i64 %.pre-phi217, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__4.exit
 
 946:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__3.exit
@@ -281075,42 +281075,42 @@ _init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Lo
   %951 = load ptr, ptr %950, align 8, !tbaa !4
   %952 = ptrtoint ptr %951 to i64
   %953 = and i64 %952, 1
-  %.not.i135 = icmp eq i64 %953, 0
-  br i1 %.not.i135, label %954, label %lean_inc.exit.i136
+  %.not.i134 = icmp eq i64 %953, 0
+  br i1 %.not.i134, label %954, label %lean_inc.exit.i135
 
 954:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__4.exit
-  %.val.i.i141 = load i32, ptr %951, align 4, !tbaa !8
-  %955 = icmp sgt i32 %.val.i.i141, 0
+  %.val.i.i140 = load i32, ptr %951, align 4, !tbaa !8
+  %955 = icmp sgt i32 %.val.i.i140, 0
   br i1 %955, label %956, label %958, !prof !11
 
 956:                                              ; preds = %954
-  %957 = add nuw i32 %.val.i.i141, 1
+  %957 = add nuw i32 %.val.i.i140, 1
   store i32 %957, ptr %951, align 4, !tbaa !8
   br label %962
 
 958:                                              ; preds = %954
-  %.not.i5.i142 = icmp eq i32 %.val.i.i141, 0
-  br i1 %.not.i5.i142, label %.thread8.i146, label %960
+  %.not.i5.i141 = icmp eq i32 %.val.i.i140, 0
+  br i1 %.not.i5.i141, label %.thread8.i145, label %960
 
-.thread8.i146:                                    ; preds = %958
+.thread8.i145:                                    ; preds = %958
   %959 = getelementptr i8, ptr %951, i64 8
-  %.val67.i147 = load i64, ptr %959, align 8, !tbaa !12
+  %.val67.i146 = load i64, ptr %959, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
 
 960:                                              ; preds = %958
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %951) #6
-  %.pr.i143 = load i32, ptr %951, align 4, !tbaa !8
+  %.pr.i142 = load i32, ptr %951, align 4, !tbaa !8
   br label %962
 
-lean_inc.exit.i136:                               ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__4.exit
+lean_inc.exit.i135:                               ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__11___closed__4.exit
   %961 = getelementptr i8, ptr %951, i64 8
-  %.val.i137 = load i64, ptr %961, align 8, !tbaa !12
+  %.val.i136 = load i64, ptr %961, align 8, !tbaa !12
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
 
 962:                                              ; preds = %960, %956
-  %963 = phi i32 [ %.pr.i143, %960 ], [ %957, %956 ]
+  %963 = phi i32 [ %.pr.i142, %960 ], [ %957, %956 ]
   %964 = getelementptr i8, ptr %951, i64 8
-  %.val6.i144 = load i64, ptr %964, align 8, !tbaa !12
+  %.val6.i143 = load i64, ptr %964, align 8, !tbaa !12
   %965 = icmp sgt i32 %963, 1
   br i1 %965, label %966, label %968, !prof !20
 
@@ -281120,64 +281120,64 @@ lean_inc.exit.i136:                               ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
 
 968:                                              ; preds = %962
-  %.not.i.i145 = icmp eq i32 %963, 0
-  br i1 %.not.i.i145, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit, label %969
+  %.not.i.i144 = icmp eq i32 %963, 0
+  br i1 %.not.i.i144, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit, label %969
 
 969:                                              ; preds = %968
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %951) #6
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit: ; preds = %.thread8.i146, %lean_inc.exit.i136, %966, %968, %969
-  %.in.in.in.i138 = phi i64 [ %.val.i137, %lean_inc.exit.i136 ], [ %.val6.i144, %966 ], [ %.val6.i144, %968 ], [ %.val6.i144, %969 ], [ %.val67.i147, %.thread8.i146 ]
-  %.in.in.i139 = shl i64 %.in.in.in.i138, 1
-  %.in.i140 = or disjoint i64 %.in.in.i139, 1
-  %970 = inttoptr i64 %.in.i140 to ptr
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit: ; preds = %.thread8.i145, %lean_inc.exit.i135, %966, %968, %969
+  %.in.in.in.i137 = phi i64 [ %.val.i136, %lean_inc.exit.i135 ], [ %.val6.i143, %966 ], [ %.val6.i143, %968 ], [ %.val6.i143, %969 ], [ %.val67.i146, %.thread8.i145 ]
+  %.in.in.i138 = shl i64 %.in.in.in.i137, 1
+  %.in.i139 = or disjoint i64 %.in.in.i138, 1
+  %970 = inttoptr i64 %.in.i139 to ptr
   store ptr %970, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %970) #6
   %971 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
   %972 = ptrtoint ptr %971 to i64
   %973 = and i64 %972, 1
-  %.not.i148 = icmp eq i64 %973, 0
-  br i1 %.not.i148, label %.critedge.i.i150, label %974, !prof !16
+  %.not.i147 = icmp eq i64 %973, 0
+  br i1 %.not.i147, label %.critedge.i.i149, label %974, !prof !16
 
 974:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
   %975 = icmp ugt ptr %971, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit
 
-.critedge.i.i150:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
+.critedge.i.i149:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1.exit
   %976 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %971) #6
-  %.pre194 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
-  %.pre219 = ptrtoint ptr %.pre194 to i64
+  %.pre193 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
+  %.pre218 = ptrtoint ptr %.pre193 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit: ; preds = %974, %.critedge.i.i150
-  %.pre-phi220 = phi i64 [ %972, %974 ], [ %.pre219, %.critedge.i.i150 ]
-  %977 = phi ptr [ %971, %974 ], [ %.pre194, %.critedge.i.i150 ]
-  %.0.i.i149 = phi i1 [ %975, %974 ], [ %976, %.critedge.i.i150 ]
-  %978 = zext i1 %.0.i.i149 to i8
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit: ; preds = %974, %.critedge.i.i149
+  %.pre-phi219 = phi i64 [ %972, %974 ], [ %.pre218, %.critedge.i.i149 ]
+  %977 = phi ptr [ %971, %974 ], [ %.pre193, %.critedge.i.i149 ]
+  %.0.i.i148 = phi i1 [ %975, %974 ], [ %976, %.critedge.i.i149 ]
+  %978 = zext i1 %.0.i.i148 to i8
   store i8 %978, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2, align 1, !tbaa !18
-  %979 = and i64 %.pre-phi220, 1
-  %.not.i151 = icmp eq i64 %979, 0
-  br i1 %.not.i151, label %.critedge.i.i153, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit, !prof !16
+  %979 = and i64 %.pre-phi219, 1
+  %.not.i150 = icmp eq i64 %979, 0
+  br i1 %.not.i150, label %.critedge.i.i152, label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit, !prof !16
 
-.critedge.i.i153:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit
+.critedge.i.i152:                                 ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit
   %980 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %977, ptr noundef %977) #6
   %981 = zext i1 %980 to i8
-  %.pre195 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
-  %.pre221 = ptrtoint ptr %.pre195 to i64
+  %.pre194 = load ptr, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__1, align 8, !tbaa !4
+  %.pre220 = ptrtoint ptr %.pre194 to i64
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit
 
-_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit, %.critedge.i.i153
-  %.pre-phi222 = phi i64 [ %.pre-phi220, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %.pre221, %.critedge.i.i153 ]
-  %982 = phi ptr [ %977, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %.pre195, %.critedge.i.i153 ]
-  %.0.i.i152 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %981, %.critedge.i.i153 ]
-  store i8 %.0.i.i152, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3, align 1, !tbaa !18
-  %983 = and i64 %.pre-phi222, 1
-  %.not.i.i154 = icmp eq i64 %983, 0
-  br i1 %.not.i.i154, label %986, label %984
+_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit: ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit, %.critedge.i.i152
+  %.pre-phi221 = phi i64 [ %.pre-phi219, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %.pre220, %.critedge.i.i152 ]
+  %982 = phi ptr [ %977, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %.pre194, %.critedge.i.i152 ]
+  %.0.i.i151 = phi i8 [ 1, %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__2.exit ], [ %981, %.critedge.i.i152 ]
+  store i8 %.0.i.i151, ptr @l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3, align 1, !tbaa !18
+  %983 = and i64 %.pre-phi221, 1
+  %.not.i.i153 = icmp eq i64 %983, 0
+  br i1 %.not.i.i153, label %986, label %984
 
 984:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit
-  %985 = lshr i64 %.pre-phi222, 1
+  %985 = lshr i64 %.pre-phi221, 1
   br label %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__4.exit
 
 986:                                              ; preds = %_init_l___private_Lake_Load_Toml_0__Lake_genDecodeToml___at_Lake___aux__Lake__Load__Toml______macroRules__Lake__commandGen__toml__decoders_x25__1___spec__13___closed__3.exit
@@ -282915,18 +282915,18 @@ _init_l_Lake_loadTomlConfig___closed__1.exit:     ; preds = %_init_l_Lake_decode
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_loadTomlConfig___closed__1.exit, %3
-  %.sink339 = phi ptr [ %4, %3 ], [ %1702, %_init_l_Lake_loadTomlConfig___closed__1.exit ]
-  %1705 = getelementptr inbounds nuw i8, ptr %.sink339, i64 4
-  store i32 1, ptr %.sink339, align 4, !tbaa !8
+  %.sink338 = phi ptr [ %4, %3 ], [ %1702, %_init_l_Lake_loadTomlConfig___closed__1.exit ]
+  %1705 = getelementptr inbounds nuw i8, ptr %.sink338, i64 4
+  store i32 1, ptr %.sink338, align 4, !tbaa !8
   store i32 131096, ptr %1705, align 4
-  %1706 = getelementptr inbounds nuw i8, ptr %.sink339, i64 8
+  %1706 = getelementptr inbounds nuw i8, ptr %.sink338, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1706, align 8, !tbaa !4
-  %1707 = getelementptr inbounds nuw i8, ptr %.sink339, i64 16
+  %1707 = getelementptr inbounds nuw i8, ptr %.sink338, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1707, align 8, !tbaa !4
   br label %1708
 
-1708:                                             ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink339, %.sink.split ]
+1708:                                             ; preds = %.sink.split, %lean_dec_ref.exit17, %lean_dec_ref.exit19, %lean_dec_ref.exit21, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit21 ], [ %28, %lean_dec_ref.exit19 ], [ %38, %lean_dec_ref.exit17 ], [ %.sink338, %.sink.split ]
   ret ptr %.0
 }
 

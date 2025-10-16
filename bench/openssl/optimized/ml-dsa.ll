@@ -128,13 +128,13 @@ define internal void @create_ml_dsa_raw_key(ptr noundef captures(none) %0, ptr n
   %5 = alloca [4896 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !11
-  %.0.copyload.i25.i = load i16, ptr %6, align 1
+  %.0.copyload.i.i = load i16, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %7, ptr %0, align 8, !tbaa !11
   %8 = load i64, ptr %1, align 8, !tbaa !9
   %9 = add i64 %8, -2
   store i64 %9, ptr %1, align 8, !tbaa !9
-  %10 = urem i16 %.0.copyload.i25.i, 6
+  %10 = urem i16 %.0.copyload.i.i, 6
   switch i16 %10, label %19 [
     i16 0, label %select_keytype_and_size.exit
     i16 1, label %11
@@ -533,13 +533,13 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc range(i32 0, 2) i32 @keygen_ml_dsa_real_key_helper(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #1 {
 switch.lookup:
   %3 = load ptr, ptr %0, align 8, !tbaa !11
-  %.0.copyload.i25.i = load i16, ptr %3, align 1
+  %.0.copyload.i.i = load i16, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %4, ptr %0, align 8, !tbaa !11
   %5 = load i64, ptr %1, align 8, !tbaa !9
   %6 = add i64 %5, -2
   store i64 %6, ptr %1, align 8, !tbaa !9
-  %7 = urem i16 %.0.copyload.i25.i, 3
+  %7 = urem i16 %.0.copyload.i.i, 3
   %8 = zext nneg i16 %7 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.keygen_ml_dsa_real_key_helper, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8

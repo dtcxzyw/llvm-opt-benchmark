@@ -3342,8 +3342,8 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly cap
   %33 = load i8, ptr @thread_auto_acq_seq_ctr, align 1, !range !25, !noundef !26
   %34 = trunc nuw i8 %33 to i1
   %.not = xor i1 %34, true
-  %.b27 = load i1, ptr @thread_seq_ctr_acqd, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b27
+  %.b = load i1, ptr @thread_seq_ctr_acqd, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %38, label %35
 
 35:                                               ; preds = %11
@@ -3355,8 +3355,8 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly cap
 
 38:                                               ; preds = %35, %11, %7
   %.0 = phi ptr [ %10, %7 ], [ %13, %11 ], [ %13, %35 ]
-  %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %.thread, label %39
+  %.not27 = icmp eq ptr %.0, null
+  br i1 %.not27, label %.thread, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -3956,8 +3956,8 @@ declare i32 @dissector_try_string_with_data(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef ptr @set_thread_seq_ctr_from_key_index(i8 noundef zeroext %0) unnamed_addr #0 {
   %2 = tail call ptr @g_byte_array_new()
-  %.b9 = load i1, ptr @thread_seq_ctr_acqd, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @thread_seq_ctr_acqd, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %1
   %4 = tail call ptr @g_byte_array_set_size(ptr noundef %2, i32 noundef 4)

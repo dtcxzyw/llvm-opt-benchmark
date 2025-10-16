@@ -24789,14 +24789,14 @@ define hidden { i64, ptr } @"_ZN6client6Client14set_connection28_$u7b$$u7b$closu
   %33 = alloca [32 x i8], align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %35 = load i8, ptr %34, align 4, !range !70, !noundef !5
-  switch i8 %35, label %default.unreachable131 [
+  switch i8 %35, label %default.unreachable130 [
     i8 0, label %36
     i8 1, label %110
     i8 2, label %111
     i8 3, label %112
   ]
 
-default.unreachable131:                           ; preds = %112, %2
+default.unreachable130:                           ; preds = %112, %2
   unreachable
 
 36:                                               ; preds = %2
@@ -24995,7 +24995,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !70, !noalias !3573
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  switch i8 %.pre, label %default.unreachable131 [
+  switch i8 %.pre, label %default.unreachable130 [
     i8 0, label %114
     i8 1, label %141
     i8 2, label %142
@@ -25340,7 +25340,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit48.i: ; preds = %185
 
 242:                                              ; preds = %231
   %.sroa.679.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %214, i64 48
-  %.sroa.679.0.copyload120121.i124 = load i32, ptr %.sroa.679.0..sroa_idx.i, align 8, !noalias !3588
+  %.sroa.679.0.copyload.i = load i32, ptr %.sroa.679.0..sroa_idx.i, align 8, !noalias !3588
   call void @__rust_dealloc(ptr noundef nonnull %214, i64 noundef 56, i64 noundef 8) #31, !noalias !3588
   %243 = icmp eq i64 %200, 0
   br i1 %243, label %267, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i55.i"
@@ -25420,7 +25420,7 @@ common.ret:                                       ; preds = %415, %253
   %261 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.sroa.578.0.copyload.i, ptr %261, align 4
   %262 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %.sroa.679.0.copyload120121.i124, ptr %262, align 8
+  store i32 %.sroa.679.0.copyload.i, ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 %258, ptr %263, align 4
   %264 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -25436,7 +25436,7 @@ common.ret:                                       ; preds = %415, %253
   store i8 1, ptr %144, align 8, !noalias !3573
   store i32 %.sroa.578.0.copyload.i, ptr %26, align 4
   %268 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 %.sroa.679.0.copyload120121.i124, ptr %268, align 4
+  store i32 %.sroa.679.0.copyload.i, ptr %268, align 4
   %269 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8
   %270 = icmp ult i64 %269, 6
   call void @llvm.assume(i1 %270)
@@ -25745,7 +25745,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit50: ; preds = %282
   %390 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %.sroa.578.0.copyload.i, ptr %390, align 8, !alias.scope !3732, !noalias !3734
   %391 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  store i32 %.sroa.679.0.copyload120121.i124, ptr %391, align 4, !alias.scope !3732, !noalias !3734
+  store i32 %.sroa.679.0.copyload.i, ptr %391, align 4, !alias.scope !3732, !noalias !3734
   %392 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %362, ptr %392, align 8, !alias.scope !3736, !noalias !3737
   %.sroa.43.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %6, i64 32

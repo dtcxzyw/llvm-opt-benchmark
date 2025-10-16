@@ -3329,8 +3329,8 @@ define dso_local ptr @llvm_gen(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %.not, label %1139, label %3
 
 3:                                                ; preds = %2
-  %.b1.i = load i1, ptr @intrinsics_setup, align 1
-  br i1 %.b1.i, label %llvm_codegen_setup.exit, label %4
+  %.b.i = load i1, ptr @intrinsics_setup, align 1
+  br i1 %.b.i, label %llvm_codegen_setup.exit, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i32 @LLVMLookupIntrinsicID(ptr noundef nonnull @.str.38, i64 noundef 8) #10

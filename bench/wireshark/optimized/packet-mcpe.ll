@@ -242,8 +242,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mcpe() #0 {
-  %.b5 = load i1, ptr @proto_reg_handoff_mcpe.init_done, align 1
-  br i1 %.b5, label %1, label %.preheader
+  %.b = load i1, ptr @proto_reg_handoff_mcpe.init_done, align 1
+  br i1 %.b, label %1, label %.preheader
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_reg_handoff_mcpe.last_server_port, align 4

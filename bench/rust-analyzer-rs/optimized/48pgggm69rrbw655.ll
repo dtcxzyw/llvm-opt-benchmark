@@ -111315,11 +111315,11 @@ _ZN5salsa5Cycle5catch17h8ce20a628ddb85b4E.exit:   ; preds = %108
   %.sroa.6.4..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.6.4.copyload3.i = load ptr, ptr %.sroa.6.4..sroa_idx2.i, align 4, !noalias !11183
   %.sroa.8.4..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %.sroa.8.4.copyload15.i = load i32, ptr %.sroa.8.4..sroa_idx4.i, align 4, !noalias !11183
+  %.sroa.8.4.copyload.i = load i32, ptr %.sroa.8.4..sroa_idx4.i, align 4, !noalias !11183
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !11173
   store ptr %.sroa.6.4.copyload3.i, ptr %.sroa.6269, align 8, !alias.scope !11170, !noalias !11179
   %.sroa.6269.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6269, i64 8
-  store i32 %.sroa.8.4.copyload15.i, ptr %.sroa.6269.8..sroa_idx, align 8, !alias.scope !11170, !noalias !11179
+  store i32 %.sroa.8.4.copyload.i, ptr %.sroa.6269.8..sroa_idx, align 8, !alias.scope !11170, !noalias !11179
   %120 = and i32 %.sroa.4.4.copyload1.i, 255
   %121 = icmp eq i32 %120, 2
   br i1 %121, label %_ZN5salsa5Cycle5catch17h8ce20a628ddb85b4E.exit._crit_edge, label %122
@@ -132951,11 +132951,11 @@ _ZN5salsa5Cycle5catch17h3af4642132f060deE.exit:   ; preds = %108
   %.sroa.6.4..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.6.4.copyload3.i = load ptr, ptr %.sroa.6.4..sroa_idx2.i, align 4, !noalias !13076
   %.sroa.8.4..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %.sroa.8.4.copyload15.i = load i32, ptr %.sroa.8.4..sroa_idx4.i, align 4, !noalias !13076
+  %.sroa.8.4.copyload.i = load i32, ptr %.sroa.8.4..sroa_idx4.i, align 4, !noalias !13076
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !13066
   store ptr %.sroa.6.4.copyload3.i, ptr %.sroa.6269, align 8, !alias.scope !13063, !noalias !13072
   %.sroa.6269.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6269, i64 8
-  store i32 %.sroa.8.4.copyload15.i, ptr %.sroa.6269.8..sroa_idx, align 8, !alias.scope !13063, !noalias !13072
+  store i32 %.sroa.8.4.copyload.i, ptr %.sroa.6269.8..sroa_idx, align 8, !alias.scope !13063, !noalias !13072
   %120 = and i32 %.sroa.4.4.copyload1.i, 255
   %121 = icmp eq i32 %120, 2
   br i1 %121, label %_ZN5salsa5Cycle5catch17h3af4642132f060deE.exit._crit_edge, label %122

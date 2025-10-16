@@ -14212,8 +14212,8 @@ define internal noundef i32 @arg_set_verbose(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %3, label %8
 
 3:                                                ; preds = %2
-  %.b6 = load i1, ptr @arg_set_verbose.set_by_env, align 1
-  br i1 %.b6, label %5, label %._crit_edge
+  %.b = load i1, ptr @arg_set_verbose.set_by_env, align 1
+  br i1 %.b, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 364
@@ -14231,8 +14231,8 @@ define internal noundef i32 @arg_set_verbose(ptr noundef captures(none) %0, ptr 
   br label %.sink.split
 
 8:                                                ; preds = %2
-  %.b57 = load i1, ptr @arg_set_verbose.set_by_cli, align 1
-  br i1 %.b57, label %12, label %9
+  %.b5 = load i1, ptr @arg_set_verbose.set_by_cli, align 1
+  br i1 %.b5, label %12, label %9
 
 9:                                                ; preds = %8
   store i1 true, ptr @arg_set_verbose.set_by_env, align 1

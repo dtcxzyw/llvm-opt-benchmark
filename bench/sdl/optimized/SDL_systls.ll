@@ -11,8 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @SDL_SYS_InitTLSData() local_unnamed_addr #0 {
   %1 = load i32, ptr @thread_local_storage, align 4
   %2 = icmp ne i32 %1, -1
-  %.b2 = load i1, ptr @generic_local_storage, align 1
-  %or.cond = select i1 %2, i1 true, i1 %.b2
+  %.b = load i1, ptr @generic_local_storage, align 1
+  %or.cond = select i1 %2, i1 true, i1 %.b
   br i1 %or.cond, label %6, label %3
 
 3:                                                ; preds = %0
@@ -37,8 +37,8 @@ declare void @SDL_Generic_InitTLSData() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_SYS_GetTLSData() local_unnamed_addr #0 {
-  %.b2 = load i1, ptr @generic_local_storage, align 1
-  br i1 %.b2, label %1, label %3
+  %.b = load i1, ptr @generic_local_storage, align 1
+  br i1 %.b, label %1, label %3
 
 1:                                                ; preds = %0
   %2 = tail call ptr @SDL_Generic_GetTLSData() #3
@@ -65,8 +65,8 @@ declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SYS_SetTLSData(ptr noundef %0) local_unnamed_addr #0 {
-  %.b3 = load i1, ptr @generic_local_storage, align 1
-  br i1 %.b3, label %2, label %4
+  %.b = load i1, ptr @generic_local_storage, align 1
+  br i1 %.b, label %2, label %4
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i1 @SDL_Generic_SetTLSData(ptr noundef %0) #3
@@ -96,8 +96,8 @@ declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SYS_QuitTLSData() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @generic_local_storage, align 1
-  br i1 %.b1, label %1, label %2
+  %.b = load i1, ptr @generic_local_storage, align 1
+  br i1 %.b, label %1, label %2
 
 1:                                                ; preds = %0
   tail call void @SDL_Generic_QuitTLSData() #3

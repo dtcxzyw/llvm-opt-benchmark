@@ -1950,8 +1950,8 @@ define nonnull ptr @l_Lean_Meta_isGlobalInstance___boxed(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_GlobalInstances(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b13 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b13, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -1980,25 +1980,25 @@ define ptr @initialize_Lean_Meta_GlobalInstances(i8 noundef zeroext %0, ptr noun
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit17
+  br label %lean_dec_ref.exit16
 
 16:                                               ; preds = %11
-  %.not.i16 = icmp eq i32 %12, 0
-  br i1 %.not.i16, label %lean_dec_ref.exit17, label %17
+  %.not.i15 = icmp eq i32 %12, 0
+  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #3
-  br label %lean_dec_ref.exit17
+  br label %lean_dec_ref.exit16
 
-lean_dec_ref.exit17:                              ; preds = %14, %16, %17
+lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_ScopedEnvExtension(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val18 = load i32, ptr %19, align 4
-  %.mask.i21 = and i32 %.val18, -16777216
-  %20 = icmp eq i32 %.mask.i21, 16777216
+  %.val17 = load i32, ptr %19, align 4
+  %.mask.i20 = and i32 %.val17, -16777216
+  %20 = icmp eq i32 %.mask.i20, 16777216
   br i1 %20, label %109, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit17
+21:                                               ; preds = %lean_dec_ref.exit16
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -2006,17 +2006,17 @@ lean_dec_ref.exit17:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit15
+  br label %lean_dec_ref.exit14
 
 26:                                               ; preds = %21
-  %.not.i14 = icmp eq i32 %22, 0
-  br i1 %.not.i14, label %lean_dec_ref.exit15, label %27
+  %.not.i13 = icmp eq i32 %22, 0
+  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit15
+  br label %lean_dec_ref.exit14
 
-lean_dec_ref.exit15:                              ; preds = %24, %26, %27
+lean_dec_ref.exit14:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #3
   store ptr %28, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -2041,11 +2041,11 @@ lean_dec_ref.exit15:                              ; preds = %24, %26, %27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_init_l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__6.exit
 
-39:                                               ; preds = %lean_dec_ref.exit15
+39:                                               ; preds = %lean_dec_ref.exit14
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__6.exit: ; preds = %lean_dec_ref.exit15
+_init_l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__6.exit: ; preds = %lean_dec_ref.exit14
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 1, ptr %37, align 4, !tbaa !8
   store i32 65552, ptr %40, align 4
@@ -2129,16 +2129,16 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__9.e
   %69 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_GlobalInstances___hyg_3____closed__9, align 8, !tbaa !4
   %70 = tail call ptr @l_Lean_registerSimpleScopedEnvExtension___rarg(ptr noundef %69, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %71 = getelementptr i8, ptr %70, i64 4
-  %.val19 = load i32, ptr %71, align 4
-  %.mask.i22 = and i32 %.val19, -16777216
-  %72 = icmp eq i32 %.mask.i22, 16777216
+  %.val18 = load i32, ptr %71, align 4
+  %.mask.i21 = and i32 %.val18, -16777216
+  %72 = icmp eq i32 %.mask.i21, 16777216
   br i1 %72, label %109, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr i8, ptr %70, i64 8
-  %.val20 = load ptr, ptr %74, align 8, !tbaa !4
-  store ptr %.val20, ptr @l_Lean_Meta_globalInstanceExtension, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val20) #3
+  %.val19 = load ptr, ptr %74, align 8, !tbaa !4
+  store ptr %.val19, ptr @l_Lean_Meta_globalInstanceExtension, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val19) #3
   %75 = load i32, ptr %70, align 8, !tbaa !8
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %79, !prof !11
@@ -2223,18 +2223,18 @@ _init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_addGlobalInstance___spec__1__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_addGlobalInstance___spec__1___closed__2.exit, %3
-  %.sink40 = phi ptr [ %4, %3 ], [ %103, %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_addGlobalInstance___spec__1___closed__2.exit ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
-  store i32 1, ptr %.sink40, align 4, !tbaa !8
+  %.sink39 = phi ptr [ %4, %3 ], [ %103, %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_addGlobalInstance___spec__1___closed__2.exit ]
+  %106 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
+  store i32 1, ptr %.sink39, align 4, !tbaa !8
   store i32 131096, ptr %106, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %107, align 8, !tbaa !4
-  %108 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %108, align 8, !tbaa !4
   br label %109
 
-109:                                              ; preds = %.sink.split, %68, %lean_dec_ref.exit17, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit17 ], [ %70, %68 ], [ %.sink40, %.sink.split ]
+109:                                              ; preds = %.sink.split, %68, %lean_dec_ref.exit16, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %70, %68 ], [ %.sink39, %.sink.split ]
   ret ptr %.0
 }
 

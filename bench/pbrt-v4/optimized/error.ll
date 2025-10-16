@@ -204,8 +204,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt7WarningEPKNS_7FileLocEPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %.b2 = load i1, ptr @_ZN4pbrtL5quietE, align 1
-  br i1 %.b2, label %4, label %3
+  %.b = load i1, ptr @_ZN4pbrtL5quietE, align 1
+  br i1 %.b, label %4, label %3
 
 3:                                                ; preds = %2
   tail call fastcc void @_ZN4pbrtL12processErrorEPKcPKNS_7FileLocES1_(ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef %1)
@@ -662,8 +662,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %156
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %.b2 = load i1, ptr @_ZN4pbrtL5quietE, align 1
-  br i1 %.b2, label %4, label %3
+  %.b = load i1, ptr @_ZN4pbrtL5quietE, align 1
+  br i1 %.b, label %4, label %3
 
 3:                                                ; preds = %2
   tail call fastcc void @_ZN4pbrtL12processErrorEPKcPKNS_7FileLocES1_(ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %1)

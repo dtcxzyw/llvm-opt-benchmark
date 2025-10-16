@@ -52,12 +52,12 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @prte_filem_base_comm_start() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4, !tbaa !3
   %2 = and i8 %1, 6
-  %or.cond7 = icmp eq i8 %2, 0
-  br i1 %or.cond7, label %24, label %3
+  %or.cond6 = icmp eq i8 %2, 0
+  br i1 %or.cond6, label %24, label %3
 
 3:                                                ; preds = %0
-  %.b6 = load i1, ptr @recv_issued, align 1
-  br i1 %.b6, label %24, label %4
+  %.b = load i1, ptr @recv_issued, align 1
+  br i1 %.b, label %24, label %4
 
 4:                                                ; preds = %3
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4, !tbaa !14
@@ -858,12 +858,12 @@ filem_base_process_get_remote_path_cmd.exit:      ; preds = %263, %394, %396
 define noundef i32 @prte_filem_base_comm_stop() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4, !tbaa !3
   %2 = and i8 %1, 6
-  %or.cond7 = icmp eq i8 %2, 0
-  br i1 %or.cond7, label %24, label %3
+  %or.cond6 = icmp eq i8 %2, 0
+  br i1 %or.cond6, label %24, label %3
 
 3:                                                ; preds = %0
-  %.b6 = load i1, ptr @recv_issued, align 1
-  br i1 %.b6, label %24, label %4
+  %.b = load i1, ptr @recv_issued, align 1
+  br i1 %.b, label %24, label %4
 
 4:                                                ; preds = %3
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4, !tbaa !14

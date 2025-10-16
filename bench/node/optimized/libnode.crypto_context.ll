@@ -5196,12 +5196,12 @@ declare void @_ZN4node21SetMethodNoSideEffectEN2v85LocalINS0_7ContextEEENS1_INS0
 define dso_local void @_ZN4node6crypto26IsExtraRootCertsFileLoadedERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #8 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %.b2 = load i1, ptr @_ZN4node6cryptoL23extra_root_certs_loadedE, align 1
+  %.b = load i1, ptr @_ZN4node6cryptoL23extra_root_certs_loadedE, align 1
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %arrayidx.i7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i7, align 8
   %2 = ptrtoint ptr %1 to i64
-  %add.i.i = select i1 %.b2, i64 632, i64 640
+  %add.i.i = select i1 %.b, i64 632, i64 640
   %add1.i.i = add i64 %add.i.i, %2
   %3 = inttoptr i64 %add1.i.i to ptr
   %4 = load i64, ptr %3, align 8

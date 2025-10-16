@@ -4852,8 +4852,8 @@ guc_strdup.exit:                                  ; preds = %18, %20, %guc_mallo
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReportChangedGUCOptions() local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @reporting_enabled, align 1
-  br i1 %.b4, label %1, label %.loopexit
+  %.b = load i1, ptr @reporting_enabled, align 1
+  br i1 %.b, label %1, label %.loopexit
 
 1:                                                ; preds = %0
   %2 = load i8, ptr @in_hot_standby_guc, align 1, !range !4, !noundef !5
@@ -4874,17 +4874,17 @@ define dso_local void @ReportChangedGUCOptions() local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %storemerge12.sink = phi ptr [ %10, %.lr.ph ], [ %9, %8 ]
-  %10 = load ptr, ptr %storemerge12.sink, align 8
-  %11 = getelementptr inbounds i8, ptr %storemerge12.sink, i64 -112
+  %storemerge11.sink = phi ptr [ %10, %.lr.ph ], [ %9, %8 ]
+  %10 = load ptr, ptr %storemerge11.sink, align 8
+  %11 = getelementptr inbounds i8, ptr %storemerge11.sink, i64 -112
   tail call fastcc void @ReportGUCOption(ptr noundef nonnull %11)
-  %12 = getelementptr inbounds i8, ptr %storemerge12.sink, i64 -72
+  %12 = getelementptr inbounds i8, ptr %storemerge11.sink, i64 -72
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -5
   store i32 %14, ptr %12, align 8
   store ptr %10, ptr @guc_report_list, align 8
-  %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  %.not5 = icmp eq ptr %10, null
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %0
   ret void

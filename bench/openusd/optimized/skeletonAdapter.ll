@@ -18369,17 +18369,17 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %7 = load i64, ptr %6, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %4, i64 %7)
   %.not = icmp eq i64 %.sroa.speculated, 0
-  br i1 %.not, label %._crit_edge47, label %.lr.ph46
+  br i1 %.not, label %._crit_edge44, label %.lr.ph43
 
-.lr.ph46:                                         ; preds = %5, %._crit_edge
-  %.044 = phi i64 [ %28, %._crit_edge ], [ 0, %5 ]
+.lr.ph43:                                         ; preds = %5, %._crit_edge
+  %.041 = phi i64 [ %28, %._crit_edge ], [ 0, %5 ]
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %8, i64 %.044
+  %9 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %8, i64 %.041
   %10 = load i64, ptr %9, align 4
   %.sroa.027.0.extract.trunc = trunc i64 %10 to i32
   %.sroa.228.0.extract.shift = lshr i64 %10, 32
   %.sroa.228.0.extract.trunc = trunc nuw i64 %.sroa.228.0.extract.shift to i32
-  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %3, i64 %.044
+  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %3, i64 %.041
   %.sroa.020.0.copyload = load float, ptr %11, align 4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.422.0.copyload = load float, ptr %.sroa.422.0..sroa_idx, align 4
@@ -18388,7 +18388,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %12 = icmp slt i32 %.sroa.027.0.extract.trunc, %.sroa.228.0.extract.trunc
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph46
+.lr.ph:                                           ; preds = %.lr.ph43
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %2, align 8
   %sext = shl i64 %10, 32
@@ -18398,43 +18398,43 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.sroa.6.040 = phi float [ %.sroa.6.0.copyload, %.lr.ph ], [ %27, %16 ]
-  %.sroa.422.039 = phi float [ %.sroa.422.0.copyload, %.lr.ph ], [ %26, %16 ]
-  %.sroa.020.038 = phi float [ %.sroa.020.0.copyload, %.lr.ph ], [ %25, %16 ]
+  %.sroa.6.037 = phi float [ %.sroa.6.0.copyload, %.lr.ph ], [ %27, %16 ]
+  %.sroa.422.036 = phi float [ %.sroa.422.0.copyload, %.lr.ph ], [ %26, %16 ]
+  %.sroa.020.035 = phi float [ %.sroa.020.0.copyload, %.lr.ph ], [ %25, %16 ]
   %17 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %13, i64 %indvars.iv
-  %.sroa.018.0.copyload35 = load float, ptr %17, align 4
+  %.sroa.018.0.copyload = load float, ptr %17, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %.sroa.2.0.copyload36 = load float, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.319.0.copyload37 = load float, ptr %.sroa.319.0..sroa_idx, align 4
+  %.sroa.319.0.copyload = load float, ptr %.sroa.319.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 12
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %18 = fptosi float %.sroa.4.0.copyload to i32
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds float, ptr %14, i64 %19
   %21 = load float, ptr %20, align 4
-  %22 = fmul float %.sroa.018.0.copyload35, %21
-  %23 = fmul float %.sroa.2.0.copyload36, %21
-  %24 = fmul float %.sroa.319.0.copyload37, %21
-  %25 = fadd float %.sroa.020.038, %22
-  %26 = fadd float %.sroa.422.039, %23
-  %27 = fadd float %.sroa.6.040, %24
+  %22 = fmul float %.sroa.018.0.copyload, %21
+  %23 = fmul float %.sroa.2.0.copyload, %21
+  %24 = fmul float %.sroa.319.0.copyload, %21
+  %25 = fadd float %.sroa.020.035, %22
+  %26 = fadd float %.sroa.422.036, %23
+  %27 = fadd float %.sroa.6.037, %24
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %16, %.lr.ph46
-  %.sroa.020.0.lcssa = phi float [ %.sroa.020.0.copyload, %.lr.ph46 ], [ %25, %16 ]
-  %.sroa.422.0.lcssa = phi float [ %.sroa.422.0.copyload, %.lr.ph46 ], [ %26, %16 ]
-  %.sroa.6.0.lcssa = phi float [ %.sroa.6.0.copyload, %.lr.ph46 ], [ %27, %16 ]
+._crit_edge:                                      ; preds = %16, %.lr.ph43
+  %.sroa.020.0.lcssa = phi float [ %.sroa.020.0.copyload, %.lr.ph43 ], [ %25, %16 ]
+  %.sroa.422.0.lcssa = phi float [ %.sroa.422.0.copyload, %.lr.ph43 ], [ %26, %16 ]
+  %.sroa.6.0.lcssa = phi float [ %.sroa.6.0.copyload, %.lr.ph43 ], [ %27, %16 ]
   store float %.sroa.020.0.lcssa, ptr %11, align 4
   store float %.sroa.422.0.lcssa, ptr %.sroa.422.0..sroa_idx, align 4
   store float %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 4
-  %28 = add nuw i64 %.044, 1
-  %exitcond51.not = icmp eq i64 %28, %.sroa.speculated
-  br i1 %exitcond51.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !63
+  %28 = add nuw i64 %.041, 1
+  %exitcond48.not = icmp eq i64 %28, %.sroa.speculated
+  br i1 %exitcond48.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !63
 
-._crit_edge47:                                    ; preds = %._crit_edge, %5
+._crit_edge44:                                    ; preds = %._crit_edge, %5
   ret void
 }
 

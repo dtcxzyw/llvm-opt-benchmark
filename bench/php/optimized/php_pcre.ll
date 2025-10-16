@@ -1095,8 +1095,8 @@ define dso_local ptr @pcre_get_compiled_regex(ptr noundef %0, ptr noundef writeo
 define dso_local ptr @php_pcre_create_match_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4, !tbaa !51
-  %.b8 = load i1, ptr @mdata_used, align 1
-  br i1 %.b8, label %.thread, label %4, !prof !47
+  %.b = load i1, ptr @mdata_used, align 1
+  br i1 %.b, label %.thread, label %4, !prof !47
 
 4:                                                ; preds = %2
   %.not = icmp eq i32 %0, 0
@@ -1274,9 +1274,9 @@ zend_try_array_init_size.exit.thread:             ; preds = %29, %33, %7
 64:                                               ; preds = %60, %57, %52
   %.0254 = phi ptr [ %61, %60 ], [ null, %57 ], [ null, %52 ]
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
-  %.b535 = load i1, ptr @mdata_used, align 1
+  %.b = load i1, ptr @mdata_used, align 1
   %65 = icmp ugt i32 %55, 32
-  %or.cond6.not = select i1 %.b535, i1 true, i1 %65
+  %or.cond6.not = select i1 %.b, i1 true, i1 %65
   br i1 %or.cond6.not, label %68, label %66
 
 66:                                               ; preds = %64
@@ -3036,9 +3036,9 @@ define dso_local ptr @php_pcre_replace_impl(ptr noundef readonly captures(none) 
   %9 = load i32, ptr %8, align 8, !tbaa !65
   %10 = add i32 %9, 1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
-  %.b597 = load i1, ptr @mdata_used, align 1
+  %.b = load i1, ptr @mdata_used, align 1
   %11 = icmp ugt i32 %10, 32
-  %or.cond.not = select i1 %.b597, i1 true, i1 %11
+  %or.cond.not = select i1 %.b, i1 true, i1 %11
   br i1 %or.cond.not, label %14, label %12
 
 12:                                               ; preds = %7
@@ -3107,24 +3107,24 @@ define dso_local ptr @php_pcre_replace_impl(ptr noundef readonly captures(none) 
   %.0196421 = phi i64 [ 0, %.lr.ph427 ], [ %232, %338 ]
   %.0206420 = phi i64 [ 0, %.lr.ph427 ], [ %.3209, %338 ]
   %47 = icmp eq i32 %.1181422, 0
-  br i1 %47, label %48, label %.preheader600, !prof !47
+  br i1 %47, label %48, label %.preheader599, !prof !47
 
 48:                                               ; preds = %45
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14) #24
-  br label %.preheader600
+  br label %.preheader599
 
-.preheader600:                                    ; preds = %48, %45
+.preheader599:                                    ; preds = %48, %45
   %.3183.ph = phi i32 [ %.1181422, %45 ], [ %10, %48 ]
   br label %49
 
-49:                                               ; preds = %.preheader600, %235
-  %.1207 = phi i64 [ %.3209, %235 ], [ %.0206420, %.preheader600 ]
-  %.1197 = phi i64 [ %232, %235 ], [ %.0196421, %.preheader600 ]
-  %.0188 = phi ptr [ %239, %235 ], [ %46, %.preheader600 ]
-  %.3183 = phi i32 [ %238, %235 ], [ %.3183.ph, %.preheader600 ]
-  %.1175 = phi i64 [ %.4178, %235 ], [ %.0174423, %.preheader600 ]
-  %.1172 = phi ptr [ %.4, %235 ], [ %.0171424, %.preheader600 ]
-  %.1168 = phi i64 [ %231, %235 ], [ %.0167425, %.preheader600 ]
+49:                                               ; preds = %.preheader599, %235
+  %.1207 = phi i64 [ %.3209, %235 ], [ %.0206420, %.preheader599 ]
+  %.1197 = phi i64 [ %232, %235 ], [ %.0196421, %.preheader599 ]
+  %.0188 = phi ptr [ %239, %235 ], [ %46, %.preheader599 ]
+  %.3183 = phi i32 [ %238, %235 ], [ %.3183.ph, %.preheader599 ]
+  %.1175 = phi i64 [ %.4178, %235 ], [ %.0174423, %.preheader599 ]
+  %.1172 = phi ptr [ %.4, %235 ], [ %.0171424, %.preheader599 ]
+  %.1168 = phi i64 [ %231, %235 ], [ %.0167425, %.preheader599 ]
   %50 = load i64, ptr %42, align 8, !tbaa !52
   %51 = load i64, ptr %24, align 8, !tbaa !52
   %52 = icmp ult i64 %50, %51
@@ -5450,9 +5450,9 @@ define dso_local void @php_pcre_split_impl(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %5, %23
   %.0 = phi i64 [ %3, %23 ], [ -1, %5 ]
-  %.b269 = load i1, ptr @mdata_used, align 1
+  %.b = load i1, ptr @mdata_used, align 1
   %26 = icmp ugt i32 %22, 32
-  %or.cond.not = select i1 %.b269, i1 true, i1 %26
+  %or.cond.not = select i1 %.b, i1 true, i1 %26
   br i1 %or.cond.not, label %29, label %27
 
 27:                                               ; preds = %25
@@ -5531,20 +5531,20 @@ define dso_local void @php_pcre_split_impl(ptr noundef readonly captures(none) %
   %.1139212 = phi i32 [ %.0138, %.lr.ph214 ], [ %.5, %242 ]
   %.1145211 = phi i64 [ 0, %.lr.ph214 ], [ %195, %242 ]
   %72 = icmp eq i32 %.1139212, 0
-  br i1 %72, label %73, label %.preheader270, !prof !47
+  br i1 %72, label %73, label %.preheader269, !prof !47
 
 73:                                               ; preds = %71
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14) #24
-  br label %.preheader270
+  br label %.preheader269
 
-.preheader270:                                    ; preds = %73, %71
+.preheader269:                                    ; preds = %73, %71
   %.3141.ph = phi i32 [ %.1139212, %71 ], [ %22, %73 ]
   br label %74
 
-74:                                               ; preds = %.preheader270, %201
-  %.2146 = phi i64 [ %195, %201 ], [ %.1145211, %.preheader270 ]
-  %.3141 = phi i32 [ %205, %201 ], [ %.3141.ph, %.preheader270 ]
-  %.2 = phi i64 [ %.3, %201 ], [ %.1213, %.preheader270 ]
+74:                                               ; preds = %.preheader269, %201
+  %.2146 = phi i64 [ %195, %201 ], [ %.1145211, %.preheader269 ]
+  %.3141 = phi i32 [ %205, %201 ], [ %.3141.ph, %.preheader269 ]
+  %.2 = phi i64 [ %.3, %201 ], [ %.1213, %.preheader269 ]
   %75 = load i64, ptr %60, align 8, !tbaa !52
   %76 = load i64, ptr %39, align 8, !tbaa !52
   %77 = icmp ult i64 %75, %76
@@ -6444,10 +6444,10 @@ define dso_local void @php_pcre_grep_impl(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 775, ptr %9, align 8, !tbaa !11
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 76), align 4, !tbaa !18
-  %.b153 = load i1, ptr @mdata_used, align 1
+  %.b = load i1, ptr @mdata_used, align 1
   %10 = add i32 %7, -32
   %11 = icmp ult i32 %10, -33
-  %or.cond.not = select i1 %.b153, i1 true, i1 %11
+  %or.cond.not = select i1 %.b, i1 true, i1 %11
   br i1 %or.cond.not, label %14, label %12
 
 12:                                               ; preds = %4

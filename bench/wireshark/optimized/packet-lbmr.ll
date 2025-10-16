@@ -3893,8 +3893,8 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 define hidden void @proto_reg_handoff_lbmr() #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.b27 = load i1, ptr @proto_reg_handoff_lbmr.already_registered, align 1
-  br i1 %.b27, label %5, label %2
+  %.b = load i1, ptr @proto_reg_handoff_lbmr.already_registered, align 1
+  br i1 %.b, label %5, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @lbmr_dissector_handle, align 8

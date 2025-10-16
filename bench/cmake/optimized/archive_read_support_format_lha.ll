@@ -3704,9 +3704,9 @@ define internal fastcc range(i32 -30, 1) i32 @lha_read_file_extended_header(ptr 
   store i64 %8, ptr %5, align 8, !tbaa !9
   %9 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %8, ptr noundef null) #18
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %._crit_edge292, label %.lr.ph291
+  br i1 %10, label %._crit_edge290, label %.lr.ph289
 
-.lr.ph291:                                        ; preds = %6
+.lr.ph289:                                        ; preds = %6
   %11 = icmp eq i32 %3, 2
   %12 = add nuw nsw i32 %3, 1
   %13 = zext nneg i32 %12 to i64
@@ -3739,12 +3739,12 @@ define internal fastcc range(i32 -30, 1) i32 @lha_read_file_extended_header(ptr 
   %.not.i = icmp eq i64 %39, 0
   br label %40
 
-._crit_edge292:                                   ; preds = %299, %6
+._crit_edge290:                                   ; preds = %299, %6
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #18
   br label %.loopexit
 
-40:                                               ; preds = %.lr.ph291, %299
-  %41 = phi ptr [ %9, %.lr.ph291 ], [ %301, %299 ]
+40:                                               ; preds = %.lr.ph289, %299
+  %41 = phi ptr [ %9, %.lr.ph289 ], [ %301, %299 ]
   br i1 %11, label %42, label %44
 
 42:                                               ; preds = %40
@@ -3942,35 +3942,35 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   store i64 0, ptr %35, align 8, !tbaa !56
   %125 = call ptr @archive_strncat(ptr noundef nonnull %34, ptr noundef nonnull %69, i64 noundef %68) #18
   %126 = load i64, ptr %35, align 8, !tbaa !56
-  %.not294 = icmp eq i64 %126, 0
-  br i1 %.not294, label %._crit_edge288, label %.lr.ph287
+  %.not292 = icmp eq i64 %126, 0
+  br i1 %.not292, label %._crit_edge286, label %.lr.ph285
 
-.lr.ph287:                                        ; preds = %124, %134
+.lr.ph285:                                        ; preds = %124, %134
   %127 = phi i64 [ %135, %134 ], [ %126, %124 ]
   %128 = phi i64 [ %137, %134 ], [ 0, %124 ]
-  %.0205285 = phi i32 [ %136, %134 ], [ 0, %124 ]
+  %.0205283 = phi i32 [ %136, %134 ], [ 0, %124 ]
   %129 = load ptr, ptr %34, align 8, !tbaa !81
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 %128
   %131 = load i8, ptr %130, align 1, !tbaa !4
   %132 = icmp eq i8 %131, -1
   br i1 %132, label %133, label %134
 
-133:                                              ; preds = %.lr.ph287
+133:                                              ; preds = %.lr.ph285
   store i8 47, ptr %130, align 1, !tbaa !4
   %.pre = load i64, ptr %35, align 8, !tbaa !56
   br label %134
 
-134:                                              ; preds = %.lr.ph287, %133
-  %135 = phi i64 [ %127, %.lr.ph287 ], [ %.pre, %133 ]
-  %136 = add i32 %.0205285, 1
+134:                                              ; preds = %.lr.ph285, %133
+  %135 = phi i64 [ %127, %.lr.ph285 ], [ %.pre, %133 ]
+  %136 = add i32 %.0205283, 1
   %137 = zext i32 %136 to i64
   %138 = icmp ugt i64 %135, %137
-  br i1 %138, label %.lr.ph287, label %._crit_edge288, !llvm.loop !169
+  br i1 %138, label %.lr.ph285, label %._crit_edge286, !llvm.loop !169
 
-._crit_edge288:                                   ; preds = %134, %124
-  %.lcssa276 = phi i64 [ 0, %124 ], [ %135, %134 ]
+._crit_edge286:                                   ; preds = %134, %124
+  %.lcssa274 = phi i64 [ 0, %124 ], [ %135, %134 ]
   %139 = load ptr, ptr %34, align 8, !tbaa !81
-  %140 = getelementptr i8, ptr %139, i64 %.lcssa276
+  %140 = getelementptr i8, ptr %139, i64 %.lcssa274
   %141 = getelementptr i8, ptr %140, i64 -1
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %.not226 = icmp eq i8 %142, 47
@@ -4000,12 +4000,12 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   %154 = load ptr, ptr %34, align 8, !tbaa !81
   %155 = load i64, ptr %35, align 8, !tbaa !56
   %156 = lshr i64 %155, 1
-  %.not293 = icmp ult i64 %155, 2
-  br i1 %.not293, label %._crit_edge, label %.lr.ph
+  %.not291 = icmp ult i64 %155, 2
+  br i1 %.not291, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153, %162
   %157 = phi i64 [ %164, %162 ], [ 0, %153 ]
-  %.1206284 = phi i32 [ %163, %162 ], [ 0, %153 ]
+  %.1206282 = phi i32 [ %163, %162 ], [ 0, %153 ]
   %158 = getelementptr inbounds nuw i16, ptr %154, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !40
   %160 = icmp eq i16 %159, -1
@@ -4016,7 +4016,7 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   br label %162
 
 162:                                              ; preds = %.lr.ph, %161
-  %163 = add i32 %.1206284, 1
+  %163 = add i32 %.1206282, 1
   %164 = zext i32 %163 to i64
   %165 = icmp samesign ugt i64 %156, %164
   br i1 %165, label %.lr.ph, label %._crit_edge, !llvm.loop !170
@@ -4033,8 +4033,8 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   br i1 %170, label %171, label %299
 
 171:                                              ; preds = %169
-  %.val247275 = load i8, ptr %69, align 1, !tbaa !4
-  store i8 %.val247275, ptr %21, align 8, !tbaa !58
+  %.val247 = load i8, ptr %69, align 1, !tbaa !4
+  store i8 %.val247, ptr %21, align 8, !tbaa !58
   br label %299
 
 172:                                              ; preds = %74
@@ -4083,9 +4083,9 @@ lha_win_time.exit:                                ; preds = %174, %181
   br label %lha_win_time.exit269
 
 lha_win_time.exit269:                             ; preds = %lha_win_time.exit, %193
-  %.sink302 = phi i64 [ %196, %193 ], [ 0, %lha_win_time.exit ]
+  %.sink300 = phi i64 [ %196, %193 ], [ 0, %lha_win_time.exit ]
   %.0.i268 = phi i64 [ %197, %193 ], [ 0, %lha_win_time.exit ]
-  store i64 %.sink302, ptr %32, align 8, !tbaa !9
+  store i64 %.sink300, ptr %32, align 8, !tbaa !9
   store i64 %.0.i268, ptr %22, align 8, !tbaa !71
   %198 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %.val259 = load i32, ptr %198, align 1
@@ -4106,9 +4106,9 @@ lha_win_time.exit269:                             ; preds = %lha_win_time.exit, 
   br label %lha_win_time.exit272
 
 lha_win_time.exit272:                             ; preds = %lha_win_time.exit269, %205
-  %.sink303 = phi i64 [ %208, %205 ], [ 0, %lha_win_time.exit269 ]
+  %.sink301 = phi i64 [ %208, %205 ], [ 0, %lha_win_time.exit269 ]
   %.0.i271 = phi i64 [ %209, %205 ], [ 0, %lha_win_time.exit269 ]
-  store i64 %.sink303, ptr %33, align 8, !tbaa !9
+  store i64 %.sink301, ptr %33, align 8, !tbaa !9
   store i64 %.0.i271, ptr %19, align 8, !tbaa !97
   %210 = load i32, ptr %20, align 8, !tbaa !73
   %211 = or i32 %210, 3
@@ -4171,9 +4171,9 @@ lha_win_time.exit272:                             ; preds = %lha_win_time.exit26
 
 239:                                              ; preds = %234
   %240 = load ptr, ptr %28, align 8, !tbaa !60
-  %.not274 = icmp eq ptr %240, null
+  %.not273 = icmp eq ptr %240, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not274, label %.loopexit, label %299
+  br i1 %.not273, label %.loopexit, label %299
 
 241:                                              ; preds = %74
   %242 = icmp eq i64 %68, 2
@@ -4235,8 +4235,8 @@ lha_win_time.exit272:                             ; preds = %lha_win_time.exit26
   br i1 %265, label %266, label %299
 
 266:                                              ; preds = %264
-  %.val239273 = load i8, ptr %69, align 1, !tbaa !4
-  store i8 %.val239273, ptr %21, align 8, !tbaa !58
+  %.val239 = load i8, ptr %69, align 1, !tbaa !4
+  store i8 %.val239, ptr %21, align 8, !tbaa !58
   %267 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %.val237 = load i16, ptr %267, align 1
   %268 = zext i16 %.val237 to i32
@@ -4290,13 +4290,13 @@ lha_win_time.exit272:                             ; preds = %lha_win_time.exit26
   store i32 %298, ptr %20, align 8, !tbaa !73
   br label %299
 
-299:                                              ; preds = %._crit_edge, %214, %74, %281, %283, %264, %266, %259, %261, %256, %257, %253, %254, %247, %249, %241, %243, %228, %239, %212, %172, %lha_win_time.exit272, %169, %171, %._crit_edge288, %115, %75, %lha_crc16.exit, %77, %109, %105, %101
+299:                                              ; preds = %._crit_edge, %214, %74, %281, %283, %264, %266, %259, %261, %256, %257, %253, %254, %247, %249, %241, %243, %228, %239, %212, %172, %lha_win_time.exit272, %169, %171, %._crit_edge286, %115, %75, %lha_crc16.exit, %77, %109, %105, %101
   %300 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.0207) #18
   %301 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %8, ptr noundef null) #18
   %302 = icmp eq ptr %301, null
-  br i1 %302, label %._crit_edge292, label %40
+  br i1 %302, label %._crit_edge290, label %40
 
-303:                                              ; preds = %._crit_edge, %214, %143, %146, %._crit_edge288, %119, %121, %112, %110, %102, %55
+303:                                              ; preds = %._crit_edge, %214, %143, %146, %._crit_edge286, %119, %121, %112, %110, %102, %55
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.21) #18
   br label %.loopexit
 
@@ -4304,8 +4304,8 @@ lha_win_time.exit272:                             ; preds = %lha_win_time.exit26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %115, %239, %.critedge, %303, %62, %53, %._crit_edge292
-  %.1 = phi i32 [ -30, %._crit_edge292 ], [ 0, %53 ], [ -30, %303 ], [ -30, %62 ], [ -30, %.critedge ], [ -30, %239 ], [ -30, %115 ], [ -30, %149 ]
+.loopexit:                                        ; preds = %149, %115, %239, %.critedge, %303, %62, %53, %._crit_edge290
+  %.1 = phi i32 [ -30, %._crit_edge290 ], [ 0, %53 ], [ -30, %303 ], [ -30, %62 ], [ -30, %.critedge ], [ -30, %239 ], [ -30, %115 ], [ -30, %149 ]
   ret i32 %.1
 }
 

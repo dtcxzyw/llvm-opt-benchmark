@@ -16818,8 +16818,8 @@ lean_dec.exit:                                    ; preds = %25, %24, %22, %l_in
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_Data_Array_Subarray(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -17689,18 +17689,18 @@ _init_l_Subarray_repr___rarg___closed__2.exit:    ; preds = %_init_l_Array___aux
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Subarray_repr___rarg___closed__2.exit, %3
-  %.sink40 = phi ptr [ %4, %3 ], [ %348, %_init_l_Subarray_repr___rarg___closed__2.exit ]
-  %351 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
-  store i32 1, ptr %.sink40, align 4, !tbaa !9
+  %.sink39 = phi ptr [ %4, %3 ], [ %348, %_init_l_Subarray_repr___rarg___closed__2.exit ]
+  %351 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
+  store i32 1, ptr %.sink39, align 4, !tbaa !9
   store i32 131096, ptr %351, align 4
-  %352 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %352, align 8, !tbaa !4
-  %353 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %353, align 8, !tbaa !4
   br label %354
 
 354:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink40, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink39, %.sink.split ]
   ret ptr %.0
 }
 

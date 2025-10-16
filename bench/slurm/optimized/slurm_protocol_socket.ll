@@ -996,8 +996,8 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
 
 30:                                               ; preds = %23, %26, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b4.i = load i1, ptr @_sock_bind_wild.seeded, align 1
-  br i1 %.b4.i, label %36, label %31
+  %.b.i = load i1, ptr @_sock_bind_wild.seeded, align 1
+  br i1 %.b.i, label %36, label %31
 
 31:                                               ; preds = %30
   store i1 true, ptr @_sock_bind_wild.seeded, align 1
@@ -1017,7 +1017,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
   br label %41
 
 41:                                               ; preds = %44, %36
-  %.05.i = phi i32 [ 0, %36 ], [ %49, %44 ]
+  %.04.i = phi i32 [ 0, %36 ], [ %49, %44 ]
   %42 = call i32 @bind(i32 noundef range(i32 0, -2147483648) %24, ptr nonnull %5, i32 noundef 128) #12
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %_sock_bind_wild.exit, label %44
@@ -1028,7 +1028,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
   %47 = trunc i64 %46 to i16
   %48 = add i16 %47, 1025
   call void @slurm_set_port(ptr noundef nonnull %5, i16 noundef zeroext %48) #12
-  %49 = add nuw nsw i32 %.05.i, 1
+  %49 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %49, 3
   br i1 %exitcond.not.i, label %_sock_bind_wild.exit, label %41, !llvm.loop !14
 

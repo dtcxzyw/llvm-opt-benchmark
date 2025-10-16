@@ -3433,10 +3433,10 @@ _ZL9commitFpmRN4llvm20WritableBinaryStreamERKNS_3msf9MSFLayoutERNS_20BumpPtrAllo
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %297 = load ptr, ptr %4, align 8, !tbaa !145
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 52
-  %.0.copyload.i.i.i80129 = load i32, ptr %298, align 1
+  %.0.copyload.i.i.i80 = load i32, ptr %298, align 1
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 32
   %.0.copyload.i.i.i81 = load i32, ptr %299, align 1
-  %.narrow = mul i32 %.0.copyload.i.i.i81, %.0.copyload.i.i.i80129
+  %.narrow = mul i32 %.0.copyload.i.i.i81, %.0.copyload.i.i.i80
   %300 = zext i32 %.narrow to i64
   %301 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store i64 %300, ptr %301, align 8, !tbaa !238
@@ -3460,8 +3460,8 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
   %306 = shl nuw nsw i64 %.sroa.213.0.copyload, 2
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr %.sroa.012.0.copyload, i64 %306) #20
   %.pr = load ptr, ptr %24, align 8, !tbaa !75
-  %.not130 = icmp eq ptr %.pr, null
-  br i1 %.not130, label %_ZN4llvm5ErrorD2Ev.exit84, label %_ZN4llvm5ErrorD2Ev.exit83
+  %.not129 = icmp eq ptr %.pr, null
+  br i1 %.not129, label %_ZN4llvm5ErrorD2Ev.exit84, label %_ZN4llvm5ErrorD2Ev.exit83
 
 _ZN4llvm5ErrorD2Ev.exit83:                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread
   %307 = phi ptr [ %305, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread ], [ %.pr, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
@@ -3489,8 +3489,8 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %_ZL9commitFpmRN4llv
   %315 = trunc i64 %314 to i32
   call void @_ZN4llvm18BinaryStreamWriter12writeIntegerIjEENS_5ErrorET_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %315)
   %316 = load ptr, ptr %28, align 8, !tbaa !75
-  %.not131 = icmp eq ptr %316, null
-  br i1 %.not131, label %_ZN4llvm5ErrorD2Ev.exit86, label %_ZN4llvm5ErrorD2Ev.exit85
+  %.not130 = icmp eq ptr %316, null
+  br i1 %.not130, label %_ZN4llvm5ErrorD2Ev.exit86, label %_ZN4llvm5ErrorD2Ev.exit85
 
 _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit84
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3509,8 +3509,8 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.sroa.211.0.copyload = load i64, ptr %313, align 8, !tbaa !36
   call void @_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %321 = load ptr, ptr %29, align 8, !tbaa !75
-  %.not132 = icmp eq ptr %321, null
-  br i1 %.not132, label %_ZN4llvm5ErrorD2Ev.exit88, label %_ZN4llvm5ErrorD2Ev.exit87
+  %.not131 = icmp eq ptr %321, null
+  br i1 %.not131, label %_ZN4llvm5ErrorD2Ev.exit88, label %_ZN4llvm5ErrorD2Ev.exit87
 
 _ZN4llvm5ErrorD2Ev.exit87:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit86
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3525,14 +3525,14 @@ _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %325 = load ptr, ptr %93, align 8, !tbaa !266
   %326 = load ptr, ptr %96, align 8, !tbaa !266
-  %.not133135 = icmp eq ptr %325, %326
-  br i1 %.not133135, label %.critedge58, label %.lr.ph
+  %.not132134 = icmp eq ptr %325, %326
+  br i1 %.not132134, label %.critedge58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5ErrorD2Ev.exit88, %_ZN4llvm5ErrorD2Ev.exit92
-  %.sroa.0105.0136 = phi ptr [ %336, %_ZN4llvm5ErrorD2Ev.exit92 ], [ %325, %_ZN4llvm5ErrorD2Ev.exit88 ]
+  %.sroa.0105.0135 = phi ptr [ %336, %_ZN4llvm5ErrorD2Ev.exit92 ], [ %325, %_ZN4llvm5ErrorD2Ev.exit88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %.sroa.0.0.copyload = load ptr, ptr %.sroa.0105.0136, align 8, !tbaa !159
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0105.0136, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %.sroa.0105.0135, align 8, !tbaa !159
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0105.0135, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !36
   %327 = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %327, label %_ZN4llvm5ErrorD2Ev.exit92, label %328
@@ -3550,8 +3550,8 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
   %331 = shl nuw nsw i64 %.sroa.2.0.copyload, 2
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %30, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr %.sroa.0.0.copyload, i64 %331) #20
   %.pr126 = load ptr, ptr %30, align 8, !tbaa !75
-  %.not134 = icmp eq ptr %.pr126, null
-  br i1 %.not134, label %_ZN4llvm5ErrorD2Ev.exit92, label %_ZN4llvm5ErrorD2Ev.exit91
+  %.not133 = icmp eq ptr %.pr126, null
+  br i1 %.not133, label %_ZN4llvm5ErrorD2Ev.exit92, label %_ZN4llvm5ErrorD2Ev.exit91
 
 _ZN4llvm5ErrorD2Ev.exit91:                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit90, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit90.thread
   %332 = phi ptr [ %330, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit90.thread ], [ %.pr126, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit90 ]
@@ -3565,9 +3565,9 @@ _ZN4llvm5ErrorD2Ev.exit91:                        ; preds = %_ZN4llvm18BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit92:                        ; preds = %.lr.ph, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit90
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %336 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0136, i64 16
-  %.not133 = icmp eq ptr %336, %326
-  br i1 %.not133, label %.critedge58, label %.lr.ph
+  %336 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0135, i64 16
+  %.not132 = icmp eq ptr %336, %326
+  br i1 %.not132, label %.critedge58, label %.lr.ph
 
 .critedge58:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit92, %_ZN4llvm5ErrorD2Ev.exit88
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3675,18 +3675,18 @@ _ZNKSt14default_deleteIN4llvm16FileOutputBufferEEclEPS1_.exit.i.i.i: ; preds = %
 
 379:                                              ; preds = %_ZNKSt14default_deleteIN4llvm16FileOutputBufferEEclEPS1_.exit.i.i.i, %_ZN4llvm18BinaryStreamWriterD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.pre137 = load ptr, ptr %20, align 8, !tbaa !277
-  %.not.i1.i = icmp eq ptr %.pre137, null
+  %.pre136 = load ptr, ptr %20, align 8, !tbaa !277
+  %.not.i1.i = icmp eq ptr %.pre136, null
   br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_16FileOutputBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
 _ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %379
   %380 = load i8, ptr %161, align 8
   %381 = trunc i8 %380 to i1
   %..i = select i1 %381, i64 8, i64 40
-  %382 = load ptr, ptr %.pre137, align 8, !tbaa !49
+  %382 = load ptr, ptr %.pre136, align 8, !tbaa !49
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 %..i
   %384 = load ptr, ptr %383, align 8
-  call void %384(ptr noundef nonnull align 8 dereferenceable(8) %.pre137) #20
+  call void %384(ptr noundef nonnull align 8 dereferenceable(8) %.pre136) #20
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_16FileOutputBufferESt14default_deleteIS2_EEED2Ev.exit
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_16FileOutputBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %.thread, %379, %_ZNSt10unique_ptrIN4llvm16FileOutputBufferESt14default_deleteIS1_EED2Ev.exit.sink.split.i
@@ -3699,11 +3699,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_16FileOutputBufferESt14default_deleteIS2_EEE
 
 386:                                              ; preds = %385, %_ZN4llvm5ErrorD2Ev.exit63
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre138 = load i8, ptr %32, align 8
+  %.pre137 = load i8, ptr %32, align 8
   br label %387
 
 387:                                              ; preds = %386, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %388 = phi i8 [ %.pre138, %386 ], [ %33, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
+  %388 = phi i8 [ %.pre137, %386 ], [ %33, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
   %389 = trunc i8 %388 to i1
   br i1 %389, label %404, label %390
 

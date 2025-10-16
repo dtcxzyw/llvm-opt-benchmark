@@ -1754,14 +1754,14 @@ define hidden void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$3get17hd606c7
   %.sroa.7.4..sroa_idx69 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.7.4.copyload70 = load ptr, ptr %.sroa.7.4..sroa_idx69, align 4, !noalias !236
   %.sroa.9.4..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sroa.9.4.copyload133 = load i32, ptr %.sroa.9.4..sroa_idx71, align 4, !noalias !236
+  %.sroa.9.4.copyload = load i32, ptr %.sroa.9.4..sroa_idx71, align 4, !noalias !236
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !221
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.5.4.copyload68, ptr %64, align 8
   %.sroa.4122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store ptr %.sroa.7.4.copyload70, ptr %.sroa.4122.0..sroa_idx, align 4
   %.sroa.5123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.9.4.copyload133, ptr %.sroa.5123.0..sroa_idx, align 4
+  store i32 %.sroa.9.4.copyload, ptr %.sroa.5123.0..sroa_idx, align 4
   store i64 7, ptr %0, align 8
   br label %65
 

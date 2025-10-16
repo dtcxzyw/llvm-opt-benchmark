@@ -33913,8 +33913,8 @@ define ptr @l_Lean_Linter_MissingDocs_handleMutual___regBuiltin_Lean_Linter_Miss
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Linter_MissingDocs(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b107 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b107, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -33953,25 +33953,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit157
+  br label %lean_dec_ref.exit156
 
 19:                                               ; preds = %14
-  %.not.i156 = icmp eq i32 %15, 0
-  br i1 %.not.i156, label %lean_dec_ref.exit157, label %20
+  %.not.i155 = icmp eq i32 %15, 0
+  br i1 %.not.i155, label %lean_dec_ref.exit156, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br label %lean_dec_ref.exit157
+  br label %lean_dec_ref.exit156
 
-lean_dec_ref.exit157:                             ; preds = %17, %19, %20
+lean_dec_ref.exit156:                             ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Meta_Tactic_Simp_RegisterCommand(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val158 = load i32, ptr %22, align 4
-  %.mask.i186 = and i32 %.val158, -16777216
-  %23 = icmp eq i32 %.mask.i186, 16777216
+  %.val157 = load i32, ptr %22, align 4
+  %.mask.i185 = and i32 %.val157, -16777216
+  %23 = icmp eq i32 %.mask.i185, 16777216
   br i1 %23, label %729, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit157
+24:                                               ; preds = %lean_dec_ref.exit156
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -33979,25 +33979,25 @@ lean_dec_ref.exit157:                             ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit155
+  br label %lean_dec_ref.exit154
 
 29:                                               ; preds = %24
-  %.not.i154 = icmp eq i32 %25, 0
-  br i1 %.not.i154, label %lean_dec_ref.exit155, label %30
+  %.not.i153 = icmp eq i32 %25, 0
+  br i1 %.not.i153, label %lean_dec_ref.exit154, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #5
-  br label %lean_dec_ref.exit155
+  br label %lean_dec_ref.exit154
 
-lean_dec_ref.exit155:                             ; preds = %27, %29, %30
+lean_dec_ref.exit154:                             ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Elab_Command(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val159 = load i32, ptr %32, align 4
-  %.mask.i187 = and i32 %.val159, -16777216
-  %33 = icmp eq i32 %.mask.i187, 16777216
+  %.val158 = load i32, ptr %32, align 4
+  %.mask.i186 = and i32 %.val158, -16777216
+  %33 = icmp eq i32 %.mask.i186, 16777216
   br i1 %33, label %729, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit155
+34:                                               ; preds = %lean_dec_ref.exit154
   %35 = load i32, ptr %31, align 4, !tbaa !8
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !11
@@ -34005,25 +34005,25 @@ lean_dec_ref.exit155:                             ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !8
-  br label %lean_dec_ref.exit153
+  br label %lean_dec_ref.exit152
 
 39:                                               ; preds = %34
-  %.not.i152 = icmp eq i32 %35, 0
-  br i1 %.not.i152, label %lean_dec_ref.exit153, label %40
+  %.not.i151 = icmp eq i32 %35, 0
+  br i1 %.not.i151, label %lean_dec_ref.exit152, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #5
-  br label %lean_dec_ref.exit153
+  br label %lean_dec_ref.exit152
 
-lean_dec_ref.exit153:                             ; preds = %37, %39, %40
+lean_dec_ref.exit152:                             ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Lean_Elab_SetOption(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val160 = load i32, ptr %42, align 4
-  %.mask.i188 = and i32 %.val160, -16777216
-  %43 = icmp eq i32 %.mask.i188, 16777216
+  %.val159 = load i32, ptr %42, align 4
+  %.mask.i187 = and i32 %.val159, -16777216
+  %43 = icmp eq i32 %.mask.i187, 16777216
   br i1 %43, label %729, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit153
+44:                                               ; preds = %lean_dec_ref.exit152
   %45 = load i32, ptr %41, align 4, !tbaa !8
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !11
@@ -34031,25 +34031,25 @@ lean_dec_ref.exit153:                             ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !8
-  br label %lean_dec_ref.exit151
+  br label %lean_dec_ref.exit150
 
 49:                                               ; preds = %44
-  %.not.i150 = icmp eq i32 %45, 0
-  br i1 %.not.i150, label %lean_dec_ref.exit151, label %50
+  %.not.i149 = icmp eq i32 %45, 0
+  br i1 %.not.i149, label %lean_dec_ref.exit150, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #5
-  br label %lean_dec_ref.exit151
+  br label %lean_dec_ref.exit150
 
-lean_dec_ref.exit151:                             ; preds = %47, %49, %50
+lean_dec_ref.exit150:                             ; preds = %47, %49, %50
   %51 = tail call ptr @initialize_Lean_Linter_Util(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %52 = getelementptr i8, ptr %51, i64 4
-  %.val161 = load i32, ptr %52, align 4
-  %.mask.i189 = and i32 %.val161, -16777216
-  %53 = icmp eq i32 %.mask.i189, 16777216
+  %.val160 = load i32, ptr %52, align 4
+  %.mask.i188 = and i32 %.val160, -16777216
+  %53 = icmp eq i32 %.mask.i188, 16777216
   br i1 %53, label %729, label %54
 
-54:                                               ; preds = %lean_dec_ref.exit151
+54:                                               ; preds = %lean_dec_ref.exit150
   %55 = load i32, ptr %51, align 4, !tbaa !8
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %57, label %59, !prof !11
@@ -34057,17 +34057,17 @@ lean_dec_ref.exit151:                             ; preds = %47, %49, %50
 57:                                               ; preds = %54
   %58 = add nsw i32 %55, -1
   store i32 %58, ptr %51, align 4, !tbaa !8
-  br label %lean_dec_ref.exit149
+  br label %lean_dec_ref.exit148
 
 59:                                               ; preds = %54
-  %.not.i148 = icmp eq i32 %55, 0
-  br i1 %.not.i148, label %lean_dec_ref.exit149, label %60
+  %.not.i147 = icmp eq i32 %55, 0
+  br i1 %.not.i147, label %lean_dec_ref.exit148, label %60
 
 60:                                               ; preds = %59
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %51) #5
-  br label %lean_dec_ref.exit149
+  br label %lean_dec_ref.exit148
 
-lean_dec_ref.exit149:                             ; preds = %57, %59, %60
+lean_dec_ref.exit148:                             ; preds = %57, %59, %60
   %61 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 6, i64 noundef 6) #5
   store ptr %61, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %61) #5
@@ -34102,24 +34102,24 @@ lean_dec_ref.exit149:                             ; preds = %57, %59, %60
   store ptr %75, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %75) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit147, label %76
+  br i1 %.not, label %lean_dec_ref.exit146, label %76
 
-76:                                               ; preds = %lean_dec_ref.exit149
+76:                                               ; preds = %lean_dec_ref.exit148
   %77 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__3, align 8, !tbaa !4
   %78 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__6, align 8, !tbaa !4
   %79 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__9, align 8, !tbaa !4
   %80 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %81 = getelementptr i8, ptr %80, i64 4
-  %.val162 = load i32, ptr %81, align 4
-  %.mask.i190 = and i32 %.val162, -16777216
-  %82 = icmp eq i32 %.mask.i190, 16777216
+  %.val161 = load i32, ptr %81, align 4
+  %.mask.i189 = and i32 %.val161, -16777216
+  %82 = icmp eq i32 %.mask.i189, 16777216
   br i1 %82, label %729, label %83
 
 83:                                               ; preds = %76
   %84 = getelementptr i8, ptr %80, i64 8
-  %.val183 = load ptr, ptr %84, align 8, !tbaa !4
-  store ptr %.val183, ptr @l_Lean_Linter_linter_missingDocs, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val183) #5
+  %.val182 = load ptr, ptr %84, align 8, !tbaa !4
+  store ptr %.val182, ptr @l_Lean_Linter_linter_missingDocs, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val182) #5
   %85 = load i32, ptr %80, align 8, !tbaa !8
   %86 = icmp sgt i32 %85, 1
   br i1 %86, label %87, label %89, !prof !11
@@ -34127,17 +34127,17 @@ lean_dec_ref.exit149:                             ; preds = %57, %59, %60
 87:                                               ; preds = %83
   %88 = add nsw i32 %85, -1
   store i32 %88, ptr %80, align 4, !tbaa !8
-  br label %lean_dec_ref.exit147
+  br label %lean_dec_ref.exit146
 
 89:                                               ; preds = %83
-  %.not.i146 = icmp eq i32 %85, 0
-  br i1 %.not.i146, label %lean_dec_ref.exit147, label %90
+  %.not.i145 = icmp eq i32 %85, 0
+  br i1 %.not.i145, label %lean_dec_ref.exit146, label %90
 
 90:                                               ; preds = %89
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %80) #5
-  br label %lean_dec_ref.exit147
+  br label %lean_dec_ref.exit146
 
-lean_dec_ref.exit147:                             ; preds = %90, %89, %87, %lean_dec_ref.exit149
+lean_dec_ref.exit146:                             ; preds = %90, %89, %87, %lean_dec_ref.exit148
   %91 = load ptr, ptr @l_Lean_Linter_linter_missingDocs, align 8, !tbaa !4
   store ptr %91, ptr @l_Lean_Linter_getLinterMissingDocs___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %91) #5
@@ -34165,21 +34165,21 @@ lean_dec_ref.exit147:                             ; preds = %90, %89, %87, %lean
   %99 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.13, i64 noundef 7, i64 noundef 7) #5
   store ptr %99, ptr @l_Lean_Linter_MissingDocs_mkHandlerUnsafe___closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %99) #5
-  br i1 %.not, label %lean_dec_ref.exit145, label %100
+  br i1 %.not, label %lean_dec_ref.exit144, label %100
 
-100:                                              ; preds = %lean_dec_ref.exit147
+100:                                              ; preds = %lean_dec_ref.exit146
   %101 = tail call ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_329_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %102 = getelementptr i8, ptr %101, i64 4
-  %.val163 = load i32, ptr %102, align 4
-  %.mask.i191 = and i32 %.val163, -16777216
-  %103 = icmp eq i32 %.mask.i191, 16777216
+  %.val162 = load i32, ptr %102, align 4
+  %.mask.i190 = and i32 %.val162, -16777216
+  %103 = icmp eq i32 %.mask.i190, 16777216
   br i1 %103, label %729, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr i8, ptr %101, i64 8
-  %.val184 = load ptr, ptr %105, align 8, !tbaa !4
-  store ptr %.val184, ptr @l_Lean_Linter_MissingDocs_builtinHandlersRef, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val184) #5
+  %.val183 = load ptr, ptr %105, align 8, !tbaa !4
+  store ptr %.val183, ptr @l_Lean_Linter_MissingDocs_builtinHandlersRef, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val183) #5
   %106 = load i32, ptr %101, align 8, !tbaa !8
   %107 = icmp sgt i32 %106, 1
   br i1 %107, label %108, label %110, !prof !11
@@ -34187,17 +34187,17 @@ lean_dec_ref.exit147:                             ; preds = %90, %89, %87, %lean
 108:                                              ; preds = %104
   %109 = add nsw i32 %106, -1
   store i32 %109, ptr %101, align 4, !tbaa !8
-  br label %lean_dec_ref.exit145
+  br label %lean_dec_ref.exit144
 
 110:                                              ; preds = %104
-  %.not.i144 = icmp eq i32 %106, 0
-  br i1 %.not.i144, label %lean_dec_ref.exit145, label %111
+  %.not.i143 = icmp eq i32 %106, 0
+  br i1 %.not.i143, label %lean_dec_ref.exit144, label %111
 
 111:                                              ; preds = %110
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %101) #5
-  br label %lean_dec_ref.exit145
+  br label %lean_dec_ref.exit144
 
-lean_dec_ref.exit145:                             ; preds = %111, %110, %108, %lean_dec_ref.exit147
+lean_dec_ref.exit144:                             ; preds = %111, %110, %108, %lean_dec_ref.exit146
   %112 = load ptr, ptr @l_Lean_Linter_MissingDocs_builtinHandlersRef, align 8, !tbaa !4
   store ptr %112, ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_370____lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %112) #5
@@ -34241,22 +34241,22 @@ lean_dec_ref.exit145:                             ; preds = %111, %110, %108, %l
   %128 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_370____closed__10()
   store ptr %128, ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_370____closed__10, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %128) #5
-  br i1 %.not, label %lean_dec_ref.exit143, label %129
+  br i1 %.not, label %lean_dec_ref.exit142, label %129
 
-129:                                              ; preds = %lean_dec_ref.exit145
+129:                                              ; preds = %lean_dec_ref.exit144
   %130 = load ptr, ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_370____closed__10, align 8, !tbaa !4
   %131 = tail call ptr @l_Lean_registerPersistentEnvExtensionUnsafe___rarg(ptr noundef %130, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %132 = getelementptr i8, ptr %131, i64 4
-  %.val164 = load i32, ptr %132, align 4
-  %.mask.i192 = and i32 %.val164, -16777216
-  %133 = icmp eq i32 %.mask.i192, 16777216
+  %.val163 = load i32, ptr %132, align 4
+  %.mask.i191 = and i32 %.val163, -16777216
+  %133 = icmp eq i32 %.mask.i191, 16777216
   br i1 %133, label %729, label %134
 
 134:                                              ; preds = %129
   %135 = getelementptr i8, ptr %131, i64 8
-  %.val185 = load ptr, ptr %135, align 8, !tbaa !4
-  store ptr %.val185, ptr @l_Lean_Linter_MissingDocs_missingDocsExt, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val185) #5
+  %.val184 = load ptr, ptr %135, align 8, !tbaa !4
+  store ptr %.val184, ptr @l_Lean_Linter_MissingDocs_missingDocsExt, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val184) #5
   %136 = load i32, ptr %131, align 8, !tbaa !8
   %137 = icmp sgt i32 %136, 1
   br i1 %137, label %138, label %140, !prof !11
@@ -34264,17 +34264,17 @@ lean_dec_ref.exit145:                             ; preds = %111, %110, %108, %l
 138:                                              ; preds = %134
   %139 = add nsw i32 %136, -1
   store i32 %139, ptr %131, align 4, !tbaa !8
-  br label %lean_dec_ref.exit143
+  br label %lean_dec_ref.exit142
 
 140:                                              ; preds = %134
-  %.not.i142 = icmp eq i32 %136, 0
-  br i1 %.not.i142, label %lean_dec_ref.exit143, label %141
+  %.not.i141 = icmp eq i32 %136, 0
+  br i1 %.not.i141, label %lean_dec_ref.exit142, label %141
 
 141:                                              ; preds = %140
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %131) #5
-  br label %lean_dec_ref.exit143
+  br label %lean_dec_ref.exit142
 
-lean_dec_ref.exit143:                             ; preds = %141, %140, %138, %lean_dec_ref.exit145
+lean_dec_ref.exit142:                             ; preds = %141, %140, %138, %lean_dec_ref.exit144
   %142 = load ptr, ptr @l_Lean_Linter_MissingDocs_missingDocsExt, align 8, !tbaa !4
   store ptr %142, ptr @l_Lean_Linter_MissingDocs_addHandler___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %142) #5
@@ -34300,15 +34300,15 @@ lean_dec_ref.exit143:                             ; preds = %141, %140, %138, %l
   %152 = load ptr, ptr @l_Lean_Linter_MissingDocs_missingDocs___closed__3, align 8, !tbaa !4
   store ptr %152, ptr @l_Lean_Linter_MissingDocs_missingDocs, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %152) #5
-  br i1 %.not, label %lean_dec_ref.exit141, label %153
+  br i1 %.not, label %lean_dec_ref.exit140, label %153
 
-153:                                              ; preds = %lean_dec_ref.exit143
+153:                                              ; preds = %lean_dec_ref.exit142
   %154 = load ptr, ptr @l_Lean_Linter_MissingDocs_missingDocs, align 8, !tbaa !4
   %155 = tail call ptr @l_Lean_Elab_Command_addLinter(ptr noundef %154, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %156 = getelementptr i8, ptr %155, i64 4
-  %.val165 = load i32, ptr %156, align 4
-  %.mask.i193 = and i32 %.val165, -16777216
-  %157 = icmp eq i32 %.mask.i193, 16777216
+  %.val164 = load i32, ptr %156, align 4
+  %.mask.i192 = and i32 %.val164, -16777216
+  %157 = icmp eq i32 %.mask.i192, 16777216
   br i1 %157, label %729, label %158
 
 158:                                              ; preds = %153
@@ -34319,17 +34319,17 @@ lean_dec_ref.exit143:                             ; preds = %141, %140, %138, %l
 161:                                              ; preds = %158
   %162 = add nsw i32 %159, -1
   store i32 %162, ptr %155, align 4, !tbaa !8
-  br label %lean_dec_ref.exit141
+  br label %lean_dec_ref.exit140
 
 163:                                              ; preds = %158
-  %.not.i140 = icmp eq i32 %159, 0
-  br i1 %.not.i140, label %lean_dec_ref.exit141, label %164
+  %.not.i139 = icmp eq i32 %159, 0
+  br i1 %.not.i139, label %lean_dec_ref.exit140, label %164
 
 164:                                              ; preds = %163
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %155) #5
-  br label %lean_dec_ref.exit141
+  br label %lean_dec_ref.exit140
 
-lean_dec_ref.exit141:                             ; preds = %164, %163, %161, %lean_dec_ref.exit143
+lean_dec_ref.exit140:                             ; preds = %164, %163, %161, %lean_dec_ref.exit142
   %165 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__7, align 8, !tbaa !4
   %166 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_MissingDocs___hyg_7____closed__8, align 8, !tbaa !4
   %167 = load ptr, ptr @l_Lean_Linter_MissingDocs_mkHandlerUnsafe___closed__6, align 8, !tbaa !4
@@ -34512,14 +34512,14 @@ lean_dec_ref.exit141:                             ; preds = %164, %163, %161, %l
   %256 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_802____closed__24()
   store ptr %256, ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_802____closed__24, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %256) #5
-  br i1 %.not, label %lean_dec_ref.exit139, label %257
+  br i1 %.not, label %lean_dec_ref.exit138, label %257
 
-257:                                              ; preds = %lean_dec_ref.exit141
+257:                                              ; preds = %lean_dec_ref.exit140
   %258 = tail call ptr @l_Lean_Linter_MissingDocs_initFn____x40_Lean_Linter_MissingDocs___hyg_802_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %259 = getelementptr i8, ptr %258, i64 4
-  %.val166 = load i32, ptr %259, align 4
-  %.mask.i194 = and i32 %.val166, -16777216
-  %260 = icmp eq i32 %.mask.i194, 16777216
+  %.val165 = load i32, ptr %259, align 4
+  %.mask.i193 = and i32 %.val165, -16777216
+  %260 = icmp eq i32 %.mask.i193, 16777216
   br i1 %260, label %729, label %261
 
 261:                                              ; preds = %257
@@ -34530,17 +34530,17 @@ lean_dec_ref.exit141:                             ; preds = %164, %163, %161, %l
 264:                                              ; preds = %261
   %265 = add nsw i32 %262, -1
   store i32 %265, ptr %258, align 4, !tbaa !8
-  br label %lean_dec_ref.exit139
+  br label %lean_dec_ref.exit138
 
 266:                                              ; preds = %261
-  %.not.i138 = icmp eq i32 %262, 0
-  br i1 %.not.i138, label %lean_dec_ref.exit139, label %267
+  %.not.i137 = icmp eq i32 %262, 0
+  br i1 %.not.i137, label %lean_dec_ref.exit138, label %267
 
 267:                                              ; preds = %266
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %258) #5
-  br label %lean_dec_ref.exit139
+  br label %lean_dec_ref.exit138
 
-lean_dec_ref.exit139:                             ; preds = %267, %266, %264, %lean_dec_ref.exit141
+lean_dec_ref.exit138:                             ; preds = %267, %266, %264, %lean_dec_ref.exit140
   %268 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.29, i64 noundef 51, i64 noundef 51) #5
   store ptr %268, ptr @l_Lean_Linter_logLint___at_Lean_Linter_MissingDocs_lint___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %268) #5
@@ -34763,16 +34763,16 @@ lean_dec_ref.exit139:                             ; preds = %267, %266, %264, %l
   %375 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkDecl___regBuiltin_Lean_Linter_MissingDocs_checkDecl__1___closed__4()
   store ptr %375, ptr @l_Lean_Linter_MissingDocs_checkDecl___regBuiltin_Lean_Linter_MissingDocs_checkDecl__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %375) #5
-  br i1 %.not, label %lean_dec_ref.exit137, label %376
+  br i1 %.not, label %lean_dec_ref.exit136, label %376
 
-376:                                              ; preds = %lean_dec_ref.exit139
+376:                                              ; preds = %lean_dec_ref.exit138
   %377 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkDecl___regBuiltin_Lean_Linter_MissingDocs_checkDecl__1___closed__2, align 8, !tbaa !4
   %378 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkDecl___regBuiltin_Lean_Linter_MissingDocs_checkDecl__1___closed__4, align 8, !tbaa !4
   %379 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %377, ptr noundef %378, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %380 = getelementptr i8, ptr %379, i64 4
-  %.val167 = load i32, ptr %380, align 4
-  %.mask.i195 = and i32 %.val167, -16777216
-  %381 = icmp eq i32 %.mask.i195, 16777216
+  %.val166 = load i32, ptr %380, align 4
+  %.mask.i194 = and i32 %.val166, -16777216
+  %381 = icmp eq i32 %.mask.i194, 16777216
   br i1 %381, label %729, label %382
 
 382:                                              ; preds = %376
@@ -34783,17 +34783,17 @@ lean_dec_ref.exit139:                             ; preds = %267, %266, %264, %l
 385:                                              ; preds = %382
   %386 = add nsw i32 %383, -1
   store i32 %386, ptr %379, align 4, !tbaa !8
-  br label %lean_dec_ref.exit137
+  br label %lean_dec_ref.exit136
 
 387:                                              ; preds = %382
-  %.not.i136 = icmp eq i32 %383, 0
-  br i1 %.not.i136, label %lean_dec_ref.exit137, label %388
+  %.not.i135 = icmp eq i32 %383, 0
+  br i1 %.not.i135, label %lean_dec_ref.exit136, label %388
 
 388:                                              ; preds = %387
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %379) #5
-  br label %lean_dec_ref.exit137
+  br label %lean_dec_ref.exit136
 
-lean_dec_ref.exit137:                             ; preds = %388, %387, %385, %lean_dec_ref.exit139
+lean_dec_ref.exit136:                             ; preds = %388, %387, %385, %lean_dec_ref.exit138
   %389 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.58, i64 noundef 11, i64 noundef 11) #5
   store ptr %389, ptr @l_Lean_Linter_MissingDocs_checkInit___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %389) #5
@@ -34813,16 +34813,16 @@ lean_dec_ref.exit137:                             ; preds = %388, %387, %385, %l
   %397 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkInit___regBuiltin_Lean_Linter_MissingDocs_checkInit__1___closed__4()
   store ptr %397, ptr @l_Lean_Linter_MissingDocs_checkInit___regBuiltin_Lean_Linter_MissingDocs_checkInit__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %397) #5
-  br i1 %.not, label %lean_dec_ref.exit135, label %398
+  br i1 %.not, label %lean_dec_ref.exit134, label %398
 
-398:                                              ; preds = %lean_dec_ref.exit137
+398:                                              ; preds = %lean_dec_ref.exit136
   %399 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkInit___regBuiltin_Lean_Linter_MissingDocs_checkInit__1___closed__2, align 8, !tbaa !4
   %400 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkInit___regBuiltin_Lean_Linter_MissingDocs_checkInit__1___closed__4, align 8, !tbaa !4
   %401 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %399, ptr noundef %400, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %402 = getelementptr i8, ptr %401, i64 4
-  %.val168 = load i32, ptr %402, align 4
-  %.mask.i196 = and i32 %.val168, -16777216
-  %403 = icmp eq i32 %.mask.i196, 16777216
+  %.val167 = load i32, ptr %402, align 4
+  %.mask.i195 = and i32 %.val167, -16777216
+  %403 = icmp eq i32 %.mask.i195, 16777216
   br i1 %403, label %729, label %404
 
 404:                                              ; preds = %398
@@ -34833,17 +34833,17 @@ lean_dec_ref.exit137:                             ; preds = %388, %387, %385, %l
 407:                                              ; preds = %404
   %408 = add nsw i32 %405, -1
   store i32 %408, ptr %401, align 4, !tbaa !8
-  br label %lean_dec_ref.exit135
+  br label %lean_dec_ref.exit134
 
 409:                                              ; preds = %404
-  %.not.i134 = icmp eq i32 %405, 0
-  br i1 %.not.i134, label %lean_dec_ref.exit135, label %410
+  %.not.i133 = icmp eq i32 %405, 0
+  br i1 %.not.i133, label %lean_dec_ref.exit134, label %410
 
 410:                                              ; preds = %409
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %401) #5
-  br label %lean_dec_ref.exit135
+  br label %lean_dec_ref.exit134
 
-lean_dec_ref.exit135:                             ; preds = %410, %409, %407, %lean_dec_ref.exit137
+lean_dec_ref.exit134:                             ; preds = %410, %409, %407, %lean_dec_ref.exit136
   %411 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.60, i64 noundef 4, i64 noundef 4) #5
   store ptr %411, ptr @l_Lean_Linter_MissingDocs_checkNotation___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %411) #5
@@ -34873,16 +34873,16 @@ lean_dec_ref.exit135:                             ; preds = %410, %409, %407, %l
   %425 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkNotation___regBuiltin_Lean_Linter_MissingDocs_checkNotation__1___closed__3()
   store ptr %425, ptr @l_Lean_Linter_MissingDocs_checkNotation___regBuiltin_Lean_Linter_MissingDocs_checkNotation__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %425) #5
-  br i1 %.not, label %lean_dec_ref.exit133, label %426
+  br i1 %.not, label %lean_dec_ref.exit132, label %426
 
-426:                                              ; preds = %lean_dec_ref.exit135
+426:                                              ; preds = %lean_dec_ref.exit134
   %427 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkNotation___regBuiltin_Lean_Linter_MissingDocs_checkNotation__1___closed__1, align 8, !tbaa !4
   %428 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkNotation___regBuiltin_Lean_Linter_MissingDocs_checkNotation__1___closed__3, align 8, !tbaa !4
   %429 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %427, ptr noundef %428, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %430 = getelementptr i8, ptr %429, i64 4
-  %.val169 = load i32, ptr %430, align 4
-  %.mask.i197 = and i32 %.val169, -16777216
-  %431 = icmp eq i32 %.mask.i197, 16777216
+  %.val168 = load i32, ptr %430, align 4
+  %.mask.i196 = and i32 %.val168, -16777216
+  %431 = icmp eq i32 %.mask.i196, 16777216
   br i1 %431, label %729, label %432
 
 432:                                              ; preds = %426
@@ -34893,17 +34893,17 @@ lean_dec_ref.exit135:                             ; preds = %410, %409, %407, %l
 435:                                              ; preds = %432
   %436 = add nsw i32 %433, -1
   store i32 %436, ptr %429, align 4, !tbaa !8
-  br label %lean_dec_ref.exit133
+  br label %lean_dec_ref.exit132
 
 437:                                              ; preds = %432
-  %.not.i132 = icmp eq i32 %433, 0
-  br i1 %.not.i132, label %lean_dec_ref.exit133, label %438
+  %.not.i131 = icmp eq i32 %433, 0
+  br i1 %.not.i131, label %lean_dec_ref.exit132, label %438
 
 438:                                              ; preds = %437
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %429) #5
-  br label %lean_dec_ref.exit133
+  br label %lean_dec_ref.exit132
 
-lean_dec_ref.exit133:                             ; preds = %438, %437, %435, %lean_dec_ref.exit135
+lean_dec_ref.exit132:                             ; preds = %438, %437, %435, %lean_dec_ref.exit134
   %439 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.63, i64 noundef 6, i64 noundef 6) #5
   store ptr %439, ptr @l_Lean_Linter_MissingDocs_checkMixfix___regBuiltin_Lean_Linter_MissingDocs_checkMixfix__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %439) #5
@@ -34920,16 +34920,16 @@ lean_dec_ref.exit133:                             ; preds = %438, %437, %435, %l
   %446 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkMixfix___regBuiltin_Lean_Linter_MissingDocs_checkMixfix__1___closed__4()
   store ptr %446, ptr @l_Lean_Linter_MissingDocs_checkMixfix___regBuiltin_Lean_Linter_MissingDocs_checkMixfix__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %446) #5
-  br i1 %.not, label %lean_dec_ref.exit131, label %447
+  br i1 %.not, label %lean_dec_ref.exit130, label %447
 
-447:                                              ; preds = %lean_dec_ref.exit133
+447:                                              ; preds = %lean_dec_ref.exit132
   %448 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkMixfix___regBuiltin_Lean_Linter_MissingDocs_checkMixfix__1___closed__2, align 8, !tbaa !4
   %449 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkMixfix___regBuiltin_Lean_Linter_MissingDocs_checkMixfix__1___closed__4, align 8, !tbaa !4
   %450 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %448, ptr noundef %449, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %451 = getelementptr i8, ptr %450, i64 4
-  %.val170 = load i32, ptr %451, align 4
-  %.mask.i198 = and i32 %.val170, -16777216
-  %452 = icmp eq i32 %.mask.i198, 16777216
+  %.val169 = load i32, ptr %451, align 4
+  %.mask.i197 = and i32 %.val169, -16777216
+  %452 = icmp eq i32 %.mask.i197, 16777216
   br i1 %452, label %729, label %453
 
 453:                                              ; preds = %447
@@ -34940,17 +34940,17 @@ lean_dec_ref.exit133:                             ; preds = %438, %437, %435, %l
 456:                                              ; preds = %453
   %457 = add nsw i32 %454, -1
   store i32 %457, ptr %450, align 4, !tbaa !8
-  br label %lean_dec_ref.exit131
+  br label %lean_dec_ref.exit130
 
 458:                                              ; preds = %453
-  %.not.i130 = icmp eq i32 %454, 0
-  br i1 %.not.i130, label %lean_dec_ref.exit131, label %459
+  %.not.i129 = icmp eq i32 %454, 0
+  br i1 %.not.i129, label %lean_dec_ref.exit130, label %459
 
 459:                                              ; preds = %458
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %450) #5
-  br label %lean_dec_ref.exit131
+  br label %lean_dec_ref.exit130
 
-lean_dec_ref.exit131:                             ; preds = %459, %458, %456, %lean_dec_ref.exit133
+lean_dec_ref.exit130:                             ; preds = %459, %458, %456, %lean_dec_ref.exit132
   %460 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.64, i64 noundef 6, i64 noundef 6) #5
   store ptr %460, ptr @l_Lean_Linter_MissingDocs_checkSyntax___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %460) #5
@@ -34967,16 +34967,16 @@ lean_dec_ref.exit131:                             ; preds = %459, %458, %456, %l
   %467 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkSyntax___regBuiltin_Lean_Linter_MissingDocs_checkSyntax__1___closed__3()
   store ptr %467, ptr @l_Lean_Linter_MissingDocs_checkSyntax___regBuiltin_Lean_Linter_MissingDocs_checkSyntax__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %467) #5
-  br i1 %.not, label %lean_dec_ref.exit129, label %468
+  br i1 %.not, label %lean_dec_ref.exit128, label %468
 
-468:                                              ; preds = %lean_dec_ref.exit131
+468:                                              ; preds = %lean_dec_ref.exit130
   %469 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntax___regBuiltin_Lean_Linter_MissingDocs_checkSyntax__1___closed__1, align 8, !tbaa !4
   %470 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntax___regBuiltin_Lean_Linter_MissingDocs_checkSyntax__1___closed__3, align 8, !tbaa !4
   %471 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %469, ptr noundef %470, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %472 = getelementptr i8, ptr %471, i64 4
-  %.val171 = load i32, ptr %472, align 4
-  %.mask.i199 = and i32 %.val171, -16777216
-  %473 = icmp eq i32 %.mask.i199, 16777216
+  %.val170 = load i32, ptr %472, align 4
+  %.mask.i198 = and i32 %.val170, -16777216
+  %473 = icmp eq i32 %.mask.i198, 16777216
   br i1 %473, label %729, label %474
 
 474:                                              ; preds = %468
@@ -34987,17 +34987,17 @@ lean_dec_ref.exit131:                             ; preds = %459, %458, %456, %l
 477:                                              ; preds = %474
   %478 = add nsw i32 %475, -1
   store i32 %478, ptr %471, align 4, !tbaa !8
-  br label %lean_dec_ref.exit129
+  br label %lean_dec_ref.exit128
 
 479:                                              ; preds = %474
-  %.not.i128 = icmp eq i32 %475, 0
-  br i1 %.not.i128, label %lean_dec_ref.exit129, label %480
+  %.not.i127 = icmp eq i32 %475, 0
+  br i1 %.not.i127, label %lean_dec_ref.exit128, label %480
 
 480:                                              ; preds = %479
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %471) #5
-  br label %lean_dec_ref.exit129
+  br label %lean_dec_ref.exit128
 
-lean_dec_ref.exit129:                             ; preds = %480, %479, %477, %lean_dec_ref.exit131
+lean_dec_ref.exit128:                             ; preds = %480, %479, %477, %lean_dec_ref.exit130
   %481 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.65, i64 noundef 12, i64 noundef 12) #5
   store ptr %481, ptr @l_Lean_Linter_MissingDocs_checkSyntaxAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxAbbrev__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %481) #5
@@ -35014,16 +35014,16 @@ lean_dec_ref.exit129:                             ; preds = %480, %479, %477, %l
   %488 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkSyntaxAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxAbbrev__1___closed__4()
   store ptr %488, ptr @l_Lean_Linter_MissingDocs_checkSyntaxAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxAbbrev__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %488) #5
-  br i1 %.not, label %lean_dec_ref.exit127, label %489
+  br i1 %.not, label %lean_dec_ref.exit126, label %489
 
-489:                                              ; preds = %lean_dec_ref.exit129
+489:                                              ; preds = %lean_dec_ref.exit128
   %490 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntaxAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxAbbrev__1___closed__2, align 8, !tbaa !4
   %491 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntaxAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxAbbrev__1___closed__4, align 8, !tbaa !4
   %492 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %490, ptr noundef %491, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %493 = getelementptr i8, ptr %492, i64 4
-  %.val172 = load i32, ptr %493, align 4
-  %.mask.i200 = and i32 %.val172, -16777216
-  %494 = icmp eq i32 %.mask.i200, 16777216
+  %.val171 = load i32, ptr %493, align 4
+  %.mask.i199 = and i32 %.val171, -16777216
+  %494 = icmp eq i32 %.mask.i199, 16777216
   br i1 %494, label %729, label %495
 
 495:                                              ; preds = %489
@@ -35034,17 +35034,17 @@ lean_dec_ref.exit129:                             ; preds = %480, %479, %477, %l
 498:                                              ; preds = %495
   %499 = add nsw i32 %496, -1
   store i32 %499, ptr %492, align 4, !tbaa !8
-  br label %lean_dec_ref.exit127
+  br label %lean_dec_ref.exit126
 
 500:                                              ; preds = %495
-  %.not.i126 = icmp eq i32 %496, 0
-  br i1 %.not.i126, label %lean_dec_ref.exit127, label %501
+  %.not.i125 = icmp eq i32 %496, 0
+  br i1 %.not.i125, label %lean_dec_ref.exit126, label %501
 
 501:                                              ; preds = %500
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %492) #5
-  br label %lean_dec_ref.exit127
+  br label %lean_dec_ref.exit126
 
-lean_dec_ref.exit127:                             ; preds = %501, %500, %498, %lean_dec_ref.exit129
+lean_dec_ref.exit126:                             ; preds = %501, %500, %498, %lean_dec_ref.exit128
   %502 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.66, i64 noundef 15, i64 noundef 15) #5
   store ptr %502, ptr @l_Lean_Linter_MissingDocs_checkSyntaxCat___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %502) #5
@@ -35064,16 +35064,16 @@ lean_dec_ref.exit127:                             ; preds = %501, %500, %498, %l
   %510 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkSyntaxCat___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxCat__1___closed__4()
   store ptr %510, ptr @l_Lean_Linter_MissingDocs_checkSyntaxCat___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxCat__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %510) #5
-  br i1 %.not, label %lean_dec_ref.exit125, label %511
+  br i1 %.not, label %lean_dec_ref.exit124, label %511
 
-511:                                              ; preds = %lean_dec_ref.exit127
+511:                                              ; preds = %lean_dec_ref.exit126
   %512 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntaxCat___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxCat__1___closed__2, align 8, !tbaa !4
   %513 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSyntaxCat___regBuiltin_Lean_Linter_MissingDocs_checkSyntaxCat__1___closed__4, align 8, !tbaa !4
   %514 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %512, ptr noundef %513, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %515 = getelementptr i8, ptr %514, i64 4
-  %.val173 = load i32, ptr %515, align 4
-  %.mask.i201 = and i32 %.val173, -16777216
-  %516 = icmp eq i32 %.mask.i201, 16777216
+  %.val172 = load i32, ptr %515, align 4
+  %.mask.i200 = and i32 %.val172, -16777216
+  %516 = icmp eq i32 %.mask.i200, 16777216
   br i1 %516, label %729, label %517
 
 517:                                              ; preds = %511
@@ -35084,17 +35084,17 @@ lean_dec_ref.exit127:                             ; preds = %501, %500, %498, %l
 520:                                              ; preds = %517
   %521 = add nsw i32 %518, -1
   store i32 %521, ptr %514, align 4, !tbaa !8
-  br label %lean_dec_ref.exit125
+  br label %lean_dec_ref.exit124
 
 522:                                              ; preds = %517
-  %.not.i124 = icmp eq i32 %518, 0
-  br i1 %.not.i124, label %lean_dec_ref.exit125, label %523
+  %.not.i123 = icmp eq i32 %518, 0
+  br i1 %.not.i123, label %lean_dec_ref.exit124, label %523
 
 523:                                              ; preds = %522
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %514) #5
-  br label %lean_dec_ref.exit125
+  br label %lean_dec_ref.exit124
 
-lean_dec_ref.exit125:                             ; preds = %523, %522, %520, %lean_dec_ref.exit127
+lean_dec_ref.exit124:                             ; preds = %523, %522, %520, %lean_dec_ref.exit126
   %524 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.68, i64 noundef 5, i64 noundef 5) #5
   store ptr %524, ptr @l_Lean_Linter_MissingDocs_checkMacro___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %524) #5
@@ -35111,16 +35111,16 @@ lean_dec_ref.exit125:                             ; preds = %523, %522, %520, %l
   %531 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkMacro___regBuiltin_Lean_Linter_MissingDocs_checkMacro__1___closed__3()
   store ptr %531, ptr @l_Lean_Linter_MissingDocs_checkMacro___regBuiltin_Lean_Linter_MissingDocs_checkMacro__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %531) #5
-  br i1 %.not, label %lean_dec_ref.exit123, label %532
+  br i1 %.not, label %lean_dec_ref.exit122, label %532
 
-532:                                              ; preds = %lean_dec_ref.exit125
+532:                                              ; preds = %lean_dec_ref.exit124
   %533 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkMacro___regBuiltin_Lean_Linter_MissingDocs_checkMacro__1___closed__1, align 8, !tbaa !4
   %534 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkMacro___regBuiltin_Lean_Linter_MissingDocs_checkMacro__1___closed__3, align 8, !tbaa !4
   %535 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %533, ptr noundef %534, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %536 = getelementptr i8, ptr %535, i64 4
-  %.val174 = load i32, ptr %536, align 4
-  %.mask.i202 = and i32 %.val174, -16777216
-  %537 = icmp eq i32 %.mask.i202, 16777216
+  %.val173 = load i32, ptr %536, align 4
+  %.mask.i201 = and i32 %.val173, -16777216
+  %537 = icmp eq i32 %.mask.i201, 16777216
   br i1 %537, label %729, label %538
 
 538:                                              ; preds = %532
@@ -35131,17 +35131,17 @@ lean_dec_ref.exit125:                             ; preds = %523, %522, %520, %l
 541:                                              ; preds = %538
   %542 = add nsw i32 %539, -1
   store i32 %542, ptr %535, align 4, !tbaa !8
-  br label %lean_dec_ref.exit123
+  br label %lean_dec_ref.exit122
 
 543:                                              ; preds = %538
-  %.not.i122 = icmp eq i32 %539, 0
-  br i1 %.not.i122, label %lean_dec_ref.exit123, label %544
+  %.not.i121 = icmp eq i32 %539, 0
+  br i1 %.not.i121, label %lean_dec_ref.exit122, label %544
 
 544:                                              ; preds = %543
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %535) #5
-  br label %lean_dec_ref.exit123
+  br label %lean_dec_ref.exit122
 
-lean_dec_ref.exit123:                             ; preds = %544, %543, %541, %lean_dec_ref.exit125
+lean_dec_ref.exit122:                             ; preds = %544, %543, %541, %lean_dec_ref.exit124
   %545 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.69, i64 noundef 4, i64 noundef 4) #5
   store ptr %545, ptr @l_Lean_Linter_MissingDocs_checkElab___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %545) #5
@@ -35158,16 +35158,16 @@ lean_dec_ref.exit123:                             ; preds = %544, %543, %541, %l
   %552 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkElab___regBuiltin_Lean_Linter_MissingDocs_checkElab__1___closed__3()
   store ptr %552, ptr @l_Lean_Linter_MissingDocs_checkElab___regBuiltin_Lean_Linter_MissingDocs_checkElab__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %552) #5
-  br i1 %.not, label %lean_dec_ref.exit121, label %553
+  br i1 %.not, label %lean_dec_ref.exit120, label %553
 
-553:                                              ; preds = %lean_dec_ref.exit123
+553:                                              ; preds = %lean_dec_ref.exit122
   %554 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkElab___regBuiltin_Lean_Linter_MissingDocs_checkElab__1___closed__1, align 8, !tbaa !4
   %555 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkElab___regBuiltin_Lean_Linter_MissingDocs_checkElab__1___closed__3, align 8, !tbaa !4
   %556 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %554, ptr noundef %555, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %557 = getelementptr i8, ptr %556, i64 4
-  %.val175 = load i32, ptr %557, align 4
-  %.mask.i203 = and i32 %.val175, -16777216
-  %558 = icmp eq i32 %.mask.i203, 16777216
+  %.val174 = load i32, ptr %557, align 4
+  %.mask.i202 = and i32 %.val174, -16777216
+  %558 = icmp eq i32 %.mask.i202, 16777216
   br i1 %558, label %729, label %559
 
 559:                                              ; preds = %553
@@ -35178,17 +35178,17 @@ lean_dec_ref.exit123:                             ; preds = %544, %543, %541, %l
 562:                                              ; preds = %559
   %563 = add nsw i32 %560, -1
   store i32 %563, ptr %556, align 4, !tbaa !8
-  br label %lean_dec_ref.exit121
+  br label %lean_dec_ref.exit120
 
 564:                                              ; preds = %559
-  %.not.i120 = icmp eq i32 %560, 0
-  br i1 %.not.i120, label %lean_dec_ref.exit121, label %565
+  %.not.i119 = icmp eq i32 %560, 0
+  br i1 %.not.i119, label %lean_dec_ref.exit120, label %565
 
 565:                                              ; preds = %564
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %556) #5
-  br label %lean_dec_ref.exit121
+  br label %lean_dec_ref.exit120
 
-lean_dec_ref.exit121:                             ; preds = %565, %564, %562, %lean_dec_ref.exit123
+lean_dec_ref.exit120:                             ; preds = %565, %564, %562, %lean_dec_ref.exit122
   %566 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.70, i64 noundef 12, i64 noundef 12) #5
   store ptr %566, ptr @l_Lean_Linter_MissingDocs_checkClassAbbrev___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %566) #5
@@ -35208,16 +35208,16 @@ lean_dec_ref.exit121:                             ; preds = %565, %564, %562, %l
   %574 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkClassAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkClassAbbrev__1___closed__4()
   store ptr %574, ptr @l_Lean_Linter_MissingDocs_checkClassAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkClassAbbrev__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %574) #5
-  br i1 %.not, label %lean_dec_ref.exit119, label %575
+  br i1 %.not, label %lean_dec_ref.exit118, label %575
 
-575:                                              ; preds = %lean_dec_ref.exit121
+575:                                              ; preds = %lean_dec_ref.exit120
   %576 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkClassAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkClassAbbrev__1___closed__2, align 8, !tbaa !4
   %577 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkClassAbbrev___regBuiltin_Lean_Linter_MissingDocs_checkClassAbbrev__1___closed__4, align 8, !tbaa !4
   %578 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %576, ptr noundef %577, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %579 = getelementptr i8, ptr %578, i64 4
-  %.val176 = load i32, ptr %579, align 4
-  %.mask.i204 = and i32 %.val176, -16777216
-  %580 = icmp eq i32 %.mask.i204, 16777216
+  %.val175 = load i32, ptr %579, align 4
+  %.mask.i203 = and i32 %.val175, -16777216
+  %580 = icmp eq i32 %.mask.i203, 16777216
   br i1 %580, label %729, label %581
 
 581:                                              ; preds = %575
@@ -35228,17 +35228,17 @@ lean_dec_ref.exit121:                             ; preds = %565, %564, %562, %l
 584:                                              ; preds = %581
   %585 = add nsw i32 %582, -1
   store i32 %585, ptr %578, align 4, !tbaa !8
-  br label %lean_dec_ref.exit119
+  br label %lean_dec_ref.exit118
 
 586:                                              ; preds = %581
-  %.not.i118 = icmp eq i32 %582, 0
-  br i1 %.not.i118, label %lean_dec_ref.exit119, label %587
+  %.not.i117 = icmp eq i32 %582, 0
+  br i1 %.not.i117, label %lean_dec_ref.exit118, label %587
 
 587:                                              ; preds = %586
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %578) #5
-  br label %lean_dec_ref.exit119
+  br label %lean_dec_ref.exit118
 
-lean_dec_ref.exit119:                             ; preds = %587, %586, %584, %lean_dec_ref.exit121
+lean_dec_ref.exit118:                             ; preds = %587, %586, %584, %lean_dec_ref.exit120
   %588 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.72, i64 noundef 16, i64 noundef 16) #5
   store ptr %588, ptr @l_Lean_Linter_MissingDocs_checkSimpLike___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %588) #5
@@ -35261,16 +35261,16 @@ lean_dec_ref.exit119:                             ; preds = %587, %586, %584, %l
   %597 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkSimpLike___regBuiltin_Lean_Linter_MissingDocs_checkSimpLike__1___closed__5()
   store ptr %597, ptr @l_Lean_Linter_MissingDocs_checkSimpLike___regBuiltin_Lean_Linter_MissingDocs_checkSimpLike__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %597) #5
-  br i1 %.not, label %lean_dec_ref.exit117, label %598
+  br i1 %.not, label %lean_dec_ref.exit116, label %598
 
-598:                                              ; preds = %lean_dec_ref.exit119
+598:                                              ; preds = %lean_dec_ref.exit118
   %599 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSimpLike___regBuiltin_Lean_Linter_MissingDocs_checkSimpLike__1___closed__3, align 8, !tbaa !4
   %600 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkSimpLike___regBuiltin_Lean_Linter_MissingDocs_checkSimpLike__1___closed__5, align 8, !tbaa !4
   %601 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %599, ptr noundef %600, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %602 = getelementptr i8, ptr %601, i64 4
-  %.val177 = load i32, ptr %602, align 4
-  %.mask.i205 = and i32 %.val177, -16777216
-  %603 = icmp eq i32 %.mask.i205, 16777216
+  %.val176 = load i32, ptr %602, align 4
+  %.mask.i204 = and i32 %.val176, -16777216
+  %603 = icmp eq i32 %.mask.i204, 16777216
   br i1 %603, label %729, label %604
 
 604:                                              ; preds = %598
@@ -35281,17 +35281,17 @@ lean_dec_ref.exit119:                             ; preds = %587, %586, %584, %l
 607:                                              ; preds = %604
   %608 = add nsw i32 %605, -1
   store i32 %608, ptr %601, align 4, !tbaa !8
-  br label %lean_dec_ref.exit117
+  br label %lean_dec_ref.exit116
 
 609:                                              ; preds = %604
-  %.not.i116 = icmp eq i32 %605, 0
-  br i1 %.not.i116, label %lean_dec_ref.exit117, label %610
+  %.not.i115 = icmp eq i32 %605, 0
+  br i1 %.not.i115, label %lean_dec_ref.exit116, label %610
 
 610:                                              ; preds = %609
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %601) #5
-  br label %lean_dec_ref.exit117
+  br label %lean_dec_ref.exit116
 
-lean_dec_ref.exit117:                             ; preds = %610, %609, %607, %lean_dec_ref.exit119
+lean_dec_ref.exit116:                             ; preds = %610, %609, %607, %lean_dec_ref.exit118
   %611 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.75, i64 noundef 6, i64 noundef 6) #5
   store ptr %611, ptr @l_Lean_Linter_MissingDocs_checkRegisterBuiltinOption___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %611) #5
@@ -35313,16 +35313,16 @@ lean_dec_ref.exit117:                             ; preds = %610, %609, %607, %l
   %619 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkRegisterBuiltinOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterBuiltinOption__1___closed__5()
   store ptr %619, ptr @l_Lean_Linter_MissingDocs_checkRegisterBuiltinOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterBuiltinOption__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %619) #5
-  br i1 %.not, label %lean_dec_ref.exit115, label %620
+  br i1 %.not, label %lean_dec_ref.exit114, label %620
 
-620:                                              ; preds = %lean_dec_ref.exit117
+620:                                              ; preds = %lean_dec_ref.exit116
   %621 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterBuiltinOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterBuiltinOption__1___closed__3, align 8, !tbaa !4
   %622 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterBuiltinOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterBuiltinOption__1___closed__5, align 8, !tbaa !4
   %623 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %621, ptr noundef %622, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %624 = getelementptr i8, ptr %623, i64 4
-  %.val178 = load i32, ptr %624, align 4
-  %.mask.i206 = and i32 %.val178, -16777216
-  %625 = icmp eq i32 %.mask.i206, 16777216
+  %.val177 = load i32, ptr %624, align 4
+  %.mask.i205 = and i32 %.val177, -16777216
+  %625 = icmp eq i32 %.mask.i205, 16777216
   br i1 %625, label %729, label %626
 
 626:                                              ; preds = %620
@@ -35333,17 +35333,17 @@ lean_dec_ref.exit117:                             ; preds = %610, %609, %607, %l
 629:                                              ; preds = %626
   %630 = add nsw i32 %627, -1
   store i32 %630, ptr %623, align 4, !tbaa !8
-  br label %lean_dec_ref.exit115
+  br label %lean_dec_ref.exit114
 
 631:                                              ; preds = %626
-  %.not.i114 = icmp eq i32 %627, 0
-  br i1 %.not.i114, label %lean_dec_ref.exit115, label %632
+  %.not.i113 = icmp eq i32 %627, 0
+  br i1 %.not.i113, label %lean_dec_ref.exit114, label %632
 
 632:                                              ; preds = %631
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %623) #5
-  br label %lean_dec_ref.exit115
+  br label %lean_dec_ref.exit114
 
-lean_dec_ref.exit115:                             ; preds = %632, %631, %629, %lean_dec_ref.exit117
+lean_dec_ref.exit114:                             ; preds = %632, %631, %629, %lean_dec_ref.exit116
   %633 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.78, i64 noundef 14, i64 noundef 14) #5
   store ptr %633, ptr @l_Lean_Linter_MissingDocs_checkRegisterOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterOption__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %633) #5
@@ -35359,16 +35359,16 @@ lean_dec_ref.exit115:                             ; preds = %632, %631, %629, %l
   %639 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkRegisterOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterOption__1___closed__4()
   store ptr %639, ptr @l_Lean_Linter_MissingDocs_checkRegisterOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterOption__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %639) #5
-  br i1 %.not, label %lean_dec_ref.exit113, label %640
+  br i1 %.not, label %lean_dec_ref.exit112, label %640
 
-640:                                              ; preds = %lean_dec_ref.exit115
+640:                                              ; preds = %lean_dec_ref.exit114
   %641 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterOption__1___closed__2, align 8, !tbaa !4
   %642 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterOption___regBuiltin_Lean_Linter_MissingDocs_checkRegisterOption__1___closed__4, align 8, !tbaa !4
   %643 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %641, ptr noundef %642, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %644 = getelementptr i8, ptr %643, i64 4
-  %.val179 = load i32, ptr %644, align 4
-  %.mask.i207 = and i32 %.val179, -16777216
-  %645 = icmp eq i32 %.mask.i207, 16777216
+  %.val178 = load i32, ptr %644, align 4
+  %.mask.i206 = and i32 %.val178, -16777216
+  %645 = icmp eq i32 %.mask.i206, 16777216
   br i1 %645, label %729, label %646
 
 646:                                              ; preds = %640
@@ -35379,17 +35379,17 @@ lean_dec_ref.exit115:                             ; preds = %632, %631, %629, %l
 649:                                              ; preds = %646
   %650 = add nsw i32 %647, -1
   store i32 %650, ptr %643, align 4, !tbaa !8
-  br label %lean_dec_ref.exit113
+  br label %lean_dec_ref.exit112
 
 651:                                              ; preds = %646
-  %.not.i112 = icmp eq i32 %647, 0
-  br i1 %.not.i112, label %lean_dec_ref.exit113, label %652
+  %.not.i111 = icmp eq i32 %647, 0
+  br i1 %.not.i111, label %lean_dec_ref.exit112, label %652
 
 652:                                              ; preds = %651
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %643) #5
-  br label %lean_dec_ref.exit113
+  br label %lean_dec_ref.exit112
 
-lean_dec_ref.exit113:                             ; preds = %652, %651, %649, %lean_dec_ref.exit115
+lean_dec_ref.exit112:                             ; preds = %652, %651, %649, %lean_dec_ref.exit114
   %653 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.79, i64 noundef 9, i64 noundef 9) #5
   store ptr %653, ptr @l_Lean_Linter_MissingDocs_checkRegisterSimpAttr___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %653) #5
@@ -35409,16 +35409,16 @@ lean_dec_ref.exit113:                             ; preds = %652, %651, %649, %l
   %661 = tail call fastcc ptr @_init_l_Lean_Linter_MissingDocs_checkRegisterSimpAttr___regBuiltin_Lean_Linter_MissingDocs_checkRegisterSimpAttr__1___closed__4()
   store ptr %661, ptr @l_Lean_Linter_MissingDocs_checkRegisterSimpAttr___regBuiltin_Lean_Linter_MissingDocs_checkRegisterSimpAttr__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %661) #5
-  br i1 %.not, label %lean_dec_ref.exit111, label %662
+  br i1 %.not, label %lean_dec_ref.exit110, label %662
 
-662:                                              ; preds = %lean_dec_ref.exit113
+662:                                              ; preds = %lean_dec_ref.exit112
   %663 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterSimpAttr___regBuiltin_Lean_Linter_MissingDocs_checkRegisterSimpAttr__1___closed__2, align 8, !tbaa !4
   %664 = load ptr, ptr @l_Lean_Linter_MissingDocs_checkRegisterSimpAttr___regBuiltin_Lean_Linter_MissingDocs_checkRegisterSimpAttr__1___closed__4, align 8, !tbaa !4
   %665 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %663, ptr noundef %664, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %666 = getelementptr i8, ptr %665, i64 4
-  %.val180 = load i32, ptr %666, align 4
-  %.mask.i208 = and i32 %.val180, -16777216
-  %667 = icmp eq i32 %.mask.i208, 16777216
+  %.val179 = load i32, ptr %666, align 4
+  %.mask.i207 = and i32 %.val179, -16777216
+  %667 = icmp eq i32 %.mask.i207, 16777216
   br i1 %667, label %729, label %668
 
 668:                                              ; preds = %662
@@ -35429,17 +35429,17 @@ lean_dec_ref.exit113:                             ; preds = %652, %651, %649, %l
 671:                                              ; preds = %668
   %672 = add nsw i32 %669, -1
   store i32 %672, ptr %665, align 4, !tbaa !8
-  br label %lean_dec_ref.exit111
+  br label %lean_dec_ref.exit110
 
 673:                                              ; preds = %668
-  %.not.i110 = icmp eq i32 %669, 0
-  br i1 %.not.i110, label %lean_dec_ref.exit111, label %674
+  %.not.i109 = icmp eq i32 %669, 0
+  br i1 %.not.i109, label %lean_dec_ref.exit110, label %674
 
 674:                                              ; preds = %673
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %665) #5
-  br label %lean_dec_ref.exit111
+  br label %lean_dec_ref.exit110
 
-lean_dec_ref.exit111:                             ; preds = %674, %673, %671, %lean_dec_ref.exit113
+lean_dec_ref.exit110:                             ; preds = %674, %673, %671, %lean_dec_ref.exit112
   %675 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.81, i64 noundef 10, i64 noundef 10) #5
   store ptr %675, ptr @l_Lean_Linter_MissingDocs_handleIn___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %675) #5
@@ -35465,14 +35465,14 @@ lean_dec_ref.exit111:                             ; preds = %674, %673, %671, %l
   tail call void @lean_mark_persistent(ptr noundef nonnull %687) #5
   br i1 %.not, label %.critedge, label %688
 
-688:                                              ; preds = %lean_dec_ref.exit111
+688:                                              ; preds = %lean_dec_ref.exit110
   %689 = load ptr, ptr @l_Lean_Linter_MissingDocs_handleIn___regBuiltin_Lean_Linter_MissingDocs_handleIn__1___closed__2, align 8, !tbaa !4
   %690 = load ptr, ptr @l_Lean_Linter_MissingDocs_handleIn___regBuiltin_Lean_Linter_MissingDocs_handleIn__1___closed__3, align 8, !tbaa !4
   %691 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %689, ptr noundef %690, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %692 = getelementptr i8, ptr %691, i64 4
-  %.val181 = load i32, ptr %692, align 4
-  %.mask.i209 = and i32 %.val181, -16777216
-  %693 = icmp eq i32 %.mask.i209, 16777216
+  %.val180 = load i32, ptr %692, align 4
+  %.mask.i208 = and i32 %.val180, -16777216
+  %693 = icmp eq i32 %.mask.i208, 16777216
   br i1 %693, label %729, label %694
 
 694:                                              ; preds = %688
@@ -35486,8 +35486,8 @@ lean_dec_ref.exit111:                             ; preds = %674, %673, %671, %l
   br label %701
 
 699:                                              ; preds = %694
-  %.not.i108 = icmp eq i32 %695, 0
-  br i1 %.not.i108, label %701, label %700
+  %.not.i107 = icmp eq i32 %695, 0
+  br i1 %.not.i107, label %701, label %700
 
 700:                                              ; preds = %699
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %691) #5
@@ -35511,9 +35511,9 @@ lean_dec_ref.exit111:                             ; preds = %674, %673, %671, %l
   %710 = load ptr, ptr @l_Lean_Linter_MissingDocs_handleMutual___regBuiltin_Lean_Linter_MissingDocs_handleMutual__1___closed__3, align 8, !tbaa !4
   %711 = tail call ptr @l_Lean_Linter_MissingDocs_addBuiltinHandler(ptr noundef %709, ptr noundef %710, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %712 = getelementptr i8, ptr %711, i64 4
-  %.val182 = load i32, ptr %712, align 4
-  %.mask.i210 = and i32 %.val182, -16777216
-  %713 = icmp eq i32 %.mask.i210, 16777216
+  %.val181 = load i32, ptr %712, align 4
+  %.mask.i209 = and i32 %.val181, -16777216
+  %713 = icmp eq i32 %.mask.i209, 16777216
   br i1 %713, label %729, label %714
 
 714:                                              ; preds = %701
@@ -35534,7 +35534,7 @@ lean_dec_ref.exit111:                             ; preds = %674, %673, %671, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %711) #5
   br label %lean_dec_ref.exit
 
-.critedge:                                        ; preds = %lean_dec_ref.exit111
+.critedge:                                        ; preds = %lean_dec_ref.exit110
   %721 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.83, i64 noundef 6, i64 noundef 6) #5
   store ptr %721, ptr @l_Lean_Linter_MissingDocs_handleMutual___regBuiltin_Lean_Linter_MissingDocs_handleMutual__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %721) #5
@@ -35554,8 +35554,8 @@ lean_dec_ref.exit:                                ; preds = %720, %719, %717, %.
   %728 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %729
 
-729:                                              ; preds = %701, %688, %662, %640, %620, %598, %575, %553, %532, %511, %489, %468, %447, %426, %398, %376, %257, %153, %129, %100, %76, %lean_dec_ref.exit151, %lean_dec_ref.exit153, %lean_dec_ref.exit155, %lean_dec_ref.exit157, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %728, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit157 ], [ %31, %lean_dec_ref.exit155 ], [ %41, %lean_dec_ref.exit153 ], [ %51, %lean_dec_ref.exit151 ], [ %80, %76 ], [ %101, %100 ], [ %131, %129 ], [ %155, %153 ], [ %258, %257 ], [ %379, %376 ], [ %401, %398 ], [ %429, %426 ], [ %450, %447 ], [ %471, %468 ], [ %492, %489 ], [ %514, %511 ], [ %535, %532 ], [ %556, %553 ], [ %578, %575 ], [ %601, %598 ], [ %623, %620 ], [ %643, %640 ], [ %665, %662 ], [ %691, %688 ], [ %711, %701 ]
+729:                                              ; preds = %701, %688, %662, %640, %620, %598, %575, %553, %532, %511, %489, %468, %447, %426, %398, %376, %257, %153, %129, %100, %76, %lean_dec_ref.exit150, %lean_dec_ref.exit152, %lean_dec_ref.exit154, %lean_dec_ref.exit156, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %728, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit156 ], [ %31, %lean_dec_ref.exit154 ], [ %41, %lean_dec_ref.exit152 ], [ %51, %lean_dec_ref.exit150 ], [ %80, %76 ], [ %101, %100 ], [ %131, %129 ], [ %155, %153 ], [ %258, %257 ], [ %379, %376 ], [ %401, %398 ], [ %429, %426 ], [ %450, %447 ], [ %471, %468 ], [ %492, %489 ], [ %514, %511 ], [ %535, %532 ], [ %556, %553 ], [ %578, %575 ], [ %601, %598 ], [ %623, %620 ], [ %643, %640 ], [ %665, %662 ], [ %691, %688 ], [ %711, %701 ]
   ret ptr %.0
 }
 

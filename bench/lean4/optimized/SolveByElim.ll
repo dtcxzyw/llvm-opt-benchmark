@@ -39136,8 +39136,8 @@ define ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Ela
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_SolveByElim(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b36 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b36, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -39176,25 +39176,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit52
+  br label %lean_dec_ref.exit51
 
 19:                                               ; preds = %14
-  %.not.i51 = icmp eq i32 %15, 0
-  br i1 %.not.i51, label %lean_dec_ref.exit52, label %20
+  %.not.i50 = icmp eq i32 %15, 0
+  br i1 %.not.i50, label %lean_dec_ref.exit51, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #4
-  br label %lean_dec_ref.exit52
+  br label %lean_dec_ref.exit51
 
-lean_dec_ref.exit52:                              ; preds = %17, %19, %20
+lean_dec_ref.exit51:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Elab_Tactic_Config(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val53 = load i32, ptr %22, align 4
-  %.mask.i61 = and i32 %.val53, -16777216
-  %23 = icmp eq i32 %.mask.i61, 16777216
+  %.val52 = load i32, ptr %22, align 4
+  %.mask.i60 = and i32 %.val52, -16777216
+  %23 = icmp eq i32 %.mask.i60, 16777216
   br i1 %23, label %515, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit52
+24:                                               ; preds = %lean_dec_ref.exit51
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -39202,17 +39202,17 @@ lean_dec_ref.exit52:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit50
+  br label %lean_dec_ref.exit49
 
 29:                                               ; preds = %24
-  %.not.i49 = icmp eq i32 %25, 0
-  br i1 %.not.i49, label %lean_dec_ref.exit50, label %30
+  %.not.i48 = icmp eq i32 %25, 0
+  br i1 %.not.i48, label %lean_dec_ref.exit49, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #4
-  br label %lean_dec_ref.exit50
+  br label %lean_dec_ref.exit49
 
-lean_dec_ref.exit50:                              ; preds = %27, %29, %30
+lean_dec_ref.exit49:                              ; preds = %27, %29, %30
   %31 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #4
   store ptr %31, ptr @l_Lean_Elab_Tactic_SolveByElim_evalUnsafe____x40_Lean_Elab_Tactic_SolveByElim___hyg_8____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %31) #4
@@ -39272,11 +39272,11 @@ lean_dec_ref.exit50:                              ; preds = %27, %29, %30
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %_init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1.exit
 
-57:                                               ; preds = %lean_dec_ref.exit50
+57:                                               ; preds = %lean_dec_ref.exit49
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1.exit: ; preds = %lean_dec_ref.exit50
+_init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1.exit: ; preds = %lean_dec_ref.exit49
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 1, ptr %55, align 4, !tbaa !8
   store i32 -184549352, ptr %58, align 4
@@ -39750,7 +39750,7 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
   store ptr %254, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %254) #4
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit48, label %261
+  br i1 %.not, label %lean_dec_ref.exit47, label %261
 
 261:                                              ; preds = %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5.exit
   %262 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__4, align 8, !tbaa !4
@@ -39759,9 +39759,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
   %265 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5, align 8, !tbaa !4
   %266 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %262, ptr noundef %263, ptr noundef %264, ptr noundef %265, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %267 = getelementptr i8, ptr %266, i64 4
-  %.val54 = load i32, ptr %267, align 4
-  %.mask.i62 = and i32 %.val54, -16777216
-  %268 = icmp eq i32 %.mask.i62, 16777216
+  %.val53 = load i32, ptr %267, align 4
+  %.mask.i61 = and i32 %.val53, -16777216
+  %268 = icmp eq i32 %.mask.i61, 16777216
   br i1 %268, label %515, label %269
 
 269:                                              ; preds = %261
@@ -39772,27 +39772,27 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
 272:                                              ; preds = %269
   %273 = add nsw i32 %270, -1
   store i32 %273, ptr %266, align 4, !tbaa !8
-  br label %lean_dec_ref.exit48
+  br label %lean_dec_ref.exit47
 
 274:                                              ; preds = %269
-  %.not.i47 = icmp eq i32 %270, 0
-  br i1 %.not.i47, label %lean_dec_ref.exit48, label %275
+  %.not.i46 = icmp eq i32 %270, 0
+  br i1 %.not.i46, label %lean_dec_ref.exit47, label %275
 
 275:                                              ; preds = %274
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %266) #4
-  br label %lean_dec_ref.exit48
+  br label %lean_dec_ref.exit47
 
-lean_dec_ref.exit48:                              ; preds = %275, %274, %272, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5.exit
+lean_dec_ref.exit47:                              ; preds = %275, %274, %272, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5.exit
   tail call void @lean_inc_heartbeat() #4
   %276 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__1.exit
 
-278:                                              ; preds = %lean_dec_ref.exit48
+278:                                              ; preds = %lean_dec_ref.exit47
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit48
+_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit47
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 4
   store i32 1, ptr %276, align 4, !tbaa !8
   store i32 131096, ptr %279, align 4
@@ -39930,16 +39930,16 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
   store ptr %321, ptr %327, align 8, !tbaa !4
   store ptr %322, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %322) #4
-  br i1 %.not, label %lean_dec_ref.exit46, label %328
+  br i1 %.not, label %lean_dec_ref.exit45, label %328
 
 328:                                              ; preds = %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__7.exit
   %329 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__3, align 8, !tbaa !4
   %330 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__7, align 8, !tbaa !4
   %331 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %329, ptr noundef %330, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %332 = getelementptr i8, ptr %331, i64 4
-  %.val55 = load i32, ptr %332, align 4
-  %.mask.i63 = and i32 %.val55, -16777216
-  %333 = icmp eq i32 %.mask.i63, 16777216
+  %.val54 = load i32, ptr %332, align 4
+  %.mask.i62 = and i32 %.val54, -16777216
+  %333 = icmp eq i32 %.mask.i62, 16777216
   br i1 %333, label %515, label %334
 
 334:                                              ; preds = %328
@@ -39950,17 +39950,17 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
 337:                                              ; preds = %334
   %338 = add nsw i32 %335, -1
   store i32 %338, ptr %331, align 4, !tbaa !8
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
 339:                                              ; preds = %334
-  %.not.i45 = icmp eq i32 %335, 0
-  br i1 %.not.i45, label %lean_dec_ref.exit46, label %340
+  %.not.i44 = icmp eq i32 %335, 0
+  br i1 %.not.i44, label %lean_dec_ref.exit45, label %340
 
 340:                                              ; preds = %339
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %331) #4
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
-lean_dec_ref.exit46:                              ; preds = %340, %339, %337, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__7.exit
+lean_dec_ref.exit45:                              ; preds = %340, %339, %337, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption_declRange__3___closed__7.exit
   %341 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.26, i64 noundef 10, i64 noundef 10) #4
   store ptr %341, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %341) #4
@@ -39987,11 +39987,11 @@ lean_dec_ref.exit46:                              ; preds = %340, %339, %337, %_
   %355 = icmp eq ptr %354, null
   br i1 %355, label %356, label %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3.exit
 
-356:                                              ; preds = %lean_dec_ref.exit46
+356:                                              ; preds = %lean_dec_ref.exit45
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3.exit: ; preds = %lean_dec_ref.exit46
+_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3.exit: ; preds = %lean_dec_ref.exit45
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 4
   store i32 1, ptr %354, align 4, !tbaa !8
   store i32 -184549352, ptr %357, align 4
@@ -40012,9 +40012,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
   %365 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3, align 8, !tbaa !4
   %366 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %362, ptr noundef %363, ptr noundef %364, ptr noundef %365, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %367 = getelementptr i8, ptr %366, i64 4
-  %.val56 = load i32, ptr %367, align 4
-  %.mask.i64 = and i32 %.val56, -16777216
-  %368 = icmp eq i32 %.mask.i64, 16777216
+  %.val55 = load i32, ptr %367, align 4
+  %.mask.i63 = and i32 %.val55, -16777216
+  %368 = icmp eq i32 %.mask.i63, 16777216
   br i1 %368, label %515, label %369
 
 369:                                              ; preds = %361
@@ -40028,8 +40028,8 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
   br label %376
 
 374:                                              ; preds = %369
-  %.not.i43 = icmp eq i32 %370, 0
-  br i1 %.not.i43, label %376, label %375
+  %.not.i42 = icmp eq i32 %370, 0
+  br i1 %.not.i42, label %376, label %375
 
 375:                                              ; preds = %374
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %366) #4
@@ -40043,9 +40043,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
   %379 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_docString__3___closed__1, align 8, !tbaa !4
   %380 = tail call ptr @l_Lean_addBuiltinDocString(ptr noundef %378, ptr noundef %379, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %381 = getelementptr i8, ptr %380, i64 4
-  %.val57 = load i32, ptr %381, align 4
-  %.mask.i65 = and i32 %.val57, -16777216
-  %382 = icmp eq i32 %.mask.i65, 16777216
+  %.val56 = load i32, ptr %381, align 4
+  %.mask.i64 = and i32 %.val56, -16777216
+  %382 = icmp eq i32 %.mask.i64, 16777216
   br i1 %382, label %515, label %383
 
 383:                                              ; preds = %376
@@ -40056,33 +40056,33 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
 386:                                              ; preds = %383
   %387 = add nsw i32 %384, -1
   store i32 %387, ptr %380, align 4, !tbaa !8
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
 388:                                              ; preds = %383
-  %.not.i41 = icmp eq i32 %384, 0
-  br i1 %.not.i41, label %lean_dec_ref.exit42, label %389
+  %.not.i40 = icmp eq i32 %384, 0
+  br i1 %.not.i40, label %lean_dec_ref.exit41, label %389
 
 389:                                              ; preds = %388
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %380) #4
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
 .critedge:                                        ; preds = %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3.exit
   %390 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.28, i64 noundef 103, i64 noundef 103) #4
   store ptr %390, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_docString__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %390) #4
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
-lean_dec_ref.exit42:                              ; preds = %389, %388, %386, %.critedge
+lean_dec_ref.exit41:                              ; preds = %389, %388, %386, %.critedge
   tail call void @lean_inc_heartbeat() #4
   %391 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %392 = icmp eq ptr %391, null
   br i1 %392, label %393, label %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__1.exit
 
-393:                                              ; preds = %lean_dec_ref.exit42
+393:                                              ; preds = %lean_dec_ref.exit41
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__1.exit: ; preds = %lean_dec_ref.exit42
+_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__1.exit: ; preds = %lean_dec_ref.exit41
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 4
   store i32 1, ptr %391, align 4, !tbaa !8
   store i32 131096, ptr %394, align 4
@@ -40220,16 +40220,16 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
   store ptr %436, ptr %442, align 8, !tbaa !4
   store ptr %437, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %437) #4
-  br i1 %.not, label %lean_dec_ref.exit40, label %443
+  br i1 %.not, label %lean_dec_ref.exit39, label %443
 
 443:                                              ; preds = %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__7.exit
   %444 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__2, align 8, !tbaa !4
   %445 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__7, align 8, !tbaa !4
   %446 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %444, ptr noundef %445, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %447 = getelementptr i8, ptr %446, i64 4
-  %.val58 = load i32, ptr %447, align 4
-  %.mask.i66 = and i32 %.val58, -16777216
-  %448 = icmp eq i32 %.mask.i66, 16777216
+  %.val57 = load i32, ptr %447, align 4
+  %.mask.i65 = and i32 %.val57, -16777216
+  %448 = icmp eq i32 %.mask.i65, 16777216
   br i1 %448, label %515, label %449
 
 449:                                              ; preds = %443
@@ -40240,17 +40240,17 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
 452:                                              ; preds = %449
   %453 = add nsw i32 %450, -1
   store i32 %453, ptr %446, align 4, !tbaa !8
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
 454:                                              ; preds = %449
-  %.not.i39 = icmp eq i32 %450, 0
-  br i1 %.not.i39, label %lean_dec_ref.exit40, label %455
+  %.not.i38 = icmp eq i32 %450, 0
+  br i1 %.not.i38, label %lean_dec_ref.exit39, label %455
 
 455:                                              ; preds = %454
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %446) #4
-  br label %lean_dec_ref.exit40
+  br label %lean_dec_ref.exit39
 
-lean_dec_ref.exit40:                              ; preds = %455, %454, %452, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__7.exit
+lean_dec_ref.exit39:                              ; preds = %455, %454, %452, %_init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules_declRange__5___closed__7.exit
   %456 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.29, i64 noundef 44, i64 noundef 44) #4
   store ptr %456, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %456) #4
@@ -40284,11 +40284,11 @@ lean_dec_ref.exit40:                              ; preds = %455, %454, %452, %_
   %473 = icmp eq ptr %472, null
   br i1 %473, label %474, label %_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit
 
-474:                                              ; preds = %lean_dec_ref.exit40
+474:                                              ; preds = %lean_dec_ref.exit39
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit: ; preds = %lean_dec_ref.exit40
+_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit: ; preds = %lean_dec_ref.exit39
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 4
   store i32 1, ptr %472, align 4, !tbaa !8
   store i32 -184549352, ptr %475, align 4
@@ -40300,7 +40300,7 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tact
   store i16 0, ptr %478, align 2, !tbaa !17
   store ptr %472, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %472) #4
-  br i1 %.not, label %lean_dec_ref.exit38, label %479
+  br i1 %.not, label %lean_dec_ref.exit37, label %479
 
 479:                                              ; preds = %_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit
   %480 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__4, align 8, !tbaa !4
@@ -40309,9 +40309,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tact
   %483 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3, align 8, !tbaa !4
   %484 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %480, ptr noundef %481, ptr noundef %482, ptr noundef %483, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %485 = getelementptr i8, ptr %484, i64 4
-  %.val59 = load i32, ptr %485, align 4
-  %.mask.i67 = and i32 %.val59, -16777216
-  %486 = icmp eq i32 %.mask.i67, 16777216
+  %.val58 = load i32, ptr %485, align 4
+  %.mask.i66 = and i32 %.val58, -16777216
+  %486 = icmp eq i32 %.mask.i66, 16777216
   br i1 %486, label %515, label %487
 
 487:                                              ; preds = %479
@@ -40322,17 +40322,17 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tact
 490:                                              ; preds = %487
   %491 = add nsw i32 %488, -1
   store i32 %491, ptr %484, align 4, !tbaa !8
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
 492:                                              ; preds = %487
-  %.not.i37 = icmp eq i32 %488, 0
-  br i1 %.not.i37, label %lean_dec_ref.exit38, label %493
+  %.not.i36 = icmp eq i32 %488, 0
+  br i1 %.not.i36, label %lean_dec_ref.exit37, label %493
 
 493:                                              ; preds = %492
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %484) #4
-  br label %lean_dec_ref.exit38
+  br label %lean_dec_ref.exit37
 
-lean_dec_ref.exit38:                              ; preds = %493, %492, %490, %_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit
+lean_dec_ref.exit37:                              ; preds = %493, %492, %490, %_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3.exit
   %494 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim_declRange__3___closed__1()
   store ptr %494, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %494) #4
@@ -40356,14 +40356,14 @@ lean_dec_ref.exit38:                              ; preds = %493, %492, %490, %_
   tail call void @lean_mark_persistent(ptr noundef nonnull %500) #4
   br i1 %.not, label %lean_dec_ref.exit, label %501
 
-501:                                              ; preds = %lean_dec_ref.exit38
+501:                                              ; preds = %lean_dec_ref.exit37
   %502 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__2, align 8, !tbaa !4
   %503 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim_declRange__3___closed__7, align 8, !tbaa !4
   %504 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %502, ptr noundef %503, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %505 = getelementptr i8, ptr %504, i64 4
-  %.val60 = load i32, ptr %505, align 4
-  %.mask.i68 = and i32 %.val60, -16777216
-  %506 = icmp eq i32 %.mask.i68, 16777216
+  %.val59 = load i32, ptr %505, align 4
+  %.mask.i67 = and i32 %.val59, -16777216
+  %506 = icmp eq i32 %.mask.i67, 16777216
   br i1 %506, label %515, label %507
 
 507:                                              ; preds = %501
@@ -40384,12 +40384,12 @@ lean_dec_ref.exit38:                              ; preds = %493, %492, %490, %_
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %504) #4
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %513, %512, %510, %lean_dec_ref.exit38
+lean_dec_ref.exit:                                ; preds = %513, %512, %510, %lean_dec_ref.exit37
   %514 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %515
 
-515:                                              ; preds = %501, %479, %443, %376, %361, %328, %261, %lean_dec_ref.exit52, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %514, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit52 ], [ %266, %261 ], [ %331, %328 ], [ %366, %361 ], [ %380, %376 ], [ %446, %443 ], [ %484, %479 ], [ %504, %501 ]
+515:                                              ; preds = %501, %479, %443, %376, %361, %328, %261, %lean_dec_ref.exit51, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %514, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit51 ], [ %266, %261 ], [ %331, %328 ], [ %366, %361 ], [ %380, %376 ], [ %446, %443 ], [ %484, %479 ], [ %504, %501 ]
   ret ptr %.0
 }
 

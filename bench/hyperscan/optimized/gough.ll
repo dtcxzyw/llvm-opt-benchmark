@@ -1619,12 +1619,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr 
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
-  %.in10 = load i16, ptr %.in.in, align 2
-  %.not11 = icmp eq i16 %.in10, 0
-  br i1 %.not11, label %9, label %8
+  %.in = load i16, ptr %.in.in, align 2
+  %.not10 = icmp eq i16 %.in, 0
+  br i1 %.not10, label %9, label %8
 
 8:                                                ; preds = %4
-  store i16 %.in10, ptr %2, align 1
+  store i16 %.in, ptr %2, align 1
   br label %9
 
 9:                                                ; preds = %4, %8
@@ -3460,7 +3460,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %32 = icmp eq i8 %31, 0
   %33 = icmp ult i64 %4, 16
   %or.cond.i = or i1 %33, %32
-  br i1 %or.cond.i, label %.loopexit, label %.loopexit100
+  br i1 %or.cond.i, label %.loopexit, label %.loopexit98
 
 .loopexit.loopexit:                               ; preds = %347, %359, %362
   %34 = getelementptr inbounds nuw i8, ptr %.1158.i, i64 4
@@ -3473,18 +3473,18 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %10
-  %.540 = phi i32 [ 0, %10 ], [ %.136300, %.loopexit.loopexit ]
-  %.530 = phi i16 [ 0, %10 ], [ %.126301, %.loopexit.loopexit ]
-  %.5 = phi i32 [ 0, %10 ], [ %.1302, %.loopexit.loopexit ]
+  %.540 = phi i32 [ 0, %10 ], [ %.136298, %.loopexit.loopexit ]
+  %.530 = phi i16 [ 0, %10 ], [ %.126299, %.loopexit.loopexit ]
+  %.5 = phi i32 [ 0, %10 ], [ %.1300, %.loopexit.loopexit ]
   %.0157.i = phi ptr [ %13, %10 ], [ %.5162.i, %.loopexit.loopexit ]
   %.0152.i = phi ptr [ %3, %10 ], [ %358, %.loopexit.loopexit ]
   %.0144.i = phi i16 [ %24, %10 ], [ %36, %.loopexit.loopexit ]
   %37 = icmp ult ptr %.0152.i, %.0157.i
   %38 = icmp ne i16 %.0144.i, 0
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph137, label %.loopexit100
+  br i1 %39, label %.lr.ph135, label %.loopexit98
 
-.lr.ph137:                                        ; preds = %.loopexit
+.lr.ph135:                                        ; preds = %.loopexit
   %invariant.op = add i64 %5, 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %41 = ptrtoint ptr %3 to i64
@@ -3495,15 +3495,15 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %45
 
-45:                                               ; preds = %.lr.ph137, %doReports.exit196.i
-  %.2146.i136 = phi i16 [ %.0144.i, %.lr.ph137 ], [ %.pre-phi, %doReports.exit196.i ]
-  %.2154.i135 = phi ptr [ %.0152.i, %.lr.ph137 ], [ %47, %doReports.exit196.i ]
-  %.6134 = phi i32 [ %.5, %.lr.ph137 ], [ %.8, %doReports.exit196.i ]
-  %.631133 = phi i16 [ %.530, %.lr.ph137 ], [ %.833, %doReports.exit196.i ]
-  %.641132 = phi i32 [ %.540, %.lr.ph137 ], [ %.843, %doReports.exit196.i ]
-  %46 = zext nneg i16 %.2146.i136 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %.2154.i135, i64 1
-  %48 = load i8, ptr %.2154.i135, align 1
+45:                                               ; preds = %.lr.ph135, %doReports.exit196.i
+  %.2146.i134 = phi i16 [ %.0144.i, %.lr.ph135 ], [ %.pre-phi, %doReports.exit196.i ]
+  %.2154.i133 = phi ptr [ %.0152.i, %.lr.ph135 ], [ %47, %doReports.exit196.i ]
+  %.6132 = phi i32 [ %.5, %.lr.ph135 ], [ %.8, %doReports.exit196.i ]
+  %.631131 = phi i16 [ %.530, %.lr.ph135 ], [ %.833, %doReports.exit196.i ]
+  %.641130 = phi i32 [ %.540, %.lr.ph135 ], [ %.843, %doReports.exit196.i ]
+  %46 = zext nneg i16 %.2146.i134 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %.2154.i133, i64 1
+  %48 = load i8, ptr %.2154.i133, align 1
   %49 = zext i8 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 %49
   %51 = load i8, ptr %50, align 1
@@ -3582,7 +3582,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   br label %63
 
 run_prog.exit198.i:                               ; preds = %63, %45
-  %94 = icmp ult i16 %.2146.i136, %16
+  %94 = icmp ult i16 %.2146.i134, %16
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %run_prog.exit198.i
@@ -3590,8 +3590,8 @@ run_prog.exit198.i:                               ; preds = %63, %45
   br label %doSherman16.exit
 
 97:                                               ; preds = %run_prog.exit198.i
-  %narrow92 = sub nuw nsw i16 %.2146.i136, %16
-  %98 = zext nneg i16 %narrow92 to i64
+  %narrow91 = sub nuw nsw i16 %.2146.i134, %16
+  %98 = zext nneg i16 %narrow91 to i64
   %99 = shl nuw nsw i64 %98, 5
   %100 = getelementptr inbounds nuw i8, ptr %20, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
@@ -3650,7 +3650,7 @@ doSherman16.exit:                                 ; preds = %.thread47, %116, %9
   br i1 %or.cond187.i, label %doSherman16.exit.doReports.exit196.i_crit_edge, label %131
 
 doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
-  %.pre179 = and i16 %.3147.i, 16383
+  %.pre177 = and i16 %.3147.i, 16383
   br label %doReports.exit196.i
 
 131:                                              ; preds = %doSherman16.exit
@@ -3659,29 +3659,29 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 132:                                              ; preds = %131
   %133 = and i16 %.3147.i, 16383
   store i16 %133, ptr %2, align 2
-  store ptr %.2154.i135, ptr %8, align 8
+  store ptr %.2154.i133, ptr %8, align 8
   br label %goughExec16_i.exit
 
 134:                                              ; preds = %131
-  %135 = ptrtoint ptr %.2154.i135 to i64
+  %135 = ptrtoint ptr %.2154.i133 to i64
   %136 = add i64 %.reass, %135
   %137 = and i16 %.3147.i, 16383
-  %138 = icmp eq i16 %137, %.631133
+  %138 = icmp eq i16 %137, %.631131
   br i1 %138, label %139, label %149
 
 139:                                              ; preds = %134
-  %140 = icmp eq i32 %.6134, -1
+  %140 = icmp eq i32 %.6132, -1
   br i1 %140, label %145, label %141
 
 141:                                              ; preds = %139
-  %142 = zext i32 %.6134 to i64
+  %142 = zext i32 %.6132 to i64
   %143 = getelementptr inbounds nuw i64, ptr %1, i64 %142
   %144 = load i64, ptr %143, align 8
   br label %145
 
 145:                                              ; preds = %141, %139
   %146 = phi i64 [ %144, %141 ], [ %136, %139 ]
-  %147 = tail call i32 %6(i64 noundef %146, i64 noundef %136, i32 noundef %.641132, ptr noundef %7) #14
+  %147 = tail call i32 %6(i64 noundef %146, i64 noundef %136, i32 noundef %.641130, ptr noundef %7) #14
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %goughExec16_i.exit, label %doReports.exit196.i
 
@@ -3753,45 +3753,45 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
   br i1 %.not63.i193.i, label %goughExec16_i.exit, label %175
 
 doReports.exit196.i:                              ; preds = %175, %149, %doSherman16.exit.doReports.exit196.i_crit_edge, %145, %171
-  %.pre-phi = phi i16 [ %.pre179, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %137, %145 ], [ %137, %171 ], [ %137, %149 ], [ %137, %175 ]
-  %.843 = phi i32 [ %.641132, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.641132, %145 ], [ %163, %171 ], [ %.641132, %149 ], [ %.641132, %175 ]
-  %.833 = phi i16 [ %.631133, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.631133, %145 ], [ %137, %171 ], [ %.631133, %149 ], [ %.631133, %175 ]
-  %.8 = phi i32 [ %.6134, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.6134, %145 ], [ %165, %171 ], [ %.6134, %149 ], [ %.6134, %175 ]
+  %.pre-phi = phi i16 [ %.pre177, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %137, %145 ], [ %137, %171 ], [ %137, %149 ], [ %137, %175 ]
+  %.843 = phi i32 [ %.641130, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.641130, %145 ], [ %163, %171 ], [ %.641130, %149 ], [ %.641130, %175 ]
+  %.833 = phi i16 [ %.631131, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.631131, %145 ], [ %137, %171 ], [ %.631131, %149 ], [ %.631131, %175 ]
+  %.8 = phi i32 [ %.6132, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.6132, %145 ], [ %165, %171 ], [ %.6132, %149 ], [ %.6132, %175 ]
   %189 = icmp ult ptr %47, %.0157.i
   %190 = icmp ne i16 %.pre-phi, 0
   %191 = select i1 %189, i1 %190, i1 false
-  br i1 %191, label %45, label %.loopexit100
+  br i1 %191, label %45, label %.loopexit98
 
-.loopexit100:                                     ; preds = %doReports.exit196.i, %.loopexit, %10
+.loopexit98:                                      ; preds = %doReports.exit196.i, %.loopexit, %10
   %.035 = phi i32 [ 0, %10 ], [ %.540, %.loopexit ], [ %.843, %doReports.exit196.i ]
   %.025 = phi i16 [ 0, %10 ], [ %.530, %.loopexit ], [ %.833, %doReports.exit196.i ]
   %.0 = phi i32 [ 0, %10 ], [ %.5, %.loopexit ], [ %.8, %doReports.exit196.i ]
   %.1158.i = phi ptr [ %3, %10 ], [ %.0157.i, %.loopexit ], [ %.0157.i, %doReports.exit196.i ]
   %.1153.i = phi ptr [ %3, %10 ], [ %.0152.i, %.loopexit ], [ %47, %doReports.exit196.i ]
   %.1145.i = phi i16 [ %24, %10 ], [ %.0144.i, %.loopexit ], [ %.pre-phi, %doReports.exit196.i ]
-  %invariant.op145 = add i64 %5, 1
+  %invariant.op143 = add i64 %5, 1
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %193 = ptrtoint ptr %3 to i64
   %194 = sub i64 %5, %193
   %.not.i = icmp eq i32 %9, 2
   %195 = icmp eq i32 %9, 1
-  %.reass146 = sub i64 %invariant.op145, %193
+  %.reass144 = sub i64 %invariant.op143, %193
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %197 = getelementptr inbounds i8, ptr %13, i64 -16
   %198 = icmp ult ptr %.1153.i, %13
   %199 = icmp ne i16 %.1145.i, 0
   %200 = select i1 %198, i1 %199, i1 false
-  br i1 %200, label %.lr.ph305, label %._crit_edge
+  br i1 %200, label %.lr.ph303, label %._crit_edge
 
-.lr.ph305:                                        ; preds = %.loopexit100, %doReports.exit.i
-  %.5149.i304 = phi i16 [ %.7151.i, %doReports.exit.i ], [ %.1145.i, %.loopexit100 ]
-  %.3155.i303 = phi ptr [ %202, %doReports.exit.i ], [ %.1153.i, %.loopexit100 ]
-  %.1302 = phi i32 [ %.4, %doReports.exit.i ], [ %.0, %.loopexit100 ]
-  %.126301 = phi i16 [ %.429, %doReports.exit.i ], [ %.025, %.loopexit100 ]
-  %.136300 = phi i32 [ %.439, %doReports.exit.i ], [ %.035, %.loopexit100 ]
-  %201 = zext nneg i16 %.5149.i304 to i32
-  %202 = getelementptr inbounds nuw i8, ptr %.3155.i303, i64 1
-  %203 = load i8, ptr %.3155.i303, align 1
+.lr.ph303:                                        ; preds = %.loopexit98, %doReports.exit.i
+  %.5149.i302 = phi i16 [ %.7151.i, %doReports.exit.i ], [ %.1145.i, %.loopexit98 ]
+  %.3155.i301 = phi ptr [ %202, %doReports.exit.i ], [ %.1153.i, %.loopexit98 ]
+  %.1300 = phi i32 [ %.4, %doReports.exit.i ], [ %.0, %.loopexit98 ]
+  %.126299 = phi i16 [ %.429, %doReports.exit.i ], [ %.025, %.loopexit98 ]
+  %.136298 = phi i32 [ %.439, %doReports.exit.i ], [ %.035, %.loopexit98 ]
+  %201 = zext nneg i16 %.5149.i302 to i32
+  %202 = getelementptr inbounds nuw i8, ptr %.3155.i301, i64 1
+  %203 = load i8, ptr %.3155.i301, align 1
   %204 = zext i8 %203 to i64
   %205 = getelementptr inbounds nuw i8, ptr %192, i64 %204
   %206 = load i8, ptr %205, align 1
@@ -3804,7 +3804,7 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
   %.not.i.i = icmp eq i32 %212, 0
   br i1 %.not.i.i, label %run_prog.exit.i, label %213
 
-213:                                              ; preds = %.lr.ph305
+213:                                              ; preds = %.lr.ph303
   %214 = zext i32 %212 to i64
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 %214
   %216 = ptrtoint ptr %202 to i64
@@ -3869,8 +3869,8 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
   %248 = getelementptr inbounds nuw i8, ptr %.030.i202.i, i64 12
   br label %218
 
-run_prog.exit.i:                                  ; preds = %218, %.lr.ph305
-  %249 = icmp ult i16 %.5149.i304, %16
+run_prog.exit.i:                                  ; preds = %218, %.lr.ph303
+  %249 = icmp ult i16 %.5149.i302, %16
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %run_prog.exit.i
@@ -3878,7 +3878,7 @@ run_prog.exit.i:                                  ; preds = %218, %.lr.ph305
   br label %doSherman16.exit16
 
 252:                                              ; preds = %run_prog.exit.i
-  %narrow = sub nuw nsw i16 %.5149.i304, %16
+  %narrow = sub nuw nsw i16 %.5149.i302, %16
   %253 = zext nneg i16 %narrow to i64
   %254 = shl nuw nsw i64 %253, 5
   %255 = getelementptr inbounds nuw i8, ptr %20, i64 %254
@@ -3888,8 +3888,8 @@ run_prog.exit.i:                                  ; preds = %218, %.lr.ph305
   br i1 %.not.i12, label %..thread67_crit_edge, label %258
 
 ..thread67_crit_edge:                             ; preds = %252
-  %.phi.trans.insert177 = getelementptr inbounds nuw i8, ptr %255, i64 2
-  %.pre178 = load i16, ptr %.phi.trans.insert177, align 2
+  %.phi.trans.insert175 = getelementptr inbounds nuw i8, ptr %255, i64 2
+  %.pre176 = load i16, ptr %.phi.trans.insert175, align 2
   br label %.thread67
 
 258:                                              ; preds = %252
@@ -3906,8 +3906,8 @@ run_prog.exit.i:                                  ; preds = %218, %.lr.ph305
   %268 = add nuw i32 %267, 65535
   %269 = and i32 %268, %265
   %.not24.i13 = icmp eq i32 %269, 0
-  %bc209 = bitcast <16 x i8> %259 to <8 x i16>
-  %270 = extractelement <8 x i16> %bc209, i64 1
+  %bc207 = bitcast <16 x i8> %259 to <8 x i16>
+  %270 = extractelement <8 x i16> %bc207, i64 1
   br i1 %.not24.i13, label %.thread67, label %271
 
 271:                                              ; preds = %258
@@ -3922,7 +3922,7 @@ run_prog.exit.i:                                  ; preds = %218, %.lr.ph305
   br label %doSherman16.exit16
 
 .thread67:                                        ; preds = %..thread67_crit_edge, %258
-  %280 = phi i16 [ %.pre178, %..thread67_crit_edge ], [ %270, %258 ]
+  %280 = phi i16 [ %.pre176, %..thread67_crit_edge ], [ %270, %258 ]
   %281 = zext i16 %280 to i32
   %282 = shl i32 %281, %23
   %283 = add i32 %282, %208
@@ -3943,29 +3943,29 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
 287:                                              ; preds = %286
   %288 = and i16 %.6150.i, 16383
   store i16 %288, ptr %2, align 2
-  store ptr %.3155.i303, ptr %8, align 8
+  store ptr %.3155.i301, ptr %8, align 8
   br label %goughExec16_i.exit
 
 289:                                              ; preds = %286
-  %290 = ptrtoint ptr %.3155.i303 to i64
-  %291 = add i64 %.reass146, %290
+  %290 = ptrtoint ptr %.3155.i301 to i64
+  %291 = add i64 %.reass144, %290
   %292 = and i16 %.6150.i, 16383
-  %293 = icmp eq i16 %292, %.126301
+  %293 = icmp eq i16 %292, %.126299
   br i1 %293, label %294, label %304
 
 294:                                              ; preds = %289
-  %295 = icmp eq i32 %.1302, -1
+  %295 = icmp eq i32 %.1300, -1
   br i1 %295, label %300, label %296
 
 296:                                              ; preds = %294
-  %297 = zext i32 %.1302 to i64
+  %297 = zext i32 %.1300 to i64
   %298 = getelementptr inbounds nuw i64, ptr %1, i64 %297
   %299 = load i64, ptr %298, align 8
   br label %300
 
 300:                                              ; preds = %296, %294
   %301 = phi i64 [ %299, %296 ], [ %291, %294 ]
-  %302 = tail call i32 %6(i64 noundef %301, i64 noundef %291, i32 noundef %.136300, ptr noundef %7) #14
+  %302 = tail call i32 %6(i64 noundef %301, i64 noundef %291, i32 noundef %.136298, ptr noundef %7) #14
   %303 = icmp eq i32 %302, 0
   br i1 %303, label %goughExec16_i.exit, label %doReports.exit.i
 
@@ -3980,14 +3980,14 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 %311
   %313 = getelementptr inbounds i8, ptr %312, i64 -64
   %314 = load i32, ptr %313, align 4
-  switch i32 %314, label %.lr.ph144 [
+  switch i32 %314, label %.lr.ph142 [
     i32 1, label %316
     i32 0, label %doReports.exit.i
   ]
 
-.lr.ph144:                                        ; preds = %304
+.lr.ph142:                                        ; preds = %304
   %315 = getelementptr inbounds i8, ptr %312, i64 -60
-  %wide.trip.count175 = zext i32 %314 to i64
+  %wide.trip.count173 = zext i32 %314 to i64
   br label %331
 
 316:                                              ; preds = %304
@@ -4011,13 +4011,13 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   br i1 %329, label %goughExec16_i.exit, label %doReports.exit.i
 
 330:                                              ; preds = %340
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %doReports.exit.i, label %331
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %doReports.exit.i, label %331
 
-331:                                              ; preds = %.lr.ph144, %330
-  %indvars.iv172 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next173, %330 ]
-  %332 = getelementptr inbounds nuw %struct.gough_report, ptr %315, i64 %indvars.iv172
+331:                                              ; preds = %.lr.ph142, %330
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next171, %330 ]
+  %332 = getelementptr inbounds nuw %struct.gough_report, ptr %315, i64 %indvars.iv170
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = icmp eq i32 %334, -1
@@ -4043,7 +4043,7 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   br i1 %.not179.i, label %.doReports.exit.i_crit_edge, label %347
 
 .doReports.exit.i_crit_edge:                      ; preds = %344
-  %.pre180 = and i16 %.6150.i, 16383
+  %.pre178 = and i16 %.6150.i, 16383
   br label %doReports.exit.i
 
 347:                                              ; preds = %344
@@ -4074,17 +4074,17 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %330, %304, %326, %300, %.doReports.exit.i_crit_edge
-  %.439 = phi i32 [ %.136300, %.doReports.exit.i_crit_edge ], [ %.136300, %300 ], [ %318, %326 ], [ %.136300, %304 ], [ %.136300, %330 ]
-  %.429 = phi i16 [ %.126301, %.doReports.exit.i_crit_edge ], [ %.126301, %300 ], [ %292, %326 ], [ %.126301, %304 ], [ %.126301, %330 ]
-  %.4 = phi i32 [ %.1302, %.doReports.exit.i_crit_edge ], [ %.1302, %300 ], [ %320, %326 ], [ %.1302, %304 ], [ %.1302, %330 ]
-  %.7151.i = phi i16 [ %.pre180, %.doReports.exit.i_crit_edge ], [ %292, %300 ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
+  %.439 = phi i32 [ %.136298, %.doReports.exit.i_crit_edge ], [ %.136298, %300 ], [ %318, %326 ], [ %.136298, %304 ], [ %.136298, %330 ]
+  %.429 = phi i16 [ %.126299, %.doReports.exit.i_crit_edge ], [ %.126299, %300 ], [ %292, %326 ], [ %.126299, %304 ], [ %.126299, %330 ]
+  %.4 = phi i32 [ %.1300, %.doReports.exit.i_crit_edge ], [ %.1300, %300 ], [ %320, %326 ], [ %.1300, %304 ], [ %.1300, %330 ]
+  %.7151.i = phi i16 [ %.pre178, %.doReports.exit.i_crit_edge ], [ %292, %300 ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
   %364 = icmp ult ptr %202, %13
   %365 = icmp ne i16 %.7151.i, 0
   %366 = select i1 %364, i1 %365, i1 false
-  br i1 %366, label %.lr.ph305, label %._crit_edge
+  br i1 %366, label %.lr.ph303, label %._crit_edge
 
-._crit_edge:                                      ; preds = %doReports.exit.i, %.loopexit100
-  %.5149.i.lcssa = phi i16 [ %.1145.i, %.loopexit100 ], [ %.7151.i, %doReports.exit.i ]
+._crit_edge:                                      ; preds = %doReports.exit.i, %.loopexit98
+  %.5149.i.lcssa = phi i16 [ %.1145.i, %.loopexit98 ], [ %.7151.i, %doReports.exit.i ]
   br i1 %195, label %367, label %368
 
 367:                                              ; preds = %._crit_edge

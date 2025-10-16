@@ -4440,7 +4440,7 @@ _ZN8uu_touch20filetime_to_datetime17h7e940413663220b1E.exit: ; preds = %460
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sroa.6.0.copyload299 = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1141
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %465 = icmp eq i32 %.sroa.0213.0.copyload, 0
@@ -4503,7 +4503,7 @@ _ZN8uu_touch20filetime_to_datetime17h7e940413663220b1E.exit: ; preds = %460
   %.sroa.8.4..sroa_idx14 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store ptr %.sroa.5.0.copyload, ptr %.sroa.8.4..sroa_idx14, align 4
   %.sroa.1016.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  store i32 %.sroa.6.0.copyload299, ptr %.sroa.1016.4..sroa_idx17, align 4
+  store i32 %.sroa.6.0.copyload, ptr %.sroa.1016.4..sroa_idx17, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1158
   %485 = sdiv i64 %.sroa.593.0.copyload, 86400
@@ -4552,7 +4552,7 @@ _ZN8uu_touch20filetime_to_datetime17h7e940413663220b1E.exit204: ; preds = %496
   %.sroa.5215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.5215.0.copyload = load ptr, ptr %.sroa.5215.0..sroa_idx, align 4
   %.sroa.6216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.sroa.6216.0.copyload300 = load i32, ptr %.sroa.6216.0..sroa_idx, align 4
+  %.sroa.6216.0.copyload = load i32, ptr %.sroa.6216.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1158
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %501 = icmp eq i32 %.sroa.0214.0.copyload, 0
@@ -4610,7 +4610,7 @@ _ZN8uu_touch20filetime_to_datetime17h7e940413663220b1E.exit204: ; preds = %496
   %.sroa.828.4..sroa_idx29 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store ptr %.sroa.5215.0.copyload, ptr %.sroa.828.4..sroa_idx29, align 4
   %.sroa.1031.4..sroa_idx32 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  store i32 %.sroa.6216.0.copyload300, ptr %.sroa.1031.4..sroa_idx32, align 4
+  store i32 %.sroa.6216.0.copyload, ptr %.sroa.1031.4..sroa_idx32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %518 = getelementptr inbounds nuw i8, ptr %.sroa.7221.0.ph, i64 8
   %519 = load ptr, ptr %518, align 8, !nonnull !5, !noundef !5

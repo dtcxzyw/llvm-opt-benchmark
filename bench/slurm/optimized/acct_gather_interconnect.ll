@@ -242,13 +242,13 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   unreachable
 
 4:                                                ; preds = %0
-  %.b41 = load i1, ptr @init_run, align 1
-  br i1 %.b41, label %9, label %5
+  %.b = load i1, ptr @init_run, align 1
+  br i1 %.b, label %9, label %5
 
 5:                                                ; preds = %4
   %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not42 = icmp eq i32 %6, 0
-  br i1 %.not42, label %63, label %7
+  %.not41 = icmp eq i32 %6, 0
+  br i1 %.not41, label %63, label %7
 
 7:                                                ; preds = %5
   %8 = tail call ptr @__errno_location() #8
@@ -259,13 +259,13 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 9:                                                ; preds = %4
   store i1 false, ptr @init_run, align 1
   %10 = load i64, ptr @watch_node_thread_id, align 8
-  %.not43 = icmp eq i64 %10, 0
-  br i1 %.not43, label %38, label %11
+  %.not42 = icmp eq i64 %10, 0
+  br i1 %.not42, label %38, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not44 = icmp eq i32 %12, 0
-  br i1 %.not44, label %15, label %13
+  %.not43 = icmp eq i32 %12, 0
+  br i1 %.not43, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = tail call ptr @__errno_location() #8
@@ -275,8 +275,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 15:                                               ; preds = %11
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
-  %.not45 = icmp eq i32 %16, 0
-  br i1 %.not45, label %19, label %17
+  %.not44 = icmp eq i32 %16, 0
+  br i1 %.not44, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @__errno_location() #8
@@ -286,8 +286,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 19:                                               ; preds = %15
   %20 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 328)) #7
-  %.not46 = icmp eq i32 %20, 0
-  br i1 %.not46, label %24, label %21
+  %.not45 = icmp eq i32 %20, 0
+  br i1 %.not45, label %24, label %21
 
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #8
@@ -297,8 +297,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 24:                                               ; preds = %21, %19
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
-  %.not47 = icmp eq i32 %25, 0
-  br i1 %.not47, label %28, label %26
+  %.not46 = icmp eq i32 %25, 0
+  br i1 %.not46, label %28, label %26
 
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #8
@@ -308,14 +308,14 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 28:                                               ; preds = %24
   %29 = load i64, ptr @watch_node_thread_id, align 8
-  %.not48 = icmp eq i64 %29, 0
-  br i1 %.not48, label %.thread, label %30
+  %.not47 = icmp eq i64 %29, 0
+  br i1 %.not47, label %.thread, label %30
 
 30:                                               ; preds = %28
   %31 = tail call i32 @pthread_join(i64 noundef %29, ptr noundef null) #7
   store i64 0, ptr @watch_node_thread_id, align 8
-  %.not49 = icmp eq i32 %31, 0
-  br i1 %.not49, label %.thread, label %32
+  %.not48 = icmp eq i32 %31, 0
+  br i1 %.not48, label %.thread, label %32
 
 32:                                               ; preds = %30
   %33 = tail call ptr @__errno_location() #8
@@ -326,8 +326,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 .thread:                                          ; preds = %28, %32, %30
   store i64 0, ptr @watch_node_thread_id, align 8
   %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #7
-  %.not50 = icmp eq i32 %35, 0
-  br i1 %.not50, label %38, label %36
+  %.not49 = icmp eq i32 %35, 0
+  br i1 %.not49, label %38, label %36
 
 36:                                               ; preds = %.thread
   %37 = tail call ptr @__errno_location() #8
@@ -342,17 +342,17 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 .lr.ph:                                           ; preds = %38, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %38 ]
-  %.02757 = phi i32 [ %.1, %56 ], [ 0, %38 ]
+  %.02756 = phi i32 [ %.1, %56 ], [ 0, %38 ]
   %41 = load ptr, ptr @g_context, align 8
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
-  %.not52 = icmp eq ptr %43, null
-  br i1 %.not52, label %56, label %44
+  %.not51 = icmp eq ptr %43, null
+  br i1 %.not51, label %56, label %44
 
 44:                                               ; preds = %.lr.ph
   %45 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %43) #7
-  %.not53 = icmp eq i32 %45, 0
-  br i1 %.not53, label %56, label %46
+  %.not52 = icmp eq i32 %45, 0
+  br i1 %.not52, label %56, label %46
 
 46:                                               ; preds = %44
   %47 = tail call i32 @get_log_level() #7
@@ -370,7 +370,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   br label %56
 
 56:                                               ; preds = %46, %49, %44, %.lr.ph
-  %.1 = phi i32 [ %.02757, %44 ], [ %.02757, %.lr.ph ], [ -1, %49 ], [ -1, %46 ]
+  %.1 = phi i32 [ %.02756, %44 ], [ %.02756, %.lr.ph ], [ -1, %49 ], [ -1, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr @g_context_num, align 4
   %58 = sext i32 %57 to i64
@@ -383,8 +383,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #7
   store i32 -1, ptr @g_context_num, align 4
   %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not51 = icmp eq i32 %60, 0
-  br i1 %.not51, label %63, label %61
+  %.not50 = icmp eq i32 %60, 0
+  br i1 %.not50, label %63, label %61
 
 61:                                               ; preds = %._crit_edge
   %62 = tail call ptr @__errno_location() #8
@@ -520,18 +520,18 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %4, label %.preheader70
+  br i1 %3, label %4, label %.preheader69
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__._watch_node, ptr noundef nonnull @.str.27) #7
-  br label %.preheader70
+  br label %.preheader69
 
-.preheader70:                                     ; preds = %4, %1
+.preheader69:                                     ; preds = %4, %1
   br label %6
 
-6:                                                ; preds = %.preheader70, %41
-  %.b19 = load i1, ptr @init_run, align 1
-  br i1 %.b19, label %7, label %.critedge
+6:                                                ; preds = %.preheader69, %41
+  %.b = load i1, ptr @init_run, align 1
+  br i1 %.b, label %7, label %.critedge
 
 7:                                                ; preds = %6
   %8 = tail call zeroext i1 @acct_gather_profile_test() #7
@@ -548,7 +548,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre45 = load ptr, ptr @g_context, align 8
+  %.pre44 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 13:                                               ; preds = %9
@@ -559,12 +559,12 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %15 = phi i32 [ %11, %.lr.ph.preheader ], [ %25, %24 ]
-  %16 = phi ptr [ %.pre45, %.lr.ph.preheader ], [ %26, %24 ]
+  %16 = phi ptr [ %.pre44, %.lr.ph.preheader ], [ %26, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %.not24 = icmp eq ptr %18, null
-  br i1 %.not24, label %24, label %19
+  %.not23 = icmp eq ptr %18, null
+  br i1 %.not23, label %24, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr @ops, align 8
@@ -572,11 +572,11 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22() #7
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre46 = load i32, ptr @g_context_num, align 4
+  %.pre45 = load i32, ptr @g_context_num, align 4
   br label %24
 
 24:                                               ; preds = %.lr.ph, %19
-  %25 = phi i32 [ %15, %.lr.ph ], [ %.pre46, %19 ]
+  %25 = phi i32 [ %15, %.lr.ph ], [ %.pre45, %19 ]
   %26 = phi ptr [ %16, %.lr.ph ], [ %.pre, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %25 to i64
@@ -585,8 +585,8 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not20 = icmp eq i32 %29, 0
-  br i1 %.not20, label %32, label %30
+  %.not19 = icmp eq i32 %29, 0
+  br i1 %.not19, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
   %31 = tail call ptr @__errno_location() #8
@@ -596,8 +596,8 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 
 32:                                               ; preds = %._crit_edge
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
-  %.not21 = icmp eq i32 %33, 0
-  br i1 %.not21, label %36, label %34
+  %.not20 = icmp eq i32 %33, 0
+  br i1 %.not20, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #8
@@ -607,8 +607,8 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 
 36:                                               ; preds = %32
   %37 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 328), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
-  %.not22 = icmp eq i32 %37, 0
-  br i1 %.not22, label %41, label %38
+  %.not21 = icmp eq i32 %37, 0
+  br i1 %.not21, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = tail call ptr @__errno_location() #8
@@ -618,8 +618,8 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 
 41:                                               ; preds = %38, %36
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
-  %.not23 = icmp eq i32 %42, 0
-  br i1 %.not23, label %6, label %43, !llvm.loop !13
+  %.not22 = icmp eq i32 %42, 0
+  br i1 %.not22, label %6, label %43, !llvm.loop !13
 
 43:                                               ; preds = %41
   %44 = tail call ptr @__errno_location() #8

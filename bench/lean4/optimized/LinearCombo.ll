@@ -5780,8 +5780,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_Omega_LinearCombo(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -5823,9 +5823,9 @@ define ptr @initialize_Init_Omega_LinearCombo(i8 noundef zeroext %0, ptr noundef
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Init_Data_ToString_Macro(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %200, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -5836,17 +5836,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !9
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   store ptr inttoptr (i64 1 to ptr), ptr @l_repr___at___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____spec__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 2, i64 noundef 2) #3
@@ -5858,11 +5858,11 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %_init_l_List_repr_x27___at___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____spec__1___closed__2.exit
 
-32:                                               ; preds = %lean_dec_ref.exit10
+32:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_List_repr_x27___at___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____spec__1___closed__2.exit: ; preds = %lean_dec_ref.exit10
+_init_l_List_repr_x27___at___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____spec__1___closed__2.exit: ; preds = %lean_dec_ref.exit9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 1, ptr %30, align 4, !tbaa !9
   store i32 50397200, ptr %33, align 4
@@ -6091,8 +6091,8 @@ _init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_In
   tail call void @lean_mark_persistent(ptr noundef %111) #3
   %112 = load ptr, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__11, align 8, !tbaa !4
   %113 = getelementptr i8, ptr %112, i64 24
-  %.val.i13 = load i64, ptr %113, align 8, !tbaa !14
-  %114 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %113, align 8, !tbaa !14
+  %114 = shl i64 %.val.i12, 1
   %115 = or disjoint i64 %114, 1
   %116 = inttoptr i64 %115 to ptr
   store ptr %116, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__12, align 8, !tbaa !4
@@ -6100,10 +6100,10 @@ _init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_In
   %117 = load ptr, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__12, align 8, !tbaa !4
   %118 = ptrtoint ptr %117 to i64
   %119 = and i64 %118, 1
-  %.not.i.i14 = icmp eq i64 %119, 0
+  %.not.i.i13 = icmp eq i64 %119, 0
   %120 = icmp ult ptr %117, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %120, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13.exit, label %121
+  %or.cond.i.i14 = or i1 %120, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13.exit, label %121
 
 121:                                              ; preds = %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__9.exit
   %122 = lshr i64 %118, 1
@@ -6111,9 +6111,9 @@ _init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_In
   br label %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13.exit
 
 _init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13.exit: ; preds = %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__9.exit, %121
-  %.1.i.i16 = phi ptr [ %123, %121 ], [ %117, %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__9.exit ]
-  store ptr %.1.i.i16, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #3
+  %.1.i.i15 = phi ptr [ %123, %121 ], [ %117, %_init_l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__9.exit ]
+  store ptr %.1.i.i15, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__13, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #3
   %124 = load ptr, ptr @l___private_Init_Omega_LinearCombo_0__Lean_Omega_reprLinearCombo____x40_Init_Omega_LinearCombo___hyg_174____closed__11, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #3
   %125 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
@@ -6337,18 +6337,18 @@ _init_l_Lean_Omega_LinearCombo_instNeg___closed__1.exit: ; preds = %_init_l_Lean
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Omega_LinearCombo_instNeg___closed__1.exit, %3
-  %.sink45 = phi ptr [ %4, %3 ], [ %194, %_init_l_Lean_Omega_LinearCombo_instNeg___closed__1.exit ]
-  %197 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
-  store i32 1, ptr %.sink45, align 4, !tbaa !9
+  %.sink44 = phi ptr [ %4, %3 ], [ %194, %_init_l_Lean_Omega_LinearCombo_instNeg___closed__1.exit ]
+  %197 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !9
   store i32 131096, ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %198, align 8, !tbaa !4
-  %199 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %199, align 8, !tbaa !4
   br label %200
 
 200:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink45, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

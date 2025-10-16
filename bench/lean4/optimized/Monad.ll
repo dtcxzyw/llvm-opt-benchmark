@@ -266225,8 +266225,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Build_Job_Monad(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -266348,8 +266348,8 @@ _init_l_Lake_instMonadStateOfJobStateJobM___closed__3.exit: ; preds = %_init_l_L
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 1
-  %.not.i5 = icmp eq i64 %50, 0
-  br i1 %.not.i5, label %51, label %lean_inc.exit7.i
+  %.not.i4 = icmp eq i64 %50, 0
+  br i1 %.not.i4, label %51, label %lean_inc.exit7.i
 
 51:                                               ; preds = %_init_l_Lake_instMonadStateOfJobStateJobM___closed__3.exit
   %.val.i.i = load i32, ptr %48, align 4, !tbaa !8
@@ -266396,7 +266396,7 @@ lean_inc.exit7.i:                                 ; preds = %56, %55, %53, %_ini
   br label %lean_inc.exit.i
 
 lean_inc.exit.i:                                  ; preds = %66, %65, %63, %lean_inc.exit7.i
-  br i1 %.not.i5, label %67, label %_init_l_Lake_instMonadStateOfJobStateJobM___closed__4.exit
+  br i1 %.not.i4, label %67, label %_init_l_Lake_instMonadStateOfJobStateJobM___closed__4.exit
 
 67:                                               ; preds = %lean_inc.exit.i
   %68 = load i32, ptr %48, align 4, !tbaa !8
@@ -266690,28 +266690,28 @@ _init_l_Lake_instAlternativeJobM___closed__7.exit: ; preds = %_init_l_Lake_instA
   %179 = load ptr, ptr %178, align 8, !tbaa !4
   %180 = ptrtoint ptr %179 to i64
   %181 = and i64 %180, 1
-  %.not.i9 = icmp eq i64 %181, 0
-  br i1 %.not.i9, label %182, label %lean_inc.exit.i10
+  %.not.i8 = icmp eq i64 %181, 0
+  br i1 %.not.i8, label %182, label %lean_inc.exit.i9
 
 182:                                              ; preds = %_init_l_Lake_instAlternativeJobM___closed__7.exit
-  %.val.i.i11 = load i32, ptr %179, align 4, !tbaa !8
-  %183 = icmp sgt i32 %.val.i.i11, 0
+  %.val.i.i10 = load i32, ptr %179, align 4, !tbaa !8
+  %183 = icmp sgt i32 %.val.i.i10, 0
   br i1 %183, label %184, label %186, !prof !11
 
 184:                                              ; preds = %182
-  %185 = add nuw i32 %.val.i.i11, 1
+  %185 = add nuw i32 %.val.i.i10, 1
   store i32 %185, ptr %179, align 4, !tbaa !8
-  br label %lean_inc.exit.i10
+  br label %lean_inc.exit.i9
 
 186:                                              ; preds = %182
-  %.not.i.i12 = icmp eq i32 %.val.i.i11, 0
-  br i1 %.not.i.i12, label %lean_inc.exit.i10, label %187
+  %.not.i.i11 = icmp eq i32 %.val.i.i10, 0
+  br i1 %.not.i.i11, label %lean_inc.exit.i9, label %187
 
 187:                                              ; preds = %186
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %179) #4
-  br label %lean_inc.exit.i10
+  br label %lean_inc.exit.i9
 
-lean_inc.exit.i10:                                ; preds = %187, %186, %184, %_init_l_Lake_instAlternativeJobM___closed__7.exit
+lean_inc.exit.i9:                                 ; preds = %187, %186, %184, %_init_l_Lake_instAlternativeJobM___closed__7.exit
   %188 = load ptr, ptr @l_Lake_instAlternativeJobM___closed__6, align 8, !tbaa !4
   %189 = load ptr, ptr @l_Lake_instAlternativeJobM___closed__7, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
@@ -266719,11 +266719,11 @@ lean_inc.exit.i10:                                ; preds = %187, %186, %184, %_
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %_init_l_Lake_instAlternativeJobM___closed__8.exit
 
-192:                                              ; preds = %lean_inc.exit.i10
+192:                                              ; preds = %lean_inc.exit.i9
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lake_instAlternativeJobM___closed__8.exit: ; preds = %lean_inc.exit.i10
+_init_l_Lake_instAlternativeJobM___closed__8.exit: ; preds = %lean_inc.exit.i9
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 4
   store i32 1, ptr %190, align 4, !tbaa !8
   store i32 196640, ptr %193, align 4
@@ -266986,18 +266986,18 @@ _init_l_Lake_BuildJob_instFunctor___closed__3.exit: ; preds = %_init_l_Lake_Buil
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_BuildJob_instFunctor___closed__3.exit, %3
-  %.sink49 = phi ptr [ %4, %3 ], [ %286, %_init_l_Lake_BuildJob_instFunctor___closed__3.exit ]
-  %289 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
-  store i32 1, ptr %.sink49, align 4, !tbaa !8
+  %.sink48 = phi ptr [ %4, %3 ], [ %286, %_init_l_Lake_BuildJob_instFunctor___closed__3.exit ]
+  %289 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
+  store i32 1, ptr %.sink48, align 4, !tbaa !8
   store i32 131096, ptr %289, align 4
-  %290 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %290, align 8, !tbaa !4
-  %291 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %291, align 8, !tbaa !4
   br label %292
 
 292:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink49, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink48, %.sink.split ]
   ret ptr %.0
 }
 

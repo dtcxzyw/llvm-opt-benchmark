@@ -2128,8 +2128,8 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 define hidden void @proto_reg_handoff_lbtrm() #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.b41 = load i1, ptr @proto_reg_handoff_lbtrm.already_registered, align 1
-  br i1 %.b41, label %5, label %2
+  %.b = load i1, ptr @proto_reg_handoff_lbtrm.already_registered, align 1
+  br i1 %.b, label %5, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @lbtrm_dissector_handle, align 8
@@ -2158,8 +2158,8 @@ define hidden void @proto_reg_handoff_lbtrm() #0 {
 15:                                               ; preds = %14, %5
   %16 = load i32, ptr @global_lbtrm_dest_port_low, align 4
   %17 = load i32, ptr @global_lbtrm_dest_port_high, align 4
-  %.not42 = icmp ugt i32 %16, %17
-  br i1 %.not42, label %19, label %18
+  %.not41 = icmp ugt i32 %16, %17
+  br i1 %.not41, label %19, label %18
 
 18:                                               ; preds = %15
   store i32 %16, ptr @lbtrm_dest_port_low, align 4
@@ -2169,8 +2169,8 @@ define hidden void @proto_reg_handoff_lbtrm() #0 {
 19:                                               ; preds = %18, %15
   %20 = load i32, ptr @global_lbtrm_src_port_low, align 4
   %21 = load i32, ptr @global_lbtrm_src_port_high, align 4
-  %.not43 = icmp ugt i32 %20, %21
-  br i1 %.not43, label %23, label %22
+  %.not42 = icmp ugt i32 %20, %21
+  br i1 %.not42, label %23, label %22
 
 22:                                               ; preds = %19
   store i32 %20, ptr @lbtrm_src_port_low, align 4

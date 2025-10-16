@@ -1209,8 +1209,8 @@ declare ptr @l_Lean_Name_replacePrefix(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Data_OpenDecl(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -1358,18 +1358,18 @@ _init_l_List_foldl___at_Lean_OpenDecl_instToString___spec__2___closed__2.exit: ;
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_List_foldl___at_Lean_OpenDecl_instToString___spec__2___closed__2.exit, %3
-  %.sink15 = phi ptr [ %4, %3 ], [ %51, %_init_l_List_foldl___at_Lean_OpenDecl_instToString___spec__2___closed__2.exit ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
-  store i32 1, ptr %.sink15, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %51, %_init_l_List_foldl___at_Lean_OpenDecl_instToString___spec__2___closed__2.exit ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %55, align 8, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %56, align 8, !tbaa !4
   br label %57
 
 57:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

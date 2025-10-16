@@ -55258,8 +55258,8 @@ declare ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Build_ExternLib(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -55742,8 +55742,8 @@ _init_l_Lake_ExternLib_sharedFacetConfig___closed__2.exit: ; preds = %_init_l_La
   tail call void @lean_mark_persistent(ptr noundef nonnull %184) #5
   %185 = load ptr, ptr @l_Lake_computeDynlibOfShared___lambda__1___closed__3, align 8, !tbaa !4
   %186 = getelementptr i8, ptr %185, i64 8
-  %.val.i5 = load i64, ptr %186, align 8, !tbaa !12
-  %187 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %186, align 8, !tbaa !12
+  %187 = shl i64 %.val.i4, 1
   %188 = add i64 %187, -1
   %189 = inttoptr i64 %188 to ptr
   store ptr %189, ptr @l_Lake_computeDynlibOfShared___lambda__1___closed__5, align 8, !tbaa !4
@@ -56032,18 +56032,18 @@ _init_l_Lake_ExternLib_initFacetConfigs.exit:     ; preds = %l_Lean_RBNode_inser
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_ExternLib_initFacetConfigs.exit, %3
-  %.sink37 = phi ptr [ %4, %3 ], [ %300, %_init_l_Lake_ExternLib_initFacetConfigs.exit ]
-  %303 = getelementptr inbounds nuw i8, ptr %.sink37, i64 4
-  store i32 1, ptr %.sink37, align 4, !tbaa !8
+  %.sink36 = phi ptr [ %4, %3 ], [ %300, %_init_l_Lake_ExternLib_initFacetConfigs.exit ]
+  %303 = getelementptr inbounds nuw i8, ptr %.sink36, i64 4
+  store i32 1, ptr %.sink36, align 4, !tbaa !8
   store i32 131096, ptr %303, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %304, align 8, !tbaa !4
-  %305 = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %305, align 8, !tbaa !4
   br label %306
 
 306:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink37, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink36, %.sink.split ]
   ret ptr %.0
 }
 

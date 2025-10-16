@@ -1702,8 +1702,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_La
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Config_Dynlib(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -1745,9 +1745,9 @@ define ptr @initialize_Lake_Config_Dynlib(i8 noundef zeroext %0, ptr noundef rea
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Build_Target_Basic(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %190, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -1758,17 +1758,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   %28 = tail call ptr @lean_alloc_object(i64 noundef 24) #4
   store i32 1, ptr %28, align 4, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -1790,11 +1790,11 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_init_l_Lake_instInhabitedDynlib___closed__3.exit
 
-39:                                               ; preds = %lean_dec_ref.exit10
+39:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lake_instInhabitedDynlib___closed__3.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lake_instInhabitedDynlib___closed__3.exit: ; preds = %lean_dec_ref.exit9
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i64 0, ptr %41, align 8, !tbaa !12
@@ -2116,8 +2116,8 @@ _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynli
   tail call void @lean_mark_persistent(ptr noundef %150) #4
   %151 = load ptr, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__17, align 8, !tbaa !4
   %152 = getelementptr i8, ptr %151, i64 24
-  %.val.i13 = load i64, ptr %152, align 8, !tbaa !12
-  %153 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %152, align 8, !tbaa !12
+  %153 = shl i64 %.val.i12, 1
   %154 = or disjoint i64 %153, 1
   %155 = inttoptr i64 %154 to ptr
   store ptr %155, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__18, align 8, !tbaa !4
@@ -2125,10 +2125,10 @@ _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynli
   %156 = load ptr, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__18, align 8, !tbaa !4
   %157 = ptrtoint ptr %156 to i64
   %158 = and i64 %157, 1
-  %.not.i.i14 = icmp eq i64 %158, 0
+  %.not.i.i13 = icmp eq i64 %158, 0
   %159 = icmp ult ptr %156, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %159, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit, label %160
+  %or.cond.i.i14 = or i1 %159, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit, label %160
 
 160:                                              ; preds = %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit
   %161 = lshr i64 %157, 1
@@ -2136,9 +2136,9 @@ _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynli
   br label %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit
 
 _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit: ; preds = %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit, %160
-  %.1.i.i16 = phi ptr [ %162, %160 ], [ %156, %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit ]
-  store ptr %.1.i.i16, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #4
+  %.1.i.i15 = phi ptr [ %162, %160 ], [ %156, %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit ]
+  store ptr %.1.i.i15, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #4
   %163 = load ptr, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__17, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %164 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
@@ -2212,18 +2212,18 @@ _init_l_Lake_instReprDynlib___closed__1.exit:     ; preds = %_init_l___private_L
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instReprDynlib___closed__1.exit, %3
-  %.sink43 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_instReprDynlib___closed__1.exit ]
-  %187 = getelementptr inbounds nuw i8, ptr %.sink43, i64 4
-  store i32 1, ptr %.sink43, align 4, !tbaa !8
+  %.sink42 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_instReprDynlib___closed__1.exit ]
+  %187 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
+  store i32 1, ptr %.sink42, align 4, !tbaa !8
   store i32 131096, ptr %187, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.sink43, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %188, align 8, !tbaa !4
-  %189 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %189, align 8, !tbaa !4
   br label %190
 
 190:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink43, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

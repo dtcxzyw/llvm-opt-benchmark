@@ -100,8 +100,8 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr noundef readonly capt
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.lr.ph
-  %.b9.i = load i1, ptr @estimate_character_width_canonical.warning_already_reported, align 1
-  br i1 %.b9.i, label %17, label %16
+  %.b.i = load i1, ptr @estimate_character_width_canonical.warning_already_reported, align 1
+  br i1 %.b.i, label %17, label %16
 
 16:                                               ; preds = %15
   store i1 true, ptr @estimate_character_width_canonical.warning_already_reported, align 1
@@ -117,8 +117,8 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr noundef readonly capt
   br i1 %21, label %22, label %estimate_character_width_canonical.exit
 
 22:                                               ; preds = %17
-  %.b810.i = load i1, ptr @estimate_character_width_canonical.warning_already_reported.54, align 1
-  br i1 %.b810.i, label %estimate_character_width_canonical.exit, label %23
+  %.b8.i = load i1, ptr @estimate_character_width_canonical.warning_already_reported.54, align 1
+  br i1 %.b8.i, label %estimate_character_width_canonical.exit, label %23
 
 23:                                               ; preds = %22
   store i1 true, ptr @estimate_character_width_canonical.warning_already_reported.54, align 1

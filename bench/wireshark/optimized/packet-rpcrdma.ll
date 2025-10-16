@@ -171,8 +171,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @rpcrdma_is_reduced() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @g_rpcrdma_reduced, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @g_rpcrdma_reduced, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -294,8 +294,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %44 = load i16, ptr %43, align 1
   %45 = and i16 %44, 8
   %46 = icmp eq i16 %45, 0
-  %.b152 = load i1, ptr @g_needs_reassembly, align 1
-  %or.cond = select i1 %46, i1 true, i1 %.b152
+  %.b = load i1, ptr @g_needs_reassembly, align 1
+  %or.cond = select i1 %46, i1 true, i1 %.b
   %47 = load ptr, ptr %6, align 8
   %48 = icmp eq ptr %47, null
   %or.cond4.not = select i1 %or.cond, i1 true, i1 %48
@@ -307,16 +307,16 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call fastcc i32 @get_rdma_list_size(ptr noundef %52, ptr noundef %1)
-  %.not154 = icmp eq i32 %53, 0
-  br i1 %.not154, label %.critedge, label %54
+  %.not153 = icmp eq i32 %53, 0
+  br i1 %.not153, label %.critedge, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %41, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 57
   %57 = load i16, ptr %56, align 1
   %58 = and i16 %57, 8
-  %.not155 = icmp eq i16 %58, 0
-  br i1 %.not155, label %59, label %88
+  %.not154 = icmp eq i16 %58, 0
+  br i1 %.not154, label %59, label %88
 
 59:                                               ; preds = %54
   %60 = call ptr @wmem_packet_scope()
@@ -331,14 +331,14 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_rpcrdma.catch_spec, i64 noundef 1)
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %63 = call i32 @_setjmp(ptr noundef nonnull %62) #11
-  %.not156 = icmp eq i32 %63, 0
+  %.not155 = icmp eq i32 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink = select i1 %.not156, ptr null, ptr %64
+  %.sink = select i1 %.not155, ptr null, ptr %64
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
   %65 = and i32 %.0..0..0..0., 1
-  %.not157 = icmp eq i32 %65, 0
-  br i1 %.not157, label %68, label %66
+  %.not156 = icmp eq i32 %65, 0
+  br i1 %.not156, label %68, label %66
 
 66:                                               ; preds = %59
   %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
@@ -369,8 +369,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
 76:                                               ; preds = %73, %71, %68
   %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
   %77 = and i32 %.0..0..0..0.8, 4
-  %.not158 = icmp eq i32 %77, 0
-  br i1 %.not158, label %78, label %80
+  %.not157 = icmp eq i32 %77, 0
+  br i1 %.not157, label %78, label %80
 
 78:                                               ; preds = %76
   %.0..0..0..0.9 = load volatile i32, ptr %8, align 4
@@ -382,13 +382,13 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
 80:                                               ; preds = %78, %76
   %.0..0..0..0.10 = load volatile i32, ptr %8, align 4
   %81 = and i32 %.0..0..0..0.10, 1
-  %.not159 = icmp eq i32 %81, 0
-  br i1 %.not159, label %82, label %84
+  %.not158 = icmp eq i32 %81, 0
+  br i1 %.not158, label %82, label %84
 
 82:                                               ; preds = %80
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %.not160 = icmp eq ptr %.0..0..0..0.12, null
-  br i1 %.not160, label %84, label %83
+  %.not159 = icmp eq ptr %.0..0..0..0.12, null
+  br i1 %.not159, label %84, label %83
 
 83:                                               ; preds = %82
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
@@ -410,8 +410,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %89 = call ptr @wmem_file_scope()
   %90 = load i32, ptr @proto_rpcordma, align 4
   %91 = call ptr @p_get_proto_data(ptr noundef %89, ptr noundef %1, i32 noundef %90, i32 noundef 0)
-  %.not162 = icmp eq ptr %91, null
-  br i1 %.not162, label %.critedge, label %92
+  %.not161 = icmp eq ptr %91, null
+  br i1 %.not161, label %.critedge, label %92
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %41, align 8
@@ -442,8 +442,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %155
 
 108:                                              ; preds = %.critedge
-  %.not164 = icmp eq ptr %105, null
-  br i1 %.not164, label %110, label %109
+  %.not163 = icmp eq ptr %105, null
+  br i1 %.not163, label %110, label %109
 
 109:                                              ; preds = %108
   store volatile ptr %105, ptr %5, align 8
@@ -465,8 +465,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not149 = icmp eq i16 %119, 0
   %120 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %114, ptr noundef %1, ptr noundef %2)
   %.not.i = icmp eq ptr %120, null
-  %or.cond169 = select i1 %.not149, i1 %.not.i, i1 false
-  br i1 %or.cond169, label %121, label %process_rdma_lists.exit
+  %or.cond168 = select i1 %.not149, i1 %.not.i, i1 false
+  br i1 %or.cond168, label %121, label %process_rdma_lists.exit
 
 121:                                              ; preds = %113
   %122 = load ptr, ptr %6, align 8
@@ -1114,8 +1114,8 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %.b11 = load i1, ptr @g_needs_reassembly, align 1
-  br i1 %.b11, label %5, label %15
+  %.b = load i1, ptr @g_needs_reassembly, align 1
+  br i1 %.b, label %5, label %15
 
 5:                                                ; preds = %4
   %6 = tail call ptr @wmem_file_scope()
@@ -1134,12 +1134,12 @@ get_reassembled_id.exit.thread:                   ; preds = %5, %get_reassembled
   %11 = tail call ptr @wmem_file_scope()
   %12 = load i32, ptr @proto_rpcordma, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 1)
-  %.not12 = icmp eq ptr %13, null
-  br i1 %.not12, label %15, label %.thread
+  %.not11 = icmp eq ptr %13, null
+  br i1 %.not11, label %15, label %.thread
 
 .thread:                                          ; preds = %get_reassembled_id.exit, %get_reassembled_id.exit.thread
-  %.017 = phi ptr [ %13, %get_reassembled_id.exit.thread ], [ %10, %get_reassembled_id.exit ]
-  %14 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.96, ptr noundef nonnull %.017, ptr noundef nonnull @rpcordma_frag_items, ptr noundef null, ptr noundef %3)
+  %.016 = phi ptr [ %13, %get_reassembled_id.exit.thread ], [ %10, %get_reassembled_id.exit ]
+  %14 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.96, ptr noundef nonnull %.016, ptr noundef nonnull @rpcordma_frag_items, ptr noundef null, ptr noundef %3)
   store i1 false, ptr @g_needs_reassembly, align 1
   br label %15
 

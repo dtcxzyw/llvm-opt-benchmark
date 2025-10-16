@@ -2962,17 +2962,17 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   %19 = phi ptr [ %17, %16 ], [ %14, %13 ]
   %20 = tail call ptr @list_iterator_create(ptr noundef %19) #12
   %21 = tail call ptr @list_next(ptr noundef %20) #12
-  %.not80145 = icmp eq ptr %21, null
-  br i1 %.not80145, label %._crit_edge, label %.lr.ph
+  %.not80154 = icmp eq ptr %21, null
+  br i1 %.not80154, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %22 = add i64 %9, -32768
-  %.neg185.i = add i64 %9, 32768
+  %.neg184.i = add i64 %9, 32768
   br label %23
 
-23:                                               ; preds = %.lr.ph, %.thread137
-  %24 = phi ptr [ %21, %.lr.ph ], [ %960, %.thread137 ]
-  %.0146 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread137 ]
+23:                                               ; preds = %.lr.ph, %.thread146
+  %24 = phi ptr [ %21, %.lr.ph ], [ %960, %.thread146 ]
+  %.0155 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread146 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 0
@@ -2981,7 +2981,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %30 = load i16, ptr %29, align 4
-  switch i16 %30, label %.thread137 [
+  switch i16 %30, label %.thread146 [
     i16 7, label %31
     i16 1, label %46
     i16 2, label %175
@@ -2996,8 +2996,8 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1048576
   %35 = icmp ne i32 %34, 0
-  %.b5.i = load i1, ptr @trigger_bb_error, align 1
-  %or.cond.i = select i1 %35, i1 %.b5.i, i1 false
+  %.b.i = load i1, ptr @trigger_bb_error, align 1
+  %or.cond.i = select i1 %35, i1 %.b.i, i1 false
   br i1 %or.cond.i, label %36, label %_trigger_other_event.exitthread-pre-split
 
 36:                                               ; preds = %31
@@ -3124,7 +3124,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %98 = and i64 %97, 4
   %.not71.i = icmp eq i64 %98, 0
-  br i1 %.not71.i, label %_trigger_other_event.exit.thread131.thread, label %99
+  br i1 %.not71.i, label %_trigger_other_event.exit.thread140.thread, label %99
 
 99:                                               ; preds = %96
   %100 = call i32 @get_log_level() #12
@@ -3249,7 +3249,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store i8 1, ptr %25, align 8
   %163 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %164 = load i64, ptr %163, align 8
-  %165 = sub i64 %.neg185.i, %164
+  %165 = sub i64 %.neg184.i, %164
   store i64 %165, ptr %163, align 8
   %166 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %167 = and i64 %166, 4
@@ -3280,8 +3280,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 182:                                              ; preds = %175
   %183 = call i64 @bit_ffs(ptr noundef nonnull %180) #12
-  %.not.i94 = icmp eq i64 %183, -1
-  br i1 %.not.i94, label %216, label %184
+  %.not.i95 = icmp eq i64 %183, -1
+  br i1 %.not.i95, label %216, label %184
 
 184:                                              ; preds = %182
   %185 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -3295,7 +3295,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %190 = load ptr, ptr @trigger_down_nodes_bitmap, align 8
   %191 = call ptr @bitmap2node_name(ptr noundef %190) #12
   store ptr %191, ptr %189, align 8
-  br label %.thread218.sink.split.i
+  br label %.thread217.sink.split.i
 
 192:                                              ; preds = %184
   %193 = load ptr, ptr @trigger_down_nodes_bitmap, align 8
@@ -3312,28 +3312,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %199 = load ptr, ptr %185, align 8
   %200 = call ptr @bitmap2node_name(ptr noundef %199) #12
   store ptr %200, ptr %198, align 8
-  br label %.thread218.sink.split.i
+  br label %.thread217.sink.split.i
 
 201:                                              ; preds = %192
-  %.pre.i96 = load i8, ptr %25, align 8
-  %202 = icmp eq i8 %.pre.i96, 1
-  br i1 %202, label %.thread218.i, label %216
+  %.pre.i97 = load i8, ptr %25, align 8
+  %202 = icmp eq i8 %.pre.i97, 1
+  br i1 %202, label %.thread217.i, label %216
 
-.thread218.sink.split.i:                          ; preds = %195, %188
+.thread217.sink.split.i:                          ; preds = %195, %188
   store i8 1, ptr %25, align 8
-  br label %.thread218.i
+  br label %.thread217.i
 
-.thread218.i:                                     ; preds = %.thread218.sink.split.i, %201
+.thread217.i:                                     ; preds = %.thread217.sink.split.i, %201
   %203 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %204 = load i64, ptr %203, align 8
   %205 = add i64 %22, %204
   store i64 %205, ptr %203, align 8
   %206 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %207 = and i64 %206, 4
-  %.not184.i = icmp eq i64 %207, 0
-  br i1 %.not184.i, label %_trigger_other_event.exitthread-pre-split, label %208
+  %.not183.i = icmp eq i64 %207, 0
+  br i1 %.not183.i, label %_trigger_other_event.exitthread-pre-split, label %208
 
-208:                                              ; preds = %.thread218.i
+208:                                              ; preds = %.thread217.i
   %209 = call i32 @get_log_level() #12
   %210 = icmp sgt i32 %209, 3
   br i1 %210, label %211, label %_trigger_other_event.exitthread-pre-split
@@ -3372,7 +3372,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %230 = load ptr, ptr @trigger_drained_nodes_bitmap, align 8
   %231 = call ptr @bitmap2node_name(ptr noundef %230) #12
   store ptr %231, ptr %229, align 8
-  br label %.thread220.sink.split.i
+  br label %.thread219.sink.split.i
 
 232:                                              ; preds = %224
   %233 = load ptr, ptr @trigger_drained_nodes_bitmap, align 8
@@ -3389,28 +3389,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %239 = load ptr, ptr %225, align 8
   %240 = call ptr @bitmap2node_name(ptr noundef %239) #12
   store ptr %240, ptr %238, align 8
-  br label %.thread220.sink.split.i
+  br label %.thread219.sink.split.i
 
 241:                                              ; preds = %232
-  %.pre190.i = load i8, ptr %25, align 8
-  %242 = icmp eq i8 %.pre190.i, 1
-  br i1 %242, label %.thread220.i, label %256
+  %.pre189.i = load i8, ptr %25, align 8
+  %242 = icmp eq i8 %.pre189.i, 1
+  br i1 %242, label %.thread219.i, label %256
 
-.thread220.sink.split.i:                          ; preds = %235, %228
+.thread219.sink.split.i:                          ; preds = %235, %228
   store i8 1, ptr %25, align 8
-  br label %.thread220.i
+  br label %.thread219.i
 
-.thread220.i:                                     ; preds = %.thread220.sink.split.i, %241
+.thread219.i:                                     ; preds = %.thread219.sink.split.i, %241
   %243 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %244 = load i64, ptr %243, align 8
   %245 = add i64 %22, %244
   store i64 %245, ptr %243, align 8
   %246 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %247 = and i64 %246, 4
-  %.not183.i = icmp eq i64 %247, 0
-  br i1 %.not183.i, label %_trigger_other_event.exitthread-pre-split, label %248
+  %.not182.i = icmp eq i64 %247, 0
+  br i1 %.not182.i, label %_trigger_other_event.exitthread-pre-split, label %248
 
-248:                                              ; preds = %.thread220.i
+248:                                              ; preds = %.thread219.i
   %249 = call i32 @get_log_level() #12
   %250 = icmp sgt i32 %249, 3
   br i1 %250, label %251, label %_trigger_other_event.exitthread-pre-split
@@ -3449,7 +3449,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %270 = load ptr, ptr @trigger_fail_nodes_bitmap, align 8
   %271 = call ptr @bitmap2node_name(ptr noundef %270) #12
   store ptr %271, ptr %269, align 8
-  br label %.thread222.sink.split.i
+  br label %.thread221.sink.split.i
 
 272:                                              ; preds = %264
   %273 = load ptr, ptr @trigger_fail_nodes_bitmap, align 8
@@ -3466,28 +3466,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %279 = load ptr, ptr %265, align 8
   %280 = call ptr @bitmap2node_name(ptr noundef %279) #12
   store ptr %280, ptr %278, align 8
-  br label %.thread222.sink.split.i
+  br label %.thread221.sink.split.i
 
 281:                                              ; preds = %272
-  %.pre193.i = load i8, ptr %25, align 8
-  %282 = icmp eq i8 %.pre193.i, 1
-  br i1 %282, label %.thread222.i, label %296
+  %.pre192.i = load i8, ptr %25, align 8
+  %282 = icmp eq i8 %.pre192.i, 1
+  br i1 %282, label %.thread221.i, label %296
 
-.thread222.sink.split.i:                          ; preds = %275, %268
+.thread221.sink.split.i:                          ; preds = %275, %268
   store i8 1, ptr %25, align 8
-  br label %.thread222.i
+  br label %.thread221.i
 
-.thread222.i:                                     ; preds = %.thread222.sink.split.i, %281
+.thread221.i:                                     ; preds = %.thread221.sink.split.i, %281
   %283 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %284 = load i64, ptr %283, align 8
   %285 = add i64 %22, %284
   store i64 %285, ptr %283, align 8
   %286 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %287 = and i64 %286, 4
-  %.not182.i = icmp eq i64 %287, 0
-  br i1 %.not182.i, label %_trigger_other_event.exitthread-pre-split, label %288
+  %.not181.i = icmp eq i64 %287, 0
+  br i1 %.not181.i, label %_trigger_other_event.exitthread-pre-split, label %288
 
-288:                                              ; preds = %.thread222.i
+288:                                              ; preds = %.thread221.i
   %289 = call i32 @get_log_level() #12
   %290 = icmp sgt i32 %289, 3
   br i1 %290, label %291, label %_trigger_other_event.exitthread-pre-split
@@ -3509,7 +3509,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 299:                                              ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %301 = load i64, ptr %300, align 8
-  %302 = sub i64 %.neg185.i, %301
+  %302 = sub i64 %.neg184.i, %301
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %303 = load i32, ptr @node_record_count, align 4
@@ -3518,8 +3518,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %305, ptr %7, align 8
   store i32 0, ptr %6, align 4
   %306 = call ptr @next_node(ptr noundef nonnull %6) #12
-  %.not165186.i = icmp eq ptr %306, null
-  br i1 %.not165186.i, label %._crit_edge.i92, label %.lr.ph.i
+  %.not165185.i = icmp eq ptr %306, null
+  br i1 %.not165185.i, label %._crit_edge.i92, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %299, %321
   %307 = phi ptr [ %324, %321 ], [ %306, %299 ]
@@ -3606,12 +3606,12 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %348 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %349 = and i64 %348, 4
   %.not168.i = icmp eq i64 %349, 0
-  br i1 %.not168.i, label %.thread.i93, label %350
+  br i1 %.not168.i, label %.thread.i94, label %350
 
 350:                                              ; preds = %347
   %351 = call i32 @get_log_level() #12
   %352 = icmp sgt i32 %351, 3
-  br i1 %352, label %353, label %.thread.i93
+  br i1 %352, label %353, label %.thread.i94
 
 353:                                              ; preds = %350
   %354 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3619,9 +3619,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %356 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %357 = load ptr, ptr %356, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %355, ptr noundef %357) #12
-  br label %.thread.i93
+  br label %.thread.i94
 
-.thread.i93:                                      ; preds = %353, %350, %347
+.thread.i94:                                      ; preds = %353, %350, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_trigger_other_event.exitthread-pre-split
@@ -3629,11 +3629,11 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 358:                                              ; preds = %344
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre194.i = load i32, ptr %176, align 4
+  %.pre193.i = load i32, ptr %176, align 4
   br label %359
 
 359:                                              ; preds = %358, %296
-  %360 = phi i32 [ %.pre194.i, %358 ], [ %297, %296 ]
+  %360 = phi i32 [ %.pre193.i, %358 ], [ %297, %296 ]
   %361 = and i32 %360, 1
   %362 = icmp ne i32 %361, 0
   %363 = load ptr, ptr @trigger_up_nodes_bitmap, align 8
@@ -3658,7 +3658,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %373 = load ptr, ptr @trigger_up_nodes_bitmap, align 8
   %374 = call ptr @bitmap2node_name(ptr noundef %373) #12
   store ptr %374, ptr %372, align 8
-  br label %.thread224.sink.split.i
+  br label %.thread223.sink.split.i
 
 375:                                              ; preds = %367
   %376 = load ptr, ptr @trigger_up_nodes_bitmap, align 8
@@ -3675,28 +3675,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %382 = load ptr, ptr %368, align 8
   %383 = call ptr @bitmap2node_name(ptr noundef %382) #12
   store ptr %383, ptr %381, align 8
-  br label %.thread224.sink.split.i
+  br label %.thread223.sink.split.i
 
 384:                                              ; preds = %375
-  %.pre197.i = load i8, ptr %25, align 8
-  %385 = icmp eq i8 %.pre197.i, 1
-  br i1 %385, label %.thread224.i, label %399
+  %.pre196.i = load i8, ptr %25, align 8
+  %385 = icmp eq i8 %.pre196.i, 1
+  br i1 %385, label %.thread223.i, label %399
 
-.thread224.sink.split.i:                          ; preds = %378, %371
+.thread223.sink.split.i:                          ; preds = %378, %371
   store i8 1, ptr %25, align 8
-  br label %.thread224.i
+  br label %.thread223.i
 
-.thread224.i:                                     ; preds = %.thread224.sink.split.i, %384
+.thread223.i:                                     ; preds = %.thread223.sink.split.i, %384
   %386 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %387 = load i64, ptr %386, align 8
   %388 = add i64 %22, %387
   store i64 %388, ptr %386, align 8
   %389 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %390 = and i64 %389, 4
-  %.not181.i = icmp eq i64 %390, 0
-  br i1 %.not181.i, label %_trigger_other_event.exitthread-pre-split, label %391
+  %.not180.i = icmp eq i64 %390, 0
+  br i1 %.not180.i, label %_trigger_other_event.exitthread-pre-split, label %391
 
-391:                                              ; preds = %.thread224.i
+391:                                              ; preds = %.thread223.i
   %392 = call i32 @get_log_level() #12
   %393 = icmp sgt i32 %392, 3
   br i1 %393, label %394, label %_trigger_other_event.exitthread-pre-split
@@ -3735,7 +3735,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %412 = load ptr, ptr @trigger_draining_nodes_bitmap, align 8
   %413 = call ptr @bitmap2node_name(ptr noundef %412) #12
   store ptr %413, ptr %411, align 8
-  br label %.thread226.sink.split.i
+  br label %.thread225.sink.split.i
 
 414:                                              ; preds = %407
   %415 = load ptr, ptr @trigger_draining_nodes_bitmap, align 8
@@ -3752,28 +3752,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %421 = load ptr, ptr %408, align 8
   %422 = call ptr @bitmap2node_name(ptr noundef %421) #12
   store ptr %422, ptr %420, align 8
-  br label %.thread226.sink.split.i
+  br label %.thread225.sink.split.i
 
 423:                                              ; preds = %414
-  %.pre200.i = load i8, ptr %25, align 8
-  %424 = icmp eq i8 %.pre200.i, 1
-  br i1 %424, label %.thread226.i, label %438
+  %.pre199.i = load i8, ptr %25, align 8
+  %424 = icmp eq i8 %.pre199.i, 1
+  br i1 %424, label %.thread225.i, label %438
 
-.thread226.sink.split.i:                          ; preds = %417, %410
+.thread225.sink.split.i:                          ; preds = %417, %410
   store i8 1, ptr %25, align 8
-  br label %.thread226.i
+  br label %.thread225.i
 
-.thread226.i:                                     ; preds = %.thread226.sink.split.i, %423
+.thread225.i:                                     ; preds = %.thread225.sink.split.i, %423
   %425 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %426 = load i64, ptr %425, align 8
   %427 = add i64 %22, %426
   store i64 %427, ptr %425, align 8
   %428 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %429 = and i64 %428, 4
-  %.not180.i = icmp eq i64 %429, 0
-  br i1 %.not180.i, label %_trigger_other_event.exitthread-pre-split, label %430
+  %.not179.i = icmp eq i64 %429, 0
+  br i1 %.not179.i, label %_trigger_other_event.exitthread-pre-split, label %430
 
-430:                                              ; preds = %.thread226.i
+430:                                              ; preds = %.thread225.i
   %431 = call i32 @get_log_level() #12
   %432 = icmp sgt i32 %431, 3
   br i1 %432, label %433, label %_trigger_other_event.exitthread-pre-split
@@ -3812,7 +3812,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %451 = load ptr, ptr @trigger_resume_nodes_bitmap, align 8
   %452 = call ptr @bitmap2node_name(ptr noundef %451) #12
   store ptr %452, ptr %450, align 8
-  br label %.thread228.sink.split.i
+  br label %.thread227.sink.split.i
 
 453:                                              ; preds = %446
   %454 = load ptr, ptr @trigger_resume_nodes_bitmap, align 8
@@ -3829,28 +3829,28 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %460 = load ptr, ptr %447, align 8
   %461 = call ptr @bitmap2node_name(ptr noundef %460) #12
   store ptr %461, ptr %459, align 8
-  br label %.thread228.sink.split.i
+  br label %.thread227.sink.split.i
 
 462:                                              ; preds = %453
-  %.pre203.i = load i8, ptr %25, align 8
-  %463 = icmp eq i8 %.pre203.i, 1
-  br i1 %463, label %.thread228.i, label %477
+  %.pre202.i = load i8, ptr %25, align 8
+  %463 = icmp eq i8 %.pre202.i, 1
+  br i1 %463, label %.thread227.i, label %477
 
-.thread228.sink.split.i:                          ; preds = %456, %449
+.thread227.sink.split.i:                          ; preds = %456, %449
   store i8 1, ptr %25, align 8
-  br label %.thread228.i
+  br label %.thread227.i
 
-.thread228.i:                                     ; preds = %.thread228.sink.split.i, %462
+.thread227.i:                                     ; preds = %.thread227.sink.split.i, %462
   %464 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %465 = load i64, ptr %464, align 8
   %466 = add i64 %22, %465
   store i64 %466, ptr %464, align 8
   %467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %468 = and i64 %467, 4
-  %.not179.i = icmp eq i64 %468, 0
-  br i1 %.not179.i, label %_trigger_other_event.exitthread-pre-split, label %469
+  %.not178.i = icmp eq i64 %468, 0
+  br i1 %.not178.i, label %_trigger_other_event.exitthread-pre-split, label %469
 
-469:                                              ; preds = %.thread228.i
+469:                                              ; preds = %.thread227.i
   %470 = call i32 @get_log_level() #12
   %471 = icmp sgt i32 %470, 3
   br i1 %471, label %472, label %_trigger_other_event.exitthread-pre-split
@@ -3867,8 +3867,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %478 = load i32, ptr %176, align 4
   %479 = and i32 %478, 32
   %480 = icmp ne i32 %479, 0
-  %.b177.i = load i1, ptr @trigger_node_reconfig, align 1
-  %or.cond13.i = select i1 %480, i1 %.b177.i, i1 false
+  %.b.i93 = load i1, ptr @trigger_node_reconfig, align 1
+  %or.cond13.i = select i1 %480, i1 %.b.i93, i1 false
   br i1 %or.cond13.i, label %481, label %_trigger_other_event.exitthread-pre-split
 
 481:                                              ; preds = %477
@@ -3883,8 +3883,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %486, ptr %485, align 8
   %487 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %488 = and i64 %487, 4
-  %.not178.i = icmp eq i64 %488, 0
-  br i1 %.not178.i, label %_trigger_other_event.exitthread-pre-split, label %489
+  %.not177.i = icmp eq i64 %488, 0
+  br i1 %.not177.i, label %_trigger_other_event.exitthread-pre-split, label %489
 
 489:                                              ; preds = %481
   %490 = call i32 @get_log_level() #12
@@ -3903,9 +3903,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %498 = zext i32 %497 to i64
   %499 = and i64 %498, 512
   %500 = icmp ne i64 %499, 0
-  %.b74.i = load i1, ptr @trigger_pri_ctld_fail, align 1
-  %or.cond.i97 = select i1 %500, i1 %.b74.i, i1 false
-  br i1 %or.cond.i97, label %501, label %512
+  %.b.i98 = load i1, ptr @trigger_pri_ctld_fail, align 1
+  %or.cond.i99 = select i1 %500, i1 %.b.i98, i1 false
+  br i1 %or.cond.i99, label %501, label %512
 
 501:                                              ; preds = %495
   store i8 1, ptr %25, align 8
@@ -3919,20 +3919,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %506, ptr %505, align 8
   %507 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %508 = and i64 %507, 4
-  %.not86.i = icmp eq i64 %508, 0
-  br i1 %.not86.i, label %_trigger_other_event.exitthread-pre-split, label %509
+  %.not79.i113 = icmp eq i64 %508, 0
+  br i1 %.not79.i113, label %_trigger_other_event.exitthread-pre-split, label %509
 
 509:                                              ; preds = %501
   %510 = call i32 @get_log_level() #12
   %511 = icmp sgt i32 %510, 3
-  br i1 %511, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %511, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 512:                                              ; preds = %495
   %513 = and i64 %498, 1024
   %514 = icmp ne i64 %513, 0
-  %.b6875.i = load i1, ptr @trigger_pri_ctld_res_op, align 1
-  %or.cond3.i98 = select i1 %514, i1 %.b6875.i, i1 false
-  br i1 %or.cond3.i98, label %515, label %526
+  %.b68.i = load i1, ptr @trigger_pri_ctld_res_op, align 1
+  %or.cond3.i100 = select i1 %514, i1 %.b68.i, i1 false
+  br i1 %or.cond3.i100, label %515, label %526
 
 515:                                              ; preds = %512
   store i8 1, ptr %25, align 8
@@ -3946,20 +3946,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %520, ptr %519, align 8
   %521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %522 = and i64 %521, 4
-  %.not85.i = icmp eq i64 %522, 0
-  br i1 %.not85.i, label %_trigger_other_event.exitthread-pre-split, label %523
+  %.not78.i112 = icmp eq i64 %522, 0
+  br i1 %.not78.i112, label %_trigger_other_event.exitthread-pre-split, label %523
 
 523:                                              ; preds = %515
   %524 = call i32 @get_log_level() #12
   %525 = icmp sgt i32 %524, 3
-  br i1 %525, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %525, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 526:                                              ; preds = %512
   %527 = and i64 %498, 2048
   %528 = icmp ne i64 %527, 0
-  %.b6976.i = load i1, ptr @trigger_pri_ctld_res_ctrl, align 1
-  %or.cond5.i99 = select i1 %528, i1 %.b6976.i, i1 false
-  br i1 %or.cond5.i99, label %529, label %540
+  %.b69.i = load i1, ptr @trigger_pri_ctld_res_ctrl, align 1
+  %or.cond5.i101 = select i1 %528, i1 %.b69.i, i1 false
+  br i1 %or.cond5.i101, label %529, label %540
 
 529:                                              ; preds = %526
   store i8 1, ptr %25, align 8
@@ -3973,20 +3973,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %534, ptr %533, align 8
   %535 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %536 = and i64 %535, 4
-  %.not84.i = icmp eq i64 %536, 0
-  br i1 %.not84.i, label %_trigger_other_event.exitthread-pre-split, label %537
+  %.not77.i111 = icmp eq i64 %536, 0
+  br i1 %.not77.i111, label %_trigger_other_event.exitthread-pre-split, label %537
 
 537:                                              ; preds = %529
   %538 = call i32 @get_log_level() #12
   %539 = icmp sgt i32 %538, 3
-  br i1 %539, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %539, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 540:                                              ; preds = %526
   %541 = and i64 %498, 4096
   %542 = icmp ne i64 %541, 0
-  %.b7077.i = load i1, ptr @trigger_pri_ctld_acct_buffer_full, align 1
-  %or.cond7.i100 = select i1 %542, i1 %.b7077.i, i1 false
-  br i1 %or.cond7.i100, label %543, label %554
+  %.b70.i = load i1, ptr @trigger_pri_ctld_acct_buffer_full, align 1
+  %or.cond7.i102 = select i1 %542, i1 %.b70.i, i1 false
+  br i1 %or.cond7.i102, label %543, label %554
 
 543:                                              ; preds = %540
   store i8 1, ptr %25, align 8
@@ -4000,20 +4000,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %548, ptr %547, align 8
   %549 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %550 = and i64 %549, 4
-  %.not83.i = icmp eq i64 %550, 0
-  br i1 %.not83.i, label %_trigger_other_event.exitthread-pre-split, label %551
+  %.not76.i110 = icmp eq i64 %550, 0
+  br i1 %.not76.i110, label %_trigger_other_event.exitthread-pre-split, label %551
 
 551:                                              ; preds = %543
   %552 = call i32 @get_log_level() #12
   %553 = icmp sgt i32 %552, 3
-  br i1 %553, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %553, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 554:                                              ; preds = %540
   %555 = and i64 %498, 8192
   %556 = icmp ne i64 %555, 0
-  %.b7178.i = load i1, ptr @trigger_bu_ctld_fail, align 1
-  %or.cond9.i101 = select i1 %556, i1 %.b7178.i, i1 false
-  br i1 %or.cond9.i101, label %557, label %568
+  %.b71.i = load i1, ptr @trigger_bu_ctld_fail, align 1
+  %or.cond9.i103 = select i1 %556, i1 %.b71.i, i1 false
+  br i1 %or.cond9.i103, label %557, label %568
 
 557:                                              ; preds = %554
   store i8 1, ptr %25, align 8
@@ -4027,20 +4027,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %562, ptr %561, align 8
   %563 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %564 = and i64 %563, 4
-  %.not82.i = icmp eq i64 %564, 0
-  br i1 %.not82.i, label %_trigger_other_event.exitthread-pre-split, label %565
+  %.not75.i109 = icmp eq i64 %564, 0
+  br i1 %.not75.i109, label %_trigger_other_event.exitthread-pre-split, label %565
 
 565:                                              ; preds = %557
   %566 = call i32 @get_log_level() #12
   %567 = icmp sgt i32 %566, 3
-  br i1 %567, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %567, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 568:                                              ; preds = %554
   %569 = and i64 %498, 16384
   %570 = icmp ne i64 %569, 0
-  %.b7279.i = load i1, ptr @trigger_bu_ctld_res_op, align 1
-  %or.cond11.i102 = select i1 %570, i1 %.b7279.i, i1 false
-  br i1 %or.cond11.i102, label %571, label %582
+  %.b72.i = load i1, ptr @trigger_bu_ctld_res_op, align 1
+  %or.cond11.i104 = select i1 %570, i1 %.b72.i, i1 false
+  br i1 %or.cond11.i104, label %571, label %582
 
 571:                                              ; preds = %568
   store i8 1, ptr %25, align 8
@@ -4054,20 +4054,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %576, ptr %575, align 8
   %577 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %578 = and i64 %577, 4
-  %.not81.i = icmp eq i64 %578, 0
-  br i1 %.not81.i, label %_trigger_other_event.exitthread-pre-split, label %579
+  %.not74.i108 = icmp eq i64 %578, 0
+  br i1 %.not74.i108, label %_trigger_other_event.exitthread-pre-split, label %579
 
 579:                                              ; preds = %571
   %580 = call i32 @get_log_level() #12
   %581 = icmp sgt i32 %580, 3
-  br i1 %581, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %581, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 582:                                              ; preds = %568
   %583 = and i64 %498, 32768
   %584 = icmp ne i64 %583, 0
-  %.b7380.i = load i1, ptr @trigger_bu_ctld_as_ctrl, align 1
-  %or.cond13.i103 = select i1 %584, i1 %.b7380.i, i1 false
-  br i1 %or.cond13.i103, label %585, label %_trigger_other_event.exitthread-pre-split
+  %.b73.i = load i1, ptr @trigger_bu_ctld_as_ctrl, align 1
+  %or.cond13.i105 = select i1 %584, i1 %.b73.i, i1 false
+  br i1 %or.cond13.i105, label %585, label %_trigger_other_event.exitthread-pre-split
 
 585:                                              ; preds = %582
   store i8 1, ptr %25, align 8
@@ -4081,15 +4081,15 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %590, ptr %589, align 8
   %591 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %592 = and i64 %591, 4
-  %.not.i104 = icmp eq i64 %592, 0
-  br i1 %.not.i104, label %_trigger_other_event.exitthread-pre-split, label %593
+  %.not.i106 = icmp eq i64 %592, 0
+  br i1 %.not.i106, label %_trigger_other_event.exitthread-pre-split, label %593
 
 593:                                              ; preds = %585
   %594 = call i32 @get_log_level() #12
   %595 = icmp sgt i32 %594, 3
-  br i1 %595, label %.sink.split.i105, label %_trigger_other_event.exitthread-pre-split
+  br i1 %595, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
-.sink.split.i105:                                 ; preds = %593, %579, %565, %551, %537, %523, %509
+.sink.split.i107:                                 ; preds = %593, %579, %565, %551, %537, %523, %509
   %.str.56.sink.i = phi ptr [ @.str.44, %509 ], [ @.str.46, %523 ], [ @.str.48, %537 ], [ @.str.50, %551 ], [ @.str.52, %565 ], [ @.str.54, %579 ], [ @.str.56, %593 ]
   %596 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %597 = load i32, ptr %596, align 8
@@ -4101,9 +4101,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %600 = load i32, ptr %599, align 4
   %601 = and i32 %600, 65536
   %602 = icmp ne i32 %601, 0
-  %.b19.i = load i1, ptr @trigger_pri_dbd_fail, align 1
-  %or.cond.i106 = select i1 %602, i1 %.b19.i, i1 false
-  br i1 %or.cond.i106, label %603, label %617
+  %.b.i114 = load i1, ptr @trigger_pri_dbd_fail, align 1
+  %or.cond.i115 = select i1 %602, i1 %.b.i114, i1 false
+  br i1 %or.cond.i115, label %603, label %617
 
 603:                                              ; preds = %598
   store i8 1, ptr %25, align 8
@@ -4117,8 +4117,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %608, ptr %607, align 8
   %609 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %610 = and i64 %609, 4
-  %.not.i108 = icmp eq i64 %610, 0
-  br i1 %.not.i108, label %617, label %611
+  %.not.i117 = icmp eq i64 %610, 0
+  br i1 %.not.i117, label %617, label %611
 
 611:                                              ; preds = %603
   %612 = call i32 @get_log_level() #12
@@ -4135,9 +4135,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %618 = load i32, ptr %599, align 4
   %619 = and i32 %618, 131072
   %620 = icmp ne i32 %619, 0
-  %.b1820.i = load i1, ptr @trigger_pri_dbd_res_op, align 1
-  %or.cond3.i107 = select i1 %620, i1 %.b1820.i, i1 false
-  br i1 %or.cond3.i107, label %621, label %_trigger_other_event.exitthread-pre-split
+  %.b18.i = load i1, ptr @trigger_pri_dbd_res_op, align 1
+  %or.cond3.i116 = select i1 %620, i1 %.b18.i, i1 false
+  br i1 %or.cond3.i116, label %621, label %_trigger_other_event.exitthread-pre-split
 
 621:                                              ; preds = %617
   store i8 1, ptr %25, align 8
@@ -4151,8 +4151,8 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %626, ptr %625, align 8
   %627 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %628 = and i64 %627, 4
-  %.not21.i = icmp eq i64 %628, 0
-  br i1 %.not21.i, label %_trigger_other_event.exitthread-pre-split, label %629
+  %.not19.i = icmp eq i64 %628, 0
+  br i1 %.not19.i, label %_trigger_other_event.exitthread-pre-split, label %629
 
 629:                                              ; preds = %621
   %630 = call i32 @get_log_level() #12
@@ -4171,9 +4171,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %638 = zext i32 %637 to i64
   %639 = and i64 %638, 262144
   %640 = icmp ne i64 %639, 0
-  %.b19.i109 = load i1, ptr @trigger_pri_db_fail, align 1
-  %or.cond.i110 = select i1 %640, i1 %.b19.i109, i1 false
-  br i1 %or.cond.i110, label %641, label %652
+  %.b.i118 = load i1, ptr @trigger_pri_db_fail, align 1
+  %or.cond.i119 = select i1 %640, i1 %.b.i118, i1 false
+  br i1 %or.cond.i119, label %641, label %652
 
 641:                                              ; preds = %635
   store i8 1, ptr %25, align 8
@@ -4187,20 +4187,20 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %646, ptr %645, align 8
   %647 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %648 = and i64 %647, 4
-  %.not21.i115 = icmp eq i64 %648, 0
-  br i1 %.not21.i115, label %_trigger_other_event.exitthread-pre-split, label %649
+  %.not19.i124 = icmp eq i64 %648, 0
+  br i1 %.not19.i124, label %_trigger_other_event.exitthread-pre-split, label %649
 
 649:                                              ; preds = %641
   %650 = call i32 @get_log_level() #12
   %651 = icmp sgt i32 %650, 3
-  br i1 %651, label %.sink.split.i114, label %_trigger_other_event.exitthread-pre-split
+  br i1 %651, label %.sink.split.i123, label %_trigger_other_event.exitthread-pre-split
 
 652:                                              ; preds = %635
   %653 = and i64 %638, 524288
   %654 = icmp ne i64 %653, 0
-  %.b1820.i111 = load i1, ptr @trigger_pri_db_res_op, align 1
-  %or.cond3.i112 = select i1 %654, i1 %.b1820.i111, i1 false
-  br i1 %or.cond3.i112, label %655, label %_trigger_other_event.exitthread-pre-split
+  %.b18.i120 = load i1, ptr @trigger_pri_db_res_op, align 1
+  %or.cond3.i121 = select i1 %654, i1 %.b18.i120, i1 false
+  br i1 %or.cond3.i121, label %655, label %_trigger_other_event.exitthread-pre-split
 
 655:                                              ; preds = %652
   store i8 1, ptr %25, align 8
@@ -4214,15 +4214,15 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store ptr %660, ptr %659, align 8
   %661 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %662 = and i64 %661, 4
-  %.not.i113 = icmp eq i64 %662, 0
-  br i1 %.not.i113, label %_trigger_other_event.exitthread-pre-split, label %663
+  %.not.i122 = icmp eq i64 %662, 0
+  br i1 %.not.i122, label %_trigger_other_event.exitthread-pre-split, label %663
 
 663:                                              ; preds = %655
   %664 = call i32 @get_log_level() #12
   %665 = icmp sgt i32 %664, 3
-  br i1 %665, label %.sink.split.i114, label %_trigger_other_event.exitthread-pre-split
+  br i1 %665, label %.sink.split.i123, label %_trigger_other_event.exitthread-pre-split
 
-.sink.split.i114:                                 ; preds = %663, %649
+.sink.split.i123:                                 ; preds = %663, %649
   %.str.64.sink.i = phi ptr [ @.str.62, %649 ], [ @.str.64, %663 ]
   %666 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %667 = load i32, ptr %666, align 8
@@ -4236,17 +4236,17 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %672 = icmp ne i32 %671, 0
   %673 = load ptr, ptr @trigger_down_front_end_bitmap, align 8
   %674 = icmp ne ptr %673, null
-  %or.cond.i116 = select i1 %672, i1 %674, i1 false
-  br i1 %or.cond.i116, label %675, label %707
+  %or.cond.i125 = select i1 %672, i1 %674, i1 false
+  br i1 %or.cond.i125, label %675, label %707
 
 675:                                              ; preds = %668
   %676 = call i64 @bit_ffs(ptr noundef nonnull %673) #12
   %677 = and i64 %676, 4294967295
-  %.not.i118 = icmp eq i64 %677, 4294967295
-  br i1 %.not.i118, label %._crit_edge52.i, label %678
+  %.not.i127 = icmp eq i64 %677, 4294967295
+  br i1 %.not.i127, label %._crit_edge52.i, label %678
 
 ._crit_edge52.i:                                  ; preds = %675
-  %.pre.i121 = load i32, ptr %669, align 4
+  %.pre.i130 = load i32, ptr %669, align 4
   br label %707
 
 678:                                              ; preds = %675
@@ -4254,16 +4254,16 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   call void @slurm_xfree(ptr noundef nonnull %679) #12
   %680 = load i16, ptr @front_end_node_cnt, align 2
   %.not46.i = icmp eq i16 %680, 0
-  br i1 %.not46.i, label %._crit_edge.i120, label %.lr.ph.i119
+  br i1 %.not46.i, label %._crit_edge.i129, label %.lr.ph.i128
 
-.lr.ph.i119:                                      ; preds = %678, %691
+.lr.ph.i128:                                      ; preds = %678, %691
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %691 ], [ 0, %678 ]
   %681 = load ptr, ptr @trigger_down_front_end_bitmap, align 8
   %682 = call i32 @slurm_bit_test(ptr noundef %681, i64 noundef %indvars.iv.i) #12
   %.not39.i = icmp eq i32 %682, 0
   br i1 %.not39.i, label %691, label %683
 
-683:                                              ; preds = %.lr.ph.i119
+683:                                              ; preds = %.lr.ph.i128
   %684 = load ptr, ptr %679, align 8
   %.not40.i = icmp eq ptr %684, null
   br i1 %.not40.i, label %686, label %685
@@ -4280,14 +4280,14 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   call void @_xstrcat(ptr noundef nonnull %679, ptr noundef %690) #12
   br label %691
 
-691:                                              ; preds = %686, %.lr.ph.i119
+691:                                              ; preds = %686, %.lr.ph.i128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %692 = load i16, ptr @front_end_node_cnt, align 2
   %693 = zext i16 %692 to i64
   %694 = icmp samesign ult i64 %indvars.iv.next.i, %693
-  br i1 %694, label %.lr.ph.i119, label %._crit_edge.i120, !llvm.loop !22
+  br i1 %694, label %.lr.ph.i128, label %._crit_edge.i129, !llvm.loop !22
 
-._crit_edge.i120:                                 ; preds = %691, %678
+._crit_edge.i129:                                 ; preds = %691, %678
   store i8 1, ptr %25, align 8
   %695 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %696 = load i64, ptr %695, align 8
@@ -4298,7 +4298,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %.not38.i = icmp eq i64 %699, 0
   br i1 %.not38.i, label %_trigger_other_event.exitthread-pre-split, label %700
 
-700:                                              ; preds = %._crit_edge.i120
+700:                                              ; preds = %._crit_edge.i129
   %701 = call i32 @get_log_level() #12
   %702 = icmp sgt i32 %701, 3
   br i1 %702, label %703, label %_trigger_other_event.exitthread-pre-split
@@ -4311,13 +4311,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %_trigger_other_event.exitthread-pre-split
 
 707:                                              ; preds = %._crit_edge52.i, %668
-  %708 = phi i32 [ %.pre.i121, %._crit_edge52.i ], [ %670, %668 ]
+  %708 = phi i32 [ %.pre.i130, %._crit_edge52.i ], [ %670, %668 ]
   %709 = and i32 %708, 1
   %710 = icmp ne i32 %709, 0
   %711 = load ptr, ptr @trigger_up_front_end_bitmap, align 8
   %712 = icmp ne ptr %711, null
-  %or.cond3.i117 = select i1 %710, i1 %712, i1 false
-  br i1 %or.cond3.i117, label %713, label %_trigger_other_event.exitthread-pre-split
+  %or.cond3.i126 = select i1 %710, i1 %712, i1 false
+  br i1 %or.cond3.i126, label %713, label %_trigger_other_event.exitthread-pre-split
 
 713:                                              ; preds = %707
   %714 = call i64 @bit_ffs(ptr noundef nonnull %711) #12
@@ -4386,14 +4386,14 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.38, i32 noundef %743, ptr noundef %744) #12
   br label %_trigger_other_event.exitthread-pre-split
 
-_trigger_other_event.exitthread-pre-split:        ; preds = %31, %36, %40, %43, %62, %68, %71, %99, %102, %124, %148, %152, %158, %162, %168, %171, %.thread218.i, %208, %211, %.thread220.i, %248, %251, %.thread222.i, %288, %291, %.thread.i93, %.thread224.i, %391, %394, %.thread226.i, %430, %433, %.thread228.i, %469, %472, %477, %481, %489, %492, %501, %509, %515, %523, %529, %537, %543, %551, %557, %565, %571, %579, %582, %585, %593, %.sink.split.i105, %617, %621, %629, %632, %641, %649, %652, %655, %663, %.sink.split.i114, %._crit_edge.i120, %700, %703, %707, %713, %._crit_edge45.i, %738, %741
+_trigger_other_event.exitthread-pre-split:        ; preds = %31, %36, %40, %43, %62, %68, %71, %99, %102, %124, %148, %152, %158, %162, %168, %171, %.thread217.i, %208, %211, %.thread219.i, %248, %251, %.thread221.i, %288, %291, %.thread.i94, %.thread223.i, %391, %394, %.thread225.i, %430, %433, %.thread227.i, %469, %472, %477, %481, %489, %492, %501, %509, %515, %523, %529, %537, %543, %551, %557, %565, %571, %579, %582, %585, %593, %.sink.split.i107, %617, %621, %629, %632, %641, %649, %652, %655, %663, %.sink.split.i123, %._crit_edge.i129, %700, %703, %707, %713, %._crit_edge45.i, %738, %741
   %.pr = load i8, ptr %25, align 8
   br label %_trigger_other_event.exit
 
 _trigger_other_event.exit:                        ; preds = %_trigger_other_event.exitthread-pre-split, %23
   %745 = phi i8 [ %.pr, %_trigger_other_event.exitthread-pre-split ], [ %26, %23 ]
-  switch i8 %745, label %.thread137 [
-    i8 1, label %_trigger_other_event.exit.thread131
+  switch i8 %745, label %.thread146 [
+    i8 1, label %_trigger_other_event.exit.thread140
     i8 2, label %_trigger_other_event.exit._crit_edge
   ]
 
@@ -4402,20 +4402,20 @@ _trigger_other_event.exit._crit_edge:             ; preds = %_trigger_other_even
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %879
 
-_trigger_other_event.exit.thread131:              ; preds = %_trigger_other_event.exit
-  %.phi.trans.insert151 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.pre152 = load i64, ptr %.phi.trans.insert151, align 8
-  %746 = icmp sgt i64 %.pre152, %9
-  br i1 %746, label %.thread137, label %_trigger_other_event.exit.thread131.thread
+_trigger_other_event.exit.thread140:              ; preds = %_trigger_other_event.exit
+  %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.pre161 = load i64, ptr %.phi.trans.insert160, align 8
+  %746 = icmp sgt i64 %.pre161, %9
+  br i1 %746, label %.thread146, label %_trigger_other_event.exit.thread140.thread
 
-_trigger_other_event.exit.thread131.thread:       ; preds = %96, %_trigger_other_event.exit.thread131
+_trigger_other_event.exit.thread140.thread:       ; preds = %96, %_trigger_other_event.exit.thread140
   %747 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %748 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %749 = and i64 %748, 4
   %.not85 = icmp eq i64 %749, 0
   br i1 %.not85, label %764, label %750
 
-750:                                              ; preds = %_trigger_other_event.exit.thread131.thread
+750:                                              ; preds = %_trigger_other_event.exit.thread140.thread
   %751 = call i32 @get_log_level() #12
   %752 = icmp sgt i32 %751, 3
   br i1 %752, label %753, label %764
@@ -4434,7 +4434,7 @@ _trigger_other_event.exit.thread131.thread:       ; preds = %96, %_trigger_other
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %755, i32 noundef %757, i32 noundef %759, ptr noundef %761, ptr noundef %763) #12
   br label %764
 
-764:                                              ; preds = %750, %753, %_trigger_other_event.exit.thread131.thread
+764:                                              ; preds = %750, %753, %_trigger_other_event.exit.thread140.thread
   %765 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %766 = load i16, ptr %765, align 4
   %767 = and i16 %766, 1
@@ -4456,8 +4456,8 @@ _trigger_other_event.exit.thread131.thread:       ; preds = %96, %_trigger_other
   store i16 %776, ptr %777, align 4
   %778 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %779 = load ptr, ptr %778, align 8
-  %.not.i122 = icmp eq ptr %779, null
-  br i1 %.not.i122, label %786, label %780
+  %.not.i131 = icmp eq ptr %779, null
+  br i1 %.not.i131, label %786, label %780
 
 780:                                              ; preds = %768
   %781 = call ptr @xstrdup(ptr noundef nonnull %779) #12
@@ -4547,38 +4547,38 @@ _trigger_clone.exit:                              ; preds = %786, %789
   br label %829
 
 829:                                              ; preds = %831, %818
-  %indvars.iv.i123 = phi i64 [ 1, %818 ], [ %indvars.iv.next.i125, %831 ]
+  %indvars.iv.i132 = phi i64 [ 1, %818 ], [ %indvars.iv.next.i134, %831 ]
   %830 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #12
-  %.not.i124 = icmp eq ptr %830, null
-  br i1 %.not.i124, label %.loopexit45.i, label %831
+  %.not.i133 = icmp eq ptr %830, null
+  br i1 %.not.i133, label %.loopexit45.i, label %831
 
 831:                                              ; preds = %829
   %832 = call ptr @xstrdup(ptr noundef nonnull %830) #12
-  %833 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i123
+  %833 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i132
   store ptr %832, ptr %833, align 8
-  %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i125, 63
-  br i1 %exitcond.not.i, label %._crit_edge.i126, label %829, !llvm.loop !24
+  %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i132, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i134, 63
+  br i1 %exitcond.not.i, label %._crit_edge.i135, label %829, !llvm.loop !24
 
 .loopexit45.i:                                    ; preds = %829
   %834 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %835 = load ptr, ptr %834, align 8
   %836 = call ptr @xstrdup(ptr noundef %835) #12
-  %837 = and i64 %indvars.iv.i123, 4294967295
+  %837 = and i64 %indvars.iv.i132, 4294967295
   %838 = getelementptr inbounds nuw ptr, ptr %4, i64 %837
   store ptr %836, ptr %838, align 8
-  %839 = icmp samesign ult i64 %indvars.iv.i123, 63
-  br i1 %839, label %.lr.ph.preheader.i, label %._crit_edge.i126
+  %839 = icmp samesign ult i64 %indvars.iv.i132, 63
+  br i1 %839, label %.lr.ph.preheader.i, label %._crit_edge.i135
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit45.i
-  %840 = shl nuw nsw i64 %indvars.iv.i123, 3
+  %840 = shl nuw nsw i64 %indvars.iv.i132, 3
   %841 = getelementptr i8, ptr %4, i64 %840
   %scevgep.i = getelementptr i8, ptr %841, i64 8
   %842 = sub nuw nsw i64 504, %840
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %842, i1 false)
-  br label %._crit_edge.i126
+  br label %._crit_edge.i135
 
-._crit_edge.i126:                                 ; preds = %831, %.lr.ph.preheader.i, %.loopexit45.i
+._crit_edge.i135:                                 ; preds = %831, %.lr.ph.preheader.i, %.loopexit45.i
   call void @slurm_xfree(ptr noundef nonnull %1) #12
   %843 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %844 = load i32, ptr %843, align 8
@@ -4590,11 +4590,11 @@ _trigger_clone.exit:                              ; preds = %786, %789
   %849 = icmp sgt i32 %848, 0
   br i1 %849, label %850, label %851
 
-850:                                              ; preds = %._crit_edge.i126
+850:                                              ; preds = %._crit_edge.i135
   store i32 %848, ptr %24, align 8
   br label %876
 
-851:                                              ; preds = %._crit_edge.i126
+851:                                              ; preds = %._crit_edge.i135
   %852 = icmp eq i32 %848, 0
   br i1 %852, label %853, label %874
 
@@ -4606,8 +4606,8 @@ _trigger_clone.exit:                              ; preds = %786, %789
   %857 = call i32 @setsid() #12
   %858 = call i32 @initgroups(ptr noundef %847, i32 noundef %846) #12
   %859 = icmp ne i32 %858, -1
-  %or.cond.i127 = select i1 %859, i1 true, i1 %855
-  br i1 %or.cond.i127, label %862, label %860
+  %or.cond.i136 = select i1 %859, i1 true, i1 %855
+  br i1 %or.cond.i136, label %862, label %860
 
 860:                                              ; preds = %853
   %861 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.67) #12
@@ -4617,8 +4617,8 @@ _trigger_clone.exit:                              ; preds = %786, %789
 862:                                              ; preds = %853
   %863 = call i32 @setgid(i32 noundef %846) #12
   %864 = icmp ne i32 %863, -1
-  %or.cond3.i128 = select i1 %864, i1 true, i1 %855
-  br i1 %or.cond3.i128, label %867, label %865
+  %or.cond3.i137 = select i1 %864, i1 true, i1 %855
+  br i1 %or.cond3.i137, label %867, label %865
 
 865:                                              ; preds = %862
   %866 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.68) #12
@@ -4628,8 +4628,8 @@ _trigger_clone.exit:                              ; preds = %786, %789
 867:                                              ; preds = %862
   %868 = call i32 @setresuid(i32 noundef %844, i32 noundef %844, i32 noundef -1) #12
   %869 = icmp ne i32 %868, -1
-  %or.cond5.i129 = select i1 %869, i1 true, i1 %855
-  br i1 %or.cond5.i129, label %872, label %870
+  %or.cond5.i138 = select i1 %869, i1 true, i1 %855
+  br i1 %or.cond5.i138, label %872, label %870
 
 870:                                              ; preds = %867
   %871 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.69) #12
@@ -4664,7 +4664,7 @@ _trigger_run_program.exit:                        ; preds = %877, %816
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %.thread137
+  br label %.thread146
 
 879:                                              ; preds = %_trigger_other_event.exit._crit_edge, %_trigger_other_event.exit.thread.thread
   %880 = phi i64 [ %.pre, %_trigger_other_event.exit._crit_edge ], [ %9, %_trigger_other_event.exit.thread.thread ]
@@ -4675,7 +4675,7 @@ _trigger_run_program.exit:                        ; preds = %877, %816
 
 884:                                              ; preds = %879
   %.not83 = icmp eq i32 %883, 0
-  br i1 %.not83, label %.thread134, label %885
+  br i1 %.not83, label %.thread143, label %885
 
 885:                                              ; preds = %884
   %886 = call i32 @killpg(i32 noundef %883, i32 noundef 9) #12
@@ -4725,19 +4725,19 @@ _trigger_run_program.exit:                        ; preds = %877, %816
 
 917:                                              ; preds = %913, %908
   store i32 0, ptr %24, align 8
-  br label %.thread134
+  br label %.thread143
 
 thread-pre-split:                                 ; preds = %913, %911
   %918 = icmp eq i32 %909, 0
-  br i1 %918, label %.thread134, label %.thread137
+  br i1 %918, label %.thread143, label %.thread146
 
-.thread134:                                       ; preds = %884, %917, %thread-pre-split
+.thread143:                                       ; preds = %884, %917, %thread-pre-split
   %919 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %920 = and i64 %919, 4
   %.not84 = icmp eq i64 %920, 0
   br i1 %.not84, label %927, label %921
 
-921:                                              ; preds = %.thread134
+921:                                              ; preds = %.thread143
   %922 = call i32 @get_log_level() #12
   %923 = icmp sgt i32 %922, 3
   br i1 %923, label %924, label %927
@@ -4748,9 +4748,9 @@ thread-pre-split:                                 ; preds = %913, %911
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.17, i32 noundef %926) #12
   br label %927
 
-927:                                              ; preds = %921, %924, %.thread134
+927:                                              ; preds = %921, %924, %.thread143
   %928 = call i32 @list_delete_item(ptr noundef %20) #12
-  br label %.thread137
+  br label %.thread146
 
 929:                                              ; preds = %879
   %930 = call i32 @waitpid(i32 noundef %883, ptr noundef nonnull %8, i32 noundef 1) #12
@@ -4788,30 +4788,30 @@ thread-pre-split:                                 ; preds = %913, %911
 
 953:                                              ; preds = %950
   %954 = icmp eq i32 %930, -1
-  br i1 %954, label %955, label %.thread137
+  br i1 %954, label %955, label %.thread146
 
 955:                                              ; preds = %953
   %956 = tail call ptr @__errno_location() #13
   %957 = load i32, ptr %956, align 4
   %958 = icmp eq i32 %957, 10
-  br i1 %958, label %959, label %.thread137
+  br i1 %958, label %959, label %.thread146
 
 959:                                              ; preds = %955, %950
   store i32 0, ptr %24, align 8
-  br label %.thread137
+  br label %.thread146
 
-.thread137:                                       ; preds = %_trigger_other_event.exit, %28, %_trigger_other_event.exit.thread131, %927, %thread-pre-split, %953, %955, %959, %_trigger_run_program.exit
-  %.1 = phi i1 [ true, %_trigger_run_program.exit ], [ true, %927 ], [ %.0146, %thread-pre-split ], [ %.0146, %959 ], [ %.0146, %955 ], [ %.0146, %953 ], [ %.0146, %_trigger_other_event.exit.thread131 ], [ %.0146, %28 ], [ %.0146, %_trigger_other_event.exit ]
+.thread146:                                       ; preds = %_trigger_other_event.exit, %28, %_trigger_other_event.exit.thread140, %927, %thread-pre-split, %953, %955, %959, %_trigger_run_program.exit
+  %.1 = phi i1 [ true, %_trigger_run_program.exit ], [ true, %927 ], [ %.0155, %thread-pre-split ], [ %.0155, %959 ], [ %.0155, %955 ], [ %.0155, %953 ], [ %.0155, %_trigger_other_event.exit.thread140 ], [ %.0155, %28 ], [ %.0155, %_trigger_other_event.exit ]
   %960 = call ptr @list_next(ptr noundef %20) #12
   %.not80 = icmp eq ptr %960, null
   br i1 %.not80, label %._crit_edge, label %23, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.thread137, %18
-  %.0.lcssa = phi i1 [ false, %18 ], [ %.1, %.thread137 ]
+._crit_edge:                                      ; preds = %.thread146, %18
+  %.0.lcssa = phi i1 [ false, %18 ], [ %.1, %.thread146 ]
   call void @list_iterator_destroy(ptr noundef %20) #12
   %961 = load ptr, ptr @trigger_down_front_end_bitmap, align 8
-  %.not.i130 = icmp eq ptr %961, null
-  br i1 %.not.i130, label %963, label %962
+  %.not.i139 = icmp eq ptr %961, null
+  br i1 %.not.i139, label %963, label %962
 
 962:                                              ; preds = %._crit_edge
   call void @bit_clear_all(ptr noundef nonnull %961) #12

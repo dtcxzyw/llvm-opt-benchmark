@@ -7161,7 +7161,7 @@ define hidden void @_ZN11quinn_proto5token13IncomingToken11from_header17he5b719d
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.sroa.059.0.copyload102 = load i8, ptr %88, align 1, !noalias !597
+  %.sroa.059.0.copyload = load i8, ptr %88, align 1, !noalias !597
   %.sroa.4.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %8, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.4.0..sroa_idx60, i64 20, i1 false), !noalias !597
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !597
@@ -7200,7 +7200,7 @@ define hidden void @_ZN11quinn_proto5token13IncomingToken11from_header17he5b719d
   %.sroa.739.i.sroa.6.0.off56 = phi i32 [ %extract.t87, %105 ], [ %extract.t89, %93 ]
   %.sroa.739.i.sroa.6.0.off88 = phi i16 [ %extract.t91, %105 ], [ %extract.t93, %93 ]
   %.sroa.739.i.sroa.6.0.off104 = phi i16 [ %extract.t95, %105 ], [ %extract.t97, %93 ]
-  %.sroa.739.i.sroa.6.0.off120 = phi i8 [ %extract.t99, %105 ], [ %.sroa.059.0.copyload102, %93 ]
+  %.sroa.739.i.sroa.6.0.off120 = phi i8 [ %extract.t99, %105 ], [ %.sroa.059.0.copyload, %93 ]
   %.sroa.035.0.i = phi i64 [ undef, %105 ], [ %94, %93 ]
   %.sroa.2.0.i = phi i32 [ 1000000000, %105 ], [ %92, %93 ]
   %.sroa.437.0.i = phi i64 [ %106, %105 ], [ %.sroa.045.0.copyload.i, %93 ]
@@ -7370,8 +7370,8 @@ _ZN11quinn_proto5token5Token6decode17h311f0d26ed5fde77E.exit: ; preds = %108
   store i64 %.sroa.437.0.i, ptr %.sroa.043, align 8
   %.sroa.043.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 8
   store i32 %.sroa.638.0.i, ptr %.sroa.043.8..sroa_idx, align 8
-  %.sroa.043.12..sroa_idx124 = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 12
-  store i32 %.sroa.739.i.sroa.0.0, ptr %.sroa.043.12..sroa_idx124, align 4
+  %.sroa.043.12..sroa_idx123 = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 12
+  store i32 %.sroa.739.i.sroa.0.0, ptr %.sroa.043.12..sroa_idx123, align 4
   %.sroa.043.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 16
   store i8 %.sroa.739.i.sroa.4.0, ptr %.sroa.043.16..sroa_idx, align 8
   %.sroa.043.17..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.043, i64 17
@@ -7418,8 +7418,8 @@ _ZN11quinn_proto5token5Token6decode17h311f0d26ed5fde77E.exit: ; preds = %108
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %170 = load i16, ptr %169, align 2
   %171 = icmp eq i16 %170, %149
-  %or.cond123 = select i1 %168, i1 %171, i1 false
-  br i1 %or.cond123, label %172, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
+  %or.cond122 = select i1 %168, i1 %171, i1 false
+  br i1 %or.cond122, label %172, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
 172:                                              ; preds = %165, %152
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 72

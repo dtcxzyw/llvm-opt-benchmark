@@ -43352,9 +43352,9 @@ define internal fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_it
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !606
-  %.off.i.i.i.i12 = add i32 %10, -1
-  %switch.i.i.i.i13 = icmp ult i32 %.off.i.i.i.i12, 2
-  br i1 %switch.i.i.i.i13, label %_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit, label %.critedge
+  %.off.i.i.i.i11 = add i32 %10, -1
+  %switch.i.i.i.i12 = icmp ult i32 %.off.i.i.i.i11, 2
+  br i1 %switch.i.i.i.i12, label %_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit, label %.critedge
 
 _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit: ; preds = %4, %69
   %11 = phi i32 [ %70, %69 ], [ %10, %4 ]
@@ -43369,7 +43369,7 @@ _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6i
 
 19:                                               ; preds = %_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit
   %20 = load ptr, ptr %5, align 8, !tbaa !1303
-  %.val.i.i.i.i8 = load i32, ptr %0, align 8, !tbaa !56
+  %.val.i.i.i.i = load i32, ptr %0, align 8, !tbaa !56
   %21 = icmp eq i32 %11, 1
   br i1 %21, label %22, label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit
 
@@ -43378,7 +43378,7 @@ _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6i
   br label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit: ; preds = %19, %22
-  %23 = lshr i32 %.val.i.i.i.i8, 9
+  %23 = lshr i32 %.val.i.i.i.i, 9
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load atomic i32, ptr %24 monotonic, align 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 36
@@ -43451,12 +43451,12 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vector_tIN
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i.i.i.i.i.i.i.i, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = lshr i32 %.val.i.i.i.i8, 6
+  %57 = lshr i32 %.val.i.i.i.i, 6
   %58 = and i32 %57, 7
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !159
-  %62 = and i32 %.val.i.i.i.i8, 63
+  %62 = and i32 %.val.i.i.i.i, 63
   %63 = zext nneg i32 %62 to i64
   %64 = lshr i64 %61, %63
   %65 = trunc i64 %64 to i8
@@ -44649,7 +44649,7 @@ _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6i
 
 15:                                               ; preds = %_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEcvbEv.exit.i
   %16 = load ptr, ptr %5, align 8, !tbaa !1303
-  %.val.i.i.i.i5.i = load i32, ptr %0, align 8, !tbaa !56
+  %.val.i.i.i.i.i = load i32, ptr %0, align 8, !tbaa !56
   %17 = icmp eq i32 %7, 1
   br i1 %17, label %18, label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit.i
 
@@ -44658,7 +44658,7 @@ _ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6i
   br label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit.i
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjEN2OT6Layout6Common8Coverage6iter_tEE9hb_pair_tIjjEEdeEv.exit.i: ; preds = %18, %15
-  %19 = lshr i32 %.val.i.i.i.i5.i, 9
+  %19 = lshr i32 %.val.i.i.i.i.i, 9
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load atomic i32, ptr %20 monotonic, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 36
@@ -44731,12 +44731,12 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vector_t
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i.i.i.i.i.i.i.i.i, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = lshr i32 %.val.i.i.i.i5.i, 6
+  %53 = lshr i32 %.val.i.i.i.i.i, 6
   %54 = and i32 %53, 7
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !159
-  %58 = and i32 %.val.i.i.i.i5.i, 63
+  %58 = and i32 %.val.i.i.i.i.i, 63
   %59 = zext nneg i32 %58 to i64
   %60 = lshr i64 %57, %59
   %61 = trunc i64 %60 to i8

@@ -1987,8 +1987,8 @@ pmix_cmd_line_get_param.exit328.preheader:        ; preds = %.lr.ph.i322
   %482 = getelementptr inbounds nuw ptr, ptr %481, i64 %indvars.iv637
   %483 = load ptr, ptr %482, align 8, !tbaa !4
   store ptr %483, ptr %10, align 8, !tbaa !4
-  %.b5.i.i = load i1, ptr @ompi_frameworks_setup, align 1
-  br i1 %.b5.i.i, label %setup_ompi_frameworks.exit.i, label %484
+  %.b.i.i = load i1, ptr @ompi_frameworks_setup, align 1
+  br i1 %.b.i.i, label %setup_ompi_frameworks.exit.i, label %484
 
 484:                                              ; preds = %.lr.ph516
   store i1 true, ptr @ompi_frameworks_setup, align 1
@@ -2097,8 +2097,8 @@ pmix_cmd_line_get_param.exit342.preheader:        ; preds = %.lr.ph.i336
   %525 = getelementptr inbounds nuw ptr, ptr %524, i64 %indvars.iv640
   %526 = load ptr, ptr %525, align 8, !tbaa !4
   store ptr %526, ptr %10, align 8, !tbaa !4
-  %.b5.i.i343 = load i1, ptr @ompi_frameworks_setup, align 1
-  br i1 %.b5.i.i343, label %setup_ompi_frameworks.exit.i345, label %527
+  %.b.i.i343 = load i1, ptr @ompi_frameworks_setup, align 1
+  br i1 %.b.i.i343, label %setup_ompi_frameworks.exit.i345, label %527
 
 527:                                              ; preds = %.lr.ph519
   store i1 true, ptr @ompi_frameworks_setup, align 1

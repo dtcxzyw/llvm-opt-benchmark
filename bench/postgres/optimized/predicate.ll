@@ -2996,15 +2996,15 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
 
 24:                                               ; preds = %19, %15
   %.0.shrunk = phi i1 [ false, %15 ], [ %.not77, %19 ]
-  br i1 %1, label %25, label %._crit_edge152
+  br i1 %1, label %25, label %._crit_edge150
 
-._crit_edge152:                                   ; preds = %24
-  %.pre153 = load ptr, ptr @MySerializableXact, align 8
+._crit_edge150:                                   ; preds = %24
+  %.pre151 = load ptr, ptr @MySerializableXact, align 8
   br label %42
 
 25:                                               ; preds = %24
   %26 = tail call zeroext i1 @IsInParallelMode() #11
-  %.pre154 = load ptr, ptr @MySerializableXact, align 8
+  %.pre152 = load ptr, ptr @MySerializableXact, align 8
   br i1 %26, label %27, label %42
 
 27:                                               ; preds = %25
@@ -3013,11 +3013,11 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %27
-  store ptr %.pre154, ptr @SavedSerializableXact, align 8
+  store ptr %.pre152, ptr @SavedSerializableXact, align 8
   br label %31
 
 31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds nuw i8, ptr %.pre154, i64 156
+  %32 = getelementptr inbounds nuw i8, ptr %.pre152, i64 156
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 2048
   %.not78 = icmp eq i32 %34, 0
@@ -3030,8 +3030,8 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   store ptr null, ptr @MySerializableXact, align 8
   store i1 false, ptr @MyXactDidWrite, align 1
   %38 = load ptr, ptr @LocalPredicateLockHash, align 8
-  %.not.i112 = icmp eq ptr %38, null
-  br i1 %.not.i112, label %ReleasePredicateLocksLocal.exit, label %39
+  %.not.i110 = icmp eq ptr %38, null
+  br i1 %.not.i110, label %ReleasePredicateLocksLocal.exit, label %39
 
 39:                                               ; preds = %35
   tail call void @hash_destroy(ptr noundef nonnull %38) #11
@@ -3042,9 +3042,9 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   store i32 %41, ptr %32, align 4
   br label %42
 
-42:                                               ; preds = %._crit_edge152, %40, %25
-  %43 = phi ptr [ %.pre154, %40 ], [ %.pre154, %25 ], [ %.pre153, %._crit_edge152 ]
-  %.069 = phi i1 [ true, %40 ], [ false, %25 ], [ false, %._crit_edge152 ]
+42:                                               ; preds = %._crit_edge150, %40, %25
+  %43 = phi ptr [ %.pre152, %40 ], [ %.pre152, %25 ], [ %.pre151, %._crit_edge150 ]
+  %.069 = phi i1 [ true, %40 ], [ false, %25 ], [ false, %._crit_edge150 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 156
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 32
@@ -3067,8 +3067,8 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   store i64 %57, ptr %55, align 8
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %57, ptr %58, align 8
-  %.b7680 = load i1, ptr @MyXactDidWrite, align 1
-  br i1 %.b7680, label %65, label %59
+  %.b76 = load i1, ptr @MyXactDidWrite, align 1
+  br i1 %.b76, label %65, label %59
 
 59:                                               ; preds = %52
   %60 = load i32, ptr %44, align 4
@@ -3095,35 +3095,35 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   %70 = add i32 %69, -1
   store i32 %70, ptr %68, align 8
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %.loopexit126
+  br i1 %71, label %72, label %.loopexit124
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 56
   store i64 %74, ptr %75, align 8
-  br label %.loopexit126
+  br label %.loopexit124
 
 76:                                               ; preds = %65
   %77 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %78 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %79 = load ptr, ptr %78, align 8
-  %.not81 = icmp eq ptr %79, null
-  %.not82127188 = icmp eq ptr %79, %77
-  %.not82127 = select i1 %.not81, i1 true, i1 %.not82127188
-  br i1 %.not82127, label %.loopexit126, label %.lr.ph
+  %.not80 = icmp eq ptr %79, null
+  %.not81125186 = icmp eq ptr %79, %77
+  %.not81125 = select i1 %.not80, i1 true, i1 %.not81125186
+  br i1 %.not81125, label %.loopexit124, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %ReleaseRWConflict.exit
-  %.sroa.0.0128 = phi ptr [ %.sroa.26.0, %ReleaseRWConflict.exit ], [ %79, %76 ]
-  %.sroa.26.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0128, i64 8
+  %.sroa.0.0126 = phi ptr [ %.sroa.26.0, %ReleaseRWConflict.exit ], [ %79, %76 ]
+  %.sroa.26.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0126, i64 8
   %.sroa.26.0 = load ptr, ptr %.sroa.26.0.in, align 8
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.0128, i64 -16
-  %81 = load ptr, ptr %.sroa.0.0128, align 8
+  %80 = getelementptr inbounds i8, ptr %.sroa.0.0126, i64 -16
+  %81 = load ptr, ptr %.sroa.0.0126, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.26.0, ptr %82, align 8
-  %83 = load ptr, ptr %.sroa.0.0128, align 8
+  %83 = load ptr, ptr %.sroa.0.0126, align 8
   store ptr %83, ptr %.sroa.26.0, align 8
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0128, i64 -8
+  %84 = getelementptr inbounds i8, ptr %.sroa.0.0126, i64 -8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %80, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -3148,23 +3148,23 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %80, ptr %95, align 8
   store ptr %80, ptr %89, align 8
-  %.not82 = icmp eq ptr %.sroa.26.0, %77
-  br i1 %.not82, label %.loopexit126.loopexit, label %.lr.ph, !llvm.loop !26
+  %.not81 = icmp eq ptr %.sroa.26.0, %77
+  br i1 %.not81, label %.loopexit124.loopexit, label %.lr.ph, !llvm.loop !26
 
-.loopexit126.loopexit:                            ; preds = %ReleaseRWConflict.exit
+.loopexit124.loopexit:                            ; preds = %ReleaseRWConflict.exit
   %.pre.pre = load ptr, ptr @MySerializableXact, align 8
-  br label %.loopexit126
+  br label %.loopexit124
 
-.loopexit126:                                     ; preds = %.loopexit126.loopexit, %76, %66, %72
-  %.pre = phi ptr [ %.pre.pre, %.loopexit126.loopexit ], [ %43, %76 ], [ %43, %66 ], [ %43, %72 ]
+.loopexit124:                                     ; preds = %.loopexit124.loopexit, %76, %66, %72
+  %.pre = phi ptr [ %.pre.pre, %.loopexit124.loopexit ], [ %43, %76 ], [ %43, %66 ], [ %43, %72 ]
   br i1 %.0.shrunk, label %96, label %103
 
-96:                                               ; preds = %.loopexit126
+96:                                               ; preds = %.loopexit124
   %97 = getelementptr inbounds nuw i8, ptr %.pre, i64 156
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 1056
-  %or.cond104.not = icmp eq i32 %99, 1024
-  br i1 %or.cond104.not, label %100, label %103
+  %or.cond102.not = icmp eq i32 %99, 1024
+  br i1 %or.cond102.not, label %100, label %103
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
@@ -3173,69 +3173,69 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   store i32 %102, ptr %97, align 4
   br label %103
 
-103:                                              ; preds = %.loopexit126, %96, %100
+103:                                              ; preds = %.loopexit124, %96, %100
   %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %106 = load ptr, ptr %105, align 8
-  %.not85 = icmp eq ptr %106, null
-  %.not86131189 = icmp eq ptr %106, %104
-  %.not86131 = select i1 %.not85, i1 true, i1 %.not86131189
-  br i1 %.not86131, label %._crit_edge, label %.lr.ph135
+  %.not84 = icmp eq ptr %106, null
+  %.not85129187 = icmp eq ptr %106, %104
+  %.not85129 = select i1 %.not84, i1 true, i1 %.not85129187
+  br i1 %.not85129, label %._crit_edge, label %.lr.ph133
 
-.lr.ph135:                                        ; preds = %103, %157
-  %.sroa.0.1132 = phi ptr [ %.sroa.26.1134, %157 ], [ %106, %103 ]
-  %.sroa.26.1.in133 = getelementptr inbounds nuw i8, ptr %.sroa.0.1132, i64 8
-  %.sroa.26.1134 = load ptr, ptr %.sroa.26.1.in133, align 8
+.lr.ph133:                                        ; preds = %103, %157
+  %.sroa.0.1130 = phi ptr [ %.sroa.26.1132, %157 ], [ %106, %103 ]
+  %.sroa.26.1.in131 = getelementptr inbounds nuw i8, ptr %.sroa.0.1130, i64 8
+  %.sroa.26.1132 = load ptr, ptr %.sroa.26.1.in131, align 8
   br i1 %.0.shrunk, label %107, label %.critedge
 
-107:                                              ; preds = %.lr.ph135
+107:                                              ; preds = %.lr.ph133
   %108 = load ptr, ptr @MySerializableXact, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 156
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 32
-  %.not100 = icmp eq i32 %111, 0
-  br i1 %.not100, label %112, label %128
+  %.not98 = icmp eq i32 %111, 0
+  br i1 %.not98, label %112, label %128
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.1132, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.1130, i64 40
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 156
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 1
-  %.not101 = icmp eq i32 %117, 0
-  br i1 %.not101, label %128, label %118
+  %.not99 = icmp eq i32 %117, 0
+  br i1 %.not99, label %128, label %118
 
 118:                                              ; preds = %112
   %119 = and i32 %110, 16
   %120 = icmp eq i32 %119, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %.pre156 = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %120, label %._crit_edge155, label %121
+  %.pre154 = load i64, ptr %.phi.trans.insert, align 8
+  br i1 %120, label %._crit_edge153, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %123 = load i64, ptr %122, align 8
-  %124 = icmp ult i64 %.pre156, %123
-  br i1 %124, label %._crit_edge155, label %126
+  %124 = icmp ult i64 %.pre154, %123
+  br i1 %124, label %._crit_edge153, label %126
 
-._crit_edge155:                                   ; preds = %118, %121
+._crit_edge153:                                   ; preds = %118, %121
   %125 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store i64 %.pre156, ptr %125, align 8
+  store i64 %.pre154, ptr %125, align 8
   br label %126
 
-126:                                              ; preds = %._crit_edge155, %121
+126:                                              ; preds = %._crit_edge153, %121
   %127 = or i32 %110, 16
   store i32 %127, ptr %109, align 4
   br label %128
 
 128:                                              ; preds = %107, %112, %126
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.1132, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.1130, i64 40
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 1
-  %.not102 = icmp eq i32 %133, 0
-  br i1 %.not102, label %134, label %.critedge
+  %.not100 = icmp eq i32 %133, 0
+  br i1 %.not100, label %134, label %.critedge
 
 134:                                              ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 24
@@ -3243,85 +3243,85 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   %137 = load ptr, ptr @PredXact, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load i64, ptr %138, align 8
-  %.not103 = icmp ult i64 %136, %139
-  br i1 %.not103, label %157, label %.critedge
+  %.not101 = icmp ult i64 %136, %139
+  br i1 %.not101, label %157, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph135, %134, %128
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.1132, i64 16
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.1132, i64 24
+.critedge:                                        ; preds = %.lr.ph133, %134, %128
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.1130, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.1130, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %140, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %142, ptr %144, align 8
   %145 = load ptr, ptr %140, align 8
   store ptr %145, ptr %142, align 8
-  %146 = load ptr, ptr %.sroa.26.1.in133, align 8
-  %147 = load ptr, ptr %.sroa.0.1132, align 8
+  %146 = load ptr, ptr %.sroa.26.1.in131, align 8
+  %147 = load ptr, ptr %.sroa.0.1130, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %146, ptr %148, align 8
-  %149 = load ptr, ptr %.sroa.0.1132, align 8
+  %149 = load ptr, ptr %.sroa.0.1130, align 8
   store ptr %149, ptr %146, align 8
   %150 = load ptr, ptr @RWConflictPool, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %ReleaseRWConflict.exit114
+  br i1 %153, label %154, label %ReleaseRWConflict.exit112
 
 154:                                              ; preds = %.critedge
   store ptr %150, ptr %150, align 8
   store ptr %150, ptr %151, align 8
-  br label %ReleaseRWConflict.exit114
+  br label %ReleaseRWConflict.exit112
 
-ReleaseRWConflict.exit114:                        ; preds = %.critedge, %154
-  store ptr %150, ptr %.sroa.26.1.in133, align 8
+ReleaseRWConflict.exit112:                        ; preds = %.critedge, %154
+  store ptr %150, ptr %.sroa.26.1.in131, align 8
   %155 = load ptr, ptr %150, align 8
-  store ptr %155, ptr %.sroa.0.1132, align 8
+  store ptr %155, ptr %.sroa.0.1130, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %.sroa.0.1132, ptr %156, align 8
-  store ptr %.sroa.0.1132, ptr %150, align 8
+  store ptr %.sroa.0.1130, ptr %156, align 8
+  store ptr %.sroa.0.1130, ptr %150, align 8
   br label %157
 
-157:                                              ; preds = %ReleaseRWConflict.exit114, %134
-  %.not86 = icmp eq ptr %.sroa.26.1134, %104
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph135, !llvm.loop !27
+157:                                              ; preds = %ReleaseRWConflict.exit112, %134
+  %.not85 = icmp eq ptr %.sroa.26.1132, %104
+  br i1 %.not85, label %._crit_edge.loopexit, label %.lr.ph133, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %157
-  %.pre157 = load ptr, ptr @MySerializableXact, align 8
+  %.pre155 = load ptr, ptr @MySerializableXact, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %103
-  %158 = phi ptr [ %.pre157, %._crit_edge.loopexit ], [ %.pre, %103 ]
+  %158 = phi ptr [ %.pre155, %._crit_edge.loopexit ], [ %.pre, %103 ]
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %161 = load ptr, ptr %160, align 8
-  %.not87 = icmp eq ptr %161, null
-  %.not88138190 = icmp eq ptr %161, %159
-  %.not88138 = select i1 %.not87, i1 true, i1 %.not88138190
-  br i1 %.not88138, label %._crit_edge143, label %.lr.ph142
+  %.not86 = icmp eq ptr %161, null
+  %.not87136188 = icmp eq ptr %161, %159
+  %.not87136 = select i1 %.not86, i1 true, i1 %.not87136188
+  br i1 %.not87136, label %._crit_edge141, label %.lr.ph140
 
-.lr.ph142:                                        ; preds = %._crit_edge, %185
-  %.sroa.0.2139 = phi ptr [ %.sroa.26.2140, %185 ], [ %161, %._crit_edge ]
-  %.sroa.26.2140.in = getelementptr inbounds nuw i8, ptr %.sroa.0.2139, i64 8
-  %.sroa.26.2140 = load ptr, ptr %.sroa.26.2140.in, align 8
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.2139, i64 -16
+.lr.ph140:                                        ; preds = %._crit_edge, %185
+  %.sroa.0.2137 = phi ptr [ %.sroa.26.2138, %185 ], [ %161, %._crit_edge ]
+  %.sroa.26.2138.in = getelementptr inbounds nuw i8, ptr %.sroa.0.2137, i64 8
+  %.sroa.26.2138 = load ptr, ptr %.sroa.26.2138.in, align 8
+  %162 = getelementptr inbounds i8, ptr %.sroa.0.2137, i64 -16
   br i1 %.0.shrunk, label %163, label %169
 
-163:                                              ; preds = %.lr.ph142
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.2139, i64 16
+163:                                              ; preds = %.lr.ph140
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.2137, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 156
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, 33
-  %or.cond107 = icmp eq i32 %168, 0
-  br i1 %or.cond107, label %185, label %169
+  %or.cond105 = icmp eq i32 %168, 0
+  br i1 %or.cond105, label %185, label %169
 
-169:                                              ; preds = %163, %.lr.ph142
-  %170 = load ptr, ptr %.sroa.0.2139, align 8
+169:                                              ; preds = %163, %.lr.ph140
+  %170 = load ptr, ptr %.sroa.0.2137, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store ptr %.sroa.26.2140, ptr %171, align 8
-  %172 = load ptr, ptr %.sroa.0.2139, align 8
-  store ptr %172, ptr %.sroa.26.2140, align 8
-  %173 = getelementptr inbounds i8, ptr %.sroa.0.2139, i64 -8
+  store ptr %.sroa.26.2138, ptr %171, align 8
+  %172 = load ptr, ptr %.sroa.0.2137, align 8
+  store ptr %172, ptr %.sroa.26.2138, align 8
+  %173 = getelementptr inbounds i8, ptr %.sroa.0.2137, i64 -8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %162, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -3332,14 +3332,14 @@ ReleaseRWConflict.exit114:                        ; preds = %.critedge, %154
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %182, label %ReleaseRWConflict.exit115
+  br i1 %181, label %182, label %ReleaseRWConflict.exit113
 
 182:                                              ; preds = %169
   store ptr %178, ptr %178, align 8
   store ptr %178, ptr %179, align 8
-  br label %ReleaseRWConflict.exit115
+  br label %ReleaseRWConflict.exit113
 
-ReleaseRWConflict.exit115:                        ; preds = %169, %182
+ReleaseRWConflict.exit113:                        ; preds = %169, %182
   store ptr %178, ptr %173, align 8
   %183 = load ptr, ptr %178, align 8
   store ptr %183, ptr %162, align 8
@@ -3348,56 +3348,56 @@ ReleaseRWConflict.exit115:                        ; preds = %169, %182
   store ptr %162, ptr %178, align 8
   br label %185
 
-185:                                              ; preds = %163, %ReleaseRWConflict.exit115
-  %.not88 = icmp eq ptr %.sroa.26.2140, %159
-  br i1 %.not88, label %._crit_edge143.loopexit, label %.lr.ph142, !llvm.loop !28
+185:                                              ; preds = %163, %ReleaseRWConflict.exit113
+  %.not87 = icmp eq ptr %.sroa.26.2138, %159
+  br i1 %.not87, label %._crit_edge141.loopexit, label %.lr.ph140, !llvm.loop !28
 
-._crit_edge143.loopexit:                          ; preds = %185
-  %.pre161.pre163.pre = load ptr, ptr @MySerializableXact, align 8
-  br label %._crit_edge143
+._crit_edge141.loopexit:                          ; preds = %185
+  %.pre159.pre161.pre = load ptr, ptr @MySerializableXact, align 8
+  br label %._crit_edge141
 
-._crit_edge143:                                   ; preds = %._crit_edge143.loopexit, %._crit_edge
-  %.pre161.pre163 = phi ptr [ %.pre161.pre163.pre, %._crit_edge143.loopexit ], [ %158, %._crit_edge ]
+._crit_edge141:                                   ; preds = %._crit_edge141.loopexit, %._crit_edge
+  %.pre159.pre161 = phi ptr [ %.pre159.pre161.pre, %._crit_edge141.loopexit ], [ %158, %._crit_edge ]
   br i1 %.not79, label %186, label %.loopexit
 
-186:                                              ; preds = %._crit_edge143
-  %187 = getelementptr inbounds nuw i8, ptr %.pre161.pre163, i64 128
-  %188 = getelementptr inbounds nuw i8, ptr %.pre161.pre163, i64 136
+186:                                              ; preds = %._crit_edge141
+  %187 = getelementptr inbounds nuw i8, ptr %.pre159.pre161, i64 128
+  %188 = getelementptr inbounds nuw i8, ptr %.pre159.pre161, i64 136
   %189 = load ptr, ptr %188, align 8
-  %.not89 = icmp eq ptr %189, null
-  %.not90146191 = icmp eq ptr %189, %187
-  %.not90146 = select i1 %.not89, i1 true, i1 %.not90146191
-  br i1 %.not90146, label %.loopexit, label %.lr.ph151.preheader
+  %.not88 = icmp eq ptr %189, null
+  %.not89144189 = icmp eq ptr %189, %187
+  %.not89144 = select i1 %.not88, i1 true, i1 %.not89144189
+  br i1 %.not89144, label %.loopexit, label %.lr.ph149.preheader
 
-.lr.ph151.preheader:                              ; preds = %186
-  %.b91.pre158 = load i1, ptr @MyXactDidWrite, align 1
-  br label %.lr.ph151
+.lr.ph149.preheader:                              ; preds = %186
+  %.b.pre156 = load i1, ptr @MyXactDidWrite, align 1
+  br label %.lr.ph149
 
-.lr.ph151:                                        ; preds = %.lr.ph151.preheader, %259
-  %.b91 = phi i1 [ %.b91159, %259 ], [ %.b91.pre158, %.lr.ph151.preheader ]
-  %.sroa.0.3147 = phi ptr [ %.sroa.26.3149, %259 ], [ %189, %.lr.ph151.preheader ]
-  %.sroa.26.3.in148 = getelementptr inbounds nuw i8, ptr %.sroa.0.3147, i64 8
-  %.sroa.26.3149 = load ptr, ptr %.sroa.26.3.in148, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.3147, i64 40
+.lr.ph149:                                        ; preds = %.lr.ph149.preheader, %259
+  %.b = phi i1 [ %.b157, %259 ], [ %.b.pre156, %.lr.ph149.preheader ]
+  %.sroa.0.3145 = phi ptr [ %.sroa.26.3147, %259 ], [ %189, %.lr.ph149.preheader ]
+  %.sroa.26.3.in146 = getelementptr inbounds nuw i8, ptr %.sroa.0.3145, i64 8
+  %.sroa.26.3147 = load ptr, ptr %.sroa.26.3.in146, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.3145, i64 40
   %191 = load ptr, ptr %190, align 8
-  %or.cond = select i1 %.0.shrunk, i1 %.b91, i1 false
+  %or.cond = select i1 %.0.shrunk, i1 %.b, i1 false
   br i1 %or.cond, label %192, label %225
 
-192:                                              ; preds = %.lr.ph151
+192:                                              ; preds = %.lr.ph149
   %193 = load ptr, ptr @MySerializableXact, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 156
   %195 = load i32, ptr %194, align 4
   %196 = and i32 %195, 16
-  %.not92 = icmp eq i32 %196, 0
-  br i1 %.not92, label %225, label %197
+  %.not90 = icmp eq i32 %196, 0
+  br i1 %.not90, label %225, label %197
 
 197:                                              ; preds = %192
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %199 = load i64, ptr %198, align 8
   %200 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %201 = load i64, ptr %200, align 8
-  %.not93 = icmp ugt i64 %199, %201
-  br i1 %.not93, label %225, label %202
+  %.not91 = icmp ugt i64 %199, %201
+  br i1 %.not91, label %225, label %202
 
 202:                                              ; preds = %197
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 156
@@ -3407,9 +3407,9 @@ ReleaseRWConflict.exit115:                        ; preds = %169, %182
   %206 = getelementptr inbounds nuw i8, ptr %191, i64 128
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 136
   %208 = load ptr, ptr %207, align 8
-  %.not.i116 = icmp eq ptr %208, null
+  %.not.i114 = icmp eq ptr %208, null
   %.not91012.i = icmp eq ptr %208, %206
-  %.not910.i = select i1 %.not.i116, i1 true, i1 %.not91012.i
+  %.not910.i = select i1 %.not.i114, i1 true, i1 %.not91012.i
   br i1 %.not910.i, label %FlagSxactUnsafe.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %202, %ReleaseRWConflict.exit.i
@@ -3450,39 +3450,39 @@ ReleaseRWConflict.exit.i:                         ; preds = %222, %.lr.ph.i
   %.not9.i = icmp eq ptr %.sroa.8.0.i, %206
   br i1 %.not9.i, label %FlagSxactUnsafe.exit, label %.lr.ph.i, !llvm.loop !29
 
-225:                                              ; preds = %197, %192, %.lr.ph151
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.3147, i64 16
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.3147, i64 24
+225:                                              ; preds = %197, %192, %.lr.ph149
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.3145, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.3145, i64 24
   %228 = load ptr, ptr %227, align 8
   %229 = load ptr, ptr %226, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %228, ptr %230, align 8
   %231 = load ptr, ptr %226, align 8
   store ptr %231, ptr %228, align 8
-  %232 = load ptr, ptr %.sroa.26.3.in148, align 8
-  %233 = load ptr, ptr %.sroa.0.3147, align 8
+  %232 = load ptr, ptr %.sroa.26.3.in146, align 8
+  %233 = load ptr, ptr %.sroa.0.3145, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store ptr %232, ptr %234, align 8
-  %235 = load ptr, ptr %.sroa.0.3147, align 8
+  %235 = load ptr, ptr %.sroa.0.3145, align 8
   store ptr %235, ptr %232, align 8
   %236 = load ptr, ptr @RWConflictPool, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, null
-  br i1 %239, label %240, label %ReleaseRWConflict.exit117
+  br i1 %239, label %240, label %ReleaseRWConflict.exit115
 
 240:                                              ; preds = %225
   store ptr %236, ptr %236, align 8
   store ptr %236, ptr %237, align 8
-  br label %ReleaseRWConflict.exit117
+  br label %ReleaseRWConflict.exit115
 
-ReleaseRWConflict.exit117:                        ; preds = %225, %240
-  store ptr %236, ptr %.sroa.26.3.in148, align 8
+ReleaseRWConflict.exit115:                        ; preds = %225, %240
+  store ptr %236, ptr %.sroa.26.3.in146, align 8
   %241 = load ptr, ptr %236, align 8
-  store ptr %241, ptr %.sroa.0.3147, align 8
+  store ptr %241, ptr %.sroa.0.3145, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  store ptr %.sroa.0.3147, ptr %242, align 8
-  store ptr %.sroa.0.3147, ptr %236, align 8
+  store ptr %.sroa.0.3145, ptr %242, align 8
+  store ptr %.sroa.0.3145, ptr %236, align 8
   %243 = getelementptr inbounds nuw i8, ptr %191, i64 128
   %244 = getelementptr inbounds nuw i8, ptr %191, i64 136
   %245 = load ptr, ptr %244, align 8
@@ -3491,52 +3491,52 @@ ReleaseRWConflict.exit117:                        ; preds = %225, %240
   %spec.select.i = or i1 %246, %247
   br i1 %spec.select.i, label %248, label %FlagSxactUnsafe.exit
 
-248:                                              ; preds = %ReleaseRWConflict.exit117
+248:                                              ; preds = %ReleaseRWConflict.exit115
   %249 = getelementptr inbounds nuw i8, ptr %191, i64 156
   %250 = load i32, ptr %249, align 4
   %251 = or i32 %250, 128
   store i32 %251, ptr %249, align 4
   br label %FlagSxactUnsafe.exit
 
-FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.exit.i, %202, %ReleaseRWConflict.exit117, %248
+FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.exit.i, %202, %ReleaseRWConflict.exit115, %248
   %252 = getelementptr inbounds nuw i8, ptr %191, i64 156
   %253 = load i32, ptr %252, align 4
   %254 = and i32 %253, 64
-  %.not94 = icmp eq i32 %254, 0
+  %.not92 = icmp eq i32 %254, 0
   %255 = and i32 %253, 384
-  %or.cond109 = icmp eq i32 %255, 0
-  %or.cond125 = or i1 %.not94, %or.cond109
-  br i1 %or.cond125, label %259, label %256
+  %or.cond107 = icmp eq i32 %255, 0
+  %or.cond123 = or i1 %.not92, %or.cond107
+  br i1 %or.cond123, label %259, label %256
 
 256:                                              ; preds = %FlagSxactUnsafe.exit
   %257 = getelementptr inbounds nuw i8, ptr %191, i64 164
   %258 = load i32, ptr %257, align 4
   tail call void @ProcSendSignal(i32 noundef %258) #11
-  %.b91.pre = load i1, ptr @MyXactDidWrite, align 1
+  %.b.pre = load i1, ptr @MyXactDidWrite, align 1
   br label %259
 
 259:                                              ; preds = %256, %FlagSxactUnsafe.exit
-  %.b91159 = phi i1 [ %.b91.pre, %256 ], [ %.b91, %FlagSxactUnsafe.exit ]
-  %.not90 = icmp eq ptr %.sroa.26.3149, %187
-  br i1 %.not90, label %.loopexit.loopexit, label %.lr.ph151, !llvm.loop !30
+  %.b157 = phi i1 [ %.b.pre, %256 ], [ %.b, %FlagSxactUnsafe.exit ]
+  %.not89 = icmp eq ptr %.sroa.26.3147, %187
+  br i1 %.not89, label %.loopexit.loopexit, label %.lr.ph149, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %259
-  %.pre161.pre = load ptr, ptr @MySerializableXact, align 8
+  %.pre159.pre = load ptr, ptr @MySerializableXact, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %186, %._crit_edge143
-  %.pre161 = phi ptr [ %.pre161.pre, %.loopexit.loopexit ], [ %.pre161.pre163, %186 ], [ %.pre161.pre163, %._crit_edge143 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %186, %._crit_edge141
+  %.pre159 = phi ptr [ %.pre159.pre, %.loopexit.loopexit ], [ %.pre159.pre161, %186 ], [ %.pre159.pre161, %._crit_edge141 ]
   br i1 %.069, label %264, label %260
 
 260:                                              ; preds = %.loopexit
-  %261 = getelementptr inbounds nuw i8, ptr %.pre161, i64 156
+  %261 = getelementptr inbounds nuw i8, ptr %.pre159, i64 156
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, 2048
-  %.not97 = icmp eq i32 %263, 0
-  br i1 %.not97, label %264, label %340
+  %.not95 = icmp eq i32 %263, 0
+  br i1 %.not95, label %264, label %340
 
 264:                                              ; preds = %260, %.loopexit
-  %265 = getelementptr inbounds nuw i8, ptr %.pre161, i64 152
+  %265 = getelementptr inbounds nuw i8, ptr %.pre159, i64 152
   %266 = load i32, ptr %265, align 8
   %267 = load ptr, ptr @PredXact, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
@@ -3558,9 +3558,9 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %277 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %278 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %279 = load ptr, ptr %278, align 8
-  %.not.i118 = icmp eq ptr %279, null
+  %.not.i116 = icmp eq ptr %279, null
   %.not131929.i = icmp eq ptr %279, %277
-  %.not1319.i = select i1 %.not.i118, i1 true, i1 %.not131929.i
+  %.not1319.i = select i1 %.not.i116, i1 true, i1 %.not131929.i
   br i1 %.not1319.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %276
@@ -3571,9 +3571,9 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
 
 .lr.ph.preheader.i:                               ; preds = %276
   %.pre21.i = load ptr, ptr @OldCommittedSxact, align 8
-  br label %.lr.ph.i119
+  br label %.lr.ph.i117
 
-.lr.ph.i119:                                      ; preds = %313, %.lr.ph.preheader.i
+.lr.ph.i117:                                      ; preds = %313, %.lr.ph.preheader.i
   %283 = phi ptr [ %314, %313 ], [ %267, %.lr.ph.preheader.i ]
   %284 = phi ptr [ %315, %313 ], [ %267, %.lr.ph.preheader.i ]
   %285 = phi ptr [ %316, %313 ], [ %.pre21.i, %.lr.ph.preheader.i ]
@@ -3587,7 +3587,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %or.cond18.i = select i1 %or.cond.i, i1 true, i1 %.not16.i
   br i1 %or.cond18.i, label %313, label %290
 
-290:                                              ; preds = %.lr.ph.i119
+290:                                              ; preds = %.lr.ph.i117
   %291 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %292 = load i32, ptr %291, align 8
   %.not17.i = icmp eq i32 %292, 0
@@ -3626,14 +3626,14 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   store i32 %312, ptr %310, align 4
   br label %313
 
-313:                                              ; preds = %309, %304, %297, %.lr.ph.i119
-  %314 = phi ptr [ %298, %297 ], [ %.pre22.i, %309 ], [ %.pre22.i, %304 ], [ %283, %.lr.ph.i119 ]
-  %315 = phi ptr [ %298, %297 ], [ %.pre22.i, %309 ], [ %.pre22.i, %304 ], [ %284, %.lr.ph.i119 ]
-  %316 = phi ptr [ %299, %297 ], [ %.pre.i, %309 ], [ %.pre.i, %304 ], [ %285, %.lr.ph.i119 ]
+313:                                              ; preds = %309, %304, %297, %.lr.ph.i117
+  %314 = phi ptr [ %298, %297 ], [ %.pre22.i, %309 ], [ %.pre22.i, %304 ], [ %283, %.lr.ph.i117 ]
+  %315 = phi ptr [ %298, %297 ], [ %.pre22.i, %309 ], [ %.pre22.i, %304 ], [ %284, %.lr.ph.i117 ]
+  %316 = phi ptr [ %299, %297 ], [ %.pre.i, %309 ], [ %.pre.i, %304 ], [ %285, %.lr.ph.i117 ]
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %318 = load ptr, ptr %317, align 8
   %.not13.i = icmp eq ptr %318, %277
-  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i119, !llvm.loop !31
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i117, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %313
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %314, i64 32
@@ -3695,7 +3695,7 @@ SetNewSxactGlobalXmin.exit:                       ; preds = %322, %332, %334, %3
   %343 = load ptr, ptr @MainLWLockArray, align 8
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 3712
   %345 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %344, i32 noundef 0) #11
-  br i1 %.0.shrunk, label %346, label %.critedge111
+  br i1 %.0.shrunk, label %346, label %.critedge109
 
 346:                                              ; preds = %340
   %347 = load ptr, ptr @FinishedSerializableTransactions, align 8
@@ -3721,16 +3721,16 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   store ptr %349, ptr %347, align 8
   br label %362
 
-.critedge111:                                     ; preds = %340
+.critedge109:                                     ; preds = %340
   %357 = load ptr, ptr @MySerializableXact, align 8
   br i1 %1, label %358, label %360
 
-358:                                              ; preds = %.critedge111
+358:                                              ; preds = %.critedge109
   %359 = tail call zeroext i1 @IsInParallelMode() #11
   br label %360
 
-360:                                              ; preds = %358, %.critedge111
-  %361 = phi i1 [ false, %.critedge111 ], [ %359, %358 ]
+360:                                              ; preds = %358, %.critedge109
+  %361 = phi i1 [ false, %.critedge109 ], [ %359, %358 ]
   tail call fastcc void @ReleaseOneSerializableXact(ptr noundef %357, i1 noundef zeroext %361, i1 noundef zeroext false)
   br label %362
 
@@ -3750,12 +3750,12 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %372 = load ptr, ptr @FinishedSerializableTransactions, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
-  %.not.i120 = icmp eq ptr %374, null
+  %.not.i118 = icmp eq ptr %374, null
   %.not415270.i = icmp eq ptr %374, %372
-  %.not4152.i = or i1 %.not.i120, %.not415270.i
-  br i1 %.not4152.i, label %.thread.i, label %.lr.ph.i121
+  %.not4152.i = or i1 %.not.i118, %.not415270.i
+  br i1 %.not4152.i, label %.thread.i, label %.lr.ph.i119
 
-.lr.ph.i121:                                      ; preds = %365, %415
+.lr.ph.i119:                                      ; preds = %365, %415
   %.sroa.0.053.i = phi ptr [ %.sroa.14.055.i, %415 ], [ %374, %365 ]
   %.sroa.14.0.in54.i = getelementptr inbounds nuw i8, ptr %.sroa.0.053.i, i64 8
   %.sroa.14.055.i = load ptr, ptr %.sroa.14.0.in54.i, align 8
@@ -3766,13 +3766,13 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %.not42.i = icmp eq i32 %378, 0
   br i1 %.not42.i, label %383, label %379
 
-379:                                              ; preds = %.lr.ph.i121
+379:                                              ; preds = %.lr.ph.i119
   %380 = getelementptr inbounds nuw i8, ptr %.sroa.0.053.i, i64 68
   %381 = load i32, ptr %380, align 4
   %382 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %381, i32 noundef %378) #11
   br i1 %382, label %383, label %390
 
-383:                                              ; preds = %379, %.lr.ph.i121
+383:                                              ; preds = %379, %.lr.ph.i119
   %384 = load ptr, ptr @MainLWLockArray, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %385) #11
@@ -3834,7 +3834,7 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 3584
   %418 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %417, i32 noundef 1) #11
   %.not41.i = icmp eq ptr %.sroa.14.055.i, %372
-  br i1 %.not41.i, label %.thread.i, label %.lr.ph.i121, !llvm.loop !32
+  br i1 %.not41.i, label %.thread.i, label %.lr.ph.i119, !llvm.loop !32
 
 .thread.i:                                        ; preds = %415, %397, %390, %365
   %419 = load ptr, ptr @MainLWLockArray, align 8
@@ -3946,8 +3946,8 @@ ClearOldPredicateLocks.exit:                      ; preds = %476, %.thread.i
   store ptr null, ptr @MySerializableXact, align 8
   store i1 false, ptr @MyXactDidWrite, align 1
   %482 = load ptr, ptr @LocalPredicateLockHash, align 8
-  %.not.i123 = icmp eq ptr %482, null
-  br i1 %.not.i123, label %ReleasePredicateLocksLocal.exit, label %483
+  %.not.i121 = icmp eq ptr %482, null
+  br i1 %.not.i121, label %ReleasePredicateLocksLocal.exit, label %483
 
 483:                                              ; preds = %481
   call void @hash_destroy(ptr noundef nonnull %482) #11

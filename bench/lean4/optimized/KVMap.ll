@@ -14751,8 +14751,8 @@ lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Data_KVMap(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -14781,25 +14781,25 @@ define ptr @initialize_Lean_Data_KVMap(i8 noundef zeroext %0, ptr noundef readno
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Init_Data_Format_Syntax(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %466, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -15332,8 +15332,8 @@ _init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_D
   tail call void @lean_mark_persistent(ptr noundef %201) #6
   %202 = load ptr, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__3, align 8, !tbaa !4
   %203 = getelementptr i8, ptr %202, i64 24
-  %.val.i13 = load i64, ptr %203, align 8, !tbaa !12
-  %204 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %203, align 8, !tbaa !12
+  %204 = shl i64 %.val.i12, 1
   %205 = or disjoint i64 %204, 1
   %206 = inttoptr i64 %205 to ptr
   store ptr %206, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__4, align 8, !tbaa !4
@@ -15341,10 +15341,10 @@ _init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_D
   %207 = load ptr, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__4, align 8, !tbaa !4
   %208 = ptrtoint ptr %207 to i64
   %209 = and i64 %208, 1
-  %.not.i.i14 = icmp eq i64 %209, 0
+  %.not.i.i13 = icmp eq i64 %209, 0
   %210 = icmp ult ptr %207, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %210, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5.exit, label %211
+  %or.cond.i.i14 = or i1 %210, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5.exit, label %211
 
 211:                                              ; preds = %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__2.exit
   %212 = lshr i64 %208, 1
@@ -15352,9 +15352,9 @@ _init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_D
   br label %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5.exit
 
 _init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5.exit: ; preds = %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__2.exit, %211
-  %.1.i.i16 = phi ptr [ %213, %211 ], [ %207, %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__2.exit ]
-  store ptr %.1.i.i16, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #6
+  %.1.i.i15 = phi ptr [ %213, %211 ], [ %207, %_init_l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__2.exit ]
+  store ptr %.1.i.i15, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__5, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #6
   %214 = load ptr, ptr @l_List_repr___at___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____spec__1___closed__3, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %215 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -15484,8 +15484,8 @@ _init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg
   tail call void @lean_mark_persistent(ptr noundef %256) #6
   %257 = load ptr, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__8, align 8, !tbaa !4
   %258 = getelementptr i8, ptr %257, i64 24
-  %.val.i17 = load i64, ptr %258, align 8, !tbaa !12
-  %259 = shl i64 %.val.i17, 1
+  %.val.i16 = load i64, ptr %258, align 8, !tbaa !12
+  %259 = shl i64 %.val.i16, 1
   %260 = or disjoint i64 %259, 1
   %261 = inttoptr i64 %260 to ptr
   store ptr %261, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__9, align 8, !tbaa !4
@@ -15493,10 +15493,10 @@ _init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg
   %262 = load ptr, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__9, align 8, !tbaa !4
   %263 = ptrtoint ptr %262 to i64
   %264 = and i64 %263, 1
-  %.not.i.i18 = icmp eq i64 %264, 0
+  %.not.i.i17 = icmp eq i64 %264, 0
   %265 = icmp ult ptr %262, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i19 = or i1 %265, %.not.i.i18
-  br i1 %or.cond.i.i19, label %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10.exit, label %266
+  %or.cond.i.i18 = or i1 %265, %.not.i.i17
+  br i1 %or.cond.i.i18, label %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10.exit, label %266
 
 266:                                              ; preds = %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__6.exit
   %267 = lshr i64 %263, 1
@@ -15504,9 +15504,9 @@ _init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg
   br label %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10.exit
 
 _init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10.exit: ; preds = %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__6.exit, %266
-  %.1.i.i20 = phi ptr [ %268, %266 ], [ %262, %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__6.exit ]
-  store ptr %.1.i.i20, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i20) #6
+  %.1.i.i19 = phi ptr [ %268, %266 ], [ %262, %_init_l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__6.exit ]
+  store ptr %.1.i.i19, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__10, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i19) #6
   %269 = load ptr, ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____closed__8, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
   %270 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
@@ -16071,18 +16071,18 @@ _init_l_Lean_KVMap_instValueSyntax___closed__3.exit: ; preds = %_init_l_Lean_KVM
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_KVMap_instValueSyntax___closed__3.exit, %3
-  %.sink83 = phi ptr [ %4, %3 ], [ %460, %_init_l_Lean_KVMap_instValueSyntax___closed__3.exit ]
-  %463 = getelementptr inbounds nuw i8, ptr %.sink83, i64 4
-  store i32 1, ptr %.sink83, align 4, !tbaa !8
+  %.sink82 = phi ptr [ %4, %3 ], [ %460, %_init_l_Lean_KVMap_instValueSyntax___closed__3.exit ]
+  %463 = getelementptr inbounds nuw i8, ptr %.sink82, i64 4
+  store i32 1, ptr %.sink82, align 4, !tbaa !8
   store i32 131096, ptr %463, align 4
-  %464 = getelementptr inbounds nuw i8, ptr %.sink83, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %.sink82, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %464, align 8, !tbaa !4
-  %465 = getelementptr inbounds nuw i8, ptr %.sink83, i64 16
+  %465 = getelementptr inbounds nuw i8, ptr %.sink82, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %465, align 8, !tbaa !4
   br label %466
 
-466:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink83, %.sink.split ]
+466:                                              ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink82, %.sink.split ]
   ret ptr %.0
 }
 

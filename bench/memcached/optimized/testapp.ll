@@ -4826,8 +4826,8 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
 11:                                               ; preds = %.preheader
   %12 = tail call ptr @__errno_location() #25
   %13 = load i32, ptr %12, align 4, !tbaa !9
-  %.not22 = icmp eq i32 %13, 4
-  br i1 %.not22, label %24, label %14
+  %.not21 = icmp eq i32 %13, 4
+  br i1 %.not21, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @stderr, align 8, !tbaa !44
@@ -4838,8 +4838,8 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
 
 18:                                               ; preds = %.preheader
   %19 = icmp eq i64 %9, 0
-  %.b21 = load i1, ptr @allow_closed_read, align 1
-  %or.cond = select i1 %19, i1 %.b21, i1 false
+  %.b = load i1, ptr @allow_closed_read, align 1
+  %or.cond = select i1 %19, i1 %.b, i1 false
   br i1 %or.cond, label %.thread, label %20
 
 20:                                               ; preds = %18

@@ -88,23 +88,23 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   br label %12
 
 12:                                               ; preds = %10, %8, %2
-  %.b35 = load i1, ptr @_ZZN13cmCursesColor8GetColorEcsE11initialized, align 1
-  br i1 %.b35, label %49, label %13
+  %.b = load i1, ptr @_ZZN13cmCursesColor8GetColorEcsE11initialized, align 1
+  br i1 %.b, label %49, label %13
 
 13:                                               ; preds = %12
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str) #16
-  %.not36 = icmp eq ptr %14, null
-  br i1 %.not36, label %.critedge, label %.preheader65
+  %.not35 = icmp eq ptr %14, null
+  br i1 %.not35, label %.critedge, label %.preheader64
 
-.preheader65:                                     ; preds = %13
+.preheader64:                                     ; preds = %13
   %15 = load i8, ptr %14, align 1, !tbaa !18
-  %.not3769 = icmp eq i8 %15, 0
-  br i1 %.not3769, label %.critedge, label %.lr.ph
+  %.not3668 = icmp eq i8 %15, 0
+  br i1 %.not3668, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader65, %47
-  %16 = phi i8 [ %48, %47 ], [ %15, %.preheader65 ]
-  %.070 = phi ptr [ %.149, %47 ], [ %14, %.preheader65 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.070, i64 1
+.lr.ph:                                           ; preds = %.preheader64, %47
+  %16 = phi i8 [ %48, %47 ], [ %15, %.preheader64 ]
+  %.069 = phi ptr [ %.148, %47 ], [ %14, %.preheader64 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !18
   %cond = icmp eq i8 %18, 61
   br i1 %cond, label %19, label %.critedge
@@ -116,44 +116,44 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   store i32 %21, ptr %3, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %22 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070, i32 noundef 58) #17
-  %.not39 = icmp eq ptr %22, null
-  br i1 %.not39, label %33, label %23
+  %22 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.069, i32 noundef 58) #17
+  %.not38 = icmp eq ptr %22, null
+  br i1 %.not38, label %33, label %23
 
 23:                                               ; preds = %19
   %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %.070 to i64
+  %25 = ptrtoint ptr %.069 to i64
   %26 = sub i64 %24, %25
   %27 = icmp ugt i64 %26, 12
-  br i1 %27, label %.thread55, label %28
+  br i1 %27, label %.thread54, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.070, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %30 = add nsw i64 %26, -2
   %31 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %29, i64 noundef %30) #16
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %.thread
 
 33:                                               ; preds = %19
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.070) #17
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #17
   %35 = icmp ult i64 %34, 13
-  br i1 %35, label %select.unfold, label %.thread55
+  br i1 %35, label %select.unfold, label %.thread54
 
 select.unfold:                                    ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.070, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %37 = add nsw i64 %34, -2
   %38 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %36, i64 noundef %37) #16
-  %39 = getelementptr inbounds nuw i8, ptr %.070, i64 %34
+  %39 = getelementptr inbounds nuw i8, ptr %.069, i64 %34
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %28
-  %.149 = phi ptr [ %39, %select.unfold ], [ %32, %28 ]
+  %.148 = phi ptr [ %39, %select.unfold ], [ %32, %28 ]
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
-  %.not40 = icmp ne i32 %41, 0
+  %.not39 = icmp ne i32 %41, 0
   %42 = load i32, ptr @COLORS, align 4
   %43 = icmp sgt i32 %42, %41
-  %or.cond = select i1 %.not40, i1 %43, i1 false
+  %or.cond = select i1 %.not39, i1 %43, i1 false
   br i1 %or.cond, label %44, label %47
 
 44:                                               ; preds = %.thread
@@ -164,7 +164,7 @@ select.unfold:                                    ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
-.thread55:                                        ; preds = %23, %33
+.thread54:                                        ; preds = %23, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
@@ -172,11 +172,11 @@ select.unfold:                                    ; preds = %33
 47:                                               ; preds = %.thread, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %48 = load i8, ptr %.149, align 1, !tbaa !18
-  %.not37 = icmp eq i8 %48, 0
-  br i1 %.not37, label %.critedge, label %.lr.ph
+  %48 = load i8, ptr %.148, align 1, !tbaa !18
+  %.not36 = icmp eq i8 %48, 0
+  br i1 %.not36, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %47, %.lr.ph, %.preheader65, %.thread55, %13
+.critedge:                                        ; preds = %47, %.lr.ph, %.preheader64, %.thread54, %13
   store i1 true, ptr @_ZZN13cmCursesColor8GetColorEcsE11initialized, align 1
   br label %49
 

@@ -1987,8 +1987,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %.b57 = load i1, ptr @get_info_node.set_opts, align 1
-  br i1 %.b57, label %9, label %8
+  %.b = load i1, ptr @get_info_node.set_opts, align 1
+  br i1 %.b, label %9, label %8
 
 8:                                                ; preds = %2
   tail call void @set_page_opts(i32 noundef 4, ptr noundef nonnull @display_data_node, i32 noundef 44, ptr noundef nonnull @.str.90) #11
@@ -2061,8 +2061,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 36:                                               ; preds = %33
   store i32 0, ptr @get_info_node.view, align 4
   %37 = load ptr, ptr @get_info_node.display_widget, align 8
-  %.not66 = icmp eq ptr %37, null
-  br i1 %.not66, label %39, label %38
+  %.not65 = icmp eq ptr %37, null
+  br i1 %.not65, label %39, label %38
 
 38:                                               ; preds = %36
   tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #11
@@ -2083,19 +2083,19 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 46:                                               ; preds = %29, %29
   %47 = load ptr, ptr @get_info_node.node_info_ptr, align 8
   %48 = tail call ptr @create_node_info_list(ptr noundef %47, i1 noundef zeroext false)
-  %.not58 = icmp eq ptr %48, null
-  br i1 %.not58, label %112, label %49
+  %.not57 = icmp eq ptr %48, null
+  br i1 %.not57, label %112, label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @get_info_node.display_widget, align 8
-  %.not59 = icmp eq ptr %50, null
-  br i1 %.not59, label %.thread84, label %51
+  %.not58 = icmp eq ptr %50, null
+  br i1 %.not58, label %.thread83, label %51
 
 51:                                               ; preds = %49
   %52 = tail call i64 @gtk_tree_view_get_type() #12
   %53 = load ptr, ptr %50, align 8
-  %.not60 = icmp eq ptr %53, null
-  br i1 %.not60, label %57, label %54
+  %.not59 = icmp eq ptr %53, null
+  br i1 %.not59, label %57, label %54
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %53, align 8
@@ -2105,14 +2105,14 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 57:                                               ; preds = %54, %51
   %58 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %50, i64 noundef %52) #13
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread84, label %.critedge
+  br i1 %59, label %.thread83, label %.critedge
 
 .critedge:                                        ; preds = %54, %57
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %50, i64 noundef %52) #11
   %61 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %60) #11
   %62 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %61) #11
-  %.not62 = icmp eq i32 %62, 0
-  br i1 %.not62, label %.thread84, label %63
+  %.not61 = icmp eq i32 %62, 0
+  br i1 %.not61, label %.thread83, label %63
 
 63:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2123,9 +2123,9 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 8
   %66 = icmp eq ptr %.pre, null
-  br i1 %66, label %.thread84, label %81
+  br i1 %66, label %.thread83, label %81
 
-.thread84:                                        ; preds = %49, %57, %.critedge, %63
+.thread83:                                        ; preds = %49, %57, %.critedge, %63
   %67 = load ptr, ptr @get_info_node.node_info_ptr, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
@@ -2139,11 +2139,11 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr %73, ptr %7, align 8
   %74 = call ptr @list_iterator_create(ptr noundef nonnull %48) #11
   %75 = call ptr @list_next(ptr noundef %74) #11
-  %.not6470 = icmp eq ptr %75, null
-  br i1 %.not6470, label %._crit_edge, label %.lr.ph
+  %.not6369 = icmp eq ptr %75, null
+  br i1 %.not6369, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread84, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread84 ]
+.lr.ph:                                           ; preds = %.thread83, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread83 ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
   store i8 1, ptr %76, align 1
   %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
@@ -2151,10 +2151,10 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %78, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = call ptr @list_next(ptr noundef %74) #11
-  %.not64 = icmp eq ptr %79, null
-  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %.not63 = icmp eq ptr %79, null
+  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread84
+._crit_edge:                                      ; preds = %.lr.ph, %.thread83
   call void @list_iterator_destroy(ptr noundef %74) #11
   %80 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %80, i32 noundef %69, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, i32 noundef 0) #11
@@ -2188,8 +2188,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   br label %93
 
 92:                                               ; preds = %87
-  %.not65 = icmp eq ptr %90, null
-  br i1 %.not65, label %93, label %107
+  %.not64 = icmp eq ptr %90, null
+  br i1 %.not64, label %93, label %107
 
 93:                                               ; preds = %.thread, %92
   %94 = load ptr, ptr @local_display_data, align 8
@@ -2210,11 +2210,11 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %106 = icmp ugt i32 %105, 1000
   %. = select i1 %106, i32 -1, i32 21
   call void @create_treestore(ptr noundef %95, ptr noundef nonnull @display_data_node, i32 noundef 44, i32 noundef %., i32 noundef 9) #11
-  %.pre73 = load ptr, ptr @get_info_node.display_widget, align 8
+  %.pre72 = load ptr, ptr @get_info_node.display_widget, align 8
   br label %107
 
 107:                                              ; preds = %93, %92
-  %108 = phi ptr [ %.pre73, %93 ], [ %90, %92 ]
+  %108 = phi ptr [ %.pre72, %93 ], [ %90, %92 ]
   store i32 1, ptr @get_info_node.view, align 4
   %109 = tail call i64 @gtk_tree_view_get_type() #12
   %110 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %109) #11
@@ -2228,14 +2228,14 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 
 112:                                              ; preds = %46, %111, %19, %15
   %113 = load ptr, ptr @main_window, align 8
-  %.not67 = icmp eq ptr %113, null
-  br i1 %.not67, label %118, label %114
+  %.not66 = icmp eq ptr %113, null
+  br i1 %.not66, label %118, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %116 = load ptr, ptr %115, align 8
-  %.not68 = icmp eq ptr %116, null
-  br i1 %.not68, label %118, label %117
+  %.not67 = icmp eq ptr %116, null
+  br i1 %.not67, label %118, label %117
 
 117:                                              ; preds = %114
   call void @gdk_window_set_cursor(ptr noundef nonnull %116, ptr noundef null) #11
@@ -3024,8 +3024,8 @@ define dso_local void @cluster_change_node() local_unnamed_addr #0 {
   br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %9, %0
-  %.b57.i = load i1, ptr @get_info_node.set_opts, align 1
-  br i1 %.b57.i, label %24, label %23
+  %.b.i = load i1, ptr @get_info_node.set_opts, align 1
+  br i1 %.b.i, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
   tail call void @set_page_opts(i32 noundef 4, ptr noundef nonnull @display_data_node, i32 noundef 44, ptr noundef nonnull @.str.90) #11
@@ -3044,14 +3044,14 @@ define dso_local void @cluster_change_node() local_unnamed_addr #0 {
 27:                                               ; preds = %26, %24
   store ptr null, ptr @get_info_node.display_widget, align 8
   %28 = load ptr, ptr @main_window, align 8
-  %.not67.i = icmp eq ptr %28, null
-  br i1 %.not67.i, label %get_info_node.exit, label %29
+  %.not66.i = icmp eq ptr %28, null
+  br i1 %.not66.i, label %get_info_node.exit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %31 = load ptr, ptr %30, align 8
-  %.not68.i = icmp eq ptr %31, null
-  br i1 %.not68.i, label %get_info_node.exit, label %32
+  %.not67.i = icmp eq ptr %31, null
+  br i1 %.not67.i, label %get_info_node.exit, label %32
 
 32:                                               ; preds = %29
   tail call void @gdk_window_set_cursor(ptr noundef nonnull %31, ptr noundef null) #11

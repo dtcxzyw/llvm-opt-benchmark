@@ -2697,8 +2697,8 @@ _ZN9Stockfish4Eval4NNUEL10initializeENS1_7NetSizeE.exit: ; preds = %_ZN9Stockfis
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %.b6.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i.i.i, label %40, label %42
+  %.b.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i.i, label %40, label %42
 
 40:                                               ; preds = %_ZN9Stockfish4Eval4NNUEL10initializeENS1_7NetSizeE.exit
   %41 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %12, i64 noundef 4) #15
@@ -2710,15 +2710,15 @@ _ZN9Stockfish4Eval4NNUEL10initializeENS1_7NetSizeE.exit: ; preds = %_ZN9Stockfis
   br label %44
 
 44:                                               ; preds = %44, %42
-  %.08.i.i.i = phi i64 [ 0, %42 ], [ %51, %44 ]
-  %.057.i.i.i = phi i32 [ 0, %42 ], [ %50, %44 ]
-  %45 = shl i32 %.057.i.i.i, 8
-  %46 = sub nuw nsw i64 3, %.08.i.i.i
+  %.07.i.i.i = phi i64 [ 0, %42 ], [ %51, %44 ]
+  %.056.i.i.i = phi i32 [ 0, %42 ], [ %50, %44 ]
+  %45 = shl i32 %.056.i.i.i, 8
+  %46 = sub nuw nsw i64 3, %.07.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %45, %49
-  %51 = add nuw nsw i64 %.08.i.i.i, 1
+  %51 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %51, 4
   br i1 %exitcond.not.i.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i.i, label %44, !llvm.loop !38
 
@@ -2728,8 +2728,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i.i: ; preds = %44, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.b6.i13.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i13.i.i, label %53, label %55
+  %.b.i13.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i13.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i.i
   %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %10, i64 noundef 4) #15
@@ -2741,15 +2741,15 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i.i: ; preds = %44, %4
   br label %57
 
 57:                                               ; preds = %57, %55
-  %.08.i14.i.i = phi i64 [ 0, %55 ], [ %64, %57 ]
-  %.057.i15.i.i = phi i32 [ 0, %55 ], [ %63, %57 ]
-  %58 = shl i32 %.057.i15.i.i, 8
-  %59 = sub nuw nsw i64 3, %.08.i14.i.i
+  %.07.i14.i.i = phi i64 [ 0, %55 ], [ %64, %57 ]
+  %.056.i15.i.i = phi i32 [ 0, %55 ], [ %63, %57 ]
+  %58 = shl i32 %.056.i15.i.i, 8
+  %59 = sub nuw nsw i64 3, %.07.i14.i.i
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = or disjoint i32 %58, %62
-  %64 = add nuw nsw i64 %.08.i14.i.i, 1
+  %64 = add nuw nsw i64 %.07.i14.i.i, 1
   %exitcond.not.i16.i.i = icmp eq i64 %64, 4
   br i1 %exitcond.not.i16.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit18.i.i, label %57, !llvm.loop !38
 
@@ -2759,8 +2759,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit18.i.i: ; preds = %57, 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.b6.i19.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i19.i.i, label %66, label %68
+  %.b.i19.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i19.i.i, label %66, label %68
 
 66:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit18.i.i
   %67 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %8, i64 noundef 4) #15
@@ -2772,15 +2772,15 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit18.i.i: ; preds = %57, 
   br label %70
 
 70:                                               ; preds = %70, %68
-  %.08.i20.i.i = phi i64 [ 0, %68 ], [ %77, %70 ]
-  %.057.i21.i.i = phi i32 [ 0, %68 ], [ %76, %70 ]
-  %71 = shl i32 %.057.i21.i.i, 8
-  %72 = sub nuw nsw i64 3, %.08.i20.i.i
+  %.07.i20.i.i = phi i64 [ 0, %68 ], [ %77, %70 ]
+  %.056.i21.i.i = phi i32 [ 0, %68 ], [ %76, %70 ]
+  %71 = shl i32 %.056.i21.i.i, 8
+  %72 = sub nuw nsw i64 3, %.07.i20.i.i
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = or disjoint i32 %71, %75
-  %77 = add nuw nsw i64 %.08.i20.i.i, 1
+  %77 = add nuw nsw i64 %.07.i20.i.i, 1
   %exitcond.not.i22.i.i = icmp eq i64 %77, 4
   br i1 %exitcond.not.i22.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit24.i.i, label %70, !llvm.loop !38
 
@@ -2846,8 +2846,8 @@ _ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_
   %110 = load ptr, ptr %109, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.b6.i.i18.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i.i18.i, label %111, label %113
+  %.b.i.i18.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i18.i, label %111, label %113
 
 111:                                              ; preds = %108
   %112 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6, i64 noundef 4) #15
@@ -2859,15 +2859,15 @@ _ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_
   br label %115
 
 115:                                              ; preds = %115, %113
-  %.08.i.i19.i = phi i64 [ 0, %113 ], [ %122, %115 ]
-  %.057.i.i20.i = phi i32 [ 0, %113 ], [ %121, %115 ]
-  %116 = shl i32 %.057.i.i20.i, 8
-  %117 = sub nuw nsw i64 3, %.08.i.i19.i
+  %.07.i.i19.i = phi i64 [ 0, %113 ], [ %122, %115 ]
+  %.056.i.i20.i = phi i32 [ 0, %113 ], [ %121, %115 ]
+  %116 = shl i32 %.056.i.i20.i, 8
+  %117 = sub nuw nsw i64 3, %.07.i.i19.i
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = or disjoint i32 %116, %120
-  %122 = add nuw nsw i64 %.08.i.i19.i, 1
+  %122 = add nuw nsw i64 %.07.i.i19.i, 1
   %exitcond.not.i.i21.i = icmp eq i64 %122, 4
   br i1 %exitcond.not.i.i21.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i22.i, label %115, !llvm.loop !38
 
@@ -2896,8 +2896,8 @@ _ZN9Stockfish4Eval4NNUE6Detail15read_parametersINS1_7NetworkILj2560ELi15ELi32EEE
   %133 = load ptr, ptr %132, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b6.i.i25.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i.i25.i, label %134, label %136
+  %.b.i.i25.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i25.i, label %134, label %136
 
 134:                                              ; preds = %131
   %135 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, i64 noundef 4) #15
@@ -2909,15 +2909,15 @@ _ZN9Stockfish4Eval4NNUE6Detail15read_parametersINS1_7NetworkILj2560ELi15ELi32EEE
   br label %138
 
 138:                                              ; preds = %138, %136
-  %.08.i.i26.i = phi i64 [ 0, %136 ], [ %145, %138 ]
-  %.057.i.i27.i = phi i32 [ 0, %136 ], [ %144, %138 ]
-  %139 = shl i32 %.057.i.i27.i, 8
-  %140 = sub nuw nsw i64 3, %.08.i.i26.i
+  %.07.i.i26.i = phi i64 [ 0, %136 ], [ %145, %138 ]
+  %.056.i.i27.i = phi i32 [ 0, %136 ], [ %144, %138 ]
+  %139 = shl i32 %.056.i.i27.i, 8
+  %140 = sub nuw nsw i64 3, %.07.i.i26.i
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = or disjoint i32 %139, %143
-  %145 = add nuw nsw i64 %.08.i.i26.i, 1
+  %145 = add nuw nsw i64 %.07.i.i26.i, 1
   %exitcond.not.i.i28.i = icmp eq i64 %145, 4
   br i1 %exitcond.not.i.i28.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit.i29.i, label %138, !llvm.loop !38
 
@@ -3005,17 +3005,17 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE9save_evalERSoNS1_7N
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 2062757664, ptr %17, align 4
-  %.b10.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i, label %.preheader.i.i.i
+  %.b.i.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %23, %.preheader.i.i.i
   %27 = phi i64 [ %31, %.preheader.i.i.i ], [ 1, %23 ]
-  %.012.i.i.i = phi i64 [ %27, %.preheader.i.i.i ], [ 0, %23 ]
-  %.0811.i.i.i = phi i32 [ %30, %.preheader.i.i.i ], [ 2062757664, %23 ]
-  %28 = trunc i32 %.0811.i.i.i to i8
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %.012.i.i.i
+  %.011.i.i.i = phi i64 [ %27, %.preheader.i.i.i ], [ 0, %23 ]
+  %.0810.i.i.i = phi i32 [ %30, %.preheader.i.i.i ], [ 2062757664, %23 ]
+  %28 = trunc i32 %.0810.i.i.i to i8
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %.011.i.i.i
   store i8 %28, ptr %29, align 1
-  %30 = lshr i32 %.0811.i.i.i, 8
+  %30 = lshr i32 %.0810.i.i.i, 8
   %31 = add nuw nsw i64 %27, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, 4
   br i1 %exitcond.not.i.i.i, label %32, label %.preheader.i.i.i, !llvm.loop !40
@@ -3033,17 +3033,17 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i: ; preds = %32, 
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %26, ptr %15, align 4
-  %.b10.i8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i8.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i, label %.preheader.i9.i.i
+  %.b.i8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i8.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i, label %.preheader.i9.i.i
 
 .preheader.i9.i.i:                                ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i, %.preheader.i9.i.i
   %35 = phi i64 [ %39, %.preheader.i9.i.i ], [ 1, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i ]
-  %.012.i10.i.i = phi i64 [ %35, %.preheader.i9.i.i ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i ]
-  %.0811.i11.i.i = phi i32 [ %38, %.preheader.i9.i.i ], [ %26, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i ]
-  %36 = trunc i32 %.0811.i11.i.i to i8
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 %.012.i10.i.i
+  %.011.i10.i.i = phi i64 [ %35, %.preheader.i9.i.i ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i ]
+  %.0810.i11.i.i = phi i32 [ %38, %.preheader.i9.i.i ], [ %26, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit.i.i ]
+  %36 = trunc i32 %.0810.i11.i.i to i8
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 %.011.i10.i.i
   store i8 %36, ptr %37, align 1
-  %38 = lshr i32 %.0811.i11.i.i, 8
+  %38 = lshr i32 %.0810.i11.i.i, 8
   %39 = add nuw nsw i64 %35, 1
   %exitcond.not.i12.i.i = icmp eq i64 %39, 4
   br i1 %exitcond.not.i12.i.i, label %40, label %.preheader.i9.i.i, !llvm.loop !40
@@ -3064,17 +3064,17 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i: ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %45, ptr %13, align 4
-  %.b10.i15.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i15.i.i, label %_ZN9Stockfish4Eval4NNUEL12write_headerERSojRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.preheader.i16.i.i
+  %.b.i15.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i15.i.i, label %_ZN9Stockfish4Eval4NNUEL12write_headerERSojRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.preheader.i16.i.i
 
 .preheader.i16.i.i:                               ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i, %.preheader.i16.i.i
   %46 = phi i64 [ %50, %.preheader.i16.i.i ], [ 1, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i ]
-  %.012.i17.i.i = phi i64 [ %46, %.preheader.i16.i.i ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i ]
-  %.0811.i18.i.i = phi i32 [ %49, %.preheader.i16.i.i ], [ %45, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i ]
-  %47 = trunc i32 %.0811.i18.i.i to i8
-  %48 = getelementptr inbounds nuw i8, ptr %14, i64 %.012.i17.i.i
+  %.011.i17.i.i = phi i64 [ %46, %.preheader.i16.i.i ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i ]
+  %.0810.i18.i.i = phi i32 [ %49, %.preheader.i16.i.i ], [ %45, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit14.i.i ]
+  %47 = trunc i32 %.0810.i18.i.i to i8
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 %.011.i17.i.i
   store i8 %47, ptr %48, align 1
-  %49 = lshr i32 %.0811.i18.i.i, 8
+  %49 = lshr i32 %.0810.i18.i.i, 8
   %50 = add nuw nsw i64 %46, 1
   %exitcond.not.i19.i.i = icmp eq i64 %50, 4
   br i1 %exitcond.not.i19.i.i, label %51, label %.preheader.i16.i.i, !llvm.loop !40
@@ -3109,17 +3109,17 @@ _ZN9Stockfish4Eval4NNUEL12write_headerERSojRKNSt7__cxx1112basic_stringIcSt11char
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 2133022904, ptr %11, align 4
-  %.b10.i.i17.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i.i17.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i, label %.preheader.i.i18.i
+  %.b.i.i17.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i17.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i, label %.preheader.i.i18.i
 
 .preheader.i.i18.i:                               ; preds = %65, %.preheader.i.i18.i
   %67 = phi i64 [ %71, %.preheader.i.i18.i ], [ 1, %65 ]
-  %.012.i.i19.i = phi i64 [ %67, %.preheader.i.i18.i ], [ 0, %65 ]
-  %.0811.i.i20.i = phi i32 [ %70, %.preheader.i.i18.i ], [ 2133022904, %65 ]
-  %68 = trunc i32 %.0811.i.i20.i to i8
-  %69 = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i.i19.i
+  %.011.i.i19.i = phi i64 [ %67, %.preheader.i.i18.i ], [ 0, %65 ]
+  %.0810.i.i20.i = phi i32 [ %70, %.preheader.i.i18.i ], [ 2133022904, %65 ]
+  %68 = trunc i32 %.0810.i.i20.i to i8
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 %.011.i.i19.i
   store i8 %68, ptr %69, align 1
-  %70 = lshr i32 %.0811.i.i20.i, 8
+  %70 = lshr i32 %.0810.i.i20.i, 8
   %71 = add nuw nsw i64 %67, 1
   %exitcond.not.i.i21.i = icmp eq i64 %71, 4
   br i1 %exitcond.not.i.i21.i, label %72, label %.preheader.i.i18.i, !llvm.loop !40
@@ -3155,17 +3155,17 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 2133020088, ptr %9, align 4
-  %.b10.i.i24.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i.i24.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, label %.preheader.i.i25.i
+  %.b.i.i24.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i24.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, label %.preheader.i.i25.i
 
 .preheader.i.i25.i:                               ; preds = %84, %.preheader.i.i25.i
   %86 = phi i64 [ %90, %.preheader.i.i25.i ], [ 1, %84 ]
-  %.012.i.i26.i = phi i64 [ %86, %.preheader.i.i25.i ], [ 0, %84 ]
-  %.0811.i.i27.i = phi i32 [ %89, %.preheader.i.i25.i ], [ 2133020088, %84 ]
-  %87 = trunc i32 %.0811.i.i27.i to i8
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 %.012.i.i26.i
+  %.011.i.i26.i = phi i64 [ %86, %.preheader.i.i25.i ], [ 0, %84 ]
+  %.0810.i.i27.i = phi i32 [ %89, %.preheader.i.i25.i ], [ 2133020088, %84 ]
+  %87 = trunc i32 %.0810.i.i27.i to i8
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 %.011.i.i26.i
   store i8 %87, ptr %88, align 1
-  %89 = lshr i32 %.0811.i.i27.i, 8
+  %89 = lshr i32 %.0810.i.i27.i, 8
   %90 = add nuw nsw i64 %86, 1
   %exitcond.not.i.i28.i = icmp eq i64 %90, 4
   br i1 %exitcond.not.i.i28.i, label %91, label %.preheader.i.i25.i, !llvm.loop !40
@@ -3208,17 +3208,17 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128E
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1664313546, ptr %7, align 4
-  %.b10.i.i31.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i.i31.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EEEEEbRSoRKT_.exit.i, label %.preheader.i.i32.i
+  %.b.i.i31.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i31.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EEEEEbRSoRKT_.exit.i, label %.preheader.i.i32.i
 
 .preheader.i.i32.i:                               ; preds = %105, %.preheader.i.i32.i
   %108 = phi i64 [ %112, %.preheader.i.i32.i ], [ 1, %105 ]
-  %.012.i.i33.i = phi i64 [ %108, %.preheader.i.i32.i ], [ 0, %105 ]
-  %.0811.i.i34.i = phi i32 [ %111, %.preheader.i.i32.i ], [ 1664313546, %105 ]
-  %109 = trunc i32 %.0811.i.i34.i to i8
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 %.012.i.i33.i
+  %.011.i.i33.i = phi i64 [ %108, %.preheader.i.i32.i ], [ 0, %105 ]
+  %.0810.i.i34.i = phi i32 [ %111, %.preheader.i.i32.i ], [ 1664313546, %105 ]
+  %109 = trunc i32 %.0810.i.i34.i to i8
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 %.011.i.i33.i
   store i8 %109, ptr %110, align 1
-  %111 = lshr i32 %.0811.i.i34.i, 8
+  %111 = lshr i32 %.0810.i.i34.i, 8
   %112 = add nuw nsw i64 %108, 1
   %exitcond.not.i.i35.i = icmp eq i64 %112, 4
   br i1 %exitcond.not.i.i35.i, label %113, label %.preheader.i.i32.i, !llvm.loop !40
@@ -3244,17 +3244,17 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EE
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1664315690, ptr %5, align 4
-  %.b10.i.i38.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i.i38.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj128ELi15ELi32EEEEEbRSoRKT_.exit.i, label %.preheader.i.i39.i
+  %.b.i.i38.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i38.i, label %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj128ELi15ELi32EEEEEbRSoRKT_.exit.i, label %.preheader.i.i39.i
 
 .preheader.i.i39.i:                               ; preds = %117, %.preheader.i.i39.i
   %120 = phi i64 [ %124, %.preheader.i.i39.i ], [ 1, %117 ]
-  %.012.i.i40.i = phi i64 [ %120, %.preheader.i.i39.i ], [ 0, %117 ]
-  %.0811.i.i41.i = phi i32 [ %123, %.preheader.i.i39.i ], [ 1664315690, %117 ]
-  %121 = trunc i32 %.0811.i.i41.i to i8
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i40.i
+  %.011.i.i40.i = phi i64 [ %120, %.preheader.i.i39.i ], [ 0, %117 ]
+  %.0810.i.i41.i = phi i32 [ %123, %.preheader.i.i39.i ], [ 1664315690, %117 ]
+  %121 = trunc i32 %.0810.i.i41.i to i8
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 %.011.i.i40.i
   store i8 %121, ptr %122, align 1
-  %123 = lshr i32 %.0811.i.i41.i, 8
+  %123 = lshr i32 %.0810.i.i41.i, 8
   %124 = add nuw nsw i64 %120, 1
   %exitcond.not.i.i42.i = icmp eq i64 %124, 4
   br i1 %exitcond.not.i.i42.i, label %125, label %.preheader.i.i39.i, !llvm.loop !40
@@ -3643,8 +3643,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Detail
   %4 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i, label %5, label %7
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 4) #15
@@ -3656,15 +3656,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Detail
   br label %9
 
 9:                                                ; preds = %9, %7
-  %.08.i = phi i64 [ 0, %7 ], [ %16, %9 ]
-  %.057.i = phi i32 [ 0, %7 ], [ %15, %9 ]
-  %10 = shl i32 %.057.i, 8
-  %11 = sub nuw nsw i64 3, %.08.i
+  %.07.i = phi i64 [ 0, %7 ], [ %16, %9 ]
+  %.056.i = phi i32 [ 0, %7 ], [ %15, %9 ]
+  %10 = shl i32 %.056.i, 8
+  %11 = sub nuw nsw i64 3, %.07.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %10, %14
-  %16 = add nuw nsw i64 %.08.i, 1
+  %16 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %16, 4
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, label %9, !llvm.loop !38
 
@@ -3706,8 +3706,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Detail
   %4 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i, label %5, label %7
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 4) #15
@@ -3719,15 +3719,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Detail
   br label %9
 
 9:                                                ; preds = %9, %7
-  %.08.i = phi i64 [ 0, %7 ], [ %16, %9 ]
-  %.057.i = phi i32 [ 0, %7 ], [ %15, %9 ]
-  %10 = shl i32 %.057.i, 8
-  %11 = sub nuw nsw i64 3, %.08.i
+  %.07.i = phi i64 [ 0, %7 ], [ %16, %9 ]
+  %.056.i = phi i32 [ 0, %7 ], [ %15, %9 ]
+  %10 = shl i32 %.056.i, 8
+  %11 = sub nuw nsw i64 3, %.07.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %10, %14
-  %16 = add nuw nsw i64 %.08.i, 1
+  %16 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %16, 4
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, label %9, !llvm.loop !38
 
@@ -3789,8 +3789,8 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE12read_leb_128IsEEvRS
   %8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef 17) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i, label %9, label %11
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 4) #15
@@ -3802,15 +3802,15 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE12read_leb_128IsEEvRS
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.08.i = phi i64 [ 0, %11 ], [ %20, %13 ]
-  %.057.i = phi i32 [ 0, %11 ], [ %19, %13 ]
-  %14 = shl i32 %.057.i, 8
-  %15 = sub nuw nsw i64 3, %.08.i
+  %.07.i = phi i64 [ 0, %11 ], [ %20, %13 ]
+  %.056.i = phi i32 [ 0, %11 ], [ %19, %13 ]
+  %14 = shl i32 %.056.i, 8
+  %15 = sub nuw nsw i64 3, %.07.i
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %14, %18
-  %20 = add nuw nsw i64 %.08.i, 1
+  %20 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, label %13, !llvm.loop !38
 
@@ -3894,8 +3894,8 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE12read_leb_128IiEEvRS
   %8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef 17) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b6.i, label %9, label %11
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 4) #15
@@ -3907,15 +3907,15 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE12read_leb_128IiEEvRS
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.08.i = phi i64 [ 0, %11 ], [ %20, %13 ]
-  %.057.i = phi i32 [ 0, %11 ], [ %19, %13 ]
-  %14 = shl i32 %.057.i, 8
-  %15 = sub nuw nsw i64 3, %.08.i
+  %.07.i = phi i64 [ 0, %11 ], [ %20, %13 ]
+  %.056.i = phi i32 [ 0, %11 ], [ %19, %13 ]
+  %14 = shl i32 %.056.i, 8
+  %15 = sub nuw nsw i64 3, %.07.i
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %14, %18
-  %20 = add nuw nsw i64 %.08.i, 1
+  %20 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit, label %13, !llvm.loop !38
 
@@ -4002,8 +4002,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 42304
-  %.b8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i.i, label %12, label %14
+  %.b.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i, label %12, label %14
 
 12:                                               ; preds = %10
   %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 64 dereferenceable(96) %11, i64 noundef 4) #15
@@ -4015,15 +4015,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
   br label %16
 
 16:                                               ; preds = %16, %14
-  %.08.i.i.i = phi i64 [ 0, %14 ], [ %23, %16 ]
-  %.057.i.i.i = phi i32 [ 0, %14 ], [ %22, %16 ]
-  %17 = shl i32 %.057.i.i.i, 8
-  %18 = sub nuw nsw i64 3, %.08.i.i.i
+  %.07.i.i.i = phi i64 [ 0, %14 ], [ %23, %16 ]
+  %.056.i.i.i = phi i32 [ 0, %14 ], [ %22, %16 ]
+  %17 = shl i32 %.056.i.i.i, 8
+  %18 = sub nuw nsw i64 3, %.07.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %17, %21
-  %23 = add nuw nsw i64 %.08.i.i.i, 1
+  %23 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %23, 4
   br i1 %exitcond.not.i.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i, label %16, !llvm.loop !51
 
@@ -4040,8 +4040,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i: ; preds = %_ZN9S
   %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i.i = select i1 %.b6.i.i, ptr %3, ptr %4
+  %.b.i6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %..i.i = select i1 %.b.i6.i, ptr %3, ptr %4
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i.i, i64 noundef 1) #15
   %27 = load i8, ptr %..i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4072,23 +4072,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %7, label %.lr.ph.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %7, label %.lr.ph.i
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0, i64 noundef 64) #15
   br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit
 
 .lr.phthread-pre-split.i:                         ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i
-  %.b6.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.phthread-pre-split.i
-  %.b6.i.i = phi i1 [ %.b6.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
-  %.09.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
+  %.08.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %.b6.i.i, label %9, label %11
+  br i1 %.b.i.i, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5, i64 noundef 4) #15
@@ -4100,15 +4100,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.08.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
-  %.057.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
-  %14 = shl i32 %.057.i.i, 8
-  %15 = sub nuw nsw i64 3, %.08.i.i
+  %.07.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
+  %.056.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
+  %14 = shl i32 %.056.i.i, 8
+  %15 = sub nuw nsw i64 3, %.07.i.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %14, %18
-  %20 = add nuw nsw i64 %.08.i.i, 1
+  %20 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, label %13, !llvm.loop !51
 
@@ -4116,9 +4116,9 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
-  %23 = add nuw nsw i64 %.09.i, 1
+  %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 16
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, label %.lr.phthread-pre-split.i, !llvm.loop !53
 
@@ -4130,8 +4130,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Sto
   %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %..i = select i1 %.b.i6, ptr %3, ptr %4
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
   %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4158,23 +4158,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %7, label %.lr.ph.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %7, label %.lr.ph.i
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0, i64 noundef 128) #15
   br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit
 
 .lr.phthread-pre-split.i:                         ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i
-  %.b6.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.phthread-pre-split.i
-  %.b6.i.i = phi i1 [ %.b6.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
-  %.09.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
+  %.08.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %.b6.i.i, label %9, label %11
+  br i1 %.b.i.i, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5, i64 noundef 4) #15
@@ -4186,15 +4186,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.08.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
-  %.057.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
-  %14 = shl i32 %.057.i.i, 8
-  %15 = sub nuw nsw i64 3, %.08.i.i
+  %.07.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
+  %.056.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
+  %14 = shl i32 %.056.i.i, 8
+  %15 = sub nuw nsw i64 3, %.07.i.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %14, %18
-  %20 = add nuw nsw i64 %.08.i.i, 1
+  %20 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, label %13, !llvm.loop !51
 
@@ -4202,9 +4202,9 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
-  %23 = add nuw nsw i64 %.09.i, 1
+  %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, label %.lr.phthread-pre-split.i, !llvm.loop !53
 
@@ -4216,8 +4216,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Sto
   %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %..i = select i1 %.b.i6, ptr %3, ptr %4
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
   %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4253,8 +4253,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3392
-  %.b8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i.i, label %12, label %14
+  %.b.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i, label %12, label %14
 
 12:                                               ; preds = %10
   %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 64 dereferenceable(96) %11, i64 noundef 4) #15
@@ -4266,15 +4266,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
   br label %16
 
 16:                                               ; preds = %16, %14
-  %.08.i.i.i = phi i64 [ 0, %14 ], [ %23, %16 ]
-  %.057.i.i.i = phi i32 [ 0, %14 ], [ %22, %16 ]
-  %17 = shl i32 %.057.i.i.i, 8
-  %18 = sub nuw nsw i64 3, %.08.i.i.i
+  %.07.i.i.i = phi i64 [ 0, %14 ], [ %23, %16 ]
+  %.056.i.i.i = phi i32 [ 0, %14 ], [ %22, %16 ]
+  %17 = shl i32 %.056.i.i.i, 8
+  %18 = sub nuw nsw i64 3, %.07.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %17, %21
-  %23 = add nuw nsw i64 %.08.i.i.i, 1
+  %23 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %23, 4
   br i1 %exitcond.not.i.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i, label %16, !llvm.loop !51
 
@@ -4291,8 +4291,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i: ; preds = %_ZN9S
   %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i.i = select i1 %.b6.i.i, ptr %3, ptr %4
+  %.b.i6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %..i.i = select i1 %.b.i6.i, ptr %3, ptr %4
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i.i, i64 noundef 1) #15
   %27 = load i8, ptr %..i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4323,23 +4323,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %7, label %.lr.ph.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %7, label %.lr.ph.i
 
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0, i64 noundef 64) #15
   br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit
 
 .lr.phthread-pre-split.i:                         ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i
-  %.b6.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.phthread-pre-split.i
-  %.b6.i.i = phi i1 [ %.b6.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
-  %.09.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %.lr.phthread-pre-split.i ], [ false, %2 ]
+  %.08.i = phi i64 [ %23, %.lr.phthread-pre-split.i ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %.b6.i.i, label %9, label %11
+  br i1 %.b.i.i, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
   %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5, i64 noundef 4) #15
@@ -4351,15 +4351,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers
   br label %13
 
 13:                                               ; preds = %13, %11
-  %.08.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
-  %.057.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
-  %14 = shl i32 %.057.i.i, 8
-  %15 = sub nuw nsw i64 3, %.08.i.i
+  %.07.i.i = phi i64 [ 0, %11 ], [ %20, %13 ]
+  %.056.i.i = phi i32 [ 0, %11 ], [ %19, %13 ]
+  %14 = shl i32 %.056.i.i, 8
+  %15 = sub nuw nsw i64 3, %.07.i.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %14, %18
-  %20 = add nuw nsw i64 %.08.i.i, 1
+  %20 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, label %13, !llvm.loop !51
 
@@ -4367,9 +4367,9 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
-  %23 = add nuw nsw i64 %.09.i, 1
+  %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 16
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, label %.lr.phthread-pre-split.i, !llvm.loop !53
 
@@ -4381,8 +4381,8 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Sto
   %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %..i = select i1 %.b.i6, ptr %3, ptr %4
   %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
   %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4451,17 +4451,17 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IsEEvR
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.0.lcssa, ptr %4, align 4
-  %.b10.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %.preheader.i
   %20 = phi i64 [ %24, %.preheader.i ], [ 1, %._crit_edge ]
-  %.012.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
-  %.0811.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
-  %21 = trunc i32 %.0811.i to i8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.012.i
+  %.011.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
+  %.0810.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
+  %21 = trunc i32 %.0810.i to i8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
   store i8 %21, ptr %22, align 1
-  %23 = lshr i32 %.0811.i, 8
+  %23 = lshr i32 %.0810.i, 8
   %24 = add nuw nsw i64 %20, 1
   %exitcond.not.i = icmp eq i64 %24, 4
   br i1 %exitcond.not.i, label %25, label %.preheader.i, !llvm.loop !40
@@ -4589,17 +4589,17 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IiEEvR
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.0.lcssa, ptr %4, align 4
-  %.b10.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b10.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %.preheader.i
   %20 = phi i64 [ %24, %.preheader.i ], [ 1, %._crit_edge ]
-  %.012.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
-  %.0811.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
-  %21 = trunc i32 %.0811.i to i8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.012.i
+  %.011.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
+  %.0810.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
+  %21 = trunc i32 %.0810.i to i8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
   store i8 %21, ptr %22, align 1
-  %23 = lshr i32 %.0811.i, 8
+  %23 = lshr i32 %.0810.i, 8
   %24 = add nuw nsw i64 %20, 1
   %exitcond.not.i = icmp eq i64 %24, 4
   br i1 %exitcond.not.i, label %25, label %.preheader.i, !llvm.loop !40
@@ -4705,8 +4705,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE7Netwo
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 42304
-  %.b8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i.i, label %12, label %.preheader.i.i.preheader.i
+  %.b.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i, label %12, label %.preheader.i.i.preheader.i
 
 12:                                               ; preds = %10
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 64 dereferenceable(96) %11, i64 noundef 4) #15
@@ -4719,12 +4719,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE7Netwo
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.i.i.preheader.i
   %15 = phi i64 [ %19, %.preheader.i.i.i ], [ 1, %.preheader.i.i.preheader.i ]
-  %.012.i.i.i = phi i64 [ %15, %.preheader.i.i.i ], [ 0, %.preheader.i.i.preheader.i ]
-  %.0811.i.i.i = phi i32 [ %18, %.preheader.i.i.i ], [ %14, %.preheader.i.i.preheader.i ]
-  %16 = trunc i32 %.0811.i.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.012.i.i.i
+  %.011.i.i.i = phi i64 [ %15, %.preheader.i.i.i ], [ 0, %.preheader.i.i.preheader.i ]
+  %.0810.i.i.i = phi i32 [ %18, %.preheader.i.i.i ], [ %14, %.preheader.i.i.preheader.i ]
+  %16 = trunc i32 %.0810.i.i.i to i8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i.i.i
   store i8 %16, ptr %17, align 1
-  %18 = lshr i32 %.0811.i.i.i, 8
+  %18 = lshr i32 %.0810.i.i.i, 8
   %19 = add nuw nsw i64 %15, 1
   %exitcond.not.i.i.i = icmp eq i64 %19, 4
   br i1 %exitcond.not.i.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit.loopexit.i, label %.preheader.i.i.i, !llvm.loop !65
@@ -4748,8 +4748,8 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %26, ptr %3, align 1
-  %.b3.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit.i, label %27
+  %.b.i6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i6.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit.i, label %27
 
 27:                                               ; preds = %24
   store i8 %26, ptr %4, align 1
@@ -4784,8 +4784,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %8, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %8, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -4796,27 +4796,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   br label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit
 
 thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i
-  %.b10.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %10
 
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
-  %.b10.i.i = phi i1 [ %.b10.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
-  %.09.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
+  %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %12, ptr %5, align 4
-  br i1 %.b10.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
+  br i1 %.b.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %.preheader.i.i
   %13 = phi i64 [ %17, %.preheader.i.i ], [ 1, %10 ]
-  %.012.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
-  %.0811.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
-  %14 = trunc i32 %.0811.i.i to i8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i
+  %.011.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
+  %.0810.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
+  %14 = trunc i32 %.0810.i.i to i8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.011.i.i
   store i8 %14, ptr %15, align 1
-  %16 = lshr i32 %.0811.i.i, 8
+  %16 = lshr i32 %.0810.i.i, 8
   %17 = add nuw nsw i64 %13, 1
   %exitcond.not.i.i = icmp eq i64 %17, 4
   br i1 %exitcond.not.i.i, label %18, label %.preheader.i.i, !llvm.loop !65
@@ -4831,7 +4831,7 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i: ; preds = %18, %1
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sink.i.i, i64 noundef 4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %21 = add nuw nsw i64 %.09.i, 1
+  %21 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %21, 16
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit, label %thread-pre-split.i, !llvm.loop !67
 
@@ -4846,8 +4846,8 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit: ; preds = %_ZN9S
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %25, ptr %3, align 1
-  %.b3.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i6, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
 
 26:                                               ; preds = %23
   store i8 %25, ptr %4, align 1
@@ -4878,8 +4878,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %8, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %8, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -4890,27 +4890,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   br label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit
 
 thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i
-  %.b10.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %10
 
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
-  %.b10.i.i = phi i1 [ %.b10.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
-  %.09.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
+  %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %12, ptr %5, align 4
-  br i1 %.b10.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
+  br i1 %.b.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %.preheader.i.i
   %13 = phi i64 [ %17, %.preheader.i.i ], [ 1, %10 ]
-  %.012.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
-  %.0811.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
-  %14 = trunc i32 %.0811.i.i to i8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i
+  %.011.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
+  %.0810.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
+  %14 = trunc i32 %.0810.i.i to i8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.011.i.i
   store i8 %14, ptr %15, align 1
-  %16 = lshr i32 %.0811.i.i, 8
+  %16 = lshr i32 %.0810.i.i, 8
   %17 = add nuw nsw i64 %13, 1
   %exitcond.not.i.i = icmp eq i64 %17, 4
   br i1 %exitcond.not.i.i, label %18, label %.preheader.i.i, !llvm.loop !65
@@ -4925,7 +4925,7 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i: ; preds = %18, %1
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sink.i.i, i64 noundef 4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %21 = add nuw nsw i64 %.09.i, 1
+  %21 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %21, 32
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit, label %thread-pre-split.i, !llvm.loop !67
 
@@ -4940,8 +4940,8 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit: ; preds = %_ZN9S
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %25, ptr %3, align 1
-  %.b3.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i6, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
 
 26:                                               ; preds = %23
   store i8 %25, ptr %4, align 1
@@ -4981,8 +4981,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE7Netwo
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3392
-  %.b8.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i.i, label %12, label %.preheader.i.i.preheader.i
+  %.b.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i.i, label %12, label %.preheader.i.i.preheader.i
 
 12:                                               ; preds = %10
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 64 dereferenceable(96) %11, i64 noundef 4) #15
@@ -4995,12 +4995,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE7Netwo
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.i.i.preheader.i
   %15 = phi i64 [ %19, %.preheader.i.i.i ], [ 1, %.preheader.i.i.preheader.i ]
-  %.012.i.i.i = phi i64 [ %15, %.preheader.i.i.i ], [ 0, %.preheader.i.i.preheader.i ]
-  %.0811.i.i.i = phi i32 [ %18, %.preheader.i.i.i ], [ %14, %.preheader.i.i.preheader.i ]
-  %16 = trunc i32 %.0811.i.i.i to i8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.012.i.i.i
+  %.011.i.i.i = phi i64 [ %15, %.preheader.i.i.i ], [ 0, %.preheader.i.i.preheader.i ]
+  %.0810.i.i.i = phi i32 [ %18, %.preheader.i.i.i ], [ %14, %.preheader.i.i.preheader.i ]
+  %16 = trunc i32 %.0810.i.i.i to i8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i.i.i
   store i8 %16, ptr %17, align 1
-  %18 = lshr i32 %.0811.i.i.i, 8
+  %18 = lshr i32 %.0810.i.i.i, 8
   %19 = add nuw nsw i64 %15, 1
   %exitcond.not.i.i.i = icmp eq i64 %19, 4
   br i1 %exitcond.not.i.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit.loopexit.i, label %.preheader.i.i.i, !llvm.loop !65
@@ -5024,8 +5024,8 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %26, ptr %3, align 1
-  %.b3.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit.i, label %27
+  %.b.i6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i6.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit.i, label %27
 
 27:                                               ; preds = %24
   store i8 %26, ptr %4, align 1
@@ -5060,8 +5060,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   %4 = alloca [1 x i8], align 1
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
-  %.b8.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b8.i, label %8, label %.preheader.i
+  %.b.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i, label %8, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -5072,27 +5072,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9Stockfish4Eval4NNUE6Layer
   br label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit
 
 thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i
-  %.b10.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  %.b.i.pr.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
   br label %10
 
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
-  %.b10.i.i = phi i1 [ %.b10.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
-  %.09.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
+  %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %12, ptr %5, align 4
-  br i1 %.b10.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
+  br i1 %.b.i.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %.preheader.i.i
   %13 = phi i64 [ %17, %.preheader.i.i ], [ 1, %10 ]
-  %.012.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
-  %.0811.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
-  %14 = trunc i32 %.0811.i.i to i8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i
+  %.011.i.i = phi i64 [ %13, %.preheader.i.i ], [ 0, %10 ]
+  %.0810.i.i = phi i32 [ %16, %.preheader.i.i ], [ %12, %10 ]
+  %14 = trunc i32 %.0810.i.i to i8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.011.i.i
   store i8 %14, ptr %15, align 1
-  %16 = lshr i32 %.0811.i.i, 8
+  %16 = lshr i32 %.0810.i.i, 8
   %17 = add nuw nsw i64 %13, 1
   %exitcond.not.i.i = icmp eq i64 %17, 4
   br i1 %exitcond.not.i.i, label %18, label %.preheader.i.i, !llvm.loop !65
@@ -5107,7 +5107,7 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoT_.exit.i: ; preds = %18, %1
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sink.i.i, i64 noundef 4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %21 = add nuw nsw i64 %.09.i, 1
+  %21 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %21, 16
   br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit, label %thread-pre-split.i, !llvm.loop !67
 
@@ -5122,8 +5122,8 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIiEEvRSoPKT_m.exit: ; preds = %_ZN9S
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %25, ptr %3, align 1
-  %.b3.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  br i1 %.b3.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
+  %.b.i6 = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
+  br i1 %.b.i6, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIaEEvRSoT_.exit, label %26
 
 26:                                               ; preds = %23
   store i8 %25, ptr %4, align 1

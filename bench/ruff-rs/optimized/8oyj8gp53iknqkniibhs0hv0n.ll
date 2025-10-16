@@ -3242,7 +3242,7 @@ define hidden void @_ZN3zip4spec31Zip64CentralDirectoryEndLocator5parse17h133859
   br label %22
 
 17:                                               ; preds = %14
-  %.sroa.01.0.copyload.i.i60 = load i64, ptr %4, align 8, !alias.scope !724, !noalias !721
+  %.sroa.01.0.copyload.i.i = load i64, ptr %4, align 8, !alias.scope !724, !noalias !721
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !721
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !727
   store i32 0, ptr %3, align 4, !noalias !727
@@ -3260,7 +3260,7 @@ define hidden void @_ZN3zip4spec31Zip64CentralDirectoryEndLocator5parse17h133859
 21:                                               ; preds = %17
   %.sroa.02.0.copyload.i.i43 = load i32, ptr %3, align 4, !alias.scope !732, !noalias !727
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !727
-  store i64 %.sroa.01.0.copyload.i.i60, ptr %19, align 8
+  store i64 %.sroa.01.0.copyload.i.i, ptr %19, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.02.0.copyload.i.i38, ptr %.sroa.418.0..sroa_idx, align 8
   %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20

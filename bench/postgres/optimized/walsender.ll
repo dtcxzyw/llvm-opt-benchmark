@@ -3158,8 +3158,8 @@ NeedToWaitForStandbys.exit.thread.i:              ; preds = %54, %42
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = icmp uge i64 %63, %59
-  %.b22.i = load i1, ptr @waiting_for_ping_response, align 1
-  %or.cond.i = select i1 %64, i1 true, i1 %.b22.i
+  %.b.i = load i1, ptr @waiting_for_ping_response, align 1
+  %or.cond.i = select i1 %64, i1 true, i1 %.b.i
   br i1 %or.cond.i, label %66, label %65
 
 65:                                               ; preds = %61
@@ -3167,20 +3167,20 @@ NeedToWaitForStandbys.exit.thread.i:              ; preds = %54, %42
   br label %66
 
 66:                                               ; preds = %65, %61, %NeedToWaitForStandbys.exit.thread.i
-  br i1 %.not21.not.i, label %67, label %NeedToWaitForWal.exit33.thread.i
+  br i1 %.not21.not.i, label %67, label %NeedToWaitForWal.exit30.thread.i
 
 67:                                               ; preds = %66
   %68 = load i64, ptr @WalSndWaitForWal.RecentFlushPtr, align 8
   %69 = icmp ugt i64 %9, %68
-  br i1 %69, label %NeedToWaitForWal.exit33.thread.i, label %70
+  br i1 %69, label %NeedToWaitForWal.exit30.thread.i, label %70
 
 70:                                               ; preds = %67
   %71 = load volatile i32, ptr @got_STOPPING, align 4
-  %.not.i.i28.i = icmp eq i32 %71, 0
-  %72 = select i1 %.not.i.i28.i, i32 19, i32 21
+  %.not.i.i25.i = icmp eq i32 %71, 0
+  %72 = select i1 %.not.i.i25.i, i32 19, i32 21
   %73 = load volatile i32, ptr @replication_active, align 4
-  %.not5.i.i29.i = icmp eq i32 %73, 0
-  br i1 %.not5.i.i29.i, label %131, label %74
+  %.not5.i.i26.i = icmp eq i32 %73, 0
+  br i1 %.not5.i.i26.i, label %131, label %74
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr @MyReplicationSlot, align 8
@@ -3191,26 +3191,26 @@ NeedToWaitForStandbys.exit.thread.i:              ; preds = %54, %42
 
 79:                                               ; preds = %74
   %80 = tail call zeroext i1 @StandbySlotsHaveCaughtup(i64 noundef %68, i32 noundef %72) #16
-  br i1 %80, label %131, label %NeedToWaitForWal.exit33.thread.i
+  br i1 %80, label %131, label %NeedToWaitForWal.exit30.thread.i
 
-NeedToWaitForWal.exit33.thread.i:                 ; preds = %79, %67, %66
+NeedToWaitForWal.exit30.thread.i:                 ; preds = %79, %67, %66
   %.4.i = phi i32 [ %.2.i, %66 ], [ 100663302, %79 ], [ 100663303, %67 ]
   store i1 true, ptr @WalSndCaughtUp, align 1
   %81 = load ptr, ptr @PqCommMethods, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 %83() #16
-  %.not23.i = icmp eq i32 %84, 0
-  br i1 %.not23.i, label %86, label %85
+  %.not22.i = icmp eq i32 %84, 0
+  br i1 %.not22.i, label %86, label %85
 
-85:                                               ; preds = %NeedToWaitForWal.exit33.thread.i
+85:                                               ; preds = %NeedToWaitForWal.exit30.thread.i
   tail call fastcc void @WalSndShutdown() #20
   unreachable
 
-86:                                               ; preds = %NeedToWaitForWal.exit33.thread.i
-  %.b1624.i = load i1, ptr @streamingDoneReceiving, align 1
-  %.b1725.i = load i1, ptr @streamingDoneSending, align 1
-  %or.cond3.i = select i1 %.b1624.i, i1 %.b1725.i, i1 false
+86:                                               ; preds = %NeedToWaitForWal.exit30.thread.i
+  %.b16.i = load i1, ptr @streamingDoneReceiving, align 1
+  %.b17.i = load i1, ptr @streamingDoneSending, align 1
+  %or.cond3.i = select i1 %.b16.i, i1 %.b17.i, i1 false
   br i1 %or.cond3.i, label %87, label %92
 
 87:                                               ; preds = %86
@@ -3235,8 +3235,8 @@ NeedToWaitForWal.exit33.thread.i:                 ; preds = %79, %67, %66
   %100 = mul nuw nsw i64 %99, 1000
   %101 = add nuw i64 %100, %93
   %102 = load i64, ptr @last_processing, align 8
-  %.not.i34.i = icmp slt i64 %102, %101
-  br i1 %.not.i34.i, label %WalSndCheckTimeOut.exit.i, label %103
+  %.not.i31.i = icmp slt i64 %102, %101
+  br i1 %.not.i31.i, label %WalSndCheckTimeOut.exit.i, label %103
 
 103:                                              ; preds = %98
   %104 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #16
@@ -3252,16 +3252,16 @@ NeedToWaitForWal.exit33.thread.i:                 ; preds = %79, %67, %66
   unreachable
 
 WalSndCheckTimeOut.exit.i:                        ; preds = %98
-  %.b3.i.i = load i1, ptr @waiting_for_ping_response, align 1
-  br i1 %.b3.i.i, label %WalSndKeepaliveIfNecessary.exit.i, label %108
+  %.b.i.i = load i1, ptr @waiting_for_ping_response, align 1
+  br i1 %.b.i.i, label %WalSndKeepaliveIfNecessary.exit.i, label %108
 
 108:                                              ; preds = %WalSndCheckTimeOut.exit.i
   %109 = lshr i32 %96, 1
   %110 = zext nneg i32 %109 to i64
   %111 = mul nuw nsw i64 %110, 1000
   %112 = add nuw i64 %111, %93
-  %.not.i35.i = icmp slt i64 %102, %112
-  br i1 %.not.i35.i, label %WalSndKeepaliveIfNecessary.exit.i, label %113
+  %.not.i32.i = icmp slt i64 %102, %112
+  br i1 %.not.i32.i, label %WalSndKeepaliveIfNecessary.exit.i, label %113
 
 113:                                              ; preds = %108
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
@@ -3269,8 +3269,8 @@ WalSndCheckTimeOut.exit.i:                        ; preds = %98
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i32 %116() #16
-  %.not4.i.i = icmp eq i32 %117, 0
-  br i1 %.not4.i.i, label %WalSndKeepaliveIfNecessary.exit.i, label %118
+  %.not3.i.i = icmp eq i32 %117, 0
+  br i1 %.not3.i.i, label %WalSndKeepaliveIfNecessary.exit.i, label %118
 
 118:                                              ; preds = %113
   tail call fastcc void @WalSndShutdown() #20
@@ -3282,18 +3282,18 @@ WalSndKeepaliveIfNecessary.exit.i:                ; preds = %113, %108, %WalSndC
   %121 = icmp sgt i32 %120, 0
   %122 = load i64, ptr @last_reply_timestamp, align 8
   %123 = icmp sgt i64 %122, 0
-  %or.cond.i36.i = select i1 %121, i1 %123, i1 false
-  br i1 %or.cond.i36.i, label %124, label %NeedToWaitForStandbys.exit.i
+  %or.cond.i33.i = select i1 %121, i1 %123, i1 false
+  br i1 %or.cond.i33.i, label %124, label %NeedToWaitForStandbys.exit.i
 
 124:                                              ; preds = %WalSndKeepaliveIfNecessary.exit.i
-  %.b7.i.i = load i1, ptr @waiting_for_ping_response, align 1
-  %not..b7.i.i = xor i1 %.b7.i.i, true
-  %125 = zext i1 %not..b7.i.i to i32
+  %.b.i34.i = load i1, ptr @waiting_for_ping_response, align 1
+  %not..b.i.i = xor i1 %.b.i34.i, true
+  %125 = zext i1 %not..b.i.i to i32
   %spec.select.i.i = lshr i32 %120, %125
   %.pn.in.i.i = zext nneg i32 %spec.select.i.i to i64
   %.pn.i.i = mul nuw nsw i64 %.pn.in.i.i, 1000
-  %.0.i37.i = add nuw i64 %.pn.i.i, %122
-  %126 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %119, i64 noundef %.0.i37.i) #16
+  %.0.i35.i = add nuw i64 %.pn.i.i, %122
+  %126 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %119, i64 noundef %.0.i35.i) #16
   br label %NeedToWaitForStandbys.exit.i
 
 NeedToWaitForStandbys.exit.i:                     ; preds = %124, %WalSndKeepaliveIfNecessary.exit.i
@@ -3748,11 +3748,11 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i64 @GetCurrentTimestamp() #16
   store i64 %2, ptr @last_processing, align 8
-  %.b725 = load i1, ptr @streamingDoneReceiving, align 1
-  br i1 %.b725, label %.critedge, label %.lr.ph
+  %.b23 = load i1, ptr @streamingDoneReceiving, align 1
+  br i1 %.b23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %ProcessStandbyMessage.exit
-  %.026 = phi i1 [ %.1.ph, %ProcessStandbyMessage.exit ], [ false, %0 ]
+  %.024 = phi i1 [ %.1.ph, %ProcessStandbyMessage.exit ], [ false, %0 ]
   call void @pq_startmsgread() #16
   %3 = call i32 @pq_getbyte_if_available(ptr noundef nonnull %1) #16
   %4 = icmp slt i32 %3, 0
@@ -3778,7 +3778,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 
 13:                                               ; preds = %11
   call void @pq_endmsgread() #16
-  br i1 %.026, label %346, label %.critedge
+  br i1 %.024, label %346, label %.critedge
 
 14:                                               ; preds = %11
   %15 = load i8, ptr %1, align 1
@@ -3889,8 +3889,8 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %68 = sext i32 %.promoted.i.i.i to i64
   %69 = getelementptr inbounds %struct.WalTimeSample, ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8
-  %.not38.i106.i.i = icmp ugt i64 %70, %37
-  br i1 %.not38.i106.i.i, label %.critedge.i.thread.i.i, label %.lr.ph.i.i
+  %.not38.i105.i.i = icmp ugt i64 %70, %37
+  br i1 %.not38.i105.i.i, label %.critedge.i.thread.i.i, label %.lr.ph.i.i
 
 71:                                               ; preds = %.lr.ph.i.i
   %72 = sext i32 %80 to i64
@@ -3984,91 +3984,91 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.i.i, %.critedge.i.thread.i.i, %.critedge.i.i.i
   %.0.i.i.i = phi i64 [ %116, %115 ], [ -1, %.critedge.i.i.i ], [ -1, %.thread.i.i ], [ -1, %92 ], [ -1, %.critedge.i.thread.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %62, i64 131088
-  %.promoted.i55.i.i = load i32, ptr %117, align 4
-  %.not53.i56.i.i = icmp eq i32 %.promoted.i55.i.i, %65
-  br i1 %.not53.i56.i.i, label %._crit_edge.i61.i.i, label %.lr.ph.i57.i.i
+  %.promoted.i54.i.i = load i32, ptr %117, align 4
+  %.not53.i55.i.i = icmp eq i32 %.promoted.i54.i.i, %65
+  br i1 %.not53.i55.i.i, label %._crit_edge.i60.i.i, label %.lr.ph.i56.i.i
 
-.lr.ph.i57.i.i:                                   ; preds = %LagTrackerRead.exit.i.i
+.lr.ph.i56.i.i:                                   ; preds = %LagTrackerRead.exit.i.i
   %118 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %62, i64 131112
-  %120 = sext i32 %.promoted.i55.i.i to i64
+  %120 = sext i32 %.promoted.i54.i.i to i64
   %121 = getelementptr inbounds %struct.WalTimeSample, ptr %118, i64 %120
   %122 = load i64, ptr %121, align 8
-  %.not38.i59108.i.i = icmp ugt i64 %122, %38
-  br i1 %.not38.i59108.i.i, label %.critedge.i63.thread.i.i, label %.lr.ph109.i.i
+  %.not38.i58107.i.i = icmp ugt i64 %122, %38
+  br i1 %.not38.i58107.i.i, label %.critedge.i62.thread.i.i, label %.lr.ph108.i.i
 
-123:                                              ; preds = %.lr.ph109.i.i
+123:                                              ; preds = %.lr.ph108.i.i
   %124 = sext i32 %132 to i64
   %125 = getelementptr inbounds %struct.WalTimeSample, ptr %118, i64 %124
   %126 = load i64, ptr %125, align 8
-  %.not38.i59.i.i = icmp ugt i64 %126, %38
-  br i1 %.not38.i59.i.i, label %.critedge.i63.i.i, label %.lr.ph109.i.i, !llvm.loop !75
+  %.not38.i58.i.i = icmp ugt i64 %126, %38
+  br i1 %.not38.i58.i.i, label %.critedge.i62.i.i, label %.lr.ph108.i.i, !llvm.loop !75
 
-.lr.ph109.i.i:                                    ; preds = %.lr.ph.i57.i.i, %123
-  %127 = phi ptr [ %125, %123 ], [ %121, %.lr.ph.i57.i.i ]
-  %128 = phi i32 [ %132, %123 ], [ %.promoted.i55.i.i, %.lr.ph.i57.i.i ]
+.lr.ph108.i.i:                                    ; preds = %.lr.ph.i56.i.i, %123
+  %127 = phi ptr [ %125, %123 ], [ %121, %.lr.ph.i56.i.i ]
+  %128 = phi i32 [ %132, %123 ], [ %.promoted.i54.i.i, %.lr.ph.i56.i.i ]
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load i64, ptr %129, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false)
   %131 = add i32 %128, 1
   %132 = srem i32 %131, 8192
   store i32 %132, ptr %117, align 4
-  %.not.i60.i.i = icmp eq i32 %132, %65
-  br i1 %.not.i60.i.i, label %._crit_edge.i61.i.i, label %123, !llvm.loop !75
+  %.not.i59.i.i = icmp eq i32 %132, %65
+  br i1 %.not.i59.i.i, label %._crit_edge.i60.i.i, label %123, !llvm.loop !75
 
-._crit_edge.i61.i.i:                              ; preds = %.lr.ph109.i.i, %LagTrackerRead.exit.i.i
-  %.030.lcssa.i62.i.i = phi i64 [ 0, %LagTrackerRead.exit.i.i ], [ %130, %.lr.ph109.i.i ]
+._crit_edge.i60.i.i:                              ; preds = %.lr.ph108.i.i, %LagTrackerRead.exit.i.i
+  %.030.lcssa.i61.i.i = phi i64 [ 0, %LagTrackerRead.exit.i.i ], [ %130, %.lr.ph108.i.i ]
   %133 = getelementptr inbounds nuw i8, ptr %62, i64 131120
   store i64 0, ptr %133, align 8
-  br label %.critedge.i63.i.i
+  br label %.critedge.i62.i.i
 
-.critedge.i63.i.i:                                ; preds = %123, %._crit_edge.i61.i.i
-  %134 = phi i32 [ %65, %._crit_edge.i61.i.i ], [ %132, %123 ]
-  %.03050.i64.i.i = phi i64 [ %.030.lcssa.i62.i.i, %._crit_edge.i61.i.i ], [ %130, %123 ]
-  %135 = icmp sgt i64 %.03050.i64.i.i, %61
-  br i1 %135, label %LagTrackerRead.exit73.i.i, label %137
+.critedge.i62.i.i:                                ; preds = %123, %._crit_edge.i60.i.i
+  %134 = phi i32 [ %65, %._crit_edge.i60.i.i ], [ %132, %123 ]
+  %.03050.i63.i.i = phi i64 [ %.030.lcssa.i61.i.i, %._crit_edge.i60.i.i ], [ %130, %123 ]
+  %135 = icmp sgt i64 %.03050.i63.i.i, %61
+  br i1 %135, label %LagTrackerRead.exit72.i.i, label %137
 
-.critedge.i63.thread.i.i:                         ; preds = %.lr.ph.i57.i.i
+.critedge.i62.thread.i.i:                         ; preds = %.lr.ph.i56.i.i
   %136 = icmp slt i64 %61, 0
-  br i1 %136, label %LagTrackerRead.exit73.i.i, label %.thread150.i.i
+  br i1 %136, label %LagTrackerRead.exit72.i.i, label %.thread149.i.i
 
-137:                                              ; preds = %.critedge.i63.i.i
-  %138 = icmp eq i64 %.03050.i64.i.i, 0
-  br i1 %138, label %.thread150.i.i, label %167
+137:                                              ; preds = %.critedge.i62.i.i
+  %138 = icmp eq i64 %.03050.i63.i.i, 0
+  br i1 %138, label %.thread149.i.i, label %167
 
-.thread150.i.i:                                   ; preds = %137, %.critedge.i63.thread.i.i
-  %139 = phi i32 [ %134, %137 ], [ %.promoted.i55.i.i, %.critedge.i63.thread.i.i ]
+.thread149.i.i:                                   ; preds = %137, %.critedge.i62.thread.i.i
+  %139 = phi i32 [ %134, %137 ], [ %.promoted.i54.i.i, %.critedge.i62.thread.i.i ]
   %140 = icmp eq i32 %139, %65
-  br i1 %140, label %LagTrackerRead.exit73.i.i, label %141
+  br i1 %140, label %LagTrackerRead.exit72.i.i, label %141
 
-141:                                              ; preds = %.thread150.i.i
+141:                                              ; preds = %.thread149.i.i
   %142 = getelementptr inbounds nuw i8, ptr %62, i64 131120
   %143 = load i64, ptr %142, align 8
-  %.not39.i67.i.i = icmp eq i64 %143, 0
-  br i1 %.not39.i67.i.i, label %162, label %144
+  %.not39.i66.i.i = icmp eq i64 %143, 0
+  br i1 %.not39.i66.i.i, label %162, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %62, i64 131112
-  %.sroa.02.0.copyload.i68.i.i = load i64, ptr %145, align 8
+  %.sroa.02.0.copyload.i67.i.i = load i64, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %147 = sext i32 %139 to i64
   %148 = getelementptr inbounds %struct.WalTimeSample, ptr %146, i64 %147
-  %.sroa.4.0..sroa_idx.i69.i.i = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %.sroa.4.0.copyload.i70.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i69.i.i, align 8
-  %149 = icmp ult i64 %38, %.sroa.02.0.copyload.i68.i.i
-  %150 = icmp sgt i64 %143, %.sroa.4.0.copyload.i70.i.i
-  %or.cond.i71.i.i = select i1 %149, i1 true, i1 %150
-  br i1 %or.cond.i71.i.i, label %LagTrackerRead.exit73.i.i, label %151
+  %.sroa.4.0..sroa_idx.i68.i.i = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %.sroa.4.0.copyload.i69.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i68.i.i, align 8
+  %149 = icmp ult i64 %38, %.sroa.02.0.copyload.i67.i.i
+  %150 = icmp sgt i64 %143, %.sroa.4.0.copyload.i69.i.i
+  %or.cond.i70.i.i = select i1 %149, i1 true, i1 %150
+  br i1 %or.cond.i70.i.i, label %LagTrackerRead.exit72.i.i, label %151
 
 151:                                              ; preds = %144
-  %.sroa.0.0.copyload.i72.i.i = load i64, ptr %148, align 8
-  %152 = sub nuw i64 %38, %.sroa.02.0.copyload.i68.i.i
+  %.sroa.0.0.copyload.i71.i.i = load i64, ptr %148, align 8
+  %152 = sub nuw i64 %38, %.sroa.02.0.copyload.i67.i.i
   %153 = uitofp i64 %152 to double
-  %154 = sub i64 %.sroa.0.0.copyload.i72.i.i, %.sroa.02.0.copyload.i68.i.i
+  %154 = sub i64 %.sroa.0.0.copyload.i71.i.i, %.sroa.02.0.copyload.i67.i.i
   %155 = uitofp i64 %154 to double
   %156 = fdiv double %153, %155
   %157 = sitofp i64 %143 to double
-  %158 = sub i64 %.sroa.4.0.copyload.i70.i.i, %143
+  %158 = sub i64 %.sroa.4.0.copyload.i69.i.i, %143
   %159 = sitofp i64 %158 to double
   %160 = call double @llvm.fmuladd.f64(double %159, double %156, double %157)
   %161 = fptosi double %160 to i64
@@ -4082,98 +4082,98 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   br label %167
 
 167:                                              ; preds = %162, %151, %137
-  %.2.i65.i.i = phi i64 [ %161, %151 ], [ %166, %162 ], [ %.03050.i64.i.i, %137 ]
-  %168 = sub i64 %61, %.2.i65.i.i
-  br label %LagTrackerRead.exit73.i.i
+  %.2.i64.i.i = phi i64 [ %161, %151 ], [ %166, %162 ], [ %.03050.i63.i.i, %137 ]
+  %168 = sub i64 %61, %.2.i64.i.i
+  br label %LagTrackerRead.exit72.i.i
 
-LagTrackerRead.exit73.i.i:                        ; preds = %167, %144, %.thread150.i.i, %.critedge.i63.thread.i.i, %.critedge.i63.i.i
-  %.0.i66.i.i = phi i64 [ %168, %167 ], [ -1, %.critedge.i63.i.i ], [ -1, %.thread150.i.i ], [ -1, %144 ], [ -1, %.critedge.i63.thread.i.i ]
+LagTrackerRead.exit72.i.i:                        ; preds = %167, %144, %.thread149.i.i, %.critedge.i62.thread.i.i, %.critedge.i62.i.i
+  %.0.i65.i.i = phi i64 [ %168, %167 ], [ -1, %.critedge.i62.i.i ], [ -1, %.thread149.i.i ], [ -1, %144 ], [ -1, %.critedge.i62.thread.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %62, i64 131092
-  %.promoted.i74.i.i = load i32, ptr %169, align 4
-  %.not53.i75.i.i = icmp eq i32 %.promoted.i74.i.i, %65
-  br i1 %.not53.i75.i.i, label %._crit_edge.i80.i.i, label %.lr.ph.i76.i.i
+  %.promoted.i73.i.i = load i32, ptr %169, align 4
+  %.not53.i74.i.i = icmp eq i32 %.promoted.i73.i.i, %65
+  br i1 %.not53.i74.i.i, label %._crit_edge.i79.i.i, label %.lr.ph.i75.i.i
 
-.lr.ph.i76.i.i:                                   ; preds = %LagTrackerRead.exit73.i.i
+.lr.ph.i75.i.i:                                   ; preds = %LagTrackerRead.exit72.i.i
   %170 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %62, i64 131128
-  %172 = sext i32 %.promoted.i74.i.i to i64
+  %172 = sext i32 %.promoted.i73.i.i to i64
   %173 = getelementptr inbounds %struct.WalTimeSample, ptr %170, i64 %172
   %174 = load i64, ptr %173, align 8
-  %.not38.i78112.i.i = icmp ugt i64 %174, %39
-  br i1 %.not38.i78112.i.i, label %.critedge.i82.thread.i.i, label %.lr.ph113.i.i
+  %.not38.i77111.i.i = icmp ugt i64 %174, %39
+  br i1 %.not38.i77111.i.i, label %.critedge.i81.thread.i.i, label %.lr.ph112.i.i
 
-175:                                              ; preds = %.lr.ph113.i.i
+175:                                              ; preds = %.lr.ph112.i.i
   %176 = sext i32 %184 to i64
   %177 = getelementptr inbounds %struct.WalTimeSample, ptr %170, i64 %176
   %178 = load i64, ptr %177, align 8
-  %.not38.i78.i.i = icmp ugt i64 %178, %39
-  br i1 %.not38.i78.i.i, label %.critedge.i82.i.i, label %.lr.ph113.i.i, !llvm.loop !75
+  %.not38.i77.i.i = icmp ugt i64 %178, %39
+  br i1 %.not38.i77.i.i, label %.critedge.i81.i.i, label %.lr.ph112.i.i, !llvm.loop !75
 
-.lr.ph113.i.i:                                    ; preds = %.lr.ph.i76.i.i, %175
-  %179 = phi ptr [ %177, %175 ], [ %173, %.lr.ph.i76.i.i ]
-  %180 = phi i32 [ %184, %175 ], [ %.promoted.i74.i.i, %.lr.ph.i76.i.i ]
+.lr.ph112.i.i:                                    ; preds = %.lr.ph.i75.i.i, %175
+  %179 = phi ptr [ %177, %175 ], [ %173, %.lr.ph.i75.i.i ]
+  %180 = phi i32 [ %184, %175 ], [ %.promoted.i73.i.i, %.lr.ph.i75.i.i ]
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %182 = load i64, ptr %181, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false)
   %183 = add i32 %180, 1
   %184 = srem i32 %183, 8192
   store i32 %184, ptr %169, align 4
-  %.not.i79.i.i = icmp eq i32 %184, %65
-  br i1 %.not.i79.i.i, label %._crit_edge.i80.i.i, label %175, !llvm.loop !75
+  %.not.i78.i.i = icmp eq i32 %184, %65
+  br i1 %.not.i78.i.i, label %._crit_edge.i79.i.i, label %175, !llvm.loop !75
 
-._crit_edge.i80.i.i:                              ; preds = %.lr.ph113.i.i, %LagTrackerRead.exit73.i.i
-  %.030.lcssa.i81.i.i = phi i64 [ 0, %LagTrackerRead.exit73.i.i ], [ %182, %.lr.ph113.i.i ]
+._crit_edge.i79.i.i:                              ; preds = %.lr.ph112.i.i, %LagTrackerRead.exit72.i.i
+  %.030.lcssa.i80.i.i = phi i64 [ 0, %LagTrackerRead.exit72.i.i ], [ %182, %.lr.ph112.i.i ]
   %185 = getelementptr inbounds nuw i8, ptr %62, i64 131136
   store i64 0, ptr %185, align 8
-  br label %.critedge.i82.i.i
+  br label %.critedge.i81.i.i
 
-.critedge.i82.i.i:                                ; preds = %175, %._crit_edge.i80.i.i
-  %186 = phi i32 [ %65, %._crit_edge.i80.i.i ], [ %184, %175 ]
-  %.03050.i83.i.i = phi i64 [ %.030.lcssa.i81.i.i, %._crit_edge.i80.i.i ], [ %182, %175 ]
-  %187 = icmp sgt i64 %.03050.i83.i.i, %61
-  br i1 %187, label %LagTrackerRead.exit92.i.i, label %189
+.critedge.i81.i.i:                                ; preds = %175, %._crit_edge.i79.i.i
+  %186 = phi i32 [ %65, %._crit_edge.i79.i.i ], [ %184, %175 ]
+  %.03050.i82.i.i = phi i64 [ %.030.lcssa.i80.i.i, %._crit_edge.i79.i.i ], [ %182, %175 ]
+  %187 = icmp sgt i64 %.03050.i82.i.i, %61
+  br i1 %187, label %LagTrackerRead.exit91.i.i, label %189
 
-.critedge.i82.thread.i.i:                         ; preds = %.lr.ph.i76.i.i
+.critedge.i81.thread.i.i:                         ; preds = %.lr.ph.i75.i.i
   %188 = icmp slt i64 %61, 0
-  br i1 %188, label %LagTrackerRead.exit92.i.i, label %.thread154.i.i
+  br i1 %188, label %LagTrackerRead.exit91.i.i, label %.thread153.i.i
 
-189:                                              ; preds = %.critedge.i82.i.i
-  %190 = icmp eq i64 %.03050.i83.i.i, 0
-  br i1 %190, label %.thread154.i.i, label %219
+189:                                              ; preds = %.critedge.i81.i.i
+  %190 = icmp eq i64 %.03050.i82.i.i, 0
+  br i1 %190, label %.thread153.i.i, label %219
 
-.thread154.i.i:                                   ; preds = %189, %.critedge.i82.thread.i.i
-  %191 = phi i32 [ %186, %189 ], [ %.promoted.i74.i.i, %.critedge.i82.thread.i.i ]
+.thread153.i.i:                                   ; preds = %189, %.critedge.i81.thread.i.i
+  %191 = phi i32 [ %186, %189 ], [ %.promoted.i73.i.i, %.critedge.i81.thread.i.i ]
   %192 = icmp eq i32 %191, %65
-  br i1 %192, label %LagTrackerRead.exit92.i.i, label %193
+  br i1 %192, label %LagTrackerRead.exit91.i.i, label %193
 
-193:                                              ; preds = %.thread154.i.i
+193:                                              ; preds = %.thread153.i.i
   %194 = getelementptr inbounds nuw i8, ptr %62, i64 131136
   %195 = load i64, ptr %194, align 8
-  %.not39.i86.i.i = icmp eq i64 %195, 0
-  br i1 %.not39.i86.i.i, label %214, label %196
+  %.not39.i85.i.i = icmp eq i64 %195, 0
+  br i1 %.not39.i85.i.i, label %214, label %196
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %62, i64 131128
-  %.sroa.02.0.copyload.i87.i.i = load i64, ptr %197, align 8
+  %.sroa.02.0.copyload.i86.i.i = load i64, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %199 = sext i32 %191 to i64
   %200 = getelementptr inbounds %struct.WalTimeSample, ptr %198, i64 %199
-  %.sroa.4.0..sroa_idx.i88.i.i = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %.sroa.4.0.copyload.i89.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i88.i.i, align 8
-  %201 = icmp ult i64 %39, %.sroa.02.0.copyload.i87.i.i
-  %202 = icmp sgt i64 %195, %.sroa.4.0.copyload.i89.i.i
-  %or.cond.i90.i.i = select i1 %201, i1 true, i1 %202
-  br i1 %or.cond.i90.i.i, label %LagTrackerRead.exit92.i.i, label %203
+  %.sroa.4.0..sroa_idx.i87.i.i = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %.sroa.4.0.copyload.i88.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i87.i.i, align 8
+  %201 = icmp ult i64 %39, %.sroa.02.0.copyload.i86.i.i
+  %202 = icmp sgt i64 %195, %.sroa.4.0.copyload.i88.i.i
+  %or.cond.i89.i.i = select i1 %201, i1 true, i1 %202
+  br i1 %or.cond.i89.i.i, label %LagTrackerRead.exit91.i.i, label %203
 
 203:                                              ; preds = %196
-  %.sroa.0.0.copyload.i91.i.i = load i64, ptr %200, align 8
-  %204 = sub nuw i64 %39, %.sroa.02.0.copyload.i87.i.i
+  %.sroa.0.0.copyload.i90.i.i = load i64, ptr %200, align 8
+  %204 = sub nuw i64 %39, %.sroa.02.0.copyload.i86.i.i
   %205 = uitofp i64 %204 to double
-  %206 = sub i64 %.sroa.0.0.copyload.i91.i.i, %.sroa.02.0.copyload.i87.i.i
+  %206 = sub i64 %.sroa.0.0.copyload.i90.i.i, %.sroa.02.0.copyload.i86.i.i
   %207 = uitofp i64 %206 to double
   %208 = fdiv double %205, %207
   %209 = sitofp i64 %195 to double
-  %210 = sub i64 %.sroa.4.0.copyload.i89.i.i, %195
+  %210 = sub i64 %.sroa.4.0.copyload.i88.i.i, %195
   %211 = sitofp i64 %210 to double
   %212 = call double @llvm.fmuladd.f64(double %211, double %208, double %209)
   %213 = fptosi double %212 to i64
@@ -4187,29 +4187,29 @@ LagTrackerRead.exit73.i.i:                        ; preds = %167, %144, %.thread
   br label %219
 
 219:                                              ; preds = %214, %203, %189
-  %.2.i84.i.i = phi i64 [ %213, %203 ], [ %218, %214 ], [ %.03050.i83.i.i, %189 ]
-  %220 = sub i64 %61, %.2.i84.i.i
-  br label %LagTrackerRead.exit92.i.i
+  %.2.i83.i.i = phi i64 [ %213, %203 ], [ %218, %214 ], [ %.03050.i82.i.i, %189 ]
+  %220 = sub i64 %61, %.2.i83.i.i
+  br label %LagTrackerRead.exit91.i.i
 
-LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread154.i.i, %.critedge.i82.thread.i.i, %.critedge.i82.i.i
-  %.0.i85.i.i = phi i64 [ %220, %219 ], [ -1, %.critedge.i82.i.i ], [ -1, %.thread154.i.i ], [ -1, %196 ], [ -1, %.critedge.i82.thread.i.i ]
+LagTrackerRead.exit91.i.i:                        ; preds = %219, %196, %.thread153.i.i, %.critedge.i81.thread.i.i, %.critedge.i81.i.i
+  %.0.i84.i.i = phi i64 [ %220, %219 ], [ -1, %.critedge.i81.i.i ], [ -1, %.thread153.i.i ], [ -1, %196 ], [ -1, %.critedge.i81.thread.i.i ]
   %221 = load i64, ptr @sentPtr, align 8
   %222 = icmp eq i64 %39, %221
-  %.b52.i.i = load i1, ptr @ProcessStandbyReplyMessage.fullyAppliedLastTime, align 1
-  %.1.i.i = select i1 %222, i1 %.b52.i.i, i1 false
+  %.b.i.i = load i1, ptr @ProcessStandbyReplyMessage.fullyAppliedLastTime, align 1
+  %.1.i.i = select i1 %222, i1 %.b.i.i, i1 false
   store i1 %222, ptr @ProcessStandbyReplyMessage.fullyAppliedLastTime, align 1
   br i1 %.not.i.i, label %224, label %223
 
-223:                                              ; preds = %LagTrackerRead.exit92.i.i
+223:                                              ; preds = %LagTrackerRead.exit91.i.i
   call fastcc void @WalSndKeepalive(i1 noundef zeroext false, i64 noundef 0)
   br label %224
 
-224:                                              ; preds = %223, %LagTrackerRead.exit92.i.i
+224:                                              ; preds = %223, %LagTrackerRead.exit91.i.i
   %225 = load ptr, ptr @MyWalSnd, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 76
   %227 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %226, i8 1, ptr nonnull elementtype(i8) %226) #16, !srcloc !4
-  %.not53.i.i = icmp eq i8 %227, 0
-  br i1 %.not53.i.i, label %230, label %228
+  %.not52.i.i = icmp eq i8 %227, 0
+  br i1 %.not52.i.i, label %230, label %228
 
 228:                                              ; preds = %224
   %229 = call i32 @s_lock(ptr noundef nonnull %226, ptr noundef nonnull @.str.1, i32 noundef 2435, ptr noundef nonnull @__func__.ProcessStandbyReplyMessage) #16
@@ -4232,23 +4232,23 @@ LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread
   br label %237
 
 237:                                              ; preds = %235, %230
-  %238 = icmp ne i64 %.0.i66.i.i, -1
+  %238 = icmp ne i64 %.0.i65.i.i, -1
   %or.cond3.i.i = or i1 %238, %.1.i.i
   br i1 %or.cond3.i.i, label %239, label %241
 
 239:                                              ; preds = %237
   %240 = getelementptr inbounds nuw i8, ptr %225, i64 56
-  store i64 %.0.i66.i.i, ptr %240, align 8
+  store i64 %.0.i65.i.i, ptr %240, align 8
   br label %241
 
 241:                                              ; preds = %239, %237
-  %242 = icmp ne i64 %.0.i85.i.i, -1
+  %242 = icmp ne i64 %.0.i84.i.i, -1
   %or.cond5.i.i = or i1 %242, %.1.i.i
   br i1 %or.cond5.i.i, label %243, label %245
 
 243:                                              ; preds = %241
   %244 = getelementptr inbounds nuw i8, ptr %225, i64 64
-  store i64 %.0.i85.i.i, ptr %244, align 8
+  store i64 %.0.i84.i.i, ptr %244, align 8
   br label %245
 
 245:                                              ; preds = %243, %241
@@ -4274,8 +4274,8 @@ LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread
 254:                                              ; preds = %250
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 88
   %256 = load i32, ptr %255, align 8
-  %.not54.i.i = icmp eq i32 %256, 0
-  br i1 %.not54.i.i, label %258, label %257
+  %.not53.i.i = icmp eq i32 %256, 0
+  br i1 %.not53.i.i, label %258, label %257
 
 257:                                              ; preds = %254
   call void @LogicalConfirmReceivedLocation(i64 noundef %38) #16
@@ -4283,8 +4283,8 @@ LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread
 
 258:                                              ; preds = %254
   %259 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #16, !srcloc !4
-  %.not.i93.i.i = icmp eq i8 %259, 0
-  br i1 %.not.i93.i.i, label %262, label %260
+  %.not.i92.i.i = icmp eq i8 %259, 0
+  br i1 %.not.i92.i.i, label %262, label %260
 
 260:                                              ; preds = %258
   %261 = call i32 @s_lock(ptr noundef nonnull %251, ptr noundef nonnull @.str.1, i32 noundef 2334, ptr noundef nonnull @__func__.PhysicalConfirmReceivedLocation) #16
@@ -4294,7 +4294,7 @@ LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread
   %263 = getelementptr inbounds nuw i8, ptr %251, i64 104
   %264 = load i64, ptr %263, align 8
   %.not8.not.i.i.i = icmp eq i64 %264, %38
-  br i1 %.not8.not.i.i.i, label %.critedge.i94.i.i, label %265
+  br i1 %.not8.not.i.i.i, label %.critedge.i93.i.i, label %265
 
 265:                                              ; preds = %262
   store i64 %38, ptr %263, align 8
@@ -4317,7 +4317,7 @@ LagTrackerRead.exit92.i.i:                        ; preds = %219, %196, %.thread
   call void @ConditionVariableBroadcast(ptr noundef nonnull %273) #16
   br label %ProcessStandbyMessage.exit
 
-.critedge.i94.i.i:                                ; preds = %262
+.critedge.i93.i.i:                                ; preds = %262
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !77
   store i8 0, ptr %251, align 8
   br label %ProcessStandbyMessage.exit
@@ -4472,8 +4472,8 @@ TransactionIdInRecentPast.exit37.i.i:             ; preds = %320, %319
   unreachable
 
 340:                                              ; preds = %31
-  %.b68 = load i1, ptr @streamingDoneSending, align 1
-  br i1 %.b68, label %.loopexit.thread, label %341
+  %.b6 = load i1, ptr @streamingDoneSending, align 1
+  br i1 %.b6, label %.loopexit.thread, label %341
 
 341:                                              ; preds = %340
   %342 = load ptr, ptr @PqCommMethods, align 8
@@ -4491,10 +4491,10 @@ TransactionIdInRecentPast.exit37.i.i:             ; preds = %320, %319
   call void @proc_exit(i32 noundef 0) #17
   unreachable
 
-ProcessStandbyMessage.exit:                       ; preds = %.thread41.i.i, %329, %326, %TransactionIdInRecentPast.exit37.i.i, %320, %319, %TransactionIdInRecentPast.exit.i.i, %310, %309, %302, %298, %.critedge.i94.i.i, %271, %267, %265, %257, %250, %31
-  %.1.ph = phi i1 [ true, %.thread41.i.i ], [ true, %329 ], [ true, %326 ], [ true, %TransactionIdInRecentPast.exit37.i.i ], [ true, %320 ], [ true, %319 ], [ true, %TransactionIdInRecentPast.exit.i.i ], [ true, %310 ], [ true, %309 ], [ true, %302 ], [ true, %298 ], [ true, %.critedge.i94.i.i ], [ true, %271 ], [ true, %267 ], [ true, %265 ], [ true, %257 ], [ true, %250 ], [ %.026, %31 ]
-  %.b7.pr = load i1, ptr @streamingDoneReceiving, align 1
-  br i1 %.b7.pr, label %.loopexit, label %.lr.ph, !llvm.loop !79
+ProcessStandbyMessage.exit:                       ; preds = %.thread41.i.i, %329, %326, %TransactionIdInRecentPast.exit37.i.i, %320, %319, %TransactionIdInRecentPast.exit.i.i, %310, %309, %302, %298, %.critedge.i93.i.i, %271, %267, %265, %257, %250, %31
+  %.1.ph = phi i1 [ true, %.thread41.i.i ], [ true, %329 ], [ true, %326 ], [ true, %TransactionIdInRecentPast.exit37.i.i ], [ true, %320 ], [ true, %319 ], [ true, %TransactionIdInRecentPast.exit.i.i ], [ true, %310 ], [ true, %309 ], [ true, %302 ], [ true, %298 ], [ true, %.critedge.i93.i.i ], [ true, %271 ], [ true, %267 ], [ true, %265 ], [ true, %257 ], [ true, %250 ], [ %.024, %31 ]
+  %.b.pr = load i1, ptr @streamingDoneReceiving, align 1
+  br i1 %.b.pr, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %ProcessStandbyMessage.exit
   br i1 %.1.ph, label %346, label %.critedge
@@ -4833,8 +4833,8 @@ define internal fastcc void @ProcessPendingWrites() unnamed_addr #0 {
   unreachable
 
 WalSndCheckTimeOut.exit:                          ; preds = %7
-  %.b3.i = load i1, ptr @waiting_for_ping_response, align 1
-  br i1 %.b3.i, label %WalSndKeepaliveIfNecessary.exit, label %17
+  %.b.i = load i1, ptr @waiting_for_ping_response, align 1
+  br i1 %.b.i, label %WalSndKeepaliveIfNecessary.exit, label %17
 
 17:                                               ; preds = %WalSndCheckTimeOut.exit
   %18 = lshr i32 %5, 1
@@ -4851,8 +4851,8 @@ WalSndCheckTimeOut.exit:                          ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26() #16
-  %.not4.i = icmp eq i32 %27, 0
-  br i1 %.not4.i, label %WalSndKeepaliveIfNecessary.exit, label %28
+  %.not3.i = icmp eq i32 %27, 0
+  br i1 %.not3.i, label %WalSndKeepaliveIfNecessary.exit, label %28
 
 28:                                               ; preds = %23
   tail call fastcc void @WalSndShutdown() #20
@@ -4875,9 +4875,9 @@ WalSndKeepaliveIfNecessary.exit:                  ; preds = %4, %1, %WalSndCheck
   br i1 %or.cond.i5, label %39, label %WalSndComputeSleeptime.exit
 
 39:                                               ; preds = %33
-  %.b7.i = load i1, ptr @waiting_for_ping_response, align 1
-  %not..b7.i = xor i1 %.b7.i, true
-  %40 = zext i1 %not..b7.i to i32
+  %.b.i6 = load i1, ptr @waiting_for_ping_response, align 1
+  %not..b.i = xor i1 %.b.i6, true
+  %40 = zext i1 %not..b.i to i32
   %spec.select.i = lshr i32 %35, %40
   %.pn.in.i = zext nneg i32 %spec.select.i to i64
   %.pn.i = mul nuw nsw i64 %.pn.in.i, 1000
@@ -4980,9 +4980,9 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
 
 12:                                               ; preds = %11, %9
   tail call fastcc void @ProcessRepliesIfAny()
-  %.b1216 = load i1, ptr @streamingDoneReceiving, align 1
-  %.b1417 = load i1, ptr @streamingDoneSending, align 1
-  %or.cond = select i1 %.b1216, i1 %.b1417, i1 false
+  %.b12 = load i1, ptr @streamingDoneReceiving, align 1
+  %.b14 = load i1, ptr @streamingDoneSending, align 1
+  %or.cond = select i1 %.b12, i1 %.b14, i1 false
   br i1 %or.cond, label %13, label %18
 
 13:                                               ; preds = %12
@@ -5012,16 +5012,16 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28() #16
-  %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %31, label %30
+  %.not16 = icmp eq i32 %29, 0
+  br i1 %.not16, label %31, label %30
 
 30:                                               ; preds = %25
   tail call fastcc void @WalSndShutdown() #20
   unreachable
 
 31:                                               ; preds = %25
-  %.b1019 = load i1, ptr @WalSndCaughtUp, align 1
-  br i1 %.b1019, label %32, label %WalSndDone.exit
+  %.b10 = load i1, ptr @WalSndCaughtUp, align 1
+  br i1 %.b10, label %32, label %WalSndDone.exit
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr @PqCommMethods, align 8
@@ -5072,8 +5072,8 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
 
 WalSndSetState.exit:                              ; preds = %57, %47, %37
   %58 = load volatile i32, ptr @got_SIGUSR2, align 4
-  %.not20 = icmp eq i32 %58, 0
-  br i1 %.not20, label %WalSndDone.exit, label %59
+  %.not17 = icmp eq i32 %58, 0
+  br i1 %.not17, label %WalSndDone.exit, label %59
 
 59:                                               ; preds = %WalSndSetState.exit
   tail call void %0() #16, !callees !93
@@ -5090,10 +5090,10 @@ WalSndSetState.exit:                              ; preds = %57, %47, %37
 
 67:                                               ; preds = %64, %59
   %68 = phi i64 [ %66, %64 ], [ %62, %59 ]
-  %.b12.i = load i1, ptr @WalSndCaughtUp, align 1
+  %.b1.i = load i1, ptr @WalSndCaughtUp, align 1
   %69 = load i64, ptr @sentPtr, align 8
   %70 = icmp eq i64 %69, %68
-  %or.cond.i = select i1 %.b12.i, i1 %70, i1 false
+  %or.cond.i = select i1 %.b1.i, i1 %70, i1 false
   br i1 %or.cond.i, label %71, label %82
 
 71:                                               ; preds = %67
@@ -5117,8 +5117,8 @@ WalSndSetState.exit:                              ; preds = %57, %47, %37
   unreachable
 
 82:                                               ; preds = %71, %67
-  %.b3.i = load i1, ptr @waiting_for_ping_response, align 1
-  br i1 %.b3.i, label %WalSndDone.exit, label %83
+  %.b.i = load i1, ptr @waiting_for_ping_response, align 1
+  br i1 %.b.i, label %WalSndDone.exit, label %83
 
 83:                                               ; preds = %82
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
@@ -5139,8 +5139,8 @@ WalSndDone.exit:                                  ; preds = %83, %82, %WalSndSet
   %91 = mul nuw nsw i64 %90, 1000
   %92 = add nuw i64 %91, %84
   %93 = load i64, ptr @last_processing, align 8
-  %.not.i24 = icmp slt i64 %93, %92
-  br i1 %.not.i24, label %WalSndCheckTimeOut.exit, label %94
+  %.not.i18 = icmp slt i64 %93, %92
+  br i1 %.not.i18, label %WalSndCheckTimeOut.exit, label %94
 
 94:                                               ; preds = %89
   %95 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #16
@@ -5156,8 +5156,8 @@ WalSndDone.exit:                                  ; preds = %83, %82, %WalSndSet
   unreachable
 
 WalSndCheckTimeOut.exit:                          ; preds = %89
-  %.b3.i26 = load i1, ptr @waiting_for_ping_response, align 1
-  br i1 %.b3.i26, label %WalSndKeepaliveIfNecessary.exit, label %99
+  %.b.i20 = load i1, ptr @waiting_for_ping_response, align 1
+  br i1 %.b.i20, label %WalSndKeepaliveIfNecessary.exit, label %99
 
 99:                                               ; preds = %WalSndCheckTimeOut.exit
   %100 = lshr i32 %87, 1
@@ -5165,8 +5165,8 @@ WalSndCheckTimeOut.exit:                          ; preds = %89
   %102 = mul nuw nsw i64 %101, 1000
   %103 = add nuw i64 %102, %84
   %104 = load i64, ptr @last_processing, align 8
-  %.not.i27 = icmp slt i64 %104, %103
-  br i1 %.not.i27, label %WalSndKeepaliveIfNecessary.exit, label %105
+  %.not.i21 = icmp slt i64 %104, %103
+  br i1 %.not.i21, label %WalSndKeepaliveIfNecessary.exit, label %105
 
 105:                                              ; preds = %99
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
@@ -5174,19 +5174,19 @@ WalSndCheckTimeOut.exit:                          ; preds = %89
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108() #16
-  %.not4.i = icmp eq i32 %109, 0
-  br i1 %.not4.i, label %WalSndKeepaliveIfNecessary.exit, label %110
+  %.not3.i = icmp eq i32 %109, 0
+  br i1 %.not3.i, label %WalSndKeepaliveIfNecessary.exit, label %110
 
 110:                                              ; preds = %105
   tail call fastcc void @WalSndShutdown() #20
   unreachable
 
 WalSndKeepaliveIfNecessary.exit:                  ; preds = %86, %WalSndDone.exit, %WalSndCheckTimeOut.exit, %99, %105
-  %.b21 = load i1, ptr @WalSndCaughtUp, align 1
-  %or.cond3 = and i1 %4, %.b21
+  %.b = load i1, ptr @WalSndCaughtUp, align 1
+  %or.cond3 = and i1 %4, %.b
   %or.cond3.not = xor i1 %or.cond3, true
-  %.b1322 = load i1, ptr @streamingDoneSending, align 1
-  %or.cond5 = select i1 %or.cond3.not, i1 true, i1 %.b1322
+  %.b13 = load i1, ptr @streamingDoneSending, align 1
+  %or.cond5 = select i1 %or.cond3.not, i1 true, i1 %.b13
   br i1 %or.cond5, label %111, label %116
 
 111:                                              ; preds = %WalSndKeepaliveIfNecessary.exit
@@ -5197,20 +5197,20 @@ WalSndKeepaliveIfNecessary.exit:                  ; preds = %86, %WalSndDone.exi
   br i1 %115, label %116, label %.backedge
 
 116:                                              ; preds = %WalSndKeepaliveIfNecessary.exit, %111
-  %.b1123 = load i1, ptr @streamingDoneReceiving, align 1
-  %. = select i1 %.b1123, i32 0, i32 2
+  %.b11 = load i1, ptr @streamingDoneReceiving, align 1
+  %. = select i1 %.b11, i32 0, i32 2
   %117 = tail call i64 @GetCurrentTimestamp() #16
   %118 = load i32, ptr @wal_sender_timeout, align 4
   %119 = icmp sgt i32 %118, 0
   %120 = load i64, ptr @last_reply_timestamp, align 8
   %121 = icmp sgt i64 %120, 0
-  %or.cond.i28 = select i1 %119, i1 %121, i1 false
-  br i1 %or.cond.i28, label %122, label %WalSndComputeSleeptime.exit
+  %or.cond.i22 = select i1 %119, i1 %121, i1 false
+  br i1 %or.cond.i22, label %122, label %WalSndComputeSleeptime.exit
 
 122:                                              ; preds = %116
-  %.b7.i = load i1, ptr @waiting_for_ping_response, align 1
-  %not..b7.i = xor i1 %.b7.i, true
-  %123 = zext i1 %not..b7.i to i32
+  %.b.i23 = load i1, ptr @waiting_for_ping_response, align 1
+  %not..b.i = xor i1 %.b.i23, true
+  %123 = zext i1 %not..b.i to i32
   %spec.select.i = lshr i32 %118, %123
   %.pn.in.i = zext nneg i32 %spec.select.i to i64
   %.pn.i = mul nuw nsw i64 %.pn.in.i, 1000
@@ -5271,8 +5271,8 @@ define internal void @XLogSendPhysical() #0 {
   br label %WalSndSetState.exit
 
 WalSndSetState.exit:                              ; preds = %16, %6, %0
-  %.b49 = load i1, ptr @streamingDoneSending, align 1
-  br i1 %.b49, label %17, label %18
+  %.b = load i1, ptr @streamingDoneSending, align 1
+  br i1 %.b, label %17, label %18
 
 17:                                               ; preds = %WalSndSetState.exit
   store i1 true, ptr @WalSndCaughtUp, align 1
@@ -5314,12 +5314,12 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   %34 = call i64 @llvm.umax.i64(i64 %27, i64 %28)
   %.0.i = select i1 %33, i64 %34, i64 %28
   %35 = load i32, ptr @sendTimeLine, align 4
-  %.not50.not = icmp eq i32 %35, %.pre.i
-  br i1 %.not50.not, label %43, label %36
+  %.not49.not = icmp eq i32 %35, %.pre.i
+  br i1 %.not49.not, label %43, label %36
 
 36:                                               ; preds = %.critedge, %32
-  %.059 = phi i32 [ %.pre.i, %32 ], [ %31, %.critedge ]
-  %37 = call ptr @readTimeLineHistory(i32 noundef %.059) #16
+  %.058 = phi i32 [ %.pre.i, %32 ], [ %31, %.critedge ]
+  %37 = call ptr @readTimeLineHistory(i32 noundef %.058) #16
   %38 = load i32, ptr @sendTimeLine, align 4
   %39 = call i64 @tliSwitchPoint(i32 noundef %38, ptr noundef %37, ptr noundef nonnull @sendTimeLineNextTLI) #16
   store i64 %39, ptr @sendTimeLineValidUpto, align 8
@@ -5395,8 +5395,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %74 = trunc nuw i8 %73 to i1
   %.pre = load i64, ptr @sentPtr, align 8
   %75 = load i64, ptr @sendTimeLineValidUpto, align 8
-  %.not51 = icmp ule i64 %75, %.pre
-  %or.cond.not = select i1 %74, i1 %.not51, i1 false
+  %.not50 = icmp ule i64 %75, %.pre
+  %or.cond.not = select i1 %74, i1 %.not50, i1 false
   br i1 %or.cond.not, label %76, label %97
 
 76:                                               ; preds = %LagTrackerWrite.exit
@@ -5434,8 +5434,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   br label %214
 
 97:                                               ; preds = %LagTrackerWrite.exit
-  %.not52 = icmp ugt i64 %.0, %.pre
-  br i1 %.not52, label %99, label %98
+  %.not51 = icmp ugt i64 %.0, %.pre
+  br i1 %.not51, label %99, label %98
 
 98:                                               ; preds = %97
   store i1 true, ptr @WalSndCaughtUp, align 1
@@ -5443,11 +5443,11 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 99:                                               ; preds = %97
   %100 = add i64 %.pre, 131072
-  %.not53 = icmp ule i64 %.0, %100
+  %.not52 = icmp ule i64 %.0, %100
   %101 = and i64 %100, -8192
   %not. = xor i1 %74, true
-  %.sink = and i1 %.not53, %not.
-  %.042 = select i1 %.not53, i64 %.0, i64 %101
+  %.sink = and i1 %.not52, %not.
+  %.042 = select i1 %.not52, i64 %.0, i64 %101
   store i1 %.sink, ptr @WalSndCaughtUp, align 1
   %102 = sub i64 %.042, %.pre
   call void @resetStringInfo(ptr noundef nonnull @output_message) #16
@@ -5510,8 +5510,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   store i32 %137, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %138 = add i64 %134, %.041
   %139 = sub i64 %.043, %134
-  %.not54 = icmp eq i64 %139, 0
-  br i1 %.not54, label %149, label %140
+  %.not53 = icmp eq i64 %139, 0
+  br i1 %.not53, label %149, label %140
 
 140:                                              ; preds = %126
   %141 = load ptr, ptr @xlogreader, align 8
@@ -5544,8 +5544,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %160 = load ptr, ptr @MyWalSnd, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 76
   %162 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %161, i8 1, ptr nonnull elementtype(i8) %161) #16, !srcloc !4
-  %.not55 = icmp eq i8 %162, 0
-  br i1 %.not55, label %165, label %163
+  %.not54 = icmp eq i8 %162, 0
+  br i1 %.not54, label %165, label %163
 
 163:                                              ; preds = %159
   %164 = call i32 @s_lock(ptr noundef nonnull %161, ptr noundef nonnull @.str.1, i32 noundef 3295, ptr noundef nonnull @__func__.XLogSendPhysical) #16
@@ -5607,8 +5607,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %197 = load ptr, ptr @MyWalSnd, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 76
   %199 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %198, i8 1, ptr nonnull elementtype(i8) %198) #16, !srcloc !4
-  %.not56 = icmp eq i8 %199, 0
-  br i1 %.not56, label %202, label %200
+  %.not55 = icmp eq i8 %199, 0
+  br i1 %.not55, label %202, label %200
 
 200:                                              ; preds = %.thread
   %201 = call i32 @s_lock(ptr noundef nonnull %198, ptr noundef nonnull @.str.1, i32 noundef 3327, ptr noundef nonnull @__func__.XLogSendPhysical) #16
@@ -5737,13 +5737,13 @@ define internal void @XLogSendLogical() #0 {
   br label %51
 
 50:                                               ; preds = %43
-  %.b8.pr = load i1, ptr @WalSndCaughtUp, align 1
-  br i1 %.b8.pr, label %51, label %54
+  %.b.pr = load i1, ptr @WalSndCaughtUp, align 1
+  br i1 %.b.pr, label %51, label %54
 
 51:                                               ; preds = %.thread, %50
   %52 = load volatile i32, ptr @got_STOPPING, align 4
-  %.not9 = icmp eq i32 %52, 0
-  br i1 %.not9, label %54, label %53
+  %.not8 = icmp eq i32 %52, 0
+  br i1 %.not8, label %54, label %53
 
 53:                                               ; preds = %51
   store volatile i32 1, ptr @got_SIGUSR2, align 4
@@ -5753,8 +5753,8 @@ define internal void @XLogSendLogical() #0 {
   %55 = load ptr, ptr @MyWalSnd, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 76
   %57 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %56, i8 1, ptr nonnull elementtype(i8) %56) #16, !srcloc !4
-  %.not10 = icmp eq i8 %57, 0
-  br i1 %.not10, label %60, label %58
+  %.not9 = icmp eq i8 %57, 0
+  br i1 %.not9, label %60, label %58
 
 58:                                               ; preds = %54
   %59 = call i32 @s_lock(ptr noundef nonnull %56, ptr noundef nonnull @.str.1, i32 noundef 3416, ptr noundef nonnull @__func__.XLogSendLogical) #16

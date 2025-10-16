@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @SDL_SensorsInitialized() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_sensors_initialized, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @SDL_sensors_initialized, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -45,9 +45,9 @@ define hidden void @SDL_UnlockSensors() local_unnamed_addr #1 {
   %1 = load i32, ptr @SDL_sensors_locked, align 4
   %2 = add nsw i32 %1, -1
   store i32 %2, ptr @SDL_sensors_locked, align 4
-  %.b4 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b = load i1, ptr @SDL_sensors_initialized, align 1
   %3 = icmp ne i32 %2, 0
-  %or.cond = select i1 %.b4, i1 true, i1 %3
+  %or.cond = select i1 %.b, i1 true, i1 %3
   br i1 %or.cond, label %.critedge, label %4
 
 4:                                                ; preds = %0
@@ -121,9 +121,9 @@ define hidden noundef zeroext i1 @SDL_InitSensors() local_unnamed_addr #1 {
   %15 = load i32, ptr @SDL_sensors_locked, align 4
   %16 = add nsw i32 %15, -1
   store i32 %16, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %17 = icmp ne i32 %16, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %17
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %17
   br i1 %or.cond.i, label %.critedge.i, label %18
 
 18:                                               ; preds = %7
@@ -227,9 +227,9 @@ define hidden zeroext i1 @SDL_SensorsOpened() local_unnamed_addr #1 {
   %3 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending, i32 noundef -1) #9
   %4 = load i32, ptr @SDL_sensors_locked, align 4
   %5 = load ptr, ptr @SDL_sensors, align 8
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %6 = icmp ne i32 %4, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %6
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %6
   br i1 %or.cond.i, label %.critedge.i, label %7
 
 7:                                                ; preds = %0
@@ -325,9 +325,9 @@ define hidden noalias ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(ad
   %27 = load i32, ptr @SDL_sensors_locked, align 4
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %29 = icmp ne i32 %28, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %29
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %29
   br i1 %or.cond.i, label %.critedge.i, label %30
 
 30:                                               ; preds = %26
@@ -401,9 +401,9 @@ SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.
   %19 = load i32, ptr @SDL_sensors_locked, align 4
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %21 = icmp ne i32 %20, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %21
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %21
   br i1 %or.cond.i, label %.critedge.i1, label %22
 
 22:                                               ; preds = %18
@@ -476,9 +476,9 @@ SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.
   %18 = load i32, ptr @SDL_sensors_locked, align 4
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %20 = icmp ne i32 %19, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %20
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %20
   br i1 %or.cond.i, label %.critedge.i2, label %21
 
 21:                                               ; preds = %17
@@ -549,9 +549,9 @@ SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge.i, %1, %.
   %18 = load i32, ptr @SDL_sensors_locked, align 4
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %20 = icmp ne i32 %19, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %20
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %20
   br i1 %or.cond.i, label %.critedge.i2, label %21
 
 21:                                               ; preds = %17
@@ -618,9 +618,9 @@ SDL_GetDriverAndSensorIndex.exit.preheader:       ; preds = %.lr.ph.i
   %14 = load i32, ptr @SDL_sensors_locked, align 4
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %16 = icmp ne i32 %15, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %16
   br i1 %or.cond.i, label %.critedge.i32, label %17
 
 17:                                               ; preds = %.loopexit
@@ -657,9 +657,9 @@ SDL_GetDriverAndSensorIndex.exit.preheader:       ; preds = %.lr.ph.i
   %30 = load i32, ptr @SDL_sensors_locked, align 4
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr @SDL_sensors_locked, align 4
-  %.b4.i33 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i33 = load i1, ptr @SDL_sensors_initialized, align 1
   %32 = icmp ne i32 %31, 0
-  %or.cond.i34 = select i1 %.b4.i33, i1 true, i1 %32
+  %or.cond.i34 = select i1 %.b.i33, i1 true, i1 %32
   br i1 %or.cond.i34, label %.critedge.i35, label %33
 
 33:                                               ; preds = %26
@@ -697,9 +697,9 @@ SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSen
   %43 = load i32, ptr @SDL_sensors_locked, align 4
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr @SDL_sensors_locked, align 4
-  %.b4.i37 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i37 = load i1, ptr @SDL_sensors_initialized, align 1
   %45 = icmp ne i32 %44, 0
-  %or.cond.i38 = select i1 %.b4.i37, i1 true, i1 %45
+  %or.cond.i38 = select i1 %.b.i37, i1 true, i1 %45
   br i1 %or.cond.i38, label %.critedge.i39, label %46
 
 46:                                               ; preds = %42
@@ -745,9 +745,9 @@ SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSen
   %64 = load i32, ptr @SDL_sensors_locked, align 4
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr @SDL_sensors_locked, align 4
-  %.b4.i41 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i41 = load i1, ptr @SDL_sensors_initialized, align 1
   %66 = icmp ne i32 %65, 0
-  %or.cond.i42 = select i1 %.b4.i41, i1 true, i1 %66
+  %or.cond.i42 = select i1 %.b.i41, i1 true, i1 %66
   br i1 %or.cond.i42, label %.critedge.i43, label %67
 
 67:                                               ; preds = %63
@@ -797,9 +797,9 @@ SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSen
   %87 = load i32, ptr @SDL_sensors_locked, align 4
   %88 = add nsw i32 %87, -1
   store i32 %88, ptr @SDL_sensors_locked, align 4
-  %.b4.i45 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i45 = load i1, ptr @SDL_sensors_initialized, align 1
   %89 = icmp ne i32 %88, 0
-  %or.cond.i46 = select i1 %.b4.i45, i1 true, i1 %89
+  %or.cond.i46 = select i1 %.b.i45, i1 true, i1 %89
   br i1 %or.cond.i46, label %.critedge.i47, label %90
 
 90:                                               ; preds = %79
@@ -864,9 +864,9 @@ define hidden noundef ptr @SDL_GetSensorFromID_REAL(i32 noundef %0) local_unname
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.06, %.lr.ph ], [ null, %9 ]
   store i32 %5, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %11 = icmp ne i32 %5, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %11
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %11
   br i1 %or.cond.i, label %.critedge.i, label %12
 
 12:                                               ; preds = %._crit_edge
@@ -910,9 +910,9 @@ define hidden i32 @SDL_GetSensorProperties_REAL(ptr noundef %0) local_unnamed_ad
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -951,9 +951,9 @@ define hidden i32 @SDL_GetSensorProperties_REAL(ptr noundef %0) local_unnamed_ad
   %28 = load i32, ptr @SDL_sensors_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_sensors_locked, align 4
-  %.b4.i5 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i5 = load i1, ptr @SDL_sensors_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i6 = select i1 %.b4.i5, i1 true, i1 %30
+  %or.cond.i6 = select i1 %.b.i5, i1 true, i1 %30
   br i1 %or.cond.i6, label %.critedge.i7, label %31
 
 31:                                               ; preds = %26
@@ -1004,9 +1004,9 @@ define hidden ptr @SDL_GetSensorName_REAL(ptr noundef %0) local_unnamed_addr #1 
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1036,9 +1036,9 @@ define hidden ptr @SDL_GetSensorName_REAL(ptr noundef %0) local_unnamed_addr #1 
   %24 = load i32, ptr @SDL_sensors_locked, align 4
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr @SDL_sensors_locked, align 4
-  %.b4.i4 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i4 = load i1, ptr @SDL_sensors_initialized, align 1
   %26 = icmp ne i32 %25, 0
-  %or.cond.i5 = select i1 %.b4.i4, i1 true, i1 %26
+  %or.cond.i5 = select i1 %.b.i4, i1 true, i1 %26
   br i1 %or.cond.i5, label %.critedge.i6, label %27
 
 27:                                               ; preds = %20
@@ -1083,9 +1083,9 @@ define hidden i32 @SDL_GetSensorType_REAL(ptr noundef %0) local_unnamed_addr #1 
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1114,9 +1114,9 @@ define hidden i32 @SDL_GetSensorType_REAL(ptr noundef %0) local_unnamed_addr #1 
   %23 = load i32, ptr @SDL_sensors_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_sensors_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_sensors_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -1161,9 +1161,9 @@ define hidden i32 @SDL_GetSensorNonPortableType_REAL(ptr noundef %0) local_unnam
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1192,9 +1192,9 @@ define hidden i32 @SDL_GetSensorNonPortableType_REAL(ptr noundef %0) local_unnam
   %23 = load i32, ptr @SDL_sensors_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_sensors_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_sensors_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -1239,9 +1239,9 @@ define hidden i32 @SDL_GetSensorID_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1269,9 +1269,9 @@ define hidden i32 @SDL_GetSensorID_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %22 = load i32, ptr @SDL_sensors_locked, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr @SDL_sensors_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_sensors_initialized, align 1
   %24 = icmp ne i32 %23, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %24
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %24
   br i1 %or.cond.i4, label %.critedge.i5, label %25
 
 25:                                               ; preds = %20
@@ -1316,9 +1316,9 @@ define hidden noundef zeroext i1 @SDL_GetSensorData_REAL(ptr noundef %0, ptr nou
   %12 = load i32, ptr @SDL_sensors_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -1350,9 +1350,9 @@ define hidden noundef zeroext i1 @SDL_GetSensorData_REAL(ptr noundef %0, ptr nou
   %27 = load i32, ptr @SDL_sensors_locked, align 4
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr @SDL_sensors_locked, align 4
-  %.b4.i6 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i6 = load i1, ptr @SDL_sensors_initialized, align 1
   %29 = icmp ne i32 %28, 0
-  %or.cond.i7 = select i1 %.b4.i6, i1 true, i1 %29
+  %or.cond.i7 = select i1 %.b.i6, i1 true, i1 %29
   br i1 %or.cond.i7, label %.critedge.i8, label %30
 
 30:                                               ; preds = %22
@@ -1399,9 +1399,9 @@ define hidden void @SDL_CloseSensor_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1436,9 +1436,9 @@ define hidden void @SDL_CloseSensor_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %26 = load i32, ptr @SDL_sensors_locked, align 4
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr @SDL_sensors_locked, align 4
-  %.b4.i21 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i21 = load i1, ptr @SDL_sensors_initialized, align 1
   %28 = icmp ne i32 %27, 0
-  %or.cond.i22 = select i1 %.b4.i21, i1 true, i1 %28
+  %or.cond.i22 = select i1 %.b.i21, i1 true, i1 %28
   br i1 %or.cond.i22, label %.critedge.i23, label %29
 
 29:                                               ; preds = %25
@@ -1519,9 +1519,9 @@ define hidden void @SDL_CloseSensor_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %56 = load i32, ptr @SDL_sensors_locked, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr @SDL_sensors_locked, align 4
-  %.b4.i25 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i25 = load i1, ptr @SDL_sensors_initialized, align 1
   %58 = icmp ne i32 %57, 0
-  %or.cond.i26 = select i1 %.b4.i25, i1 true, i1 %58
+  %or.cond.i26 = select i1 %.b.i25, i1 true, i1 %58
   br i1 %or.cond.i26, label %.critedge.i27, label %59
 
 59:                                               ; preds = %.loopexit
@@ -1616,9 +1616,9 @@ define hidden void @SDL_UpdateSensor(ptr noundef %0) local_unnamed_addr #1 {
   %10 = load i32, ptr @SDL_sensors_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -1650,9 +1650,9 @@ define hidden void @SDL_UpdateSensor(ptr noundef %0) local_unnamed_addr #1 {
   %25 = load i32, ptr @SDL_sensors_locked, align 4
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr @SDL_sensors_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_sensors_initialized, align 1
   %27 = icmp ne i32 %26, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %27
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %27
   br i1 %or.cond.i4, label %.critedge.i5, label %28
 
 28:                                               ; preds = %20
@@ -1715,9 +1715,9 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   %14 = load i32, ptr @SDL_sensors_locked, align 4
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr @SDL_sensors_locked, align 4
-  %.b4.i = load i1, ptr @SDL_sensors_initialized, align 1
+  %.b.i = load i1, ptr @SDL_sensors_initialized, align 1
   %16 = icmp ne i32 %15, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %16
   br i1 %or.cond.i, label %.critedge.i, label %17
 
 17:                                               ; preds = %.preheader

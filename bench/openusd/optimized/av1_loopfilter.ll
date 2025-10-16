@@ -1448,11 +1448,11 @@ av1_get_max_uv_txsize.exit.thread:                ; preds = %18, %18, %18, %34, 
   %78 = zext i8 %.025 to i64
   %.in30.in.v = select i1 %77, ptr @txsize_horz_map, ptr @txsize_vert_map
   %.in30.in = getelementptr inbounds nuw i8, ptr %.in30.in.v, i64 %78
-  %.in3031 = load i8, ptr %.in30.in, align 1
+  %.in30 = load i8, ptr %.in30.in, align 1
   br label %79
 
 79:                                               ; preds = %8, %av1_get_max_uv_txsize.exit.thread
-  %.0 = phi i8 [ %.in3031, %av1_get_max_uv_txsize.exit.thread ], [ 0, %8 ]
+  %.0 = phi i8 [ %.in30, %av1_get_max_uv_txsize.exit.thread ], [ 0, %8 ]
   ret i8 %.0
 }
 

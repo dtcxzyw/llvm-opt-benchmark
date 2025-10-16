@@ -6382,7 +6382,7 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hcdf932047b263e08E.exit.i.i.i.i", %10
-  %.sroa.06.0.copyload.i.i4.i.i = load i32, ptr %4, align 4, !noalias !2100
+  %.sroa.06.0.copyload.i.i.i.i = load i32, ptr %4, align 4, !noalias !2100
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2100
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3d6ba3a3583f7910E.llvm.16501872790380092992.exit
 
@@ -6393,7 +6393,7 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3d6ba3a3583f7910E.llvm.16501872790380092992.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h3d6ba3a3583f7910E.llvm.16501872790380092992.exit: ; preds = %3, %15, %16
-  %.sroa.3.0.i = phi i32 [ %.sroa.06.0.copyload.i.i4.i.i, %15 ], [ undef, %16 ], [ undef, %3 ]
+  %.sroa.3.0.i = phi i32 [ %.sroa.06.0.copyload.i.i.i.i, %15 ], [ undef, %16 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i32 [ 1, %15 ], [ 0, %16 ], [ 2, %3 ]
   %18 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %19 = insertvalue { i32, i32 } %18, i32 %.sroa.3.0.i, 1
@@ -20417,7 +20417,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.critedge
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h332eb3f46b5a03f9E.llvm.4626617337515605756.exit.i": ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hcdf932047b263e08E.exit.i.i.i.i.i.i.i", %14
-  %.sroa.06.0.copyload.i.i4.i.i.i.i.i = load i32, ptr %4, align 4, !noalias !6706
+  %.sroa.06.0.copyload.i.i.i.i.i.i.i = load i32, ptr %4, align 4, !noalias !6706
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6706
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he5df0c1d5c217e7cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 4, i1 noundef zeroext false)
@@ -20443,7 +20443,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 28:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h332eb3f46b5a03f9E.llvm.4626617337515605756.exit.i"
   %29 = load ptr, ptr %24, align 8, !nonnull !14, !noundef !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store i32 %.sroa.06.0.copyload.i.i4.i.i.i.i.i, ptr %29, align 4
+  store i32 %.sroa.06.0.copyload.i.i.i.i.i.i.i, ptr %29, align 4
   store i64 %23, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20484,7 +20484,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17he51b6ac7726c0db2E.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h332eb3f46b5a03f9E.llvm.4626617337515605756.exit.i.i.i": ; preds = %.noexc6, %.noexc
-  %.sroa.06.0.copyload.i.i4.i.i.i.i.i.i.i = load i32, ptr %3, align 4, !noalias !6720
+  %.sroa.06.0.copyload.i.i.i.i.i.i.i.i.i = load i32, ptr %3, align 4, !noalias !6720
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6720
   %38 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !6734, !noalias !6735, !noundef !14
   %39 = load i64, ptr %6, align 8, !alias.scope !6734, !noalias !6735, !noundef !14
@@ -20498,7 +20498,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 .noexc8:                                          ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3ede250e88704b14E.exit.i.i", %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h332eb3f46b5a03f9E.llvm.4626617337515605756.exit.i.i.i"
   %41 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !6734, !noalias !6735, !nonnull !14, !noundef !14
   %42 = getelementptr inbounds i32, ptr %41, i64 %38
-  store i32 %.sroa.06.0.copyload.i.i4.i.i.i.i.i.i.i, ptr %42, align 4, !noalias !6735
+  store i32 %.sroa.06.0.copyload.i.i.i.i.i.i.i.i.i, ptr %42, align 4, !noalias !6735
   %43 = add i64 %38, 1
   store i64 %43, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !6734, !noalias !6735
   %exitcond.not.i.i = icmp eq i32 %32, %12
@@ -56712,7 +56712,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3d
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17hcdf932047b263e08E.exit.i.i.i", %8
-  %.sroa.06.0.copyload.i.i4.i = load i32, ptr %3, align 4, !noalias !17317
+  %.sroa.06.0.copyload.i.i.i = load i32, ptr %3, align 4, !noalias !17317
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !17317
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hecc622e3a4ec7e15E.exit"
 
@@ -56725,7 +56725,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3d
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hecc622e3a4ec7e15E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hecc622e3a4ec7e15E.exit": ; preds = %2, %16, %15
-  %.sroa.3.0 = phi i32 [ %.sroa.06.0.copyload.i.i4.i, %15 ], [ undef, %16 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.06.0.copyload.i.i.i, %15 ], [ undef, %16 ], [ undef, %2 ]
   %.sroa.0.0 = phi i32 [ 1, %15 ], [ 0, %16 ], [ 2, %2 ]
   %19 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %20 = insertvalue { i32, i32 } %19, i32 %.sroa.3.0, 1

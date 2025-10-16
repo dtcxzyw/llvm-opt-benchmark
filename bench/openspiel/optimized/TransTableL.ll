@@ -195,8 +195,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define void @_ZN11TransTableLC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(664216) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [8192 x i32], align 16
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11TransTableL, i64 16), ptr %0, align 8
-  %.b1 = load i1, ptr @_ZL13_constantsSet, align 1
-  br i1 %.b1, label %57, label %3
+  %.b = load i1, ptr @_ZL13_constantsSet, align 1
+  br i1 %.b, label %57, label %3
 
 3:                                                ; preds = %1
   store i1 true, ptr @_ZL13_constantsSet, align 1

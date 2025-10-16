@@ -965,8 +965,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Time_Unit_Millisecond(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -1008,9 +1008,9 @@ define ptr @initialize_Std_Time_Time_Unit_Millisecond(i8 noundef zeroext %0, ptr
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Time_Internal(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %225, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -1021,25 +1021,25 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !5
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Std_Time_Time_Unit_Nanosecond(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %225, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !5
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !10
@@ -1047,27 +1047,27 @@ lean_dec_ref.exit14:                              ; preds = %24, %26, %27
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
   store i32 %35, ptr %28, align 4, !tbaa !5
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 36:                                               ; preds = %31
-  %.not.i15 = icmp eq i32 %32, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %37
+  %.not.i14 = icmp eq i32 %32, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %37
 
 37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %34, %36, %37
+lean_dec_ref.exit15:                              ; preds = %34, %36, %37
   tail call void @lean_inc_heartbeat() #4
   %38 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit
 
-40:                                               ; preds = %lean_dec_ref.exit16
+40:                                               ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.exit16
+_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.exit15
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 1, ptr %38, align 4, !tbaa !5
   store i32 -184549352, ptr %41, align 4
@@ -1094,28 +1094,28 @@ _init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit: ; preds = %lean_d
   %46 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__2, align 8, !tbaa !11
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, 1
-  %.not.i.i21 = icmp eq i64 %48, 0
-  br i1 %.not.i.i21, label %.critedge.i.i24, label %49, !prof !13
+  %.not.i.i20 = icmp eq i64 %48, 0
+  br i1 %.not.i.i20, label %.critedge.i.i23, label %49, !prof !13
 
 49:                                               ; preds = %_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit
   %50 = and i64 %47, 8589934591
   %51 = inttoptr i64 %50 to ptr
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit
 
-.critedge.i.i24:                                  ; preds = %_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit
+.critedge.i.i23:                                  ; preds = %_init_l_Std_Time_Millisecond_instOrdinalRepr___closed__1.exit
   %52 = tail call ptr @lean_int_big_sub(ptr noundef %46, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit: ; preds = %49, %.critedge.i.i24
-  %.0.i.i23 = phi ptr [ %52, %.critedge.i.i24 ], [ %51, %49 ]
-  store ptr %.0.i.i23, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i23) #4
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit: ; preds = %49, %.critedge.i.i23
+  %.0.i.i22 = phi ptr [ %52, %.critedge.i.i23 ], [ %51, %49 ]
+  store ptr %.0.i.i22, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i22) #4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   %53 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
-  %.not.i.i25 = icmp eq i64 %55, 0
-  br i1 %.not.i.i25, label %.critedge.i.i28, label %56, !prof !13
+  %.not.i.i24 = icmp eq i64 %55, 0
+  br i1 %.not.i.i24, label %.critedge.i.i27, label %56, !prof !13
 
 56:                                               ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit
   %57 = shl i64 %54, 31
@@ -1135,28 +1135,28 @@ _init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit: ; preds = %4
   %67 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %59) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit
 
-.critedge.i.i28:                                  ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit
+.critedge.i.i27:                                  ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__3.exit
   %68 = tail call ptr @lean_int_big_add(ptr noundef %53, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit: ; preds = %61, %66, %.critedge.i.i28
-  %.0.i.i27 = phi ptr [ %68, %.critedge.i.i28 ], [ %65, %61 ], [ %67, %66 ]
-  store ptr %.0.i.i27, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i27) #4
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit: ; preds = %61, %66, %.critedge.i.i27
+  %.0.i.i26 = phi ptr [ %68, %.critedge.i.i27 ], [ %65, %61 ], [ %67, %66 ]
+  store ptr %.0.i.i26, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i26) #4
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %69 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   %70 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   %71 = ptrtoint ptr %69 to i64
   %72 = and i64 %71, 1
-  %.not.i.i32 = icmp eq i64 %72, 0
-  br i1 %.not.i.i32, label %.critedge.i.i34, label %73, !prof !13
+  %.not.i.i31 = icmp eq i64 %72, 0
+  br i1 %.not.i.i31, label %.critedge.i.i33, label %73, !prof !13
 
 73:                                               ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit
   %74 = ptrtoint ptr %70 to i64
   %75 = and i64 %74, 1
   %.not21.i.i = icmp eq i64 %75, 0
-  br i1 %.not21.i.i, label %.critedge.i.i34, label %76, !prof !13
+  br i1 %.not21.i.i, label %.critedge.i.i33, label %76, !prof !13
 
 76:                                               ; preds = %73
   %77 = shl i64 %74, 31
@@ -1171,42 +1171,42 @@ _init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit: ; preds = %6
   %84 = icmp slt i64 %83, 0
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %80, i1 true)
   %85 = select i1 %84, i64 %.p.i.i, i64 0
-  %.0.i.i33 = add nsw i64 %85, %83
-  %86 = add nsw i64 %.0.i.i33, 2147483648
+  %.0.i.i32 = add nsw i64 %85, %83
+  %86 = add nsw i64 %.0.i.i32, 2147483648
   %87 = icmp samesign ult i64 %86, 4294967296
   br i1 %87, label %88, label %93, !prof !10
 
 88:                                               ; preds = %79
-  %89 = shl nsw i64 %.0.i.i33, 1
+  %89 = shl nsw i64 %.0.i.i32, 1
   %90 = and i64 %89, 8589934590
   %91 = or disjoint i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
 
 93:                                               ; preds = %79
-  %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i33) #4
+  %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i32) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
 
-.critedge.i.i34:                                  ; preds = %73, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit
+.critedge.i.i33:                                  ; preds = %73, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5.exit
   %95 = tail call ptr @lean_int_big_emod(ptr noundef %69, ptr noundef %70) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit: ; preds = %76, %88, %93, %.critedge.i.i34
-  %.1.i.i = phi ptr [ %95, %.critedge.i.i34 ], [ %69, %76 ], [ %92, %88 ], [ %94, %93 ]
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit: ; preds = %76, %88, %93, %.critedge.i.i33
+  %.1.i.i = phi ptr [ %95, %.critedge.i.i33 ], [ %69, %76 ], [ %92, %88 ], [ %94, %93 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #4
   %96 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   %97 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   %98 = ptrtoint ptr %96 to i64
   %99 = and i64 %98, 1
-  %.not.i.i35 = icmp eq i64 %99, 0
-  br i1 %.not.i.i35, label %.critedge.i.i38, label %100, !prof !13
+  %.not.i.i34 = icmp eq i64 %99, 0
+  br i1 %.not.i.i34, label %.critedge.i.i37, label %100, !prof !13
 
 100:                                              ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
   %101 = ptrtoint ptr %97 to i64
   %102 = and i64 %101, 1
-  %.not7.i.i36 = icmp eq i64 %102, 0
-  br i1 %.not7.i.i36, label %.critedge.i.i38, label %103, !prof !13
+  %.not7.i.i35 = icmp eq i64 %102, 0
+  br i1 %.not7.i.i35, label %.critedge.i.i37, label %103, !prof !13
 
 103:                                              ; preds = %100
   %104 = shl i64 %98, 31
@@ -1229,26 +1229,26 @@ _init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit: ; preds = %7
   %117 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %108) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit
 
-.critedge.i.i38:                                  ; preds = %100, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
+.critedge.i.i37:                                  ; preds = %100, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__7.exit
   %118 = tail call ptr @lean_int_big_add(ptr noundef %96, ptr noundef %97) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit: ; preds = %111, %116, %.critedge.i.i38
-  %.0.i.i37 = phi ptr [ %118, %.critedge.i.i38 ], [ %115, %111 ], [ %117, %116 ]
-  store ptr %.0.i.i37, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i37) #4
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit: ; preds = %111, %116, %.critedge.i.i37
+  %.0.i.i36 = phi ptr [ %118, %.critedge.i.i37 ], [ %115, %111 ], [ %117, %116 ]
+  store ptr %.0.i.i36, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i36) #4
   %119 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
   %120 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   %121 = ptrtoint ptr %119 to i64
   %122 = and i64 %121, 1
-  %.not.i.i39 = icmp eq i64 %122, 0
-  br i1 %.not.i.i39, label %.critedge.i.i44, label %123, !prof !13
+  %.not.i.i38 = icmp eq i64 %122, 0
+  br i1 %.not.i.i38, label %.critedge.i.i43, label %123, !prof !13
 
 123:                                              ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit
   %124 = ptrtoint ptr %120 to i64
   %125 = and i64 %124, 1
-  %.not21.i.i40 = icmp eq i64 %125, 0
-  br i1 %.not21.i.i40, label %.critedge.i.i44, label %126, !prof !13
+  %.not21.i.i39 = icmp eq i64 %125, 0
+  br i1 %.not21.i.i39, label %.critedge.i.i43, label %126, !prof !13
 
 126:                                              ; preds = %123
   %127 = shl i64 %124, 31
@@ -1261,51 +1261,51 @@ _init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit: ; preds = %1
   %132 = ashr i64 %131, 32
   %133 = srem i64 %132, %130
   %134 = icmp slt i64 %133, 0
-  %.p.i.i41 = tail call i64 @llvm.abs.i64(i64 %130, i1 true)
-  %135 = select i1 %134, i64 %.p.i.i41, i64 0
-  %.0.i.i42 = add nsw i64 %135, %133
-  %136 = add nsw i64 %.0.i.i42, 2147483648
+  %.p.i.i40 = tail call i64 @llvm.abs.i64(i64 %130, i1 true)
+  %135 = select i1 %134, i64 %.p.i.i40, i64 0
+  %.0.i.i41 = add nsw i64 %135, %133
+  %136 = add nsw i64 %.0.i.i41, 2147483648
   %137 = icmp samesign ult i64 %136, 4294967296
   br i1 %137, label %138, label %143, !prof !10
 
 138:                                              ; preds = %129
-  %139 = shl nsw i64 %.0.i.i42, 1
+  %139 = shl nsw i64 %.0.i.i41, 1
   %140 = and i64 %139, 8589934590
   %141 = or disjoint i64 %140, 1
   %142 = inttoptr i64 %141 to ptr
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
 
 143:                                              ; preds = %129
-  %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i42) #4
+  %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i41) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
 
-.critedge.i.i44:                                  ; preds = %123, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit
+.critedge.i.i43:                                  ; preds = %123, %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__8.exit
   %145 = tail call ptr @lean_int_big_emod(ptr noundef %119, ptr noundef %120) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit: ; preds = %126, %138, %143, %.critedge.i.i44
-  %.1.i.i43 = phi ptr [ %145, %.critedge.i.i44 ], [ %119, %126 ], [ %142, %138 ], [ %144, %143 ]
-  store ptr %.1.i.i43, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i43) #4
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit: ; preds = %126, %138, %143, %.critedge.i.i43
+  %.1.i.i42 = phi ptr [ %145, %.critedge.i.i43 ], [ %119, %126 ], [ %142, %138 ], [ %144, %143 ]
+  store ptr %.1.i.i42, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i42) #4
   %146 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
   %147 = ptrtoint ptr %146 to i64
   %148 = and i64 %147, 1
-  %.not.i.i45 = icmp eq i64 %148, 0
-  br i1 %.not.i.i45, label %.critedge.i.i48, label %149, !prof !13
+  %.not.i.i44 = icmp eq i64 %148, 0
+  br i1 %.not.i.i44, label %.critedge.i.i47, label %149, !prof !13
 
 149:                                              ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
   %150 = and i64 %147, 8589934591
   %151 = inttoptr i64 %150 to ptr
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10.exit
 
-.critedge.i.i48:                                  ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
+.critedge.i.i47:                                  ; preds = %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__9.exit
   %152 = tail call ptr @lean_int_big_add(ptr noundef %146, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10.exit
 
-_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10.exit: ; preds = %149, %.critedge.i.i48
-  %.0.i.i47 = phi ptr [ %152, %.critedge.i.i48 ], [ %151, %149 ]
-  store ptr %.0.i.i47, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i47) #4
+_init_l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10.exit: ; preds = %149, %.critedge.i.i47
+  %.0.i.i46 = phi ptr [ %152, %.critedge.i.i47 ], [ %151, %149 ]
+  store ptr %.0.i.i46, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i46) #4
   %153 = load ptr, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
   store ptr %153, ptr @l_Std_Time_Millisecond_instInhabitedOrdinal, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %153) #4
@@ -1517,18 +1517,18 @@ _init_l_Std_Time_Millisecond_instOrdOffset___closed__1.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Millisecond_instOrdOffset___closed__1.exit, %3
-  %.sink71 = phi ptr [ %4, %3 ], [ %219, %_init_l_Std_Time_Millisecond_instOrdOffset___closed__1.exit ]
-  %222 = getelementptr inbounds nuw i8, ptr %.sink71, i64 4
-  store i32 1, ptr %.sink71, align 4, !tbaa !5
+  %.sink70 = phi ptr [ %4, %3 ], [ %219, %_init_l_Std_Time_Millisecond_instOrdOffset___closed__1.exit ]
+  %222 = getelementptr inbounds nuw i8, ptr %.sink70, i64 4
+  store i32 1, ptr %.sink70, align 4, !tbaa !5
   store i32 131096, ptr %222, align 4
-  %223 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.sink70, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %223, align 8, !tbaa !11
-  %224 = getelementptr inbounds nuw i8, ptr %.sink71, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %.sink70, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %224, align 8, !tbaa !11
   br label %225
 
-225:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink71, %.sink.split ]
+225:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink70, %.sink.split ]
   ret ptr %.0
 }
 

@@ -4029,8 +4029,8 @@ define hidden void @_ZN2cv9SIFT_ImplC2Eiidddib(ptr noundef nonnull align 8 deref
   store i32 %7, ptr %38, align 8, !tbaa !178
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %12, ptr %39, align 4, !tbaa !179
-  %.b22 = load i1, ptr @_ZZN2cv9SIFT_ImplC1EiidddibE21_cv_log_once___LINE__, align 1
-  %or.cond = select i1 %8, i1 true, i1 %.b22
+  %.b = load i1, ptr @_ZZN2cv9SIFT_ImplC1EiidddibE21_cv_log_once___LINE__, align 1
+  %or.cond = select i1 %8, i1 true, i1 %.b
   br i1 %or.cond, label %111, label %40
 
 40:                                               ; preds = %9
@@ -4245,8 +4245,8 @@ define hidden void @_ZN2cv9SIFT_ImplC1Eiidddib(ptr noundef nonnull align 8 deref
   store i32 %6, ptr %17, align 8, !tbaa !178
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %11, ptr %18, align 4, !tbaa !179
-  %.b22 = load i1, ptr @_ZZN2cv9SIFT_ImplC1EiidddibE21_cv_log_once___LINE__, align 1
-  %or.cond = select i1 %7, i1 true, i1 %.b22
+  %.b = load i1, ptr @_ZZN2cv9SIFT_ImplC1EiidddibE21_cv_log_once___LINE__, align 1
+  %or.cond = select i1 %7, i1 true, i1 %.b
   br i1 %or.cond, label %90, label %19
 
 19:                                               ; preds = %8

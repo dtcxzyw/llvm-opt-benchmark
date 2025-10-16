@@ -97580,8 +97580,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Zoned_ZonedDateTime(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -97610,25 +97610,25 @@ define ptr @initialize_Std_Time_Zoned_ZonedDateTime(i8 noundef zeroext %0, ptr n
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #7
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Time_Zoned_ZoneRules(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %722, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -97656,8 +97656,8 @@ lean_dec_ref.exit:                                ; preds = %24, %26, %27
   %28 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__4, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
-  %.not.i.i13 = icmp eq i64 %30, 0
-  br i1 %.not.i.i13, label %.critedge.i.i16, label %31, !prof !12
+  %.not.i.i12 = icmp eq i64 %30, 0
+  br i1 %.not.i.i12, label %.critedge.i.i15, label %31, !prof !12
 
 31:                                               ; preds = %lean_dec_ref.exit
   %32 = shl i64 %29, 31
@@ -97678,19 +97678,19 @@ lean_dec_ref.exit:                                ; preds = %24, %26, %27
   %43 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %34) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit
 
-.critedge.i.i16:                                  ; preds = %lean_dec_ref.exit
+.critedge.i.i15:                                  ; preds = %lean_dec_ref.exit
   %44 = tail call ptr @lean_int_big_sub(ptr noundef %28, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit: ; preds = %37, %42, %.critedge.i.i16
-  %.0.i.i15 = phi ptr [ %44, %.critedge.i.i16 ], [ %41, %37 ], [ %43, %42 ]
-  store ptr %.0.i.i15, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i15) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit: ; preds = %37, %42, %.critedge.i.i15
+  %.0.i.i14 = phi ptr [ %44, %.critedge.i.i15 ], [ %41, %37 ], [ %43, %42 ]
+  store ptr %.0.i.i14, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i14) #7
   %45 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
-  %.not.i.i17 = icmp eq i64 %47, 0
-  br i1 %.not.i.i17, label %.critedge.i.i20, label %48, !prof !12
+  %.not.i.i16 = icmp eq i64 %47, 0
+  br i1 %.not.i.i16, label %.critedge.i.i19, label %48, !prof !12
 
 48:                                               ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit
   %49 = shl i64 %46, 31
@@ -97710,28 +97710,28 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit: ; pred
   %59 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %51) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit
 
-.critedge.i.i20:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit
+.critedge.i.i19:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__5.exit
   %60 = tail call ptr @lean_int_big_add(ptr noundef %45, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit: ; preds = %53, %58, %.critedge.i.i20
-  %.0.i.i19 = phi ptr [ %60, %.critedge.i.i20 ], [ %57, %53 ], [ %59, %58 ]
-  store ptr %.0.i.i19, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i19) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit: ; preds = %53, %58, %.critedge.i.i19
+  %.0.i.i18 = phi ptr [ %60, %.critedge.i.i19 ], [ %57, %53 ], [ %59, %58 ]
+  store ptr %.0.i.i18, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i18) #7
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %61 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__7, align 8, !tbaa !4
   %62 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6, align 8, !tbaa !4
   %63 = ptrtoint ptr %61 to i64
   %64 = and i64 %63, 1
-  %.not.i.i24 = icmp eq i64 %64, 0
-  br i1 %.not.i.i24, label %.critedge.i.i26, label %65, !prof !12
+  %.not.i.i23 = icmp eq i64 %64, 0
+  br i1 %.not.i.i23, label %.critedge.i.i25, label %65, !prof !12
 
 65:                                               ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit
   %66 = ptrtoint ptr %62 to i64
   %67 = and i64 %66, 1
   %.not21.i.i = icmp eq i64 %67, 0
-  br i1 %.not21.i.i, label %.critedge.i.i26, label %68, !prof !12
+  br i1 %.not21.i.i, label %.critedge.i.i25, label %68, !prof !12
 
 68:                                               ; preds = %65
   %69 = shl i64 %66, 31
@@ -97746,42 +97746,42 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit: ; pred
   %76 = icmp slt i64 %75, 0
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %72, i1 true)
   %77 = select i1 %76, i64 %.p.i.i, i64 0
-  %.0.i.i25 = add nsw i64 %77, %75
-  %78 = add nsw i64 %.0.i.i25, 2147483648
+  %.0.i.i24 = add nsw i64 %77, %75
+  %78 = add nsw i64 %.0.i.i24, 2147483648
   %79 = icmp samesign ult i64 %78, 4294967296
   br i1 %79, label %80, label %85, !prof !11
 
 80:                                               ; preds = %71
-  %81 = shl nsw i64 %.0.i.i25, 1
+  %81 = shl nsw i64 %.0.i.i24, 1
   %82 = and i64 %81, 8589934590
   %83 = or disjoint i64 %82, 1
   %84 = inttoptr i64 %83 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
 
 85:                                               ; preds = %71
-  %86 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i25) #7
+  %86 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i24) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
 
-.critedge.i.i26:                                  ; preds = %65, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit
+.critedge.i.i25:                                  ; preds = %65, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6.exit
   %87 = tail call ptr @lean_int_big_emod(ptr noundef %61, ptr noundef %62) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit: ; preds = %68, %80, %85, %.critedge.i.i26
-  %.1.i.i = phi ptr [ %87, %.critedge.i.i26 ], [ %61, %68 ], [ %84, %80 ], [ %86, %85 ]
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit: ; preds = %68, %80, %85, %.critedge.i.i25
+  %.1.i.i = phi ptr [ %87, %.critedge.i.i25 ], [ %61, %68 ], [ %84, %80 ], [ %86, %85 ]
   store ptr %.1.i.i, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #7
   %88 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8, align 8, !tbaa !4
   %89 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6, align 8, !tbaa !4
   %90 = ptrtoint ptr %88 to i64
   %91 = and i64 %90, 1
-  %.not.i.i27 = icmp eq i64 %91, 0
-  br i1 %.not.i.i27, label %.critedge.i.i30, label %92, !prof !12
+  %.not.i.i26 = icmp eq i64 %91, 0
+  br i1 %.not.i.i26, label %.critedge.i.i29, label %92, !prof !12
 
 92:                                               ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
   %93 = ptrtoint ptr %89 to i64
   %94 = and i64 %93, 1
-  %.not7.i.i28 = icmp eq i64 %94, 0
-  br i1 %.not7.i.i28, label %.critedge.i.i30, label %95, !prof !12
+  %.not7.i.i27 = icmp eq i64 %94, 0
+  br i1 %.not7.i.i27, label %.critedge.i.i29, label %95, !prof !12
 
 95:                                               ; preds = %92
   %96 = shl i64 %90, 31
@@ -97804,26 +97804,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit: ; pred
   %109 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %100) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit
 
-.critedge.i.i30:                                  ; preds = %92, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
+.critedge.i.i29:                                  ; preds = %92, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__8.exit
   %110 = tail call ptr @lean_int_big_add(ptr noundef %88, ptr noundef %89) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit: ; preds = %103, %108, %.critedge.i.i30
-  %.0.i.i29 = phi ptr [ %110, %.critedge.i.i30 ], [ %107, %103 ], [ %109, %108 ]
-  store ptr %.0.i.i29, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i29) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit: ; preds = %103, %108, %.critedge.i.i29
+  %.0.i.i28 = phi ptr [ %110, %.critedge.i.i29 ], [ %107, %103 ], [ %109, %108 ]
+  store ptr %.0.i.i28, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i28) #7
   %111 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9, align 8, !tbaa !4
   %112 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__6, align 8, !tbaa !4
   %113 = ptrtoint ptr %111 to i64
   %114 = and i64 %113, 1
-  %.not.i.i31 = icmp eq i64 %114, 0
-  br i1 %.not.i.i31, label %.critedge.i.i36, label %115, !prof !12
+  %.not.i.i30 = icmp eq i64 %114, 0
+  br i1 %.not.i.i30, label %.critedge.i.i35, label %115, !prof !12
 
 115:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit
   %116 = ptrtoint ptr %112 to i64
   %117 = and i64 %116, 1
-  %.not21.i.i32 = icmp eq i64 %117, 0
-  br i1 %.not21.i.i32, label %.critedge.i.i36, label %118, !prof !12
+  %.not21.i.i31 = icmp eq i64 %117, 0
+  br i1 %.not21.i.i31, label %.critedge.i.i35, label %118, !prof !12
 
 118:                                              ; preds = %115
   %119 = shl i64 %116, 31
@@ -97836,37 +97836,37 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit: ; pred
   %124 = ashr i64 %123, 32
   %125 = srem i64 %124, %122
   %126 = icmp slt i64 %125, 0
-  %.p.i.i33 = tail call i64 @llvm.abs.i64(i64 %122, i1 true)
-  %127 = select i1 %126, i64 %.p.i.i33, i64 0
-  %.0.i.i34 = add nsw i64 %127, %125
-  %128 = add nsw i64 %.0.i.i34, 2147483648
+  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %122, i1 true)
+  %127 = select i1 %126, i64 %.p.i.i32, i64 0
+  %.0.i.i33 = add nsw i64 %127, %125
+  %128 = add nsw i64 %.0.i.i33, 2147483648
   %129 = icmp samesign ult i64 %128, 4294967296
   br i1 %129, label %130, label %135, !prof !11
 
 130:                                              ; preds = %121
-  %131 = shl nsw i64 %.0.i.i34, 1
+  %131 = shl nsw i64 %.0.i.i33, 1
   %132 = and i64 %131, 8589934590
   %133 = or disjoint i64 %132, 1
   %134 = inttoptr i64 %133 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
 
 135:                                              ; preds = %121
-  %136 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i34) #7
+  %136 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i33) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
 
-.critedge.i.i36:                                  ; preds = %115, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit
+.critedge.i.i35:                                  ; preds = %115, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__9.exit
   %137 = tail call ptr @lean_int_big_emod(ptr noundef %111, ptr noundef %112) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit: ; preds = %118, %130, %135, %.critedge.i.i36
-  %.1.i.i35 = phi ptr [ %137, %.critedge.i.i36 ], [ %111, %118 ], [ %134, %130 ], [ %136, %135 ]
-  store ptr %.1.i.i35, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i35) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit: ; preds = %118, %130, %135, %.critedge.i.i35
+  %.1.i.i34 = phi ptr [ %137, %.critedge.i.i35 ], [ %111, %118 ], [ %134, %130 ], [ %136, %135 ]
+  store ptr %.1.i.i34, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i34) #7
   %138 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10, align 8, !tbaa !4
   %139 = ptrtoint ptr %138 to i64
   %140 = and i64 %139, 1
-  %.not.i.i37 = icmp eq i64 %140, 0
-  br i1 %.not.i.i37, label %.critedge.i.i40, label %141, !prof !12
+  %.not.i.i36 = icmp eq i64 %140, 0
+  br i1 %.not.i.i36, label %.critedge.i.i39, label %141, !prof !12
 
 141:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
   %142 = shl i64 %139, 31
@@ -97886,22 +97886,22 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit: ; pre
   %152 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %144) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit
 
-.critedge.i.i40:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
+.critedge.i.i39:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__10.exit
   %153 = tail call ptr @lean_int_big_add(ptr noundef %138, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit: ; preds = %146, %151, %.critedge.i.i40
-  %.0.i.i39 = phi ptr [ %153, %.critedge.i.i40 ], [ %150, %146 ], [ %152, %151 ]
-  store ptr %.0.i.i39, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i39) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit: ; preds = %146, %151, %.critedge.i.i39
+  %.0.i.i38 = phi ptr [ %153, %.critedge.i.i39 ], [ %150, %146 ], [ %152, %151 ]
+  store ptr %.0.i.i38, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i38) #7
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 61 to ptr)) #7
   store ptr inttoptr (i64 63 to ptr), ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__13, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 63 to ptr)) #7
   %154 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__13, align 8, !tbaa !4
   %155 = ptrtoint ptr %154 to i64
   %156 = and i64 %155, 1
-  %.not.i.i45 = icmp eq i64 %156, 0
-  br i1 %.not.i.i45, label %.critedge.i.i48, label %157, !prof !12
+  %.not.i.i44 = icmp eq i64 %156, 0
+  br i1 %.not.i.i44, label %.critedge.i.i47, label %157, !prof !12
 
 157:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit
   %158 = shl i64 %155, 31
@@ -97922,19 +97922,19 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit: ; pre
   %169 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %160) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit
 
-.critedge.i.i48:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit
+.critedge.i.i47:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11.exit
   %170 = tail call ptr @lean_int_big_sub(ptr noundef %154, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit: ; preds = %163, %168, %.critedge.i.i48
-  %.0.i.i47 = phi ptr [ %170, %.critedge.i.i48 ], [ %167, %163 ], [ %169, %168 ]
-  store ptr %.0.i.i47, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i47) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit: ; preds = %163, %168, %.critedge.i.i47
+  %.0.i.i46 = phi ptr [ %170, %.critedge.i.i47 ], [ %167, %163 ], [ %169, %168 ]
+  store ptr %.0.i.i46, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i46) #7
   %171 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14, align 8, !tbaa !4
   %172 = ptrtoint ptr %171 to i64
   %173 = and i64 %172, 1
-  %.not.i.i49 = icmp eq i64 %173, 0
-  br i1 %.not.i.i49, label %.critedge.i.i52, label %174, !prof !12
+  %.not.i.i48 = icmp eq i64 %173, 0
+  br i1 %.not.i.i48, label %.critedge.i.i51, label %174, !prof !12
 
 174:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit
   %175 = shl i64 %172, 31
@@ -97954,26 +97954,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit: ; pre
   %185 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %177) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit
 
-.critedge.i.i52:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit
+.critedge.i.i51:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__14.exit
   %186 = tail call ptr @lean_int_big_add(ptr noundef %171, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit: ; preds = %179, %184, %.critedge.i.i52
-  %.0.i.i51 = phi ptr [ %186, %.critedge.i.i52 ], [ %183, %179 ], [ %185, %184 ]
-  store ptr %.0.i.i51, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i51) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit: ; preds = %179, %184, %.critedge.i.i51
+  %.0.i.i50 = phi ptr [ %186, %.critedge.i.i51 ], [ %183, %179 ], [ %185, %184 ]
+  store ptr %.0.i.i50, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i50) #7
   %187 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__7, align 8, !tbaa !4
   %188 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15, align 8, !tbaa !4
   %189 = ptrtoint ptr %187 to i64
   %190 = and i64 %189, 1
-  %.not.i.i53 = icmp eq i64 %190, 0
-  br i1 %.not.i.i53, label %.critedge.i.i58, label %191, !prof !12
+  %.not.i.i52 = icmp eq i64 %190, 0
+  br i1 %.not.i.i52, label %.critedge.i.i57, label %191, !prof !12
 
 191:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit
   %192 = ptrtoint ptr %188 to i64
   %193 = and i64 %192, 1
-  %.not21.i.i54 = icmp eq i64 %193, 0
-  br i1 %.not21.i.i54, label %.critedge.i.i58, label %194, !prof !12
+  %.not21.i.i53 = icmp eq i64 %193, 0
+  br i1 %.not21.i.i53, label %.critedge.i.i57, label %194, !prof !12
 
 194:                                              ; preds = %191
   %195 = shl i64 %192, 31
@@ -97986,44 +97986,44 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit: ; pre
   %200 = ashr i64 %199, 32
   %201 = srem i64 %200, %198
   %202 = icmp slt i64 %201, 0
-  %.p.i.i55 = tail call i64 @llvm.abs.i64(i64 %198, i1 true)
-  %203 = select i1 %202, i64 %.p.i.i55, i64 0
-  %.0.i.i56 = add nsw i64 %203, %201
-  %204 = add nsw i64 %.0.i.i56, 2147483648
+  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %198, i1 true)
+  %203 = select i1 %202, i64 %.p.i.i54, i64 0
+  %.0.i.i55 = add nsw i64 %203, %201
+  %204 = add nsw i64 %.0.i.i55, 2147483648
   %205 = icmp samesign ult i64 %204, 4294967296
   br i1 %205, label %206, label %211, !prof !11
 
 206:                                              ; preds = %197
-  %207 = shl nsw i64 %.0.i.i56, 1
+  %207 = shl nsw i64 %.0.i.i55, 1
   %208 = and i64 %207, 8589934590
   %209 = or disjoint i64 %208, 1
   %210 = inttoptr i64 %209 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
 
 211:                                              ; preds = %197
-  %212 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i56) #7
+  %212 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i55) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
 
-.critedge.i.i58:                                  ; preds = %191, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit
+.critedge.i.i57:                                  ; preds = %191, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15.exit
   %213 = tail call ptr @lean_int_big_emod(ptr noundef %187, ptr noundef %188) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit: ; preds = %194, %206, %211, %.critedge.i.i58
-  %.1.i.i57 = phi ptr [ %213, %.critedge.i.i58 ], [ %187, %194 ], [ %210, %206 ], [ %212, %211 ]
-  store ptr %.1.i.i57, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i57) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit: ; preds = %194, %206, %211, %.critedge.i.i57
+  %.1.i.i56 = phi ptr [ %213, %.critedge.i.i57 ], [ %187, %194 ], [ %210, %206 ], [ %212, %211 ]
+  store ptr %.1.i.i56, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i56) #7
   %214 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16, align 8, !tbaa !4
   %215 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15, align 8, !tbaa !4
   %216 = ptrtoint ptr %214 to i64
   %217 = and i64 %216, 1
-  %.not.i.i59 = icmp eq i64 %217, 0
-  br i1 %.not.i.i59, label %.critedge.i.i62, label %218, !prof !12
+  %.not.i.i58 = icmp eq i64 %217, 0
+  br i1 %.not.i.i58, label %.critedge.i.i61, label %218, !prof !12
 
 218:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
   %219 = ptrtoint ptr %215 to i64
   %220 = and i64 %219, 1
-  %.not7.i.i60 = icmp eq i64 %220, 0
-  br i1 %.not7.i.i60, label %.critedge.i.i62, label %221, !prof !12
+  %.not7.i.i59 = icmp eq i64 %220, 0
+  br i1 %.not7.i.i59, label %.critedge.i.i61, label %221, !prof !12
 
 221:                                              ; preds = %218
   %222 = shl i64 %216, 31
@@ -98046,26 +98046,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit: ; pre
   %235 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %226) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit
 
-.critedge.i.i62:                                  ; preds = %218, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
+.critedge.i.i61:                                  ; preds = %218, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__16.exit
   %236 = tail call ptr @lean_int_big_add(ptr noundef %214, ptr noundef %215) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit: ; preds = %229, %234, %.critedge.i.i62
-  %.0.i.i61 = phi ptr [ %236, %.critedge.i.i62 ], [ %233, %229 ], [ %235, %234 ]
-  store ptr %.0.i.i61, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i61) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit: ; preds = %229, %234, %.critedge.i.i61
+  %.0.i.i60 = phi ptr [ %236, %.critedge.i.i61 ], [ %233, %229 ], [ %235, %234 ]
+  store ptr %.0.i.i60, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i60) #7
   %237 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17, align 8, !tbaa !4
   %238 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__15, align 8, !tbaa !4
   %239 = ptrtoint ptr %237 to i64
   %240 = and i64 %239, 1
-  %.not.i.i63 = icmp eq i64 %240, 0
-  br i1 %.not.i.i63, label %.critedge.i.i68, label %241, !prof !12
+  %.not.i.i62 = icmp eq i64 %240, 0
+  br i1 %.not.i.i62, label %.critedge.i.i67, label %241, !prof !12
 
 241:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit
   %242 = ptrtoint ptr %238 to i64
   %243 = and i64 %242, 1
-  %.not21.i.i64 = icmp eq i64 %243, 0
-  br i1 %.not21.i.i64, label %.critedge.i.i68, label %244, !prof !12
+  %.not21.i.i63 = icmp eq i64 %243, 0
+  br i1 %.not21.i.i63, label %.critedge.i.i67, label %244, !prof !12
 
 244:                                              ; preds = %241
   %245 = shl i64 %242, 31
@@ -98078,37 +98078,37 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit: ; pre
   %250 = ashr i64 %249, 32
   %251 = srem i64 %250, %248
   %252 = icmp slt i64 %251, 0
-  %.p.i.i65 = tail call i64 @llvm.abs.i64(i64 %248, i1 true)
-  %253 = select i1 %252, i64 %.p.i.i65, i64 0
-  %.0.i.i66 = add nsw i64 %253, %251
-  %254 = add nsw i64 %.0.i.i66, 2147483648
+  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %248, i1 true)
+  %253 = select i1 %252, i64 %.p.i.i64, i64 0
+  %.0.i.i65 = add nsw i64 %253, %251
+  %254 = add nsw i64 %.0.i.i65, 2147483648
   %255 = icmp samesign ult i64 %254, 4294967296
   br i1 %255, label %256, label %261, !prof !11
 
 256:                                              ; preds = %247
-  %257 = shl nsw i64 %.0.i.i66, 1
+  %257 = shl nsw i64 %.0.i.i65, 1
   %258 = and i64 %257, 8589934590
   %259 = or disjoint i64 %258, 1
   %260 = inttoptr i64 %259 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
 
 261:                                              ; preds = %247
-  %262 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i66) #7
+  %262 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i65) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
 
-.critedge.i.i68:                                  ; preds = %241, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit
+.critedge.i.i67:                                  ; preds = %241, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__17.exit
   %263 = tail call ptr @lean_int_big_emod(ptr noundef %237, ptr noundef %238) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit: ; preds = %244, %256, %261, %.critedge.i.i68
-  %.1.i.i67 = phi ptr [ %263, %.critedge.i.i68 ], [ %237, %244 ], [ %260, %256 ], [ %262, %261 ]
-  store ptr %.1.i.i67, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i67) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit: ; preds = %244, %256, %261, %.critedge.i.i67
+  %.1.i.i66 = phi ptr [ %263, %.critedge.i.i67 ], [ %237, %244 ], [ %260, %256 ], [ %262, %261 ]
+  store ptr %.1.i.i66, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i66) #7
   %264 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18, align 8, !tbaa !4
   %265 = ptrtoint ptr %264 to i64
   %266 = and i64 %265, 1
-  %.not.i.i69 = icmp eq i64 %266, 0
-  br i1 %.not.i.i69, label %.critedge.i.i72, label %267, !prof !12
+  %.not.i.i68 = icmp eq i64 %266, 0
+  br i1 %.not.i.i68, label %.critedge.i.i71, label %267, !prof !12
 
 267:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
   %268 = shl i64 %265, 31
@@ -98128,14 +98128,14 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit: ; pre
   %278 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %270) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19.exit
 
-.critedge.i.i72:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
+.critedge.i.i71:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__18.exit
   %279 = tail call ptr @lean_int_big_add(ptr noundef %264, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19.exit: ; preds = %272, %277, %.critedge.i.i72
-  %.0.i.i71 = phi ptr [ %279, %.critedge.i.i72 ], [ %276, %272 ], [ %278, %277 ]
-  store ptr %.0.i.i71, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i71) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19.exit: ; preds = %272, %277, %.critedge.i.i71
+  %.0.i.i70 = phi ptr [ %279, %.critedge.i.i71 ], [ %276, %272 ], [ %278, %277 ]
+  store ptr %.0.i.i70, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i70) #7
   %280 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__11, align 8, !tbaa !4
   %281 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__19, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #7
@@ -98165,27 +98165,27 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__20.exit: ; pre
   %289 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__22, align 8, !tbaa !4
   %290 = ptrtoint ptr %289 to i64
   %291 = and i64 %290, 1
-  %.not.i.i77 = icmp eq i64 %291, 0
-  br i1 %.not.i.i77, label %.critedge.i.i80, label %292, !prof !12
+  %.not.i.i76 = icmp eq i64 %291, 0
+  br i1 %.not.i.i76, label %.critedge.i.i79, label %292, !prof !12
 
 292:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__20.exit
   %293 = and i64 %290, 8589934591
   %294 = inttoptr i64 %293 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit
 
-.critedge.i.i80:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__20.exit
+.critedge.i.i79:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__20.exit
   %295 = tail call ptr @lean_int_big_sub(ptr noundef %289, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit: ; preds = %292, %.critedge.i.i80
-  %.0.i.i79 = phi ptr [ %295, %.critedge.i.i80 ], [ %294, %292 ]
-  store ptr %.0.i.i79, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i79) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit: ; preds = %292, %.critedge.i.i79
+  %.0.i.i78 = phi ptr [ %295, %.critedge.i.i79 ], [ %294, %292 ]
+  store ptr %.0.i.i78, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i78) #7
   %296 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23, align 8, !tbaa !4
   %297 = ptrtoint ptr %296 to i64
   %298 = and i64 %297, 1
-  %.not.i.i81 = icmp eq i64 %298, 0
-  br i1 %.not.i.i81, label %.critedge.i.i84, label %299, !prof !12
+  %.not.i.i80 = icmp eq i64 %298, 0
+  br i1 %.not.i.i80, label %.critedge.i.i83, label %299, !prof !12
 
 299:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit
   %300 = shl i64 %297, 31
@@ -98205,28 +98205,28 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit: ; pre
   %310 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %302) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit
 
-.critedge.i.i84:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit
+.critedge.i.i83:                                  ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__23.exit
   %311 = tail call ptr @lean_int_big_add(ptr noundef %296, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit: ; preds = %304, %309, %.critedge.i.i84
-  %.0.i.i83 = phi ptr [ %311, %.critedge.i.i84 ], [ %308, %304 ], [ %310, %309 ]
-  store ptr %.0.i.i83, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i83) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit: ; preds = %304, %309, %.critedge.i.i83
+  %.0.i.i82 = phi ptr [ %311, %.critedge.i.i83 ], [ %308, %304 ], [ %310, %309 ]
+  store ptr %.0.i.i82, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i82) #7
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__25, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %312 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__25, align 8, !tbaa !4
   %313 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24, align 8, !tbaa !4
   %314 = ptrtoint ptr %312 to i64
   %315 = and i64 %314, 1
-  %.not.i.i88 = icmp eq i64 %315, 0
-  br i1 %.not.i.i88, label %.critedge.i.i93, label %316, !prof !12
+  %.not.i.i87 = icmp eq i64 %315, 0
+  br i1 %.not.i.i87, label %.critedge.i.i92, label %316, !prof !12
 
 316:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit
   %317 = ptrtoint ptr %313 to i64
   %318 = and i64 %317, 1
-  %.not21.i.i89 = icmp eq i64 %318, 0
-  br i1 %.not21.i.i89, label %.critedge.i.i93, label %319, !prof !12
+  %.not21.i.i88 = icmp eq i64 %318, 0
+  br i1 %.not21.i.i88, label %.critedge.i.i92, label %319, !prof !12
 
 319:                                              ; preds = %316
   %320 = shl i64 %317, 31
@@ -98239,44 +98239,44 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit: ; pre
   %325 = ashr i64 %324, 32
   %326 = srem i64 %325, %323
   %327 = icmp slt i64 %326, 0
-  %.p.i.i90 = tail call i64 @llvm.abs.i64(i64 %323, i1 true)
-  %328 = select i1 %327, i64 %.p.i.i90, i64 0
-  %.0.i.i91 = add nsw i64 %328, %326
-  %329 = add nsw i64 %.0.i.i91, 2147483648
+  %.p.i.i89 = tail call i64 @llvm.abs.i64(i64 %323, i1 true)
+  %328 = select i1 %327, i64 %.p.i.i89, i64 0
+  %.0.i.i90 = add nsw i64 %328, %326
+  %329 = add nsw i64 %.0.i.i90, 2147483648
   %330 = icmp samesign ult i64 %329, 4294967296
   br i1 %330, label %331, label %336, !prof !11
 
 331:                                              ; preds = %322
-  %332 = shl nsw i64 %.0.i.i91, 1
+  %332 = shl nsw i64 %.0.i.i90, 1
   %333 = and i64 %332, 8589934590
   %334 = or disjoint i64 %333, 1
   %335 = inttoptr i64 %334 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
 
 336:                                              ; preds = %322
-  %337 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i91) #7
+  %337 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i90) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
 
-.critedge.i.i93:                                  ; preds = %316, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit
+.critedge.i.i92:                                  ; preds = %316, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24.exit
   %338 = tail call ptr @lean_int_big_emod(ptr noundef %312, ptr noundef %313) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit: ; preds = %319, %331, %336, %.critedge.i.i93
-  %.1.i.i92 = phi ptr [ %338, %.critedge.i.i93 ], [ %312, %319 ], [ %335, %331 ], [ %337, %336 ]
-  store ptr %.1.i.i92, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i92) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit: ; preds = %319, %331, %336, %.critedge.i.i92
+  %.1.i.i91 = phi ptr [ %338, %.critedge.i.i92 ], [ %312, %319 ], [ %335, %331 ], [ %337, %336 ]
+  store ptr %.1.i.i91, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i91) #7
   %339 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26, align 8, !tbaa !4
   %340 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24, align 8, !tbaa !4
   %341 = ptrtoint ptr %339 to i64
   %342 = and i64 %341, 1
-  %.not.i.i94 = icmp eq i64 %342, 0
-  br i1 %.not.i.i94, label %.critedge.i.i97, label %343, !prof !12
+  %.not.i.i93 = icmp eq i64 %342, 0
+  br i1 %.not.i.i93, label %.critedge.i.i96, label %343, !prof !12
 
 343:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
   %344 = ptrtoint ptr %340 to i64
   %345 = and i64 %344, 1
-  %.not7.i.i95 = icmp eq i64 %345, 0
-  br i1 %.not7.i.i95, label %.critedge.i.i97, label %346, !prof !12
+  %.not7.i.i94 = icmp eq i64 %345, 0
+  br i1 %.not7.i.i94, label %.critedge.i.i96, label %346, !prof !12
 
 346:                                              ; preds = %343
   %347 = shl i64 %341, 31
@@ -98299,26 +98299,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit: ; pre
   %360 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %351) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit
 
-.critedge.i.i97:                                  ; preds = %343, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
+.critedge.i.i96:                                  ; preds = %343, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__26.exit
   %361 = tail call ptr @lean_int_big_add(ptr noundef %339, ptr noundef %340) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit: ; preds = %354, %359, %.critedge.i.i97
-  %.0.i.i96 = phi ptr [ %361, %.critedge.i.i97 ], [ %358, %354 ], [ %360, %359 ]
-  store ptr %.0.i.i96, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i96) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit: ; preds = %354, %359, %.critedge.i.i96
+  %.0.i.i95 = phi ptr [ %361, %.critedge.i.i96 ], [ %358, %354 ], [ %360, %359 ]
+  store ptr %.0.i.i95, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i95) #7
   %362 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27, align 8, !tbaa !4
   %363 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__24, align 8, !tbaa !4
   %364 = ptrtoint ptr %362 to i64
   %365 = and i64 %364, 1
-  %.not.i.i98 = icmp eq i64 %365, 0
-  br i1 %.not.i.i98, label %.critedge.i.i103, label %366, !prof !12
+  %.not.i.i97 = icmp eq i64 %365, 0
+  br i1 %.not.i.i97, label %.critedge.i.i102, label %366, !prof !12
 
 366:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit
   %367 = ptrtoint ptr %363 to i64
   %368 = and i64 %367, 1
-  %.not21.i.i99 = icmp eq i64 %368, 0
-  br i1 %.not21.i.i99, label %.critedge.i.i103, label %369, !prof !12
+  %.not21.i.i98 = icmp eq i64 %368, 0
+  br i1 %.not21.i.i98, label %.critedge.i.i102, label %369, !prof !12
 
 369:                                              ; preds = %366
   %370 = shl i64 %367, 31
@@ -98331,78 +98331,78 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit: ; pre
   %375 = ashr i64 %374, 32
   %376 = srem i64 %375, %373
   %377 = icmp slt i64 %376, 0
-  %.p.i.i100 = tail call i64 @llvm.abs.i64(i64 %373, i1 true)
-  %378 = select i1 %377, i64 %.p.i.i100, i64 0
-  %.0.i.i101 = add nsw i64 %378, %376
-  %379 = add nsw i64 %.0.i.i101, 2147483648
+  %.p.i.i99 = tail call i64 @llvm.abs.i64(i64 %373, i1 true)
+  %378 = select i1 %377, i64 %.p.i.i99, i64 0
+  %.0.i.i100 = add nsw i64 %378, %376
+  %379 = add nsw i64 %.0.i.i100, 2147483648
   %380 = icmp samesign ult i64 %379, 4294967296
   br i1 %380, label %381, label %386, !prof !11
 
 381:                                              ; preds = %372
-  %382 = shl nsw i64 %.0.i.i101, 1
+  %382 = shl nsw i64 %.0.i.i100, 1
   %383 = and i64 %382, 8589934590
   %384 = or disjoint i64 %383, 1
   %385 = inttoptr i64 %384 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
 
 386:                                              ; preds = %372
-  %387 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i101) #7
+  %387 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i100) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
 
-.critedge.i.i103:                                 ; preds = %366, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit
+.critedge.i.i102:                                 ; preds = %366, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__27.exit
   %388 = tail call ptr @lean_int_big_emod(ptr noundef %362, ptr noundef %363) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit: ; preds = %369, %381, %386, %.critedge.i.i103
-  %.1.i.i102 = phi ptr [ %388, %.critedge.i.i103 ], [ %362, %369 ], [ %385, %381 ], [ %387, %386 ]
-  store ptr %.1.i.i102, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i102) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit: ; preds = %369, %381, %386, %.critedge.i.i102
+  %.1.i.i101 = phi ptr [ %388, %.critedge.i.i102 ], [ %362, %369 ], [ %385, %381 ], [ %387, %386 ]
+  store ptr %.1.i.i101, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i101) #7
   %389 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28, align 8, !tbaa !4
   %390 = ptrtoint ptr %389 to i64
   %391 = and i64 %390, 1
-  %.not.i.i104 = icmp eq i64 %391, 0
-  br i1 %.not.i.i104, label %.critedge.i.i107, label %392, !prof !12
+  %.not.i.i103 = icmp eq i64 %391, 0
+  br i1 %.not.i.i103, label %.critedge.i.i106, label %392, !prof !12
 
 392:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
   %393 = and i64 %390, 8589934591
   %394 = inttoptr i64 %393 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit
 
-.critedge.i.i107:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
+.critedge.i.i106:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__28.exit
   %395 = tail call ptr @lean_int_big_add(ptr noundef %389, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit: ; preds = %392, %.critedge.i.i107
-  %.0.i.i106 = phi ptr [ %395, %.critedge.i.i107 ], [ %394, %392 ]
-  store ptr %.0.i.i106, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i106) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit: ; preds = %392, %.critedge.i.i106
+  %.0.i.i105 = phi ptr [ %395, %.critedge.i.i106 ], [ %394, %392 ]
+  store ptr %.0.i.i105, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i105) #7
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 119 to ptr)) #7
   store ptr inttoptr (i64 119 to ptr), ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__31, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 119 to ptr)) #7
   %396 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__31, align 8, !tbaa !4
   %397 = ptrtoint ptr %396 to i64
   %398 = and i64 %397, 1
-  %.not.i.i112 = icmp eq i64 %398, 0
-  br i1 %.not.i.i112, label %.critedge.i.i115, label %399, !prof !12
+  %.not.i.i111 = icmp eq i64 %398, 0
+  br i1 %.not.i.i111, label %.critedge.i.i114, label %399, !prof !12
 
 399:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit
   %400 = and i64 %397, 8589934591
   %401 = inttoptr i64 %400 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit
 
-.critedge.i.i115:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit
+.critedge.i.i114:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29.exit
   %402 = tail call ptr @lean_int_big_sub(ptr noundef %396, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit: ; preds = %399, %.critedge.i.i115
-  %.0.i.i114 = phi ptr [ %402, %.critedge.i.i115 ], [ %401, %399 ]
-  store ptr %.0.i.i114, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i114) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit: ; preds = %399, %.critedge.i.i114
+  %.0.i.i113 = phi ptr [ %402, %.critedge.i.i114 ], [ %401, %399 ]
+  store ptr %.0.i.i113, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i113) #7
   %403 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32, align 8, !tbaa !4
   %404 = ptrtoint ptr %403 to i64
   %405 = and i64 %404, 1
-  %.not.i.i116 = icmp eq i64 %405, 0
-  br i1 %.not.i.i116, label %.critedge.i.i119, label %406, !prof !12
+  %.not.i.i115 = icmp eq i64 %405, 0
+  br i1 %.not.i.i115, label %.critedge.i.i118, label %406, !prof !12
 
 406:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit
   %407 = shl i64 %404, 31
@@ -98422,26 +98422,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit: ; pre
   %417 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %409) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit
 
-.critedge.i.i119:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit
+.critedge.i.i118:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__32.exit
   %418 = tail call ptr @lean_int_big_add(ptr noundef %403, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit: ; preds = %411, %416, %.critedge.i.i119
-  %.0.i.i118 = phi ptr [ %418, %.critedge.i.i119 ], [ %415, %411 ], [ %417, %416 ]
-  store ptr %.0.i.i118, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i118) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit: ; preds = %411, %416, %.critedge.i.i118
+  %.0.i.i117 = phi ptr [ %418, %.critedge.i.i118 ], [ %415, %411 ], [ %417, %416 ]
+  store ptr %.0.i.i117, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i117) #7
   %419 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__25, align 8, !tbaa !4
   %420 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33, align 8, !tbaa !4
   %421 = ptrtoint ptr %419 to i64
   %422 = and i64 %421, 1
-  %.not.i.i120 = icmp eq i64 %422, 0
-  br i1 %.not.i.i120, label %.critedge.i.i125, label %423, !prof !12
+  %.not.i.i119 = icmp eq i64 %422, 0
+  br i1 %.not.i.i119, label %.critedge.i.i124, label %423, !prof !12
 
 423:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit
   %424 = ptrtoint ptr %420 to i64
   %425 = and i64 %424, 1
-  %.not21.i.i121 = icmp eq i64 %425, 0
-  br i1 %.not21.i.i121, label %.critedge.i.i125, label %426, !prof !12
+  %.not21.i.i120 = icmp eq i64 %425, 0
+  br i1 %.not21.i.i120, label %.critedge.i.i124, label %426, !prof !12
 
 426:                                              ; preds = %423
   %427 = shl i64 %424, 31
@@ -98454,44 +98454,44 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit: ; pre
   %432 = ashr i64 %431, 32
   %433 = srem i64 %432, %430
   %434 = icmp slt i64 %433, 0
-  %.p.i.i122 = tail call i64 @llvm.abs.i64(i64 %430, i1 true)
-  %435 = select i1 %434, i64 %.p.i.i122, i64 0
-  %.0.i.i123 = add nsw i64 %435, %433
-  %436 = add nsw i64 %.0.i.i123, 2147483648
+  %.p.i.i121 = tail call i64 @llvm.abs.i64(i64 %430, i1 true)
+  %435 = select i1 %434, i64 %.p.i.i121, i64 0
+  %.0.i.i122 = add nsw i64 %435, %433
+  %436 = add nsw i64 %.0.i.i122, 2147483648
   %437 = icmp samesign ult i64 %436, 4294967296
   br i1 %437, label %438, label %443, !prof !11
 
 438:                                              ; preds = %429
-  %439 = shl nsw i64 %.0.i.i123, 1
+  %439 = shl nsw i64 %.0.i.i122, 1
   %440 = and i64 %439, 8589934590
   %441 = or disjoint i64 %440, 1
   %442 = inttoptr i64 %441 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
 
 443:                                              ; preds = %429
-  %444 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i123) #7
+  %444 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i122) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
 
-.critedge.i.i125:                                 ; preds = %423, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit
+.critedge.i.i124:                                 ; preds = %423, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33.exit
   %445 = tail call ptr @lean_int_big_emod(ptr noundef %419, ptr noundef %420) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit: ; preds = %426, %438, %443, %.critedge.i.i125
-  %.1.i.i124 = phi ptr [ %445, %.critedge.i.i125 ], [ %419, %426 ], [ %442, %438 ], [ %444, %443 ]
-  store ptr %.1.i.i124, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i124) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit: ; preds = %426, %438, %443, %.critedge.i.i124
+  %.1.i.i123 = phi ptr [ %445, %.critedge.i.i124 ], [ %419, %426 ], [ %442, %438 ], [ %444, %443 ]
+  store ptr %.1.i.i123, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i123) #7
   %446 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34, align 8, !tbaa !4
   %447 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33, align 8, !tbaa !4
   %448 = ptrtoint ptr %446 to i64
   %449 = and i64 %448, 1
-  %.not.i.i126 = icmp eq i64 %449, 0
-  br i1 %.not.i.i126, label %.critedge.i.i129, label %450, !prof !12
+  %.not.i.i125 = icmp eq i64 %449, 0
+  br i1 %.not.i.i125, label %.critedge.i.i128, label %450, !prof !12
 
 450:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
   %451 = ptrtoint ptr %447 to i64
   %452 = and i64 %451, 1
-  %.not7.i.i127 = icmp eq i64 %452, 0
-  br i1 %.not7.i.i127, label %.critedge.i.i129, label %453, !prof !12
+  %.not7.i.i126 = icmp eq i64 %452, 0
+  br i1 %.not7.i.i126, label %.critedge.i.i128, label %453, !prof !12
 
 453:                                              ; preds = %450
   %454 = shl i64 %448, 31
@@ -98514,26 +98514,26 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit: ; pre
   %467 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %458) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit
 
-.critedge.i.i129:                                 ; preds = %450, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
+.critedge.i.i128:                                 ; preds = %450, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__34.exit
   %468 = tail call ptr @lean_int_big_add(ptr noundef %446, ptr noundef %447) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit: ; preds = %461, %466, %.critedge.i.i129
-  %.0.i.i128 = phi ptr [ %468, %.critedge.i.i129 ], [ %465, %461 ], [ %467, %466 ]
-  store ptr %.0.i.i128, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i128) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit: ; preds = %461, %466, %.critedge.i.i128
+  %.0.i.i127 = phi ptr [ %468, %.critedge.i.i128 ], [ %465, %461 ], [ %467, %466 ]
+  store ptr %.0.i.i127, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i127) #7
   %469 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35, align 8, !tbaa !4
   %470 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__33, align 8, !tbaa !4
   %471 = ptrtoint ptr %469 to i64
   %472 = and i64 %471, 1
-  %.not.i.i130 = icmp eq i64 %472, 0
-  br i1 %.not.i.i130, label %.critedge.i.i135, label %473, !prof !12
+  %.not.i.i129 = icmp eq i64 %472, 0
+  br i1 %.not.i.i129, label %.critedge.i.i134, label %473, !prof !12
 
 473:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit
   %474 = ptrtoint ptr %470 to i64
   %475 = and i64 %474, 1
-  %.not21.i.i131 = icmp eq i64 %475, 0
-  br i1 %.not21.i.i131, label %.critedge.i.i135, label %476, !prof !12
+  %.not21.i.i130 = icmp eq i64 %475, 0
+  br i1 %.not21.i.i130, label %.critedge.i.i134, label %476, !prof !12
 
 476:                                              ; preds = %473
   %477 = shl i64 %474, 31
@@ -98546,51 +98546,51 @@ _init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit: ; pre
   %482 = ashr i64 %481, 32
   %483 = srem i64 %482, %480
   %484 = icmp slt i64 %483, 0
-  %.p.i.i132 = tail call i64 @llvm.abs.i64(i64 %480, i1 true)
-  %485 = select i1 %484, i64 %.p.i.i132, i64 0
-  %.0.i.i133 = add nsw i64 %485, %483
-  %486 = add nsw i64 %.0.i.i133, 2147483648
+  %.p.i.i131 = tail call i64 @llvm.abs.i64(i64 %480, i1 true)
+  %485 = select i1 %484, i64 %.p.i.i131, i64 0
+  %.0.i.i132 = add nsw i64 %485, %483
+  %486 = add nsw i64 %.0.i.i132, 2147483648
   %487 = icmp samesign ult i64 %486, 4294967296
   br i1 %487, label %488, label %493, !prof !11
 
 488:                                              ; preds = %479
-  %489 = shl nsw i64 %.0.i.i133, 1
+  %489 = shl nsw i64 %.0.i.i132, 1
   %490 = and i64 %489, 8589934590
   %491 = or disjoint i64 %490, 1
   %492 = inttoptr i64 %491 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
 
 493:                                              ; preds = %479
-  %494 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i133) #7
+  %494 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i132) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
 
-.critedge.i.i135:                                 ; preds = %473, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit
+.critedge.i.i134:                                 ; preds = %473, %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__35.exit
   %495 = tail call ptr @lean_int_big_emod(ptr noundef %469, ptr noundef %470) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit: ; preds = %476, %488, %493, %.critedge.i.i135
-  %.1.i.i134 = phi ptr [ %495, %.critedge.i.i135 ], [ %469, %476 ], [ %492, %488 ], [ %494, %493 ]
-  store ptr %.1.i.i134, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i134) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit: ; preds = %476, %488, %493, %.critedge.i.i134
+  %.1.i.i133 = phi ptr [ %495, %.critedge.i.i134 ], [ %469, %476 ], [ %492, %488 ], [ %494, %493 ]
+  store ptr %.1.i.i133, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i133) #7
   %496 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36, align 8, !tbaa !4
   %497 = ptrtoint ptr %496 to i64
   %498 = and i64 %497, 1
-  %.not.i.i136 = icmp eq i64 %498, 0
-  br i1 %.not.i.i136, label %.critedge.i.i139, label %499, !prof !12
+  %.not.i.i135 = icmp eq i64 %498, 0
+  br i1 %.not.i.i135, label %.critedge.i.i138, label %499, !prof !12
 
 499:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
   %500 = and i64 %497, 8589934591
   %501 = inttoptr i64 %500 to ptr
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37.exit
 
-.critedge.i.i139:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
+.critedge.i.i138:                                 ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__36.exit
   %502 = tail call ptr @lean_int_big_add(ptr noundef %496, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37.exit
 
-_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37.exit: ; preds = %499, %.critedge.i.i139
-  %.0.i.i138 = phi ptr [ %502, %.critedge.i.i139 ], [ %501, %499 ]
-  store ptr %.0.i.i138, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i138) #7
+_init_l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37.exit: ; preds = %499, %.critedge.i.i138
+  %.0.i.i137 = phi ptr [ %502, %.critedge.i.i138 ], [ %501, %499 ]
+  store ptr %.0.i.i137, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i137) #7
   %503 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__29, align 8, !tbaa !4
   %504 = load ptr, ptr @l_Std_Time_instInhabitedZonedDateTime___lambda__1___closed__37, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #7
@@ -98836,9 +98836,9 @@ _init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit: ; preds = %_init_l
   %590 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.1) #7
   %591 = ptrtoint ptr %590 to i64
   %592 = and i64 %591, 1
-  %.not.i.i142 = icmp eq i64 %592, 0
+  %.not.i.i141 = icmp eq i64 %592, 0
   %593 = icmp ult ptr %590, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %593, %.not.i.i142
+  %or.cond.i.i = or i1 %593, %.not.i.i141
   br i1 %or.cond.i.i, label %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit, label %594
 
 594:                                              ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit
@@ -98847,16 +98847,16 @@ _init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit: ; preds = %_init_l
   br label %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit
 
 _init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit: ; preds = %_init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit, %594
-  %.1.i.i143 = phi ptr [ %596, %594 ], [ %590, %_init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit ]
-  store ptr %.1.i.i143, ptr @l_Std_Time_ZonedDateTime_addHours___closed__1, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i143) #7
+  %.1.i.i142 = phi ptr [ %596, %594 ], [ %590, %_init_l_Std_Time_instInhabitedZonedDateTime___closed__9.exit ]
+  store ptr %.1.i.i142, ptr @l_Std_Time_ZonedDateTime_addHours___closed__1, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i142) #7
   %597 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.2) #7
   %598 = ptrtoint ptr %597 to i64
   %599 = and i64 %598, 1
-  %.not.i.i144 = icmp eq i64 %599, 0
+  %.not.i.i143 = icmp eq i64 %599, 0
   %600 = icmp ult ptr %597, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i145 = or i1 %600, %.not.i.i144
-  br i1 %or.cond.i.i145, label %_init_l_Std_Time_ZonedDateTime_addMinutes___closed__1.exit, label %601
+  %or.cond.i.i144 = or i1 %600, %.not.i.i143
+  br i1 %or.cond.i.i144, label %_init_l_Std_Time_ZonedDateTime_addMinutes___closed__1.exit, label %601
 
 601:                                              ; preds = %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit
   %602 = lshr i64 %598, 1
@@ -98864,9 +98864,9 @@ _init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit: ; preds = %_init_l_Std
   br label %_init_l_Std_Time_ZonedDateTime_addMinutes___closed__1.exit
 
 _init_l_Std_Time_ZonedDateTime_addMinutes___closed__1.exit: ; preds = %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit, %601
-  %.1.i.i146 = phi ptr [ %603, %601 ], [ %597, %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit ]
-  store ptr %.1.i.i146, ptr @l_Std_Time_ZonedDateTime_addMinutes___closed__1, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i146) #7
+  %.1.i.i145 = phi ptr [ %603, %601 ], [ %597, %_init_l_Std_Time_ZonedDateTime_addHours___closed__1.exit ]
+  store ptr %.1.i.i145, ptr @l_Std_Time_ZonedDateTime_addMinutes___closed__1, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i145) #7
   store ptr inttoptr (i64 2001 to ptr), ptr @l_Std_Time_ZonedDateTime_withMilliseconds___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 2001 to ptr)) #7
   tail call void @lean_inc_heartbeat() #7
@@ -99215,18 +99215,18 @@ _init_l_Std_Time_ZonedDateTime_instHSubOffset__6___closed__1.exit: ; preds = %_i
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_ZonedDateTime_instHSubOffset__6___closed__1.exit, %3
-  %.sink188 = phi ptr [ %4, %3 ], [ %716, %_init_l_Std_Time_ZonedDateTime_instHSubOffset__6___closed__1.exit ]
-  %719 = getelementptr inbounds nuw i8, ptr %.sink188, i64 4
-  store i32 1, ptr %.sink188, align 4, !tbaa !8
+  %.sink187 = phi ptr [ %4, %3 ], [ %716, %_init_l_Std_Time_ZonedDateTime_instHSubOffset__6___closed__1.exit ]
+  %719 = getelementptr inbounds nuw i8, ptr %.sink187, i64 4
+  store i32 1, ptr %.sink187, align 4, !tbaa !8
   store i32 131096, ptr %719, align 4
-  %720 = getelementptr inbounds nuw i8, ptr %.sink188, i64 8
+  %720 = getelementptr inbounds nuw i8, ptr %.sink187, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %720, align 8, !tbaa !4
-  %721 = getelementptr inbounds nuw i8, ptr %.sink188, i64 16
+  %721 = getelementptr inbounds nuw i8, ptr %.sink187, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %721, align 8, !tbaa !4
   br label %722
 
-722:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink188, %.sink.split ]
+722:                                              ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink187, %.sink.split ]
   ret ptr %.0
 }
 

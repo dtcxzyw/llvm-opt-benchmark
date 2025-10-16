@@ -123887,8 +123887,8 @@ declare ptr @l_Lean_registerTraceClass(ptr noundef, i8 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_PreDefinition_FixedParams(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -123917,17 +123917,17 @@ define ptr @initialize_Lean_Elab_PreDefinition_FixedParams(i8 noundef zeroext %0
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @lean_alloc_object(i64 noundef 24) #5
   store i32 1, ptr %18, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -123944,11 +123944,11 @@ lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %_init_l_Lean_Elab_FixedParams_Info_setVarying___closed__1.exit
 
-26:                                               ; preds = %lean_dec_ref.exit10
+26:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_FixedParams_Info_setVarying___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lean_Elab_FixedParams_Info_setVarying___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 1, ptr %24, align 4, !tbaa !4
   store i32 -184549352, ptr %27, align 4
@@ -124524,8 +124524,8 @@ _init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___
   %238 = load ptr, ptr %237, align 8, !tbaa !9
   %239 = ptrtoint ptr %238 to i64
   %240 = and i64 %239, 1
-  %.not.i12 = icmp eq i64 %240, 0
-  br i1 %.not.i12, label %241, label %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___closed__3.exit
+  %.not.i11 = icmp eq i64 %240, 0
+  br i1 %.not.i11, label %241, label %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___closed__3.exit
 
 241:                                              ; preds = %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___lambda__3___closed__7.exit
   %.val.i.i = load i32, ptr %238, align 4, !tbaa !4
@@ -124538,8 +124538,8 @@ _init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___
   br label %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___closed__3.exit
 
 245:                                              ; preds = %241
-  %.not.i.i13 = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i.i13, label %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___closed__3.exit, label %246
+  %.not.i.i12 = icmp eq i32 %.val.i.i, 0
+  br i1 %.not.i.i12, label %_init_l_Std_Range_forIn_x27_loop___at_Lean_Elab_getFixedParamsInfo___spec__26___closed__3.exit, label %246
 
 246:                                              ; preds = %245
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %238) #5
@@ -124669,8 +124669,8 @@ _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__L
   tail call void @lean_mark_persistent(ptr noundef %288) #5
   %289 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__4, align 8, !tbaa !9
   %290 = getelementptr i8, ptr %289, i64 24
-  %.val.i14 = load i64, ptr %290, align 8, !tbaa !12
-  %291 = shl i64 %.val.i14, 1
+  %.val.i13 = load i64, ptr %290, align 8, !tbaa !12
+  %291 = shl i64 %.val.i13, 1
   %292 = or disjoint i64 %291, 1
   %293 = inttoptr i64 %292 to ptr
   store ptr %293, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__5, align 8, !tbaa !9
@@ -124678,10 +124678,10 @@ _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__L
   %294 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__5, align 8, !tbaa !9
   %295 = ptrtoint ptr %294 to i64
   %296 = and i64 %295, 1
-  %.not.i.i15 = icmp eq i64 %296, 0
+  %.not.i.i14 = icmp eq i64 %296, 0
   %297 = icmp ult ptr %294, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i16 = or i1 %297, %.not.i.i15
-  br i1 %or.cond.i.i16, label %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6.exit, label %298
+  %or.cond.i.i15 = or i1 %297, %.not.i.i14
+  br i1 %or.cond.i.i15, label %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6.exit, label %298
 
 298:                                              ; preds = %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__3.exit
   %299 = lshr i64 %295, 1
@@ -124689,9 +124689,9 @@ _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__L
   br label %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__3.exit, %298
-  %.1.i.i17 = phi ptr [ %300, %298 ], [ %294, %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__3.exit ]
-  store ptr %.1.i.i17, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i17) #5
+  %.1.i.i16 = phi ptr [ %300, %298 ], [ %294, %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__3.exit ]
+  store ptr %.1.i.i16, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__6, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #5
   %301 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____spec__3___closed__4, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #5
   %302 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -124867,8 +124867,8 @@ _init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedPara
   tail call void @lean_mark_persistent(ptr noundef %357) #5
   %358 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__14, align 8, !tbaa !9
   %359 = getelementptr i8, ptr %358, i64 24
-  %.val.i18 = load i64, ptr %359, align 8, !tbaa !12
-  %360 = shl i64 %.val.i18, 1
+  %.val.i17 = load i64, ptr %359, align 8, !tbaa !12
+  %360 = shl i64 %.val.i17, 1
   %361 = or disjoint i64 %360, 1
   %362 = inttoptr i64 %361 to ptr
   store ptr %362, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__15, align 8, !tbaa !9
@@ -124876,10 +124876,10 @@ _init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedPara
   %363 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__15, align 8, !tbaa !9
   %364 = ptrtoint ptr %363 to i64
   %365 = and i64 %364, 1
-  %.not.i.i19 = icmp eq i64 %365, 0
+  %.not.i.i18 = icmp eq i64 %365, 0
   %366 = icmp ult ptr %363, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i20 = or i1 %366, %.not.i.i19
-  br i1 %or.cond.i.i20, label %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16.exit, label %367
+  %or.cond.i.i19 = or i1 %366, %.not.i.i18
+  br i1 %or.cond.i.i19, label %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16.exit, label %367
 
 367:                                              ; preds = %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__12.exit
   %368 = lshr i64 %364, 1
@@ -124887,9 +124887,9 @@ _init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedPara
   br label %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16.exit
 
 _init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16.exit: ; preds = %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__12.exit, %367
-  %.1.i.i21 = phi ptr [ %369, %367 ], [ %363, %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__12.exit ]
-  store ptr %.1.i.i21, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i21) #5
+  %.1.i.i20 = phi ptr [ %369, %367 ], [ %363, %_init_l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__12.exit ]
+  store ptr %.1.i.i20, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__16, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i20) #5
   %370 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_reprFixedParamPerms____x40_Lean_Elab_PreDefinition_FixedParams___hyg_3083____closed__14, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #5
   %371 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -125242,21 +125242,21 @@ _init_l_Lean_Elab_FixedParamPerm_instantiateLambda_go___closed__1.exit: ; preds 
   %536 = load ptr, ptr %535, align 8, !tbaa !9
   %537 = ptrtoint ptr %536 to i64
   %538 = and i64 %537, 1
-  %.not.i22 = icmp eq i64 %538, 0
-  br i1 %.not.i22, label %539, label %lean_inc.exit8.i
+  %.not.i21 = icmp eq i64 %538, 0
+  br i1 %.not.i21, label %539, label %lean_inc.exit8.i
 
 539:                                              ; preds = %_init_l_Lean_Elab_FixedParamPerm_instantiateLambda_go___closed__1.exit
-  %.val.i.i24 = load i32, ptr %536, align 4, !tbaa !4
-  %540 = icmp sgt i32 %.val.i.i24, 0
+  %.val.i.i23 = load i32, ptr %536, align 4, !tbaa !4
+  %540 = icmp sgt i32 %.val.i.i23, 0
   br i1 %540, label %541, label %543, !prof !11
 
 541:                                              ; preds = %539
-  %542 = add nuw i32 %.val.i.i24, 1
+  %542 = add nuw i32 %.val.i.i23, 1
   store i32 %542, ptr %536, align 4, !tbaa !4
   br label %lean_inc.exit8.i
 
 543:                                              ; preds = %539
-  %.not.i9.i = icmp eq i32 %.val.i.i24, 0
+  %.not.i9.i = icmp eq i32 %.val.i.i23, 0
   br i1 %.not.i9.i, label %lean_inc.exit8.i, label %544
 
 544:                                              ; preds = %543
@@ -125290,7 +125290,7 @@ lean_inc.exit8.i:                                 ; preds = %544, %543, %541, %_
   br label %lean_inc.exit.i
 
 lean_inc.exit.i:                                  ; preds = %554, %553, %551, %lean_inc.exit8.i
-  br i1 %.not.i22, label %555, label %_init_l_Lean_Elab_FixedParamPerm_pickFixed___rarg___closed__4.exit
+  br i1 %.not.i21, label %555, label %_init_l_Lean_Elab_FixedParamPerm_pickFixed___rarg___closed__4.exit
 
 555:                                              ; preds = %lean_inc.exit.i
   %556 = load i32, ptr %536, align 4, !tbaa !4
@@ -125303,8 +125303,8 @@ lean_inc.exit.i:                                  ; preds = %554, %553, %551, %l
   br label %_init_l_Lean_Elab_FixedParamPerm_pickFixed___rarg___closed__4.exit
 
 560:                                              ; preds = %555
-  %.not.i.i23 = icmp eq i32 %556, 0
-  br i1 %.not.i.i23, label %_init_l_Lean_Elab_FixedParamPerm_pickFixed___rarg___closed__4.exit, label %561
+  %.not.i.i22 = icmp eq i32 %556, 0
+  br i1 %.not.i.i22, label %_init_l_Lean_Elab_FixedParamPerm_pickFixed___rarg___closed__4.exit, label %561
 
 561:                                              ; preds = %560
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %536) #5
@@ -125607,9 +125607,9 @@ _init_l_Lean_Elab_FixedParamPerms_erase___closed__8.exit: ; preds = %_init_l_Lea
   %696 = load ptr, ptr @l_initFn____x40_Lean_Elab_PreDefinition_FixedParams___hyg_7243____closed__14, align 8, !tbaa !9
   %697 = tail call ptr @l_Lean_registerTraceClass(ptr noundef %695, i8 noundef zeroext 0, ptr noundef %696, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %698 = getelementptr i8, ptr %697, i64 4
-  %.val11 = load i32, ptr %698, align 4
-  %.mask.i25 = and i32 %.val11, -16777216
-  %699 = icmp eq i32 %.mask.i25, 16777216
+  %.val10 = load i32, ptr %698, align 4
+  %.mask.i24 = and i32 %.val10, -16777216
+  %699 = icmp eq i32 %.mask.i24, 16777216
   br i1 %699, label %713, label %700
 
 700:                                              ; preds = %694
@@ -125641,18 +125641,18 @@ lean_dec_ref.exit:                                ; preds = %706, %705, %703, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink83 = phi ptr [ %4, %3 ], [ %707, %lean_dec_ref.exit ]
-  %710 = getelementptr inbounds nuw i8, ptr %.sink83, i64 4
-  store i32 1, ptr %.sink83, align 4, !tbaa !4
+  %.sink82 = phi ptr [ %4, %3 ], [ %707, %lean_dec_ref.exit ]
+  %710 = getelementptr inbounds nuw i8, ptr %.sink82, i64 4
+  store i32 1, ptr %.sink82, align 4, !tbaa !4
   store i32 131096, ptr %710, align 4
-  %711 = getelementptr inbounds nuw i8, ptr %.sink83, i64 8
+  %711 = getelementptr inbounds nuw i8, ptr %.sink82, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %711, align 8, !tbaa !9
-  %712 = getelementptr inbounds nuw i8, ptr %.sink83, i64 16
+  %712 = getelementptr inbounds nuw i8, ptr %.sink82, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %712, align 8, !tbaa !9
   br label %713
 
 713:                                              ; preds = %.sink.split, %694, %7
-  %.0 = phi ptr [ %8, %7 ], [ %697, %694 ], [ %.sink83, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %697, %694 ], [ %.sink82, %.sink.split ]
   ret ptr %.0
 }
 

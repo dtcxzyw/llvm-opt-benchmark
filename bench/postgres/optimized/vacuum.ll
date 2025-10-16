@@ -740,8 +740,8 @@ define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr nou
 15:                                               ; preds = %12, %11
   %.sink = phi i8 [ %14, %12 ], [ 0, %11 ]
   store volatile i8 %.sink, ptr %6, align 1
-  %.b63 = load i1, ptr @vacuum.in_vacuum, align 1
-  br i1 %.b63, label %16, label %21
+  %.b = load i1, ptr @vacuum.in_vacuum, align 1
+  br i1 %.b, label %16, label %21
 
 16:                                               ; preds = %15
   %17 = select i1 %.not, ptr @.str.33, ptr @.str.32
@@ -754,18 +754,18 @@ define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr nou
 21:                                               ; preds = %15
   %22 = load i32, ptr %1, align 8
   %23 = and i32 %22, 1024
-  %.not64 = icmp eq i32 %23, 0
-  br i1 %.not64, label %24, label %.critedge
+  %.not63 = icmp eq i32 %23, 0
+  br i1 %.not63, label %24, label %.critedge
 
 24:                                               ; preds = %21
-  %.not65 = icmp eq ptr %0, null
-  br i1 %.not65, label %124, label %.preheader
+  %.not64 = icmp eq ptr %0, null
+  br i1 %.not64, label %124, label %.preheader
 
 .preheader:                                       ; preds = %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
-  %.not6786 = icmp sgt i32 %26, 0
-  br i1 %.not6786, label %.lr.ph, label %.critedge
+  %.not6685 = icmp sgt i32 %26, 0
+  br i1 %.not6685, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -773,7 +773,7 @@ define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr nou
 
 28:                                               ; preds = %.lr.ph, %expand_vacuum_rel.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %expand_vacuum_rel.exit ]
-  %.05888 = phi ptr [ null, %.lr.ph ], [ %121, %expand_vacuum_rel.exit ]
+  %.05887 = phi ptr [ null, %.lr.ph ], [ %121, %expand_vacuum_rel.exit ]
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
@@ -947,30 +947,30 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
   %.1.i = phi ptr [ %37, %35 ], [ %.3.i, %.critedge.i ], [ null, %54 ], [ null, %55 ], [ null, %47 ], [ null, %48 ]
   %120 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %121 = call ptr @list_concat(ptr noundef %.05888, ptr noundef %.1.i) #15
+  %121 = call ptr @list_concat(ptr noundef %.05887, ptr noundef %.1.i) #15
   store ptr %120, ptr @CurrentMemoryContext, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr %25, align 4
   %123 = sext i32 %122 to i64
-  %.not67 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %.not67, label %28, label %.critedge, !llvm.loop !6
+  %.not66 = icmp slt i64 %indvars.iv.next, %123
+  br i1 %.not66, label %28, label %.critedge, !llvm.loop !6
 
 124:                                              ; preds = %24
   %125 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #15
   %126 = call ptr @table_beginscan_catalog(ptr noundef %125, i32 noundef 0, ptr noundef null) #15
   %127 = call ptr @heap_getnext(ptr noundef %126, i32 noundef 1) #15
   %.not21.i = icmp eq ptr %127, null
-  br i1 %.not21.i, label %get_all_vacuum_rels.exit, label %.lr.ph.i80
+  br i1 %.not21.i, label %get_all_vacuum_rels.exit, label %.lr.ph.i79
 
-.lr.ph.i80:                                       ; preds = %124, %143
+.lr.ph.i79:                                       ; preds = %124, %143
   %128 = phi ptr [ %144, %143 ], [ %127, %124 ]
-  %.022.i = phi ptr [ %.1.i82, %143 ], [ null, %124 ]
+  %.022.i = phi ptr [ %.1.i81, %143 ], [ null, %124 ]
   %129 = getelementptr i8, ptr %128, i64 16
-  %.val.i81 = load ptr, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.val.i81, i64 22
+  %.val.i80 = load ptr, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %.val.i80, i64 22
   %131 = load i8, ptr %130, align 2
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw i8, ptr %.val.i81, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %.val.i80, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 115
   %136 = load i8, ptr %135, align 1
@@ -980,7 +980,7 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
     i8 112, label %137
   ], !llvm.loop !8
 
-137:                                              ; preds = %.lr.ph.i80, %.lr.ph.i80, %.lr.ph.i80
+137:                                              ; preds = %.lr.ph.i79, %.lr.ph.i79, %.lr.ph.i79
   %138 = call zeroext i1 @vacuum_is_permitted_for_relation(i32 noundef %134, ptr noundef nonnull %133, i32 noundef %22)
   br i1 %138, label %139, label %143, !llvm.loop !8
 
@@ -992,14 +992,14 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
   store ptr %140, ptr @CurrentMemoryContext, align 8
   br label %143
 
-143:                                              ; preds = %139, %137, %.lr.ph.i80
-  %.1.i82 = phi ptr [ %142, %139 ], [ %.022.i, %.lr.ph.i80 ], [ %.022.i, %137 ]
+143:                                              ; preds = %139, %137, %.lr.ph.i79
+  %.1.i81 = phi ptr [ %142, %139 ], [ %.022.i, %.lr.ph.i79 ], [ %.022.i, %137 ]
   %144 = call ptr @heap_getnext(ptr noundef %126, i32 noundef 1) #15
-  %.not.i83 = icmp eq ptr %144, null
-  br i1 %.not.i83, label %get_all_vacuum_rels.exit, label %.lr.ph.i80
+  %.not.i82 = icmp eq ptr %144, null
+  br i1 %.not.i82, label %get_all_vacuum_rels.exit, label %.lr.ph.i79
 
 get_all_vacuum_rels.exit:                         ; preds = %143, %124
-  %.0.lcssa.i = phi ptr [ null, %124 ], [ %.1.i82, %143 ]
+  %.0.lcssa.i = phi ptr [ null, %124 ], [ %.1.i81, %143 ]
   %145 = load ptr, ptr %126, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 320
   %147 = load ptr, ptr %146, align 8
@@ -1013,11 +1013,11 @@ get_all_vacuum_rels.exit:                         ; preds = %143, %124
   %.0 = phi ptr [ %0, %21 ], [ %.0.lcssa.i, %get_all_vacuum_rels.exit ], [ null, %.preheader ], [ %121, %expand_vacuum_rel.exit ]
   %150 = load i32, ptr %1, align 8
   %151 = and i32 %150, 1
-  %.not68 = icmp ne i32 %151, 0
+  %.not67 = icmp ne i32 %151, 0
   %152 = load i32, ptr @MyBackendType, align 4
   %153 = icmp eq i32 %152, 4
-  %or.cond109 = select i1 %.not68, i1 true, i1 %153
-  br i1 %or.cond109, label %160, label %154
+  %or.cond108 = select i1 %.not67, i1 true, i1 %153
+  br i1 %or.cond108, label %160, label %154
 
 154:                                              ; preds = %.critedge
   %.0..0..0..0.31 = load volatile i8, ptr %6, align 1, !range !4, !noundef !5
@@ -1025,8 +1025,8 @@ get_all_vacuum_rels.exit:                         ; preds = %143, %124
   br i1 %155, label %160, label %156
 
 156:                                              ; preds = %154
-  %.not.i84 = icmp eq ptr %.0, null
-  br i1 %.not.i84, label %list_length.exit.thread, label %list_length.exit
+  %.not.i83 = icmp eq ptr %.0, null
+  br i1 %.not.i83, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %156
   %157 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -1038,8 +1038,8 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   br label %160
 
 160:                                              ; preds = %list_length.exit, %154, %.critedge, %list_length.exit.thread
-  %.sink107 = phi i8 [ 0, %list_length.exit.thread ], [ 1, %.critedge ], [ 0, %154 ], [ 1, %list_length.exit ]
-  store volatile i8 %.sink107, ptr %7, align 1
+  %.sink106 = phi i8 [ 0, %list_length.exit.thread ], [ 1, %.critedge ], [ 0, %154 ], [ 1, %list_length.exit ]
+  store volatile i8 %.sink106, ptr %7, align 1
   %.0..0..0..0.27 = load volatile i8, ptr %7, align 1, !range !4, !noundef !5
   %161 = trunc nuw i8 %.0..0..0..0.27 to i1
   br i1 %161, label %162, label %166
@@ -1061,8 +1061,8 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   %168 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %169 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #18
-  %.not71 = icmp eq i32 %169, 0
-  br i1 %.not71, label %170, label %209
+  %.not70 = icmp eq i32 %169, 0
+  br i1 %.not70, label %170, label %209
 
 170:                                              ; preds = %166
   store ptr %8, ptr @PG_exception_stack, align 8
@@ -1074,42 +1074,42 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   store ptr null, ptr @VacuumSharedCostBalance, align 8
   store ptr null, ptr @VacuumActiveNWorkers, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %.not69 = icmp eq ptr %.0, null
-  br i1 %.not69, label %._crit_edge, label %.lr.ph90
+  %.not68 = icmp eq ptr %.0, null
+  br i1 %.not68, label %._crit_edge, label %.lr.ph89
 
-.lr.ph90:                                         ; preds = %170
+.lr.ph89:                                         ; preds = %170
   %172 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %173 = load i32, ptr %171, align 4
   %174 = icmp sgt i32 %173, 0
-  br i1 %174, label %.lr.ph112, label %._crit_edge
+  br i1 %174, label %.lr.ph111, label %._crit_edge
 
-.lr.ph112:                                        ; preds = %.lr.ph90, %205
-  %indvars.iv94111 = phi i64 [ %indvars.iv.next95, %205 ], [ 0, %.lr.ph90 ]
+.lr.ph111:                                        ; preds = %.lr.ph89, %205
+  %indvars.iv93110 = phi i64 [ %indvars.iv.next94, %205 ], [ 0, %.lr.ph89 ]
   %175 = load ptr, ptr %172, align 8
-  %176 = getelementptr inbounds nuw %union.ListCell, ptr %175, i64 %indvars.iv94111
+  %176 = getelementptr inbounds nuw %union.ListCell, ptr %175, i64 %indvars.iv93110
   %177 = load ptr, ptr %176, align 8
   %178 = load i32, ptr %1, align 8
   %179 = and i32 %178, 1
-  %.not74 = icmp eq i32 %179, 0
-  br i1 %.not74, label %186, label %180
+  %.not73 = icmp eq i32 %179, 0
+  br i1 %.not73, label %186, label %180
 
-180:                                              ; preds = %.lr.ph112
+180:                                              ; preds = %.lr.ph111
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %182 = load i32, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = call fastcc zeroext i1 @vacuum_rel(i32 noundef %182, ptr noundef %184, ptr noundef nonnull %1, ptr noundef %2)
-  br i1 %185, label %._crit_edge97, label %205
+  br i1 %185, label %._crit_edge96, label %205
 
-._crit_edge97:                                    ; preds = %180
+._crit_edge96:                                    ; preds = %180
   %.pre = load i32, ptr %1, align 8
   br label %186
 
-186:                                              ; preds = %._crit_edge97, %.lr.ph112
-  %187 = phi i32 [ %.pre, %._crit_edge97 ], [ %178, %.lr.ph112 ]
+186:                                              ; preds = %._crit_edge96, %.lr.ph111
+  %187 = phi i32 [ %.pre, %._crit_edge96 ], [ %178, %.lr.ph111 ]
   %188 = and i32 %187, 2
-  %.not75 = icmp eq i32 %188, 0
-  br i1 %.not75, label %204, label %189
+  %.not74 = icmp eq i32 %188, 0
+  br i1 %.not74, label %204, label %189
 
 189:                                              ; preds = %186
   %.0..0..0..0.28 = load volatile i8, ptr %7, align 1, !range !4, !noundef !5
@@ -1150,11 +1150,11 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   br label %205
 
 205:                                              ; preds = %180, %204
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94111, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93110, 1
   %206 = load i32, ptr %171, align 4
   %207 = sext i32 %206 to i64
-  %208 = icmp slt i64 %indvars.iv.next95, %207
-  br i1 %208, label %.lr.ph112, label %._crit_edge
+  %208 = icmp slt i64 %indvars.iv.next94, %207
+  br i1 %208, label %.lr.ph111, label %._crit_edge
 
 209:                                              ; preds = %166
   store ptr %167, ptr @PG_exception_stack, align 8
@@ -1166,7 +1166,7 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   call void @pg_re_throw() #19
   unreachable
 
-._crit_edge:                                      ; preds = %205, %.lr.ph90, %170
+._crit_edge:                                      ; preds = %205, %.lr.ph89, %170
   store i1 false, ptr @vacuum.in_vacuum, align 1
   store i8 0, ptr @VacuumCostActive, align 1
   store i8 0, ptr @VacuumFailsafeActive, align 1

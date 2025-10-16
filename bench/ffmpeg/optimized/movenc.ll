@@ -6167,8 +6167,8 @@ switch.early.test.i.i.i:                          ; preds = %549
 
 561:                                              ; preds = %555
   %562 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 88
-  %.sroa.0.0.copyload1.i.i.i.i = load i32, ptr %562, align 8, !tbaa !30
-  %563 = sitofp i32 %.sroa.0.0.copyload1.i.i.i.i to double
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %562, align 8, !tbaa !30
+  %563 = sitofp i32 %.sroa.0.0.copyload.i.i.i.i to double
   %564 = sitofp i32 %.sroa.4.0.copyload.i.i.i.i to double
   %565 = fdiv nsz double %563, %564
   %566 = fptosi double %565 to i32
@@ -6389,8 +6389,8 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
 
 629:                                              ; preds = %623
   %630 = getelementptr inbounds nuw i8, ptr %.val60.i.i, i64 88
-  %.sroa.0.0.copyload1.i.i68.i.i = load i32, ptr %630, align 8, !tbaa !30
-  %631 = sitofp i32 %.sroa.0.0.copyload1.i.i68.i.i to double
+  %.sroa.0.0.copyload.i.i68.i.i = load i32, ptr %630, align 8, !tbaa !30
+  %631 = sitofp i32 %.sroa.0.0.copyload.i.i68.i.i to double
   %632 = sitofp i32 %.sroa.4.0.copyload.i.i66.i.i to double
   %633 = fdiv nsz double %631, %632
   %634 = fptosi double %633 to i32
@@ -14162,8 +14162,8 @@ switch.edge:                                      ; preds = %13, %13, %13, %13, 
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 88
-  %.sroa.0.0.copyload1.i.i = load i32, ptr %79, align 8, !tbaa !30
-  %80 = sitofp i32 %.sroa.0.0.copyload1.i.i to double
+  %.sroa.0.0.copyload.i.i = load i32, ptr %79, align 8, !tbaa !30
+  %80 = sitofp i32 %.sroa.0.0.copyload.i.i to double
   %81 = sitofp i32 %.sroa.4.0.copyload.i.i to double
   %82 = fdiv nsz double %80, %81
   %83 = fptosi double %82 to i32

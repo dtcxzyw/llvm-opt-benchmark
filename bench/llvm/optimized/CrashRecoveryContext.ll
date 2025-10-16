@@ -117,8 +117,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext21isRecoverin
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4llvm20CrashRecoveryContext10GetCurrentEv() local_unnamed_addr #8 align 2 {
-  %.b4 = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
-  br i1 %.b4, label %1, label %7
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
+  br i1 %.b, label %1, label %7
 
 1:                                                ; preds = %0
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
@@ -148,8 +148,8 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext6EnableEv() local_unnamed_a
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
-  %.b1 = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
-  br i1 %.b1, label %13, label %4
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
+  br i1 %.b, label %13, label %4
 
 4:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i1 true, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
@@ -191,8 +191,8 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext7DisableEv() local_unnamed_
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
-  %.b1 = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
-  br i1 %.b1, label %3, label %_ZL34uninstallExceptionOrSignalHandlersv.exit
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
+  br i1 %.b, label %3, label %_ZL34uninstallExceptionOrSignalHandlersv.exit
 
 3:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i1 false, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
@@ -284,8 +284,8 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
-  %.b6 = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
-  br i1 %.b6, label %4, label %16
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
+  br i1 %.b, label %4, label %16
 
 4:                                                ; preds = %3
   %5 = call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
@@ -478,8 +478,8 @@ define internal void @_ZL26CrashRecoverySignalHandleri(i32 noundef %0) #3 {
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %5
-  %.b1.i = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
-  br i1 %.b1.i, label %8, label %_ZN4llvm20CrashRecoveryContext7DisableEv.exit
+  %.b.i = load i1, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
+  br i1 %.b.i, label %8, label %_ZN4llvm20CrashRecoveryContext7DisableEv.exit
 
 8:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   store i1 false, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1

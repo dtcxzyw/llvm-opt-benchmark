@@ -735,8 +735,8 @@ define internal range(i32 0, 2) i32 @_menu_button_released(ptr readnone captures
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 3
-  %.b2 = load i1, ptr @menu_right_pressed, align 1
-  %or.cond = select i1 %6, i1 true, i1 %.b2
+  %.b = load i1, ptr @menu_right_pressed, align 1
+  %or.cond = select i1 %6, i1 true, i1 %.b
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %3

@@ -68,8 +68,8 @@ define hidden void @X11_InitXsync(ptr noundef readonly captures(none) %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @X11_XsyncIsInitialized() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @xsync_initialized, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @xsync_initialized, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -83,8 +83,8 @@ define hidden zeroext i1 @X11_InitResizeSync(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 376
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b1.i = load i1, ptr @xsync_initialized, align 1
-  br i1 %.b1.i, label %12, label %10
+  %.b.i = load i1, ptr @xsync_initialized, align 1
+  br i1 %.b.i, label %12, label %10
 
 10:                                               ; preds = %1
   %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7

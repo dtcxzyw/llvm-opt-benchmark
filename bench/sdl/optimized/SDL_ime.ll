@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef zeroext i1 @SDL_IME_Init() local_unnamed_addr #0 {
   %1 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str) #2
   %2 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.1) #2
-  %.b7.i = load i1, ptr @InitIME.inited, align 1
-  br i1 %.b7.i, label %InitIME.exit, label %3
+  %.b.i = load i1, ptr @InitIME.inited, align 1
+  br i1 %.b.i, label %InitIME.exit, label %3
 
 3:                                                ; preds = %0
   store i1 true, ptr @InitIME.inited, align 1
@@ -30,8 +30,8 @@ define hidden noundef zeroext i1 @SDL_IME_Init() local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %InitIME.exit.thread
 
 5:                                                ; preds = %3
-  %.not8.i = icmp eq ptr %1, null
-  br i1 %.not8.i, label %9, label %6
+  %.not7.i = icmp eq ptr %1, null
+  br i1 %.not7.i, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #2
@@ -39,13 +39,13 @@ define hidden noundef zeroext i1 @SDL_IME_Init() local_unnamed_addr #0 {
   br i1 %8, label %12, label %InitIME.exit
 
 9:                                                ; preds = %5
-  %.not11.i = icmp eq ptr %2, null
-  br i1 %.not11.i, label %InitIME.exit, label %10
+  %.not10.i = icmp eq ptr %2, null
+  br i1 %.not10.i, label %InitIME.exit, label %10
 
 10:                                               ; preds = %9
   %11 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #2
-  %.not9.i = icmp eq ptr %11, null
-  br i1 %.not9.i, label %InitIME.exit, label %12
+  %.not8.i = icmp eq ptr %11, null
+  br i1 %.not8.i, label %InitIME.exit, label %12
 
 12:                                               ; preds = %10, %6
   store ptr @SDL_Fcitx_Init, ptr @SDL_IME_Init_Real, align 8

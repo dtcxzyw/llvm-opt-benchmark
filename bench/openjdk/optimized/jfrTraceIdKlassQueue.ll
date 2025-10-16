@@ -1355,10 +1355,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15EpochDispatchOpIN13JfrEpochQ
   %.val.i.i.i = load i8, ptr %.0910.i, align 1
   %28 = and i8 %.val.i.i.i, 2
   %29 = icmp eq i8 %28, 0
-  %.b12.i.i.i = load i1, ptr @_ZL6_clear, align 1
+  %.b.i.i.i = load i1, ptr @_ZL6_clear, align 1
   %30 = and i8 %.val.i.i.i, 1
   %31 = icmp ne i8 %30, 0
-  %or.cond.i.i.i = select i1 %.b12.i.i.i, i1 true, i1 %31
+  %or.cond.i.i.i = select i1 %.b.i.i.i, i1 true, i1 %31
   br i1 %or.cond.i.i.i, label %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEclEPKhb.exit.i, label %32
 
 32:                                               ; preds = %.lr.ph.i

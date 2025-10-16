@@ -13200,13 +13200,13 @@ writeAeadAuthData.exit:                           ; preds = %5, %18, %25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 710
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %4, ptr %49, align 8, !tbaa !45
-  %.in2930.i = load i8, ptr %48, align 1, !tbaa !45
+  %.in29.i = load i8, ptr %48, align 1, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i8 %.in2930.i, ptr %50, align 1, !tbaa !45
-  %.in31.in.i = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %.in3132.i = load i8, ptr %.in31.in.i, align 1, !tbaa !45
+  store i8 %.in29.i, ptr %50, align 1, !tbaa !45
+  %.in30.in.i = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %.in30.i = load i8, ptr %.in30.in.i, align 1, !tbaa !45
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 %.in3132.i, ptr %51, align 2, !tbaa !45
+  store i8 %.in30.i, ptr %51, align 2, !tbaa !45
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %53 = lshr i32 %14, 8
   %54 = trunc i32 %53 to i8
@@ -13677,19 +13677,19 @@ WriteSEQ.exit:                                    ; preds = %9, %14, %21, %23, %
   br label %.critedge
 
 .critedge:                                        ; preds = %WriteSEQ.exit, %53
-  %.sink35 = phi i64 [ 702, %53 ], [ 710, %WriteSEQ.exit ]
+  %.sink33 = phi i64 [ 702, %53 ], [ 710, %WriteSEQ.exit ]
   %.sink = phi i8 [ %55, %53 ], [ %2, %WriteSEQ.exit ]
-  %.in31.in.v = phi i64 [ 703, %53 ], [ 711, %WriteSEQ.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink35
+  %.in30.in.v = phi i64 [ 703, %53 ], [ 711, %WriteSEQ.exit ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink33
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sink, ptr %57, align 1, !tbaa !45
-  %.in2930 = load i8, ptr %56, align 1, !tbaa !45
+  %.in29 = load i8, ptr %56, align 1, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %.in2930, ptr %58, align 1, !tbaa !45
-  %.in31.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in31.in.v
-  %.in3132 = load i8, ptr %.in31.in, align 1, !tbaa !45
+  store i8 %.in29, ptr %58, align 1, !tbaa !45
+  %.in30.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in30.in.v
+  %.in30 = load i8, ptr %.in30.in, align 1, !tbaa !45
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 %.in3132, ptr %59, align 1, !tbaa !45
+  store i8 %.in30, ptr %59, align 1, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %61 = lshr i16 %1, 8
   %62 = trunc nuw i16 %61 to i8
@@ -13848,13 +13848,13 @@ writeAeadAuthData.exit:                           ; preds = %4, %17, %24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 702
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %48, ptr %50, align 8, !tbaa !45
-  %.in2930.i = load i8, ptr %49, align 1, !tbaa !45
+  %.in29.i = load i8, ptr %49, align 1, !tbaa !45
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.in2930.i, ptr %51, align 1, !tbaa !45
-  %.in31.in.i = getelementptr inbounds nuw i8, ptr %0, i64 703
-  %.in3132.i = load i8, ptr %.in31.in.i, align 1, !tbaa !45
+  store i8 %.in29.i, ptr %51, align 1, !tbaa !45
+  %.in30.in.i = getelementptr inbounds nuw i8, ptr %0, i64 703
+  %.in30.i = load i8, ptr %.in30.in.i, align 1, !tbaa !45
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 %.in3132.i, ptr %52, align 2, !tbaa !45
+  store i8 %.in30.i, ptr %52, align 2, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %54 = lshr i32 %13, 8
   %55 = trunc i32 %54 to i8
@@ -17589,13 +17589,13 @@ writeAeadAuthData.exit.i:                         ; preds = %60, %53, %41
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 710
   %84 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 %4, ptr %84, align 1, !tbaa !45
-  %.in2930.i.i = load i8, ptr %83, align 1, !tbaa !45
+  %.in29.i.i = load i8, ptr %83, align 1, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %49, i64 9
-  store i8 %.in2930.i.i, ptr %85, align 1, !tbaa !45
-  %.in31.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %.in3132.i.i = load i8, ptr %.in31.in.i.i, align 1, !tbaa !45
+  store i8 %.in29.i.i, ptr %85, align 1, !tbaa !45
+  %.in30.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %.in30.i.i = load i8, ptr %.in30.in.i.i, align 1, !tbaa !45
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  store i8 %.in3132.i.i, ptr %86, align 1, !tbaa !45
+  store i8 %.in30.i.i, ptr %86, align 1, !tbaa !45
   %87 = getelementptr inbounds nuw i8, ptr %49, i64 11
   %88 = lshr i16 %47, 8
   %89 = trunc nuw i16 %88 to i8
@@ -27670,13 +27670,13 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 702
   %80 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i8 %78, ptr %80, align 1, !tbaa !45
-  %.in2930.i.i = load i8, ptr %79, align 1, !tbaa !45
+  %.in29.i.i = load i8, ptr %79, align 1, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %43, i64 9
-  store i8 %.in2930.i.i, ptr %81, align 1, !tbaa !45
-  %.in31.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 703
-  %.in3132.i.i = load i8, ptr %.in31.in.i.i, align 1, !tbaa !45
+  store i8 %.in29.i.i, ptr %81, align 1, !tbaa !45
+  %.in30.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 703
+  %.in30.i.i = load i8, ptr %.in30.in.i.i, align 1, !tbaa !45
   %82 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  store i8 %.in3132.i.i, ptr %82, align 1, !tbaa !45
+  store i8 %.in30.i.i, ptr %82, align 1, !tbaa !45
   %83 = getelementptr inbounds nuw i8, ptr %43, i64 11
   %84 = lshr i16 %41, 8
   %85 = trunc nuw i16 %84 to i8

@@ -187,8 +187,8 @@ define dso_local noalias noundef ptr @_process_jobs(ptr readnone captures(none) 
   br i1 %.not36, label %.preheader, label %18
 
 .preheader:                                       ; preds = %16
-  %.b353768 = load i1, ptr @thread_shutdown, align 1
-  br i1 %.b353768, label %._crit_edge70, label %.lr.ph69
+  %.b3566 = load i1, ptr @thread_shutdown, align 1
+  br i1 %.b3566, label %._crit_edge68, label %.lr.ph67
 
 18:                                               ; preds = %16
   %19 = tail call ptr @__errno_location() #8
@@ -196,21 +196,21 @@ define dso_local noalias noundef ptr @_process_jobs(ptr readnone captures(none) 
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._process_jobs) #9
   unreachable
 
-.lr.ph69:                                         ; preds = %.preheader, %103
+.lr.ph67:                                         ; preds = %.preheader, %103
   %20 = call i32 @sleep(i32 noundef 1) #7
   %21 = load ptr, ptr @jobslist, align 8
   %22 = call ptr @slurm_list_iterator_create(ptr noundef %21) #7
   %23 = call ptr @slurm_list_next(ptr noundef %22) #7
   %24 = icmp eq ptr %23, null
-  %.b3861 = load i1, ptr @thread_shutdown, align 1
-  %.not4062 = select i1 %24, i1 true, i1 %.b3861
-  br i1 %.not4062, label %._crit_edge, label %.lr.ph
+  %.b59 = load i1, ptr @thread_shutdown, align 1
+  %.not3860 = select i1 %24, i1 true, i1 %.b59
+  br i1 %.not3860, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph69, %91
-  %25 = phi ptr [ %92, %91 ], [ %23, %.lr.ph69 ]
-  %.065 = phi i32 [ %.1, %91 ], [ 0, %.lr.ph69 ]
-  %.02664 = phi i32 [ %.127, %91 ], [ 0, %.lr.ph69 ]
-  %.02863 = phi i32 [ %.129, %91 ], [ 0, %.lr.ph69 ]
+.lr.ph:                                           ; preds = %.lr.ph67, %91
+  %25 = phi ptr [ %92, %91 ], [ %23, %.lr.ph67 ]
+  %.063 = phi i32 [ %.1, %91 ], [ 0, %.lr.ph67 ]
+  %.02662 = phi i32 [ %.127, %91 ], [ 0, %.lr.ph67 ]
+  %.02861 = phi i32 [ %.129, %91 ], [ 0, %.lr.ph67 ]
   %26 = call i64 @time(ptr noundef null) #7
   %27 = load i64, ptr %25, align 8
   %28 = icmp eq i64 %27, 0
@@ -348,32 +348,32 @@ _index_job.exit:                                  ; preds = %79
 
 84:                                               ; preds = %_index_job.exit
   %85 = call i32 @slurm_list_delete_item(ptr noundef %22) #7
-  %86 = add nsw i32 %.02863, 1
+  %86 = add nsw i32 %.02861, 1
   br label %91
 
 87:                                               ; preds = %_index_job.exit.thread, %_index_job.exit
   store i64 %26, ptr %25, align 8
-  %88 = add nsw i32 %.02664, 1
+  %88 = add nsw i32 %.02662, 1
   br label %91
 
 89:                                               ; preds = %29
-  %90 = add nsw i32 %.065, 1
+  %90 = add nsw i32 %.063, 1
   br label %91
 
 91:                                               ; preds = %84, %87, %89
-  %.129 = phi i32 [ %86, %84 ], [ %.02863, %87 ], [ %.02863, %89 ]
-  %.127 = phi i32 [ %.02664, %84 ], [ %88, %87 ], [ %.02664, %89 ]
-  %.1 = phi i32 [ %.065, %84 ], [ %.065, %87 ], [ %90, %89 ]
+  %.129 = phi i32 [ %86, %84 ], [ %.02861, %87 ], [ %.02861, %89 ]
+  %.127 = phi i32 [ %.02662, %84 ], [ %88, %87 ], [ %.02662, %89 ]
+  %.1 = phi i32 [ %.063, %84 ], [ %.063, %87 ], [ %90, %89 ]
   %92 = call ptr @slurm_list_next(ptr noundef %22) #7
   %93 = icmp eq ptr %92, null
-  %.b38 = load i1, ptr @thread_shutdown, align 1
-  %.not40 = select i1 %93, i1 true, i1 %.b38
-  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %.b = load i1, ptr @thread_shutdown, align 1
+  %.not38 = select i1 %93, i1 true, i1 %.b
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %91, %.lr.ph69
-  %.028.lcssa = phi i32 [ 0, %.lr.ph69 ], [ %.129, %91 ]
-  %.026.lcssa = phi i32 [ 0, %.lr.ph69 ], [ %.127, %91 ]
-  %.0.lcssa = phi i32 [ 0, %.lr.ph69 ], [ %.1, %91 ]
+._crit_edge:                                      ; preds = %91, %.lr.ph67
+  %.028.lcssa = phi i32 [ 0, %.lr.ph67 ], [ %.129, %91 ]
+  %.026.lcssa = phi i32 [ 0, %.lr.ph67 ], [ %.127, %91 ]
+  %.0.lcssa = phi i32 [ 0, %.lr.ph67 ], [ %.1, %91 ]
   call void @slurm_list_iterator_destroy(ptr noundef %22) #7
   %94 = icmp ne i32 %.028.lcssa, 0
   %95 = icmp ne i32 %.026.lcssa, 0
@@ -383,8 +383,8 @@ _index_job.exit:                                  ; preds = %79
 96:                                               ; preds = %._crit_edge
   %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %98 = and i64 %97, 70368744177664
-  %.not41 = icmp eq i64 %98, 0
-  br i1 %.not41, label %103, label %99
+  %.not39 = icmp eq i64 %98, 0
+  br i1 %.not39, label %103, label %99
 
 99:                                               ; preds = %96
   %100 = call i32 @slurm_get_log_level() #7
@@ -396,10 +396,10 @@ _index_job.exit:                                  ; preds = %79
   br label %103
 
 103:                                              ; preds = %96, %102, %99, %._crit_edge
-  %.b3537 = load i1, ptr @thread_shutdown, align 1
-  br i1 %.b3537, label %._crit_edge70, label %.lr.ph69, !llvm.loop !11
+  %.b35 = load i1, ptr @thread_shutdown, align 1
+  br i1 %.b35, label %._crit_edge68, label %.lr.ph67, !llvm.loop !11
 
-._crit_edge70:                                    ; preds = %103, %.preheader
+._crit_edge68:                                    ; preds = %103, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr null
 }

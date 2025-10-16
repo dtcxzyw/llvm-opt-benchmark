@@ -116140,8 +116140,8 @@ declare ptr @l_Lean_registerTraceClass(ptr noundef, i8 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Extra(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b92 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b92, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -116180,25 +116180,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit142
+  br label %lean_dec_ref.exit141
 
 19:                                               ; preds = %14
-  %.not.i141 = icmp eq i32 %15, 0
-  br i1 %.not.i141, label %lean_dec_ref.exit142, label %20
+  %.not.i140 = icmp eq i32 %15, 0
+  br i1 %.not.i140, label %lean_dec_ref.exit141, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #7
-  br label %lean_dec_ref.exit142
+  br label %lean_dec_ref.exit141
 
-lean_dec_ref.exit142:                             ; preds = %17, %19, %20
+lean_dec_ref.exit141:                             ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Elab_BuiltinNotation(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val143 = load i32, ptr %22, align 4
-  %.mask.i165 = and i32 %.val143, -16777216
-  %23 = icmp eq i32 %.mask.i165, 16777216
+  %.val142 = load i32, ptr %22, align 4
+  %.mask.i164 = and i32 %.val142, -16777216
+  %23 = icmp eq i32 %.mask.i164, 16777216
   br i1 %23, label %863, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit142
+24:                                               ; preds = %lean_dec_ref.exit141
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -116206,17 +116206,17 @@ lean_dec_ref.exit142:                             ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit140
+  br label %lean_dec_ref.exit139
 
 29:                                               ; preds = %24
-  %.not.i139 = icmp eq i32 %25, 0
-  br i1 %.not.i139, label %lean_dec_ref.exit140, label %30
+  %.not.i138 = icmp eq i32 %25, 0
+  br i1 %.not.i138, label %lean_dec_ref.exit139, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #7
-  br label %lean_dec_ref.exit140
+  br label %lean_dec_ref.exit139
 
-lean_dec_ref.exit140:                             ; preds = %27, %29, %30
+lean_dec_ref.exit139:                             ; preds = %27, %29, %30
   %31 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 58, i64 noundef 58) #7
   store ptr %31, ptr @l___private_Lean_Elab_Extra_0__Lean_Elab_Term_getMonadForIn___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %31) #7
@@ -116335,11 +116335,11 @@ lean_dec_ref.exit140:                             ; preds = %27, %29, %30
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit
 
-84:                                               ; preds = %lean_dec_ref.exit140
+84:                                               ; preds = %lean_dec_ref.exit139
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit: ; preds = %lean_dec_ref.exit140
+_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit: ; preds = %lean_dec_ref.exit139
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 1, ptr %82, align 4, !tbaa !8
   store i32 -184549352, ptr %85, align 4
@@ -116352,7 +116352,7 @@ _init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___clos
   store ptr %82, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %82) #7
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit138, label %89
+  br i1 %.not, label %lean_dec_ref.exit137, label %89
 
 89:                                               ; preds = %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit
   %90 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
@@ -116361,9 +116361,9 @@ _init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___clos
   %93 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5, align 8, !tbaa !4
   %94 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %95 = getelementptr i8, ptr %94, i64 4
-  %.val144 = load i32, ptr %95, align 4
-  %.mask.i166 = and i32 %.val144, -16777216
-  %96 = icmp eq i32 %.mask.i166, 16777216
+  %.val143 = load i32, ptr %95, align 4
+  %.mask.i165 = and i32 %.val143, -16777216
+  %96 = icmp eq i32 %.mask.i165, 16777216
   br i1 %96, label %863, label %97
 
 97:                                               ; preds = %89
@@ -116374,27 +116374,27 @@ _init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___clos
 100:                                              ; preds = %97
   %101 = add nsw i32 %98, -1
   store i32 %101, ptr %94, align 4, !tbaa !8
-  br label %lean_dec_ref.exit138
+  br label %lean_dec_ref.exit137
 
 102:                                              ; preds = %97
-  %.not.i137 = icmp eq i32 %98, 0
-  br i1 %.not.i137, label %lean_dec_ref.exit138, label %103
+  %.not.i136 = icmp eq i32 %98, 0
+  br i1 %.not.i136, label %lean_dec_ref.exit137, label %103
 
 103:                                              ; preds = %102
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %94) #7
-  br label %lean_dec_ref.exit138
+  br label %lean_dec_ref.exit137
 
-lean_dec_ref.exit138:                             ; preds = %103, %102, %100, %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit
+lean_dec_ref.exit137:                             ; preds = %103, %102, %100, %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__5.exit
   tail call void @lean_inc_heartbeat() #7
   %104 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__1.exit
 
-106:                                              ; preds = %lean_dec_ref.exit138
+106:                                              ; preds = %lean_dec_ref.exit137
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit138
+_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit137
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store i32 1, ptr %104, align 4, !tbaa !8
   store i32 131096, ptr %107, align 4
@@ -116532,16 +116532,16 @@ _init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange
   store ptr %149, ptr %155, align 8, !tbaa !4
   store ptr %150, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %150) #7
-  br i1 %.not, label %lean_dec_ref.exit136, label %156
+  br i1 %.not, label %lean_dec_ref.exit135, label %156
 
 156:                                              ; preds = %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__7.exit
   %157 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__3, align 8, !tbaa !4
   %158 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__7, align 8, !tbaa !4
   %159 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %157, ptr noundef %158, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %160 = getelementptr i8, ptr %159, i64 4
-  %.val145 = load i32, ptr %160, align 4
-  %.mask.i167 = and i32 %.val145, -16777216
-  %161 = icmp eq i32 %.mask.i167, 16777216
+  %.val144 = load i32, ptr %160, align 4
+  %.mask.i166 = and i32 %.val144, -16777216
+  %161 = icmp eq i32 %.mask.i166, 16777216
   br i1 %161, label %863, label %162
 
 162:                                              ; preds = %156
@@ -116552,17 +116552,17 @@ _init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange
 165:                                              ; preds = %162
   %166 = add nsw i32 %163, -1
   store i32 %166, ptr %159, align 4, !tbaa !8
-  br label %lean_dec_ref.exit136
+  br label %lean_dec_ref.exit135
 
 167:                                              ; preds = %162
-  %.not.i135 = icmp eq i32 %163, 0
-  br i1 %.not.i135, label %lean_dec_ref.exit136, label %168
+  %.not.i134 = icmp eq i32 %163, 0
+  br i1 %.not.i134, label %lean_dec_ref.exit135, label %168
 
 168:                                              ; preds = %167
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %159) #7
-  br label %lean_dec_ref.exit136
+  br label %lean_dec_ref.exit135
 
-lean_dec_ref.exit136:                             ; preds = %168, %167, %165, %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__7.exit
+lean_dec_ref.exit135:                             ; preds = %168, %167, %165, %_init_l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn_declRange__3___closed__7.exit
   %169 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.17, i64 noundef 6, i64 noundef 6) #7
   store ptr %169, ptr @l_Lean_Elab_Term_elabForIn_x27___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %169) #7
@@ -116617,11 +116617,11 @@ lean_dec_ref.exit136:                             ; preds = %168, %167, %165, %_
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit
 
-196:                                              ; preds = %lean_dec_ref.exit136
+196:                                              ; preds = %lean_dec_ref.exit135
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit: ; preds = %lean_dec_ref.exit136
+_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit: ; preds = %lean_dec_ref.exit135
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store i32 1, ptr %194, align 4, !tbaa !8
   store i32 -184549352, ptr %197, align 4
@@ -116633,7 +116633,7 @@ _init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__
   store i16 0, ptr %200, align 2, !tbaa !14
   store ptr %194, ptr @l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %194) #7
-  br i1 %.not, label %lean_dec_ref.exit134, label %201
+  br i1 %.not, label %lean_dec_ref.exit133, label %201
 
 201:                                              ; preds = %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit
   %202 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
@@ -116642,9 +116642,9 @@ _init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__
   %205 = load ptr, ptr @l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3, align 8, !tbaa !4
   %206 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %202, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %207 = getelementptr i8, ptr %206, i64 4
-  %.val146 = load i32, ptr %207, align 4
-  %.mask.i168 = and i32 %.val146, -16777216
-  %208 = icmp eq i32 %.mask.i168, 16777216
+  %.val145 = load i32, ptr %207, align 4
+  %.mask.i167 = and i32 %.val145, -16777216
+  %208 = icmp eq i32 %.mask.i167, 16777216
   br i1 %208, label %863, label %209
 
 209:                                              ; preds = %201
@@ -116655,27 +116655,27 @@ _init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__
 212:                                              ; preds = %209
   %213 = add nsw i32 %210, -1
   store i32 %213, ptr %206, align 4, !tbaa !8
-  br label %lean_dec_ref.exit134
+  br label %lean_dec_ref.exit133
 
 214:                                              ; preds = %209
-  %.not.i133 = icmp eq i32 %210, 0
-  br i1 %.not.i133, label %lean_dec_ref.exit134, label %215
+  %.not.i132 = icmp eq i32 %210, 0
+  br i1 %.not.i132, label %lean_dec_ref.exit133, label %215
 
 215:                                              ; preds = %214
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %206) #7
-  br label %lean_dec_ref.exit134
+  br label %lean_dec_ref.exit133
 
-lean_dec_ref.exit134:                             ; preds = %215, %214, %212, %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit
+lean_dec_ref.exit133:                             ; preds = %215, %214, %212, %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__3.exit
   tail call void @lean_inc_heartbeat() #7
   %216 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__1.exit
 
-218:                                              ; preds = %lean_dec_ref.exit134
+218:                                              ; preds = %lean_dec_ref.exit133
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit134
+_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit133
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 1, ptr %216, align 4, !tbaa !8
   store i32 131096, ptr %219, align 4
@@ -116813,16 +116813,16 @@ _init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_d
   store ptr %261, ptr %267, align 8, !tbaa !4
   store ptr %262, ptr @l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %262) #7
-  br i1 %.not, label %lean_dec_ref.exit132, label %268
+  br i1 %.not, label %lean_dec_ref.exit131, label %268
 
 268:                                              ; preds = %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__7.exit
   %269 = load ptr, ptr @l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27__1___closed__2, align 8, !tbaa !4
   %270 = load ptr, ptr @l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__7, align 8, !tbaa !4
   %271 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %269, ptr noundef %270, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %272 = getelementptr i8, ptr %271, i64 4
-  %.val147 = load i32, ptr %272, align 4
-  %.mask.i169 = and i32 %.val147, -16777216
-  %273 = icmp eq i32 %.mask.i169, 16777216
+  %.val146 = load i32, ptr %272, align 4
+  %.mask.i168 = and i32 %.val146, -16777216
+  %273 = icmp eq i32 %.mask.i168, 16777216
   br i1 %273, label %863, label %274
 
 274:                                              ; preds = %268
@@ -116833,27 +116833,27 @@ _init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_d
 277:                                              ; preds = %274
   %278 = add nsw i32 %275, -1
   store i32 %278, ptr %271, align 4, !tbaa !8
-  br label %lean_dec_ref.exit132
+  br label %lean_dec_ref.exit131
 
 279:                                              ; preds = %274
-  %.not.i131 = icmp eq i32 %275, 0
-  br i1 %.not.i131, label %lean_dec_ref.exit132, label %280
+  %.not.i130 = icmp eq i32 %275, 0
+  br i1 %.not.i130, label %lean_dec_ref.exit131, label %280
 
 280:                                              ; preds = %279
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %271) #7
-  br label %lean_dec_ref.exit132
+  br label %lean_dec_ref.exit131
 
-lean_dec_ref.exit132:                             ; preds = %280, %279, %277, %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__7.exit
+lean_dec_ref.exit131:                             ; preds = %280, %279, %277, %_init_l_Lean_Elab_Term_elabForIn_x27___regBuiltin_Lean_Elab_Term_elabForIn_x27_declRange__3___closed__7.exit
   tail call void @lean_inc_heartbeat() #7
   %281 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
   %282 = icmp eq ptr %281, null
   br i1 %282, label %283, label %_init_l___private_Lean_Elab_Extra_0__Lean_Elab_Term_Op_BinOpKind_noConfusion___rarg___closed__1.exit
 
-283:                                              ; preds = %lean_dec_ref.exit132
+283:                                              ; preds = %lean_dec_ref.exit131
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l___private_Lean_Elab_Extra_0__Lean_Elab_Term_Op_BinOpKind_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit132
+_init_l___private_Lean_Elab_Extra_0__Lean_Elab_Term_Op_BinOpKind_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit131
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 4
   store i32 1, ptr %281, align 4, !tbaa !8
   store i32 -184549352, ptr %284, align 4
@@ -117317,7 +117317,7 @@ _init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1_
   store i16 0, ptr %470, align 2, !tbaa !14
   store ptr %464, ptr @l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %464) #7
-  br i1 %.not, label %lean_dec_ref.exit130, label %471
+  br i1 %.not, label %lean_dec_ref.exit129, label %471
 
 471:                                              ; preds = %_init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__4.exit
   %472 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
@@ -117326,9 +117326,9 @@ _init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1_
   %475 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__4, align 8, !tbaa !4
   %476 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %472, ptr noundef %473, ptr noundef %474, ptr noundef %475, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %477 = getelementptr i8, ptr %476, i64 4
-  %.val148 = load i32, ptr %477, align 4
-  %.mask.i170 = and i32 %.val148, -16777216
-  %478 = icmp eq i32 %.mask.i170, 16777216
+  %.val147 = load i32, ptr %477, align 4
+  %.mask.i169 = and i32 %.val147, -16777216
+  %478 = icmp eq i32 %.mask.i169, 16777216
   br i1 %478, label %863, label %479
 
 479:                                              ; preds = %471
@@ -117339,17 +117339,17 @@ _init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1_
 482:                                              ; preds = %479
   %483 = add nsw i32 %480, -1
   store i32 %483, ptr %476, align 4, !tbaa !8
-  br label %lean_dec_ref.exit130
+  br label %lean_dec_ref.exit129
 
 484:                                              ; preds = %479
-  %.not.i129 = icmp eq i32 %480, 0
-  br i1 %.not.i129, label %lean_dec_ref.exit130, label %485
+  %.not.i128 = icmp eq i32 %480, 0
+  br i1 %.not.i128, label %lean_dec_ref.exit129, label %485
 
 485:                                              ; preds = %484
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %476) #7
-  br label %lean_dec_ref.exit130
+  br label %lean_dec_ref.exit129
 
-lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__4.exit
+lean_dec_ref.exit129:                             ; preds = %485, %484, %482, %_init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__4.exit
   %486 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp_declRange__3___closed__1()
   store ptr %486, ptr @l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %486) #7
@@ -117373,14 +117373,14 @@ lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_
   tail call void @lean_mark_persistent(ptr noundef nonnull %492) #7
   br i1 %.not, label %.critedge, label %493
 
-493:                                              ; preds = %lean_dec_ref.exit130
+493:                                              ; preds = %lean_dec_ref.exit129
   %494 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp__1___closed__3, align 8, !tbaa !4
   %495 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOp___regBuiltin_Lean_Elab_Term_Op_elabBinOp_declRange__3___closed__7, align 8, !tbaa !4
   %496 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %494, ptr noundef %495, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %497 = getelementptr i8, ptr %496, i64 4
-  %.val149 = load i32, ptr %497, align 4
-  %.mask.i171 = and i32 %.val149, -16777216
-  %498 = icmp eq i32 %.mask.i171, 16777216
+  %.val148 = load i32, ptr %497, align 4
+  %.mask.i170 = and i32 %.val148, -16777216
+  %498 = icmp eq i32 %.mask.i170, 16777216
   br i1 %498, label %863, label %499
 
 499:                                              ; preds = %493
@@ -117394,8 +117394,8 @@ lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_
   br label %506
 
 504:                                              ; preds = %499
-  %.not.i127 = icmp eq i32 %500, 0
-  br i1 %.not.i127, label %506, label %505
+  %.not.i126 = icmp eq i32 %500, 0
+  br i1 %.not.i126, label %506, label %505
 
 505:                                              ; preds = %504
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %496) #7
@@ -117417,9 +117417,9 @@ lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_
   %513 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy__1___closed__3, align 8, !tbaa !4
   %514 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %510, ptr noundef %511, ptr noundef %512, ptr noundef %513, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %515 = getelementptr i8, ptr %514, i64 4
-  %.val150 = load i32, ptr %515, align 4
-  %.mask.i172 = and i32 %.val150, -16777216
-  %516 = icmp eq i32 %.mask.i172, 16777216
+  %.val149 = load i32, ptr %515, align 4
+  %.mask.i171 = and i32 %.val149, -16777216
+  %516 = icmp eq i32 %.mask.i171, 16777216
   br i1 %516, label %863, label %517
 
 517:                                              ; preds = %506
@@ -117430,17 +117430,17 @@ lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_
 520:                                              ; preds = %517
   %521 = add nsw i32 %518, -1
   store i32 %521, ptr %514, align 4, !tbaa !8
-  br label %lean_dec_ref.exit126
+  br label %lean_dec_ref.exit125
 
 522:                                              ; preds = %517
-  %.not.i125 = icmp eq i32 %518, 0
-  br i1 %.not.i125, label %lean_dec_ref.exit126, label %523
+  %.not.i124 = icmp eq i32 %518, 0
+  br i1 %.not.i124, label %lean_dec_ref.exit125, label %523
 
 523:                                              ; preds = %522
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %514) #7
-  br label %lean_dec_ref.exit126
+  br label %lean_dec_ref.exit125
 
-.critedge:                                        ; preds = %lean_dec_ref.exit130
+.critedge:                                        ; preds = %lean_dec_ref.exit129
   %524 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.50, i64 noundef 13, i64 noundef 13) #7
   store ptr %524, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %524) #7
@@ -117450,9 +117450,9 @@ lean_dec_ref.exit130:                             ; preds = %485, %484, %482, %_
   %526 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy__1___closed__3()
   store ptr %526, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %526) #7
-  br label %lean_dec_ref.exit126
+  br label %lean_dec_ref.exit125
 
-lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.critedge
+lean_dec_ref.exit125:                             ; preds = %523, %522, %520, %.critedge
   %527 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy_declRange__3___closed__1()
   store ptr %527, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %527) #7
@@ -117474,16 +117474,16 @@ lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.
   %533 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy_declRange__3___closed__7()
   store ptr %533, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %533) #7
-  br i1 %.not, label %.critedge94, label %534
+  br i1 %.not, label %.critedge93, label %534
 
-534:                                              ; preds = %lean_dec_ref.exit126
+534:                                              ; preds = %lean_dec_ref.exit125
   %535 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy__1___closed__2, align 8, !tbaa !4
   %536 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinOpLazy___regBuiltin_Lean_Elab_Term_Op_elabBinOpLazy_declRange__3___closed__7, align 8, !tbaa !4
   %537 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %535, ptr noundef %536, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %538 = getelementptr i8, ptr %537, i64 4
-  %.val151 = load i32, ptr %538, align 4
-  %.mask.i173 = and i32 %.val151, -16777216
-  %539 = icmp eq i32 %.mask.i173, 16777216
+  %.val150 = load i32, ptr %538, align 4
+  %.mask.i172 = and i32 %.val150, -16777216
+  %539 = icmp eq i32 %.mask.i172, 16777216
   br i1 %539, label %863, label %540
 
 540:                                              ; preds = %534
@@ -117497,8 +117497,8 @@ lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.
   br label %547
 
 545:                                              ; preds = %540
-  %.not.i123 = icmp eq i32 %541, 0
-  br i1 %.not.i123, label %547, label %546
+  %.not.i122 = icmp eq i32 %541, 0
+  br i1 %.not.i122, label %547, label %546
 
 546:                                              ; preds = %545
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %537) #7
@@ -117520,9 +117520,9 @@ lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.
   %554 = load ptr, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact__1___closed__3, align 8, !tbaa !4
   %555 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %551, ptr noundef %552, ptr noundef %553, ptr noundef %554, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %556 = getelementptr i8, ptr %555, i64 4
-  %.val152 = load i32, ptr %556, align 4
-  %.mask.i174 = and i32 %.val152, -16777216
-  %557 = icmp eq i32 %.mask.i174, 16777216
+  %.val151 = load i32, ptr %556, align 4
+  %.mask.i173 = and i32 %.val151, -16777216
+  %557 = icmp eq i32 %.mask.i173, 16777216
   br i1 %557, label %863, label %558
 
 558:                                              ; preds = %547
@@ -117533,17 +117533,17 @@ lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.
 561:                                              ; preds = %558
   %562 = add nsw i32 %559, -1
   store i32 %562, ptr %555, align 4, !tbaa !8
-  br label %lean_dec_ref.exit122
+  br label %lean_dec_ref.exit121
 
 563:                                              ; preds = %558
-  %.not.i121 = icmp eq i32 %559, 0
-  br i1 %.not.i121, label %lean_dec_ref.exit122, label %564
+  %.not.i120 = icmp eq i32 %559, 0
+  br i1 %.not.i120, label %lean_dec_ref.exit121, label %564
 
 564:                                              ; preds = %563
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %555) #7
-  br label %lean_dec_ref.exit122
+  br label %lean_dec_ref.exit121
 
-.critedge94:                                      ; preds = %lean_dec_ref.exit126
+.critedge93:                                      ; preds = %lean_dec_ref.exit125
   %565 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.51, i64 noundef 11, i64 noundef 11) #7
   store ptr %565, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %565) #7
@@ -117553,9 +117553,9 @@ lean_dec_ref.exit126:                             ; preds = %523, %522, %520, %.
   %567 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact__1___closed__3()
   store ptr %567, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %567) #7
-  br label %lean_dec_ref.exit122
+  br label %lean_dec_ref.exit121
 
-lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.critedge94
+lean_dec_ref.exit121:                             ; preds = %564, %563, %561, %.critedge93
   %568 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact_declRange__3___closed__1()
   store ptr %568, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %568) #7
@@ -117577,16 +117577,16 @@ lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.
   %574 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact_declRange__3___closed__7()
   store ptr %574, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %574) #7
-  br i1 %.not, label %.critedge96, label %575
+  br i1 %.not, label %.critedge95, label %575
 
-575:                                              ; preds = %lean_dec_ref.exit122
+575:                                              ; preds = %lean_dec_ref.exit121
   %576 = load ptr, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact__1___closed__2, align 8, !tbaa !4
   %577 = load ptr, ptr @l_Lean_Elab_Term_Op_elabLeftact___regBuiltin_Lean_Elab_Term_Op_elabLeftact_declRange__3___closed__7, align 8, !tbaa !4
   %578 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %576, ptr noundef %577, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %579 = getelementptr i8, ptr %578, i64 4
-  %.val153 = load i32, ptr %579, align 4
-  %.mask.i175 = and i32 %.val153, -16777216
-  %580 = icmp eq i32 %.mask.i175, 16777216
+  %.val152 = load i32, ptr %579, align 4
+  %.mask.i174 = and i32 %.val152, -16777216
+  %580 = icmp eq i32 %.mask.i174, 16777216
   br i1 %580, label %863, label %581
 
 581:                                              ; preds = %575
@@ -117600,8 +117600,8 @@ lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.
   br label %588
 
 586:                                              ; preds = %581
-  %.not.i119 = icmp eq i32 %582, 0
-  br i1 %.not.i119, label %588, label %587
+  %.not.i118 = icmp eq i32 %582, 0
+  br i1 %.not.i118, label %588, label %587
 
 587:                                              ; preds = %586
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %578) #7
@@ -117623,9 +117623,9 @@ lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.
   %595 = load ptr, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact__1___closed__3, align 8, !tbaa !4
   %596 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %592, ptr noundef %593, ptr noundef %594, ptr noundef %595, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %597 = getelementptr i8, ptr %596, i64 4
-  %.val154 = load i32, ptr %597, align 4
-  %.mask.i176 = and i32 %.val154, -16777216
-  %598 = icmp eq i32 %.mask.i176, 16777216
+  %.val153 = load i32, ptr %597, align 4
+  %.mask.i175 = and i32 %.val153, -16777216
+  %598 = icmp eq i32 %.mask.i175, 16777216
   br i1 %598, label %863, label %599
 
 599:                                              ; preds = %588
@@ -117636,17 +117636,17 @@ lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.
 602:                                              ; preds = %599
   %603 = add nsw i32 %600, -1
   store i32 %603, ptr %596, align 4, !tbaa !8
-  br label %lean_dec_ref.exit118
+  br label %lean_dec_ref.exit117
 
 604:                                              ; preds = %599
-  %.not.i117 = icmp eq i32 %600, 0
-  br i1 %.not.i117, label %lean_dec_ref.exit118, label %605
+  %.not.i116 = icmp eq i32 %600, 0
+  br i1 %.not.i116, label %lean_dec_ref.exit117, label %605
 
 605:                                              ; preds = %604
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %596) #7
-  br label %lean_dec_ref.exit118
+  br label %lean_dec_ref.exit117
 
-.critedge96:                                      ; preds = %lean_dec_ref.exit122
+.critedge95:                                      ; preds = %lean_dec_ref.exit121
   %606 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.52, i64 noundef 12, i64 noundef 12) #7
   store ptr %606, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %606) #7
@@ -117656,9 +117656,9 @@ lean_dec_ref.exit122:                             ; preds = %564, %563, %561, %.
   %608 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact__1___closed__3()
   store ptr %608, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %608) #7
-  br label %lean_dec_ref.exit118
+  br label %lean_dec_ref.exit117
 
-lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.critedge96
+lean_dec_ref.exit117:                             ; preds = %605, %604, %602, %.critedge95
   %609 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact_declRange__3___closed__1()
   store ptr %609, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %609) #7
@@ -117680,16 +117680,16 @@ lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.
   %615 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact_declRange__3___closed__7()
   store ptr %615, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %615) #7
-  br i1 %.not, label %.critedge98, label %616
+  br i1 %.not, label %.critedge97, label %616
 
-616:                                              ; preds = %lean_dec_ref.exit118
+616:                                              ; preds = %lean_dec_ref.exit117
   %617 = load ptr, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact__1___closed__2, align 8, !tbaa !4
   %618 = load ptr, ptr @l_Lean_Elab_Term_Op_elabRightact___regBuiltin_Lean_Elab_Term_Op_elabRightact_declRange__3___closed__7, align 8, !tbaa !4
   %619 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %617, ptr noundef %618, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %620 = getelementptr i8, ptr %619, i64 4
-  %.val155 = load i32, ptr %620, align 4
-  %.mask.i177 = and i32 %.val155, -16777216
-  %621 = icmp eq i32 %.mask.i177, 16777216
+  %.val154 = load i32, ptr %620, align 4
+  %.mask.i176 = and i32 %.val154, -16777216
+  %621 = icmp eq i32 %.mask.i176, 16777216
   br i1 %621, label %863, label %622
 
 622:                                              ; preds = %616
@@ -117703,8 +117703,8 @@ lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.
   br label %629
 
 627:                                              ; preds = %622
-  %.not.i115 = icmp eq i32 %623, 0
-  br i1 %.not.i115, label %629, label %628
+  %.not.i114 = icmp eq i32 %623, 0
+  br i1 %.not.i114, label %629, label %628
 
 628:                                              ; preds = %627
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %619) #7
@@ -117726,9 +117726,9 @@ lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.
   %636 = load ptr, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp__1___closed__3, align 8, !tbaa !4
   %637 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %633, ptr noundef %634, ptr noundef %635, ptr noundef %636, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %638 = getelementptr i8, ptr %637, i64 4
-  %.val156 = load i32, ptr %638, align 4
-  %.mask.i178 = and i32 %.val156, -16777216
-  %639 = icmp eq i32 %.mask.i178, 16777216
+  %.val155 = load i32, ptr %638, align 4
+  %.mask.i177 = and i32 %.val155, -16777216
+  %639 = icmp eq i32 %.mask.i177, 16777216
   br i1 %639, label %863, label %640
 
 640:                                              ; preds = %629
@@ -117739,17 +117739,17 @@ lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.
 643:                                              ; preds = %640
   %644 = add nsw i32 %641, -1
   store i32 %644, ptr %637, align 4, !tbaa !8
-  br label %lean_dec_ref.exit114
+  br label %lean_dec_ref.exit113
 
 645:                                              ; preds = %640
-  %.not.i113 = icmp eq i32 %641, 0
-  br i1 %.not.i113, label %lean_dec_ref.exit114, label %646
+  %.not.i112 = icmp eq i32 %641, 0
+  br i1 %.not.i112, label %lean_dec_ref.exit113, label %646
 
 646:                                              ; preds = %645
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %637) #7
-  br label %lean_dec_ref.exit114
+  br label %lean_dec_ref.exit113
 
-.critedge98:                                      ; preds = %lean_dec_ref.exit118
+.critedge97:                                      ; preds = %lean_dec_ref.exit117
   %647 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.53, i64 noundef 8, i64 noundef 8) #7
   store ptr %647, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %647) #7
@@ -117759,9 +117759,9 @@ lean_dec_ref.exit118:                             ; preds = %605, %604, %602, %.
   %649 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp__1___closed__3()
   store ptr %649, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %649) #7
-  br label %lean_dec_ref.exit114
+  br label %lean_dec_ref.exit113
 
-lean_dec_ref.exit114:                             ; preds = %646, %645, %643, %.critedge98
+lean_dec_ref.exit113:                             ; preds = %646, %645, %643, %.critedge97
   %650 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp_declRange__3___closed__1()
   store ptr %650, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %650) #7
@@ -117783,16 +117783,16 @@ lean_dec_ref.exit114:                             ; preds = %646, %645, %643, %.
   %656 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp_declRange__3___closed__7()
   store ptr %656, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %656) #7
-  br i1 %.not, label %lean_dec_ref.exit112, label %657
+  br i1 %.not, label %lean_dec_ref.exit111, label %657
 
-657:                                              ; preds = %lean_dec_ref.exit114
+657:                                              ; preds = %lean_dec_ref.exit113
   %658 = load ptr, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp__1___closed__2, align 8, !tbaa !4
   %659 = load ptr, ptr @l_Lean_Elab_Term_Op_elabUnOp___regBuiltin_Lean_Elab_Term_Op_elabUnOp_declRange__3___closed__7, align 8, !tbaa !4
   %660 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %658, ptr noundef %659, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %661 = getelementptr i8, ptr %660, i64 4
-  %.val157 = load i32, ptr %661, align 4
-  %.mask.i179 = and i32 %.val157, -16777216
-  %662 = icmp eq i32 %.mask.i179, 16777216
+  %.val156 = load i32, ptr %661, align 4
+  %.mask.i178 = and i32 %.val156, -16777216
+  %662 = icmp eq i32 %.mask.i178, 16777216
   br i1 %662, label %863, label %663
 
 663:                                              ; preds = %657
@@ -117803,17 +117803,17 @@ lean_dec_ref.exit114:                             ; preds = %646, %645, %643, %.
 666:                                              ; preds = %663
   %667 = add nsw i32 %664, -1
   store i32 %667, ptr %660, align 4, !tbaa !8
-  br label %lean_dec_ref.exit112
+  br label %lean_dec_ref.exit111
 
 668:                                              ; preds = %663
-  %.not.i111 = icmp eq i32 %664, 0
-  br i1 %.not.i111, label %lean_dec_ref.exit112, label %669
+  %.not.i110 = icmp eq i32 %664, 0
+  br i1 %.not.i110, label %lean_dec_ref.exit111, label %669
 
 669:                                              ; preds = %668
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %660) #7
-  br label %lean_dec_ref.exit112
+  br label %lean_dec_ref.exit111
 
-lean_dec_ref.exit112:                             ; preds = %669, %668, %666, %lean_dec_ref.exit114
+lean_dec_ref.exit111:                             ; preds = %669, %668, %666, %lean_dec_ref.exit113
   %670 = load ptr, ptr @l_Lean_levelZero, align 8, !tbaa !4
   %671 = tail call ptr @l_Lean_Expr_sort___override(ptr noundef %670) #7
   store ptr %671, ptr @l_Lean_Elab_Term_Op_elabBinRelCore_toBoolIfNecessary___closed__1, align 8, !tbaa !4
@@ -117856,18 +117856,18 @@ lean_dec_ref.exit112:                             ; preds = %669, %668, %666, %l
   %689 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__4()
   store ptr %689, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %689) #7
-  br i1 %.not, label %lean_dec_ref.exit110, label %690
+  br i1 %.not, label %lean_dec_ref.exit109, label %690
 
-690:                                              ; preds = %lean_dec_ref.exit112
+690:                                              ; preds = %lean_dec_ref.exit111
   %691 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
   %692 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__1, align 8, !tbaa !4
   %693 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__3, align 8, !tbaa !4
   %694 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__4, align 8, !tbaa !4
   %695 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %691, ptr noundef %692, ptr noundef %693, ptr noundef %694, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %696 = getelementptr i8, ptr %695, i64 4
-  %.val158 = load i32, ptr %696, align 4
-  %.mask.i180 = and i32 %.val158, -16777216
-  %697 = icmp eq i32 %.mask.i180, 16777216
+  %.val157 = load i32, ptr %696, align 4
+  %.mask.i179 = and i32 %.val157, -16777216
+  %697 = icmp eq i32 %.mask.i179, 16777216
   br i1 %697, label %863, label %698
 
 698:                                              ; preds = %690
@@ -117878,17 +117878,17 @@ lean_dec_ref.exit112:                             ; preds = %669, %668, %666, %l
 701:                                              ; preds = %698
   %702 = add nsw i32 %699, -1
   store i32 %702, ptr %695, align 4, !tbaa !8
-  br label %lean_dec_ref.exit110
+  br label %lean_dec_ref.exit109
 
 703:                                              ; preds = %698
-  %.not.i109 = icmp eq i32 %699, 0
-  br i1 %.not.i109, label %lean_dec_ref.exit110, label %704
+  %.not.i108 = icmp eq i32 %699, 0
+  br i1 %.not.i108, label %lean_dec_ref.exit109, label %704
 
 704:                                              ; preds = %703
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %695) #7
-  br label %lean_dec_ref.exit110
+  br label %lean_dec_ref.exit109
 
-lean_dec_ref.exit110:                             ; preds = %704, %703, %701, %lean_dec_ref.exit112
+lean_dec_ref.exit109:                             ; preds = %704, %703, %701, %lean_dec_ref.exit111
   %705 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel_declRange__3___closed__1()
   store ptr %705, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %705) #7
@@ -117910,16 +117910,16 @@ lean_dec_ref.exit110:                             ; preds = %704, %703, %701, %l
   %711 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel_declRange__3___closed__7()
   store ptr %711, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %711) #7
-  br i1 %.not, label %lean_dec_ref.exit108, label %712
+  br i1 %.not, label %lean_dec_ref.exit107, label %712
 
-712:                                              ; preds = %lean_dec_ref.exit110
+712:                                              ; preds = %lean_dec_ref.exit109
   %713 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel__1___closed__3, align 8, !tbaa !4
   %714 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRel___regBuiltin_Lean_Elab_Term_Op_elabBinRel_declRange__3___closed__7, align 8, !tbaa !4
   %715 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %713, ptr noundef %714, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %716 = getelementptr i8, ptr %715, i64 4
-  %.val159 = load i32, ptr %716, align 4
-  %.mask.i181 = and i32 %.val159, -16777216
-  %717 = icmp eq i32 %.mask.i181, 16777216
+  %.val158 = load i32, ptr %716, align 4
+  %.mask.i180 = and i32 %.val158, -16777216
+  %717 = icmp eq i32 %.mask.i180, 16777216
   br i1 %717, label %863, label %718
 
 718:                                              ; preds = %712
@@ -117930,17 +117930,17 @@ lean_dec_ref.exit110:                             ; preds = %704, %703, %701, %l
 721:                                              ; preds = %718
   %722 = add nsw i32 %719, -1
   store i32 %722, ptr %715, align 4, !tbaa !8
-  br label %lean_dec_ref.exit108
+  br label %lean_dec_ref.exit107
 
 723:                                              ; preds = %718
-  %.not.i107 = icmp eq i32 %719, 0
-  br i1 %.not.i107, label %lean_dec_ref.exit108, label %724
+  %.not.i106 = icmp eq i32 %719, 0
+  br i1 %.not.i106, label %lean_dec_ref.exit107, label %724
 
 724:                                              ; preds = %723
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %715) #7
-  br label %lean_dec_ref.exit108
+  br label %lean_dec_ref.exit107
 
-lean_dec_ref.exit108:                             ; preds = %724, %723, %721, %lean_dec_ref.exit110
+lean_dec_ref.exit107:                             ; preds = %724, %723, %721, %lean_dec_ref.exit109
   %725 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.57, i64 noundef 14, i64 noundef 14) #7
   store ptr %725, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %725) #7
@@ -117960,18 +117960,18 @@ lean_dec_ref.exit108:                             ; preds = %724, %723, %721, %l
   %733 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__5()
   store ptr %733, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %733) #7
-  br i1 %.not, label %lean_dec_ref.exit106, label %734
+  br i1 %.not, label %lean_dec_ref.exit105, label %734
 
-734:                                              ; preds = %lean_dec_ref.exit108
+734:                                              ; preds = %lean_dec_ref.exit107
   %735 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
   %736 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__2, align 8, !tbaa !4
   %737 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__4, align 8, !tbaa !4
   %738 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__5, align 8, !tbaa !4
   %739 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %735, ptr noundef %736, ptr noundef %737, ptr noundef %738, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %740 = getelementptr i8, ptr %739, i64 4
-  %.val160 = load i32, ptr %740, align 4
-  %.mask.i182 = and i32 %.val160, -16777216
-  %741 = icmp eq i32 %.mask.i182, 16777216
+  %.val159 = load i32, ptr %740, align 4
+  %.mask.i181 = and i32 %.val159, -16777216
+  %741 = icmp eq i32 %.mask.i181, 16777216
   br i1 %741, label %863, label %742
 
 742:                                              ; preds = %734
@@ -117982,17 +117982,17 @@ lean_dec_ref.exit108:                             ; preds = %724, %723, %721, %l
 745:                                              ; preds = %742
   %746 = add nsw i32 %743, -1
   store i32 %746, ptr %739, align 4, !tbaa !8
-  br label %lean_dec_ref.exit106
+  br label %lean_dec_ref.exit105
 
 747:                                              ; preds = %742
-  %.not.i105 = icmp eq i32 %743, 0
-  br i1 %.not.i105, label %lean_dec_ref.exit106, label %748
+  %.not.i104 = icmp eq i32 %743, 0
+  br i1 %.not.i104, label %lean_dec_ref.exit105, label %748
 
 748:                                              ; preds = %747
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %739) #7
-  br label %lean_dec_ref.exit106
+  br label %lean_dec_ref.exit105
 
-lean_dec_ref.exit106:                             ; preds = %748, %747, %745, %lean_dec_ref.exit108
+lean_dec_ref.exit105:                             ; preds = %748, %747, %745, %lean_dec_ref.exit107
   %749 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp_declRange__3___closed__1()
   store ptr %749, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %749) #7
@@ -118014,16 +118014,16 @@ lean_dec_ref.exit106:                             ; preds = %748, %747, %745, %l
   %755 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp_declRange__3___closed__7()
   store ptr %755, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %755) #7
-  br i1 %.not, label %lean_dec_ref.exit104, label %756
+  br i1 %.not, label %lean_dec_ref.exit103, label %756
 
-756:                                              ; preds = %lean_dec_ref.exit106
+756:                                              ; preds = %lean_dec_ref.exit105
   %757 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp__1___closed__4, align 8, !tbaa !4
   %758 = load ptr, ptr @l_Lean_Elab_Term_Op_elabBinRelNoProp___regBuiltin_Lean_Elab_Term_Op_elabBinRelNoProp_declRange__3___closed__7, align 8, !tbaa !4
   %759 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %757, ptr noundef %758, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %760 = getelementptr i8, ptr %759, i64 4
-  %.val161 = load i32, ptr %760, align 4
-  %.mask.i183 = and i32 %.val161, -16777216
-  %761 = icmp eq i32 %.mask.i183, 16777216
+  %.val160 = load i32, ptr %760, align 4
+  %.mask.i182 = and i32 %.val160, -16777216
+  %761 = icmp eq i32 %.mask.i182, 16777216
   br i1 %761, label %863, label %762
 
 762:                                              ; preds = %756
@@ -118034,17 +118034,17 @@ lean_dec_ref.exit106:                             ; preds = %748, %747, %745, %l
 765:                                              ; preds = %762
   %766 = add nsw i32 %763, -1
   store i32 %766, ptr %759, align 4, !tbaa !8
-  br label %lean_dec_ref.exit104
+  br label %lean_dec_ref.exit103
 
 767:                                              ; preds = %762
-  %.not.i103 = icmp eq i32 %763, 0
-  br i1 %.not.i103, label %lean_dec_ref.exit104, label %768
+  %.not.i102 = icmp eq i32 %763, 0
+  br i1 %.not.i102, label %lean_dec_ref.exit103, label %768
 
 768:                                              ; preds = %767
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %759) #7
-  br label %lean_dec_ref.exit104
+  br label %lean_dec_ref.exit103
 
-lean_dec_ref.exit104:                             ; preds = %768, %767, %765, %lean_dec_ref.exit106
+lean_dec_ref.exit103:                             ; preds = %768, %767, %765, %lean_dec_ref.exit105
   %769 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.59, i64 noundef 60, i64 noundef 60) #7
   store ptr %769, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %769) #7
@@ -118071,18 +118071,18 @@ lean_dec_ref.exit104:                             ; preds = %768, %767, %765, %l
   %780 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__5()
   store ptr %780, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %780) #7
-  br i1 %.not, label %lean_dec_ref.exit102, label %781
+  br i1 %.not, label %lean_dec_ref.exit101, label %781
 
-781:                                              ; preds = %lean_dec_ref.exit104
+781:                                              ; preds = %lean_dec_ref.exit103
   %782 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___regBuiltin_Lean_Elab_Term_elabForIn__1___closed__4, align 8, !tbaa !4
   %783 = load ptr, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__2, align 8, !tbaa !4
   %784 = load ptr, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__4, align 8, !tbaa !4
   %785 = load ptr, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__5, align 8, !tbaa !4
   %786 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %782, ptr noundef %783, ptr noundef %784, ptr noundef %785, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %787 = getelementptr i8, ptr %786, i64 4
-  %.val162 = load i32, ptr %787, align 4
-  %.mask.i184 = and i32 %.val162, -16777216
-  %788 = icmp eq i32 %.mask.i184, 16777216
+  %.val161 = load i32, ptr %787, align 4
+  %.mask.i183 = and i32 %.val161, -16777216
+  %788 = icmp eq i32 %.mask.i183, 16777216
   br i1 %788, label %863, label %789
 
 789:                                              ; preds = %781
@@ -118093,17 +118093,17 @@ lean_dec_ref.exit104:                             ; preds = %768, %767, %765, %l
 792:                                              ; preds = %789
   %793 = add nsw i32 %790, -1
   store i32 %793, ptr %786, align 4, !tbaa !8
-  br label %lean_dec_ref.exit102
+  br label %lean_dec_ref.exit101
 
 794:                                              ; preds = %789
-  %.not.i101 = icmp eq i32 %790, 0
-  br i1 %.not.i101, label %lean_dec_ref.exit102, label %795
+  %.not.i100 = icmp eq i32 %790, 0
+  br i1 %.not.i100, label %lean_dec_ref.exit101, label %795
 
 795:                                              ; preds = %794
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %786) #7
-  br label %lean_dec_ref.exit102
+  br label %lean_dec_ref.exit101
 
-lean_dec_ref.exit102:                             ; preds = %795, %794, %792, %lean_dec_ref.exit104
+lean_dec_ref.exit101:                             ; preds = %795, %794, %792, %lean_dec_ref.exit103
   %796 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty_declRange__3___closed__1()
   store ptr %796, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty_declRange__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %796) #7
@@ -118125,16 +118125,16 @@ lean_dec_ref.exit102:                             ; preds = %795, %794, %792, %l
   %802 = tail call fastcc ptr @_init_l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty_declRange__3___closed__7()
   store ptr %802, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty_declRange__3___closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %802) #7
-  br i1 %.not, label %lean_dec_ref.exit100, label %803
+  br i1 %.not, label %lean_dec_ref.exit99, label %803
 
-803:                                              ; preds = %lean_dec_ref.exit102
+803:                                              ; preds = %lean_dec_ref.exit101
   %804 = load ptr, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty__1___closed__4, align 8, !tbaa !4
   %805 = load ptr, ptr @l_Lean_Elab_Term_Op_elabDefaultOrNonempty___regBuiltin_Lean_Elab_Term_Op_elabDefaultOrNonempty_declRange__3___closed__7, align 8, !tbaa !4
   %806 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %804, ptr noundef %805, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %807 = getelementptr i8, ptr %806, i64 4
-  %.val163 = load i32, ptr %807, align 4
-  %.mask.i185 = and i32 %.val163, -16777216
-  %808 = icmp eq i32 %.mask.i185, 16777216
+  %.val162 = load i32, ptr %807, align 4
+  %.mask.i184 = and i32 %.val162, -16777216
+  %808 = icmp eq i32 %.mask.i184, 16777216
   br i1 %808, label %863, label %809
 
 809:                                              ; preds = %803
@@ -118145,17 +118145,17 @@ lean_dec_ref.exit102:                             ; preds = %795, %794, %792, %l
 812:                                              ; preds = %809
   %813 = add nsw i32 %810, -1
   store i32 %813, ptr %806, align 4, !tbaa !8
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
 814:                                              ; preds = %809
-  %.not.i99 = icmp eq i32 %810, 0
-  br i1 %.not.i99, label %lean_dec_ref.exit100, label %815
+  %.not.i98 = icmp eq i32 %810, 0
+  br i1 %.not.i98, label %lean_dec_ref.exit99, label %815
 
 815:                                              ; preds = %814
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %806) #7
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
-lean_dec_ref.exit100:                             ; preds = %815, %814, %812, %lean_dec_ref.exit102
+lean_dec_ref.exit99:                              ; preds = %815, %814, %812, %lean_dec_ref.exit101
   %816 = load ptr, ptr @l_Lean_Elab_Term_elabForIn___closed__1, align 8, !tbaa !4
   %817 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %816) #7
   store ptr %817, ptr @l_Lean_Elab_Term_Op_initFn____x40_Lean_Elab_Extra___hyg_6762____closed__1, align 8, !tbaa !4
@@ -118223,12 +118223,12 @@ lean_dec_ref.exit100:                             ; preds = %815, %814, %812, %l
   tail call void @lean_mark_persistent(ptr noundef %850) #7
   br i1 %.not, label %lean_dec_ref.exit, label %851
 
-851:                                              ; preds = %lean_dec_ref.exit100
+851:                                              ; preds = %lean_dec_ref.exit99
   %852 = tail call ptr @l_Lean_Elab_Term_Op_initFn____x40_Lean_Elab_Extra___hyg_6762_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %853 = getelementptr i8, ptr %852, i64 4
-  %.val164 = load i32, ptr %853, align 4
-  %.mask.i186 = and i32 %.val164, -16777216
-  %854 = icmp eq i32 %.mask.i186, 16777216
+  %.val163 = load i32, ptr %853, align 4
+  %.mask.i185 = and i32 %.val163, -16777216
+  %854 = icmp eq i32 %.mask.i185, 16777216
   br i1 %854, label %863, label %855
 
 855:                                              ; preds = %851
@@ -118249,12 +118249,12 @@ lean_dec_ref.exit100:                             ; preds = %815, %814, %812, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %852) #7
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %861, %860, %858, %lean_dec_ref.exit100
+lean_dec_ref.exit:                                ; preds = %861, %860, %858, %lean_dec_ref.exit99
   %862 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %863
 
-863:                                              ; preds = %851, %803, %781, %756, %734, %712, %690, %657, %629, %616, %588, %575, %547, %534, %506, %493, %471, %268, %201, %156, %89, %lean_dec_ref.exit142, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %862, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit142 ], [ %94, %89 ], [ %159, %156 ], [ %206, %201 ], [ %271, %268 ], [ %476, %471 ], [ %496, %493 ], [ %514, %506 ], [ %537, %534 ], [ %555, %547 ], [ %578, %575 ], [ %596, %588 ], [ %619, %616 ], [ %637, %629 ], [ %660, %657 ], [ %695, %690 ], [ %715, %712 ], [ %739, %734 ], [ %759, %756 ], [ %786, %781 ], [ %806, %803 ], [ %852, %851 ]
+863:                                              ; preds = %851, %803, %781, %756, %734, %712, %690, %657, %629, %616, %588, %575, %547, %534, %506, %493, %471, %268, %201, %156, %89, %lean_dec_ref.exit141, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %862, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit141 ], [ %94, %89 ], [ %159, %156 ], [ %206, %201 ], [ %271, %268 ], [ %476, %471 ], [ %496, %493 ], [ %514, %506 ], [ %537, %534 ], [ %555, %547 ], [ %578, %575 ], [ %596, %588 ], [ %619, %616 ], [ %637, %629 ], [ %660, %657 ], [ %695, %690 ], [ %715, %712 ], [ %739, %734 ], [ %759, %756 ], [ %786, %781 ], [ %806, %803 ], [ %852, %851 ]
   ret ptr %.0
 }
 

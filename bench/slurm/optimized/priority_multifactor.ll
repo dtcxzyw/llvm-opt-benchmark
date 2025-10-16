@@ -545,8 +545,8 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   %1 = tail call i64 @time(ptr noundef null) #14
   store i64 %1, ptr @plugin_shutdown, align 8
-  %.b12 = load i1, ptr @running_decay, align 1
-  br i1 %.b12, label %2, label %6
+  %.b = load i1, ptr @running_decay, align 1
+  br i1 %.b, label %2, label %6
 
 2:                                                ; preds = %0
   %3 = tail call i32 @get_log_level() #14
@@ -570,13 +570,13 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @decay_handler_thread, align 8
-  %.not13 = icmp eq i64 %11, 0
-  br i1 %.not13, label %17, label %12
+  %.not12 = icmp eq i64 %11, 0
+  br i1 %.not12, label %17, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @decay_cond) #14
-  %.not14 = icmp eq i32 %13, 0
-  br i1 %.not14, label %17, label %14
+  %.not13 = icmp eq i32 %13, 0
+  br i1 %.not13, label %17, label %14
 
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #16
@@ -587,8 +587,8 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 17:                                               ; preds = %12, %14, %10
   tail call void @slurm_xfree(ptr noundef nonnull @weight_tres) #14
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #14
-  %.not15 = icmp eq i32 %18, 0
-  br i1 %.not15, label %21, label %19
+  %.not14 = icmp eq i32 %18, 0
+  br i1 %.not14, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = tail call ptr @__errno_location() #16
@@ -598,14 +598,14 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 
 21:                                               ; preds = %17
   %22 = load i64, ptr @decay_handler_thread, align 8
-  %.not16 = icmp eq i64 %22, 0
-  br i1 %.not16, label %.thread, label %23
+  %.not15 = icmp eq i64 %22, 0
+  br i1 %.not15, label %.thread, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 @pthread_join(i64 noundef %22, ptr noundef null) #14
   store i64 0, ptr @decay_handler_thread, align 8
-  %.not17 = icmp eq i32 %24, 0
-  br i1 %.not17, label %.thread, label %25
+  %.not16 = icmp eq i32 %24, 0
+  br i1 %.not16, label %.thread, label %25
 
 25:                                               ; preds = %23
   %26 = tail call ptr @__errno_location() #16
@@ -784,17 +784,17 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 
 33:                                               ; preds = %28
   store i1 true, ptr @running_decay, align 1
-  %.b38 = load i1, ptr @reconfig, align 1
-  br i1 %.b38, label %34, label %40
+  %.b = load i1, ptr @reconfig, align 1
+  br i1 %.b, label %34, label %40
 
 34:                                               ; preds = %33
   %35 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 856), align 8
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 832), align 8
-  %.not39 = icmp eq i32 %36, 0
+  %.not38 = icmp eq i32 %36, 0
   %37 = uitofp i32 %36 to double
   %38 = fdiv double 6.930000e-01, %37
   %39 = fsub double 1.000000e+00, %38
-  %storemerge = select i1 %.not39, double 1.000000e+00, double %39
+  %storemerge = select i1 %.not38, double 1.000000e+00, double %39
   store double %storemerge, ptr @decay_factor, align 8
   store i1 false, ptr @reconfig, align 1
   br label %40
@@ -827,8 +827,8 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 
 47:                                               ; preds = %44, %42
   %.3 = phi i64 [ %46, %44 ], [ %.1, %42 ]
-  %.not40 = icmp slt i64 %29, %.3
-  br i1 %.not40, label %50, label %48
+  %.not39 = icmp slt i64 %29, %.3
+  br i1 %.not39, label %50, label %48
 
 48:                                               ; preds = %47
   call fastcc void @_reset_usage()
@@ -841,8 +841,8 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   %.2 = phi i64 [ %.1, %40 ], [ %.1, %41 ], [ %49, %48 ], [ %.3, %47 ]
   %51 = load i32, ptr @flags, align 4
   %52 = and i32 %51, 32
-  %.not41 = icmp eq i32 %52, 0
-  br i1 %.not41, label %53, label %59
+  %.not40 = icmp eq i32 %52, 0
+  br i1 %.not40, label %53, label %59
 
 53:                                               ; preds = %50
   call void @assoc_mgr_lock(ptr noundef nonnull %6) #14
@@ -857,12 +857,12 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 
 59:                                               ; preds = %53, %50
   %60 = load i64, ptr @g_last_ran, align 8
-  %.not42 = icmp eq i64 %60, 0
-  %.pre55.pre56 = load i64, ptr %3, align 8
-  br i1 %.not42, label %156, label %61
+  %.not41 = icmp eq i64 %60, 0
+  %.pre54.pre55 = load i64, ptr %3, align 8
+  br i1 %.not41, label %156, label %61
 
 61:                                               ; preds = %59
-  %62 = call double @difftime(i64 noundef %.pre55.pre56, i64 noundef %60) #16
+  %62 = call double @difftime(i64 noundef %.pre54.pre55, i64 noundef %60) #16
   %63 = fcmp ugt double %62, 0.000000e+00
   br i1 %63, label %64, label %156
 
@@ -873,8 +873,8 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   %.028 = select i1 %67, double 0x10000000000000, double %66
   %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %69 = and i64 %68, 2048
-  %.not43 = icmp eq i64 %69, 0
-  br i1 %.not43, label %75, label %70
+  %.not42 = icmp eq i64 %69, 0
+  br i1 %.not42, label %75, label %70
 
 70:                                               ; preds = %64
   %71 = call i32 @get_log_level() #14
@@ -1060,8 +1060,8 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   call void @site_factor_g_update() #14
   %150 = load i32, ptr @flags, align 4
   %151 = and i32 %150, 32
-  %.not45 = icmp eq i32 %151, 0
-  br i1 %.not45, label %152, label %155
+  %.not44 = icmp eq i32 %151, 0
+  br i1 %.not44, label %152, label %155
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr @job_list, align 8
@@ -1070,30 +1070,30 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 
 155:                                              ; preds = %152, %149
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._decay_thread.job_write_lock) #14
-  %.pre55.pre = load i64, ptr %3, align 8
+  %.pre54.pre = load i64, ptr %3, align 8
   br label %156
 
 156:                                              ; preds = %61, %59, %155
-  %.pre55 = phi i64 [ %.pre55.pre56, %61 ], [ %.pre55.pre56, %59 ], [ %.pre55.pre, %155 ]
+  %.pre54 = phi i64 [ %.pre54.pre55, %61 ], [ %.pre54.pre55, %59 ], [ %.pre54.pre, %155 ]
   %157 = load i32, ptr @flags, align 4
   %158 = and i32 %157, 32
-  %.not47 = icmp eq i32 %158, 0
-  br i1 %.not47, label %161, label %159
+  %.not46 = icmp eq i32 %158, 0
+  br i1 %.not46, label %161, label %159
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr @job_list, align 8
-  call void @fair_tree_decay(ptr noundef %160, i64 noundef %.pre55) #14
+  call void @fair_tree_decay(ptr noundef %160, i64 noundef %.pre54) #14
   %.pre = load i64, ptr %3, align 8
   br label %161
 
 161:                                              ; preds = %159, %156
-  %162 = phi i64 [ %.pre, %159 ], [ %.pre55, %156 ]
+  %162 = phi i64 [ %.pre, %159 ], [ %.pre54, %156 ]
   store i64 %162, ptr @g_last_ran, align 8
   %163 = load i64, ptr @g_last_reset, align 8
   %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %165 = call i32 @xstrcmp(ptr noundef %164, ptr noundef nonnull @.str.40) #14
-  %.not.i50 = icmp eq i32 %165, 0
-  br i1 %.not.i50, label %166, label %168
+  %.not.i49 = icmp eq i32 %165, 0
+  br i1 %.not.i49, label %166, label %168
 
 166:                                              ; preds = %161
   %167 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41) #14
@@ -1124,8 +1124,8 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 _write_last_decay_ran.exit:                       ; preds = %166, %175, %176
   store i1 false, ptr @running_decay, align 1
   %177 = load i64, ptr @plugin_shutdown, align 8
-  %.not48 = icmp eq i64 %177, 0
-  br i1 %.not48, label %178, label %189
+  %.not47 = icmp eq i64 %177, 0
+  br i1 %.not47, label %178, label %189
 
 178:                                              ; preds = %_write_last_decay_ran.exit
   %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 836), align 4
@@ -1152,8 +1152,8 @@ _write_last_decay_ran.exit:                       ; preds = %166, %175, %176
 
 189:                                              ; preds = %_write_last_decay_ran.exit, %187
   %190 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #14
-  %.not49 = icmp eq i32 %190, 0
-  br i1 %.not49, label %26, label %191, !llvm.loop !17
+  %.not48 = icmp eq i32 %190, 0
+  br i1 %.not48, label %26, label %191, !llvm.loop !17
 
 191:                                              ; preds = %189
   %192 = tail call ptr @__errno_location() #16

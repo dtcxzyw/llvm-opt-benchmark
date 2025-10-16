@@ -7953,8 +7953,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -7996,9 +7996,9 @@ define ptr @initialize_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr(i8 nound
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_Tactic_Grind_Arith_CommRing_Var(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %50, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -8009,17 +8009,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !6
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #3
   store ptr %28, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr_0__Lean_Meta_Grind_Arith_CommRing_denoteNum___rarg___lambda__1___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -8063,23 +8063,23 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %.sink.split
 
-46:                                               ; preds = %lean_dec_ref.exit10
+46:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit10, %3
-  %.sink22 = phi ptr [ %4, %3 ], [ %44, %lean_dec_ref.exit10 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
-  store i32 1, ptr %.sink22, align 4, !tbaa !6
+.sink.split:                                      ; preds = %lean_dec_ref.exit9, %3
+  %.sink21 = phi ptr [ %4, %3 ], [ %44, %lean_dec_ref.exit9 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  store i32 1, ptr %.sink21, align 4, !tbaa !6
   store i32 131096, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %48, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %49, align 8, !tbaa !11
   br label %50
 
 50:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink22, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink21, %.sink.split ]
   ret ptr %.0
 }
 

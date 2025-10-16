@@ -50307,7 +50307,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 44:                                               ; preds = %37
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.sroa.5.0.copyload.i10.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11082, !noalias !11083
+  %.sroa.5.0.copyload.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11082, !noalias !11083
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !11082, !noalias !11083
   store i64 %39, ptr %8, align 8, !noalias !11075
@@ -50316,7 +50316,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.sroa.4.0.copyload.i.i, ptr %46, align 8, !noalias !11075
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %.sroa.5.0.copyload.i10.i, ptr %47, align 4, !noalias !11075
+  store i32 %.sroa.5.0.copyload.i.i, ptr %47, align 4, !noalias !11075
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !11075
   invoke void @"_ZN64_$LT$proto..FollowResponse$u20$as$u20$core..default..Default$GT$7default17hdbc935ec4d0be266E"(ptr noalias noundef nonnull sret([368 x i8]) align 8 captures(none) dereferenceable(368) %7)
           to label %.noexc9 unwind label %62

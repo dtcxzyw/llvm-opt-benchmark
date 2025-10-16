@@ -2715,7 +2715,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 24:                                               ; preds = %23, %BufferGetPage.exit
   %.val82 = load i16, ptr %0, align 2
   %25 = getelementptr i8, ptr %0, i64 2
-  %.val83108 = load i16, ptr %25, align 2
+  %.val83 = load i16, ptr %25, align 2
   %26 = getelementptr i8, ptr %0, i64 4
   %.val85 = load i16, ptr %26, align 2
   %27 = icmp eq i16 %.val85, 0
@@ -2734,23 +2734,23 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br label %37
 
 37:                                               ; preds = %.lr.ph, %HeapTupleHeaderGetUpdateXid.exit
-  %.063117 = phi ptr [ null, %.lr.ph ], [ %.164, %HeapTupleHeaderGetUpdateXid.exit ]
-  %.066116 = phi i1 [ %28, %.lr.ph ], [ %.167, %HeapTupleHeaderGetUpdateXid.exit ]
-  %.068115 = phi i32 [ 0, %.lr.ph ], [ %.169, %HeapTupleHeaderGetUpdateXid.exit ]
-  %.070114 = phi i1 [ %6, %.lr.ph ], [ false, %HeapTupleHeaderGetUpdateXid.exit ]
-  %.072113 = phi i16 [ %.val85, %.lr.ph ], [ %.173, %HeapTupleHeaderGetUpdateXid.exit ]
+  %.063116 = phi ptr [ null, %.lr.ph ], [ %.164, %HeapTupleHeaderGetUpdateXid.exit ]
+  %.066115 = phi i1 [ %28, %.lr.ph ], [ %.167, %HeapTupleHeaderGetUpdateXid.exit ]
+  %.068114 = phi i32 [ 0, %.lr.ph ], [ %.169, %HeapTupleHeaderGetUpdateXid.exit ]
+  %.070113 = phi i1 [ %6, %.lr.ph ], [ false, %HeapTupleHeaderGetUpdateXid.exit ]
+  %.072112 = phi i16 [ %.val85, %.lr.ph ], [ %.173, %HeapTupleHeaderGetUpdateXid.exit ]
   %.val = load i16, ptr %29, align 4
   %38 = icmp ult i16 %.val, 25
   %39 = zext i16 %.val to i32
   %40 = add nuw nsw i32 %39, 262120
   %41 = lshr i32 %40, 2
   %42 = trunc i32 %41 to i16
-  %43 = icmp ugt i16 %.072113, %42
+  %43 = icmp ugt i16 %.072112, %42
   %44 = select i1 %38, i1 true, i1 %43
   br i1 %44, label %HeapTupleIsHotUpdated.exit.thread, label %45
 
 45:                                               ; preds = %37
-  %46 = zext i16 %.072113 to i64
+  %46 = zext i16 %.072112 to i64
   %47 = getelementptr %struct.ItemIdData, ptr %30, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 15
@@ -2760,7 +2760,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 52:                                               ; preds = %45
   %53 = icmp eq i32 %50, 2
-  %or.cond = and i1 %.070114, %53
+  %or.cond = and i1 %.070113, %53
   br i1 %or.cond, label %54, label %HeapTupleIsHotUpdated.exit.thread
 
 54:                                               ; preds = %52
@@ -2779,9 +2779,9 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %63 = load i32, ptr %32, align 8
   store i32 %63, ptr %33, align 4
   store i16 %.val82, ptr %34, align 4
-  store i16 %.val83108, ptr %35, align 2
-  store i16 %.072113, ptr %36, align 8
-  br i1 %.070114, label %64, label %67
+  store i16 %.val83, ptr %35, align 2
+  store i16 %.072112, ptr %36, align 8
+  br i1 %.070113, label %64, label %67
 
 64:                                               ; preds = %57
   %65 = getelementptr i8, ptr %60, i64 18
@@ -2790,7 +2790,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %66, label %HeapTupleIsHotUpdated.exit.thread, label %67
 
 67:                                               ; preds = %64, %57
-  %.not79 = icmp eq i32 %.068115, 0
+  %.not79 = icmp eq i32 %.068114, 0
   br i1 %.not79, label %75, label %68
 
 68:                                               ; preds = %67
@@ -2806,11 +2806,11 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 HeapTupleHeaderGetXmin.exit:                      ; preds = %68, %72
   %73 = phi i32 [ %.val2.i, %72 ], [ 2, %68 ]
-  %74 = icmp eq i32 %.068115, %73
+  %74 = icmp eq i32 %.068114, %73
   br i1 %74, label %75, label %HeapTupleIsHotUpdated.exit.thread
 
 75:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %67
-  br i1 %.066116, label %86, label %76
+  br i1 %.066115, label %86, label %76
 
 76:                                               ; preds = %75
   %77 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %4, ptr noundef %3, i32 noundef %2) #12
@@ -2818,7 +2818,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %68, %72
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %76
-  store i16 %.072113, ptr %26, align 2
+  store i16 %.072112, ptr %26, align 2
   %79 = load ptr, ptr %31, align 8
   %80 = getelementptr i8, ptr %79, i64 20
   %.val.i88 = load i16, ptr %80, align 4
@@ -2848,7 +2848,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %78, %83
   br i1 %89, label %90, label %96
 
 90:                                               ; preds = %87
-  %.not80 = icmp eq ptr %.063117, null
+  %.not80 = icmp eq ptr %.063116, null
   br i1 %.not80, label %91, label %93
 
 91:                                               ; preds = %90
@@ -2856,7 +2856,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %78, %83
   br label %93
 
 93:                                               ; preds = %91, %90
-  %.3 = phi ptr [ %.063117, %90 ], [ %92, %91 ]
+  %.3 = phi ptr [ %.063116, %90 ], [ %92, %91 ]
   %94 = call zeroext i1 @HeapTupleIsSurelyDead(ptr noundef nonnull %4, ptr noundef %.3) #12
   br i1 %94, label %96, label %95
 
@@ -2865,7 +2865,7 @@ HeapTupleHeaderGetXmin.exit90:                    ; preds = %78, %83
   br label %96
 
 96:                                               ; preds = %93, %95, %87, %86
-  %.265 = phi ptr [ %.3, %93 ], [ %.3, %95 ], [ %.063117, %87 ], [ %.063117, %86 ]
+  %.265 = phi ptr [ %.3, %93 ], [ %.3, %95 ], [ %.063116, %87 ], [ %.063116, %86 ]
   %.val87 = load ptr, ptr %31, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.val87, i64 18
   %98 = load i16, ptr %97, align 2
@@ -2932,9 +2932,9 @@ HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %1
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %HeapTupleGetUpdateXid.exit.i, %107, %54
   %.173 = phi i16 [ %56, %54 ], [ %.val84, %107 ], [ %.val84, %HeapTupleGetUpdateXid.exit.i ]
-  %.169 = phi i32 [ %.068115, %54 ], [ %.val.i.i, %107 ], [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ]
-  %.167 = phi i1 [ %.066116, %54 ], [ false, %107 ], [ false, %HeapTupleGetUpdateXid.exit.i ]
-  %.164 = phi ptr [ %.063117, %54 ], [ %.265, %107 ], [ %.265, %HeapTupleGetUpdateXid.exit.i ]
+  %.169 = phi i32 [ %.068114, %54 ], [ %.val.i.i, %107 ], [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ]
+  %.167 = phi i1 [ %.066115, %54 ], [ false, %107 ], [ false, %HeapTupleGetUpdateXid.exit.i ]
+  %.164 = phi ptr [ %.063116, %54 ], [ %.265, %107 ], [ %.265, %HeapTupleGetUpdateXid.exit.i ]
   %123 = icmp eq i16 %.173, 0
   br i1 %123, label %HeapTupleIsHotUpdated.exit.thread, label %37
 

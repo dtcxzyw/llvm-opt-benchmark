@@ -3021,7 +3021,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %9 = phi ptr [ %11, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h33a191f7b109a167E.exit.i.i.i.i" ], [ %.sroa.0.0.copyload, %.lr.ph.i.i.i.i.preheader ]
   %10 = phi i64 [ %18, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h33a191f7b109a167E.exit.i.i.i.i" ], [ %.sroa.8.0.copyload, %.lr.ph.i.i.i.i.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.val.i5.i.i.i.i.i.i = load i32, ptr %9, align 4, !noalias !890, !noundef !3
+  %.val.i.i.i.i.i.i.i = load i32, ptr %9, align 4, !noalias !890, !noundef !3
   %12 = icmp eq i64 %8, 0
   br i1 %12, label %13, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8d7979279ed62ef9E.exit.i.i.i.i"
 
@@ -3050,10 +3050,10 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !908
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !908
   store i32 %.sroa.0.014.i.i.i.i, ptr %5, align 4, !noalias !915
-  store i32 %.val.i5.i.i.i.i.i.i, ptr %4, align 4, !noalias !915
+  store i32 %.val.i.i.i.i.i.i.i, ptr %4, align 4, !noalias !915
   %25 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8dc0a6ecd5683019E"(ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !918
   %26 = icmp slt i8 %25, 0
-  %.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %26, i32 %.sroa.0.014.i.i.i.i, i32 %.val.i5.i.i.i.i.i.i
+  %.sroa.0.0.i.i.i.i.i.i.i.i = select i1 %26, i32 %.sroa.0.014.i.i.i.i, i32 %.val.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !908
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !908
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h33a191f7b109a167E.exit.i.i.i.i"

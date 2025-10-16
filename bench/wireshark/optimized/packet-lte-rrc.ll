@@ -59351,15 +59351,15 @@ define internal i32 @dissect_lte_rrc_T_systemInfoValueTag(ptr noundef %0, i32 no
   br i1 %.not, label %15, label %32
 
 15:                                               ; preds = %5
-  %.b14 = load i1, ptr @system_info_value_current_set, align 1
-  %.pre17 = load i32, ptr %6, align 4
-  br i1 %.b14, label %16, label %29
+  %.b = load i1, ptr @system_info_value_current_set, align 1
+  %.pre16 = load i32, ptr %6, align 4
+  br i1 %.b, label %16, label %29
 
 16:                                               ; preds = %15
   %17 = load i8, ptr @system_info_value_current, align 1
   %18 = zext i8 %17 to i32
-  %.not15 = icmp eq i32 %.pre17, %18
-  br i1 %.not15, label %29, label %19
+  %.not14 = icmp eq i32 %.pre16, %18
+  br i1 %.not14, label %29, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @lte_rrc_system_info_value_changed_hash, align 8
@@ -59375,7 +59375,7 @@ define internal i32 @dissect_lte_rrc_T_systemInfoValueTag(ptr noundef %0, i32 no
   br label %29
 
 29:                                               ; preds = %19, %16, %15
-  %30 = phi i32 [ %.pre, %19 ], [ %.pre17, %16 ], [ %.pre17, %15 ]
+  %30 = phi i32 [ %.pre, %19 ], [ %.pre16, %16 ], [ %.pre16, %15 ]
   store i1 true, ptr @system_info_value_current_set, align 1
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr @system_info_value_current, align 1
@@ -59388,8 +59388,8 @@ define internal i32 @dissect_lte_rrc_T_systemInfoValueTag(ptr noundef %0, i32 no
   %36 = zext i32 %35 to i64
   %37 = inttoptr i64 %36 to ptr
   %38 = call ptr @wmem_map_lookup(ptr noundef %33, ptr noundef %37)
-  %.not16 = icmp eq ptr %38, null
-  br i1 %.not16, label %48, label %39
+  %.not15 = icmp eq ptr %38, null
+  br i1 %.not15, label %48, label %39
 
 39:                                               ; preds = %32
   %40 = ptrtoint ptr %38 to i64

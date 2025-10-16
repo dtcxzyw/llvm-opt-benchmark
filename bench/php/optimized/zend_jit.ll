@@ -81600,12 +81600,12 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %4 = load i32, ptr %3, align 8, !tbaa !175
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw %struct._zend_jit_trace_info, ptr %3, i64 %5
-  %.b95 = load i1, ptr @delayed_call_chain, align 1
+  %.b = load i1, ptr @delayed_call_chain, align 1
   %7 = or i32 %1, 8
-  %spec.select = select i1 %.b95, i32 %7, i32 %1
+  %spec.select = select i1 %.b, i32 %7, i32 %1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 184), align 8, !tbaa !381
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit109, label %9
+  br i1 %.not, label %.loopexit108, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -81615,8 +81615,8 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %15 = load i32, ptr %14, align 8, !tbaa !221
   %16 = add i32 %15, %13
-  %.not96 = icmp eq i32 %16, 0
-  br i1 %.not96, label %.loopexit109, label %17
+  %.not95 = icmp eq i32 %16, 0
+  br i1 %.not95, label %.loopexit108, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 60
@@ -81628,52 +81628,52 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %21 = add nsw i64 %indvars.iv, -1
   %22 = getelementptr inbounds nuw %struct._zend_jit_trace_stack, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 4, !tbaa !50
-  %.not97 = icmp eq i8 %23, -1
-  br i1 %.not97, label %24, label %.loopexit109.loopexit.split.loop.exit141
+  %.not96 = icmp eq i8 %23, -1
+  br i1 %.not96, label %24, label %.loopexit108.loopexit.split.loop.exit140
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !50
-  %.not98 = icmp eq i8 %26, -1
-  br i1 %.not98, label %27, label %.loopexit109.loopexit.split.loop.exit139
+  %.not97 = icmp eq i8 %26, -1
+  br i1 %.not97, label %27, label %.loopexit108.loopexit.split.loop.exit138
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !58
-  %.not99 = icmp eq i32 %29, 0
-  br i1 %.not99, label %30, label %.loopexit109.loopexit.split.loop.exit137
+  %.not98 = icmp eq i32 %29, 0
+  br i1 %.not98, label %30, label %.loopexit108.loopexit.split.loop.exit136
 
 30:                                               ; preds = %27
-  %.not100.wide = icmp eq i64 %21, 0
-  br i1 %.not100.wide, label %.loopexit109, label %20
+  %.not99.wide = icmp eq i64 %21, 0
+  br i1 %.not99.wide, label %.loopexit108, label %20
 
-.loopexit109.loopexit.split.loop.exit137:         ; preds = %27
+.loopexit108.loopexit.split.loop.exit136:         ; preds = %27
   %31 = trunc nuw i64 %indvars.iv to i32
-  br label %.loopexit109
+  br label %.loopexit108
 
-.loopexit109.loopexit.split.loop.exit139:         ; preds = %24
+.loopexit108.loopexit.split.loop.exit138:         ; preds = %24
   %32 = trunc nuw i64 %indvars.iv to i32
-  br label %.loopexit109
+  br label %.loopexit108
 
-.loopexit109.loopexit.split.loop.exit141:         ; preds = %20
+.loopexit108.loopexit.split.loop.exit140:         ; preds = %20
   %33 = trunc nuw i64 %indvars.iv to i32
-  br label %.loopexit109
+  br label %.loopexit108
 
-.loopexit109:                                     ; preds = %30, %.loopexit109.loopexit.split.loop.exit137, %.loopexit109.loopexit.split.loop.exit139, %.loopexit109.loopexit.split.loop.exit141, %2, %9
-  %.082 = phi ptr [ %11, %9 ], [ null, %2 ], [ %11, %.loopexit109.loopexit.split.loop.exit141 ], [ %11, %.loopexit109.loopexit.split.loop.exit139 ], [ %11, %.loopexit109.loopexit.split.loop.exit137 ], [ %11, %30 ]
-  %.1 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %33, %.loopexit109.loopexit.split.loop.exit141 ], [ %32, %.loopexit109.loopexit.split.loop.exit139 ], [ %31, %.loopexit109.loopexit.split.loop.exit137 ], [ 0, %30 ]
-  %.079 = phi ptr [ null, %9 ], [ null, %2 ], [ %18, %.loopexit109.loopexit.split.loop.exit141 ], [ %18, %.loopexit109.loopexit.split.loop.exit139 ], [ %18, %.loopexit109.loopexit.split.loop.exit137 ], [ %18, %30 ]
-  %.not101 = icmp ne ptr %0, null
+.loopexit108:                                     ; preds = %30, %.loopexit108.loopexit.split.loop.exit136, %.loopexit108.loopexit.split.loop.exit138, %.loopexit108.loopexit.split.loop.exit140, %2, %9
+  %.082 = phi ptr [ %11, %9 ], [ null, %2 ], [ %11, %.loopexit108.loopexit.split.loop.exit140 ], [ %11, %.loopexit108.loopexit.split.loop.exit138 ], [ %11, %.loopexit108.loopexit.split.loop.exit136 ], [ %11, %30 ]
+  %.1 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %33, %.loopexit108.loopexit.split.loop.exit140 ], [ %32, %.loopexit108.loopexit.split.loop.exit138 ], [ %31, %.loopexit108.loopexit.split.loop.exit136 ], [ 0, %30 ]
+  %.079 = phi ptr [ null, %9 ], [ null, %2 ], [ %18, %.loopexit108.loopexit.split.loop.exit140 ], [ %18, %.loopexit108.loopexit.split.loop.exit138 ], [ %18, %.loopexit108.loopexit.split.loop.exit136 ], [ %18, %30 ]
+  %.not100 = icmp ne ptr %0, null
   %34 = and i32 %spec.select, 512
-  %.not102 = icmp eq i32 %34, 0
-  %or.cond = select i1 %.not101, i1 %.not102, i1 false
+  %.not101 = icmp eq i32 %34, 0
+  %or.cond = select i1 %.not100, i1 %.not101, i1 false
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !4
   br i1 %or.cond, label %37, label %.thread
 
-37:                                               ; preds = %.loopexit109
-  %.not103 = icmp eq i32 %36, 0
-  br i1 %.not103, label %.thread.thread, label %.preheader
+37:                                               ; preds = %.loopexit108
+  %.not102 = icmp eq i32 %36, 0
+  br i1 %.not102, label %.thread.thread, label %.preheader
 
 .preheader:                                       ; preds = %37
   %38 = icmp eq i32 %.1, 0
@@ -81686,8 +81686,8 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   br i1 %38, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %57
-  %indvars.iv120 = phi i64 [ %45, %57 ], [ %44, %.preheader ]
-  %45 = add nsw i64 %indvars.iv120, -1
+  %indvars.iv119 = phi i64 [ %45, %57 ], [ %44, %.preheader ]
+  %45 = add nsw i64 %indvars.iv119, -1
   %46 = getelementptr inbounds nuw %struct._zend_jit_trace_exit_info, ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !258
   %48 = icmp eq ptr %47, %0
@@ -81706,17 +81706,17 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   br i1 %56, label %.loopexit.loopexit, label %57
 
 57:                                               ; preds = %53, %49, %.preheader.split.us
-  %.not105.us.wide = icmp eq i64 %45, 0
-  br i1 %.not105.us.wide, label %.thread, label %.preheader.split.us
+  %.not104.us.wide = icmp eq i64 %45, 0
+  br i1 %.not104.us.wide, label %.thread, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %77
-  %indvars.iv117 = phi i64 [ %58, %77 ], [ %44, %.preheader ]
-  %58 = add nsw i64 %indvars.iv117, -1
+  %indvars.iv116 = phi i64 [ %58, %77 ], [ %44, %.preheader ]
+  %58 = add nsw i64 %indvars.iv116, -1
   %59 = getelementptr inbounds nuw %struct._zend_jit_trace_exit_info, ptr %43, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4, !tbaa !34
-  %.not104 = icmp ult i32 %61, %.1
-  br i1 %.not104, label %77, label %62
+  %.not103 = icmp ult i32 %61, %.1
+  br i1 %.not103, label %77, label %62
 
 62:                                               ; preds = %.preheader.split
   %63 = load ptr, ptr %39, align 8, !tbaa !37
@@ -81738,22 +81738,22 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %74 = load i32, ptr %73, align 8, !tbaa !39
   %75 = icmp eq i32 %74, %spec.select
   %76 = icmp eq i32 %61, %.1
-  %or.cond145 = select i1 %75, i1 %76, i1 false
-  br i1 %or.cond145, label %.loopexit.loopexit111, label %77
+  %or.cond144 = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond144, label %.loopexit.loopexit110, label %77
 
 77:                                               ; preds = %.preheader.split, %62, %72, %69
-  %.not105.wide = icmp eq i64 %58, 0
-  br i1 %.not105.wide, label %.thread, label %.preheader.split
+  %.not104.wide = icmp eq i64 %58, 0
+  br i1 %.not104.wide, label %.thread, label %.preheader.split
 
-.thread:                                          ; preds = %77, %57, %.loopexit109
+.thread:                                          ; preds = %77, %57, %.loopexit108
   %78 = icmp ult i32 %36, 512
   br i1 %78, label %.thread.thread, label %.loopexit
 
 .thread.thread:                                   ; preds = %37, %.thread
   %79 = phi i32 [ %36, %.thread ], [ 0, %37 ]
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not106 = icmp eq i32 %.1, 0
-  br i1 %.not106, label %94, label %81
+  %.not105 = icmp eq i32 %.1, 0
+  br i1 %.not105, label %94, label %81
 
 81:                                               ; preds = %.thread.thread
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -81771,11 +81771,11 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %92 = zext i32 %.1 to i64
   %93 = shl nuw nsw i64 %92, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %91, ptr align 4 %.079, i64 %93, i1 false)
-  %.pre123 = load i32, ptr %80, align 8, !tbaa !4
+  %.pre122 = load i32, ptr %80, align 8, !tbaa !4
   br label %94
 
 94:                                               ; preds = %81, %.thread.thread
-  %95 = phi i32 [ %.pre123, %81 ], [ %79, %.thread.thread ]
+  %95 = phi i32 [ %.pre122, %81 ], [ %79, %.thread.thread ]
   %.081 = phi i32 [ %83, %81 ], [ -1, %.thread.thread ]
   %96 = add i32 %95, 1
   store i32 %96, ptr %80, align 8, !tbaa !4
@@ -81806,12 +81806,12 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
   %109 = trunc nuw i64 %45 to i32
   br label %.loopexit
 
-.loopexit.loopexit111:                            ; preds = %72
+.loopexit.loopexit110:                            ; preds = %72
   %110 = trunc nuw i64 %58 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit111, %.loopexit.loopexit, %.thread, %94
-  %.184 = phi i32 [ %79, %94 ], [ %36, %.thread ], [ %109, %.loopexit.loopexit ], [ %110, %.loopexit.loopexit111 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit110, %.loopexit.loopexit, %.thread, %94
+  %.184 = phi i32 [ %79, %94 ], [ %36, %.thread ], [ %109, %.loopexit.loopexit ], [ %110, %.loopexit.loopexit110 ]
   ret i32 %.184
 }
 

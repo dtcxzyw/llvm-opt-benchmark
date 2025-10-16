@@ -233,8 +233,8 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
   %82 = call ptr @wmem_file_scope()
   %83 = load i32, ptr @proto_blip, align 4
   %84 = call ptr @p_get_proto_data(ptr noundef %82, ptr noundef %1, i32 noundef %83, i32 noundef 0)
-  %.not115.i = icmp eq ptr %84, null
-  br i1 %.not115.i, label %85, label %89
+  %.not114.i = icmp eq ptr %84, null
+  br i1 %.not114.i, label %85, label %89
 
 85:                                               ; preds = %81
   %86 = load i32, ptr @hf_blip_message_body, align 4
@@ -244,8 +244,8 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
 
 89:                                               ; preds = %81
   %90 = load i32, ptr %84, align 8
-  %.not116.i = icmp eq i32 %90, 0
-  br i1 %.not116.i, label %104, label %91
+  %.not115.i = icmp eq i32 %90, 0
+  br i1 %.not115.i, label %104, label %91
 
 91:                                               ; preds = %89
   %92 = load i32, ptr @hf_blip_message_body, align 4
@@ -343,9 +343,9 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
   %150 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %148, ptr noundef %0, i32 noundef %25, i32 noundef %149, ptr noundef nonnull @.str.52)
   %151 = call ptr @wmem_file_scope()
   %152 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %151, i64 noundef 24) #8
-  %.b114.i = load i1, ptr @decompress.size_overflow, align 1
+  %.b.i = load i1, ptr @decompress.size_overflow, align 1
   %153 = icmp eq i32 %146, -3
-  %or.cond.i = and i1 %153, %.b114.i
+  %or.cond.i = and i1 %153, %.b.i
   br i1 %or.cond.i, label %154, label %157
 
 154:                                              ; preds = %147

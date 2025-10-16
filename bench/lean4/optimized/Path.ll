@@ -15862,8 +15862,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Util_Path(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -15892,27 +15892,27 @@ define ptr @initialize_Lean_Util_Path(i8 noundef zeroext %0, ptr noundef readnon
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !10
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 16:                                               ; preds = %11
-  %.not.i10 = icmp eq i32 %12, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %17
+  %.not.i9 = icmp eq i32 %12, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %14, %16, %17
+lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   tail call void @lean_inc_heartbeat() #4
   %18 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_forEachModuleInDir___spec__2___rarg___lambda__2___closed__1.exit
 
-20:                                               ; preds = %lean_dec_ref.exit11
+20:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Array_forIn_x27Unsafe_loop___at_Lean_forEachModuleInDir___spec__2___rarg___lambda__2___closed__1.exit: ; preds = %lean_dec_ref.exit11
+_init_l_Array_forIn_x27Unsafe_loop___at_Lean_forEachModuleInDir___spec__2___rarg___lambda__2___closed__1.exit: ; preds = %lean_dec_ref.exit10
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 1, ptr %18, align 4, !tbaa !10
   store i32 16842768, ptr %21, align 4
@@ -16031,16 +16031,16 @@ _init_l_List_forIn_x27_loop___at_Lean_SearchPath_findAllWithExt___spec__2___clos
 60:                                               ; preds = %_init_l_List_forIn_x27_loop___at_Lean_SearchPath_findAllWithExt___spec__2___closed__1.exit
   %61 = tail call ptr @l_Lean_initFn____x40_Lean_Util_Path___hyg_736_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %62 = getelementptr i8, ptr %61, i64 4
-  %.val12 = load i32, ptr %62, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %63 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %62, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %63 = icmp eq i32 %.mask.i13, 16777216
   br i1 %63, label %154, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr i8, ptr %61, i64 8
-  %.val13 = load ptr, ptr %65, align 8, !tbaa !4
-  store ptr %.val13, ptr @l_Lean_searchPathRef, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #4
+  %.val12 = load ptr, ptr %65, align 8, !tbaa !4
+  store ptr %.val12, ptr @l_Lean_searchPathRef, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #4
   %66 = load i32, ptr %61, align 8, !tbaa !10
   %67 = icmp sgt i32 %66, 1
   br i1 %67, label %68, label %70, !prof !13
@@ -16164,8 +16164,8 @@ _init_l_Lean_getLibDir___closed__1.exit:          ; preds = %lean_dec_ref.exit
   tail call void @lean_mark_persistent(ptr noundef nonnull %111) #4
   %112 = load ptr, ptr @l_Lean_moduleNameOfFileName___lambda__3___closed__1, align 8, !tbaa !4
   %113 = getelementptr i8, ptr %112, i64 8
-  %.val.i15 = load i64, ptr %113, align 8, !tbaa !8
-  %114 = shl i64 %.val.i15, 1
+  %.val.i14 = load i64, ptr %113, align 8, !tbaa !8
+  %114 = shl i64 %.val.i14, 1
   %115 = add i64 %114, -1
   %116 = inttoptr i64 %115 to ptr
   store ptr %116, ptr @l_Lean_moduleNameOfFileName___lambda__3___closed__3, align 8, !tbaa !4
@@ -16269,18 +16269,18 @@ _init_l_Lean_findSysroot___lambda__1___closed__3.exit: ; preds = %_init_l_Lean_f
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_findSysroot___lambda__1___closed__3.exit, %3
-  %.sink35 = phi ptr [ %4, %3 ], [ %148, %_init_l_Lean_findSysroot___lambda__1___closed__3.exit ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sink35, i64 4
-  store i32 1, ptr %.sink35, align 4, !tbaa !10
+  %.sink34 = phi ptr [ %4, %3 ], [ %148, %_init_l_Lean_findSysroot___lambda__1___closed__3.exit ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !10
   store i32 131096, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %152, align 8, !tbaa !4
-  %153 = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %153, align 8, !tbaa !4
   br label %154
 
 154:                                              ; preds = %.sink.split, %60, %7
-  %.0 = phi ptr [ %8, %7 ], [ %61, %60 ], [ %.sink35, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %61, %60 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

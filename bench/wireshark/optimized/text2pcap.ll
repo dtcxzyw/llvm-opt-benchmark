@@ -301,8 +301,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.critedge.i
 
 65:                                               ; preds = %61, %60, %59, %57
-  %.sink1038.i = phi i32 [ 1, %59 ], [ 0, %60 ], [ 3, %61 ], [ 2, %57 ]
-  store i32 %.sink1038.i, ptr %24, align 8
+  %.sink1003.i = phi i32 [ 1, %59 ], [ 0, %60 ], [ 3, %61 ], [ 2, %57 ]
+  store i32 %.sink1003.i, ptr %24, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
@@ -409,8 +409,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 107:                                              ; preds = %30
   store i32 1, ptr %20, align 8
-  %.not287.i = icmp eq ptr %.0147.i, null
-  br i1 %.not287.i, label %109, label %108
+  %.not252.i = icmp eq ptr %.0147.i, null
+  br i1 %.not252.i, label %109, label %108
 
 108:                                              ; preds = %107
   call void @g_regex_unref(ptr noundef nonnull %.0147.i)
@@ -420,8 +420,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %110 = load ptr, ptr @ws_optarg, align 8
   %111 = call ptr @g_regex_new(ptr noundef %110, i32 noundef 532482, i32 noundef 1024, ptr noundef nonnull %6)
   %112 = load ptr, ptr %6, align 8
-  %.not288.i = icmp eq ptr %112, null
-  br i1 %.not288.i, label %120, label %113
+  %.not253.i = icmp eq ptr %112, null
+  br i1 %.not253.i, label %120, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -535,8 +535,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 168:                                              ; preds = %161
   %169 = load i8, ptr %165, align 1
-  %.not286.i = icmp eq i8 %169, 0
-  br i1 %.not286.i, label %174, label %170
+  %.not251.i = icmp eq i8 %169, 0
+  br i1 %.not251.i, label %174, label %170
 
 170:                                              ; preds = %168, %161
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.28, i32 noundef 115)
@@ -637,8 +637,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 216:                                              ; preds = %209
   %217 = load i8, ptr %213, align 1
-  %.not281.i = icmp eq i8 %217, 0
-  br i1 %.not281.i, label %222, label %218
+  %.not246.i = icmp eq i8 %217, 0
+  br i1 %.not246.i, label %222, label %218
 
 218:                                              ; preds = %216, %209
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.30, i32 noundef 83)
@@ -709,8 +709,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 249:                                              ; preds = %242
   %250 = load i8, ptr %246, align 1
-  %.not275.i = icmp eq i8 %250, 0
-  br i1 %.not275.i, label %255, label %251
+  %.not240.i = icmp eq i8 %250, 0
+  br i1 %.not240.i, label %255, label %251
 
 251:                                              ; preds = %249, %242
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.34)
@@ -776,8 +776,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 280:                                              ; preds = %273
   %281 = load i8, ptr %277, align 1
-  %.not272.i = icmp eq i8 %281, 0
-  br i1 %.not272.i, label %286, label %282
+  %.not237.i = icmp eq i8 %281, 0
+  br i1 %.not237.i, label %286, label %282
 
 282:                                              ; preds = %280, %273
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36)
@@ -800,8 +800,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 288:                                              ; preds = %30, %30
   %289 = load ptr, ptr @ws_optarg, align 8
   %290 = call ptr @strchr(ptr noundef %289, i32 noundef 44) #13
-  %.not267.i = icmp eq ptr %290, null
-  br i1 %.not267.i, label %291, label %295
+  %.not234.i = icmp eq ptr %290, null
+  br i1 %.not234.i, label %291, label %295
 
 291:                                              ; preds = %288
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, i32 noundef %31)
@@ -864,8 +864,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %parse_options.exit.thread
 
 319:                                              ; preds = %311
-  %.b212269.i = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b212269.i, label %320, label %326
+  %.b212.i = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b212.i, label %320, label %326
 
 320:                                              ; preds = %319
   %321 = call zeroext i1 @ws_inet_pton6(ptr noundef %312, ptr noundef nonnull @hdr_ipv6_dest_addr)
@@ -963,8 +963,8 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   %.not224.i = icmp sge i32 %354, %19
   %355 = sub i32 %19, %354
   %356 = icmp slt i32 %355, 2
-  %or.cond294.i = or i1 %.not224.i, %356
-  br i1 %or.cond294.i, label %357, label %359
+  %or.cond259.i = or i1 %.not224.i, %356
+  br i1 %or.cond259.i, label %357, label %359
 
 357:                                              ; preds = %353
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.42)
@@ -1013,12 +1013,12 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   br label %parse_options.exit.thread
 
 379:                                              ; preds = %373, %363
-  %.b222225.i = load i1, ptr @have_hdr_ip_proto, align 1
-  %.not.i = xor i1 %.b222225.i, true
-  %.b215226.i = load i1, ptr @hdr_ip, align 1
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.b215226.i
-  %.b207227.i = load i1, ptr @hdr_ipv6, align 1
-  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %.b207227.i
+  %.b222.i = load i1, ptr @have_hdr_ip_proto, align 1
+  %.not.i = xor i1 %.b222.i, true
+  %.b215.i = load i1, ptr @hdr_ip, align 1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.b215.i
+  %.b207.i = load i1, ptr @hdr_ipv6, align 1
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %.b207.i
   br i1 %or.cond4.i, label %381, label %380
 
 380:                                              ; preds = %379
@@ -1026,61 +1026,61 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   br label %381
 
 381:                                              ; preds = %380, %379
-  %.b214234.i = phi i1 [ true, %380 ], [ %.b215226.i, %379 ]
-  %or.cond6.i = select i1 %.b214234.i, i1 true, i1 %.b207227.i
-  %or.cond308.i = select i1 %.not.i, i1 %or.cond6.i, i1 false
-  br i1 %or.cond308.i, label %382, label %383
+  %.b214.i = phi i1 [ true, %380 ], [ %.b215.i, %379 ]
+  %or.cond6.i = select i1 %.b214.i, i1 true, i1 %.b207.i
+  %or.cond273.i = select i1 %.not.i, i1 %or.cond6.i, i1 false
+  br i1 %or.cond273.i, label %382, label %383
 
 382:                                              ; preds = %381
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.49)
   br label %parse_options.exit.thread
 
 383:                                              ; preds = %381
-  %.b201231.i = load i1, ptr @hdr_tcp, align 1
-  %.b202232.i = load i1, ptr @hdr_udp, align 1
-  %or.cond8.i = select i1 %.b201231.i, i1 true, i1 %.b202232.i
-  %.b193233.i = load i1, ptr @hdr_sctp, align 1
-  %or.cond10.i = select i1 %or.cond8.i, i1 true, i1 %.b193233.i
+  %.b201.i = load i1, ptr @hdr_tcp, align 1
+  %.b202.i = load i1, ptr @hdr_udp, align 1
+  %or.cond8.i = select i1 %.b201.i, i1 true, i1 %.b202.i
+  %.b193.i = load i1, ptr @hdr_sctp, align 1
+  %or.cond10.i = select i1 %or.cond8.i, i1 true, i1 %.b193.i
   %or.cond10.not.i = xor i1 %or.cond10.i, true
-  %or.cond12.i = select i1 %or.cond10.not.i, i1 true, i1 %.b214234.i
-  %or.cond14.i = select i1 %or.cond12.i, i1 true, i1 %.b207227.i
-  br i1 %or.cond14.i, label %384, label %.thread798.i
+  %or.cond12.i = select i1 %or.cond10.not.i, i1 true, i1 %.b214.i
+  %or.cond14.i = select i1 %or.cond12.i, i1 true, i1 %.b207.i
+  br i1 %or.cond14.i, label %384, label %.thread763.i
 
 384:                                              ; preds = %383
-  %.b192236.i = load i1, ptr @hdr_export_pdu, align 1
+  %.b192.i = load i1, ptr @hdr_export_pdu, align 1
   %385 = icmp ne i32 %.0153.i, 155
-  %or.cond16.i = select i1 %.b192236.i, i1 %385, i1 false
+  %or.cond16.i = select i1 %.b192.i, i1 %385, i1 false
   br i1 %or.cond16.i, label %387, label %388
 
-.thread798.i:                                     ; preds = %383
+.thread763.i:                                     ; preds = %383
   store i1 true, ptr @hdr_ip, align 1
-  %.b192236800.i = load i1, ptr @hdr_export_pdu, align 1
+  %.b192765.i = load i1, ptr @hdr_export_pdu, align 1
   %386 = icmp ne i32 %.0153.i, 155
-  %or.cond16801.i = select i1 %.b192236800.i, i1 %386, i1 false
-  br i1 %or.cond16801.i, label %387, label %.thread803.i
+  %or.cond16766.i = select i1 %.b192765.i, i1 %386, i1 false
+  br i1 %or.cond16766.i, label %387, label %.thread768.i
 
-387:                                              ; preds = %.thread798.i, %384
+387:                                              ; preds = %.thread763.i, %384
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.50)
   br label %parse_options.exit.thread
 
 388:                                              ; preds = %384
-  br i1 %.b214234.i, label %.thread803.i, label %392
+  br i1 %.b214.i, label %.thread768.i, label %392
 
-.thread803.i:                                     ; preds = %388, %.thread798.i
+.thread768.i:                                     ; preds = %388, %.thread763.i
   switch i32 %.0153.i, label %389 [
     i32 1, label %.sink.split.i
     i32 7, label %397
     i32 129, label %397
   ]
 
-389:                                              ; preds = %.thread803.i
+389:                                              ; preds = %.thread768.i
   %390 = call ptr @wtap_encap_description(i32 noundef %.0153.i)
   %391 = call ptr @wtap_encap_name(i32 noundef %.0153.i)
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.51, ptr noundef %390, ptr noundef %391)
   br label %parse_options.exit.thread
 
 392:                                              ; preds = %388
-  br i1 %.b207227.i, label %393, label %397
+  br i1 %.b207.i, label %393, label %397
 
 393:                                              ; preds = %392
   switch i32 %.0153.i, label %394 [
@@ -1095,15 +1095,15 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.52, ptr noundef %395, ptr noundef %396)
   br label %parse_options.exit.thread
 
-.sink.split.i:                                    ; preds = %393, %.thread803.i
-  %.sink1039.i = phi i32 [ 2048, %.thread803.i ], [ 34525, %393 ]
+.sink.split.i:                                    ; preds = %393, %.thread768.i
+  %.sink1004.i = phi i32 [ 2048, %.thread768.i ], [ 34525, %393 ]
   store i1 true, ptr @hdr_ethernet, align 1
-  store i32 %.sink1039.i, ptr @hdr_ethernet_proto, align 4
+  store i32 %.sink1004.i, ptr @hdr_ethernet_proto, align 4
   br label %397
 
-397:                                              ; preds = %.sink.split.i, %393, %393, %392, %.thread803.i, %.thread803.i
+397:                                              ; preds = %.sink.split.i, %393, %393, %392, %.thread768.i, %.thread768.i
   %398 = icmp eq i32 %.0149.i, 4
-  br i1 %398, label %399, label %.thread300.i
+  br i1 %398, label %399, label %.thread265.i
 
 399:                                              ; preds = %397
   %400 = load i32, ptr @ws_optind, align 4
@@ -1112,77 +1112,77 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   %403 = getelementptr ptr, ptr %1, i64 %402
   %404 = load ptr, ptr %403, align 8
   %405 = call ptr @strrchr(ptr noundef %404, i32 noundef 46) #13
-  %.not239.i = icmp eq ptr %405, null
-  br i1 %.not239.i, label %.thread303.i, label %406
+  %.not225.i = icmp eq ptr %405, null
+  br i1 %.not225.i, label %.thread268.i, label %406
 
 406:                                              ; preds = %399
   %407 = getelementptr i8, ptr %405, i64 1
   %408 = call i32 @wtap_extension_to_compression_type(ptr noundef %407)
   %.fr.i = freeze i32 %408
   %409 = icmp eq i32 %.fr.i, 4
-  br i1 %409, label %.thread303.i, label %.thread300.i
+  br i1 %409, label %.thread268.i, label %.thread265.i
 
-.thread300.i:                                     ; preds = %406, %397
+.thread265.i:                                     ; preds = %406, %397
   %410 = phi i32 [ %.fr.i, %406 ], [ %.0149.i, %397 ]
   %411 = call zeroext i1 @wtap_can_write_compression_type(i32 noundef %410)
   br i1 %411, label %416, label %413
 
-.thread303.i:                                     ; preds = %406, %399
+.thread268.i:                                     ; preds = %406, %399
   %412 = call zeroext i1 @wtap_can_write_compression_type(i32 noundef 0)
-  br i1 %412, label %.thread304.i, label %413
+  br i1 %412, label %.thread269.i, label %413
 
-413:                                              ; preds = %.thread303.i, %.thread300.i
-  %414 = phi i32 [ 0, %.thread303.i ], [ %410, %.thread300.i ]
+413:                                              ; preds = %.thread268.i, %.thread265.i
+  %414 = phi i32 [ 0, %.thread268.i ], [ %410, %.thread265.i ]
   %415 = call ptr @wtap_compression_type_description(i32 noundef %414)
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.53, ptr noundef %415)
   br label %parse_options.exit.thread
 
-416:                                              ; preds = %.thread300.i
-  %.not240.i = icmp eq i32 %410, 0
-  br i1 %.not240.i, label %.thread304.i, label %417
+416:                                              ; preds = %.thread265.i
+  %.not226.i = icmp eq i32 %410, 0
+  br i1 %.not226.i, label %.thread269.i, label %417
 
 417:                                              ; preds = %416
   %418 = call zeroext i1 @wtap_dump_can_compress(i32 noundef %.0155.i)
-  br i1 %418, label %.thread304.i, label %419
+  br i1 %418, label %.thread269.i, label %419
 
 419:                                              ; preds = %417
   %420 = call ptr @wtap_file_type_subtype_name(i32 noundef %.0155.i)
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.54, ptr noundef %420)
   br label %parse_options.exit.thread
 
-.thread304.i:                                     ; preds = %417, %416, %.thread303.i
-  %421 = phi i32 [ %410, %417 ], [ 0, %416 ], [ 0, %.thread303.i ]
+.thread269.i:                                     ; preds = %417, %416, %.thread268.i
+  %421 = phi i32 [ %410, %417 ], [ 0, %416 ], [ 0, %.thread268.i ]
   %422 = load i32, ptr @ws_optind, align 4
   %423 = sext i32 %422 to i64
   %424 = getelementptr ptr, ptr %1, i64 %423
   %425 = load ptr, ptr %424, align 8
   %426 = load i8, ptr %425, align 1
-  %.not542.i = icmp eq i8 %426, 45
-  br i1 %.not542.i, label %.thread304.tail.i, label %.thread304.i..thread304.tail.thread.i_crit_edge
+  %.not507.i = icmp eq i8 %426, 45
+  br i1 %.not507.i, label %.thread269.tail.i, label %.thread269.i..thread269.tail.thread.i_crit_edge
 
-.thread304.i..thread304.tail.thread.i_crit_edge:  ; preds = %.thread304.i
+.thread269.i..thread269.tail.thread.i_crit_edge:  ; preds = %.thread269.i
   %.pre = load i32, ptr %20, align 8
-  br label %.thread304.tail.thread.i
+  br label %.thread269.tail.thread.i
 
-.thread304.tail.i:                                ; preds = %.thread304.i
+.thread269.tail.i:                                ; preds = %.thread269.i
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 1
   %428 = load i8, ptr %427, align 1
   %429 = icmp eq i8 %428, 0
-  %.pre483 = load i32, ptr %20, align 8
-  br i1 %429, label %445, label %.thread304.tail.thread.i
+  %.pre482 = load i32, ptr %20, align 8
+  br i1 %429, label %445, label %.thread269.tail.thread.i
 
-.thread304.tail.thread.i:                         ; preds = %.thread304.i..thread304.tail.thread.i_crit_edge, %.thread304.tail.i
-  %430 = phi i32 [ %.pre, %.thread304.i..thread304.tail.thread.i_crit_edge ], [ %.pre483, %.thread304.tail.i ]
+.thread269.tail.thread.i:                         ; preds = %.thread269.i..thread269.tail.thread.i_crit_edge, %.thread269.tail.i
+  %430 = phi i32 [ %.pre, %.thread269.i..thread269.tail.thread.i_crit_edge ], [ %.pre482, %.thread269.tail.i ]
   store ptr %425, ptr @input_filename, align 8
   %431 = icmp eq i32 %430, 1
   br i1 %431, label %432, label %439
 
-432:                                              ; preds = %.thread304.tail.thread.i
+432:                                              ; preds = %.thread269.tail.thread.i
   %433 = call ptr @g_mapped_file_new(ptr noundef %425, i32 noundef 1, ptr noundef nonnull %6)
   store ptr %433, ptr %23, align 8
   %434 = load ptr, ptr %6, align 8
-  %.not244.i = icmp eq ptr %434, null
-  br i1 %.not244.i, label %456, label %435
+  %.not230.i = icmp eq ptr %434, null
+  br i1 %.not230.i, label %456, label %435
 
 435:                                              ; preds = %432
   %436 = getelementptr inbounds nuw i8, ptr %434, i64 8
@@ -1192,11 +1192,11 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   call void @g_error_free(ptr noundef %438)
   br label %parse_options.exit.thread
 
-439:                                              ; preds = %.thread304.tail.thread.i
+439:                                              ; preds = %.thread269.tail.thread.i
   %440 = call noalias ptr @fopen(ptr noundef %425, ptr noundef nonnull @.str.56)
   store ptr %440, ptr @input_file, align 8
-  %.not243.i = icmp eq ptr %440, null
-  br i1 %.not243.i, label %441, label %456
+  %.not229.i = icmp eq ptr %440, null
+  br i1 %.not229.i, label %441, label %456
 
 441:                                              ; preds = %439
   %442 = load ptr, ptr @input_filename, align 8
@@ -1205,16 +1205,16 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   call void @open_failure_message(ptr noundef %442, i32 noundef %444, i1 noundef zeroext false)
   br label %parse_options.exit.thread
 
-445:                                              ; preds = %.thread304.tail.i
-  %446 = icmp eq i32 %.pre483, 1
+445:                                              ; preds = %.thread269.tail.i
+  %446 = icmp eq i32 %.pre482, 1
   br i1 %446, label %447, label %454
 
 447:                                              ; preds = %445
   %448 = call ptr @g_mapped_file_new_from_fd(i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6)
   store ptr %448, ptr %23, align 8
   %449 = load ptr, ptr %6, align 8
-  %.not242.i = icmp eq ptr %449, null
-  br i1 %.not242.i, label %454, label %450
+  %.not228.i = icmp eq ptr %449, null
+  br i1 %.not228.i, label %454, label %450
 
 450:                                              ; preds = %447
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 8
@@ -1249,8 +1249,8 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   store i32 9, ptr %463, align 8
   %464 = load ptr, ptr @input_filename, align 8
   %465 = call i32 @text_import_pre_open(ptr noundef nonnull %11, i32 noundef %.2157.i, ptr noundef %464, ptr noundef %.0158.i)
-  %.not245.i = icmp eq i32 %465, 0
-  br i1 %.not245.i, label %sub_0309.i, label %466
+  %.not231.i = icmp eq i32 %465, 0
+  br i1 %.not231.i, label %sub_0274.i, label %466
 
 466:                                              ; preds = %462
   %467 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1259,23 +1259,23 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %336
   call void @wtap_dump_params_cleanup(ptr noundef nonnull %11)
   br label %parse_options.exit.thread
 
-sub_0309.i:                                       ; preds = %462
+sub_0274.i:                                       ; preds = %462
   %469 = load i32, ptr @ws_optind, align 4
   %470 = add i32 %469, 1
   %471 = sext i32 %470 to i64
   %472 = getelementptr ptr, ptr %1, i64 %471
   %473 = load ptr, ptr %472, align 8
   %474 = load i8, ptr %473, align 1
-  %.not543.i = icmp eq i8 %474, 45
-  br i1 %.not543.i, label %.tail.i, label %.tail.thread.i
+  %.not508.i = icmp eq i8 %474, 45
+  br i1 %.not508.i, label %.tail.i, label %.tail.thread.i
 
-.tail.i:                                          ; preds = %sub_0309.i
+.tail.i:                                          ; preds = %sub_0274.i
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 1
   %476 = load i8, ptr %475, align 1
   %477 = icmp eq i8 %476, 0
   br i1 %477, label %479, label %.tail.thread.i
 
-.tail.thread.i:                                   ; preds = %.tail.i, %sub_0309.i
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_0274.i
   store ptr %473, ptr @output_filename, align 8
   %478 = call ptr @wtap_dump_open(ptr noundef %473, i32 noundef %.2157.i, i32 noundef %421, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %481
@@ -1288,8 +1288,8 @@ sub_0309.i:                                       ; preds = %462
 481:                                              ; preds = %479, %.tail.thread.i
   %storemerge.i = phi ptr [ %480, %479 ], [ %478, %.tail.thread.i ]
   store ptr %storemerge.i, ptr @wdh, align 8
-  %.not247.i = icmp eq ptr %storemerge.i, null
-  br i1 %.not247.i, label %482, label %488
+  %.not233.i = icmp eq ptr %storemerge.i, null
+  br i1 %.not233.i, label %482, label %488
 
 482:                                              ; preds = %481
   %483 = load ptr, ptr @output_filename, align 8
@@ -1314,8 +1314,8 @@ sub_0309.i:                                       ; preds = %462
   store i32 %.0153.i, ptr %493, align 8
   %494 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %storemerge.i, ptr %494, align 8
-  %.b191248.i = load i1, ptr @hdr_export_pdu, align 1
-  br i1 %.b191248.i, label %495, label %497
+  %.b191.i = load i1, ptr @hdr_export_pdu, align 1
+  br i1 %.b191.i, label %495, label %497
 
 495:                                              ; preds = %488
   %496 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1323,8 +1323,8 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 497:                                              ; preds = %488
-  %.b198249.i = load i1, ptr @hdr_data_chunk, align 1
-  br i1 %.b198249.i, label %498, label %500
+  %.b198.i = load i1, ptr @hdr_data_chunk, align 1
+  br i1 %.b198.i, label %498, label %500
 
 498:                                              ; preds = %497
   %499 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1332,8 +1332,8 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 500:                                              ; preds = %497
-  %.b196250.i = load i1, ptr @hdr_sctp, align 1
-  br i1 %.b196250.i, label %501, label %503
+  %.b196.i = load i1, ptr @hdr_sctp, align 1
+  br i1 %.b196.i, label %501, label %503
 
 501:                                              ; preds = %500
   %502 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1341,8 +1341,8 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 503:                                              ; preds = %500
-  %.b200251.i = load i1, ptr @hdr_tcp, align 1
-  br i1 %.b200251.i, label %504, label %506
+  %.b200.i = load i1, ptr @hdr_tcp, align 1
+  br i1 %.b200.i, label %504, label %506
 
 504:                                              ; preds = %503
   %505 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1350,8 +1350,8 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 506:                                              ; preds = %503
-  %.b204252.i = load i1, ptr @hdr_udp, align 1
-  br i1 %.b204252.i, label %507, label %509
+  %.b204.i = load i1, ptr @hdr_udp, align 1
+  br i1 %.b204.i, label %507, label %509
 
 507:                                              ; preds = %506
   %508 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1359,10 +1359,10 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 509:                                              ; preds = %506
-  %.b218253.i = load i1, ptr @hdr_ip, align 1
-  br i1 %.b218253.i, label %.thread306.i, label %513
+  %.b218.i = load i1, ptr @hdr_ip, align 1
+  br i1 %.b218.i, label %.thread271.i, label %513
 
-.thread306.i:                                     ; preds = %509
+.thread271.i:                                     ; preds = %509
   %510 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i32 2, ptr %510, align 8
   %511 = load i32, ptr @hdr_ethernet_proto, align 4
@@ -1371,8 +1371,8 @@ sub_0309.i:                                       ; preds = %462
   br label %523
 
 513:                                              ; preds = %509
-  %.b210254.i = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b210254.i, label %514, label %516
+  %.b210.i = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b210.i, label %514, label %516
 
 514:                                              ; preds = %513
   %515 = getelementptr inbounds nuw i8, ptr %10, i64 104
@@ -1380,9 +1380,9 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 516:                                              ; preds = %513
-  %.b190255.i = load i1, ptr @hdr_ethernet, align 1
+  %.b190.i = load i1, ptr @hdr_ethernet, align 1
   %517 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  br i1 %.b190255.i, label %518, label %519
+  br i1 %.b190.i, label %518, label %519
 
 518:                                              ; preds = %516
   store i32 1, ptr %517, align 8
@@ -1393,13 +1393,13 @@ sub_0309.i:                                       ; preds = %462
   br label %520
 
 520:                                              ; preds = %519, %518, %514, %507, %504, %501, %498, %495
-  %.b217256.pr.i = load i1, ptr @hdr_ip, align 1
+  %.b217.pr.i = load i1, ptr @hdr_ip, align 1
   %521 = load i32, ptr @hdr_ethernet_proto, align 4
   %522 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 %521, ptr %522, align 4
-  br i1 %.b217256.pr.i, label %523, label %528
+  br i1 %.b217.pr.i, label %523, label %528
 
-523:                                              ; preds = %520, %.thread306.i
+523:                                              ; preds = %520, %.thread271.i
   %524 = load i32, ptr @hdr_ip_src_addr, align 4
   %525 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 %524, ptr %525, align 4
@@ -1409,8 +1409,8 @@ sub_0309.i:                                       ; preds = %462
   br label %533
 
 528:                                              ; preds = %520
-  %.b209257.i = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b209257.i, label %529, label %533
+  %.b209.i = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b209.i, label %529, label %533
 
 529:                                              ; preds = %528
   %530 = getelementptr inbounds nuw i8, ptr %10, i64 112
@@ -1426,15 +1426,15 @@ sub_0309.i:                                       ; preds = %462
   %535 = zext i8 %534 to i32
   %536 = getelementptr inbounds nuw i8, ptr %10, i64 148
   store i32 %535, ptr %536, align 4
-  %.b195258.i = load i1, ptr @hdr_sctp, align 1
+  %.b195.i = load i1, ptr @hdr_sctp, align 1
   %hdr_sctp_dest.val.i = load i32, ptr @hdr_sctp_dest, align 4
   %hdr_dest_port.val.i = load i32, ptr @hdr_dest_port, align 4
-  %.sink.i = select i1 %.b195258.i, i32 %hdr_sctp_dest.val.i, i32 %hdr_dest_port.val.i
+  %.sink.i = select i1 %.b195.i, i32 %hdr_sctp_dest.val.i, i32 %hdr_dest_port.val.i
   %hdr_sctp_src.val.i = load i32, ptr @hdr_sctp_src, align 4
   %hdr_src_port.val.i = load i32, ptr @hdr_src_port, align 4
-  %.sink774.i = select i1 %.b195258.i, i32 %hdr_sctp_src.val.i, i32 %hdr_src_port.val.i
+  %.sink739.i = select i1 %.b195.i, i32 %hdr_sctp_src.val.i, i32 %hdr_src_port.val.i
   %537 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i32 %.sink774.i, ptr %537, align 8
+  store i32 %.sink739.i, ptr %537, align 8
   %538 = getelementptr inbounds nuw i8, ptr %10, i64 156
   store i32 %.sink.i, ptr %538, align 4
   %539 = load i32, ptr @hdr_sctp_tag, align 4
@@ -1446,8 +1446,8 @@ sub_0309.i:                                       ; preds = %462
   %543 = load i32, ptr @max_offset, align 4
   %544 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i32 %543, ptr %544, align 8
-  %.b259.i = load i1, ptr @quiet, align 1
-  br i1 %.b259.i, label %594, label %545
+  %.b.i = load i1, ptr @quiet, align 1
+  br i1 %.b.i, label %594, label %545
 
 545:                                              ; preds = %533
   %546 = load ptr, ptr @stderr, align 8
@@ -1458,8 +1458,8 @@ sub_0309.i:                                       ; preds = %462
   %551 = load ptr, ptr @stderr, align 8
   %552 = call ptr @wtap_file_type_subtype_name(i32 noundef %.2157.i)
   %553 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %551, i32 noundef 2, ptr noundef nonnull @.str.62, ptr noundef %552)
-  %.b189260.i = load i1, ptr @hdr_ethernet, align 1
-  br i1 %.b189260.i, label %554, label %558
+  %.b189.i = load i1, ptr @hdr_ethernet, align 1
+  br i1 %.b189.i, label %554, label %558
 
 554:                                              ; preds = %545
   %555 = load ptr, ptr @stderr, align 8
@@ -1468,8 +1468,8 @@ sub_0309.i:                                       ; preds = %462
   br label %558
 
 558:                                              ; preds = %554, %545
-  %.b216261.i = load i1, ptr @hdr_ip, align 1
-  br i1 %.b216261.i, label %559, label %564
+  %.b216.i = load i1, ptr @hdr_ip, align 1
+  br i1 %.b216.i, label %559, label %564
 
 559:                                              ; preds = %558
   %560 = load ptr, ptr @stderr, align 8
@@ -1479,8 +1479,8 @@ sub_0309.i:                                       ; preds = %462
   br label %564
 
 564:                                              ; preds = %559, %558
-  %.b208262.i = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b208262.i, label %565, label %570
+  %.b208.i = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b208.i, label %565, label %570
 
 565:                                              ; preds = %564
   %566 = load ptr, ptr @stderr, align 8
@@ -1490,8 +1490,8 @@ sub_0309.i:                                       ; preds = %462
   br label %570
 
 570:                                              ; preds = %565, %564
-  %.b203263.i = load i1, ptr @hdr_udp, align 1
-  br i1 %.b203263.i, label %571, label %576
+  %.b203.i = load i1, ptr @hdr_udp, align 1
+  br i1 %.b203.i, label %571, label %576
 
 571:                                              ; preds = %570
   %572 = load ptr, ptr @stderr, align 8
@@ -1501,8 +1501,8 @@ sub_0309.i:                                       ; preds = %462
   br label %576
 
 576:                                              ; preds = %571, %570
-  %.b199264.i = load i1, ptr @hdr_tcp, align 1
-  br i1 %.b199264.i, label %577, label %582
+  %.b199.i = load i1, ptr @hdr_tcp, align 1
+  br i1 %.b199.i, label %577, label %582
 
 577:                                              ; preds = %576
   %578 = load ptr, ptr @stderr, align 8
@@ -1512,8 +1512,8 @@ sub_0309.i:                                       ; preds = %462
   br label %582
 
 582:                                              ; preds = %577, %576
-  %.b194265.i = load i1, ptr @hdr_sctp, align 1
-  br i1 %.b194265.i, label %583, label %589
+  %.b194.i = load i1, ptr @hdr_sctp, align 1
+  br i1 %.b194.i, label %583, label %589
 
 583:                                              ; preds = %582
   %584 = load ptr, ptr @stderr, align 8
@@ -1524,8 +1524,8 @@ sub_0309.i:                                       ; preds = %462
   br label %589
 
 589:                                              ; preds = %583, %582
-  %.b197266.i = load i1, ptr @hdr_data_chunk, align 1
-  br i1 %.b197266.i, label %590, label %594
+  %.b197.i = load i1, ptr @hdr_data_chunk, align 1
+  br i1 %.b197.i, label %590, label %594
 
 590:                                              ; preds = %589
   %591 = load ptr, ptr @stderr, align 8
@@ -1561,8 +1561,8 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %69, %
   br label %601
 
 601:                                              ; preds = %598, %594
-  %.b14 = load i1, ptr @quiet, align 1
-  br i1 %.b14, label %617, label %602
+  %.b = load i1, ptr @quiet, align 1
+  br i1 %.b, label %617, label %602
 
 602:                                              ; preds = %601
   %603 = load ptr, ptr @wdh, align 8
@@ -1584,8 +1584,8 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %69, %
 617:                                              ; preds = %parse_options.exit.thread, %601, %602
   %.0 = phi i32 [ %595, %601 ], [ %595, %602 ], [ %.3.i.ph, %parse_options.exit.thread ]
   %618 = load ptr, ptr @input_file, align 8
-  %.not15 = icmp eq ptr %618, null
-  br i1 %.not15, label %621, label %619
+  %.not14 = icmp eq ptr %618, null
+  br i1 %.not14, label %621, label %619
 
 619:                                              ; preds = %617
   %620 = call i32 @fclose(ptr noundef nonnull %618)
@@ -1593,8 +1593,8 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %69, %
 
 621:                                              ; preds = %619, %617
   %622 = load ptr, ptr %23, align 8
-  %.not16 = icmp eq ptr %622, null
-  br i1 %.not16, label %624, label %623
+  %.not15 = icmp eq ptr %622, null
+  br i1 %.not15, label %624, label %623
 
 623:                                              ; preds = %621
   call void @g_mapped_file_unref(ptr noundef nonnull %622)
@@ -1603,8 +1603,8 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %69, %
 624:                                              ; preds = %623, %621
   %625 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %626 = load ptr, ptr %625, align 8
-  %.not17 = icmp eq ptr %626, null
-  br i1 %.not17, label %628, label %627
+  %.not16 = icmp eq ptr %626, null
+  br i1 %.not16, label %628, label %627
 
 627:                                              ; preds = %624
   call void @g_regex_unref(ptr noundef nonnull %626)
@@ -1612,8 +1612,8 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %69, %
 
 628:                                              ; preds = %627, %624
   %629 = load ptr, ptr @wdh, align 8
-  %.not18 = icmp eq ptr %629, null
-  br i1 %.not18, label %637, label %630
+  %.not17 = icmp eq ptr %629, null
+  br i1 %.not17, label %637, label %630
 
 630:                                              ; preds = %628
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

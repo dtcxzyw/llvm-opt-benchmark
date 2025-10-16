@@ -1702,8 +1702,8 @@ declare ptr @l_Lean_Elab_registerDerivingHandler(ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Deriving_SizeOf(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -1745,9 +1745,9 @@ define ptr @initialize_Lean_Elab_Deriving_SizeOf(i8 noundef zeroext %0, ptr noun
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Elab_Deriving_Basic(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %57, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -1758,17 +1758,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 6, i64 noundef 6) #3
   store ptr %28, ptr @l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -1781,11 +1781,11 @@ lean_dec_ref.exit14:                              ; preds = %24, %26, %27
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit
 
-33:                                               ; preds = %lean_dec_ref.exit14
+33:                                               ; preds = %lean_dec_ref.exit13
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit: ; preds = %lean_dec_ref.exit14
+_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit: ; preds = %lean_dec_ref.exit13
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 1, ptr %31, align 4, !tbaa !4
   store i32 -184549352, ptr %34, align 4
@@ -1798,16 +1798,16 @@ _init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_
   store ptr %31, ptr @l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %31) #3
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit16, label %38
+  br i1 %.not, label %lean_dec_ref.exit15, label %38
 
 38:                                               ; preds = %_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit
   %39 = load ptr, ptr @l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__2, align 8, !tbaa !10
   %40 = load ptr, ptr @l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3, align 8, !tbaa !10
   %41 = tail call ptr @l_Lean_Elab_registerDerivingHandler(ptr noundef %39, ptr noundef %40, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val18 = load i32, ptr %42, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %43 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %42, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %43 = icmp eq i32 %.mask.i19, 16777216
   br i1 %43, label %57, label %44
 
 44:                                               ; preds = %38
@@ -1818,39 +1818,39 @@ _init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 49:                                               ; preds = %44
-  %.not.i15 = icmp eq i32 %45, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %50
+  %.not.i14 = icmp eq i32 %45, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #3
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %50, %49, %47, %_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit
+lean_dec_ref.exit15:                              ; preds = %50, %49, %47, %_init_l_Lean_Elab_Deriving_SizeOf_initFn____x40_Lean_Elab_Deriving_SizeOf___hyg_125____closed__3.exit
   tail call void @lean_inc_heartbeat() #3
   %51 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %.sink.split
 
-53:                                               ; preds = %lean_dec_ref.exit16
+53:                                               ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit16, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %51, %lean_dec_ref.exit16 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+.sink.split:                                      ; preds = %lean_dec_ref.exit15, %3
+  %.sink32 = phi ptr [ %4, %3 ], [ %51, %lean_dec_ref.exit15 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !4
   store i32 131096, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %55, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %56, align 8, !tbaa !10
   br label %57
 
 57:                                               ; preds = %.sink.split, %38, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %41, %38 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %41, %38 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

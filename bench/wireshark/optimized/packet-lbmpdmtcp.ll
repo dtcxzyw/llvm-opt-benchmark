@@ -95,8 +95,8 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lbmpdm_tcp() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 1
-  br i1 %.b1, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @lbmpdm_tcp_dissector_handle, align 8

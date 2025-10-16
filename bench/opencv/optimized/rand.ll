@@ -94,8 +94,8 @@ define noundef double @_ZN2cv3RNG8gaussianEd(ptr noundef nonnull align 8 capture
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8, !tbaa !7
-  %.b74 = load i1, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE11initialized, align 1
-  br i1 %.b74, label %30, label %5
+  %.b = load i1, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE11initialized, align 1
+  br i1 %.b, label %30, label %5
 
 5:                                                ; preds = %3
   store i32 1991057938, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, align 16, !tbaa !9
@@ -108,16 +108,16 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 
 6:                                                ; preds = %5, %6
   %indvars.iv = phi i64 [ 126, %5 ], [ %indvars.iv.next, %6 ]
-  %.07188 = phi double [ 0x400B8A7C476D2BE8, %5 ], [ %14, %6 ]
-  %7 = fdiv double 0x3F844D09B072AAA1, %.07188
-  %8 = fmul double %.07188, -5.000000e-01
-  %9 = fmul double %.07188, %8
+  %.07187 = phi double [ 0x400B8A7C476D2BE8, %5 ], [ %14, %6 ]
+  %7 = fdiv double 0x3F844D09B072AAA1, %.07187
+  %8 = fmul double %.07187, -5.000000e-01
+  %9 = fmul double %.07187, %8
   %10 = tail call double @exp(double noundef %9) #19, !tbaa !9
   %11 = fadd double %7, %10
   %12 = tail call double @log(double noundef %11) #19, !tbaa !9
   %13 = fmul double %12, -2.000000e+00
   %14 = tail call double @sqrt(double noundef %13) #19, !tbaa !9
-  %15 = fdiv double %14, %.07188
+  %15 = fdiv double %14, %.07187
   %16 = fmul double %15, 0x41E0000000000000
   %17 = fptoui double %16 to i32
   %18 = getelementptr inbounds nuw i32, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, i64 %indvars.iv
@@ -143,19 +143,19 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 
 30:                                               ; preds = %29, %3
   %31 = icmp sgt i32 %1, 0
-  br i1 %31, label %.preheader80.preheader, label %._crit_edge
+  br i1 %31, label %.preheader79.preheader, label %._crit_edge
 
-.preheader80.preheader:                           ; preds = %30
+.preheader79.preheader:                           ; preds = %30
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.preheader80
+  br label %.preheader79
 
-.preheader80:                                     ; preds = %.preheader80.preheader, %select.unfold
-  %indvars.iv100 = phi i64 [ 0, %.preheader80.preheader ], [ %indvars.iv.next101, %select.unfold ]
-  %.06791 = phi i64 [ %4, %.preheader80.preheader ], [ %.2.ph, %select.unfold ]
+.preheader79:                                     ; preds = %.preheader79.preheader, %select.unfold
+  %indvars.iv99 = phi i64 [ 0, %.preheader79.preheader ], [ %indvars.iv.next100, %select.unfold ]
+  %.06790 = phi i64 [ %4, %.preheader79.preheader ], [ %.2.ph, %select.unfold ]
   br label %32
 
-32:                                               ; preds = %.preheader80, %81
-  %.1 = phi i64 [ %88, %81 ], [ %.06791, %.preheader80 ]
+32:                                               ; preds = %.preheader79, %81
+  %.1 = phi i64 [ %88, %81 ], [ %.06790, %.preheader79 ]
   %33 = trunc i64 %.1 to i32
   %34 = and i64 %.1, 4294967295
   %35 = mul nuw i64 %34, 4164903690
@@ -239,11 +239,11 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 select.unfold:                                    ; preds = %81, %32, %76
   %.070.ph = phi float [ %80, %76 ], [ %42, %32 ], [ %42, %81 ]
   %.2.ph = phi i64 [ %63, %76 ], [ %88, %81 ], [ %37, %32 ]
-  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv100
+  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv99
   store float %.070.ph, ptr %101, align 4, !tbaa !3
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !14
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %select.unfold, %30
   %.067.lcssa = phi i64 [ %4, %30 ], [ %.2.ph, %select.unfold ]

@@ -102,8 +102,8 @@ define void @_ZN3net59protobuf_ShutdownFile_cached_5fnetwork_5fparameters_2eprot
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.b1 = load i1, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
-  br i1 %.b1, label %4, label %1
+  %.b = load i1, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
@@ -1846,8 +1846,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal26FunctionResultCal
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cached_network_parameters.pb.cc() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  %.b1.i.i.i = load i1, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
-  br i1 %.b1.i.i.i, label %__cxx_global_var_init.exit, label %1
+  %.b.i.i.i = load i1, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
+  br i1 %.b.i.i.i, label %__cxx_global_var_init.exit, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1

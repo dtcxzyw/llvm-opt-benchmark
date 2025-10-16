@@ -14388,8 +14388,8 @@ declare ptr @l_Lean_Elab_registerDerivingHandler(ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Deriving_TypeName(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b7 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b7, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -14418,17 +14418,17 @@ define ptr @initialize_Lean_Elab_Deriving_TypeName(i8 noundef zeroext %0, ptr no
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit9
+  br label %lean_dec_ref.exit8
 
 16:                                               ; preds = %11
-  %.not.i8 = icmp eq i32 %12, 0
-  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
+  %.not.i7 = icmp eq i32 %12, 0
+  br i1 %.not.i7, label %lean_dec_ref.exit8, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit9
+  br label %lean_dec_ref.exit8
 
-lean_dec_ref.exit9:                               ; preds = %14, %16, %17
+lean_dec_ref.exit8:                               ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 18, i64 noundef 18) #4
   store ptr %18, ptr @l_Lean_getConstInfo___at___private_Lean_Elab_Deriving_TypeName_0__Lean_Elab_deriveTypeNameInstance___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #4
@@ -14587,11 +14587,11 @@ lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %_init_l_Array_forIn_x27Unsafe_loop___at___private_Lean_Elab_Deriving_TypeName_0__Lean_Elab_deriveTypeNameInstance___spec__3___lambda__1___closed__32.exit
 
-100:                                              ; preds = %lean_dec_ref.exit9
+100:                                              ; preds = %lean_dec_ref.exit8
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Array_forIn_x27Unsafe_loop___at___private_Lean_Elab_Deriving_TypeName_0__Lean_Elab_deriveTypeNameInstance___spec__3___lambda__1___closed__32.exit: ; preds = %lean_dec_ref.exit9
+_init_l_Array_forIn_x27Unsafe_loop___at___private_Lean_Elab_Deriving_TypeName_0__Lean_Elab_deriveTypeNameInstance___spec__3___lambda__1___closed__32.exit: ; preds = %lean_dec_ref.exit8
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 1, ptr %98, align 4, !tbaa !8
   store i32 16908312, ptr %101, align 4
@@ -14906,9 +14906,9 @@ _init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed_
   %246 = load ptr, ptr @l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1, align 8, !tbaa !4
   %247 = tail call ptr @l_Lean_Elab_registerDerivingHandler(ptr noundef %245, ptr noundef %246, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %248 = getelementptr i8, ptr %247, i64 4
-  %.val10 = load i32, ptr %248, align 4
-  %.mask.i11 = and i32 %.val10, -16777216
-  %249 = icmp eq i32 %.mask.i11, 16777216
+  %.val9 = load i32, ptr %248, align 4
+  %.mask.i10 = and i32 %.val9, -16777216
+  %249 = icmp eq i32 %.mask.i10, 16777216
   br i1 %249, label %263, label %250
 
 250:                                              ; preds = %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit
@@ -14940,18 +14940,18 @@ lean_dec_ref.exit:                                ; preds = %253, %255, %256
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink27 = phi ptr [ %4, %3 ], [ %257, %lean_dec_ref.exit ]
-  %260 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
-  store i32 1, ptr %.sink27, align 4, !tbaa !8
+  %.sink26 = phi ptr [ %4, %3 ], [ %257, %lean_dec_ref.exit ]
+  %260 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !8
   store i32 131096, ptr %260, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %261, align 8, !tbaa !4
-  %262 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %262, align 8, !tbaa !4
   br label %263
 
 263:                                              ; preds = %.sink.split, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %247, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit ], [ %.sink27, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %247, %_init_l_Lean_Elab_initFn____x40_Lean_Elab_Deriving_TypeName___hyg_688____closed__1.exit ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

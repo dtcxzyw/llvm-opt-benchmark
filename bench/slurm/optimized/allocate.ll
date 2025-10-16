@@ -224,8 +224,8 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %28, ptr @msg_thr, align 8
   %29 = call i32 @xsignal_unblock(ptr noundef nonnull @sig_array) #9
   %30 = load i32, ptr @sig_array, align 4
-  %.not5796 = icmp eq i32 %30, 0
-  br i1 %.not5796, label %.preheader, label %.lr.ph
+  %.not5794 = icmp eq i32 %30, 0
+  br i1 %.not5794, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -266,7 +266,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %36
   %cond = icmp eq ptr %39, null
-  br i1 %cond, label %49, label %.thread73
+  br i1 %cond, label %49, label %.thread71
 
 49:                                               ; preds = %48
   %50 = call fastcc zeroext i1 @_retry()
@@ -274,17 +274,17 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %41, %46, %43
   %.not62 = icmp eq ptr %39, null
-  br i1 %.not62, label %.loopexit, label %.thread73
+  br i1 %.not62, label %.loopexit, label %.thread71
 
-.thread73:                                        ; preds = %48, %51
+.thread71:                                        ; preds = %48, %51
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %53 = load ptr, ptr %52, align 8
   call void @print_multi_line_string(ptr noundef %53, i32 noundef -1, i32 noundef 3) #9
   %54 = load i32, ptr @destroy_job, align 4
-  %.not92 = icmp eq i32 %54, 0
-  br i1 %.not92, label %55, label %.thread88.thread
+  %.not90 = icmp eq i32 %54, 0
+  br i1 %.not90, label %55, label %.thread86.thread
 
-55:                                               ; preds = %.thread73
+55:                                               ; preds = %.thread71
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr @pending_job_id, align 4
@@ -340,17 +340,17 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 81:                                               ; preds = %79
   %82 = load i32, ptr @destroy_job, align 4
   %.not66 = icmp eq i32 %82, 0
-  br i1 %.not66, label %.thread88, label %.thread88.thread
+  br i1 %.not66, label %.thread86, label %.thread86.thread
 
 .loopexit:                                        ; preds = %49, %51
   %83 = load i32, ptr @destroy_job, align 4
   %84 = icmp ne i32 %83, 0
-  %.b5467 = load i1, ptr @revoke_job, align 1
-  %or.cond3 = select i1 %84, i1 true, i1 %.b5467
-  br i1 %or.cond3, label %.thread112, label %job_desc_msg_destroy.exit
+  %.b54 = load i1, ptr @revoke_job, align 1
+  %or.cond3 = select i1 %84, i1 true, i1 %.b54
+  br i1 %or.cond3, label %.thread110, label %job_desc_msg_destroy.exit
 
 job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %79
-  %.17186 = phi ptr [ null, %.loopexit ], [ %39, %79 ]
+  %.16984 = phi ptr [ null, %.loopexit ], [ %39, %79 ]
   %85 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %10, ptr %2, align 8
@@ -360,31 +360,31 @@ job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %94
 
-.thread88:                                        ; preds = %81
+.thread86:                                        ; preds = %81
   %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #9
   %.pre = load i32, ptr @destroy_job, align 4
   %88 = icmp ne i32 %.pre, 0
-  %.b68 = load i1, ptr @revoke_job, align 1
-  %or.cond5 = select i1 %88, i1 true, i1 %.b68
-  br i1 %or.cond5, label %.thread88.thread, label %92
+  %.b = load i1, ptr @revoke_job, align 1
+  %or.cond5 = select i1 %88, i1 true, i1 %.b
+  br i1 %or.cond5, label %.thread86.thread, label %92
 
-.thread88.thread:                                 ; preds = %.thread73, %81, %.thread88
+.thread86.thread:                                 ; preds = %.thread71, %81, %.thread86
   %89 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = call i32 @slurm_complete_job(i32 noundef %90, i32 noundef 1) #9
   br label %92
 
-92:                                               ; preds = %.thread88, %.thread88.thread
+92:                                               ; preds = %.thread86, %.thread86.thread
   call void @slurm_free_resource_allocation_response_msg(ptr noundef nonnull %39) #9
-  br label %.thread112
+  br label %.thread110
 
-.thread112:                                       ; preds = %.loopexit, %92
+.thread110:                                       ; preds = %.loopexit, %92
   %93 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %93) #10
   unreachable
 
 94:                                               ; preds = %9, %job_desc_msg_destroy.exit, %17
-  %.047 = phi ptr [ null, %17 ], [ %.17186, %job_desc_msg_destroy.exit ], [ null, %9 ]
+  %.047 = phi ptr [ null, %17 ], [ %.16984, %job_desc_msg_destroy.exit ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.047
 }
@@ -549,10 +549,10 @@ define internal void @_timeout_handler(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @_job_complete_handler(ptr noundef %0) #0 {
-  %.b5 = load i1, ptr @is_het_job, align 1
+  %.b = load i1, ptr @is_het_job, align 1
   %2 = load i32, ptr @pending_job_id, align 4
   %3 = icmp eq i32 %2, 0
-  %or.cond.not = select i1 %.b5, i1 true, i1 %3
+  %or.cond.not = select i1 %.b, i1 true, i1 %3
   br i1 %or.cond.not, label %9, label %4
 
 4:                                                ; preds = %1
@@ -567,8 +567,8 @@ define internal void @_job_complete_handler(ptr noundef %0) #0 {
 
 9:                                                ; preds = %4, %1
   %10 = load i32, ptr @destroy_job, align 4
-  %.not7 = icmp eq i32 %10, 0
-  br i1 %.not7, label %15, label %11
+  %.not6 = icmp eq i32 %10, 0
+  br i1 %.not6, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @get_log_level() #9
@@ -890,14 +890,14 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   %26 = add nuw nsw i32 %.029, 1
   %27 = load i32, ptr %2, align 8
   %28 = tail call i32 @slurm_job_node_ready(i32 noundef %27) #9
-  %.not46 = icmp eq i32 %28, -2
+  %.not45 = icmp eq i32 %28, -2
   %.pr.pre = load i32, ptr @destroy_job, align 4
-  br i1 %.not46, label %42, label %29
+  br i1 %.not45, label %42, label %29
 
 29:                                               ; preds = %25
   %30 = icmp ne i32 %.pr.pre, 0
-  %.b35 = load i1, ptr @revoke_job, align 1
-  %or.cond = select i1 %30, i1 true, i1 %.b35
+  %.b = load i1, ptr @revoke_job, align 1
+  %or.cond = select i1 %30, i1 true, i1 %.b
   br i1 %or.cond, label %.thread, label %31
 
 31:                                               ; preds = %29
@@ -916,8 +916,8 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
 
 35:                                               ; preds = %32
   %36 = and i32 %28, 5
-  %or.cond40.not = icmp eq i32 %36, 5
-  br i1 %or.cond40.not, label %.critedge, label %.backedge.backedge
+  %or.cond39.not = icmp eq i32 %36, 5
+  br i1 %or.cond39.not, label %.critedge, label %.backedge.backedge
 
 .critedge:                                        ; preds = %35
   %37 = tail call i32 @get_log_level() #9
@@ -931,12 +931,12 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   br label %49
 
 42:                                               ; preds = %25
-  %.not39 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not39, label %.thread44, label %49
+  %.not38 = icmp eq i32 %.pr.pre, 0
+  br i1 %.not38, label %.thread43, label %49
 
 .thread:                                          ; preds = %29
-  %.not3942 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not3942, label %.thread44, label %49
+  %.not3841 = icmp eq i32 %.pr.pre, 0
+  br i1 %.not3841, label %.thread43, label %49
 
 43:                                               ; preds = %32
   %44 = load i32, ptr %2, align 8
@@ -944,14 +944,14 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   store i32 1, ptr @destroy_job, align 4
   br label %49
 
-.thread44:                                        ; preds = %42, %.thread
+.thread43:                                        ; preds = %42, %.thread
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %47) #9
   br label %49
 
-49:                                               ; preds = %.thread, %42, %.thread44, %43, %39, %.critedge
-  %.131 = phi i32 [ 1, %39 ], [ 1, %.critedge ], [ 0, %43 ], [ 0, %.thread44 ], [ 0, %42 ], [ 0, %.thread ]
+49:                                               ; preds = %.thread, %42, %.thread43, %43, %39, %.critedge
+  %.131 = phi i32 [ 1, %39 ], [ 1, %.critedge ], [ 0, %43 ], [ 0, %.thread43 ], [ 0, %42 ], [ 0, %.thread ]
   store i32 0, ptr @pending_job_id, align 4
   ret i32 %.131
 }

@@ -2627,8 +2627,8 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lbtru() #0 {
-  %.b2 = load i1, ptr @proto_reg_handoff_lbtru.already_registered, align 1
-  br i1 %.b2, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_lbtru.already_registered, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @lbtru_dissector_handle, align 8
@@ -2651,8 +2651,8 @@ define hidden void @proto_reg_handoff_lbtru() #0 {
 8:                                                ; preds = %7, %4
   %9 = load i32, ptr @global_lbtru_receiver_port_low, align 4
   %10 = load i32, ptr @global_lbtru_receiver_port_high, align 4
-  %.not3 = icmp ugt i32 %9, %10
-  br i1 %.not3, label %12, label %11
+  %.not2 = icmp ugt i32 %9, %10
+  br i1 %.not2, label %12, label %11
 
 11:                                               ; preds = %8
   store i32 %9, ptr @lbtru_receiver_port_low, align 4

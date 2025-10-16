@@ -249,8 +249,8 @@ define hidden void @mi_process_init() local_unnamed_addr #0 {
   %5 = ptrtoint ptr %4 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %5) #12
   store i8 1, ptr @_mi_process_is_initialized, align 1, !tbaa !36
-  %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %6
+  %.b.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
+  br i1 %.b.i, label %mi_process_setup_auto_thread_done.exit, label %6
 
 6:                                                ; preds = %3
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -590,8 +590,8 @@ define internal void @mi_process_done() #0 {
   %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !36, !range !37, !noundef !38
   %2 = trunc nuw i8 %1 to i1
   %.not = xor i1 %2, true
-  %.b2 = load i1, ptr @mi_process_done.process_done, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b2
+  %.b = load i1, ptr @mi_process_done.process_done, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %10, label %3
 
 3:                                                ; preds = %0

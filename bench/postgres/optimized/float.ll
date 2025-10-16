@@ -2877,8 +2877,8 @@ define dso_local i64 @dacosd(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %8, label %52, label %9
 
 9:                                                ; preds = %1
-  %.b12 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b12, label %11, label %10
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %11, label %10
 
 10:                                               ; preds = %9
   tail call fastcc void @init_degree_constants()
@@ -2936,9 +2936,9 @@ define dso_local i64 @dacosd(ptr noundef readonly captures(none) %0) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = tail call double @asin(double noundef %33) #19
   store volatile double %36, ptr %2, align 8
-  %.0..0..0..0..0..0.1.i13 = load volatile double, ptr %2, align 8
+  %.0..0..0..0..0..0.1.i12 = load volatile double, ptr %2, align 8
   %37 = load double, ptr @asin_0_5, align 8
-  %38 = fdiv double %.0..0..0..0..0..0.1.i13, %37
+  %38 = fdiv double %.0..0..0..0..0..0.1.i12, %37
   %39 = fmul double %38, 3.000000e+01
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %asind_q1.exit
@@ -2947,17 +2947,17 @@ define dso_local i64 @dacosd(ptr noundef readonly captures(none) %0) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = tail call double @acos(double noundef %33) #19
   store volatile double %41, ptr %3, align 8
-  %.0..0..0..0..0..0..i15 = load volatile double, ptr %3, align 8
+  %.0..0..0..0..0..0..i14 = load volatile double, ptr %3, align 8
   %42 = load double, ptr @acos_0_5, align 8
-  %43 = fneg double %.0..0..0..0..0..0..i15
+  %43 = fneg double %.0..0..0..0..0..0..i14
   %44 = fdiv double %43, %42
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 6.000000e+01, double 9.000000e+01)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %asind_q1.exit
 
 asind_q1.exit:                                    ; preds = %35, %40
-  %.0.i14 = phi double [ %39, %35 ], [ %45, %40 ]
-  %46 = fadd double %.0.i14, 9.000000e+01
+  %.0.i13 = phi double [ %39, %35 ], [ %45, %40 ]
+  %46 = fadd double %.0.i13, 9.000000e+01
   br label %acosd_q1.exit
 
 acosd_q1.exit:                                    ; preds = %27, %21, %asind_q1.exit
@@ -3133,8 +3133,8 @@ define dso_local i64 @dasind(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %8, label %52, label %9
 
 9:                                                ; preds = %1
-  %.b12 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b12, label %11, label %10
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %11, label %10
 
 10:                                               ; preds = %9
   tail call fastcc void @init_degree_constants()
@@ -3192,32 +3192,32 @@ define dso_local i64 @dasind(ptr noundef readonly captures(none) %0) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = tail call double @asin(double noundef %33) #19
   store volatile double %36, ptr %2, align 8
-  %.0..0..0..0..0..0.1.i13 = load volatile double, ptr %2, align 8
+  %.0..0..0..0..0..0.1.i12 = load volatile double, ptr %2, align 8
   %37 = load double, ptr @asin_0_5, align 8
-  %38 = fdiv double %.0..0..0..0..0..0.1.i13, %37
+  %38 = fdiv double %.0..0..0..0..0..0.1.i12, %37
   %39 = fmul double %38, 3.000000e+01
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %asind_q1.exit16
+  br label %asind_q1.exit15
 
 40:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = tail call double @acos(double noundef %33) #19
   store volatile double %41, ptr %3, align 8
-  %.0..0..0..0..0..0..i15 = load volatile double, ptr %3, align 8
+  %.0..0..0..0..0..0..i14 = load volatile double, ptr %3, align 8
   %42 = load double, ptr @acos_0_5, align 8
-  %43 = fneg double %.0..0..0..0..0..0..i15
+  %43 = fneg double %.0..0..0..0..0..0..i14
   %44 = fdiv double %43, %42
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 6.000000e+01, double 9.000000e+01)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %asind_q1.exit16
+  br label %asind_q1.exit15
 
-asind_q1.exit16:                                  ; preds = %35, %40
-  %.0.i14 = phi double [ %39, %35 ], [ %45, %40 ]
-  %46 = fneg double %.0.i14
+asind_q1.exit15:                                  ; preds = %35, %40
+  %.0.i13 = phi double [ %39, %35 ], [ %45, %40 ]
+  %46 = fneg double %.0.i13
   br label %asind_q1.exit
 
-asind_q1.exit:                                    ; preds = %26, %21, %asind_q1.exit16
-  %.0 = phi double [ %46, %asind_q1.exit16 ], [ %25, %21 ], [ %31, %26 ]
+asind_q1.exit:                                    ; preds = %26, %21, %asind_q1.exit15
+  %.0 = phi double [ %46, %asind_q1.exit15 ], [ %25, %21 ], [ %31, %26 ]
   %47 = tail call double @llvm.fabs.f64(double %.0)
   %48 = fcmp oeq double %47, 0x7FF0000000000000
   br i1 %48, label %49, label %50, !prof !9
@@ -3245,8 +3245,8 @@ define dso_local i64 @datand(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %1
-  %.b6 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b6, label %8, label %7
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %8, label %7
 
 7:                                                ; preds = %6
   tail call fastcc void @init_degree_constants()
@@ -3291,8 +3291,8 @@ define dso_local i64 @datan2d(ptr noundef readonly captures(none) %0) local_unna
   br i1 %or.cond, label %21, label %9
 
 9:                                                ; preds = %1
-  %.b9 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b9, label %11, label %10
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %11, label %10
 
 10:                                               ; preds = %9
   tail call fastcc void @init_degree_constants()
@@ -3345,8 +3345,8 @@ define dso_local i64 @dcosd(ptr noundef readonly captures(none) %0) local_unname
   unreachable
 
 14:                                               ; preds = %7
-  %.b19 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b19, label %16, label %15
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %16, label %15
 
 15:                                               ; preds = %14
   tail call fastcc void @init_degree_constants()
@@ -3440,8 +3440,8 @@ define dso_local i64 @dcotd(ptr noundef readonly captures(none) %0) local_unname
   unreachable
 
 17:                                               ; preds = %10
-  %.b27 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b27, label %19, label %18
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %19, label %18
 
 18:                                               ; preds = %17
   tail call fastcc void @init_degree_constants()
@@ -3503,9 +3503,9 @@ cosd_q1.exit:                                     ; preds = %30, %38
   %47 = fmul double %.222, 0x3F91DF46A2529D39
   %48 = tail call double @sin(double noundef %47) #19
   store volatile double %48, ptr %3, align 8
-  %.0..0..0..0..0..0..0..0..i.i28 = load volatile double, ptr %3, align 8
+  %.0..0..0..0..0..0..0..0..i.i27 = load volatile double, ptr %3, align 8
   %49 = load double, ptr @sin_30, align 8
-  %50 = fdiv double %.0..0..0..0..0..0..0..0..i.i28, %49
+  %50 = fdiv double %.0..0..0..0..0..0..0..0..i.i27, %49
   %51 = fmul double %50, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %sind_q1.exit
@@ -3517,17 +3517,17 @@ cosd_q1.exit:                                     ; preds = %30, %38
   %55 = tail call double @cos(double noundef %54) #19
   %56 = fsub double 1.000000e+00, %55
   store volatile double %56, ptr %2, align 8
-  %.0..0..0..0..0..0..0..0..i5.i30 = load volatile double, ptr %2, align 8
+  %.0..0..0..0..0..0..0..0..i5.i29 = load volatile double, ptr %2, align 8
   %57 = load double, ptr @one_minus_cos_60, align 8
-  %58 = fdiv double %.0..0..0..0..0..0..0..0..i5.i30, %57
+  %58 = fdiv double %.0..0..0..0..0..0..0..0..i5.i29, %57
   %59 = fmul double %58, 5.000000e-01
   %60 = fsub double 1.000000e+00, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %sind_q1.exit
 
 sind_q1.exit:                                     ; preds = %46, %52
-  %.0.i29 = phi double [ %51, %46 ], [ %60, %52 ]
-  %61 = fdiv double %.0.i, %.0.i29
+  %.0.i28 = phi double [ %51, %46 ], [ %60, %52 ]
+  %61 = fdiv double %.0.i, %.0.i28
   store volatile double %61, ptr %6, align 8
   %62 = sitofp i32 %.2 to double
   %.0..0..0..0. = load volatile double, ptr %6, align 8
@@ -3567,8 +3567,8 @@ define dso_local i64 @dsind(ptr noundef readonly captures(none) %0) local_unname
   unreachable
 
 14:                                               ; preds = %7
-  %.b21 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b21, label %16, label %15
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %16, label %15
 
 15:                                               ; preds = %14
   tail call fastcc void @init_degree_constants()
@@ -3665,8 +3665,8 @@ define dso_local i64 @dtand(ptr noundef readonly captures(none) %0) local_unname
   unreachable
 
 17:                                               ; preds = %10
-  %.b27 = load i1, ptr @degree_consts_set, align 1
-  br i1 %.b27, label %19, label %18
+  %.b = load i1, ptr @degree_consts_set, align 1
+  br i1 %.b, label %19, label %18
 
 18:                                               ; preds = %17
   tail call fastcc void @init_degree_constants()
@@ -3729,9 +3729,9 @@ sind_q1.exit:                                     ; preds = %30, %36
   %48 = tail call double @cos(double noundef %47) #19
   %49 = fsub double 1.000000e+00, %48
   store volatile double %49, ptr %3, align 8
-  %.0..0..0..0..0..0..0..0..i.i28 = load volatile double, ptr %3, align 8
+  %.0..0..0..0..0..0..0..0..i.i27 = load volatile double, ptr %3, align 8
   %50 = load double, ptr @one_minus_cos_60, align 8
-  %51 = fdiv double %.0..0..0..0..0..0..0..0..i.i28, %50
+  %51 = fdiv double %.0..0..0..0..0..0..0..0..i.i27, %50
   %52 = fmul double %51, 5.000000e-01
   %53 = fsub double 1.000000e+00, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3743,16 +3743,16 @@ sind_q1.exit:                                     ; preds = %30, %36
   %56 = fmul double %55, 0x3F91DF46A2529D39
   %57 = tail call double @sin(double noundef %56) #19
   store volatile double %57, ptr %2, align 8
-  %.0..0..0..0..0..0..0..0..i5.i30 = load volatile double, ptr %2, align 8
+  %.0..0..0..0..0..0..0..0..i5.i29 = load volatile double, ptr %2, align 8
   %58 = load double, ptr @sin_30, align 8
-  %59 = fdiv double %.0..0..0..0..0..0..0..0..i5.i30, %58
+  %59 = fdiv double %.0..0..0..0..0..0..0..0..i5.i29, %58
   %60 = fmul double %59, 5.000000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %cosd_q1.exit
 
 cosd_q1.exit:                                     ; preds = %46, %54
-  %.0.i29 = phi double [ %53, %46 ], [ %60, %54 ]
-  %61 = fdiv double %.0.i, %.0.i29
+  %.0.i28 = phi double [ %53, %46 ], [ %60, %54 ]
+  %61 = fdiv double %.0.i, %.0.i28
   store volatile double %61, ptr %6, align 8
   %62 = sitofp i32 %.2 to double
   %.0..0..0..0. = load volatile double, ptr %6, align 8

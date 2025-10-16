@@ -2928,8 +2928,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_amqp() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_amqp.initialize, align 1
-  br i1 %.b1, label %10, label %1
+  %.b = load i1, ptr @proto_reg_handoff_amqp.initialize, align 1
+  br i1 %.b, label %10, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @amqp_tcp_handle, align 8
@@ -2955,8 +2955,8 @@ define hidden void @proto_reg_handoff_amqp() #0 {
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %10
-  %.not2 = icmp eq i32 %11, 0
-  br i1 %.not2, label %16, label %14
+  %.not1 = icmp eq i32 %11, 0
+  br i1 %.not1, label %16, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @amqp_tcp_handle, align 8

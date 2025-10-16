@@ -2148,9 +2148,9 @@ declare ptr @lv_timer_create(ptr noundef, i32 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @scale2_timer_cb(ptr readnone captures(none) %0) #0 {
-  %.b15 = load i1, ptr @scale2_timer_cb.down1, align 1
+  %.b = load i1, ptr @scale2_timer_cb.down1, align 1
   %2 = load i32, ptr @session_desktop, align 4, !tbaa !3
-  br i1 %.b15, label %3, label %6
+  br i1 %.b, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = add i32 %2, -137
@@ -2166,60 +2166,60 @@ define internal void @scale2_timer_cb(ptr readnone captures(none) %0) #0 {
 
 .sink.split:                                      ; preds = %6, %3
   %.ph = phi i32 [ %4, %3 ], [ %7, %6 ]
-  %.sink = xor i1 %.b15, true
+  %.sink = xor i1 %.b, true
   store i1 %.sink, ptr @scale2_timer_cb.down1, align 1
   br label %9
 
 9:                                                ; preds = %.sink.split, %6, %3
   %10 = phi i32 [ %7, %6 ], [ %4, %3 ], [ %.ph, %.sink.split ]
-  %.b1316 = load i1, ptr @scale2_timer_cb.down2, align 1
+  %.b13 = load i1, ptr @scale2_timer_cb.down2, align 1
   %11 = load i32, ptr @session_tablet, align 4, !tbaa !3
-  br i1 %.b1316, label %12, label %15
+  br i1 %.b13, label %12, label %15
 
 12:                                               ; preds = %9
   %13 = add i32 %11, -3
   store i32 %13, ptr @session_tablet, align 4, !tbaa !3
   %14 = icmp ult i32 %13, 1400
-  br i1 %14, label %.sink.split28, label %18
+  br i1 %14, label %.sink.split25, label %18
 
 15:                                               ; preds = %9
   %16 = add i32 %11, 9
   store i32 %16, ptr @session_tablet, align 4, !tbaa !3
   %17 = icmp ugt i32 %16, 4500
-  br i1 %17, label %.sink.split28, label %18
+  br i1 %17, label %.sink.split25, label %18
 
-.sink.split28:                                    ; preds = %15, %12
-  %.ph29 = phi i32 [ %13, %12 ], [ %16, %15 ]
-  %.sink30 = xor i1 %.b1316, true
-  store i1 %.sink30, ptr @scale2_timer_cb.down2, align 1
+.sink.split25:                                    ; preds = %15, %12
+  %.ph26 = phi i32 [ %13, %12 ], [ %16, %15 ]
+  %.sink27 = xor i1 %.b13, true
+  store i1 %.sink27, ptr @scale2_timer_cb.down2, align 1
   br label %18
 
-18:                                               ; preds = %.sink.split28, %15, %12
-  %19 = phi i32 [ %16, %15 ], [ %13, %12 ], [ %.ph29, %.sink.split28 ]
-  %.b1417 = load i1, ptr @scale2_timer_cb.down3, align 1
+18:                                               ; preds = %.sink.split25, %15, %12
+  %19 = phi i32 [ %16, %15 ], [ %13, %12 ], [ %.ph26, %.sink.split25 ]
+  %.b14 = load i1, ptr @scale2_timer_cb.down3, align 1
   %20 = load i32, ptr @session_mobile, align 4, !tbaa !3
-  br i1 %.b1417, label %21, label %24
+  br i1 %.b14, label %21, label %24
 
 21:                                               ; preds = %18
   %22 = add i32 %20, -57
   store i32 %22, ptr @session_mobile, align 4, !tbaa !3
   %23 = icmp ult i32 %22, 1400
-  br i1 %23, label %.sink.split31, label %27
+  br i1 %23, label %.sink.split28, label %27
 
 24:                                               ; preds = %18
   %25 = add i32 %20, 76
   store i32 %25, ptr @session_mobile, align 4, !tbaa !3
   %26 = icmp ugt i32 %25, 4500
-  br i1 %26, label %.sink.split31, label %27
+  br i1 %26, label %.sink.split28, label %27
 
-.sink.split31:                                    ; preds = %24, %21
-  %.ph32 = phi i32 [ %22, %21 ], [ %25, %24 ]
-  %.sink33 = xor i1 %.b1417, true
-  store i1 %.sink33, ptr @scale2_timer_cb.down3, align 1
+.sink.split28:                                    ; preds = %24, %21
+  %.ph29 = phi i32 [ %22, %21 ], [ %25, %24 ]
+  %.sink30 = xor i1 %.b14, true
+  store i1 %.sink30, ptr @scale2_timer_cb.down3, align 1
   br label %27
 
-27:                                               ; preds = %.sink.split31, %24, %21
-  %28 = phi i32 [ %25, %24 ], [ %22, %21 ], [ %.ph32, %.sink.split31 ]
+27:                                               ; preds = %.sink.split28, %24, %21
+  %28 = phi i32 [ %25, %24 ], [ %22, %21 ], [ %.ph29, %.sink.split28 ]
   %29 = add i32 %19, %10
   %30 = add i32 %29, %28
   %31 = mul i32 %10, 354

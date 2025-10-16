@@ -165,8 +165,8 @@ flags_to_port.exit:                               ; preds = %8, %17, %19, %21, %
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_esl() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_esl.initialized, align 1
-  br i1 %.b1, label %5, label %1
+  %.b = load i1, ptr @proto_reg_handoff_esl.initialized, align 1
+  br i1 %.b, label %5, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_esl, align 4
@@ -190,8 +190,8 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %.b34 = load i1, ptr @dissect_esl_heur.in_heur, align 1
-  br i1 %.b34, label %43, label %6
+  %.b = load i1, ptr @dissect_esl_heur.in_heur, align 1
+  br i1 %.b, label %43, label %6
 
 6:                                                ; preds = %4
   store i1 true, ptr @dissect_esl_heur.in_heur, align 1
@@ -205,15 +205,15 @@ define internal noundef zeroext i1 @dissect_esl_heur(ptr noundef %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 57
   %12 = load i16, ptr %11, align 1
   %13 = and i16 %12, 8
-  %.not35 = icmp eq i16 %13, 0
-  br i1 %.not35, label %14, label %19
+  %.not34 = icmp eq i16 %13, 0
+  br i1 %.not34, label %14, label %19
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ref_time_frame, i64 32), align 8
-  %.not36 = icmp ugt i32 %16, %17
-  br i1 %.not36, label %19, label %18
+  %.not35 = icmp ugt i32 %16, %17
+  br i1 %.not35, label %19, label %18
 
 18:                                               ; preds = %14
   store ptr null, ptr @ref_time_frame, align 8
@@ -230,8 +230,8 @@ define internal noundef zeroext i1 @dissect_esl_heur(ptr noundef %0, ptr noundef
 23:                                               ; preds = %21
   %24 = tail call i32 @dissect_esl_header(ptr noundef %0, ptr poison, ptr noundef %2, ptr poison)
   %25 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %.not38 = icmp eq ptr %25, null
-  br i1 %.not38, label %.sink.split, label %26
+  %.not37 = icmp eq ptr %25, null
+  br i1 %.not37, label %.sink.split, label %26
 
 26:                                               ; preds = %23
   %27 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 16)
@@ -246,8 +246,8 @@ define internal noundef zeroext i1 @dissect_esl_heur(ptr noundef %0, ptr noundef
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %.not37 = icmp eq ptr %34, null
-  br i1 %.not37, label %39, label %35
+  %.not36 = icmp eq ptr %34, null
+  br i1 %.not36, label %39, label %35
 
 35:                                               ; preds = %33
   %36 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %31)

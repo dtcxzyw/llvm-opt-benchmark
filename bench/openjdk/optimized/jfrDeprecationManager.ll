@@ -105,13 +105,13 @@ define hidden void @_ZN17JfrDeprecatedEdgeC2EPK6MethodPS0_ihP10JavaThread(ptr no
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.b2.i = load i1, ptr @_ZL16_enqueue_klasses, align 1
+  %.b.i = load i1, ptr @_ZL16_enqueue_klasses, align 1
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
-  br i1 %.b2.i, label %22, label %45
+  br i1 %.b.i, label %22, label %45
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 54
@@ -173,11 +173,11 @@ _ZN10JfrTraceId4loadEPK6Method.exit.i:            ; preds = %32, %22
   br label %_ZL12load_traceidPK6Method.exit
 
 _ZL12load_traceidPK6Method.exit:                  ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i, %45
-  %.sink6.i = phi ptr [ %58, %45 ], [ %43, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
+  %.sink5.i = phi ptr [ %58, %45 ], [ %43, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
   %.sink.in.in.i = phi ptr [ %49, %45 ], [ %44, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = and i64 %.sink.in.i, -8064
-  %59 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 50
+  %59 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 50
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %62 = or i64 %.sink.i, %61
@@ -190,13 +190,13 @@ _ZL12load_traceidPK6Method.exit:                  ; preds = %_ZN10JfrTraceId4loa
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %63, align 8
-  %.b2.i9 = load i1, ptr @_ZL16_enqueue_klasses, align 1
+  %.b.i9 = load i1, ptr @_ZL16_enqueue_klasses, align 1
   %70 = load ptr, ptr %64, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
-  br i1 %.b2.i9, label %75, label %98
+  br i1 %.b.i9, label %75, label %98
 
 75:                                               ; preds = %_ZL12load_traceidPK6Method.exit
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 54
@@ -258,12 +258,12 @@ _ZN10JfrTraceId4loadEPK6Method.exit.i16:          ; preds = %85, %75
   br label %_ZL12load_traceidPK6Method.exit17
 
 _ZL12load_traceidPK6Method.exit17:                ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i16, %98
-  %.sink6.i10 = phi ptr [ %111, %98 ], [ %96, %_ZN10JfrTraceId4loadEPK6Method.exit.i16 ]
+  %.sink5.i10 = phi ptr [ %111, %98 ], [ %96, %_ZN10JfrTraceId4loadEPK6Method.exit.i16 ]
   %.sink.in.in.i11 = phi ptr [ %102, %98 ], [ %97, %_ZN10JfrTraceId4loadEPK6Method.exit.i16 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sink.in.i12 = load i64, ptr %.sink.in.in.i11, align 8
   %.sink.i13 = and i64 %.sink.in.i12, -8064
-  %113 = getelementptr inbounds nuw i8, ptr %.sink6.i10, i64 50
+  %113 = getelementptr inbounds nuw i8, ptr %.sink5.i10, i64 50
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
   %116 = or i64 %.sink.i13, %115

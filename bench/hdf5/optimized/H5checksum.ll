@@ -116,8 +116,8 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
   br i1 %8, label %9, label %H5__checksum_crc_update.exit, !prof !9
 
 9:                                                ; preds = %2
-  %.b8.i = load i1, ptr @H5_crc_table_computed, align 1
-  br i1 %.b8.i, label %12, label %.preheader.i.i
+  %.b.i = load i1, ptr @H5_crc_table_computed, align 1
+  br i1 %.b.i, label %12, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %9 ]
@@ -141,18 +141,18 @@ H5__checksum_crc_make_table.exit.i:               ; preds = %.preheader.i.i
   br i1 %.not.i, label %H5__checksum_crc_update.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %.010.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %12 ]
-  %.19.i = phi i32 [ %19, %.lr.ph.i ], [ -1, %12 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.i
+  %.09.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %12 ]
+  %.18.i = phi i32 [ %19, %.lr.ph.i ], [ -1, %12 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.09.i
   %14 = load i8, ptr %13, align 1, !tbaa !10
-  %.1.tr.i = trunc i32 %.19.i to i8
+  %.1.tr.i = trunc i32 %.18.i to i8
   %.narrow.i = xor i8 %14, %.1.tr.i
   %15 = zext i8 %.narrow.i to i64
   %16 = getelementptr inbounds nuw i32, ptr @H5_crc_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !14
-  %18 = lshr i32 %.19.i, 8
+  %18 = lshr i32 %.18.i, 8
   %19 = xor i32 %17, %18
-  %20 = add nuw i64 %.010.i, 1
+  %20 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %20, %1
   br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 

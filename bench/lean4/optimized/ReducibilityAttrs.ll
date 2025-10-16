@@ -17856,8 +17856,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_ReducibilityAttrs(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
-  %.b35 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b35, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -17896,25 +17896,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !4
-  br label %lean_dec_ref.exit49
+  br label %lean_dec_ref.exit48
 
 19:                                               ; preds = %14
-  %.not.i48 = icmp eq i32 %15, 0
-  br i1 %.not.i48, label %lean_dec_ref.exit49, label %20
+  %.not.i47 = icmp eq i32 %15, 0
+  br i1 %.not.i47, label %lean_dec_ref.exit48, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #6
-  br label %lean_dec_ref.exit49
+  br label %lean_dec_ref.exit48
 
-lean_dec_ref.exit49:                              ; preds = %17, %19, %20
+lean_dec_ref.exit48:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_ScopedEnvExtension(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val50 = load i32, ptr %22, align 4
-  %.mask.i60 = and i32 %.val50, -16777216
-  %23 = icmp eq i32 %.mask.i60, 16777216
+  %.val49 = load i32, ptr %22, align 4
+  %.mask.i59 = and i32 %.val49, -16777216
+  %23 = icmp eq i32 %.mask.i59, 16777216
   br i1 %23, label %581, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit49
+24:                                               ; preds = %lean_dec_ref.exit48
   %25 = load i32, ptr %21, align 4, !tbaa !4
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -17922,27 +17922,27 @@ lean_dec_ref.exit49:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !4
-  br label %lean_dec_ref.exit47
+  br label %lean_dec_ref.exit46
 
 29:                                               ; preds = %24
-  %.not.i46 = icmp eq i32 %25, 0
-  br i1 %.not.i46, label %lean_dec_ref.exit47, label %30
+  %.not.i45 = icmp eq i32 %25, 0
+  br i1 %.not.i45, label %lean_dec_ref.exit46, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #6
-  br label %lean_dec_ref.exit47
+  br label %lean_dec_ref.exit46
 
-lean_dec_ref.exit47:                              ; preds = %27, %29, %30
+lean_dec_ref.exit46:                              ; preds = %27, %29, %30
   tail call void @lean_inc_heartbeat() #6
   %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_init_l_Lean_ReducibilityStatus_noConfusion___rarg___closed__1.exit
 
-33:                                               ; preds = %lean_dec_ref.exit47
+33:                                               ; preds = %lean_dec_ref.exit46
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_ReducibilityStatus_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit47
+_init_l_Lean_ReducibilityStatus_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit46
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 1, ptr %31, align 4, !tbaa !4
   store i32 -184549352, ptr %34, align 4
@@ -18518,21 +18518,21 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit: ;
   store ptr %224, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %224) #6
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit45, label %231
+  br i1 %.not, label %lean_dec_ref.exit44, label %231
 
 231:                                              ; preds = %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit
   %232 = tail call ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %233 = getelementptr i8, ptr %232, i64 4
-  %.val51 = load i32, ptr %233, align 4
-  %.mask.i61 = and i32 %.val51, -16777216
-  %234 = icmp eq i32 %.mask.i61, 16777216
+  %.val50 = load i32, ptr %233, align 4
+  %.mask.i60 = and i32 %.val50, -16777216
+  %234 = icmp eq i32 %.mask.i60, 16777216
   br i1 %234, label %581, label %235
 
 235:                                              ; preds = %231
   %236 = getelementptr i8, ptr %232, i64 8
-  %.val57 = load ptr, ptr %236, align 8, !tbaa !9
-  store ptr %.val57, ptr @l_Lean_reducibilityCoreExt, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val57) #6
+  %.val56 = load ptr, ptr %236, align 8, !tbaa !9
+  store ptr %.val56, ptr @l_Lean_reducibilityCoreExt, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val56) #6
   %237 = load i32, ptr %232, align 8, !tbaa !4
   %238 = icmp sgt i32 %237, 1
   br i1 %238, label %239, label %241, !prof !11
@@ -18540,17 +18540,17 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit: ;
 239:                                              ; preds = %235
   %240 = add nsw i32 %237, -1
   store i32 %240, ptr %232, align 4, !tbaa !4
-  br label %lean_dec_ref.exit45
+  br label %lean_dec_ref.exit44
 
 241:                                              ; preds = %235
-  %.not.i44 = icmp eq i32 %237, 0
-  br i1 %.not.i44, label %lean_dec_ref.exit45, label %242
+  %.not.i43 = icmp eq i32 %237, 0
+  br i1 %.not.i43, label %lean_dec_ref.exit44, label %242
 
 242:                                              ; preds = %241
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %232) #6
-  br label %lean_dec_ref.exit45
+  br label %lean_dec_ref.exit44
 
-lean_dec_ref.exit45:                              ; preds = %242, %241, %239, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit
+lean_dec_ref.exit44:                              ; preds = %242, %241, %239, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_186____closed__6.exit
   store i1 true, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____spec__3___closed__2, align 8
   %243 = tail call ptr @l_Lean_PersistentHashMap_mkEmptyEntries(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   store ptr %243, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____spec__3___closed__3, align 8, !tbaa !9
@@ -18575,11 +18575,11 @@ lean_dec_ref.exit45:                              ; preds = %242, %241, %239, %_
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__5.exit
 
-253:                                              ; preds = %lean_dec_ref.exit45
+253:                                              ; preds = %lean_dec_ref.exit44
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__5.exit: ; preds = %lean_dec_ref.exit45
+_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__5.exit: ; preds = %lean_dec_ref.exit44
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 4
   store i32 1, ptr %251, align 4, !tbaa !4
   store i32 131096, ptr %254, align 4
@@ -18702,22 +18702,22 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit: 
   store ptr %290, ptr %298, align 8, !tbaa !9
   store ptr %291, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %291) #6
-  br i1 %.not, label %lean_dec_ref.exit43, label %299
+  br i1 %.not, label %lean_dec_ref.exit42, label %299
 
 299:                                              ; preds = %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit
   %300 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11, align 8, !tbaa !9
   %301 = tail call ptr @l_Lean_registerSimpleScopedEnvExtension___rarg(ptr noundef %300, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %302 = getelementptr i8, ptr %301, i64 4
-  %.val52 = load i32, ptr %302, align 4
-  %.mask.i62 = and i32 %.val52, -16777216
-  %303 = icmp eq i32 %.mask.i62, 16777216
+  %.val51 = load i32, ptr %302, align 4
+  %.mask.i61 = and i32 %.val51, -16777216
+  %303 = icmp eq i32 %.mask.i61, 16777216
   br i1 %303, label %581, label %304
 
 304:                                              ; preds = %299
   %305 = getelementptr i8, ptr %301, i64 8
-  %.val58 = load ptr, ptr %305, align 8, !tbaa !9
-  store ptr %.val58, ptr @l_Lean_reducibilityExtraExt, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val58) #6
+  %.val57 = load ptr, ptr %305, align 8, !tbaa !9
+  store ptr %.val57, ptr @l_Lean_reducibilityExtraExt, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val57) #6
   %306 = load i32, ptr %301, align 8, !tbaa !4
   %307 = icmp sgt i32 %306, 1
   br i1 %307, label %308, label %310, !prof !11
@@ -18725,17 +18725,17 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit: 
 308:                                              ; preds = %304
   %309 = add nsw i32 %306, -1
   store i32 %309, ptr %301, align 4, !tbaa !4
-  br label %lean_dec_ref.exit43
+  br label %lean_dec_ref.exit42
 
 310:                                              ; preds = %304
-  %.not.i42 = icmp eq i32 %306, 0
-  br i1 %.not.i42, label %lean_dec_ref.exit43, label %311
+  %.not.i41 = icmp eq i32 %306, 0
+  br i1 %.not.i41, label %lean_dec_ref.exit42, label %311
 
 311:                                              ; preds = %310
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %301) #6
-  br label %lean_dec_ref.exit43
+  br label %lean_dec_ref.exit42
 
-lean_dec_ref.exit43:                              ; preds = %311, %310, %308, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit
+lean_dec_ref.exit42:                              ; preds = %311, %310, %308, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_335____closed__11.exit
   %312 = load ptr, ptr @l_Lean_Name_instBEq, align 8, !tbaa !9
   %313 = load ptr, ptr @l_Lean_instHashableName, align 8, !tbaa !9
   %314 = tail call ptr @l_Lean_SMap_instInhabited___rarg(ptr noundef %312, ptr noundef %313) #6
@@ -18790,11 +18790,11 @@ lean_dec_ref.exit43:                              ; preds = %311, %310, %308, %_
   %336 = icmp eq ptr %335, null
   br i1 %336, label %337, label %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit
 
-337:                                              ; preds = %lean_dec_ref.exit43
+337:                                              ; preds = %lean_dec_ref.exit42
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ; preds = %lean_dec_ref.exit43
+_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ; preds = %lean_dec_ref.exit42
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 4
   store i32 1, ptr %335, align 4, !tbaa !4
   store i32 196640, ptr %338, align 4
@@ -18814,7 +18814,7 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ;
   %345 = tail call ptr @l_Lean_Name_mkStr2(ptr noundef %343, ptr noundef %344) #6
   store ptr %345, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %345) #6
-  br i1 %.not, label %lean_dec_ref.exit41, label %346
+  br i1 %.not, label %lean_dec_ref.exit40, label %346
 
 346:                                              ; preds = %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit
   %347 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__2, align 8, !tbaa !9
@@ -18822,16 +18822,16 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ;
   %349 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__7, align 8, !tbaa !9
   %350 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_5____spec__1(ptr noundef %347, ptr noundef %348, ptr noundef %349, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %351 = getelementptr i8, ptr %350, i64 4
-  %.val53 = load i32, ptr %351, align 4
-  %.mask.i63 = and i32 %.val53, -16777216
-  %352 = icmp eq i32 %.mask.i63, 16777216
+  %.val52 = load i32, ptr %351, align 4
+  %.mask.i62 = and i32 %.val52, -16777216
+  %352 = icmp eq i32 %.mask.i62, 16777216
   br i1 %352, label %581, label %353
 
 353:                                              ; preds = %346
   %354 = getelementptr i8, ptr %350, i64 8
-  %.val59 = load ptr, ptr %354, align 8, !tbaa !9
-  store ptr %.val59, ptr @l_Lean_allowUnsafeReducibility, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val59) #6
+  %.val58 = load ptr, ptr %354, align 8, !tbaa !9
+  store ptr %.val58, ptr @l_Lean_allowUnsafeReducibility, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val58) #6
   %355 = load i32, ptr %350, align 8, !tbaa !4
   %356 = icmp sgt i32 %355, 1
   br i1 %356, label %357, label %359, !prof !11
@@ -18839,17 +18839,17 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit: ;
 357:                                              ; preds = %353
   %358 = add nsw i32 %355, -1
   store i32 %358, ptr %350, align 4, !tbaa !4
-  br label %lean_dec_ref.exit41
+  br label %lean_dec_ref.exit40
 
 359:                                              ; preds = %353
-  %.not.i40 = icmp eq i32 %355, 0
-  br i1 %.not.i40, label %lean_dec_ref.exit41, label %360
+  %.not.i39 = icmp eq i32 %355, 0
+  br i1 %.not.i39, label %lean_dec_ref.exit40, label %360
 
 360:                                              ; preds = %359
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %350) #6
-  br label %lean_dec_ref.exit41
+  br label %lean_dec_ref.exit40
 
-lean_dec_ref.exit41:                              ; preds = %360, %359, %357, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit
+lean_dec_ref.exit40:                              ; preds = %360, %359, %357, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_645____closed__5.exit
   %361 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 18, i64 noundef 18) #6
   store ptr %361, ptr @l_Lean_getConstInfo___at___private_Lean_ReducibilityAttrs_0__Lean_validate___spec__1___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %361) #6
@@ -19010,11 +19010,11 @@ lean_dec_ref.exit41:                              ; preds = %360, %359, %357, %_
   %429 = icmp eq ptr %428, null
   br i1 %429, label %430, label %_init_l___private_Lean_ReducibilityAttrs_0__Lean_addAttr___closed__1.exit
 
-430:                                              ; preds = %lean_dec_ref.exit41
+430:                                              ; preds = %lean_dec_ref.exit40
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l___private_Lean_ReducibilityAttrs_0__Lean_addAttr___closed__1.exit: ; preds = %lean_dec_ref.exit41
+_init_l___private_Lean_ReducibilityAttrs_0__Lean_addAttr___closed__1.exit: ; preds = %lean_dec_ref.exit40
   %431 = getelementptr inbounds nuw i8, ptr %428, i64 4
   store i32 1, ptr %428, align 4, !tbaa !4
   store i32 131096, ptr %431, align 4
@@ -19180,15 +19180,15 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18.exit:
   store ptr %492, ptr %499, align 8, !tbaa !9
   store ptr %493, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %493) #6
-  br i1 %.not, label %lean_dec_ref.exit39, label %500
+  br i1 %.not, label %lean_dec_ref.exit38, label %500
 
 500:                                              ; preds = %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18.exit
   %501 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18, align 8, !tbaa !9
   %502 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef %501, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %503 = getelementptr i8, ptr %502, i64 4
-  %.val54 = load i32, ptr %503, align 4
-  %.mask.i64 = and i32 %.val54, -16777216
-  %504 = icmp eq i32 %.mask.i64, 16777216
+  %.val53 = load i32, ptr %503, align 4
+  %.mask.i63 = and i32 %.val53, -16777216
+  %504 = icmp eq i32 %.mask.i63, 16777216
   br i1 %504, label %581, label %505
 
 505:                                              ; preds = %500
@@ -19199,17 +19199,17 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18.exit:
 508:                                              ; preds = %505
   %509 = add nsw i32 %506, -1
   store i32 %509, ptr %502, align 4, !tbaa !4
-  br label %lean_dec_ref.exit39
+  br label %lean_dec_ref.exit38
 
 510:                                              ; preds = %505
-  %.not.i38 = icmp eq i32 %506, 0
-  br i1 %.not.i38, label %lean_dec_ref.exit39, label %511
+  %.not.i37 = icmp eq i32 %506, 0
+  br i1 %.not.i37, label %lean_dec_ref.exit38, label %511
 
 511:                                              ; preds = %510
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %502) #6
-  br label %lean_dec_ref.exit39
+  br label %lean_dec_ref.exit38
 
-lean_dec_ref.exit39:                              ; preds = %511, %510, %508, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18.exit
+lean_dec_ref.exit38:                              ; preds = %511, %510, %508, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__18.exit
   %512 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__10, align 8, !tbaa !9
   %513 = tail call ptr @l_Lean_Name_num___override(ptr noundef %512, ptr noundef nonnull inttoptr (i64 2901 to ptr)) #6
   store ptr %513, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__1, align 8, !tbaa !9
@@ -19232,11 +19232,11 @@ lean_dec_ref.exit39:                              ; preds = %511, %510, %508, %_
   %522 = icmp eq ptr %521, null
   br i1 %522, label %523, label %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__5.exit
 
-523:                                              ; preds = %lean_dec_ref.exit39
+523:                                              ; preds = %lean_dec_ref.exit38
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__5.exit: ; preds = %lean_dec_ref.exit39
+_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__5.exit: ; preds = %lean_dec_ref.exit38
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 4
   %525 = getelementptr inbounds nuw i8, ptr %521, i64 32
   store i64 0, ptr %525, align 8, !tbaa !16
@@ -19297,15 +19297,15 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7.exit: 
   store ptr %539, ptr %546, align 8, !tbaa !9
   store ptr %540, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %540) #6
-  br i1 %.not, label %lean_dec_ref.exit37, label %547
+  br i1 %.not, label %lean_dec_ref.exit36, label %547
 
 547:                                              ; preds = %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7.exit
   %548 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7, align 8, !tbaa !9
   %549 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef %548, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %550 = getelementptr i8, ptr %549, i64 4
-  %.val55 = load i32, ptr %550, align 4
-  %.mask.i65 = and i32 %.val55, -16777216
-  %551 = icmp eq i32 %.mask.i65, 16777216
+  %.val54 = load i32, ptr %550, align 4
+  %.mask.i64 = and i32 %.val54, -16777216
+  %551 = icmp eq i32 %.mask.i64, 16777216
   br i1 %551, label %581, label %552
 
 552:                                              ; preds = %547
@@ -19316,17 +19316,17 @@ _init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7.exit: 
 555:                                              ; preds = %552
   %556 = add nsw i32 %553, -1
   store i32 %556, ptr %549, align 4, !tbaa !4
-  br label %lean_dec_ref.exit37
+  br label %lean_dec_ref.exit36
 
 557:                                              ; preds = %552
-  %.not.i36 = icmp eq i32 %553, 0
-  br i1 %.not.i36, label %lean_dec_ref.exit37, label %558
+  %.not.i35 = icmp eq i32 %553, 0
+  br i1 %.not.i35, label %lean_dec_ref.exit36, label %558
 
 558:                                              ; preds = %557
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %549) #6
-  br label %lean_dec_ref.exit37
+  br label %lean_dec_ref.exit36
 
-lean_dec_ref.exit37:                              ; preds = %558, %557, %555, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7.exit
+lean_dec_ref.exit36:                              ; preds = %558, %557, %555, %_init_l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1450____closed__7.exit
   %559 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1409____closed__10, align 8, !tbaa !9
   %560 = tail call ptr @l_Lean_Name_num___override(ptr noundef %559, ptr noundef nonnull inttoptr (i64 2983 to ptr)) #6
   store ptr %560, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1491____closed__1, align 8, !tbaa !9
@@ -19352,13 +19352,13 @@ lean_dec_ref.exit37:                              ; preds = %558, %557, %555, %_
   tail call void @lean_mark_persistent(ptr noundef nonnull %567) #6
   br i1 %.not, label %lean_dec_ref.exit, label %568
 
-568:                                              ; preds = %lean_dec_ref.exit37
+568:                                              ; preds = %lean_dec_ref.exit36
   %569 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReducibilityAttrs___hyg_1491____closed__7, align 8, !tbaa !9
   %570 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef %569, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %571 = getelementptr i8, ptr %570, i64 4
-  %.val56 = load i32, ptr %571, align 4
-  %.mask.i66 = and i32 %.val56, -16777216
-  %572 = icmp eq i32 %.mask.i66, 16777216
+  %.val55 = load i32, ptr %571, align 4
+  %.mask.i65 = and i32 %.val55, -16777216
+  %572 = icmp eq i32 %.mask.i65, 16777216
   br i1 %572, label %581, label %573
 
 573:                                              ; preds = %568
@@ -19379,12 +19379,12 @@ lean_dec_ref.exit37:                              ; preds = %558, %557, %555, %_
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %570) #6
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %579, %578, %576, %lean_dec_ref.exit37
+lean_dec_ref.exit:                                ; preds = %579, %578, %576, %lean_dec_ref.exit36
   %580 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %581
 
-581:                                              ; preds = %568, %547, %500, %346, %299, %231, %lean_dec_ref.exit49, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %580, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit49 ], [ %232, %231 ], [ %301, %299 ], [ %350, %346 ], [ %502, %500 ], [ %549, %547 ], [ %570, %568 ]
+581:                                              ; preds = %568, %547, %500, %346, %299, %231, %lean_dec_ref.exit48, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %580, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit48 ], [ %232, %231 ], [ %301, %299 ], [ %350, %346 ], [ %502, %500 ], [ %549, %547 ], [ %570, %568 ]
   ret ptr %.0
 }
 

@@ -328,8 +328,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_forces() #0 {
-  %.b6 = load i1, ptr @proto_reg_handoff_forces.inited, align 1
-  br i1 %.b6, label %6, label %1
+  %.b = load i1, ptr @proto_reg_handoff_forces.inited, align 1
+  br i1 %.b, label %6, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_forces, align 4
@@ -346,95 +346,95 @@ define hidden void @proto_reg_handoff_forces() #0 {
   %7 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_high_prio_channel_port, align 4
   %.not = icmp eq i32 %7, 0
   %8 = load i32, ptr @forces_alternate_sctp_high_prio_channel_port, align 4
-  %.not7 = icmp eq i32 %7, %8
-  %or.cond = select i1 %.not, i1 true, i1 %.not7
+  %.not6 = icmp eq i32 %7, %8
+  %or.cond = select i1 %.not, i1 true, i1 %.not6
   br i1 %or.cond, label %11, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.92, i32 noundef %7, ptr noundef %10)
   %.pre = load i32, ptr @forces_alternate_sctp_high_prio_channel_port, align 4
-  %.pre23 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_high_prio_channel_port, align 4
+  %.pre22 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_high_prio_channel_port, align 4
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = phi i32 [ %.pre23, %9 ], [ %7, %6 ]
+  %12 = phi i32 [ %.pre22, %9 ], [ %7, %6 ]
   %13 = phi i32 [ %.pre, %9 ], [ %8, %6 ]
-  %.not8 = icmp eq i32 %13, 0
-  %.not9 = icmp eq i32 %12, %13
-  %or.cond18 = select i1 %.not8, i1 true, i1 %.not9
-  br i1 %or.cond18, label %16, label %14
+  %.not7 = icmp eq i32 %13, 0
+  %.not8 = icmp eq i32 %12, %13
+  %or.cond17 = select i1 %.not7, i1 true, i1 %.not8
+  br i1 %or.cond17, label %16, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.92, i32 noundef %13, ptr noundef %15)
-  %.pre24 = load i32, ptr @forces_alternate_sctp_high_prio_channel_port, align 4
+  %.pre23 = load i32, ptr @forces_alternate_sctp_high_prio_channel_port, align 4
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = phi i32 [ %.pre24, %14 ], [ %13, %11 ]
+  %17 = phi i32 [ %.pre23, %14 ], [ %13, %11 ]
   store i32 %17, ptr @proto_reg_handoff_forces.alternate_sctp_high_prio_channel_port, align 4
   %18 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_med_prio_channel_port, align 4
-  %.not10 = icmp eq i32 %18, 0
+  %.not9 = icmp eq i32 %18, 0
   %19 = load i32, ptr @forces_alternate_sctp_med_prio_channel_port, align 4
-  %.not11 = icmp eq i32 %18, %19
-  %or.cond19 = select i1 %.not10, i1 true, i1 %.not11
-  br i1 %or.cond19, label %22, label %20
+  %.not10 = icmp eq i32 %18, %19
+  %or.cond18 = select i1 %.not9, i1 true, i1 %.not10
+  br i1 %or.cond18, label %22, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.92, i32 noundef %18, ptr noundef %21)
-  %.pre25 = load i32, ptr @forces_alternate_sctp_med_prio_channel_port, align 4
-  %.pre26 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_med_prio_channel_port, align 4
+  %.pre24 = load i32, ptr @forces_alternate_sctp_med_prio_channel_port, align 4
+  %.pre25 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_med_prio_channel_port, align 4
   br label %22
 
 22:                                               ; preds = %20, %16
-  %23 = phi i32 [ %.pre26, %20 ], [ %18, %16 ]
-  %24 = phi i32 [ %.pre25, %20 ], [ %19, %16 ]
-  %.not12 = icmp eq i32 %24, 0
-  %.not13 = icmp eq i32 %23, %24
-  %or.cond20 = select i1 %.not12, i1 true, i1 %.not13
-  br i1 %or.cond20, label %27, label %25
+  %23 = phi i32 [ %.pre25, %20 ], [ %18, %16 ]
+  %24 = phi i32 [ %.pre24, %20 ], [ %19, %16 ]
+  %.not11 = icmp eq i32 %24, 0
+  %.not12 = icmp eq i32 %23, %24
+  %or.cond19 = select i1 %.not11, i1 true, i1 %.not12
+  br i1 %or.cond19, label %27, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.92, i32 noundef %24, ptr noundef %26)
-  %.pre27 = load i32, ptr @forces_alternate_sctp_med_prio_channel_port, align 4
+  %.pre26 = load i32, ptr @forces_alternate_sctp_med_prio_channel_port, align 4
   br label %27
 
 27:                                               ; preds = %25, %22
-  %28 = phi i32 [ %.pre27, %25 ], [ %24, %22 ]
+  %28 = phi i32 [ %.pre26, %25 ], [ %24, %22 ]
   store i32 %28, ptr @proto_reg_handoff_forces.alternate_sctp_med_prio_channel_port, align 4
   %29 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_low_prio_channel_port, align 4
-  %.not14 = icmp eq i32 %29, 0
+  %.not13 = icmp eq i32 %29, 0
   %30 = load i32, ptr @forces_alternate_sctp_low_prio_channel_port, align 4
-  %.not15 = icmp eq i32 %29, %30
-  %or.cond21 = select i1 %.not14, i1 true, i1 %.not15
-  br i1 %or.cond21, label %33, label %31
+  %.not14 = icmp eq i32 %29, %30
+  %or.cond20 = select i1 %.not13, i1 true, i1 %.not14
+  br i1 %or.cond20, label %33, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.92, i32 noundef %29, ptr noundef %32)
-  %.pre28 = load i32, ptr @forces_alternate_sctp_low_prio_channel_port, align 4
-  %.pre29 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_low_prio_channel_port, align 4
+  %.pre27 = load i32, ptr @forces_alternate_sctp_low_prio_channel_port, align 4
+  %.pre28 = load i32, ptr @proto_reg_handoff_forces.alternate_sctp_low_prio_channel_port, align 4
   br label %33
 
 33:                                               ; preds = %31, %27
-  %34 = phi i32 [ %.pre29, %31 ], [ %29, %27 ]
-  %35 = phi i32 [ %.pre28, %31 ], [ %30, %27 ]
-  %.not16 = icmp eq i32 %35, 0
-  %.not17 = icmp eq i32 %34, %35
-  %or.cond22 = select i1 %.not16, i1 true, i1 %.not17
-  br i1 %or.cond22, label %38, label %36
+  %34 = phi i32 [ %.pre28, %31 ], [ %29, %27 ]
+  %35 = phi i32 [ %.pre27, %31 ], [ %30, %27 ]
+  %.not15 = icmp eq i32 %35, 0
+  %.not16 = icmp eq i32 %34, %35
+  %or.cond21 = select i1 %.not15, i1 true, i1 %.not16
+  br i1 %or.cond21, label %38, label %36
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @forces_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.92, i32 noundef %35, ptr noundef %37)
-  %.pre30 = load i32, ptr @forces_alternate_sctp_low_prio_channel_port, align 4
+  %.pre29 = load i32, ptr @forces_alternate_sctp_low_prio_channel_port, align 4
   br label %38
 
 38:                                               ; preds = %36, %33
-  %39 = phi i32 [ %.pre30, %36 ], [ %35, %33 ]
+  %39 = phi i32 [ %.pre29, %36 ], [ %35, %33 ]
   store i32 %39, ptr @proto_reg_handoff_forces.alternate_sctp_low_prio_channel_port, align 4
   ret void
 }

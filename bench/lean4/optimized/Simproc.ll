@@ -249263,8 +249263,8 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul___regBui
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b296 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b296, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -249303,25 +249303,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit510
+  br label %lean_dec_ref.exit509
 
 19:                                               ; preds = %14
-  %.not.i509 = icmp eq i32 %15, 0
-  br i1 %.not.i509, label %lean_dec_ref.exit510, label %20
+  %.not.i508 = icmp eq i32 %15, 0
+  br i1 %.not.i508, label %lean_dec_ref.exit509, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br label %lean_dec_ref.exit510
+  br label %lean_dec_ref.exit509
 
-lean_dec_ref.exit510:                             ; preds = %17, %19, %20
+lean_dec_ref.exit509:                             ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Std_Tactic_BVDecide_Syntax(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val511 = load i32, ptr %22, align 4
-  %.mask.i584 = and i32 %.val511, -16777216
-  %23 = icmp eq i32 %.mask.i584, 16777216
+  %.val510 = load i32, ptr %22, align 4
+  %.mask.i583 = and i32 %.val510, -16777216
+  %23 = icmp eq i32 %.mask.i583, 16777216
   br i1 %23, label %2053, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit510
+24:                                               ; preds = %lean_dec_ref.exit509
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -249329,25 +249329,25 @@ lean_dec_ref.exit510:                             ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit508
+  br label %lean_dec_ref.exit507
 
 29:                                               ; preds = %24
-  %.not.i507 = icmp eq i32 %25, 0
-  br i1 %.not.i507, label %lean_dec_ref.exit508, label %30
+  %.not.i506 = icmp eq i32 %25, 0
+  br i1 %.not.i506, label %lean_dec_ref.exit507, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #5
-  br label %lean_dec_ref.exit508
+  br label %lean_dec_ref.exit507
 
-lean_dec_ref.exit508:                             ; preds = %27, %29, %30
+lean_dec_ref.exit507:                             ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Elab_Tactic_Simp(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val512 = load i32, ptr %32, align 4
-  %.mask.i585 = and i32 %.val512, -16777216
-  %33 = icmp eq i32 %.mask.i585, 16777216
+  %.val511 = load i32, ptr %32, align 4
+  %.mask.i584 = and i32 %.val511, -16777216
+  %33 = icmp eq i32 %.mask.i584, 16777216
   br i1 %33, label %2053, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit508
+34:                                               ; preds = %lean_dec_ref.exit507
   %35 = load i32, ptr %31, align 4, !tbaa !8
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !11
@@ -249355,25 +249355,25 @@ lean_dec_ref.exit508:                             ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !8
-  br label %lean_dec_ref.exit506
+  br label %lean_dec_ref.exit505
 
 39:                                               ; preds = %34
-  %.not.i505 = icmp eq i32 %35, 0
-  br i1 %.not.i505, label %lean_dec_ref.exit506, label %40
+  %.not.i504 = icmp eq i32 %35, 0
+  br i1 %.not.i504, label %lean_dec_ref.exit505, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #5
-  br label %lean_dec_ref.exit506
+  br label %lean_dec_ref.exit505
 
-lean_dec_ref.exit506:                             ; preds = %37, %39, %40
+lean_dec_ref.exit505:                             ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_Attr(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val513 = load i32, ptr %42, align 4
-  %.mask.i586 = and i32 %.val513, -16777216
-  %43 = icmp eq i32 %.mask.i586, 16777216
+  %.val512 = load i32, ptr %42, align 4
+  %.mask.i585 = and i32 %.val512, -16777216
+  %43 = icmp eq i32 %.mask.i585, 16777216
   br i1 %43, label %2053, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit506
+44:                                               ; preds = %lean_dec_ref.exit505
   %45 = load i32, ptr %41, align 4, !tbaa !8
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !11
@@ -249381,27 +249381,27 @@ lean_dec_ref.exit506:                             ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !8
-  br label %lean_dec_ref.exit504
+  br label %lean_dec_ref.exit503
 
 49:                                               ; preds = %44
-  %.not.i503 = icmp eq i32 %45, 0
-  br i1 %.not.i503, label %lean_dec_ref.exit504, label %50
+  %.not.i502 = icmp eq i32 %45, 0
+  br i1 %.not.i502, label %lean_dec_ref.exit503, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #5
-  br label %lean_dec_ref.exit504
+  br label %lean_dec_ref.exit503
 
-lean_dec_ref.exit504:                             ; preds = %47, %49, %50
+lean_dec_ref.exit503:                             ; preds = %47, %49, %50
   tail call void @lean_inc_heartbeat() #5
   %51 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___lambda__3___closed__1.exit
 
-53:                                               ; preds = %lean_dec_ref.exit504
+53:                                               ; preds = %lean_dec_ref.exit503
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___lambda__3___closed__1.exit: ; preds = %lean_dec_ref.exit504
+_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___lambda__3___closed__1.exit: ; preds = %lean_dec_ref.exit503
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %51, align 4, !tbaa !8
   store i32 33619984, ptr %54, align 4
@@ -249851,9 +249851,9 @@ _init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regB
   %231 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and_declare__9____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_656____closed__18, align 8, !tbaa !4
   %232 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %229, ptr noundef %230, ptr noundef %231, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %233 = getelementptr i8, ptr %232, i64 4
-  %.val514 = load i32, ptr %233, align 4
-  %.mask.i587 = and i32 %.val514, -16777216
-  %234 = icmp eq i32 %.mask.i587, 16777216
+  %.val513 = load i32, ptr %233, align 4
+  %.mask.i586 = and i32 %.val513, -16777216
+  %234 = icmp eq i32 %.mask.i586, 16777216
   br i1 %234, label %2053, label %235
 
 235:                                              ; preds = %228
@@ -249867,8 +249867,8 @@ _init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regB
   br label %242
 
 240:                                              ; preds = %235
-  %.not.i501 = icmp eq i32 %236, 0
-  br i1 %.not.i501, label %242, label %241
+  %.not.i500 = icmp eq i32 %236, 0
+  br i1 %.not.i500, label %242, label %241
 
 241:                                              ; preds = %240
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %232) #5
@@ -249886,9 +249886,9 @@ _init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regB
   %247 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_658____closed__1, align 8, !tbaa !4
   %248 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %245, ptr noundef %246, i8 noundef zeroext 1, ptr noundef %247, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %249 = getelementptr i8, ptr %248, i64 4
-  %.val515 = load i32, ptr %249, align 4
-  %.mask.i588 = and i32 %.val515, -16777216
-  %250 = icmp eq i32 %.mask.i588, 16777216
+  %.val514 = load i32, ptr %249, align 4
+  %.mask.i587 = and i32 %.val514, -16777216
+  %250 = icmp eq i32 %.mask.i587, 16777216
   br i1 %250, label %2053, label %251
 
 251:                                              ; preds = %242
@@ -249899,15 +249899,15 @@ _init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regB
 254:                                              ; preds = %251
   %255 = add nsw i32 %252, -1
   store i32 %255, ptr %248, align 4, !tbaa !8
-  br label %lean_dec_ref.exit500
+  br label %lean_dec_ref.exit499
 
 256:                                              ; preds = %251
-  %.not.i499 = icmp eq i32 %252, 0
-  br i1 %.not.i499, label %lean_dec_ref.exit500, label %257
+  %.not.i498 = icmp eq i32 %252, 0
+  br i1 %.not.i498, label %lean_dec_ref.exit499, label %257
 
 257:                                              ; preds = %256
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %248) #5
-  br label %lean_dec_ref.exit500
+  br label %lean_dec_ref.exit499
 
 .critedge:                                        ; preds = %_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and_declare__9____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_656____closed__18.exit
   %258 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_658____closed__1()
@@ -249916,9 +249916,9 @@ _init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regB
   %259 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_builtinBVNormalizeSimprocsRef, align 8, !tbaa !4
   store ptr %259, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_658____closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %259) #5
-  br label %lean_dec_ref.exit500
+  br label %lean_dec_ref.exit499
 
-lean_dec_ref.exit500:                             ; preds = %257, %256, %254, %.critedge
+lean_dec_ref.exit499:                             ; preds = %257, %256, %254, %.critedge
   %260 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.17, i64 noundef 7, i64 noundef 7) #5
   store ptr %260, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %260) #5
@@ -250106,17 +250106,17 @@ lean_dec_ref.exit500:                             ; preds = %257, %256, %254, %.
   %338 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__14____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4925____closed__6()
   store ptr %338, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__14____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4925____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %338) #5
-  br i1 %.not, label %.critedge298, label %339
+  br i1 %.not, label %.critedge297, label %339
 
-339:                                              ; preds = %lean_dec_ref.exit500
+339:                                              ; preds = %lean_dec_ref.exit499
   %340 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__14____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4925____closed__2, align 8, !tbaa !4
   %341 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__14____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4925____closed__5, align 8, !tbaa !4
   %342 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__14____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4925____closed__6, align 8, !tbaa !4
   %343 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %340, ptr noundef %341, ptr noundef %342, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %344 = getelementptr i8, ptr %343, i64 4
-  %.val516 = load i32, ptr %344, align 4
-  %.mask.i589 = and i32 %.val516, -16777216
-  %345 = icmp eq i32 %.mask.i589, 16777216
+  %.val515 = load i32, ptr %344, align 4
+  %.mask.i588 = and i32 %.val515, -16777216
+  %345 = icmp eq i32 %.mask.i588, 16777216
   br i1 %345, label %2053, label %346
 
 346:                                              ; preds = %339
@@ -250130,8 +250130,8 @@ lean_dec_ref.exit500:                             ; preds = %257, %256, %254, %.
   br label %353
 
 351:                                              ; preds = %346
-  %.not.i497 = icmp eq i32 %347, 0
-  br i1 %.not.i497, label %353, label %352
+  %.not.i496 = icmp eq i32 %347, 0
+  br i1 %.not.i496, label %353, label %352
 
 352:                                              ; preds = %351
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %343) #5
@@ -250146,9 +250146,9 @@ lean_dec_ref.exit500:                             ; preds = %257, %256, %254, %.
   %357 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4927____closed__1, align 8, !tbaa !4
   %358 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %355, ptr noundef %356, i8 noundef zeroext 1, ptr noundef %357, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %359 = getelementptr i8, ptr %358, i64 4
-  %.val517 = load i32, ptr %359, align 4
-  %.mask.i590 = and i32 %.val517, -16777216
-  %360 = icmp eq i32 %.mask.i590, 16777216
+  %.val516 = load i32, ptr %359, align 4
+  %.mask.i589 = and i32 %.val516, -16777216
+  %360 = icmp eq i32 %.mask.i589, 16777216
   br i1 %360, label %2053, label %361
 
 361:                                              ; preds = %353
@@ -250159,23 +250159,23 @@ lean_dec_ref.exit500:                             ; preds = %257, %256, %254, %.
 364:                                              ; preds = %361
   %365 = add nsw i32 %362, -1
   store i32 %365, ptr %358, align 4, !tbaa !8
-  br label %lean_dec_ref.exit496
+  br label %lean_dec_ref.exit495
 
 366:                                              ; preds = %361
-  %.not.i495 = icmp eq i32 %362, 0
-  br i1 %.not.i495, label %lean_dec_ref.exit496, label %367
+  %.not.i494 = icmp eq i32 %362, 0
+  br i1 %.not.i494, label %lean_dec_ref.exit495, label %367
 
 367:                                              ; preds = %366
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %358) #5
-  br label %lean_dec_ref.exit496
+  br label %lean_dec_ref.exit495
 
-.critedge298:                                     ; preds = %lean_dec_ref.exit500
+.critedge297:                                     ; preds = %lean_dec_ref.exit499
   %368 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4927____closed__1()
   store ptr %368, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_4927____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %368) #5
-  br label %lean_dec_ref.exit496
+  br label %lean_dec_ref.exit495
 
-lean_dec_ref.exit496:                             ; preds = %367, %366, %364, %.critedge298
+lean_dec_ref.exit495:                             ; preds = %367, %366, %364, %.critedge297
   %369 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.37, i64 noundef 16, i64 noundef 16) #5
   store ptr %369, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %369) #5
@@ -250234,17 +250234,17 @@ lean_dec_ref.exit496:                             ; preds = %367, %366, %364, %.
   %390 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__19____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5394____closed__11()
   store ptr %390, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__19____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5394____closed__11, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %390) #5
-  br i1 %.not, label %.critedge300, label %391
+  br i1 %.not, label %.critedge299, label %391
 
-391:                                              ; preds = %lean_dec_ref.exit496
+391:                                              ; preds = %lean_dec_ref.exit495
   %392 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__19____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5394____closed__2, align 8, !tbaa !4
   %393 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__19____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5394____closed__10, align 8, !tbaa !4
   %394 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__19____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5394____closed__11, align 8, !tbaa !4
   %395 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %392, ptr noundef %393, ptr noundef %394, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %396 = getelementptr i8, ptr %395, i64 4
-  %.val518 = load i32, ptr %396, align 4
-  %.mask.i591 = and i32 %.val518, -16777216
-  %397 = icmp eq i32 %.mask.i591, 16777216
+  %.val517 = load i32, ptr %396, align 4
+  %.mask.i590 = and i32 %.val517, -16777216
+  %397 = icmp eq i32 %.mask.i590, 16777216
   br i1 %397, label %2053, label %398
 
 398:                                              ; preds = %391
@@ -250258,8 +250258,8 @@ lean_dec_ref.exit496:                             ; preds = %367, %366, %364, %.
   br label %405
 
 403:                                              ; preds = %398
-  %.not.i493 = icmp eq i32 %399, 0
-  br i1 %.not.i493, label %405, label %404
+  %.not.i492 = icmp eq i32 %399, 0
+  br i1 %.not.i492, label %405, label %404
 
 404:                                              ; preds = %403
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %395) #5
@@ -250274,9 +250274,9 @@ lean_dec_ref.exit496:                             ; preds = %367, %366, %364, %.
   %409 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5396____closed__1, align 8, !tbaa !4
   %410 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %407, ptr noundef %408, i8 noundef zeroext 1, ptr noundef %409, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %411 = getelementptr i8, ptr %410, i64 4
-  %.val519 = load i32, ptr %411, align 4
-  %.mask.i592 = and i32 %.val519, -16777216
-  %412 = icmp eq i32 %.mask.i592, 16777216
+  %.val518 = load i32, ptr %411, align 4
+  %.mask.i591 = and i32 %.val518, -16777216
+  %412 = icmp eq i32 %.mask.i591, 16777216
   br i1 %412, label %2053, label %413
 
 413:                                              ; preds = %405
@@ -250287,23 +250287,23 @@ lean_dec_ref.exit496:                             ; preds = %367, %366, %364, %.
 416:                                              ; preds = %413
   %417 = add nsw i32 %414, -1
   store i32 %417, ptr %410, align 4, !tbaa !8
-  br label %lean_dec_ref.exit492
+  br label %lean_dec_ref.exit491
 
 418:                                              ; preds = %413
-  %.not.i491 = icmp eq i32 %414, 0
-  br i1 %.not.i491, label %lean_dec_ref.exit492, label %419
+  %.not.i490 = icmp eq i32 %414, 0
+  br i1 %.not.i490, label %lean_dec_ref.exit491, label %419
 
 419:                                              ; preds = %418
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %410) #5
-  br label %lean_dec_ref.exit492
+  br label %lean_dec_ref.exit491
 
-.critedge300:                                     ; preds = %lean_dec_ref.exit496
+.critedge299:                                     ; preds = %lean_dec_ref.exit495
   %420 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5396____closed__1()
   store ptr %420, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shiftRight__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5396____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %420) #5
-  br label %lean_dec_ref.exit492
+  br label %lean_dec_ref.exit491
 
-lean_dec_ref.exit492:                             ; preds = %419, %418, %416, %.critedge300
+lean_dec_ref.exit491:                             ; preds = %419, %418, %416, %.critedge299
   %421 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.41, i64 noundef 19, i64 noundef 19) #5
   store ptr %421, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %421) #5
@@ -250346,17 +250346,17 @@ lean_dec_ref.exit492:                             ; preds = %419, %418, %416, %.
   %438 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__24____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5843____closed__6()
   store ptr %438, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__24____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5843____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %438) #5
-  br i1 %.not, label %.critedge302, label %439
+  br i1 %.not, label %.critedge301, label %439
 
-439:                                              ; preds = %lean_dec_ref.exit492
+439:                                              ; preds = %lean_dec_ref.exit491
   %440 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__24____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5843____closed__2, align 8, !tbaa !4
   %441 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__24____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5843____closed__5, align 8, !tbaa !4
   %442 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__24____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5843____closed__6, align 8, !tbaa !4
   %443 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %440, ptr noundef %441, ptr noundef %442, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %444 = getelementptr i8, ptr %443, i64 4
-  %.val520 = load i32, ptr %444, align 4
-  %.mask.i593 = and i32 %.val520, -16777216
-  %445 = icmp eq i32 %.mask.i593, 16777216
+  %.val519 = load i32, ptr %444, align 4
+  %.mask.i592 = and i32 %.val519, -16777216
+  %445 = icmp eq i32 %.mask.i592, 16777216
   br i1 %445, label %2053, label %446
 
 446:                                              ; preds = %439
@@ -250370,8 +250370,8 @@ lean_dec_ref.exit492:                             ; preds = %419, %418, %416, %.
   br label %453
 
 451:                                              ; preds = %446
-  %.not.i489 = icmp eq i32 %447, 0
-  br i1 %.not.i489, label %453, label %452
+  %.not.i488 = icmp eq i32 %447, 0
+  br i1 %.not.i488, label %453, label %452
 
 452:                                              ; preds = %451
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %443) #5
@@ -250386,9 +250386,9 @@ lean_dec_ref.exit492:                             ; preds = %419, %418, %416, %.
   %457 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5845____closed__1, align 8, !tbaa !4
   %458 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %455, ptr noundef %456, i8 noundef zeroext 1, ptr noundef %457, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %459 = getelementptr i8, ptr %458, i64 4
-  %.val521 = load i32, ptr %459, align 4
-  %.mask.i594 = and i32 %.val521, -16777216
-  %460 = icmp eq i32 %.mask.i594, 16777216
+  %.val520 = load i32, ptr %459, align 4
+  %.mask.i593 = and i32 %.val520, -16777216
+  %460 = icmp eq i32 %.mask.i593, 16777216
   br i1 %460, label %2053, label %461
 
 461:                                              ; preds = %453
@@ -250399,23 +250399,23 @@ lean_dec_ref.exit492:                             ; preds = %419, %418, %416, %.
 464:                                              ; preds = %461
   %465 = add nsw i32 %462, -1
   store i32 %465, ptr %458, align 4, !tbaa !8
-  br label %lean_dec_ref.exit488
+  br label %lean_dec_ref.exit487
 
 466:                                              ; preds = %461
-  %.not.i487 = icmp eq i32 %462, 0
-  br i1 %.not.i487, label %lean_dec_ref.exit488, label %467
+  %.not.i486 = icmp eq i32 %462, 0
+  br i1 %.not.i486, label %lean_dec_ref.exit487, label %467
 
 467:                                              ; preds = %466
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %458) #5
-  br label %lean_dec_ref.exit488
+  br label %lean_dec_ref.exit487
 
-.critedge302:                                     ; preds = %lean_dec_ref.exit492
+.critedge301:                                     ; preds = %lean_dec_ref.exit491
   %468 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5845____closed__1()
   store ptr %468, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_5845____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %468) #5
-  br label %lean_dec_ref.exit488
+  br label %lean_dec_ref.exit487
 
-lean_dec_ref.exit488:                             ; preds = %467, %466, %464, %.critedge302
+lean_dec_ref.exit487:                             ; preds = %467, %466, %464, %.critedge301
   %469 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.44, i64 noundef 7, i64 noundef 7) #5
   store ptr %469, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqSelfProc___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %469) #5
@@ -250477,17 +250477,17 @@ lean_dec_ref.exit488:                             ; preds = %467, %466, %464, %.
   %493 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__32____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6107____closed__7()
   store ptr %493, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__32____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6107____closed__7, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %493) #5
-  br i1 %.not, label %.critedge304, label %494
+  br i1 %.not, label %.critedge303, label %494
 
-494:                                              ; preds = %lean_dec_ref.exit488
+494:                                              ; preds = %lean_dec_ref.exit487
   %495 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__32____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6107____closed__2, align 8, !tbaa !4
   %496 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__32____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6107____closed__6, align 8, !tbaa !4
   %497 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__32____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6107____closed__7, align 8, !tbaa !4
   %498 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %495, ptr noundef %496, ptr noundef %497, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %499 = getelementptr i8, ptr %498, i64 4
-  %.val522 = load i32, ptr %499, align 4
-  %.mask.i595 = and i32 %.val522, -16777216
-  %500 = icmp eq i32 %.mask.i595, 16777216
+  %.val521 = load i32, ptr %499, align 4
+  %.mask.i594 = and i32 %.val521, -16777216
+  %500 = icmp eq i32 %.mask.i594, 16777216
   br i1 %500, label %2053, label %501
 
 501:                                              ; preds = %494
@@ -250501,8 +250501,8 @@ lean_dec_ref.exit488:                             ; preds = %467, %466, %464, %.
   br label %508
 
 506:                                              ; preds = %501
-  %.not.i485 = icmp eq i32 %502, 0
-  br i1 %.not.i485, label %508, label %507
+  %.not.i484 = icmp eq i32 %502, 0
+  br i1 %.not.i484, label %508, label %507
 
 507:                                              ; preds = %506
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %498) #5
@@ -250517,9 +250517,9 @@ lean_dec_ref.exit488:                             ; preds = %467, %466, %464, %.
   %512 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6109____closed__1, align 8, !tbaa !4
   %513 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %510, ptr noundef %511, i8 noundef zeroext 1, ptr noundef %512, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %514 = getelementptr i8, ptr %513, i64 4
-  %.val523 = load i32, ptr %514, align 4
-  %.mask.i596 = and i32 %.val523, -16777216
-  %515 = icmp eq i32 %.mask.i596, 16777216
+  %.val522 = load i32, ptr %514, align 4
+  %.mask.i595 = and i32 %.val522, -16777216
+  %515 = icmp eq i32 %.mask.i595, 16777216
   br i1 %515, label %2053, label %516
 
 516:                                              ; preds = %508
@@ -250530,23 +250530,23 @@ lean_dec_ref.exit488:                             ; preds = %467, %466, %464, %.
 519:                                              ; preds = %516
   %520 = add nsw i32 %517, -1
   store i32 %520, ptr %513, align 4, !tbaa !8
-  br label %lean_dec_ref.exit484
+  br label %lean_dec_ref.exit483
 
 521:                                              ; preds = %516
-  %.not.i483 = icmp eq i32 %517, 0
-  br i1 %.not.i483, label %lean_dec_ref.exit484, label %522
+  %.not.i482 = icmp eq i32 %517, 0
+  br i1 %.not.i482, label %lean_dec_ref.exit483, label %522
 
 522:                                              ; preds = %521
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %513) #5
-  br label %lean_dec_ref.exit484
+  br label %lean_dec_ref.exit483
 
-.critedge304:                                     ; preds = %lean_dec_ref.exit488
+.critedge303:                                     ; preds = %lean_dec_ref.exit487
   %523 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6109____closed__1()
   store ptr %523, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6109____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %523) #5
-  br label %lean_dec_ref.exit484
+  br label %lean_dec_ref.exit483
 
-lean_dec_ref.exit484:                             ; preds = %522, %521, %519, %.critedge304
+lean_dec_ref.exit483:                             ; preds = %522, %521, %519, %.critedge303
   %524 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.48, i64 noundef 12, i64 noundef 12) #5
   store ptr %524, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %524) #5
@@ -250576,17 +250576,17 @@ lean_dec_ref.exit484:                             ; preds = %522, %521, %519, %.
   %534 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__9()
   store ptr %534, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %534) #5
-  br i1 %.not, label %.critedge306, label %535
+  br i1 %.not, label %.critedge305, label %535
 
-535:                                              ; preds = %lean_dec_ref.exit484
+535:                                              ; preds = %lean_dec_ref.exit483
   %536 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__2, align 8, !tbaa !4
   %537 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__8, align 8, !tbaa !4
   %538 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__9, align 8, !tbaa !4
   %539 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %536, ptr noundef %537, ptr noundef %538, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %540 = getelementptr i8, ptr %539, i64 4
-  %.val524 = load i32, ptr %540, align 4
-  %.mask.i597 = and i32 %.val524, -16777216
-  %541 = icmp eq i32 %.mask.i597, 16777216
+  %.val523 = load i32, ptr %540, align 4
+  %.mask.i596 = and i32 %.val523, -16777216
+  %541 = icmp eq i32 %.mask.i596, 16777216
   br i1 %541, label %2053, label %542
 
 542:                                              ; preds = %535
@@ -250600,8 +250600,8 @@ lean_dec_ref.exit484:                             ; preds = %522, %521, %519, %.
   br label %549
 
 547:                                              ; preds = %542
-  %.not.i481 = icmp eq i32 %543, 0
-  br i1 %.not.i481, label %549, label %548
+  %.not.i480 = icmp eq i32 %543, 0
+  br i1 %.not.i480, label %549, label %548
 
 548:                                              ; preds = %547
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %539) #5
@@ -250616,9 +250616,9 @@ lean_dec_ref.exit484:                             ; preds = %522, %521, %519, %.
   %553 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6136____closed__1, align 8, !tbaa !4
   %554 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %551, ptr noundef %552, i8 noundef zeroext 1, ptr noundef %553, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %555 = getelementptr i8, ptr %554, i64 4
-  %.val525 = load i32, ptr %555, align 4
-  %.mask.i598 = and i32 %.val525, -16777216
-  %556 = icmp eq i32 %.mask.i598, 16777216
+  %.val524 = load i32, ptr %555, align 4
+  %.mask.i597 = and i32 %.val524, -16777216
+  %556 = icmp eq i32 %.mask.i597, 16777216
   br i1 %556, label %2053, label %557
 
 557:                                              ; preds = %549
@@ -250629,23 +250629,23 @@ lean_dec_ref.exit484:                             ; preds = %522, %521, %519, %.
 560:                                              ; preds = %557
   %561 = add nsw i32 %558, -1
   store i32 %561, ptr %554, align 4, !tbaa !8
-  br label %lean_dec_ref.exit480
+  br label %lean_dec_ref.exit479
 
 562:                                              ; preds = %557
-  %.not.i479 = icmp eq i32 %558, 0
-  br i1 %.not.i479, label %lean_dec_ref.exit480, label %563
+  %.not.i478 = icmp eq i32 %558, 0
+  br i1 %.not.i478, label %lean_dec_ref.exit479, label %563
 
 563:                                              ; preds = %562
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %554) #5
-  br label %lean_dec_ref.exit480
+  br label %lean_dec_ref.exit479
 
-.critedge306:                                     ; preds = %lean_dec_ref.exit484
+.critedge305:                                     ; preds = %lean_dec_ref.exit483
   %564 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6136____closed__1()
   store ptr %564, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6136____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %564) #5
-  br label %lean_dec_ref.exit480
+  br label %lean_dec_ref.exit479
 
-lean_dec_ref.exit480:                             ; preds = %563, %562, %560, %.critedge306
+lean_dec_ref.exit479:                             ; preds = %563, %562, %560, %.critedge305
   %565 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.50, i64 noundef 12, i64 noundef 12) #5
   store ptr %565, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %565) #5
@@ -250757,17 +250757,17 @@ lean_dec_ref.exit480:                             ; preds = %563, %562, %560, %.
   %617 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__42____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7195____closed__6()
   store ptr %617, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__42____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7195____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %617) #5
-  br i1 %.not, label %.critedge308, label %618
+  br i1 %.not, label %.critedge307, label %618
 
-618:                                              ; preds = %lean_dec_ref.exit480
+618:                                              ; preds = %lean_dec_ref.exit479
   %619 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__42____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7195____closed__2, align 8, !tbaa !4
   %620 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__42____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7195____closed__5, align 8, !tbaa !4
   %621 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__42____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7195____closed__6, align 8, !tbaa !4
   %622 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %619, ptr noundef %620, ptr noundef %621, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %623 = getelementptr i8, ptr %622, i64 4
-  %.val526 = load i32, ptr %623, align 4
-  %.mask.i599 = and i32 %.val526, -16777216
-  %624 = icmp eq i32 %.mask.i599, 16777216
+  %.val525 = load i32, ptr %623, align 4
+  %.mask.i598 = and i32 %.val525, -16777216
+  %624 = icmp eq i32 %.mask.i598, 16777216
   br i1 %624, label %2053, label %625
 
 625:                                              ; preds = %618
@@ -250781,8 +250781,8 @@ lean_dec_ref.exit480:                             ; preds = %563, %562, %560, %.
   br label %632
 
 630:                                              ; preds = %625
-  %.not.i477 = icmp eq i32 %626, 0
-  br i1 %.not.i477, label %632, label %631
+  %.not.i476 = icmp eq i32 %626, 0
+  br i1 %.not.i476, label %632, label %631
 
 631:                                              ; preds = %630
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %622) #5
@@ -250797,9 +250797,9 @@ lean_dec_ref.exit480:                             ; preds = %563, %562, %560, %.
   %636 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7197____closed__1, align 8, !tbaa !4
   %637 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %634, ptr noundef %635, i8 noundef zeroext 1, ptr noundef %636, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %638 = getelementptr i8, ptr %637, i64 4
-  %.val527 = load i32, ptr %638, align 4
-  %.mask.i600 = and i32 %.val527, -16777216
-  %639 = icmp eq i32 %.mask.i600, 16777216
+  %.val526 = load i32, ptr %638, align 4
+  %.mask.i599 = and i32 %.val526, -16777216
+  %639 = icmp eq i32 %.mask.i599, 16777216
   br i1 %639, label %2053, label %640
 
 640:                                              ; preds = %632
@@ -250810,23 +250810,23 @@ lean_dec_ref.exit480:                             ; preds = %563, %562, %560, %.
 643:                                              ; preds = %640
   %644 = add nsw i32 %641, -1
   store i32 %644, ptr %637, align 4, !tbaa !8
-  br label %lean_dec_ref.exit476
+  br label %lean_dec_ref.exit475
 
 645:                                              ; preds = %640
-  %.not.i475 = icmp eq i32 %641, 0
-  br i1 %.not.i475, label %lean_dec_ref.exit476, label %646
+  %.not.i474 = icmp eq i32 %641, 0
+  br i1 %.not.i474, label %lean_dec_ref.exit475, label %646
 
 646:                                              ; preds = %645
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %637) #5
-  br label %lean_dec_ref.exit476
+  br label %lean_dec_ref.exit475
 
-.critedge308:                                     ; preds = %lean_dec_ref.exit480
+.critedge307:                                     ; preds = %lean_dec_ref.exit479
   %647 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7197____closed__1()
   store ptr %647, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7197____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %647) #5
-  br label %lean_dec_ref.exit476
+  br label %lean_dec_ref.exit475
 
-lean_dec_ref.exit476:                             ; preds = %646, %645, %643, %.critedge308
+lean_dec_ref.exit475:                             ; preds = %646, %645, %643, %.critedge307
   %648 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.58, i64 noundef 16, i64 noundef 16) #5
   store ptr %648, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %648) #5
@@ -250879,17 +250879,17 @@ lean_dec_ref.exit476:                             ; preds = %646, %645, %643, %.
   %669 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__47____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7489____closed__6()
   store ptr %669, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__47____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7489____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %669) #5
-  br i1 %.not, label %.critedge310, label %670
+  br i1 %.not, label %.critedge309, label %670
 
-670:                                              ; preds = %lean_dec_ref.exit476
+670:                                              ; preds = %lean_dec_ref.exit475
   %671 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__47____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7489____closed__2, align 8, !tbaa !4
   %672 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__47____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7489____closed__5, align 8, !tbaa !4
   %673 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__47____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7489____closed__6, align 8, !tbaa !4
   %674 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %671, ptr noundef %672, ptr noundef %673, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %675 = getelementptr i8, ptr %674, i64 4
-  %.val528 = load i32, ptr %675, align 4
-  %.mask.i601 = and i32 %.val528, -16777216
-  %676 = icmp eq i32 %.mask.i601, 16777216
+  %.val527 = load i32, ptr %675, align 4
+  %.mask.i600 = and i32 %.val527, -16777216
+  %676 = icmp eq i32 %.mask.i600, 16777216
   br i1 %676, label %2053, label %677
 
 677:                                              ; preds = %670
@@ -250903,8 +250903,8 @@ lean_dec_ref.exit476:                             ; preds = %646, %645, %643, %.
   br label %684
 
 682:                                              ; preds = %677
-  %.not.i473 = icmp eq i32 %678, 0
-  br i1 %.not.i473, label %684, label %683
+  %.not.i472 = icmp eq i32 %678, 0
+  br i1 %.not.i472, label %684, label %683
 
 683:                                              ; preds = %682
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %674) #5
@@ -250919,9 +250919,9 @@ lean_dec_ref.exit476:                             ; preds = %646, %645, %643, %.
   %688 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7491____closed__1, align 8, !tbaa !4
   %689 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %686, ptr noundef %687, i8 noundef zeroext 1, ptr noundef %688, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %690 = getelementptr i8, ptr %689, i64 4
-  %.val529 = load i32, ptr %690, align 4
-  %.mask.i602 = and i32 %.val529, -16777216
-  %691 = icmp eq i32 %.mask.i602, 16777216
+  %.val528 = load i32, ptr %690, align 4
+  %.mask.i601 = and i32 %.val528, -16777216
+  %691 = icmp eq i32 %.mask.i601, 16777216
   br i1 %691, label %2053, label %692
 
 692:                                              ; preds = %684
@@ -250932,23 +250932,23 @@ lean_dec_ref.exit476:                             ; preds = %646, %645, %643, %.
 695:                                              ; preds = %692
   %696 = add nsw i32 %693, -1
   store i32 %696, ptr %689, align 4, !tbaa !8
-  br label %lean_dec_ref.exit472
+  br label %lean_dec_ref.exit471
 
 697:                                              ; preds = %692
-  %.not.i471 = icmp eq i32 %693, 0
-  br i1 %.not.i471, label %lean_dec_ref.exit472, label %698
+  %.not.i470 = icmp eq i32 %693, 0
+  br i1 %.not.i470, label %lean_dec_ref.exit471, label %698
 
 698:                                              ; preds = %697
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %689) #5
-  br label %lean_dec_ref.exit472
+  br label %lean_dec_ref.exit471
 
-.critedge310:                                     ; preds = %lean_dec_ref.exit476
+.critedge309:                                     ; preds = %lean_dec_ref.exit475
   %699 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7491____closed__1()
   store ptr %699, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__beq__self_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_7491____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %699) #5
-  br label %lean_dec_ref.exit472
+  br label %lean_dec_ref.exit471
 
-lean_dec_ref.exit472:                             ; preds = %698, %697, %695, %.critedge310
+lean_dec_ref.exit471:                             ; preds = %698, %697, %695, %.critedge309
   %700 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.63, i64 noundef 12, i64 noundef 12) #5
   store ptr %700, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %700) #5
@@ -251019,17 +251019,17 @@ lean_dec_ref.exit472:                             ; preds = %698, %697, %695, %.
   %731 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__52____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8731____closed__6()
   store ptr %731, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__52____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8731____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %731) #5
-  br i1 %.not, label %.critedge312, label %732
+  br i1 %.not, label %.critedge311, label %732
 
-732:                                              ; preds = %lean_dec_ref.exit472
+732:                                              ; preds = %lean_dec_ref.exit471
   %733 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__52____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8731____closed__2, align 8, !tbaa !4
   %734 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__52____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8731____closed__5, align 8, !tbaa !4
   %735 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__52____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8731____closed__6, align 8, !tbaa !4
   %736 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %733, ptr noundef %734, ptr noundef %735, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %737 = getelementptr i8, ptr %736, i64 4
-  %.val530 = load i32, ptr %737, align 4
-  %.mask.i603 = and i32 %.val530, -16777216
-  %738 = icmp eq i32 %.mask.i603, 16777216
+  %.val529 = load i32, ptr %737, align 4
+  %.mask.i602 = and i32 %.val529, -16777216
+  %738 = icmp eq i32 %.mask.i602, 16777216
   br i1 %738, label %2053, label %739
 
 739:                                              ; preds = %732
@@ -251043,8 +251043,8 @@ lean_dec_ref.exit472:                             ; preds = %698, %697, %695, %.
   br label %746
 
 744:                                              ; preds = %739
-  %.not.i469 = icmp eq i32 %740, 0
-  br i1 %.not.i469, label %746, label %745
+  %.not.i468 = icmp eq i32 %740, 0
+  br i1 %.not.i468, label %746, label %745
 
 745:                                              ; preds = %744
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %736) #5
@@ -251059,9 +251059,9 @@ lean_dec_ref.exit472:                             ; preds = %698, %697, %695, %.
   %750 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8733____closed__1, align 8, !tbaa !4
   %751 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %748, ptr noundef %749, i8 noundef zeroext 1, ptr noundef %750, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %752 = getelementptr i8, ptr %751, i64 4
-  %.val531 = load i32, ptr %752, align 4
-  %.mask.i604 = and i32 %.val531, -16777216
-  %753 = icmp eq i32 %.mask.i604, 16777216
+  %.val530 = load i32, ptr %752, align 4
+  %.mask.i603 = and i32 %.val530, -16777216
+  %753 = icmp eq i32 %.mask.i603, 16777216
   br i1 %753, label %2053, label %754
 
 754:                                              ; preds = %746
@@ -251072,23 +251072,23 @@ lean_dec_ref.exit472:                             ; preds = %698, %697, %695, %.
 757:                                              ; preds = %754
   %758 = add nsw i32 %755, -1
   store i32 %758, ptr %751, align 4, !tbaa !8
-  br label %lean_dec_ref.exit468
+  br label %lean_dec_ref.exit467
 
 759:                                              ; preds = %754
-  %.not.i467 = icmp eq i32 %755, 0
-  br i1 %.not.i467, label %lean_dec_ref.exit468, label %760
+  %.not.i466 = icmp eq i32 %755, 0
+  br i1 %.not.i466, label %lean_dec_ref.exit467, label %760
 
 760:                                              ; preds = %759
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %751) #5
-  br label %lean_dec_ref.exit468
+  br label %lean_dec_ref.exit467
 
-.critedge312:                                     ; preds = %lean_dec_ref.exit472
+.critedge311:                                     ; preds = %lean_dec_ref.exit471
   %761 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8733____closed__1()
   store ptr %761, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__beq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_8733____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %761) #5
-  br label %lean_dec_ref.exit468
+  br label %lean_dec_ref.exit467
 
-lean_dec_ref.exit468:                             ; preds = %760, %759, %757, %.critedge312
+lean_dec_ref.exit467:                             ; preds = %760, %759, %757, %.critedge311
   %762 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.68, i64 noundef 8, i64 noundef 8) #5
   store ptr %762, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %762) #5
@@ -251134,17 +251134,17 @@ lean_dec_ref.exit468:                             ; preds = %760, %759, %757, %.
   %780 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__58____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9077____closed__6()
   store ptr %780, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__58____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9077____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %780) #5
-  br i1 %.not, label %.critedge314, label %781
+  br i1 %.not, label %.critedge313, label %781
 
-781:                                              ; preds = %lean_dec_ref.exit468
+781:                                              ; preds = %lean_dec_ref.exit467
   %782 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__58____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9077____closed__2, align 8, !tbaa !4
   %783 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__58____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9077____closed__5, align 8, !tbaa !4
   %784 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__58____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9077____closed__6, align 8, !tbaa !4
   %785 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %782, ptr noundef %783, ptr noundef %784, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %786 = getelementptr i8, ptr %785, i64 4
-  %.val532 = load i32, ptr %786, align 4
-  %.mask.i605 = and i32 %.val532, -16777216
-  %787 = icmp eq i32 %.mask.i605, 16777216
+  %.val531 = load i32, ptr %786, align 4
+  %.mask.i604 = and i32 %.val531, -16777216
+  %787 = icmp eq i32 %.mask.i604, 16777216
   br i1 %787, label %2053, label %788
 
 788:                                              ; preds = %781
@@ -251158,8 +251158,8 @@ lean_dec_ref.exit468:                             ; preds = %760, %759, %757, %.
   br label %795
 
 793:                                              ; preds = %788
-  %.not.i465 = icmp eq i32 %789, 0
-  br i1 %.not.i465, label %795, label %794
+  %.not.i464 = icmp eq i32 %789, 0
+  br i1 %.not.i464, label %795, label %794
 
 794:                                              ; preds = %793
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %785) #5
@@ -251174,9 +251174,9 @@ lean_dec_ref.exit468:                             ; preds = %760, %759, %757, %.
   %799 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9079____closed__1, align 8, !tbaa !4
   %800 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %797, ptr noundef %798, i8 noundef zeroext 0, ptr noundef %799, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %801 = getelementptr i8, ptr %800, i64 4
-  %.val533 = load i32, ptr %801, align 4
-  %.mask.i606 = and i32 %.val533, -16777216
-  %802 = icmp eq i32 %.mask.i606, 16777216
+  %.val532 = load i32, ptr %801, align 4
+  %.mask.i605 = and i32 %.val532, -16777216
+  %802 = icmp eq i32 %.mask.i605, 16777216
   br i1 %802, label %2053, label %803
 
 803:                                              ; preds = %795
@@ -251187,23 +251187,23 @@ lean_dec_ref.exit468:                             ; preds = %760, %759, %757, %.
 806:                                              ; preds = %803
   %807 = add nsw i32 %804, -1
   store i32 %807, ptr %800, align 4, !tbaa !8
-  br label %lean_dec_ref.exit464
+  br label %lean_dec_ref.exit463
 
 808:                                              ; preds = %803
-  %.not.i463 = icmp eq i32 %804, 0
-  br i1 %.not.i463, label %lean_dec_ref.exit464, label %809
+  %.not.i462 = icmp eq i32 %804, 0
+  br i1 %.not.i462, label %lean_dec_ref.exit463, label %809
 
 809:                                              ; preds = %808
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %800) #5
-  br label %lean_dec_ref.exit464
+  br label %lean_dec_ref.exit463
 
-.critedge314:                                     ; preds = %lean_dec_ref.exit468
+.critedge313:                                     ; preds = %lean_dec_ref.exit467
   %810 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9079____closed__1()
   store ptr %810, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_reduceCond_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9079____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %810) #5
-  br label %lean_dec_ref.exit464
+  br label %lean_dec_ref.exit463
 
-lean_dec_ref.exit464:                             ; preds = %809, %808, %806, %.critedge314
+lean_dec_ref.exit463:                             ; preds = %809, %808, %806, %.critedge313
   %811 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq___lambda__1___closed__1()
   store ptr %811, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %811) #5
@@ -251238,17 +251238,17 @@ lean_dec_ref.exit464:                             ; preds = %809, %808, %806, %.
   %824 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__63____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9383____closed__3()
   store ptr %824, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__63____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9383____closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %824) #5
-  br i1 %.not, label %.critedge316, label %825
+  br i1 %.not, label %.critedge315, label %825
 
-825:                                              ; preds = %lean_dec_ref.exit464
+825:                                              ; preds = %lean_dec_ref.exit463
   %826 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__63____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9383____closed__2, align 8, !tbaa !4
   %827 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__eq__self_declare__37____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_6134____closed__8, align 8, !tbaa !4
   %828 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__63____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9383____closed__3, align 8, !tbaa !4
   %829 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %826, ptr noundef %827, ptr noundef %828, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %830 = getelementptr i8, ptr %829, i64 4
-  %.val534 = load i32, ptr %830, align 4
-  %.mask.i607 = and i32 %.val534, -16777216
-  %831 = icmp eq i32 %.mask.i607, 16777216
+  %.val533 = load i32, ptr %830, align 4
+  %.mask.i606 = and i32 %.val533, -16777216
+  %831 = icmp eq i32 %.mask.i606, 16777216
   br i1 %831, label %2053, label %832
 
 832:                                              ; preds = %825
@@ -251262,8 +251262,8 @@ lean_dec_ref.exit464:                             ; preds = %809, %808, %806, %.
   br label %839
 
 837:                                              ; preds = %832
-  %.not.i461 = icmp eq i32 %833, 0
-  br i1 %.not.i461, label %839, label %838
+  %.not.i460 = icmp eq i32 %833, 0
+  br i1 %.not.i460, label %839, label %838
 
 838:                                              ; preds = %837
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %829) #5
@@ -251278,9 +251278,9 @@ lean_dec_ref.exit464:                             ; preds = %809, %808, %806, %.
   %843 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9385____closed__1, align 8, !tbaa !4
   %844 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %841, ptr noundef %842, i8 noundef zeroext 1, ptr noundef %843, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %845 = getelementptr i8, ptr %844, i64 4
-  %.val535 = load i32, ptr %845, align 4
-  %.mask.i608 = and i32 %.val535, -16777216
-  %846 = icmp eq i32 %.mask.i608, 16777216
+  %.val534 = load i32, ptr %845, align 4
+  %.mask.i607 = and i32 %.val534, -16777216
+  %846 = icmp eq i32 %.mask.i607, 16777216
   br i1 %846, label %2053, label %847
 
 847:                                              ; preds = %839
@@ -251291,23 +251291,23 @@ lean_dec_ref.exit464:                             ; preds = %809, %808, %806, %.
 850:                                              ; preds = %847
   %851 = add nsw i32 %848, -1
   store i32 %851, ptr %844, align 4, !tbaa !8
-  br label %lean_dec_ref.exit460
+  br label %lean_dec_ref.exit459
 
 852:                                              ; preds = %847
-  %.not.i459 = icmp eq i32 %848, 0
-  br i1 %.not.i459, label %lean_dec_ref.exit460, label %853
+  %.not.i458 = icmp eq i32 %848, 0
+  br i1 %.not.i458, label %lean_dec_ref.exit459, label %853
 
 853:                                              ; preds = %852
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %844) #5
-  br label %lean_dec_ref.exit460
+  br label %lean_dec_ref.exit459
 
-.critedge316:                                     ; preds = %lean_dec_ref.exit464
+.critedge315:                                     ; preds = %lean_dec_ref.exit463
   %854 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9385____closed__1()
   store ptr %854, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_eqToBEq_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9385____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %854) #5
-  br label %lean_dec_ref.exit460
+  br label %lean_dec_ref.exit459
 
-lean_dec_ref.exit460:                             ; preds = %853, %852, %850, %.critedge316
+lean_dec_ref.exit459:                             ; preds = %853, %852, %850, %.critedge315
   %855 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.74, i64 noundef 8, i64 noundef 8) #5
   store ptr %855, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %855) #5
@@ -251364,17 +251364,17 @@ lean_dec_ref.exit460:                             ; preds = %853, %852, %850, %.
   %874 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__68____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9746____closed__14()
   store ptr %874, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__68____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9746____closed__14, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %874) #5
-  br i1 %.not, label %.critedge318, label %875
+  br i1 %.not, label %.critedge317, label %875
 
-875:                                              ; preds = %lean_dec_ref.exit460
+875:                                              ; preds = %lean_dec_ref.exit459
   %876 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__68____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9746____closed__2, align 8, !tbaa !4
   %877 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__68____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9746____closed__13, align 8, !tbaa !4
   %878 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__68____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9746____closed__14, align 8, !tbaa !4
   %879 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %876, ptr noundef %877, ptr noundef %878, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %880 = getelementptr i8, ptr %879, i64 4
-  %.val536 = load i32, ptr %880, align 4
-  %.mask.i609 = and i32 %.val536, -16777216
-  %881 = icmp eq i32 %.mask.i609, 16777216
+  %.val535 = load i32, ptr %880, align 4
+  %.mask.i608 = and i32 %.val535, -16777216
+  %881 = icmp eq i32 %.mask.i608, 16777216
   br i1 %881, label %2053, label %882
 
 882:                                              ; preds = %875
@@ -251388,8 +251388,8 @@ lean_dec_ref.exit460:                             ; preds = %853, %852, %850, %.
   br label %889
 
 887:                                              ; preds = %882
-  %.not.i457 = icmp eq i32 %883, 0
-  br i1 %.not.i457, label %889, label %888
+  %.not.i456 = icmp eq i32 %883, 0
+  br i1 %.not.i456, label %889, label %888
 
 888:                                              ; preds = %887
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %879) #5
@@ -251404,9 +251404,9 @@ lean_dec_ref.exit460:                             ; preds = %853, %852, %850, %.
   %893 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9748____closed__1, align 8, !tbaa !4
   %894 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %891, ptr noundef %892, i8 noundef zeroext 1, ptr noundef %893, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %895 = getelementptr i8, ptr %894, i64 4
-  %.val537 = load i32, ptr %895, align 4
-  %.mask.i610 = and i32 %.val537, -16777216
-  %896 = icmp eq i32 %.mask.i610, 16777216
+  %.val536 = load i32, ptr %895, align 4
+  %.mask.i609 = and i32 %.val536, -16777216
+  %896 = icmp eq i32 %.mask.i609, 16777216
   br i1 %896, label %2053, label %897
 
 897:                                              ; preds = %889
@@ -251417,23 +251417,23 @@ lean_dec_ref.exit460:                             ; preds = %853, %852, %850, %.
 900:                                              ; preds = %897
   %901 = add nsw i32 %898, -1
   store i32 %901, ptr %894, align 4, !tbaa !8
-  br label %lean_dec_ref.exit456
+  br label %lean_dec_ref.exit455
 
 902:                                              ; preds = %897
-  %.not.i455 = icmp eq i32 %898, 0
-  br i1 %.not.i455, label %lean_dec_ref.exit456, label %903
+  %.not.i454 = icmp eq i32 %898, 0
+  br i1 %.not.i454, label %lean_dec_ref.exit455, label %903
 
 903:                                              ; preds = %902
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %894) #5
-  br label %lean_dec_ref.exit456
+  br label %lean_dec_ref.exit455
 
-.critedge318:                                     ; preds = %lean_dec_ref.exit460
+.critedge317:                                     ; preds = %lean_dec_ref.exit459
   %904 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9748____closed__1()
   store ptr %904, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_andOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_9748____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %904) #5
-  br label %lean_dec_ref.exit456
+  br label %lean_dec_ref.exit455
 
-lean_dec_ref.exit456:                             ; preds = %903, %902, %900, %.critedge318
+lean_dec_ref.exit455:                             ; preds = %903, %902, %900, %.critedge317
   %905 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.76, i64 noundef 8, i64 noundef 8) #5
   store ptr %905, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %905) #5
@@ -251484,17 +251484,17 @@ lean_dec_ref.exit456:                             ; preds = %903, %902, %900, %.
   %922 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__73____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10109____closed__12()
   store ptr %922, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__73____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10109____closed__12, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %922) #5
-  br i1 %.not, label %.critedge320, label %923
+  br i1 %.not, label %.critedge319, label %923
 
-923:                                              ; preds = %lean_dec_ref.exit456
+923:                                              ; preds = %lean_dec_ref.exit455
   %924 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__73____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10109____closed__2, align 8, !tbaa !4
   %925 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__73____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10109____closed__11, align 8, !tbaa !4
   %926 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__73____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10109____closed__12, align 8, !tbaa !4
   %927 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %924, ptr noundef %925, ptr noundef %926, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %928 = getelementptr i8, ptr %927, i64 4
-  %.val538 = load i32, ptr %928, align 4
-  %.mask.i611 = and i32 %.val538, -16777216
-  %929 = icmp eq i32 %.mask.i611, 16777216
+  %.val537 = load i32, ptr %928, align 4
+  %.mask.i610 = and i32 %.val537, -16777216
+  %929 = icmp eq i32 %.mask.i610, 16777216
   br i1 %929, label %2053, label %930
 
 930:                                              ; preds = %923
@@ -251508,8 +251508,8 @@ lean_dec_ref.exit456:                             ; preds = %903, %902, %900, %.
   br label %937
 
 935:                                              ; preds = %930
-  %.not.i453 = icmp eq i32 %931, 0
-  br i1 %.not.i453, label %937, label %936
+  %.not.i452 = icmp eq i32 %931, 0
+  br i1 %.not.i452, label %937, label %936
 
 936:                                              ; preds = %935
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %927) #5
@@ -251524,9 +251524,9 @@ lean_dec_ref.exit456:                             ; preds = %903, %902, %900, %.
   %941 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10111____closed__1, align 8, !tbaa !4
   %942 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %939, ptr noundef %940, i8 noundef zeroext 1, ptr noundef %941, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %943 = getelementptr i8, ptr %942, i64 4
-  %.val539 = load i32, ptr %943, align 4
-  %.mask.i612 = and i32 %.val539, -16777216
-  %944 = icmp eq i32 %.mask.i612, 16777216
+  %.val538 = load i32, ptr %943, align 4
+  %.mask.i611 = and i32 %.val538, -16777216
+  %944 = icmp eq i32 %.mask.i611, 16777216
   br i1 %944, label %2053, label %945
 
 945:                                              ; preds = %937
@@ -251537,23 +251537,23 @@ lean_dec_ref.exit456:                             ; preds = %903, %902, %900, %.
 948:                                              ; preds = %945
   %949 = add nsw i32 %946, -1
   store i32 %949, ptr %942, align 4, !tbaa !8
-  br label %lean_dec_ref.exit452
+  br label %lean_dec_ref.exit451
 
 950:                                              ; preds = %945
-  %.not.i451 = icmp eq i32 %946, 0
-  br i1 %.not.i451, label %lean_dec_ref.exit452, label %951
+  %.not.i450 = icmp eq i32 %946, 0
+  br i1 %.not.i450, label %lean_dec_ref.exit451, label %951
 
 951:                                              ; preds = %950
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %942) #5
-  br label %lean_dec_ref.exit452
+  br label %lean_dec_ref.exit451
 
-.critedge320:                                     ; preds = %lean_dec_ref.exit456
+.critedge319:                                     ; preds = %lean_dec_ref.exit455
   %952 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10111____closed__1()
   store ptr %952, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_onesAnd_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10111____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %952) #5
-  br label %lean_dec_ref.exit452
+  br label %lean_dec_ref.exit451
 
-lean_dec_ref.exit452:                             ; preds = %951, %950, %948, %.critedge320
+lean_dec_ref.exit451:                             ; preds = %951, %950, %948, %.critedge319
   %953 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.78, i64 noundef 8, i64 noundef 8) #5
   store ptr %953, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %953) #5
@@ -251594,17 +251594,17 @@ lean_dec_ref.exit452:                             ; preds = %951, %950, %948, %.
   %968 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__78____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10382____closed__6()
   store ptr %968, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__78____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10382____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %968) #5
-  br i1 %.not, label %.critedge322, label %969
+  br i1 %.not, label %.critedge321, label %969
 
-969:                                              ; preds = %lean_dec_ref.exit452
+969:                                              ; preds = %lean_dec_ref.exit451
   %970 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__78____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10382____closed__2, align 8, !tbaa !4
   %971 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__78____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10382____closed__5, align 8, !tbaa !4
   %972 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__78____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10382____closed__6, align 8, !tbaa !4
   %973 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %970, ptr noundef %971, ptr noundef %972, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %974 = getelementptr i8, ptr %973, i64 4
-  %.val540 = load i32, ptr %974, align 4
-  %.mask.i613 = and i32 %.val540, -16777216
-  %975 = icmp eq i32 %.mask.i613, 16777216
+  %.val539 = load i32, ptr %974, align 4
+  %.mask.i612 = and i32 %.val539, -16777216
+  %975 = icmp eq i32 %.mask.i612, 16777216
   br i1 %975, label %2053, label %976
 
 976:                                              ; preds = %969
@@ -251618,8 +251618,8 @@ lean_dec_ref.exit452:                             ; preds = %951, %950, %948, %.
   br label %983
 
 981:                                              ; preds = %976
-  %.not.i449 = icmp eq i32 %977, 0
-  br i1 %.not.i449, label %983, label %982
+  %.not.i448 = icmp eq i32 %977, 0
+  br i1 %.not.i448, label %983, label %982
 
 982:                                              ; preds = %981
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %973) #5
@@ -251634,9 +251634,9 @@ lean_dec_ref.exit452:                             ; preds = %951, %950, %948, %.
   %987 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10384____closed__1, align 8, !tbaa !4
   %988 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %985, ptr noundef %986, i8 noundef zeroext 1, ptr noundef %987, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %989 = getelementptr i8, ptr %988, i64 4
-  %.val541 = load i32, ptr %989, align 4
-  %.mask.i614 = and i32 %.val541, -16777216
-  %990 = icmp eq i32 %.mask.i614, 16777216
+  %.val540 = load i32, ptr %989, align 4
+  %.mask.i613 = and i32 %.val540, -16777216
+  %990 = icmp eq i32 %.mask.i613, 16777216
   br i1 %990, label %2053, label %991
 
 991:                                              ; preds = %983
@@ -251647,23 +251647,23 @@ lean_dec_ref.exit452:                             ; preds = %951, %950, %948, %.
 994:                                              ; preds = %991
   %995 = add nsw i32 %992, -1
   store i32 %995, ptr %988, align 4, !tbaa !8
-  br label %lean_dec_ref.exit448
+  br label %lean_dec_ref.exit447
 
 996:                                              ; preds = %991
-  %.not.i447 = icmp eq i32 %992, 0
-  br i1 %.not.i447, label %lean_dec_ref.exit448, label %997
+  %.not.i446 = icmp eq i32 %992, 0
+  br i1 %.not.i446, label %lean_dec_ref.exit447, label %997
 
 997:                                              ; preds = %996
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %988) #5
-  br label %lean_dec_ref.exit448
+  br label %lean_dec_ref.exit447
 
-.critedge322:                                     ; preds = %lean_dec_ref.exit452
+.critedge321:                                     ; preds = %lean_dec_ref.exit451
   %998 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10384____closed__1()
   store ptr %998, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_maxUlt_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10384____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %998) #5
-  br label %lean_dec_ref.exit448
+  br label %lean_dec_ref.exit447
 
-lean_dec_ref.exit448:                             ; preds = %997, %996, %994, %.critedge322
+lean_dec_ref.exit447:                             ; preds = %997, %996, %994, %.critedge321
   %999 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.81, i64 noundef 14, i64 noundef 14) #5
   store ptr %999, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %999) #5
@@ -251706,17 +251706,17 @@ lean_dec_ref.exit448:                             ; preds = %997, %996, %994, %.
   %1016 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__83____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10805____closed__5()
   store ptr %1016, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__83____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10805____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1016) #5
-  br i1 %.not, label %.critedge324, label %1017
+  br i1 %.not, label %.critedge323, label %1017
 
-1017:                                             ; preds = %lean_dec_ref.exit448
+1017:                                             ; preds = %lean_dec_ref.exit447
   %1018 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__83____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10805____closed__1, align 8, !tbaa !4
   %1019 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__83____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10805____closed__4, align 8, !tbaa !4
   %1020 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__83____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10805____closed__5, align 8, !tbaa !4
   %1021 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1018, ptr noundef %1019, ptr noundef %1020, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1022 = getelementptr i8, ptr %1021, i64 4
-  %.val542 = load i32, ptr %1022, align 4
-  %.mask.i615 = and i32 %.val542, -16777216
-  %1023 = icmp eq i32 %.mask.i615, 16777216
+  %.val541 = load i32, ptr %1022, align 4
+  %.mask.i614 = and i32 %.val541, -16777216
+  %1023 = icmp eq i32 %.mask.i614, 16777216
   br i1 %1023, label %2053, label %1024
 
 1024:                                             ; preds = %1017
@@ -251730,8 +251730,8 @@ lean_dec_ref.exit448:                             ; preds = %997, %996, %994, %.
   br label %1031
 
 1029:                                             ; preds = %1024
-  %.not.i445 = icmp eq i32 %1025, 0
-  br i1 %.not.i445, label %1031, label %1030
+  %.not.i444 = icmp eq i32 %1025, 0
+  br i1 %.not.i444, label %1031, label %1030
 
 1030:                                             ; preds = %1029
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1021) #5
@@ -251746,9 +251746,9 @@ lean_dec_ref.exit448:                             ; preds = %997, %996, %994, %.
   %1035 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10807____closed__1, align 8, !tbaa !4
   %1036 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1033, ptr noundef %1034, i8 noundef zeroext 1, ptr noundef %1035, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1037 = getelementptr i8, ptr %1036, i64 4
-  %.val543 = load i32, ptr %1037, align 4
-  %.mask.i616 = and i32 %.val543, -16777216
-  %1038 = icmp eq i32 %.mask.i616, 16777216
+  %.val542 = load i32, ptr %1037, align 4
+  %.mask.i615 = and i32 %.val542, -16777216
+  %1038 = icmp eq i32 %.mask.i615, 16777216
   br i1 %1038, label %2053, label %1039
 
 1039:                                             ; preds = %1031
@@ -251759,23 +251759,23 @@ lean_dec_ref.exit448:                             ; preds = %997, %996, %994, %.
 1042:                                             ; preds = %1039
   %1043 = add nsw i32 %1040, -1
   store i32 %1043, ptr %1036, align 4, !tbaa !8
-  br label %lean_dec_ref.exit444
+  br label %lean_dec_ref.exit443
 
 1044:                                             ; preds = %1039
-  %.not.i443 = icmp eq i32 %1040, 0
-  br i1 %.not.i443, label %lean_dec_ref.exit444, label %1045
+  %.not.i442 = icmp eq i32 %1040, 0
+  br i1 %.not.i442, label %lean_dec_ref.exit443, label %1045
 
 1045:                                             ; preds = %1044
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1036) #5
-  br label %lean_dec_ref.exit444
+  br label %lean_dec_ref.exit443
 
-.critedge324:                                     ; preds = %lean_dec_ref.exit448
+.critedge323:                                     ; preds = %lean_dec_ref.exit447
   %1046 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10807____closed__1()
   store ptr %1046, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_neg__eq__not__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_10807____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1046) #5
-  br label %lean_dec_ref.exit444
+  br label %lean_dec_ref.exit443
 
-lean_dec_ref.exit444:                             ; preds = %1045, %1044, %1042, %.critedge324
+lean_dec_ref.exit443:                             ; preds = %1045, %1044, %1042, %.critedge323
   %1047 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.84, i64 noundef 4, i64 noundef 4) #5
   store ptr %1047, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_mkPow___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1047) #5
@@ -251848,17 +251848,17 @@ lean_dec_ref.exit444:                             ; preds = %1045, %1044, %1042,
   %1074 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__94____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11492____closed__11()
   store ptr %1074, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__94____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11492____closed__11, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1074) #5
-  br i1 %.not, label %.critedge326, label %1075
+  br i1 %.not, label %.critedge325, label %1075
 
-1075:                                             ; preds = %lean_dec_ref.exit444
+1075:                                             ; preds = %lean_dec_ref.exit443
   %1076 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__94____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11492____closed__2, align 8, !tbaa !4
   %1077 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__94____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11492____closed__10, align 8, !tbaa !4
   %1078 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__94____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11492____closed__11, align 8, !tbaa !4
   %1079 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1076, ptr noundef %1077, ptr noundef %1078, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1080 = getelementptr i8, ptr %1079, i64 4
-  %.val544 = load i32, ptr %1080, align 4
-  %.mask.i617 = and i32 %.val544, -16777216
-  %1081 = icmp eq i32 %.mask.i617, 16777216
+  %.val543 = load i32, ptr %1080, align 4
+  %.mask.i616 = and i32 %.val543, -16777216
+  %1081 = icmp eq i32 %.mask.i616, 16777216
   br i1 %1081, label %2053, label %1082
 
 1082:                                             ; preds = %1075
@@ -251872,8 +251872,8 @@ lean_dec_ref.exit444:                             ; preds = %1045, %1044, %1042,
   br label %1089
 
 1087:                                             ; preds = %1082
-  %.not.i441 = icmp eq i32 %1083, 0
-  br i1 %.not.i441, label %1089, label %1088
+  %.not.i440 = icmp eq i32 %1083, 0
+  br i1 %.not.i440, label %1089, label %1088
 
 1088:                                             ; preds = %1087
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1079) #5
@@ -251888,9 +251888,9 @@ lean_dec_ref.exit444:                             ; preds = %1045, %1044, %1042,
   %1093 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11494____closed__1, align 8, !tbaa !4
   %1094 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1091, ptr noundef %1092, i8 noundef zeroext 1, ptr noundef %1093, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1095 = getelementptr i8, ptr %1094, i64 4
-  %.val545 = load i32, ptr %1095, align 4
-  %.mask.i618 = and i32 %.val545, -16777216
-  %1096 = icmp eq i32 %.mask.i618, 16777216
+  %.val544 = load i32, ptr %1095, align 4
+  %.mask.i617 = and i32 %.val544, -16777216
+  %1096 = icmp eq i32 %.mask.i617, 16777216
   br i1 %1096, label %2053, label %1097
 
 1097:                                             ; preds = %1089
@@ -251901,23 +251901,23 @@ lean_dec_ref.exit444:                             ; preds = %1045, %1044, %1042,
 1100:                                             ; preds = %1097
   %1101 = add nsw i32 %1098, -1
   store i32 %1101, ptr %1094, align 4, !tbaa !8
-  br label %lean_dec_ref.exit440
+  br label %lean_dec_ref.exit439
 
 1102:                                             ; preds = %1097
-  %.not.i439 = icmp eq i32 %1098, 0
-  br i1 %.not.i439, label %lean_dec_ref.exit440, label %1103
+  %.not.i438 = icmp eq i32 %1098, 0
+  br i1 %.not.i438, label %lean_dec_ref.exit439, label %1103
 
 1103:                                             ; preds = %1102
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1094) #5
-  br label %lean_dec_ref.exit440
+  br label %lean_dec_ref.exit439
 
-.critedge326:                                     ; preds = %lean_dec_ref.exit444
+.critedge325:                                     ; preds = %lean_dec_ref.exit443
   %1104 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11494____closed__1()
   store ptr %1104, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__udiv__of__two__pow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11494____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1104) #5
-  br label %lean_dec_ref.exit440
+  br label %lean_dec_ref.exit439
 
-lean_dec_ref.exit440:                             ; preds = %1103, %1102, %1100, %.critedge326
+lean_dec_ref.exit439:                             ; preds = %1103, %1102, %1100, %.critedge325
   %1105 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.90, i64 noundef 11, i64 noundef 11) #5
   store ptr %1105, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1105) #5
@@ -251962,17 +251962,17 @@ lean_dec_ref.exit440:                             ; preds = %1103, %1102, %1100,
   %1120 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__99____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11949____closed__10()
   store ptr %1120, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__99____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11949____closed__10, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1120) #5
-  br i1 %.not, label %.critedge328, label %1121
+  br i1 %.not, label %.critedge327, label %1121
 
-1121:                                             ; preds = %lean_dec_ref.exit440
+1121:                                             ; preds = %lean_dec_ref.exit439
   %1122 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__99____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11949____closed__2, align 8, !tbaa !4
   %1123 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__99____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11949____closed__9, align 8, !tbaa !4
   %1124 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__99____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11949____closed__10, align 8, !tbaa !4
   %1125 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1122, ptr noundef %1123, ptr noundef %1124, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1126 = getelementptr i8, ptr %1125, i64 4
-  %.val546 = load i32, ptr %1126, align 4
-  %.mask.i619 = and i32 %.val546, -16777216
-  %1127 = icmp eq i32 %.mask.i619, 16777216
+  %.val545 = load i32, ptr %1126, align 4
+  %.mask.i618 = and i32 %.val545, -16777216
+  %1127 = icmp eq i32 %.mask.i618, 16777216
   br i1 %1127, label %2053, label %1128
 
 1128:                                             ; preds = %1121
@@ -251986,8 +251986,8 @@ lean_dec_ref.exit440:                             ; preds = %1103, %1102, %1100,
   br label %1135
 
 1133:                                             ; preds = %1128
-  %.not.i437 = icmp eq i32 %1129, 0
-  br i1 %.not.i437, label %1135, label %1134
+  %.not.i436 = icmp eq i32 %1129, 0
+  br i1 %.not.i436, label %1135, label %1134
 
 1134:                                             ; preds = %1133
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1125) #5
@@ -252002,9 +252002,9 @@ lean_dec_ref.exit440:                             ; preds = %1103, %1102, %1100,
   %1139 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11951____closed__1, align 8, !tbaa !4
   %1140 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1137, ptr noundef %1138, i8 noundef zeroext 1, ptr noundef %1139, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1141 = getelementptr i8, ptr %1140, i64 4
-  %.val547 = load i32, ptr %1141, align 4
-  %.mask.i620 = and i32 %.val547, -16777216
-  %1142 = icmp eq i32 %.mask.i620, 16777216
+  %.val546 = load i32, ptr %1141, align 4
+  %.mask.i619 = and i32 %.val546, -16777216
+  %1142 = icmp eq i32 %.mask.i619, 16777216
   br i1 %1142, label %2053, label %1143
 
 1143:                                             ; preds = %1135
@@ -252015,23 +252015,23 @@ lean_dec_ref.exit440:                             ; preds = %1103, %1102, %1100,
 1146:                                             ; preds = %1143
   %1147 = add nsw i32 %1144, -1
   store i32 %1147, ptr %1140, align 4, !tbaa !8
-  br label %lean_dec_ref.exit436
+  br label %lean_dec_ref.exit435
 
 1148:                                             ; preds = %1143
-  %.not.i435 = icmp eq i32 %1144, 0
-  br i1 %.not.i435, label %lean_dec_ref.exit436, label %1149
+  %.not.i434 = icmp eq i32 %1144, 0
+  br i1 %.not.i434, label %lean_dec_ref.exit435, label %1149
 
 1149:                                             ; preds = %1148
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1140) #5
-  br label %lean_dec_ref.exit436
+  br label %lean_dec_ref.exit435
 
-.critedge328:                                     ; preds = %lean_dec_ref.exit440
+.critedge327:                                     ; preds = %lean_dec_ref.exit439
   %1150 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11951____closed__1()
   store ptr %1150, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_11951____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1150) #5
-  br label %lean_dec_ref.exit436
+  br label %lean_dec_ref.exit435
 
-lean_dec_ref.exit436:                             ; preds = %1149, %1148, %1146, %.critedge328
+lean_dec_ref.exit435:                             ; preds = %1149, %1148, %1146, %.critedge327
   %1151 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.92, i64 noundef 12, i64 noundef 12) #5
   store ptr %1151, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1151) #5
@@ -252082,17 +252082,17 @@ lean_dec_ref.exit436:                             ; preds = %1149, %1148, %1146,
   %1168 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__104____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12406____closed__12()
   store ptr %1168, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__104____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12406____closed__12, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1168) #5
-  br i1 %.not, label %.critedge330, label %1169
+  br i1 %.not, label %.critedge329, label %1169
 
-1169:                                             ; preds = %lean_dec_ref.exit436
+1169:                                             ; preds = %lean_dec_ref.exit435
   %1170 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__104____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12406____closed__2, align 8, !tbaa !4
   %1171 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__104____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12406____closed__11, align 8, !tbaa !4
   %1172 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__104____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12406____closed__12, align 8, !tbaa !4
   %1173 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1170, ptr noundef %1171, ptr noundef %1172, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1174 = getelementptr i8, ptr %1173, i64 4
-  %.val548 = load i32, ptr %1174, align 4
-  %.mask.i621 = and i32 %.val548, -16777216
-  %1175 = icmp eq i32 %.mask.i621, 16777216
+  %.val547 = load i32, ptr %1174, align 4
+  %.mask.i620 = and i32 %.val547, -16777216
+  %1175 = icmp eq i32 %.mask.i620, 16777216
   br i1 %1175, label %2053, label %1176
 
 1176:                                             ; preds = %1169
@@ -252106,8 +252106,8 @@ lean_dec_ref.exit436:                             ; preds = %1149, %1148, %1146,
   br label %1183
 
 1181:                                             ; preds = %1176
-  %.not.i433 = icmp eq i32 %1177, 0
-  br i1 %.not.i433, label %1183, label %1182
+  %.not.i432 = icmp eq i32 %1177, 0
+  br i1 %.not.i432, label %1183, label %1182
 
 1182:                                             ; preds = %1181
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1173) #5
@@ -252122,9 +252122,9 @@ lean_dec_ref.exit436:                             ; preds = %1149, %1148, %1146,
   %1187 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12408____closed__1, align 8, !tbaa !4
   %1188 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1185, ptr noundef %1186, i8 noundef zeroext 1, ptr noundef %1187, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1189 = getelementptr i8, ptr %1188, i64 4
-  %.val549 = load i32, ptr %1189, align 4
-  %.mask.i622 = and i32 %.val549, -16777216
-  %1190 = icmp eq i32 %.mask.i622, 16777216
+  %.val548 = load i32, ptr %1189, align 4
+  %.mask.i621 = and i32 %.val548, -16777216
+  %1190 = icmp eq i32 %.mask.i621, 16777216
   br i1 %1190, label %2053, label %1191
 
 1191:                                             ; preds = %1183
@@ -252135,23 +252135,23 @@ lean_dec_ref.exit436:                             ; preds = %1149, %1148, %1146,
 1194:                                             ; preds = %1191
   %1195 = add nsw i32 %1192, -1
   store i32 %1195, ptr %1188, align 4, !tbaa !8
-  br label %lean_dec_ref.exit432
+  br label %lean_dec_ref.exit431
 
 1196:                                             ; preds = %1191
-  %.not.i431 = icmp eq i32 %1192, 0
-  br i1 %.not.i431, label %lean_dec_ref.exit432, label %1197
+  %.not.i430 = icmp eq i32 %1192, 0
+  br i1 %.not.i430, label %lean_dec_ref.exit431, label %1197
 
 1197:                                             ; preds = %1196
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1188) #5
-  br label %lean_dec_ref.exit432
+  br label %lean_dec_ref.exit431
 
-.critedge330:                                     ; preds = %lean_dec_ref.exit436
+.critedge329:                                     ; preds = %lean_dec_ref.exit435
   %1198 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12408____closed__1()
   store ptr %1198, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__equal__const__not_x27_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_12408____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1198) #5
-  br label %lean_dec_ref.exit432
+  br label %lean_dec_ref.exit431
 
-lean_dec_ref.exit432:                             ; preds = %1197, %1196, %1194, %.critedge330
+lean_dec_ref.exit431:                             ; preds = %1197, %1196, %1194, %.critedge329
   %1199 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___lambda__5___closed__2, align 8, !tbaa !4
   %1200 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %1199, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   store ptr %1200, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes___lambda__1___closed__1, align 8, !tbaa !4
@@ -252203,17 +252203,17 @@ lean_dec_ref.exit432:                             ; preds = %1197, %1196, %1194,
   %1217 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__109____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13046____closed__11()
   store ptr %1217, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__109____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13046____closed__11, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1217) #5
-  br i1 %.not, label %.critedge332, label %1218
+  br i1 %.not, label %.critedge331, label %1218
 
-1218:                                             ; preds = %lean_dec_ref.exit432
+1218:                                             ; preds = %lean_dec_ref.exit431
   %1219 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__109____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13046____closed__2, align 8, !tbaa !4
   %1220 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__109____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13046____closed__10, align 8, !tbaa !4
   %1221 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__109____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13046____closed__11, align 8, !tbaa !4
   %1222 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1219, ptr noundef %1220, ptr noundef %1221, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1223 = getelementptr i8, ptr %1222, i64 4
-  %.val550 = load i32, ptr %1223, align 4
-  %.mask.i623 = and i32 %.val550, -16777216
-  %1224 = icmp eq i32 %.mask.i623, 16777216
+  %.val549 = load i32, ptr %1223, align 4
+  %.mask.i622 = and i32 %.val549, -16777216
+  %1224 = icmp eq i32 %.mask.i622, 16777216
   br i1 %1224, label %2053, label %1225
 
 1225:                                             ; preds = %1218
@@ -252227,8 +252227,8 @@ lean_dec_ref.exit432:                             ; preds = %1197, %1196, %1194,
   br label %1232
 
 1230:                                             ; preds = %1225
-  %.not.i429 = icmp eq i32 %1226, 0
-  br i1 %.not.i429, label %1232, label %1231
+  %.not.i428 = icmp eq i32 %1226, 0
+  br i1 %.not.i428, label %1232, label %1231
 
 1231:                                             ; preds = %1230
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1222) #5
@@ -252243,9 +252243,9 @@ lean_dec_ref.exit432:                             ; preds = %1197, %1196, %1194,
   %1236 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13048____closed__1, align 8, !tbaa !4
   %1237 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1234, ptr noundef %1235, i8 noundef zeroext 1, ptr noundef %1236, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1238 = getelementptr i8, ptr %1237, i64 4
-  %.val551 = load i32, ptr %1238, align 4
-  %.mask.i624 = and i32 %.val551, -16777216
-  %1239 = icmp eq i32 %.mask.i624, 16777216
+  %.val550 = load i32, ptr %1238, align 4
+  %.mask.i623 = and i32 %.val550, -16777216
+  %1239 = icmp eq i32 %.mask.i623, 16777216
   br i1 %1239, label %2053, label %1240
 
 1240:                                             ; preds = %1232
@@ -252256,23 +252256,23 @@ lean_dec_ref.exit432:                             ; preds = %1197, %1196, %1194,
 1243:                                             ; preds = %1240
   %1244 = add nsw i32 %1241, -1
   store i32 %1244, ptr %1237, align 4, !tbaa !8
-  br label %lean_dec_ref.exit428
+  br label %lean_dec_ref.exit427
 
 1245:                                             ; preds = %1240
-  %.not.i427 = icmp eq i32 %1241, 0
-  br i1 %.not.i427, label %lean_dec_ref.exit428, label %1246
+  %.not.i426 = icmp eq i32 %1241, 0
+  br i1 %.not.i426, label %lean_dec_ref.exit427, label %1246
 
 1246:                                             ; preds = %1245
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1237) #5
-  br label %lean_dec_ref.exit428
+  br label %lean_dec_ref.exit427
 
-.critedge332:                                     ; preds = %lean_dec_ref.exit432
+.critedge331:                                     ; preds = %lean_dec_ref.exit431
   %1247 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13048____closed__1()
   store ptr %1247, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__and__eq__allOnes_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13048____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1247) #5
-  br label %lean_dec_ref.exit428
+  br label %lean_dec_ref.exit427
 
-lean_dec_ref.exit428:                             ; preds = %1246, %1245, %1243, %.critedge332
+lean_dec_ref.exit427:                             ; preds = %1246, %1245, %1243, %.critedge331
   %1248 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.96, i64 noundef 14, i64 noundef 14) #5
   store ptr %1248, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1248) #5
@@ -252323,17 +252323,17 @@ lean_dec_ref.exit428:                             ; preds = %1246, %1245, %1243,
   %1265 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__114____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13686____closed__12()
   store ptr %1265, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__114____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13686____closed__12, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1265) #5
-  br i1 %.not, label %.critedge334, label %1266
+  br i1 %.not, label %.critedge333, label %1266
 
-1266:                                             ; preds = %lean_dec_ref.exit428
+1266:                                             ; preds = %lean_dec_ref.exit427
   %1267 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__114____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13686____closed__2, align 8, !tbaa !4
   %1268 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__114____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13686____closed__11, align 8, !tbaa !4
   %1269 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__114____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13686____closed__12, align 8, !tbaa !4
   %1270 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1267, ptr noundef %1268, ptr noundef %1269, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1271 = getelementptr i8, ptr %1270, i64 4
-  %.val552 = load i32, ptr %1271, align 4
-  %.mask.i625 = and i32 %.val552, -16777216
-  %1272 = icmp eq i32 %.mask.i625, 16777216
+  %.val551 = load i32, ptr %1271, align 4
+  %.mask.i624 = and i32 %.val551, -16777216
+  %1272 = icmp eq i32 %.mask.i624, 16777216
   br i1 %1272, label %2053, label %1273
 
 1273:                                             ; preds = %1266
@@ -252347,8 +252347,8 @@ lean_dec_ref.exit428:                             ; preds = %1246, %1245, %1243,
   br label %1280
 
 1278:                                             ; preds = %1273
-  %.not.i425 = icmp eq i32 %1274, 0
-  br i1 %.not.i425, label %1280, label %1279
+  %.not.i424 = icmp eq i32 %1274, 0
+  br i1 %.not.i424, label %1280, label %1279
 
 1279:                                             ; preds = %1278
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1270) #5
@@ -252363,9 +252363,9 @@ lean_dec_ref.exit428:                             ; preds = %1246, %1245, %1243,
   %1284 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13688____closed__1, align 8, !tbaa !4
   %1285 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1282, ptr noundef %1283, i8 noundef zeroext 1, ptr noundef %1284, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1286 = getelementptr i8, ptr %1285, i64 4
-  %.val553 = load i32, ptr %1286, align 4
-  %.mask.i626 = and i32 %.val553, -16777216
-  %1287 = icmp eq i32 %.mask.i626, 16777216
+  %.val552 = load i32, ptr %1286, align 4
+  %.mask.i625 = and i32 %.val552, -16777216
+  %1287 = icmp eq i32 %.mask.i625, 16777216
   br i1 %1287, label %2053, label %1288
 
 1288:                                             ; preds = %1280
@@ -252376,23 +252376,23 @@ lean_dec_ref.exit428:                             ; preds = %1246, %1245, %1243,
 1291:                                             ; preds = %1288
   %1292 = add nsw i32 %1289, -1
   store i32 %1292, ptr %1285, align 4, !tbaa !8
-  br label %lean_dec_ref.exit424
+  br label %lean_dec_ref.exit423
 
 1293:                                             ; preds = %1288
-  %.not.i423 = icmp eq i32 %1289, 0
-  br i1 %.not.i423, label %lean_dec_ref.exit424, label %1294
+  %.not.i422 = icmp eq i32 %1289, 0
+  br i1 %.not.i422, label %lean_dec_ref.exit423, label %1294
 
 1294:                                             ; preds = %1293
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1285) #5
-  br label %lean_dec_ref.exit424
+  br label %lean_dec_ref.exit423
 
-.critedge334:                                     ; preds = %lean_dec_ref.exit428
+.critedge333:                                     ; preds = %lean_dec_ref.exit427
   %1295 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13688____closed__1()
   store ptr %1295, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__allOnes__eq__and_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_13688____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1295) #5
-  br label %lean_dec_ref.exit424
+  br label %lean_dec_ref.exit423
 
-lean_dec_ref.exit424:                             ; preds = %1294, %1293, %1291, %.critedge334
+lean_dec_ref.exit423:                             ; preds = %1294, %1293, %1291, %.critedge333
   %1296 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__full___closed__3, align 8, !tbaa !4
   %1297 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %1296, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   store ptr %1297, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not___lambda__1___closed__1, align 8, !tbaa !4
@@ -252442,17 +252442,17 @@ lean_dec_ref.exit424:                             ; preds = %1294, %1293, %1291,
   %1316 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__119____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14358____closed__6()
   store ptr %1316, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__119____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14358____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1316) #5
-  br i1 %.not, label %.critedge336, label %1317
+  br i1 %.not, label %.critedge335, label %1317
 
-1317:                                             ; preds = %lean_dec_ref.exit424
+1317:                                             ; preds = %lean_dec_ref.exit423
   %1318 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__119____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14358____closed__2, align 8, !tbaa !4
   %1319 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__119____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14358____closed__5, align 8, !tbaa !4
   %1320 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__119____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14358____closed__6, align 8, !tbaa !4
   %1321 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1318, ptr noundef %1319, ptr noundef %1320, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1322 = getelementptr i8, ptr %1321, i64 4
-  %.val554 = load i32, ptr %1322, align 4
-  %.mask.i627 = and i32 %.val554, -16777216
-  %1323 = icmp eq i32 %.mask.i627, 16777216
+  %.val553 = load i32, ptr %1322, align 4
+  %.mask.i626 = and i32 %.val553, -16777216
+  %1323 = icmp eq i32 %.mask.i626, 16777216
   br i1 %1323, label %2053, label %1324
 
 1324:                                             ; preds = %1317
@@ -252466,8 +252466,8 @@ lean_dec_ref.exit424:                             ; preds = %1294, %1293, %1291,
   br label %1331
 
 1329:                                             ; preds = %1324
-  %.not.i421 = icmp eq i32 %1325, 0
-  br i1 %.not.i421, label %1331, label %1330
+  %.not.i420 = icmp eq i32 %1325, 0
+  br i1 %.not.i420, label %1331, label %1330
 
 1330:                                             ; preds = %1329
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1321) #5
@@ -252482,9 +252482,9 @@ lean_dec_ref.exit424:                             ; preds = %1294, %1293, %1291,
   %1335 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14360____closed__1, align 8, !tbaa !4
   %1336 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1333, ptr noundef %1334, i8 noundef zeroext 1, ptr noundef %1335, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1337 = getelementptr i8, ptr %1336, i64 4
-  %.val555 = load i32, ptr %1337, align 4
-  %.mask.i628 = and i32 %.val555, -16777216
-  %1338 = icmp eq i32 %.mask.i628, 16777216
+  %.val554 = load i32, ptr %1337, align 4
+  %.mask.i627 = and i32 %.val554, -16777216
+  %1338 = icmp eq i32 %.mask.i627, 16777216
   br i1 %1338, label %2053, label %1339
 
 1339:                                             ; preds = %1331
@@ -252495,23 +252495,23 @@ lean_dec_ref.exit424:                             ; preds = %1294, %1293, %1291,
 1342:                                             ; preds = %1339
   %1343 = add nsw i32 %1340, -1
   store i32 %1343, ptr %1336, align 4, !tbaa !8
-  br label %lean_dec_ref.exit420
+  br label %lean_dec_ref.exit419
 
 1344:                                             ; preds = %1339
-  %.not.i419 = icmp eq i32 %1340, 0
-  br i1 %.not.i419, label %lean_dec_ref.exit420, label %1345
+  %.not.i418 = icmp eq i32 %1340, 0
+  br i1 %.not.i418, label %lean_dec_ref.exit419, label %1345
 
 1345:                                             ; preds = %1344
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1336) #5
-  br label %lean_dec_ref.exit420
+  br label %lean_dec_ref.exit419
 
-.critedge336:                                     ; preds = %lean_dec_ref.exit424
+.critedge335:                                     ; preds = %lean_dec_ref.exit423
   %1346 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14360____closed__1()
   store ptr %1346, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extractLsb_x27__not_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_14360____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1346) #5
-  br label %lean_dec_ref.exit420
+  br label %lean_dec_ref.exit419
 
-lean_dec_ref.exit420:                             ; preds = %1345, %1344, %1342, %.critedge336
+lean_dec_ref.exit419:                             ; preds = %1345, %1344, %1342, %.critedge335
   %1347 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.102, i64 noundef 23, i64 noundef 23) #5
   store ptr %1347, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1347) #5
@@ -252546,17 +252546,17 @@ lean_dec_ref.exit420:                             ; preds = %1345, %1344, %1342,
   %1360 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__6()
   store ptr %1360, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1360) #5
-  br i1 %.not, label %.critedge338, label %1361
+  br i1 %.not, label %.critedge337, label %1361
 
-1361:                                             ; preds = %lean_dec_ref.exit420
+1361:                                             ; preds = %lean_dec_ref.exit419
   %1362 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__2, align 8, !tbaa !4
   %1363 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__5, align 8, !tbaa !4
   %1364 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__6, align 8, !tbaa !4
   %1365 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1362, ptr noundef %1363, ptr noundef %1364, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1366 = getelementptr i8, ptr %1365, i64 4
-  %.val556 = load i32, ptr %1366, align 4
-  %.mask.i629 = and i32 %.val556, -16777216
-  %1367 = icmp eq i32 %.mask.i629, 16777216
+  %.val555 = load i32, ptr %1366, align 4
+  %.mask.i628 = and i32 %.val555, -16777216
+  %1367 = icmp eq i32 %.mask.i628, 16777216
   br i1 %1367, label %2053, label %1368
 
 1368:                                             ; preds = %1361
@@ -252570,8 +252570,8 @@ lean_dec_ref.exit420:                             ; preds = %1345, %1344, %1342,
   br label %1375
 
 1373:                                             ; preds = %1368
-  %.not.i417 = icmp eq i32 %1369, 0
-  br i1 %.not.i417, label %1375, label %1374
+  %.not.i416 = icmp eq i32 %1369, 0
+  br i1 %.not.i416, label %1375, label %1374
 
 1374:                                             ; preds = %1373
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1365) #5
@@ -252586,9 +252586,9 @@ lean_dec_ref.exit420:                             ; preds = %1345, %1344, %1342,
   %1379 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15815____closed__1, align 8, !tbaa !4
   %1380 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1377, ptr noundef %1378, i8 noundef zeroext 1, ptr noundef %1379, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1381 = getelementptr i8, ptr %1380, i64 4
-  %.val557 = load i32, ptr %1381, align 4
-  %.mask.i630 = and i32 %.val557, -16777216
-  %1382 = icmp eq i32 %.mask.i630, 16777216
+  %.val556 = load i32, ptr %1381, align 4
+  %.mask.i629 = and i32 %.val556, -16777216
+  %1382 = icmp eq i32 %.mask.i629, 16777216
   br i1 %1382, label %2053, label %1383
 
 1383:                                             ; preds = %1375
@@ -252599,23 +252599,23 @@ lean_dec_ref.exit420:                             ; preds = %1345, %1344, %1342,
 1386:                                             ; preds = %1383
   %1387 = add nsw i32 %1384, -1
   store i32 %1387, ptr %1380, align 4, !tbaa !8
-  br label %lean_dec_ref.exit416
+  br label %lean_dec_ref.exit415
 
 1388:                                             ; preds = %1383
-  %.not.i415 = icmp eq i32 %1384, 0
-  br i1 %.not.i415, label %lean_dec_ref.exit416, label %1389
+  %.not.i414 = icmp eq i32 %1384, 0
+  br i1 %.not.i414, label %lean_dec_ref.exit415, label %1389
 
 1389:                                             ; preds = %1388
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1380) #5
-  br label %lean_dec_ref.exit416
+  br label %lean_dec_ref.exit415
 
-.critedge338:                                     ; preds = %lean_dec_ref.exit420
+.critedge337:                                     ; preds = %lean_dec_ref.exit419
   %1390 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15815____closed__1()
   store ptr %1390, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15815____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1390) #5
-  br label %lean_dec_ref.exit416
+  br label %lean_dec_ref.exit415
 
-lean_dec_ref.exit416:                             ; preds = %1389, %1388, %1386, %.critedge338
+lean_dec_ref.exit415:                             ; preds = %1389, %1388, %1386, %.critedge337
   %1391 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.104, i64 noundef 23, i64 noundef 23) #5
   store ptr %1391, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1391) #5
@@ -252647,17 +252647,17 @@ lean_dec_ref.exit416:                             ; preds = %1389, %1388, %1386,
   %1403 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__5()
   store ptr %1403, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1403) #5
-  br i1 %.not, label %.critedge340, label %1404
+  br i1 %.not, label %.critedge339, label %1404
 
-1404:                                             ; preds = %lean_dec_ref.exit416
+1404:                                             ; preds = %lean_dec_ref.exit415
   %1405 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__2, align 8, !tbaa !4
   %1406 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__4, align 8, !tbaa !4
   %1407 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__5, align 8, !tbaa !4
   %1408 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1405, ptr noundef %1406, ptr noundef %1407, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1409 = getelementptr i8, ptr %1408, i64 4
-  %.val558 = load i32, ptr %1409, align 4
-  %.mask.i631 = and i32 %.val558, -16777216
-  %1410 = icmp eq i32 %.mask.i631, 16777216
+  %.val557 = load i32, ptr %1409, align 4
+  %.mask.i630 = and i32 %.val557, -16777216
+  %1410 = icmp eq i32 %.mask.i630, 16777216
   br i1 %1410, label %2053, label %1411
 
 1411:                                             ; preds = %1404
@@ -252671,8 +252671,8 @@ lean_dec_ref.exit416:                             ; preds = %1389, %1388, %1386,
   br label %1418
 
 1416:                                             ; preds = %1411
-  %.not.i413 = icmp eq i32 %1412, 0
-  br i1 %.not.i413, label %1418, label %1417
+  %.not.i412 = icmp eq i32 %1412, 0
+  br i1 %.not.i412, label %1418, label %1417
 
 1417:                                             ; preds = %1416
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1408) #5
@@ -252687,9 +252687,9 @@ lean_dec_ref.exit416:                             ; preds = %1389, %1388, %1386,
   %1422 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16217____closed__1, align 8, !tbaa !4
   %1423 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1420, ptr noundef %1421, i8 noundef zeroext 1, ptr noundef %1422, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1424 = getelementptr i8, ptr %1423, i64 4
-  %.val559 = load i32, ptr %1424, align 4
-  %.mask.i632 = and i32 %.val559, -16777216
-  %1425 = icmp eq i32 %.mask.i632, 16777216
+  %.val558 = load i32, ptr %1424, align 4
+  %.mask.i631 = and i32 %.val558, -16777216
+  %1425 = icmp eq i32 %.mask.i631, 16777216
   br i1 %1425, label %2053, label %1426
 
 1426:                                             ; preds = %1418
@@ -252700,23 +252700,23 @@ lean_dec_ref.exit416:                             ; preds = %1389, %1388, %1386,
 1429:                                             ; preds = %1426
   %1430 = add nsw i32 %1427, -1
   store i32 %1430, ptr %1423, align 4, !tbaa !8
-  br label %lean_dec_ref.exit412
+  br label %lean_dec_ref.exit411
 
 1431:                                             ; preds = %1426
-  %.not.i411 = icmp eq i32 %1427, 0
-  br i1 %.not.i411, label %lean_dec_ref.exit412, label %1432
+  %.not.i410 = icmp eq i32 %1427, 0
+  br i1 %.not.i410, label %lean_dec_ref.exit411, label %1432
 
 1432:                                             ; preds = %1431
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1423) #5
-  br label %lean_dec_ref.exit412
+  br label %lean_dec_ref.exit411
 
-.critedge340:                                     ; preds = %lean_dec_ref.exit416
+.critedge339:                                     ; preds = %lean_dec_ref.exit415
   %1433 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16217____closed__1()
   store ptr %1433, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16217____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1433) #5
-  br label %lean_dec_ref.exit412
+  br label %lean_dec_ref.exit411
 
-lean_dec_ref.exit412:                             ; preds = %1432, %1431, %1429, %.critedge340
+lean_dec_ref.exit411:                             ; preds = %1432, %1431, %1429, %.critedge339
   %1434 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef 8) #5
   store ptr %1434, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1434) #5
@@ -252739,17 +252739,17 @@ lean_dec_ref.exit412:                             ; preds = %1432, %1431, %1429,
   %1441 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__146____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16630____closed__3()
   store ptr %1441, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__146____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16630____closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1441) #5
-  br i1 %.not, label %.critedge342, label %1442
+  br i1 %.not, label %.critedge341, label %1442
 
-1442:                                             ; preds = %lean_dec_ref.exit412
+1442:                                             ; preds = %lean_dec_ref.exit411
   %1443 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__146____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16630____closed__2, align 8, !tbaa !4
   %1444 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__twoPow__mul_declare__136____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_15813____closed__5, align 8, !tbaa !4
   %1445 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__146____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16630____closed__3, align 8, !tbaa !4
   %1446 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1443, ptr noundef %1444, ptr noundef %1445, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1447 = getelementptr i8, ptr %1446, i64 4
-  %.val560 = load i32, ptr %1447, align 4
-  %.mask.i633 = and i32 %.val560, -16777216
-  %1448 = icmp eq i32 %.mask.i633, 16777216
+  %.val559 = load i32, ptr %1447, align 4
+  %.mask.i632 = and i32 %.val559, -16777216
+  %1448 = icmp eq i32 %.mask.i632, 16777216
   br i1 %1448, label %2053, label %1449
 
 1449:                                             ; preds = %1442
@@ -252763,8 +252763,8 @@ lean_dec_ref.exit412:                             ; preds = %1432, %1431, %1429,
   br label %1456
 
 1454:                                             ; preds = %1449
-  %.not.i409 = icmp eq i32 %1450, 0
-  br i1 %.not.i409, label %1456, label %1455
+  %.not.i408 = icmp eq i32 %1450, 0
+  br i1 %.not.i408, label %1456, label %1455
 
 1455:                                             ; preds = %1454
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1446) #5
@@ -252779,9 +252779,9 @@ lean_dec_ref.exit412:                             ; preds = %1432, %1431, %1429,
   %1460 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16632____closed__1, align 8, !tbaa !4
   %1461 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1458, ptr noundef %1459, i8 noundef zeroext 1, ptr noundef %1460, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1462 = getelementptr i8, ptr %1461, i64 4
-  %.val561 = load i32, ptr %1462, align 4
-  %.mask.i634 = and i32 %.val561, -16777216
-  %1463 = icmp eq i32 %.mask.i634, 16777216
+  %.val560 = load i32, ptr %1462, align 4
+  %.mask.i633 = and i32 %.val560, -16777216
+  %1463 = icmp eq i32 %.mask.i633, 16777216
   br i1 %1463, label %2053, label %1464
 
 1464:                                             ; preds = %1456
@@ -252792,23 +252792,23 @@ lean_dec_ref.exit412:                             ; preds = %1432, %1431, %1429,
 1467:                                             ; preds = %1464
   %1468 = add nsw i32 %1465, -1
   store i32 %1468, ptr %1461, align 4, !tbaa !8
-  br label %lean_dec_ref.exit408
+  br label %lean_dec_ref.exit407
 
 1469:                                             ; preds = %1464
-  %.not.i407 = icmp eq i32 %1465, 0
-  br i1 %.not.i407, label %lean_dec_ref.exit408, label %1470
+  %.not.i406 = icmp eq i32 %1465, 0
+  br i1 %.not.i406, label %lean_dec_ref.exit407, label %1470
 
 1470:                                             ; preds = %1469
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1461) #5
-  br label %lean_dec_ref.exit408
+  br label %lean_dec_ref.exit407
 
-.critedge342:                                     ; preds = %lean_dec_ref.exit412
+.critedge341:                                     ; preds = %lean_dec_ref.exit411
   %1471 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16632____closed__1()
   store ptr %1471, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__ones__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16632____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1471) #5
-  br label %lean_dec_ref.exit408
+  br label %lean_dec_ref.exit407
 
-lean_dec_ref.exit408:                             ; preds = %1470, %1469, %1467, %.critedge342
+lean_dec_ref.exit407:                             ; preds = %1470, %1469, %1467, %.critedge341
   %1472 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.108, i64 noundef 8, i64 noundef 8) #5
   store ptr %1472, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1472) #5
@@ -252831,17 +252831,17 @@ lean_dec_ref.exit408:                             ; preds = %1470, %1469, %1467,
   %1479 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__151____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17045____closed__3()
   store ptr %1479, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__151____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17045____closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1479) #5
-  br i1 %.not, label %.critedge344, label %1480
+  br i1 %.not, label %.critedge343, label %1480
 
-1480:                                             ; preds = %lean_dec_ref.exit408
+1480:                                             ; preds = %lean_dec_ref.exit407
   %1481 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__151____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17045____closed__2, align 8, !tbaa !4
   %1482 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__twoPow_declare__141____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_16215____closed__4, align 8, !tbaa !4
   %1483 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__151____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17045____closed__3, align 8, !tbaa !4
   %1484 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1481, ptr noundef %1482, ptr noundef %1483, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1485 = getelementptr i8, ptr %1484, i64 4
-  %.val562 = load i32, ptr %1485, align 4
-  %.mask.i635 = and i32 %.val562, -16777216
-  %1486 = icmp eq i32 %.mask.i635, 16777216
+  %.val561 = load i32, ptr %1485, align 4
+  %.mask.i634 = and i32 %.val561, -16777216
+  %1486 = icmp eq i32 %.mask.i634, 16777216
   br i1 %1486, label %2053, label %1487
 
 1487:                                             ; preds = %1480
@@ -252855,8 +252855,8 @@ lean_dec_ref.exit408:                             ; preds = %1470, %1469, %1467,
   br label %1494
 
 1492:                                             ; preds = %1487
-  %.not.i405 = icmp eq i32 %1488, 0
-  br i1 %.not.i405, label %1494, label %1493
+  %.not.i404 = icmp eq i32 %1488, 0
+  br i1 %.not.i404, label %1494, label %1493
 
 1493:                                             ; preds = %1492
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1484) #5
@@ -252871,9 +252871,9 @@ lean_dec_ref.exit408:                             ; preds = %1470, %1469, %1467,
   %1498 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17047____closed__1, align 8, !tbaa !4
   %1499 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1496, ptr noundef %1497, i8 noundef zeroext 1, ptr noundef %1498, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1500 = getelementptr i8, ptr %1499, i64 4
-  %.val563 = load i32, ptr %1500, align 4
-  %.mask.i636 = and i32 %.val563, -16777216
-  %1501 = icmp eq i32 %.mask.i636, 16777216
+  %.val562 = load i32, ptr %1500, align 4
+  %.mask.i635 = and i32 %.val562, -16777216
+  %1501 = icmp eq i32 %.mask.i635, 16777216
   br i1 %1501, label %2053, label %1502
 
 1502:                                             ; preds = %1494
@@ -252884,23 +252884,23 @@ lean_dec_ref.exit408:                             ; preds = %1470, %1469, %1467,
 1505:                                             ; preds = %1502
   %1506 = add nsw i32 %1503, -1
   store i32 %1506, ptr %1499, align 4, !tbaa !8
-  br label %lean_dec_ref.exit404
+  br label %lean_dec_ref.exit403
 
 1507:                                             ; preds = %1502
-  %.not.i403 = icmp eq i32 %1503, 0
-  br i1 %.not.i403, label %lean_dec_ref.exit404, label %1508
+  %.not.i402 = icmp eq i32 %1503, 0
+  br i1 %.not.i402, label %lean_dec_ref.exit403, label %1508
 
 1508:                                             ; preds = %1507
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1499) #5
-  br label %lean_dec_ref.exit404
+  br label %lean_dec_ref.exit403
 
-.critedge344:                                     ; preds = %lean_dec_ref.exit408
+.critedge343:                                     ; preds = %lean_dec_ref.exit407
   %1509 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17047____closed__1()
   store ptr %1509, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__mul__ones_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17047____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1509) #5
-  br label %lean_dec_ref.exit404
+  br label %lean_dec_ref.exit403
 
-lean_dec_ref.exit404:                             ; preds = %1508, %1507, %1505, %.critedge344
+lean_dec_ref.exit403:                             ; preds = %1508, %1507, %1505, %.critedge343
   %1510 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.110, i64 noundef 19, i64 noundef 19) #5
   store ptr %1510, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1510) #5
@@ -252990,17 +252990,17 @@ lean_dec_ref.exit404:                             ; preds = %1508, %1507, %1505,
   %1548 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__156____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17714____closed__11()
   store ptr %1548, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__156____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17714____closed__11, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1548) #5
-  br i1 %.not, label %.critedge346, label %1549
+  br i1 %.not, label %.critedge345, label %1549
 
-1549:                                             ; preds = %lean_dec_ref.exit404
+1549:                                             ; preds = %lean_dec_ref.exit403
   %1550 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__156____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17714____closed__2, align 8, !tbaa !4
   %1551 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__156____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17714____closed__10, align 8, !tbaa !4
   %1552 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__156____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17714____closed__11, align 8, !tbaa !4
   %1553 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1550, ptr noundef %1551, ptr noundef %1552, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1554 = getelementptr i8, ptr %1553, i64 4
-  %.val564 = load i32, ptr %1554, align 4
-  %.mask.i637 = and i32 %.val564, -16777216
-  %1555 = icmp eq i32 %.mask.i637, 16777216
+  %.val563 = load i32, ptr %1554, align 4
+  %.mask.i636 = and i32 %.val563, -16777216
+  %1555 = icmp eq i32 %.mask.i636, 16777216
   br i1 %1555, label %2053, label %1556
 
 1556:                                             ; preds = %1549
@@ -253014,8 +253014,8 @@ lean_dec_ref.exit404:                             ; preds = %1508, %1507, %1505,
   br label %1563
 
 1561:                                             ; preds = %1556
-  %.not.i401 = icmp eq i32 %1557, 0
-  br i1 %.not.i401, label %1563, label %1562
+  %.not.i400 = icmp eq i32 %1557, 0
+  br i1 %.not.i400, label %1563, label %1562
 
 1562:                                             ; preds = %1561
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1553) #5
@@ -253030,9 +253030,9 @@ lean_dec_ref.exit404:                             ; preds = %1508, %1507, %1505,
   %1567 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17716____closed__1, align 8, !tbaa !4
   %1568 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1565, ptr noundef %1566, i8 noundef zeroext 1, ptr noundef %1567, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1569 = getelementptr i8, ptr %1568, i64 4
-  %.val565 = load i32, ptr %1569, align 4
-  %.mask.i638 = and i32 %.val565, -16777216
-  %1570 = icmp eq i32 %.mask.i638, 16777216
+  %.val564 = load i32, ptr %1569, align 4
+  %.mask.i637 = and i32 %.val564, -16777216
+  %1570 = icmp eq i32 %.mask.i637, 16777216
   br i1 %1570, label %2053, label %1571
 
 1571:                                             ; preds = %1563
@@ -253043,23 +253043,23 @@ lean_dec_ref.exit404:                             ; preds = %1508, %1507, %1505,
 1574:                                             ; preds = %1571
   %1575 = add nsw i32 %1572, -1
   store i32 %1575, ptr %1568, align 4, !tbaa !8
-  br label %lean_dec_ref.exit400
+  br label %lean_dec_ref.exit399
 
 1576:                                             ; preds = %1571
-  %.not.i399 = icmp eq i32 %1572, 0
-  br i1 %.not.i399, label %lean_dec_ref.exit400, label %1577
+  %.not.i398 = icmp eq i32 %1572, 0
+  br i1 %.not.i398, label %lean_dec_ref.exit399, label %1577
 
 1577:                                             ; preds = %1576
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1568) #5
-  br label %lean_dec_ref.exit400
+  br label %lean_dec_ref.exit399
 
-.critedge346:                                     ; preds = %lean_dec_ref.exit404
+.critedge345:                                     ; preds = %lean_dec_ref.exit403
   %1578 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17716____closed__1()
   store ptr %1578, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__ushiftRight__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_17716____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1578) #5
-  br label %lean_dec_ref.exit400
+  br label %lean_dec_ref.exit399
 
-lean_dec_ref.exit400:                             ; preds = %1577, %1576, %1574, %.critedge346
+lean_dec_ref.exit399:                             ; preds = %1577, %1576, %1574, %.critedge345
   %1579 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.117, i64 noundef 17, i64 noundef 17) #5
   store ptr %1579, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1579) #5
@@ -253109,17 +253109,17 @@ lean_dec_ref.exit400:                             ; preds = %1577, %1576, %1574,
   %1599 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__161____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18394____closed__6()
   store ptr %1599, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__161____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18394____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1599) #5
-  br i1 %.not, label %.critedge348, label %1600
+  br i1 %.not, label %.critedge347, label %1600
 
-1600:                                             ; preds = %lean_dec_ref.exit400
+1600:                                             ; preds = %lean_dec_ref.exit399
   %1601 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__161____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18394____closed__2, align 8, !tbaa !4
   %1602 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__161____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18394____closed__5, align 8, !tbaa !4
   %1603 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__161____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18394____closed__6, align 8, !tbaa !4
   %1604 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1601, ptr noundef %1602, ptr noundef %1603, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1605 = getelementptr i8, ptr %1604, i64 4
-  %.val566 = load i32, ptr %1605, align 4
-  %.mask.i639 = and i32 %.val566, -16777216
-  %1606 = icmp eq i32 %.mask.i639, 16777216
+  %.val565 = load i32, ptr %1605, align 4
+  %.mask.i638 = and i32 %.val565, -16777216
+  %1606 = icmp eq i32 %.mask.i638, 16777216
   br i1 %1606, label %2053, label %1607
 
 1607:                                             ; preds = %1600
@@ -253133,8 +253133,8 @@ lean_dec_ref.exit400:                             ; preds = %1577, %1576, %1574,
   br label %1614
 
 1612:                                             ; preds = %1607
-  %.not.i397 = icmp eq i32 %1608, 0
-  br i1 %.not.i397, label %1614, label %1613
+  %.not.i396 = icmp eq i32 %1608, 0
+  br i1 %.not.i396, label %1614, label %1613
 
 1613:                                             ; preds = %1612
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1604) #5
@@ -253149,9 +253149,9 @@ lean_dec_ref.exit400:                             ; preds = %1577, %1576, %1574,
   %1618 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18396____closed__1, align 8, !tbaa !4
   %1619 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1616, ptr noundef %1617, i8 noundef zeroext 1, ptr noundef %1618, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1620 = getelementptr i8, ptr %1619, i64 4
-  %.val567 = load i32, ptr %1620, align 4
-  %.mask.i640 = and i32 %.val567, -16777216
-  %1621 = icmp eq i32 %.mask.i640, 16777216
+  %.val566 = load i32, ptr %1620, align 4
+  %.mask.i639 = and i32 %.val566, -16777216
+  %1621 = icmp eq i32 %.mask.i639, 16777216
   br i1 %1621, label %2053, label %1622
 
 1622:                                             ; preds = %1614
@@ -253162,23 +253162,23 @@ lean_dec_ref.exit400:                             ; preds = %1577, %1576, %1574,
 1625:                                             ; preds = %1622
   %1626 = add nsw i32 %1623, -1
   store i32 %1626, ptr %1619, align 4, !tbaa !8
-  br label %lean_dec_ref.exit396
+  br label %lean_dec_ref.exit395
 
 1627:                                             ; preds = %1622
-  %.not.i395 = icmp eq i32 %1623, 0
-  br i1 %.not.i395, label %lean_dec_ref.exit396, label %1628
+  %.not.i394 = icmp eq i32 %1623, 0
+  br i1 %.not.i394, label %lean_dec_ref.exit395, label %1628
 
 1628:                                             ; preds = %1627
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1619) #5
-  br label %lean_dec_ref.exit396
+  br label %lean_dec_ref.exit395
 
-.critedge348:                                     ; preds = %lean_dec_ref.exit400
+.critedge347:                                     ; preds = %lean_dec_ref.exit399
   %1629 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18396____closed__1()
   store ptr %1629, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__shiftLeft__const_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_18396____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1629) #5
-  br label %lean_dec_ref.exit396
+  br label %lean_dec_ref.exit395
 
-lean_dec_ref.exit396:                             ; preds = %1628, %1627, %1625, %.critedge348
+lean_dec_ref.exit395:                             ; preds = %1628, %1627, %1625, %.critedge347
   %1630 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.120, i64 noundef 45, i64 noundef 45) #5
   store ptr %1630, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1630) #5
@@ -253249,17 +253249,17 @@ lean_dec_ref.exit396:                             ; preds = %1628, %1627, %1625,
   %1655 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__166____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19436____closed__18()
   store ptr %1655, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__166____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19436____closed__18, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1655) #5
-  br i1 %.not, label %.critedge350, label %1656
+  br i1 %.not, label %.critedge349, label %1656
 
-1656:                                             ; preds = %lean_dec_ref.exit396
+1656:                                             ; preds = %lean_dec_ref.exit395
   %1657 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__166____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19436____closed__2, align 8, !tbaa !4
   %1658 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__166____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19436____closed__17, align 8, !tbaa !4
   %1659 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__166____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19436____closed__18, align 8, !tbaa !4
   %1660 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1657, ptr noundef %1658, ptr noundef %1659, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1661 = getelementptr i8, ptr %1660, i64 4
-  %.val568 = load i32, ptr %1661, align 4
-  %.mask.i641 = and i32 %.val568, -16777216
-  %1662 = icmp eq i32 %.mask.i641, 16777216
+  %.val567 = load i32, ptr %1661, align 4
+  %.mask.i640 = and i32 %.val567, -16777216
+  %1662 = icmp eq i32 %.mask.i640, 16777216
   br i1 %1662, label %2053, label %1663
 
 1663:                                             ; preds = %1656
@@ -253273,8 +253273,8 @@ lean_dec_ref.exit396:                             ; preds = %1628, %1627, %1625,
   br label %1670
 
 1668:                                             ; preds = %1663
-  %.not.i393 = icmp eq i32 %1664, 0
-  br i1 %.not.i393, label %1670, label %1669
+  %.not.i392 = icmp eq i32 %1664, 0
+  br i1 %.not.i392, label %1670, label %1669
 
 1669:                                             ; preds = %1668
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1660) #5
@@ -253289,9 +253289,9 @@ lean_dec_ref.exit396:                             ; preds = %1628, %1627, %1625,
   %1674 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19438____closed__1, align 8, !tbaa !4
   %1675 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1672, ptr noundef %1673, i8 noundef zeroext 1, ptr noundef %1674, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1676 = getelementptr i8, ptr %1675, i64 4
-  %.val569 = load i32, ptr %1676, align 4
-  %.mask.i642 = and i32 %.val569, -16777216
-  %1677 = icmp eq i32 %.mask.i642, 16777216
+  %.val568 = load i32, ptr %1676, align 4
+  %.mask.i641 = and i32 %.val568, -16777216
+  %1677 = icmp eq i32 %.mask.i641, 16777216
   br i1 %1677, label %2053, label %1678
 
 1678:                                             ; preds = %1670
@@ -253302,23 +253302,23 @@ lean_dec_ref.exit396:                             ; preds = %1628, %1627, %1625,
 1681:                                             ; preds = %1678
   %1682 = add nsw i32 %1679, -1
   store i32 %1682, ptr %1675, align 4, !tbaa !8
-  br label %lean_dec_ref.exit392
+  br label %lean_dec_ref.exit391
 
 1683:                                             ; preds = %1678
-  %.not.i391 = icmp eq i32 %1679, 0
-  br i1 %.not.i391, label %lean_dec_ref.exit392, label %1684
+  %.not.i390 = icmp eq i32 %1679, 0
+  br i1 %.not.i390, label %lean_dec_ref.exit391, label %1684
 
 1684:                                             ; preds = %1683
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1675) #5
-  br label %lean_dec_ref.exit392
+  br label %lean_dec_ref.exit391
 
-.critedge350:                                     ; preds = %lean_dec_ref.exit396
+.critedge349:                                     ; preds = %lean_dec_ref.exit395
   %1685 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19438____closed__1()
   store ptr %1685, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_19438____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1685) #5
-  br label %lean_dec_ref.exit392
+  br label %lean_dec_ref.exit391
 
-lean_dec_ref.exit392:                             ; preds = %1684, %1683, %1681, %.critedge350
+lean_dec_ref.exit391:                             ; preds = %1684, %1683, %1681, %.critedge349
   %1686 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.122, i64 noundef 57, i64 noundef 57) #5
   store ptr %1686, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1686) #5
@@ -253404,17 +253404,17 @@ lean_dec_ref.exit392:                             ; preds = %1684, %1683, %1681,
   %1716 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__171____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20811____closed__23()
   store ptr %1716, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__171____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20811____closed__23, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1716) #5
-  br i1 %.not, label %.critedge352, label %1717
+  br i1 %.not, label %.critedge351, label %1717
 
-1717:                                             ; preds = %lean_dec_ref.exit392
+1717:                                             ; preds = %lean_dec_ref.exit391
   %1718 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__171____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20811____closed__2, align 8, !tbaa !4
   %1719 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__171____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20811____closed__22, align 8, !tbaa !4
   %1720 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__171____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20811____closed__23, align 8, !tbaa !4
   %1721 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1718, ptr noundef %1719, ptr noundef %1720, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1722 = getelementptr i8, ptr %1721, i64 4
-  %.val570 = load i32, ptr %1722, align 4
-  %.mask.i643 = and i32 %.val570, -16777216
-  %1723 = icmp eq i32 %.mask.i643, 16777216
+  %.val569 = load i32, ptr %1722, align 4
+  %.mask.i642 = and i32 %.val569, -16777216
+  %1723 = icmp eq i32 %.mask.i642, 16777216
   br i1 %1723, label %2053, label %1724
 
 1724:                                             ; preds = %1717
@@ -253428,8 +253428,8 @@ lean_dec_ref.exit392:                             ; preds = %1684, %1683, %1681,
   br label %1731
 
 1729:                                             ; preds = %1724
-  %.not.i389 = icmp eq i32 %1725, 0
-  br i1 %.not.i389, label %1731, label %1730
+  %.not.i388 = icmp eq i32 %1725, 0
+  br i1 %.not.i388, label %1731, label %1730
 
 1730:                                             ; preds = %1729
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1721) #5
@@ -253444,9 +253444,9 @@ lean_dec_ref.exit392:                             ; preds = %1684, %1683, %1681,
   %1735 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20813____closed__1, align 8, !tbaa !4
   %1736 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1733, ptr noundef %1734, i8 noundef zeroext 1, ptr noundef %1735, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1737 = getelementptr i8, ptr %1736, i64 4
-  %.val571 = load i32, ptr %1737, align 4
-  %.mask.i644 = and i32 %.val571, -16777216
-  %1738 = icmp eq i32 %.mask.i644, 16777216
+  %.val570 = load i32, ptr %1737, align 4
+  %.mask.i643 = and i32 %.val570, -16777216
+  %1738 = icmp eq i32 %.mask.i643, 16777216
   br i1 %1738, label %2053, label %1739
 
 1739:                                             ; preds = %1731
@@ -253457,23 +253457,23 @@ lean_dec_ref.exit392:                             ; preds = %1684, %1683, %1681,
 1742:                                             ; preds = %1739
   %1743 = add nsw i32 %1740, -1
   store i32 %1743, ptr %1736, align 4, !tbaa !8
-  br label %lean_dec_ref.exit388
+  br label %lean_dec_ref.exit387
 
 1744:                                             ; preds = %1739
-  %.not.i387 = icmp eq i32 %1740, 0
-  br i1 %.not.i387, label %lean_dec_ref.exit388, label %1745
+  %.not.i386 = icmp eq i32 %1740, 0
+  br i1 %.not.i386, label %lean_dec_ref.exit387, label %1745
 
 1745:                                             ; preds = %1744
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1736) #5
-  br label %lean_dec_ref.exit388
+  br label %lean_dec_ref.exit387
 
-.critedge352:                                     ; preds = %lean_dec_ref.exit392
+.critedge351:                                     ; preds = %lean_dec_ref.exit391
   %1746 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20813____closed__1()
   store ptr %1746, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__concat__not__extract_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_20813____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1746) #5
-  br label %lean_dec_ref.exit388
+  br label %lean_dec_ref.exit387
 
-lean_dec_ref.exit388:                             ; preds = %1745, %1744, %1742, %.critedge352
+lean_dec_ref.exit387:                             ; preds = %1745, %1744, %1742, %.critedge351
   %1747 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.124, i64 noundef 18, i64 noundef 18) #5
   store ptr %1747, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1747) #5
@@ -253528,17 +253528,17 @@ lean_dec_ref.exit388:                             ; preds = %1745, %1744, %1742,
   %1770 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__176____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21300____closed__6()
   store ptr %1770, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__176____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21300____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1770) #5
-  br i1 %.not, label %.critedge354, label %1771
+  br i1 %.not, label %.critedge353, label %1771
 
-1771:                                             ; preds = %lean_dec_ref.exit388
+1771:                                             ; preds = %lean_dec_ref.exit387
   %1772 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__176____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21300____closed__2, align 8, !tbaa !4
   %1773 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__176____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21300____closed__5, align 8, !tbaa !4
   %1774 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__176____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21300____closed__6, align 8, !tbaa !4
   %1775 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1772, ptr noundef %1773, ptr noundef %1774, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1776 = getelementptr i8, ptr %1775, i64 4
-  %.val572 = load i32, ptr %1776, align 4
-  %.mask.i645 = and i32 %.val572, -16777216
-  %1777 = icmp eq i32 %.mask.i645, 16777216
+  %.val571 = load i32, ptr %1776, align 4
+  %.mask.i644 = and i32 %.val571, -16777216
+  %1777 = icmp eq i32 %.mask.i644, 16777216
   br i1 %1777, label %2053, label %1778
 
 1778:                                             ; preds = %1771
@@ -253552,8 +253552,8 @@ lean_dec_ref.exit388:                             ; preds = %1745, %1744, %1742,
   br label %1785
 
 1783:                                             ; preds = %1778
-  %.not.i385 = icmp eq i32 %1779, 0
-  br i1 %.not.i385, label %1785, label %1784
+  %.not.i384 = icmp eq i32 %1779, 0
+  br i1 %.not.i384, label %1785, label %1784
 
 1784:                                             ; preds = %1783
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1775) #5
@@ -253568,9 +253568,9 @@ lean_dec_ref.exit388:                             ; preds = %1745, %1744, %1742,
   %1789 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21302____closed__1, align 8, !tbaa !4
   %1790 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1787, ptr noundef %1788, i8 noundef zeroext 1, ptr noundef %1789, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1791 = getelementptr i8, ptr %1790, i64 4
-  %.val573 = load i32, ptr %1791, align 4
-  %.mask.i646 = and i32 %.val573, -16777216
-  %1792 = icmp eq i32 %.mask.i646, 16777216
+  %.val572 = load i32, ptr %1791, align 4
+  %.mask.i645 = and i32 %.val572, -16777216
+  %1792 = icmp eq i32 %.mask.i645, 16777216
   br i1 %1792, label %2053, label %1793
 
 1793:                                             ; preds = %1785
@@ -253581,23 +253581,23 @@ lean_dec_ref.exit388:                             ; preds = %1745, %1744, %1742,
 1796:                                             ; preds = %1793
   %1797 = add nsw i32 %1794, -1
   store i32 %1797, ptr %1790, align 4, !tbaa !8
-  br label %lean_dec_ref.exit384
+  br label %lean_dec_ref.exit383
 
 1798:                                             ; preds = %1793
-  %.not.i383 = icmp eq i32 %1794, 0
-  br i1 %.not.i383, label %lean_dec_ref.exit384, label %1799
+  %.not.i382 = icmp eq i32 %1794, 0
+  br i1 %.not.i382, label %lean_dec_ref.exit383, label %1799
 
 1799:                                             ; preds = %1798
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1790) #5
-  br label %lean_dec_ref.exit384
+  br label %lean_dec_ref.exit383
 
-.critedge354:                                     ; preds = %lean_dec_ref.exit388
+.critedge353:                                     ; preds = %lean_dec_ref.exit387
   %1800 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21302____closed__1()
   store ptr %1800, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__setWidth_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21302____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1800) #5
-  br label %lean_dec_ref.exit384
+  br label %lean_dec_ref.exit383
 
-lean_dec_ref.exit384:                             ; preds = %1799, %1798, %1796, %.critedge354
+lean_dec_ref.exit383:                             ; preds = %1799, %1798, %1796, %.critedge353
   %1801 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.128, i64 noundef 3, i64 noundef 3) #5
   store ptr %1801, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1801) #5
@@ -253669,17 +253669,17 @@ lean_dec_ref.exit384:                             ; preds = %1799, %1798, %1796,
   %1831 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__181____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21853____closed__6()
   store ptr %1831, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__181____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21853____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1831) #5
-  br i1 %.not, label %.critedge356, label %1832
+  br i1 %.not, label %.critedge355, label %1832
 
-1832:                                             ; preds = %lean_dec_ref.exit384
+1832:                                             ; preds = %lean_dec_ref.exit383
   %1833 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__181____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21853____closed__2, align 8, !tbaa !4
   %1834 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__181____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21853____closed__5, align 8, !tbaa !4
   %1835 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__181____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21853____closed__6, align 8, !tbaa !4
   %1836 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1833, ptr noundef %1834, ptr noundef %1835, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1837 = getelementptr i8, ptr %1836, i64 4
-  %.val574 = load i32, ptr %1837, align 4
-  %.mask.i647 = and i32 %.val574, -16777216
-  %1838 = icmp eq i32 %.mask.i647, 16777216
+  %.val573 = load i32, ptr %1837, align 4
+  %.mask.i646 = and i32 %.val573, -16777216
+  %1838 = icmp eq i32 %.mask.i646, 16777216
   br i1 %1838, label %2053, label %1839
 
 1839:                                             ; preds = %1832
@@ -253693,8 +253693,8 @@ lean_dec_ref.exit384:                             ; preds = %1799, %1798, %1796,
   br label %1846
 
 1844:                                             ; preds = %1839
-  %.not.i381 = icmp eq i32 %1840, 0
-  br i1 %.not.i381, label %1846, label %1845
+  %.not.i380 = icmp eq i32 %1840, 0
+  br i1 %.not.i380, label %1846, label %1845
 
 1845:                                             ; preds = %1844
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1836) #5
@@ -253709,9 +253709,9 @@ lean_dec_ref.exit384:                             ; preds = %1799, %1798, %1796,
   %1850 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21855____closed__1, align 8, !tbaa !4
   %1851 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1848, ptr noundef %1849, i8 noundef zeroext 1, ptr noundef %1850, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1852 = getelementptr i8, ptr %1851, i64 4
-  %.val575 = load i32, ptr %1852, align 4
-  %.mask.i648 = and i32 %.val575, -16777216
-  %1853 = icmp eq i32 %.mask.i648, 16777216
+  %.val574 = load i32, ptr %1852, align 4
+  %.mask.i647 = and i32 %.val574, -16777216
+  %1853 = icmp eq i32 %.mask.i647, 16777216
   br i1 %1853, label %2053, label %1854
 
 1854:                                             ; preds = %1846
@@ -253722,23 +253722,23 @@ lean_dec_ref.exit384:                             ; preds = %1799, %1798, %1796,
 1857:                                             ; preds = %1854
   %1858 = add nsw i32 %1855, -1
   store i32 %1858, ptr %1851, align 4, !tbaa !8
-  br label %lean_dec_ref.exit380
+  br label %lean_dec_ref.exit379
 
 1859:                                             ; preds = %1854
-  %.not.i379 = icmp eq i32 %1855, 0
-  br i1 %.not.i379, label %lean_dec_ref.exit380, label %1860
+  %.not.i378 = icmp eq i32 %1855, 0
+  br i1 %.not.i378, label %lean_dec_ref.exit379, label %1860
 
 1860:                                             ; preds = %1859
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1851) #5
-  br label %lean_dec_ref.exit380
+  br label %lean_dec_ref.exit379
 
-.critedge356:                                     ; preds = %lean_dec_ref.exit384
+.critedge355:                                     ; preds = %lean_dec_ref.exit383
   %1861 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21855____closed__1()
   store ptr %1861, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__elim__signExtend_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_21855____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1861) #5
-  br label %lean_dec_ref.exit380
+  br label %lean_dec_ref.exit379
 
-lean_dec_ref.exit380:                             ; preds = %1860, %1859, %1857, %.critedge356
+lean_dec_ref.exit379:                             ; preds = %1860, %1859, %1857, %.critedge355
   %1862 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bool__and___lambda__9___closed__2, align 8, !tbaa !4
   %1863 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %1862, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   store ptr %1863, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff___lambda__1___closed__1, align 8, !tbaa !4
@@ -253772,17 +253772,17 @@ lean_dec_ref.exit380:                             ; preds = %1860, %1859, %1857,
   %1874 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__186____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22203____closed__5()
   store ptr %1874, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__186____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22203____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1874) #5
-  br i1 %.not, label %.critedge358, label %1875
+  br i1 %.not, label %.critedge357, label %1875
 
-1875:                                             ; preds = %lean_dec_ref.exit380
+1875:                                             ; preds = %lean_dec_ref.exit379
   %1876 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__186____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22203____closed__2, align 8, !tbaa !4
   %1877 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__186____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22203____closed__4, align 8, !tbaa !4
   %1878 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__186____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22203____closed__5, align 8, !tbaa !4
   %1879 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1876, ptr noundef %1877, ptr noundef %1878, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1880 = getelementptr i8, ptr %1879, i64 4
-  %.val576 = load i32, ptr %1880, align 4
-  %.mask.i649 = and i32 %.val576, -16777216
-  %1881 = icmp eq i32 %.mask.i649, 16777216
+  %.val575 = load i32, ptr %1880, align 4
+  %.mask.i648 = and i32 %.val575, -16777216
+  %1881 = icmp eq i32 %.mask.i648, 16777216
   br i1 %1881, label %2053, label %1882
 
 1882:                                             ; preds = %1875
@@ -253796,8 +253796,8 @@ lean_dec_ref.exit380:                             ; preds = %1860, %1859, %1857,
   br label %1889
 
 1887:                                             ; preds = %1882
-  %.not.i377 = icmp eq i32 %1883, 0
-  br i1 %.not.i377, label %1889, label %1888
+  %.not.i376 = icmp eq i32 %1883, 0
+  br i1 %.not.i376, label %1889, label %1888
 
 1888:                                             ; preds = %1887
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1879) #5
@@ -253812,9 +253812,9 @@ lean_dec_ref.exit380:                             ; preds = %1860, %1859, %1857,
   %1893 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22205____closed__1, align 8, !tbaa !4
   %1894 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1891, ptr noundef %1892, i8 noundef zeroext 1, ptr noundef %1893, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1895 = getelementptr i8, ptr %1894, i64 4
-  %.val577 = load i32, ptr %1895, align 4
-  %.mask.i650 = and i32 %.val577, -16777216
-  %1896 = icmp eq i32 %.mask.i650, 16777216
+  %.val576 = load i32, ptr %1895, align 4
+  %.mask.i649 = and i32 %.val576, -16777216
+  %1896 = icmp eq i32 %.mask.i649, 16777216
   br i1 %1896, label %2053, label %1897
 
 1897:                                             ; preds = %1889
@@ -253825,23 +253825,23 @@ lean_dec_ref.exit380:                             ; preds = %1860, %1859, %1857,
 1900:                                             ; preds = %1897
   %1901 = add nsw i32 %1898, -1
   store i32 %1901, ptr %1894, align 4, !tbaa !8
-  br label %lean_dec_ref.exit376
+  br label %lean_dec_ref.exit375
 
 1902:                                             ; preds = %1897
-  %.not.i375 = icmp eq i32 %1898, 0
-  br i1 %.not.i375, label %lean_dec_ref.exit376, label %1903
+  %.not.i374 = icmp eq i32 %1898, 0
+  br i1 %.not.i374, label %lean_dec_ref.exit375, label %1903
 
 1903:                                             ; preds = %1902
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1894) #5
-  br label %lean_dec_ref.exit376
+  br label %lean_dec_ref.exit375
 
-.critedge358:                                     ; preds = %lean_dec_ref.exit380
+.critedge357:                                     ; preds = %lean_dec_ref.exit379
   %1904 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22205____closed__1()
   store ptr %1904, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__lt__allOnes__iff_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_22205____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1904) #5
-  br label %lean_dec_ref.exit376
+  br label %lean_dec_ref.exit375
 
-lean_dec_ref.exit376:                             ; preds = %1903, %1902, %1900, %.critedge358
+lean_dec_ref.exit375:                             ; preds = %1903, %1902, %1900, %.critedge357
   %1905 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.135, i64 noundef 27, i64 noundef 27) #5
   store ptr %1905, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1905) #5
@@ -253897,17 +253897,17 @@ lean_dec_ref.exit376:                             ; preds = %1903, %1902, %1900,
   %1927 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__191____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23187____closed__9()
   store ptr %1927, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__191____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23187____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1927) #5
-  br i1 %.not, label %.critedge360, label %1928
+  br i1 %.not, label %.critedge359, label %1928
 
-1928:                                             ; preds = %lean_dec_ref.exit376
+1928:                                             ; preds = %lean_dec_ref.exit375
   %1929 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__191____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23187____closed__2, align 8, !tbaa !4
   %1930 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__191____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23187____closed__8, align 8, !tbaa !4
   %1931 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__191____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23187____closed__9, align 8, !tbaa !4
   %1932 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1929, ptr noundef %1930, ptr noundef %1931, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1933 = getelementptr i8, ptr %1932, i64 4
-  %.val578 = load i32, ptr %1933, align 4
-  %.mask.i651 = and i32 %.val578, -16777216
-  %1934 = icmp eq i32 %.mask.i651, 16777216
+  %.val577 = load i32, ptr %1933, align 4
+  %.mask.i650 = and i32 %.val577, -16777216
+  %1934 = icmp eq i32 %.mask.i650, 16777216
   br i1 %1934, label %2053, label %1935
 
 1935:                                             ; preds = %1928
@@ -253921,8 +253921,8 @@ lean_dec_ref.exit376:                             ; preds = %1903, %1902, %1900,
   br label %1942
 
 1940:                                             ; preds = %1935
-  %.not.i373 = icmp eq i32 %1936, 0
-  br i1 %.not.i373, label %1942, label %1941
+  %.not.i372 = icmp eq i32 %1936, 0
+  br i1 %.not.i372, label %1942, label %1941
 
 1941:                                             ; preds = %1940
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1932) #5
@@ -253937,9 +253937,9 @@ lean_dec_ref.exit376:                             ; preds = %1903, %1902, %1900,
   %1946 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23189____closed__1, align 8, !tbaa !4
   %1947 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1944, ptr noundef %1945, i8 noundef zeroext 1, ptr noundef %1946, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1948 = getelementptr i8, ptr %1947, i64 4
-  %.val579 = load i32, ptr %1948, align 4
-  %.mask.i652 = and i32 %.val579, -16777216
-  %1949 = icmp eq i32 %.mask.i652, 16777216
+  %.val578 = load i32, ptr %1948, align 4
+  %.mask.i651 = and i32 %.val578, -16777216
+  %1949 = icmp eq i32 %.mask.i651, 16777216
   br i1 %1949, label %2053, label %1950
 
 1950:                                             ; preds = %1942
@@ -253950,23 +253950,23 @@ lean_dec_ref.exit376:                             ; preds = %1903, %1902, %1900,
 1953:                                             ; preds = %1950
   %1954 = add nsw i32 %1951, -1
   store i32 %1954, ptr %1947, align 4, !tbaa !8
-  br label %lean_dec_ref.exit372
+  br label %lean_dec_ref.exit371
 
 1955:                                             ; preds = %1950
-  %.not.i371 = icmp eq i32 %1951, 0
-  br i1 %.not.i371, label %lean_dec_ref.exit372, label %1956
+  %.not.i370 = icmp eq i32 %1951, 0
+  br i1 %.not.i370, label %lean_dec_ref.exit371, label %1956
 
 1956:                                             ; preds = %1955
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1947) #5
-  br label %lean_dec_ref.exit372
+  br label %lean_dec_ref.exit371
 
-.critedge360:                                     ; preds = %lean_dec_ref.exit376
+.critedge359:                                     ; preds = %lean_dec_ref.exit375
   %1957 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23189____closed__1()
   store ptr %1957, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bv__extract__concat_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23189____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1957) #5
-  br label %lean_dec_ref.exit372
+  br label %lean_dec_ref.exit371
 
-lean_dec_ref.exit372:                             ; preds = %1956, %1955, %1953, %.critedge360
+lean_dec_ref.exit371:                             ; preds = %1956, %1955, %1953, %.critedge359
   %1958 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.138, i64 noundef 15, i64 noundef 15) #5
   store ptr %1958, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %1958) #5
@@ -254010,17 +254010,17 @@ lean_dec_ref.exit372:                             ; preds = %1956, %1955, %1953,
   %1974 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__196____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23943____closed__9()
   store ptr %1974, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__196____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23943____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1974) #5
-  br i1 %.not, label %.critedge362, label %1975
+  br i1 %.not, label %.critedge361, label %1975
 
-1975:                                             ; preds = %lean_dec_ref.exit372
+1975:                                             ; preds = %lean_dec_ref.exit371
   %1976 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__196____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23943____closed__2, align 8, !tbaa !4
   %1977 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__196____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23943____closed__8, align 8, !tbaa !4
   %1978 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__196____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23943____closed__9, align 8, !tbaa !4
   %1979 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %1976, ptr noundef %1977, ptr noundef %1978, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1980 = getelementptr i8, ptr %1979, i64 4
-  %.val580 = load i32, ptr %1980, align 4
-  %.mask.i653 = and i32 %.val580, -16777216
-  %1981 = icmp eq i32 %.mask.i653, 16777216
+  %.val579 = load i32, ptr %1980, align 4
+  %.mask.i652 = and i32 %.val579, -16777216
+  %1981 = icmp eq i32 %.mask.i652, 16777216
   br i1 %1981, label %2053, label %1982
 
 1982:                                             ; preds = %1975
@@ -254034,8 +254034,8 @@ lean_dec_ref.exit372:                             ; preds = %1956, %1955, %1953,
   br label %1989
 
 1987:                                             ; preds = %1982
-  %.not.i369 = icmp eq i32 %1983, 0
-  br i1 %.not.i369, label %1989, label %1988
+  %.not.i368 = icmp eq i32 %1983, 0
+  br i1 %.not.i368, label %1989, label %1988
 
 1988:                                             ; preds = %1987
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1979) #5
@@ -254050,9 +254050,9 @@ lean_dec_ref.exit372:                             ; preds = %1956, %1955, %1953,
   %1993 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23945____closed__1, align 8, !tbaa !4
   %1994 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %1991, ptr noundef %1992, i8 noundef zeroext 1, ptr noundef %1993, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %1995 = getelementptr i8, ptr %1994, i64 4
-  %.val581 = load i32, ptr %1995, align 4
-  %.mask.i654 = and i32 %.val581, -16777216
-  %1996 = icmp eq i32 %.mask.i654, 16777216
+  %.val580 = load i32, ptr %1995, align 4
+  %.mask.i653 = and i32 %.val580, -16777216
+  %1996 = icmp eq i32 %.mask.i653, 16777216
   br i1 %1996, label %2053, label %1997
 
 1997:                                             ; preds = %1989
@@ -254063,23 +254063,23 @@ lean_dec_ref.exit372:                             ; preds = %1956, %1955, %1953,
 2000:                                             ; preds = %1997
   %2001 = add nsw i32 %1998, -1
   store i32 %2001, ptr %1994, align 4, !tbaa !8
-  br label %lean_dec_ref.exit368
+  br label %lean_dec_ref.exit367
 
 2002:                                             ; preds = %1997
-  %.not.i367 = icmp eq i32 %1998, 0
-  br i1 %.not.i367, label %lean_dec_ref.exit368, label %2003
+  %.not.i366 = icmp eq i32 %1998, 0
+  br i1 %.not.i366, label %lean_dec_ref.exit367, label %2003
 
 2003:                                             ; preds = %2002
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1994) #5
-  br label %lean_dec_ref.exit368
+  br label %lean_dec_ref.exit367
 
-.critedge362:                                     ; preds = %lean_dec_ref.exit372
+.critedge361:                                     ; preds = %lean_dec_ref.exit371
   %2004 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23945____closed__1()
   store ptr %2004, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__add_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_23945____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %2004) #5
-  br label %lean_dec_ref.exit368
+  br label %lean_dec_ref.exit367
 
-lean_dec_ref.exit368:                             ; preds = %2003, %2002, %2000, %.critedge362
+lean_dec_ref.exit367:                             ; preds = %2003, %2002, %2000, %.critedge361
   %2005 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.140, i64 noundef 15, i64 noundef 15) #5
   store ptr %2005, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %2005) #5
@@ -254123,17 +254123,17 @@ lean_dec_ref.exit368:                             ; preds = %2003, %2002, %2000,
   %2021 = tail call fastcc ptr @_init_l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__201____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24699____closed__9()
   store ptr %2021, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__201____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24699____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %2021) #5
-  br i1 %.not, label %.critedge364, label %2022
+  br i1 %.not, label %.critedge363, label %2022
 
-2022:                                             ; preds = %lean_dec_ref.exit368
+2022:                                             ; preds = %lean_dec_ref.exit367
   %2023 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__201____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24699____closed__2, align 8, !tbaa !4
   %2024 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__201____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24699____closed__8, align 8, !tbaa !4
   %2025 = load ptr, ptr @l___private_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc_0____regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__201____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24699____closed__9, align 8, !tbaa !4
   %2026 = tail call ptr @l_Lean_Meta_Simp_registerBuiltinSimproc(ptr noundef %2023, ptr noundef %2024, ptr noundef %2025, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2027 = getelementptr i8, ptr %2026, i64 4
-  %.val582 = load i32, ptr %2027, align 4
-  %.mask.i655 = and i32 %.val582, -16777216
-  %2028 = icmp eq i32 %.mask.i655, 16777216
+  %.val581 = load i32, ptr %2027, align 4
+  %.mask.i654 = and i32 %.val581, -16777216
+  %2028 = icmp eq i32 %.mask.i654, 16777216
   br i1 %2028, label %2053, label %2029
 
 2029:                                             ; preds = %2022
@@ -254147,8 +254147,8 @@ lean_dec_ref.exit368:                             ; preds = %2003, %2002, %2000,
   br label %2036
 
 2034:                                             ; preds = %2029
-  %.not.i365 = icmp eq i32 %2030, 0
-  br i1 %.not.i365, label %2036, label %2035
+  %.not.i364 = icmp eq i32 %2030, 0
+  br i1 %.not.i364, label %2036, label %2035
 
 2035:                                             ; preds = %2034
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2026) #5
@@ -254163,9 +254163,9 @@ lean_dec_ref.exit368:                             ; preds = %2003, %2002, %2000,
   %2040 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24701____closed__1, align 8, !tbaa !4
   %2041 = tail call ptr @l_Lean_Meta_Simp_addSimprocBuiltinAttrCore(ptr noundef %2038, ptr noundef %2039, i8 noundef zeroext 1, ptr noundef %2040, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %2042 = getelementptr i8, ptr %2041, i64 4
-  %.val583 = load i32, ptr %2042, align 4
-  %.mask.i656 = and i32 %.val583, -16777216
-  %2043 = icmp eq i32 %.mask.i656, 16777216
+  %.val582 = load i32, ptr %2042, align 4
+  %.mask.i655 = and i32 %.val582, -16777216
+  %2043 = icmp eq i32 %.mask.i655, 16777216
   br i1 %2043, label %2053, label %2044
 
 2044:                                             ; preds = %2036
@@ -254186,18 +254186,18 @@ lean_dec_ref.exit368:                             ; preds = %2003, %2002, %2000,
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2041) #5
   br label %lean_dec_ref.exit
 
-.critedge364:                                     ; preds = %lean_dec_ref.exit368
+.critedge363:                                     ; preds = %lean_dec_ref.exit367
   %2051 = tail call fastcc ptr @_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24701____closed__1()
   store ptr %2051, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul___regBuiltin_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_extract__mul_declare__1____x40_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_Simproc___hyg_24701____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %2051) #5
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %2050, %2049, %2047, %.critedge364
+lean_dec_ref.exit:                                ; preds = %2050, %2049, %2047, %.critedge363
   %2052 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %2053
 
-2053:                                             ; preds = %2036, %2022, %1989, %1975, %1942, %1928, %1889, %1875, %1846, %1832, %1785, %1771, %1731, %1717, %1670, %1656, %1614, %1600, %1563, %1549, %1494, %1480, %1456, %1442, %1418, %1404, %1375, %1361, %1331, %1317, %1280, %1266, %1232, %1218, %1183, %1169, %1135, %1121, %1089, %1075, %1031, %1017, %983, %969, %937, %923, %889, %875, %839, %825, %795, %781, %746, %732, %684, %670, %632, %618, %549, %535, %508, %494, %453, %439, %405, %391, %353, %339, %242, %228, %lean_dec_ref.exit506, %lean_dec_ref.exit508, %lean_dec_ref.exit510, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %2052, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit510 ], [ %31, %lean_dec_ref.exit508 ], [ %41, %lean_dec_ref.exit506 ], [ %232, %228 ], [ %248, %242 ], [ %343, %339 ], [ %358, %353 ], [ %395, %391 ], [ %410, %405 ], [ %443, %439 ], [ %458, %453 ], [ %498, %494 ], [ %513, %508 ], [ %539, %535 ], [ %554, %549 ], [ %622, %618 ], [ %637, %632 ], [ %674, %670 ], [ %689, %684 ], [ %736, %732 ], [ %751, %746 ], [ %785, %781 ], [ %800, %795 ], [ %829, %825 ], [ %844, %839 ], [ %879, %875 ], [ %894, %889 ], [ %927, %923 ], [ %942, %937 ], [ %973, %969 ], [ %988, %983 ], [ %1021, %1017 ], [ %1036, %1031 ], [ %1079, %1075 ], [ %1094, %1089 ], [ %1125, %1121 ], [ %1140, %1135 ], [ %1173, %1169 ], [ %1188, %1183 ], [ %1222, %1218 ], [ %1237, %1232 ], [ %1270, %1266 ], [ %1285, %1280 ], [ %1321, %1317 ], [ %1336, %1331 ], [ %1365, %1361 ], [ %1380, %1375 ], [ %1408, %1404 ], [ %1423, %1418 ], [ %1446, %1442 ], [ %1461, %1456 ], [ %1484, %1480 ], [ %1499, %1494 ], [ %1553, %1549 ], [ %1568, %1563 ], [ %1604, %1600 ], [ %1619, %1614 ], [ %1660, %1656 ], [ %1675, %1670 ], [ %1721, %1717 ], [ %1736, %1731 ], [ %1775, %1771 ], [ %1790, %1785 ], [ %1836, %1832 ], [ %1851, %1846 ], [ %1879, %1875 ], [ %1894, %1889 ], [ %1932, %1928 ], [ %1947, %1942 ], [ %1979, %1975 ], [ %1994, %1989 ], [ %2026, %2022 ], [ %2041, %2036 ]
+2053:                                             ; preds = %2036, %2022, %1989, %1975, %1942, %1928, %1889, %1875, %1846, %1832, %1785, %1771, %1731, %1717, %1670, %1656, %1614, %1600, %1563, %1549, %1494, %1480, %1456, %1442, %1418, %1404, %1375, %1361, %1331, %1317, %1280, %1266, %1232, %1218, %1183, %1169, %1135, %1121, %1089, %1075, %1031, %1017, %983, %969, %937, %923, %889, %875, %839, %825, %795, %781, %746, %732, %684, %670, %632, %618, %549, %535, %508, %494, %453, %439, %405, %391, %353, %339, %242, %228, %lean_dec_ref.exit505, %lean_dec_ref.exit507, %lean_dec_ref.exit509, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %2052, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit509 ], [ %31, %lean_dec_ref.exit507 ], [ %41, %lean_dec_ref.exit505 ], [ %232, %228 ], [ %248, %242 ], [ %343, %339 ], [ %358, %353 ], [ %395, %391 ], [ %410, %405 ], [ %443, %439 ], [ %458, %453 ], [ %498, %494 ], [ %513, %508 ], [ %539, %535 ], [ %554, %549 ], [ %622, %618 ], [ %637, %632 ], [ %674, %670 ], [ %689, %684 ], [ %736, %732 ], [ %751, %746 ], [ %785, %781 ], [ %800, %795 ], [ %829, %825 ], [ %844, %839 ], [ %879, %875 ], [ %894, %889 ], [ %927, %923 ], [ %942, %937 ], [ %973, %969 ], [ %988, %983 ], [ %1021, %1017 ], [ %1036, %1031 ], [ %1079, %1075 ], [ %1094, %1089 ], [ %1125, %1121 ], [ %1140, %1135 ], [ %1173, %1169 ], [ %1188, %1183 ], [ %1222, %1218 ], [ %1237, %1232 ], [ %1270, %1266 ], [ %1285, %1280 ], [ %1321, %1317 ], [ %1336, %1331 ], [ %1365, %1361 ], [ %1380, %1375 ], [ %1408, %1404 ], [ %1423, %1418 ], [ %1446, %1442 ], [ %1461, %1456 ], [ %1484, %1480 ], [ %1499, %1494 ], [ %1553, %1549 ], [ %1568, %1563 ], [ %1604, %1600 ], [ %1619, %1614 ], [ %1660, %1656 ], [ %1675, %1670 ], [ %1721, %1717 ], [ %1736, %1731 ], [ %1775, %1771 ], [ %1790, %1785 ], [ %1836, %1832 ], [ %1851, %1846 ], [ %1879, %1875 ], [ %1894, %1889 ], [ %1932, %1928 ], [ %1947, %1942 ], [ %1979, %1975 ], [ %1994, %1989 ], [ %2026, %2022 ], [ %2041, %2036 ]
   ret ptr %.0
 }
 

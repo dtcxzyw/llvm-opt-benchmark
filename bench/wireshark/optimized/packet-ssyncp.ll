@@ -244,32 +244,32 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
-  %.b158 = load i1, ptr @have_ssyncp_key, align 1
-  br i1 %.b158, label %81, label %.thread183
+  %.b = load i1, ptr @have_ssyncp_key, align 1
+  br i1 %.b, label %81, label %.thread182
 
 81:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %82 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 11, i32 noundef 0)
   %83 = and i32 %82, 65535
-  %.not159 = icmp eq i32 %83, 0
-  br i1 %.not159, label %85, label %84
+  %.not158 = icmp eq i32 %83, 0
+  br i1 %.not158, label %85, label %84
 
 84:                                               ; preds = %81
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.51)
-  br label %.thread173
+  br label %.thread172
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %5, align 8
   %87 = call i32 @gcry_cipher_setkey(ptr noundef %86, ptr noundef nonnull @ssyncp_raw_aes_key, i64 noundef 16)
   %88 = and i32 %87, 65535
-  %.not160 = icmp eq i32 %88, 0
-  br i1 %.not160, label %91, label %89
+  %.not159 = icmp eq i32 %88, 0
+  br i1 %.not159, label %91, label %89
 
 89:                                               ; preds = %85
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.52)
   %90 = load ptr, ptr %5, align 8
   call void @gcry_cipher_close(ptr noundef %90)
-  br label %.thread173
+  br label %.thread172
 
 91:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -279,8 +279,8 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %94 = load ptr, ptr %5, align 8
   %95 = call i32 @gcry_cipher_setiv(ptr noundef %94, ptr noundef nonnull %6, i64 noundef 12)
   %96 = and i32 %95, 65535
-  %.not161 = icmp eq i32 %96, 0
-  br i1 %.not161, label %97, label %.thread179
+  %.not160 = icmp eq i32 %96, 0
+  br i1 %.not160, label %97, label %.thread178
 
 97:                                               ; preds = %91
   %98 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -294,8 +294,8 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %106 = load ptr, ptr %5, align 8
   %107 = call i32 @gcry_cipher_decrypt(ptr noundef %106, ptr noundef %103, i64 noundef %102, ptr noundef null, i64 noundef 0)
   %108 = and i32 %107, 65535
-  %.not162 = icmp eq i32 %108, 0
-  br i1 %.not162, label %109, label %.thread179
+  %.not161 = icmp eq i32 %108, 0
+  br i1 %.not161, label %109, label %.thread178
 
 109:                                              ; preds = %97
   %110 = load ptr, ptr %5, align 8
@@ -303,25 +303,25 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %112 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %111, i32 noundef 16)
   %113 = call i32 @gcry_cipher_checktag(ptr noundef %110, ptr noundef %112, i64 noundef 16)
   %trunc = trunc i32 %113 to i16
-  switch i16 %trunc, label %.thread179 [
+  switch i16 %trunc, label %.thread178 [
     i16 0, label %119
-    i16 10, label %.thread188
+    i16 10, label %.thread187
   ]
 
-.thread188:                                       ; preds = %109
+.thread187:                                       ; preds = %109
   %114 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %66, ptr noundef nonnull @ei_ssyncp_bad_key)
   %115 = load ptr, ptr %5, align 8
   call void @gcry_cipher_close(ptr noundef %115)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread183
+  br label %.thread182
 
-.thread173:                                       ; preds = %84, %89
+.thread172:                                       ; preds = %84, %89
   %116 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %202
 
-.thread179:                                       ; preds = %109, %97, %91
+.thread178:                                       ; preds = %109, %97, %91
   %.str.53.sink = phi ptr [ @.str.53, %91 ], [ @.str.54, %97 ], [ @.str.55, %109 ]
   call void (ptr, ...) @report_failure(ptr noundef nonnull %.str.53.sink)
   %117 = load ptr, ptr %5, align 8
@@ -336,8 +336,8 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   call void @gcry_cipher_close(ptr noundef %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not166 = icmp eq ptr %103, null
-  br i1 %.not166, label %.thread183, label %121
+  %.not165 = icmp eq ptr %103, null
+  br i1 %.not165, label %.thread182, label %121
 
 121:                                              ; preds = %119
   %122 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %103, i32 noundef %99, i32 noundef %99)
@@ -370,8 +370,8 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %144 = getelementptr inbounds nuw i8, ptr %.0142, i64 22
   %145 = getelementptr i8, ptr %144, i64 %11
   store i8 1, ptr %145, align 1
-  %.not167 = icmp eq i16 %139, -1
-  br i1 %.not167, label %157, label %146
+  %.not166 = icmp eq i16 %139, -1
+  br i1 %.not166, label %157, label %146
 
 146:                                              ; preds = %129
   %147 = xor i64 %11, 1
@@ -401,7 +401,7 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %164 = getelementptr inbounds nuw i8, ptr %.0141, i64 16
   %165 = load i8, ptr %164, align 8, !range !6, !noundef !7
   %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %167, label %proto_item_set_generated.exit172
+  br i1 %166, label %167, label %proto_item_set_generated.exit171
 
 167:                                              ; preds = %157
   %168 = load i32, ptr @hf_ssyncp_rtt_to_server, align 4
@@ -411,23 +411,23 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %172 = load i16, ptr %171, align 2
   %173 = sext i16 %172 to i32
   %174 = call ptr @proto_tree_add_int(ptr noundef %159, i32 noundef %170, ptr noundef %122, i32 noundef 2, i32 noundef 2, i32 noundef %173)
-  %.not.i170 = icmp eq ptr %174, null
-  br i1 %.not.i170, label %proto_item_set_generated.exit172, label %175
+  %.not.i169 = icmp eq ptr %174, null
+  br i1 %.not.i169, label %proto_item_set_generated.exit171, label %175
 
 175:                                              ; preds = %167
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %177 = load ptr, ptr %176, align 8
-  %.not5.i171 = icmp eq ptr %177, null
-  br i1 %.not5.i171, label %proto_item_set_generated.exit172, label %178
+  %.not5.i170 = icmp eq ptr %177, null
+  br i1 %.not5.i170, label %proto_item_set_generated.exit171, label %178
 
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 28
   %180 = load i32, ptr %179, align 4
   %181 = or i32 %180, 2
   store i32 %181, ptr %179, align 4
-  br label %proto_item_set_generated.exit172
+  br label %proto_item_set_generated.exit171
 
-proto_item_set_generated.exit172:                 ; preds = %178, %175, %167, %157
+proto_item_set_generated.exit171:                 ; preds = %178, %175, %167, %157
   %182 = load i32, ptr @hf_ssyncp_frag_seq, align 4
   %183 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %182, ptr noundef %122, i32 noundef 4, i32 noundef 8, i32 noundef 0)
   %184 = load i32, ptr @hf_ssyncp_frag_final, align 4
@@ -435,19 +435,19 @@ proto_item_set_generated.exit172:                 ; preds = %178, %175, %167, %1
   %186 = load i32, ptr @hf_ssyncp_frag_idx, align 4
   %187 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %186, ptr noundef %122, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   %188 = call zeroext i16 @tvb_get_uint16(ptr noundef %122, i32 noundef 12, i32 noundef 0)
-  %.not168 = icmp eq i16 %188, -32768
-  br i1 %.not168, label %192, label %189
+  %.not167 = icmp eq i16 %188, -32768
+  br i1 %.not167, label %192, label %189
 
-189:                                              ; preds = %proto_item_set_generated.exit172
+189:                                              ; preds = %proto_item_set_generated.exit171
   %190 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %187, ptr noundef nonnull @ei_ssyncp_fragmented)
   %191 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %202
 
-192:                                              ; preds = %proto_item_set_generated.exit172
+192:                                              ; preds = %proto_item_set_generated.exit171
   %193 = add i32 %98, -38
   %194 = call ptr @tvb_child_uncompress_zlib(ptr noundef %122, ptr noundef %122, i32 noundef 14, i32 noundef %193)
-  %.not195 = icmp eq ptr %194, null
-  br i1 %.not195, label %195, label %197
+  %.not194 = icmp eq ptr %194, null
+  br i1 %.not194, label %195, label %197
 
 195:                                              ; preds = %192
   %196 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -456,19 +456,19 @@ proto_item_set_generated.exit172:                 ; preds = %178, %175, %167, %1
 197:                                              ; preds = %192
   call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %194, ptr noundef nonnull @.str.57)
   %198 = load ptr, ptr @dissector_protobuf, align 8
-  %.not169 = icmp eq ptr %198, null
-  br i1 %.not169, label %.thread183, label %199
+  %.not168 = icmp eq ptr %198, null
+  br i1 %.not168, label %.thread182, label %199
 
 199:                                              ; preds = %197
   %200 = call i32 @call_dissector_with_data(ptr noundef nonnull %198, ptr noundef nonnull %194, ptr noundef %1, ptr noundef %159, ptr noundef nonnull @.str.58)
-  br label %.thread183
+  br label %.thread182
 
-.thread183:                                       ; preds = %199, %197, %proto_item_set_generated.exit, %.thread188, %119
+.thread182:                                       ; preds = %199, %197, %proto_item_set_generated.exit, %.thread187, %119
   %201 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %202
 
-202:                                              ; preds = %189, %195, %.thread179, %.thread173, %9, %.thread183, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %201, %.thread183 ], [ %116, %.thread173 ], [ %118, %.thread179 ], [ %191, %189 ], [ %196, %195 ]
+202:                                              ; preds = %189, %195, %.thread178, %.thread172, %9, %.thread182, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %201, %.thread182 ], [ %116, %.thread172 ], [ %118, %.thread178 ], [ %191, %189 ], [ %196, %195 ]
   ret i32 %.0
 }
 
@@ -491,8 +491,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 define hidden void @proto_reg_handoff_ssyncp() #0 {
   %1 = alloca [25 x i8], align 16
   %2 = alloca i64, align 8
-  %.b2 = load i1, ptr @proto_reg_handoff_ssyncp.initialized, align 1
-  br i1 %.b2, label %9, label %3
+  %.b = load i1, ptr @proto_reg_handoff_ssyncp.initialized, align 1
+  br i1 %.b, label %9, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ssyncp_handle, align 8

@@ -14078,8 +14078,8 @@ _ZN7doctest12_GLOBAL__N_121FatalConditionHandlerC2Ev.exit: ; preds = %604
           to label %611 unwind label %619
 
 611:                                              ; preds = %_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerC2Ev.exit
-  %.b4.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
-  br i1 %.b4.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2Ev.exit
+  %.b.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
+  br i1 %.b.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2Ev.exit
 
 612:                                              ; preds = %.preheader.i
   %613 = call i32 @sigaltstack(ptr noundef nonnull @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler11oldSigStackE, ptr noundef null) #49
@@ -14087,12 +14087,12 @@ _ZN7doctest12_GLOBAL__N_121FatalConditionHandlerC2Ev.exit: ; preds = %604
   br label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2Ev.exit
 
 .preheader.i:                                     ; preds = %611, %.preheader.i
-  %.05.i = phi i64 [ %618, %.preheader.i ], [ 0, %611 ]
-  %614 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
+  %.04.i = phi i64 [ %618, %.preheader.i ], [ 0, %611 ]
+  %614 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.04.i
   %615 = load i32, ptr %614, align 16, !tbaa !393
-  %616 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
+  %616 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.04.i
   %617 = call i32 @sigaction(i32 noundef %615, ptr noundef nonnull %616, ptr noundef null) #49
-  %618 = add nuw nsw i64 %.05.i, 1
+  %618 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i227 = icmp eq i64 %618, 6
   br i1 %exitcond.not.i227, label %612, label %.preheader.i, !llvm.loop !396
 
@@ -14914,8 +14914,8 @@ _ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2Ev() unnamed_addr #7 align 2 {
-  %.b4.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
-  br i1 %.b4.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
+  %.b.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
+  br i1 %.b.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
 
 1:                                                ; preds = %.preheader.i
   %2 = tail call i32 @sigaltstack(ptr noundef nonnull @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler11oldSigStackE, ptr noundef null) #49
@@ -14923,12 +14923,12 @@ define internal fastcc void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2E
   br label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
 
 .preheader.i:                                     ; preds = %0, %.preheader.i
-  %.05.i = phi i64 [ %7, %.preheader.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
+  %.04.i = phi i64 [ %7, %.preheader.i ], [ 0, %0 ]
+  %3 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.04.i
   %4 = load i32, ptr %3, align 16, !tbaa !393
-  %5 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
+  %5 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.04.i
   %6 = tail call i32 @sigaction(i32 noundef %4, ptr noundef nonnull %5, ptr noundef null) #49
-  %7 = add nuw nsw i64 %.05.i, 1
+  %7 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %7, 6
   br i1 %exitcond.not.i, label %1, label %.preheader.i, !llvm.loop !396
 
@@ -16482,8 +16482,8 @@ define internal void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSi
 
 .loopexit34:                                      ; preds = %5, %.thread
   %.1 = phi ptr [ %11, %.thread ], [ @.str.226, %5 ]
-  %.b4.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
-  br i1 %.b4.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
+  %.b.i = load i1, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5isSetE, align 1
+  br i1 %.b.i, label %.preheader.i, label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
 
 12:                                               ; preds = %.preheader.i
   %13 = tail call i32 @sigaltstack(ptr noundef nonnull @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler11oldSigStackE, ptr noundef null) #49
@@ -16491,12 +16491,12 @@ define internal void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSi
   br label %_ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit
 
 .preheader.i:                                     ; preds = %.loopexit34, %.preheader.i
-  %.05.i = phi i64 [ %18, %.preheader.i ], [ 0, %.loopexit34 ]
-  %14 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
+  %.04.i = phi i64 [ %18, %.preheader.i ], [ 0, %.loopexit34 ]
+  %14 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.04.i
   %15 = load i32, ptr %14, align 16, !tbaa !393
-  %16 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
+  %16 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.04.i
   %17 = tail call i32 @sigaction(i32 noundef %15, ptr noundef nonnull %16, ptr noundef null) #49
-  %18 = add nuw nsw i64 %.05.i, 1
+  %18 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %18, 6
   br i1 %exitcond.not.i, label %12, label %.preheader.i, !llvm.loop !396
 

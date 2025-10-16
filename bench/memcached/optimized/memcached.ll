@@ -10124,8 +10124,8 @@ define internal void @clock_handler(i32 %0, i16 signext %1, ptr readnone capture
   %6 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.clock_handler.t, i64 16, i1 false)
-  %.b12 = load i1, ptr @clock_handler.initialized, align 1
-  br i1 %.b12, label %7, label %9
+  %.b1 = load i1, ptr @clock_handler.initialized, align 1
+  br i1 %.b1, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call i32 @event_del(ptr noundef nonnull @clockevent) #34
@@ -10158,8 +10158,8 @@ define internal void @clock_handler(i32 %0, i16 signext %1, ptr readnone capture
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %16
-  %.b3 = load i1, ptr @monotonic, align 1
-  br i1 %.b3, label %23, label %34
+  %.b = load i1, ptr @monotonic, align 1
+  br i1 %.b, label %23, label %34
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

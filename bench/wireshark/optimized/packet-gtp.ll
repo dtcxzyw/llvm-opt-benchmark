@@ -7565,8 +7565,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gtp() #1 {
-  %.b1 = load i1, ptr @proto_reg_handoff_gtp.Initialized, align 1
-  br i1 %.b1, label %36, label %1
+  %.b = load i1, ptr @proto_reg_handoff_gtp.Initialized, align 1
+  br i1 %.b, label %36, label %1
 
 1:                                                ; preds = %0
   tail call void @radius_register_avp_dissector(i32 noundef 10415, i32 noundef 5, ptr noundef nonnull @dissect_radius_qos_umts)

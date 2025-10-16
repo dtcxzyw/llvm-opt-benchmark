@@ -113405,10 +113405,10 @@ define void @_ZN9assistant7context16ContextOperation10from_proto17h9816fb9225547
 
 246:                                              ; preds = %61
   %.sroa.5450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 136
-  %.sroa.5450.0.copyload679 = load i32, ptr %.sroa.5450.0..sroa_idx, align 8
+  %.sroa.5450.0.copyload = load i32, ptr %.sroa.5450.0..sroa_idx, align 8
   %.sroa.4449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 132
   %.sroa.4449.0.copyload = load i32, ptr %.sroa.4449.0..sroa_idx, align 4
-  %247 = invoke { i32, i16 } @_ZN8language5proto21deserialize_timestamp17h2f5835f476be7604E(i32 noundef %.sroa.4449.0.copyload, i32 noundef %.sroa.5450.0.copyload679)
+  %247 = invoke { i32, i16 } @_ZN8language5proto21deserialize_timestamp17h2f5835f476be7604E(i32 noundef %.sroa.4449.0.copyload, i32 noundef %.sroa.5450.0.copyload)
           to label %272 unwind label %320
 
 248:                                              ; preds = %.noexc279

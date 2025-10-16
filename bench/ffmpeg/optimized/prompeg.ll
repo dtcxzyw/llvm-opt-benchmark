@@ -450,17 +450,17 @@ prompeg_init.exit:                                ; preds = %._crit_edge.i
   %194 = getelementptr inbounds nuw i8, ptr %.val, i64 60
   %195 = getelementptr inbounds nuw i8, ptr %149, i64 25
   store i8 1, ptr %195, align 1, !tbaa !53
-  %.in4849.i = load i8, ptr %194, align 4, !tbaa !53
+  %.in48.i = load i8, ptr %194, align 4, !tbaa !53
   %196 = getelementptr inbounds nuw i8, ptr %149, i64 26
-  store i8 %.in4849.i, ptr %196, align 1, !tbaa !53
+  store i8 %.in48.i, ptr %196, align 1, !tbaa !53
   %197 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %198 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %199 = getelementptr inbounds nuw i8, ptr %.val, i64 76
   %200 = load i16, ptr %199, align 4, !tbaa !37
   %201 = zext i16 %200 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr nonnull align 1 %198, i64 %201, i1 false)
-  %.in50.i = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %202 = load ptr, ptr %.in50.i, align 8, !tbaa !56
+  %.in49.i = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %202 = load ptr, ptr %.in49.i, align 8, !tbaa !56
   %203 = getelementptr inbounds nuw i8, ptr %.val, i64 100
   %204 = load i32, ptr %203, align 4, !tbaa !38
   %205 = tail call i32 @ffurl_write2(ptr noundef %202, ptr noundef nonnull %149, i32 noundef %204) #6
@@ -726,17 +726,17 @@ xor_fast.exit100:                                 ; preds = %.lr.ph34.i90, %._cr
   %360 = getelementptr inbounds nuw i8, ptr %.val75, i64 61
   %361 = getelementptr inbounds nuw i8, ptr %313, i64 25
   store i8 %359, ptr %361, align 1, !tbaa !53
-  %.in4849.i102 = load i8, ptr %360, align 1, !tbaa !53
+  %.in48.i102 = load i8, ptr %360, align 1, !tbaa !53
   %362 = getelementptr inbounds nuw i8, ptr %313, i64 26
-  store i8 %.in4849.i102, ptr %362, align 1, !tbaa !53
+  store i8 %.in48.i102, ptr %362, align 1, !tbaa !53
   %363 = getelementptr inbounds nuw i8, ptr %313, i64 28
   %364 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %.val75, i64 76
   %366 = load i16, ptr %365, align 4, !tbaa !37
   %367 = zext i16 %366 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %363, ptr nonnull align 1 %364, i64 %367, i1 false)
-  %.in50.i103 = getelementptr inbounds nuw i8, ptr %.val75, i64 8
-  %368 = load ptr, ptr %.in50.i103, align 8, !tbaa !56
+  %.in49.i103 = getelementptr inbounds nuw i8, ptr %.val75, i64 8
+  %368 = load ptr, ptr %.in49.i103, align 8, !tbaa !56
   %369 = getelementptr inbounds nuw i8, ptr %.val75, i64 100
   %370 = load i32, ptr %369, align 4, !tbaa !38
   %371 = tail call i32 @ffurl_write2(ptr noundef %368, ptr noundef nonnull %313, i32 noundef %370) #6

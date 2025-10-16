@@ -673,8 +673,8 @@ declare ptr @lean_ir_get_ctor_layout(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_IR_CtorLayout(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -716,9 +716,9 @@ define ptr @initialize_Lean_Compiler_IR_CtorLayout(i8 noundef zeroext %0, ptr no
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Compiler_IR_Format(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %91, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -729,17 +729,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   store ptr inttoptr (i64 1 to ptr), ptr @l_Lean_IR_instInhabitedCtorFieldInfo, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 3, i64 noundef 1) #3
@@ -751,11 +751,11 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %_init_l_Lean_IR_CtorFieldInfo_format___closed__2.exit
 
-32:                                               ; preds = %lean_dec_ref.exit10
+32:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_IR_CtorFieldInfo_format___closed__2.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lean_IR_CtorFieldInfo_format___closed__2.exit: ; preds = %lean_dec_ref.exit9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 1, ptr %30, align 4, !tbaa !8
   store i32 50397200, ptr %33, align 4
@@ -923,18 +923,18 @@ _init_l_Lean_IR_CtorFieldInfo_instToFormat___closed__1.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_IR_CtorFieldInfo_instToFormat___closed__1.exit, %3
-  %.sink30 = phi ptr [ %4, %3 ], [ %85, %_init_l_Lean_IR_CtorFieldInfo_instToFormat___closed__1.exit ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
-  store i32 1, ptr %.sink30, align 4, !tbaa !8
+  %.sink29 = phi ptr [ %4, %3 ], [ %85, %_init_l_Lean_IR_CtorFieldInfo_instToFormat___closed__1.exit ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !8
   store i32 131096, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %89, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %90, align 8, !tbaa !4
   br label %91
 
 91:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink30, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink29, %.sink.split ]
   ret ptr %.0
 }
 

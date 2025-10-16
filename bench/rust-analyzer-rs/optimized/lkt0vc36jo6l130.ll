@@ -8746,14 +8746,14 @@ define hidden void @_ZN3std9panicking3try17h6aad2f67a0b76679E(ptr noalias nounde
   %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
   %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   %.sroa.11.0..sroa.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
-  %.sroa.11.0.copyload715 = load i32, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
+  %.sroa.11.0.copyload7 = load i32, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store ptr %.sroa.02.0.copyload4, ptr %11, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store ptr %.sroa.8.0.copyload6, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.11.0.copyload715, ptr %.sroa.5.0..sroa_idx, align 4
+  store i32 %.sroa.11.0.copyload7, ptr %.sroa.5.0..sroa_idx, align 4
   br label %19
 
 12:                                               ; preds = %4

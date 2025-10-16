@@ -12315,8 +12315,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Build_Trace(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -12358,9 +12358,9 @@ define ptr @initialize_Lake_Build_Trace(i8 noundef zeroext %0, ptr noundef readn
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Data_Json(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %336, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -12371,27 +12371,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #4
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Lake_instCheckExistsFilePath___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lake_instCheckExistsFilePath___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lake_instCheckExistsFilePath___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !4
   store i32 -184549352, ptr %31, align 4
@@ -12906,8 +12906,8 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace_
   tail call void @lean_mark_persistent(ptr noundef %203) #4
   %204 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__4, align 8, !tbaa !9
   %205 = getelementptr i8, ptr %204, i64 24
-  %.val.i13 = load i64, ptr %205, align 8, !tbaa !15
-  %206 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %205, align 8, !tbaa !15
+  %206 = shl i64 %.val.i12, 1
   %207 = or disjoint i64 %206, 1
   %208 = inttoptr i64 %207 to ptr
   store ptr %208, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__5, align 8, !tbaa !9
@@ -12915,10 +12915,10 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace_
   %209 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__5, align 8, !tbaa !9
   %210 = ptrtoint ptr %209 to i64
   %211 = and i64 %210, 1
-  %.not.i.i14 = icmp eq i64 %211, 0
+  %.not.i.i13 = icmp eq i64 %211, 0
   %212 = icmp ult ptr %209, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i15 = or i1 %212, %.not.i.i14
-  br i1 %or.cond.i.i15, label %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6.exit, label %213
+  %or.cond.i.i14 = or i1 %212, %.not.i.i13
+  br i1 %or.cond.i.i14, label %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6.exit, label %213
 
 213:                                              ; preds = %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__3.exit
   %214 = lshr i64 %210, 1
@@ -12926,9 +12926,9 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace_
   br label %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__3.exit, %213
-  %.1.i.i16 = phi ptr [ %215, %213 ], [ %209, %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__3.exit ]
-  store ptr %.1.i.i16, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i16) #4
+  %.1.i.i15 = phi ptr [ %215, %213 ], [ %209, %_init_l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__3.exit ]
+  store ptr %.1.i.i15, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__6, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #4
   %216 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Trace_0__Lake_reprBuildTrace____x40_Lake_Build_Trace___hyg_1359____spec__1___closed__4, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #4
   %217 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
@@ -13276,18 +13276,18 @@ _init_l_Lake_BuildTrace_instMixTrace___closed__1.exit: ; preds = %_init_l_Lake_B
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_BuildTrace_instMixTrace___closed__1.exit, %3
-  %.sink62 = phi ptr [ %4, %3 ], [ %330, %_init_l_Lake_BuildTrace_instMixTrace___closed__1.exit ]
-  %333 = getelementptr inbounds nuw i8, ptr %.sink62, i64 4
-  store i32 1, ptr %.sink62, align 4, !tbaa !4
+  %.sink61 = phi ptr [ %4, %3 ], [ %330, %_init_l_Lake_BuildTrace_instMixTrace___closed__1.exit ]
+  %333 = getelementptr inbounds nuw i8, ptr %.sink61, i64 4
+  store i32 1, ptr %.sink61, align 4, !tbaa !4
   store i32 131096, ptr %333, align 4
-  %334 = getelementptr inbounds nuw i8, ptr %.sink62, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %.sink61, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %334, align 8, !tbaa !9
-  %335 = getelementptr inbounds nuw i8, ptr %.sink62, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %.sink61, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %335, align 8, !tbaa !9
   br label %336
 
 336:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink62, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink61, %.sink.split ]
   ret ptr %.0
 }
 

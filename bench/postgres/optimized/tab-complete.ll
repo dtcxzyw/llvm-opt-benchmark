@@ -3322,9 +3322,9 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @completion_charp, align 8
   %6 = load i8, ptr %5, align 1
-  %.b18 = load i1, ptr @completion_force_quote, align 1
+  %.b = load i1, ptr @completion_force_quote, align 1
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
-  %8 = tail call ptr @quote_if_needed(ptr noundef %0, ptr noundef nonnull @.str.2701, i8 noundef signext 39, i8 noundef signext %6, i1 noundef zeroext %.b18, i32 noundef %7) #11
+  %8 = tail call ptr @quote_if_needed(ptr noundef %0, ptr noundef nonnull @.str.2701, i8 noundef signext 39, i8 noundef signext %6, i1 noundef zeroext %.b, i32 noundef %7) #11
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
 
@@ -3342,12 +3342,12 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
   br i1 %or.cond, label %16, label %32
 
 16:                                               ; preds = %11
-  %.not19 = icmp eq i32 %1, 1
-  br i1 %.not19, label %17, label %28
+  %.not18 = icmp eq i32 %1, 1
+  br i1 %.not18, label %17, label %28
 
 17:                                               ; preds = %16
-  %.not20 = icmp eq ptr %2, null
-  br i1 %.not20, label %21, label %18
+  %.not19 = icmp eq ptr %2, null
+  br i1 %.not19, label %21, label %18
 
 18:                                               ; preds = %17
   %19 = load i8, ptr %2, align 1
@@ -3356,8 +3356,8 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
 
 21:                                               ; preds = %18, %17
   %22 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %4) #11
-  %.not21 = icmp eq i32 %22, 0
-  br i1 %.not21, label %23, label %28
+  %.not20 = icmp eq i32 %22, 0
+  br i1 %.not20, label %23, label %28
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3375,13 +3375,13 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
 
 32:                                               ; preds = %28, %23, %11
   store i32 0, ptr @rl_completion_suppress_quote, align 4
-  %.not22 = icmp eq ptr %2, null
-  br i1 %.not22, label %36, label %33
+  %.not21 = icmp eq ptr %2, null
+  br i1 %.not21, label %36, label %33
 
 33:                                               ; preds = %32
   %34 = load i8, ptr %2, align 1
-  %.not23 = icmp eq i8 %34, 39
-  br i1 %.not23, label %36, label %35
+  %.not22 = icmp eq i8 %34, 39
+  br i1 %.not22, label %36, label %35
 
 35:                                               ; preds = %33
   store i8 0, ptr %2, align 1
@@ -3437,27 +3437,27 @@ define internal ptr @complete_from_list(ptr noundef %0, i32 noundef %1) #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %82, %2
-  %.tr18 = phi i32 [ %1, %2 ], [ %83, %82 ]
-  %3 = icmp eq i32 %.tr18, 0
+  %.tr16 = phi i32 [ %1, %2 ], [ %83, %82 ]
+  %3 = icmp eq i32 %.tr16, 0
   br i1 %3, label %4, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %.pre = load i32, ptr @complete_from_list.list_index, align 4
-  %.pre36.pre = load i8, ptr @complete_from_list.casesensitive, align 1, !range !13
+  %.pre34.pre = load i8, ptr @complete_from_list.casesensitive, align 1, !range !13
   br label %8
 
 4:                                                ; preds = %tailrecurse
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %6 = trunc i64 %5 to i32
   store i32 %6, ptr @complete_from_list.string_length, align 4
-  %.b1516 = load i1, ptr @completion_case_sensitive, align 1
-  %7 = zext i1 %.b1516 to i8
+  %.b15 = load i1, ptr @completion_case_sensitive, align 1
+  %7 = zext i1 %.b15 to i8
   store i8 %7, ptr @complete_from_list.casesensitive, align 1
   store i32 0, ptr @complete_from_list.matches, align 4
   br label %8
 
 8:                                                ; preds = %tailrecurse._crit_edge, %4
-  %.pre33 = phi i8 [ %.pre36.pre, %tailrecurse._crit_edge ], [ %7, %4 ]
+  %.pre31 = phi i8 [ %.pre34.pre, %tailrecurse._crit_edge ], [ %7, %4 ]
   %9 = phi i32 [ %.pre, %tailrecurse._crit_edge ], [ 0, %4 ]
   %10 = load ptr, ptr @completion_charpp, align 8
   %11 = add i32 %9, 1
@@ -3465,11 +3465,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds ptr, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %.not23 = icmp eq ptr %14, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq ptr %14, null
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %15 = trunc nuw i8 %.pre33 to i1
+  %15 = trunc nuw i8 %.pre31 to i1
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -3522,14 +3522,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %42, label %43, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %40
-  %.pre32 = load i8, ptr @complete_from_list.casesensitive, align 1, !range !13
-  %.pre34 = load ptr, ptr @completion_charpp, align 8
-  %.pre35 = load i32, ptr @complete_from_list.list_index, align 4
+  %.pre30 = load i8, ptr @complete_from_list.casesensitive, align 1, !range !13
+  %.pre32 = load ptr, ptr @completion_charpp, align 8
+  %.pre33 = load i32, ptr @complete_from_list.list_index, align 4
   br label %.thread
 
 43:                                               ; preds = %40
-  %.b17 = load i1, ptr @completion_case_sensitive, align 1
-  br i1 %.b17, label %pg_strdup_keyword_case.exit.sink.split, label %44
+  %.b = load i1, ptr @completion_case_sensitive, align 1
+  br i1 %.b, label %pg_strdup_keyword_case.exit.sink.split, label %44
 
 44:                                               ; preds = %43
   %.val = load i8, ptr %0, align 1
@@ -3590,10 +3590,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
 .thread:                                          ; preds = %..thread_crit_edge, %35
-  %70 = phi i8 [ %27, %35 ], [ %.pre32, %..thread_crit_edge ]
-  %71 = phi i32 [ %28, %35 ], [ %.pre35, %..thread_crit_edge ]
-  %72 = phi ptr [ %29, %35 ], [ %.pre34, %..thread_crit_edge ]
-  %73 = phi i8 [ 1, %35 ], [ %.pre32, %..thread_crit_edge ]
+  %70 = phi i8 [ %27, %35 ], [ %.pre30, %..thread_crit_edge ]
+  %71 = phi i32 [ %28, %35 ], [ %.pre33, %..thread_crit_edge ]
+  %72 = phi ptr [ %29, %35 ], [ %.pre32, %..thread_crit_edge ]
+  %73 = phi i8 [ 1, %35 ], [ %.pre30, %..thread_crit_edge ]
   %74 = add i32 %71, 1
   store i32 %74, ptr @complete_from_list.list_index, align 4
   %75 = sext i32 %71 to i64
@@ -3603,7 +3603,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %8
-  %78 = phi i8 [ %.pre33, %8 ], [ 1, %.thread.us ], [ %70, %.thread ]
+  %78 = phi i8 [ %.pre31, %8 ], [ 1, %.thread.us ], [ %70, %.thread ]
   %79 = trunc nuw i8 %78 to i1
   %80 = load i32, ptr @complete_from_list.matches, align 4
   %81 = icmp eq i32 %80, 0
@@ -3613,7 +3613,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 82:                                               ; preds = %._crit_edge
   store i8 0, ptr @complete_from_list.casesensitive, align 1
   store i32 0, ptr @complete_from_list.list_index, align 4
-  %83 = add i32 %.tr18, 1
+  %83 = add i32 %.tr16, 1
   br label %tailrecurse
 
 pg_strdup_keyword_case.exit.sink.split:           ; preds = %43, %.split.us
@@ -10855,8 +10855,8 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @complete_from_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_charp, align 8
   %4 = load ptr, ptr @completion_charpp, align 8
-  %.b1 = load i1, ptr @completion_verbatim, align 1
-  %5 = tail call fastcc ptr @_complete_from_query(ptr noundef %3, ptr noundef null, ptr noundef %4, i1 noundef zeroext %.b1, ptr noundef %0, i32 noundef %1)
+  %.b = load i1, ptr @completion_verbatim, align 1
+  %5 = tail call fastcc ptr @_complete_from_query(ptr noundef %3, ptr noundef null, ptr noundef %4, i1 noundef zeroext %.b, ptr noundef %0, i32 noundef %1)
   ret ptr %5
 }
 
@@ -10881,8 +10881,8 @@ define internal ptr @complete_from_versioned_query(ptr noundef %0, i32 noundef %
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @completion_charpp, align 8
-  %.b8 = load i1, ptr @completion_verbatim, align 1
-  %15 = tail call fastcc ptr @_complete_from_query(ptr noundef nonnull %11, ptr noundef null, ptr noundef %14, i1 noundef zeroext %.b8, ptr noundef %0, i32 noundef %1)
+  %.b = load i1, ptr @completion_verbatim, align 1
+  %15 = tail call fastcc ptr @_complete_from_query(ptr noundef nonnull %11, ptr noundef null, ptr noundef %14, i1 noundef zeroext %.b, ptr noundef %0, i32 noundef %1)
   br label %16
 
 16:                                               ; preds = %9, %13
@@ -10911,8 +10911,8 @@ define internal ptr @complete_from_versioned_schema_query(ptr noundef %0, i32 no
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @completion_charpp, align 8
-  %.b7 = load i1, ptr @completion_verbatim, align 1
-  %15 = tail call fastcc ptr @_complete_from_query(ptr noundef null, ptr noundef nonnull %.0, ptr noundef %14, i1 noundef zeroext %.b7, ptr noundef %0, i32 noundef %1)
+  %.b = load i1, ptr @completion_verbatim, align 1
+  %15 = tail call fastcc ptr @_complete_from_query(ptr noundef null, ptr noundef nonnull %.0, ptr noundef %14, i1 noundef zeroext %.b, ptr noundef %0, i32 noundef %1)
   br label %16
 
 16:                                               ; preds = %9, %13
@@ -10926,9 +10926,9 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   br i1 %3, label %4, label %pg_strdup_keyword_case.exit
 
 4:                                                ; preds = %2
-  %.b2 = load i1, ptr @completion_case_sensitive, align 1
+  %.b = load i1, ptr @completion_case_sensitive, align 1
   %5 = load ptr, ptr @completion_charp, align 8
-  br i1 %.b2, label %6, label %8
+  br i1 %.b, label %6, label %8
 
 6:                                                ; preds = %4
   %7 = tail call ptr @pg_strdup(ptr noundef %5) #11
@@ -11282,8 +11282,8 @@ define internal ptr @drop_command_generator(ptr noundef %0, i32 noundef %1) #0 {
 define internal ptr @complete_from_schema_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_squery, align 8
   %4 = load ptr, ptr @completion_charpp, align 8
-  %.b1 = load i1, ptr @completion_verbatim, align 1
-  %5 = tail call fastcc ptr @_complete_from_query(ptr noundef null, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %.b1, ptr noundef %0, i32 noundef %1)
+  %.b = load i1, ptr @completion_verbatim, align 1
+  %5 = tail call fastcc ptr @_complete_from_query(ptr noundef null, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %.b, ptr noundef %0, i32 noundef %1)
   ret ptr %5
 }
 

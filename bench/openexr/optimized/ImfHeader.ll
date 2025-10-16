@@ -306,8 +306,8 @@ define void @_ZN7Imf_3_416staticInitializeEv() local_unnamed_addr #4 personality
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
-  %.b1 = load i1, ptr @_ZZN7Imf_3_416staticInitializeEvE11initialized, align 1
-  br i1 %.b1, label %37, label %3
+  %.b = load i1, ptr @_ZZN7Imf_3_416staticInitializeEvE11initialized, align 1
+  br i1 %.b, label %37, label %3
 
 3:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %4 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE14staticTypeNameEv()
@@ -319,241 +319,241 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 
 _ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE21registerAttributeTypeEv.exit: ; preds = %.noexc
   %5 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE14staticTypeNameEv()
-          to label %.noexc3 unwind label %34
+          to label %.noexc2 unwind label %34
 
-.noexc3:                                          ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE21registerAttributeTypeEv.exit
+.noexc2:                                          ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %5, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit: ; preds = %.noexc3
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit: ; preds = %.noexc2
   %6 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE14staticTypeNameEv()
-          to label %.noexc5 unwind label %34
+          to label %.noexc4 unwind label %34
 
-.noexc5:                                          ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit
+.noexc4:                                          ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %6, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit: ; preds = %.noexc5
+_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit: ; preds = %.noexc4
   %7 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_11CompressionEE14staticTypeNameEv()
-          to label %.noexc7 unwind label %34
+          to label %.noexc6 unwind label %34
 
-.noexc7:                                          ; preds = %_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit
+.noexc6:                                          ; preds = %_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %7, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_11CompressionEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit: ; preds = %.noexc7
+_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit: ; preds = %.noexc6
   %8 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE14staticTypeNameEv()
-          to label %.noexc9 unwind label %34
+          to label %.noexc8 unwind label %34
 
-.noexc9:                                          ; preds = %_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit
+.noexc8:                                          ; preds = %_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %8, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit: ; preds = %.noexc9
+_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit: ; preds = %.noexc8
   %9 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE14staticTypeNameEv()
-          to label %.noexc11 unwind label %34
+          to label %.noexc10 unwind label %34
 
-.noexc11:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit
+.noexc10:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %9, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit: ; preds = %.noexc11
+_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit: ; preds = %.noexc10
   %10 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIdE14staticTypeNameEv()
-          to label %.noexc13 unwind label %34
+          to label %.noexc12 unwind label %34
 
-.noexc13:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit
+.noexc12:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %10, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIdE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit: ; preds = %.noexc13
+_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit: ; preds = %.noexc12
   %11 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE14staticTypeNameEv()
-          to label %.noexc15 unwind label %34
+          to label %.noexc14 unwind label %34
 
-.noexc15:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit
+.noexc14:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %11, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit: ; preds = %.noexc15
+_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit: ; preds = %.noexc14
   %12 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIfE14staticTypeNameEv()
-          to label %.noexc17 unwind label %34
+          to label %.noexc16 unwind label %34
 
-.noexc17:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit
+.noexc16:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %12, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIfE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit: ; preds = %.noexc17
+_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit: ; preds = %.noexc16
   %13 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE14staticTypeNameEv()
-          to label %.noexc19 unwind label %34
+          to label %.noexc18 unwind label %34
 
-.noexc19:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit
+.noexc18:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %13, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc19
+_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc18
   %14 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIiE14staticTypeNameEv()
-          to label %.noexc21 unwind label %34
+          to label %.noexc20 unwind label %34
 
-.noexc21:                                         ; preds = %_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit
+.noexc20:                                         ; preds = %_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %14, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIiE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit: ; preds = %.noexc21
+_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit: ; preds = %.noexc20
   %15 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE14staticTypeNameEv()
-          to label %.noexc23 unwind label %34
+          to label %.noexc22 unwind label %34
 
-.noexc23:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit
+.noexc22:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %15, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit: ; preds = %.noexc23
+_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit: ; preds = %.noexc22
   %16 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE14staticTypeNameEv()
-          to label %.noexc25 unwind label %34
+          to label %.noexc24 unwind label %34
 
-.noexc25:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit
+.noexc24:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %16, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit: ; preds = %.noexc25
+_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit: ; preds = %.noexc24
   %17 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE14staticTypeNameEv()
-          to label %.noexc27 unwind label %34
+          to label %.noexc26 unwind label %34
 
-.noexc27:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit
+.noexc26:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %17, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc27
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc26
   %18 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE14staticTypeNameEv()
-          to label %.noexc29 unwind label %34
+          to label %.noexc28 unwind label %34
 
-.noexc29:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit
+.noexc28:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %18, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc29
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc28
   %19 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE14staticTypeNameEv()
-          to label %.noexc31 unwind label %34
+          to label %.noexc30 unwind label %34
 
-.noexc31:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit
+.noexc30:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %19, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc31
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc30
   %20 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE14staticTypeNameEv()
-          to label %.noexc33 unwind label %34
+          to label %.noexc32 unwind label %34
 
-.noexc33:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit
+.noexc32:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %20, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc33
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc32
   %21 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE14staticTypeNameEv()
-          to label %.noexc35 unwind label %34
+          to label %.noexc34 unwind label %34
 
-.noexc35:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit
+.noexc34:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %21, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit: ; preds = %.noexc35
+_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit: ; preds = %.noexc34
   %22 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_8RationalEE14staticTypeNameEv()
-          to label %.noexc37 unwind label %34
+          to label %.noexc36 unwind label %34
 
-.noexc37:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit
+.noexc36:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %22, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_8RationalEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit: ; preds = %.noexc37
+_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit: ; preds = %.noexc36
   %23 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14staticTypeNameEv()
-          to label %.noexc39 unwind label %34
+          to label %.noexc38 unwind label %34
 
-.noexc39:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit
+.noexc38:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %23, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit: ; preds = %.noexc39
+_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit: ; preds = %.noexc38
   %24 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE14staticTypeNameEv()
-          to label %.noexc41 unwind label %34
+          to label %.noexc40 unwind label %34
 
-.noexc41:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit
+.noexc40:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %24, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit: ; preds = %.noexc41
+_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit: ; preds = %.noexc40
   %25 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE14staticTypeNameEv()
-          to label %.noexc43 unwind label %34
+          to label %.noexc42 unwind label %34
 
-.noexc43:                                         ; preds = %_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit
+.noexc42:                                         ; preds = %_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %25, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit: ; preds = %.noexc43
+_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit: ; preds = %.noexc42
   %26 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE14staticTypeNameEv()
-          to label %.noexc45 unwind label %34
+          to label %.noexc44 unwind label %34
 
-.noexc45:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit
+.noexc44:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %26, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit: ; preds = %.noexc45
+_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit: ; preds = %.noexc44
   %27 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE14staticTypeNameEv()
-          to label %.noexc47 unwind label %34
+          to label %.noexc46 unwind label %34
 
-.noexc47:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit
+.noexc46:                                         ; preds = %_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %27, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc47
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc46
   %28 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE14staticTypeNameEv()
-          to label %.noexc49 unwind label %34
+          to label %.noexc48 unwind label %34
 
-.noexc49:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit
+.noexc48:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %28, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc49
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc48
   %29 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE14staticTypeNameEv()
-          to label %.noexc51 unwind label %34
+          to label %.noexc50 unwind label %34
 
-.noexc51:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit
+.noexc50:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %29, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit: ; preds = %.noexc51
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit: ; preds = %.noexc50
   %30 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE14staticTypeNameEv()
-          to label %.noexc53 unwind label %34
+          to label %.noexc52 unwind label %34
 
-.noexc53:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit
+.noexc52:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %30, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc53
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit: ; preds = %.noexc52
   %31 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE14staticTypeNameEv()
-          to label %.noexc55 unwind label %34
+          to label %.noexc54 unwind label %34
 
-.noexc55:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit
+.noexc54:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %31, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc55
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit: ; preds = %.noexc54
   %32 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE14staticTypeNameEv()
-          to label %.noexc57 unwind label %34
+          to label %.noexc56 unwind label %34
 
-.noexc57:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit
+.noexc56:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %32, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit: ; preds = %.noexc57
+_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit: ; preds = %.noexc56
   %33 = invoke noundef ptr @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE14staticTypeNameEv()
-          to label %.noexc59 unwind label %34
+          to label %.noexc58 unwind label %34
 
-.noexc59:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit
+.noexc58:                                         ; preds = %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit
   invoke void @_ZN7Imf_3_49Attribute21registerAttributeTypeEPKcPFPS0_vE(ptr noundef %33, ptr noundef nonnull @_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE16makeNewAttributeEv)
           to label %_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE21registerAttributeTypeEv.exit unwind label %34
 
-_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE21registerAttributeTypeEv.exit: ; preds = %.noexc59
+_ZN7Imf_3_414TypedAttributeINS_20CompressedIDManifestEE21registerAttributeTypeEv.exit: ; preds = %.noexc58
   store i1 true, ptr @_ZZN7Imf_3_416staticInitializeEvE11initialized, align 1
   br label %37
 
-34:                                               ; preds = %.noexc59, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit, %.noexc57, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit, %.noexc55, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit, %.noexc53, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit, %.noexc51, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit, %.noexc49, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit, %.noexc47, %_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit, %.noexc45, %_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit, %.noexc43, %_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit, %.noexc41, %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit, %.noexc39, %_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit, %.noexc37, %_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit, %.noexc35, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit, %.noexc33, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit, %.noexc31, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit, %.noexc29, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit, %.noexc27, %_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit, %.noexc25, %_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit, %.noexc23, %_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit, %.noexc21, %_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit, %.noexc19, %_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit, %.noexc17, %_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit, %.noexc15, %_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit, %.noexc13, %_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit, %.noexc11, %_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit, %.noexc9, %_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit, %.noexc7, %_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit, %.noexc5, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit, %.noexc3, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE21registerAttributeTypeEv.exit, %.noexc, %3
+34:                                               ; preds = %.noexc58, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IiEEE21registerAttributeTypeEv.exit, %.noexc56, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IfEEE21registerAttributeTypeEv.exit, %.noexc54, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec3IdEEE21registerAttributeTypeEv.exit, %.noexc52, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IiEEE21registerAttributeTypeEv.exit, %.noexc50, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IfEEE21registerAttributeTypeEv.exit, %.noexc48, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_24Vec2IdEEE21registerAttributeTypeEv.exit, %.noexc46, %_ZN7Imf_3_414TypedAttributeINS_8TimeCodeEE21registerAttributeTypeEv.exit, %.noexc44, %_ZN7Imf_3_414TypedAttributeINS_15TileDescriptionEE21registerAttributeTypeEv.exit, %.noexc42, %_ZN7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE21registerAttributeTypeEv.exit, %.noexc40, %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE21registerAttributeTypeEv.exit, %.noexc38, %_ZN7Imf_3_414TypedAttributeINS_8RationalEE21registerAttributeTypeEv.exit, %.noexc36, %_ZN7Imf_3_414TypedAttributeINS_12PreviewImageEE21registerAttributeTypeEv.exit, %.noexc34, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IfEEE21registerAttributeTypeEv.exit, %.noexc32, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix44IdEEE21registerAttributeTypeEv.exit, %.noexc30, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IfEEE21registerAttributeTypeEv.exit, %.noexc28, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_28Matrix33IdEEE21registerAttributeTypeEv.exit, %.noexc26, %_ZN7Imf_3_414TypedAttributeINS_9LineOrderEE21registerAttributeTypeEv.exit, %.noexc24, %_ZN7Imf_3_414TypedAttributeINS_7KeyCodeEE21registerAttributeTypeEv.exit, %.noexc22, %_ZN7Imf_3_414TypedAttributeIiE21registerAttributeTypeEv.exit, %.noexc20, %_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE21registerAttributeTypeEv.exit, %.noexc18, %_ZN7Imf_3_414TypedAttributeIfE21registerAttributeTypeEv.exit, %.noexc16, %_ZN7Imf_3_414TypedAttributeINS_6EnvmapEE21registerAttributeTypeEv.exit, %.noexc14, %_ZN7Imf_3_414TypedAttributeIdE21registerAttributeTypeEv.exit, %.noexc12, %_ZN7Imf_3_414TypedAttributeINS_14DeepImageStateEE21registerAttributeTypeEv.exit, %.noexc10, %_ZN7Imf_3_414TypedAttributeINS_14ChromaticitiesEE21registerAttributeTypeEv.exit, %.noexc8, %_ZN7Imf_3_414TypedAttributeINS_11CompressionEE21registerAttributeTypeEv.exit, %.noexc6, %_ZN7Imf_3_414TypedAttributeINS_11ChannelListEE21registerAttributeTypeEv.exit, %.noexc4, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE21registerAttributeTypeEv.exit, %.noexc2, %_ZN7Imf_3_414TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE21registerAttributeTypeEv.exit, %.noexc, %3
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7Imf_3_416staticInitializeEvE15criticalSection) #29

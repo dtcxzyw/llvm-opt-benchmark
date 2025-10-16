@@ -70,8 +70,8 @@ define internal fastcc zeroext i1 @rtkit_setpriority_nice(i32 noundef %0, i32 no
   br i1 %.not.i, label %get_rtkit_dbus_connection.exit, label %11
 
 11:                                               ; preds = %2
-  %.b5.i = load i1, ptr @rtkit_use_session_conn, align 1
-  %.in.idx.i = select i1 %.b5.i, i64 0, i64 8
+  %.b.i = load i1, ptr @rtkit_use_session_conn, align 1
+  %.in.idx.i = select i1 %.b.i, i64 0, i64 8
   %.in.i = getelementptr inbounds nuw i8, ptr %10, i64 %.in.idx.i
   %12 = load ptr, ptr %.in.i, align 8
   br label %get_rtkit_dbus_connection.exit
@@ -175,8 +175,8 @@ switch.lookup:                                    ; preds = %20
   br i1 %.not.i.i, label %get_rtkit_dbus_connection.exit.i, label %33
 
 33:                                               ; preds = %27
-  %.b5.i.i = load i1, ptr @rtkit_use_session_conn, align 1
-  %.in.idx.i.i = select i1 %.b5.i.i, i64 0, i64 8
+  %.b.i.i = load i1, ptr @rtkit_use_session_conn, align 1
+  %.in.idx.i.i = select i1 %.b.i.i, i64 0, i64 8
   %.in.i.i = getelementptr inbounds nuw i8, ptr %32, i64 %.in.idx.i.i
   %34 = load ptr, ptr %.in.i.i, align 8
   br label %get_rtkit_dbus_connection.exit.i
@@ -291,8 +291,8 @@ set_rtkit_interface.exit:                         ; preds = %3, %6
   br i1 %.not.i6, label %.thread28, label %get_rtkit_dbus_connection.exit
 
 get_rtkit_dbus_connection.exit:                   ; preds = %set_rtkit_interface.exit
-  %.b5.i = load i1, ptr @rtkit_use_session_conn, align 1
-  %.in.idx.i = select i1 %.b5.i, i64 0, i64 8
+  %.b.i = load i1, ptr @rtkit_use_session_conn, align 1
+  %.in.idx.i = select i1 %.b.i, i64 0, i64 8
   %.in.i = getelementptr inbounds nuw i8, ptr %7, i64 %.in.idx.i
   %8 = load ptr, ptr %.in.i, align 8
   %.not = icmp eq ptr %8, null

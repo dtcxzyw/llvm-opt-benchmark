@@ -135,8 +135,8 @@ define dso_local noundef i32 @acct_gather_filesystem_p_node_update() local_unnam
   br i1 %5, label %6, label %108
 
 6:                                                ; preds = %0
-  %.b3.i = load i1, ptr @_check_lustre_fs.set, align 1
-  br i1 %.b3.i, label %_check_lustre_fs.exit, label %7
+  %.b.i = load i1, ptr @_check_lustre_fs.set, align 1
+  br i1 %.b.i, label %_check_lustre_fs.exit, label %7
 
 7:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -151,7 +151,7 @@ define dso_local noundef i32 @acct_gather_filesystem_p_node_update() local_unnam
 11:                                               ; preds = %7
   %12 = load ptr, ptr @_llite_path.llite_path, align 8
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %.preheader.i.i, label %_llite_path.exit.thread7.i
+  br i1 %.not.i.i, label %.preheader.i.i, label %_llite_path.exit.thread6.i
 
 .preheader.i.i:                                   ; preds = %11
   store ptr @.str.11, ptr @_llite_path.llite_path, align 8
@@ -185,29 +185,29 @@ define dso_local noundef i32 @acct_gather_filesystem_p_node_update() local_unnam
 _llite_path.exit.i:                               ; preds = %13
   %24 = call i32 @closedir(ptr noundef nonnull %15)
   %25 = load ptr, ptr @_llite_path.llite_path, align 8
-  %.not4.i = icmp eq ptr %25, null
-  br i1 %.not4.i, label %_llite_path.exit.thread.i, label %_llite_path.exit.thread7.i
+  %.not3.i = icmp eq ptr %25, null
+  br i1 %.not3.i, label %_llite_path.exit.thread.i, label %_llite_path.exit.thread6.i
 
 _llite_path.exit.thread.i:                        ; preds = %21, %_llite_path.exit.i
   %26 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__._check_lustre_fs) #11
   store i1 true, ptr @_check_lustre_fs.rc, align 4
   br label %31
 
-_llite_path.exit.thread7.i:                       ; preds = %_llite_path.exit.i, %11
-  %.0.i10.i = phi ptr [ %25, %_llite_path.exit.i ], [ %12, %11 ]
+_llite_path.exit.thread6.i:                       ; preds = %_llite_path.exit.i, %11
+  %.0.i9.i = phi ptr [ %25, %_llite_path.exit.i ], [ %12, %11 ]
   %27 = call i32 @slurm_get_log_level() #11
   %28 = icmp sgt i32 %27, 4
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %_llite_path.exit.thread7.i
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._check_lustre_fs, ptr noundef nonnull @__func__._check_lustre_fs, ptr noundef nonnull %.0.i10.i) #11
+29:                                               ; preds = %_llite_path.exit.thread6.i
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._check_lustre_fs, ptr noundef nonnull @__func__._check_lustre_fs, ptr noundef nonnull %.0.i9.i) #11
   br label %31
 
 30:                                               ; preds = %7
   store i1 true, ptr @_check_lustre_fs.rc, align 4
   br label %31
 
-31:                                               ; preds = %30, %29, %_llite_path.exit.thread7.i, %_llite_path.exit.thread.i
+31:                                               ; preds = %30, %29, %_llite_path.exit.thread6.i, %_llite_path.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_check_lustre_fs.exit
 
@@ -279,8 +279,8 @@ _check_lustre_fs.exit:                            ; preds = %6, %31
   br label %57
 
 57:                                               ; preds = %56, %50
-  %.b.i = load i1, ptr @_update_node_filesystem.first, align 1
-  br i1 %.b.i, label %thread-pre-split.i, label %58
+  %.b.i2 = load i1, ptr @_update_node_filesystem.first, align 1
+  br i1 %.b.i2, label %thread-pre-split.i, label %58
 
 58:                                               ; preds = %57
   %59 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.19, i64 noundef -1, ptr noundef nonnull %2) #11

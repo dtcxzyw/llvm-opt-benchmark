@@ -114,8 +114,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   br label %5
 
 5:                                                ; preds = %4, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %.b3 = load i1, ptr @_ZL20g_memory_initialized, align 1
-  br i1 %.b3, label %8, label %6
+  %.b = load i1, ptr @_ZL20g_memory_initialized, align 1
+  br i1 %.b, label %8, label %6
 
 6:                                                ; preds = %5
   store atomic i8 0, ptr @_ZL22g_memory_out_of_memory.0 seq_cst, align 1
@@ -196,8 +196,8 @@ define hidden void @_ZN6memory19set_max_alloc_countEm(i64 noundef %0) local_unna
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6memory8finalizeEb(i1 noundef zeroext %0) local_unnamed_addr #3 align 2 {
-  %.b1 = load i1, ptr @_ZL20g_memory_initialized, align 1
-  br i1 %.b1, label %2, label %4
+  %.b = load i1, ptr @_ZL20g_memory_initialized, align 1
+  br i1 %.b, label %2, label %4
 
 2:                                                ; preds = %1
   tail call void @_Z12mem_finalizev()

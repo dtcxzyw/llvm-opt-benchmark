@@ -292,8 +292,8 @@ $_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE10_bufferEndE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @__unw_init_local(ptr noundef %0, ptr noundef %1) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %2
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -329,8 +329,8 @@ logAPIs.exit:                                     ; preds = %2
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define hidden zeroext i1 @logAPIs() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1, label %._crit_edge, label %2
+  %.b = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b, label %._crit_edge, label %2
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -358,8 +358,8 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6542, 1) i32 @__unw_get_reg(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %3
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -404,8 +404,8 @@ logAPIs.exit:                                     ; preds = %3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6542, 1) i32 @__unw_set_reg(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.unw_proc_info_t, align 8
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %3
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -481,8 +481,8 @@ logAPIs.exit:                                     ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6542, 1) i32 @__unw_get_fpreg(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %3
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -526,8 +526,8 @@ logAPIs.exit:                                     ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6542, 1) i32 @__unw_set_fpreg(ptr noundef %0, i32 noundef %1, double noundef %2) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %3
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -570,8 +570,8 @@ logAPIs.exit:                                     ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @__unw_step(ptr noundef %0) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -603,8 +603,8 @@ logAPIs.exit:                                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @__unw_step_stage2(ptr noundef %0) local_unnamed_addr #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -636,8 +636,8 @@ logAPIs.exit:                                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6549, 1) i32 @__unw_get_proc_info(ptr noundef %0, ptr noundef %1) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %2
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -673,8 +673,8 @@ logAPIs.exit:                                     ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @__unw_resume(ptr noundef %0) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -706,8 +706,8 @@ logAPIs.exit:                                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -6540, 1) i32 @__unw_get_proc_name(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %4
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -740,8 +740,8 @@ logAPIs.exit:                                     ; preds = %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 0, 2) i32 @__unw_is_fpreg(ptr noundef %0, i32 noundef %1) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %2
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -774,8 +774,8 @@ logAPIs.exit:                                     ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @__unw_regname(ptr noundef %0, i32 noundef %1) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %2
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -807,8 +807,8 @@ logAPIs.exit:                                     ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 0, 2) i32 @__unw_is_signal_frame(ptr noundef %0) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -841,8 +841,8 @@ logAPIs.exit:                                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @__unw_iterate_dwarf_unwind_cache(ptr noundef %0) #0 {
-  %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logAPIs.exit
+  %.b.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logAPIs.exit
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load i8, ptr @_ZZ7logAPIsE3log, align 1, !tbaa !6, !range !10
@@ -1670,8 +1670,8 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define hidden zeroext i1 @logUnwinding() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @_ZZ12logUnwindingE7checked, align 1
-  br i1 %.b1, label %._crit_edge, label %2
+  %.b = load i1, ptr @_ZZ12logUnwindingE7checked, align 1
+  br i1 %.b, label %._crit_edge, label %2
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZZ12logUnwindingE3log, align 1, !tbaa !6, !range !10
@@ -1693,8 +1693,8 @@ define hidden zeroext i1 @logUnwinding() local_unnamed_addr #1 {
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define hidden zeroext i1 @logDWARF() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1, label %._crit_edge, label %2
+  %.b = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b, label %._crit_edge, label %2
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2606,8 +2606,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %42 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.b1.i = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i, label %._crit_edge.i, label %logDWARF.exit
+  %.b.i = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i, label %._crit_edge.i, label %logDWARF.exit
 
 ._crit_edge.i:                                    ; preds = %38
   %.pre.i = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2676,8 +2676,8 @@ logDWARF.exit:                                    ; preds = %38
   ]
 
 60:                                               ; preds = %56
-  %.b1.i256 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i256, label %._crit_edge.i257, label %logDWARF.exit259
+  %.b.i256 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i256, label %._crit_edge.i257, label %logDWARF.exit259
 
 ._crit_edge.i257:                                 ; preds = %60
   %.pre.i258 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2700,8 +2700,8 @@ logDWARF.exit259:                                 ; preds = %60
 68:                                               ; preds = %56
   %69 = load i8, ptr %37, align 8, !tbaa !41
   %70 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %41, i8 noundef zeroext %69, i64 noundef 0)
-  %.b1.i260 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i260, label %._crit_edge.i261, label %logDWARF.exit263
+  %.b.i260 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i260, label %._crit_edge.i261, label %logDWARF.exit263
 
 ._crit_edge.i261:                                 ; preds = %68
   %.pre.i262 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2731,8 +2731,8 @@ logDWARF.exit263:                                 ; preds = %68
   %84 = add i64 %.0218872, %83
   %85 = add i64 %57, 2
   store i64 %85, ptr %8, align 8, !tbaa !18
-  %.b1.i265 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i265, label %._crit_edge.i266, label %logDWARF.exit268
+  %.b.i265 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i265, label %._crit_edge.i266, label %logDWARF.exit268
 
 ._crit_edge.i266:                                 ; preds = %78
   %.pre.i267 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2762,8 +2762,8 @@ logDWARF.exit268:                                 ; preds = %78
   %99 = add i64 %.0218872, %98
   %100 = add i64 %57, 3
   store i64 %100, ptr %8, align 8, !tbaa !18
-  %.b1.i270 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i270, label %._crit_edge.i271, label %logDWARF.exit273
+  %.b.i270 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i270, label %._crit_edge.i271, label %logDWARF.exit273
 
 ._crit_edge.i271:                                 ; preds = %93
   %.pre.i272 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2792,8 +2792,8 @@ logDWARF.exit273:                                 ; preds = %93
   %113 = add i64 %.0218872, %112
   %114 = add i64 %57, 5
   store i64 %114, ptr %8, align 8, !tbaa !18
-  %.b1.i275 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i275, label %._crit_edge.i276, label %logDWARF.exit278
+  %.b.i275 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i275, label %._crit_edge.i276, label %logDWARF.exit278
 
 ._crit_edge.i276:                                 ; preds = %108
   %.pre.i277 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -2941,8 +2941,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 2, ptr %184, align 8, !tbaa !110
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 %176, ptr %190, align 8, !tbaa !121
-  %.b1.i285 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i285, label %._crit_edge.i286, label %logDWARF.exit288
+  %.b.i285 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i285, label %._crit_edge.i286, label %logDWARF.exit288
 
 ._crit_edge.i286:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
   %.pre.i287 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3035,8 +3035,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294: ; preds = %220
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit: ; preds = %231, %236
-  %.b1.i295 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i295, label %._crit_edge.i296, label %logDWARF.exit298
+  %.b.i295 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i295, label %._crit_edge.i296, label %logDWARF.exit298
 
 ._crit_edge.i296:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
   %.pre.i297 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3131,8 +3131,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304: ; preds = %267
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit: ; preds = %278, %283
   store i32 1, ptr %279, align 8, !tbaa !110
-  %.b1.i305 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i305, label %._crit_edge.i306, label %logDWARF.exit308
+  %.b.i305 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i305, label %._crit_edge.i306, label %logDWARF.exit308
 
 ._crit_edge.i306:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
   %.pre.i307 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3227,8 +3227,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314: ; preds = %314
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315: ; preds = %325, %330
   store i32 0, ptr %326, align 8, !tbaa !110
-  %.b1.i316 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i316, label %._crit_edge.i317, label %logDWARF.exit319
+  %.b.i316 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i316, label %._crit_edge.i317, label %logDWARF.exit319
 
 ._crit_edge.i317:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315
   %.pre.i318 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3384,8 +3384,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 5, ptr %405, align 8, !tbaa !110
   %411 = getelementptr inbounds nuw i8, ptr %405, i64 8
   store i64 %387, ptr %411, align 8, !tbaa !121
-  %.b1.i333 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i333, label %._crit_edge.i334, label %logDWARF.exit336
+  %.b.i333 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i333, label %._crit_edge.i334, label %logDWARF.exit336
 
 ._crit_edge.i334:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332
   %.pre.i335 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3410,8 +3410,8 @@ logDWARF.exit336:                                 ; preds = %_ZN9libunwind10CFI_
   store ptr %.sroa.0.1871, ptr %420, align 16, !tbaa !122
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %421, ptr noundef nonnull align 8 dereferenceable(552) %5, i64 552, i1 false), !tbaa.struct !125
-  %.b1.i337 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i337, label %._crit_edge.i338, label %logDWARF.exit340
+  %.b.i337 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i337, label %._crit_edge.i338, label %logDWARF.exit340
 
 ._crit_edge.i338:                                 ; preds = %419
   %.pre.i339 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3439,8 +3439,8 @@ logDWARF.exit340:                                 ; preds = %419
   %431 = getelementptr inbounds nuw i8, ptr %.sroa.0.1871, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, ptr noundef nonnull align 8 dereferenceable(552) %431, i64 552, i1 false), !tbaa.struct !125
   %432 = load ptr, ptr %.sroa.0.1871, align 8, !tbaa !122
-  %.b1.i341 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i341, label %._crit_edge.i342, label %logDWARF.exit344
+  %.b.i341 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i341, label %._crit_edge.i342, label %logDWARF.exit344
 
 ._crit_edge.i342:                                 ; preds = %430
   %.pre.i343 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3573,8 +3573,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit356: ; preds = %487
   store i32 %499, ptr %5, align 8, !tbaa !126
   %500 = trunc i64 %488 to i32
   store i32 %500, ptr %34, align 4, !tbaa !127
-  %.b1.i357 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i357, label %._crit_edge.i358, label %logDWARF.exit360
+  %.b.i357 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i357, label %._crit_edge.i358, label %logDWARF.exit360
 
 ._crit_edge.i358:                                 ; preds = %498
   %.pre.i359 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3657,8 +3657,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366: ; preds = %530
 541:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit366
   %542 = trunc nuw nsw i64 %531 to i32
   store i32 %542, ptr %5, align 8, !tbaa !126
-  %.b1.i367 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i367, label %._crit_edge.i368, label %logDWARF.exit370
+  %.b.i367 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i367, label %._crit_edge.i368, label %logDWARF.exit370
 
 ._crit_edge.i368:                                 ; preds = %541
   %.pre.i369 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3730,8 +3730,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376: ; preds = %572
   store i64 %576, ptr %8, align 8, !tbaa !18
   %577 = trunc i64 %573 to i32
   store i32 %577, ptr %34, align 4, !tbaa !127
-  %.b1.i377 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i377, label %._crit_edge.i378, label %logDWARF.exit380
+  %.b.i377 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i377, label %._crit_edge.i378, label %logDWARF.exit380
 
 ._crit_edge.i378:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit376
   %.pre.i379 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3813,8 +3813,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386: ; preds = %607
 613:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit386
   %614 = add i64 %608, %611
   store i64 %614, ptr %8, align 8, !tbaa !18
-  %.b1.i387 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i387, label %._crit_edge.i388, label %logDWARF.exit390
+  %.b.i387 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i387, label %._crit_edge.i388, label %logDWARF.exit390
 
 ._crit_edge.i388:                                 ; preds = %613
   %.pre.i389 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -3969,8 +3969,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403: ; preds = %683
 689:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit403
   %690 = add i64 %684, %687
   store i64 %690, ptr %8, align 8, !tbaa !18
-  %.b1.i404 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i404, label %._crit_edge.i405, label %logDWARF.exit407
+  %.b.i404 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i404, label %._crit_edge.i405, label %logDWARF.exit407
 
 ._crit_edge.i405:                                 ; preds = %689
   %.pre.i406 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4105,8 +4105,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 2, ptr %753, align 8, !tbaa !110
   %759 = getelementptr inbounds nuw i8, ptr %753, i64 8
   store i64 %752, ptr %759, align 8, !tbaa !121
-  %.b1.i420 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i420, label %._crit_edge.i421, label %logDWARF.exit423
+  %.b.i420 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i420, label %._crit_edge.i421, label %logDWARF.exit423
 
 ._crit_edge.i421:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419
   %.pre.i422 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4232,8 +4232,8 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit437: ; preds = %801
   store i32 %824, ptr %5, align 8, !tbaa !126
   %825 = trunc i64 %816 to i32
   store i32 %825, ptr %34, align 4, !tbaa !127
-  %.b1.i438 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i438, label %._crit_edge.i439, label %logDWARF.exit441
+  %.b.i438 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i438, label %._crit_edge.i439, label %logDWARF.exit441
 
 ._crit_edge.i439:                                 ; preds = %823
   %.pre.i440 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4297,8 +4297,8 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449: ; preds = %842
   %856 = trunc i64 %.1.i448 to i32
   %857 = mul i32 %855, %856
   store i32 %857, ptr %34, align 4, !tbaa !127
-  %.b1.i450 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i450, label %._crit_edge.i451, label %logDWARF.exit453
+  %.b.i450 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i450, label %._crit_edge.i451, label %logDWARF.exit453
 
 ._crit_edge.i451:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit449
   %.pre.i452 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4443,8 +4443,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 4, ptr %925, align 8, !tbaa !110
   %931 = getelementptr inbounds nuw i8, ptr %925, i64 8
   store i64 %924, ptr %931, align 8, !tbaa !121
-  %.b1.i467 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i467, label %._crit_edge.i468, label %logDWARF.exit470
+  %.b.i467 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i467, label %._crit_edge.i468, label %logDWARF.exit470
 
 ._crit_edge.i468:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466
   %.pre.i469 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4579,8 +4579,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 4, ptr %994, align 8, !tbaa !110
   %1000 = getelementptr inbounds nuw i8, ptr %994, i64 8
   store i64 %993, ptr %1000, align 8, !tbaa !121
-  %.b1.i486 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i486, label %._crit_edge.i487, label %logDWARF.exit489
+  %.b.i486 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i486, label %._crit_edge.i487, label %logDWARF.exit489
 
 ._crit_edge.i487:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485
   %.pre.i488 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4735,8 +4735,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502: ; preds = %1069
 1075:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit502
   %1076 = add i64 %1070, %1073
   store i64 %1076, ptr %8, align 8, !tbaa !18
-  %.b1.i503 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i503, label %._crit_edge.i504, label %logDWARF.exit506
+  %.b.i503 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i503, label %._crit_edge.i504, label %logDWARF.exit506
 
 ._crit_edge.i504:                                 ; preds = %1075
   %.pre.i505 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4808,8 +4808,8 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512: ; preds = %1106
   store i64 %1110, ptr %8, align 8, !tbaa !18
   %1111 = trunc i64 %1107 to i32
   store i32 %1111, ptr %33, align 8, !tbaa !103
-  %.b1.i513 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i513, label %._crit_edge.i514, label %logDWARF.exit516
+  %.b.i513 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i513, label %._crit_edge.i514, label %logDWARF.exit516
 
 ._crit_edge.i514:                                 ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit512
   %.pre.i515 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -4955,8 +4955,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 2, ptr %1180, align 8, !tbaa !110
   %1186 = getelementptr inbounds nuw i8, ptr %1180, i64 8
   store i64 %1179, ptr %1186, align 8, !tbaa !121
-  %.b1.i530 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i530, label %._crit_edge.i531, label %logDWARF.exit533
+  %.b.i530 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i530, label %._crit_edge.i531, label %logDWARF.exit533
 
 ._crit_edge.i531:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529
   %.pre.i532 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -5068,8 +5068,8 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   store i32 2, ptr %1236, align 8, !tbaa !110
   %1242 = getelementptr inbounds nuw i8, ptr %1236, i64 8
   store i64 %1235, ptr %1242, align 8, !tbaa !121
-  %.b1.i541 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i541, label %._crit_edge.i542, label %logDWARF.exit544
+  %.b.i541 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i541, label %._crit_edge.i542, label %logDWARF.exit544
 
 ._crit_edge.i542:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540
   %.pre.i543 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -5096,8 +5096,8 @@ logDWARF.exit544:                                 ; preds = %_ZN9libunwind10CFI_
   %1254 = mul i32 %1253, %1252
   %1255 = zext i32 %1254 to i64
   %1256 = add i64 %.0218872, %1255
-  %.b1.i545 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i545, label %._crit_edge.i546, label %logDWARF.exit548
+  %.b.i545 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i545, label %._crit_edge.i546, label %logDWARF.exit548
 
 ._crit_edge.i546:                                 ; preds = %1251
   %.pre.i547 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -5142,8 +5142,8 @@ logDWARF.exit548:                                 ; preds = %1251
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549: ; preds = %1272, %1277
-  %.b1.i550 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i550, label %._crit_edge.i551, label %logDWARF.exit553
+  %.b.i550 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i550, label %._crit_edge.i551, label %logDWARF.exit553
 
 ._crit_edge.i551:                                 ; preds = %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
   %.pre.i552 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10
@@ -5167,8 +5167,8 @@ default.unreachable:                              ; preds = %1194
   unreachable
 
 1286:                                             ; preds = %1194
-  %.b1.i554 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
-  br i1 %.b1.i554, label %._crit_edge.i555, label %logDWARF.exit557
+  %.b.i554 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
+  br i1 %.b.i554, label %._crit_edge.i555, label %logDWARF.exit557
 
 ._crit_edge.i555:                                 ; preds = %1286
   %.pre.i556 = load i8, ptr @_ZZ8logDWARFE3log, align 1, !tbaa !6, !range !10

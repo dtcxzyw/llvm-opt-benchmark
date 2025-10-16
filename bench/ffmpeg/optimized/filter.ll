@@ -476,13 +476,13 @@ define void @ff_vvc_sao_filter(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 1970
   %46 = shl i32 %15, %14
   %.in.in.i = getelementptr inbounds nuw i8, ptr %9, i64 1968
-  %.in29.i = load i8, ptr %.in.in.i, align 8, !tbaa !59
+  %.in.i = load i8, ptr %.in.in.i, align 8, !tbaa !59
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not3137.not.i = icmp eq i8 %.in29.i, 0
-  br i1 %.not3137.not.i, label %.preheader.i146, label %.lr.ph.preheader.i
+  %.not3036.not.i = icmp eq i8 %.in.i, 0
+  br i1 %.not3036.not.i, label %.preheader.i146, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext i8 %.in29.i to i64
+  %wide.trip.count.i = zext i8 %.in.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.preheader.i
@@ -510,12 +510,12 @@ define void @ff_vvc_sao_filter(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 1978
   %59 = shl i32 %16, %14
   %.in.in.i147 = getelementptr inbounds nuw i8, ptr %9, i64 1976
-  %.in29.i148 = load i8, ptr %.in.in.i147, align 8, !tbaa !59
-  %.not3137.not.i149 = icmp eq i8 %.in29.i148, 0
-  br i1 %.not3137.not.i149, label %get_virtual_boundary.exit157, label %.lr.ph.preheader.i150
+  %.in.i148 = load i8, ptr %.in.in.i147, align 8, !tbaa !59
+  %.not3036.not.i149 = icmp eq i8 %.in.i148, 0
+  br i1 %.not3036.not.i149, label %get_virtual_boundary.exit157, label %.lr.ph.preheader.i150
 
 .lr.ph.preheader.i150:                            ; preds = %.preheader.i146
-  %wide.trip.count.i151 = zext i8 %.in29.i148 to i64
+  %wide.trip.count.i151 = zext i8 %.in.i148 to i64
   br label %.lr.ph.i152
 
 .lr.ph.i152:                                      ; preds = %69, %.lr.ph.preheader.i150
@@ -625,13 +625,13 @@ get_virtual_boundary.exit157:                     ; preds = %69, %65, %.preheade
 
 .preheader.i.i.i:                                 ; preds = %114
   %.in.in.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1968
-  %.in29.i.i.i = load i8, ptr %.in.in.i.i.i, align 8, !tbaa !59
+  %.in.i.i.i = load i8, ptr %.in.in.i.i.i, align 8, !tbaa !59
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not3137.not.i.i.i = icmp eq i8 %.in29.i.i.i, 0
-  br i1 %.not3137.not.i.i.i, label %is_virtual_boundary.exit.i, label %.lr.ph.preheader.i.i.i
+  %.not3036.not.i.i.i = icmp eq i8 %.in.i.i.i, 0
+  br i1 %.not3036.not.i.i.i, label %is_virtual_boundary.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
-  %wide.trip.count.i.i.i = zext i8 %.in29.i.i.i to i64
+  %wide.trip.count.i.i.i = zext i8 %.in.i.i.i to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %129, %.lr.ph.preheader.i.i.i
@@ -730,13 +730,13 @@ sao_can_cross_slices.exit.i:                      ; preds = %133, %is_virtual_bo
 
 .preheader.i.i181.i:                              ; preds = %174
   %.in.in.i.i182.i = getelementptr inbounds nuw i8, ptr %9, i64 1968
-  %.in29.i.i183.i = load i8, ptr %.in.in.i.i182.i, align 8, !tbaa !59
+  %.in.i.i183.i = load i8, ptr %.in.in.i.i182.i, align 8, !tbaa !59
   %180 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not3137.not.i.i184.i = icmp eq i8 %.in29.i.i183.i, 0
-  br i1 %.not3137.not.i.i184.i, label %is_virtual_boundary.exit192.i, label %.lr.ph.preheader.i.i185.i
+  %.not3036.not.i.i184.i = icmp eq i8 %.in.i.i183.i, 0
+  br i1 %.not3036.not.i.i184.i, label %is_virtual_boundary.exit192.i, label %.lr.ph.preheader.i.i185.i
 
 .lr.ph.preheader.i.i185.i:                        ; preds = %.preheader.i.i181.i
-  %wide.trip.count.i.i186.i = zext i8 %.in29.i.i183.i to i64
+  %wide.trip.count.i.i186.i = zext i8 %.in.i.i183.i to i64
   br label %.lr.ph.i.i187.i
 
 .lr.ph.i.i187.i:                                  ; preds = %190, %.lr.ph.preheader.i.i185.i
@@ -828,13 +828,13 @@ sao_can_cross_slices.exit194.i:                   ; preds = %194, %is_virtual_bo
 
 .preheader.i.i196.i:                              ; preds = %229
   %.in.in.i.i197.i = getelementptr inbounds nuw i8, ptr %9, i64 1976
-  %.in29.i.i198.i = load i8, ptr %.in.in.i.i197.i, align 8, !tbaa !59
+  %.in.i.i198.i = load i8, ptr %.in.in.i.i197.i, align 8, !tbaa !59
   %234 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not3137.not.i.i199.i = icmp eq i8 %.in29.i.i198.i, 0
-  br i1 %.not3137.not.i.i199.i, label %is_virtual_boundary.exit207.i, label %.lr.ph.preheader.i.i200.i
+  %.not3036.not.i.i199.i = icmp eq i8 %.in.i.i198.i, 0
+  br i1 %.not3036.not.i.i199.i, label %is_virtual_boundary.exit207.i, label %.lr.ph.preheader.i.i200.i
 
 .lr.ph.preheader.i.i200.i:                        ; preds = %.preheader.i.i196.i
-  %wide.trip.count.i.i201.i = zext i8 %.in29.i.i198.i to i64
+  %wide.trip.count.i.i201.i = zext i8 %.in.i.i198.i to i64
   br label %.lr.ph.i.i202.i
 
 .lr.ph.i.i202.i:                                  ; preds = %244, %.lr.ph.preheader.i.i200.i
@@ -935,13 +935,13 @@ sao_can_cross_slices.exit209.i:                   ; preds = %248, %is_virtual_bo
 
 .preheader.i.i211.i:                              ; preds = %291
   %.in.in.i.i212.i = getelementptr inbounds nuw i8, ptr %9, i64 1976
-  %.in29.i.i213.i = load i8, ptr %.in.in.i.i212.i, align 8, !tbaa !59
+  %.in.i.i213.i = load i8, ptr %.in.in.i.i212.i, align 8, !tbaa !59
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not3137.not.i.i214.i = icmp eq i8 %.in29.i.i213.i, 0
-  br i1 %.not3137.not.i.i214.i, label %is_virtual_boundary.exit222.i, label %.lr.ph.preheader.i.i215.i
+  %.not3036.not.i.i214.i = icmp eq i8 %.in.i.i213.i, 0
+  br i1 %.not3036.not.i.i214.i, label %is_virtual_boundary.exit222.i, label %.lr.ph.preheader.i.i215.i
 
 .lr.ph.preheader.i.i215.i:                        ; preds = %.preheader.i.i211.i
-  %wide.trip.count.i.i216.i = zext i8 %.in29.i.i213.i to i64
+  %wide.trip.count.i.i216.i = zext i8 %.in.i.i213.i to i64
   br label %.lr.ph.i.i217.i
 
 .lr.ph.i.i217.i:                                  ; preds = %307, %.lr.ph.preheader.i.i215.i
@@ -1775,18 +1775,18 @@ deblock_is_boundary.exit.thread118.i:             ; preds = %deblock_is_boundary
   %131 = and i32 %130, %49
   %132 = getelementptr inbounds nuw i8, ptr %66, i64 38772
   %133 = load i8, ptr %132, align 4, !tbaa !90
-  %.not30.i.i.i = icmp eq i8 %133, 0
-  br i1 %.not30.i.i.i, label %is_virtual_boundary.exit.i, label %.preheader.i.i.i
+  %.not29.i.i.i = icmp eq i8 %133, 0
+  br i1 %.not29.i.i.i, label %is_virtual_boundary.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %deblock_is_boundary.exit.thread118.i
   %.in.in.v.i.i.i = select i1 %.not.i, i64 1976, i64 1968
   %.in.in.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 %.in.in.v.i.i.i
-  %.in29.i.i.i = load i8, ptr %.in.in.i.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i.i = icmp eq i8 %.in29.i.i.i, 0
-  br i1 %.not3137.not.i.i.i, label %is_virtual_boundary.exit.i, label %.lr.ph.preheader.i.i.i
+  %.in.i.i.i = load i8, ptr %.in.in.i.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i.i = icmp eq i8 %.in.i.i.i, 0
+  br i1 %.not3036.not.i.i.i, label %is_virtual_boundary.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
-  %wide.trip.count.i.i.i = zext i8 %.in29.i.i.i to i64
+  %wide.trip.count.i.i.i = zext i8 %.in.i.i.i to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %140, %.lr.ph.preheader.i.i.i
@@ -2149,17 +2149,17 @@ deblock_is_boundary.exit.thread.i:                ; preds = %derive_max_filter_l
   %360 = load ptr, ptr %354, align 8, !tbaa !67
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 38772
   %362 = load i8, ptr %361, align 4, !tbaa !90
-  %.not30.i.i.us.i.i = icmp eq i8 %362, 0
-  br i1 %.not30.i.i.us.i.i, label %is_virtual_boundary.exit.us.i.i, label %.preheader.i.i.us.i.i
+  %.not29.i.i.us.i.i = icmp eq i8 %362, 0
+  br i1 %.not29.i.i.us.i.i, label %is_virtual_boundary.exit.us.i.i, label %.preheader.i.i.us.i.i
 
 .preheader.i.i.us.i.i:                            ; preds = %.lr.ph99.split.us.i.i
-  %.in29.i.i.us.i.i = load i8, ptr %.in.in.i.i.i.i, align 8, !tbaa !59
+  %.in.i.i.us.i.i = load i8, ptr %.in.in.i.i.i.i, align 8, !tbaa !59
   %363 = getelementptr inbounds nuw i8, ptr %354, i64 32
-  %.not3137.not.i.i.us.i.i = icmp eq i8 %.in29.i.i.us.i.i, 0
-  br i1 %.not3137.not.i.i.us.i.i, label %is_virtual_boundary.exit.us.i.i, label %.lr.ph.preheader.i.i.us.i.i
+  %.not3036.not.i.i.us.i.i = icmp eq i8 %.in.i.i.us.i.i, 0
+  br i1 %.not3036.not.i.i.us.i.i, label %is_virtual_boundary.exit.us.i.i, label %.lr.ph.preheader.i.i.us.i.i
 
 .lr.ph.preheader.i.i.us.i.i:                      ; preds = %.preheader.i.i.us.i.i
-  %wide.trip.count.i.i.us.i.i = zext i8 %.in29.i.i.us.i.i to i64
+  %wide.trip.count.i.i.us.i.i = zext i8 %.in.i.i.us.i.i to i64
   br label %.lr.ph.i.i.us.i.i
 
 .lr.ph.i.i.us.i.i:                                ; preds = %373, %.lr.ph.preheader.i.i.us.i.i
@@ -2428,18 +2428,18 @@ deblock_is_boundary.exit.thread62:                ; preds = %27, %47, %deblock_i
   %90 = and i32 %89, %.90
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 38772
   %92 = load i8, ptr %91, align 4, !tbaa !90
-  %.not30.i.i = icmp eq i8 %92, 0
-  br i1 %.not30.i.i, label %is_virtual_boundary.exit, label %.preheader.i.i
+  %.not29.i.i = icmp eq i8 %92, 0
+  br i1 %.not29.i.i, label %is_virtual_boundary.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %deblock_is_boundary.exit.thread62
   %.in.in.v.i.i = select i1 %.not, i64 1976, i64 1968
   %.in.in.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.in.in.v.i.i
-  %.in29.i.i = load i8, ptr %.in.in.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i = icmp eq i8 %.in29.i.i, 0
-  br i1 %.not3137.not.i.i, label %is_virtual_boundary.exit, label %.lr.ph.preheader.i.i
+  %.in.i.i = load i8, ptr %.in.in.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i = icmp eq i8 %.in.i.i, 0
+  br i1 %.not3036.not.i.i, label %is_virtual_boundary.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %wide.trip.count.i.i = zext i8 %.in29.i.i to i64
+  %wide.trip.count.i.i = zext i8 %.in.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %99, %.lr.ph.preheader.i.i
@@ -3392,8 +3392,8 @@ define void @ff_vvc_alf_filter(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %44 = shl i32 %19, %17
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 38772
   %46 = load i8, ptr %45, align 4, !tbaa !90
-  %.not30.i.i = icmp eq i8 %46, 0
-  br i1 %.not30.i.i, label %get_virtual_boundary.exit.thread.i, label %.preheader.i.i
+  %.not29.i.i = icmp eq i8 %46, 0
+  br i1 %.not29.i.i, label %get_virtual_boundary.exit.thread.i, label %.preheader.i.i
 
 get_virtual_boundary.exit.thread.i:               ; preds = %3
   store i32 0, ptr %.sroa.093.i, align 4, !tbaa !82
@@ -3402,12 +3402,12 @@ get_virtual_boundary.exit.thread.i:               ; preds = %3
 
 .preheader.i.i:                                   ; preds = %3
   %.in.in.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1976
-  %.in29.i.i = load i8, ptr %.in.in.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i = icmp eq i8 %.in29.i.i, 0
-  br i1 %.not3137.not.i.i, label %.preheader.i59.i, label %.lr.ph.preheader.i.i
+  %.in.i.i = load i8, ptr %.in.in.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i = icmp eq i8 %.in.i.i, 0
+  br i1 %.not3036.not.i.i, label %.preheader.i59.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %wide.trip.count.i.i = zext i8 %.in29.i.i to i64
+  %wide.trip.count.i.i = zext i8 %.in.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %54, %.lr.ph.preheader.i.i
@@ -3432,12 +3432,12 @@ get_virtual_boundary.exit.thread.i:               ; preds = %3
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 1970
   %56 = shl i32 %18, %17
   %.in.in.i60.i = getelementptr inbounds nuw i8, ptr %12, i64 1968
-  %.in29.i61.i = load i8, ptr %.in.in.i60.i, align 8, !tbaa !59
-  %.not3137.not.i62.i = icmp eq i8 %.in29.i61.i, 0
-  br i1 %.not3137.not.i62.i, label %get_virtual_boundary.exit70.i, label %.lr.ph.preheader.i63.i
+  %.in.i61.i = load i8, ptr %.in.in.i60.i, align 8, !tbaa !59
+  %.not3036.not.i62.i = icmp eq i8 %.in.i61.i, 0
+  br i1 %.not3036.not.i62.i, label %get_virtual_boundary.exit70.i, label %.lr.ph.preheader.i63.i
 
 .lr.ph.preheader.i63.i:                           ; preds = %.preheader.i59.i
-  %wide.trip.count.i64.i = zext i8 %.in29.i61.i to i64
+  %wide.trip.count.i64.i = zext i8 %.in.i61.i to i64
   br label %.lr.ph.i65.i
 
 .lr.ph.i65.i:                                     ; preds = %63, %.lr.ph.preheader.i63.i
@@ -3693,7 +3693,7 @@ get_virtual_boundary.exit70.i:                    ; preds = %63, %.lr.ph.i65.i, 
   %.sroa.21.2.i = phi i32 [ %.sroa.21.1.i, %170 ], [ %201, %200 ], [ %201, %202 ]
   %.sroa.12.2.i = phi i32 [ %.sroa.12.1.i, %170 ], [ %187, %200 ], [ %187, %202 ]
   %.sroa.0.2.i = phi i32 [ %.sroa.0.1.i, %170 ], [ %181, %200 ], [ %181, %202 ]
-  br i1 %.not30.i.i, label %alf_get_edges.exit.i, label %214
+  br i1 %.not29.i.i, label %alf_get_edges.exit.i, label %214
 
 214:                                              ; preds = %213
   %.not111.i.i = icmp eq i32 %.sroa.0.2.i, 0
@@ -3701,12 +3701,12 @@ get_virtual_boundary.exit70.i:                    ; preds = %63, %.lr.ph.i65.i, 
 
 .preheader.i.i.i.i:                               ; preds = %214
   %.in.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1968
-  %.in29.i.i.i.i = load i8, ptr %.in.in.i.i.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i.i.i = icmp eq i8 %.in29.i.i.i.i, 0
-  br i1 %.not3137.not.i.i.i.i, label %is_virtual_boundary.exit.i.i, label %.lr.ph.preheader.i.i.i.i
+  %.in.i.i.i.i = load i8, ptr %.in.in.i.i.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i.i.i = icmp eq i8 %.in.i.i.i.i, 0
+  br i1 %.not3036.not.i.i.i.i, label %is_virtual_boundary.exit.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %.preheader.i.i.i.i
-  %wide.trip.count.i.i.i.i = zext i8 %.in29.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i = zext i8 %.in.i.i.i.i to i64
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 1970
   br label %.lr.ph.i.i.i.i
 
@@ -3739,12 +3739,12 @@ is_virtual_boundary.exit.i.i:                     ; preds = %222, %.lr.ph.i.i.i.
 
 .preheader.i.i116.i.i:                            ; preds = %225
   %.in.in.i.i117.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1976
-  %.in29.i.i118.i.i = load i8, ptr %.in.in.i.i117.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i119.i.i = icmp eq i8 %.in29.i.i118.i.i, 0
-  br i1 %.not3137.not.i.i119.i.i, label %is_virtual_boundary.exit127.i.i, label %.lr.ph.preheader.i.i120.i.i
+  %.in.i.i118.i.i = load i8, ptr %.in.in.i.i117.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i119.i.i = icmp eq i8 %.in.i.i118.i.i, 0
+  br i1 %.not3036.not.i.i119.i.i, label %is_virtual_boundary.exit127.i.i, label %.lr.ph.preheader.i.i120.i.i
 
 .lr.ph.preheader.i.i120.i.i:                      ; preds = %.preheader.i.i116.i.i
-  %wide.trip.count.i.i121.i.i = zext i8 %.in29.i.i118.i.i to i64
+  %wide.trip.count.i.i121.i.i = zext i8 %.in.i.i118.i.i to i64
   br label %.lr.ph.i.i122.i.i
 
 .lr.ph.i.i122.i.i:                                ; preds = %233, %.lr.ph.preheader.i.i120.i.i
@@ -3778,12 +3778,12 @@ is_virtual_boundary.exit127.i.i:                  ; preds = %233, %.lr.ph.i.i122
   %238 = add nsw i32 %18, 1
   %239 = shl i32 %238, %17
   %.in.in.i.i130.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1968
-  %.in29.i.i131.i.i = load i8, ptr %.in.in.i.i130.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i132.i.i = icmp eq i8 %.in29.i.i131.i.i, 0
-  br i1 %.not3137.not.i.i132.i.i, label %is_virtual_boundary.exit140.i.i, label %.lr.ph.preheader.i.i133.i.i
+  %.in.i.i131.i.i = load i8, ptr %.in.in.i.i130.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i132.i.i = icmp eq i8 %.in.i.i131.i.i, 0
+  br i1 %.not3036.not.i.i132.i.i, label %is_virtual_boundary.exit140.i.i, label %.lr.ph.preheader.i.i133.i.i
 
 .lr.ph.preheader.i.i133.i.i:                      ; preds = %.preheader.i.i129.i.i
-  %wide.trip.count.i.i134.i.i = zext i8 %.in29.i.i131.i.i to i64
+  %wide.trip.count.i.i134.i.i = zext i8 %.in.i.i131.i.i to i64
   %240 = getelementptr inbounds nuw i8, ptr %12, i64 1970
   br label %.lr.ph.i.i135.i.i
 
@@ -3817,12 +3817,12 @@ is_virtual_boundary.exit140.i.i:                  ; preds = %247, %.lr.ph.i.i135
   %252 = add nsw i32 %19, 1
   %253 = shl i32 %252, %17
   %.in.in.i.i143.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1976
-  %.in29.i.i144.i.i = load i8, ptr %.in.in.i.i143.i.i, align 8, !tbaa !59
-  %.not3137.not.i.i145.i.i = icmp eq i8 %.in29.i.i144.i.i, 0
-  br i1 %.not3137.not.i.i145.i.i, label %is_virtual_boundary.exit153.i.i, label %.lr.ph.preheader.i.i146.i.i
+  %.in.i.i144.i.i = load i8, ptr %.in.in.i.i143.i.i, align 8, !tbaa !59
+  %.not3036.not.i.i145.i.i = icmp eq i8 %.in.i.i144.i.i, 0
+  br i1 %.not3036.not.i.i145.i.i, label %is_virtual_boundary.exit153.i.i, label %.lr.ph.preheader.i.i146.i.i
 
 .lr.ph.preheader.i.i146.i.i:                      ; preds = %.preheader.i.i142.i.i
-  %wide.trip.count.i.i147.i.i = zext i8 %.in29.i.i144.i.i to i64
+  %wide.trip.count.i.i147.i.i = zext i8 %.in.i.i144.i.i to i64
   br label %.lr.ph.i.i148.i.i
 
 .lr.ph.i.i148.i.i:                                ; preds = %260, %.lr.ph.preheader.i.i146.i.i

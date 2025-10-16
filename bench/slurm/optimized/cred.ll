@@ -323,8 +323,8 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 .preheader:                                       ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %27 = load i32, ptr %26, align 4
-  %.not51 = icmp eq i32 %27, 0
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.preheader
+  %.not50 = icmp eq i32 %27, 0
+  br i1 %.not50, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %27 to i64
@@ -332,10 +332,10 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %.03448 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %31 ]
+  %.03447 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %31 ]
   %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = add i32 %29, %.03448
+  %30 = add i32 %29, %.03447
   %.not41 = icmp ult i32 %30, %27
   br i1 %.not41, label %31, label %._crit_edge.loopexit.split.loop.exit
 
@@ -364,17 +364,17 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not42, label %38, label %44
 
 38:                                               ; preds = %._crit_edge
-  %.b43 = load i1, ptr @enable_nss_slurm, align 1
+  %.b = load i1, ptr @enable_nss_slurm, align 1
   %.b40 = load i1, ptr @enable_send_gids, align 1
   %not..b40 = xor i1 %.b40, true
-  %or.cond = select i1 %.b43, i1 true, i1 %not..b40
+  %or.cond = select i1 %.b, i1 true, i1 %not..b40
   br i1 %or.cond, label %39, label %43
 
 39:                                               ; preds = %38
-  %40 = tail call ptr @fetch_identity(i32 noundef %7, i32 noundef %10, i1 noundef zeroext %.b43) #11
+  %40 = tail call ptr @fetch_identity(i32 noundef %7, i32 noundef %10, i1 noundef zeroext %.b) #11
   store ptr %40, ptr %36, align 8
-  %.not44 = icmp eq ptr %40, null
-  br i1 %.not44, label %41, label %44
+  %.not43 = icmp eq ptr %40, null
+  br i1 %.not43, label %41, label %44
 
 41:                                               ; preds = %39
   %42 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.slurm_cred_create) #11
@@ -394,8 +394,8 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %36, align 8
-  %.not46 = icmp eq ptr %49, null
-  br i1 %.not46, label %51, label %50
+  %.not45 = icmp eq ptr %49, null
+  br i1 %.not45, label %51, label %50
 
 50:                                               ; preds = %48
   call void @destroy_identity(ptr noundef nonnull %49) #11

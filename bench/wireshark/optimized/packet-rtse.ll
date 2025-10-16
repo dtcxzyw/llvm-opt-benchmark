@@ -660,8 +660,8 @@ define internal i32 @dissect_rtse_T_open(i1 zeroext %0, ptr noundef %1, i32 noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rtse_SessionConnectionIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %.b7 = load i1, ptr @open_request, align 1
-  br i1 %.b7, label %7, label %12
+  %.b = load i1, ptr @open_request, align 1
+  br i1 %.b, label %7, label %12
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -748,10 +748,10 @@ define internal i32 @dissect_rtse_T_t61String(i1 noundef zeroext %0, ptr noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_restricted_string(i1 noundef zeroext %0, i32 noundef 20, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
-  %.b9 = load i1, ptr @open_request, align 1
+  %.b = load i1, ptr @open_request, align 1
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %or.cond = select i1 %.b9, i1 %10, i1 false
+  %or.cond = select i1 %.b, i1 %10, i1 false
   br i1 %or.cond, label %11, label %20
 
 11:                                               ; preds = %6
@@ -777,10 +777,10 @@ define internal i32 @dissect_rtse_T_octetString(i1 noundef zeroext %0, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
-  %.b9 = load i1, ptr @open_request, align 1
+  %.b = load i1, ptr @open_request, align 1
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %or.cond = select i1 %.b9, i1 %10, i1 false
+  %or.cond = select i1 %.b, i1 %10, i1 false
   br i1 %or.cond, label %11, label %20
 
 11:                                               ; preds = %6

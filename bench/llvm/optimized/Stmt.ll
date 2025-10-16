@@ -470,8 +470,8 @@ define dso_local noundef ptr @_ZNK5clang4Stmt16getStmtClassNameEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef %0) unnamed_addr #2 {
-  %.b2 = load i1, ptr @_ZZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassEE11Initialized, align 1
-  br i1 %.b2, label %3, label %2
+  %.b = load i1, ptr @_ZZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassEE11Initialized, align 1
+  br i1 %.b, label %3, label %2
 
 2:                                                ; preds = %1
   store i1 true, ptr @_ZZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassEE11Initialized, align 1

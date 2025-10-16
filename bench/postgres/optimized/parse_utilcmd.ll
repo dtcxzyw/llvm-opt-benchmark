@@ -6188,24 +6188,24 @@ declare ptr @makeTypeNameFromOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = zext i1 %4 to i8
   %10 = tail call ptr @list_copy(ptr noundef %3) #7
-  %.not140 = icmp eq ptr %10, null
-  br i1 %.not140, label %.critedge.thread, label %.lr.ph
+  %.not139 = icmp eq ptr %10, null
+  br i1 %.not139, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %38
-  %.0145 = phi ptr [ %.1, %38 ], [ %10, %8 ]
-  %.0101144 = phi ptr [ %.1102, %38 ], [ null, %8 ]
-  %.0103143 = phi ptr [ %.1104, %38 ], [ null, %8 ]
-  %.sroa.012.0142 = phi ptr [ %.sroa.012.1, %38 ], [ %10, %8 ]
-  %.sroa.8.0141 = phi i32 [ %39, %38 ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.012.0142, i64 4
+  %.0144 = phi ptr [ %.1, %38 ], [ %10, %8 ]
+  %.0101143 = phi ptr [ %.1102, %38 ], [ null, %8 ]
+  %.0103142 = phi ptr [ %.1104, %38 ], [ null, %8 ]
+  %.sroa.012.0141 = phi ptr [ %.sroa.012.1, %38 ], [ %10, %8 ]
+  %.sroa.8.0140 = phi i32 [ %39, %38 ], [ 0, %8 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.012.0141, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = icmp slt i32 %.sroa.8.0141, %12
+  %13 = icmp slt i32 %.sroa.8.0140, %12
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.0142, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.0141, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = sext i32 %.sroa.8.0141 to i64
+  %17 = sext i32 %.sroa.8.0140 to i64
   %18 = getelementptr inbounds %union.ListCell, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -6215,15 +6215,15 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br i1 %23, label %24, label %27
 
 .critedge:                                        ; preds = %.lr.ph, %38
-  %.0103.lcssa = phi ptr [ %.0103143, %.lr.ph ], [ %.1104, %38 ]
-  %.0101.lcssa = phi ptr [ %.0101144, %.lr.ph ], [ %.1102, %38 ]
-  %.0.lcssa = phi ptr [ %.0145, %.lr.ph ], [ %.1, %38 ]
+  %.0103.lcssa = phi ptr [ %.0103142, %.lr.ph ], [ %.1104, %38 ]
+  %.0101.lcssa = phi ptr [ %.0101143, %.lr.ph ], [ %.1102, %38 ]
+  %.0.lcssa = phi ptr [ %.0144, %.lr.ph ], [ %.1, %38 ]
   %.not120 = icmp eq ptr %.0101.lcssa, null
   br i1 %.not120, label %.critedge.thread, label %40
 
 24:                                               ; preds = %14
-  %.not132 = icmp eq ptr %.0101144, null
-  br i1 %.not132, label %.sink.split, label %25
+  %.not131 = icmp eq ptr %.0101143, null
+  br i1 %.not131, label %.sink.split, label %25
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %0, align 8
@@ -6241,8 +6241,8 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %30, %27
-  %.not131 = icmp eq ptr %.0103143, null
-  br i1 %.not131, label %.sink.split, label %34
+  %.not130 = icmp eq ptr %.0103142, null
+  br i1 %.not130, label %.sink.split, label %34
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
@@ -6250,18 +6250,18 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   unreachable
 
 .sink.split:                                      ; preds = %33, %24
-  %.1104.ph = phi ptr [ %.0103143, %24 ], [ %19, %33 ]
-  %.1102.ph = phi ptr [ %19, %24 ], [ %.0101144, %33 ]
-  %36 = add i32 %.sroa.8.0141, -1
-  %37 = tail call ptr @list_delete_nth_cell(ptr noundef %.0145, i32 noundef %.sroa.8.0141) #7
+  %.1104.ph = phi ptr [ %.0103142, %24 ], [ %19, %33 ]
+  %.1102.ph = phi ptr [ %19, %24 ], [ %.0101143, %33 ]
+  %36 = add i32 %.sroa.8.0140, -1
+  %37 = tail call ptr @list_delete_nth_cell(ptr noundef %.0144, i32 noundef %.sroa.8.0140) #7
   br label %38
 
 38:                                               ; preds = %.sink.split, %30
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0141, %30 ], [ %36, %.sink.split ]
-  %.sroa.012.1 = phi ptr [ %.sroa.012.0142, %30 ], [ %37, %.sink.split ]
-  %.1104 = phi ptr [ %.0103143, %30 ], [ %.1104.ph, %.sink.split ]
-  %.1102 = phi ptr [ %.0101144, %30 ], [ %.1102.ph, %.sink.split ]
-  %.1 = phi ptr [ %.0145, %30 ], [ %37, %.sink.split ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0140, %30 ], [ %36, %.sink.split ]
+  %.sroa.012.1 = phi ptr [ %.sroa.012.0141, %30 ], [ %37, %.sink.split ]
+  %.1104 = phi ptr [ %.0103142, %30 ], [ %.1104.ph, %.sink.split ]
+  %.1102 = phi ptr [ %.0101143, %30 ], [ %.1102.ph, %.sink.split ]
+  %.1 = phi ptr [ %.0144, %30 ], [ %37, %.sink.split ]
   %39 = add i32 %.sroa.8.1, 1
   %.not = icmp eq ptr %.sroa.012.1, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
@@ -6306,8 +6306,8 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br label %84
 
 .critedge.thread:                                 ; preds = %8, %.critedge
-  %.0.lcssa168 = phi ptr [ %.0.lcssa, %.critedge ], [ null, %8 ]
-  %.0103.lcssa166 = phi ptr [ %.0103.lcssa, %.critedge ], [ null, %8 ]
+  %.0.lcssa167 = phi ptr [ %.0.lcssa, %.critedge ], [ null, %8 ]
+  %.0103.lcssa165 = phi ptr [ %.0103.lcssa, %.critedge ], [ null, %8 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not121 = icmp eq ptr %64, null
@@ -6341,8 +6341,8 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br label %84
 
 84:                                               ; preds = %75, %60
-  %.0.lcssa167 = phi ptr [ %.0.lcssa, %60 ], [ %.0.lcssa168, %75 ]
-  %.0103.lcssa165 = phi ptr [ %.0103.lcssa, %60 ], [ %.0103.lcssa166, %75 ]
+  %.0.lcssa166 = phi ptr [ %.0.lcssa, %60 ], [ %.0.lcssa167, %75 ]
+  %.0103.lcssa164 = phi ptr [ %.0103.lcssa, %60 ], [ %.0103.lcssa165, %75 ]
   %.0109 = phi ptr [ %62, %60 ], [ %83, %75 ]
   %.1108 = phi ptr [ %.0107, %60 ], [ %76, %75 ]
   %85 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #7
@@ -6381,12 +6381,12 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
 
 107:                                              ; preds = %103, %99
   %.in.in = phi ptr [ %102, %99 ], [ %106, %103 ]
-  %.in125 = load i8, ptr %.in.in, align 1
-  %.not126 = icmp eq ptr %.0103.lcssa165, null
-  br i1 %.not126, label %123, label %108
+  %.in = load i8, ptr %.in.in, align 1
+  %.not125 = icmp eq ptr %.0103.lcssa164, null
+  br i1 %.not125, label %123, label %108
 
 108:                                              ; preds = %107
-  %109 = icmp eq i8 %.in125, 116
+  %109 = icmp eq i8 %.in, 116
   br i1 %109, label %110, label %118
 
 110:                                              ; preds = %108
@@ -6394,14 +6394,14 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   %112 = tail call i32 @errcode(i32 noundef 101056644) #7
   %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.128) #7
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.0103.lcssa165, i64 36
+  %115 = getelementptr inbounds nuw i8, ptr %.0103.lcssa164, i64 36
   %116 = load i32, ptr %115, align 4
   %117 = tail call i32 @parser_errposition(ptr noundef %114, i32 noundef %116) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 505, ptr noundef nonnull @__func__.generateSerialExtraStmts) #7
   unreachable
 
 118:                                              ; preds = %108
-  %119 = getelementptr inbounds nuw i8, ptr %.0103.lcssa165, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.0103.lcssa164, i64 16
   %120 = load ptr, ptr %119, align 8
   %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(7) @.str.124) #9
   %122 = icmp eq i32 %121, 0
@@ -6409,7 +6409,7 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br label %123
 
 123:                                              ; preds = %118, %107
-  %.0110 = phi i8 [ %.in125, %107 ], [ %., %118 ]
+  %.0110 = phi i8 [ %.in, %107 ], [ %., %118 ]
   %124 = tail call noundef ptr @palloc0(i64 noundef 32) #7
   store i32 188, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 28
@@ -6420,9 +6420,9 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 33
   store i8 %.0110, ptr %128, align 1
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store ptr %.0.lcssa167, ptr %129, align 8
-  %.not127 = icmp eq i32 %2, 0
-  br i1 %.not127, label %135, label %130
+  store ptr %.0.lcssa166, ptr %129, align 8
+  %.not126 = icmp eq i32 %2, 0
+  br i1 %.not126, label %135, label %130
 
 130:                                              ; preds = %123
   %131 = tail call ptr @makeTypeNameFromOid(i32 noundef %2, i32 noundef -1) #7
@@ -6434,8 +6434,8 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
 
 135:                                              ; preds = %130, %123
   %136 = load ptr, ptr %97, align 8
-  %.not128 = icmp eq ptr %136, null
-  br i1 %.not128, label %142, label %137
+  %.not127 = icmp eq ptr %136, null
+  br i1 %.not127, label %142, label %137
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 56
@@ -6492,16 +6492,16 @@ define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captur
   br label %173
 
 173:                                              ; preds = %169, %166
-  %.not129 = icmp eq ptr %6, null
-  br i1 %.not129, label %175, label %174
+  %.not128 = icmp eq ptr %6, null
+  br i1 %.not128, label %175, label %174
 
 174:                                              ; preds = %173
   store ptr %.1108, ptr %6, align 8
   br label %175
 
 175:                                              ; preds = %174, %173
-  %.not130 = icmp eq ptr %7, null
-  br i1 %.not130, label %177, label %176
+  %.not129 = icmp eq ptr %7, null
+  br i1 %.not129, label %177, label %176
 
 176:                                              ; preds = %175
   store ptr %.0109, ptr %7, align 8

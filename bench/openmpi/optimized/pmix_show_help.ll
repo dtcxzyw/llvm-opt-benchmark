@@ -155,17 +155,17 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   %36 = load i64, ptr @show_help_time_last_displayed, align 8, !tbaa !32
   %37 = add nsw i64 %36, 5
   %38 = icmp sle i64 %3, %37
-  %.b14 = load i1, ptr @show_help_timer_set, align 1
-  %or.cond = select i1 %38, i1 true, i1 %.b14
+  %.b = load i1, ptr @show_help_timer_set, align 1
+  %or.cond = select i1 %38, i1 true, i1 %.b
   br i1 %or.cond, label %40, label %39
 
 39:                                               ; preds = %32
   tail call void @pmix_show_accumulated_duplicates(i32 poison, i16 signext poison, ptr poison)
-  %.b1215.pr = load i1, ptr @show_help_timer_set, align 1
-  br i1 %.b1215.pr, label %58, label %41
+  %.b12.pr = load i1, ptr @show_help_timer_set, align 1
+  br i1 %.b12.pr, label %58, label %41
 
 40:                                               ; preds = %32
-  br i1 %.b14, label %58, label %41
+  br i1 %.b, label %58, label %41
 
 41:                                               ; preds = %39, %40
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8, !tbaa !33
@@ -192,8 +192,8 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
   %54 = add i64 %53, 1
   store volatile i64 %54, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
-  %.b1113 = load i1, ptr @show_help_timer_set, align 1
-  br i1 %.b1113, label %58, label %55
+  %.b11 = load i1, ptr @show_help_timer_set, align 1
+  br i1 %.b11, label %58, label %55
 
 55:                                               ; preds = %.loopexit
   store i64 %3, ptr @show_help_time_last_displayed, align 8, !tbaa !32
@@ -205,8 +205,8 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   br label %58
 
 58:                                               ; preds = %39, %41, %40, %.loopexit, %55, %56
-  %.017.i19 = phi i32 [ 0, %41 ], [ 0, %40 ], [ -46, %.loopexit ], [ -46, %55 ], [ -29, %56 ], [ 0, %39 ]
-  ret i32 %.017.i19
+  %.017.i16 = phi i32 [ 0, %41 ], [ 0, %40 ], [ -46, %.loopexit ], [ -46, %55 ], [ -29, %56 ], [ 0, %39 ]
+  ret i32 %.017.i16
 }
 
 ; Function Attrs: nounwind

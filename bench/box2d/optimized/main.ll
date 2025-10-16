@@ -1261,15 +1261,15 @@ define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, do
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(248) %12, <2 x float> %11)
-  %.b16 = load i1, ptr @_ZL16s_rightMouseDown, align 1
-  br i1 %.b16, label %16, label %24
+  %.b = load i1, ptr @_ZL16s_rightMouseDown, align 1
+  br i1 %.b, label %16, label %24
 
 16:                                               ; preds = %3
   %.sroa.02.0.copyload = load <2 x float>, ptr @_ZL14s_clickPointWS.0, align 8
   %foldExtExtBinop = fsub <2 x float> %11, %.sroa.02.0.copyload
   %17 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop18 = fsub <2 x float> %11, %.sroa.02.0.copyload
-  %18 = extractelement <2 x float> %foldExtExtBinop18, i64 1
+  %foldExtExtBinop17 = fsub <2 x float> %11, %.sroa.02.0.copyload
+  %18 = extractelement <2 x float> %foldExtExtBinop17, i64 1
   %19 = load float, ptr @g_camera, align 4, !tbaa !92
   %20 = fsub float %19, %17
   store float %20, ptr @g_camera, align 4, !tbaa !92

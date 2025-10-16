@@ -3152,8 +3152,8 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %.b37 = load i1, ptr @powersave_wait_called, align 1
-  br i1 %.b37, label %50, label %2
+  %.b = load i1, ptr @powersave_wait_called, align 1
+  br i1 %.b, label %50, label %2
 
 2:                                                ; preds = %0
   store i1 true, ptr @powersave_wait_called, align 1
@@ -3173,20 +3173,20 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %6, %25
-  %.02646 = phi i64 [ %7, %6 ], [ %26, %25 ]
-  %.02745 = phi i1 [ true, %6 ], [ false, %25 ]
+  %.02645 = phi i64 [ %7, %6 ], [ %26, %25 ]
+  %.02744 = phi i1 [ true, %6 ], [ false, %25 ]
   %10 = load i32, ptr @powersave_script_count, align 4
-  %.not38 = icmp eq i32 %10, 0
-  br i1 %.not38, label %28, label %11
+  %.not37 = icmp eq i32 %10, 0
+  br i1 %.not37, label %28, label %11
 
 11:                                               ; preds = %9
-  br i1 %.02745, label %12, label %19
+  br i1 %.02744, label %12, label %19
 
 12:                                               ; preds = %11
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %14 = and i64 %13, 72057594037927936
-  %.not44 = icmp eq i64 %14, 0
-  br i1 %.not44, label %19, label %15
+  %.not43 = icmp eq i64 %14, 0
+  br i1 %.not43, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = call i32 @get_log_level() #13
@@ -3198,7 +3198,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %12, %18, %15, %11
-  %20 = add nsw i64 %.02646, 2
+  %20 = add nsw i64 %.02645, 2
   store i64 %20, ptr %1, align 8
   %21 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @powersave_script_cond, ptr noundef nonnull @powersave_script_count_mutex, ptr noundef nonnull %1) #13
   switch i32 %21, label %22 [
@@ -3219,8 +3219,8 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 
 28:                                               ; preds = %25, %9
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #13
-  %.not39 = icmp eq i32 %29, 0
-  br i1 %.not39, label %32, label %30
+  %.not38 = icmp eq i32 %29, 0
+  br i1 %.not38, label %32, label %30
 
 30:                                               ; preds = %28
   %31 = tail call ptr @__errno_location() #14
@@ -3230,14 +3230,14 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 
 32:                                               ; preds = %28
   call void @run_command_shutdown() #13
-  %.not40 = icmp eq i32 %10, 0
-  br i1 %.not40, label %50, label %33
+  %.not39 = icmp eq i32 %10, 0
+  br i1 %.not39, label %50, label %33
 
 33:                                               ; preds = %32
   %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, i32 noundef %10) #13
   %35 = call i32 @pthread_mutex_lock(ptr noundef nonnull @powersave_script_count_mutex) #13
-  %.not41 = icmp eq i32 %35, 0
-  br i1 %.not41, label %.preheader, label %36
+  %.not40 = icmp eq i32 %35, 0
+  br i1 %.not40, label %.preheader, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @__errno_location() #14
@@ -3263,13 +3263,13 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 
 44:                                               ; preds = %.preheader, %.preheader, %41
   %45 = load i32, ptr @powersave_script_count, align 4
-  %.not42 = icmp eq i32 %45, 0
-  br i1 %.not42, label %46, label %.preheader, !llvm.loop !22
+  %.not41 = icmp eq i32 %45, 0
+  br i1 %.not41, label %46, label %.preheader, !llvm.loop !22
 
 46:                                               ; preds = %44
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #13
-  %.not43 = icmp eq i32 %47, 0
-  br i1 %.not43, label %50, label %48
+  %.not42 = icmp eq i32 %47, 0
+  br i1 %.not42, label %50, label %48
 
 48:                                               ; preds = %46
   %49 = tail call ptr @__errno_location() #14
@@ -3625,14 +3625,14 @@ _respond_to_slurmctld.exit.i.i:                   ; preds = %150, %149
   %159 = add nsw i32 %158, -1
   store i32 %159, ptr @powersave_script_count, align 4
   %160 = icmp eq i32 %159, 0
-  %.b44.i.i = load i1, ptr @powersave_wait_called, align 1
-  %or.cond.i.i = select i1 %160, i1 %.b44.i.i, i1 false
+  %.b.i.i = load i1, ptr @powersave_wait_called, align 1
+  %or.cond.i.i = select i1 %160, i1 %.b.i.i, i1 false
   br i1 %or.cond.i.i, label %161, label %166
 
 161:                                              ; preds = %157
   %162 = call i32 @pthread_cond_signal(ptr noundef nonnull @powersave_script_cond) #13
-  %.not45.i.i = icmp eq i32 %162, 0
-  br i1 %.not45.i.i, label %166, label %163
+  %.not44.i.i = icmp eq i32 %162, 0
+  br i1 %.not44.i.i, label %166, label %163
 
 163:                                              ; preds = %161
   %164 = tail call ptr @__errno_location() #14
@@ -3642,8 +3642,8 @@ _respond_to_slurmctld.exit.i.i:                   ; preds = %150, %149
 
 166:                                              ; preds = %163, %161, %157
   %167 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #13
-  %.not46.i.i = icmp eq i32 %167, 0
-  br i1 %.not46.i.i, label %_handle_run_script.exit.i, label %168
+  %.not45.i.i = icmp eq i32 %167, 0
+  br i1 %.not45.i.i, label %_handle_run_script.exit.i, label %168
 
 168:                                              ; preds = %166
   %169 = tail call ptr @__errno_location() #14
@@ -3839,14 +3839,14 @@ _notify_script_done.exit.i.i:                     ; preds = %213, %171
   %263 = add nsw i32 %262, -1
   store i32 %263, ptr @script_count, align 4
   %264 = icmp eq i32 %263, 0
-  %.b9.i.i.i = load i1, ptr @shutting_down, align 1
-  %or.cond.i.i.i = select i1 %264, i1 %.b9.i.i.i, i1 false
+  %.b.i.i.i = load i1, ptr @shutting_down, align 1
+  %or.cond.i.i.i = select i1 %264, i1 %.b.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %265, label %270
 
 265:                                              ; preds = %261
   %266 = call i32 @pthread_cond_signal(ptr noundef nonnull @script_count_cond) #13
-  %.not10.i.i.i = icmp eq i32 %266, 0
-  br i1 %.not10.i.i.i, label %270, label %267
+  %.not9.i.i.i = icmp eq i32 %266, 0
+  br i1 %.not9.i.i.i, label %270, label %267
 
 267:                                              ; preds = %265
   %268 = tail call ptr @__errno_location() #14
@@ -3856,8 +3856,8 @@ _notify_script_done.exit.i.i:                     ; preds = %213, %171
 
 270:                                              ; preds = %267, %265, %261
   %271 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @script_count_mutex) #13
-  %.not11.i.i.i = icmp eq i32 %271, 0
-  br i1 %.not11.i.i.i, label %_handle_request.exit, label %272
+  %.not10.i.i.i = icmp eq i32 %271, 0
+  br i1 %.not10.i.i.i, label %_handle_request.exit, label %272
 
 272:                                              ; preds = %270
   %273 = tail call ptr @__errno_location() #14

@@ -5754,7 +5754,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
 57:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %58 = call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
-  switch i8 %58, label %default.unreachable88 [
+  switch i8 %58, label %default.unreachable87 [
     i8 0, label %66
     i8 1, label %69
     i8 2, label %74
@@ -5787,7 +5787,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   %.not74 = icmp eq ptr %65, null
   br i1 %.not74, label %118, label %116
 
-default.unreachable88:                            ; preds = %57
+default.unreachable87:                            ; preds = %57
   unreachable
 
 66:                                               ; preds = %57

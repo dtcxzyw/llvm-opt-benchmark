@@ -14750,7 +14750,7 @@ _ZN4llvm8DIEValueC2ERKS0_.exit.thread16:          ; preds = %_ZnwIN4llvm15Malloc
 
 _ZN4llvm8DIEValueC2ERKS0_.exit.thread19:          ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.03.0.copyload.i.i48 = load ptr, ptr %41, align 8, !tbaa !600
+  %.sroa.03.0.copyload.i.i = load ptr, ptr %41, align 8, !tbaa !600
   %42 = ptrtoint ptr %.0.i.i.i to i64
   %43 = or disjoint i64 %42, 4
   store i64 %43, ptr %.0.i.i.i, align 8
@@ -14761,12 +14761,12 @@ _ZN4llvm8DIEValueC2ERKS0_.exit.thread19:          ; preds = %_ZnwIN4llvm15Malloc
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 14
   store i16 %26, ptr %46, align 2, !tbaa !493
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store ptr %.sroa.03.0.copyload.i.i48, ptr %47, align 8, !tbaa !600
+  store ptr %.sroa.03.0.copyload.i.i, ptr %47, align 8, !tbaa !600
   br label %_ZN4llvm12DIEValueList4NodeC2ENS_8DIEValueE.exit
 
 _ZN4llvm8DIEValueC2ERKS0_.exit.thread22:          ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.02.0.copyload.i.i47 = load ptr, ptr %48, align 8, !tbaa !361
+  %.sroa.02.0.copyload.i.i = load ptr, ptr %48, align 8, !tbaa !361
   %49 = ptrtoint ptr %.0.i.i.i to i64
   %50 = or disjoint i64 %49, 4
   store i64 %50, ptr %.0.i.i.i, align 8
@@ -14777,7 +14777,7 @@ _ZN4llvm8DIEValueC2ERKS0_.exit.thread22:          ; preds = %_ZnwIN4llvm15Malloc
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 14
   store i16 %26, ptr %53, align 2, !tbaa !493
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store ptr %.sroa.02.0.copyload.i.i47, ptr %54, align 8, !tbaa !361
+  store ptr %.sroa.02.0.copyload.i.i, ptr %54, align 8, !tbaa !361
   br label %_ZN4llvm12DIEValueList4NodeC2ENS_8DIEValueE.exit
 
 _ZN4llvm8DIEValueC2ERKS0_.exit.thread25:          ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
@@ -14814,7 +14814,7 @@ _ZN4llvm8DIEValueC2ERKS0_.exit.thread28:          ; preds = %_ZnwIN4llvm15Malloc
 
 _ZN4llvm8DIEValueC2ERKS0_.exit.thread31:          ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.01.0.copyload.i.i46 = load ptr, ptr %71, align 8, !tbaa !544
+  %.sroa.01.0.copyload.i.i = load ptr, ptr %71, align 8, !tbaa !544
   %72 = ptrtoint ptr %.0.i.i.i to i64
   %73 = or disjoint i64 %72, 4
   store i64 %73, ptr %.0.i.i.i, align 8
@@ -14825,7 +14825,7 @@ _ZN4llvm8DIEValueC2ERKS0_.exit.thread31:          ; preds = %_ZnwIN4llvm15Malloc
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 14
   store i16 %26, ptr %76, align 2, !tbaa !493
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store ptr %.sroa.01.0.copyload.i.i46, ptr %77, align 8, !tbaa !544
+  store ptr %.sroa.01.0.copyload.i.i, ptr %77, align 8, !tbaa !544
   br label %_ZN4llvm12DIEValueList4NodeC2ENS_8DIEValueE.exit
 
 _ZN4llvm8DIEValueC2ERKS0_.exit.thread34:          ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit

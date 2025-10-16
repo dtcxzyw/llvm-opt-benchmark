@@ -1883,9 +1883,9 @@ cmp_address.exit.thread:                          ; preds = %21, %15, %13, %5, %
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 390
   %.in.in.i = select i1 %41, ptr %42, ptr %43
-  %.in39.i = load i16, ptr %.in.in.i, align 2
+  %.in.i = load i16, ptr %.in.in.i, align 2
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i16 %.in39.i, ptr %44, align 8
+  store i16 %.in.i, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 -1, ptr %45, align 4
   %46 = tail call ptr @wmem_file_scope()
@@ -1894,10 +1894,10 @@ cmp_address.exit.thread:                          ; preds = %21, %15, %13, %5, %
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 100
   store i32 -1, ptr %49, align 4
-  %.in.in40.i = select i1 %41, ptr %43, ptr %42
-  %.in41.i = load i16, ptr %.in.in40.i, align 2
+  %.in39.in.i = select i1 %41, ptr %43, ptr %42
+  %.in39.i = load i16, ptr %.in39.in.i, align 2
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 104
-  store i16 %.in41.i, ptr %50, align 8
+  store i16 %.in39.i, ptr %50, align 8
   %51 = tail call ptr @wmem_file_scope()
   %52 = tail call noalias ptr @wmem_tree_new(ptr noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 144

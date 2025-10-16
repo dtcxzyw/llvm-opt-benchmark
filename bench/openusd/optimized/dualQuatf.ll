@@ -433,14 +433,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationE
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 8
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %1, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.6.0.copyload.i.i7 = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
+  %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 0
   %4 = fmul float %.sroa.0.0.vec.extract.i.i, 5.000000e-01
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %4, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 1
   %5 = fmul float %.sroa.0.4.vec.extract.i.i, 5.000000e-01
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %5, i64 1
-  %6 = fmul float %.sroa.6.0.copyload.i.i7, 5.000000e-01
+  %6 = fmul float %.sroa.6.0.copyload.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %3, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8

@@ -28149,9 +28149,9 @@ define void @"_ZN143_$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..ty
   unreachable
 
 13:                                               ; preds = %6
-  %.val.i3.i = load i8, ptr %4, align 1, !alias.scope !4572, !noalias !4577
+  %.val.i.i = load i8, ptr %4, align 1, !alias.scope !4572, !noalias !4577
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.val.i3.i, ptr %14, align 1
+  store i8 %.val.i.i, ptr %14, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -28293,9 +28293,9 @@ define void @"_ZN137_$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..ty
   unreachable
 
 13:                                               ; preds = %6
-  %.val.i3.i = load i8, ptr %4, align 1, !alias.scope !4586, !noalias !4591
+  %.val.i.i = load i8, ptr %4, align 1, !alias.scope !4586, !noalias !4591
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.val.i3.i, ptr %14, align 1
+  store i8 %.val.i.i, ptr %14, align 1
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -28437,9 +28437,9 @@ define void @"_ZN137_$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..ty
   unreachable
 
 13:                                               ; preds = %6
-  %.val.i3.i = load i8, ptr %4, align 1, !alias.scope !4600, !noalias !4605
+  %.val.i.i = load i8, ptr %4, align 1, !alias.scope !4600, !noalias !4605
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.val.i3.i, ptr %14, align 1
+  store i8 %.val.i.i, ptr %14, align 1
   store i8 0, ptr %0, align 8
   ret void
 }

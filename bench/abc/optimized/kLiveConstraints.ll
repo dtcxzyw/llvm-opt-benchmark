@@ -79,8 +79,8 @@ define noalias noundef ptr @collectCSSignals(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !23
   %7 = getelementptr i8, ptr %1, i64 112
-  %.val1834 = load i32, ptr %7, align 8, !tbaa !29
-  %8 = icmp sgt i32 %.val1834, 0
+  %.val1832 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = icmp sgt i32 %.val1832, 0
   br i1 %8, label %.lr.ph, label %.Vec_PtrGrow.exit11_crit_edge.i25
 
 .lr.ph:                                           ; preds = %2
@@ -92,7 +92,7 @@ define noalias noundef ptr @collectCSSignals(ptr noundef readonly captures(none)
   %12 = phi i32 [ 8, %.lr.ph ], [ %60, %59 ]
   %13 = phi i32 [ 0, %.lr.ph ], [ %61, %59 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.01635 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
+  %.01633 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
   %14 = load ptr, ptr %9, align 8, !tbaa !30
   %15 = getelementptr i8, ptr %14, i64 8
   %.val = load ptr, ptr %15, align 8, !tbaa !23
@@ -110,7 +110,7 @@ define noalias noundef ptr @collectCSSignals(ptr noundef readonly captures(none)
 
 23:                                               ; preds = %11
   %24 = getelementptr i8, ptr %17, i64 8
-  %.val2132 = load ptr, ptr %24, align 8, !tbaa !43
+  %.val21 = load ptr, ptr %24, align 8, !tbaa !43
   %25 = icmp eq i32 %13, %12
   br i1 %25, label %26, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -170,7 +170,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %48, ptr %4, align 4, !tbaa !3
   %49 = sext i32 %13 to i64
   %50 = getelementptr inbounds ptr, ptr %47, i64 %49
-  store ptr %.val2132, ptr %50, align 8, !tbaa !24
+  store ptr %.val21, ptr %50, align 8, !tbaa !24
   br label %59
 
 51:                                               ; preds = %11
@@ -186,13 +186,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 57:                                               ; preds = %51
   %58 = getelementptr i8, ptr %17, i64 8
-  %.val2233 = load ptr, ptr %58, align 8, !tbaa !43
+  %.val22 = load ptr, ptr %58, align 8, !tbaa !43
   br label %59
 
 59:                                               ; preds = %Vec_PtrPush.exit, %57, %51
   %60 = phi i32 [ %46, %Vec_PtrPush.exit ], [ %12, %57 ], [ %12, %51 ]
   %61 = phi i32 [ %48, %Vec_PtrPush.exit ], [ %13, %57 ], [ %13, %51 ]
-  %.1 = phi ptr [ %.01635, %Vec_PtrPush.exit ], [ %.val2233, %57 ], [ %.01635, %51 ]
+  %.1 = phi ptr [ %.01633, %Vec_PtrPush.exit ], [ %.val22, %57 ], [ %.01633, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val18 = load i32, ptr %7, align 8, !tbaa !29
   %62 = sext i32 %.val18 to i64
@@ -204,7 +204,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %64, label %66, label %.Vec_PtrGrow.exit11_crit_edge.i25
 
 .Vec_PtrGrow.exit11_crit_edge.i25:                ; preds = %2, %.critedge
-  %.016.lcssa45 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
+  %.016.lcssa43 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
   %65 = phi i32 [ %61, %.critedge ], [ 0, %2 ]
   %.pre.i27 = load ptr, ptr %6, align 8, !tbaa !23
   br label %Vec_PtrPush.exit31
@@ -255,14 +255,14 @@ Vec_PtrGrow.exit.i30:                             ; preds = %72, %70
   br label %Vec_PtrPush.exit31
 
 Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i25, %Vec_PtrGrow.exit.i30, %84
-  %.016.lcssa44 = phi ptr [ %.016.lcssa45, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %84 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
+  %.016.lcssa42 = phi ptr [ %.016.lcssa43, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %84 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
   %86 = phi i32 [ %65, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %61, %84 ], [ %61, %Vec_PtrGrow.exit.i30 ]
   %87 = phi ptr [ %.pre.i27, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %85, %84 ], [ %74, %Vec_PtrGrow.exit.i30 ]
   %88 = add nsw i32 %86, 1
   store i32 %88, ptr %4, align 4, !tbaa !3
   %89 = sext i32 %86 to i64
   %90 = getelementptr inbounds ptr, ptr %87, i64 %89
-  store ptr %.016.lcssa44, ptr %90, align 8, !tbaa !24
+  store ptr %.016.lcssa42, ptr %90, align 8, !tbaa !24
   ret ptr %3
 }
 

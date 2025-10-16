@@ -734,8 +734,8 @@ define dso_local zeroext i16 @slurm_get_track_wckey() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @slurm_with_slurmdbd() local_unnamed_addr #1 {
-  %.b2 = load i1, ptr @slurm_with_slurmdbd.is_set, align 1
-  br i1 %.b2, label %7, label %1
+  %.b = load i1, ptr @slurm_with_slurmdbd.is_set, align 1
+  br i1 %.b, label %7, label %1
 
 1:                                                ; preds = %0
   %2 = tail call ptr @slurm_conf_lock() #19
@@ -1561,8 +1561,8 @@ declare i32 @auth_g_verify(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_global_auth_key() unnamed_addr #1 {
-  %.b5 = load i1, ptr @_global_auth_key.loaded_storage_pass, align 1
-  br i1 %.b5, label %21, label %1
+  %.b = load i1, ptr @_global_auth_key.loaded_storage_pass, align 1
+  br i1 %.b, label %21, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @slurmdbd_conf, align 8
@@ -1571,8 +1571,8 @@ define internal fastcc ptr @_global_auth_key() unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
-  %.not7 = icmp eq ptr %4, null
-  br i1 %.not7, label %20, label %5
+  %.not6 = icmp eq ptr %4, null
+  br i1 %.not6, label %20, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) @_global_auth_key.storage_pass, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 512) #19
@@ -1591,8 +1591,8 @@ define internal fastcc ptr @_global_auth_key() unnamed_addr #1 {
   %11 = tail call ptr @slurm_conf_lock() #19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %.not6 = icmp eq ptr %13, null
-  br i1 %.not6, label %19, label %14
+  %.not5 = icmp eq ptr %13, null
+  br i1 %.not5, label %19, label %14
 
 14:                                               ; preds = %10
   %15 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) @_global_auth_key.storage_pass, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 512) #19

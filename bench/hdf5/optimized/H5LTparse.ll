@@ -118,7 +118,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %.0245, i64 %.0242
   %13 = getelementptr inbounds i8, ptr %12, i64 -1
   %.not = icmp ugt ptr %13, %.0248
-  br i1 %.not, label %.thread343, label %14
+  br i1 %.not, label %.thread340, label %14
 
 14:                                               ; preds = %10
   %15 = ptrtoint ptr %.0248 to i64
@@ -157,9 +157,9 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   %35 = add nsw i64 %spec.store.select, -1
   %.not300 = icmp sgt i64 %35, %17
-  br i1 %.not300, label %.thread343, label %.loopexit.thread
+  br i1 %.not300, label %.thread340, label %.loopexit.thread
 
-.thread343:                                       ; preds = %31, %10
+.thread340:                                       ; preds = %31, %10
   %.2260 = phi ptr [ %.0258, %10 ], [ %34, %31 ]
   %.1255 = phi ptr [ %.0254, %10 ], [ %28, %31 ]
   %.2250 = phi ptr [ %.0248, %10 ], [ %32, %31 ]
@@ -168,7 +168,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %36 = icmp eq i32 %.0238, 73
   br i1 %36, label %.loopexit, label %37
 
-37:                                               ; preds = %.thread343
+37:                                               ; preds = %.thread340
   %38 = zext nneg i32 %.0238 to i64
   %39 = getelementptr inbounds nuw i16, ptr @yypact, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !8
@@ -1110,8 +1110,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 607:                                              ; preds = %584, %594, %560
   %608 = getelementptr inbounds i8, ptr %.2260, i64 -16
   %609 = load ptr, ptr %608, align 8, !tbaa !7
-  %.not322 = icmp eq ptr %609, null
-  br i1 %.not322, label %611, label %610
+  %.not319 = icmp eq ptr %609, null
+  br i1 %.not319, label %611, label %610
 
 610:                                              ; preds = %607
   call void @free(ptr noundef nonnull %609) #10
@@ -1507,8 +1507,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 850:                                              ; preds = %78
   %851 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %852 = load i64, ptr %851, align 8, !tbaa !7
-  %.b321 = load i1, ptr @is_variable, align 1
-  br i1 %.b321, label %853, label %855
+  %.b = load i1, ptr @is_variable, align 1
+  br i1 %.b, label %853, label %855
 
 853:                                              ; preds = %850
   %854 = call i32 @H5Tset_size(i64 noundef %852, i64 noundef -1) #10
@@ -1622,9 +1622,9 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %903 = call i64 @H5Tget_native_type(i64 noundef %902, i32 noundef 1) #10
   %904 = call i32 @H5Tget_order(i64 noundef %902) #10
   %905 = call i32 @H5Tget_order(i64 noundef %903) #10
-  %.b296303 = load i1, ptr @is_enum, align 1
-  %.b297304 = load i1, ptr @is_enum_memb, align 1
-  %or.cond5 = select i1 %.b296303, i1 %.b297304, i1 false
+  %.b296 = load i1, ptr @is_enum, align 1
+  %.b297 = load i1, ptr @is_enum_memb, align 1
+  %or.cond5 = select i1 %.b296, i1 %.b297, i1 false
   br i1 %or.cond5, label %906, label %1028
 
 906:                                              ; preds = %896
@@ -1642,8 +1642,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 914:                                              ; preds = %906, %912
   %915 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
   %916 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %915) #10
-  %.not305 = icmp eq i32 %916, 0
-  br i1 %.not305, label %917, label %928
+  %.not303 = icmp eq i32 %916, 0
+  br i1 %.not303, label %917, label %928
 
 917:                                              ; preds = %914
   %918 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1660,12 +1660,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 925:                                              ; preds = %917, %923
   %926 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !15
   %927 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %926) #10
-  %.not306 = icmp eq i32 %927, 0
-  br i1 %.not306, label %929, label %928
+  %.not304 = icmp eq i32 %927, 0
+  br i1 %.not304, label %929, label %928
 
 928:                                              ; preds = %925, %914
-  %.not319 = icmp eq i32 %904, %905
-  br i1 %.not319, label %.sink.split, label %.sink.split.sink.split
+  %.not317 = icmp eq i32 %904, %905
+  br i1 %.not317, label %.sink.split, label %.sink.split.sink.split
 
 929:                                              ; preds = %925
   %930 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1682,8 +1682,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 937:                                              ; preds = %929, %935
   %938 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !15
   %939 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %938) #10
-  %.not307 = icmp eq i32 %939, 0
-  br i1 %.not307, label %940, label %951
+  %.not305 = icmp eq i32 %939, 0
+  br i1 %.not305, label %940, label %951
 
 940:                                              ; preds = %937
   %941 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1700,12 +1700,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 948:                                              ; preds = %940, %946
   %949 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !15
   %950 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %949) #10
-  %.not308 = icmp eq i32 %950, 0
-  br i1 %.not308, label %952, label %951
+  %.not306 = icmp eq i32 %950, 0
+  br i1 %.not306, label %952, label %951
 
 951:                                              ; preds = %948, %937
-  %.not318 = icmp eq i32 %904, %905
-  br i1 %.not318, label %.sink.split, label %.sink.split.sink.split
+  %.not316 = icmp eq i32 %904, %905
+  br i1 %.not316, label %.sink.split, label %.sink.split.sink.split
 
 952:                                              ; preds = %948
   %953 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1722,8 +1722,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 960:                                              ; preds = %952, %958
   %961 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !15
   %962 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %961) #10
-  %.not309 = icmp eq i32 %962, 0
-  br i1 %.not309, label %963, label %974
+  %.not307 = icmp eq i32 %962, 0
+  br i1 %.not307, label %963, label %974
 
 963:                                              ; preds = %960
   %964 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1740,12 +1740,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 971:                                              ; preds = %963, %969
   %972 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !15
   %973 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %972) #10
-  %.not310 = icmp eq i32 %973, 0
-  br i1 %.not310, label %975, label %974
+  %.not308 = icmp eq i32 %973, 0
+  br i1 %.not308, label %975, label %974
 
 974:                                              ; preds = %971, %960
-  %.not317 = icmp eq i32 %904, %905
-  br i1 %.not317, label %.sink.split, label %.sink.split.sink.split
+  %.not315 = icmp eq i32 %904, %905
+  br i1 %.not315, label %.sink.split, label %.sink.split.sink.split
 
 975:                                              ; preds = %971
   %976 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1762,8 +1762,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 983:                                              ; preds = %975, %981
   %984 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !15
   %985 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %984) #10
-  %.not311 = icmp eq i32 %985, 0
-  br i1 %.not311, label %986, label %997
+  %.not309 = icmp eq i32 %985, 0
+  br i1 %.not309, label %986, label %997
 
 986:                                              ; preds = %983
   %987 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1780,12 +1780,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 994:                                              ; preds = %986, %992
   %995 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !15
   %996 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %995) #10
-  %.not312 = icmp eq i32 %996, 0
-  br i1 %.not312, label %998, label %997
+  %.not310 = icmp eq i32 %996, 0
+  br i1 %.not310, label %998, label %997
 
 997:                                              ; preds = %994, %983
-  %.not316 = icmp eq i32 %904, %905
-  br i1 %.not316, label %.sink.split, label %.sink.split.sink.split
+  %.not314 = icmp eq i32 %904, %905
+  br i1 %.not314, label %.sink.split, label %.sink.split.sink.split
 
 998:                                              ; preds = %994
   %999 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1802,8 +1802,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 1006:                                             ; preds = %998, %1004
   %1007 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !15
   %1008 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %1007) #10
-  %.not313 = icmp eq i32 %1008, 0
-  br i1 %.not313, label %1009, label %1020
+  %.not311 = icmp eq i32 %1008, 0
+  br i1 %.not311, label %1009, label %1020
 
 1009:                                             ; preds = %1006
   %1010 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
@@ -1820,12 +1820,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 1017:                                             ; preds = %1009, %1015
   %1018 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !15
   %1019 = call i32 @H5Tequal(i64 noundef %903, i64 noundef %1018) #10
-  %.not314 = icmp eq i32 %1019, 0
-  br i1 %.not314, label %1025, label %1020
+  %.not312 = icmp eq i32 %1019, 0
+  br i1 %.not312, label %1025, label %1020
 
 1020:                                             ; preds = %1017, %1006
-  %.not315 = icmp eq i32 %904, %905
-  br i1 %.not315, label %.sink.split, label %.sink.split.sink.split
+  %.not313 = icmp eq i32 %904, %905
+  br i1 %.not313, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %1020, %997, %974, %951, %928
   %.sink = phi ptr [ %3, %928 ], [ %4, %951 ], [ %5, %974 ], [ %6, %997 ], [ %7, %1020 ]
@@ -1833,17 +1833,17 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %1020, %997, %974, %951, %928
-  %.sink415 = phi ptr [ %3, %928 ], [ %4, %951 ], [ %5, %974 ], [ %6, %997 ], [ %7, %1020 ], [ %.sink, %.sink.split.sink.split ]
+  %.sink412 = phi ptr [ %3, %928 ], [ %4, %951 ], [ %5, %974 ], [ %6, %997 ], [ %7, %1020 ], [ %.sink, %.sink.split.sink.split ]
   %1022 = load i64, ptr @enum_id, align 8, !tbaa !15
   %1023 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
-  %1024 = call i32 @H5Tenum_insert(i64 noundef %1022, ptr noundef %1023, ptr noundef nonnull %.sink415) #10
+  %1024 = call i32 @H5Tenum_insert(i64 noundef %1022, ptr noundef %1023, ptr noundef nonnull %.sink412) #10
   br label %1025
 
 1025:                                             ; preds = %.sink.split, %1017
   store i1 false, ptr @is_enum_memb, align 1
   %1026 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
-  %.not320 = icmp eq ptr %1026, null
-  br i1 %.not320, label %1028, label %1027
+  %.not318 = icmp eq ptr %1026, null
+  br i1 %.not318, label %1028, label %1027
 
 1027:                                             ; preds = %1025
   call void @free(ptr noundef nonnull %1026) #10
@@ -1911,20 +1911,20 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %1062 = call i32 @H5LTyyerror(ptr noundef nonnull @.str.3) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread343, %54, %1057, %1061
-  %.0267 = phi i64 [ 2, %1061 ], [ 1, %1057 ], [ 1, %54 ], [ 0, %.thread343 ]
-  %.5 = phi ptr [ %.0245, %1061 ], [ %.1246, %1057 ], [ %.1246, %54 ], [ %.1246, %.thread343 ]
-  %.not326 = icmp eq ptr %.5, %1
-  br i1 %.not326, label %1063, label %.loopexit.thread
+.loopexit:                                        ; preds = %.thread340, %54, %1057, %1061
+  %.0267 = phi i64 [ 2, %1061 ], [ 1, %1057 ], [ 1, %54 ], [ 0, %.thread340 ]
+  %.5 = phi ptr [ %.0245, %1061 ], [ %.1246, %1057 ], [ %.1246, %54 ], [ %.1246, %.thread340 ]
+  %.not323 = icmp eq ptr %.5, %1
+  br i1 %.not323, label %1063, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %31, %.loopexit
-  %.5405 = phi ptr [ %.5, %.loopexit ], [ %24, %31 ]
-  %.0267404 = phi i64 [ %.0267, %.loopexit ], [ 1, %31 ]
-  call void @free(ptr noundef %.5405) #10
+  %.5402 = phi ptr [ %.5, %.loopexit ], [ %24, %31 ]
+  %.0267401 = phi i64 [ %.0267, %.loopexit ], [ 1, %31 ]
+  call void @free(ptr noundef %.5402) #10
   br label %1063
 
 1063:                                             ; preds = %.loopexit, %.loopexit.thread, %86
-  %.0 = phi i64 [ %87, %86 ], [ %.0267404, %.loopexit.thread ], [ %.0267, %.loopexit ]
+  %.0 = phi i64 [ %87, %86 ], [ %.0267401, %.loopexit.thread ], [ %.0267, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0

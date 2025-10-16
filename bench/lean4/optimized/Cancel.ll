@@ -32673,8 +32673,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %11
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_Test_Cancel(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -32703,29 +32703,29 @@ define ptr @initialize_Lean_Server_Test_Cancel(i8 noundef zeroext %0, ptr nounde
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @l_Lean_Server_Test_Cancel_initFn____x40_Lean_Server_Test_Cancel___hyg_4_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i21 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i21, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i20 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i20, 16777216
   br i1 %20, label %484, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = getelementptr i8, ptr %18, i64 8
-  %.val19 = load ptr, ptr %22, align 8, !tbaa !9
-  store ptr %.val19, ptr @l_Lean_Server_Test_Cancel_onceRef, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val19) #6
+  %.val18 = load ptr, ptr %22, align 8, !tbaa !9
+  store ptr %.val18, ptr @l_Lean_Server_Test_Cancel_onceRef, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val18) #6
   %23 = load i32, ptr %18, align 8, !tbaa !4
   %24 = icmp sgt i32 %23, 1
   br i1 %24, label %25, label %27, !prof !11
@@ -32733,17 +32733,17 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 25:                                               ; preds = %21
   %26 = add nsw i32 %23, -1
   store i32 %26, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 27:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %23, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %28
+  %.not.i12 = icmp eq i32 %23, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %28
 
 28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %25, %27, %28
+lean_dec_ref.exit13:                              ; preds = %25, %27, %28
   %29 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #6
   store ptr %29, ptr @l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %29) #6
@@ -32776,11 +32776,11 @@ lean_dec_ref.exit14:                              ; preds = %25, %27, %28
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %_init_l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once___closed__8.exit
 
-44:                                               ; preds = %lean_dec_ref.exit14
+44:                                               ; preds = %lean_dec_ref.exit13
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once___closed__8.exit: ; preds = %lean_dec_ref.exit14
+_init_l_Lean_Server_Test_Cancel_tacticWait__for__cancel__once___closed__8.exit: ; preds = %lean_dec_ref.exit13
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 0, ptr %46, align 8, !tbaa !12
@@ -33301,16 +33301,16 @@ _init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules
   tail call void @lean_mark_persistent(ptr noundef %245) #6
   %246 = tail call ptr @l_Lean_Server_Test_Cancel_initFn____x40_Lean_Server_Test_Cancel___hyg_616_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %247 = getelementptr i8, ptr %246, i64 4
-  %.val18 = load i32, ptr %247, align 4
-  %.mask.i22 = and i32 %.val18, -16777216
-  %248 = icmp eq i32 %.mask.i22, 16777216
+  %.val17 = load i32, ptr %247, align 4
+  %.mask.i21 = and i32 %.val17, -16777216
+  %248 = icmp eq i32 %.mask.i21, 16777216
   br i1 %248, label %484, label %249
 
 249:                                              ; preds = %_init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules__Lean__Server__Test__Cancel__tacticWait__for__cancel__once__1___lambda__2___closed__33.exit
   %250 = getelementptr i8, ptr %246, i64 8
-  %.val20 = load ptr, ptr %250, align 8, !tbaa !9
-  store ptr %.val20, ptr @l_Lean_Server_Test_Cancel_unblockedCancelTk, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val20) #6
+  %.val19 = load ptr, ptr %250, align 8, !tbaa !9
+  store ptr %.val19, ptr @l_Lean_Server_Test_Cancel_unblockedCancelTk, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val19) #6
   %251 = load i32, ptr %246, align 8, !tbaa !4
   %252 = icmp sgt i32 %251, 1
   br i1 %252, label %253, label %255, !prof !11
@@ -33841,18 +33841,18 @@ _init_l_Lean_Server_Test_Cancel_tacticWait__for__main__cancel__once__async___clo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_Test_Cancel_tacticWait__for__main__cancel__once__async___closed__5.exit, %3
-  %.sink68 = phi ptr [ %4, %3 ], [ %478, %_init_l_Lean_Server_Test_Cancel_tacticWait__for__main__cancel__once__async___closed__5.exit ]
-  %481 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
-  store i32 1, ptr %.sink68, align 4, !tbaa !4
+  %.sink67 = phi ptr [ %4, %3 ], [ %478, %_init_l_Lean_Server_Test_Cancel_tacticWait__for__main__cancel__once__async___closed__5.exit ]
+  %481 = getelementptr inbounds nuw i8, ptr %.sink67, i64 4
+  store i32 1, ptr %.sink67, align 4, !tbaa !4
   store i32 131096, ptr %481, align 4
-  %482 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
+  %482 = getelementptr inbounds nuw i8, ptr %.sink67, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %482, align 8, !tbaa !9
-  %483 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
+  %483 = getelementptr inbounds nuw i8, ptr %.sink67, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %483, align 8, !tbaa !9
   br label %484
 
-484:                                              ; preds = %.sink.split, %_init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules__Lean__Server__Test__Cancel__tacticWait__for__cancel__once__1___lambda__2___closed__33.exit, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %246, %_init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules__Lean__Server__Test__Cancel__tacticWait__for__cancel__once__1___lambda__2___closed__33.exit ], [ %.sink68, %.sink.split ]
+484:                                              ; preds = %.sink.split, %_init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules__Lean__Server__Test__Cancel__tacticWait__for__cancel__once__1___lambda__2___closed__33.exit, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %246, %_init_l_Lean_Server_Test_Cancel___aux__Lean__Server__Test__Cancel______elabRules__Lean__Server__Test__Cancel__tacticWait__for__cancel__once__1___lambda__2___closed__33.exit ], [ %.sink67, %.sink.split ]
   ret ptr %.0
 }
 

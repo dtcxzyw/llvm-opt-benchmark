@@ -470,8 +470,8 @@ define dso_local ptr @dsm_create(i64 noundef %0, i32 noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr @dsm_main_space_begin, align 8
-  %.b72 = load i1, ptr @dsm_init_done, align 1
-  br i1 %.b72, label %6, label %5
+  %.b = load i1, ptr @dsm_init_done, align 1
+  br i1 %.b, label %6, label %5
 
 5:                                                ; preds = %2
   store i1 true, ptr @dsm_init_done, align 1
@@ -523,13 +523,13 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr null, ptr %23, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread83, label %24
+  br i1 %.not, label %.thread82, label %24
 
 24:                                               ; preds = %dsm_create_descriptor.exit
   %25 = lshr i64 %0, 12
   %26 = and i64 %0, 4095
-  %.not73 = icmp ne i64 %26, 0
-  %27 = zext i1 %.not73 to i64
+  %.not72 = icmp ne i64 %26, 0
+  %27 = zext i1 %.not72 to i64
   %spec.select = add nuw nsw i64 %25, %27
   %28 = load ptr, ptr @MainLWLockArray, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4352
@@ -553,16 +553,16 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %41 = load ptr, ptr @MainLWLockArray, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4352
   call void @LWLockRelease(ptr noundef nonnull %42) #11
-  br label %.thread83
+  br label %.thread82
 
-.thread83:                                        ; preds = %dsm_create_descriptor.exit, %40
-  %.066.ph85 = phi i64 [ %spec.select, %40 ], [ 0, %dsm_create_descriptor.exit ]
+.thread82:                                        ; preds = %dsm_create_descriptor.exit, %40
+  %.066.ph84 = phi i64 [ %spec.select, %40 ], [ 0, %dsm_create_descriptor.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 48
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.thread83
+.backedge:                                        ; preds = %.backedge.backedge, %.thread82
   %46 = call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #11
   %47 = shl i32 %46, 1
   store i32 %47, ptr %43, align 8
@@ -583,13 +583,13 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   br label %55
 
 55:                                               ; preds = %32, %51
-  %.082 = phi i1 [ false, %51 ], [ true, %32 ]
-  %.06680 = phi i64 [ %.066.ph85, %51 ], [ %spec.select, %32 ]
+  %.081 = phi i1 [ false, %51 ], [ true, %32 ]
+  %.06679 = phi i64 [ %.066.ph84, %51 ], [ %spec.select, %32 ]
   %56 = load ptr, ptr @dsm_control, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
-  %.not88 = icmp eq i32 %58, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph.preheader
+  %.not87 = icmp eq i32 %58, 0
+  br i1 %.not87, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %55
   %wide.trip.count = zext i32 %58 to i64
@@ -605,7 +605,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 63:                                               ; preds = %.lr.ph
   %64 = trunc nuw i64 %indvars.iv to i32
-  br i1 %.082, label %65, label %81
+  br i1 %.081, label %65, label %81
 
 65:                                               ; preds = %63
   %66 = shl i32 %64, 1
@@ -625,7 +625,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store i64 %77, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store i64 %.06680, ptr %80, align 8
+  store i64 %.06679, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %63, %65
@@ -658,15 +658,15 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %.067.lcssa = phi i64 [ 0, %55 ], [ %92, %._crit_edge.loopexit ]
   %93 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %94 = load i32, ptr %93, align 8
-  %.not74 = icmp ult i32 %58, %94
-  br i1 %.not74, label %121, label %95
+  %.not73 = icmp ult i32 %58, %94
+  br i1 %.not73, label %121, label %95
 
 95:                                               ; preds = %._crit_edge
-  br i1 %.082, label %96, label %.critedge
+  br i1 %.081, label %96, label %.critedge
 
 96:                                               ; preds = %95
   %97 = load i64, ptr %3, align 8
-  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %97, i64 noundef %.06680) #11
+  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %97, i64 noundef %.06679) #11
   %98 = load ptr, ptr @MainLWLockArray, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4352
   call void @LWLockRelease(ptr noundef nonnull %99) #11
@@ -685,8 +685,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 107:                                              ; preds = %96, %.critedge
   %108 = load ptr, ptr %20, align 8
-  %.not75 = icmp eq ptr %108, null
-  br i1 %.not75, label %111, label %109
+  %.not74 = icmp eq ptr %108, null
+  br i1 %.not74, label %111, label %109
 
 109:                                              ; preds = %107
   %110 = ptrtoint ptr %11 to i64
@@ -702,8 +702,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   store ptr %115, ptr %112, align 8
   call void @pfree(ptr noundef nonnull %11) #11
   %116 = and i32 %1, 1
-  %.not76 = icmp eq i32 %116, 0
-  br i1 %.not76, label %117, label %154
+  %.not75 = icmp eq i32 %116, 0
+  br i1 %.not75, label %117, label %154
 
 117:                                              ; preds = %111
   %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -713,7 +713,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   unreachable
 
 121:                                              ; preds = %._crit_edge
-  br i1 %.082, label %122, label %138
+  br i1 %.081, label %122, label %138
 
 122:                                              ; preds = %121
   %123 = shl i32 %58, 1
@@ -733,7 +733,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i64 %134, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store i64 %.06680, ptr %137, align 8
+  store i64 %.06679, ptr %137, align 8
   br label %138
 
 138:                                              ; preds = %122, %121
@@ -784,8 +784,8 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
-  %.b34 = load i1, ptr @dsm_init_done, align 1
-  br i1 %.b34, label %3, label %2
+  %.b = load i1, ptr @dsm_init_done, align 1
+  br i1 %.b, label %3, label %2
 
 2:                                                ; preds = %1
   store i1 true, ptr @dsm_init_done, align 1
@@ -794,13 +794,13 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1, %2
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
-  %.not354261 = icmp eq ptr %4, @dsm_segment_list
-  %.not3542 = or i1 %.not, %.not354261
-  br i1 %.not3542, label %select.unfold._crit_edge, label %.lr.ph
+  %.not344160 = icmp eq ptr %4, @dsm_segment_list
+  %.not3441 = or i1 %.not, %.not344160
+  br i1 %.not3441, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %select.unfold
-  %.sroa.0.043 = phi ptr [ %12, %select.unfold ], [ %4, %3 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 24
+  %.sroa.0.042 = phi ptr [ %12, %select.unfold ], [ %4, %3 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %select.unfold
@@ -812,10 +812,10 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 select.unfold:                                    ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not35 = icmp eq ptr %12, @dsm_segment_list
-  br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
+  %.not34 = icmp eq ptr %12, @dsm_segment_list
+  br i1 %.not34, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %3
   %13 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -870,16 +870,16 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %34 = load ptr, ptr @dsm_control, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
-  %.not47 = icmp eq i32 %36, 0
-  br i1 %.not47, label %.loopexit, label %.lr.ph46
+  %.not46 = icmp eq i32 %36, 0
+  br i1 %.not46, label %.loopexit, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %dsm_create_descriptor.exit
+.lr.ph45:                                         ; preds = %dsm_create_descriptor.exit
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %wide.trip.count = zext i32 %36 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph46, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %64 ]
+38:                                               ; preds = %.lr.ph45, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %64 ]
   %39 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %37, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -889,8 +889,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 43:                                               ; preds = %38
   %44 = load i32, ptr %39, align 8
   %45 = load i32, ptr %30, align 8
-  %.not36 = icmp eq i32 %44, %45
-  br i1 %.not36, label %46, label %64
+  %.not35 = icmp eq i32 %44, %45
+  br i1 %.not35, label %46, label %64
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -900,8 +900,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   store i32 %48, ptr %23, align 4
   %50 = load i32, ptr %30, align 8
   %51 = and i32 %50, 1
-  %.not37 = icmp eq i32 %51, 0
-  br i1 %.not37, label %.loopexit, label %52
+  %.not36 = icmp eq i32 %51, 0
+  br i1 %.not36, label %.loopexit, label %52
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @dsm_main_space_begin, align 8
@@ -939,8 +939,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 70:                                               ; preds = %.loopexit
   %71 = load i32, ptr %30, align 8
   %72 = and i32 %71, 1
-  %.not38 = icmp eq i32 %72, 0
-  br i1 %.not38, label %73, label %77
+  %.not37 = icmp eq i32 %72, 0
+  br i1 %.not37, label %73, label %77
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 40

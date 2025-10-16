@@ -377,7 +377,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %12 = tail call ptr @get_progname(ptr noundef %11) #15
   store ptr %12, ptr @progname, align 8
   %13 = icmp sgt i32 %0, 1
-  br i1 %13, label %14, label %.tail181.thread
+  br i1 %13, label %14, label %.tail176.thread
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -394,14 +394,14 @@ sub_0:                                            ; preds = %14
 sub_1:                                            ; preds = %sub_0
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %21 = load i8, ptr %20, align 1
-  %.not221 = icmp eq i8 %21, 63
-  br i1 %.not221, label %.tail, label %.tail.thread
+  %.not216 = icmp eq i8 %21, 63
+  br i1 %.not216, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %.thread266
+  br i1 %24, label %25, label %.thread261
 
 25:                                               ; preds = %.tail, %14
   tail call fastcc void @help()
@@ -411,42 +411,42 @@ sub_1:                                            ; preds = %sub_0
 .tail.thread:                                     ; preds = %sub_1
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.50) #16
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %37, label %sub_1183
+  br i1 %27, label %37, label %sub_1178
 
 .tail.thread.thread:                              ; preds = %sub_0
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.50) #16
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %37, label %.tail181.thread
+  br i1 %29, label %37, label %.tail176.thread
 
-.thread266:                                       ; preds = %.tail
+.thread261:                                       ; preds = %.tail
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.50) #16
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %37, label %sub_1183
+  br i1 %31, label %37, label %sub_1178
 
-sub_1183:                                         ; preds = %.tail.thread, %.thread266
+sub_1178:                                         ; preds = %.tail.thread, %.thread261
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %33 = load i8, ptr %32, align 1
-  %.not223 = icmp eq i8 %33, 86
-  br i1 %.not223, label %.tail181, label %.tail181.thread
+  %.not218 = icmp eq i8 %33, 86
+  br i1 %.not218, label %.tail176, label %.tail176.thread
 
-.tail181:                                         ; preds = %sub_1183
+.tail176:                                         ; preds = %sub_1178
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %.tail181.thread
+  br i1 %36, label %37, label %.tail176.thread
 
-37:                                               ; preds = %.tail.thread.thread, %.thread266, %.tail181, %.tail.thread
+37:                                               ; preds = %.tail.thread.thread, %.thread261, %.tail176, %.tail.thread
   %38 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.52)
   tail call void @exit(i32 noundef 0) #17
   unreachable
 
-.tail181.thread:                                  ; preds = %.tail.thread.thread, %sub_1183, %.tail181, %2
+.tail176.thread:                                  ; preds = %.tail.thread.thread, %sub_1178, %.tail176, %2
   %39 = load ptr, ptr %1, align 8
   %40 = tail call i32 @find_other_exec(ptr noundef %39, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @pg_dump_bin) #15
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %54
 
-42:                                               ; preds = %.tail181.thread
+42:                                               ; preds = %.tail176.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %43 = load ptr, ptr %1, align 8
   %44 = call i32 @find_my_exec(ptr noundef %43, ptr noundef nonnull %8) #15
@@ -473,7 +473,7 @@ sub_1183:                                         ; preds = %.tail.thread, %.thr
   call void @exit(i32 noundef 1) #18
   unreachable
 
-54:                                               ; preds = %.tail181.thread
+54:                                               ; preds = %.tail176.thread
   %55 = tail call ptr @createPQExpBuffer() #15
   store ptr %55, ptr @pgdumpopts, align 8
   br label %56
@@ -780,8 +780,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   %.not140 = icmp ne ptr %156, null
   %or.cond = or i1 %.0119, %.0117
   %or.cond3 = or i1 %or.cond, %.0115
-  %or.cond177 = and i1 %.not140, %or.cond3
-  br i1 %or.cond177, label %157, label %159
+  %or.cond172 = and i1 %.not140, %or.cond3
+  br i1 %or.cond172, label %157, label %159
 
 157:                                              ; preds = %155
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.75) #15
@@ -815,8 +815,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 165:                                              ; preds = %162
   %166 = load i32, ptr @if_exists, align 4
   %167 = icmp eq i32 %166, 0
-  %.b141 = load i1, ptr @output_clean, align 1
-  %or.cond9 = select i1 %167, i1 true, i1 %.b141
+  %.b = load i1, ptr @output_clean, align 1
+  %or.cond9 = select i1 %167, i1 true, i1 %.b
   br i1 %or.cond9, label %169, label %168
 
 168:                                              ; preds = %165
@@ -837,12 +837,12 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 172:                                              ; preds = %169
   %173 = load i32, ptr @no_role_passwords, align 4
-  %.not142 = icmp eq i32 %173, 0
-  %.str.82..str.81 = select i1 %.not142, ptr @.str.82, ptr @.str.81
+  %.not141 = icmp eq i32 %173, 0
+  %.str.82..str.81 = select i1 %.not141, ptr @.str.82, ptr @.str.81
   %174 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @role_catalog, ptr noundef nonnull @.str.80, ptr noundef nonnull %.str.82..str.81) #15
   %175 = load i32, ptr @binary_upgrade, align 4
-  %.not143 = icmp eq i32 %175, 0
-  br i1 %.not143, label %178, label %176
+  %.not142 = icmp eq i32 %175, 0
+  br i1 %.not142, label %178, label %176
 
 176:                                              ; preds = %172
   %177 = load ptr, ptr @pgdumpopts, align 8
@@ -851,8 +851,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 178:                                              ; preds = %176, %172
   %179 = load i32, ptr @column_inserts, align 4
-  %.not144 = icmp eq i32 %179, 0
-  br i1 %.not144, label %182, label %180
+  %.not143 = icmp eq i32 %179, 0
+  br i1 %.not143, label %182, label %180
 
 180:                                              ; preds = %178
   %181 = load ptr, ptr @pgdumpopts, align 8
@@ -861,8 +861,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 182:                                              ; preds = %180, %178
   %183 = load i32, ptr @disable_dollar_quoting, align 4
-  %.not145 = icmp eq i32 %183, 0
-  br i1 %.not145, label %186, label %184
+  %.not144 = icmp eq i32 %183, 0
+  br i1 %.not144, label %186, label %184
 
 184:                                              ; preds = %182
   %185 = load ptr, ptr @pgdumpopts, align 8
@@ -871,8 +871,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 186:                                              ; preds = %184, %182
   %187 = load i32, ptr @disable_triggers, align 4
-  %.not146 = icmp eq i32 %187, 0
-  br i1 %.not146, label %190, label %188
+  %.not145 = icmp eq i32 %187, 0
+  br i1 %.not145, label %190, label %188
 
 188:                                              ; preds = %186
   %189 = load ptr, ptr @pgdumpopts, align 8
@@ -881,8 +881,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 190:                                              ; preds = %188, %186
   %191 = load i32, ptr @inserts, align 4
-  %.not147 = icmp eq i32 %191, 0
-  br i1 %.not147, label %194, label %192
+  %.not146 = icmp eq i32 %191, 0
+  br i1 %.not146, label %194, label %192
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr @pgdumpopts, align 8
@@ -891,8 +891,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 194:                                              ; preds = %192, %190
   %195 = load i32, ptr @no_table_access_method, align 4
-  %.not148 = icmp eq i32 %195, 0
-  br i1 %.not148, label %198, label %196
+  %.not147 = icmp eq i32 %195, 0
+  br i1 %.not147, label %198, label %196
 
 196:                                              ; preds = %194
   %197 = load ptr, ptr @pgdumpopts, align 8
@@ -901,8 +901,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 198:                                              ; preds = %196, %194
   %199 = load i32, ptr @no_tablespaces, align 4
-  %.not149 = icmp eq i32 %199, 0
-  br i1 %.not149, label %202, label %200
+  %.not148 = icmp eq i32 %199, 0
+  br i1 %.not148, label %202, label %200
 
 200:                                              ; preds = %198
   %201 = load ptr, ptr @pgdumpopts, align 8
@@ -911,8 +911,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 202:                                              ; preds = %200, %198
   %203 = load i32, ptr @quote_all_identifiers, align 4
-  %.not150 = icmp eq i32 %203, 0
-  br i1 %.not150, label %206, label %204
+  %.not149 = icmp eq i32 %203, 0
+  br i1 %.not149, label %206, label %204
 
 204:                                              ; preds = %202
   %205 = load ptr, ptr @pgdumpopts, align 8
@@ -921,8 +921,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 206:                                              ; preds = %204, %202
   %207 = load i32, ptr @load_via_partition_root, align 4
-  %.not151 = icmp eq i32 %207, 0
-  br i1 %.not151, label %210, label %208
+  %.not150 = icmp eq i32 %207, 0
+  br i1 %.not150, label %210, label %208
 
 208:                                              ; preds = %206
   %209 = load ptr, ptr @pgdumpopts, align 8
@@ -931,8 +931,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 210:                                              ; preds = %208, %206
   %211 = load i32, ptr @use_setsessauth, align 4
-  %.not152 = icmp eq i32 %211, 0
-  br i1 %.not152, label %214, label %212
+  %.not151 = icmp eq i32 %211, 0
+  br i1 %.not151, label %214, label %212
 
 212:                                              ; preds = %210
   %213 = load ptr, ptr @pgdumpopts, align 8
@@ -941,8 +941,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 214:                                              ; preds = %212, %210
   %215 = load i32, ptr @no_comments, align 4
-  %.not153 = icmp eq i32 %215, 0
-  br i1 %.not153, label %218, label %216
+  %.not152 = icmp eq i32 %215, 0
+  br i1 %.not152, label %218, label %216
 
 216:                                              ; preds = %214
   %217 = load ptr, ptr @pgdumpopts, align 8
@@ -951,8 +951,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 218:                                              ; preds = %216, %214
   %219 = load i32, ptr @no_publications, align 4
-  %.not154 = icmp eq i32 %219, 0
-  br i1 %.not154, label %222, label %220
+  %.not153 = icmp eq i32 %219, 0
+  br i1 %.not153, label %222, label %220
 
 220:                                              ; preds = %218
   %221 = load ptr, ptr @pgdumpopts, align 8
@@ -961,8 +961,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 222:                                              ; preds = %220, %218
   %223 = load i32, ptr @no_security_labels, align 4
-  %.not155 = icmp eq i32 %223, 0
-  br i1 %.not155, label %226, label %224
+  %.not154 = icmp eq i32 %223, 0
+  br i1 %.not154, label %226, label %224
 
 224:                                              ; preds = %222
   %225 = load ptr, ptr @pgdumpopts, align 8
@@ -971,8 +971,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 226:                                              ; preds = %224, %222
   %227 = load i32, ptr @no_subscriptions, align 4
-  %.not156 = icmp eq i32 %227, 0
-  br i1 %.not156, label %230, label %228
+  %.not155 = icmp eq i32 %227, 0
+  br i1 %.not155, label %230, label %228
 
 228:                                              ; preds = %226
   %229 = load ptr, ptr @pgdumpopts, align 8
@@ -981,8 +981,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 230:                                              ; preds = %228, %226
   %231 = load i32, ptr @no_toast_compression, align 4
-  %.not157 = icmp eq i32 %231, 0
-  br i1 %.not157, label %234, label %232
+  %.not156 = icmp eq i32 %231, 0
+  br i1 %.not156, label %234, label %232
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr @pgdumpopts, align 8
@@ -991,8 +991,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 234:                                              ; preds = %232, %230
   %235 = load i32, ptr @no_unlogged_table_data, align 4
-  %.not158 = icmp eq i32 %235, 0
-  br i1 %.not158, label %238, label %236
+  %.not157 = icmp eq i32 %235, 0
+  br i1 %.not157, label %238, label %236
 
 236:                                              ; preds = %234
   %237 = load ptr, ptr @pgdumpopts, align 8
@@ -1001,8 +1001,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 238:                                              ; preds = %236, %234
   %239 = load i32, ptr @on_conflict_do_nothing, align 4
-  %.not159 = icmp eq i32 %239, 0
-  br i1 %.not159, label %242, label %240
+  %.not158 = icmp eq i32 %239, 0
+  br i1 %.not158, label %242, label %240
 
 240:                                              ; preds = %238
   %241 = load ptr, ptr @pgdumpopts, align 8
@@ -1010,14 +1010,14 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br label %242
 
 242:                                              ; preds = %240, %238
-  %.not160 = icmp eq ptr %.0111, null
+  %.not159 = icmp eq ptr %.0111, null
   %243 = load ptr, ptr @connstr, align 8
-  br i1 %.not160, label %247, label %244
+  br i1 %.not159, label %247, label %244
 
 244:                                              ; preds = %242
   %245 = call fastcc ptr @connectDatabase(ptr noundef nonnull %.0111, ptr noundef %243, ptr noundef %.0, ptr noundef %.0107, ptr noundef %.0109, i32 noundef %.0123, i1 noundef zeroext false)
-  %.not163 = icmp eq ptr %245, null
-  br i1 %.not163, label %246, label %.thread
+  %.not162 = icmp eq ptr %245, null
+  br i1 %.not162, label %246, label %.thread
 
 246:                                              ; preds = %244
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef nonnull %.0111) #15
@@ -1026,14 +1026,14 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 247:                                              ; preds = %242
   %248 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.101, ptr noundef %243, ptr noundef %.0, ptr noundef %.0107, ptr noundef %.0109, i32 noundef %.0123, i1 noundef zeroext false)
-  %.not161 = icmp eq ptr %248, null
-  br i1 %.not161, label %249, label %.thread
+  %.not160 = icmp eq ptr %248, null
+  br i1 %.not160, label %249, label %.thread
 
 249:                                              ; preds = %247
   %250 = load ptr, ptr @connstr, align 8
   %251 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.102, ptr noundef %250, ptr noundef %.0, ptr noundef %.0107, ptr noundef %.0109, i32 noundef %.0123, i1 noundef zeroext true)
-  %.not162 = icmp eq ptr %251, null
-  br i1 %.not162, label %252, label %.thread
+  %.not161 = icmp eq ptr %251, null
+  br i1 %.not161, label %252, label %.thread
 
 252:                                              ; preds = %249
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.103) #15
@@ -1046,14 +1046,14 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   %.0113 = phi ptr [ %245, %244 ], [ %251, %249 ], [ %248, %247 ]
   call fastcc void @expand_dbname_patterns(ptr noundef %.0113)
   %254 = load ptr, ptr @filename, align 8
-  %.not164 = icmp eq ptr %254, null
-  br i1 %.not164, label %259, label %255
+  %.not163 = icmp eq ptr %254, null
+  br i1 %.not163, label %259, label %255
 
 255:                                              ; preds = %.thread
   %256 = call noalias ptr @fopen(ptr noundef nonnull %254, ptr noundef nonnull @.str.104)
   store ptr %256, ptr @OPF, align 8
-  %.not165 = icmp eq ptr %256, null
-  br i1 %.not165, label %257, label %261
+  %.not164 = icmp eq ptr %256, null
+  br i1 %.not164, label %257, label %261
 
 257:                                              ; preds = %255
   %258 = load ptr, ptr @filename, align 8
@@ -1067,8 +1067,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br label %261
 
 261:                                              ; preds = %255, %259
-  %.not166 = icmp eq ptr %.0125, null
-  br i1 %.not166, label %266, label %262
+  %.not165 = icmp eq ptr %.0125, null
+  br i1 %.not165, label %266, label %262
 
 262:                                              ; preds = %261
   %263 = call i32 @PQsetClientEncoding(ptr noundef nonnull %.0113, ptr noundef nonnull %.0125) #15
@@ -1084,10 +1084,10 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   %267 = call i32 @PQclientEncoding(ptr noundef nonnull %.0113) #15
   call void @setFmtEncoding(i32 noundef %267) #15
   %268 = call ptr @PQparameterStatus(ptr noundef nonnull %.0113, ptr noundef nonnull @.str.107) #15
-  %.not167 = icmp eq ptr %268, null
-  %spec.store.select = select i1 %.not167, ptr @.str.108, ptr %268
-  %.not168 = icmp eq ptr %.0127, null
-  br i1 %.not168, label %273, label %269
+  %.not166 = icmp eq ptr %268, null
+  %spec.store.select = select i1 %.not166, ptr @.str.108, ptr %268
+  %.not167 = icmp eq ptr %.0127, null
+  br i1 %.not167, label %273, label %269
 
 269:                                              ; preds = %266
   %270 = call ptr @createPQExpBuffer() #15
@@ -1100,8 +1100,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 273:                                              ; preds = %269, %266
   %274 = load i32, ptr @quote_all_identifiers, align 4
-  %.not169 = icmp eq i32 %274, 0
-  br i1 %.not169, label %276, label %275
+  %.not168 = icmp eq i32 %274, 0
+  br i1 %.not168, label %276, label %275
 
 275:                                              ; preds = %273
   call fastcc void @executeCommand(ptr noundef %.0113, ptr noundef nonnull @.str.110)
@@ -1110,8 +1110,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 276:                                              ; preds = %275, %273
   %277 = load ptr, ptr @OPF, align 8
   %278 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %277, ptr noundef nonnull @.str.111) #15
-  %.b137170 = load i1, ptr @verbose, align 1
-  br i1 %.b137170, label %279, label %280
+  %.b137 = load i1, ptr @verbose, align 1
+  br i1 %.b137, label %279, label %280
 
 279:                                              ; preds = %276
   call fastcc void @dumpTimestamp(ptr noundef nonnull @.str.112)
@@ -1140,8 +1140,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br i1 %.0121, label %312, label %296
 
 296:                                              ; preds = %293
-  %.b135171 = load i1, ptr @output_clean, align 1
-  br i1 %.b135171, label %297, label %304
+  %.b135 = load i1, ptr @output_clean, align 1
+  br i1 %.b135, label %297, label %304
 
 297:                                              ; preds = %296
   br i1 %or.cond3, label %299, label %298
@@ -1161,22 +1161,22 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   br label %303
 
 303:                                              ; preds = %302, %299
-  br i1 %.0115, label %.critedge, label %.thread180
+  br i1 %.0115, label %.critedge, label %.thread175
 
-.thread180:                                       ; preds = %303
+.thread175:                                       ; preds = %303
   call fastcc void @dropRoles(ptr noundef %.0113)
   br label %305
 
 304:                                              ; preds = %296
   br i1 %.0115, label %.critedge, label %305
 
-305:                                              ; preds = %.thread180, %304
+305:                                              ; preds = %.thread175, %304
   call fastcc void @dumpRoles(ptr noundef %.0113)
   call fastcc void @dumpRoleMembership(ptr noundef %.0113)
   %306 = load i32, ptr @server_version, align 4
   %307 = icmp slt i32 %306, 150000
-  %.b138172 = load i1, ptr @skip_acls, align 1
-  %or.cond19 = select i1 %307, i1 true, i1 %.b138172
+  %.b138 = load i1, ptr @skip_acls, align 1
+  %or.cond19 = select i1 %307, i1 true, i1 %.b138
   br i1 %or.cond19, label %.critedge, label %308
 
 308:                                              ; preds = %305
@@ -1202,8 +1202,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 314:                                              ; preds = %313, %312
   call void @PQfinish(ptr noundef nonnull %.0113) #15
-  %.b136173 = load i1, ptr @verbose, align 1
-  br i1 %.b136173, label %315, label %316
+  %.b136 = load i1, ptr @verbose, align 1
+  br i1 %.b136, label %315, label %316
 
 315:                                              ; preds = %314
   call fastcc void @dumpTimestamp(ptr noundef nonnull @.str.118)
@@ -1213,8 +1213,8 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
   %317 = load ptr, ptr @OPF, align 8
   %318 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %317, ptr noundef nonnull @.str.119) #15
   %319 = load ptr, ptr @filename, align 8
-  %.not174 = icmp eq ptr %319, null
-  br i1 %.not174, label %326, label %320
+  %.not169 = icmp eq ptr %319, null
+  br i1 %.not169, label %326, label %320
 
 320:                                              ; preds = %316
   %321 = load ptr, ptr @OPF, align 8
@@ -3030,18 +3030,18 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %51
-  %.074 = phi i32 [ %55, %51 ], [ 0, %8 ]
+  %.073 = phi i32 [ %55, %51 ], [ 0, %8 ]
   %11 = tail call ptr @createPQExpBuffer() #15
-  %12 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 0) #15
+  %12 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 0) #15
   %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #15
   %14 = trunc i64 %13 to i32
-  %15 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 1) #15
-  %16 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 2) #15
-  %17 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 3) #15
-  %18 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 4) #15
-  %19 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 5) #15
-  %20 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 6) #15
-  %21 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 7) #15
+  %15 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 1) #15
+  %16 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 2) #15
+  %17 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 3) #15
+  %18 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 4) #15
+  %19 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 5) #15
+  %20 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 6) #15
+  %21 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.073, i32 noundef 7) #15
   %22 = tail call ptr @fmtId(ptr noundef %15) #15
   %23 = tail call ptr @pg_strdup(ptr noundef %22) #15
   %24 = load i32, ptr @binary_upgrade, align 4
@@ -3076,8 +3076,8 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   br label %33
 
 33:                                               ; preds = %32, %30, %26
-  %.b70 = load i1, ptr @skip_acls, align 1
-  br i1 %.b70, label %38, label %34
+  %.b = load i1, ptr @skip_acls, align 1
+  br i1 %.b, label %38, label %34
 
 34:                                               ; preds = %33
   %35 = load i32, ptr @server_version, align 4
@@ -3099,8 +3099,8 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
 
 42:                                               ; preds = %38
   %43 = load i8, ptr %21, align 1
-  %.not71 = icmp eq i8 %43, 0
-  br i1 %.not71, label %45, label %44
+  %.not70 = icmp eq i8 %43, 0
+  br i1 %.not70, label %45, label %44
 
 44:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %11, ptr noundef nonnull @.str.276, ptr noundef %23) #15
@@ -3110,8 +3110,8 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
 
 45:                                               ; preds = %44, %42, %38
   %46 = load i32, ptr @no_security_labels, align 4
-  %.not72 = icmp eq i32 %46, 0
-  br i1 %.not72, label %47, label %51
+  %.not71 = icmp eq i32 %46, 0
+  br i1 %.not71, label %47, label %51
 
 47:                                               ; preds = %45
   %48 = tail call ptr @createPQExpBuffer() #15
@@ -3129,7 +3129,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   %54 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %52, ptr noundef nonnull @.str.80, ptr noundef %53) #15
   tail call void @free(ptr noundef %23) #15
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %11) #15
-  %55 = add nuw nsw i32 %.074, 1
+  %55 = add nuw nsw i32 %.073, 1
   %56 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %57 = icmp slt i32 %55, %56
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !30
@@ -3161,8 +3161,8 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10, %53
-  %.026 = phi i32 [ %54, %53 ], [ 0, %10 ]
-  %13 = call ptr @PQgetvalue(ptr noundef nonnull %4, i32 noundef %.026, i32 noundef 0) #15
+  %.025 = phi i32 [ %54, %53 ], [ 0, %10 ]
+  %13 = call ptr @PQgetvalue(ptr noundef nonnull %4, i32 noundef %.025, i32 noundef 0) #15
   %14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.280) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %53, label %16
@@ -3189,8 +3189,8 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24, %19
-  %.b21 = load i1, ptr @output_clean, align 1
-  br i1 %.b21, label %31, label %28
+  %.b = load i1, ptr @output_clean, align 1
+  br i1 %.b, label %31, label %28
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr @OPF, align 8
@@ -3234,8 +3234,8 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   call void @termPQExpBuffer(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not22 = icmp eq i32 %45, 0
-  br i1 %.not22, label %47, label %46
+  %.not21 = icmp eq i32 %45, 0
+  br i1 %.not21, label %47, label %46
 
 46:                                               ; preds = %36
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.293, ptr noundef nonnull %13) #15
@@ -3244,14 +3244,14 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
 
 47:                                               ; preds = %36
   %48 = load ptr, ptr @filename, align 8
-  %.not23 = icmp eq ptr %48, null
-  br i1 %.not23, label %53, label %49
+  %.not22 = icmp eq ptr %48, null
+  br i1 %.not22, label %53, label %49
 
 49:                                               ; preds = %47
   %50 = call noalias ptr @fopen(ptr noundef nonnull %48, ptr noundef nonnull @.str.294)
   store ptr %50, ptr @OPF, align 8
-  %.not24 = icmp eq ptr %50, null
-  br i1 %.not24, label %51, label %53
+  %.not23 = icmp eq ptr %50, null
+  br i1 %.not23, label %51, label %53
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @filename, align 8
@@ -3260,7 +3260,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   unreachable
 
 53:                                               ; preds = %47, %49, %.lr.ph, %18
-  %54 = add nuw nsw i32 %.026, 1
+  %54 = add nuw nsw i32 %.025, 1
   %55 = call i32 @PQntuples(ptr noundef nonnull %4) #15
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !31

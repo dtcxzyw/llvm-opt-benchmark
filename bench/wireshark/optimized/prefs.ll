@@ -7715,8 +7715,8 @@ define void @prefs_reset() local_unnamed_addr #1 {
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 424), align 8
   tail call void @uat_unload_all()
   tail call void @oids_cleanup()
-  %.b1.i = load i1, ptr @prefs_initialized, align 1
-  br i1 %.b1.i, label %init_prefs.exit, label %2
+  %.b.i = load i1, ptr @prefs_initialized, align 1
+  br i1 %.b.i, label %init_prefs.exit, label %2
 
 2:                                                ; preds = %0
   tail call void @uat_load_all()
@@ -9780,8 +9780,8 @@ declare ptr @__errno_location() local_unnamed_addr #10
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef nonnull ptr @read_prefs() local_unnamed_addr #1 {
   tail call void @oids_cleanup()
-  %.b1.i = load i1, ptr @prefs_initialized, align 1
-  br i1 %.b1.i, label %init_prefs.exit, label %1
+  %.b.i = load i1, ptr @prefs_initialized, align 1
+  br i1 %.b.i, label %init_prefs.exit, label %1
 
 1:                                                ; preds = %0
   tail call void @uat_load_all()
@@ -11017,8 +11017,8 @@ define i32 @write_prefs(ptr noundef writeonly captures(address_is_null) %0) loca
   %3 = alloca %struct.write_gui_pref_arg_t, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.b1.i = load i1, ptr @prefs_initialized, align 1
-  br i1 %.b1.i, label %init_prefs.exit, label %5
+  %.b.i = load i1, ptr @prefs_initialized, align 1
+  br i1 %.b.i, label %init_prefs.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @uat_load_all()
@@ -13378,8 +13378,8 @@ define internal fastcc noundef zeroext i1 @deprecated_port_pref(ptr noundef read
   %5 = alloca %struct.find_pref_arg_t, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.b117 = load i1, ptr @deprecated_port_pref.sanity_checked, align 1
-  br i1 %.b117, label %.loopexit150.preheader, label %7
+  %.b = load i1, ptr @deprecated_port_pref.sanity_checked, align 1
+  br i1 %.b, label %.loopexit149.preheader, label %7
 
 7:                                                ; preds = %2
   store i1 true, ptr @deprecated_port_pref.sanity_checked, align 1
@@ -13434,8 +13434,8 @@ prefs_find_preference.exit:                       ; preds = %17, %27
   %.020.i.i = phi ptr [ %.pr.i.i, %27 ], [ %22, %17 ]
   %30 = load ptr, ptr %.020.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not118 = icmp eq ptr %30, null
-  br i1 %.not118, label %31, label %33
+  %.not117 = icmp eq ptr %30, null
+  br i1 %.not117, label %31, label %33
 
 31:                                               ; preds = %prefs_find_preference.exit.thread, %prefs_find_preference.exit
   %32 = load ptr, ptr %15, align 8
@@ -13445,8 +13445,8 @@ prefs_find_preference.exit:                       ; preds = %17, %27
 33:                                               ; preds = %prefs_find_preference.exit
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %35 = load i32, ptr %34, align 4
-  %.not119 = icmp eq i32 %35, 8192
-  br i1 %.not119, label %39, label %36
+  %.not118 = icmp eq i32 %35, 8192
+  br i1 %.not118, label %39, label %36
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %15, align 8
@@ -13457,25 +13457,25 @@ prefs_find_preference.exit:                       ; preds = %17, %27
 39:                                               ; preds = %33, %36, %31, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 59
-  br i1 %exitcond.not, label %.loopexit150.preheader, label %10, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit149.preheader, label %10, !llvm.loop !64
 
-.loopexit150.preheader:                           ; preds = %39, %2
-  br label %.loopexit150
+.loopexit149.preheader:                           ; preds = %39, %2
+  br label %.loopexit149
 
-40:                                               ; preds = %.loopexit150
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next170, 59
-  br i1 %exitcond172.not, label %.preheader149, label %.loopexit150, !llvm.loop !65
+40:                                               ; preds = %.loopexit149
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next169, 59
+  br i1 %exitcond171.not, label %.preheader148, label %.loopexit149, !llvm.loop !65
 
-.loopexit150:                                     ; preds = %.loopexit150.preheader, %40
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %40 ], [ 0, %.loopexit150.preheader ]
-  %41 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv169
+.loopexit149:                                     ; preds = %.loopexit149.preheader, %40
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %40 ], [ 0, %.loopexit149.preheader ]
+  %41 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv168
   %42 = load ptr, ptr %41, align 16
   %43 = call i32 @strcmp(ptr noundef %0, ptr noundef %42) #29
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %40
 
-45:                                               ; preds = %.loopexit150
+45:                                               ; preds = %.loopexit149
   %46 = call zeroext i1 @ws_basestrtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6, i32 noundef 10)
   br i1 %46, label %47, label %.loopexit
 
@@ -13488,7 +13488,7 @@ prefs_find_preference.exit:                       ; preds = %17, %27
   %53 = load ptr, ptr %52, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %54 = icmp eq ptr %51, null
-  br i1 %54, label %prefs_find_preference.exit133.thread, label %55
+  br i1 %54, label %prefs_find_preference.exit132.thread, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -13497,35 +13497,35 @@ prefs_find_preference.exit:                       ; preds = %17, %27
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %59, align 8
   %60 = icmp eq ptr %58, null
-  br i1 %60, label %61, label %prefs_find_preference.exit133
+  br i1 %60, label %61, label %prefs_find_preference.exit132
 
 61:                                               ; preds = %55
   store ptr null, ptr %4, align 8
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %63 = load ptr, ptr %62, align 8
-  %.not.i.i131 = icmp eq ptr %63, null
-  br i1 %.not.i.i131, label %prefs_find_preference.exit133.thread, label %64
+  %.not.i.i130 = icmp eq ptr %63, null
+  br i1 %.not.i.i130, label %prefs_find_preference.exit132.thread, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %53, ptr %65, align 8
   %66 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %63, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %4)
-  %.pr.i.i132 = load ptr, ptr %4, align 8
-  %67 = icmp eq ptr %.pr.i.i132, null
-  br i1 %67, label %prefs_find_preference.exit133.thread, label %prefs_find_preference.exit133
+  %.pr.i.i131 = load ptr, ptr %4, align 8
+  %67 = icmp eq ptr %.pr.i.i131, null
+  br i1 %67, label %prefs_find_preference.exit132.thread, label %prefs_find_preference.exit132
 
-prefs_find_preference.exit133.thread:             ; preds = %47, %64, %61
+prefs_find_preference.exit132.thread:             ; preds = %47, %64, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %thread-pre-split
 
-prefs_find_preference.exit133:                    ; preds = %55, %64
-  %.020.i.i129 = phi ptr [ %.pr.i.i132, %64 ], [ %58, %55 ]
-  %68 = load ptr, ptr %.020.i.i129, align 8
+prefs_find_preference.exit132:                    ; preds = %55, %64
+  %.020.i.i128 = phi ptr [ %.pr.i.i131, %64 ], [ %58, %55 ]
+  %68 = load ptr, ptr %.020.i.i128, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not124 = icmp eq ptr %68, null
-  br i1 %.not124, label %thread-pre-split, label %prefs_get_effect_flags.exit
+  %.not123 = icmp eq ptr %68, null
+  br i1 %.not123, label %thread-pre-split, label %prefs_get_effect_flags.exit
 
-prefs_get_effect_flags.exit:                      ; preds = %prefs_find_preference.exit133
+prefs_get_effect_flags.exit:                      ; preds = %prefs_find_preference.exit132
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 68
@@ -13547,26 +13547,26 @@ prefs_get_effect_flags.exit:                      ; preds = %prefs_find_preferen
   %83 = call zeroext i1 @range_add_value(ptr noundef %80, ptr noundef %82, i32 noundef %77)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %prefs_find_preference.exit133, %79, %prefs_find_preference.exit133.thread
+thread-pre-split:                                 ; preds = %prefs_find_preference.exit132, %79, %prefs_find_preference.exit132.thread
   %.pr = load i32, ptr %6, align 4
   br label %84
 
 84:                                               ; preds = %thread-pre-split, %prefs_get_effect_flags.exit
   %85 = phi i32 [ %.pr, %thread-pre-split ], [ %77, %prefs_get_effect_flags.exit ]
-  %.not125 = icmp eq i32 %85, 0
-  br i1 %.not125, label %.loopexit, label %86
+  %.not124 = icmp eq i32 %85, 0
+  br i1 %.not124, label %.loopexit, label %86
 
 86:                                               ; preds = %84
   %87 = call ptr @find_dissector_table(ptr noundef %53)
-  %.not126 = icmp eq ptr %87, null
-  br i1 %.not126, label %.loopexit, label %88
+  %.not125 = icmp eq ptr %87, null
+  br i1 %.not125, label %.loopexit, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %87, ptr noundef %90)
-  %.not127 = icmp eq ptr %91, null
-  br i1 %.not127, label %.loopexit, label %92
+  %.not126 = icmp eq ptr %91, null
+  br i1 %.not126, label %.loopexit, label %92
 
 92:                                               ; preds = %88
   %93 = load i32, ptr %6, align 4
@@ -13578,25 +13578,25 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
   call void @decode_build_reset_list(ptr noundef %53, i32 noundef %94, ptr noundef %97, ptr noundef null, ptr noundef null)
   br label %.loopexit
 
-98:                                               ; preds = %.preheader149
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next174, 51
-  br i1 %exitcond176.not, label %.preheader148, label %.preheader149, !llvm.loop !66
+98:                                               ; preds = %.preheader148
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond175.not = icmp eq i64 %indvars.iv.next173, 51
+  br i1 %exitcond175.not, label %.preheader147, label %.preheader148, !llvm.loop !66
 
-.preheader149:                                    ; preds = %40, %98
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %98 ], [ 0, %40 ]
-  %99 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_range_prefs, i64 %indvars.iv173
+.preheader148:                                    ; preds = %40, %98
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %98 ], [ 0, %40 ]
+  %99 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_range_prefs, i64 %indvars.iv172
   %100 = load ptr, ptr %99, align 16
   %101 = call i32 @strcmp(ptr noundef %0, ptr noundef %100) #29
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %98
 
-103:                                              ; preds = %.preheader149
+103:                                              ; preds = %.preheader148
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %105 = load ptr, ptr %104, align 16
   %106 = call ptr @find_dissector_table(ptr noundef %105)
-  %.not121 = icmp eq ptr %106, null
-  br i1 %.not121, label %.loopexit, label %107
+  %.not120 = icmp eq ptr %106, null
+  br i1 %.not120, label %.loopexit, label %107
 
 107:                                              ; preds = %103
   %108 = call i32 @dissector_table_get_type(ptr noundef nonnull %106)
@@ -13616,7 +13616,7 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
   %116 = call ptr @wmem_tree_lookup_string(ptr noundef %115, ptr noundef %114, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %prefs_find_preference.exit139.thread, label %118
+  br i1 %117, label %prefs_find_preference.exit138.thread, label %118
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 40
@@ -13625,35 +13625,35 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %122, align 8
   %123 = icmp eq ptr %121, null
-  br i1 %123, label %124, label %prefs_find_preference.exit139
+  br i1 %123, label %124, label %prefs_find_preference.exit138
 
 124:                                              ; preds = %118
   store ptr null, ptr %3, align 8
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 56
   %126 = load ptr, ptr %125, align 8
-  %.not.i.i137 = icmp eq ptr %126, null
-  br i1 %.not.i.i137, label %prefs_find_preference.exit139.thread, label %127
+  %.not.i.i136 = icmp eq ptr %126, null
+  br i1 %.not.i.i136, label %prefs_find_preference.exit138.thread, label %127
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %105, ptr %128, align 8
   %129 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %126, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %3)
-  %.pr.i.i138 = load ptr, ptr %3, align 8
-  %130 = icmp eq ptr %.pr.i.i138, null
-  br i1 %130, label %prefs_find_preference.exit139.thread, label %prefs_find_preference.exit139
+  %.pr.i.i137 = load ptr, ptr %3, align 8
+  %130 = icmp eq ptr %.pr.i.i137, null
+  br i1 %130, label %prefs_find_preference.exit138.thread, label %prefs_find_preference.exit138
 
-prefs_find_preference.exit139.thread:             ; preds = %112, %127, %124
+prefs_find_preference.exit138.thread:             ; preds = %112, %127, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-prefs_find_preference.exit139:                    ; preds = %118, %127
-  %.020.i.i135 = phi ptr [ %.pr.i.i138, %127 ], [ %121, %118 ]
-  %131 = load ptr, ptr %.020.i.i135, align 8
+prefs_find_preference.exit138:                    ; preds = %118, %127
+  %.020.i.i134 = phi ptr [ %.pr.i.i137, %127 ], [ %121, %118 ]
+  %131 = load ptr, ptr %.020.i.i134, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not122 = icmp eq ptr %131, null
-  br i1 %.not122, label %.loopexit, label %132
+  %.not121 = icmp eq ptr %131, null
+  br i1 %.not121, label %.loopexit, label %132
 
-132:                                              ; preds = %prefs_find_preference.exit139
+132:                                              ; preds = %prefs_find_preference.exit138
   %133 = getelementptr inbounds nuw i8, ptr %116, i64 68
   %134 = call zeroext i1 @prefs_set_range_value_work(ptr noundef nonnull %131, ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %133)
   br i1 %134, label %135, label %.loopexit
@@ -13662,84 +13662,84 @@ prefs_find_preference.exit139:                    ; preds = %118, %127
   %136 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %106, ptr noundef %137)
-  %.not123 = icmp eq ptr %138, null
-  br i1 %.not123, label %.loopexit, label %.preheader
+  %.not122 = icmp eq ptr %138, null
+  br i1 %.not122, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %140, align 8
   %142 = load i32, ptr %141, align 4
-  %.not161 = icmp eq i32 %142, 0
-  br i1 %.not161, label %.loopexit, label %.lr.ph160
+  %.not160 = icmp eq i32 %142, 0
+  br i1 %.not160, label %.loopexit, label %.lr.ph159
 
-.lr.ph160:                                        ; preds = %.preheader, %._crit_edge
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %._crit_edge ], [ 0, %.preheader ]
+.lr.ph159:                                        ; preds = %.preheader, %._crit_edge
+  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge ], [ 0, %.preheader ]
   %143 = phi ptr [ %171, %._crit_edge ], [ %141, %.preheader ]
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  %145 = getelementptr %struct.range_admin_tag, ptr %144, i64 %indvars.iv188
+  %145 = getelementptr %struct.range_admin_tag, ptr %144, i64 %indvars.iv187
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr %struct.range_admin_tag, ptr %143, i64 %indvars.iv188
+  %147 = getelementptr %struct.range_admin_tag, ptr %143, i64 %indvars.iv187
   %148 = getelementptr i8, ptr %147, i64 8
   %149 = load i32, ptr %148, align 4
   %150 = icmp ult i32 %146, %149
   br i1 %150, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph160
+.lr.ph.preheader:                                 ; preds = %.lr.ph159
   %151 = zext i32 %146 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv185 = phi i64 [ %151, %.lr.ph.preheader ], [ %indvars.iv.next186, %.lr.ph ]
-  %152 = trunc nuw i64 %indvars.iv185 to i32
+  %indvars.iv184 = phi i64 [ %151, %.lr.ph.preheader ], [ %indvars.iv.next185, %.lr.ph ]
+  %152 = trunc nuw i64 %indvars.iv184 to i32
   call void @dissector_change_uint(ptr noundef %105, i32 noundef %152, ptr noundef nonnull %138)
   %153 = call i32 @dissector_table_get_type(ptr noundef nonnull %106)
-  %154 = inttoptr i64 %indvars.iv185 to ptr
+  %154 = inttoptr i64 %indvars.iv184 to ptr
   call void @decode_build_reset_list(ptr noundef %105, i32 noundef %153, ptr noundef %154, ptr noundef null, ptr noundef null)
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %155 = load ptr, ptr %139, align 8
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr %struct.range_admin_tag, ptr %156, i64 %indvars.iv188
+  %157 = getelementptr %struct.range_admin_tag, ptr %156, i64 %indvars.iv187
   %158 = getelementptr i8, ptr %157, i64 8
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
-  %161 = icmp samesign ult i64 %indvars.iv.next186, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next185, %160
   br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph160
-  %.lcssa = phi i32 [ %149, %.lr.ph160 ], [ %159, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph159
+  %.lcssa = phi i32 [ %149, %.lr.ph159 ], [ %159, %.lr.ph ]
   call void @dissector_change_uint(ptr noundef %105, i32 noundef %.lcssa, ptr noundef nonnull %138)
   %162 = call i32 @dissector_table_get_type(ptr noundef nonnull %106)
   %163 = load ptr, ptr %139, align 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr %struct.range_admin_tag, ptr %164, i64 %indvars.iv188
+  %165 = getelementptr %struct.range_admin_tag, ptr %164, i64 %indvars.iv187
   %166 = getelementptr i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 4
   %168 = zext i32 %167 to i64
   %169 = inttoptr i64 %168 to ptr
   call void @decode_build_reset_list(ptr noundef %105, i32 noundef %162, ptr noundef %169, ptr noundef null, ptr noundef null)
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %170 = load ptr, ptr %139, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = icmp samesign ult i64 %indvars.iv.next189, %173
-  br i1 %174, label %.lr.ph160, label %.loopexit, !llvm.loop !68
+  %174 = icmp samesign ult i64 %indvars.iv.next188, %173
+  br i1 %174, label %.lr.ph159, label %.loopexit, !llvm.loop !68
 
-175:                                              ; preds = %.preheader148
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next178, 7
-  br i1 %exitcond180.not, label %.preheader146, label %.preheader148, !llvm.loop !69
+175:                                              ; preds = %.preheader147
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 7
+  br i1 %exitcond179.not, label %.preheader145, label %.preheader147, !llvm.loop !69
 
-.preheader148:                                    ; preds = %98, %175
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %175 ], [ 0, %98 ]
-  %176 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.tpkt_subdissector_port_prefs, i64 %indvars.iv177
+.preheader147:                                    ; preds = %98, %175
+  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %175 ], [ 0, %98 ]
+  %176 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.tpkt_subdissector_port_prefs, i64 %indvars.iv176
   %177 = load ptr, ptr %176, align 16
   %178 = call i32 @strcmp(ptr noundef %0, ptr noundef %177) #29
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %175
 
-180:                                              ; preds = %.preheader148
+180:                                              ; preds = %.preheader147
   %181 = call zeroext i1 @ws_basestrtou32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %6, i32 noundef 10)
   br i1 %181, label %182, label %.loopexit
 
@@ -13752,27 +13752,27 @@ prefs_find_preference.exit139:                    ; preds = %118, %127
 
 184:                                              ; preds = %182
   %185 = call ptr @find_dissector(ptr noundef nonnull @.str.966)
-  %.not120 = icmp eq ptr %185, null
-  br i1 %.not120, label %.loopexit, label %186
+  %.not119 = icmp eq ptr %185, null
+  br i1 %.not119, label %.loopexit, label %186
 
 186:                                              ; preds = %184
   %187 = load i32, ptr %6, align 4
   call void @dissector_change_uint(ptr noundef nonnull @.str.619, i32 noundef %187, ptr noundef nonnull %185)
   br label %.loopexit
 
-.preheader146:                                    ; preds = %175, %.preheader146
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.preheader146 ], [ 0, %175 ]
-  %188 = getelementptr %struct.obsolete_pref_name, ptr @__const.deprecated_port_pref.obsolete_prefs, i64 %indvars.iv181
+.preheader145:                                    ; preds = %175, %.preheader145
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.preheader145 ], [ 0, %175 ]
+  %188 = getelementptr %struct.obsolete_pref_name, ptr @__const.deprecated_port_pref.obsolete_prefs, i64 %indvars.iv180
   %189 = load ptr, ptr %188, align 8
   %190 = call i32 @strcmp(ptr noundef %0, ptr noundef %189) #29
   %191 = icmp eq i32 %190, 0
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 6
-  %or.cond = select i1 %191, i1 true, i1 %exitcond184.not
-  br i1 %or.cond, label %.loopexit, label %.preheader146, !llvm.loop !70
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 6
+  %or.cond = select i1 %191, i1 true, i1 %exitcond183.not
+  br i1 %or.cond, label %.loopexit, label %.preheader145, !llvm.loop !70
 
-.loopexit:                                        ; preds = %.preheader146, %._crit_edge, %.preheader, %prefs_find_preference.exit139.thread, %186, %184, %182, %182, %180, %132, %prefs_find_preference.exit139, %135, %103, %84, %88, %92, %86, %45
-  %.097 = phi i1 [ false, %45 ], [ true, %86 ], [ true, %92 ], [ true, %88 ], [ true, %84 ], [ false, %132 ], [ true, %prefs_find_preference.exit139 ], [ true, %135 ], [ true, %103 ], [ false, %180 ], [ true, %182 ], [ true, %182 ], [ true, %184 ], [ true, %186 ], [ true, %prefs_find_preference.exit139.thread ], [ true, %.preheader ], [ true, %._crit_edge ], [ %191, %.preheader146 ]
+.loopexit:                                        ; preds = %.preheader145, %._crit_edge, %.preheader, %prefs_find_preference.exit138.thread, %186, %184, %182, %182, %180, %132, %prefs_find_preference.exit138, %135, %103, %84, %88, %92, %86, %45
+  %.097 = phi i1 [ false, %45 ], [ true, %86 ], [ true, %92 ], [ true, %88 ], [ true, %84 ], [ false, %132 ], [ true, %prefs_find_preference.exit138 ], [ true, %135 ], [ true, %103 ], [ false, %180 ], [ true, %182 ], [ true, %182 ], [ true, %184 ], [ true, %186 ], [ true, %prefs_find_preference.exit138.thread ], [ true, %.preheader ], [ true, %._crit_edge ], [ %191, %.preheader145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.097
 }

@@ -438,8 +438,8 @@ define hidden i32 @je_ctl_byname(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.b12 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b12, label %12, label %10
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %12, label %10
 
 10:                                               ; preds = %6
   %11 = tail call fastcc zeroext i1 @ctl_init(ptr noundef %0)
@@ -453,14 +453,14 @@ define hidden i32 @je_ctl_byname(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %9, align 8, !tbaa !8
-  %.not13 = icmp eq ptr %15, null
-  br i1 %.not13, label %22, label %16
+  %.not12 = icmp eq ptr %15, null
+  br i1 %.not12, label %22, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !11
-  %.not14 = icmp eq ptr %18, null
-  br i1 %.not14, label %22, label %19
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = load i64, ptr %7, align 8, !tbaa !4
@@ -502,8 +502,8 @@ define internal fastcc noundef zeroext i1 @ctl_init(ptr noundef %0) unnamed_addr
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %.b21 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b21, label %arenas_i_impl.exit.thread36, label %11
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %arenas_i_impl.exit.thread35, label %11
 
 11:                                               ; preds = %malloc_mutex_lock.exit
   %12 = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
@@ -515,7 +515,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   %16 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %15, i64 noundef 32800, i64 noundef 8) #15
   store ptr %16, ptr @ctl_arenas, align 8, !tbaa !25
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %arenas_i_impl.exit.thread36, label %18
+  br i1 %17, label %arenas_i_impl.exit.thread35, label %18
 
 18:                                               ; preds = %14, %11
   %19 = phi ptr [ %16, %14 ], [ %12, %11 ]
@@ -528,7 +528,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   %24 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %23, i64 noundef 720, i64 noundef 8) #15
   store ptr %24, ptr @ctl_stats, align 8, !tbaa !27
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %arenas_i_impl.exit.thread36, label %._crit_edge
+  br i1 %25, label %arenas_i_impl.exit.thread35, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22
   %.pre = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
@@ -544,8 +544,8 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 31:                                               ; preds = %26
   %32 = tail call ptr @je_b0get() #15
   %33 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %32, i64 noundef 38288, i64 noundef 8) #15
-  %.not.i23 = icmp eq ptr %33, null
-  br i1 %.not.i23, label %arenas_i_impl.exit.thread36, label %34
+  %.not.i22 = icmp eq ptr %33, null
+  br i1 %.not.i22, label %arenas_i_impl.exit.thread35, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 88
@@ -565,18 +565,18 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %._crit_edge42
+  br i1 %44, label %45, label %._crit_edge41
 
-._crit_edge42:                                    ; preds = %39
+._crit_edge41:                                    ; preds = %39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %.pre43 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
   br label %53
 
 45:                                               ; preds = %39
   %46 = tail call ptr @je_b0get() #15
   %47 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %46, i64 noundef 38288, i64 noundef 8) #15
-  %.not.i25 = icmp eq ptr %47, null
-  br i1 %.not.i25, label %arenas_i_impl.exit.thread36, label %48
+  %.not.i24 = icmp eq ptr %47, null
+  br i1 %.not.i24, label %arenas_i_impl.exit.thread35, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 88
@@ -588,18 +588,18 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   store ptr %47, ptr %52, align 8, !tbaa !29
   br label %53
 
-53:                                               ; preds = %._crit_edge42, %48
-  %54 = phi ptr [ %.pre43, %._crit_edge42 ], [ %49, %48 ]
-  %.1.i24.ph = phi ptr [ %43, %._crit_edge42 ], [ %47, %48 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 24
+53:                                               ; preds = %._crit_edge41, %48
+  %54 = phi ptr [ %.pre42, %._crit_edge41 ], [ %49, %48 ]
+  %.1.i23.ph = phi ptr [ %43, %._crit_edge41 ], [ %47, %48 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 24
   store i32 0, ptr %55, align 8, !tbaa !37
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_dss_prec_names, i64 24), align 8, !tbaa !38
-  %57 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 32
   store ptr %56, ptr %57, align 8, !tbaa !39
-  %58 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 40
-  %59 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 -1, i64 16, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %.1.i24.ph, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %.1.i23.ph, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10368) %54, i8 0, i64 10368, i1 false)
   %61 = load ptr, ptr %60, align 8, !tbaa !31
@@ -652,8 +652,8 @@ arenas_i2a_impl.exit.i:                           ; preds = %78, %77, %.lr.ph
 84:                                               ; preds = %arenas_i2a_impl.exit.i
   %85 = tail call ptr @je_b0get() #15
   %86 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %85, i64 noundef 38288, i64 noundef 8) #15
-  %.not.i28 = icmp eq ptr %86, null
-  br i1 %.not.i28, label %arenas_i_impl.exit.thread36, label %87
+  %.not.i27 = icmp eq ptr %86, null
+  br i1 %.not.i27, label %arenas_i_impl.exit.thread35, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 88
@@ -696,9 +696,9 @@ arenas_i_impl.exit:                               ; preds = %97, %53
   store ptr null, ptr %103, align 8, !tbaa !45
   tail call fastcc void @ctl_refresh(ptr noundef %0)
   store i1 true, ptr @ctl_initialized, align 1
-  br label %arenas_i_impl.exit.thread36
+  br label %arenas_i_impl.exit.thread35
 
-arenas_i_impl.exit.thread36:                      ; preds = %84, %45, %31, %22, %14, %malloc_mutex_lock.exit, %arenas_i_impl.exit
+arenas_i_impl.exit.thread35:                      ; preds = %84, %45, %31, %22, %14, %malloc_mutex_lock.exit, %arenas_i_impl.exit
   %.1 = phi i1 [ false, %arenas_i_impl.exit ], [ false, %malloc_mutex_lock.exit ], [ true, %14 ], [ true, %22 ], [ true, %31 ], [ true, %45 ], [ true, %84 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %104 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
@@ -848,8 +848,8 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 12) i32 @je_ctl_nametomib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %.b5 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b5, label %7, label %5
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %7, label %5
 
 5:                                                ; preds = %4
   %6 = tail call fastcc zeroext i1 @ctl_init(ptr noundef %0)
@@ -866,8 +866,8 @@ define hidden range(i32 0, 12) i32 @je_ctl_nametomib(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @je_ctl_bymib(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
-  %.b15 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b15, label %10, label %8
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %10, label %8
 
 8:                                                ; preds = %7
   %9 = tail call fastcc zeroext i1 @ctl_init(ptr noundef %0)
@@ -912,15 +912,15 @@ define hidden i32 @je_ctl_bymib(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %exitcond.not.i, label %28, label %.lr.ph.i, !llvm.loop !57
 
 28:                                               ; preds = %26
-  %.not16 = icmp eq ptr %.2.i, null
-  br i1 %.not16, label %ctl_lookupbymib.exit, label %.thread
+  %.not15 = icmp eq ptr %.2.i, null
+  br i1 %.not15, label %ctl_lookupbymib.exit, label %.thread
 
 .thread:                                          ; preds = %10, %28
-  %.018.ph25 = phi ptr [ %.2.i, %28 ], [ @super_root_node, %10 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.018.ph25, i64 32
+  %.017.ph24 = phi ptr [ %.2.i, %28 ], [ @super_root_node, %10 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.ph24, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %.not17 = icmp eq ptr %30, null
-  br i1 %.not17, label %ctl_lookupbymib.exit, label %31
+  %.not16 = icmp eq ptr %30, null
+  br i1 %.not16, label %ctl_lookupbymib.exit, label %31
 
 31:                                               ; preds = %.thread
   %32 = tail call i32 %30(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #15
@@ -933,8 +933,8 @@ ctl_lookupbymib.exit:                             ; preds = %22, %17, %28, %.thr
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 12) i32 @je_ctl_mibnametomib(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
-  %.b16 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b16, label %8, label %6
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %8, label %6
 
 6:                                                ; preds = %5
   %7 = tail call fastcc zeroext i1 @ctl_init(ptr noundef %0)
@@ -983,18 +983,18 @@ define hidden range(i32 0, 12) i32 @je_ctl_mibnametomib(ptr noundef %0, ptr noun
   br i1 %27, label %ctl_lookupbymib.exit, label %.thread
 
 .thread:                                          ; preds = %8, %26
-  %.019.ph25 = phi ptr [ %.2.i, %26 ], [ @super_root_node, %8 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.019.ph25, i64 32
+  %.018.ph24 = phi ptr [ %.2.i, %26 ], [ @super_root_node, %8 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.018.ph24, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !11
-  %.not17 = icmp eq ptr %29, null
-  br i1 %.not17, label %30, label %ctl_lookupbymib.exit
+  %.not16 = icmp eq ptr %29, null
+  br i1 %.not16, label %30, label %ctl_lookupbymib.exit
 
 30:                                               ; preds = %.thread
   %31 = load i64, ptr %4, align 8, !tbaa !4
   %32 = sub i64 %31, %2
   store i64 %32, ptr %4, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i64, ptr %1, i64 %2
-  %34 = tail call fastcc i32 @ctl_lookup(ptr noundef %0, ptr noundef nonnull %.019.ph25, ptr noundef %3, ptr noundef null, ptr noundef %33, ptr noundef nonnull %4)
+  %34 = tail call fastcc i32 @ctl_lookup(ptr noundef %0, ptr noundef nonnull %.018.ph24, ptr noundef %3, ptr noundef null, ptr noundef %33, ptr noundef nonnull %4)
   %35 = load i64, ptr %4, align 8, !tbaa !4
   %36 = add i64 %35, %2
   store i64 %36, ptr %4, align 8, !tbaa !4
@@ -1009,8 +1009,8 @@ ctl_lookupbymib.exit:                             ; preds = %20, %15, %26, %.thr
 define hidden i32 @je_ctl_bymibname(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.b27 = load i1, ptr @ctl_initialized, align 1
-  br i1 %.b27, label %13, label %11
+  %.b = load i1, ptr @ctl_initialized, align 1
+  br i1 %.b, label %13, label %11
 
 11:                                               ; preds = %9
   %12 = tail call fastcc zeroext i1 @ctl_init(ptr noundef %0)
@@ -1064,34 +1064,34 @@ define hidden i32 @je_ctl_bymibname(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %32, label %ctl_lookupbymib.exit.thread, label %33
 
 33:                                               ; preds = %.thread, %31
-  %.025.lcssa.i35 = phi ptr [ @super_root_node, %.thread ], [ %.2.i, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i35, i64 32
+  %.025.lcssa.i34 = phi ptr [ @super_root_node, %.thread ], [ %.2.i, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i34, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !11
-  %.not28 = icmp eq ptr %35, null
-  br i1 %.not28, label %36, label %ctl_lookupbymib.exit.thread
+  %.not27 = icmp eq ptr %35, null
+  br i1 %.not27, label %36, label %ctl_lookupbymib.exit.thread
 
 36:                                               ; preds = %33
   %37 = load i64, ptr %4, align 8, !tbaa !4
   %38 = sub i64 %37, %2
   store i64 %38, ptr %4, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i64, ptr %1, i64 %2
-  %40 = call fastcc i32 @ctl_lookup(ptr noundef %0, ptr noundef nonnull %.025.lcssa.i35, ptr noundef %3, ptr noundef nonnull %10, ptr noundef %39, ptr noundef nonnull %4)
+  %40 = call fastcc i32 @ctl_lookup(ptr noundef %0, ptr noundef nonnull %.025.lcssa.i34, ptr noundef %3, ptr noundef nonnull %10, ptr noundef %39, ptr noundef nonnull %4)
   %41 = load i64, ptr %4, align 8, !tbaa !4
   %42 = add i64 %41, %2
   store i64 %42, ptr %4, align 8, !tbaa !4
-  %.not29 = icmp eq i32 %40, 0
-  br i1 %.not29, label %43, label %ctl_lookupbymib.exit.thread
+  %.not28 = icmp eq i32 %40, 0
+  br i1 %.not28, label %43, label %ctl_lookupbymib.exit.thread
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %10, align 8, !tbaa !8
-  %.not30 = icmp eq ptr %44, null
-  br i1 %.not30, label %ctl_lookupbymib.exit.thread, label %45
+  %.not29 = icmp eq ptr %44, null
+  br i1 %.not29, label %ctl_lookupbymib.exit.thread, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !11
-  %.not31 = icmp eq ptr %47, null
-  br i1 %.not31, label %ctl_lookupbymib.exit.thread, label %48
+  %.not30 = icmp eq ptr %47, null
+  br i1 %.not30, label %ctl_lookupbymib.exit.thread, label %48
 
 48:                                               ; preds = %45
   %49 = call i32 %47(ptr noundef %0, ptr noundef %1, i64 noundef %42, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) #15

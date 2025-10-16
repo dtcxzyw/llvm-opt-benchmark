@@ -13399,8 +13399,8 @@ lean_alloc_ctor.exit:                             ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Util_Version(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -13442,9 +13442,9 @@ define ptr @initialize_Lake_Util_Version(i8 noundef zeroext %0, ptr noundef read
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Util_Date(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %431, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -13455,27 +13455,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #5
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Lake_instInhabitedSemVerCore___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lake_instInhabitedSemVerCore___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lake_instInhabitedSemVerCore___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !8
   store i32 196640, ptr %31, align 4
@@ -14298,16 +14298,16 @@ _init_l_Lake_instReprToolchainVer___closed__1.exit: ; preds = %_init_l___private
   tail call void @lean_mark_persistent(ptr noundef %315) #5
   %316 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__1, align 8, !tbaa !4
   %317 = getelementptr i8, ptr %316, i64 24
-  %.val.i13 = load i64, ptr %317, align 8, !tbaa !12
-  %318 = shl i64 %.val.i13, 1
+  %.val.i12 = load i64, ptr %317, align 8, !tbaa !12
+  %318 = shl i64 %.val.i12, 1
   %319 = or disjoint i64 %318, 1
   %320 = inttoptr i64 %319 to ptr
   store ptr %320, ptr @l_Lake_ToolchainVer_ofString___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %320) #5
   %321 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__1, align 8, !tbaa !4
   %322 = getelementptr i8, ptr %321, i64 8
-  %.val.i14 = load i64, ptr %322, align 8, !tbaa !12
-  %323 = shl i64 %.val.i14, 1
+  %.val.i13 = load i64, ptr %322, align 8, !tbaa !12
+  %323 = shl i64 %.val.i13, 1
   %324 = add i64 %323, -1
   %325 = inttoptr i64 %324 to ptr
   store ptr %325, ptr @l_Lake_ToolchainVer_ofString___closed__3, align 8, !tbaa !4
@@ -14340,16 +14340,16 @@ _init_l_Lake_ToolchainVer_ofString___closed__4.exit: ; preds = %_init_l_Lake_ins
   tail call void @lean_mark_persistent(ptr noundef %335) #5
   %336 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__5, align 8, !tbaa !4
   %337 = getelementptr i8, ptr %336, i64 24
-  %.val.i15 = load i64, ptr %337, align 8, !tbaa !12
-  %338 = shl i64 %.val.i15, 1
+  %.val.i14 = load i64, ptr %337, align 8, !tbaa !12
+  %338 = shl i64 %.val.i14, 1
   %339 = or disjoint i64 %338, 1
   %340 = inttoptr i64 %339 to ptr
   store ptr %340, ptr @l_Lake_ToolchainVer_ofString___closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %340) #5
   %341 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__5, align 8, !tbaa !4
   %342 = getelementptr i8, ptr %341, i64 8
-  %.val.i16 = load i64, ptr %342, align 8, !tbaa !12
-  %343 = shl i64 %.val.i16, 1
+  %.val.i15 = load i64, ptr %342, align 8, !tbaa !12
+  %343 = shl i64 %.val.i15, 1
   %344 = add i64 %343, -1
   %345 = inttoptr i64 %344 to ptr
   store ptr %345, ptr @l_Lake_ToolchainVer_ofString___closed__7, align 8, !tbaa !4
@@ -14382,16 +14382,16 @@ _init_l_Lake_ToolchainVer_ofString___closed__8.exit: ; preds = %_init_l_Lake_Too
   tail call void @lean_mark_persistent(ptr noundef %355) #5
   %356 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__9, align 8, !tbaa !4
   %357 = getelementptr i8, ptr %356, i64 24
-  %.val.i17 = load i64, ptr %357, align 8, !tbaa !12
-  %358 = shl i64 %.val.i17, 1
+  %.val.i16 = load i64, ptr %357, align 8, !tbaa !12
+  %358 = shl i64 %.val.i16, 1
   %359 = or disjoint i64 %358, 1
   %360 = inttoptr i64 %359 to ptr
   store ptr %360, ptr @l_Lake_ToolchainVer_ofString___closed__10, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %360) #5
   %361 = load ptr, ptr @l_Lake_ToolchainVer_ofString___closed__9, align 8, !tbaa !4
   %362 = getelementptr i8, ptr %361, i64 8
-  %.val.i18 = load i64, ptr %362, align 8, !tbaa !12
-  %363 = shl i64 %.val.i18, 1
+  %.val.i17 = load i64, ptr %362, align 8, !tbaa !12
+  %363 = shl i64 %.val.i17, 1
   %364 = add i64 %363, -1
   %365 = inttoptr i64 %364 to ptr
   store ptr %365, ptr @l_Lake_ToolchainVer_ofString___closed__11, align 8, !tbaa !4
@@ -14564,18 +14564,18 @@ _init_l_Lake_instDecodeVersionStdVer___closed__1.exit: ; preds = %_init_l_Lake_i
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instDecodeVersionStdVer___closed__1.exit, %3
-  %.sink68 = phi ptr [ %4, %3 ], [ %425, %_init_l_Lake_instDecodeVersionStdVer___closed__1.exit ]
-  %428 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
-  store i32 1, ptr %.sink68, align 4, !tbaa !8
+  %.sink67 = phi ptr [ %4, %3 ], [ %425, %_init_l_Lake_instDecodeVersionStdVer___closed__1.exit ]
+  %428 = getelementptr inbounds nuw i8, ptr %.sink67, i64 4
+  store i32 1, ptr %.sink67, align 4, !tbaa !8
   store i32 131096, ptr %428, align 4
-  %429 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %.sink67, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %429, align 8, !tbaa !4
-  %430 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %.sink67, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %430, align 8, !tbaa !4
   br label %431
 
 431:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink68, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink67, %.sink.split ]
   ret ptr %.0
 }
 

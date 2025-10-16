@@ -72,8 +72,8 @@ define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %0
-  %.b1 = load i1, ptr @begininsert_called, align 1
-  br i1 %.b1, label %6, label %9
+  %.b = load i1, ptr @begininsert_called, align 1
+  br i1 %.b, label %6, label %9
 
 6:                                                ; preds = %5
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -453,8 +453,8 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %3 = alloca %union.PGAlignedBlock, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
-  %.b12 = load i1, ptr @begininsert_called, align 1
-  br i1 %.b12, label %9, label %6
+  %.b = load i1, ptr @begininsert_called, align 1
+  br i1 %.b, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -522,28 +522,28 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %spec.select.i = or i8 %36, %1
   %37 = load i32, ptr @max_registered_block_id, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.i13, label %._crit_edge.i
+  br i1 %38, label %.lr.ph.i12, label %._crit_edge.i
 
-.lr.ph.i13:                                       ; preds = %27
+.lr.ph.i12:                                       ; preds = %27
   %39 = and i8 %spec.select.i, 2
   %40 = icmp ne i8 %39, 0
   %.pre234.i = load ptr, ptr @registered_buffers, align 8
   br label %41
 
-41:                                               ; preds = %202, %.lr.ph.i13
-  %.129 = phi i64 [ 0, %.lr.ph.i13 ], [ %.230, %202 ]
-  %.1 = phi i32 [ 0, %.lr.ph.i13 ], [ %.2, %202 ]
-  %42 = phi i32 [ %37, %.lr.ph.i13 ], [ %203, %202 ]
-  %43 = phi ptr [ %.pre234.i, %.lr.ph.i13 ], [ %204, %202 ]
-  %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i15, %202 ]
-  %.0156223.i = phi i64 [ 0, %.lr.ph.i13 ], [ %.1.i, %202 ]
-  %.0159221.i = phi ptr [ null, %.lr.ph.i13 ], [ %.1160.i, %202 ]
-  %.0161220.i = phi ptr [ @hdr_rdt, %.lr.ph.i13 ], [ %.1162.i, %202 ]
-  %.sroa.034.0219.i = phi i16 [ undef, %.lr.ph.i13 ], [ %.sroa.034.1.i, %202 ]
-  %.sroa.6.0218.i = phi i16 [ undef, %.lr.ph.i13 ], [ %.sroa.6.1.i, %202 ]
-  %.sroa.13.0217.i = phi i8 [ undef, %.lr.ph.i13 ], [ %.sroa.13.1.i, %202 ]
-  %.0169216.i = phi ptr [ %32, %.lr.ph.i13 ], [ %.1170.i, %202 ]
-  %44 = getelementptr inbounds nuw %struct.registered_buffer, ptr %43, i64 %indvars.iv.i14
+41:                                               ; preds = %202, %.lr.ph.i12
+  %.128 = phi i64 [ 0, %.lr.ph.i12 ], [ %.229, %202 ]
+  %.1 = phi i32 [ 0, %.lr.ph.i12 ], [ %.2, %202 ]
+  %42 = phi i32 [ %37, %.lr.ph.i12 ], [ %203, %202 ]
+  %43 = phi ptr [ %.pre234.i, %.lr.ph.i12 ], [ %204, %202 ]
+  %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i12 ], [ %indvars.iv.next.i14, %202 ]
+  %.0156223.i = phi i64 [ 0, %.lr.ph.i12 ], [ %.1.i, %202 ]
+  %.0159221.i = phi ptr [ null, %.lr.ph.i12 ], [ %.1160.i, %202 ]
+  %.0161220.i = phi ptr [ @hdr_rdt, %.lr.ph.i12 ], [ %.1162.i, %202 ]
+  %.sroa.034.0219.i = phi i16 [ undef, %.lr.ph.i12 ], [ %.sroa.034.1.i, %202 ]
+  %.sroa.6.0218.i = phi i16 [ undef, %.lr.ph.i12 ], [ %.sroa.6.1.i, %202 ]
+  %.sroa.13.0217.i = phi i8 [ undef, %.lr.ph.i12 ], [ %.sroa.13.1.i, %202 ]
+  %.0169216.i = phi ptr [ %32, %.lr.ph.i12 ], [ %.1170.i, %202 ]
+  %44 = getelementptr inbounds nuw %struct.registered_buffer, ptr %43, i64 %indvars.iv.i13
   %45 = load i8, ptr %44, align 8, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %202
@@ -571,13 +571,13 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br i1 %.not203.i, label %58, label %60
 
 58:                                               ; preds = %54
-  %59 = add i64 %.129, -1
+  %59 = add i64 %.128, -1
   %or.cond192.not.i = icmp ult i64 %59, %57
-  %spec.select = select i1 %or.cond192.not.i, i64 %.129, i64 %57
+  %spec.select = select i1 %or.cond192.not.i, i64 %.128, i64 %57
   br label %60
 
 60:                                               ; preds = %58, %54, %52, %47
-  %.331 = phi i64 [ %.129, %54 ], [ %.129, %52 ], [ %.129, %47 ], [ %spec.select, %58 ]
+  %.330 = phi i64 [ %.128, %54 ], [ %.128, %52 ], [ %.128, %47 ], [ %spec.select, %58 ]
   %.0175.i = phi i1 [ true, %54 ], [ false, %52 ], [ true, %47 ], [ false, %58 ]
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %62 = load i32, ptr %61, align 8
@@ -593,7 +593,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 
 67:                                               ; preds = %64, %60
   %.0176.i = phi i1 [ false, %60 ], [ %spec.select194.i, %64 ]
-  %68 = trunc i64 %indvars.iv.i14 to i8
+  %68 = trunc i64 %indvars.iv.i13 to i8
   %69 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = trunc i32 %70 to i8
@@ -887,7 +887,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br label %202
 
 202:                                              ; preds = %198, %41
-  %.230 = phi i64 [ %.331, %198 ], [ %.129, %41 ]
+  %.229 = phi i64 [ %.330, %198 ], [ %.128, %41 ]
   %.2 = phi i32 [ %.3, %198 ], [ %.1, %41 ]
   %203 = phi i32 [ %.pre236.i, %198 ], [ %42, %41 ]
   %204 = phi ptr [ %.pre.i, %198 ], [ %43, %41 ]
@@ -898,14 +898,14 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %.1162.i = phi ptr [ %.4165.i, %198 ], [ %.0161220.i, %41 ]
   %.1160.i = phi ptr [ %44, %198 ], [ %.0159221.i, %41 ]
   %.1.i = phi i64 [ %.3.i, %198 ], [ %.0156223.i, %41 ]
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %205 = sext i32 %203 to i64
-  %206 = icmp slt i64 %indvars.iv.next.i15, %205
+  %206 = icmp slt i64 %indvars.iv.next.i14, %205
   br i1 %206, label %41, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %202, %27
-  %.028 = phi i64 [ 0, %27 ], [ %.230, %202 ]
-  %.027 = phi i32 [ 0, %27 ], [ %.2, %202 ]
+  %.027 = phi i64 [ 0, %27 ], [ %.229, %202 ]
+  %.026 = phi i32 [ 0, %27 ], [ %.2, %202 ]
   %.0169.lcssa.i = phi ptr [ %32, %27 ], [ %.1170.i, %202 ]
   %.0161.lcssa.i = phi ptr [ @hdr_rdt, %27 ], [ %.1162.i, %202 ]
   %.0156.lcssa.i = phi i64 [ 0, %27 ], [ %.1.i, %202 ]
@@ -1050,7 +1050,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   %279 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 %.0158.lcssa.i, ptr %279, align 4
   %280 = load i8, ptr @curinsert_flags, align 1
-  %281 = call i64 @XLogInsertRecord(ptr noundef nonnull @hdr_rdt, i64 noundef %.028, i8 noundef zeroext %280, i32 noundef %.027, i1 noundef zeroext %217) #9
+  %281 = call i64 @XLogInsertRecord(ptr noundef nonnull @hdr_rdt, i64 noundef %.027, i8 noundef zeroext %280, i32 noundef %.026, i1 noundef zeroext %217) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %282 = icmp eq i64 %281, 0
@@ -1059,20 +1059,20 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
 283:                                              ; preds = %XLogRecordAssemble.exit
   %284 = load i32, ptr @max_registered_block_id, align 4
   %285 = icmp sgt i32 %284, 0
-  br i1 %285, label %.lr.ph.i17, label %XLogResetInsertion.exit
+  br i1 %285, label %.lr.ph.i16, label %XLogResetInsertion.exit
 
-.lr.ph.i17:                                       ; preds = %283
+.lr.ph.i16:                                       ; preds = %283
   %286 = load ptr, ptr @registered_buffers, align 8
-  %wide.trip.count.i18 = zext nneg i32 %284 to i64
+  %wide.trip.count.i17 = zext nneg i32 %284 to i64
   br label %287
 
-287:                                              ; preds = %287, %.lr.ph.i17
-  %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i20, %287 ]
-  %288 = getelementptr inbounds nuw %struct.registered_buffer, ptr %286, i64 %indvars.iv.i19
+287:                                              ; preds = %287, %.lr.ph.i16
+  %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i19, %287 ]
+  %288 = getelementptr inbounds nuw %struct.registered_buffer, ptr %286, i64 %indvars.iv.i18
   store i8 0, ptr %288, align 8
-  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
-  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i18
-  br i1 %exitcond.not.i21, label %XLogResetInsertion.exit, label %287, !llvm.loop !4
+  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i17
+  br i1 %exitcond.not.i20, label %XLogResetInsertion.exit, label %287, !llvm.loop !4
 
 XLogResetInsertion.exit:                          ; preds = %287, %25, %283, %21
   %.0 = phi i64 [ 40, %21 ], [ %281, %283 ], [ 40, %25 ], [ %281, %287 ]

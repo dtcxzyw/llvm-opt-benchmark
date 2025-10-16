@@ -24183,8 +24183,8 @@ declare ptr @l_Lean_Elab_Command_addLinter(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Linter_ConstructorAsVariable(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b17 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b17, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -24213,25 +24213,25 @@ define ptr @initialize_Lean_Linter_ConstructorAsVariable(i8 noundef zeroext %0, 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
 16:                                               ; preds = %11
-  %.not.i22 = icmp eq i32 %12, 0
-  br i1 %.not.i22, label %lean_dec_ref.exit23, label %17
+  %.not.i21 = icmp eq i32 %12, 0
+  br i1 %.not.i21, label %lean_dec_ref.exit22, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
-lean_dec_ref.exit23:                              ; preds = %14, %16, %17
+lean_dec_ref.exit22:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Linter_Util(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val24 = load i32, ptr %19, align 4
-  %.mask.i28 = and i32 %.val24, -16777216
-  %20 = icmp eq i32 %.mask.i28, 16777216
+  %.val23 = load i32, ptr %19, align 4
+  %.mask.i27 = and i32 %.val23, -16777216
+  %20 = icmp eq i32 %.mask.i27, 16777216
   br i1 %20, label %172, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit23
+21:                                               ; preds = %lean_dec_ref.exit22
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !13
@@ -24239,17 +24239,17 @@ lean_dec_ref.exit23:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
 26:                                               ; preds = %21
-  %.not.i20 = icmp eq i32 %22, 0
-  br i1 %.not.i20, label %lean_dec_ref.exit21, label %27
+  %.not.i19 = icmp eq i32 %22, 0
+  br i1 %.not.i19, label %lean_dec_ref.exit20, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
-lean_dec_ref.exit21:                              ; preds = %24, %26, %27
+lean_dec_ref.exit20:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 6, i64 noundef 6) #4
   store ptr %28, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #4
@@ -24274,11 +24274,11 @@ lean_dec_ref.exit21:                              ; preds = %24, %26, %27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit
 
-39:                                               ; preds = %lean_dec_ref.exit21
+39:                                               ; preds = %lean_dec_ref.exit20
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit: ; preds = %lean_dec_ref.exit21
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit: ; preds = %lean_dec_ref.exit20
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 1, ptr %37, align 4, !tbaa !8
   store i32 196640, ptr %40, align 4
@@ -24304,7 +24304,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____c
   store ptr %50, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %50) #4
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit19, label %51
+  br i1 %.not, label %lean_dec_ref.exit18, label %51
 
 51:                                               ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit
   %52 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__3, align 8, !tbaa !4
@@ -24312,16 +24312,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____c
   %54 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__9, align 8, !tbaa !4
   %55 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %56 = getelementptr i8, ptr %55, i64 4
-  %.val25 = load i32, ptr %56, align 4
-  %.mask.i29 = and i32 %.val25, -16777216
-  %57 = icmp eq i32 %.mask.i29, 16777216
+  %.val24 = load i32, ptr %56, align 4
+  %.mask.i28 = and i32 %.val24, -16777216
+  %57 = icmp eq i32 %.mask.i28, 16777216
   br i1 %57, label %172, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr i8, ptr %55, i64 8
-  %.val27 = load ptr, ptr %59, align 8, !tbaa !4
-  store ptr %.val27, ptr @l_Lean_Linter_linter_constructorNameAsVariable, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val27) #4
+  %.val26 = load ptr, ptr %59, align 8, !tbaa !4
+  store ptr %.val26, ptr @l_Lean_Linter_linter_constructorNameAsVariable, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val26) #4
   %60 = load i32, ptr %55, align 8, !tbaa !8
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %62, label %64, !prof !13
@@ -24329,27 +24329,27 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____c
 62:                                               ; preds = %58
   %63 = add nsw i32 %60, -1
   store i32 %63, ptr %55, align 4, !tbaa !8
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
 64:                                               ; preds = %58
-  %.not.i18 = icmp eq i32 %60, 0
-  br i1 %.not.i18, label %lean_dec_ref.exit19, label %65
+  %.not.i17 = icmp eq i32 %60, 0
+  br i1 %.not.i17, label %lean_dec_ref.exit18, label %65
 
 65:                                               ; preds = %64
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %55) #4
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
-lean_dec_ref.exit19:                              ; preds = %65, %64, %62, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit
+lean_dec_ref.exit18:                              ; preds = %65, %64, %62, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_ConstructorAsVariable___hyg_8____closed__6.exit
   tail call void @lean_inc_heartbeat() #4
   %66 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %_init_l_List_forIn_x27_loop___at_Lean_Linter_constructorNameAsVariable___elambda__1___spec__6___lambda__1___closed__1.exit
 
-68:                                               ; preds = %lean_dec_ref.exit19
+68:                                               ; preds = %lean_dec_ref.exit18
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_List_forIn_x27_loop___at_Lean_Linter_constructorNameAsVariable___elambda__1___spec__6___lambda__1___closed__1.exit: ; preds = %lean_dec_ref.exit19
+_init_l_List_forIn_x27_loop___at_Lean_Linter_constructorNameAsVariable___elambda__1___spec__6___lambda__1___closed__1.exit: ; preds = %lean_dec_ref.exit18
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 1, ptr %66, align 4, !tbaa !8
   store i32 16842768, ptr %69, align 4
@@ -24572,9 +24572,9 @@ _init_l_Lean_Linter_constructorNameAsVariable___closed__3.exit: ; preds = %_init
   %155 = load ptr, ptr @l_Lean_Linter_constructorNameAsVariable, align 8, !tbaa !4
   %156 = tail call ptr @l_Lean_Elab_Command_addLinter(ptr noundef %155, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %157 = getelementptr i8, ptr %156, i64 4
-  %.val26 = load i32, ptr %157, align 4
-  %.mask.i30 = and i32 %.val26, -16777216
-  %158 = icmp eq i32 %.mask.i30, 16777216
+  %.val25 = load i32, ptr %157, align 4
+  %.mask.i29 = and i32 %.val25, -16777216
+  %158 = icmp eq i32 %.mask.i29, 16777216
   br i1 %158, label %172, label %159
 
 159:                                              ; preds = %154
@@ -24606,18 +24606,18 @@ lean_dec_ref.exit:                                ; preds = %165, %164, %162, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink51 = phi ptr [ %4, %3 ], [ %166, %lean_dec_ref.exit ]
-  %169 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
-  store i32 1, ptr %.sink51, align 4, !tbaa !8
+  %.sink50 = phi ptr [ %4, %3 ], [ %166, %lean_dec_ref.exit ]
+  %169 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
+  store i32 1, ptr %.sink50, align 4, !tbaa !8
   store i32 131096, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %170, align 8, !tbaa !4
-  %171 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %171, align 8, !tbaa !4
   br label %172
 
-172:                                              ; preds = %.sink.split, %154, %51, %lean_dec_ref.exit23, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit23 ], [ %55, %51 ], [ %156, %154 ], [ %.sink51, %.sink.split ]
+172:                                              ; preds = %.sink.split, %154, %51, %lean_dec_ref.exit22, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %55, %51 ], [ %156, %154 ], [ %.sink50, %.sink.split ]
   ret ptr %.0
 }
 

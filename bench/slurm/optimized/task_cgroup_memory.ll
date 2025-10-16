@@ -331,8 +331,8 @@ declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_un
 define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b13 = load i1, ptr @oom_mgr_started, align 1
-  br i1 %.b13, label %3, label %49
+  %.b = load i1, ptr @oom_mgr_started, align 1
+  br i1 %.b, label %3, label %49
 
 3:                                                ; preds = %1
   %4 = tail call ptr @cgroup_g_step_stop_oom_mgr(ptr noundef %0) #5
@@ -353,8 +353,8 @@ define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %4, align 8
-  %.not14 = icmp eq i64 %13, 0
-  br i1 %.not14, label %18, label %14
+  %.not13 = icmp eq i64 %13, 0
+  br i1 %.not13, label %18, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @get_log_level() #5
@@ -370,36 +370,36 @@ define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef
 18:                                               ; preds = %.sink.split, %12, %14, %9
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load i64, ptr %19, align 8
-  %.not15 = icmp eq i64 %20, 0
-  br i1 %.not15, label %24, label %21
+  %.not14 = icmp eq i64 %20, 0
+  br i1 %.not14, label %24, label %21
 
 21:                                               ; preds = %18
   %22 = tail call i32 @get_log_level() #5
   %23 = icmp sgt i32 %22, 2
-  br i1 %23, label %.sink.split20, label %31
+  br i1 %23, label %.sink.split19, label %31
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load i64, ptr %25, align 8
-  %.not16 = icmp eq i64 %26, 0
-  br i1 %.not16, label %31, label %27
+  %.not15 = icmp eq i64 %26, 0
+  br i1 %.not15, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @get_log_level() #5
   %29 = icmp sgt i32 %28, 2
-  br i1 %29, label %.sink.split20, label %31
+  br i1 %29, label %.sink.split19, label %31
 
-.sink.split20:                                    ; preds = %27, %21
-  %.str.7.sink21 = phi ptr [ @.str.6, %21 ], [ @.str.7, %27 ]
+.sink.split19:                                    ; preds = %27, %21
+  %.str.7.sink20 = phi ptr [ @.str.6, %21 ], [ @.str.7, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink21, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %30) #5
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %30) #5
   br label %31
 
-31:                                               ; preds = %.sink.split20, %24, %27, %21
+31:                                               ; preds = %.sink.split19, %24, %27, %21
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i64, ptr %32, align 8
-  %.not17 = icmp eq i64 %33, 0
-  br i1 %.not17, label %48, label %34
+  %.not16 = icmp eq i64 %33, 0
+  br i1 %.not16, label %48, label %34
 
 34:                                               ; preds = %31
   %35 = icmp eq i64 %33, 1

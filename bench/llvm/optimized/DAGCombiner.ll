@@ -19369,7 +19369,7 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %_ZNK4llvm5APInt6isZ
   br i1 %165, label %_ZN4llvm5APIntD2Ev.exit596, label %.critedge486
 
 .critedge486:                                     ; preds = %159, %138, %_ZNK4llvm5APInt5isOneEv.exit, %154
-  %.0450.in680 = phi i1 [ true, %_ZNK4llvm5APInt5isOneEv.exit ], [ false, %154 ], [ false, %138 ], [ true, %159 ]
+  %.0450.in679 = phi i1 [ true, %_ZNK4llvm5APInt5isOneEv.exit ], [ false, %154 ], [ false, %138 ], [ true, %159 ]
   %.0451677 = phi i1 [ %.0451678, %_ZNK4llvm5APInt5isOneEv.exit ], [ false, %154 ], [ false, %138 ], [ %.0451678, %159 ]
   %166 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner19foldBinOpIntoSelectEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(956) %0, ptr noundef nonnull %1)
   %.fca.0.extract376 = extractvalue { ptr, i32 } %166, 0
@@ -19378,7 +19378,7 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %_ZNK4llvm5APInt6isZ
   br i1 %.not725, label %167, label %_ZN4llvm5APIntD2Ev.exit596
 
 167:                                              ; preds = %.critedge486
-  br i1 %.0450.in680, label %168, label %175
+  br i1 %.0450.in679, label %168, label %175
 
 168:                                              ; preds = %167
   %169 = call noundef zeroext i1 @_ZNK4llvm5APInt9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
@@ -19473,7 +19473,7 @@ _ZNK4llvm3EVT8isVectorEv.exit539:                 ; preds = %179, %181
   br label %_ZN4llvm5APIntD2Ev.exit596
 
 .critedge492:                                     ; preds = %187, %_ZNK4llvm3EVT8isVectorEv.exit539, %175
-  %.not = xor i1 %.0450.in680, true
+  %.not = xor i1 %.0450.in679, true
   %or.cond = or i1 %.0451677, %.not
   br i1 %or.cond, label %234, label %202
 
@@ -19667,7 +19667,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread68
 
 269:                                              ; preds = %.critedge497
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.0450.in680, label %270, label %432
+  br i1 %.0450.in679, label %270, label %432
 
 270:                                              ; preds = %269
   %271 = load ptr, ptr %103, align 8, !tbaa !438

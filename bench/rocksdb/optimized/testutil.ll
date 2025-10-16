@@ -7459,8 +7459,8 @@ define void @_ZN7rocksdb4test19RegisterTestLibraryERKNSt7__cxx1112basic_stringIc
   %2 = alloca %"class.std::shared_ptr.34", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::function.191", align 8
-  %.b3 = load i1, ptr @_ZZN7rocksdb4test19RegisterTestLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10registered, align 1
-  br i1 %.b3, label %58, label %._crit_edge.i.i
+  %.b = load i1, ptr @_ZZN7rocksdb4test19RegisterTestLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10registered, align 1
+  br i1 %.b, label %58, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %1
   store i1 true, ptr @_ZZN7rocksdb4test19RegisterTestLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10registered, align 1
@@ -7573,12 +7573,12 @@ _ZNSt12__shared_ptrIN7rocksdb14ObjectRegistryELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = load ptr, ptr %9, align 8, !tbaa !41
-  %.not.i5 = icmp eq ptr %48, null
-  br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %49
+  %.not.i4 = icmp eq ptr %48, null
+  br i1 %.not.i4, label %_ZNSt14_Function_baseD2Ev.exit5, label %49
 
 49:                                               ; preds = %46
   %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %51
+          to label %_ZNSt14_Function_baseD2Ev.exit5 unwind label %51
 
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
@@ -7587,19 +7587,19 @@ _ZNSt12__shared_ptrIN7rocksdb14ObjectRegistryELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @__clang_call_terminate(ptr %53) #35
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %46, %49
+_ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %46, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %54 = load ptr, ptr %3, align 8, !tbaa !11
   %55 = icmp eq ptr %54, %6
-  br i1 %55, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+  br i1 %55, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %_ZNSt14_Function_baseD2Ev.exit6
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %_ZNSt14_Function_baseD2Ev.exit5
   %56 = load i64, ptr %6, align 8, !tbaa !16
   %57 = add i64 %56, 1
   call void @_ZdlPvm(ptr noundef %54, i64 noundef %57) #33
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNSt14_Function_baseD2Ev.exit6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNSt14_Function_baseD2Ev.exit5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt12__shared_ptrIN7rocksdb14ObjectRegistryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

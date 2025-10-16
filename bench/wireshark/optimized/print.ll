@@ -662,8 +662,8 @@ define internal void @proto_tree_write_node_pdml(ptr noundef %0, ptr noundef %1)
   %20 = phi i1 [ false, %._crit_edge ], [ %17, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %.b9.i = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i, label %23, label %.preheader.preheader.i
+  %.b.i = load i1, ptr @print_indent.inited, align 1
+  br i1 %.b.i, label %23, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
@@ -695,8 +695,8 @@ print_indent.exit:                                ; preds = %23, %25
   %36 = add i32 %35, 1
   store i32 %36, ptr %1, align 8
   %37 = load ptr, ptr %21, align 8
-  %.b9.i166 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i166, label %38, label %.preheader.preheader.i167
+  %.b.i166 = load i1, ptr @print_indent.inited, align 1
+  br i1 %.b.i166, label %38, label %.preheader.preheader.i167
 
 .preheader.preheader.i167:                        ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
@@ -1140,8 +1140,8 @@ print_escaped_xml.exit175:                        ; preds = %199, %194, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %277 = load i32, ptr %1, align 8
   %278 = load ptr, ptr %21, align 8
-  %.b9.i179 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i179, label %279, label %.preheader.preheader.i180
+  %.b.i179 = load i1, ptr @print_indent.inited, align 1
+  br i1 %.b.i179, label %279, label %.preheader.preheader.i180
 
 .preheader.preheader.i180:                        ; preds = %276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
@@ -1214,8 +1214,8 @@ print_escaped_xml.exit183:                        ; preds = %print_indent.exit18
 311:                                              ; preds = %309
   %312 = load i32, ptr %1, align 8
   %313 = load ptr, ptr %21, align 8
-  %.b9.i184 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i184, label %314, label %.preheader.preheader.i185
+  %.b.i184 = load i1, ptr @print_indent.inited, align 1
+  br i1 %.b.i184, label %314, label %.preheader.preheader.i185
 
 .preheader.preheader.i185:                        ; preds = %311
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
@@ -1274,8 +1274,8 @@ print_indent.exit186:                             ; preds = %314, %316
 341:                                              ; preds = %340
   %342 = load i32, ptr %1, align 8
   %343 = load ptr, ptr %21, align 8
-  %.b9.i187 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i187, label %344, label %.preheader.preheader.i188
+  %.b.i187 = load i1, ptr @print_indent.inited, align 1
+  br i1 %.b.i187, label %344, label %.preheader.preheader.i188
 
 .preheader.preheader.i188:                        ; preds = %341
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)

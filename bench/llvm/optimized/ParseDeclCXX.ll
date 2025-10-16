@@ -7943,7 +7943,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit..thread141_crit_edge: ; preds = %_ZN5clang
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 36
   %.sroa.020.0.copyload = load i32, ptr %67, align 4, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %.sroa.019.0.copyload155 = load i32, ptr %68, align 8, !tbaa !11
+  %.sroa.019.0.copyload = load i32, ptr %68, align 8, !tbaa !11
   br label %70
 
 .thread138.fold.split:                            ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
@@ -7960,7 +7960,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit..thread141_crit_edge: ; preds = %_ZN5clang
 70:                                               ; preds = %.thread138, %64
   %.2137147 = phi i64 [ 0, %64 ], [ %.2137.ph, %.thread138 ]
   %.sroa.0117.0 = phi i32 [ %.sroa.020.0.copyload, %64 ], [ %.sroa.0117.0.extract.trunc, %.thread138 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.019.0.copyload155, %64 ], [ %.sroa.7.0.extract.trunc, %.thread138 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.019.0.copyload, %64 ], [ %.sroa.7.0.extract.trunc, %.thread138 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %15, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %.sroa.0117.0, i32 noundef 1435) #22
   %71 = load ptr, ptr %15, align 8, !tbaa !984
@@ -8203,8 +8203,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit78:          ; preds = %_ZNSt7__cxx1112basi
 
 171:                                              ; preds = %.thread141
   %172 = load i32, ptr %3, align 8, !tbaa !980
-  %.not156 = icmp eq i32 %172, 0
-  br i1 %.not156, label %212, label %_ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit.thread
+  %.not155 = icmp eq i32 %172, 0
+  br i1 %.not155, label %212, label %_ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit.thread
 
 _ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit.thread: ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -8217,11 +8217,11 @@ _ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit.thread: ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %177 = load i32, ptr %176, align 4
   %178 = icmp ne i32 %177, 0
-  %.not2.i.i.i.not162 = select i1 %175, i1 %178, i1 false
+  %.not2.i.i.i.not161 = select i1 %175, i1 %178, i1 false
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = icmp ne ptr %180, null
-  %or.cond = select i1 %.not2.i.i.i.not162, i1 true, i1 %181
+  %or.cond = select i1 %.not2.i.i.i.not161, i1 true, i1 %181
   %.sroa.013.0 = select i1 %or.cond, i32 %177, i32 %.sroa.014.0.copyload
   %.sroa.2114.0.insert.ext = zext i32 %.sroa.013.0 to i64
   %.sroa.2114.0.insert.shift = shl nuw i64 %.sroa.2114.0.insert.ext, 32
@@ -8309,11 +8309,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit88:          ; preds = %_ZNSt7__cxx1112basi
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %217 = load i32, ptr %216, align 4
   %218 = icmp ne i32 %217, 0
-  %.not2.i.i.i89.not159 = select i1 %215, i1 %218, i1 false
+  %.not2.i.i.i89.not158 = select i1 %215, i1 %218, i1 false
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %220 = load ptr, ptr %219, align 8
   %221 = icmp ne ptr %220, null
-  %or.cond154 = select i1 %.not2.i.i.i89.not159, i1 true, i1 %221
+  %or.cond154 = select i1 %.not2.i.i.i89.not158, i1 true, i1 %221
   br i1 %or.cond154, label %_ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit90.thread, label %231
 
 _ZNK5clang12CXXScopeSpec10isNotEmptyEv.exit90.thread: ; preds = %212
@@ -8354,8 +8354,8 @@ _ZN5clang9FixItHintD2Ev.exit97:                   ; preds = %_ZNK5clang12CXXScop
 231:                                              ; preds = %212, %_ZN5clang17DiagnosticBuilderD2Ev.exit88, %_ZN5clang9FixItHintD2Ev.exit97
   %232 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %233 = load i32, ptr %232, align 8, !tbaa !980
-  %.not163 = icmp eq i32 %233, 0
-  br i1 %.not163, label %265, label %234
+  %.not162 = icmp eq i32 %233, 0
+  br i1 %.not162, label %265, label %234
 
 234:                                              ; preds = %231
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

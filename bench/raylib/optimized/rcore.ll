@@ -41632,8 +41632,8 @@ declare i64 @time(ptr noundef) local_unnamed_addr #42
 ; Function Attrs: nounwind uwtable
 define void @CloseWindow() local_unnamed_addr #0 {
   %1 = alloca %struct.MsfGifResult, align 8
-  %.b1 = load i1, ptr @gifRecording, align 1
-  br i1 %.b1, label %2, label %4
+  %.b = load i1, ptr @gifRecording, align 1
+  br i1 %.b, label %2, label %4
 
 2:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -41893,8 +41893,8 @@ define void @EndDrawing() local_unnamed_addr #28 {
   %4 = alloca %struct.MsfGifResult, align 8
   %5 = load ptr, ptr @RLGL, align 8
   tail call void @rlDrawRenderBatch(ptr noundef %5)
-  %.b1214 = load i1, ptr @gifRecording, align 1
-  br i1 %.b1214, label %6, label %79
+  %.b12 = load i1, ptr @gifRecording, align 1
+  br i1 %.b12, label %6, label %79
 
 6:                                                ; preds = %0
   %7 = load double, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 3008), align 8
@@ -42027,8 +42027,8 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br label %79
 
 79:                                               ; preds = %77, %0
-  %.b1315 = load i1, ptr @automationEventRecording, align 1
-  br i1 %.b1315, label %80, label %RecordAutomationEvent.exit
+  %.b13 = load i1, ptr @automationEventRecording, align 1
+  br i1 %.b13, label %80, label %RecordAutomationEvent.exit
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr @currentEventList, align 8
@@ -42039,22 +42039,22 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %85, label %RecordAutomationEvent.exit, label %.preheader107.i
 
 86:                                               ; preds = %._crit_edge.i
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i18, 512
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, 512
   br i1 %exitcond.not.i, label %.preheader105.i, label %.preheader107.i
 
 .preheader107.i:                                  ; preds = %80, %86
   %87 = phi i32 [ %189, %86 ], [ %84, %80 ]
   %88 = phi ptr [ %191, %86 ], [ %81, %80 ]
   %89 = phi i32 [ %190, %86 ], [ %83, %80 ]
-  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %86 ], [ 0, %80 ]
-  %90 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 %indvars.iv.i17
+  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %86 ], [ 0, %80 ]
+  %90 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 708), i64 %indvars.iv.i14
   %91 = load i8, ptr %90, align 1
   %.not.i = icmp eq i8 %91, 0
   br i1 %.not.i, label %138, label %92
 
 92:                                               ; preds = %.preheader107.i
-  %93 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 %indvars.iv.i17
+  %93 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 %indvars.iv.i14
   %94 = load i8, ptr %93, align 1
   %.not64.i = icmp eq i8 %94, 0
   br i1 %.not64.i, label %95, label %138
@@ -42078,7 +42078,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %107, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = trunc nuw nsw i64 %indvars.iv.i17 to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   store i32 %112, ptr %111, align 4
   %113 = load ptr, ptr %97, align 8
   %114 = load i32, ptr %99, align 4
@@ -42121,7 +42121,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %143, label %RecordAutomationEvent.exit, label %144
 
 144:                                              ; preds = %138
-  %145 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 %indvars.iv.i17
+  %145 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 196), i64 %indvars.iv.i14
   %146 = load i8, ptr %145, align 1
   %.not65.i = icmp eq i8 %146, 0
   br i1 %.not65.i, label %._crit_edge.i, label %147
@@ -42144,7 +42144,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %160 = zext i32 %159 to i64
   %161 = getelementptr inbounds nuw %struct.AutomationEvent, ptr %158, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = trunc nuw nsw i64 %indvars.iv.i17 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   store i32 %163, ptr %162, align 4
   %164 = load ptr, ptr %149, align 8
   %165 = load i32, ptr %141, align 4
@@ -42483,7 +42483,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 .preheader:                                       ; preds = %371, %366
   %.ph = phi i32 [ %359, %366 ], [ %417, %371 ]
-  %.ph145 = phi ptr [ %361, %366 ], [ %413, %371 ]
+  %.ph142 = phi ptr [ %361, %366 ], [ %413, %371 ]
   br label %421
 
 ._crit_edge149.thread.i:                          ; preds = %._crit_edge149.i, %479
@@ -42495,7 +42495,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
 
 421:                                              ; preds = %.preheader, %._crit_edge149.thread.i
   %422 = phi i32 [ %420, %._crit_edge149.thread.i ], [ %.ph, %.preheader ]
-  %423 = phi ptr [ %419, %._crit_edge149.thread.i ], [ %.ph145, %.preheader ]
+  %423 = phi ptr [ %419, %._crit_edge149.thread.i ], [ %.ph142, %.preheader ]
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %._crit_edge149.thread.i ], [ 0, %.preheader ]
   %424 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2048), i64 %indvars.iv125.i
   %425 = load i8, ptr %424, align 1
@@ -43003,14 +43003,14 @@ RecordAutomationEvent.exit:                       ; preds = %._crit_edge.i, %138
 
 .preheader.preheader.i:                           ; preds = %781
   %784 = fadd double %769, %772
-  br label %.preheader.i19
+  br label %.preheader.i16
 
-.preheader.i19:                                   ; preds = %.preheader.i19, %.preheader.preheader.i
+.preheader.i16:                                   ; preds = %.preheader.i16, %.preheader.preheader.i
   %785 = call double @glfwGetTime() #60
   %786 = fcmp olt double %785, %784
-  br i1 %786, label %.preheader.i19, label %787
+  br i1 %786, label %.preheader.i16, label %787
 
-787:                                              ; preds = %.preheader.i19
+787:                                              ; preds = %.preheader.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %WaitTime.exit
 
@@ -43040,8 +43040,8 @@ WaitTime.exit:                                    ; preds = %768, %787
   br i1 %800, label %801, label %828
 
 801:                                              ; preds = %798
-  %.b16 = load i1, ptr @gifRecording, align 1
-  br i1 %.b16, label %802, label %812
+  %.b = load i1, ptr @gifRecording, align 1
+  br i1 %.b, label %802, label %812
 
 802:                                              ; preds = %801
   store i1 false, ptr @gifRecording, align 1
@@ -43055,8 +43055,8 @@ WaitTime.exit:                                    ; preds = %768, %787
   %808 = load i64, ptr %807, align 8
   %809 = trunc i64 %808 to i32
   %810 = call zeroext i1 @SaveFileData(ptr noundef %805, ptr noundef %806, i32 noundef %809) #60
-  %.not.i21 = icmp eq ptr %806, null
-  br i1 %.not.i21, label %msf_gif_free.exit, label %811
+  %.not.i18 = icmp eq ptr %806, null
+  br i1 %.not.i18, label %msf_gif_free.exit, label %811
 
 811:                                              ; preds = %802
   call void @free(ptr noundef nonnull %806) #60
@@ -47726,8 +47726,8 @@ define void @StopAutomationEventRecording() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @PlayAutomationEvent(ptr noundef readonly byval(%struct.AutomationEvent) align 8 captures(none) %0) local_unnamed_addr #0 {
-  %.b2 = load i1, ptr @automationEventRecording, align 1
-  br i1 %.b2, label %153, label %2
+  %.b = load i1, ptr @automationEventRecording, align 1
+  br i1 %.b, label %153, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4

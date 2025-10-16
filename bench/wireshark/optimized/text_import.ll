@@ -366,8 +366,8 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %12 = load i32, ptr @direction, align 4
   %13 = icmp eq i32 %12, 2
   %14 = select i1 %11, i1 %13, i1 false
-  %.b240245 = load i1, ptr @hdr_export_pdu, align 1
-  br i1 %.b240245, label %15, label %23
+  %.b240 = load i1, ptr @hdr_export_pdu, align 1
+  br i1 %.b240, label %15, label %23
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr @info_p, align 8
@@ -382,24 +382,24 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 23:                                               ; preds = %15, %9
   %.0192 = phi i32 [ %22, %15 ], [ 0, %9 ]
   %.0189 = phi i32 [ %21, %15 ], [ 0, %9 ]
-  %.b238246 = load i1, ptr @hdr_data_chunk, align 1
+  %.b238 = load i1, ptr @hdr_data_chunk, align 1
   %24 = add i32 %.0189, 16
-  %spec.select = select i1 %.b238246, i32 %24, i32 %.0189
-  %.b232247 = load i1, ptr @hdr_sctp, align 1
+  %spec.select = select i1 %.b238, i32 %24, i32 %.0189
+  %.b232 = load i1, ptr @hdr_sctp, align 1
   %25 = add i32 %spec.select, 12
-  %.2 = select i1 %.b232247, i32 %25, i32 %spec.select
-  %.b228248 = load i1, ptr @hdr_udp, align 1
+  %.2 = select i1 %.b232, i32 %25, i32 %spec.select
+  %.b228 = load i1, ptr @hdr_udp, align 1
   %26 = add i32 %.2, 8
   %27 = add i32 %26, %8
-  %.1193 = select i1 %.b228248, i32 %27, i32 %.0192
-  %.3 = select i1 %.b228248, i32 %26, i32 %.2
-  %.b230249 = load i1, ptr @hdr_tcp, align 1
+  %.1193 = select i1 %.b228, i32 %27, i32 %.0192
+  %.3 = select i1 %.b228, i32 %26, i32 %.2
+  %.b230 = load i1, ptr @hdr_tcp, align 1
   %28 = add i32 %.3, 20
   %29 = add i32 %28, %8
-  %.2194 = select i1 %.b230249, i32 %29, i32 %.1193
-  %.4 = select i1 %.b230249, i32 %28, i32 %.3
-  %.b226250 = load i1, ptr @hdr_ip, align 1
-  br i1 %.b226250, label %30, label %38
+  %.2194 = select i1 %.b230, i32 %29, i32 %.1193
+  %.4 = select i1 %.b230, i32 %28, i32 %.3
+  %.b226 = load i1, ptr @hdr_ip, align 1
+  br i1 %.b226, label %30, label %38
 
 30:                                               ; preds = %23
   %31 = add i32 %.4, 20
@@ -407,21 +407,21 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %33 = icmp eq i32 %32, 0
   %34 = sub nuw nsw i32 4, %32
   %.0.i = select i1 %33, i32 0, i32 %34
-  %35 = select i1 %.b238246, i32 %.0.i, i32 0
+  %35 = select i1 %.b238, i32 %.0.i, i32 0
   %36 = add i32 %35, %8
   %37 = add i32 %36, %31
   br label %47
 
 38:                                               ; preds = %23
-  %.b244251 = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b244251, label %39, label %47
+  %.b244 = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b244, label %39, label %47
 
 39:                                               ; preds = %38
   %40 = and i32 %8, 3
   %41 = icmp eq i32 %40, 0
   %42 = sub nuw nsw i32 4, %40
-  %.0.i361 = select i1 %41, i32 0, i32 %42
-  %43 = select i1 %.b238246, i32 %.0.i361, i32 0
+  %.0.i337 = select i1 %41, i32 0, i32 %42
+  %43 = select i1 %.b238, i32 %.0.i337, i32 0
   %44 = add i32 %43, %8
   %45 = add i32 %44, %.4
   %46 = add i32 %.4, 40
@@ -430,21 +430,21 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 47:                                               ; preds = %38, %39, %30
   %.0195 = phi i32 [ %37, %30 ], [ %45, %39 ], [ 0, %38 ]
   %.5 = phi i32 [ %31, %30 ], [ %46, %39 ], [ %.4, %38 ]
-  %.b224254 = load i1, ptr @hdr_ethernet, align 1
+  %.b224 = load i1, ptr @hdr_ethernet, align 1
   %48 = add i32 %.5, 14
-  %spec.select357 = select i1 %.b224254, i32 %48, i32 %.5
+  %spec.select333 = select i1 %.b224, i32 %48, i32 %.5
   %49 = load ptr, ptr @packet_buf, align 8
-  %50 = sext i32 %spec.select357 to i64
+  %50 = sext i32 %spec.select333 to i64
   %51 = getelementptr i8, ptr %49, i64 %50
   %52 = zext i32 %8 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %51, ptr noundef align 1 %49, i64 noundef range(i64 -2147483648, 4294967296) %52, i1 noundef false) #19
-  %.b223255 = load i1, ptr @hdr_ethernet, align 1
-  br i1 %.b223255, label %53, label %61
+  %.b223 = load i1, ptr @hdr_ethernet, align 1
+  br i1 %.b223, label %53, label %61
 
 53:                                               ; preds = %47
   %54 = load i32, ptr @curr_offset, align 4
-  %55 = add i32 %54, %spec.select357
-  %spec.select358 = tail call i32 @llvm.usub.sat.i32(i32 60, i32 %55)
+  %55 = add i32 %54, %spec.select333
+  %spec.select334 = tail call i32 @llvm.usub.sat.i32(i32 60, i32 %55)
   br i1 %14, label %56, label %57
 
 56:                                               ; preds = %53
@@ -467,31 +467,31 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   br label %61
 
 61:                                               ; preds = %47, %58
-  %.0197364 = phi i32 [ %spec.select358, %58 ], [ 0, %47 ]
+  %.0197340 = phi i32 [ %spec.select334, %58 ], [ 0, %47 ]
   %.0198 = phi i32 [ 14, %58 ], [ 0, %47 ]
-  %.b225257 = load i1, ptr @hdr_ip, align 1
-  br i1 %.b225257, label %62, label %82
+  %.b225 = load i1, ptr @hdr_ip, align 1
+  br i1 %.b225, label %62, label %82
 
 62:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %63 = load ptr, ptr @info_p, align 8
   %. = select i1 %14, i64 132, i64 116
-  %.402 = select i1 %14, i32 33686026, i32 16843018
-  %.403 = select i1 %14, i64 116, i64 132
-  %.404 = select i1 %14, i32 16843018, i32 33686026
+  %.378 = select i1 %14, i32 33686026, i32 16843018
+  %.379 = select i1 %14, i64 116, i64 132
+  %.380 = select i1 %14, i32 16843018, i32 33686026
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.
   %65 = load i32, ptr %64, align 4
-  %.not266 = icmp eq i32 %65, 0
-  %spec.select360 = select i1 %.not266, i32 %.402, i32 %65
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.403
+  %.not252 = icmp eq i32 %65, 0
+  %spec.select336 = select i1 %.not252, i32 %.378, i32 %65
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.379
   %67 = load i32, ptr %66, align 4
-  %.not267 = icmp eq i32 %67, 0
-  %68 = select i1 %.not267, i32 %.404, i32 %67
-  store i32 %spec.select360, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 12), align 4
+  %.not253 = icmp eq i32 %67, 0
+  %68 = select i1 %.not253, i32 %.380, i32 %67
+  store i32 %spec.select336, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 12), align 4
   store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 16), align 4
-  %trunc270 = trunc i32 %.0195 to i16
-  %rev271 = tail call i16 @llvm.bswap.i16(i16 %trunc270)
-  store i16 %rev271, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 2), align 2
+  %trunc256 = trunc i32 %.0195 to i16
+  %rev257 = tail call i16 @llvm.bswap.i16(i16 %trunc256)
+  store i16 %rev257, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 2), align 2
   %69 = load i32, ptr @hdr_ip_proto, align 4
   %70 = trunc i32 %69 to i8
   store i8 %70, ptr getelementptr inbounds nuw (i8, ptr @HDR_IP, i64 9), align 1
@@ -515,29 +515,29 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %80 = load i32, ptr @hdr_ip_proto, align 4
   %81 = trunc i32 %80 to i8
   store i8 %81, ptr getelementptr inbounds nuw (i8, ptr @pseudoh, i64 9), align 1
-  %trunc272 = trunc i32 %.2194 to i16
-  %rev273 = call i16 @llvm.bswap.i16(i16 %trunc272)
-  store i16 %rev273, ptr getelementptr inbounds nuw (i8, ptr @pseudoh, i64 10), align 2
+  %trunc258 = trunc i32 %.2194 to i16
+  %rev259 = call i16 @llvm.bswap.i16(i16 %trunc258)
+  store i16 %rev259, ptr getelementptr inbounds nuw (i8, ptr @pseudoh, i64 10), align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %103
 
 82:                                               ; preds = %61
-  %.b243258 = load i1, ptr @hdr_ipv6, align 1
-  br i1 %.b243258, label %83, label %103
+  %.b243 = load i1, ptr @hdr_ipv6, align 1
+  br i1 %.b243, label %83, label %103
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr @info_p, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 132
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %85, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
-  %.not259 = icmp eq i32 %bcmp, 0
+  %.not245 = icmp eq i32 %bcmp, 0
   %86 = select i1 %14, ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 8), ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 24)
   %87 = select i1 %14, i64 32, i64 16
-  %IPv6_DST. = select i1 %.not259, ptr @IPv6_DST, ptr %85
+  %IPv6_DST. = select i1 %.not245, ptr @IPv6_DST, ptr %85
   %88 = tail call ptr @__memcpy_chk(ptr noundef nonnull %86, ptr noundef nonnull %IPv6_DST., i64 noundef 16, i64 noundef %87) #19
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 116
-  %bcmp260 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %89, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
-  %.not261 = icmp eq i32 %bcmp260, 0
-  %IPv6_SRC.sink = select i1 %.not261, ptr @IPv6_SRC, ptr %89
+  %bcmp246 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %89, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
+  %.not247 = icmp eq i32 %bcmp246, 0
+  %IPv6_SRC.sink = select i1 %.not247, ptr @IPv6_SRC, ptr %89
   %90 = select i1 %14, ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 24), ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 8)
   %91 = select i1 %14, i64 16, i64 32
   %92 = tail call ptr @__memcpy_chk(ptr noundef nonnull %90, ptr noundef nonnull %IPv6_SRC.sink, i64 noundef 16, i64 noundef %91) #19
@@ -545,9 +545,9 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %94 = and i8 %93, 15
   %95 = or disjoint i8 %94, 96
   store i8 %95, ptr @HDR_IPv6, align 4
-  %trunc262 = trunc i32 %.0195 to i16
-  %rev263 = tail call i16 @llvm.bswap.i16(i16 %trunc262)
-  store i16 %rev263, ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 4), align 4
+  %trunc248 = trunc i32 %.0195 to i16
+  %rev249 = tail call i16 @llvm.bswap.i16(i16 %trunc248)
+  store i16 %rev249, ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 4), align 4
   %96 = load i32, ptr @hdr_ip_proto, align 4
   %97 = trunc i32 %96 to i8
   store i8 %97, ptr getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 6), align 2
@@ -561,40 +561,40 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @pseudoh6, i64 16), ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @HDR_IPv6, i64 24), i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @pseudoh6, i64 36), i8 noundef 0, i64 noundef 3, i1 noundef false) #19
   store i8 %97, ptr getelementptr inbounds nuw (i8, ptr @pseudoh6, i64 39), align 1
-  %trunc264 = trunc i32 %.2194 to i16
-  %rev265 = tail call i16 @llvm.bswap.i16(i16 %trunc264)
-  %102 = zext i16 %rev265 to i32
+  %trunc250 = trunc i32 %.2194 to i16
+  %rev251 = tail call i16 @llvm.bswap.i16(i16 %trunc250)
+  %102 = zext i16 %rev251 to i32
   store i32 %102, ptr getelementptr inbounds nuw (i8, ptr @pseudoh6, i64 32), align 4
   br label %103
 
 103:                                              ; preds = %82, %83, %62
   %.1199 = phi i32 [ %77, %62 ], [ %101, %83 ], [ %.0198, %82 ]
-  %.b227274 = load i1, ptr @hdr_udp, align 1
-  br i1 %.b227274, label %104, label %124
+  %.b227 = load i1, ptr @hdr_udp, align 1
+  br i1 %.b227, label %104, label %124
 
 104:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %105 = load ptr, ptr @info_p, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 152
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 156
-  %.sink406.in = select i1 %14, ptr %107, ptr %106
-  %.sink405 = select i1 %14, i64 152, i64 156
-  %.sink406 = load i32, ptr %.sink406.in, align 4
-  %trunc275 = trunc i32 %.sink406 to i16
-  %rev276 = call i16 @llvm.bswap.i16(i16 %trunc275)
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.sink405
-  %.sink397 = load i32, ptr %108, align 4
-  %trunc279 = trunc i32 %.sink397 to i16
-  %rev280 = call i16 @llvm.bswap.i16(i16 %trunc279)
-  store i16 %rev276, ptr @HDR_UDP, align 8
-  store i16 %rev280, ptr getelementptr inbounds nuw (i8, ptr @HDR_UDP, i64 2), align 2
-  %trunc284 = trunc i32 %.2194 to i16
-  %rev285 = call i16 @llvm.bswap.i16(i16 %trunc284)
-  store i16 %rev285, ptr getelementptr inbounds nuw (i8, ptr @HDR_UDP, i64 4), align 4
+  %.sink382.in = select i1 %14, ptr %107, ptr %106
+  %.sink381 = select i1 %14, i64 152, i64 156
+  %.sink382 = load i32, ptr %.sink382.in, align 4
+  %trunc260 = trunc i32 %.sink382 to i16
+  %rev261 = call i16 @llvm.bswap.i16(i16 %trunc260)
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.sink381
+  %.sink373 = load i32, ptr %108, align 4
+  %trunc264 = trunc i32 %.sink373 to i16
+  %rev265 = call i16 @llvm.bswap.i16(i16 %trunc264)
+  store i16 %rev261, ptr @HDR_UDP, align 8
+  store i16 %rev265, ptr getelementptr inbounds nuw (i8, ptr @HDR_UDP, i64 2), align 2
+  %trunc269 = trunc i32 %.2194 to i16
+  %rev270 = call i16 @llvm.bswap.i16(i16 %trunc269)
+  store i16 %rev270, ptr getelementptr inbounds nuw (i8, ptr @HDR_UDP, i64 4), align 4
   store i16 0, ptr getelementptr inbounds nuw (i8, ptr @HDR_UDP, i64 6), align 2
-  %.b242286 = load i1, ptr @hdr_ipv6, align 1
-  %pseudoh.sink = select i1 %.b242286, ptr @pseudoh6, ptr @pseudoh
-  %.sink = select i1 %.b242286, i32 40, i32 12
+  %.b242 = load i1, ptr @hdr_ipv6, align 1
+  %pseudoh.sink = select i1 %.b242, ptr @pseudoh6, ptr @pseudoh
+  %.sink = select i1 %.b242, i32 40, i32 12
   store ptr %pseudoh.sink, ptr %3, align 16
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %109, align 8
@@ -623,25 +623,25 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 
 124:                                              ; preds = %104, %103
   %.2200 = phi i32 [ %123, %104 ], [ %.1199, %103 ]
-  %.b229287 = load i1, ptr @hdr_tcp, align 1
-  br i1 %.b229287, label %125, label %170
+  %.b229 = load i1, ptr @hdr_tcp, align 1
+  br i1 %.b229, label %125, label %170
 
 125:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %126 = load ptr, ptr @info_p, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 152
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 156
-  %.sink408.in = select i1 %14, ptr %128, ptr %127
-  %.sink407 = select i1 %14, i64 152, i64 156
-  %.sink408 = load i32, ptr %.sink408.in, align 4
-  %trunc288 = trunc i32 %.sink408 to i16
-  %rev289 = call i16 @llvm.bswap.i16(i16 %trunc288)
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.sink407
-  %.sink398 = load i32, ptr %129, align 4
-  %trunc293 = trunc i32 %.sink398 to i16
-  %rev294 = call i16 @llvm.bswap.i16(i16 %trunc293)
-  store i16 %rev289, ptr @HDR_TCP, align 4
-  store i16 %rev294, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 2), align 2
+  %.sink384.in = select i1 %14, ptr %128, ptr %127
+  %.sink383 = select i1 %14, i64 152, i64 156
+  %.sink384 = load i32, ptr %.sink384.in, align 4
+  %trunc271 = trunc i32 %.sink384 to i16
+  %rev272 = call i16 @llvm.bswap.i16(i16 %trunc271)
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.sink383
+  %.sink374 = load i32, ptr %129, align 4
+  %trunc276 = trunc i32 %.sink374 to i16
+  %rev277 = call i16 @llvm.bswap.i16(i16 %trunc276)
+  store i16 %rev272, ptr @HDR_TCP, align 4
+  store i16 %rev277, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 2), align 2
   %130 = load i8, ptr @has_direction, align 1, !range !10, !noundef !11
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %138
@@ -658,24 +658,24 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 138:                                              ; preds = %125
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 13), align 1
   %.pre = load i32, ptr @tcp_in_seq_num, align 4
-  %.pre380 = load i32, ptr @tcp_out_seq_num, align 4
+  %.pre356 = load i32, ptr @tcp_out_seq_num, align 4
   br label %139
 
 139:                                              ; preds = %132, %138
-  %140 = phi i32 [ %.pre380, %138 ], [ %133, %132 ]
+  %140 = phi i32 [ %.pre356, %138 ], [ %133, %132 ]
   %141 = phi i32 [ %.pre, %138 ], [ %134, %132 ]
-  %storemerge298 = phi i32 [ 0, %138 ], [ %137, %132 ]
-  store i32 %storemerge298, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 8), align 4
+  %storemerge281 = phi i32 [ 0, %138 ], [ %137, %132 ]
+  store i32 %storemerge281, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 8), align 4
   %142 = select i1 %14, i32 %141, i32 %140
   store i32 %142, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 4), align 4
   store i16 32, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 14), align 2
   store i16 0, ptr getelementptr inbounds nuw (i8, ptr @HDR_TCP, i64 16), align 4
-  %.b241305 = load i1, ptr @hdr_ipv6, align 1
-  %spec.select399 = select i1 %.b241305, ptr @pseudoh6, ptr @pseudoh
-  %spec.select400 = select i1 %.b241305, i32 40, i32 12
-  store ptr %spec.select399, ptr %4, align 16
+  %.b241 = load i1, ptr @hdr_ipv6, align 1
+  %spec.select375 = select i1 %.b241, ptr @pseudoh6, ptr @pseudoh
+  %spec.select376 = select i1 %.b241, i32 40, i32 12
+  store ptr %spec.select375, ptr %4, align 16
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %spec.select400, ptr %143, align 8
+  store i32 %spec.select376, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @HDR_TCP, ptr %144, align 16
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -721,8 +721,8 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 
 170:                                              ; preds = %169, %124
   %.3201 = phi i32 [ %156, %169 ], [ %.2200, %124 ]
-  %.b235318 = load i1, ptr @hdr_data_chunk, align 1
-  br i1 %.b235318, label %171, label %199
+  %.b235 = load i1, ptr @hdr_data_chunk, align 1
+  br i1 %.b235, label %171, label %199
 
 171:                                              ; preds = %170
   %172 = load i32, ptr @packet_start, align 4
@@ -730,21 +730,21 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %spec.store.select = select i1 %173, i8 2, i8 0
   %not. = xor i1 %0, true
   %174 = zext i1 %not. to i8
-  %spec.select374 = or disjoint i8 %spec.store.select, %174
+  %spec.select350 = or disjoint i8 %spec.store.select, %174
   store i8 0, ptr @HDR_DATA_CHUNK, align 4
-  store i8 %spec.select374, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 1), align 1
+  store i8 %spec.select350, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 1), align 1
   %175 = load i32, ptr @curr_offset, align 4
   %176 = trunc i32 %175 to i16
-  %trunc319 = add i16 %176, 16
-  %rev320 = call i16 @llvm.bswap.i16(i16 %trunc319)
-  store i16 %rev320, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 2), align 2
+  %trunc300 = add i16 %176, 16
+  %rev301 = call i16 @llvm.bswap.i16(i16 %trunc300)
+  store i16 %rev301, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 2), align 2
   %177 = load i32, ptr @hdr_data_chunk_tsn, align 4
   %178 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %177) #20, !srcloc !18
   store i32 %178, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
   store i16 0, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 8), align 4
   %179 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %rev324 = call i16 @llvm.bswap.i16(i16 %179)
-  store i16 %rev324, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 10), align 2
+  %rev305 = call i16 @llvm.bswap.i16(i16 %179)
+  store i16 %rev305, ptr getelementptr inbounds nuw (i8, ptr @HDR_DATA_CHUNK, i64 10), align 2
   %180 = load ptr, ptr @info_p, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 164
   %182 = load i32, ptr %181, align 4
@@ -763,12 +763,12 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %188 = and i32 %175, 3
   %189 = icmp eq i32 %188, 0
   %190 = sub nuw nsw i32 4, %188
-  %.0.i362 = select i1 %189, i32 0, i32 %190
+  %.0.i338 = select i1 %189, i32 0, i32 %190
   br i1 %189, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %187
   %191 = load ptr, ptr @packet_buf, align 8
-  %192 = add i32 %175, %spec.select357
+  %192 = add i32 %175, %spec.select333
   %wide.trip.count = zext nneg i32 %190 to i64
   br label %193
 
@@ -784,29 +784,29 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   br i1 %exitcond.not, label %._crit_edge, label %193, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %193, %187
-  %198 = add i32 %.0.i362, %175
+  %198 = add i32 %.0.i338, %175
   store i32 %198, ptr @curr_offset, align 4
   br label %199
 
 199:                                              ; preds = %._crit_edge, %170
-  %.b231328 = load i1, ptr @hdr_sctp, align 1
-  br i1 %.b231328, label %200, label %223
+  %.b231 = load i1, ptr @hdr_sctp, align 1
+  br i1 %.b231, label %200, label %223
 
 200:                                              ; preds = %199
   %201 = load ptr, ptr @info_p, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 152
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 156
-  %.sink410.in = select i1 %14, ptr %203, ptr %202
-  %.sink409 = select i1 %14, i64 152, i64 156
-  %.sink410 = load i32, ptr %.sink410.in, align 4
-  %trunc329 = trunc i32 %.sink410 to i16
-  %rev330 = call i16 @llvm.bswap.i16(i16 %trunc329)
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 %.sink409
-  %.sink401 = load i32, ptr %204, align 4
-  %trunc334 = trunc i32 %.sink401 to i16
-  %rev335 = call i16 @llvm.bswap.i16(i16 %trunc334)
-  store i16 %rev330, ptr @HDR_SCTP, align 4
-  store i16 %rev335, ptr getelementptr inbounds nuw (i8, ptr @HDR_SCTP, i64 2), align 2
+  %.sink386.in = select i1 %14, ptr %203, ptr %202
+  %.sink385 = select i1 %14, i64 152, i64 156
+  %.sink386 = load i32, ptr %.sink386.in, align 4
+  %trunc309 = trunc i32 %.sink386 to i16
+  %rev310 = call i16 @llvm.bswap.i16(i16 %trunc309)
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 %.sink385
+  %.sink377 = load i32, ptr %204, align 4
+  %trunc314 = trunc i32 %.sink377 to i16
+  %rev315 = call i16 @llvm.bswap.i16(i16 %trunc314)
+  store i16 %rev310, ptr @HDR_SCTP, align 4
+  store i16 %rev315, ptr getelementptr inbounds nuw (i8, ptr @HDR_SCTP, i64 2), align 2
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 160
   %206 = load i32, ptr %205, align 8
   %207 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %206) #20, !srcloc !21
@@ -814,8 +814,8 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @HDR_SCTP, i64 8), align 4
   %208 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1)
   store i32 %208, ptr getelementptr inbounds nuw (i8, ptr @HDR_SCTP, i64 8), align 4
-  %.b234342 = load i1, ptr @hdr_data_chunk, align 1
-  br i1 %.b234342, label %209, label %211
+  %.b234 = load i1, ptr @hdr_data_chunk, align 1
+  br i1 %.b234, label %209, label %211
 
 209:                                              ; preds = %200
   %210 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %208)
@@ -836,24 +836,24 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %221 = getelementptr i8, ptr %219, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %221, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 noundef 12, i1 noundef false) #19
   %222 = add nuw nsw i32 %.3201, 12
-  %.b233346.pre = load i1, ptr @hdr_data_chunk, align 1
-  br i1 %.b233346.pre, label %224, label %228
+  %.b233.pre = load i1, ptr @hdr_data_chunk, align 1
+  br i1 %.b233.pre, label %224, label %228
 
 223:                                              ; preds = %199
-  br i1 %.b235318, label %224, label %228
+  br i1 %.b235, label %224, label %228
 
 224:                                              ; preds = %211, %223
-  %.4202383 = phi i32 [ %222, %211 ], [ %.3201, %223 ]
+  %.4202359 = phi i32 [ %222, %211 ], [ %.3201, %223 ]
   %225 = load ptr, ptr @packet_buf, align 8
-  %226 = zext nneg i32 %.4202383 to i64
+  %226 = zext nneg i32 %.4202359 to i64
   %227 = getelementptr i8, ptr %225, i64 %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %227, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 noundef 16, i1 noundef false) #19
   br label %228
 
 228:                                              ; preds = %211, %224, %223
-  %.4202384 = phi i32 [ %222, %211 ], [ %.4202383, %224 ], [ %.3201, %223 ]
-  %.b239347 = load i1, ptr @hdr_export_pdu, align 1
-  br i1 %.b239347, label %229, label %247
+  %.4202360 = phi i32 [ %222, %211 ], [ %.4202359, %224 ], [ %.3201, %223 ]
+  %.b239 = load i1, ptr @hdr_export_pdu, align 1
+  br i1 %.b239, label %229, label %247
 
 229:                                              ; preds = %228
   %230 = load ptr, ptr @info_p, align 8
@@ -862,15 +862,15 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %233 = call i64 @strlen(ptr noundef %232) #18
   %234 = trunc i64 %233 to i32
   store i16 3072, ptr @HDR_EXPORT_PDU, align 4
-  %trunc348 = trunc i64 %233 to i16
-  %rev349 = call i16 @llvm.bswap.i16(i16 %trunc348)
-  store i16 %rev349, ptr getelementptr inbounds nuw (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
+  %trunc325 = trunc i64 %233 to i16
+  %rev326 = call i16 @llvm.bswap.i16(i16 %trunc325)
+  store i16 %rev326, ptr getelementptr inbounds nuw (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
   %235 = load ptr, ptr @packet_buf, align 8
-  %236 = zext nneg i32 %.4202384 to i64
+  %236 = zext nneg i32 %.4202360 to i64
   %237 = getelementptr i8, ptr %235, i64 %236
   %238 = load i32, ptr @HDR_EXPORT_PDU, align 4
   store i32 %238, ptr %237, align 1
-  %239 = add nuw nsw i32 %.4202384, 4
+  %239 = add nuw nsw i32 %.4202360, 4
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr i8, ptr %235, i64 %240
   %242 = load ptr, ptr %231, align 8
@@ -883,18 +883,18 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   br label %247
 
 247:                                              ; preds = %229, %228
-  %.b350 = load i1, ptr @hdr_ethernet, align 1
-  %248 = icmp ne i32 %.0197364, 0
-  %or.cond = select i1 %.b350, i1 %248, i1 false
+  %.b = load i1, ptr @hdr_ethernet, align 1
+  %248 = icmp ne i32 %.0197340, 0
+  %or.cond = select i1 %.b, i1 %248, i1 false
   br i1 %or.cond, label %249, label %256
 
 249:                                              ; preds = %247
   %250 = load ptr, ptr @packet_buf, align 8
   %251 = load i32, ptr @curr_offset, align 4
-  %252 = add i32 %251, %spec.select357
+  %252 = add i32 %251, %spec.select333
   %253 = zext i32 %252 to i64
   %254 = getelementptr i8, ptr %250, i64 %253
-  %255 = zext nneg i32 %.0197364 to i64
+  %255 = zext nneg i32 %.0197340 to i64
   call void @llvm.memset.p0.i64(ptr noundef align 1 %254, i8 noundef 0, i64 noundef range(i64 1, 313) %255, i1 noundef false) #19
   br label %256
 
@@ -921,7 +921,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %268 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %267, ptr %268, align 8
   %269 = load i32, ptr @curr_offset, align 4
-  %270 = add i32 %.0197364, %spec.select357
+  %270 = add i32 %.0197340, %spec.select333
   %271 = add i32 %270, %269
   %272 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %271, ptr %272, align 8
@@ -934,7 +934,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %276 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %275, ptr %276, align 8
   %277 = load i32, ptr @curr_offset, align 4
-  %278 = add i32 %.0197364, %spec.select357
+  %278 = add i32 %.0197340, %spec.select333
   %279 = add i32 %278, %277
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -978,9 +978,9 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %305 = load ptr, ptr %304, align 8
   %306 = load ptr, ptr @packet_buf, align 8
   %307 = call zeroext i1 @wtap_dump(ptr noundef %305, ptr noundef nonnull %5, ptr noundef %306, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  br i1 %307, label %.thread372, label %314
+  br i1 %307, label %.thread348, label %314
 
-.thread372:                                       ; preds = %302
+.thread348:                                       ; preds = %302
   %308 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %309 = load ptr, ptr %308, align 8
   call void @wtap_block_unref(ptr noundef %309)
@@ -992,7 +992,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre382 = load i32, ptr @curr_offset, align 4
+  %.pre358 = load i32, ptr @curr_offset, align 4
   br label %329
 
 314:                                              ; preds = %302
@@ -1017,8 +1017,8 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %333
 
-329:                                              ; preds = %.thread372, %1
-  %330 = phi i32 [ %.pre382, %.thread372 ], [ 0, %1 ]
+329:                                              ; preds = %.thread348, %1
+  %330 = phi i32 [ %.pre358, %.thread348 ], [ 0, %1 ]
   %331 = load i32, ptr @packet_start, align 4
   %332 = add i32 %331, %330
   store i32 %332, ptr @packet_start, align 4
@@ -1139,14 +1139,14 @@ define internal fastcc noundef zeroext i1 @_parse_time(ptr noundef %0, ptr nound
   %11 = add i64 %reass.sub, 1
   %12 = tail call i64 @llvm.smin.i64(i64 %11, i64 64)
   %13 = call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %12)
-  %.b46 = load i1, ptr @ts_fmt_iso, align 1
-  br i1 %.b46, label %14, label %20
+  %.b = load i1, ptr @ts_fmt_iso, align 1
+  br i1 %.b, label %14, label %20
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = call ptr @iso8601_to_nstime(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2)
-  %.not50.not = icmp eq ptr %15, null
-  br i1 %.not50.not, label %.critedge, label %16
+  %.not49.not = icmp eq ptr %15, null
+  br i1 %.not49.not, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = load i64, ptr %8, align 8
@@ -1209,12 +1209,12 @@ define internal fastcc noundef zeroext i1 @_parse_time(ptr noundef %0, ptr nound
   %.210 = phi i32 [ %46, %.lr.ph12 ], [ %33, %.lr.ph12.preheader ]
   %46 = sdiv i32 %.210, 10
   %47 = add nsw i32 %.03511, -1
-  %.not49 = icmp eq i32 %47, 0
-  br i1 %.not49, label %.thread2, label %.lr.ph12, !llvm.loop !27
+  %.not48 = icmp eq i32 %47, 0
+  br i1 %.not48, label %.thread2, label %.lr.ph12, !llvm.loop !27
 
 48:                                               ; preds = %43
-  %.not486 = icmp eq i32 %37, 9
-  br i1 %.not486, label %.thread2, label %.lr.ph.preheader
+  %.not476 = icmp eq i32 %37, 9
+  br i1 %.not476, label %.thread2, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %48
   %49 = sub nuw nsw i32 9, %37
@@ -1225,8 +1225,8 @@ define internal fastcc noundef zeroext i1 @_parse_time(ptr noundef %0, ptr nound
   %.37 = phi i32 [ %50, %.lr.ph ], [ %33, %.lr.ph.preheader ]
   %50 = mul i32 %.37, 10
   %51 = add nsw i32 %.18, -1
-  %.not48 = icmp eq i32 %51, 0
-  br i1 %.not48, label %.thread2, label %.lr.ph, !llvm.loop !28
+  %.not47 = icmp eq i32 %51, 0
+  br i1 %.not47, label %.thread2, label %.lr.ph, !llvm.loop !28
 
 .thread2:                                         ; preds = %.lr.ph, %.lr.ph12, %23, %48, %41
   %.140 = phi i32 [ %33, %48 ], [ %33, %41 ], [ 0, %23 ], [ %46, %.lr.ph12 ], [ %50, %.lr.ph ]
@@ -1291,8 +1291,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 .preheader:                                       ; preds = %2
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 13) #18
-  %.not3870 = icmp eq ptr %7, null
-  br i1 %.not3870, label %.loopexit, label %.lr.ph
+  %.not3868 = icmp eq ptr %7, null
+  br i1 %.not3868, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %8 = phi ptr [ %9, %.lr.ph ], [ %7, %.preheader ]
@@ -1341,8 +1341,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 20:                                               ; preds = %17
   tail call fastcc void @append_to_preamble(ptr noundef %1)
   %21 = tail call ptr @g_strsplit_set(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef 2)
-  %.b3660 = load i1, ptr @offset_warned, align 1
-  br i1 %.b3660, label %24, label %22
+  %.b36 = load i1, ptr @offset_warned, align 1
+  br i1 %.b36, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %21, align 8
@@ -1358,8 +1358,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 26:                                               ; preds = %17
   %27 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5)
-  %.not58 = icmp eq i32 %27, 0
-  br i1 %.not58, label %28, label %168
+  %.not57 = icmp eq i32 %27, 0
+  br i1 %.not57, label %28, label %168
 
 28:                                               ; preds = %26
   %29 = load i32, ptr %5, align 4
@@ -1368,8 +1368,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 31:                                               ; preds = %28
   %32 = tail call fastcc i32 @start_new_packet(i1 noundef zeroext false)
-  %.not59 = icmp eq i32 %32, 0
-  br i1 %.not59, label %33, label %168
+  %.not58 = icmp eq i32 %32, 0
+  br i1 %.not58, label %33, label %168
 
 33:                                               ; preds = %31
   store i32 0, ptr @packet_start, align 4
@@ -1389,13 +1389,13 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 39:                                               ; preds = %36
   %40 = tail call fastcc i32 @start_new_packet(i1 noundef zeroext false)
-  %.not56 = icmp eq i32 %40, 0
-  br i1 %.not56, label %41, label %168
+  %.not55 = icmp eq i32 %40, 0
+  br i1 %.not55, label %41, label %168
 
 41:                                               ; preds = %39
   %42 = tail call fastcc i32 @write_byte(ptr noundef %1)
-  %.not57 = icmp eq i32 %42, 0
-  br i1 %.not57, label %43, label %168
+  %.not56 = icmp eq i32 %42, 0
+  br i1 %.not56, label %43, label %168
 
 43:                                               ; preds = %41
   store i32 3, ptr @state, align 4
@@ -1409,8 +1409,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 46:                                               ; preds = %11
   %47 = tail call fastcc i32 @write_current_packet(i1 noundef zeroext false)
-  %.not55 = icmp eq i32 %47, 0
-  br i1 %.not55, label %167, label %168
+  %.not54 = icmp eq i32 %47, 0
+  br i1 %.not54, label %167, label %168
 
 48:                                               ; preds = %.loopexit
   switch i32 %0, label %167 [
@@ -1424,8 +1424,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 49:                                               ; preds = %48
   %50 = load i32, ptr @offset_base, align 4
-  %.not54 = icmp eq i32 %50, 0
-  br i1 %.not54, label %167, label %51
+  %.not53 = icmp eq i32 %50, 0
+  br i1 %.not53, label %167, label %51
 
 51:                                               ; preds = %49
   tail call fastcc void @append_to_preamble(ptr noundef %1)
@@ -1446,8 +1446,8 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 
 59:                                               ; preds = %56
   %60 = tail call ptr @g_strsplit_set(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef 2)
-  %.b53 = load i1, ptr @offset_warned, align 1
-  br i1 %.b53, label %63, label %61
+  %.b = load i1, ptr @offset_warned, align 1
+  br i1 %.b, label %63, label %61
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %60, align 8
@@ -1638,8 +1638,8 @@ write_byte.exit:                                  ; preds = %112, %123
 132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %133 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3)
-  %.not.i61 = icmp eq i32 %133, 0
-  br i1 %.not.i61, label %134, label %write_byte.exit65.thread
+  %.not.i59 = icmp eq i32 %133, 0
+  br i1 %.not.i59, label %134, label %write_byte.exit63.thread
 
 134:                                              ; preds = %132
   %135 = load i32, ptr %3, align 4
@@ -1654,19 +1654,19 @@ write_byte.exit:                                  ; preds = %112, %123
   %142 = load ptr, ptr @info_p, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 176
   %144 = load i32, ptr %143, align 8
-  %.not1.i63 = icmp ult i32 %141, %144
-  br i1 %.not1.i63, label %write_byte.exit65, label %145
+  %.not1.i61 = icmp ult i32 %141, %144
+  br i1 %.not1.i61, label %write_byte.exit63, label %145
 
 145:                                              ; preds = %134
   %146 = tail call fastcc i32 @start_new_packet(i1 noundef zeroext true)
-  %.not2.i64 = icmp eq i32 %146, 0
-  br i1 %.not2.i64, label %write_byte.exit65, label %write_byte.exit65.thread
+  %.not2.i62 = icmp eq i32 %146, 0
+  br i1 %.not2.i62, label %write_byte.exit63, label %write_byte.exit63.thread
 
-write_byte.exit65.thread:                         ; preds = %132, %145
+write_byte.exit63.thread:                         ; preds = %132, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %168
 
-write_byte.exit65:                                ; preds = %134, %145
+write_byte.exit63:                                ; preds = %134, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %167
 
@@ -1722,11 +1722,11 @@ write_byte.exit65:                                ; preds = %134, %145
 default.unreachable:                              ; preds = %.loopexit
   unreachable
 
-167:                                              ; preds = %write_byte.exit65, %write_byte.exit, %11, %46, %33, %35, %45, %43, %24, %13, %12, %48, %107, %49, %51, %106, %104, %95, %63, %52, %109, %129, %125, %128, %127, %131, %161, %155, %160, %149, %154, %147, %163, %165, %164
+167:                                              ; preds = %write_byte.exit63, %write_byte.exit, %11, %46, %33, %35, %45, %43, %24, %13, %12, %48, %107, %49, %51, %106, %104, %95, %63, %52, %109, %129, %125, %128, %127, %131, %161, %155, %160, %149, %154, %147, %163, %165, %164
   br label %168
 
-168:                                              ; preds = %write_byte.exit65.thread, %write_byte.exit.thread, %165, %161, %147, %129, %125, %107, %102, %87, %70, %65, %46, %41, %39, %31, %26, %167
-  %.0 = phi i32 [ 0, %167 ], [ 1, %26 ], [ 1, %31 ], [ 1, %39 ], [ 1, %41 ], [ 1, %46 ], [ 1, %65 ], [ 1, %70 ], [ 1, %87 ], [ 1, %102 ], [ 1, %107 ], [ 1, %125 ], [ 1, %129 ], [ 1, %147 ], [ 1, %161 ], [ 1, %165 ], [ 1, %write_byte.exit.thread ], [ 1, %write_byte.exit65.thread ]
+168:                                              ; preds = %write_byte.exit63.thread, %write_byte.exit.thread, %165, %161, %147, %129, %125, %107, %102, %87, %70, %65, %46, %41, %39, %31, %26, %167
+  %.0 = phi i32 [ 0, %167 ], [ 1, %26 ], [ 1, %31 ], [ 1, %39 ], [ 1, %41 ], [ 1, %46 ], [ 1, %65 ], [ 1, %70 ], [ 1, %87 ], [ 1, %102 ], [ 1, %107 ], [ 1, %125 ], [ 1, %129 ], [ 1, %147 ], [ 1, %161 ], [ 1, %165 ], [ 1, %write_byte.exit.thread ], [ 1, %write_byte.exit63.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1920,8 +1920,8 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i1 noundef zeroext 
 .critedge.i.i:                                    ; preds = %.critedge.preheader.i.i
   %26 = getelementptr i8, ptr %.0184.i.i, i64 1
   %27 = load i8, ptr %26, align 1
-  %exitcond18.i = icmp eq ptr %26, getelementptr inbounds nuw (i8, ptr @.str.33, i64 2)
-  br i1 %exitcond18.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !26
+  %exitcond17.i = icmp eq ptr %26, getelementptr inbounds nuw (i8, ptr @.str.33, i64 2)
+  br i1 %exitcond17.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !26
 
 .critedge.preheader.i.i:                          ; preds = %16, %.critedge.i.i
   %28 = phi i8 [ %27, %.critedge.i.i ], [ 111, %16 ]
@@ -1991,8 +1991,8 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
   br i1 %57, label %71, label %58
 
 58:                                               ; preds = %55
-  %.b13.i = load i1, ptr @timecode_warned, align 1
-  br i1 %.b13.i, label %65, label %59
+  %.b.i = load i1, ptr @timecode_warned, align 1
+  br i1 %.b.i, label %65, label %59
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr @info_p, align 8
@@ -2016,20 +2016,20 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 71:                                               ; preds = %65, %55, %52, %48
   %.08.shrunk.i = phi i1 [ true, %55 ], [ false, %65 ], [ false, %52 ], [ false, %48 ]
   %72 = tail call i32 @ws_log_get_level()
-  %.not14.i = icmp eq i32 %72, 0
-  br i1 %.not14.i, label %.loopexit.i, label %.preheader.i
+  %.not13.i = icmp eq i32 %72, 0
+  br i1 %.not13.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %71
   %73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) @packet_preamble, i32 noundef 13) #18
-  %.not1517.i = icmp eq ptr %73, null
-  br i1 %.not1517.i, label %.loopexit.i, label %.lr.ph.i
+  %.not1416.i = icmp eq ptr %73, null
+  br i1 %.not1416.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %74 = phi ptr [ %75, %.lr.ph.i ], [ %73, %.preheader.i ]
   store i8 32, ptr %74, align 1
   %75 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) @packet_preamble, i32 noundef 13) #18
-  %.not15.i = icmp eq ptr %75, null
-  br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
+  %.not14.i = icmp eq ptr %75, null
+  br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %71
   br i1 %.08.shrunk.i, label %parse_preamble.exit, label %76
@@ -2509,12 +2509,12 @@ switch.lookup:                                    ; preds = %9
   br label %47
 
 47:                                               ; preds = %33, %46, %36
-  %.b42.pr = load i1, ptr @hdr_ip, align 1
-  br i1 %.b42.pr, label %.thread, label %66
+  %.b.pr = load i1, ptr @hdr_ip, align 1
+  br i1 %.b.pr, label %.thread, label %66
 
 .thread.sink.split:                               ; preds = %45, %44, %43, %42, %39
-  %.sink50 = phi i32 [ %41, %39 ], [ 17, %42 ], [ 6, %43 ], [ 132, %44 ], [ 132, %45 ]
-  store i32 %.sink50, ptr @hdr_ip_proto, align 4
+  %.sink49 = phi i32 [ %41, %39 ], [ 17, %42 ], [ 6, %43 ], [ 132, %44 ], [ 132, %45 ]
+  store i32 %.sink49, ptr @hdr_ip_proto, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %47
@@ -2529,8 +2529,8 @@ switch.lookup:                                    ; preds = %9
   br label %52
 
 52:                                               ; preds = %.thread, %51
-  %storemerge43 = phi i32 [ 34525, %51 ], [ 2048, %.thread ]
-  store i32 %storemerge43, ptr @hdr_ethernet_proto, align 4
+  %storemerge42 = phi i32 [ 34525, %51 ], [ 2048, %.thread ]
+  store i32 %storemerge42, ptr @hdr_ethernet_proto, align 4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load i32, ptr %53, align 8
   switch i32 %54, label %62 [
@@ -2574,8 +2574,8 @@ switch.lookup:                                    ; preds = %9
   store i32 0, ptr %68, align 8
   %69 = tail call noalias dereferenceable_or_null(262210) ptr @g_malloc(i64 noundef 262210) #22
   store ptr %69, ptr @packet_buf, align 8
-  %.not44 = icmp eq ptr %69, null
-  br i1 %.not44, label %70, label %71
+  %.not43 = icmp eq ptr %69, null
+  br i1 %.not43, label %70, label %71
 
 70:                                               ; preds = %66
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.17)
@@ -2617,8 +2617,8 @@ switch.lookup:                                    ; preds = %9
   br label %87
 
 86:                                               ; preds = %82
-  %.not45 = icmp eq i32 %83, 0
-  %spec.store.select = select i1 %.not45, i32 0, i32 3
+  %.not44 = icmp eq i32 %83, 0
+  %spec.store.select = select i1 %.not44, i32 0, i32 3
   br label %87
 
 87:                                               ; preds = %71, %73, %86, %85, %77, %81

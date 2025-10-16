@@ -5243,9 +5243,9 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_initCompressedState(ptr no
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 4177, i64 4178
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
-  %.in6 = load i8, ptr %.in.in, align 1
-  store i8 %.in6, ptr %2, align 1
-  %5 = lshr i8 %.in6, 5
+  %.in = load i8, ptr %.in.in, align 1
+  store i8 %.in, ptr %2, align 1
+  %5 = lshr i8 %.in, 5
   %.lobit = and i8 %5, 1
   %6 = xor i8 %.lobit, 1
   ret i8 %6

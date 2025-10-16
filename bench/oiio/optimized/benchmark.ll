@@ -609,8 +609,8 @@ define noundef double @_ZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadE
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %"class.OpenImageIO::v3_1_0::Timer", align 8
   %5 = alloca %"class.std::vector", align 8
-  %.b7 = load i1, ptr @_ZZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadEvE11initialized, align 1
-  br i1 %.b7, label %39, label %6
+  %.b = load i1, ptr @_ZZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadEvE11initialized, align 1
+  br i1 %.b, label %39, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -631,10 +631,10 @@ define noundef double @_ZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadE
 
 16:                                               ; preds = %25
   invoke void @_ZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERSt6vectorIdSaIdEEm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 10000000)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit11
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit10
 
 17:                                               ; preds = %6, %25
-  %.sroa.012.0.idx16 = phi i64 [ 0, %6 ], [ %.sroa.012.0.add, %25 ]
+  %.sroa.011.0.idx15 = phi i64 [ 0, %6 ], [ %.sroa.011.0.add, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %11, align 1, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
@@ -657,7 +657,7 @@ define noundef double @_ZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadE
   br i1 %.not.i, label %25, label %23, !llvm.loop !24
 
 25:                                               ; preds = %23
-  %.sroa.012.0.ptr17 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.012.0.idx16
+  %.sroa.011.0.ptr16 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.011.0.idx15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #27
   %27 = load i64, ptr %2, align 8, !tbaa !18
@@ -672,9 +672,9 @@ define noundef double @_ZN11OpenImageIO6v3_1_011Benchmarker18iteration_overheadE
   %35 = fmul double %34, %33
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store double %35, ptr %.sroa.012.0.ptr17, align 8, !tbaa !26
-  %.sroa.012.0.add = add nuw nsw i64 %.sroa.012.0.idx16, 8
-  %.not = icmp eq i64 %.sroa.012.0.add, 80
+  store double %35, ptr %.sroa.011.0.ptr16, align 8, !tbaa !26
+  %.sroa.011.0.add = add nuw nsw i64 %.sroa.011.0.idx15, 8
+  %.not = icmp eq i64 %.sroa.011.0.add, 80
   br i1 %.not, label %16, label %17
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %16
@@ -686,7 +686,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
-_ZNSt6vectorIdSaIdEED2Ev.exit11:                  ; preds = %16
+_ZNSt6vectorIdSaIdEED2Ev.exit10:                  ; preds = %16
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 80) #28

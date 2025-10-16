@@ -1161,11 +1161,11 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %73
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store ptr %150, ptr %149, align 8
-  %.not47248 = icmp sgt i32 %108, %144
-  br i1 %.not47248, label %.loopexit, label %.preheader.lr.ph
+  %.not47246 = icmp sgt i32 %108, %144
+  br i1 %.not47246, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
-  %.not48246 = icmp sgt i32 %106, %143
+  %.not48244 = icmp sgt i32 %106, %143
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1175,20 +1175,20 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %73
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.0249 = phi i32 [ %108, %.preheader.lr.ph ], [ %203, %._crit_edge ]
-  br i1 %.not48246, label %._crit_edge, label %.lr.ph.preheader
+  %.0247 = phi i32 [ %108, %.preheader.lr.ph ], [ %203, %._crit_edge ]
+  br i1 %.not48244, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.06.i.i.sroa.phi.sroa.speculated.in.c = sitofp i32 %.0249 to float
+  %.06.i.i.sroa.phi.sroa.speculated.in.c = sitofp i32 %.0247 to float
   %.06.i.i.sroa.phi.sroa.speculated.c = fadd float %.06.i.i.sroa.phi.sroa.speculated.in.c, 5.000000e-01
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %201
-  %.045247 = phi i32 [ %106, %.lr.ph.preheader ], [ %202, %201 ]
+  %.045245 = phi i32 [ %106, %.lr.ph.preheader ], [ %202, %201 ]
   %154 = load float, ptr %69, align 8
   %155 = fdiv float %154, 5.000000e+00
   %exp2f.i.i121 = call noundef float @exp2f(float %155)
-  %.06.i.i.sroa.phi.sroa.speculated.in = sitofp i32 %.045247 to float
+  %.06.i.i.sroa.phi.sroa.speculated.in = sitofp i32 %.045245 to float
   %.06.i.i.sroa.phi.sroa.speculated = fadd float %.06.i.i.sroa.phi.sroa.speculated.in, 5.000000e-01
   %156 = fmul float %exp2f.i.i121, %.06.i.i.sroa.phi.sroa.speculated
   %157 = fmul float %exp2f.i.i121, %.06.i.i.sroa.phi.sroa.speculated.c
@@ -1213,8 +1213,8 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %73
   %174 = sitofp i32 %.sroa.3.i118.0 to float
   %175 = fptosi float %173 to i32
   %176 = fptosi float %174 to i32
-  store i32 %.045247, ptr %9, align 4
-  store i32 %.0249, ptr %151, align 4
+  store i32 %.045245, ptr %9, align 4
+  store i32 %.0247, ptr %151, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %3, align 8
@@ -1287,14 +1287,14 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %.lr
   br i1 %exitcond.not, label %201, label %180, !llvm.loop !8
 
 201:                                              ; preds = %198
-  %202 = add i32 %.045247, 1
-  %exitcond251.not = icmp eq i32 %.045247, %143
-  br i1 %exitcond251.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  %202 = add i32 %.045245, 1
+  %exitcond249.not = icmp eq i32 %.045245, %143
+  br i1 %exitcond249.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %201, %.preheader
-  %203 = add i32 %.0249, 1
-  %exitcond252.not = icmp eq i32 %.0249, %144
-  br i1 %exitcond252.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  %203 = add i32 %.0247, 1
+  %exitcond250.not = icmp eq i32 %.0247, %144
+  br i1 %exitcond250.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %73, %56
   call void @nvgRestore(ptr noundef %1)

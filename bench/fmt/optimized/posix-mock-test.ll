@@ -1847,8 +1847,8 @@ define hidden noundef i32 @_ZN4test4pipeEPi(ptr noundef %0) local_unnamed_addr #
 define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v1111getpagesizeEv() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.fmt::v11::detail::format_arg_store.99", align 16
   %2 = tail call i64 @sysconf(i32 noundef 30) #29
-  %.b3.i = load i1, ptr @_ZN12_GLOBAL__N_113sysconf_errorE, align 1
-  br i1 %.b3.i, label %_ZN4test7sysconfEi.exit.thread, label %_ZN4test7sysconfEi.exit
+  %.b.i = load i1, ptr @_ZN12_GLOBAL__N_113sysconf_errorE, align 1
+  br i1 %.b.i, label %_ZN4test7sysconfEi.exit.thread, label %_ZN4test7sysconfEi.exit
 
 _ZN4test7sysconfEi.exit.thread:                   ; preds = %0
   %3 = tail call ptr @__errno_location() #28
@@ -1885,8 +1885,8 @@ _ZN4test7sysconfEi.exit:                          ; preds = %0
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN4test7sysconfEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @sysconf(i32 noundef %0) #29
-  %.b3 = load i1, ptr @_ZN12_GLOBAL__N_113sysconf_errorE, align 1
-  br i1 %.b3, label %3, label %5
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_113sysconf_errorE, align 1
+  br i1 %.b, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #28

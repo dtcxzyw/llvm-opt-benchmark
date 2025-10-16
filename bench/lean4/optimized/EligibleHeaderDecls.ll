@@ -5428,8 +5428,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_Completion_EligibleHeaderDecls(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -5458,33 +5458,33 @@ define ptr @initialize_Lean_Server_Completion_EligibleHeaderDecls(i8 noundef zer
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 16:                                               ; preds = %11
-  %.not.i10 = icmp eq i32 %12, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %17
+  %.not.i9 = icmp eq i32 %12, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #3
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %14, %16, %17
+lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %.not = icmp eq i8 %0, 0
   br i1 %.not, label %lean_dec_ref.exit, label %18
 
-18:                                               ; preds = %lean_dec_ref.exit11
+18:                                               ; preds = %lean_dec_ref.exit10
   %19 = tail call ptr @l_Lean_Server_Completion_initFn____x40_Lean_Server_Completion_EligibleHeaderDecls___hyg_10_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %20 = getelementptr i8, ptr %19, i64 4
-  %.val12 = load i32, ptr %20, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %21 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %20, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %21 = icmp eq i32 %.mask.i13, 16777216
   br i1 %21, label %53, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr i8, ptr %19, i64 8
-  %.val13 = load ptr, ptr %23, align 8, !tbaa !9
-  store ptr %.val13, ptr @l_Lean_Server_Completion_eligibleHeaderDeclsRef, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #3
+  %.val12 = load ptr, ptr %23, align 8, !tbaa !9
+  store ptr %.val12, ptr @l_Lean_Server_Completion_eligibleHeaderDeclsRef, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #3
   %24 = load i32, ptr %19, align 8, !tbaa !4
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28, !prof !11
@@ -5502,7 +5502,7 @@ lean_dec_ref.exit11:                              ; preds = %14, %16, %17
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %19) #3
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %29, %28, %26, %lean_dec_ref.exit11
+lean_dec_ref.exit:                                ; preds = %29, %28, %26, %lean_dec_ref.exit10
   %30 = load ptr, ptr @l_Lean_Server_Completion_eligibleHeaderDeclsRef, align 8, !tbaa !9
   store ptr %30, ptr @l_Lean_Server_Completion_getEligibleHeaderDecls___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %30) #3
@@ -5561,18 +5561,18 @@ _init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit: ; preds 
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit, %3
-  %.sink26 = phi ptr [ %4, %3 ], [ %47, %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !4
+  %.sink25 = phi ptr [ %4, %3 ], [ %47, %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !4
   store i32 131096, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %51, align 8, !tbaa !9
-  %52 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %52, align 8, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.sink.split, %18, %7
-  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %.sink26, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

@@ -203,16 +203,16 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @pgstat_slru_have_pending_cb() local_unnamed_addr #6 {
-  %.b1 = load i1, ptr @have_slrustats, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @have_slrustats, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_slru_flush_cb(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pgStatLocal, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 49856
-  %.b42 = load i1, ptr @have_slrustats, align 1
-  br i1 %.b42, label %4, label %47
+  %.b = load i1, ptr @have_slrustats, align 1
+  br i1 %.b, label %4, label %47
 
 4:                                                ; preds = %1
   br i1 %0, label %7, label %5

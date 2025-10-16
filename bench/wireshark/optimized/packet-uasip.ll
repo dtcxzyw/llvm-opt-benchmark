@@ -139,8 +139,8 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %.b14 = load i1, ptr @use_proxy_ipaddr, align 1
-  br i1 %.b14, label %5, label %13
+  %.b = load i1, ptr @use_proxy_ipaddr, align 1
+  br i1 %.b, label %5, label %13
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -152,8 +152,8 @@ define internal i32 @dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %11 = load ptr, ptr %10, align 8
-  %bcmp15 = tail call i32 @bcmp(ptr noundef dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
-  %12 = icmp eq i32 %bcmp15, 0
+  %bcmp14 = tail call i32 @bcmp(ptr noundef dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
+  %12 = icmp eq i32 %bcmp14, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9, %4
@@ -183,8 +183,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_uasip() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_uasip.prefs_initialized, align 1
-  br i1 %.b1, label %7, label %1
+  %.b = load i1, ptr @proto_reg_handoff_uasip.prefs_initialized, align 1
+  br i1 %.b, label %7, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_uasip, align 4

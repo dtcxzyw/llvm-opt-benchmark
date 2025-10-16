@@ -398,13 +398,13 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   %5 = alloca [2 x %struct.shm_mq_iovec], align 16
   store i8 %0, ptr %4, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.b6 = load i1, ptr @pq_mq_busy, align 1
+  %.b = load i1, ptr @pq_mq_busy, align 1
   %6 = load ptr, ptr @pq_mq_handle, align 8
-  %.not10 = icmp eq ptr %6, null
-  br i1 %.b6, label %7, label %10
+  %.not9 = icmp eq ptr %6, null
+  br i1 %.b, label %7, label %10
 
 7:                                                ; preds = %3
-  br i1 %.not10, label %9, label %8
+  br i1 %.not9, label %9, label %8
 
 8:                                                ; preds = %7
   tail call void @shm_mq_detach(ptr noundef nonnull %6) #9
@@ -415,7 +415,7 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   br label %32
 
 10:                                               ; preds = %3
-  br i1 %.not10, label %32, label %11
+  br i1 %.not9, label %32, label %11
 
 11:                                               ; preds = %10
   store i1 true, ptr @pq_mq_busy, align 1
@@ -439,13 +439,13 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   %19 = call zeroext i1 @IsLogicalParallelApplyWorker() #9
   %20 = load i32, ptr @pq_mq_parallel_leader_pid, align 4
   %21 = load i32, ptr @pq_mq_parallel_leader_proc_number, align 4
-  %.14 = select i1 %19, i32 6, i32 2
-  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.14, i32 noundef %21) #9
+  %.13 = select i1 %19, i32 6, i32 2
+  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.13, i32 noundef %21) #9
   br label %23
 
 23:                                               ; preds = %.sink.split, %15
-  %.not7 = icmp eq i32 %17, 1
-  br i1 %.not7, label %24, label %31
+  %.not6 = icmp eq i32 %17, 1
+  br i1 %.not6, label %24, label %31
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @MyLatch, align 8
@@ -453,8 +453,8 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   %27 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %27) #9
   %28 = load volatile i32, ptr @InterruptPending, align 4
-  %.not8 = icmp eq i32 %28, 0
-  br i1 %.not8, label %30, label %29, !prof !4
+  %.not7 = icmp eq i32 %28, 0
+  br i1 %.not7, label %30, label %29, !prof !4
 
 29:                                               ; preds = %24
   call void @ProcessInterrupts() #9
@@ -466,8 +466,8 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 
 31:                                               ; preds = %23
   store i1 false, ptr @pq_mq_busy, align 1
-  %.not9 = icmp ne i32 %17, 0
-  %. = sext i1 %.not9 to i32
+  %.not8 = icmp ne i32 %17, 0
+  %. = sext i1 %.not8 to i32
   br label %32
 
 32:                                               ; preds = %31, %10, %9

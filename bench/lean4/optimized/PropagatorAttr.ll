@@ -15082,8 +15082,8 @@ lean_dec.exit:                                    ; preds = %33, %32, %30, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Grind_PropagatorAttr(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b17 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b17, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -15112,25 +15112,25 @@ define ptr @initialize_Lean_Meta_Tactic_Grind_PropagatorAttr(i8 noundef zeroext 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
 16:                                               ; preds = %11
-  %.not.i22 = icmp eq i32 %12, 0
-  br i1 %.not.i22, label %lean_dec_ref.exit23, label %17
+  %.not.i21 = icmp eq i32 %12, 0
+  br i1 %.not.i21, label %lean_dec_ref.exit22, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
-lean_dec_ref.exit23:                              ; preds = %14, %16, %17
+lean_dec_ref.exit22:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_Tactic_Grind_Proof(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val24 = load i32, ptr %19, align 4
-  %.mask.i28 = and i32 %.val24, -16777216
-  %20 = icmp eq i32 %.mask.i28, 16777216
+  %.val23 = load i32, ptr %19, align 4
+  %.mask.i27 = and i32 %.val23, -16777216
+  %20 = icmp eq i32 %.mask.i27, 16777216
   br i1 %20, label %359, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit23
+21:                                               ; preds = %lean_dec_ref.exit22
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -15138,17 +15138,17 @@ lean_dec_ref.exit23:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
 26:                                               ; preds = %21
-  %.not.i20 = icmp eq i32 %22, 0
-  br i1 %.not.i20, label %lean_dec_ref.exit21, label %27
+  %.not.i19 = icmp eq i32 %22, 0
+  br i1 %.not.i19, label %lean_dec_ref.exit20, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
-lean_dec_ref.exit21:                              ; preds = %24, %26, %27
+lean_dec_ref.exit20:                              ; preds = %24, %26, %27
   %28 = tail call ptr @l_Nat_nextPowerOfTwo_go(ptr noundef nonnull inttoptr (i64 21 to ptr), ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   store ptr %28, ptr @l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #6
@@ -15162,11 +15162,11 @@ lean_dec_ref.exit21:                              ; preds = %24, %26, %27
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__3.exit
 
-34:                                               ; preds = %lean_dec_ref.exit21
+34:                                               ; preds = %lean_dec_ref.exit20
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__3.exit: ; preds = %lean_dec_ref.exit21
+_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__3.exit: ; preds = %lean_dec_ref.exit20
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 1, ptr %32, align 4, !tbaa !8
   store i32 131096, ptr %35, align 4
@@ -15200,21 +15200,21 @@ _init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__4.exit: ; pred
   store ptr %45, ptr @l_Lean_Meta_Grind_instInhabitedBuiltinPropagators, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %45) #6
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit19, label %46
+  br i1 %.not, label %lean_dec_ref.exit18, label %46
 
 46:                                               ; preds = %_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__4.exit
   %47 = tail call ptr @l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_PropagatorAttr___hyg_52_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %48 = getelementptr i8, ptr %47, i64 4
-  %.val25 = load i32, ptr %48, align 4
-  %.mask.i29 = and i32 %.val25, -16777216
-  %49 = icmp eq i32 %.mask.i29, 16777216
+  %.val24 = load i32, ptr %48, align 4
+  %.mask.i28 = and i32 %.val24, -16777216
+  %49 = icmp eq i32 %.mask.i28, 16777216
   br i1 %49, label %359, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr i8, ptr %47, i64 8
-  %.val27 = load ptr, ptr %51, align 8, !tbaa !4
-  store ptr %.val27, ptr @l_Lean_Meta_Grind_builtinPropagatorsRef, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val27) #6
+  %.val26 = load ptr, ptr %51, align 8, !tbaa !4
+  store ptr %.val26, ptr @l_Lean_Meta_Grind_builtinPropagatorsRef, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val26) #6
   %52 = load i32, ptr %47, align 8, !tbaa !8
   %53 = icmp sgt i32 %52, 1
   br i1 %53, label %54, label %56, !prof !11
@@ -15222,17 +15222,17 @@ _init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__4.exit: ; pred
 54:                                               ; preds = %50
   %55 = add nsw i32 %52, -1
   store i32 %55, ptr %47, align 4, !tbaa !8
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
 56:                                               ; preds = %50
-  %.not.i18 = icmp eq i32 %52, 0
-  br i1 %.not.i18, label %lean_dec_ref.exit19, label %57
+  %.not.i17 = icmp eq i32 %52, 0
+  br i1 %.not.i17, label %lean_dec_ref.exit18, label %57
 
 57:                                               ; preds = %56
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %47) #6
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
-lean_dec_ref.exit19:                              ; preds = %57, %56, %54, %_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__4.exit
+lean_dec_ref.exit18:                              ; preds = %57, %56, %54, %_init_l_Lean_Meta_Grind_instInhabitedBuiltinPropagators___closed__4.exit
   %58 = load ptr, ptr @l_Lean_Meta_Grind_builtinPropagatorsRef, align 8, !tbaa !4
   store ptr %58, ptr @l___private_Lean_Meta_Tactic_Grind_PropagatorAttr_0__Lean_Meta_Grind_registerBuiltinPropagatorCore___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %58) #6
@@ -15241,11 +15241,11 @@ lean_dec_ref.exit19:                              ; preds = %57, %56, %54, %_ini
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %_init_l___private_Lean_Meta_Tactic_Grind_PropagatorAttr_0__Lean_Meta_Grind_registerBuiltinPropagatorCore___lambda__4___closed__1.exit
 
-61:                                               ; preds = %lean_dec_ref.exit19
+61:                                               ; preds = %lean_dec_ref.exit18
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l___private_Lean_Meta_Tactic_Grind_PropagatorAttr_0__Lean_Meta_Grind_registerBuiltinPropagatorCore___lambda__4___closed__1.exit: ; preds = %lean_dec_ref.exit19
+_init_l___private_Lean_Meta_Tactic_Grind_PropagatorAttr_0__Lean_Meta_Grind_registerBuiltinPropagatorCore___lambda__4___closed__1.exit: ; preds = %lean_dec_ref.exit18
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 1, ptr %59, align 4, !tbaa !8
   store i32 -184549352, ptr %62, align 4
@@ -15914,9 +15914,9 @@ _init_l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_PropagatorAttr___hy
   %342 = load ptr, ptr @l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_PropagatorAttr___hyg_663____closed__23, align 8, !tbaa !4
   %343 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef %342, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %344 = getelementptr i8, ptr %343, i64 4
-  %.val26 = load i32, ptr %344, align 4
-  %.mask.i30 = and i32 %.val26, -16777216
-  %345 = icmp eq i32 %.mask.i30, 16777216
+  %.val25 = load i32, ptr %344, align 4
+  %.mask.i29 = and i32 %.val25, -16777216
+  %345 = icmp eq i32 %.mask.i29, 16777216
   br i1 %345, label %359, label %346
 
 346:                                              ; preds = %341
@@ -15948,18 +15948,18 @@ lean_dec_ref.exit:                                ; preds = %352, %351, %349, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink64 = phi ptr [ %4, %3 ], [ %353, %lean_dec_ref.exit ]
-  %356 = getelementptr inbounds nuw i8, ptr %.sink64, i64 4
-  store i32 1, ptr %.sink64, align 4, !tbaa !8
+  %.sink63 = phi ptr [ %4, %3 ], [ %353, %lean_dec_ref.exit ]
+  %356 = getelementptr inbounds nuw i8, ptr %.sink63, i64 4
+  store i32 1, ptr %.sink63, align 4, !tbaa !8
   store i32 131096, ptr %356, align 4
-  %357 = getelementptr inbounds nuw i8, ptr %.sink64, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %.sink63, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %357, align 8, !tbaa !4
-  %358 = getelementptr inbounds nuw i8, ptr %.sink64, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %.sink63, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %358, align 8, !tbaa !4
   br label %359
 
-359:                                              ; preds = %.sink.split, %341, %46, %lean_dec_ref.exit23, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit23 ], [ %47, %46 ], [ %343, %341 ], [ %.sink64, %.sink.split ]
+359:                                              ; preds = %.sink.split, %341, %46, %lean_dec_ref.exit22, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %47, %46 ], [ %343, %341 ], [ %.sink63, %.sink.split ]
   ret ptr %.0
 }
 

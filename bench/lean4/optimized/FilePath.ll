@@ -806,8 +806,8 @@ declare ptr @l_System_FilePath_components(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Util_FilePath(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -892,18 +892,18 @@ _init_l_Lake_instDivFilePath__lake___closed__1.exit: ; preds = %lean_dec_ref.exi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instDivFilePath__lake___closed__1.exit, %3
-  %.sink13 = phi ptr [ %4, %3 ], [ %31, %_init_l_Lake_instDivFilePath__lake___closed__1.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
-  store i32 1, ptr %.sink13, align 4, !tbaa !8
+  %.sink12 = phi ptr [ %4, %3 ], [ %31, %_init_l_Lake_instDivFilePath__lake___closed__1.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !8
   store i32 131096, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %35, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !13
   br label %37
 
 37:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

@@ -6346,10 +6346,10 @@ define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr nou
   %.not = icmp eq i32 %8, 0
   %.in.in.idx = zext nneg i32 %8 to i64
   %.in.in = getelementptr inbounds nuw i8, ptr %3, i64 %.in.in.idx
-  %.in39 = load i16, ptr %.in.in, align 2
+  %.in = load i16, ptr %.in.in, align 2
   %9 = load i32, ptr @proto_gsm_rlcmac, align 4
   %10 = select i1 %.not, i32 1, i32 2
-  %11 = zext i16 %.in39 to i32
+  %11 = zext i16 %.in to i32
   %12 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2977, i32 noundef %10, i32 noundef %11)
   %13 = load i32, ptr @ett_gsm_rlcmac_data, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
@@ -6399,8 +6399,8 @@ construct_egprs_data_segment_li_array.exit:       ; preds = %36, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %.025.i, %36 ]
   %40 = add i32 %.0.lcssa.i, 1
   %41 = load i64, ptr %7, align 8
-  %.not41 = icmp eq i64 %41, 0
-  br i1 %.not41, label %46, label %42
+  %.not40 = icmp eq i64 %41, 0
+  br i1 %.not40, label %46, label %42
 
 42:                                               ; preds = %construct_egprs_data_segment_li_array.exit
   %43 = load i32, ptr @hf_tlli, align 4
@@ -6412,8 +6412,8 @@ construct_egprs_data_segment_li_array.exit:       ; preds = %36, %4
   %.0 = phi i32 [ %45, %42 ], [ %40, %construct_egprs_data_segment_li_array.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %48 = load i8, ptr %47, align 2
-  %.not42 = icmp eq i8 %48, 0
-  br i1 %.not42, label %57, label %49
+  %.not41 = icmp eq i8 %48, 0
+  br i1 %.not41, label %57, label %49
 
 49:                                               ; preds = %46
   %50 = load i32, ptr @hf_pfi, align 4
@@ -6428,8 +6428,8 @@ construct_egprs_data_segment_li_array.exit:       ; preds = %36, %4
 57:                                               ; preds = %49, %46
   %.1 = phi i32 [ %56, %49 ], [ %.0, %46 ]
   %58 = load i64, ptr %6, align 8
-  %.not43 = icmp eq i64 %58, 0
-  br i1 %.not43, label %62, label %59
+  %.not42 = icmp eq i64 %58, 0
+  br i1 %.not42, label %62, label %59
 
 59:                                               ; preds = %57
   %60 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -6863,10 +6863,10 @@ define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr nou
   %.not = icmp eq i32 %8, 0
   %.in.in.idx = zext nneg i32 %8 to i64
   %.in.in = getelementptr inbounds nuw i8, ptr %3, i64 %.in.in.idx
-  %.in26 = load i16, ptr %.in.in, align 2
+  %.in = load i16, ptr %.in.in, align 2
   %9 = load i32, ptr @proto_gsm_rlcmac, align 4
   %10 = select i1 %.not, i32 1, i32 2
-  %11 = zext i16 %.in26 to i32
+  %11 = zext i16 %.in to i32
   %12 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.3626, i32 noundef %10, i32 noundef %11)
   %13 = load i32, ptr @ett_gsm_rlcmac_data, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)

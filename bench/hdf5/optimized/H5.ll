@@ -187,8 +187,8 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %6
   %.pre = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7
-  %.pre18 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre19 = trunc nuw i8 %.pre to i1
+  %.pre17 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre18 = trunc nuw i8 %.pre to i1
   br label %13
 
 9:                                                ; preds = %6
@@ -199,16 +199,16 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
   br label %101
 
 13:                                               ; preds = %._crit_edge, %0
-  %.pre-phi = phi i1 [ %.pre19, %._crit_edge ], [ %2, %0 ]
-  %14 = phi i8 [ %.pre18, %._crit_edge ], [ %3, %0 ]
+  %.pre-phi = phi i1 [ %.pre18, %._crit_edge ], [ %2, %0 ]
+  %14 = phi i8 [ %.pre17, %._crit_edge ], [ %3, %0 ]
   %15 = trunc nuw i8 %14 to i1
   %not. = xor i1 %.pre-phi, true
   %.not = select i1 %not., i1 %15, i1 false
   %16 = load i8, ptr @H5_libinit_g, align 1, !range !7
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %.not, i1 true, i1 %17
-  %or.cond16 = select i1 %18, i1 true, i1 %15, !prof !9
-  br i1 %or.cond16, label %101, label %19, !prof !9
+  %or.cond15 = select i1 %18, i1 true, i1 %15, !prof !9
+  br i1 %or.cond15, label %101, label %19, !prof !9
 
 19:                                               ; preds = %13
   tail call fastcc void @H5_check_version(i32 noundef 2, i32 noundef 0, i32 noundef 0)
@@ -234,8 +234,8 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
   store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 288), align 8, !tbaa !13
   store ptr @.str.21, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 304), align 8, !tbaa !13
   store ptr @.str.22, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 320), align 8, !tbaa !13
-  %.b14 = load i1, ptr @H5_dont_atexit_g, align 1
-  br i1 %.b14, label %22, label %20
+  %.b = load i1, ptr @H5_dont_atexit_g, align 1
+  br i1 %.b, label %22, label %20
 
 20:                                               ; preds = %19
   %21 = tail call i32 @atexit(ptr noundef nonnull @H5_term_library) #21
@@ -392,8 +392,8 @@ define internal fastcc void @H5_check_version(i32 noundef %0, i32 noundef %1, i3
   br i1 %11, label %12, label %66, !prof !12
 
 12:                                               ; preds = %3
-  %.b29 = load i1, ptr @H5_check_version.checked, align 1
-  br i1 %.b29, label %66, label %13
+  %.b = load i1, ptr @H5_check_version.checked, align 1
+  br i1 %.b, label %66, label %13
 
 13:                                               ; preds = %12
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str.85) #21
@@ -408,8 +408,8 @@ define internal fastcc void @H5_check_version(i32 noundef %0, i32 noundef %1, i3
   %20 = getelementptr inbounds i16, ptr %17, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !21
   %22 = and i16 %21, 2048
-  %.not30 = icmp eq i16 %22, 0
-  br i1 %.not30, label %thread-pre-split, label %23
+  %.not29 = icmp eq i16 %22, 0
+  br i1 %.not29, label %thread-pre-split, label %23
 
 23:                                               ; preds = %15
   %24 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 0) #21
@@ -418,18 +418,18 @@ define internal fastcc void @H5_check_version(i32 noundef %0, i32 noundef %1, i3
   br label %26
 
 thread-pre-split:                                 ; preds = %13, %15
-  %.pre36.pre37.pr = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
+  %.pre35.pre36.pr = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
   br label %26
 
 26:                                               ; preds = %thread-pre-split, %23
-  %.pre36.pre37 = phi i32 [ %.pre36.pre37.pr, %thread-pre-split ], [ %25, %23 ]
+  %.pre35.pre36 = phi i32 [ %.pre35.pre36.pr, %thread-pre-split ], [ %25, %23 ]
   %27 = icmp ne i32 %0, 2
   %28 = icmp ne i32 %1, 0
   %or.cond = or i1 %27, %28
   br i1 %or.cond, label %29, label %44
 
 29:                                               ; preds = %26
-  switch i32 %.pre36.pre37, label %44 [
+  switch i32 %.pre35.pre36, label %44 [
     i32 0, label %30
     i32 1, label %38
   ]
@@ -440,7 +440,7 @@ thread-pre-split:                                 ; preds = %13, %15
   %33 = load ptr, ptr @stderr, align 8, !tbaa !25
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
   %35 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %fputs31 = tail call i32 @fputs(ptr nonnull @H5build_settings, ptr %35) #24
+  %fputs30 = tail call i32 @fputs(ptr nonnull @H5build_settings, ptr %35) #24
   %36 = load ptr, ptr @stderr, align 8, !tbaa !25
   %37 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 7, i64 1, ptr %36) #24
   tail call void @abort() #25
@@ -453,16 +453,16 @@ thread-pre-split:                                 ; preds = %13, %15
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.87, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #23
   %43 = load ptr, ptr @stderr, align 8, !tbaa !25
   %fputs = tail call i32 @fputs(ptr nonnull @H5build_settings, ptr %43) #24
-  %.pre36.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
+  %.pre35.pre = load i32, ptr @H5_check_version.disable_version_check, align 4, !tbaa !23
   br label %44
 
 44:                                               ; preds = %38, %29, %26
-  %.pre36 = phi i32 [ %.pre36.pre, %38 ], [ %.pre36.pre37, %29 ], [ %.pre36.pre37, %26 ]
-  %.not32 = icmp eq i32 %2, 0
-  br i1 %.not32, label %.loopexit, label %.preheader
+  %.pre35 = phi i32 [ %.pre35.pre, %38 ], [ %.pre35.pre36, %29 ], [ %.pre35.pre36, %26 ]
+  %.not31 = icmp eq i32 %2, 0
+  br i1 %.not31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %44
-  switch i32 %.pre36, label %.loopexit.thread [
+  switch i32 %.pre35, label %.loopexit.thread [
     i32 0, label %45
     i32 1, label %52
   ]
@@ -490,16 +490,16 @@ thread-pre-split:                                 ; preds = %13, %15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %44
-  %57 = phi i32 [ %.pre, %52 ], [ %.pre36, %44 ]
+  %57 = phi i32 [ %.pre, %52 ], [ %.pre35, %44 ]
   store i1 true, ptr @H5_check_version.checked, align 1
-  %.not33 = icmp eq i32 %57, 0
-  br i1 %.not33, label %58, label %66
+  %.not32 = icmp eq i32 %57, 0
+  br i1 %.not32, label %58, label %66
 
 58:                                               ; preds = %.loopexit
   %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.91, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #21
   %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @H5_lib_vers_info_g) #26
-  %.not35 = icmp eq i32 %60, 0
-  br i1 %.not35, label %66, label %61
+  %.not34 = icmp eq i32 %60, 0
+  br i1 %.not34, label %66, label %61
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr @stderr, align 8, !tbaa !25
@@ -1973,8 +1973,8 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @H5dont_atexit() local_unnamed_addr #8 {
-  %.b1 = load i1, ptr @H5_dont_atexit_g, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @H5_dont_atexit_g, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @H5_dont_atexit_g, align 1

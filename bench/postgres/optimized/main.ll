@@ -499,8 +499,8 @@ declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define dso_local noundef ptr @__ubsan_default_options() local_unnamed_addr #11 {
-  %.b1 = load i1, ptr @reached_main, align 1
-  br i1 %.b1, label %1, label %3
+  %.b = load i1, ptr @reached_main, align 1
+  br i1 %.b, label %1, label %3
 
 1:                                                ; preds = %0
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #15

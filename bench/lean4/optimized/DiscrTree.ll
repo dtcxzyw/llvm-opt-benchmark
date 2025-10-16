@@ -165569,8 +165569,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_DiscrTree(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -165599,25 +165599,25 @@ define ptr @initialize_Lean_Meta_DiscrTree(i8 noundef zeroext %0, ptr noundef re
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #7
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_Transform(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %376, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -165625,25 +165625,25 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #7
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lean_Meta_DiscrTreeTypes(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %376, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -166219,8 +166219,8 @@ _init_l___private_Lean_Meta_DiscrTree_0__Lean_Meta_DiscrTree_toNatLit_x3f_loop__
   %240 = load ptr, ptr @l___private_Lean_Meta_DiscrTree_0__Lean_Meta_DiscrTree_initCapacity, align 8, !tbaa !9
   %241 = ptrtoint ptr %240 to i64
   %242 = and i64 %241, 1
-  %.not.i.i21 = icmp eq i64 %242, 0
-  br i1 %.not.i.i21, label %243, label %_init_l_Lean_Meta_DiscrTree_mkPath___closed__1.exit
+  %.not.i.i20 = icmp eq i64 %242, 0
+  br i1 %.not.i.i20, label %243, label %_init_l_Lean_Meta_DiscrTree_mkPath___closed__1.exit
 
 243:                                              ; preds = %_init_l___private_Lean_Meta_DiscrTree_0__Lean_Meta_DiscrTree_toNatLit_x3f_loop___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #8
@@ -166292,8 +166292,8 @@ _init_l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__1.exit: ; preds = 
   tail call void @lean_mark_persistent(ptr noundef %271) #7
   %272 = load ptr, ptr @l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__2, align 8, !tbaa !9
   %273 = getelementptr i8, ptr %272, i64 8
-  %.val.i22 = load i64, ptr %273, align 8, !tbaa !14
-  %274 = shl i64 %.val.i22, 1
+  %.val.i21 = load i64, ptr %273, align 8, !tbaa !14
+  %274 = shl i64 %.val.i21, 1
   %275 = or disjoint i64 %274, 1
   %276 = inttoptr i64 %275 to ptr
   store ptr %276, ptr @l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__3, align 8, !tbaa !9
@@ -166392,8 +166392,8 @@ _init_l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__9.exit: ; preds = 
   tail call void @lean_mark_persistent(ptr noundef %310) #7
   %311 = load ptr, ptr @l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__10, align 8, !tbaa !9
   %312 = getelementptr i8, ptr %311, i64 8
-  %.val.i23 = load i64, ptr %312, align 8, !tbaa !14
-  %313 = shl i64 %.val.i23, 1
+  %.val.i22 = load i64, ptr %312, align 8, !tbaa !14
+  %313 = shl i64 %.val.i22, 1
   %314 = or disjoint i64 %313, 1
   %315 = inttoptr i64 %314 to ptr
   store ptr %315, ptr @l_Lean_Meta_DiscrTree_insertIfSpecific___rarg___closed__11, align 8, !tbaa !9
@@ -166562,18 +166562,18 @@ _init_l_Lean_Meta_DiscrTree_size___rarg___closed__1.exit: ; preds = %_init_l_Lea
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_DiscrTree_size___rarg___closed__1.exit, %3
-  %.sink66 = phi ptr [ %4, %3 ], [ %370, %_init_l_Lean_Meta_DiscrTree_size___rarg___closed__1.exit ]
-  %373 = getelementptr inbounds nuw i8, ptr %.sink66, i64 4
-  store i32 1, ptr %.sink66, align 4, !tbaa !4
+  %.sink65 = phi ptr [ %4, %3 ], [ %370, %_init_l_Lean_Meta_DiscrTree_size___rarg___closed__1.exit ]
+  %373 = getelementptr inbounds nuw i8, ptr %.sink65, i64 4
+  store i32 1, ptr %.sink65, align 4, !tbaa !4
   store i32 131096, ptr %373, align 4
-  %374 = getelementptr inbounds nuw i8, ptr %.sink66, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %.sink65, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %374, align 8, !tbaa !9
-  %375 = getelementptr inbounds nuw i8, ptr %.sink66, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %.sink65, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %375, align 8, !tbaa !9
   br label %376
 
-376:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink66, %.sink.split ]
+376:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink65, %.sink.split ]
   ret ptr %.0
 }
 

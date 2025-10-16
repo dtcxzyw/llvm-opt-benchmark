@@ -1068,8 +1068,8 @@ define dso_local void @_ZN8V3Broken9brokenAllEP10AstNetlist(ptr noundef %0) loca
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %class.BrokenCheckVisitor, align 8
-  %.b5 = load i1, ptr @_ZZN8V3Broken9brokenAllEP10AstNetlistE8inBroken, align 1
-  br i1 %.b5, label %5, label %27, !prof !24
+  %.b = load i1, ptr @_ZZN8V3Broken9brokenAllEP10AstNetlistE8inBroken, align 1
+  br i1 %.b, label %5, label %27, !prof !24
 
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_ZL5debugv()
@@ -1112,15 +1112,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStl
   %22 = load ptr, ptr %3, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = icmp eq ptr %22, %23
-  br i1 %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+  br i1 %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %20
   %25 = load i64, ptr %23, align 8, !tbaa !34
   %26 = add i64 %25, 1
   call void @_ZdlPvm(ptr noundef %22, i64 noundef %26) #25
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
@@ -1364,12 +1364,12 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i, i64 %81
   %.not.i.i.i24.i.i = icmp eq ptr %.sroa.13.1.i, %115
-  %spec.select.i10 = select i1 %.not.i.i.i24.i.i, ptr %.sroa.13.1.i, ptr %115
+  %spec.select.i9 = select i1 %.not.i.i.i24.i.i, ptr %.sroa.13.1.i, ptr %115
   br label %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 "_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i": ; preds = %114, %112, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %91
   %.sroa.0.3.i = phi ptr [ %.sroa.0.1.i, %112 ], [ %102, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.0.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.0.1.i, %91 ], [ %.sroa.0.1.i, %114 ]
-  %.sroa.13.3.i = phi ptr [ %.sroa.13.1.i, %112 ], [ %110, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %95, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %92, %91 ], [ %spec.select.i10, %114 ]
+  %.sroa.13.3.i = phi ptr [ %.sroa.13.1.i, %112 ], [ %110, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %95, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %92, %91 ], [ %spec.select.i9, %114 ]
   %.sroa.21.3.i = phi ptr [ %.sroa.21.1.i, %112 ], [ %111, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.21.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.21.1.i, %91 ], [ %.sroa.21.1.i, %114 ]
   %116 = ptrtoint ptr %70 to i64
   %117 = ptrtoint ptr %.06288.i.i to i64
@@ -1786,8 +1786,8 @@ _ZNKSt10_HashtableIPK7AstNodeS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt
   %266 = icmp ugt ptr %265, %.163.i.i
   br i1 %266, label %.lr.ph.i.i, label %"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit", !prof !61
 
-common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9, %282, %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i30.i, %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9 ], [ %283, %282 ]
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, %282, %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i30.i, %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8 ], [ %283, %282 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i:    ; preds = %_ZNSt10_HashtableIPK7AstNodeS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit29.i.body.i.i, %.loopexit.split-lp.i.i, %.loopexit.i.loopexit.split-lp.i, %.loopexit.i.loopexit.i, %.body.i.thread23.i
@@ -1821,8 +1821,8 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i:    ; preds = %_ZNSt10_HashtableIP
   %.06.i.i.i.i = phi ptr [ %275, %.lr.ph.i.i.i.i ], [ %274, %273 ]
   %275 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !16
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 16) #25
-  %.not.i.i.i.i11 = icmp eq ptr %275, null
-  br i1 %.not.i.i.i.i11, label %_ZN13LinkableTable5clearEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  %.not.i.i.i.i10 = icmp eq ptr %275, null
+  br i1 %.not.i.i.i.i10, label %_ZN13LinkableTable5clearEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZN13LinkableTable5clearEv.exit:                  ; preds = %.lr.ph.i.i.i.i, %273
   %276 = load ptr, ptr @_ZL15s_linkableTable, align 8, !tbaa !19
@@ -1833,8 +1833,8 @@ _ZN13LinkableTable5clearEv.exit:                  ; preds = %.lr.ph.i.i.i.i, %27
   %279 = load i8, ptr @_ZL17s_brokenCntGlobal.0, align 1, !tbaa !35
   %280 = add i8 %279, 1
   %281 = icmp slt i8 %280, 0
-  %spec.select.i12 = select i1 %281, i8 1, i8 %280
-  store i8 %spec.select.i12, ptr @_ZL17s_brokenCntGlobal.0, align 1, !tbaa !35
+  %spec.select.i11 = select i1 %281, i8 1, i8 %280
+  store i8 %spec.select.i11, ptr @_ZL17s_brokenCntGlobal.0, align 1, !tbaa !35
   store i1 false, ptr @_ZZN8V3Broken9brokenAllEP10AstNetlistE8inBroken, align 1
   call void @_ZN18BrokenCheckVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

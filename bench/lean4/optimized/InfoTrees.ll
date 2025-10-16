@@ -7874,8 +7874,8 @@ declare ptr @l_Lean_addBuiltinDocString(ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_InfoTrees(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -7904,17 +7904,17 @@ define ptr @initialize_Lean_Elab_InfoTrees(i8 noundef zeroext %0, ptr noundef re
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = load ptr, ptr @l_Lean_Elab_unsupportedSyntaxExceptionId, align 8, !tbaa !4
   store ptr %18, ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___spec__1___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #4
@@ -7924,11 +7924,11 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___spec__1___rarg___closed__2.exit
 
-22:                                               ; preds = %lean_dec_ref.exit16
+22:                                               ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___spec__1___rarg___closed__2.exit: ; preds = %lean_dec_ref.exit16
+_init_l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___spec__1___rarg___closed__2.exit: ; preds = %lean_dec_ref.exit15
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %20, align 4, !tbaa !8
   store i32 16908312, ptr %23, align 4
@@ -8028,9 +8028,9 @@ _init_l_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___regBuiltin_Lean_Elab_Tactic_I
   %62 = load ptr, ptr @l_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___regBuiltin_Lean_Elab_Tactic_InfoTrees_elabInfoTrees__1___closed__7, align 8, !tbaa !4
   %63 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %64 = getelementptr i8, ptr %63, i64 4
-  %.val17 = load i32, ptr %64, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %65 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %64, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %65 = icmp eq i32 %.mask.i18, 16777216
   br i1 %65, label %94, label %66
 
 66:                                               ; preds = %58
@@ -8044,8 +8044,8 @@ _init_l_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___regBuiltin_Lean_Elab_Tactic_I
   br label %73
 
 71:                                               ; preds = %66
-  %.not.i13 = icmp eq i32 %67, 0
-  br i1 %.not.i13, label %73, label %72
+  %.not.i12 = icmp eq i32 %67, 0
+  br i1 %.not.i12, label %73, label %72
 
 72:                                               ; preds = %71
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %63) #4
@@ -8059,9 +8059,9 @@ _init_l_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___regBuiltin_Lean_Elab_Tactic_I
   %76 = load ptr, ptr @l_Lean_Elab_Tactic_InfoTrees_elabInfoTrees___regBuiltin_Lean_Elab_Tactic_InfoTrees_elabInfoTrees_docString__3___closed__1, align 8, !tbaa !4
   %77 = tail call ptr @l_Lean_addBuiltinDocString(ptr noundef %75, ptr noundef %76, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %78 = getelementptr i8, ptr %77, i64 4
-  %.val18 = load i32, ptr %78, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %79 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %78, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %79 = icmp eq i32 %.mask.i19, 16777216
   br i1 %79, label %94, label %80
 
 80:                                               ; preds = %73
@@ -8099,18 +8099,18 @@ lean_dec_ref.exit:                                ; preds = %86, %85, %83, %.cri
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink35 = phi ptr [ %4, %3 ], [ %88, %lean_dec_ref.exit ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sink35, i64 4
-  store i32 1, ptr %.sink35, align 4, !tbaa !8
+  %.sink34 = phi ptr [ %4, %3 ], [ %88, %lean_dec_ref.exit ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !8
   store i32 131096, ptr %91, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %92, align 8, !tbaa !4
-  %93 = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %93, align 8, !tbaa !4
   br label %94
 
 94:                                               ; preds = %.sink.split, %73, %58, %7
-  %.0 = phi ptr [ %8, %7 ], [ %63, %58 ], [ %77, %73 ], [ %.sink35, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %63, %58 ], [ %77, %73 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

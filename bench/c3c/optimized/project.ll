@@ -640,11 +640,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %.not20.i = icmp eq i64 %6, 0
+  %.not19.i = icmp eq i64 %6, 0
   br i1 %3, label %7, label %26
 
 7:                                                ; preds = %4
-  br i1 %.not20.i, label %check_json_keys.exit, label %.lr.ph.i
+  br i1 %.not19.i, label %check_json_keys.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -652,21 +652,21 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %.loopexit.i, %.lr.ph.i
   %10 = phi i64 [ %6, %.lr.ph.i ], [ %22, %.loopexit.i ]
-  %.01419.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
-  %.01518.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %.loopexit.i ]
+  %.01418.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
+  %.01517.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %.loopexit.i ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %.01518.i
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %.01517.i
   %13 = load ptr, ptr %12, align 8
   br label %16
 
 14:                                               ; preds = %16
-  %15 = add nuw nsw i64 %.017.i, 1
+  %15 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %15, 47
   br i1 %exitcond.not.i, label %21, label %16, !llvm.loop !12
 
 16:                                               ; preds = %14, %9
-  %.017.i = phi i64 [ 0, %9 ], [ %15, %14 ]
-  %17 = getelementptr inbounds nuw [2 x ptr], ptr @project_default_keys, i64 %.017.i
+  %.016.i = phi i64 [ 0, %9 ], [ %15, %14 ]
+  %17 = getelementptr inbounds nuw [2 x ptr], ptr @project_default_keys, i64 %.016.i
   %18 = load ptr, ptr %17, align 16
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %18) #10
   %20 = icmp eq i32 %19, 0
@@ -679,19 +679,19 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 .loopexit.i:                                      ; preds = %16, %21
   %22 = phi i64 [ %.pre.i, %21 ], [ %10, %16 ]
-  %.1.i = phi i1 [ true, %21 ], [ %.01419.i, %16 ]
-  %23 = add nuw i64 %.01518.i, 1
+  %.1.i = phi i1 [ true, %21 ], [ %.01418.i, %16 ]
+  %23 = add nuw i64 %.01517.i, 1
   %24 = icmp ult i64 %23, %22
   br i1 %24, label %9, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %25 = xor i1 %.1.i, true
-  %.b16.i = load i1, ptr @check_json_keys.failed_shown, align 1
-  %or.cond.i = select i1 %25, i1 true, i1 %.b16.i
+  %.b.i = load i1, ptr @check_json_keys.failed_shown, align 1
+  %or.cond.i = select i1 %25, i1 true, i1 %.b.i
   br i1 %or.cond.i, label %check_json_keys.exit, label %check_json_keys.exit.sink.split
 
 26:                                               ; preds = %4
-  br i1 %.not20.i, label %check_json_keys.exit, label %.lr.ph.i364
+  br i1 %.not19.i, label %check_json_keys.exit, label %.lr.ph.i364
 
 .lr.ph.i364:                                      ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -699,21 +699,21 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 28:                                               ; preds = %.loopexit.i370, %.lr.ph.i364
   %29 = phi i64 [ %6, %.lr.ph.i364 ], [ %41, %.loopexit.i370 ]
-  %.01419.i365 = phi i1 [ false, %.lr.ph.i364 ], [ %.1.i371, %.loopexit.i370 ]
-  %.01518.i366 = phi i64 [ 0, %.lr.ph.i364 ], [ %42, %.loopexit.i370 ]
+  %.01418.i365 = phi i1 [ false, %.lr.ph.i364 ], [ %.1.i371, %.loopexit.i370 ]
+  %.01517.i366 = phi i64 [ 0, %.lr.ph.i364 ], [ %42, %.loopexit.i370 ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %.01518.i366
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %.01517.i366
   %32 = load ptr, ptr %31, align 8
   br label %35
 
 33:                                               ; preds = %35
-  %34 = add nuw nsw i64 %.017.i367, 1
+  %34 = add nuw nsw i64 %.016.i367, 1
   %exitcond.not.i368 = icmp eq i64 %34, 55
   br i1 %exitcond.not.i368, label %40, label %35, !llvm.loop !12
 
 35:                                               ; preds = %33, %28
-  %.017.i367 = phi i64 [ 0, %28 ], [ %34, %33 ]
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr @project_target_keys, i64 %.017.i367
+  %.016.i367 = phi i64 [ 0, %28 ], [ %34, %33 ]
+  %36 = getelementptr inbounds nuw [2 x ptr], ptr @project_target_keys, i64 %.016.i367
   %37 = load ptr, ptr %36, align 16
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %37) #10
   %39 = icmp eq i32 %38, 0
@@ -726,15 +726,15 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 .loopexit.i370:                                   ; preds = %35, %40
   %41 = phi i64 [ %.pre.i369, %40 ], [ %29, %35 ]
-  %.1.i371 = phi i1 [ true, %40 ], [ %.01419.i365, %35 ]
-  %42 = add nuw i64 %.01518.i366, 1
+  %.1.i371 = phi i1 [ true, %40 ], [ %.01418.i365, %35 ]
+  %42 = add nuw i64 %.01517.i366, 1
   %43 = icmp ult i64 %42, %41
   br i1 %43, label %28, label %._crit_edge.i372, !llvm.loop !13
 
 ._crit_edge.i372:                                 ; preds = %.loopexit.i370
   %44 = xor i1 %.1.i371, true
-  %.b16.i373 = load i1, ptr @check_json_keys.failed_shown, align 1
-  %or.cond.i374 = select i1 %44, i1 true, i1 %.b16.i373
+  %.b.i373 = load i1, ptr @check_json_keys.failed_shown, align 1
+  %or.cond.i374 = select i1 %44, i1 true, i1 %.b.i373
   br i1 %or.cond.i374, label %check_json_keys.exit, label %check_json_keys.exit.sink.split
 
 check_json_keys.exit.sink.split:                  ; preds = %._crit_edge.i372, %._crit_edge.i

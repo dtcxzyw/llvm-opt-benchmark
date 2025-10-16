@@ -3289,9 +3289,9 @@ _is_openmpi_port_error.exit:                      ; preds = %133, %135
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %149 = getelementptr inbounds nuw i8, ptr %.val104, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(24) %149, i64 24, i1 false)
-  %.b4.i = load i1, ptr @retry_step_begin, align 1
+  %.b.i = load i1, ptr @retry_step_begin, align 1
   %.pre.i = load i32, ptr @retry_step_cnt, align 4
-  br i1 %.b4.i, label %152, label %150
+  br i1 %.b.i, label %152, label %150
 
 150:                                              ; preds = %145
   store i1 true, ptr @retry_step_begin, align 1
@@ -3579,8 +3579,8 @@ define dso_local range(i32 -1, 1) i32 @launch_g_step_wait(ptr noundef %0, i1 nou
   tail call void @slurm_step_launch_wait_finish(ptr noundef %5) #17
   %6 = load i32, ptr @MPIR_being_debugged, align 4
   %7 = icmp eq i32 %6, 0
-  %.b12 = load i1, ptr @retry_step_begin, align 1
-  %or.cond = select i1 %7, i1 %.b12, i1 false
+  %.b = load i1, ptr @retry_step_begin, align 1
+  %or.cond = select i1 %7, i1 %.b, i1 false
   %8 = load i32, ptr @retry_step_cnt, align 4
   %9 = icmp slt i32 %8, 4
   %or.cond3 = select i1 %or.cond, i1 %9, i1 false

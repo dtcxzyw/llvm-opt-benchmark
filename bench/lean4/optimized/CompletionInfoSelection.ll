@@ -11233,8 +11233,8 @@ declare ptr @l_Array_zipIdx___rarg(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_Completion_CompletionInfoSelection(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -11630,18 +11630,18 @@ _init_l___private_Lean_Server_Completion_CompletionInfoSelection_0__Lean_Server_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___private_Lean_Server_Completion_CompletionInfoSelection_0__Lean_Server_Completion_computePrioritizedCompletionPartitions___closed__1.exit, %3
-  %.sink26 = phi ptr [ %4, %3 ], [ %145, %_init_l___private_Lean_Server_Completion_CompletionInfoSelection_0__Lean_Server_Completion_computePrioritizedCompletionPartitions___closed__1.exit ]
-  %148 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !8
+  %.sink25 = phi ptr [ %4, %3 ], [ %145, %_init_l___private_Lean_Server_Completion_CompletionInfoSelection_0__Lean_Server_Completion_computePrioritizedCompletionPartitions___closed__1.exit ]
+  %148 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !8
   store i32 131096, ptr %148, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %149, align 8, !tbaa !4
-  %150 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %150, align 8, !tbaa !4
   br label %151
 
 151:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink26, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

@@ -17707,13 +17707,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuath
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i_crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i
   %.pre = and i64 %.pre35.i, -8
-  %.pre135 = inttoptr i64 %.pre to ptr
+  %.pre132 = inttoptr i64 %.pre to ptr
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i_crit_edge, %286
-  %.pre-phi136 = phi ptr [ %.pre135, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i_crit_edge ], [ %282, %286 ]
+  %.pre-phi133 = phi ptr [ %.pre132, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i_crit_edge ], [ %282, %286 ]
   %.pre-phi39.i = phi i64 [ %.pre35.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.i._ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuathEEEEEbv.exit.thread.thread.i_crit_edge ], [ %279, %286 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.pre-phi136, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.pre-phi133, i64 16
   %361 = load i32, ptr %360, align 8, !noalias !641
   %362 = icmp eq i32 %361, 41
   br i1 %362, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfQuatfEEEEEbv.exit.thread28.i, label %363
@@ -17998,7 +17998,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 
 467:                                              ; preds = %465
   %468 = icmp ult i64 %.050, %466
-  br i1 %468, label %469, label %.loopexit129
+  br i1 %468, label %469, label %.loopexit126
 
 469:                                              ; preds = %467
   %470 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %23, i64 noundef %.050)
@@ -18011,7 +18011,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 473:                                              ; preds = %471
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %472, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %472, i64 8
-  %.sroa.6.0.copyload.i.i126 = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
+  %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %470, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %470, i64 8
   %.sroa.6.0.copyload.i = load float, ptr %.sroa.6.0..sroa_idx.i, align 4
@@ -18021,14 +18021,14 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 475:                                              ; preds = %473
   %.sroa.0.0.copyload.i.i81 = load <2 x float>, ptr %474, align 4
   %.sroa.6.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  %.sroa.6.0.copyload.i.i83127 = load float, ptr %.sroa.6.0..sroa_idx.i.i82, align 4
+  %.sroa.6.0.copyload.i.i83 = load float, ptr %.sroa.6.0..sroa_idx.i.i82, align 4
   %476 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %25, i64 noundef %.050)
           to label %477 unwind label %.loopexit.split-lp.loopexit
 
 477:                                              ; preds = %475
-  %478 = fmul float %256, %.sroa.6.0.copyload.i.i126
+  %478 = fmul float %256, %.sroa.6.0.copyload.i.i
   %479 = fadd float %478, %.sroa.6.0.copyload.i
-  %480 = fmul float %464, %.sroa.6.0.copyload.i.i83127
+  %480 = fmul float %464, %.sroa.6.0.copyload.i.i83
   %481 = fadd float %479, %480
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 0
@@ -18068,17 +18068,17 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   br label %.body118
 
 .loopexit.split-lp.loopexit:                      ; preds = %475, %473, %471, %469, %465
-  %lpad.loopexit130 = landingpad { ptr, i32 }
+  %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %.body118
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit129
-  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit126
+  %lpad.loopexit.split-lp128 = landingpad { ptr, i32 }
           cleanup
   br label %.body118
 
 .body118:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %514
-  %eh.lpad-body119 = phi { ptr, i32 } [ %515, %514 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit130, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body119 = phi { ptr, i32 } [ %515, %514 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #29
   br label %519
 
@@ -18089,7 +18089,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 
 496:                                              ; preds = %.preheader
   %497 = icmp ult i64 %.051, %495
-  br i1 %497, label %498, label %.loopexit129
+  br i1 %497, label %498, label %.loopexit126
 
 498:                                              ; preds = %496
   %499 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %23, i64 noundef %.051)
@@ -18102,7 +18102,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 502:                                              ; preds = %500
   %.sroa.0.0.copyload.i.i99 = load <2 x float>, ptr %501, align 4
   %.sroa.6.0..sroa_idx.i.i100 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  %.sroa.6.0.copyload.i.i101128 = load float, ptr %.sroa.6.0..sroa_idx.i.i100, align 4
+  %.sroa.6.0.copyload.i.i101 = load float, ptr %.sroa.6.0..sroa_idx.i.i100, align 4
   %.sroa.0.0.copyload.i108 = load <2 x float>, ptr %499, align 4
   %.sroa.6.0..sroa_idx.i109 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %.sroa.6.0.copyload.i110 = load float, ptr %.sroa.6.0..sroa_idx.i109, align 4
@@ -18110,7 +18110,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
           to label %504 unwind label %.loopexit
 
 504:                                              ; preds = %502
-  %505 = fmul float %256, %.sroa.6.0.copyload.i.i101128
+  %505 = fmul float %256, %.sroa.6.0.copyload.i.i101
   %506 = fadd float %505, %.sroa.6.0.copyload.i110
   %.sroa.0.0.vec.extract.i111 = extractelement <2 x float> %.sroa.0.0.copyload.i108, i64 0
   %.sroa.0.0.vec.extract.i.i102 = extractelement <2 x float> %.sroa.0.0.copyload.i.i99, i64 0
@@ -18128,13 +18128,13 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
   %511 = add nuw i64 %.051, 1
   br label %.preheader, !llvm.loop !655
 
-.loopexit129:                                     ; preds = %467, %496
+.loopexit126:                                     ; preds = %467, %496
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayINS_7GfVec3fEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %512, align 8
   %513 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
           to label %.noexc117 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc117:                                        ; preds = %.loopexit129
+.noexc117:                                        ; preds = %.loopexit126
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %513, ptr noundef nonnull align 8 dereferenceable(40) %25)
           to label %516 unwind label %514
 

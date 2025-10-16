@@ -492,12 +492,12 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 .split.preheader:                                 ; preds = %10
   %.in.in.v = select i1 %2, i64 2, i64 4
   %.in.in = getelementptr inbounds nuw i8, ptr %13, i64 %.in.in.v
-  %.in35 = load i16, ptr %.in.in, align 2
+  %.in = load i16, ptr %.in.in, align 2
   br label %.split
 
 .split.us:                                        ; preds = %8, %21
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %21 ], [ 0, %8 ]
-  %15 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv49
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %21 ], [ 0, %8 ]
+  %15 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv48
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
   %18 = trunc nuw i8 %17 to i1
@@ -506,12 +506,12 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 19:                                               ; preds = %.split.us
   %bcmp.us = tail call i32 @bcmp(ptr noundef dereferenceable(8) %15, ptr noundef nonnull dereferenceable(8) %.028, i64 8)
   %20 = icmp eq i32 %bcmp.us, 0
-  br i1 %20, label %.split41.us, label %21
+  br i1 %20, label %.split40.us, label %21
 
 21:                                               ; preds = %19, %.split.us
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next50, 128
-  br i1 %exitcond52.not, label %.loopexit, label %.split.us, !llvm.loop !30
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 128
+  br i1 %exitcond51.not, label %.loopexit, label %.split.us, !llvm.loop !30
 
 .split:                                           ; preds = %.split.preheader, %31
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %31 ]
@@ -524,10 +524,10 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 26:                                               ; preds = %.split
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i16, ptr %27, align 4
-  %29 = icmp eq i16 %.in35, %28
-  br i1 %29, label %.split41.us, label %31
+  %29 = icmp eq i16 %.in, %28
+  br i1 %29, label %.split40.us, label %31
 
-.split41.us:                                      ; preds = %26, %19
+.split40.us:                                      ; preds = %26, %19
   %.us-phi = phi ptr [ %15, %19 ], [ %22, %26 ]
   %30 = load i64, ptr %.us-phi, align 1
   store i64 %30, ptr %0, align 1
@@ -538,8 +538,8 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !30
 
-.loopexit:                                        ; preds = %31, %21, %.split41.us, %10, %8, %3
-  %.029 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %10 ], [ true, %.split41.us ], [ false, %21 ], [ false, %31 ]
+.loopexit:                                        ; preds = %31, %21, %.split40.us, %10, %8, %3
+  %.029 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %10 ], [ true, %.split40.us ], [ false, %21 ], [ false, %31 ]
   ret i1 %.029
 }
 

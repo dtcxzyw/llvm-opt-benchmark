@@ -329,8 +329,8 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i.i": ; preds = %11
   %14 = getelementptr inbounds i8, ptr %5, i64 %12
-  %.sroa.02.0.copyload.i.i41.i.i.i = load i8, ptr %14, align 1, !alias.scope !71, !noalias !76
-  %15 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41.i.i.i), !noalias !76
+  %.sroa.02.0.copyload.i.i.i.i.i = load i8, ptr %14, align 1, !alias.scope !71, !noalias !76
+  %15 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i.i.i.i), !noalias !76
   %16 = zext i1 %15 to i8
   store i64 %13, ptr %10, align 8, !alias.scope !63, !noalias !66
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !76
@@ -3007,8 +3007,8 @@ define hidden void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i": ; preds = %11
   %14 = getelementptr inbounds i8, ptr %5, i64 %12
-  %.sroa.02.0.copyload.i.i41.i.i = load i8, ptr %14, align 1, !alias.scope !687, !noalias !692
-  %15 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41.i.i), !noalias !692
+  %.sroa.02.0.copyload.i.i.i.i = load i8, ptr %14, align 1, !alias.scope !687, !noalias !692
+  %15 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i.i.i), !noalias !692
   %16 = zext i1 %15 to i8
   store i64 %13, ptr %10, align 8, !alias.scope !679, !noalias !682
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !692
@@ -12706,8 +12706,8 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i.i.i": ; preds = %16
   %19 = getelementptr inbounds i8, ptr %10, i64 %17
-  %.sroa.02.0.copyload.i.i41.i.i.i.i = load i8, ptr %19, align 1, !alias.scope !3145, !noalias !3150
-  %20 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41.i.i.i.i), !noalias !3150
+  %.sroa.02.0.copyload.i.i.i.i.i.i = load i8, ptr %19, align 1, !alias.scope !3145, !noalias !3150
+  %20 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i.i.i.i.i), !noalias !3150
   %21 = zext i1 %20 to i8
   store i64 %18, ptr %15, align 8, !alias.scope !3137, !noalias !3140
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3150
@@ -29776,8 +29776,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17h4ab114ed8342d2baE
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i.i.i.i.us": ; preds = %.split.us
   %9 = getelementptr inbounds i8, ptr %4, i64 %7
-  %.sroa.02.0.copyload.i.i41.i.i.i.i.i.us = load i8, ptr %9, align 1, !alias.scope !6335, !noalias !6340
-  %10 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41.i.i.i.i.i.us), !noalias !6340
+  %.sroa.02.0.copyload.i.i.i.i.i.i.i.us = load i8, ptr %9, align 1, !alias.scope !6335, !noalias !6340
+  %10 = call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i.i.i.i.i.i.us), !noalias !6340
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6340
   store i32 0, ptr %3, align 4, !noalias !6340
   %11 = sub nuw i64 %6, %8
@@ -29807,8 +29807,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17h4ab114ed8342d2baE
   br i1 %or.cond.i.not.i.i.i.i.i.not, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4f983b13000dce07E.llvm.3021571406010367114.exit", label %"_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i.i.i.i"
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit.i.i.i.i.i": ; preds = %.split
-  %.sroa.02.0.copyload.i.i41.i.i.i.i.i = load i8, ptr %4, align 1, !alias.scope !6335, !noalias !6340
-  %25 = tail call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41.i.i.i.i.i), !noalias !6340
+  %.sroa.02.0.copyload.i.i.i.i.i.i.i = load i8, ptr %4, align 1, !alias.scope !6335, !noalias !6340
+  %25 = tail call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i.i.i.i.i.i), !noalias !6340
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6340
   store i32 0, ptr %3, align 4, !noalias !6340
   %26 = add i64 %6, -1
@@ -57416,8 +57416,8 @@ define hidden void @"_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..trai
 
 "_ZN80_$LT$obkv..KvIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h23be8eee6edea991E.exit": ; preds = %2
   %12 = getelementptr inbounds i8, ptr %4, i64 %8
-  %.sroa.02.0.copyload.i.i41 = load i8, ptr %12, align 1, !alias.scope !11512
-  %13 = tail call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i41)
+  %.sroa.02.0.copyload.i.i = load i8, ptr %12, align 1, !alias.scope !11512
+  %13 = tail call noundef zeroext i1 @"_ZN60_$LT$milli..update..del_add..DelAdd$u20$as$u20$obkv..Key$GT$13from_be_bytes17h85e57c2d612fba53E"(i8 %.sroa.02.0.copyload.i.i)
   %14 = zext i1 %13 to i8
   store i64 %9, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

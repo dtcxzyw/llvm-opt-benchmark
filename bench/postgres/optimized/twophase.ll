@@ -340,8 +340,8 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   unreachable
 
 20:                                               ; preds = %12
-  %.b18 = load i1, ptr @twophaseExitRegistered, align 1
-  br i1 %.b18, label %22, label %21
+  %.b = load i1, ptr @twophaseExitRegistered, align 1
+  br i1 %.b, label %22, label %21
 
 21:                                               ; preds = %20
   tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #13
@@ -2010,8 +2010,8 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @GetUserId() #13
-  %.b21.i = load i1, ptr @twophaseExitRegistered, align 1
-  br i1 %.b21.i, label %6, label %5
+  %.b.i = load i1, ptr @twophaseExitRegistered, align 1
+  br i1 %.b.i, label %6, label %5
 
 5:                                                ; preds = %2
   tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #13
@@ -2058,8 +2058,8 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %31 = getelementptr inbounds %struct.PGPROC, ptr %27, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %33 = load i32, ptr %32, align 8
-  %.not22.i = icmp eq i32 %33, -1
-  br i1 %.not22.i, label %38, label %34
+  %.not21.i = icmp eq i32 %33, -1
+  br i1 %.not21.i, label %38, label %34
 
 34:                                               ; preds = %24
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2071,8 +2071,8 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 44
   %40 = load i32, ptr %39, align 4
-  %.not23.i = icmp eq i32 %4, %40
-  br i1 %.not23.i, label %48, label %41
+  %.not22.i = icmp eq i32 %4, %40
+  br i1 %.not22.i, label %48, label %41
 
 41:                                               ; preds = %38
   %42 = tail call zeroext i1 @superuser_arg(i32 noundef %4) #13
@@ -2090,8 +2090,8 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %49 = load i32, ptr @MyDatabaseId, align 4
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 76
   %51 = load i32, ptr %50, align 4
-  %.not24.i = icmp eq i32 %49, %51
-  br i1 %.not24.i, label %LockGXact.exit, label %52
+  %.not23.i = icmp eq i32 %49, %51
+  br i1 %.not23.i, label %LockGXact.exit, label %52
 
 52:                                               ; preds = %48
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14

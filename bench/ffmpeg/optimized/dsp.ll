@@ -6926,7 +6926,7 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   %285 = load ptr, ptr %224, align 8, !tbaa !291
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 38744
   %287 = load i8, ptr %286, align 8, !tbaa !292
-  %.not165.i = icmp eq i8 %287, 0
+  %.not164.i = icmp eq i8 %287, 0
   %288 = sub nsw i64 0, %236
   %wide.trip.count241 = zext nneg i32 %.sroa.0390.0..sroa.0390.0.391 to i64
   br label %289
@@ -6942,9 +6942,9 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   %.not163.i = icmp eq i32 %295, 0
   %.in.in.i.idx = select i1 %.not163.i, i64 0, i64 -2
   %.in.in.i = getelementptr inbounds i8, ptr %294, i64 %.in.in.i.idx
-  %.in164.i = load i16, ptr %.in.in.i, align 2, !tbaa !124
-  %296 = zext i16 %.in164.i to i32
-  br i1 %.not165.i, label %306, label %297
+  %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !124
+  %296 = zext i16 %.in.i to i32
+  br i1 %.not164.i, label %306, label %297
 
 297:                                              ; preds = %289
   %298 = getelementptr inbounds i16, ptr %294, i64 %288
@@ -6959,7 +6959,7 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
 
 306:                                              ; preds = %289
   %307 = getelementptr i16, ptr %294, i64 %236
-  %.in.in166.i = getelementptr i8, ptr %307, i64 %.in.in.i.idx
+  %.in165.in.i = getelementptr i8, ptr %307, i64 %.in.in.i.idx
   %308 = load i16, ptr %294, align 2, !tbaa !124
   %309 = zext i16 %308 to i32
   %310 = load i16, ptr %307, align 2, !tbaa !124
@@ -6974,7 +6974,7 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
 
 318:                                              ; preds = %306, %297
   %.sink354.in = phi ptr [ %317, %306 ], [ %305, %297 ]
-  %.sink353.in.in = phi ptr [ %.in.in166.i, %306 ], [ %298, %297 ]
+  %.sink353.in.in = phi ptr [ %.in165.in.i, %306 ], [ %298, %297 ]
   %.sink351 = phi i32 [ %316, %306 ], [ %301, %297 ]
   %.sink349 = phi i32 [ %313, %306 ], [ %304, %297 ]
   %.sink353.in = load i16, ptr %.sink353.in.in, align 2, !tbaa !124
@@ -7013,11 +7013,11 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   %334 = sext i32 %333 to i64
   %335 = getelementptr inbounds i16, ptr %330, i64 %334
   %336 = or i32 %333, %16
-  %.not172.i = icmp eq i32 %336, 0
-  %.in.in173.i.idx = select i1 %.not172.i, i64 0, i64 -2
-  %.in.in173.i = getelementptr inbounds i8, ptr %335, i64 %.in.in173.i.idx
-  %.in174.i = load i16, ptr %.in.in173.i, align 2, !tbaa !124
-  %337 = zext i16 %.in174.i to i32
+  %.not169.i = icmp eq i32 %336, 0
+  %.in170.in.i.idx = select i1 %.not169.i, i64 0, i64 -2
+  %.in170.in.i = getelementptr inbounds i8, ptr %335, i64 %.in170.in.i.idx
+  %.in170.i = load i16, ptr %.in170.in.i, align 2, !tbaa !124
+  %337 = zext i16 %.in170.i to i32
   %338 = load i16, ptr %335, align 2, !tbaa !124
   %339 = zext i16 %338 to i32
   %340 = shl nuw nsw i32 %339, 1
@@ -7094,18 +7094,18 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   %388 = load ptr, ptr %224, align 8, !tbaa !291
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 38744
   %390 = load i8, ptr %389, align 8, !tbaa !292
-  %.not168.i = icmp eq i8 %390, 0
-  br i1 %.not168.i, label %411, label %391
+  %.not166.i = icmp eq i8 %390, 0
+  br i1 %.not166.i, label %411, label %391
 
 391:                                              ; preds = %387
   %392 = or i32 %369, %15
-  %.not169.i = icmp eq i32 %392, 0
-  %.in.in170.i.idx = select i1 %.not169.i, i64 0, i64 %364
-  %.in.in170.i = getelementptr inbounds i16, ptr %373, i64 %.in.in170.i.idx
-  %.in171.i = load i16, ptr %.in.in170.i, align 2, !tbaa !124
+  %.not167.i = icmp eq i32 %392, 0
+  %.in168.in.i.idx = select i1 %.not167.i, i64 0, i64 %364
+  %.in168.in.i = getelementptr inbounds i16, ptr %373, i64 %.in168.in.i.idx
+  %.in168.i = load i16, ptr %.in168.in.i, align 2, !tbaa !124
   %393 = load i16, ptr %372, align 2, !tbaa !124
   %394 = zext i16 %393 to i32
-  %395 = zext i16 %.in171.i to i32
+  %395 = zext i16 %.in168.i to i32
   %396 = load i16, ptr %373, align 2, !tbaa !124
   %397 = zext i16 %396 to i32
   %398 = shl nuw nsw i32 %397, 2
@@ -19703,7 +19703,7 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   %285 = load ptr, ptr %224, align 8, !tbaa !291
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 38744
   %287 = load i8, ptr %286, align 8, !tbaa !292
-  %.not165.i = icmp eq i8 %287, 0
+  %.not164.i = icmp eq i8 %287, 0
   %288 = sub nsw i64 0, %236
   %wide.trip.count241 = zext nneg i32 %.sroa.0390.0..sroa.0390.0.391 to i64
   br label %289
@@ -19719,9 +19719,9 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   %.not163.i = icmp eq i32 %295, 0
   %.in.in.i.idx = select i1 %.not163.i, i64 0, i64 -2
   %.in.in.i = getelementptr inbounds i8, ptr %294, i64 %.in.in.i.idx
-  %.in164.i = load i16, ptr %.in.in.i, align 2, !tbaa !124
-  %296 = zext i16 %.in164.i to i32
-  br i1 %.not165.i, label %306, label %297
+  %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !124
+  %296 = zext i16 %.in.i to i32
+  br i1 %.not164.i, label %306, label %297
 
 297:                                              ; preds = %289
   %298 = getelementptr inbounds i16, ptr %294, i64 %288
@@ -19736,7 +19736,7 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
 
 306:                                              ; preds = %289
   %307 = getelementptr i16, ptr %294, i64 %236
-  %.in.in166.i = getelementptr i8, ptr %307, i64 %.in.in.i.idx
+  %.in165.in.i = getelementptr i8, ptr %307, i64 %.in.in.i.idx
   %308 = load i16, ptr %294, align 2, !tbaa !124
   %309 = zext i16 %308 to i32
   %310 = load i16, ptr %307, align 2, !tbaa !124
@@ -19751,7 +19751,7 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
 
 318:                                              ; preds = %306, %297
   %.sink354.in = phi ptr [ %317, %306 ], [ %305, %297 ]
-  %.sink353.in.in = phi ptr [ %.in.in166.i, %306 ], [ %298, %297 ]
+  %.sink353.in.in = phi ptr [ %.in165.in.i, %306 ], [ %298, %297 ]
   %.sink351 = phi i32 [ %316, %306 ], [ %301, %297 ]
   %.sink349 = phi i32 [ %313, %306 ], [ %304, %297 ]
   %.sink353.in = load i16, ptr %.sink353.in.in, align 2, !tbaa !124
@@ -19790,11 +19790,11 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   %334 = sext i32 %333 to i64
   %335 = getelementptr inbounds i16, ptr %330, i64 %334
   %336 = or i32 %333, %16
-  %.not172.i = icmp eq i32 %336, 0
-  %.in.in173.i.idx = select i1 %.not172.i, i64 0, i64 -2
-  %.in.in173.i = getelementptr inbounds i8, ptr %335, i64 %.in.in173.i.idx
-  %.in174.i = load i16, ptr %.in.in173.i, align 2, !tbaa !124
-  %337 = zext i16 %.in174.i to i32
+  %.not169.i = icmp eq i32 %336, 0
+  %.in170.in.i.idx = select i1 %.not169.i, i64 0, i64 -2
+  %.in170.in.i = getelementptr inbounds i8, ptr %335, i64 %.in170.in.i.idx
+  %.in170.i = load i16, ptr %.in170.in.i, align 2, !tbaa !124
+  %337 = zext i16 %.in170.i to i32
   %338 = load i16, ptr %335, align 2, !tbaa !124
   %339 = zext i16 %338 to i32
   %340 = shl nuw nsw i32 %339, 1
@@ -19871,18 +19871,18 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   %388 = load ptr, ptr %224, align 8, !tbaa !291
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 38744
   %390 = load i8, ptr %389, align 8, !tbaa !292
-  %.not168.i = icmp eq i8 %390, 0
-  br i1 %.not168.i, label %411, label %391
+  %.not166.i = icmp eq i8 %390, 0
+  br i1 %.not166.i, label %411, label %391
 
 391:                                              ; preds = %387
   %392 = or i32 %369, %15
-  %.not169.i = icmp eq i32 %392, 0
-  %.in.in170.i.idx = select i1 %.not169.i, i64 0, i64 %364
-  %.in.in170.i = getelementptr inbounds i16, ptr %373, i64 %.in.in170.i.idx
-  %.in171.i = load i16, ptr %.in.in170.i, align 2, !tbaa !124
+  %.not167.i = icmp eq i32 %392, 0
+  %.in168.in.i.idx = select i1 %.not167.i, i64 0, i64 %364
+  %.in168.in.i = getelementptr inbounds i16, ptr %373, i64 %.in168.in.i.idx
+  %.in168.i = load i16, ptr %.in168.in.i, align 2, !tbaa !124
   %393 = load i16, ptr %372, align 2, !tbaa !124
   %394 = zext i16 %393 to i32
-  %395 = zext i16 %.in171.i to i32
+  %395 = zext i16 %.in168.i to i32
   %396 = load i16, ptr %373, align 2, !tbaa !124
   %397 = zext i16 %396 to i32
   %398 = shl nuw nsw i32 %397, 2
@@ -32383,7 +32383,7 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   %279 = load ptr, ptr %220, align 8, !tbaa !291
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 38744
   %281 = load i8, ptr %280, align 8, !tbaa !292
-  %.not165.i = icmp eq i8 %281, 0
+  %.not164.i = icmp eq i8 %281, 0
   %282 = sub nsw i64 0, %231
   %wide.trip.count237 = zext nneg i32 %.sroa.0384.0..sroa.0384.0.385 to i64
   br label %283
@@ -32399,9 +32399,9 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   %.not163.i = icmp ne i32 %289, 0
   %.in.in.i.idx = sext i1 %.not163.i to i64
   %.in.in.i = getelementptr inbounds i8, ptr %288, i64 %.in.in.i.idx
-  %.in164.i = load i8, ptr %.in.in.i, align 1, !tbaa !128
-  %290 = zext i8 %.in164.i to i16
-  br i1 %.not165.i, label %300, label %291
+  %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !128
+  %290 = zext i8 %.in.i to i16
+  br i1 %.not164.i, label %300, label %291
 
 291:                                              ; preds = %283
   %292 = getelementptr inbounds i8, ptr %288, i64 %282
@@ -32416,7 +32416,7 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
 
 300:                                              ; preds = %283
   %301 = getelementptr i8, ptr %288, i64 %231
-  %.in.in166.i = getelementptr i8, ptr %301, i64 %.in.in.i.idx
+  %.in165.in.i = getelementptr i8, ptr %301, i64 %.in.in.i.idx
   %302 = load i8, ptr %288, align 1, !tbaa !128
   %303 = zext i8 %302 to i16
   %304 = load i8, ptr %301, align 1, !tbaa !128
@@ -32431,7 +32431,7 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
 
 312:                                              ; preds = %300, %291
   %.sink348.in = phi ptr [ %311, %300 ], [ %299, %291 ]
-  %.sink347.in.in = phi ptr [ %.in.in166.i, %300 ], [ %292, %291 ]
+  %.sink347.in.in = phi ptr [ %.in165.in.i, %300 ], [ %292, %291 ]
   %.sink345 = phi i16 [ %310, %300 ], [ %295, %291 ]
   %.sink343 = phi i16 [ %307, %300 ], [ %298, %291 ]
   %.sink347.in = load i8, ptr %.sink347.in.in, align 1, !tbaa !128
@@ -32470,11 +32470,11 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i8, ptr %324, i64 %328
   %330 = or i32 %327, %16
-  %.not172.i = icmp ne i32 %330, 0
-  %.in.in173.i.idx = sext i1 %.not172.i to i64
-  %.in.in173.i = getelementptr inbounds i8, ptr %329, i64 %.in.in173.i.idx
-  %.in174.i = load i8, ptr %.in.in173.i, align 1, !tbaa !128
-  %331 = zext i8 %.in174.i to i16
+  %.not169.i = icmp ne i32 %330, 0
+  %.in170.in.i.idx = sext i1 %.not169.i to i64
+  %.in170.in.i = getelementptr inbounds i8, ptr %329, i64 %.in170.in.i.idx
+  %.in170.i = load i8, ptr %.in170.in.i, align 1, !tbaa !128
+  %331 = zext i8 %.in170.i to i16
   %332 = load i8, ptr %329, align 1, !tbaa !128
   %333 = zext i8 %332 to i16
   %334 = shl nuw nsw i16 %333, 1
@@ -32550,18 +32550,18 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   %381 = load ptr, ptr %220, align 8, !tbaa !291
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 38744
   %383 = load i8, ptr %382, align 8, !tbaa !292
-  %.not168.i = icmp eq i8 %383, 0
-  br i1 %.not168.i, label %404, label %384
+  %.not166.i = icmp eq i8 %383, 0
+  br i1 %.not166.i, label %404, label %384
 
 384:                                              ; preds = %380
   %385 = or i32 %362, %15
-  %.not169.i = icmp eq i32 %385, 0
-  %.in.in170.i.idx = select i1 %.not169.i, i64 0, i64 %357
-  %.in.in170.i = getelementptr inbounds i8, ptr %366, i64 %.in.in170.i.idx
-  %.in171.i = load i8, ptr %.in.in170.i, align 1, !tbaa !128
+  %.not167.i = icmp eq i32 %385, 0
+  %.in168.in.i.idx = select i1 %.not167.i, i64 0, i64 %357
+  %.in168.in.i = getelementptr inbounds i8, ptr %366, i64 %.in168.in.i.idx
+  %.in168.i = load i8, ptr %.in168.in.i, align 1, !tbaa !128
   %386 = load i8, ptr %365, align 1, !tbaa !128
   %387 = zext i8 %386 to i16
-  %388 = zext i8 %.in171.i to i16
+  %388 = zext i8 %.in168.i to i16
   %389 = load i8, ptr %366, align 1, !tbaa !128
   %390 = zext i8 %389 to i16
   %391 = shl nuw nsw i16 %390, 2

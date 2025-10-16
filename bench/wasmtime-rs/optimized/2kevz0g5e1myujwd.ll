@@ -17353,12 +17353,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.88822
   br label %288
 
 .lr.ph.i.i:                                       ; preds = %273, %299
-  %.sroa.0.093102.i.i = phi ptr [ %286, %299 ], [ %.val.i.i, %273 ]
-  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0.093102.i.i, i64 368
+  %.sroa.0.093101.i.i = phi ptr [ %286, %299 ], [ %.val.i.i, %273 ]
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0.093101.i.i, i64 368
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !4217
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.0.093102.i.i, i64 352
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.0.093101.i.i, i64 352
   %.sroa.049.0.copyload.i.i = load i32, ptr %287, align 8, !noalias !4219
-  invoke void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %.sroa.0.093102.i.i, ptr noalias noundef nonnull align 8 dereferenceable(56) %230, i32 %.sroa.049.0.copyload.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
+  invoke void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %.sroa.0.093101.i.i, ptr noalias noundef nonnull align 8 dereferenceable(56) %230, i32 %.sroa.049.0.copyload.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
           to label %297 unwind label %.loopexit.i.i, !noalias !4219
 
 288:                                              ; preds = %284, %280, %.noexc86.i.i
@@ -17405,11 +17405,11 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.88822
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.074.0.copyload.i.i = load i32, ptr %302, align 4, !noalias !4217
   %.sroa.475.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.475.0.copyload101.i.i = load i32, ptr %.sroa.475.0..sroa_idx.i.i, align 8, !noalias !4217
+  %.sroa.475.0.copyload.i.i = load i32, ptr %.sroa.475.0..sroa_idx.i.i, align 8, !noalias !4217
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !4217
   store i32 %.sroa.074.0.copyload.i.i, ptr %13, align 4, !noalias !4217
   %.4..4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %.sroa.475.0.copyload101.i.i, ptr %.4..4..4..4..4..4..4..4..sroa_idx, align 4, !noalias !4217
+  store i32 %.sroa.475.0.copyload.i.i, ptr %.4..4..4..4..4..4..4..4..sroa_idx, align 4, !noalias !4217
   %303 = zext i32 %.sroa.074.0.copyload.i.i to i64
   %.1..1..1..1..1..1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.1..1..1..1..1..1..1..1..sroa.6.sroa.0.0.copyload9.i.i = load i56, ptr %.1..1..1..1..1..1..1..1..sroa_idx, align 1, !noalias !4217

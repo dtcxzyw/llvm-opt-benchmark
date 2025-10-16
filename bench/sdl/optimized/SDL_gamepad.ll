@@ -500,8 +500,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @SDL_PrivateGamepadAdded(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.SDL_Event, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b1 = load i1, ptr @SDL_gamepads_initialized, align 1
-  br i1 %.b1, label %3, label %7
+  %.b = load i1, ptr @SDL_gamepads_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %1
   store i32 1619, ptr %2, align 8
@@ -526,24 +526,24 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
   %4 = alloca %union.SDL_Event, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #10
-  %.b5 = load i1, ptr @SDL_gamepads_initialized, align 1
-  br i1 %.b5, label %.preheader, label %55
+  %.b = load i1, ptr @SDL_gamepads_initialized, align 1
+  br i1 %.b, label %.preheader, label %55
 
 .preheader:                                       ; preds = %1
-  %.08 = load ptr, ptr @SDL_gamepads, align 8
-  %.not9 = icmp eq ptr %.08, null
-  br i1 %.not9, label %RecenterGamepad.exit, label %.lr.ph
+  %.07 = load ptr, ptr @SDL_gamepads, align 8
+  %.not8 = icmp eq ptr %.07, null
+  br i1 %.not8, label %RecenterGamepad.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %50
-  %.010 = phi ptr [ %.0, %50 ], [ %.08, %.preheader ]
-  %5 = load ptr, ptr %.010, align 8
+  %.09 = phi ptr [ %.0, %50 ], [ %.07, %.preheader ]
+  %5 = load ptr, ptr %.09, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %50
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i64 @SDL_GetTicksNS_REAL() #10
-  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -559,7 +559,7 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
 
 19:                                               ; preds = %38, %8
   %.015.i = phi i32 [ 0, %8 ], [ %39, %38 ]
-  %20 = call zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef nonnull %.010, i32 noundef %.015.i)
+  %20 = call zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef nonnull %.09, i32 noundef %.015.i)
   br i1 %20, label %21, label %38
 
 21:                                               ; preds = %19
@@ -574,7 +574,7 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
   %25 = load i64, ptr %10, align 8
   %26 = add i64 %25, 250
   %27 = icmp ult i64 %24, %26
-  %28 = load ptr, ptr %.010, align 8
+  %28 = load ptr, ptr %.09, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 240
   br i1 %27, label %30, label %31
 
@@ -592,7 +592,7 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
 
 33:                                               ; preds = %.critedge.i.i
   store i64 %9, ptr %11, align 8
-  %34 = load ptr, ptr %.010, align 8
+  %34 = load ptr, ptr %.09, align 8
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %12, align 8
   %36 = trunc nuw nsw i32 %.015.i to i8
@@ -612,7 +612,7 @@ SDL_SendGamepadButton.exit.i:                     ; preds = %33, %.critedge.i.i,
 
 40:                                               ; preds = %SDL_SendGamepadAxis.exit.i, %.preheader.i
   %.117.i = phi i32 [ 0, %.preheader.i ], [ %49, %SDL_SendGamepadAxis.exit.i ]
-  %41 = call signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef nonnull %.010, i32 noundef %.117.i)
+  %41 = call signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef nonnull %.09, i32 noundef %.117.i)
   %.not.i = icmp eq i16 %41, 0
   br i1 %.not.i, label %SDL_SendGamepadAxis.exit.i, label %42
 
@@ -625,7 +625,7 @@ SDL_SendGamepadButton.exit.i:                     ; preds = %33, %.critedge.i.i,
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1616, ptr %2, align 8
   store i64 %9, ptr %15, align 8
-  %45 = load ptr, ptr %.010, align 8
+  %45 = load ptr, ptr %.09, align 8
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %16, align 8
   %47 = trunc nuw nsw i32 %.117.i to i8
@@ -641,7 +641,7 @@ SDL_SendGamepadAxis.exit.i:                       ; preds = %44, %42, %40
   br i1 %exitcond18.not.i, label %RecenterGamepad.exit, label %40, !llvm.loop !5
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %.010, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %.09, i64 80
   %.0 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %RecenterGamepad.exit, label %.lr.ph, !llvm.loop !6
@@ -1260,8 +1260,8 @@ SDL_GetGamepadFromID_REAL.exit:                   ; preds = %.lr.ph.i, %25, %20
   %40 = inttoptr i64 %39 to ptr
   %41 = call zeroext i1 @SDL_InsertIntoHashTable(ptr noundef %38, ptr noundef nonnull %40, ptr noundef nonnull inttoptr (i64 1 to ptr), i1 noundef zeroext true) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.b1.i = load i1, ptr @SDL_gamepads_initialized, align 1
-  br i1 %.b1.i, label %42, label %SDL_PrivateGamepadAdded.exit
+  %.b.i = load i1, ptr @SDL_gamepads_initialized, align 1
+  br i1 %.b.i, label %42, label %SDL_PrivateGamepadAdded.exit
 
 42:                                               ; preds = %37
   store i32 1619, ptr %2, align 8
@@ -1324,8 +1324,8 @@ HasMappingChangeTracking.exit:                    ; preds = %58, %52
 
 63:                                               ; preds = %62, %HasMappingChangeTracking.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.b1.i45 = load i1, ptr @SDL_gamepads_initialized, align 1
-  br i1 %.b1.i45, label %64, label %SDL_PrivateGamepadRemapped.exit
+  %.b.i45 = load i1, ptr @SDL_gamepads_initialized, align 1
+  br i1 %.b.i45, label %64, label %SDL_PrivateGamepadRemapped.exit
 
 64:                                               ; preds = %63
   %65 = call zeroext i1 @SDL_IsJoystickBeingAdded() #10
@@ -2841,8 +2841,8 @@ define hidden noundef zeroext i1 @SDL_InitGamepads() local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %.b1.i = load i1, ptr @SDL_gamepads_initialized, align 1
-  br i1 %.b1.i, label %13, label %SDL_PrivateGamepadAdded.exit
+  %.b.i = load i1, ptr @SDL_gamepads_initialized, align 1
+  br i1 %.b.i, label %13, label %SDL_PrivateGamepadAdded.exit
 
 13:                                               ; preds = %10
   store i32 1619, ptr %1, align 8

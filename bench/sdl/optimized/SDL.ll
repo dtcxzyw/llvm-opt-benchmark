@@ -266,8 +266,8 @@ define hidden void @SDL_InitMainThread() local_unnamed_addr #2 {
   %1 = tail call zeroext i1 @SDL_InitEnvironment() #11
   tail call void @SDL_InitTicks() #11
   tail call void @SDL_InitFilesystem() #11
-  %.b6 = load i1, ptr @SDL_InitMainThread.done_info, align 1
-  br i1 %.b6, label %9, label %2
+  %.b = load i1, ptr @SDL_InitMainThread.done_info, align 1
+  br i1 %.b, label %9, label %2
 
 2:                                                ; preds = %0
   %3 = tail call ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef nonnull @.str)
@@ -275,12 +275,12 @@ define hidden void @SDL_InitMainThread() local_unnamed_addr #2 {
   %4 = select i1 %.not, ptr @.str.11, ptr %3
   tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef nonnull %4) #11
   %5 = tail call ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef nonnull @.str.1)
-  %.not7 = icmp eq ptr %5, null
-  %6 = select i1 %.not7, ptr @.str.11, ptr %5
+  %.not6 = icmp eq ptr %5, null
+  %6 = select i1 %.not6, ptr @.str.11, ptr %5
   tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #11
   %7 = tail call ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef nonnull @.str.2)
-  %.not8 = icmp eq ptr %7, null
-  %8 = select i1 %.not8, ptr @.str.11, ptr %7
+  %.not7 = icmp eq ptr %7, null
+  %8 = select i1 %.not7, ptr @.str.11, ptr %7
   tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 3, ptr noundef nonnull @.str.13, ptr noundef nonnull %8) #11
   tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #11
   store i1 true, ptr @SDL_InitMainThread.done_info, align 1
@@ -324,9 +324,9 @@ define hidden zeroext i1 @SDL_InitSubSystem_REAL(i32 noundef %0) local_unnamed_a
   br i1 %.not.i, label %SDL_DecrementSubsystemRefCount.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %8
-  %.b5.i = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i = load i1, ptr @SDL_bInMainQuit, align 1
   %10 = add i8 %9, -1
-  %.sink.i = select i1 %.b5.i, i8 0, i8 %10
+  %.sink.i = select i1 %.b.i, i8 0, i8 %10
   store i8 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
   br label %SDL_DecrementSubsystemRefCount.exit
 
@@ -375,9 +375,9 @@ SDL_InitOrIncrementSubsystem.exit:                ; preds = %18
   br i1 %.not.i65, label %SDL_DecrementSubsystemRefCount.exit69, label %.sink.split.i66
 
 .sink.split.i66:                                  ; preds = %27
-  %.b5.i67 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i67 = load i1, ptr @SDL_bInMainQuit, align 1
   %29 = add i8 %28, -1
-  %.sink.i68 = select i1 %.b5.i67, i8 0, i8 %29
+  %.sink.i68 = select i1 %.b.i67, i8 0, i8 %29
   store i8 %.sink.i68, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 5), align 1
   br label %SDL_DecrementSubsystemRefCount.exit69
 
@@ -385,38 +385,38 @@ SDL_DecrementSubsystemRefCount.exit69:            ; preds = %27, %.sink.split.i6
   %30 = tail call ptr @SDL_GetError_REAL() #11
   %31 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %30) #11
   %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %32, label %SDL_ShouldQuitSubsystem.exit82.i [
+  switch i8 %32, label %SDL_ShouldQuitSubsystem.exit83.i [
     i8 0, label %SDL_QuitSubSystem_REAL.exit
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i
+    i8 1, label %SDL_ShouldQuitSubsystem.exit83.thread.i
   ]
 
-SDL_ShouldQuitSubsystem.exit82.i:                 ; preds = %SDL_DecrementSubsystemRefCount.exit69
-  %.b6.i81.i = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81.i, label %SDL_ShouldQuitSubsystem.exit82.thread.i, label %.sink.split.i84.thread.i
+SDL_ShouldQuitSubsystem.exit83.i:                 ; preds = %SDL_DecrementSubsystemRefCount.exit69
+  %.b.i82.i = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i82.i, label %SDL_ShouldQuitSubsystem.exit83.thread.i, label %.sink.split.i85.thread.i
 
-.sink.split.i84.thread.i:                         ; preds = %SDL_ShouldQuitSubsystem.exit82.i
+.sink.split.i85.thread.i:                         ; preds = %SDL_ShouldQuitSubsystem.exit83.i
   %33 = add i8 %32, -1
   br label %35
 
-SDL_ShouldQuitSubsystem.exit82.thread.i:          ; preds = %SDL_ShouldQuitSubsystem.exit82.i, %SDL_DecrementSubsystemRefCount.exit69
+SDL_ShouldQuitSubsystem.exit83.thread.i:          ; preds = %SDL_ShouldQuitSubsystem.exit83.i, %SDL_DecrementSubsystemRefCount.exit69
   tail call void @SDL_QuitEvents() #11
-  %.pr209.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83.i = icmp eq i8 %.pr209.i, 0
-  br i1 %.not.i83.i, label %SDL_QuitSubSystem_REAL.exit, label %.sink.split.i84.i
+  %.pr210.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i84.i = icmp eq i8 %.pr210.i, 0
+  br i1 %.not.i84.i, label %SDL_QuitSubSystem_REAL.exit, label %.sink.split.i85.i
 
-.sink.split.i84.i:                                ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i
-  %.b5.i85.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
-  %34 = add i8 %.pr209.i, -1
-  %cond.fr258.i = freeze i1 %.b5.i85.pre.i
-  %spec.select271.i = select i1 %cond.fr258.i, i8 0, i8 %34
+.sink.split.i85.i:                                ; preds = %SDL_ShouldQuitSubsystem.exit83.thread.i
+  %.b.i86.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
+  %34 = add i8 %.pr210.i, -1
+  %cond.fr259.i = freeze i1 %.b.i86.pre.i
+  %spec.select272.i = select i1 %cond.fr259.i, i8 0, i8 %34
   br label %35
 
-35:                                               ; preds = %.sink.split.i84.i, %.sink.split.i84.thread.i
-  %36 = phi i8 [ %33, %.sink.split.i84.thread.i ], [ %spec.select271.i, %.sink.split.i84.i ]
+35:                                               ; preds = %.sink.split.i85.i, %.sink.split.i85.thread.i
+  %36 = phi i8 [ %33, %.sink.split.i85.thread.i ], [ %spec.select272.i, %.sink.split.i85.i ]
   store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
   br label %SDL_QuitSubSystem_REAL.exit
 
-SDL_QuitSubSystem_REAL.exit:                      ; preds = %SDL_DecrementSubsystemRefCount.exit69, %SDL_ShouldQuitSubsystem.exit82.thread.i, %35
+SDL_QuitSubSystem_REAL.exit:                      ; preds = %SDL_DecrementSubsystemRefCount.exit69, %SDL_ShouldQuitSubsystem.exit83.thread.i, %35
   %.not52 = icmp eq ptr %31, null
   br i1 %.not52, label %SDL_DecrementSubsystemRefCount.exit, label %37
 
@@ -476,9 +476,9 @@ SDL_InitOrIncrementSubsystem.exit72._crit_edge:   ; preds = %SDL_InitOrIncrement
   br i1 %.not.i73, label %SDL_DecrementSubsystemRefCount.exit77, label %.sink.split.i74
 
 .sink.split.i74:                                  ; preds = %56
-  %.b5.i75 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i75 = load i1, ptr @SDL_bInMainQuit, align 1
   %58 = add i8 %57, -1
-  %.sink.i76 = select i1 %.b5.i75, i8 0, i8 %58
+  %.sink.i76 = select i1 %.b.i75, i8 0, i8 %58
   store i8 %.sink.i76, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 4), align 4
   br label %SDL_DecrementSubsystemRefCount.exit77
 
@@ -486,38 +486,38 @@ SDL_DecrementSubsystemRefCount.exit77:            ; preds = %56, %.sink.split.i7
   %59 = tail call ptr @SDL_GetError_REAL() #11
   %60 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %59) #11
   %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %61, label %SDL_ShouldQuitSubsystem.exit82.i85 [
+  switch i8 %61, label %SDL_ShouldQuitSubsystem.exit83.i85 [
     i8 0, label %SDL_QuitSubSystem_REAL.exit88
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i78
+    i8 1, label %SDL_ShouldQuitSubsystem.exit83.thread.i78
   ]
 
-SDL_ShouldQuitSubsystem.exit82.i85:               ; preds = %SDL_DecrementSubsystemRefCount.exit77
-  %.b6.i81.i86 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81.i86, label %SDL_ShouldQuitSubsystem.exit82.thread.i78, label %.sink.split.i84.thread.i87
+SDL_ShouldQuitSubsystem.exit83.i85:               ; preds = %SDL_DecrementSubsystemRefCount.exit77
+  %.b.i82.i86 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i82.i86, label %SDL_ShouldQuitSubsystem.exit83.thread.i78, label %.sink.split.i85.thread.i87
 
-.sink.split.i84.thread.i87:                       ; preds = %SDL_ShouldQuitSubsystem.exit82.i85
+.sink.split.i85.thread.i87:                       ; preds = %SDL_ShouldQuitSubsystem.exit83.i85
   %62 = add i8 %61, -1
   br label %64
 
-SDL_ShouldQuitSubsystem.exit82.thread.i78:        ; preds = %SDL_ShouldQuitSubsystem.exit82.i85, %SDL_DecrementSubsystemRefCount.exit77
+SDL_ShouldQuitSubsystem.exit83.thread.i78:        ; preds = %SDL_ShouldQuitSubsystem.exit83.i85, %SDL_DecrementSubsystemRefCount.exit77
   tail call void @SDL_QuitEvents() #11
-  %.pr209.i79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83.i80 = icmp eq i8 %.pr209.i79, 0
-  br i1 %.not.i83.i80, label %SDL_QuitSubSystem_REAL.exit88, label %.sink.split.i84.i81
+  %.pr210.i79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i84.i80 = icmp eq i8 %.pr210.i79, 0
+  br i1 %.not.i84.i80, label %SDL_QuitSubSystem_REAL.exit88, label %.sink.split.i85.i81
 
-.sink.split.i84.i81:                              ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i78
-  %.b5.i85.pre.i82 = load i1, ptr @SDL_bInMainQuit, align 1
-  %63 = add i8 %.pr209.i79, -1
-  %cond.fr258.i83 = freeze i1 %.b5.i85.pre.i82
-  %spec.select271.i84 = select i1 %cond.fr258.i83, i8 0, i8 %63
+.sink.split.i85.i81:                              ; preds = %SDL_ShouldQuitSubsystem.exit83.thread.i78
+  %.b.i86.pre.i82 = load i1, ptr @SDL_bInMainQuit, align 1
+  %63 = add i8 %.pr210.i79, -1
+  %cond.fr259.i83 = freeze i1 %.b.i86.pre.i82
+  %spec.select272.i84 = select i1 %cond.fr259.i83, i8 0, i8 %63
   br label %64
 
-64:                                               ; preds = %.sink.split.i84.i81, %.sink.split.i84.thread.i87
-  %65 = phi i8 [ %62, %.sink.split.i84.thread.i87 ], [ %spec.select271.i84, %.sink.split.i84.i81 ]
+64:                                               ; preds = %.sink.split.i85.i81, %.sink.split.i85.thread.i87
+  %65 = phi i8 [ %62, %.sink.split.i85.thread.i87 ], [ %spec.select272.i84, %.sink.split.i85.i81 ]
   store i8 %65, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
   br label %SDL_QuitSubSystem_REAL.exit88
 
-SDL_QuitSubSystem_REAL.exit88:                    ; preds = %SDL_DecrementSubsystemRefCount.exit77, %SDL_ShouldQuitSubsystem.exit82.thread.i78, %64
+SDL_QuitSubSystem_REAL.exit88:                    ; preds = %SDL_DecrementSubsystemRefCount.exit77, %SDL_ShouldQuitSubsystem.exit83.thread.i78, %64
   %.not54 = icmp eq ptr %60, null
   br i1 %.not54, label %SDL_DecrementSubsystemRefCount.exit, label %66
 
@@ -577,9 +577,9 @@ SDL_InitOrIncrementSubsystem.exit91._crit_edge:   ; preds = %SDL_InitOrIncrement
   br i1 %.not.i92, label %SDL_DecrementSubsystemRefCount.exit96, label %.sink.split.i93
 
 .sink.split.i93:                                  ; preds = %85
-  %.b5.i94 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i94 = load i1, ptr @SDL_bInMainQuit, align 1
   %87 = add i8 %86, -1
-  %.sink.i95 = select i1 %.b5.i94, i8 0, i8 %87
+  %.sink.i95 = select i1 %.b.i94, i8 0, i8 %87
   store i8 %.sink.i95, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
   br label %SDL_DecrementSubsystemRefCount.exit96
 
@@ -587,38 +587,38 @@ SDL_DecrementSubsystemRefCount.exit96:            ; preds = %85, %.sink.split.i9
   %88 = tail call ptr @SDL_GetError_REAL() #11
   %89 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %88) #11
   %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %90, label %SDL_ShouldQuitSubsystem.exit82.i104 [
+  switch i8 %90, label %SDL_ShouldQuitSubsystem.exit83.i104 [
     i8 0, label %SDL_QuitSubSystem_REAL.exit107
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i97
+    i8 1, label %SDL_ShouldQuitSubsystem.exit83.thread.i97
   ]
 
-SDL_ShouldQuitSubsystem.exit82.i104:              ; preds = %SDL_DecrementSubsystemRefCount.exit96
-  %.b6.i81.i105 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81.i105, label %SDL_ShouldQuitSubsystem.exit82.thread.i97, label %.sink.split.i84.thread.i106
+SDL_ShouldQuitSubsystem.exit83.i104:              ; preds = %SDL_DecrementSubsystemRefCount.exit96
+  %.b.i82.i105 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i82.i105, label %SDL_ShouldQuitSubsystem.exit83.thread.i97, label %.sink.split.i85.thread.i106
 
-.sink.split.i84.thread.i106:                      ; preds = %SDL_ShouldQuitSubsystem.exit82.i104
+.sink.split.i85.thread.i106:                      ; preds = %SDL_ShouldQuitSubsystem.exit83.i104
   %91 = add i8 %90, -1
   br label %93
 
-SDL_ShouldQuitSubsystem.exit82.thread.i97:        ; preds = %SDL_ShouldQuitSubsystem.exit82.i104, %SDL_DecrementSubsystemRefCount.exit96
+SDL_ShouldQuitSubsystem.exit83.thread.i97:        ; preds = %SDL_ShouldQuitSubsystem.exit83.i104, %SDL_DecrementSubsystemRefCount.exit96
   tail call void @SDL_QuitEvents() #11
-  %.pr209.i98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83.i99 = icmp eq i8 %.pr209.i98, 0
-  br i1 %.not.i83.i99, label %SDL_QuitSubSystem_REAL.exit107, label %.sink.split.i84.i100
+  %.pr210.i98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i84.i99 = icmp eq i8 %.pr210.i98, 0
+  br i1 %.not.i84.i99, label %SDL_QuitSubSystem_REAL.exit107, label %.sink.split.i85.i100
 
-.sink.split.i84.i100:                             ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i97
-  %.b5.i85.pre.i101 = load i1, ptr @SDL_bInMainQuit, align 1
-  %92 = add i8 %.pr209.i98, -1
-  %cond.fr258.i102 = freeze i1 %.b5.i85.pre.i101
-  %spec.select271.i103 = select i1 %cond.fr258.i102, i8 0, i8 %92
+.sink.split.i85.i100:                             ; preds = %SDL_ShouldQuitSubsystem.exit83.thread.i97
+  %.b.i86.pre.i101 = load i1, ptr @SDL_bInMainQuit, align 1
+  %92 = add i8 %.pr210.i98, -1
+  %cond.fr259.i102 = freeze i1 %.b.i86.pre.i101
+  %spec.select272.i103 = select i1 %cond.fr259.i102, i8 0, i8 %92
   br label %93
 
-93:                                               ; preds = %.sink.split.i84.i100, %.sink.split.i84.thread.i106
-  %94 = phi i8 [ %91, %.sink.split.i84.thread.i106 ], [ %spec.select271.i103, %.sink.split.i84.i100 ]
+93:                                               ; preds = %.sink.split.i85.i100, %.sink.split.i85.thread.i106
+  %94 = phi i8 [ %91, %.sink.split.i85.thread.i106 ], [ %spec.select272.i103, %.sink.split.i85.i100 ]
   store i8 %94, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
   br label %SDL_QuitSubSystem_REAL.exit107
 
-SDL_QuitSubSystem_REAL.exit107:                   ; preds = %SDL_DecrementSubsystemRefCount.exit96, %SDL_ShouldQuitSubsystem.exit82.thread.i97, %93
+SDL_QuitSubSystem_REAL.exit107:                   ; preds = %SDL_DecrementSubsystemRefCount.exit96, %SDL_ShouldQuitSubsystem.exit83.thread.i97, %93
   %.not56 = icmp eq ptr %89, null
   br i1 %.not56, label %SDL_DecrementSubsystemRefCount.exit, label %95
 
@@ -678,9 +678,9 @@ SDL_InitOrIncrementSubsystem.exit110._crit_edge:  ; preds = %SDL_InitOrIncrement
   br i1 %.not.i111, label %SDL_DecrementSubsystemRefCount.exit115, label %.sink.split.i112
 
 .sink.split.i112:                                 ; preds = %114
-  %.b5.i113 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i113 = load i1, ptr @SDL_bInMainQuit, align 1
   %116 = add i8 %115, -1
-  %.sink.i114 = select i1 %.b5.i113, i8 0, i8 %116
+  %.sink.i114 = select i1 %.b.i113, i8 0, i8 %116
   store i8 %.sink.i114, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 13), align 1
   br label %SDL_DecrementSubsystemRefCount.exit115
 
@@ -688,71 +688,71 @@ SDL_DecrementSubsystemRefCount.exit115:           ; preds = %114, %.sink.split.i
   %117 = tail call ptr @SDL_GetError_REAL() #11
   %118 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %117) #11
   %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
-  switch i8 %119, label %SDL_ShouldQuitSubsystem.exit39.i [
+  switch i8 %119, label %SDL_ShouldQuitSubsystem.exit40.i [
     i8 0, label %SDL_QuitSubSystem_REAL.exit116
-    i8 1, label %SDL_ShouldQuitSubsystem.exit39.thread.i
+    i8 1, label %SDL_ShouldQuitSubsystem.exit40.thread.i
   ]
 
-SDL_ShouldQuitSubsystem.exit39.i:                 ; preds = %SDL_DecrementSubsystemRefCount.exit115
-  %.b6.i38.i = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i38.i, label %SDL_ShouldQuitSubsystem.exit39.thread.i, label %.sink.split.i42.thread.i
+SDL_ShouldQuitSubsystem.exit40.i:                 ; preds = %SDL_DecrementSubsystemRefCount.exit115
+  %.b.i39.i = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i39.i, label %SDL_ShouldQuitSubsystem.exit40.thread.i, label %.sink.split.i43.thread.i
 
-.sink.split.i42.thread.i:                         ; preds = %SDL_ShouldQuitSubsystem.exit39.i
+.sink.split.i43.thread.i:                         ; preds = %SDL_ShouldQuitSubsystem.exit40.i
   %120 = add i8 %119, -1
   br label %127
 
-SDL_ShouldQuitSubsystem.exit39.thread.i:          ; preds = %SDL_ShouldQuitSubsystem.exit39.i, %SDL_DecrementSubsystemRefCount.exit115
+SDL_ShouldQuitSubsystem.exit40.thread.i:          ; preds = %SDL_ShouldQuitSubsystem.exit40.i, %SDL_DecrementSubsystemRefCount.exit115
   tail call void @SDL_QuitJoysticks() #11
   %121 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %121, label %SDL_ShouldQuitSubsystem.exit107.i [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit102.i
-    i8 1, label %SDL_QuitSubSystem_REAL.exit40.i
+  switch i8 %121, label %SDL_ShouldQuitSubsystem.exit108.i [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit103.i
+    i8 1, label %SDL_QuitSubSystem_REAL.exit41.i
   ]
 
-SDL_ShouldQuitSubsystem.exit107.i:                ; preds = %SDL_ShouldQuitSubsystem.exit39.thread.i
-  %.b6.i106.i = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i106.i, label %SDL_QuitSubSystem_REAL.exit40.i, label %.sink.split.i99.thread.i
+SDL_ShouldQuitSubsystem.exit108.i:                ; preds = %SDL_ShouldQuitSubsystem.exit40.thread.i
+  %.b.i107.i = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i107.i, label %SDL_QuitSubSystem_REAL.exit41.i, label %.sink.split.i100.thread.i
 
-.sink.split.i99.thread.i:                         ; preds = %SDL_ShouldQuitSubsystem.exit107.i
+.sink.split.i100.thread.i:                        ; preds = %SDL_ShouldQuitSubsystem.exit108.i
   %122 = add i8 %121, -1
   br label %124
 
-SDL_QuitSubSystem_REAL.exit40.i:                  ; preds = %SDL_ShouldQuitSubsystem.exit107.i, %SDL_ShouldQuitSubsystem.exit39.thread.i
+SDL_QuitSubSystem_REAL.exit41.i:                  ; preds = %SDL_ShouldQuitSubsystem.exit108.i, %SDL_ShouldQuitSubsystem.exit40.thread.i
   tail call void @SDL_QuitEvents() #11
-  %.pr162.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i98.i = icmp eq i8 %.pr162.i, 0
-  br i1 %.not.i98.i, label %SDL_DecrementSubsystemRefCount.exit102.i, label %.sink.split.i99.i
+  %.pr163.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i99.i = icmp eq i8 %.pr163.i, 0
+  br i1 %.not.i99.i, label %SDL_DecrementSubsystemRefCount.exit103.i, label %.sink.split.i100.i
 
-.sink.split.i99.i:                                ; preds = %SDL_QuitSubSystem_REAL.exit40.i
-  %.b5.i100.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
-  %123 = add i8 %.pr162.i, -1
-  %cond.fr237.i = freeze i1 %.b5.i100.pre.i
-  %spec.select264.i = select i1 %cond.fr237.i, i8 0, i8 %123
+.sink.split.i100.i:                               ; preds = %SDL_QuitSubSystem_REAL.exit41.i
+  %.b.i101.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
+  %123 = add i8 %.pr163.i, -1
+  %cond.fr238.i = freeze i1 %.b.i101.pre.i
+  %spec.select265.i = select i1 %cond.fr238.i, i8 0, i8 %123
   br label %124
 
-124:                                              ; preds = %.sink.split.i99.i, %.sink.split.i99.thread.i
-  %125 = phi i8 [ %122, %.sink.split.i99.thread.i ], [ %spec.select264.i, %.sink.split.i99.i ]
+124:                                              ; preds = %.sink.split.i100.i, %.sink.split.i100.thread.i
+  %125 = phi i8 [ %122, %.sink.split.i100.thread.i ], [ %spec.select265.i, %.sink.split.i100.i ]
   store i8 %125, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit102.i
+  br label %SDL_DecrementSubsystemRefCount.exit103.i
 
-SDL_DecrementSubsystemRefCount.exit102.i:         ; preds = %124, %SDL_QuitSubSystem_REAL.exit40.i, %SDL_ShouldQuitSubsystem.exit39.thread.i
-  %.pr166.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
-  %.not.i41.i = icmp eq i8 %.pr166.i, 0
-  br i1 %.not.i41.i, label %SDL_QuitSubSystem_REAL.exit116, label %.sink.split.i42.i
+SDL_DecrementSubsystemRefCount.exit103.i:         ; preds = %124, %SDL_QuitSubSystem_REAL.exit41.i, %SDL_ShouldQuitSubsystem.exit40.thread.i
+  %.pr167.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
+  %.not.i42.i = icmp eq i8 %.pr167.i, 0
+  br i1 %.not.i42.i, label %SDL_QuitSubSystem_REAL.exit116, label %.sink.split.i43.i
 
-.sink.split.i42.i:                                ; preds = %SDL_DecrementSubsystemRefCount.exit102.i
-  %.b5.i43.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
-  %126 = add i8 %.pr166.i, -1
-  %cond.fr240.i = freeze i1 %.b5.i43.pre.i
-  %spec.select265.i = select i1 %cond.fr240.i, i8 0, i8 %126
+.sink.split.i43.i:                                ; preds = %SDL_DecrementSubsystemRefCount.exit103.i
+  %.b.i44.pre.i = load i1, ptr @SDL_bInMainQuit, align 1
+  %126 = add i8 %.pr167.i, -1
+  %cond.fr241.i = freeze i1 %.b.i44.pre.i
+  %spec.select266.i = select i1 %cond.fr241.i, i8 0, i8 %126
   br label %127
 
-127:                                              ; preds = %.sink.split.i42.i, %.sink.split.i42.thread.i
-  %128 = phi i8 [ %120, %.sink.split.i42.thread.i ], [ %spec.select265.i, %.sink.split.i42.i ]
+127:                                              ; preds = %.sink.split.i43.i, %.sink.split.i43.thread.i
+  %128 = phi i8 [ %120, %.sink.split.i43.thread.i ], [ %spec.select266.i, %.sink.split.i43.i ]
   store i8 %128, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
   br label %SDL_QuitSubSystem_REAL.exit116
 
-SDL_QuitSubSystem_REAL.exit116:                   ; preds = %SDL_DecrementSubsystemRefCount.exit115, %SDL_DecrementSubsystemRefCount.exit102.i, %127
+SDL_QuitSubSystem_REAL.exit116:                   ; preds = %SDL_DecrementSubsystemRefCount.exit115, %SDL_DecrementSubsystemRefCount.exit103.i, %127
   %.not58 = icmp eq ptr %118, null
   br i1 %.not58, label %SDL_DecrementSubsystemRefCount.exit, label %129
 
@@ -792,9 +792,9 @@ SDL_QuitSubSystem_REAL.exit116:                   ; preds = %SDL_DecrementSubsys
   br i1 %.not.i117, label %SDL_DecrementSubsystemRefCount.exit, label %.sink.split.i118
 
 .sink.split.i118:                                 ; preds = %142
-  %.b5.i119 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i119 = load i1, ptr @SDL_bInMainQuit, align 1
   %144 = add i8 %143, -1
-  %.sink.i120 = select i1 %.b5.i119, i8 0, i8 %144
+  %.sink.i120 = select i1 %.b.i119, i8 0, i8 %144
   store i8 %.sink.i120, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 12), align 4
   br label %SDL_DecrementSubsystemRefCount.exit
 
@@ -829,9 +829,9 @@ SDL_QuitSubSystem_REAL.exit116:                   ; preds = %SDL_DecrementSubsys
   br i1 %.not.i122, label %SDL_DecrementSubsystemRefCount.exit, label %.sink.split.i123
 
 .sink.split.i123:                                 ; preds = %156
-  %.b5.i124 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i124 = load i1, ptr @SDL_bInMainQuit, align 1
   %158 = add i8 %157, -1
-  %.sink.i125 = select i1 %.b5.i124, i8 0, i8 %158
+  %.sink.i125 = select i1 %.b.i124, i8 0, i8 %158
   store i8 %.sink.i125, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 15), align 1
   br label %SDL_DecrementSubsystemRefCount.exit
 
@@ -886,9 +886,9 @@ SDL_InitOrIncrementSubsystem.exit129._crit_edge:  ; preds = %SDL_InitOrIncrement
   br i1 %.not.i130, label %SDL_DecrementSubsystemRefCount.exit134, label %.sink.split.i131
 
 .sink.split.i131:                                 ; preds = %176
-  %.b5.i132 = load i1, ptr @SDL_bInMainQuit, align 1
+  %.b.i132 = load i1, ptr @SDL_bInMainQuit, align 1
   %178 = add i8 %177, -1
-  %.sink.i133 = select i1 %.b5.i132, i8 0, i8 %178
+  %.sink.i133 = select i1 %.b.i132, i8 0, i8 %178
   store i8 %.sink.i133, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 16), align 16
   br label %SDL_DecrementSubsystemRefCount.exit134
 
@@ -896,38 +896,38 @@ SDL_DecrementSubsystemRefCount.exit134:           ; preds = %176, %.sink.split.i
   %179 = tail call ptr @SDL_GetError_REAL() #11
   %180 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %179) #11
   %181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %181, label %SDL_ShouldQuitSubsystem.exit82.i177 [
+  switch i8 %181, label %SDL_ShouldQuitSubsystem.exit83.i177 [
     i8 0, label %SDL_QuitSubSystem_REAL.exit180
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i170
+    i8 1, label %SDL_ShouldQuitSubsystem.exit83.thread.i170
   ]
 
-SDL_ShouldQuitSubsystem.exit82.i177:              ; preds = %SDL_DecrementSubsystemRefCount.exit134
-  %.b6.i81.i178 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81.i178, label %SDL_ShouldQuitSubsystem.exit82.thread.i170, label %.sink.split.i84.thread.i179
+SDL_ShouldQuitSubsystem.exit83.i177:              ; preds = %SDL_DecrementSubsystemRefCount.exit134
+  %.b.i82.i178 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i82.i178, label %SDL_ShouldQuitSubsystem.exit83.thread.i170, label %.sink.split.i85.thread.i179
 
-.sink.split.i84.thread.i179:                      ; preds = %SDL_ShouldQuitSubsystem.exit82.i177
+.sink.split.i85.thread.i179:                      ; preds = %SDL_ShouldQuitSubsystem.exit83.i177
   %182 = add i8 %181, -1
   br label %184
 
-SDL_ShouldQuitSubsystem.exit82.thread.i170:       ; preds = %SDL_ShouldQuitSubsystem.exit82.i177, %SDL_DecrementSubsystemRefCount.exit134
+SDL_ShouldQuitSubsystem.exit83.thread.i170:       ; preds = %SDL_ShouldQuitSubsystem.exit83.i177, %SDL_DecrementSubsystemRefCount.exit134
   tail call void @SDL_QuitEvents() #11
-  %.pr209.i171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83.i172 = icmp eq i8 %.pr209.i171, 0
-  br i1 %.not.i83.i172, label %SDL_QuitSubSystem_REAL.exit180, label %.sink.split.i84.i173
+  %.pr210.i171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i84.i172 = icmp eq i8 %.pr210.i171, 0
+  br i1 %.not.i84.i172, label %SDL_QuitSubSystem_REAL.exit180, label %.sink.split.i85.i173
 
-.sink.split.i84.i173:                             ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i170
-  %.b5.i85.pre.i174 = load i1, ptr @SDL_bInMainQuit, align 1
-  %183 = add i8 %.pr209.i171, -1
-  %cond.fr258.i175 = freeze i1 %.b5.i85.pre.i174
-  %spec.select271.i176 = select i1 %cond.fr258.i175, i8 0, i8 %183
+.sink.split.i85.i173:                             ; preds = %SDL_ShouldQuitSubsystem.exit83.thread.i170
+  %.b.i86.pre.i174 = load i1, ptr @SDL_bInMainQuit, align 1
+  %183 = add i8 %.pr210.i171, -1
+  %cond.fr259.i175 = freeze i1 %.b.i86.pre.i174
+  %spec.select272.i176 = select i1 %cond.fr259.i175, i8 0, i8 %183
   br label %184
 
-184:                                              ; preds = %.sink.split.i84.i173, %.sink.split.i84.thread.i179
-  %185 = phi i8 [ %182, %.sink.split.i84.thread.i179 ], [ %spec.select271.i176, %.sink.split.i84.i173 ]
+184:                                              ; preds = %.sink.split.i85.i173, %.sink.split.i85.thread.i179
+  %185 = phi i8 [ %182, %.sink.split.i85.thread.i179 ], [ %spec.select272.i176, %.sink.split.i85.i173 ]
   store i8 %185, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
   br label %SDL_QuitSubSystem_REAL.exit180
 
-SDL_QuitSubSystem_REAL.exit180:                   ; preds = %SDL_DecrementSubsystemRefCount.exit134, %SDL_ShouldQuitSubsystem.exit82.thread.i170, %184
+SDL_QuitSubSystem_REAL.exit180:                   ; preds = %SDL_DecrementSubsystemRefCount.exit134, %SDL_ShouldQuitSubsystem.exit83.thread.i170, %184
   %.not62 = icmp eq ptr %180, null
   br i1 %.not62, label %SDL_DecrementSubsystemRefCount.exit, label %186
 
@@ -987,8 +987,8 @@ define hidden void @SDL_QuitSubSystem_REAL(i32 noundef %0) local_unnamed_addr #2
   ]
 
 SDL_ShouldQuitSubsystem.exit:                     ; preds = %3
-  %.b6.i = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i, label %SDL_ShouldQuitSubsystem.exit.thread, label %.sink.split.i.thread
+  %.b.i = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i, label %SDL_ShouldQuitSubsystem.exit.thread, label %.sink.split.i.thread
 
 .sink.split.i.thread:                             ; preds = %SDL_ShouldQuitSubsystem.exit
   %5 = add i8 %4, -1
@@ -997,422 +997,422 @@ SDL_ShouldQuitSubsystem.exit:                     ; preds = %3
 SDL_ShouldQuitSubsystem.exit.thread:              ; preds = %3, %SDL_ShouldQuitSubsystem.exit
   tail call void @SDL_QuitCamera() #11
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %6, label %SDL_ShouldQuitSubsystem.exit97 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit92
+  switch i8 %6, label %SDL_ShouldQuitSubsystem.exit98 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit93
     i8 1, label %SDL_QuitSubSystem_REAL.exit
   ]
 
-SDL_ShouldQuitSubsystem.exit97:                   ; preds = %SDL_ShouldQuitSubsystem.exit.thread
-  %.b6.i96 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i96, label %SDL_QuitSubSystem_REAL.exit, label %.sink.split.i89.thread
+SDL_ShouldQuitSubsystem.exit98:                   ; preds = %SDL_ShouldQuitSubsystem.exit.thread
+  %.b.i97 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i97, label %SDL_QuitSubSystem_REAL.exit, label %.sink.split.i90.thread
 
-.sink.split.i89.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit97
+.sink.split.i90.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit98
   %7 = add i8 %6, -1
   br label %9
 
-SDL_QuitSubSystem_REAL.exit:                      ; preds = %SDL_ShouldQuitSubsystem.exit.thread, %SDL_ShouldQuitSubsystem.exit97
+SDL_QuitSubSystem_REAL.exit:                      ; preds = %SDL_ShouldQuitSubsystem.exit.thread, %SDL_ShouldQuitSubsystem.exit98
   tail call void @SDL_QuitEvents() #11
   %.pr = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i88 = icmp eq i8 %.pr, 0
-  br i1 %.not.i88, label %SDL_DecrementSubsystemRefCount.exit92, label %.sink.split.i89
+  %.not.i89 = icmp eq i8 %.pr, 0
+  br i1 %.not.i89, label %SDL_DecrementSubsystemRefCount.exit93, label %.sink.split.i90
 
-.sink.split.i89:                                  ; preds = %SDL_QuitSubSystem_REAL.exit
-  %.b5.i90.pre = load i1, ptr @SDL_bInMainQuit, align 1
+.sink.split.i90:                                  ; preds = %SDL_QuitSubSystem_REAL.exit
+  %.b.i91.pre = load i1, ptr @SDL_bInMainQuit, align 1
   %8 = add i8 %.pr, -1
-  %cond.fr = freeze i1 %.b5.i90.pre
+  %cond.fr = freeze i1 %.b.i91.pre
   %spec.select = select i1 %cond.fr, i8 0, i8 %8
   br label %9
 
-9:                                                ; preds = %.sink.split.i89, %.sink.split.i89.thread
-  %10 = phi i8 [ %7, %.sink.split.i89.thread ], [ %spec.select, %.sink.split.i89 ]
+9:                                                ; preds = %.sink.split.i90, %.sink.split.i90.thread
+  %10 = phi i8 [ %7, %.sink.split.i90.thread ], [ %spec.select, %.sink.split.i90 ]
   store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit92
+  br label %SDL_DecrementSubsystemRefCount.exit93
 
-SDL_DecrementSubsystemRefCount.exit92:            ; preds = %SDL_ShouldQuitSubsystem.exit.thread, %9, %SDL_QuitSubSystem_REAL.exit
-  %.pr137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 16), align 16
-  %.not.i = icmp eq i8 %.pr137, 0
+SDL_DecrementSubsystemRefCount.exit93:            ; preds = %SDL_ShouldQuitSubsystem.exit.thread, %9, %SDL_QuitSubSystem_REAL.exit
+  %.pr138 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 16), align 16
+  %.not.i = icmp eq i8 %.pr138, 0
   br i1 %.not.i, label %SDL_DecrementSubsystemRefCount.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %SDL_DecrementSubsystemRefCount.exit92
-  %.b5.i.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %11 = add i8 %.pr137, -1
-  %cond.fr228 = freeze i1 %.b5.i.pre
-  %spec.select261 = select i1 %cond.fr228, i8 0, i8 %11
+.sink.split.i:                                    ; preds = %SDL_DecrementSubsystemRefCount.exit93
+  %.b.i15.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %11 = add i8 %.pr138, -1
+  %cond.fr229 = freeze i1 %.b.i15.pre
+  %spec.select262 = select i1 %cond.fr229, i8 0, i8 %11
   br label %12
 
 12:                                               ; preds = %.sink.split.i, %.sink.split.i.thread
-  %13 = phi i8 [ %5, %.sink.split.i.thread ], [ %spec.select261, %.sink.split.i ]
+  %13 = phi i8 [ %5, %.sink.split.i.thread ], [ %spec.select262, %.sink.split.i ]
   store i8 %13, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 16), align 16
   br label %SDL_DecrementSubsystemRefCount.exit
 
-SDL_DecrementSubsystemRefCount.exit:              ; preds = %3, %12, %SDL_DecrementSubsystemRefCount.exit92, %1
+SDL_DecrementSubsystemRefCount.exit:              ; preds = %3, %12, %SDL_DecrementSubsystemRefCount.exit93, %1
   %14 = and i32 %0, 32768
   %.not8 = icmp eq i32 %14, 0
-  br i1 %.not8, label %SDL_DecrementSubsystemRefCount.exit24, label %15
+  br i1 %.not8, label %SDL_DecrementSubsystemRefCount.exit25, label %15
 
 15:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit
   %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 15), align 1
-  switch i8 %16, label %SDL_ShouldQuitSubsystem.exit19 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit24
-    i8 1, label %SDL_ShouldQuitSubsystem.exit19.thread
+  switch i8 %16, label %SDL_ShouldQuitSubsystem.exit20 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit25
+    i8 1, label %SDL_ShouldQuitSubsystem.exit20.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit19:                   ; preds = %15
-  %.b6.i18 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i18, label %SDL_ShouldQuitSubsystem.exit19.thread, label %.sink.split.i21.thread
+SDL_ShouldQuitSubsystem.exit20:                   ; preds = %15
+  %.b.i19 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i19, label %SDL_ShouldQuitSubsystem.exit20.thread, label %.sink.split.i22.thread
 
-.sink.split.i21.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit19
+.sink.split.i22.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit20
   %17 = add i8 %16, -1
   br label %19
 
-SDL_ShouldQuitSubsystem.exit19.thread:            ; preds = %15, %SDL_ShouldQuitSubsystem.exit19
+SDL_ShouldQuitSubsystem.exit20.thread:            ; preds = %15, %SDL_ShouldQuitSubsystem.exit20
   tail call void @SDL_QuitSensors() #11
-  %.pr144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 15), align 1
-  %.not.i20 = icmp eq i8 %.pr144, 0
-  br i1 %.not.i20, label %SDL_DecrementSubsystemRefCount.exit24, label %.sink.split.i21
+  %.pr145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 15), align 1
+  %.not.i21 = icmp eq i8 %.pr145, 0
+  br i1 %.not.i21, label %SDL_DecrementSubsystemRefCount.exit25, label %.sink.split.i22
 
-.sink.split.i21:                                  ; preds = %SDL_ShouldQuitSubsystem.exit19.thread
-  %.b5.i22.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %18 = add i8 %.pr144, -1
-  %cond.fr231 = freeze i1 %.b5.i22.pre
-  %spec.select262 = select i1 %cond.fr231, i8 0, i8 %18
+.sink.split.i22:                                  ; preds = %SDL_ShouldQuitSubsystem.exit20.thread
+  %.b.i23.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %18 = add i8 %.pr145, -1
+  %cond.fr232 = freeze i1 %.b.i23.pre
+  %spec.select263 = select i1 %cond.fr232, i8 0, i8 %18
   br label %19
 
-19:                                               ; preds = %.sink.split.i21, %.sink.split.i21.thread
-  %20 = phi i8 [ %17, %.sink.split.i21.thread ], [ %spec.select262, %.sink.split.i21 ]
+19:                                               ; preds = %.sink.split.i22, %.sink.split.i22.thread
+  %20 = phi i8 [ %17, %.sink.split.i22.thread ], [ %spec.select263, %.sink.split.i22 ]
   store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 15), align 1
-  br label %SDL_DecrementSubsystemRefCount.exit24
+  br label %SDL_DecrementSubsystemRefCount.exit25
 
-SDL_DecrementSubsystemRefCount.exit24:            ; preds = %15, %19, %SDL_ShouldQuitSubsystem.exit19.thread, %SDL_DecrementSubsystemRefCount.exit
+SDL_DecrementSubsystemRefCount.exit25:            ; preds = %15, %19, %SDL_ShouldQuitSubsystem.exit20.thread, %SDL_DecrementSubsystemRefCount.exit
   %21 = and i32 %0, 8192
   %.not9 = icmp eq i32 %21, 0
-  br i1 %.not9, label %SDL_DecrementSubsystemRefCount.exit34, label %22
+  br i1 %.not9, label %SDL_DecrementSubsystemRefCount.exit35, label %22
 
-22:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit24
+22:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit25
   %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 13), align 1
-  switch i8 %23, label %SDL_ShouldQuitSubsystem.exit29 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit34
-    i8 1, label %SDL_ShouldQuitSubsystem.exit29.thread
+  switch i8 %23, label %SDL_ShouldQuitSubsystem.exit30 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit35
+    i8 1, label %SDL_ShouldQuitSubsystem.exit30.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit29:                   ; preds = %22
-  %.b6.i28 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i28, label %SDL_ShouldQuitSubsystem.exit29.thread, label %.sink.split.i31.thread
+SDL_ShouldQuitSubsystem.exit30:                   ; preds = %22
+  %.b.i29 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i29, label %SDL_ShouldQuitSubsystem.exit30.thread, label %.sink.split.i32.thread
 
-.sink.split.i31.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit29
+.sink.split.i32.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit30
   %24 = add i8 %23, -1
   br label %26
 
-SDL_ShouldQuitSubsystem.exit29.thread:            ; preds = %22, %SDL_ShouldQuitSubsystem.exit29
+SDL_ShouldQuitSubsystem.exit30.thread:            ; preds = %22, %SDL_ShouldQuitSubsystem.exit30
   tail call void @SDL_QuitGamepads() #11
   tail call void @SDL_QuitSubSystem_REAL(i32 noundef 512)
-  %.pr151 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 13), align 1
-  %.not.i30 = icmp eq i8 %.pr151, 0
-  br i1 %.not.i30, label %SDL_DecrementSubsystemRefCount.exit34, label %.sink.split.i31
+  %.pr152 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 13), align 1
+  %.not.i31 = icmp eq i8 %.pr152, 0
+  br i1 %.not.i31, label %SDL_DecrementSubsystemRefCount.exit35, label %.sink.split.i32
 
-.sink.split.i31:                                  ; preds = %SDL_ShouldQuitSubsystem.exit29.thread
-  %.b5.i32.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %25 = add i8 %.pr151, -1
-  %cond.fr234 = freeze i1 %.b5.i32.pre
-  %spec.select263 = select i1 %cond.fr234, i8 0, i8 %25
+.sink.split.i32:                                  ; preds = %SDL_ShouldQuitSubsystem.exit30.thread
+  %.b.i33.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %25 = add i8 %.pr152, -1
+  %cond.fr235 = freeze i1 %.b.i33.pre
+  %spec.select264 = select i1 %cond.fr235, i8 0, i8 %25
   br label %26
 
-26:                                               ; preds = %.sink.split.i31, %.sink.split.i31.thread
-  %27 = phi i8 [ %24, %.sink.split.i31.thread ], [ %spec.select263, %.sink.split.i31 ]
+26:                                               ; preds = %.sink.split.i32, %.sink.split.i32.thread
+  %27 = phi i8 [ %24, %.sink.split.i32.thread ], [ %spec.select264, %.sink.split.i32 ]
   store i8 %27, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 13), align 1
-  br label %SDL_DecrementSubsystemRefCount.exit34
+  br label %SDL_DecrementSubsystemRefCount.exit35
 
-SDL_DecrementSubsystemRefCount.exit34:            ; preds = %22, %26, %SDL_ShouldQuitSubsystem.exit29.thread, %SDL_DecrementSubsystemRefCount.exit24
+SDL_DecrementSubsystemRefCount.exit35:            ; preds = %22, %26, %SDL_ShouldQuitSubsystem.exit30.thread, %SDL_DecrementSubsystemRefCount.exit25
   %28 = and i32 %0, 512
   %.not10 = icmp eq i32 %28, 0
-  br i1 %.not10, label %SDL_DecrementSubsystemRefCount.exit45, label %29
+  br i1 %.not10, label %SDL_DecrementSubsystemRefCount.exit46, label %29
 
-29:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit34
+29:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit35
   %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
-  switch i8 %30, label %SDL_ShouldQuitSubsystem.exit39 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit45
-    i8 1, label %SDL_ShouldQuitSubsystem.exit39.thread
+  switch i8 %30, label %SDL_ShouldQuitSubsystem.exit40 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit46
+    i8 1, label %SDL_ShouldQuitSubsystem.exit40.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit39:                   ; preds = %29
-  %.b6.i38 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i38, label %SDL_ShouldQuitSubsystem.exit39.thread, label %.sink.split.i42.thread
+SDL_ShouldQuitSubsystem.exit40:                   ; preds = %29
+  %.b.i39 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i39, label %SDL_ShouldQuitSubsystem.exit40.thread, label %.sink.split.i43.thread
 
-.sink.split.i42.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit39
+.sink.split.i43.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit40
   %31 = add i8 %30, -1
   br label %38
 
-SDL_ShouldQuitSubsystem.exit39.thread:            ; preds = %29, %SDL_ShouldQuitSubsystem.exit39
+SDL_ShouldQuitSubsystem.exit40.thread:            ; preds = %29, %SDL_ShouldQuitSubsystem.exit40
   tail call void @SDL_QuitJoysticks() #11
   %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %32, label %SDL_ShouldQuitSubsystem.exit107 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit102
-    i8 1, label %SDL_QuitSubSystem_REAL.exit40
+  switch i8 %32, label %SDL_ShouldQuitSubsystem.exit108 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit103
+    i8 1, label %SDL_QuitSubSystem_REAL.exit41
   ]
 
-SDL_ShouldQuitSubsystem.exit107:                  ; preds = %SDL_ShouldQuitSubsystem.exit39.thread
-  %.b6.i106 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i106, label %SDL_QuitSubSystem_REAL.exit40, label %.sink.split.i99.thread
+SDL_ShouldQuitSubsystem.exit108:                  ; preds = %SDL_ShouldQuitSubsystem.exit40.thread
+  %.b.i107 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i107, label %SDL_QuitSubSystem_REAL.exit41, label %.sink.split.i100.thread
 
-.sink.split.i99.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit107
+.sink.split.i100.thread:                          ; preds = %SDL_ShouldQuitSubsystem.exit108
   %33 = add i8 %32, -1
   br label %35
 
-SDL_QuitSubSystem_REAL.exit40:                    ; preds = %SDL_ShouldQuitSubsystem.exit39.thread, %SDL_ShouldQuitSubsystem.exit107
+SDL_QuitSubSystem_REAL.exit41:                    ; preds = %SDL_ShouldQuitSubsystem.exit40.thread, %SDL_ShouldQuitSubsystem.exit108
   tail call void @SDL_QuitEvents() #11
-  %.pr162 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i98 = icmp eq i8 %.pr162, 0
-  br i1 %.not.i98, label %SDL_DecrementSubsystemRefCount.exit102, label %.sink.split.i99
+  %.pr163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i99 = icmp eq i8 %.pr163, 0
+  br i1 %.not.i99, label %SDL_DecrementSubsystemRefCount.exit103, label %.sink.split.i100
 
-.sink.split.i99:                                  ; preds = %SDL_QuitSubSystem_REAL.exit40
-  %.b5.i100.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %34 = add i8 %.pr162, -1
-  %cond.fr237 = freeze i1 %.b5.i100.pre
-  %spec.select264 = select i1 %cond.fr237, i8 0, i8 %34
+.sink.split.i100:                                 ; preds = %SDL_QuitSubSystem_REAL.exit41
+  %.b.i101.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %34 = add i8 %.pr163, -1
+  %cond.fr238 = freeze i1 %.b.i101.pre
+  %spec.select265 = select i1 %cond.fr238, i8 0, i8 %34
   br label %35
 
-35:                                               ; preds = %.sink.split.i99, %.sink.split.i99.thread
-  %36 = phi i8 [ %33, %.sink.split.i99.thread ], [ %spec.select264, %.sink.split.i99 ]
+35:                                               ; preds = %.sink.split.i100, %.sink.split.i100.thread
+  %36 = phi i8 [ %33, %.sink.split.i100.thread ], [ %spec.select265, %.sink.split.i100 ]
   store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit102
+  br label %SDL_DecrementSubsystemRefCount.exit103
 
-SDL_DecrementSubsystemRefCount.exit102:           ; preds = %SDL_ShouldQuitSubsystem.exit39.thread, %35, %SDL_QuitSubSystem_REAL.exit40
-  %.pr166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
-  %.not.i41 = icmp eq i8 %.pr166, 0
-  br i1 %.not.i41, label %SDL_DecrementSubsystemRefCount.exit45, label %.sink.split.i42
+SDL_DecrementSubsystemRefCount.exit103:           ; preds = %SDL_ShouldQuitSubsystem.exit40.thread, %35, %SDL_QuitSubSystem_REAL.exit41
+  %.pr167 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
+  %.not.i42 = icmp eq i8 %.pr167, 0
+  br i1 %.not.i42, label %SDL_DecrementSubsystemRefCount.exit46, label %.sink.split.i43
 
-.sink.split.i42:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit102
-  %.b5.i43.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %37 = add i8 %.pr166, -1
-  %cond.fr240 = freeze i1 %.b5.i43.pre
-  %spec.select265 = select i1 %cond.fr240, i8 0, i8 %37
+.sink.split.i43:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit103
+  %.b.i44.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %37 = add i8 %.pr167, -1
+  %cond.fr241 = freeze i1 %.b.i44.pre
+  %spec.select266 = select i1 %cond.fr241, i8 0, i8 %37
   br label %38
 
-38:                                               ; preds = %.sink.split.i42, %.sink.split.i42.thread
-  %39 = phi i8 [ %31, %.sink.split.i42.thread ], [ %spec.select265, %.sink.split.i42 ]
+38:                                               ; preds = %.sink.split.i43, %.sink.split.i43.thread
+  %39 = phi i8 [ %31, %.sink.split.i43.thread ], [ %spec.select266, %.sink.split.i43 ]
   store i8 %39, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 9), align 1
-  br label %SDL_DecrementSubsystemRefCount.exit45
+  br label %SDL_DecrementSubsystemRefCount.exit46
 
-SDL_DecrementSubsystemRefCount.exit45:            ; preds = %29, %38, %SDL_DecrementSubsystemRefCount.exit102, %SDL_DecrementSubsystemRefCount.exit34
+SDL_DecrementSubsystemRefCount.exit46:            ; preds = %29, %38, %SDL_DecrementSubsystemRefCount.exit103, %SDL_DecrementSubsystemRefCount.exit35
   %40 = and i32 %0, 4096
   %.not11 = icmp eq i32 %40, 0
-  br i1 %.not11, label %SDL_DecrementSubsystemRefCount.exit55, label %41
+  br i1 %.not11, label %SDL_DecrementSubsystemRefCount.exit56, label %41
 
-41:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit45
+41:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit46
   %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 12), align 4
-  switch i8 %42, label %SDL_ShouldQuitSubsystem.exit50 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit55
-    i8 1, label %SDL_ShouldQuitSubsystem.exit50.thread
+  switch i8 %42, label %SDL_ShouldQuitSubsystem.exit51 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit56
+    i8 1, label %SDL_ShouldQuitSubsystem.exit51.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit50:                   ; preds = %41
-  %.b6.i49 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i49, label %SDL_ShouldQuitSubsystem.exit50.thread, label %.sink.split.i52.thread
+SDL_ShouldQuitSubsystem.exit51:                   ; preds = %41
+  %.b.i50 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i50, label %SDL_ShouldQuitSubsystem.exit51.thread, label %.sink.split.i53.thread
 
-.sink.split.i52.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit50
+.sink.split.i53.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit51
   %43 = add i8 %42, -1
   br label %45
 
-SDL_ShouldQuitSubsystem.exit50.thread:            ; preds = %41, %SDL_ShouldQuitSubsystem.exit50
+SDL_ShouldQuitSubsystem.exit51.thread:            ; preds = %41, %SDL_ShouldQuitSubsystem.exit51
   tail call void @SDL_QuitHaptics() #11
-  %.pr173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 12), align 4
-  %.not.i51 = icmp eq i8 %.pr173, 0
-  br i1 %.not.i51, label %SDL_DecrementSubsystemRefCount.exit55, label %.sink.split.i52
+  %.pr174 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 12), align 4
+  %.not.i52 = icmp eq i8 %.pr174, 0
+  br i1 %.not.i52, label %SDL_DecrementSubsystemRefCount.exit56, label %.sink.split.i53
 
-.sink.split.i52:                                  ; preds = %SDL_ShouldQuitSubsystem.exit50.thread
-  %.b5.i53.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %44 = add i8 %.pr173, -1
-  %cond.fr243 = freeze i1 %.b5.i53.pre
-  %spec.select266 = select i1 %cond.fr243, i8 0, i8 %44
+.sink.split.i53:                                  ; preds = %SDL_ShouldQuitSubsystem.exit51.thread
+  %.b.i54.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %44 = add i8 %.pr174, -1
+  %cond.fr244 = freeze i1 %.b.i54.pre
+  %spec.select267 = select i1 %cond.fr244, i8 0, i8 %44
   br label %45
 
-45:                                               ; preds = %.sink.split.i52, %.sink.split.i52.thread
-  %46 = phi i8 [ %43, %.sink.split.i52.thread ], [ %spec.select266, %.sink.split.i52 ]
+45:                                               ; preds = %.sink.split.i53, %.sink.split.i53.thread
+  %46 = phi i8 [ %43, %.sink.split.i53.thread ], [ %spec.select267, %.sink.split.i53 ]
   store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 12), align 4
-  br label %SDL_DecrementSubsystemRefCount.exit55
+  br label %SDL_DecrementSubsystemRefCount.exit56
 
-SDL_DecrementSubsystemRefCount.exit55:            ; preds = %41, %45, %SDL_ShouldQuitSubsystem.exit50.thread, %SDL_DecrementSubsystemRefCount.exit45
+SDL_DecrementSubsystemRefCount.exit56:            ; preds = %41, %45, %SDL_ShouldQuitSubsystem.exit51.thread, %SDL_DecrementSubsystemRefCount.exit46
   %47 = and i32 %0, 16
   %.not12 = icmp eq i32 %47, 0
-  br i1 %.not12, label %SDL_DecrementSubsystemRefCount.exit66, label %48
+  br i1 %.not12, label %SDL_DecrementSubsystemRefCount.exit67, label %48
 
-48:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit55
+48:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit56
   %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 4), align 4
-  switch i8 %49, label %SDL_ShouldQuitSubsystem.exit60 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit66
-    i8 1, label %SDL_ShouldQuitSubsystem.exit60.thread
+  switch i8 %49, label %SDL_ShouldQuitSubsystem.exit61 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit67
+    i8 1, label %SDL_ShouldQuitSubsystem.exit61.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit60:                   ; preds = %48
-  %.b6.i59 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i59, label %SDL_ShouldQuitSubsystem.exit60.thread, label %.sink.split.i63.thread
+SDL_ShouldQuitSubsystem.exit61:                   ; preds = %48
+  %.b.i60 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i60, label %SDL_ShouldQuitSubsystem.exit61.thread, label %.sink.split.i64.thread
 
-.sink.split.i63.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit60
+.sink.split.i64.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit61
   %50 = add i8 %49, -1
   br label %57
 
-SDL_ShouldQuitSubsystem.exit60.thread:            ; preds = %48, %SDL_ShouldQuitSubsystem.exit60
+SDL_ShouldQuitSubsystem.exit61.thread:            ; preds = %48, %SDL_ShouldQuitSubsystem.exit61
   tail call void @SDL_QuitAudio() #11
   %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %51, label %SDL_ShouldQuitSubsystem.exit117 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit112
-    i8 1, label %SDL_QuitSubSystem_REAL.exit61
+  switch i8 %51, label %SDL_ShouldQuitSubsystem.exit118 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit113
+    i8 1, label %SDL_QuitSubSystem_REAL.exit62
   ]
 
-SDL_ShouldQuitSubsystem.exit117:                  ; preds = %SDL_ShouldQuitSubsystem.exit60.thread
-  %.b6.i116 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i116, label %SDL_QuitSubSystem_REAL.exit61, label %.sink.split.i109.thread
+SDL_ShouldQuitSubsystem.exit118:                  ; preds = %SDL_ShouldQuitSubsystem.exit61.thread
+  %.b.i117 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i117, label %SDL_QuitSubSystem_REAL.exit62, label %.sink.split.i110.thread
 
-.sink.split.i109.thread:                          ; preds = %SDL_ShouldQuitSubsystem.exit117
+.sink.split.i110.thread:                          ; preds = %SDL_ShouldQuitSubsystem.exit118
   %52 = add i8 %51, -1
   br label %54
 
-SDL_QuitSubSystem_REAL.exit61:                    ; preds = %SDL_ShouldQuitSubsystem.exit60.thread, %SDL_ShouldQuitSubsystem.exit117
+SDL_QuitSubSystem_REAL.exit62:                    ; preds = %SDL_ShouldQuitSubsystem.exit61.thread, %SDL_ShouldQuitSubsystem.exit118
   tail call void @SDL_QuitEvents() #11
-  %.pr184 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i108 = icmp eq i8 %.pr184, 0
-  br i1 %.not.i108, label %SDL_DecrementSubsystemRefCount.exit112, label %.sink.split.i109
+  %.pr185 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i109 = icmp eq i8 %.pr185, 0
+  br i1 %.not.i109, label %SDL_DecrementSubsystemRefCount.exit113, label %.sink.split.i110
 
-.sink.split.i109:                                 ; preds = %SDL_QuitSubSystem_REAL.exit61
-  %.b5.i110.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %53 = add i8 %.pr184, -1
-  %cond.fr246 = freeze i1 %.b5.i110.pre
-  %spec.select267 = select i1 %cond.fr246, i8 0, i8 %53
+.sink.split.i110:                                 ; preds = %SDL_QuitSubSystem_REAL.exit62
+  %.b.i111.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %53 = add i8 %.pr185, -1
+  %cond.fr247 = freeze i1 %.b.i111.pre
+  %spec.select268 = select i1 %cond.fr247, i8 0, i8 %53
   br label %54
 
-54:                                               ; preds = %.sink.split.i109, %.sink.split.i109.thread
-  %55 = phi i8 [ %52, %.sink.split.i109.thread ], [ %spec.select267, %.sink.split.i109 ]
+54:                                               ; preds = %.sink.split.i110, %.sink.split.i110.thread
+  %55 = phi i8 [ %52, %.sink.split.i110.thread ], [ %spec.select268, %.sink.split.i110 ]
   store i8 %55, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit112
+  br label %SDL_DecrementSubsystemRefCount.exit113
 
-SDL_DecrementSubsystemRefCount.exit112:           ; preds = %SDL_ShouldQuitSubsystem.exit60.thread, %54, %SDL_QuitSubSystem_REAL.exit61
-  %.pr188 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 4), align 4
-  %.not.i62 = icmp eq i8 %.pr188, 0
-  br i1 %.not.i62, label %SDL_DecrementSubsystemRefCount.exit66, label %.sink.split.i63
+SDL_DecrementSubsystemRefCount.exit113:           ; preds = %SDL_ShouldQuitSubsystem.exit61.thread, %54, %SDL_QuitSubSystem_REAL.exit62
+  %.pr189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 4), align 4
+  %.not.i63 = icmp eq i8 %.pr189, 0
+  br i1 %.not.i63, label %SDL_DecrementSubsystemRefCount.exit67, label %.sink.split.i64
 
-.sink.split.i63:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit112
-  %.b5.i64.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %56 = add i8 %.pr188, -1
-  %cond.fr249 = freeze i1 %.b5.i64.pre
-  %spec.select268 = select i1 %cond.fr249, i8 0, i8 %56
+.sink.split.i64:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit113
+  %.b.i65.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %56 = add i8 %.pr189, -1
+  %cond.fr250 = freeze i1 %.b.i65.pre
+  %spec.select269 = select i1 %cond.fr250, i8 0, i8 %56
   br label %57
 
-57:                                               ; preds = %.sink.split.i63, %.sink.split.i63.thread
-  %58 = phi i8 [ %50, %.sink.split.i63.thread ], [ %spec.select268, %.sink.split.i63 ]
+57:                                               ; preds = %.sink.split.i64, %.sink.split.i64.thread
+  %58 = phi i8 [ %50, %.sink.split.i64.thread ], [ %spec.select269, %.sink.split.i64 ]
   store i8 %58, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 4), align 4
-  br label %SDL_DecrementSubsystemRefCount.exit66
+  br label %SDL_DecrementSubsystemRefCount.exit67
 
-SDL_DecrementSubsystemRefCount.exit66:            ; preds = %48, %57, %SDL_DecrementSubsystemRefCount.exit112, %SDL_DecrementSubsystemRefCount.exit55
+SDL_DecrementSubsystemRefCount.exit67:            ; preds = %48, %57, %SDL_DecrementSubsystemRefCount.exit113, %SDL_DecrementSubsystemRefCount.exit56
   %59 = and i32 %0, 32
   %.not13 = icmp eq i32 %59, 0
-  br i1 %.not13, label %SDL_DecrementSubsystemRefCount.exit77, label %60
+  br i1 %.not13, label %SDL_DecrementSubsystemRefCount.exit78, label %60
 
-60:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit66
+60:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit67
   %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 5), align 1
-  switch i8 %61, label %SDL_ShouldQuitSubsystem.exit71 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit77
-    i8 1, label %SDL_ShouldQuitSubsystem.exit71.thread
+  switch i8 %61, label %SDL_ShouldQuitSubsystem.exit72 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit78
+    i8 1, label %SDL_ShouldQuitSubsystem.exit72.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit71:                   ; preds = %60
-  %.b6.i70 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i70, label %SDL_ShouldQuitSubsystem.exit71.thread, label %.sink.split.i74.thread
+SDL_ShouldQuitSubsystem.exit72:                   ; preds = %60
+  %.b.i71 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i71, label %SDL_ShouldQuitSubsystem.exit72.thread, label %.sink.split.i75.thread
 
-.sink.split.i74.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit71
+.sink.split.i75.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit72
   %62 = add i8 %61, -1
   br label %69
 
-SDL_ShouldQuitSubsystem.exit71.thread:            ; preds = %60, %SDL_ShouldQuitSubsystem.exit71
+SDL_ShouldQuitSubsystem.exit72.thread:            ; preds = %60, %SDL_ShouldQuitSubsystem.exit72
   tail call void @SDL_QuitRender() #11
   tail call void @SDL_VideoQuit() #11
   %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %63, label %SDL_ShouldQuitSubsystem.exit127 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit122
-    i8 1, label %SDL_QuitSubSystem_REAL.exit72
+  switch i8 %63, label %SDL_ShouldQuitSubsystem.exit128 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit123
+    i8 1, label %SDL_QuitSubSystem_REAL.exit73
   ]
 
-SDL_ShouldQuitSubsystem.exit127:                  ; preds = %SDL_ShouldQuitSubsystem.exit71.thread
-  %.b6.i126 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i126, label %SDL_QuitSubSystem_REAL.exit72, label %.sink.split.i119.thread
+SDL_ShouldQuitSubsystem.exit128:                  ; preds = %SDL_ShouldQuitSubsystem.exit72.thread
+  %.b.i127 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i127, label %SDL_QuitSubSystem_REAL.exit73, label %.sink.split.i120.thread
 
-.sink.split.i119.thread:                          ; preds = %SDL_ShouldQuitSubsystem.exit127
+.sink.split.i120.thread:                          ; preds = %SDL_ShouldQuitSubsystem.exit128
   %64 = add i8 %63, -1
   br label %66
 
-SDL_QuitSubSystem_REAL.exit72:                    ; preds = %SDL_ShouldQuitSubsystem.exit71.thread, %SDL_ShouldQuitSubsystem.exit127
+SDL_QuitSubSystem_REAL.exit73:                    ; preds = %SDL_ShouldQuitSubsystem.exit72.thread, %SDL_ShouldQuitSubsystem.exit128
   tail call void @SDL_QuitEvents() #11
-  %.pr198 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i118 = icmp eq i8 %.pr198, 0
-  br i1 %.not.i118, label %SDL_DecrementSubsystemRefCount.exit122, label %.sink.split.i119
+  %.pr199 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i119 = icmp eq i8 %.pr199, 0
+  br i1 %.not.i119, label %SDL_DecrementSubsystemRefCount.exit123, label %.sink.split.i120
 
-.sink.split.i119:                                 ; preds = %SDL_QuitSubSystem_REAL.exit72
-  %.b5.i120.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %65 = add i8 %.pr198, -1
-  %cond.fr252 = freeze i1 %.b5.i120.pre
-  %spec.select269 = select i1 %cond.fr252, i8 0, i8 %65
+.sink.split.i120:                                 ; preds = %SDL_QuitSubSystem_REAL.exit73
+  %.b.i121.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %65 = add i8 %.pr199, -1
+  %cond.fr253 = freeze i1 %.b.i121.pre
+  %spec.select270 = select i1 %cond.fr253, i8 0, i8 %65
   br label %66
 
-66:                                               ; preds = %.sink.split.i119, %.sink.split.i119.thread
-  %67 = phi i8 [ %64, %.sink.split.i119.thread ], [ %spec.select269, %.sink.split.i119 ]
+66:                                               ; preds = %.sink.split.i120, %.sink.split.i120.thread
+  %67 = phi i8 [ %64, %.sink.split.i120.thread ], [ %spec.select270, %.sink.split.i120 ]
   store i8 %67, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit122
+  br label %SDL_DecrementSubsystemRefCount.exit123
 
-SDL_DecrementSubsystemRefCount.exit122:           ; preds = %SDL_ShouldQuitSubsystem.exit71.thread, %66, %SDL_QuitSubSystem_REAL.exit72
-  %.pr202 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 5), align 1
-  %.not.i73 = icmp eq i8 %.pr202, 0
-  br i1 %.not.i73, label %SDL_DecrementSubsystemRefCount.exit77, label %.sink.split.i74
+SDL_DecrementSubsystemRefCount.exit123:           ; preds = %SDL_ShouldQuitSubsystem.exit72.thread, %66, %SDL_QuitSubSystem_REAL.exit73
+  %.pr203 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 5), align 1
+  %.not.i74 = icmp eq i8 %.pr203, 0
+  br i1 %.not.i74, label %SDL_DecrementSubsystemRefCount.exit78, label %.sink.split.i75
 
-.sink.split.i74:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit122
-  %.b5.i75.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %68 = add i8 %.pr202, -1
-  %cond.fr255 = freeze i1 %.b5.i75.pre
-  %spec.select270 = select i1 %cond.fr255, i8 0, i8 %68
+.sink.split.i75:                                  ; preds = %SDL_DecrementSubsystemRefCount.exit123
+  %.b.i76.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %68 = add i8 %.pr203, -1
+  %cond.fr256 = freeze i1 %.b.i76.pre
+  %spec.select271 = select i1 %cond.fr256, i8 0, i8 %68
   br label %69
 
-69:                                               ; preds = %.sink.split.i74, %.sink.split.i74.thread
-  %70 = phi i8 [ %62, %.sink.split.i74.thread ], [ %spec.select270, %.sink.split.i74 ]
+69:                                               ; preds = %.sink.split.i75, %.sink.split.i75.thread
+  %70 = phi i8 [ %62, %.sink.split.i75.thread ], [ %spec.select271, %.sink.split.i75 ]
   store i8 %70, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 5), align 1
-  br label %SDL_DecrementSubsystemRefCount.exit77
+  br label %SDL_DecrementSubsystemRefCount.exit78
 
-SDL_DecrementSubsystemRefCount.exit77:            ; preds = %60, %69, %SDL_DecrementSubsystemRefCount.exit122, %SDL_DecrementSubsystemRefCount.exit66
+SDL_DecrementSubsystemRefCount.exit78:            ; preds = %60, %69, %SDL_DecrementSubsystemRefCount.exit123, %SDL_DecrementSubsystemRefCount.exit67
   %71 = and i32 %0, 16384
   %.not14 = icmp eq i32 %71, 0
-  br i1 %.not14, label %SDL_DecrementSubsystemRefCount.exit87, label %72
+  br i1 %.not14, label %SDL_DecrementSubsystemRefCount.exit88, label %72
 
-72:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit77
+72:                                               ; preds = %SDL_DecrementSubsystemRefCount.exit78
   %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %73, label %SDL_ShouldQuitSubsystem.exit82 [
-    i8 0, label %SDL_DecrementSubsystemRefCount.exit87
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread
+  switch i8 %73, label %SDL_ShouldQuitSubsystem.exit83 [
+    i8 0, label %SDL_DecrementSubsystemRefCount.exit88
+    i8 1, label %SDL_ShouldQuitSubsystem.exit83.thread
   ]
 
-SDL_ShouldQuitSubsystem.exit82:                   ; preds = %72
-  %.b6.i81 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81, label %SDL_ShouldQuitSubsystem.exit82.thread, label %.sink.split.i84.thread
+SDL_ShouldQuitSubsystem.exit83:                   ; preds = %72
+  %.b.i82 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b.i82, label %SDL_ShouldQuitSubsystem.exit83.thread, label %.sink.split.i85.thread
 
-.sink.split.i84.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit82
+.sink.split.i85.thread:                           ; preds = %SDL_ShouldQuitSubsystem.exit83
   %74 = add i8 %73, -1
   br label %76
 
-SDL_ShouldQuitSubsystem.exit82.thread:            ; preds = %72, %SDL_ShouldQuitSubsystem.exit82
+SDL_ShouldQuitSubsystem.exit83.thread:            ; preds = %72, %SDL_ShouldQuitSubsystem.exit83
   tail call void @SDL_QuitEvents() #11
-  %.pr209 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83 = icmp eq i8 %.pr209, 0
-  br i1 %.not.i83, label %SDL_DecrementSubsystemRefCount.exit87, label %.sink.split.i84
+  %.pr210 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i84 = icmp eq i8 %.pr210, 0
+  br i1 %.not.i84, label %SDL_DecrementSubsystemRefCount.exit88, label %.sink.split.i85
 
-.sink.split.i84:                                  ; preds = %SDL_ShouldQuitSubsystem.exit82.thread
-  %.b5.i85.pre = load i1, ptr @SDL_bInMainQuit, align 1
-  %75 = add i8 %.pr209, -1
-  %cond.fr258 = freeze i1 %.b5.i85.pre
-  %spec.select271 = select i1 %cond.fr258, i8 0, i8 %75
+.sink.split.i85:                                  ; preds = %SDL_ShouldQuitSubsystem.exit83.thread
+  %.b.i86.pre = load i1, ptr @SDL_bInMainQuit, align 1
+  %75 = add i8 %.pr210, -1
+  %cond.fr259 = freeze i1 %.b.i86.pre
+  %spec.select272 = select i1 %cond.fr259, i8 0, i8 %75
   br label %76
 
-76:                                               ; preds = %.sink.split.i84, %.sink.split.i84.thread
-  %77 = phi i8 [ %74, %.sink.split.i84.thread ], [ %spec.select271, %.sink.split.i84 ]
+76:                                               ; preds = %.sink.split.i85, %.sink.split.i85.thread
+  %77 = phi i8 [ %74, %.sink.split.i85.thread ], [ %spec.select272, %.sink.split.i85 ]
   store i8 %77, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_DecrementSubsystemRefCount.exit87
+  br label %SDL_DecrementSubsystemRefCount.exit88
 
-SDL_DecrementSubsystemRefCount.exit87:            ; preds = %72, %76, %SDL_ShouldQuitSubsystem.exit82.thread, %SDL_DecrementSubsystemRefCount.exit77
+SDL_DecrementSubsystemRefCount.exit88:            ; preds = %72, %76, %SDL_ShouldQuitSubsystem.exit83.thread, %SDL_DecrementSubsystemRefCount.exit78
   ret void
 }
 
@@ -1588,8 +1588,8 @@ define hidden noundef zeroext i1 @SDL_IsTV_REAL() local_unnamed_addr #6 {
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @SDL_GetSandbox_REAL() local_unnamed_addr #2 {
-  %.b1 = load i1, ptr @SDL_GetSandbox_REAL.sandbox_initialized, align 1
-  br i1 %.b1, label %._crit_edge, label %1
+  %.b = load i1, ptr @SDL_GetSandbox_REAL.sandbox_initialized, align 1
+  br i1 %.b, label %._crit_edge, label %1
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i32, ptr @SDL_GetSandbox_REAL.sandbox, align 4

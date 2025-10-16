@@ -62539,8 +62539,8 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Le
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Simp_SimpCongrTheorems(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b25 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b25, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -62579,25 +62579,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !4
-  br label %lean_dec_ref.exit35
+  br label %lean_dec_ref.exit34
 
 19:                                               ; preds = %14
-  %.not.i34 = icmp eq i32 %15, 0
-  br i1 %.not.i34, label %lean_dec_ref.exit35, label %20
+  %.not.i33 = icmp eq i32 %15, 0
+  br i1 %.not.i33, label %lean_dec_ref.exit34, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #5
-  br label %lean_dec_ref.exit35
+  br label %lean_dec_ref.exit34
 
-lean_dec_ref.exit35:                              ; preds = %17, %19, %20
+lean_dec_ref.exit34:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Util_Recognizers(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val36 = load i32, ptr %22, align 4
-  %.mask.i42 = and i32 %.val36, -16777216
-  %23 = icmp eq i32 %.mask.i42, 16777216
+  %.val35 = load i32, ptr %22, align 4
+  %.mask.i41 = and i32 %.val35, -16777216
+  %23 = icmp eq i32 %.mask.i41, 16777216
   br i1 %23, label %655, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit35
+24:                                               ; preds = %lean_dec_ref.exit34
   %25 = load i32, ptr %21, align 4, !tbaa !4
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -62605,25 +62605,25 @@ lean_dec_ref.exit35:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !4
-  br label %lean_dec_ref.exit33
+  br label %lean_dec_ref.exit32
 
 29:                                               ; preds = %24
-  %.not.i32 = icmp eq i32 %25, 0
-  br i1 %.not.i32, label %lean_dec_ref.exit33, label %30
+  %.not.i31 = icmp eq i32 %25, 0
+  br i1 %.not.i31, label %lean_dec_ref.exit32, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #5
-  br label %lean_dec_ref.exit33
+  br label %lean_dec_ref.exit32
 
-lean_dec_ref.exit33:                              ; preds = %27, %29, %30
+lean_dec_ref.exit32:                              ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Util_CollectMVars(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val37 = load i32, ptr %32, align 4
-  %.mask.i43 = and i32 %.val37, -16777216
-  %33 = icmp eq i32 %.mask.i43, 16777216
+  %.val36 = load i32, ptr %32, align 4
+  %.mask.i42 = and i32 %.val36, -16777216
+  %33 = icmp eq i32 %.mask.i42, 16777216
   br i1 %33, label %655, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit33
+34:                                               ; preds = %lean_dec_ref.exit32
   %35 = load i32, ptr %31, align 4, !tbaa !4
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !11
@@ -62631,25 +62631,25 @@ lean_dec_ref.exit33:                              ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !4
-  br label %lean_dec_ref.exit31
+  br label %lean_dec_ref.exit30
 
 39:                                               ; preds = %34
-  %.not.i30 = icmp eq i32 %35, 0
-  br i1 %.not.i30, label %lean_dec_ref.exit31, label %40
+  %.not.i29 = icmp eq i32 %35, 0
+  br i1 %.not.i29, label %lean_dec_ref.exit30, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #5
-  br label %lean_dec_ref.exit31
+  br label %lean_dec_ref.exit30
 
-lean_dec_ref.exit31:                              ; preds = %37, %39, %40
+lean_dec_ref.exit30:                              ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Lean_Meta_Basic(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val38 = load i32, ptr %42, align 4
-  %.mask.i44 = and i32 %.val38, -16777216
-  %43 = icmp eq i32 %.mask.i44, 16777216
+  %.val37 = load i32, ptr %42, align 4
+  %.mask.i43 = and i32 %.val37, -16777216
+  %43 = icmp eq i32 %.mask.i43, 16777216
   br i1 %43, label %655, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit31
+44:                                               ; preds = %lean_dec_ref.exit30
   %45 = load i32, ptr %41, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !11
@@ -62657,17 +62657,17 @@ lean_dec_ref.exit31:                              ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !4
-  br label %lean_dec_ref.exit29
+  br label %lean_dec_ref.exit28
 
 49:                                               ; preds = %44
-  %.not.i28 = icmp eq i32 %45, 0
-  br i1 %.not.i28, label %lean_dec_ref.exit29, label %50
+  %.not.i27 = icmp eq i32 %45, 0
+  br i1 %.not.i27, label %lean_dec_ref.exit28, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #5
-  br label %lean_dec_ref.exit29
+  br label %lean_dec_ref.exit28
 
-lean_dec_ref.exit29:                              ; preds = %47, %49, %50
+lean_dec_ref.exit28:                              ; preds = %47, %49, %50
   %51 = tail call ptr @lean_alloc_object(i64 noundef 24) #5
   store i32 1, ptr %51, align 4, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -62685,11 +62685,11 @@ lean_dec_ref.exit29:                              ; preds = %47, %49, %50
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_init_l_Lean_Meta_instInhabitedSimpCongrTheorem___closed__2.exit
 
-60:                                               ; preds = %lean_dec_ref.exit29
+60:                                               ; preds = %lean_dec_ref.exit28
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_instInhabitedSimpCongrTheorem___closed__2.exit: ; preds = %lean_dec_ref.exit29
+_init_l_Lean_Meta_instInhabitedSimpCongrTheorem___closed__2.exit: ; preds = %lean_dec_ref.exit28
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 1, ptr %58, align 4, !tbaa !4
   store i32 262184, ptr %61, align 4
@@ -62994,8 +62994,8 @@ _init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpC
   tail call void @lean_mark_persistent(ptr noundef %164) #5
   %165 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__17, align 8, !tbaa !9
   %166 = getelementptr i8, ptr %165, i64 24
-  %.val.i45 = load i64, ptr %166, align 8, !tbaa !12
-  %167 = shl i64 %.val.i45, 1
+  %.val.i44 = load i64, ptr %166, align 8, !tbaa !12
+  %167 = shl i64 %.val.i44, 1
   %168 = or disjoint i64 %167, 1
   %169 = inttoptr i64 %168 to ptr
   store ptr %169, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__18, align 8, !tbaa !9
@@ -63003,10 +63003,10 @@ _init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpC
   %170 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__18, align 8, !tbaa !9
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, 1
-  %.not.i.i46 = icmp eq i64 %172, 0
+  %.not.i.i45 = icmp eq i64 %172, 0
   %173 = icmp ult ptr %170, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i47 = or i1 %173, %.not.i.i46
-  br i1 %or.cond.i.i47, label %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19.exit, label %174
+  %or.cond.i.i46 = or i1 %173, %.not.i.i45
+  br i1 %or.cond.i.i46, label %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19.exit, label %174
 
 174:                                              ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__15.exit
   %175 = lshr i64 %171, 1
@@ -63014,9 +63014,9 @@ _init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpC
   br label %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19.exit
 
 _init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19.exit: ; preds = %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__15.exit, %174
-  %.1.i.i48 = phi ptr [ %176, %174 ], [ %170, %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__15.exit ]
-  store ptr %.1.i.i48, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i48) #5
+  %.1.i.i47 = phi ptr [ %176, %174 ], [ %170, %_init_l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__15.exit ]
+  store ptr %.1.i.i47, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__19, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i47) #5
   %177 = load ptr, ptr @l___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorem____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_53____closed__17, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #5
   %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -63201,8 +63201,8 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   tail call void @lean_mark_persistent(ptr noundef %239) #5
   %240 = load ptr, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__3, align 8, !tbaa !9
   %241 = getelementptr i8, ptr %240, i64 24
-  %.val.i49 = load i64, ptr %241, align 8, !tbaa !12
-  %242 = shl i64 %.val.i49, 1
+  %.val.i48 = load i64, ptr %241, align 8, !tbaa !12
+  %242 = shl i64 %.val.i48, 1
   %243 = or disjoint i64 %242, 1
   %244 = inttoptr i64 %243 to ptr
   store ptr %244, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__4, align 8, !tbaa !9
@@ -63210,10 +63210,10 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   %245 = load ptr, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__4, align 8, !tbaa !9
   %246 = ptrtoint ptr %245 to i64
   %247 = and i64 %246, 1
-  %.not.i.i50 = icmp eq i64 %247, 0
+  %.not.i.i49 = icmp eq i64 %247, 0
   %248 = icmp ult ptr %245, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i51 = or i1 %248, %.not.i.i50
-  br i1 %or.cond.i.i51, label %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5.exit, label %249
+  %or.cond.i.i50 = or i1 %248, %.not.i.i49
+  br i1 %or.cond.i.i50, label %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5.exit, label %249
 
 249:                                              ; preds = %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__2.exit
   %250 = lshr i64 %246, 1
@@ -63221,9 +63221,9 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   br label %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5.exit
 
 _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5.exit: ; preds = %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__2.exit, %249
-  %.1.i.i52 = phi ptr [ %251, %249 ], [ %245, %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__2.exit ]
-  store ptr %.1.i.i52, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i52) #5
+  %.1.i.i51 = phi ptr [ %251, %249 ], [ %245, %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__2.exit ]
+  store ptr %.1.i.i51, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__5, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i51) #5
   %252 = load ptr, ptr @l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__3, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #5
   %253 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -63247,8 +63247,8 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   tail call void @lean_mark_persistent(ptr noundef %258) #5
   %259 = load ptr, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__1, align 8, !tbaa !9
   %260 = getelementptr i8, ptr %259, i64 24
-  %.val.i53 = load i64, ptr %260, align 8, !tbaa !12
-  %261 = shl i64 %.val.i53, 1
+  %.val.i52 = load i64, ptr %260, align 8, !tbaa !12
+  %261 = shl i64 %.val.i52, 1
   %262 = or disjoint i64 %261, 1
   %263 = inttoptr i64 %262 to ptr
   store ptr %263, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__2, align 8, !tbaa !9
@@ -63256,10 +63256,10 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   %264 = load ptr, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__2, align 8, !tbaa !9
   %265 = ptrtoint ptr %264 to i64
   %266 = and i64 %265, 1
-  %.not.i.i54 = icmp eq i64 %266, 0
+  %.not.i.i53 = icmp eq i64 %266, 0
   %267 = icmp ult ptr %264, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i55 = or i1 %267, %.not.i.i54
-  br i1 %or.cond.i.i55, label %_init_l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3.exit, label %268
+  %or.cond.i.i54 = or i1 %267, %.not.i.i53
+  br i1 %or.cond.i.i54, label %_init_l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3.exit, label %268
 
 268:                                              ; preds = %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__6.exit
   %269 = lshr i64 %265, 1
@@ -63267,9 +63267,9 @@ _init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean
   br label %_init_l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3.exit
 
 _init_l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3.exit: ; preds = %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__6.exit, %268
-  %.1.i.i56 = phi ptr [ %270, %268 ], [ %264, %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__6.exit ]
-  store ptr %.1.i.i56, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i56) #5
+  %.1.i.i55 = phi ptr [ %270, %268 ], [ %264, %_init_l_List_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__11___closed__6.exit ]
+  store ptr %.1.i.i55, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__3, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i55) #5
   %271 = load ptr, ptr @l_Prod_repr___at___private_Lean_Meta_Tactic_Simp_SimpCongrTheorems_0__Lean_Meta_reprSimpCongrTheorems____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_185____spec__10___closed__1, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #5
   %272 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
@@ -63507,22 +63507,22 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_36
   store ptr %347, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_362____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %347) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit27, label %355
+  br i1 %.not, label %lean_dec_ref.exit26, label %355
 
 355:                                              ; preds = %_init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_362____closed__7.exit
   %356 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_362____closed__7, align 8, !tbaa !9
   %357 = tail call ptr @l_Lean_registerSimpleScopedEnvExtension___rarg(ptr noundef %356, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %358 = getelementptr i8, ptr %357, i64 4
-  %.val39 = load i32, ptr %358, align 4
-  %.mask.i57 = and i32 %.val39, -16777216
-  %359 = icmp eq i32 %.mask.i57, 16777216
+  %.val38 = load i32, ptr %358, align 4
+  %.mask.i56 = and i32 %.val38, -16777216
+  %359 = icmp eq i32 %.mask.i56, 16777216
   br i1 %359, label %655, label %360
 
 360:                                              ; preds = %355
   %361 = getelementptr i8, ptr %357, i64 8
-  %.val41 = load ptr, ptr %361, align 8, !tbaa !9
-  store ptr %.val41, ptr @l_Lean_Meta_congrExtension, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val41) #5
+  %.val40 = load ptr, ptr %361, align 8, !tbaa !9
+  store ptr %.val40, ptr @l_Lean_Meta_congrExtension, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val40) #5
   %362 = load i32, ptr %357, align 8, !tbaa !4
   %363 = icmp sgt i32 %362, 1
   br i1 %363, label %364, label %366, !prof !11
@@ -63530,17 +63530,17 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_36
 364:                                              ; preds = %360
   %365 = add nsw i32 %362, -1
   store i32 %365, ptr %357, align 4, !tbaa !4
-  br label %lean_dec_ref.exit27
+  br label %lean_dec_ref.exit26
 
 366:                                              ; preds = %360
-  %.not.i26 = icmp eq i32 %362, 0
-  br i1 %.not.i26, label %lean_dec_ref.exit27, label %367
+  %.not.i25 = icmp eq i32 %362, 0
+  br i1 %.not.i25, label %lean_dec_ref.exit26, label %367
 
 367:                                              ; preds = %366
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %357) #5
-  br label %lean_dec_ref.exit27
+  br label %lean_dec_ref.exit26
 
-lean_dec_ref.exit27:                              ; preds = %367, %366, %364, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_362____closed__7.exit
+lean_dec_ref.exit26:                              ; preds = %367, %366, %364, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_362____closed__7.exit
   %368 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.20, i64 noundef 18, i64 noundef 18) #5
   store ptr %368, ptr @l_Lean_getConstVal___at_Lean_Meta_mkSimpCongrTheorem___spec__2___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %368) #5
@@ -63565,11 +63565,11 @@ lean_dec_ref.exit27:                              ; preds = %367, %366, %364, %_
   %378 = icmp eq ptr %377, null
   br i1 %378, label %379, label %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_mkSimpCongrTheorem___spec__5___closed__2.exit
 
-379:                                              ; preds = %lean_dec_ref.exit27
+379:                                              ; preds = %lean_dec_ref.exit26
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_mkSimpCongrTheorem___spec__5___closed__2.exit: ; preds = %lean_dec_ref.exit27
+_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_mkSimpCongrTheorem___spec__5___closed__2.exit: ; preds = %lean_dec_ref.exit26
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 4
   store i32 1, ptr %377, align 4, !tbaa !4
   store i32 131096, ptr %380, align 4
@@ -64203,9 +64203,9 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_18
   %643 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_Tactic_Simp_SimpCongrTheorems___hyg_1861____closed__24, align 8, !tbaa !9
   %644 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef %643, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %645 = getelementptr i8, ptr %644, i64 4
-  %.val40 = load i32, ptr %645, align 4
-  %.mask.i58 = and i32 %.val40, -16777216
-  %646 = icmp eq i32 %.mask.i58, 16777216
+  %.val39 = load i32, ptr %645, align 4
+  %.mask.i57 = and i32 %.val39, -16777216
+  %646 = icmp eq i32 %.mask.i57, 16777216
   br i1 %646, label %655, label %647
 
 647:                                              ; preds = %642
@@ -64230,8 +64230,8 @@ lean_dec_ref.exit:                                ; preds = %653, %652, %650, %_
   %654 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %655
 
-655:                                              ; preds = %642, %355, %lean_dec_ref.exit31, %lean_dec_ref.exit33, %lean_dec_ref.exit35, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %654, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit35 ], [ %31, %lean_dec_ref.exit33 ], [ %41, %lean_dec_ref.exit31 ], [ %357, %355 ], [ %644, %642 ]
+655:                                              ; preds = %642, %355, %lean_dec_ref.exit30, %lean_dec_ref.exit32, %lean_dec_ref.exit34, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %654, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit34 ], [ %31, %lean_dec_ref.exit32 ], [ %41, %lean_dec_ref.exit30 ], [ %357, %355 ], [ %644, %642 ]
   ret ptr %.0
 }
 

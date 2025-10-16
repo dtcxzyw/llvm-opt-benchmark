@@ -2368,7 +2368,7 @@ common.resume:                                    ; preds = %124, %52, %58, %62,
   %.sroa.8.i.sroa.4.0..sroa.8.1..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.8.i.sroa.4.0.copyload = load ptr, ptr %.sroa.8.i.sroa.4.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !656, !noalias !595
   %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sroa.8.i.sroa.5.0.copyload402 = load i8, ptr %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !656, !noalias !595
+  %.sroa.8.i.sroa.5.0.copyload = load i8, ptr %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !656, !noalias !595
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !595
   %.sroa.0104.sroa.0.1.vec.expand = shufflevector <6 x i8> %.sroa.8.i.sroa.0.0.copyload, <6 x i8> poison, <16 x i32> <i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.0104.sroa.0.1.vecblend = insertelement <16 x i8> %.sroa.0104.sroa.0.1.vec.expand, i8 %37, i64 0
@@ -2376,7 +2376,7 @@ common.resume:                                    ; preds = %124, %52, %58, %62,
   %87 = bitcast i64 %86 to <8 x i8>
   %.sroa.0104.sroa.0.7.vec.expand = shufflevector <8 x i8> %87, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
   %.sroa.0104.sroa.0.7.vecblend = shufflevector <16 x i8> %.sroa.0104.sroa.0.1.vecblend, <16 x i8> %.sroa.0104.sroa.0.7.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 poison>
-  %.sroa.0104.sroa.0.15.vec.insert = insertelement <16 x i8> %.sroa.0104.sroa.0.7.vecblend, i8 %.sroa.8.i.sroa.5.0.copyload402, i64 15
+  %.sroa.0104.sroa.0.15.vec.insert = insertelement <16 x i8> %.sroa.0104.sroa.0.7.vecblend, i8 %.sroa.8.i.sroa.5.0.copyload, i64 15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, i8 0, i64 5, i1 false), !noalias !660

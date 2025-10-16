@@ -23,8 +23,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_sdl_window_create(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.b34 = load i1, ptr @inited, align 1
-  br i1 %.b34, label %6, label %3
+  %.b = load i1, ptr @inited, align 1
+  br i1 %.b, label %6, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @SDL_Init(i32 noundef 32) #6
@@ -264,8 +264,8 @@ define internal void @release_disp_cb(ptr noundef %0) #0 {
   br i1 %3, label %4, label %lv_sdl_quit.exit
 
 4:                                                ; preds = %1
-  %.b1.i = load i1, ptr @inited, align 1
-  br i1 %.b1.i, label %5, label %lv_sdl_quit.exit
+  %.b.i = load i1, ptr @inited, align 1
+  br i1 %.b.i, label %5, label %lv_sdl_quit.exit
 
 5:                                                ; preds = %4
   tail call void @SDL_Quit() #6
@@ -498,8 +498,8 @@ define ptr @lv_sdl_window_get_renderer(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @lv_sdl_quit() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @inited, align 1
-  br i1 %.b1, label %1, label %3
+  %.b = load i1, ptr @inited, align 1
+  br i1 %.b, label %1, label %3
 
 1:                                                ; preds = %0
   tail call void @SDL_Quit() #6

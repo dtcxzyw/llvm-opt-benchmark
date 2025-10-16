@@ -251,8 +251,8 @@ _running_profile.exit.thread.i:                   ; preds = %9
   br label %13
 
 _running_profile.exit.i:                          ; preds = %9, %5
-  %.b1.i.pr.i = load i1, ptr @_running_profile.run, align 1
-  br i1 %.b1.i.pr.i, label %13, label %_send_profile.exit
+  %.b.i.pr.i = load i1, ptr @_running_profile.run, align 1
+  br i1 %.b.i.pr.i, label %13, label %_send_profile.exit
 
 13:                                               ; preds = %_running_profile.exit.i, %_running_profile.exit.thread.i
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -369,8 +369,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %2
-  %.b1 = load i1, ptr @acct_gather_energy_p_conf_set.flag_init, align 1
-  br i1 %.b1, label %12, label %5
+  %.b = load i1, ptr @acct_gather_energy_p_conf_set.flag_init, align 1
+  br i1 %.b, label %12, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @acct_gather_energy_p_conf_set.flag_init, align 1

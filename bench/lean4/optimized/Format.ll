@@ -15654,8 +15654,8 @@ define ptr @lean_ir_decl_to_string(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_IR_Format(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -17099,8 +17099,8 @@ _init_l_Lean_IR_formatFnBodyHead___closed__21.exit: ; preds = %_init_l_Lean_IR_f
   tail call void @lean_mark_persistent(ptr noundef nonnull %490) #4
   %495 = load ptr, ptr @l___private_Lean_Compiler_IR_Format_0__Lean_IR_formatCtorInfo___lambda__3___closed__2, align 8, !tbaa !9
   %496 = getelementptr i8, ptr %495, i64 24
-  %.val.i5 = load i64, ptr %496, align 8, !tbaa !14
-  %497 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %496, align 8, !tbaa !14
+  %497 = shl i64 %.val.i4, 1
   %498 = or disjoint i64 %497, 1
   %499 = inttoptr i64 %498 to ptr
   store ptr %499, ptr @l_Lean_IR_formatFnBodyHead___closed__22, align 8, !tbaa !9
@@ -17108,10 +17108,10 @@ _init_l_Lean_IR_formatFnBodyHead___closed__21.exit: ; preds = %_init_l_Lean_IR_f
   %500 = load ptr, ptr @l_Lean_IR_formatFnBodyHead___closed__22, align 8, !tbaa !9
   %501 = ptrtoint ptr %500 to i64
   %502 = and i64 %501, 1
-  %.not.i.i6 = icmp eq i64 %502, 0
+  %.not.i.i5 = icmp eq i64 %502, 0
   %503 = icmp ult ptr %500, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i7 = or i1 %503, %.not.i.i6
-  br i1 %or.cond.i.i7, label %_init_l_Lean_IR_formatFnBodyHead___closed__23.exit, label %504
+  %or.cond.i.i6 = or i1 %503, %.not.i.i5
+  br i1 %or.cond.i.i6, label %_init_l_Lean_IR_formatFnBodyHead___closed__23.exit, label %504
 
 504:                                              ; preds = %_init_l_Lean_IR_formatFnBodyHead___closed__21.exit
   %505 = lshr i64 %501, 1
@@ -17119,9 +17119,9 @@ _init_l_Lean_IR_formatFnBodyHead___closed__21.exit: ; preds = %_init_l_Lean_IR_f
   br label %_init_l_Lean_IR_formatFnBodyHead___closed__23.exit
 
 _init_l_Lean_IR_formatFnBodyHead___closed__23.exit: ; preds = %_init_l_Lean_IR_formatFnBodyHead___closed__21.exit, %504
-  %.1.i.i8 = phi ptr [ %506, %504 ], [ %500, %_init_l_Lean_IR_formatFnBodyHead___closed__21.exit ]
-  store ptr %.1.i.i8, ptr @l_Lean_IR_formatFnBodyHead___closed__23, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i8) #4
+  %.1.i.i7 = phi ptr [ %506, %504 ], [ %500, %_init_l_Lean_IR_formatFnBodyHead___closed__21.exit ]
+  store ptr %.1.i.i7, ptr @l_Lean_IR_formatFnBodyHead___closed__23, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i7) #4
   %507 = load ptr, ptr @l_Lean_IR_formatFnBodyHead___closed__21, align 8, !tbaa !9
   %508 = load ptr, ptr @l___private_Lean_Compiler_IR_Format_0__Lean_IR_formatCtorInfo___closed__4, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #4
@@ -17539,18 +17539,18 @@ _init_l_Lean_IR_instToStringDecl___closed__1.exit: ; preds = %_init_l_Lean_IR_fo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_IR_instToStringDecl___closed__1.exit, %3
-  %.sink99 = phi ptr [ %4, %3 ], [ %647, %_init_l_Lean_IR_instToStringDecl___closed__1.exit ]
-  %650 = getelementptr inbounds nuw i8, ptr %.sink99, i64 4
-  store i32 1, ptr %.sink99, align 4, !tbaa !4
+  %.sink98 = phi ptr [ %4, %3 ], [ %647, %_init_l_Lean_IR_instToStringDecl___closed__1.exit ]
+  %650 = getelementptr inbounds nuw i8, ptr %.sink98, i64 4
+  store i32 1, ptr %.sink98, align 4, !tbaa !4
   store i32 131096, ptr %650, align 4
-  %651 = getelementptr inbounds nuw i8, ptr %.sink99, i64 8
+  %651 = getelementptr inbounds nuw i8, ptr %.sink98, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %651, align 8, !tbaa !9
-  %652 = getelementptr inbounds nuw i8, ptr %.sink99, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %.sink98, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %652, align 8, !tbaa !9
   br label %653
 
 653:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink99, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink98, %.sink.split ]
   ret ptr %.0
 }
 

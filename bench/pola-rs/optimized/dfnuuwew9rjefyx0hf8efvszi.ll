@@ -8973,7 +8973,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store ptr %39, ptr %8, align 8, !alias.scope !1530, !noalias !1551
-  %.val.i5.i.i.i.i.i.i.i.i = load i32, ptr %33, align 4, !noalias !1566, !noundef !3
+  %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %33, align 4, !noalias !1566, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1567)
   %40 = icmp eq i64 %32, 0
   br i1 %40, label %41, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i"
@@ -9008,7 +9008,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   store i64 %55, ptr %13, align 8, !alias.scope !1570, !noalias !1551
   %56 = trunc i64 %53 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1561
-  store i32 %.val.i5.i.i.i.i.i.i.i.i, ptr %4, align 4, !noalias !1572
+  store i32 %.val.i.i.i.i.i.i.i.i.i, ptr %4, align 4, !noalias !1572
   %57 = and i8 %56, 1
   store i8 %57, ptr %16, align 4, !noalias !1572
   %58 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4378ad54e5efed2aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1575
@@ -9023,7 +9023,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 60:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1560
-  %61 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.val.i5.i.i.i.i.i.i.i.i, 1
+  %61 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.val.i.i.i.i.i.i.i.i.i, 1
   %62 = load i64, ptr %10, align 8, !alias.scope !1576, !noundef !3
   %63 = add i64 %62, -1
   store i64 %63, ptr %10, align 8, !alias.scope !1576
@@ -10999,8 +10999,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 4
-  %.val.i5.i = load i32, ptr %.sroa.070.0, align 4, !noalias !1819, !noundef !3
-  %14 = icmp eq i32 %.val.i5.i, %.sroa.0.0.ph
+  %.val.i.i = load i32, ptr %.sroa.070.0, align 4, !noalias !1819, !noundef !3
+  %14 = icmp eq i32 %.val.i.i, %.sroa.0.0.ph
   br i1 %14, label %24, label %22
 
 15:                                               ; preds = %10
@@ -11047,7 +11047,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 .loopexit:                                        ; preds = %24, %22, %33
   %28 = phi ptr [ %scevgep112, %33 ], [ %13, %22 ], [ %13, %24 ]
-  %.val.i5.i104 = phi i32 [ %.sroa.0.0.ph, %33 ], [ %.val.i5.i, %22 ], [ %.sroa.0.0.ph, %24 ]
+  %.val.i.i104 = phi i32 [ %.sroa.0.0.ph, %33 ], [ %.val.i.i, %22 ], [ %.sroa.0.0.ph, %24 ]
   %.sroa.032.2 = phi i64 [ %37, %33 ], [ %.sroa.018.0.ph, %22 ], [ %.sroa.032.0.ph, %24 ]
   %.sroa.043.1 = phi i64 [ %36, %33 ], [ 1, %22 ], [ %25, %24 ]
   %29 = icmp eq i64 %.sroa.018.0.ph, 8192
@@ -11083,18 +11083,18 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 .thread:                                          ; preds = %.loopexit, %38, %31
   %39 = phi ptr [ %13, %31 ], [ %28, %38 ], [ %28, %.loopexit ]
-  %.val.i5.i103 = phi i32 [ %.val.i5.i, %31 ], [ %.val.i5.i104, %38 ], [ %.val.i5.i104, %.loopexit ]
+  %.val.i.i103 = phi i32 [ %.val.i.i, %31 ], [ %.val.i.i104, %38 ], [ %.val.i.i104, %.loopexit ]
   %.sroa.043.283 = phi i64 [ 1, %31 ], [ 1, %38 ], [ %.sroa.043.1, %.loopexit ]
   %.sroa.032.482 = phi i64 [ 0, %31 ], [ 0, %38 ], [ %.sroa.032.2, %.loopexit ]
   %.sroa.018.181 = phi i64 [ 0, %31 ], [ 0, %38 ], [ %.sroa.018.0.ph, %.loopexit ]
   %40 = getelementptr inbounds nuw i32, ptr %6, i64 %.sroa.018.181
-  store i32 %.val.i5.i103, ptr %40, align 4
+  store i32 %.val.i.i103, ptr %40, align 4
   %41 = add nuw nsw i64 %.sroa.018.181, 1
   br label %.outer
 
 .outer:                                           ; preds = %.preheader, %.thread
   %.sroa.070.0.ph = phi ptr [ %1, %.preheader ], [ %39, %.thread ]
-  %.sroa.0.0.ph = phi i32 [ 0, %.preheader ], [ %.val.i5.i103, %.thread ]
+  %.sroa.0.0.ph = phi i32 [ 0, %.preheader ], [ %.val.i.i103, %.thread ]
   %.sroa.018.0.ph = phi i64 [ 0, %.preheader ], [ %41, %.thread ]
   %.sroa.032.0.ph = phi i64 [ 0, %.preheader ], [ %.sroa.032.482, %.thread ]
   %.sroa.043.0.ph = phi i64 [ 0, %.preheader ], [ %.sroa.043.283, %.thread ]

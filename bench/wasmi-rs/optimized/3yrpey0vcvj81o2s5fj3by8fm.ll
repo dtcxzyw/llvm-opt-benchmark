@@ -511,8 +511,8 @@ _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.thread.i: ; preds
 
 _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.i: ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.sroa.013.0.copyload.i.i6.i = load i16, ptr %21, align 1, !alias.scope !110, !noalias !113
-  %22 = zext i16 %.sroa.013.0.copyload.i.i6.i to i64
+  %.sroa.013.0.copyload.i.i.i = load i16, ptr %21, align 1, !alias.scope !110, !noalias !113
+  %22 = zext i16 %.sroa.013.0.copyload.i.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8, !alias.scope !101, !noalias !104
   br label %_ZN10wasmi_core6memory6access14load_extend_at17h04d5ae412faa9e45E.exit
@@ -561,8 +561,8 @@ _ZN10wasmi_core6memory6access7load_at17h5e87bfbcda6460aaE.exit.thread.i: ; preds
 
 _ZN10wasmi_core6memory6access7load_at17h5e87bfbcda6460aaE.exit.i: ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.sroa.013.0.copyload.i.i7.i = load i32, ptr %21, align 1, !alias.scope !124, !noalias !127
-  %22 = sext i32 %.sroa.013.0.copyload.i.i7.i to i64
+  %.sroa.013.0.copyload.i.i.i = load i32, ptr %21, align 1, !alias.scope !124, !noalias !127
+  %22 = sext i32 %.sroa.013.0.copyload.i.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8, !alias.scope !115, !noalias !118
   br label %_ZN10wasmi_core6memory6access14load_extend_at17hf955eddc6623d4bcE.exit
@@ -611,8 +611,8 @@ _ZN10wasmi_core6memory6access7load_at17h0ba7e65bb4283d3eE.exit.thread.i: ; preds
 
 _ZN10wasmi_core6memory6access7load_at17h0ba7e65bb4283d3eE.exit.i: ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.sroa.013.0.copyload.i.i7.i = load i32, ptr %21, align 1, !alias.scope !138, !noalias !141
-  %22 = zext i32 %.sroa.013.0.copyload.i.i7.i to i64
+  %.sroa.013.0.copyload.i.i.i = load i32, ptr %21, align 1, !alias.scope !138, !noalias !141
+  %22 = zext i32 %.sroa.013.0.copyload.i.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8, !alias.scope !129, !noalias !132
   br label %_ZN10wasmi_core6memory6access14load_extend_at17h29802e3dc79fb724E.exit
@@ -822,8 +822,8 @@ _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.thread.i: ; preds
 
 _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.i: ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.sroa.013.0.copyload.i.i6.i = load i16, ptr %21, align 1, !alias.scope !188, !noalias !191
-  %22 = sext i16 %.sroa.013.0.copyload.i.i6.i to i64
+  %.sroa.013.0.copyload.i.i.i = load i16, ptr %21, align 1, !alias.scope !188, !noalias !191
+  %22 = sext i16 %.sroa.013.0.copyload.i.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8, !alias.scope !179, !noalias !182
   br label %_ZN10wasmi_core6memory6access14load_extend_at17hb24a5929bb261013E.exit
@@ -898,8 +898,8 @@ _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.thread: ; preds =
 
 _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %.sroa.013.0.copyload.i.i6 = load i16, ptr %10, align 1, !alias.scope !210, !noalias !213
-  %11 = zext i16 %.sroa.013.0.copyload.i.i6 to i64
+  %.sroa.013.0.copyload.i.i = load i16, ptr %10, align 1, !alias.scope !210, !noalias !213
+  %11 = zext i16 %.sroa.013.0.copyload.i.i to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
   br label %13
@@ -950,8 +950,8 @@ _ZN10wasmi_core6memory6access7load_at17h0ba7e65bb4283d3eE.exit.thread: ; preds =
 
 _ZN10wasmi_core6memory6access7load_at17h0ba7e65bb4283d3eE.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %.sroa.013.0.copyload.i.i7 = load i32, ptr %10, align 1, !alias.scope !226, !noalias !229
-  %11 = zext i32 %.sroa.013.0.copyload.i.i7 to i64
+  %.sroa.013.0.copyload.i.i = load i32, ptr %10, align 1, !alias.scope !226, !noalias !229
+  %11 = zext i32 %.sroa.013.0.copyload.i.i to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
   br label %13
@@ -1069,8 +1069,8 @@ _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.thread: ; preds =
 
 _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %.sroa.013.0.copyload.i.i6 = load i16, ptr %10, align 1, !alias.scope !266, !noalias !269
-  %11 = sext i16 %.sroa.013.0.copyload.i.i6 to i64
+  %.sroa.013.0.copyload.i.i = load i16, ptr %10, align 1, !alias.scope !266, !noalias !269
+  %11 = sext i16 %.sroa.013.0.copyload.i.i to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
   br label %13
@@ -1121,8 +1121,8 @@ _ZN10wasmi_core6memory6access7load_at17h5e87bfbcda6460aaE.exit.thread: ; preds =
 
 _ZN10wasmi_core6memory6access7load_at17h5e87bfbcda6460aaE.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %.sroa.013.0.copyload.i.i7 = load i32, ptr %10, align 1, !alias.scope !282, !noalias !285
-  %11 = sext i32 %.sroa.013.0.copyload.i.i7 to i64
+  %.sroa.013.0.copyload.i.i = load i32, ptr %10, align 1, !alias.scope !282, !noalias !285
+  %11 = sext i32 %.sroa.013.0.copyload.i.i to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
   br label %13

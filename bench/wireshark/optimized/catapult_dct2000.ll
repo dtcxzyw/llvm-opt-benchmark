@@ -99,12 +99,12 @@ define hidden range(i32 -1, 2) i32 @catapult_dct2000_open(ptr noundef %0, ptr no
 thread-pre-split.i:                               ; preds = %21
   store i8 0, ptr %24, align 1
   %27 = add nsw i32 %19, -1
-  %.not72 = icmp eq i32 %27, 0
-  br i1 %.not72, label %.thread, label %thread-pre-split.thread.i
+  %.not71 = icmp eq i32 %27, 0
+  br i1 %.not71, label %.thread, label %thread-pre-split.thread.i
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %21
-  %.063 = phi i32 [ %27, %thread-pre-split.i ], [ %19, %21 ]
-  %28 = zext nneg i32 %.063 to i64
+  %.062 = phi i32 [ %27, %thread-pre-split.i ], [ %19, %21 ]
+  %28 = zext nneg i32 %.062 to i64
   %29 = getelementptr i8, ptr @catapult_dct2000_open.linebuff, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -1
   %31 = load i8, ptr %30, align 1
@@ -113,7 +113,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 33:                                               ; preds = %thread-pre-split.thread.i
   store i8 0, ptr %30, align 1
-  %34 = add nsw i32 %.063, -1
+  %34 = add nsw i32 %.062, -1
   br label %38
 
 35:                                               ; preds = %3
@@ -126,7 +126,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %.thread
 
 38:                                               ; preds = %16, %thread-pre-split.thread.i, %33
-  %.1.ph = phi i32 [ %19, %16 ], [ %.063, %thread-pre-split.thread.i ], [ %34, %33 ]
+  %.1.ph = phi i32 [ %19, %16 ], [ %.062, %thread-pre-split.thread.i ], [ %34, %33 ]
   %39 = icmp ult i32 %.1.ph, 18
   %40 = icmp sgt i32 %.1.ph, 149
   %or.cond = or i1 %39, %40
@@ -138,8 +138,8 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br i1 %.not48, label %42, label %.thread
 
 42:                                               ; preds = %41
-  %.b49 = load i1, ptr @catapult_dct2000_open.hex_byte_table_values_set, align 1
-  br i1 %.b49, label %56, label %.preheader.i
+  %.b = load i1, ptr @catapult_dct2000_open.hex_byte_table_values_set, align 1
+  br i1 %.b, label %56, label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %55
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %55 ], [ 0, %42 ]
@@ -184,8 +184,8 @@ prepare_hex_byte_from_chars_table.exit:           ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 220
   %65 = tail call i64 @file_tell(ptr noundef %63)
   %66 = tail call ptr @file_gets(ptr noundef nonnull @catapult_dct2000_open.linebuff, i32 noundef 131071, ptr noundef %63)
-  %.not73 = icmp eq ptr %66, null
-  br i1 %.not73, label %87, label %67
+  %.not72 = icmp eq ptr %66, null
+  br i1 %.not72, label %87, label %67
 
 67:                                               ; preds = %56
   %68 = tail call i64 @file_tell(ptr noundef %63)
@@ -193,7 +193,7 @@ prepare_hex_byte_from_chars_table.exit:           ; preds = %55
   %70 = trunc i64 %69 to i32
   store i32 %70, ptr %64, align 4
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %72, label %.thread69
+  br i1 %71, label %72, label %.thread68
 
 72:                                               ; preds = %67
   %73 = add i64 %69, 4294967295
@@ -201,17 +201,17 @@ prepare_hex_byte_from_chars_table.exit:           ; preds = %55
   %75 = getelementptr i8, ptr @catapult_dct2000_open.linebuff, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 10
-  br i1 %77, label %thread-pre-split.i56, label %thread-pre-split.thread.i55
+  br i1 %77, label %thread-pre-split.i55, label %thread-pre-split.thread.i54
 
-thread-pre-split.i56:                             ; preds = %72
+thread-pre-split.i55:                             ; preds = %72
   store i8 0, ptr %75, align 1
   %78 = add nsw i32 %70, -1
   store i32 %78, ptr %64, align 4
-  %.not74 = icmp eq i32 %78, 0
-  br i1 %.not74, label %.thread69, label %thread-pre-split.thread.i55
+  %.not73 = icmp eq i32 %78, 0
+  br i1 %.not73, label %.thread68, label %thread-pre-split.thread.i54
 
-thread-pre-split.thread.i55:                      ; preds = %thread-pre-split.i56, %72
-  %79 = phi i32 [ %78, %thread-pre-split.i56 ], [ %70, %72 ]
+thread-pre-split.thread.i54:                      ; preds = %thread-pre-split.i55, %72
+  %79 = phi i32 [ %78, %thread-pre-split.i55 ], [ %70, %72 ]
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr i8, ptr @catapult_dct2000_open.linebuff, i64 %80
   %82 = getelementptr i8, ptr %81, i64 -1
@@ -219,7 +219,7 @@ thread-pre-split.thread.i55:                      ; preds = %thread-pre-split.i5
   %84 = icmp eq i8 %83, 13
   br i1 %84, label %85, label %thread-pre-split
 
-85:                                               ; preds = %thread-pre-split.thread.i55
+85:                                               ; preds = %thread-pre-split.thread.i54
   store i8 0, ptr %82, align 1
   %86 = add nsw i32 %79, -1
   store i32 %86, ptr %64, align 4
@@ -230,18 +230,18 @@ thread-pre-split.thread.i55:                      ; preds = %thread-pre-split.i5
   store i32 %88, ptr %1, align 4
   tail call void @g_free(ptr noundef %57)
   %89 = load i32, ptr %1, align 4
-  %switch.selectcmp.case152 = icmp ne i32 %89, 0
-  %switch.selectcmp.case253 = icmp ne i32 %89, -12
-  %switch.selectcmp54.not = and i1 %switch.selectcmp.case152, %switch.selectcmp.case253
-  %90 = sext i1 %switch.selectcmp54.not to i32
+  %switch.selectcmp.case151 = icmp ne i32 %89, 0
+  %switch.selectcmp.case252 = icmp ne i32 %89, -12
+  %switch.selectcmp53.not = and i1 %switch.selectcmp.case151, %switch.selectcmp.case252
+  %90 = sext i1 %switch.selectcmp53.not to i32
   br label %.thread
 
-thread-pre-split:                                 ; preds = %thread-pre-split.thread.i55, %85
-  %91 = phi i32 [ %86, %85 ], [ %79, %thread-pre-split.thread.i55 ]
+thread-pre-split:                                 ; preds = %thread-pre-split.thread.i54, %85
+  %91 = phi i32 [ %86, %85 ], [ %79, %thread-pre-split.thread.i54 ]
   %92 = icmp samesign ugt i32 %91, 49
-  br i1 %92, label %121, label %.thread69
+  br i1 %92, label %121, label %.thread68
 
-.thread69:                                        ; preds = %thread-pre-split.i56, %67, %thread-pre-split
+.thread68:                                        ; preds = %thread-pre-split.i55, %67, %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -253,7 +253,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   %94 = icmp ugt i64 %93, 50
   br i1 %94, label %get_file_time_stamp.exit.thread, label %95
 
-95:                                               ; preds = %.thread69
+95:                                               ; preds = %.thread68
   %96 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @catapult_dct2000_open.linebuff, ptr noundef nonnull @.str.28, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #20
   %.not.i = icmp eq i32 %96, 7
   br i1 %.not.i, label %97, label %get_file_time_stamp.exit.thread
@@ -318,7 +318,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   %120 = icmp eq i32 %bcmp17.i, 0
   br i1 %120, label %122, label %get_file_time_stamp.exit.thread
 
-get_file_time_stamp.exit.thread:                  ; preds = %.thread69, %95, %119
+get_file_time_stamp.exit.thread:                  ; preds = %.thread68, %95, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

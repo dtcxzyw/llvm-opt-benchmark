@@ -331,8 +331,8 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Config_Kinds(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -512,18 +512,18 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink12 = phi ptr [ %4, %3 ], [ %66, %lean_dec_ref.exit ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !10
+  %.sink11 = phi ptr [ %4, %3 ], [ %66, %lean_dec_ref.exit ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !10
   store i32 131096, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %70, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %71, align 8, !tbaa !4
   br label %72
 
 72:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink11, %.sink.split ]
   ret ptr %.0
 }
 

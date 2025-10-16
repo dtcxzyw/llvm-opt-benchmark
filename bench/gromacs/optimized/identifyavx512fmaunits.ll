@@ -31,8 +31,8 @@ $_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.gmx::CpuInfo", align 8
-  %.b45 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
-  br i1 %.b45, label %54, label %2
+  %.b4 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
+  br i1 %.b4, label %54, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #9
@@ -44,8 +44,8 @@ define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_un
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
-  %.b6 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
-  br i1 %.b6, label %52, label %5
+  %.b = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
+  br i1 %.b, label %52, label %5
 
 5:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -87,8 +87,8 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %14, %_ZNKSt8_Rb_tre
   %.sroa.0.0.i.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i ], [ false, %6 ], [ %16, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !18
-  %.not.i.i.i.i10 = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i, label %19
+  %.not.i.i.i.i8 = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i, label %19
 
 19:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 120

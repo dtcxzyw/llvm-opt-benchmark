@@ -2250,8 +2250,8 @@ define dso_local noundef zeroext i1 @_ZN7testing8internal16InDeathTestChildEv() 
   %2 = icmp eq i32 %1, 0
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7testing35FLAGS_gtest_internal_run_death_testB5cxx11E, i64 8), align 8
   %4 = icmp ne i64 %3, 0
-  %.b1 = load i1, ptr @_ZN7testing8internalL26g_in_fast_death_test_childE, align 1
-  %.0 = select i1 %2, i1 %4, i1 %.b1
+  %.b = load i1, ptr @_ZN7testing8internalL26g_in_fast_death_test_childE, align 1
+  %.0 = select i1 %2, i1 %4, i1 %.b
   ret i1 %.0
 }
 

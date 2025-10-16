@@ -159,8 +159,8 @@ define void @_ZN3tbb6detail2r112PrintVersionEv() local_unnamed_addr #4 {
 define void @_ZN3tbb6detail2r121PrintExtraVersionInfoEPKcS3_z(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %.b2 = load i1, ptr @_ZN3tbb6detail2r1L16PrintVersionFlagE, align 1
-  br i1 %.b2, label %5, label %12
+  %.b = load i1, ptr @_ZN3tbb6detail2r1L16PrintVersionFlagE, align 1
+  br i1 %.b, label %5, label %12
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

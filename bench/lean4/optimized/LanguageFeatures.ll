@@ -107076,8 +107076,8 @@ lean_alloc_ctor.exit78:                           ; preds = %lean_alloc_ctor.exi
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Data_Lsp_LanguageFeatures(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #9
@@ -107106,25 +107106,25 @@ define ptr @initialize_Lean_Data_Lsp_LanguageFeatures(i8 noundef zeroext %0, ptr
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #9
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Data_Lsp_Basic(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %4236, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -118063,18 +118063,18 @@ _init_l_Lean_Lsp_instToJsonInlayHintOptions___closed__1.exit: ; preds = %_init_l
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Lsp_instToJsonInlayHintOptions___closed__1.exit, %3
-  %.sink423 = phi ptr [ %4, %3 ], [ %4230, %_init_l_Lean_Lsp_instToJsonInlayHintOptions___closed__1.exit ]
-  %4233 = getelementptr inbounds nuw i8, ptr %.sink423, i64 4
-  store i32 1, ptr %.sink423, align 4, !tbaa !8
+  %.sink422 = phi ptr [ %4, %3 ], [ %4230, %_init_l_Lean_Lsp_instToJsonInlayHintOptions___closed__1.exit ]
+  %4233 = getelementptr inbounds nuw i8, ptr %.sink422, i64 4
+  store i32 1, ptr %.sink422, align 4, !tbaa !8
   store i32 131096, ptr %4233, align 4
-  %4234 = getelementptr inbounds nuw i8, ptr %.sink423, i64 8
+  %4234 = getelementptr inbounds nuw i8, ptr %.sink422, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %4234, align 8, !tbaa !4
-  %4235 = getelementptr inbounds nuw i8, ptr %.sink423, i64 16
+  %4235 = getelementptr inbounds nuw i8, ptr %.sink422, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %4235, align 8, !tbaa !4
   br label %4236
 
-4236:                                             ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink423, %.sink.split ]
+4236:                                             ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink422, %.sink.split ]
   ret ptr %.0
 }
 

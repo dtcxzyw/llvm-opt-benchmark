@@ -13657,8 +13657,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_IR_FreeVars(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -13813,18 +13813,18 @@ _init_l_Lean_IR_FreeIndices_collectFnBody___closed__1.exit: ; preds = %_init_l__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_IR_FreeIndices_collectFnBody___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %53, %_init_l_Lean_IR_FreeIndices_collectFnBody___closed__1.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink16 = phi ptr [ %4, %3 ], [ %53, %_init_l_Lean_IR_FreeIndices_collectFnBody___closed__1.exit ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !4
   store i32 131096, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %57, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %58, align 8, !tbaa !13
   br label %59
 
 59:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

@@ -116,36 +116,36 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %1
-  %.b16 = load i1, ptr @reuse, align 1
-  br i1 %.b16, label %.preheader, label %._crit_edge
+  %.b = load i1, ptr @reuse, align 1
+  br i1 %.b, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8, !tbaa !34
   br label %15
 
 .preheader:                                       ; preds = %7, %13
-  %.01421 = phi i32 [ %14, %13 ], [ 1, %7 ]
+  %.01420 = phi i32 [ %14, %13 ], [ 1, %7 ]
   %8 = load ptr, ptr @prte_plm_globals, align 8, !tbaa !8
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 254, ptr noundef nonnull @.str.4, ptr noundef %8, i32 noundef %.01421) #9
+  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 254, ptr noundef nonnull @.str.4, ptr noundef %8, i32 noundef %.01420) #9
   %10 = call ptr @prte_get_job_data_object(ptr noundef nonnull %2) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %.preheader
-  store i32 %.01421, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8, !tbaa !34
+  store i32 %.01420, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_globals, i64 8), align 8, !tbaa !34
   br label %15
 
 13:                                               ; preds = %.preheader
-  %14 = add nuw i32 %.01421, 1
-  %.not17.not = icmp eq i32 %14, -1
-  br i1 %.not17.not, label %.critedge, label %.preheader, !llvm.loop !35
+  %14 = add nuw i32 %.01420, 1
+  %.not16.not = icmp eq i32 %14, -1
+  br i1 %.not16.not, label %.critedge, label %.preheader, !llvm.loop !35
 
 .critedge:                                        ; preds = %13
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5) #9
   br label %30
 
 15:                                               ; preds = %._crit_edge, %12
-  %16 = phi i32 [ %.pre, %._crit_edge ], [ %.01421, %12 ]
+  %16 = phi i32 [ %.pre, %._crit_edge ], [ %.01420, %12 ]
   %17 = load ptr, ptr @prte_plm_globals, align 8, !tbaa !8
   %18 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %17, i32 noundef %16) #9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168

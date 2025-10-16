@@ -614,8 +614,8 @@ define zeroext i1 @color_filters_used() local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @tmp_color_filters_used() local_unnamed_addr #6 {
-  %.b1 = load i1, ptr @tmp_colors_set, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @tmp_colors_set, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

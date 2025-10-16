@@ -59,8 +59,8 @@ define dso_local noundef zeroext i1 @is_ping_done() local_unnamed_addr #0 {
   br i1 %.not7, label %.sink.split, label %6
 
 6:                                                ; preds = %4
-  %.b8 = load i1, ptr @is_ping_done.ping_msg_sent, align 1
-  br i1 %.b8, label %14, label %7
+  %.b = load i1, ptr @is_ping_done.ping_msg_sent, align 1
+  br i1 %.b, label %14, label %7
 
 7:                                                ; preds = %6
   %8 = tail call i64 @time(ptr noundef null) #7
@@ -80,8 +80,8 @@ define dso_local noundef zeroext i1 @is_ping_done() local_unnamed_addr #0 {
 
 14:                                               ; preds = %.sink.split, %7, %6
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock_mutex) #7
-  %.not9 = icmp eq i32 %15, 0
-  br i1 %.not9, label %18, label %16
+  %.not8 = icmp eq i32 %15, 0
+  br i1 %.not8, label %18, label %16
 
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #8

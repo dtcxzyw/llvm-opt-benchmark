@@ -9236,8 +9236,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %5
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %22, %30
-  %or.cond9.i = select i1 %or.cond.i, i1 %31, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+  %or.cond8.i = select i1 %or.cond.i, i1 %31, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 52
@@ -9268,8 +9268,8 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui6Widg
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
-  %.not117 = icmp eq ptr %49, %50
-  br i1 %.not117, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph.preheader
+  %.not116 = icmp eq ptr %49, %50
+  br i1 %.not116, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %51 = ptrtoint ptr %49 to i64
@@ -9279,8 +9279,8 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui6Widg
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread
-  %.028113 = phi i64 [ %90, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread ], [ 0, %.lr.ph.preheader ]
-  %55 = getelementptr inbounds ptr, ptr %50, i64 %.028113
+  %.028112 = phi i64 [ %90, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread ], [ 0, %.lr.ph.preheader ]
+  %55 = getelementptr inbounds ptr, ptr %50, i64 %.028112
   %56 = load ptr, ptr %55, align 8, !nonnull !10, !noundef !10
   %57 = tail call ptr @__dynamic_cast(ptr nonnull %56, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -9301,8 +9301,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i39.critedge: ; preds = %.lr.ph
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %63, %70
-  %or.cond9.i43 = select i1 %or.cond.i42, i1 %71, i1 false
-  br i1 %or.cond9.i43, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread
+  %or.cond8.i43 = select i1 %or.cond.i42, i1 %71, i1 false
+  br i1 %or.cond8.i43, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i39.critedge
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 52
@@ -9332,11 +9332,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit46.critedge: ; preds = %75
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 3, ptr %88, align 16
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i64 %.028113, ptr %89, align 8
+  store i64 %.028112, ptr %89, align 8
   br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44.thread: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i39.critedge, %.lr.ph, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit44, %75
-  %90 = add nuw i64 %.028113, 1
+  %90 = add nuw i64 %.028112, 1
   %exitcond.not = icmp eq i64 %90, %54
   br i1 %exitcond.not, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph, !llvm.loop !119
 
@@ -9355,19 +9355,19 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZNK7na
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 72
   %99 = load ptr, ptr %98, align 8
-  %.not110114 = icmp eq ptr %97, %99
-  br i1 %.not110114, label %._crit_edge, label %.lr.ph116
+  %.not110113 = icmp eq ptr %97, %99
+  br i1 %.not110113, label %._crit_edge, label %.lr.ph115
 
-.lr.ph116:                                        ; preds = %93, %.lr.ph116
-  %.sroa.063.0115 = phi ptr [ %102, %.lr.ph116 ], [ %97, %93 ]
-  %100 = load ptr, ptr %.sroa.063.0115, align 8, !nonnull !10, !noundef !10
+.lr.ph115:                                        ; preds = %93, %.lr.ph115
+  %.sroa.063.0114 = phi ptr [ %102, %.lr.ph115 ], [ %97, %93 ]
+  %100 = load ptr, ptr %.sroa.063.0114, align 8, !nonnull !10, !noundef !10
   %101 = tail call ptr @__dynamic_cast(ptr nonnull %100, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
   tail call void @_ZN3tev11ImageButton11hideTextBoxEv(ptr noundef nonnull align 16 dereferenceable(376) %101)
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.063.0115, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.063.0114, i64 8
   %.not110 = icmp eq ptr %102, %99
-  br i1 %.not110, label %._crit_edge, label %.lr.ph116
+  br i1 %.not110, label %._crit_edge, label %.lr.ph115
 
-._crit_edge:                                      ; preds = %.lr.ph116, %93
+._crit_edge:                                      ; preds = %.lr.ph115, %93
   %103 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 136
   %105 = load ptr, ptr %104, align 8
@@ -9418,8 +9418,8 @@ _ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread: 
   %135 = getelementptr inbounds nuw i8, ptr %123, i64 48
   %136 = load i32, ptr %135, align 4
   %137 = icmp slt i32 %127, %136
-  %or.cond9.i55 = select i1 %or.cond.i54, i1 %137, i1 false
-  br i1 %or.cond9.i55, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit56, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit56.thread
+  %or.cond8.i55 = select i1 %or.cond.i54, i1 %137, i1 false
+  br i1 %or.cond8.i55, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit56, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit56.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit56: ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
   %138 = getelementptr inbounds nuw i8, ptr %123, i64 52
@@ -9588,15 +9588,15 @@ _ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread: 
   br label %32
 
 32:                                               ; preds = %17, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
-  %.sink237 = phi i32 [ 0, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread ], [ 4, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit ], [ 4, %17 ]
+  %.sink236 = phi i32 [ 0, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread ], [ 4, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit ], [ 4, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  store i32 %.sink237, ptr %35, align 8
+  store i32 %.sink236, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
-  store i32 %.sink237, ptr %38, align 8
+  store i32 %.sink236, ptr %38, align 8
   %39 = load i32, ptr %18, align 16
   switch i32 %39, label %230 [
     i32 4, label %40
@@ -9896,12 +9896,12 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit94.critedge: ; preds = %32
   br label %177
 
 177:                                              ; preds = %173, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
-  %.055220 = phi i64 [ 0, %173 ], [ %217, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ]
-  %178 = icmp eq i64 %.055220, %150
+  %.055219 = phi i64 [ 0, %173 ], [ %217, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ]
+  %178 = icmp eq i64 %.055219, %150
   br i1 %178, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds ptr, ptr %153, i64 %.055220
+  %180 = getelementptr inbounds ptr, ptr %153, i64 %.055219
   %181 = load ptr, ptr %180, align 8, !nonnull !10, !noundef !10
   %182 = tail call ptr @__dynamic_cast(ptr nonnull %181, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 88
@@ -9922,8 +9922,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge: ; preds = %179
   %194 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %195 = load i32, ptr %194, align 4
   %196 = icmp slt i32 %188, %195
-  %or.cond9.i = select i1 %or.cond.i, i1 %196, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+  %or.cond8.i = select i1 %or.cond.i, i1 %196, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge
   %197 = getelementptr inbounds nuw i8, ptr %182, i64 52
@@ -9955,20 +9955,20 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   %214 = load ptr, ptr %213, align 8
   %215 = call noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(132) %182, ptr noundef nonnull align 4 dereferenceable(8) %9, i1 noundef zeroext false)
   %216 = load i64, ptr %149, align 8
-  call void @_ZN3tev11ImageViewer15moveImageInListEmm(ptr noundef nonnull align 16 dereferenceable(972) %0, i64 noundef %216, i64 noundef %.055220)
-  store i64 %.055220, ptr %149, align 8
+  call void @_ZN3tev11ImageViewer15moveImageInListEmm(ptr noundef nonnull align 16 dereferenceable(972) %0, i64 noundef %216, i64 noundef %.055219)
+  store i64 %.055219, ptr %149, align 8
   %.pre = load ptr, ptr %148, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.055220
-  %.pre224 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.055219
+  %.pre223 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge, %179, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %177
-  %217 = add nuw i64 %.055220, 1
+  %217 = add nuw i64 %.055219, 1
   %exitcond.not = icmp eq i64 %217, %157
   br i1 %exitcond.not, label %.loopexit, label %177, !llvm.loop !120
 
 .loopexit:                                        ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, %200
-  %218 = phi ptr [ %.pre224, %200 ], [ %169, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ]
+  %218 = phi ptr [ %.pre223, %200 ], [ %169, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ]
   %219 = icmp ne ptr %218, null
   call void @llvm.assume(i1 %219)
   %220 = call ptr @__dynamic_cast(ptr nonnull %218, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
@@ -18976,11 +18976,11 @@ _ZNSt3__14moveB8ne190000IPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZNSt3__14moveB8ne190000IPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EET0_T_S9_S8_.exit.i
   store ptr %60, ptr %34, align 8
   %.pre = load ptr, ptr %18, align 8
-  %.pre259 = ptrtoint ptr %.pre to i64
+  %.pre257 = ptrtoint ptr %.pre to i64
   br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5eraseENS_11__wrap_iterIPKS6_EESC_.exit
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5eraseENS_11__wrap_iterIPKS6_EESC_.exit: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i, %37
-  %.pre-phi = phi i64 [ %.pre259, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i ], [ %42, %37 ]
+  %.pre-phi = phi i64 [ %.pre257, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i ], [ %42, %37 ]
   %62 = phi ptr [ %60, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i ], [ %39, %37 ]
   %63 = phi ptr [ %.pre, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE17__destruct_at_endB8ne190000EPS6_.exit.i ], [ %40, %37 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -18996,7 +18996,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   %69 = load ptr, ptr %68, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not6.i = icmp eq ptr %67, %69
-  br i1 %.not6.i, label %.loopexit243, label %.lr.ph.i
+  br i1 %.not6.i, label %.loopexit241, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2ERKS8_.exit
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -19026,15 +19026,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #40
   %77 = getelementptr i8, ptr %.sroa.0.08.i, i64 24
   %.not.i135 = icmp eq ptr %77, %69
-  br i1 %.not.i135, label %.loopexit243, label %71, !llvm.loop !223
+  br i1 %.not.i135, label %.loopexit241, label %71, !llvm.loop !223
 
-.loopexit243:                                     ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2ERKS8_.exit
+.loopexit241:                                     ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEEC2ERKS8_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %78 = load ptr, ptr %28, align 16
   invoke void @_ZNK3tev5Image9shortNameEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %21, ptr noundef nonnull align 16 dereferenceable(404) %78)
           to label %79 unwind label %.loopexit.split-lp
 
-79:                                               ; preds = %.loopexit243
+79:                                               ; preds = %.loopexit241
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 248
@@ -19243,7 +19243,7 @@ _ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERKNSt3__16vector
           cleanup
   br label %.body138
 
-.loopexit.split-lp:                               ; preds = %.loopexit243
+.loopexit.split-lp:                               ; preds = %.loopexit241
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body138
@@ -19275,8 +19275,8 @@ _ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERKNSt3__16vector
 
 190:                                              ; preds = %161
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  %.not255 = icmp eq ptr %169, %170
-  br i1 %.not255, label %._crit_edge.thread, label %.lr.ph
+  %.not253 = icmp eq ptr %169, %170
+  br i1 %.not253, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %190
   %191 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -19293,9 +19293,9 @@ _ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERKNSt3__16vector
   br label %199
 
 199:                                              ; preds = %.lr.ph, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit
-  %.0108252 = phi i64 [ 0, %.lr.ph ], [ %224, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit ]
+  %.0108250 = phi i64 [ 0, %.lr.ph ], [ %224, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit ]
   %200 = load ptr, ptr %22, align 8
-  %201 = getelementptr inbounds float, ptr %200, i64 %.0108252
+  %201 = getelementptr inbounds float, ptr %200, i64 %.0108250
   %202 = load i32, ptr %201, align 4
   %.sroa.0.0.insert.ext.i140 = zext i32 %202 to i64
   store i64 %.sroa.0.0.insert.ext.i140, ptr %15, align 16, !noalias !236
@@ -19355,7 +19355,7 @@ _ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERKNSt3__16vector
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit: ; preds = %214
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #40
-  %224 = add nuw i64 %.0108252, 1
+  %224 = add nuw i64 %.0108250, 1
   %225 = load ptr, ptr %68, align 8
   %226 = load ptr, ptr %19, align 8
   %227 = ptrtoint ptr %225 to i64
@@ -19377,15 +19377,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
   br label %.body144
 
 ._crit_edge:                                      ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit
-  %.pre257 = load i8, ptr %24, align 8
+  %.pre255 = load i8, ptr %24, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.pre258 = load i64, ptr %.phi.trans.insert, align 8
-  %236 = and i8 %.pre257, 1
+  %.pre256 = load i64, ptr %.phi.trans.insert, align 8
+  %236 = and i8 %.pre255, 1
   %.not.i.i = icmp eq i8 %236, 0
   %237 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %238 = lshr i8 %.pre257, 1
+  %238 = lshr i8 %.pre255, 1
   %239 = zext nneg i8 %238 to i64
-  %240 = select i1 %.not.i.i, i64 %239, i64 %.pre258
+  %240 = select i1 %.not.i.i, i64 %239, i64 %.pre256
   %241 = add i64 %240, -1
   br i1 %.not.i.i, label %245, label %242
 
@@ -19416,10 +19416,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.exit.preheader: ; preds = %251
   %257 = load ptr, ptr %68, align 8
   %258 = load ptr, ptr %19, align 8
-  %.not256 = icmp eq ptr %257, %258
-  br i1 %.not256, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.exit._crit_edge, label %.lr.ph254
+  %.not254 = icmp eq ptr %257, %258
+  br i1 %.not254, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.exit._crit_edge, label %.lr.ph252
 
-.lr.ph254:                                        ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.exit.preheader
+.lr.ph252:                                        ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.exit.preheader
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -19429,10 +19429,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000EPKc.
   %265 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %266
 
-266:                                              ; preds = %.lr.ph254, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162
-  %267 = phi ptr [ %258, %.lr.ph254 ], [ %321, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162 ]
-  %.0109253 = phi i64 [ 0, %.lr.ph254 ], [ %319, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162 ]
-  %268 = getelementptr inbounds %"class.std::__1::basic_string", ptr %267, i64 %.0109253
+266:                                              ; preds = %.lr.ph252, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162
+  %267 = phi ptr [ %258, %.lr.ph252 ], [ %321, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162 ]
+  %.0109251 = phi i64 [ 0, %.lr.ph252 ], [ %319, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162 ]
+  %268 = getelementptr inbounds %"class.std::__1::basic_string", ptr %267, i64 %.0109251
   %269 = load i8, ptr %268, align 8
   %270 = and i8 %269, 1
   %.not.i.i.i.i149 = icmp eq i8 %270, 0
@@ -19455,13 +19455,13 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 281:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
   %282 = load ptr, ptr %22, align 8
-  %283 = getelementptr inbounds float, ptr %282, i64 %.0109253
+  %283 = getelementptr inbounds float, ptr %282, i64 %.0109251
   %284 = load float, ptr %283, align 4
   br label %294
 
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread: ; preds = %266, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
   %285 = load ptr, ptr %22, align 8
-  %286 = getelementptr inbounds float, ptr %285, i64 %.0109253
+  %286 = getelementptr inbounds float, ptr %285, i64 %.0109251
   %287 = load float, ptr %286, align 4
   %288 = fcmp ugt float %287, 0x3F69A5C380000000
   br i1 %288, label %291, label %289
@@ -19537,7 +19537,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit162: ; preds = %309
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #40
-  %319 = add nuw i64 %.0109253, 1
+  %319 = add nuw i64 %.0109251, 1
   %320 = load ptr, ptr %68, align 8
   %321 = load ptr, ptr %19, align 8
   %322 = ptrtoint ptr %320 to i64

@@ -478,34 +478,34 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_quake3() #0 {
-  %.b12 = load i1, ptr @proto_reg_handoff_quake3.initialized, align 1
-  br i1 %.b12, label %.preheader14, label %1
+  %.b = load i1, ptr @proto_reg_handoff_quake3.initialized, align 1
+  br i1 %.b, label %.preheader13, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_quake3.initialized, align 1
   br label %.loopexit
 
-.preheader14:                                     ; preds = %0, %.preheader14
-  %.015 = phi i32 [ %5, %.preheader14 ], [ 0, %0 ]
+.preheader13:                                     ; preds = %0, %.preheader13
+  %.014 = phi i32 [ %5, %.preheader13 ], [ 0, %0 ]
   %2 = load i32, ptr @proto_reg_handoff_quake3.server_port, align 4
-  %3 = add i32 %2, %.015
+  %3 = add i32 %2, %.014
   %4 = load ptr, ptr @quake3_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.41, i32 noundef %3, ptr noundef %4)
-  %5 = add nuw nsw i32 %.015, 1
+  %5 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %5, 4
-  br i1 %exitcond.not, label %.preheader13, label %.preheader14, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader12, label %.preheader13, !llvm.loop !8
 
-.preheader13:                                     ; preds = %.preheader14, %.preheader13
-  %.116 = phi i32 [ %9, %.preheader13 ], [ 0, %.preheader14 ]
+.preheader12:                                     ; preds = %.preheader13, %.preheader12
+  %.115 = phi i32 [ %9, %.preheader12 ], [ 0, %.preheader13 ]
   %6 = load i32, ptr @proto_reg_handoff_quake3.master_port, align 4
-  %7 = add i32 %6, %.116
+  %7 = add i32 %6, %.115
   %8 = load ptr, ptr @quake3_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.41, i32 noundef %7, ptr noundef %8)
-  %9 = add nuw nsw i32 %.116, 1
-  %exitcond19.not = icmp eq i32 %9, 4
-  br i1 %exitcond19.not, label %.loopexit, label %.preheader13, !llvm.loop !9
+  %9 = add nuw nsw i32 %.115, 1
+  %exitcond18.not = icmp eq i32 %9, 4
+  br i1 %exitcond18.not, label %.loopexit, label %.preheader12, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.preheader13, %1
+.loopexit:                                        ; preds = %.preheader12, %1
   %10 = load i32, ptr @gbl_quake3_server_port, align 4
   store i32 %10, ptr @proto_reg_handoff_quake3.server_port, align 4
   %11 = load i32, ptr @gbl_quake3_master_port, align 4
@@ -513,24 +513,24 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   br label %12
 
 12:                                               ; preds = %.loopexit, %12
-  %.217 = phi i32 [ 0, %.loopexit ], [ %16, %12 ]
+  %.216 = phi i32 [ 0, %.loopexit ], [ %16, %12 ]
   %13 = load i32, ptr @gbl_quake3_server_port, align 4
-  %14 = add i32 %13, %.217
+  %14 = add i32 %13, %.216
   %15 = load ptr, ptr @quake3_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef %14, ptr noundef %15)
-  %16 = add nuw nsw i32 %.217, 1
-  %exitcond20.not = icmp eq i32 %16, 4
-  br i1 %exitcond20.not, label %.preheader, label %12, !llvm.loop !10
+  %16 = add nuw nsw i32 %.216, 1
+  %exitcond19.not = icmp eq i32 %16, 4
+  br i1 %exitcond19.not, label %.preheader, label %12, !llvm.loop !10
 
 .preheader:                                       ; preds = %12, %.preheader
-  %.318 = phi i32 [ %20, %.preheader ], [ 0, %12 ]
+  %.317 = phi i32 [ %20, %.preheader ], [ 0, %12 ]
   %17 = load i32, ptr @gbl_quake3_master_port, align 4
-  %18 = add i32 %17, %.318
+  %18 = add i32 %17, %.317
   %19 = load ptr, ptr @quake3_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef %18, ptr noundef %19)
-  %20 = add nuw nsw i32 %.318, 1
-  %exitcond21.not = icmp eq i32 %20, 4
-  br i1 %exitcond21.not, label %21, label %.preheader, !llvm.loop !11
+  %20 = add nuw nsw i32 %.317, 1
+  %exitcond20.not = icmp eq i32 %20, 4
+  br i1 %exitcond20.not, label %21, label %.preheader, !llvm.loop !11
 
 21:                                               ; preds = %.preheader
   ret void

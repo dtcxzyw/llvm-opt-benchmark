@@ -8409,8 +8409,8 @@ lean_dec.exit:                                    ; preds = %26, %25, %23, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Config_LeanExeConfig(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -8452,9 +8452,9 @@ define ptr @initialize_Lake_Config_LeanExeConfig(i8 noundef zeroext %0, ptr noun
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Config_LeanConfig(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %281, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -8465,17 +8465,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !10
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #7
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   %28 = tail call ptr @lean_alloc_object(i64 noundef 24) #7
   store i32 1, ptr %28, align 4, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -8493,11 +8493,11 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %_init_l_Lake_instInhabitedLeanExeConfig___closed__1.exit
 
-37:                                               ; preds = %lean_dec_ref.exit10
+37:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lake_instInhabitedLeanExeConfig___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Lake_instInhabitedLeanExeConfig___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i64 512, ptr %39, align 8, !tbaa !8
@@ -8979,8 +8979,8 @@ _init_l_Lake_LeanExeConfig___fields___closed__32.exit: ; preds = %_init_l_Lake_L
   %234 = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__4, align 8, !tbaa !4
   %235 = ptrtoint ptr %234 to i64
   %236 = and i64 %235, 1
-  %.not.i13 = icmp eq i64 %236, 0
-  br i1 %.not.i13, label %.critedge.i.i, label %237, !prof !17
+  %.not.i12 = icmp eq i64 %236, 0
+  br i1 %.not.i12, label %.critedge.i.i, label %237, !prof !17
 
 237:                                              ; preds = %_init_l_Lake_LeanExeConfig___fields___closed__32.exit
   %238 = icmp ugt ptr %234, inttoptr (i64 1 to ptr)
@@ -9017,21 +9017,21 @@ _init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit: ; preds = %_init_l_L
   %248 = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__4, align 8, !tbaa !4
   %249 = ptrtoint ptr %248 to i64
   %250 = and i64 %249, 1
-  %.not.i14 = icmp eq i64 %250, 0
-  br i1 %.not.i14, label %.critedge.i.i16, label %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__7.exit, !prof !17
+  %.not.i13 = icmp eq i64 %250, 0
+  br i1 %.not.i13, label %.critedge.i.i15, label %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__7.exit, !prof !17
 
-.critedge.i.i16:                                  ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit
+.critedge.i.i15:                                  ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit
   %251 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %248, ptr noundef %248) #7
   %252 = zext i1 %251 to i8
   %.pre = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__4, align 8, !tbaa !4
-  %.pre20 = ptrtoint ptr %.pre to i64
+  %.pre19 = ptrtoint ptr %.pre to i64
   br label %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__7.exit
 
-_init_l_Lake_LeanExeConfig_instConfigMeta___closed__7.exit: ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit, %.critedge.i.i16
-  %.pre-phi = phi i64 [ %249, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %.pre20, %.critedge.i.i16 ]
-  %253 = phi ptr [ %248, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %.pre, %.critedge.i.i16 ]
-  %.0.i.i15 = phi i8 [ 1, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %252, %.critedge.i.i16 ]
-  store i8 %.0.i.i15, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__7, align 1, !tbaa !14
+_init_l_Lake_LeanExeConfig_instConfigMeta___closed__7.exit: ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit, %.critedge.i.i15
+  %.pre-phi = phi i64 [ %249, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %.pre19, %.critedge.i.i15 ]
+  %253 = phi ptr [ %248, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %.pre, %.critedge.i.i15 ]
+  %.0.i.i14 = phi i8 [ 1, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__6.exit ], [ %252, %.critedge.i.i15 ]
+  store i8 %.0.i.i14, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__7, align 1, !tbaa !14
   %254 = and i64 %.pre-phi, 1
   %.not.i.i = icmp eq i64 %254, 0
   br i1 %.not.i.i, label %257, label %255
@@ -9080,11 +9080,11 @@ _init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit: ; preds = %_init_l_
   tail call void @lean_mark_persistent(ptr noundef %.0.i) #7
   %272 = load i8, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__5, align 1, !tbaa !14
   %273 = icmp eq i8 %272, 0
-  %l_Lake_LeanExeConfig_instConfigMeta___closed__6.val.i17 = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__6, align 8
+  %l_Lake_LeanExeConfig_instConfigMeta___closed__6.val.i16 = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__6, align 8
   %l_Lake_LeanExeConfig_instConfigMeta___closed__11.val.i = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__11, align 8
-  %.0.i18 = select i1 %273, ptr %l_Lake_LeanExeConfig_instConfigMeta___closed__6.val.i17, ptr %l_Lake_LeanExeConfig_instConfigMeta___closed__11.val.i
-  store ptr %.0.i18, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__12, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.0.i18) #7
+  %.0.i17 = select i1 %273, ptr %l_Lake_LeanExeConfig_instConfigMeta___closed__6.val.i16, ptr %l_Lake_LeanExeConfig_instConfigMeta___closed__11.val.i
+  store ptr %.0.i17, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__12, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.0.i17) #7
   %274 = load ptr, ptr @l_Lake_LeanExeConfig_instConfigMeta___closed__12, align 8, !tbaa !4
   store ptr %274, ptr @l_Lake_LeanExeConfig_instConfigMeta, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %274) #7
@@ -9098,18 +9098,18 @@ _init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit, %3
-  %.sink45 = phi ptr [ %4, %3 ], [ %275, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit ]
-  %278 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
-  store i32 1, ptr %.sink45, align 4, !tbaa !10
+  %.sink44 = phi ptr [ %4, %3 ], [ %275, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit ]
+  %278 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !10
   store i32 131096, ptr %278, align 4
-  %279 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %279, align 8, !tbaa !4
-  %280 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %280, align 8, !tbaa !4
   br label %281
 
 281:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink45, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

@@ -304,8 +304,8 @@ declare double @pg_prng_double(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_random_fract() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %1, !prof !10
+  %.b = load i1, ptr @oldrs_initialized, align 1
+  br i1 %.b, label %.preheader, label %1, !prof !10
 
 1:                                                ; preds = %0
   %2 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
@@ -328,8 +328,8 @@ sampler_random_fract.exit:                        ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %2, !prof !10
+  %.b = load i1, ptr @oldrs_initialized, align 1
+  br i1 %.b, label %.preheader, label %2, !prof !10
 
 2:                                                ; preds = %1
   %3 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6

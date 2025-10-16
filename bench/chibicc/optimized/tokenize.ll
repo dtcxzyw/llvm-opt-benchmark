@@ -826,13 +826,13 @@ string_literal_end.exit:                          ; preds = %4
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %25, ptr %26, align 8, !tbaa !57
-  %.b12.i = load i1, ptr @at_bol, align 1
+  %.b.i = load i1, ptr @at_bol, align 1
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %28 = zext i1 %.b12.i to i8
+  %28 = zext i1 %.b.i to i8
   store i8 %28, ptr %27, align 8, !tbaa !58
-  %.b1113.i = load i1, ptr @has_space, align 1
+  %.b11.i = load i1, ptr @has_space, align 1
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 105
-  %30 = zext i1 %.b1113.i to i8
+  %30 = zext i1 %.b11.i to i8
   store i8 %30, ptr %29, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
@@ -962,13 +962,13 @@ string_literal_end.exit:                          ; preds = %5
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr %25, ptr %26, align 8, !tbaa !57
-  %.b12.i = load i1, ptr @at_bol, align 1
+  %.b.i = load i1, ptr @at_bol, align 1
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  %28 = zext i1 %.b12.i to i8
+  %28 = zext i1 %.b.i to i8
   store i8 %28, ptr %27, align 8, !tbaa !58
-  %.b1113.i = load i1, ptr @has_space, align 1
+  %.b11.i = load i1, ptr @has_space, align 1
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 105
-  %30 = zext i1 %.b1113.i to i8
+  %30 = zext i1 %.b11.i to i8
   store i8 %30, ptr %29, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
@@ -1188,13 +1188,13 @@ sub_0:                                            ; preds = %1, %.backedge
   %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %79, ptr %80, align 8, !tbaa !57
-  %.b12.i = load i1, ptr @at_bol, align 1
+  %.b.i = load i1, ptr @at_bol, align 1
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 104
-  %82 = zext i1 %.b12.i to i8
+  %82 = zext i1 %.b.i to i8
   store i8 %82, ptr %81, align 8, !tbaa !58
-  %.b1113.i = load i1, ptr @has_space, align 1
+  %.b11.i = load i1, ptr @has_space, align 1
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 105
-  %84 = zext i1 %.b1113.i to i8
+  %84 = zext i1 %.b11.i to i8
   store i8 %84, ptr %83, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
@@ -1386,18 +1386,18 @@ sub_1137:                                         ; preds = %39
 
 ._crit_edge.loopexit:                             ; preds = %.backedge
   %.pre = load ptr, ptr @current_file, align 8, !tbaa !12
-  %.b12.i130.pre = load i1, ptr @at_bol, align 1
-  %.b1113.i131.pre = load i1, ptr @has_space, align 1
+  %.b.i130.pre = load i1, ptr @at_bol, align 1
+  %.b11.i131.pre = load i1, ptr @has_space, align 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre170 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
-  %197 = zext i1 %.b12.i130.pre to i8
-  %198 = zext i1 %.b1113.i131.pre to i8
+  %197 = zext i1 %.b.i130.pre to i8
+  %198 = zext i1 %.b11.i131.pre to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %199 = phi ptr [ %4, %1 ], [ %.pre170, %._crit_edge.loopexit ]
-  %.b1113.i131 = phi i8 [ 0, %1 ], [ %198, %._crit_edge.loopexit ]
-  %.b12.i130 = phi i8 [ 1, %1 ], [ %197, %._crit_edge.loopexit ]
+  %.b11.i131 = phi i8 [ 0, %1 ], [ %198, %._crit_edge.loopexit ]
+  %.b.i130 = phi i8 [ 1, %1 ], [ %197, %._crit_edge.loopexit ]
   %200 = phi ptr [ %0, %1 ], [ %.pre, %._crit_edge.loopexit ]
   %.0107.lcssa = phi ptr [ %2, %1 ], [ %.0107.be, %._crit_edge.loopexit ]
   %.0.lcssa = phi ptr [ %4, %1 ], [ %.0.be, %._crit_edge.loopexit ]
@@ -1414,9 +1414,9 @@ sub_1137:                                         ; preds = %39
   %207 = getelementptr inbounds nuw i8, ptr %201, i64 88
   store ptr %206, ptr %207, align 8, !tbaa !57
   %208 = getelementptr inbounds nuw i8, ptr %201, i64 104
-  store i8 %.b12.i130, ptr %208, align 8, !tbaa !58
+  store i8 %.b.i130, ptr %208, align 8, !tbaa !58
   %209 = getelementptr inbounds nuw i8, ptr %201, i64 105
-  store i8 %.b1113.i131, ptr %209, align 1, !tbaa !59
+  store i8 %.b11.i131, ptr %209, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
   %210 = getelementptr inbounds nuw i8, ptr %.0107.lcssa, i64 8
@@ -1495,13 +1495,13 @@ define internal fastcc noalias noundef ptr @new_token(i32 noundef range(i32 0, 7
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %14, ptr %15, align 8, !tbaa !57
-  %.b12 = load i1, ptr @at_bol, align 1
+  %.b = load i1, ptr @at_bol, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %17 = zext i1 %.b12 to i8
+  %17 = zext i1 %.b to i8
   store i8 %17, ptr %16, align 8, !tbaa !58
-  %.b1113 = load i1, ptr @has_space, align 1
+  %.b11 = load i1, ptr @has_space, align 1
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 105
-  %19 = zext i1 %.b1113 to i8
+  %19 = zext i1 %.b11 to i8
   store i8 %19, ptr %18, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
@@ -1572,13 +1572,13 @@ string_literal_end.exit:                          ; preds = %4
   %24 = load ptr, ptr %23, align 8, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr %24, ptr %25, align 8, !tbaa !57
-  %.b12.i = load i1, ptr @at_bol, align 1
+  %.b.i = load i1, ptr @at_bol, align 1
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %27 = zext i1 %.b12.i to i8
+  %27 = zext i1 %.b.i to i8
   store i8 %27, ptr %26, align 8, !tbaa !58
-  %.b1113.i = load i1, ptr @has_space, align 1
+  %.b11.i = load i1, ptr @has_space, align 1
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 105
-  %29 = zext i1 %.b1113.i to i8
+  %29 = zext i1 %.b11.i to i8
   store i8 %29, ptr %28, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
@@ -1673,13 +1673,13 @@ define internal fastcc noalias noundef ptr @read_char_literal(ptr noundef %0, pt
   %29 = load ptr, ptr %28, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr %29, ptr %30, align 8, !tbaa !57
-  %.b12.i = load i1, ptr @at_bol, align 1
+  %.b.i = load i1, ptr @at_bol, align 1
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %32 = zext i1 %.b12.i to i8
+  %32 = zext i1 %.b.i to i8
   store i8 %32, ptr %31, align 8, !tbaa !58
-  %.b1113.i = load i1, ptr @has_space, align 1
+  %.b11.i = load i1, ptr @has_space, align 1
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 105
-  %34 = zext i1 %.b1113.i to i8
+  %34 = zext i1 %.b11.i to i8
   store i8 %34, ptr %33, align 1, !tbaa !59
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1

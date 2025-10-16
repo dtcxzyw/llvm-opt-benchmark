@@ -7922,8 +7922,8 @@ define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   %.031 = phi i32 [ %2, %12 ], [ %27, %25 ], [ 0, %16 ], [ 0, %19 ]
   %28 = add i32 %.031, %1
-  %.b37 = load i1, ptr @tvb_find_line_end.compiled, align 1
-  br i1 %.b37, label %30, label %29
+  %.b = load i1, ptr @tvb_find_line_end.compiled, align 1
+  br i1 %.b, label %30, label %29
 
 29:                                               ; preds = %_tvb_captured_length_remaining.exit
   tail call void @ws_mempbrk_compile(ptr noundef nonnull @pbrk_crlf, ptr noundef nonnull @.str.23)
@@ -7939,8 +7939,8 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   br i1 %4, label %49, label %34
 
 34:                                               ; preds = %33
-  %.not40 = icmp eq ptr %3, null
-  br i1 %.not40, label %49, label %.sink.split
+  %.not39 = icmp eq ptr %3, null
+  br i1 %.not39, label %49, label %.sink.split
 
 35:                                               ; preds = %30
   %36 = sub i32 %31, %1
@@ -7950,8 +7950,8 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
 
 39:                                               ; preds = %35
   %40 = add nuw i32 %31, 1
-  %.not38 = icmp slt i32 %40, %28
-  br i1 %.not38, label %42, label %41
+  %.not37 = icmp slt i32 %40, %28
+  br i1 %.not37, label %42, label %41
 
 41:                                               ; preds = %39
   br i1 %4, label %49, label %46
@@ -7965,8 +7965,8 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
 
 46:                                               ; preds = %42, %41, %35
   %.029 = phi i32 [ %31, %41 ], [ %31, %35 ], [ %spec.select, %42 ]
-  %.not39 = icmp eq ptr %3, null
-  br i1 %.not39, label %49, label %47
+  %.not38 = icmp eq ptr %3, null
+  br i1 %.not38, label %49, label %47
 
 47:                                               ; preds = %46
   %48 = add i32 %.029, 1
@@ -8038,8 +8038,8 @@ define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 nound
 
 _tvb_captured_length_remaining.exit:              ; preds = %24, %18, %15, %11
   %.040 = phi i32 [ %2, %11 ], [ %26, %24 ], [ 0, %15 ], [ 0, %18 ]
-  %.b53 = load i1, ptr @tvb_find_line_end_unquoted.compiled, align 1
-  br i1 %.b53, label %28, label %27
+  %.b = load i1, ptr @tvb_find_line_end_unquoted.compiled, align 1
+  br i1 %.b, label %28, label %27
 
 27:                                               ; preds = %_tvb_captured_length_remaining.exit
   tail call void @ws_mempbrk_compile(ptr noundef nonnull @pbrk_crlf_dquote, ptr noundef nonnull @.str.24)
@@ -8063,18 +8063,18 @@ _tvb_captured_length_remaining.exit:              ; preds = %24, %18, %15, %11
 .thread:                                          ; preds = %30
   %34 = call i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef nonnull %0, i32 noundef %.044, i32 noundef %.040, ptr noundef nonnull @pbrk_crlf_dquote, ptr noundef nonnull %5)
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %.thread60
+  br i1 %35, label %36, label %.thread59
 
 36:                                               ; preds = %.thread, %31
-  %.not57 = icmp eq ptr %3, null
-  br i1 %.not57, label %55, label %.sink.split
+  %.not56 = icmp eq ptr %3, null
+  br i1 %.not56, label %55, label %.sink.split
 
-.thread60:                                        ; preds = %.thread
+.thread59:                                        ; preds = %.thread
   %37 = load i8, ptr %5, align 1
   %38 = icmp eq i8 %37, 34
   br i1 %38, label %52, label %39
 
-39:                                               ; preds = %.thread60
+39:                                               ; preds = %.thread59
   %40 = sub i32 %34, %1
   %41 = icmp eq i8 %37, 13
   br i1 %41, label %42, label %49
@@ -8093,23 +8093,23 @@ _tvb_captured_length_remaining.exit:              ; preds = %24, %18, %15, %11
 
 49:                                               ; preds = %45, %42, %39
   %.143 = phi i32 [ %34, %42 ], [ %34, %39 ], [ %spec.select, %45 ]
-  %.not54 = icmp eq ptr %3, null
-  br i1 %.not54, label %55, label %50
+  %.not53 = icmp eq ptr %3, null
+  br i1 %.not53, label %55, label %50
 
 50:                                               ; preds = %49
   %51 = add i32 %.143, 1
   br label %.sink.split
 
-52:                                               ; preds = %31, %.thread60
-  %.0425963 = phi i32 [ %34, %.thread60 ], [ %32, %31 ]
+52:                                               ; preds = %31, %.thread59
+  %.0425862 = phi i32 [ %34, %.thread59 ], [ %32, %31 ]
   %.1 = xor i1 %.041, true
-  %53 = add nuw i32 %.0425963, 1
-  %.not55 = icmp slt i32 %53, %29
-  br i1 %.not55, label %30, label %54
+  %53 = add nuw i32 %.0425862, 1
+  %.not54 = icmp slt i32 %53, %29
+  br i1 %.not54, label %30, label %54
 
 54:                                               ; preds = %52
-  %.not56 = icmp eq ptr %3, null
-  br i1 %.not56, label %55, label %.sink.split
+  %.not55 = icmp eq ptr %3, null
+  br i1 %.not55, label %55, label %.sink.split
 
 .sink.split:                                      ; preds = %54, %36, %50
   %.sink = phi i32 [ %51, %50 ], [ %29, %36 ], [ %29, %54 ]
@@ -8300,8 +8300,8 @@ define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   %.024 = phi i32 [ %2, %12 ], [ %27, %25 ], [ 0, %16 ], [ 0, %19 ]
   %28 = add i32 %.024, %1
-  %.b29 = load i1, ptr @tvb_get_token_len.compiled, align 1
-  br i1 %.b29, label %30, label %29
+  %.b = load i1, ptr @tvb_get_token_len.compiled, align 1
+  br i1 %.b, label %30, label %29
 
 29:                                               ; preds = %_tvb_captured_length_remaining.exit
   tail call void @ws_mempbrk_compile(ptr noundef nonnull @pbrk_whitespace, ptr noundef nonnull @.str.25)
@@ -8317,13 +8317,13 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   br i1 %4, label %39, label %34
 
 34:                                               ; preds = %33
-  %.not31 = icmp eq ptr %3, null
-  br i1 %.not31, label %39, label %.sink.split
+  %.not30 = icmp eq ptr %3, null
+  br i1 %.not30, label %39, label %.sink.split
 
 35:                                               ; preds = %30
   %36 = sub i32 %31, %1
-  %.not30 = icmp eq ptr %3, null
-  br i1 %.not30, label %39, label %37
+  %.not29 = icmp eq ptr %3, null
+  br i1 %.not29, label %39, label %37
 
 37:                                               ; preds = %35
   %38 = add nuw i32 %31, 1

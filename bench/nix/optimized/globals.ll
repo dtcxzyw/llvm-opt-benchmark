@@ -20216,8 +20216,8 @@ declare void @_ZN3nix14AbstractConfig19warnUnknownSettingsEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix25assertLibStoreInitializedEv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.b3 = load i1, ptr @_ZN3nixL16initLibStoreDoneE, align 1
-  br i1 %.b3, label %17, label %2
+  %.b = load i1, ptr @_ZN3nixL16initLibStoreDoneE, align 1
+  br i1 %.b, label %17, label %2
 
 2:                                                ; preds = %0
   %3 = load i32, ptr @_ZN3nix9verbosityE, align 4

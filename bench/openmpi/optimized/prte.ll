@@ -3356,8 +3356,8 @@ define internal void @clean_abort(i32 %0, i16 signext %1, ptr readnone captures(
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %.b2 = load i1, ptr @forcibly_die, align 1
-  br i1 %.b2, label %6, label %7
+  %.b = load i1, ptr @forcibly_die, align 1
+  br i1 %.b, label %6, label %7
 
 6:                                                ; preds = %5
   tail call void @exit(i32 noundef 1) #25

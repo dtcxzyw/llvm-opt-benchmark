@@ -1062,8 +1062,8 @@ declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rtpproxy() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_rtpproxy.rtpproxy_initialized, align 1
-  br i1 %.b1, label %6, label %1
+  %.b = load i1, ptr @proto_reg_handoff_rtpproxy.rtpproxy_initialized, align 1
+  br i1 %.b, label %6, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @rtpproxy_handle, align 8

@@ -95969,8 +95969,8 @@ declare ptr @l_Lean_registerTraceClass(ptr noundef, i8 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_LCNF_ToMono(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -95999,25 +95999,25 @@ define ptr @initialize_Lean_Compiler_LCNF_ToMono(i8 noundef zeroext %0, ptr noun
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Compiler_LCNF_InferType(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %365, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -96025,17 +96025,17 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   store ptr %28, ptr @l_Lean_Compiler_LCNF_LetValue_toMono___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %28) #4
@@ -96084,11 +96084,11 @@ lean_dec_ref.exit14:                              ; preds = %24, %26, %27
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %_init_l_Lean_Compiler_LCNF_LetValue_toMono___closed__12.exit
 
-51:                                               ; preds = %lean_dec_ref.exit14
+51:                                               ; preds = %lean_dec_ref.exit13
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Compiler_LCNF_LetValue_toMono___closed__12.exit: ; preds = %lean_dec_ref.exit14
+_init_l_Lean_Compiler_LCNF_LetValue_toMono___closed__12.exit: ; preds = %lean_dec_ref.exit13
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 1, ptr %49, align 4, !tbaa !8
   store i32 50528288, ptr %52, align 4
@@ -96733,9 +96733,9 @@ _init_l_Lean_Compiler_LCNF_toMono___closed__4.exit: ; preds = %_init_l_Lean_Comp
   %348 = load ptr, ptr @l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ToMono___hyg_4075____closed__19, align 8, !tbaa !12
   %349 = tail call ptr @l_Lean_registerTraceClass(ptr noundef %347, i8 noundef zeroext 1, ptr noundef %348, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %350 = getelementptr i8, ptr %349, i64 4
-  %.val18 = load i32, ptr %350, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %351 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %350, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %351 = icmp eq i32 %.mask.i19, 16777216
   br i1 %351, label %365, label %352
 
 352:                                              ; preds = %346
@@ -96767,18 +96767,18 @@ lean_dec_ref.exit:                                ; preds = %358, %357, %355, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink41 = phi ptr [ %4, %3 ], [ %359, %lean_dec_ref.exit ]
-  %362 = getelementptr inbounds nuw i8, ptr %.sink41, i64 4
-  store i32 1, ptr %.sink41, align 4, !tbaa !8
+  %.sink40 = phi ptr [ %4, %3 ], [ %359, %lean_dec_ref.exit ]
+  %362 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  store i32 1, ptr %.sink40, align 4, !tbaa !8
   store i32 131096, ptr %362, align 4
-  %363 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %363, align 8, !tbaa !12
-  %364 = getelementptr inbounds nuw i8, ptr %.sink41, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %364, align 8, !tbaa !12
   br label %365
 
-365:                                              ; preds = %.sink.split, %346, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %349, %346 ], [ %.sink41, %.sink.split ]
+365:                                              ; preds = %.sink.split, %346, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %349, %346 ], [ %.sink40, %.sink.split ]
   ret ptr %.0
 }
 

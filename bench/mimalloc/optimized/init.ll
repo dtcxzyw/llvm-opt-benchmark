@@ -439,8 +439,8 @@ mi_atomic_once.exit:                              ; preds = %mi_heap_main_init.e
   %15 = tail call ptr @llvm.thread.pointer.p0()
   %16 = ptrtoint ptr %15 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.1, i64 noundef %16) #14
-  %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %17
+  %.b.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
+  br i1 %.b.i, label %mi_process_setup_auto_thread_done.exit, label %17
 
 17:                                               ; preds = %14
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -693,8 +693,8 @@ define hidden void @_mi_process_load() local_unnamed_addr #1 {
 mi_heap_main_init.exit:                           ; preds = %0, %4
   store i1 true, ptr @os_preloading, align 1
   tail call void @_mi_options_init() #14
-  %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %12
+  %.b.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
+  br i1 %.b.i, label %mi_process_setup_auto_thread_done.exit, label %12
 
 12:                                               ; preds = %mi_heap_main_init.exit
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -771,8 +771,8 @@ define hidden void @_mi_process_done() local_unnamed_addr #1 {
   %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !23, !range !49, !noundef !50
   %2 = trunc nuw i8 %1 to i1
   %.not = xor i1 %2, true
-  %.b4 = load i1, ptr @_mi_process_done.process_done, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b4
+  %.b = load i1, ptr @_mi_process_done.process_done, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %15, label %3
 
 3:                                                ; preds = %0

@@ -155,8 +155,8 @@ _ZN4absl12lts_202407228AlphaNumC2EPKc.exit:       ; preds = %3, %22
           to label %34 unwind label %49
 
 34:                                               ; preds = %_ZN4absl12lts_202407228AlphaNumC2EPKc.exit
-  %.b5.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
-  br i1 %.b5.i, label %35, label %_ZL24fork_fd_list_add_grpc_fdP7grpc_fd.exit
+  %.b.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  br i1 %.b.i, label %35, label %_ZL24fork_fd_list_add_grpc_fdP7grpc_fd.exit
 
 35:                                               ; preds = %34
   %36 = invoke ptr @gpr_malloc(i64 noundef 32)
@@ -731,8 +731,8 @@ define internal void @_ZL15pollset_destroyP12grpc_pollset(ptr noundef %0) #3 per
   %9 = phi ptr [ %11, %_ZL29fork_fd_list_remove_wakeup_fdP21grpc_cached_wakeup_fd.exit ], [ %7, %.critedge.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !74
-  %.b1.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
-  br i1 %.b1.i, label %12, label %_ZL29fork_fd_list_remove_wakeup_fdP21grpc_cached_wakeup_fd.exit
+  %.b.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  br i1 %.b.i, label %12, label %_ZL29fork_fd_list_remove_wakeup_fdP21grpc_cached_wakeup_fd.exit
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -861,9 +861,9 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %38, %36
   %.pre = load ptr, ptr %12, align 8, !tbaa !82
-  %.b5.i.pre = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  %.b.i.pre = load i1, ptr @_ZL18track_fds_for_fork, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %.b5.i.pre, label %39, label %_ZL26fork_fd_list_add_wakeup_fdP21grpc_cached_wakeup_fd.exit
+  br i1 %.b.i.pre, label %39, label %_ZL26fork_fd_list_add_wakeup_fdP21grpc_cached_wakeup_fd.exit
 
 39:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %40 = invoke ptr @gpr_malloc(i64 noundef 32)
@@ -1221,8 +1221,8 @@ _ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit: ; preds = %_ZN9
           to label %.noexc248 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc248:                                        ; preds = %.noexc247
-  %.b1.i.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
-  br i1 %.b1.i.i, label %168, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit.i
+  %.b.i.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  br i1 %.b.i.i, label %168, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit.i
 
 168:                                              ; preds = %.noexc248
   %169 = getelementptr inbounds nuw i8, ptr %.pre347, i64 160
@@ -1497,8 +1497,8 @@ _ZL13fd_begin_pollP7grpc_fdP12grpc_pollsetP19grpc_pollset_workerjjP15grpc_fd_wat
           to label %.noexc264 unwind label %.loopexit298
 
 .noexc264:                                        ; preds = %.noexc263
-  %.b1.i.i254 = load i1, ptr @_ZL18track_fds_for_fork, align 1
-  br i1 %.b1.i.i254, label %273, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit.i255
+  %.b.i.i254 = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  br i1 %.b.i.i254, label %273, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit.i255
 
 273:                                              ; preds = %.noexc264
   %274 = getelementptr inbounds nuw i8, ptr %220, i64 160
@@ -2993,8 +2993,8 @@ define internal fastcc void @_ZL8unref_byP7grpc_fdi(ptr noundef %0) unnamed_addr
   tail call void @gpr_mu_destroy(ptr noundef nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_Z28grpc_iomgr_unregister_objectP17grpc_iomgr_object(ptr noundef nonnull %8)
-  %.b1.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
-  br i1 %.b1.i, label %9, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit
+  %.b.i = load i1, ptr @_ZL18track_fds_for_fork, align 1
+  br i1 %.b.i, label %9, label %_ZL27fork_fd_list_remove_grpc_fdP7grpc_fd.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160

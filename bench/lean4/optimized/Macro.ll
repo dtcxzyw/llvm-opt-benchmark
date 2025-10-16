@@ -28879,8 +28879,8 @@ declare ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Macro(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -28909,17 +28909,17 @@ define ptr @initialize_Lean_Elab_Macro(i8 noundef zeroext %0, ptr noundef readno
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #5
   store ptr %18, ptr @l_Lean_Elab_Command_elabMacro___lambda__2___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %18) #5
@@ -29228,11 +29228,11 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit
 
-178:                                              ; preds = %lean_dec_ref.exit16
+178:                                              ; preds = %lean_dec_ref.exit15
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit: ; preds = %lean_dec_ref.exit16
+_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit: ; preds = %lean_dec_ref.exit15
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 1, ptr %176, align 4, !tbaa !4
   store i32 -184549352, ptr %179, align 4
@@ -29245,7 +29245,7 @@ _init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1_
   store ptr %176, ptr @l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %176) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit14, label %183
+  br i1 %.not, label %lean_dec_ref.exit13, label %183
 
 183:                                              ; preds = %_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit
   %184 = load ptr, ptr @l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__4, align 8, !tbaa !10
@@ -29254,9 +29254,9 @@ _init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1_
   %187 = load ptr, ptr @l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5, align 8, !tbaa !10
   %188 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %184, ptr noundef %185, ptr noundef %186, ptr noundef %187, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %189 = getelementptr i8, ptr %188, i64 4
-  %.val17 = load i32, ptr %189, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %190 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %189, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %190 = icmp eq i32 %.mask.i18, 16777216
   br i1 %190, label %269, label %191
 
 191:                                              ; preds = %183
@@ -29267,27 +29267,27 @@ _init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1_
 194:                                              ; preds = %191
   %195 = add nsw i32 %192, -1
   store i32 %195, ptr %188, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 196:                                              ; preds = %191
-  %.not.i13 = icmp eq i32 %192, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %197
+  %.not.i12 = icmp eq i32 %192, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %197
 
 197:                                              ; preds = %196
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %188) #5
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %197, %196, %194, %_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit
+lean_dec_ref.exit13:                              ; preds = %197, %196, %194, %_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro__1___closed__5.exit
   tail call void @lean_inc_heartbeat() #5
   %198 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %199 = icmp eq ptr %198, null
   br i1 %199, label %200, label %_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro_declRange__3___closed__1.exit
 
-200:                                              ; preds = %lean_dec_ref.exit14
+200:                                              ; preds = %lean_dec_ref.exit13
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit14
+_init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit13
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 1, ptr %198, align 4, !tbaa !4
   store i32 131096, ptr %201, align 4
@@ -29432,9 +29432,9 @@ _init_l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro_dec
   %252 = load ptr, ptr @l_Lean_Elab_Command_elabMacro___regBuiltin_Lean_Elab_Command_elabMacro_declRange__3___closed__7, align 8, !tbaa !10
   %253 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %251, ptr noundef %252, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %254 = getelementptr i8, ptr %253, i64 4
-  %.val18 = load i32, ptr %254, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %255 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %254, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %255 = icmp eq i32 %.mask.i19, 16777216
   br i1 %255, label %269, label %256
 
 256:                                              ; preds = %250
@@ -29466,18 +29466,18 @@ lean_dec_ref.exit:                                ; preds = %262, %261, %259, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink40 = phi ptr [ %4, %3 ], [ %263, %lean_dec_ref.exit ]
-  %266 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
-  store i32 1, ptr %.sink40, align 4, !tbaa !4
+  %.sink39 = phi ptr [ %4, %3 ], [ %263, %lean_dec_ref.exit ]
+  %266 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
+  store i32 1, ptr %.sink39, align 4, !tbaa !4
   store i32 131096, ptr %266, align 4
-  %267 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %267, align 8, !tbaa !10
-  %268 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %268, align 8, !tbaa !10
   br label %269
 
 269:                                              ; preds = %.sink.split, %250, %183, %7
-  %.0 = phi ptr [ %8, %7 ], [ %188, %183 ], [ %253, %250 ], [ %.sink40, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %188, %183 ], [ %253, %250 ], [ %.sink39, %.sink.split ]
   ret ptr %.0
 }
 

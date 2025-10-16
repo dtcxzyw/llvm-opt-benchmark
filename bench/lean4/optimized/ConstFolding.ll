@@ -10360,8 +10360,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_ConstFolding(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -10494,8 +10494,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__6.exit: ; preds = %_init_l_Lean_C
   %59 = tail call ptr @lean_string_append(ptr noundef %58, ptr noundef %57) #5
   %60 = ptrtoint ptr %57 to i64
   %61 = and i64 %60, 1
-  %.not.i.i5 = icmp eq i64 %61, 0
-  br i1 %.not.i.i5, label %62, label %_init_l_Lean_Compiler_numScalarTypes___closed__7.exit
+  %.not.i.i4 = icmp eq i64 %61, 0
+  br i1 %.not.i.i4, label %62, label %_init_l_Lean_Compiler_numScalarTypes___closed__7.exit
 
 62:                                               ; preds = %_init_l_Lean_Compiler_numScalarTypes___closed__6.exit
   %63 = load i32, ptr %57, align 4, !tbaa !8
@@ -10508,8 +10508,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__6.exit: ; preds = %_init_l_Lean_C
   br label %_init_l_Lean_Compiler_numScalarTypes___closed__7.exit
 
 67:                                               ; preds = %62
-  %.not.i.i.i6 = icmp eq i32 %63, 0
-  br i1 %.not.i.i.i6, label %_init_l_Lean_Compiler_numScalarTypes___closed__7.exit, label %68
+  %.not.i.i.i5 = icmp eq i32 %63, 0
+  br i1 %.not.i.i.i5, label %_init_l_Lean_Compiler_numScalarTypes___closed__7.exit, label %68
 
 68:                                               ; preds = %67
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %57) #5
@@ -10562,8 +10562,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__10.exit: ; preds = %_init_l_Lean_
   %90 = tail call ptr @lean_string_append(ptr noundef %89, ptr noundef %88) #5
   %91 = ptrtoint ptr %88 to i64
   %92 = and i64 %91, 1
-  %.not.i.i7 = icmp eq i64 %92, 0
-  br i1 %.not.i.i7, label %93, label %_init_l_Lean_Compiler_numScalarTypes___closed__11.exit
+  %.not.i.i6 = icmp eq i64 %92, 0
+  br i1 %.not.i.i6, label %93, label %_init_l_Lean_Compiler_numScalarTypes___closed__11.exit
 
 93:                                               ; preds = %_init_l_Lean_Compiler_numScalarTypes___closed__10.exit
   %94 = load i32, ptr %88, align 4, !tbaa !8
@@ -10576,8 +10576,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__10.exit: ; preds = %_init_l_Lean_
   br label %_init_l_Lean_Compiler_numScalarTypes___closed__11.exit
 
 98:                                               ; preds = %93
-  %.not.i.i.i8 = icmp eq i32 %94, 0
-  br i1 %.not.i.i.i8, label %_init_l_Lean_Compiler_numScalarTypes___closed__11.exit, label %99
+  %.not.i.i.i7 = icmp eq i32 %94, 0
+  br i1 %.not.i.i.i7, label %_init_l_Lean_Compiler_numScalarTypes___closed__11.exit, label %99
 
 99:                                               ; preds = %98
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %88) #5
@@ -10631,8 +10631,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__14.exit: ; preds = %_init_l_Lean_
   %122 = tail call ptr @lean_string_append(ptr noundef %121, ptr noundef %120) #5
   %123 = ptrtoint ptr %120 to i64
   %124 = and i64 %123, 1
-  %.not.i.i9 = icmp eq i64 %124, 0
-  br i1 %.not.i.i9, label %125, label %_init_l_Lean_Compiler_numScalarTypes___closed__15.exit
+  %.not.i.i8 = icmp eq i64 %124, 0
+  br i1 %.not.i.i8, label %125, label %_init_l_Lean_Compiler_numScalarTypes___closed__15.exit
 
 125:                                              ; preds = %_init_l_Lean_Compiler_numScalarTypes___closed__14.exit
   %126 = load i32, ptr %120, align 4, !tbaa !8
@@ -10645,8 +10645,8 @@ _init_l_Lean_Compiler_numScalarTypes___closed__14.exit: ; preds = %_init_l_Lean_
   br label %_init_l_Lean_Compiler_numScalarTypes___closed__15.exit
 
 130:                                              ; preds = %125
-  %.not.i.i.i10 = icmp eq i32 %126, 0
-  br i1 %.not.i.i.i10, label %_init_l_Lean_Compiler_numScalarTypes___closed__15.exit, label %131
+  %.not.i.i.i9 = icmp eq i32 %126, 0
+  br i1 %.not.i.i.i9, label %_init_l_Lean_Compiler_numScalarTypes___closed__15.exit, label %131
 
 131:                                              ; preds = %130
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %120) #5
@@ -12850,18 +12850,18 @@ _init_l_Lean_Compiler_unFoldFns___closed__10.exit: ; preds = %_init_l_Lean_Compi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Compiler_unFoldFns___closed__10.exit, %3
-  %.sink118 = phi ptr [ %4, %3 ], [ %960, %_init_l_Lean_Compiler_unFoldFns___closed__10.exit ]
-  %963 = getelementptr inbounds nuw i8, ptr %.sink118, i64 4
-  store i32 1, ptr %.sink118, align 4, !tbaa !8
+  %.sink117 = phi ptr [ %4, %3 ], [ %960, %_init_l_Lean_Compiler_unFoldFns___closed__10.exit ]
+  %963 = getelementptr inbounds nuw i8, ptr %.sink117, i64 4
+  store i32 1, ptr %.sink117, align 4, !tbaa !8
   store i32 131096, ptr %963, align 4
-  %964 = getelementptr inbounds nuw i8, ptr %.sink118, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %.sink117, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %964, align 8, !tbaa !4
-  %965 = getelementptr inbounds nuw i8, ptr %.sink118, i64 16
+  %965 = getelementptr inbounds nuw i8, ptr %.sink117, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %965, align 8, !tbaa !4
   br label %966
 
 966:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink118, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink117, %.sink.split ]
   ret ptr %.0
 }
 

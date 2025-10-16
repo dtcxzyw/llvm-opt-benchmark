@@ -2019,37 +2019,37 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
   br i1 %30, label %51, label %31
 
 31:                                               ; preds = %29
-  br i1 %11, label %content_get_nibble_value.exit, label %.preheader18.i
+  br i1 %11, label %content_get_nibble_value.exit, label %.preheader17.i
 
-.preheader18.i:                                   ; preds = %31, %.preheader18.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader18.i ], [ 97, %31 ]
+.preheader17.i:                                   ; preds = %31, %.preheader17.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader17.i ], [ 97, %31 ]
   %32 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv.i
   %33 = trunc i64 %indvars.iv.i to i8
   %34 = add i8 %33, -87
   store i8 %34, ptr %32, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 103
-  br i1 %exitcond.not.i, label %.preheader17.i, label %.preheader18.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %.preheader16.i, label %.preheader17.i, !llvm.loop !64
 
-.preheader17.i:                                   ; preds = %.preheader18.i, %.preheader17.i
-  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.preheader17.i ], [ 65, %.preheader18.i ]
-  %35 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv23.i
-  %36 = trunc i64 %indvars.iv23.i to i8
+.preheader16.i:                                   ; preds = %.preheader17.i, %.preheader16.i
+  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.preheader16.i ], [ 65, %.preheader17.i ]
+  %35 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv22.i
+  %36 = trunc i64 %indvars.iv22.i to i8
   %37 = add i8 %36, -55
   store i8 %37, ptr %35, align 1
-  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 71
-  br i1 %exitcond26.not.i, label %.preheader.i, label %.preheader17.i, !llvm.loop !65
+  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 71
+  br i1 %exitcond25.not.i, label %.preheader.i, label %.preheader16.i, !llvm.loop !65
 
-.preheader.i:                                     ; preds = %.preheader17.i, %.preheader.i
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.preheader.i ], [ 48, %.preheader17.i ]
-  %38 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv27.i
-  %39 = trunc i64 %indvars.iv27.i to i8
+.preheader.i:                                     ; preds = %.preheader16.i, %.preheader.i
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.preheader.i ], [ 48, %.preheader16.i ]
+  %38 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv26.i
+  %39 = trunc i64 %indvars.iv26.i to i8
   %40 = add i8 %39, -48
   store i8 %40, ptr %38, align 1
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 58
-  br i1 %exitcond30.not.i, label %41, label %.preheader.i, !llvm.loop !66
+  %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next27.i, 58
+  br i1 %exitcond29.not.i, label %41, label %.preheader.i, !llvm.loop !66
 
 41:                                               ; preds = %.preheader.i
   store i1 true, ptr @content_get_nibble_value.values_set, align 1

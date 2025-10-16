@@ -654,27 +654,27 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
 
 79:                                               ; preds = %75, %72
   %80 = call ptr @strtok_r(ptr noundef nonnull %66, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #9
-  %.not53.i = icmp eq ptr %80, null
-  br i1 %.not53.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i
+  %.not52.i = icmp eq ptr %80, null
+  br i1 %.not52.i, label %_validate_ranks.exit.thread71, label %.lr.ph54.i
 
-.lr.ph55.i:                                       ; preds = %79, %124
-  %.03354.i = phi ptr [ %125, %124 ], [ %80, %79 ]
+.lr.ph54.i:                                       ; preds = %79, %124
+  %.03353.i = phi ptr [ %125, %124 ], [ %80, %79 ]
   %81 = load ptr, ptr %14, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 124
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 4
-  %85 = load i8, ptr %.03354.i, align 1
-  %.not3747.i = icmp eq i8 %85, 0
-  br i1 %.not3747.i, label %.critedge.i, label %.lr.ph.i
+  %85 = load i8, ptr %.03353.i, align 1
+  %.not3746.i = icmp eq i8 %85, 0
+  br i1 %.not3746.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph55.i
+.lr.ph.i:                                         ; preds = %.lr.ph54.i
   %86 = load ptr, ptr %54, align 8
   br label %87
 
 87:                                               ; preds = %93, %.lr.ph.i
   %88 = phi i8 [ %85, %.lr.ph.i ], [ %95, %93 ]
-  %.03248.i = phi ptr [ %.03354.i, %.lr.ph.i ], [ %94, %93 ]
+  %.03247.i = phi ptr [ %.03353.i, %.lr.ph.i ], [ %94, %93 ]
   %89 = sext i8 %88 to i64
   %90 = getelementptr inbounds i16, ptr %86, i64 %89
   %91 = load i16, ptr %90, align 2
@@ -683,16 +683,16 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   br i1 %.not38.i, label %.critedge.i, label %93
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %.03248.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 1
   %95 = load i8, ptr %94, align 1
   %.not37.i = icmp eq i8 %95, 0
   br i1 %.not37.i, label %.critedge.i, label %87, !llvm.loop !19
 
-.critedge.i:                                      ; preds = %93, %87, %.lr.ph55.i
-  %.032.lcssa.i = phi ptr [ %.03354.i, %.lr.ph55.i ], [ %.03248.i, %87 ], [ %94, %93 ]
-  %.lcssa.i = phi i8 [ 0, %.lr.ph55.i ], [ %88, %87 ], [ 0, %93 ]
-  %.b39.i = load i1, ptr @_validate_ranks.has_asterisk, align 1
-  br i1 %.b39.i, label %96, label %98
+.critedge.i:                                      ; preds = %93, %87, %.lr.ph54.i
+  %.032.lcssa.i = phi ptr [ %.03353.i, %.lr.ph54.i ], [ %.03247.i, %87 ], [ %94, %93 ]
+  %.lcssa.i = phi i8 [ 0, %.lr.ph54.i ], [ %88, %87 ], [ 0, %93 ]
+  %.b.i = load i1, ptr @_validate_ranks.has_asterisk, align 1
+  br i1 %.b.i, label %96, label %98
 
 96:                                               ; preds = %.critedge.i
   %97 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #9
@@ -705,7 +705,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   ]
 
 99:                                               ; preds = %98
-  %100 = call i64 @strtol(ptr noundef nonnull captures(none) %.03354.i, ptr noundef null, i32 noundef 10) #9
+  %100 = call i64 @strtol(ptr noundef nonnull captures(none) %.03353.i, ptr noundef null, i32 noundef 10) #9
   %101 = trunc i64 %100 to i32
   br label %122
 
@@ -721,40 +721,40 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %108 = getelementptr inbounds i16, ptr %104, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = and i16 %109, 2048
-  %.not40.i = icmp eq i16 %110, 0
+  %.not39.i = icmp eq i16 %110, 0
   %111 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br i1 %.not40.i, label %112, label %105, !llvm.loop !20
+  br i1 %.not39.i, label %112, label %105, !llvm.loop !20
 
 112:                                              ; preds = %105
-  %.not41.i = icmp eq i8 %106, 0
-  br i1 %.not41.i, label %115, label %113
+  %.not40.i = icmp eq i8 %106, 0
+  br i1 %.not40.i, label %115, label %113
 
 113:                                              ; preds = %112
   %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16) #9
   br label %_validate_ranks.exit.thread
 
 115:                                              ; preds = %112
-  %116 = call i64 @strtol(ptr noundef nonnull captures(none) %.03354.i, ptr noundef null, i32 noundef 10) #9
+  %116 = call i64 @strtol(ptr noundef nonnull captures(none) %.03353.i, ptr noundef null, i32 noundef 10) #9
   %117 = trunc i64 %116 to i32
   %118 = call i64 @strtol(ptr noundef nonnull captures(none) %103, ptr noundef null, i32 noundef 10) #9
   %119 = trunc i64 %118 to i32
   br label %122
 
 120:                                              ; preds = %98
-  %121 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef nonnull %.03354.i) #9
+  %121 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef nonnull %.03353.i) #9
   br label %_validate_ranks.exit.thread
 
 122:                                              ; preds = %115, %99
   %.031.i = phi i32 [ %101, %99 ], [ %117, %115 ]
   %.0.i = phi i32 [ %101, %99 ], [ %119, %115 ]
   %123 = call fastcc i32 @_update_task_mask(i32 noundef %.031.i, i32 noundef %.0.i, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext false)
-  %.not42.i = icmp eq i32 %123, 0
-  br i1 %.not42.i, label %124, label %_validate_ranks.exit.thread
+  %.not41.i = icmp eq i32 %123, 0
+  br i1 %.not41.i, label %124, label %_validate_ranks.exit.thread
 
 124:                                              ; preds = %122
   %125 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #9
   %.not.i = icmp eq ptr %125, null
-  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !21
+  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph54.i, !llvm.loop !21
 
 _validate_ranks.exit.thread:                      ; preds = %122, %96, %113, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -888,8 +888,8 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   %18 = load i8, ptr %17, align 4, !range !22, !noundef !23
   %19 = trunc nuw i8 %18 to i1
   %.not = xor i1 %19, true
-  %.b31 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
-  %or.cond = select i1 %.not, i1 true, i1 %.b31
+  %.b = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b
   br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %16
@@ -910,29 +910,29 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %31
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %31 ], [ %26, %.lr.ph ]
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %31 ], [ %26, %.lr.ph ]
   %27 = load ptr, ptr %3, align 8
-  %28 = tail call i32 @slurm_bit_test(ptr noundef %27, i64 noundef %indvars.iv41) #9
-  %.not33.us = icmp eq i32 %28, 0
-  br i1 %.not33.us, label %29, label %31
+  %28 = tail call i32 @slurm_bit_test(ptr noundef %27, i64 noundef %indvars.iv40) #9
+  %.not32.us = icmp eq i32 %28, 0
+  br i1 %.not32.us, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.split.us
   %30 = load ptr, ptr %3, align 8
-  tail call void @bit_set(ptr noundef %30, i64 noundef %indvars.iv41) #9
+  tail call void @bit_set(ptr noundef %30, i64 noundef %indvars.iv40) #9
   br label %31
 
 31:                                               ; preds = %.lr.ph.split.us, %29
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %32 = trunc nuw i64 %indvars.iv41 to i32
-  %.not32.us.not = icmp sgt i32 %1, %32
-  br i1 %.not32.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %32 = trunc nuw i64 %indvars.iv40 to i32
+  %.not31.us.not = icmp sgt i32 %1, %32
+  br i1 %.not31.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %26, %.lr.ph ]
   %33 = load ptr, ptr %3, align 8
   %34 = tail call i32 @slurm_bit_test(ptr noundef %33, i64 noundef %indvars.iv) #9
-  %.not33 = icmp eq i32 %34, 0
-  br i1 %.not33, label %38, label %35
+  %.not32 = icmp eq i32 %34, 0
+  br i1 %.not32, label %38, label %35
 
 35:                                               ; preds = %.lr.ph.split
   %36 = trunc nuw i64 %indvars.iv to i32
@@ -944,8 +944,8 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   tail call void @bit_set(ptr noundef %39, i64 noundef %indvars.iv) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = trunc nuw i64 %indvars.iv to i32
-  %.not32.not = icmp sgt i32 %1, %40
-  br i1 %.not32.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
+  %.not31.not = icmp sgt i32 %1, %40
+  br i1 %.not31.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %38, %31, %35, %20, %11, %7
   %.026 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %35 ], [ -1, %20 ], [ 0, %31 ], [ 0, %38 ]

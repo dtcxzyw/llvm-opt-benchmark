@@ -351,8 +351,8 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden zeroext i1 @sscop_allowed_subdissector(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
-  %.b1.i = load i1, ptr @initialize_handles_once.initialized, align 1
-  br i1 %.b1.i, label %.initialize_handles_once.exit_crit_edge, label %2
+  %.b.i = load i1, ptr @initialize_handles_once.initialized, align 1
+  br i1 %.b.i, label %.initialize_handles_once.exit_crit_edge, label %2
 
 .initialize_handles_once.exit_crit_edge:          ; preds = %1
   %.pre = load ptr, ptr @nbap_handle, align 8
@@ -392,12 +392,12 @@ initialize_handles_once.exit:                     ; preds = %.initialize_handles
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_sscop() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_sscop.prefs_initialized, align 1
-  br i1 %.b1, label %10, label %1
+  %.b = load i1, ptr @proto_reg_handoff_sscop.prefs_initialized, align 1
+  br i1 %.b, label %10, label %1
 
 1:                                                ; preds = %0
-  %.b1.i = load i1, ptr @initialize_handles_once.initialized, align 1
-  br i1 %.b1.i, label %initialize_handles_once.exit, label %2
+  %.b.i = load i1, ptr @initialize_handles_once.initialized, align 1
+  br i1 %.b.i, label %initialize_handles_once.exit, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @find_dissector(ptr noundef nonnull @.str.45)

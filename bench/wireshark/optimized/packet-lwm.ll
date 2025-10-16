@@ -216,8 +216,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lwm() #0 {
-  %.b4 = load i1, ptr @proto_reg_handoff_lwm.initialized, align 1
-  br i1 %.b4, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_lwm.initialized, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @lwm_handle, align 8

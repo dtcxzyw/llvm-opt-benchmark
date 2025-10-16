@@ -2249,8 +2249,8 @@ define hidden void @proto_reg_handoff_ssl() #0 {
 
 ssl_parse_old_keys.exit:                          ; preds = %13, %18, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.b6 = load i1, ptr @proto_reg_handoff_ssl.initialized, align 1
-  br i1 %.b6, label %62, label %56
+  %.b = load i1, ptr @proto_reg_handoff_ssl.initialized, align 1
+  br i1 %.b, label %62, label %56
 
 56:                                               ; preds = %ssl_parse_old_keys.exit
   store i1 true, ptr @proto_reg_handoff_ssl.initialized, align 1

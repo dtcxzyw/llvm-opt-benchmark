@@ -1095,8 +1095,8 @@ define internal fastcc void @do_init() unnamed_addr #4 {
 
 16:                                               ; preds = %15, %11
   %17 = phi ptr [ @.str.103, %15 ], [ %13, %11 ]
-  %.b1 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1, label %20, label %18
+  %.b = load i1, ptr @silent_mode, align 1
+  br i1 %.b, label %20, label %18
 
 18:                                               ; preds = %16
   %19 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.108, ptr noundef %7, ptr noundef nonnull %12, ptr noundef nonnull %17) #17
@@ -1249,18 +1249,18 @@ define internal fastcc void @do_start() unnamed_addr #4 {
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %10, %8
-  %.pre36.pr = load i32, ptr @ctl_command, align 4
+  %.pre35.pr = load i32, ptr @ctl_command, align 4
   br label %12
 
 12:                                               ; preds = %thread-pre-split, %0
-  %.pre36 = phi i32 [ %.pre36.pr, %thread-pre-split ], [ 4, %0 ]
+  %.pre35 = phi i32 [ %.pre35.pr, %thread-pre-split ], [ 4, %0 ]
   %13 = load ptr, ptr @post_opts, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %read_post_opts.exit
 
 15:                                               ; preds = %12
   store ptr @.str.103, ptr @post_opts, align 8
-  %16 = icmp eq i32 %.pre36, 4
+  %16 = icmp eq i32 %.pre35, 4
   br i1 %16, label %17, label %read_post_opts.exit
 
 17:                                               ; preds = %15
@@ -1332,7 +1332,7 @@ free_readfile.exit.i:                             ; preds = %.lr.ph.i.i, %.prehe
   br label %read_post_opts.exit
 
 read_post_opts.exit:                              ; preds = %12, %15, %free_readfile.exit.i
-  %43 = phi i32 [ %.pre36, %12 ], [ %.pre36, %15 ], [ %.pre, %free_readfile.exit.i ]
+  %43 = phi i32 [ %.pre35, %12 ], [ %.pre35, %15 ], [ %.pre, %free_readfile.exit.i ]
   %44 = icmp eq i32 %43, 4
   %45 = load ptr, ptr @pgdata_opt, align 8
   %46 = icmp eq ptr %45, null
@@ -1355,8 +1355,8 @@ read_post_opts.exit:                              ; preds = %12, %15, %free_read
   br label %54
 
 54:                                               ; preds = %51, %48
-  %.b46 = load i1, ptr @allow_core_files, align 1
-  br i1 %.b46, label %55, label %66
+  %.b4 = load i1, ptr @allow_core_files, align 1
+  br i1 %.b4, label %55, label %66
 
 55:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1405,8 +1405,8 @@ unlimit_core_size.exit:                           ; preds = %59, %61, %64
   unreachable
 
 75:                                               ; preds = %66
-  %.not.i7 = icmp eq i32 %71, 0
-  br i1 %.not.i7, label %76, label %start_postmaster.exit
+  %.not.i6 = icmp eq i32 %71, 0
+  br i1 %.not.i6, label %76, label %start_postmaster.exit
 
 76:                                               ; preds = %75
   %77 = call i32 @setsid() #17
@@ -1450,8 +1450,8 @@ start_postmaster.exit:                            ; preds = %75
 93:                                               ; preds = %start_postmaster.exit
   store volatile i32 %71, ptr @postmasterPID, align 4
   call void @pqsignal_fe(i32 noundef 2, ptr noundef nonnull @trap_sigint_during_startup) #17
-  %.b1.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i, label %print_msg.exit, label %94
+  %.b.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i, label %print_msg.exit, label %94
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr @stdout, align 8
@@ -1464,7 +1464,7 @@ print_msg.exit:                                   ; preds = %93, %94
   %99 = load i32, ptr @wait_seconds, align 4
   %100 = mul i32 %99, 10
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph.i, label %.loopexit31
+  br i1 %101, label %.lr.ph.i, label %.loopexit30
 
 .lr.ph.i:                                         ; preds = %print_msg.exit, %157
   %.02851.i = phi i32 [ %158, %157 ], [ 0, %print_msg.exit ]
@@ -1482,8 +1482,8 @@ print_msg.exit:                                   ; preds = %93, %94
   %109 = call i64 @strtoll(ptr noundef nonnull captures(none) %108, ptr noundef null, i32 noundef 10) #17
   %110 = load i64, ptr @start_time, align 8
   %111 = add i64 %110, -2
-  %.not.i8 = icmp slt i64 %109, %111
-  br i1 %.not.i8, label %.preheader.i32.i, label %112
+  %.not.i7 = icmp slt i64 %109, %111
+  br i1 %.not.i7, label %.preheader.i32.i, label %112
 
 112:                                              ; preds = %106
   %113 = load ptr, ptr %102, align 8
@@ -1497,28 +1497,28 @@ print_msg.exit:                                   ; preds = %93, %94
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(9) @.str.143) #18
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.preheader.i.i9, label %122
+  br i1 %121, label %.preheader.i.i8, label %122
 
 122:                                              ; preds = %117
   %123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %119, ptr noundef nonnull dereferenceable(9) @.str.144) #18
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %.preheader.i.i9, label %.preheader.i32.i
+  br i1 %124, label %.preheader.i.i8, label %.preheader.i32.i
 
-.preheader.i.i9:                                  ; preds = %122, %117
+.preheader.i.i8:                                  ; preds = %122, %117
   %125 = load ptr, ptr %102, align 8
-  %.not56.i.i10 = icmp eq ptr %125, null
-  br i1 %.not56.i.i10, label %.loopexit, label %.lr.ph.i.i11
+  %.not56.i.i9 = icmp eq ptr %125, null
+  br i1 %.not56.i.i9, label %.loopexit, label %.lr.ph.i.i10
 
-.lr.ph.i.i11:                                     ; preds = %.preheader.i.i9, %.lr.ph.i.i11
-  %126 = phi ptr [ %130, %.lr.ph.i.i11 ], [ %125, %.preheader.i.i9 ]
-  %.07.i.i12 = phi i32 [ %127, %.lr.ph.i.i11 ], [ 0, %.preheader.i.i9 ]
-  %127 = add i32 %.07.i.i12, 1
+.lr.ph.i.i10:                                     ; preds = %.preheader.i.i8, %.lr.ph.i.i10
+  %126 = phi ptr [ %130, %.lr.ph.i.i10 ], [ %125, %.preheader.i.i8 ]
+  %.07.i.i11 = phi i32 [ %127, %.lr.ph.i.i10 ], [ 0, %.preheader.i.i8 ]
+  %127 = add i32 %.07.i.i11, 1
   call void @free(ptr noundef nonnull %126) #17
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds ptr, ptr %102, i64 %128
   %130 = load ptr, ptr %129, align 8
-  %.not5.i.i13 = icmp eq ptr %130, null
-  br i1 %.not5.i.i13, label %.loopexit, label %.lr.ph.i.i11, !llvm.loop !7
+  %.not5.i.i12 = icmp eq ptr %130, null
+  br i1 %.not5.i.i12, label %.loopexit, label %.lr.ph.i.i10, !llvm.loop !7
 
 131:                                              ; preds = %.lr.ph.i
   %.not.i31.i = icmp eq ptr %102, null
@@ -1581,8 +1581,8 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   br i1 %151, label %152, label %157
 
 152:                                              ; preds = %149
-  %.b1.i.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i.i, label %157, label %153
+  %.b.i.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i.i, label %157, label %153
 
 153:                                              ; preds = %152
   %154 = load ptr, ptr @stdout, align 8
@@ -1598,28 +1598,28 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   %159 = load i32, ptr @wait_seconds, align 4
   %160 = mul i32 %159, 10
   %161 = icmp slt i32 %158, %160
-  br i1 %161, label %.lr.ph.i, label %.loopexit31, !llvm.loop !10
+  br i1 %161, label %.lr.ph.i, label %.loopexit30, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph.i.i11, %.preheader.i.i9
+.loopexit:                                        ; preds = %.lr.ph.i.i10, %.preheader.i.i8
   call void @free(ptr noundef nonnull %102) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.b1.i14 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i14, label %print_msg.exit17, label %print_msg.exit15
+  %.b.i13 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i13, label %print_msg.exit16, label %print_msg.exit14
 
-print_msg.exit15:                                 ; preds = %.loopexit
+print_msg.exit14:                                 ; preds = %.loopexit
   %162 = load ptr, ptr @stdout, align 8
   %163 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %162)
   %164 = load ptr, ptr @stdout, align 8
   %165 = call i32 @fflush(ptr noundef %164)
-  %.b1.i16.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i16.pr, label %print_msg.exit17, label %166
+  %.b.i15.pr = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i15.pr, label %print_msg.exit16, label %166
 
-166:                                              ; preds = %print_msg.exit15
+166:                                              ; preds = %print_msg.exit14
   %167 = load ptr, ptr @stdout, align 8
   %168 = call i64 @fwrite(ptr nonnull @.str.126, i64 15, i64 1, ptr %167)
-  br label %print_msg.exit17.sink.split
+  br label %print_msg.exit16.sink.split
 
-.loopexit31:                                      ; preds = %157, %print_msg.exit
+.loopexit30:                                      ; preds = %157, %print_msg.exit
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
   %169 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.128, ptr noundef %169)
@@ -1627,21 +1627,21 @@ print_msg.exit15:                                 ; preds = %.loopexit
   unreachable
 
 170:                                              ; preds = %.thread43.i
-  %.b1.i18 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i18, label %print_msg.exit17, label %print_msg.exit19
+  %.b.i17 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i17, label %print_msg.exit16, label %print_msg.exit18
 
-print_msg.exit19:                                 ; preds = %170
+print_msg.exit18:                                 ; preds = %170
   %171 = load ptr, ptr @stdout, align 8
   %172 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %171)
   %173 = load ptr, ptr @stdout, align 8
   %174 = call i32 @fflush(ptr noundef %173)
-  %.b1.i20.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i20.pr, label %print_msg.exit17, label %175
+  %.b.i19.pr = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i19.pr, label %print_msg.exit16, label %175
 
-175:                                              ; preds = %print_msg.exit19
+175:                                              ; preds = %print_msg.exit18
   %176 = load ptr, ptr @stdout, align 8
   %177 = call i64 @fwrite(ptr nonnull @.str.129, i64 53, i64 1, ptr %176)
-  br label %print_msg.exit17.sink.split
+  br label %print_msg.exit16.sink.split
 
 178:                                              ; preds = %.thread43.i
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
@@ -1651,20 +1651,20 @@ print_msg.exit19:                                 ; preds = %170
   unreachable
 
 180:                                              ; preds = %start_postmaster.exit
-  %.b1.i22 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i22, label %print_msg.exit17, label %181
+  %.b.i21 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i21, label %print_msg.exit16, label %181
 
 181:                                              ; preds = %180
   %182 = load ptr, ptr @stdout, align 8
   %183 = call i64 @fwrite(ptr nonnull @.str.131, i64 16, i64 1, ptr %182)
-  br label %print_msg.exit17.sink.split
+  br label %print_msg.exit16.sink.split
 
-print_msg.exit17.sink.split:                      ; preds = %166, %175, %181
+print_msg.exit16.sink.split:                      ; preds = %166, %175, %181
   %184 = load ptr, ptr @stdout, align 8
   %185 = call i32 @fflush(ptr noundef %184)
-  br label %print_msg.exit17
+  br label %print_msg.exit16
 
-print_msg.exit17:                                 ; preds = %print_msg.exit17.sink.split, %170, %.loopexit, %180, %print_msg.exit19, %print_msg.exit15
+print_msg.exit16:                                 ; preds = %print_msg.exit16.sink.split, %170, %.loopexit, %180, %print_msg.exit18, %print_msg.exit14
   ret void
 }
 
@@ -1706,11 +1706,11 @@ define internal fastcc void @do_stop() unnamed_addr #4 {
 
 15:                                               ; preds = %10
   %.b = load i1, ptr @do_wait, align 1
-  %.b1.i = load i1, ptr @silent_mode, align 1
+  %.b.i = load i1, ptr @silent_mode, align 1
   br i1 %.b, label %16, label %20
 
 16:                                               ; preds = %15
-  br i1 %.b1.i, label %print_msg.exit, label %17
+  br i1 %.b.i, label %print_msg.exit, label %17
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @stdout, align 8
@@ -1718,7 +1718,7 @@ define internal fastcc void @do_stop() unnamed_addr #4 {
   br label %print_msg.exit.sink.split
 
 20:                                               ; preds = %15
-  br i1 %.b1.i, label %print_msg.exit7, label %21
+  br i1 %.b.i, label %print_msg.exit7, label %21
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr @stdout, align 8
@@ -1748,16 +1748,16 @@ print_msg.exit7:                                  ; preds = %20, %21
   unreachable
 
 33:                                               ; preds = %print_msg.exit7
-  %.b1.i8 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i8, label %print_msg.exit, label %print_msg.exit9
+  %.b.i8 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i8, label %print_msg.exit, label %print_msg.exit9
 
 print_msg.exit9:                                  ; preds = %33
   %34 = load ptr, ptr @stdout, align 8
   %35 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %34)
   %36 = load ptr, ptr @stdout, align 8
   %37 = tail call i32 @fflush(ptr noundef %36)
-  %.b1.i10.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i10.pr, label %print_msg.exit, label %38
+  %.b.i10.pr = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i10.pr, label %print_msg.exit, label %38
 
 38:                                               ; preds = %print_msg.exit9
   %39 = load ptr, ptr @stdout, align 8
@@ -1842,8 +1842,8 @@ postmaster_is_alive.exit11:                       ; preds = %20
   unreachable
 
 30:                                               ; preds = %25
-  %.b1.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i, label %print_msg.exit, label %31
+  %.b.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i, label %print_msg.exit, label %31
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr @stdout, align 8
@@ -1873,16 +1873,16 @@ print_msg.exit:                                   ; preds = %30, %31
   unreachable
 
 43:                                               ; preds = %print_msg.exit
-  %.b1.i12 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i12, label %print_msg.exit15, label %print_msg.exit13
+  %.b.i12 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i12, label %print_msg.exit15, label %print_msg.exit13
 
 print_msg.exit13:                                 ; preds = %43
   %44 = load ptr, ptr @stdout, align 8
   %45 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %44)
   %46 = load ptr, ptr @stdout, align 8
   %47 = tail call i32 @fflush(ptr noundef %46)
-  %.b1.i14.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i14.pr, label %print_msg.exit15, label %48
+  %.b.i14.pr = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i14.pr, label %print_msg.exit15, label %48
 
 48:                                               ; preds = %print_msg.exit13
   %49 = load ptr, ptr @stdout, align 8
@@ -1940,8 +1940,8 @@ define internal fastcc void @do_reload() unnamed_addr #4 {
   unreachable
 
 15:                                               ; preds = %10
-  %.b1.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i, label %print_msg.exit, label %16
+  %.b.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i, label %print_msg.exit, label %16
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @stdout, align 8
@@ -2056,11 +2056,11 @@ get_control_dbstate.exit:                         ; preds = %12
 
 42:                                               ; preds = %34
   %.b = load i1, ptr @do_wait, align 1
-  %.b1.i14 = load i1, ptr @silent_mode, align 1
+  %.b.i14 = load i1, ptr @silent_mode, align 1
   br i1 %.b, label %87, label %43
 
 43:                                               ; preds = %42
-  br i1 %.b1.i14, label %print_msg.exit, label %44
+  br i1 %.b.i14, label %print_msg.exit, label %44
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr @stdout, align 8
@@ -2114,8 +2114,8 @@ get_control_dbstate.exit.i:                       ; preds = %56
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
-  %.b1.i.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i.i, label %74, label %70
+  %.b.i.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i.i, label %74, label %70
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr @stdout, align 8
@@ -2133,16 +2133,16 @@ get_control_dbstate.exit.i:                       ; preds = %56
   br i1 %78, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 wait_for_postmaster_promote.exit:                 ; preds = %get_control_dbstate.exit.i
-  %.b1.i10 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i10, label %print_msg.exit13, label %print_msg.exit11
+  %.b.i10 = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i10, label %print_msg.exit13, label %print_msg.exit11
 
 print_msg.exit11:                                 ; preds = %wait_for_postmaster_promote.exit
   %79 = load ptr, ptr @stdout, align 8
   %80 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %79)
   %81 = load ptr, ptr @stdout, align 8
   %82 = call i32 @fflush(ptr noundef %81)
-  %.b1.i12.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i12.pr, label %print_msg.exit13, label %83
+  %.b.i12.pr = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i12.pr, label %print_msg.exit13, label %83
 
 83:                                               ; preds = %print_msg.exit11
   %84 = load ptr, ptr @stdout, align 8
@@ -2157,7 +2157,7 @@ print_msg.exit11:                                 ; preds = %wait_for_postmaster
   unreachable
 
 87:                                               ; preds = %42
-  br i1 %.b1.i14, label %print_msg.exit13, label %88
+  br i1 %.b.i14, label %print_msg.exit13, label %88
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr @stdout, align 8
@@ -2244,8 +2244,8 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
   unreachable
 
 29:                                               ; preds = %21
-  %.b1.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i, label %print_msg.exit, label %30
+  %.b.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i, label %print_msg.exit, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr @stdout, align 8
@@ -2663,8 +2663,8 @@ define internal void @trap_sigint_during_startup(i32 noundef %0) #4 {
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @print_msg(ptr noundef readonly captures(none) %0) unnamed_addr #14 {
-  %.b1 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1, label %7, label %2
+  %.b = load i1, ptr @silent_mode, align 1
+  br i1 %.b, label %7, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stdout, align 8
@@ -2741,8 +2741,8 @@ define internal fastcc zeroext i1 @wait_for_postmaster_stop() unnamed_addr #4 {
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
-  %.b1.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i, label %19, label %15
+  %.b.i = load i1, ptr @silent_mode, align 1
+  br i1 %.b.i, label %19, label %15
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr @stdout, align 8

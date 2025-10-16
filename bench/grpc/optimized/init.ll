@@ -777,8 +777,8 @@ define void @grpc_init() #3 personality ptr @__gxx_personality_v0 {
   br i1 %7, label %8, label %67
 
 8:                                                ; preds = %0
-  %.b19 = load i1, ptr @_ZL15g_shutting_down, align 1
-  br i1 %.b19, label %9, label %13
+  %.b = load i1, ptr @_ZL15g_shutting_down, align 1
+  br i1 %.b, label %9, label %13
 
 9:                                                ; preds = %8
   store i1 false, ptr @_ZL15g_shutting_down, align 1
@@ -786,7 +786,7 @@ define void @grpc_init() #3 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN4absl12lts_202407227CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %13 unwind label %11
 
-11:                                               ; preds = %18, %66, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread, %13, %9
+11:                                               ; preds = %18, %66, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread41, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread, %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %80
@@ -803,14 +803,14 @@ define void @grpc_init() #3 personality ptr @__gxx_personality_v0 {
 
 17:                                               ; preds = %14
   %.not4.i.i.i = icmp sgt i64 %15, -1
-  br i1 %.not4.i.i.i, label %18, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42
+  br i1 %.not4.i.i.i, label %18, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread41
 
 18:                                               ; preds = %17
   %19 = invoke noundef zeroext i1 @_ZN9grpc_core15ExperimentFlags17LoadFlagsAndCheckEm(i64 noundef 7)
           to label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit unwind label %11
 
 _ZN9grpc_core23IsEventEngineDnsEnabledEv.exit:    ; preds = %18
-  br i1 %19, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42
+  br i1 %19, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread, label %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread41
 
 _ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread: ; preds = %14, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit
   invoke void @address_sorting_init()
@@ -829,14 +829,14 @@ _ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread: ; preds = %14, %_ZN9grpc_c
 24:                                               ; preds = %21
   %25 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZ9grpc_initENK3$_0clEvE4site", i64 8) monotonic, align 8
   %26 = icmp slt i32 %25, 2
-  br i1 %26, label %.critedge28, label %27, !prof !22
+  br i1 %26, label %.critedge27, label %27, !prof !22
 
 27:                                               ; preds = %24
   %28 = invoke noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZ9grpc_initENK3$_0clEvE4site", i32 noundef %25)
           to label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit unwind label %49
 
 _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %27
-  br i1 %28, label %29, label %.critedge28
+  br i1 %28, label %29, label %.critedge27
 
 29:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -881,7 +881,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %43
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.critedge28
+  br label %.critedge27
 
 45:                                               ; preds = %20
   %46 = landingpad { ptr, i32 }
@@ -916,15 +916,15 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
 
 56:                                               ; preds = %21
   invoke void @_Z41grpc_resolver_dns_ares_reset_dns_resolverv()
-          to label %.critedge28 unwind label %47
+          to label %.critedge27 unwind label %47
 
-.critedge28:                                      ; preds = %24, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %56
+.critedge27:                                      ; preds = %24, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %56
   %57 = load i64, ptr %1, align 8, !tbaa !47
   %58 = and i64 %57, 1
   %.not.i.i = icmp eq i64 %58, 0
   br i1 %.not.i.i, label %59, label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
-59:                                               ; preds = %.critedge28
+59:                                               ; preds = %.critedge27
   %60 = inttoptr i64 %57 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %60)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %61
@@ -936,32 +936,32 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   call void @__clang_call_terminate(ptr %63) #34
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.critedge28, %59
+_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.critedge27, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %66
 
 64:                                               ; preds = %49, %55, %47
-  %.pn22 = phi { ptr, i32 } [ %48, %47 ], [ %.pn, %55 ], [ %50, %49 ]
+  %.pn21 = phi { ptr, i32 } [ %48, %47 ], [ %.pn, %55 ], [ %50, %49 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #32
   br label %65
 
 65:                                               ; preds = %64, %45
-  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %64 ], [ %46, %45 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %64 ], [ %46, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %80
 
-_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42: ; preds = %17, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit
+_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread41: ; preds = %17, %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit
   invoke void @_Z27grpc_resolver_dns_ares_initv()
           to label %66 unwind label %11
 
-66:                                               ; preds = %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42, %_ZN4absl12lts_202407226StatusD2Ev.exit
+66:                                               ; preds = %_ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread41, %_ZN4absl12lts_202407226StatusD2Ev.exit
   invoke void @_Z16grpc_iomgr_startv()
           to label %67 unwind label %11
 
 67:                                               ; preds = %66, %0
   %68 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9api_traceE, i64 16) monotonic, align 8
   %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %.critedge31, !prof !49
+  br i1 %69, label %70, label %.critedge30, !prof !49
 
 70:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -970,25 +970,25 @@ _ZN9grpc_core23IsEventEngineDnsEnabledEv.exit.thread42: ; preds = %17, %_ZN9grpc
 
 71:                                               ; preds = %70
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 15, ptr nonnull @.str.6)
-          to label %.critedge30 unwind label %77
+          to label %.critedge29 unwind label %77
 
-.critedge30:                                      ; preds = %71
+.critedge29:                                      ; preds = %71
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge31
+  br label %.critedge30
 
-.critedge31:                                      ; preds = %67, %.critedge30
+.critedge30:                                      ; preds = %67, %.critedge29
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %72
 
-72:                                               ; preds = %.critedge31
+72:                                               ; preds = %.critedge30
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
   call void @__clang_call_terminate(ptr %74) #34
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge31
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge30
   ret void
 
 75:                                               ; preds = %70
@@ -1003,14 +1003,14 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge31
   br label %79
 
 79:                                               ; preds = %75, %77
-  %.pn25 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
+  %.pn24 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %80
 
 80:                                               ; preds = %79, %65, %11
-  %.pn25.pn = phi { ptr, i32 } [ %.pn25, %79 ], [ %12, %11 ], [ %.pn22.pn, %65 ]
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %79 ], [ %12, %11 ], [ %.pn21.pn, %65 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit36 unwind label %81
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit35 unwind label %81
 
 81:                                               ; preds = %80
   %82 = landingpad { ptr, i32 }
@@ -1019,8 +1019,8 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge31
   call void @__clang_call_terminate(ptr %83) #34
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit36:      ; preds = %80
-  resume { ptr, i32 } %.pn25.pn
+_ZN4absl12lts_202407229MutexLockD2Ev.exit35:      ; preds = %80
+  resume { ptr, i32 } %.pn24.pn
 }
 
 declare void @gpr_once_init(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1967,8 +1967,8 @@ define void @_Z34grpc_maybe_wait_for_async_shutdownv() local_unnamed_addr #3 per
   br label %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
 
 _ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit: ; preds = %2, %0
-  %.b1 = load i1, ptr @_ZL15g_shutting_down, align 1
-  br i1 %.b1, label %2, label %11
+  %.b = load i1, ptr @_ZL15g_shutting_down, align 1
+  br i1 %.b, label %2, label %11
 
 2:                                                ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
   %3 = load ptr, ptr @_ZL18g_shutting_down_cv, align 8, !tbaa !45
@@ -1994,7 +1994,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %6
 
 11:                                               ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit2 unwind label %12
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit1 unwind label %12
 
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
@@ -2003,7 +2003,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %6
   tail call void @__clang_call_terminate(ptr %14) #34
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit2:       ; preds = %11
+_ZN4absl12lts_202407229MutexLockD2Ev.exit1:       ; preds = %11
   ret void
 }
 

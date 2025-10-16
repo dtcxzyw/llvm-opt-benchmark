@@ -263,8 +263,8 @@ define noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noun
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
-  %.b44 = load i1, ptr @_ZN6googleL14inited_vmoduleE, align 1
-  br i1 %.b44, label %63, label %10
+  %.b = load i1, ptr @_ZN6googleL14inited_vmoduleE, align 1
+  br i1 %.b, label %63, label %10
 
 10:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i1 false, ptr @_ZN6googleL14inited_vmoduleE, align 1
@@ -423,8 +423,8 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %57, %58
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %66 = select i1 %.not, ptr %2, ptr %65
   %67 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %66, i32 noundef 46) #12
-  %.not45 = icmp eq ptr %67, null
-  br i1 %.not45, label %72, label %68
+  %.not44 = icmp eq ptr %67, null
+  br i1 %.not44, label %72, label %68
 
 68:                                               ; preds = %63
   %69 = ptrtoint ptr %67 to i64
@@ -452,31 +452,31 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %57, %58
 
 82:                                               ; preds = %77, %74
   %.038 = phi i64 [ %75, %74 ], [ %spec.select, %77 ]
-  %.051 = load ptr, ptr @_ZN6googleL12vmodule_listE, align 8, !tbaa !11
-  %.not4652 = icmp eq ptr %.051, null
-  br i1 %.not4652, label %.loopexit, label %.lr.ph
+  %.050 = load ptr, ptr @_ZN6googleL12vmodule_listE, align 8, !tbaa !11
+  %.not4551 = icmp eq ptr %.050, null
+  br i1 %.not4551, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %82, %89
-  %.053 = phi ptr [ %.0, %89 ], [ %.051, %82 ]
-  %83 = load ptr, ptr %.053, align 8, !tbaa !20
-  %84 = getelementptr inbounds nuw i8, ptr %.053, i64 8
+  %.052 = phi ptr [ %.0, %89 ], [ %.050, %82 ]
+  %83 = load ptr, ptr %.052, align 8, !tbaa !20
+  %84 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %85 = load i64, ptr %84, align 8, !tbaa !21
   %86 = call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %83, i64 noundef %85, ptr noundef nonnull %66, i64 noundef %.038)
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds nuw i8, ptr %.053, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.052, i64 32
   br label %.loopexit
 
 89:                                               ; preds = %.lr.ph
-  %90 = getelementptr inbounds nuw i8, ptr %.053, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %.052, i64 40
   %.0 = load ptr, ptr %90, align 8, !tbaa !11
-  %.not46 = icmp eq ptr %.0, null
-  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  %.not45 = icmp eq ptr %.0, null
+  br i1 %.not45, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %89, %82, %87
   %.040 = phi ptr [ %88, %87 ], [ %1, %82 ], [ %1, %89 ]
-  br i1 %.b44, label %91, label %100
+  br i1 %.b, label %91, label %100
 
 91:                                               ; preds = %.loopexit
   store ptr %.040, ptr %0, align 8, !tbaa !31
@@ -486,8 +486,8 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %57, %58
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !27
-  %.not48 = icmp eq ptr %95, null
-  br i1 %.not48, label %96, label %100
+  %.not47 = icmp eq ptr %95, null
+  br i1 %.not47, label %96, label %100
 
 96:                                               ; preds = %93
   store ptr %66, ptr %94, align 8, !tbaa !27

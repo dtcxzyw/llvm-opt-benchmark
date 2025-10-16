@@ -9872,8 +9872,8 @@ define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 nou
   %15 = alloca i64, align 8
   %16 = alloca ptr, align 8
   %17 = alloca [16 x i8], align 16
-  %.b61 = load i1, ptr @seen.0, align 4
-  br i1 %.b61, label %18, label %23
+  %.b = load i1, ptr @seen.0, align 4
+  br i1 %.b, label %18, label %23
 
 18:                                               ; preds = %7
   %19 = load i32, ptr @seen.1, align 4
@@ -9897,8 +9897,8 @@ define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 nou
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0)
   %36 = add i32 %1, 8
   %37 = load i32, ptr @hf_netlogon_secchan_verf_seq, align 4
-  %.val64 = load i8, ptr %4, align 1
-  %38 = and i8 %.val64, 16
+  %.val63 = load i8, ptr %4, align 1
+  %38 = and i8 %.val63, 16
   %.not.i = icmp eq i8 %38, 0
   br i1 %.not.i, label %41, label %39
 
@@ -9922,10 +9922,10 @@ define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 nou
 dissect_dcerpc_8bytes.exit:                       ; preds = %43, %45
   %47 = add i32 %1, 16
   %48 = load i32, ptr @hf_netlogon_secchan_verf_digest, align 4
-  %.val63 = load i8, ptr %4, align 1
-  %49 = and i8 %.val63, 16
-  %.not.i65 = icmp eq i8 %49, 0
-  br i1 %.not.i65, label %52, label %50
+  %.val62 = load i8, ptr %4, align 1
+  %49 = and i8 %.val62, 16
+  %.not.i64 = icmp eq i8 %49, 0
+  br i1 %.not.i64, label %52, label %50
 
 50:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %51 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %47)
@@ -9937,23 +9937,23 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %43, %45
 
 54:                                               ; preds = %52, %50
   %55 = phi i64 [ %51, %50 ], [ %53, %52 ]
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit67, label %56
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit66, label %56
 
 56:                                               ; preds = %54
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %27, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 8, i32 noundef 0)
-  br label %dissect_dcerpc_8bytes.exit67
+  br label %dissect_dcerpc_8bytes.exit66
 
-dissect_dcerpc_8bytes.exit67:                     ; preds = %54, %56
+dissect_dcerpc_8bytes.exit66:                     ; preds = %54, %56
   %58 = add i32 %1, 24
   %59 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %58, i32 noundef 8)
   br i1 %59, label %60, label %72
 
-60:                                               ; preds = %dissect_dcerpc_8bytes.exit67
+60:                                               ; preds = %dissect_dcerpc_8bytes.exit66
   %61 = load i32, ptr @hf_netlogon_secchan_verf_nonce, align 4
   %.val = load i8, ptr %4, align 1
   %62 = and i8 %.val, 16
-  %.not.i68 = icmp eq i8 %62, 0
-  br i1 %.not.i68, label %65, label %63
+  %.not.i67 = icmp eq i8 %62, 0
+  br i1 %.not.i67, label %65, label %63
 
 63:                                               ; preds = %60
   %64 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %58)
@@ -9965,23 +9965,23 @@ dissect_dcerpc_8bytes.exit67:                     ; preds = %54, %56
 
 67:                                               ; preds = %65, %63
   %68 = phi i64 [ %64, %63 ], [ %66, %65 ]
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit70, label %69
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit69, label %69
 
 69:                                               ; preds = %67
   %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %27, i32 noundef %61, ptr noundef %0, i32 noundef %58, i32 noundef 8, i32 noundef 0)
-  br label %dissect_dcerpc_8bytes.exit70
+  br label %dissect_dcerpc_8bytes.exit69
 
-dissect_dcerpc_8bytes.exit70:                     ; preds = %67, %69
+dissect_dcerpc_8bytes.exit69:                     ; preds = %67, %69
   %71 = add i32 %1, 32
   br label %72
 
-72:                                               ; preds = %dissect_dcerpc_8bytes.exit67, %dissect_dcerpc_8bytes.exit70, %18
-  %.076 = phi i64 [ undef, %18 ], [ %44, %dissect_dcerpc_8bytes.exit70 ], [ %44, %dissect_dcerpc_8bytes.exit67 ]
-  %.075 = phi i64 [ 0, %18 ], [ %55, %dissect_dcerpc_8bytes.exit70 ], [ %55, %dissect_dcerpc_8bytes.exit67 ]
-  %.0 = phi i64 [ 0, %18 ], [ %68, %dissect_dcerpc_8bytes.exit70 ], [ 0, %dissect_dcerpc_8bytes.exit67 ]
-  %.059 = phi i32 [ %1, %18 ], [ %71, %dissect_dcerpc_8bytes.exit70 ], [ %58, %dissect_dcerpc_8bytes.exit67 ]
-  %.057 = phi ptr [ null, %18 ], [ %27, %dissect_dcerpc_8bytes.exit70 ], [ %27, %dissect_dcerpc_8bytes.exit67 ]
-  %.not = phi i1 [ true, %18 ], [ false, %dissect_dcerpc_8bytes.exit70 ], [ false, %dissect_dcerpc_8bytes.exit67 ]
+72:                                               ; preds = %dissect_dcerpc_8bytes.exit66, %dissect_dcerpc_8bytes.exit69, %18
+  %.075 = phi i64 [ undef, %18 ], [ %44, %dissect_dcerpc_8bytes.exit69 ], [ %44, %dissect_dcerpc_8bytes.exit66 ]
+  %.074 = phi i64 [ 0, %18 ], [ %55, %dissect_dcerpc_8bytes.exit69 ], [ %55, %dissect_dcerpc_8bytes.exit66 ]
+  %.0 = phi i64 [ 0, %18 ], [ %68, %dissect_dcerpc_8bytes.exit69 ], [ 0, %dissect_dcerpc_8bytes.exit66 ]
+  %.059 = phi i32 [ %1, %18 ], [ %71, %dissect_dcerpc_8bytes.exit69 ], [ %58, %dissect_dcerpc_8bytes.exit66 ]
+  %.057 = phi ptr [ null, %18 ], [ %27, %dissect_dcerpc_8bytes.exit69 ], [ %27, %dissect_dcerpc_8bytes.exit66 ]
+  %.not = phi i1 [ true, %18 ], [ false, %dissect_dcerpc_8bytes.exit69 ], [ false, %dissect_dcerpc_8bytes.exit66 ]
   store i1 true, ptr @seen.0, align 4
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %74 = load i32, ptr %73, align 4
@@ -10000,18 +10000,18 @@ dissect_dcerpc_8bytes.exit70:                     ; preds = %67, %69
   %81 = load i32, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 296
   %83 = and i32 %81, 16777216
-  %.not.i71 = icmp eq i32 %83, 0
-  br i1 %.not.i71, label %114, label %84
+  %.not.i70 = icmp eq i32 %83, 0
+  br i1 %.not.i70, label %114, label %84
 
 84:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i64 %.076, ptr %15, align 8
+  store i64 %.075, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i64 %.075, ptr %17, align 16
+  store i64 %.074, ptr %17, align 16
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %.075, ptr %85, align 8
+  store i64 %.074, ptr %85, align 8
   %86 = call i32 @gcry_cipher_open(ptr noundef nonnull %16, i32 noundef 7, i32 noundef 12, i32 noundef 0)
   %.not.i.i = icmp eq i32 %86, 0
   br i1 %.not.i.i, label %90, label %87
@@ -10080,8 +10080,8 @@ uncrypt_sequence_aes.exit.i:                      ; preds = %111, %107, %100, %9
 114:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 %.075, ptr %9, align 8
-  store i64 %.076, ptr %10, align 8
+  store i64 %.074, ptr %9, align 8
+  store i64 %.075, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -10119,7 +10119,7 @@ uncrypt_sequence_aes.exit.i:                      ; preds = %111, %107, %100, %9
   br label %uncrypt_sequence_md5.exit.i
 
 uncrypt_sequence_md5.exit.i:                      ; preds = %126, %118, %116, %114
-  %.0.i10.i = phi i64 [ 0, %114 ], [ 0, %116 ], [ %.pre.i.i, %126 ], [ %.076, %118 ]
+  %.0.i10.i = phi i64 [ 0, %114 ], [ 0, %116 ], [ %.pre.i.i, %126 ], [ %.075, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10141,8 +10141,8 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %131, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %130, ptr noundef nonnull dereferenceable(16) %8, i64 16)
-  %.not.i72 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i72, label %137, label %.preheader.i
+  %.not.i71 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i71, label %137, label %.preheader.i
 
 .preheader.i:                                     ; preds = %129, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %129 ]

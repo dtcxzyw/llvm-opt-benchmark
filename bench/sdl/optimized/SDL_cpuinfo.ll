@@ -70,8 +70,8 @@ define hidden i32 @SDL_GetCPUCacheLineSize_REAL() local_unnamed_addr #0 {
   br i1 %.not.i, label %4, label %SDL_GetCPUType.exit
 
 4:                                                ; preds = %0
-  %.b8.i.i = load i1, ptr @CPU_calcCPUIDFeatures.checked, align 1
-  br i1 %.b8.i.i, label %CPU_calcCPUIDFeatures.exit.i, label %5
+  %.b.i.i = load i1, ptr @CPU_calcCPUIDFeatures.checked, align 1
+  br i1 %.b.i.i, label %CPU_calcCPUIDFeatures.exit.i, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @CPU_calcCPUIDFeatures.checked, align 1
@@ -97,8 +97,8 @@ define hidden i32 @SDL_GetCPUCacheLineSize_REAL() local_unnamed_addr #0 {
   store i32 %13, ptr @CPU_CPUIDFeatures.2, align 8
   store i32 %14, ptr @CPU_CPUIDFeatures.3, align 4
   %15 = and i32 %13, 134217728
-  %.not9.i.i = icmp eq i32 %15, 0
-  br i1 %.not9.i.i, label %CPU_calcCPUIDFeatures.exit.i, label %16
+  %.not8.i.i = icmp eq i32 %15, 0
+  br i1 %.not8.i.i, label %CPU_calcCPUIDFeatures.exit.i, label %16
 
 16:                                               ; preds = %11
   %17 = call i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #8, !srcloc !6
@@ -233,8 +233,8 @@ define internal fastcc i32 @SDL_GetCPUFeatures() unnamed_addr #0 {
   br i1 %4, label %5, label %182
 
 5:                                                ; preds = %0
-  %.b8.i = load i1, ptr @CPU_calcCPUIDFeatures.checked, align 1
-  br i1 %.b8.i, label %CPU_calcCPUIDFeatures.exit, label %6
+  %.b.i = load i1, ptr @CPU_calcCPUIDFeatures.checked, align 1
+  br i1 %.b.i, label %CPU_calcCPUIDFeatures.exit, label %6
 
 6:                                                ; preds = %5
   store i1 true, ptr @CPU_calcCPUIDFeatures.checked, align 1
@@ -260,8 +260,8 @@ define internal fastcc i32 @SDL_GetCPUFeatures() unnamed_addr #0 {
   store i32 %14, ptr @CPU_CPUIDFeatures.2, align 8
   store i32 %15, ptr @CPU_CPUIDFeatures.3, align 4
   %16 = and i32 %14, 134217728
-  %.not9.i = icmp eq i32 %16, 0
-  br i1 %.not9.i, label %CPU_calcCPUIDFeatures.exit, label %17
+  %.not8.i = icmp eq i32 %16, 0
+  br i1 %.not8.i, label %CPU_calcCPUIDFeatures.exit, label %17
 
 17:                                               ; preds = %12
   %18 = call i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #8, !srcloc !6

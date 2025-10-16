@@ -1086,8 +1086,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr 
 6:                                                ; preds = %1
   %7 = tail call fastcc noundef nonnull align 8 dereferenceable(504) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl11GetInstanceEv()
   %8 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_DlCloseIsActiveEv()
-  %.b4.i = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl18runUnloadersAtExitE, align 1
-  %or.cond.i = select i1 %8, i1 true, i1 %.b4.i
+  %.b.i = load i1, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl18runUnloadersAtExitE, align 1
+  %or.cond.i = select i1 %8, i1 true, i1 %.b.i
   br i1 %or.cond.i, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl13UnloadLibraryEPKc.exit
 
 9:                                                ; preds = %6
@@ -1116,21 +1116,21 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %9
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit.i.i: ; preds = %.noexc.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
   %.0.i.i.i = phi i32 [ %15, %.noexc.i ], [ %12, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i ]
   %16 = icmp eq i32 %.0.i.i.i, 2
-  br i1 %16, label %17, label %.noexc5.i
+  br i1 %16, label %17, label %.noexc4.i
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit.i.i
   invoke void (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr noundef nonnull @.str.24, ptr noundef %0)
-          to label %.noexc5.i unwind label %106
+          to label %.noexc4.i unwind label %106
 
-.noexc5.i:                                        ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit.i.i
+.noexc4.i:                                        ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit.i.i
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.thread.i.i, label %18
 
-.thread.i.i:                                      ; preds = %.noexc5.i
+.thread.i.i:                                      ; preds = %.noexc4.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %20
 
-18:                                               ; preds = %.noexc5.i
+18:                                               ; preds = %.noexc4.i
   %19 = load i8, ptr %0, align 1
   %.not50.i.i = icmp eq i8 %19, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1149,23 +1149,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE_
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %21, align 8
   invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.23) #24
-          to label %.noexc6.i unwind label %106
+          to label %.noexc5.i unwind label %106
 
-.noexc6.i:                                        ; preds = %20
+.noexc5.i:                                        ; preds = %20
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i: ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl22_RegisterLibraryNoLockEPKc(ptr noundef nonnull align 8 dereferenceable(504) %7, ptr noundef nonnull %0)
-          to label %.noexc7.i unwind label %106
+          to label %.noexc6.i unwind label %106
 
-.noexc7.i:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i
+.noexc6.i:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %24 = load i64, ptr %23, align 8
   %.not.not.i.i.i.i = icmp eq i64 %24, 0
   br i1 %.not.not.i.i.i.i, label %25, label %32
 
-25:                                               ; preds = %.noexc7.i
+25:                                               ; preds = %.noexc6.i
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 232
   br label %27
 
@@ -1181,7 +1181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %31 = icmp eq i64 %22, %30
   br i1 %31, label %_ZNSt13unordered_mapImNSt7__cxx114listISt8functionIFvvEESaIS4_EEEN32pxrInternal_v0_24__pxrReserved__6TfHashESt8equal_toImESaISt4pairIKmS6_EEE4findERSC_.exit.i.i, label %27, !llvm.loop !16
 
-32:                                               ; preds = %.noexc7.i
+32:                                               ; preds = %.noexc6.i
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %34 = mul i64 %22, -7046029254386353067
   %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)

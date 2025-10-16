@@ -114773,7 +114773,7 @@ define void @"_ZN5typst6layout5align1_100_$LT$impl$u20$typst..foundations..eleme
   %10 = load ptr, ptr %9, align 8, !noundef !12
   %11 = icmp eq ptr %10, null
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.016.0.copyload29 = load i16, ptr %12, align 8
+  %.sroa.016.0.copyload = load i16, ptr %12, align 8
   %13 = load i64, ptr %12, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %11, label %14, label %31
@@ -114845,7 +114845,7 @@ define void @"_ZN5typst6layout5align1_100_$LT$impl$u20$typst..foundations..eleme
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i16 %.sroa.016.0.copyload29, ptr %36, align 8
+  store i16 %.sroa.016.0.copyload, ptr %36, align 8
   store ptr %17, ptr %7, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %35, ptr %.sroa.215.0..sroa_idx, align 8
@@ -119332,7 +119332,7 @@ define void @"_ZN5typst6layout9transform1_105_$LT$impl$u20$typst..foundations..e
   %18 = load ptr, ptr %10, align 8, !noundef !12
   %19 = icmp eq ptr %18, null
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.026.0.copyload42 = load i16, ptr %20, align 8
+  %.sroa.026.0.copyload = load i16, ptr %20, align 8
   %21 = load i64, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %19, label %26, label %32
@@ -119435,7 +119435,7 @@ define void @"_ZN5typst6layout9transform1_105_$LT$impl$u20$typst..foundations..e
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i16 %.sroa.026.0.copyload42, ptr %58, align 8
+  store i16 %.sroa.026.0.copyload, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 42
   store i8 %30, ptr %59, align 2
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -122347,7 +122347,7 @@ define void @"_ZN5typst6layout9transform1_104_$LT$impl$u20$typst..foundations..e
   %40 = load ptr, ptr %8, align 8, !noundef !12
   %41 = icmp eq ptr %40, null
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.046.0.copyload66 = load i16, ptr %42, align 8
+  %.sroa.046.0.copyload = load i16, ptr %42, align 8
   %43 = load i64, ptr %42, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %41, label %48, label %54
@@ -122411,7 +122411,7 @@ define void @"_ZN5typst6layout9transform1_104_$LT$impl$u20$typst..foundations..e
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %.sroa.445.0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i16 %.sroa.046.0.copyload66, ptr %71, align 8
+  store i16 %.sroa.046.0.copyload, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 58
   store i8 %52, ptr %72, align 2
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -128656,7 +128656,7 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
   %37 = load ptr, ptr %11, align 8, !noundef !12
   %38 = icmp eq ptr %37, null
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.064.0.copyload122 = load i16, ptr %39, align 8
+  %.sroa.064.0.copyload = load i16, ptr %39, align 8
   %40 = load i64, ptr %39, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %38, label %41, label %42
@@ -128776,7 +128776,7 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 98
   store i8 %18, ptr %75, align 2
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i16 %.sroa.064.0.copyload122, ptr %76, align 8
+  store i16 %.sroa.064.0.copyload, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %55, ptr %77, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -128812,7 +128812,7 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
 
 "_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit": ; preds = %78, %82, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.pre123 = load i8, ptr %.sroa.6.0..sroa_idx, align 8, !range !4632, !alias.scope !31958
+  %.pre122 = load i8, ptr %.sroa.6.0..sroa_idx, align 8, !range !4632, !alias.scope !31958
   br label %88
 
 .body.thread:                                     ; preds = %63, %.body.thread115
@@ -128832,7 +128832,7 @@ define void @"_ZN5typst4math8equation1_104_$LT$impl$u20$typst..foundations..elem
   unreachable
 
 88:                                               ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit", %42
-  %89 = phi i8 [ %.pre123, %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit" ], [ %22, %42 ]
+  %89 = phi i8 [ %.pre122, %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.11057974413330164255.exit" ], [ %22, %42 ]
   %90 = icmp samesign ugt i8 %89, 2
   br i1 %90, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.llvm.11057974413330164255.exit", label %91
 

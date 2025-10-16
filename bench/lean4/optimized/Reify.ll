@@ -82434,8 +82434,8 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %13
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_BVDecide_Reify(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -82464,25 +82464,25 @@ define ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_BVDecide_Reify(i8 noun
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Elab_Tactic_BVDecide_Frontend_BVDecide_ReifiedLemmas(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %534, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit10
+21:                                               ; preds = %lean_dec_ref.exit9
   %22 = load i32, ptr %18, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -83461,18 +83461,18 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_of_go___lambda__19___cl
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_of_go___lambda__19___closed__5.exit, %3
-  %.sink31 = phi ptr [ %4, %3 ], [ %528, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_of_go___lambda__19___closed__5.exit ]
-  %531 = getelementptr inbounds nuw i8, ptr %.sink31, i64 4
-  store i32 1, ptr %.sink31, align 4, !tbaa !4
+  %.sink30 = phi ptr [ %4, %3 ], [ %528, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVExpr_of_go___lambda__19___closed__5.exit ]
+  %531 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !4
   store i32 131096, ptr %531, align 4
-  %532 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %532, align 8, !tbaa !9
-  %533 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
+  %533 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %533, align 8, !tbaa !9
   br label %534
 
-534:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink31, %.sink.split ]
+534:                                              ; preds = %.sink.split, %lean_dec_ref.exit9, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit9 ], [ %.sink30, %.sink.split ]
   ret ptr %.0
 }
 

@@ -11215,8 +11215,8 @@ declare ptr @lean_io_process_child_wait(ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Util_Proc(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -11332,18 +11332,18 @@ _init_l_Lake_testProc___closed__1.exit:           ; preds = %lean_dec_ref.exit
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_testProc___closed__1.exit, %3
-  %.sink13 = phi ptr [ %4, %3 ], [ %42, %_init_l_Lake_testProc___closed__1.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
-  store i32 1, ptr %.sink13, align 4, !tbaa !4
+  %.sink12 = phi ptr [ %4, %3 ], [ %42, %_init_l_Lake_testProc___closed__1.exit ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !4
   store i32 131096, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %46, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !9
   br label %48
 
 48:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

@@ -566,8 +566,8 @@ define hidden void @proto_reg_handoff_wifi_dpp() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.96, i32 noundef 26, ptr noundef %2)
   %3 = load ptr, ptr @wifi_dpp_pubact_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.97, i32 noundef 26, ptr noundef %3)
-  %.b1 = load i1, ptr @proto_reg_handoff_wifi_dpp.initialized, align 1
-  br i1 %.b1, label %5, label %4
+  %.b = load i1, ptr @proto_reg_handoff_wifi_dpp.initialized, align 1
+  br i1 %.b, label %5, label %4
 
 4:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_wifi_dpp.initialized, align 1

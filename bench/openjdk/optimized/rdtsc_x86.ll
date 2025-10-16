@@ -80,8 +80,8 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %.b2 = load i1, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1
-  br i1 %.b2, label %._crit_edge, label %11
+  %.b = load i1, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1
+  br i1 %.b, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1

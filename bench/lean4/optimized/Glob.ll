@@ -2824,8 +2824,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Config_Glob(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -2867,9 +2867,9 @@ define ptr @initialize_Lake_Config_Glob(i8 noundef zeroext %0, ptr noundef readn
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Util_Name(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %316, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -2880,27 +2880,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #4
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Lake_instInhabitedGlob___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lake_instInhabitedGlob___closed__1.exit:  ; preds = %lean_dec_ref.exit10
+_init_l_Lake_instInhabitedGlob___closed__1.exit:  ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !8
   store i32 65552, ptr %31, align 4
@@ -3653,18 +3653,18 @@ _init_l_Lake_Glob_instToString___closed__1.exit:  ; preds = %_init_l_Lake_Glob_t
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Glob_instToString___closed__1.exit, %3
-  %.sink51 = phi ptr [ %4, %3 ], [ %310, %_init_l_Lake_Glob_instToString___closed__1.exit ]
-  %313 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
-  store i32 1, ptr %.sink51, align 4, !tbaa !8
+  %.sink50 = phi ptr [ %4, %3 ], [ %310, %_init_l_Lake_Glob_instToString___closed__1.exit ]
+  %313 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
+  store i32 1, ptr %.sink50, align 4, !tbaa !8
   store i32 131096, ptr %313, align 4
-  %314 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %314, align 8, !tbaa !4
-  %315 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %315, align 8, !tbaa !4
   br label %316
 
 316:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink51, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink50, %.sink.split ]
   ret ptr %.0
 }
 

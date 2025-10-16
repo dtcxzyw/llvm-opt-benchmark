@@ -4532,8 +4532,8 @@ declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN2cv7detailsL21opencv_tls_destructorEPv(ptr noundef %0) #3 personality ptr @__gxx_personality_v0 {
-  %.b1 = load i1, ptr @_ZN2cv7detailsL25g_isTlsStorageInitializedE, align 1
-  br i1 %.b1, label %2, label %18
+  %.b = load i1, ptr @_ZN2cv7detailsL25g_isTlsStorageInitializedE, align 1
+  br i1 %.b, label %2, label %18
 
 2:                                                ; preds = %1
   %3 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8
@@ -4688,8 +4688,8 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv23releaseTlsStorageThreadEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %.b1 = load i1, ptr @_ZN2cv7detailsL25g_isTlsStorageInitializedE, align 1
-  br i1 %.b1, label %1, label %17
+  %.b = load i1, ptr @_ZN2cv7detailsL25g_isTlsStorageInitializedE, align 1
+  br i1 %.b, label %1, label %17
 
 1:                                                ; preds = %0
   %2 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8

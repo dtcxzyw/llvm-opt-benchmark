@@ -13988,8 +13988,8 @@ declare ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_Tactic_Calc(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b20 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b20, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -14018,25 +14018,25 @@ define ptr @initialize_Lean_Elab_Tactic_Calc(i8 noundef zeroext %0, ptr noundef 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit28
+  br label %lean_dec_ref.exit27
 
 16:                                               ; preds = %11
-  %.not.i27 = icmp eq i32 %12, 0
-  br i1 %.not.i27, label %lean_dec_ref.exit28, label %17
+  %.not.i26 = icmp eq i32 %12, 0
+  br i1 %.not.i26, label %lean_dec_ref.exit27, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
-  br label %lean_dec_ref.exit28
+  br label %lean_dec_ref.exit27
 
-lean_dec_ref.exit28:                              ; preds = %14, %16, %17
+lean_dec_ref.exit27:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Elab_Tactic_ElabTerm(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val29 = load i32, ptr %19, align 4
-  %.mask.i33 = and i32 %.val29, -16777216
-  %20 = icmp eq i32 %.mask.i33, 16777216
+  %.val28 = load i32, ptr %19, align 4
+  %.mask.i32 = and i32 %.val28, -16777216
+  %20 = icmp eq i32 %.mask.i32, 16777216
   br i1 %20, label %168, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit28
+21:                                               ; preds = %lean_dec_ref.exit27
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -14044,17 +14044,17 @@ lean_dec_ref.exit28:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit26
+  br label %lean_dec_ref.exit25
 
 26:                                               ; preds = %21
-  %.not.i25 = icmp eq i32 %22, 0
-  br i1 %.not.i25, label %lean_dec_ref.exit26, label %27
+  %.not.i24 = icmp eq i32 %22, 0
+  br i1 %.not.i24, label %lean_dec_ref.exit25, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit26
+  br label %lean_dec_ref.exit25
 
-lean_dec_ref.exit26:                              ; preds = %24, %26, %27
+lean_dec_ref.exit25:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 21, i64 noundef 21) #4
   store ptr %28, ptr @l_Lean_Elab_Tactic_evalCalc___lambda__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #4
@@ -14128,11 +14128,11 @@ lean_dec_ref.exit26:                              ; preds = %24, %26, %27
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___closed__6.exit
 
-62:                                               ; preds = %lean_dec_ref.exit26
+62:                                               ; preds = %lean_dec_ref.exit25
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___closed__6.exit: ; preds = %lean_dec_ref.exit26
+_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___closed__6.exit: ; preds = %lean_dec_ref.exit25
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 1, ptr %60, align 4, !tbaa !8
   store i32 -184549352, ptr %63, align 4
@@ -14154,9 +14154,9 @@ _init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___cl
   %71 = load ptr, ptr @l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___closed__6, align 8, !tbaa !4
   %72 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %73 = getelementptr i8, ptr %72, i64 4
-  %.val30 = load i32, ptr %73, align 4
-  %.mask.i34 = and i32 %.val30, -16777216
-  %74 = icmp eq i32 %.mask.i34, 16777216
+  %.val29 = load i32, ptr %73, align 4
+  %.mask.i33 = and i32 %.val29, -16777216
+  %74 = icmp eq i32 %.mask.i33, 16777216
   br i1 %74, label %168, label %75
 
 75:                                               ; preds = %67
@@ -14170,8 +14170,8 @@ _init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___cl
   br label %82
 
 80:                                               ; preds = %75
-  %.not.i23 = icmp eq i32 %76, 0
-  br i1 %.not.i23, label %82, label %81
+  %.not.i22 = icmp eq i32 %76, 0
+  br i1 %.not.i22, label %82, label %81
 
 81:                                               ; preds = %80
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %72) #4
@@ -14185,9 +14185,9 @@ _init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___cl
   %85 = load ptr, ptr @l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_docString__3___closed__1, align 8, !tbaa !4
   %86 = tail call ptr @l_Lean_addBuiltinDocString(ptr noundef %84, ptr noundef %85, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %87 = getelementptr i8, ptr %86, i64 4
-  %.val31 = load i32, ptr %87, align 4
-  %.mask.i35 = and i32 %.val31, -16777216
-  %88 = icmp eq i32 %.mask.i35, 16777216
+  %.val30 = load i32, ptr %87, align 4
+  %.mask.i34 = and i32 %.val30, -16777216
+  %88 = icmp eq i32 %.mask.i34, 16777216
   br i1 %88, label %168, label %89
 
 89:                                               ; preds = %82
@@ -14198,33 +14198,33 @@ _init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___cl
 92:                                               ; preds = %89
   %93 = add nsw i32 %90, -1
   store i32 %93, ptr %86, align 4, !tbaa !8
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 94:                                               ; preds = %89
-  %.not.i21 = icmp eq i32 %90, 0
-  br i1 %.not.i21, label %lean_dec_ref.exit22, label %95
+  %.not.i20 = icmp eq i32 %90, 0
+  br i1 %.not.i20, label %lean_dec_ref.exit21, label %95
 
 95:                                               ; preds = %94
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %86) #4
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 .critedge:                                        ; preds = %_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc__1___closed__6.exit
   %96 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.11, i64 noundef 47, i64 noundef 47) #4
   store ptr %96, ptr @l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_docString__3___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %96) #4
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
-lean_dec_ref.exit22:                              ; preds = %95, %94, %92, %.critedge
+lean_dec_ref.exit21:                              ; preds = %95, %94, %92, %.critedge
   tail call void @lean_inc_heartbeat() #4
   %97 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_declRange__5___closed__1.exit
 
-99:                                               ; preds = %lean_dec_ref.exit22
+99:                                               ; preds = %lean_dec_ref.exit21
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_declRange__5___closed__1.exit: ; preds = %lean_dec_ref.exit22
+_init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_declRange__5___closed__1.exit: ; preds = %lean_dec_ref.exit21
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 1, ptr %97, align 4, !tbaa !8
   store i32 131096, ptr %100, align 4
@@ -14369,9 +14369,9 @@ _init_l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_declRan
   %151 = load ptr, ptr @l_Lean_Elab_Tactic_evalCalc___regBuiltin_Lean_Elab_Tactic_evalCalc_declRange__5___closed__7, align 8, !tbaa !4
   %152 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %150, ptr noundef %151, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %153 = getelementptr i8, ptr %152, i64 4
-  %.val32 = load i32, ptr %153, align 4
-  %.mask.i36 = and i32 %.val32, -16777216
-  %154 = icmp eq i32 %.mask.i36, 16777216
+  %.val31 = load i32, ptr %153, align 4
+  %.mask.i35 = and i32 %.val31, -16777216
+  %154 = icmp eq i32 %.mask.i35, 16777216
   br i1 %154, label %168, label %155
 
 155:                                              ; preds = %149
@@ -14403,18 +14403,18 @@ lean_dec_ref.exit:                                ; preds = %161, %160, %158, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink60 = phi ptr [ %4, %3 ], [ %162, %lean_dec_ref.exit ]
-  %165 = getelementptr inbounds nuw i8, ptr %.sink60, i64 4
-  store i32 1, ptr %.sink60, align 4, !tbaa !8
+  %.sink59 = phi ptr [ %4, %3 ], [ %162, %lean_dec_ref.exit ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  store i32 1, ptr %.sink59, align 4, !tbaa !8
   store i32 131096, ptr %165, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %.sink60, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %166, align 8, !tbaa !4
-  %167 = getelementptr inbounds nuw i8, ptr %.sink60, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %167, align 8, !tbaa !4
   br label %168
 
-168:                                              ; preds = %.sink.split, %149, %82, %67, %lean_dec_ref.exit28, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit28 ], [ %72, %67 ], [ %86, %82 ], [ %152, %149 ], [ %.sink60, %.sink.split ]
+168:                                              ; preds = %.sink.split, %149, %82, %67, %lean_dec_ref.exit27, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit27 ], [ %72, %67 ], [ %86, %82 ], [ %152, %149 ], [ %.sink59, %.sink.split ]
   ret ptr %.0
 }
 

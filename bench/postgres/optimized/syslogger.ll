@@ -218,7 +218,7 @@ set_next_rotation_time.exit:                      ; preds = %52, %59
   br label %78
 
 78:                                               ; preds = %process_pipe_input.exit, %set_next_rotation_time.exit
-  %.0 = phi i32 [ 0, %set_next_rotation_time.exit ], [ %.2116, %process_pipe_input.exit ]
+  %.0 = phi i32 [ 0, %set_next_rotation_time.exit ], [ %.2111, %process_pipe_input.exit ]
   %.055 = phi i64 [ %13, %set_next_rotation_time.exit ], [ %.156, %process_pipe_input.exit ]
   %.052 = phi i32 [ %57, %set_next_rotation_time.exit ], [ %.153, %process_pipe_input.exit ]
   %.043 = phi ptr [ %56, %set_next_rotation_time.exit ], [ %.144, %process_pipe_input.exit ]
@@ -295,7 +295,7 @@ set_next_rotation_time.exit:                      ; preds = %52, %59
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %111 = icmp slt i32 %109, 1
-  br i1 %111, label %set_next_rotation_time.exit98, label %112
+  br i1 %111, label %set_next_rotation_time.exit93, label %112
 
 112:                                              ; preds = %110
   %113 = mul i32 %109, 60
@@ -312,16 +312,16 @@ set_next_rotation_time.exit:                      ; preds = %52, %59
   %123 = add i64 %119, %121
   %124 = sub i64 %123, %122
   store i64 %124, ptr @next_rotation_time, align 8
-  br label %set_next_rotation_time.exit98
+  br label %set_next_rotation_time.exit93
 
-set_next_rotation_time.exit98:                    ; preds = %110, %112
+set_next_rotation_time.exit93:                    ; preds = %110, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %125
 
-125:                                              ; preds = %set_next_rotation_time.exit98, %108
-  %.254 = phi i32 [ %109, %set_next_rotation_time.exit98 ], [ %.052, %108 ]
-  %.b6981 = load i1, ptr @rotation_disabled, align 1
-  br i1 %.b6981, label %126, label %127
+125:                                              ; preds = %set_next_rotation_time.exit93, %108
+  %.254 = phi i32 [ %109, %set_next_rotation_time.exit93 ], [ %.052, %108 ]
+  %.b69 = load i1, ptr @rotation_disabled, align 1
+  br i1 %.b69, label %126, label %127
 
 126:                                              ; preds = %125
   store i1 false, ptr @rotation_disabled, align 1
@@ -338,15 +338,15 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
   %.1 = phi ptr [ %.2, %127 ], [ %.042, %78 ]
   %129 = load i32, ptr @Log_RotationAge, align 4
   %130 = icmp slt i32 %129, 1
-  %.b6882 = load i1, ptr @rotation_disabled, align 1
-  %or.cond = select i1 %130, i1 true, i1 %.b6882
+  %.b68 = load i1, ptr @rotation_disabled, align 1
+  %or.cond = select i1 %130, i1 true, i1 %.b68
   br i1 %or.cond, label %135, label %131
 
 131:                                              ; preds = %128
   %132 = call i64 @time(ptr noundef null) #14
   %133 = load i64, ptr @next_rotation_time, align 8
-  %.not83 = icmp slt i64 %132, %133
-  br i1 %.not83, label %135, label %134
+  %.not81 = icmp slt i64 %132, %133
+  br i1 %.not81, label %135, label %134
 
 134:                                              ; preds = %131
   store volatile i32 1, ptr @rotation_requested, align 4
@@ -359,9 +359,9 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
   %137 = icmp ne i32 %136, 0
   %138 = load i32, ptr @Log_RotationSize, align 4
   %139 = icmp slt i32 %138, 1
-  %or.cond3.not86 = select i1 %137, i1 true, i1 %139
-  %.b6787 = load i1, ptr @rotation_disabled, align 1
-  %or.cond5 = select i1 %or.cond3.not86, i1 true, i1 %.b6787
+  %or.cond3.not84 = select i1 %137, i1 true, i1 %139
+  %.b67 = load i1, ptr @rotation_disabled, align 1
+  %or.cond5 = select i1 %or.cond3.not84, i1 true, i1 %.b67
   br i1 %or.cond5, label %165, label %140
 
 140:                                              ; preds = %135
@@ -370,8 +370,8 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
   %143 = load i32, ptr @Log_RotationSize, align 4
   %144 = sext i32 %143 to i64
   %145 = shl nsw i64 %144, 10
-  %.not88 = icmp slt i64 %142, %145
-  br i1 %.not88, label %147, label %146
+  %.not85 = icmp slt i64 %142, %145
+  br i1 %.not85, label %147, label %146
 
 146:                                              ; preds = %140
   store volatile i32 1, ptr @rotation_requested, align 4
@@ -380,16 +380,16 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
 147:                                              ; preds = %146, %140
   %.149 = phi i32 [ 1, %146 ], [ 0, %140 ]
   %148 = load ptr, ptr @csvlogFile, align 8
-  %.not89 = icmp eq ptr %148, null
-  br i1 %.not89, label %156, label %149
+  %.not86 = icmp eq ptr %148, null
+  br i1 %.not86, label %156, label %149
 
 149:                                              ; preds = %147
   %150 = call i64 @ftello(ptr noundef nonnull %148)
   %151 = load i32, ptr @Log_RotationSize, align 4
   %152 = sext i32 %151 to i64
   %153 = shl nsw i64 %152, 10
-  %.not90 = icmp slt i64 %150, %153
-  br i1 %.not90, label %156, label %154
+  %.not87 = icmp slt i64 %150, %153
+  br i1 %.not87, label %156, label %154
 
 154:                                              ; preds = %149
   store volatile i32 1, ptr @rotation_requested, align 4
@@ -399,16 +399,16 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
 156:                                              ; preds = %154, %149, %147
   %.250 = phi i32 [ %155, %154 ], [ %.149, %149 ], [ %.149, %147 ]
   %157 = load ptr, ptr @jsonlogFile, align 8
-  %.not91 = icmp eq ptr %157, null
-  br i1 %.not91, label %165, label %158
+  %.not88 = icmp eq ptr %157, null
+  br i1 %.not88, label %165, label %158
 
 158:                                              ; preds = %156
   %159 = call i64 @ftello(ptr noundef nonnull %157)
   %160 = load i32, ptr @Log_RotationSize, align 4
   %161 = sext i32 %160 to i64
   %162 = shl nsw i64 %161, 10
-  %.not92 = icmp slt i64 %159, %162
-  br i1 %.not92, label %165, label %163
+  %.not89 = icmp slt i64 %159, %162
+  br i1 %.not89, label %165, label %163
 
 163:                                              ; preds = %158
   store volatile i32 1, ptr @rotation_requested, align 4
@@ -418,8 +418,8 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
 165:                                              ; preds = %156, %158, %163, %135
   %.048 = phi i32 [ 0, %135 ], [ %164, %163 ], [ %.250, %158 ], [ %.250, %156 ]
   %166 = load volatile i32, ptr @rotation_requested, align 4
-  %.not93 = icmp eq i32 %166, 0
-  br i1 %.not93, label %logfile_rotate.exit, label %167
+  %.not90 = icmp eq i32 %166, 0
+  br i1 %.not90, label %logfile_rotate.exit, label %167
 
 167:                                              ; preds = %165
   %168 = icmp ne i32 %.048, 0
@@ -435,22 +435,22 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
 170:                                              ; preds = %167
   %171 = call i64 @time(ptr noundef null) #14
   %172 = and i32 %spec.store.select13, 1
-  %.not124 = icmp eq i32 %172, 0
-  br i1 %.not124, label %221, label %173
+  %.not119 = icmp eq i32 %172, 0
+  br i1 %.not119, label %221, label %173
 
 173:                                              ; preds = %.thread, %170
-  %.0.i120 = phi i64 [ %169, %.thread ], [ %171, %170 ]
+  %.0.i115 = phi i64 [ %169, %.thread ], [ %171, %170 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.0.i120, ptr %3, align 8
+  store i64 %.0.i115, ptr %3, align 8
   %174 = call ptr @palloc(i64 noundef 1024) #14
   %175 = load ptr, ptr @Log_directory, align 8
   %176 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %174, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %175) #14
   %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #15
-  %sext.i110 = shl i64 %177, 32
-  %178 = ashr exact i64 %sext.i110, 32
+  %sext.i105 = shl i64 %177, 32
+  %178 = ashr exact i64 %sext.i105, 32
   %179 = getelementptr inbounds i8, ptr %174, i64 %178
-  %sext17.i111 = sub i64 4398046511104, %sext.i110
-  %180 = ashr exact i64 %sext17.i111, 32
+  %sext17.i106 = sub i64 4398046511104, %sext.i105
+  %180 = ashr exact i64 %sext17.i106, 32
   %181 = load ptr, ptr @Log_filename, align 8
   %182 = load ptr, ptr @log_timezone, align 8
   %183 = call ptr @pg_localtime(ptr noundef nonnull %3, ptr noundef %182) #14
@@ -463,8 +463,8 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
 
 187:                                              ; preds = %173
   %188 = load ptr, ptr @last_sys_file_name, align 8
-  %.not.i108 = icmp eq ptr %188, null
-  br i1 %.not.i108, label %191, label %189
+  %.not.i103 = icmp eq ptr %188, null
+  br i1 %.not.i103, label %191, label %189
 
 189:                                              ; preds = %187
   %190 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) %188) #15
@@ -482,8 +482,8 @@ set_next_rotation_time.exit98:                    ; preds = %110, %112
   %196 = call i32 @umask(i32 noundef %195) #14
   %197 = call noalias ptr @fopen(ptr noundef nonnull %174, ptr noundef nonnull readonly %.str.7.sink.i)
   %198 = call i32 @umask(i32 noundef %196) #14
-  %.not.i109 = icmp eq ptr %197, null
-  br i1 %.not.i109, label %199, label %212
+  %.not.i104 = icmp eq ptr %197, null
+  br i1 %.not.i104, label %199, label %212
 
 199:                                              ; preds = %192
   %200 = tail call ptr @__errno_location() #16
@@ -545,12 +545,12 @@ logfile_rotate_dest.exit:                         ; preds = %211, %206
   br label %logfile_rotate.exit
 
 221:                                              ; preds = %220, %170
-  %.0.i119.ph = phi i64 [ %171, %170 ], [ %.0.i120, %220 ]
-  %222 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.051, i32 noundef range(i32 0, 32) %spec.store.select13, i64 noundef %.0.i119.ph, i32 noundef 8, ptr noundef nonnull @last_csv_file_name, ptr noundef nonnull @csvlogFile)
+  %.0.i114.ph = phi i64 [ %171, %170 ], [ %.0.i115, %220 ]
+  %222 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.051, i32 noundef range(i32 0, 32) %spec.store.select13, i64 noundef %.0.i114.ph, i32 noundef 8, ptr noundef nonnull @last_csv_file_name, ptr noundef nonnull @csvlogFile)
   br i1 %222, label %223, label %logfile_rotate.exit
 
 223:                                              ; preds = %221
-  %224 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.051, i32 noundef range(i32 0, 32) %spec.store.select13, i64 noundef %.0.i119.ph, i32 noundef 16, ptr noundef nonnull @last_json_file_name, ptr noundef nonnull @jsonlogFile)
+  %224 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.051, i32 noundef range(i32 0, 32) %spec.store.select13, i64 noundef %.0.i114.ph, i32 noundef 16, ptr noundef nonnull @last_json_file_name, ptr noundef nonnull @jsonlogFile)
   br i1 %224, label %225, label %logfile_rotate.exit
 
 225:                                              ; preds = %223
@@ -584,8 +584,8 @@ set_next_rotation_time.exit.i:                    ; preds = %228, %225
 logfile_rotate.exit:                              ; preds = %set_next_rotation_time.exit.i, %223, %221, %logfile_rotate_dest.exit, %165
   %241 = load i32, ptr @Log_RotationAge, align 4
   %242 = icmp slt i32 %241, 1
-  %.b95 = load i1, ptr @rotation_disabled, align 1
-  %or.cond9 = select i1 %242, i1 true, i1 %.b95
+  %.b = load i1, ptr @rotation_disabled, align 1
+  %or.cond9 = select i1 %242, i1 true, i1 %.b
   br i1 %or.cond9, label %250, label %243
 
 243:                                              ; preds = %logfile_rotate.exit
@@ -621,8 +621,8 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 263:                                              ; preds = %255
   %264 = tail call ptr @__errno_location() #16
   %265 = load i32, ptr %264, align 4
-  %.not96 = icmp eq i32 %265, 4
-  br i1 %.not96, label %flush_pipe_input.exit, label %266
+  %.not92 = icmp eq i32 %265, 4
+  br i1 %.not92, label %flush_pipe_input.exit, label %266
 
 266:                                              ; preds = %263
   %267 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
@@ -913,34 +913,34 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
   store i1 true, ptr @pipe_eof_seen, align 1
   br label %383
 
-383:                                              ; preds = %.critedge.i101, %382
-  %indvars.iv31.i = phi i64 [ 0, %382 ], [ %indvars.iv.next32.i, %.critedge.i101 ]
+383:                                              ; preds = %.critedge.i96, %382
+  %indvars.iv31.i = phi i64 [ 0, %382 ], [ %indvars.iv.next32.i, %.critedge.i96 ]
   %384 = getelementptr inbounds nuw ptr, ptr @buffer_lists, i64 %indvars.iv31.i
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 4
-  %.not.i99 = icmp eq ptr %385, null
-  br i1 %.not.i99, label %.critedge.i101, label %.lr.ph.i100
+  %.not.i94 = icmp eq ptr %385, null
+  br i1 %.not.i94, label %.critedge.i96, label %.lr.ph.i95
 
-.lr.ph.i100:                                      ; preds = %383
+.lr.ph.i95:                                       ; preds = %383
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %388 = load i32, ptr %386, align 4
   %389 = icmp sgt i32 %388, 0
-  br i1 %389, label %.lr.ph28.i, label %.critedge.i101
+  br i1 %389, label %.lr.ph28.i, label %.critedge.i96
 
-.lr.ph28.i:                                       ; preds = %.lr.ph.i100, %406
-  %390 = phi i32 [ %407, %406 ], [ %388, %.lr.ph.i100 ]
-  %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i106, %406 ], [ 0, %.lr.ph.i100 ]
+.lr.ph28.i:                                       ; preds = %.lr.ph.i95, %406
+  %390 = phi i32 [ %407, %406 ], [ %388, %.lr.ph.i95 ]
+  %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i101, %406 ], [ 0, %.lr.ph.i95 ]
   %391 = load ptr, ptr %387, align 8
-  %392 = getelementptr inbounds nuw %union.ListCell, ptr %391, i64 %indvars.iv.i103
+  %392 = getelementptr inbounds nuw %union.ListCell, ptr %391, i64 %indvars.iv.i98
   %393 = load ptr, ptr %392, align 8
   %394 = load i32, ptr %393, align 8
   %.not22.i = icmp eq i32 %394, 0
   br i1 %.not22.i, label %406, label %395
 
-.critedge.i101:                                   ; preds = %406, %.lr.ph.i100, %383
+.critedge.i96:                                    ; preds = %406, %.lr.ph.i95, %383
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond.not.i102 = icmp eq i64 %indvars.iv.next32.i, 256
-  br i1 %exitcond.not.i102, label %410, label %383, !llvm.loop !8
+  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next32.i, 256
+  br i1 %exitcond.not.i97, label %410, label %383, !llvm.loop !8
 
 395:                                              ; preds = %.lr.ph28.i
   %396 = getelementptr inbounds nuw i8, ptr %393, i64 8
@@ -951,28 +951,28 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
   %401 = sext i32 %399 to i64
   %402 = call i64 @fwrite(ptr noundef readonly %397, i64 noundef 1, i64 noundef %401, ptr noundef %400)
   %403 = trunc i64 %402 to i32
-  %.not.i.i104 = icmp eq i32 %399, %403
-  br i1 %.not.i.i104, label %write_syslogger_file.exit.i105, label %404
+  %.not.i.i99 = icmp eq i32 %399, %403
+  br i1 %.not.i.i99, label %write_syslogger_file.exit.i100, label %404
 
 404:                                              ; preds = %395
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.13) #14
-  br label %write_syslogger_file.exit.i105
+  br label %write_syslogger_file.exit.i100
 
-write_syslogger_file.exit.i105:                   ; preds = %404, %395
+write_syslogger_file.exit.i100:                   ; preds = %404, %395
   store i32 0, ptr %393, align 8
   %405 = load ptr, ptr %396, align 8
   call void @pfree(ptr noundef %405) #14
   %.pre.i = load i32, ptr %386, align 4
   br label %406
 
-406:                                              ; preds = %write_syslogger_file.exit.i105, %.lr.ph28.i
-  %407 = phi i32 [ %.pre.i, %write_syslogger_file.exit.i105 ], [ %390, %.lr.ph28.i ]
-  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i103, 1
+406:                                              ; preds = %write_syslogger_file.exit.i100, %.lr.ph28.i
+  %407 = phi i32 [ %.pre.i, %write_syslogger_file.exit.i100 ], [ %390, %.lr.ph28.i ]
+  %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i98, 1
   %408 = sext i32 %407 to i64
-  %409 = icmp slt i64 %indvars.iv.next.i106, %408
-  br i1 %409, label %.lr.ph28.i, label %.critedge.i101
+  %409 = icmp slt i64 %indvars.iv.next.i101, %408
+  br i1 %409, label %.lr.ph28.i, label %.critedge.i96
 
-410:                                              ; preds = %.critedge.i101
+410:                                              ; preds = %.critedge.i96
   %411 = icmp sgt i32 %.0, 0
   br i1 %411, label %412, label %flush_pipe_input.exit
 
@@ -989,9 +989,9 @@ write_syslogger_file.exit.i105:                   ; preds = %404, %395
   br label %flush_pipe_input.exit
 
 flush_pipe_input.exit:                            ; preds = %417, %412, %410, %263, %268, %266, %250
-  %.1115 = phi i32 [ %.0, %263 ], [ %.0, %268 ], [ %.0, %266 ], [ %.0, %250 ], [ 0, %410 ], [ 0, %412 ], [ 0, %417 ]
-  %.b7097 = load i1, ptr @pipe_eof_seen, align 1
-  br i1 %.b7097, label %418, label %process_pipe_input.exit
+  %.1110 = phi i32 [ %.0, %263 ], [ %.0, %268 ], [ %.0, %266 ], [ %.0, %250 ], [ 0, %410 ], [ 0, %412 ], [ 0, %417 ]
+  %.b70 = load i1, ptr @pipe_eof_seen, align 1
+  br i1 %.b70, label %418, label %process_pipe_input.exit
 
 418:                                              ; preds = %flush_pipe_input.exit
   %419 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
@@ -1007,7 +1007,7 @@ flush_pipe_input.exit:                            ; preds = %417, %412, %410, %2
   unreachable
 
 process_pipe_input.exit:                          ; preds = %380, %select.unfold.thread.i, %.critedge, %flush_pipe_input.exit
-  %.2116 = phi i32 [ %.1115, %flush_pipe_input.exit ], [ %.0100.lcssa.i, %380 ], [ %.0100.lcssa.i, %select.unfold.thread.i ], [ %272, %.critedge ]
+  %.2111 = phi i32 [ %.1110, %flush_pipe_input.exit ], [ %.0100.lcssa.i, %380 ], [ %.0100.lcssa.i, %select.unfold.thread.i ], [ %272, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %78
 }

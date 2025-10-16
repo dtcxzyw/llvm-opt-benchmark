@@ -10863,8 +10863,8 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gsm_map() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_gsm_map.map_prefs_initialized, align 1
-  br i1 %.b1, label %189, label %1
+  %.b = load i1, ptr @proto_reg_handoff_gsm_map.map_prefs_initialized, align 1
+  br i1 %.b, label %189, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_gsm_map.map_prefs_initialized, align 1

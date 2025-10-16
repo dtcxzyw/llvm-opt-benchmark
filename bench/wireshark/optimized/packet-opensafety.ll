@@ -781,8 +781,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @apply_prefs() #0 {
-  %.b1 = load i1, ptr @apply_prefs.opensafety_init, align 1
-  br i1 %.b1, label %1, label %6
+  %.b = load i1, ptr @apply_prefs.opensafety_init, align 1
+  br i1 %.b, label %1, label %6
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @apply_prefs.opensafety_udp_port_number, align 4
@@ -859,8 +859,8 @@ define internal range(i32 0, 2) i32 @dissect_opensafety_udpdata(ptr noundef %0, 
   br i1 %12, label %13, label %dissect_opensafety_siii.exit
 
 13:                                               ; preds = %10
-  %.b11.i = load i1, ptr @bDissector_Called_Once_Before, align 1
-  br i1 %.b11.i, label %dissect_opensafety_siii.exit, label %14
+  %.b.i = load i1, ptr @bDissector_Called_Once_Before, align 1
+  br i1 %.b.i, label %dissect_opensafety_siii.exit, label %14
 
 14:                                               ; preds = %13
   store i1 true, ptr @bDissector_Called_Once_Before, align 1
@@ -994,8 +994,8 @@ define internal range(i32 0, 2) i32 @dissect_opensafety_mbtcp(ptr noundef %0, pt
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @dissect_opensafety_pn_io(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %.b3 = load i1, ptr @bDissector_Called_Once_Before, align 1
-  br i1 %.b3, label %7, label %5
+  %.b = load i1, ptr @bDissector_Called_Once_Before, align 1
+  br i1 %.b, label %7, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @bDissector_Called_Once_Before, align 1
@@ -1145,8 +1145,8 @@ define hidden void @proto_reg_handoff_opensafety() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.b1.i = load i1, ptr @apply_prefs.opensafety_init, align 1
-  br i1 %.b1.i, label %11, label %apply_prefs.exit
+  %.b.i = load i1, ptr @apply_prefs.opensafety_init, align 1
+  br i1 %.b.i, label %11, label %apply_prefs.exit
 
 11:                                               ; preds = %10
   %12 = load i32, ptr @apply_prefs.opensafety_udp_port_number, align 4
@@ -1182,8 +1182,8 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
-  %.b15 = load i1, ptr @bDissector_Called_Once_Before, align 1
-  br i1 %.b15, label %13, label %5
+  %.b = load i1, ptr @bDissector_Called_Once_Before, align 1
+  br i1 %.b, label %13, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @bDissector_Called_Once_Before, align 1
@@ -1197,8 +1197,8 @@ define internal zeroext i1 @dissect_opensafety_epl(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %9 = load ptr, ptr %8, align 8
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.critedge, label %6, !llvm.loop !8
+  %.not15 = icmp eq ptr %9, null
+  br i1 %.not15, label %.critedge, label %6, !llvm.loop !8
 
 .critedge:                                        ; preds = %6, %7
   %10 = load i8, ptr %3, align 1
@@ -1222,8 +1222,8 @@ define internal zeroext i1 @dissect_opensafety_siii_heur(ptr noundef %0, ptr nou
   br i1 %6, label %7, label %dissect_opensafety_siii.exit
 
 7:                                                ; preds = %4
-  %.b11.i = load i1, ptr @bDissector_Called_Once_Before, align 1
-  br i1 %.b11.i, label %dissect_opensafety_siii.exit, label %8
+  %.b.i = load i1, ptr @bDissector_Called_Once_Before, align 1
+  br i1 %.b.i, label %dissect_opensafety_siii.exit, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -1260,8 +1260,8 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dissect_opensafety_pn_io_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %.b3.i = load i1, ptr @bDissector_Called_Once_Before, align 1
-  br i1 %.b3.i, label %dissect_opensafety_pn_io.exit, label %5
+  %.b.i = load i1, ptr @bDissector_Called_Once_Before, align 1
+  br i1 %.b.i, label %dissect_opensafety_pn_io.exit, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @bDissector_Called_Once_Before, align 1

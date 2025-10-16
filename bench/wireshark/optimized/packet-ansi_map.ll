@@ -4043,8 +4043,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ansi_map() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_ansi_map.ansi_map_prefs_initialized, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @proto_reg_handoff_ansi_map.ansi_map_prefs_initialized, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @proto_reg_handoff_ansi_map.ansi_map_prefs_initialized, align 1
@@ -8323,9 +8323,9 @@ define internal i32 @dissect_ansi_map_ServiceIndicator(i1 noundef zeroext %0, pt
 .sink.split:                                      ; preds = %13, %13, %14
   %is801_dissector_table.sink = phi ptr [ @is801_dissector_table, %14 ], [ @is683_dissector_table, %13 ], [ @is683_dissector_table, %13 ]
   %15 = load ptr, ptr %is801_dissector_table.sink, align 8
-  %.b9 = load i1, ptr @ansi_map_is_invoke, align 1
-  %not..b9 = xor i1 %.b9, true
-  %16 = zext i1 %not..b9 to i32
+  %.b = load i1, ptr @ansi_map_is_invoke, align 1
+  %not..b = xor i1 %.b, true
+  %16 = zext i1 %not..b to i32
   %17 = load ptr, ptr @g_pinfo, align 8
   %18 = load ptr, ptr @g_tree, align 8
   %19 = call i32 @dissector_try_uint(ptr noundef %15, i32 noundef %16, ptr noundef nonnull %12, ptr noundef %17, ptr noundef %18)
@@ -8864,9 +8864,9 @@ define internal i32 @dissect_ansi_map_SMS_BearerData(i1 noundef zeroext %0, ptr 
 
 25:                                               ; preds = %23, %23
   %26 = load ptr, ptr @is683_dissector_table, align 8
-  %.b1316 = load i1, ptr @ansi_map_is_invoke, align 1
-  %not..b1316 = xor i1 %.b1316, true
-  %27 = zext i1 %not..b1316 to i32
+  %.b13 = load i1, ptr @ansi_map_is_invoke, align 1
+  %not..b13 = xor i1 %.b13, true
+  %27 = zext i1 %not..b13 to i32
   %28 = load ptr, ptr @SMS_BearerData_tvb, align 8
   %29 = load ptr, ptr @g_pinfo, align 8
   %30 = load ptr, ptr @g_tree, align 8
@@ -8875,9 +8875,9 @@ define internal i32 @dissect_ansi_map_SMS_BearerData(i1 noundef zeroext %0, ptr 
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr @is801_dissector_table, align 8
-  %.b15 = load i1, ptr @ansi_map_is_invoke, align 1
-  %not..b15 = xor i1 %.b15, true
-  %34 = zext i1 %not..b15 to i32
+  %.b = load i1, ptr @ansi_map_is_invoke, align 1
+  %not..b = xor i1 %.b, true
+  %34 = zext i1 %not..b to i32
   %35 = load ptr, ptr @SMS_BearerData_tvb, align 8
   %36 = load ptr, ptr @g_pinfo, align 8
   %37 = load ptr, ptr @g_tree, align 8

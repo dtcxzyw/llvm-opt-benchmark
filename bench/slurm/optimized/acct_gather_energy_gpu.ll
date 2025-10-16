@@ -836,8 +836,8 @@ _running_profile.exit.thread:                     ; preds = %10
   br label %14
 
 _running_profile.exit:                            ; preds = %0, %10
-  %.b1.i.pr = load i1, ptr @_running_profile.run, align 1
-  br i1 %.b1.i.pr, label %14, label %78
+  %.b.i.pr = load i1, ptr @_running_profile.run, align 1
+  br i1 %.b.i.pr, label %14, label %78
 
 14:                                               ; preds = %_running_profile.exit.thread, %_running_profile.exit
   %15 = load i32, ptr @dataset_id, align 4
@@ -1014,8 +1014,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
   br i1 %4, label %5, label %50
 
 5:                                                ; preds = %2
-  %.b16 = load i1, ptr @acct_gather_energy_p_conf_set.flag_init, align 1
-  br i1 %.b16, label %46, label %6
+  %.b = load i1, ptr @acct_gather_energy_p_conf_set.flag_init, align 1
+  br i1 %.b, label %46, label %6
 
 6:                                                ; preds = %5
   store i1 true, ptr @acct_gather_energy_p_conf_set.flag_init, align 1
@@ -1033,8 +1033,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
 
 11:                                               ; preds = %10, %8
   %12 = load i16, ptr @gpus_len, align 2
-  %.not17 = icmp eq i16 %12, 0
-  br i1 %.not17, label %46, label %13
+  %.not16 = icmp eq i16 %12, 0
+  br i1 %.not16, label %46, label %13
 
 13:                                               ; preds = %11
   %14 = zext i16 %12 to i64
@@ -1042,8 +1042,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
   store ptr %15, ptr @gpus, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @pthread_attr_init(ptr noundef nonnull %3) #11
-  %.not18 = icmp eq i32 %16, 0
-  br i1 %.not18, label %19, label %17
+  %.not17 = icmp eq i32 %16, 0
+  br i1 %.not17, label %19, label %17
 
 17:                                               ; preds = %13
   %18 = tail call ptr @__errno_location() #12
@@ -1053,8 +1053,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
 
 19:                                               ; preds = %13
   %20 = call i32 @pthread_attr_setscope(ptr noundef nonnull %3, i32 noundef 0) #11
-  %.not19 = icmp eq i32 %20, 0
-  br i1 %.not19, label %24, label %21
+  %.not18 = icmp eq i32 %20, 0
+  br i1 %.not18, label %24, label %21
 
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #12
@@ -1064,8 +1064,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
 
 24:                                               ; preds = %21, %19
   %25 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %3, i64 noundef 1048576) #11
-  %.not20 = icmp eq i32 %25, 0
-  br i1 %.not20, label %29, label %26
+  %.not19 = icmp eq i32 %25, 0
+  br i1 %.not19, label %29, label %26
 
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #12
@@ -1075,8 +1075,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
 
 29:                                               ; preds = %26, %24
   %30 = call i32 @pthread_create(ptr noundef nonnull @thread_gpu_id_run, ptr noundef nonnull %3, ptr noundef nonnull @_thread_gpu_run, ptr noundef null) #11
-  %.not21 = icmp eq i32 %30, 0
-  br i1 %.not21, label %33, label %31
+  %.not20 = icmp eq i32 %30, 0
+  br i1 %.not20, label %33, label %31
 
 31:                                               ; preds = %29
   %32 = tail call ptr @__errno_location() #12
@@ -1086,8 +1086,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
 
 33:                                               ; preds = %29
   %34 = call i32 @pthread_attr_destroy(ptr noundef nonnull %3) #11
-  %.not22 = icmp eq i32 %34, 0
-  br i1 %.not22, label %38, label %35
+  %.not21 = icmp eq i32 %34, 0
+  br i1 %.not21, label %38, label %35
 
 35:                                               ; preds = %33
   %36 = tail call ptr @__errno_location() #12
@@ -1099,8 +1099,8 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %40 = and i64 %39, 262144
-  %.not23 = icmp eq i64 %40, 0
-  br i1 %.not23, label %46, label %41
+  %.not22 = icmp eq i64 %40, 0
+  br i1 %.not22, label %46, label %41
 
 41:                                               ; preds = %38
   %42 = call i32 @slurm_get_log_level() #11
@@ -1241,8 +1241,8 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr readnone captures(none)
   br i1 %.not26, label %.preheader, label %43
 
 .preheader:                                       ; preds = %35
-  %.b212731 = load i1, ptr @flag_energy_accounting_shutdown, align 1
-  br i1 %.b212731, label %._crit_edge, label %.lr.ph
+  %.b2129 = load i1, ptr @flag_energy_accounting_shutdown, align 1
+  br i1 %.b2129, label %._crit_edge, label %.lr.ph
 
 43:                                               ; preds = %35
   %44 = tail call ptr @__errno_location() #12
@@ -1355,7 +1355,7 @@ _update_energy.exit.i:                            ; preds = %82, %76
   br i1 %98, label %99, label %110
 
 99:                                               ; preds = %.lr.ph19.i
-  %indvars32 = trunc nuw nsw i64 %indvars.iv23.i to i32
+  %indvars30 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %100 = load ptr, ptr @gpus, align 8
   %101 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %100, i64 %indvars.iv23.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -1366,7 +1366,7 @@ _update_energy.exit.i:                            ; preds = %82, %76
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %108 = load i64, ptr %107, align 8
   %109 = load i32, ptr %102, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_update_node_energy, i32 noundef %indvars32, i32 noundef %104, i64 noundef %106, i64 noundef %108, i32 noundef %109) #11
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_update_node_energy, i32 noundef %indvars30, i32 noundef %104, i64 noundef %106, i64 noundef %108, i32 noundef %109) #11
   br label %110
 
 110:                                              ; preds = %99, %.lr.ph19.i
@@ -1377,8 +1377,8 @@ _update_energy.exit.i:                            ; preds = %82, %76
   br i1 %113, label %.lr.ph19.i, label %_thread_update_node_energy.exit, !llvm.loop !22
 
 _thread_update_node_energy.exit:                  ; preds = %110, %._crit_edge.i
-  %.b30 = load i1, ptr @flag_energy_accounting_shutdown, align 1
-  br i1 %.b30, label %._crit_edge, label %114
+  %.b = load i1, ptr @flag_energy_accounting_shutdown, align 1
+  br i1 %.b, label %._crit_edge, label %114
 
 114:                                              ; preds = %_thread_update_node_energy.exit
   %115 = load i64, ptr %3, align 8
@@ -1397,13 +1397,13 @@ _thread_update_node_energy.exit:                  ; preds = %110, %._crit_edge.i
   br label %121
 
 121:                                              ; preds = %118, %114, %114
-  %.b2127.pr = load i1, ptr @flag_energy_accounting_shutdown, align 1
-  br i1 %.b2127.pr, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  %.b21.pr = load i1, ptr @flag_energy_accounting_shutdown, align 1
+  br i1 %.b21.pr, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_thread_update_node_energy.exit, %121, %.preheader
   %122 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
-  %.not28 = icmp eq i32 %122, 0
-  br i1 %.not28, label %125, label %123
+  %.not27 = icmp eq i32 %122, 0
+  br i1 %.not27, label %125, label %123
 
 123:                                              ; preds = %._crit_edge
   %124 = tail call ptr @__errno_location() #12
@@ -1414,8 +1414,8 @@ _thread_update_node_energy.exit:                  ; preds = %110, %._crit_edge.i
 125:                                              ; preds = %._crit_edge
   %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %127 = and i64 %126, 262144
-  %.not29 = icmp eq i64 %127, 0
-  br i1 %.not29, label %132, label %128
+  %.not28 = icmp eq i64 %127, 0
+  br i1 %.not28, label %132, label %128
 
 128:                                              ; preds = %125
   %129 = call i32 @slurm_get_log_level() #11

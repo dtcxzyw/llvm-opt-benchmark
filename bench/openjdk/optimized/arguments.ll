@@ -853,8 +853,8 @@ _ZN10PathStringC2EPKc.exit:                       ; preds = %7, %8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN9Arguments14has_jfr_optionEv() local_unnamed_addr #4 align 2 {
-  %.b1 = load i1, ptr @_ZL15_has_jfr_option, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @_ZL15_has_jfr_option, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
@@ -7080,8 +7080,8 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments21finalize_vm_init_args
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %.b20 = load i1, ptr @_ZL18mode_flag_cmd_line, align 1
-  %62 = call noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1 noundef zeroext %0, i1 noundef zeroext %.b20) #31
+  %.b = load i1, ptr @_ZL18mode_flag_cmd_line, align 1
+  %62 = call noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1 noundef zeroext %0, i1 noundef zeroext %.b) #31
   %not. = xor i1 %62, true
   %. = sext i1 %not. to i32
   br label %63

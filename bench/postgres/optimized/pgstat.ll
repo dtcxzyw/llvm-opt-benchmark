@@ -1252,8 +1252,8 @@ pgstat_write_statsfile.exit:                      ; preds = %23, %25, %160, %171
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %.b44 = load i1, ptr @pgStatForceNextFlush, align 1
-  br i1 %.b44, label %2, label %3
+  %.b = load i1, ptr @pgStatForceNextFlush, align 1
+  br i1 %.b, label %2, label %3
 
 2:                                                ; preds = %1
   store i1 false, ptr @pgStatForceNextFlush, align 1
@@ -1270,9 +1270,9 @@ define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext 
 .preheader:                                       ; preds = %3, %pgstat_get_kind_info.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %pgstat_get_kind_info.exit.thread ], [ 1, %3 ]
   %7 = icmp samesign ult i64 %indvars.iv, 13
-  br i1 %7, label %pgstat_get_kind_info.exit.thread52, label %9
+  br i1 %7, label %pgstat_get_kind_info.exit.thread51, label %9
 
-pgstat_get_kind_info.exit.thread52:               ; preds = %.preheader
+pgstat_get_kind_info.exit.thread51:               ; preds = %.preheader
   %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   br label %17
 
@@ -1292,12 +1292,12 @@ pgstat_get_kind_info.exit:                        ; preds = %12
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %pgstat_get_kind_info.exit.thread, label %17
 
-17:                                               ; preds = %pgstat_get_kind_info.exit.thread52, %pgstat_get_kind_info.exit
-  %.0.i55 = phi ptr [ %8, %pgstat_get_kind_info.exit.thread52 ], [ %16, %pgstat_get_kind_info.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 96
+17:                                               ; preds = %pgstat_get_kind_info.exit.thread51, %pgstat_get_kind_info.exit
+  %.0.i54 = phi ptr [ %8, %pgstat_get_kind_info.exit.thread51 ], [ %16, %pgstat_get_kind_info.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 96
   %19 = load ptr, ptr %18, align 8
-  %.not45 = icmp eq ptr %19, null
-  br i1 %.not45, label %pgstat_get_kind_info.exit.thread, label %20
+  %.not44 = icmp eq ptr %19, null
+  br i1 %.not44, label %pgstat_get_kind_info.exit.thread, label %20
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 %19() #16
@@ -1350,7 +1350,7 @@ pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get
   br i1 %.not18.i, label %pgstat_flush_pending_entries.exit.preheader, label %.lr.ph.i
 
 pgstat_flush_pending_entries.exit.preheader:      ; preds = %82, %38
-  %.03667.ph = phi i1 [ false, %38 ], [ %.1.i, %82 ]
+  %.03666.ph = phi i1 [ false, %38 ], [ %.1.i, %82 ]
   br label %pgstat_flush_pending_entries.exit
 
 .lr.ph.i:                                         ; preds = %38, %82
@@ -1436,53 +1436,53 @@ pgstat_delete_pending_entry.exit.i:               ; preds = %77, %pgstat_get_kin
   %.not.i = or i1 %.not17.i, %.not22.i
   br i1 %.not.i, label %pgstat_flush_pending_entries.exit.preheader, label %.lr.ph.i, !llvm.loop !12
 
-83:                                               ; preds = %pgstat_get_kind_info.exit49.thread
+83:                                               ; preds = %pgstat_get_kind_info.exit48.thread
   store i64 %.038, ptr @pgstat_report_stat.last_flush, align 8
   br i1 %.137, label %100, label %.critedge.sink.split
 
-pgstat_flush_pending_entries.exit:                ; preds = %pgstat_flush_pending_entries.exit.preheader, %pgstat_get_kind_info.exit49.thread
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %pgstat_get_kind_info.exit49.thread ], [ 1, %pgstat_flush_pending_entries.exit.preheader ]
-  %.03667 = phi i1 [ %.137, %pgstat_get_kind_info.exit49.thread ], [ %.03667.ph, %pgstat_flush_pending_entries.exit.preheader ]
-  %84 = icmp samesign ult i64 %indvars.iv71, 13
-  br i1 %84, label %pgstat_get_kind_info.exit49.thread61, label %86
+pgstat_flush_pending_entries.exit:                ; preds = %pgstat_flush_pending_entries.exit.preheader, %pgstat_get_kind_info.exit48.thread
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %pgstat_get_kind_info.exit48.thread ], [ 1, %pgstat_flush_pending_entries.exit.preheader ]
+  %.03666 = phi i1 [ %.137, %pgstat_get_kind_info.exit48.thread ], [ %.03666.ph, %pgstat_flush_pending_entries.exit.preheader ]
+  %84 = icmp samesign ult i64 %indvars.iv70, 13
+  br i1 %84, label %pgstat_get_kind_info.exit48.thread60, label %86
 
-pgstat_get_kind_info.exit49.thread61:             ; preds = %pgstat_flush_pending_entries.exit
-  %85 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv71
+pgstat_get_kind_info.exit48.thread60:             ; preds = %pgstat_flush_pending_entries.exit
+  %85 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv70
   br label %94
 
 86:                                               ; preds = %pgstat_flush_pending_entries.exit
-  %87 = add nsw i64 %indvars.iv71, -128
+  %87 = add nsw i64 %indvars.iv70, -128
   %88 = icmp ult i64 %87, 129
-  br i1 %88, label %89, label %pgstat_get_kind_info.exit49.thread
+  br i1 %88, label %89, label %pgstat_get_kind_info.exit48.thread
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr @pgstat_kind_custom_infos, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %pgstat_get_kind_info.exit49.thread, label %pgstat_get_kind_info.exit49
+  br i1 %91, label %pgstat_get_kind_info.exit48.thread, label %pgstat_get_kind_info.exit48
 
-pgstat_get_kind_info.exit49:                      ; preds = %89
+pgstat_get_kind_info.exit48:                      ; preds = %89
   %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %87
   %93 = load ptr, ptr %92, align 8
-  %.not46 = icmp eq ptr %93, null
-  br i1 %.not46, label %pgstat_get_kind_info.exit49.thread, label %94
+  %.not45 = icmp eq ptr %93, null
+  br i1 %.not45, label %pgstat_get_kind_info.exit48.thread, label %94
 
-94:                                               ; preds = %pgstat_get_kind_info.exit49.thread61, %pgstat_get_kind_info.exit49
-  %.0.i4864 = phi ptr [ %85, %pgstat_get_kind_info.exit49.thread61 ], [ %93, %pgstat_get_kind_info.exit49 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i4864, i64 88
+94:                                               ; preds = %pgstat_get_kind_info.exit48.thread60, %pgstat_get_kind_info.exit48
+  %.0.i4763 = phi ptr [ %85, %pgstat_get_kind_info.exit48.thread60 ], [ %93, %pgstat_get_kind_info.exit48 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i4763, i64 88
   %96 = load ptr, ptr %95, align 8
-  %.not47 = icmp eq ptr %96, null
-  br i1 %.not47, label %pgstat_get_kind_info.exit49.thread, label %97
+  %.not46 = icmp eq ptr %96, null
+  br i1 %.not46, label %pgstat_get_kind_info.exit48.thread, label %97
 
 97:                                               ; preds = %94
   %98 = tail call zeroext i1 %96(i1 noundef zeroext %39) #16
-  %99 = or i1 %.03667, %98
-  br label %pgstat_get_kind_info.exit49.thread
+  %99 = or i1 %.03666, %98
+  br label %pgstat_get_kind_info.exit48.thread
 
-pgstat_get_kind_info.exit49.thread:               ; preds = %86, %89, %94, %pgstat_get_kind_info.exit49, %97
-  %.137 = phi i1 [ %99, %97 ], [ %.03667, %pgstat_get_kind_info.exit49 ], [ %.03667, %94 ], [ %.03667, %89 ], [ %.03667, %86 ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next72, 257
-  br i1 %exitcond73.not, label %83, label %pgstat_flush_pending_entries.exit, !llvm.loop !13
+pgstat_get_kind_info.exit48.thread:               ; preds = %86, %89, %94, %pgstat_get_kind_info.exit48, %97
+  %.137 = phi i1 [ %99, %97 ], [ %.03666, %pgstat_get_kind_info.exit48 ], [ %.03666, %94 ], [ %.03666, %89 ], [ %.03666, %86 ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next71, 257
+  br i1 %exitcond72.not, label %83, label %pgstat_flush_pending_entries.exit, !llvm.loop !13
 
 100:                                              ; preds = %83
   %101 = load i64, ptr @pgstat_report_stat.pending_since, align 8
@@ -2056,8 +2056,8 @@ pgstat_get_entry_data.exit:                       ; preds = %104, %107
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pgstat_prep_snapshot() unnamed_addr #0 {
-  %.b2 = load i1, ptr @force_stats_snapshot_clear, align 1
-  br i1 %.b2, label %1, label %4
+  %.b = load i1, ptr @force_stats_snapshot_clear, align 1
+  br i1 %.b, label %1, label %4
 
 1:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 13, i1 false)
@@ -2569,8 +2569,8 @@ declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #0 {
-  %.b2 = load i1, ptr @force_stats_snapshot_clear, align 1
-  br i1 %.b2, label %2, label %5
+  %.b = load i1, ptr @force_stats_snapshot_clear, align 1
+  br i1 %.b, label %2, label %5
 
 2:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 13, i1 false)
@@ -2647,8 +2647,8 @@ pgstat_get_kind_info.exit:                        ; preds = %6, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_snapshot_fixed(i32 noundef %0) local_unnamed_addr #0 {
-  %.b3 = load i1, ptr @force_stats_snapshot_clear, align 1
-  br i1 %.b3, label %2, label %5
+  %.b = load i1, ptr @force_stats_snapshot_clear, align 1
+  br i1 %.b, label %2, label %5
 
 2:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), i8 0, i64 13, i1 false)

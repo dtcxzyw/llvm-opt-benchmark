@@ -5938,8 +5938,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_ServerTask(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -6391,18 +6391,18 @@ _init_l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__43.exit: ; pre
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__43.exit, %3
-  %.sink23 = phi ptr [ %4, %3 ], [ %197, %_init_l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__43.exit ]
-  %200 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
-  store i32 1, ptr %.sink23, align 4, !tbaa !4
+  %.sink22 = phi ptr [ %4, %3 ], [ %197, %_init_l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__43.exit ]
+  %200 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !4
   store i32 131096, ptr %200, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %201, align 8, !tbaa !9
-  %202 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %202, align 8, !tbaa !9
   br label %203
 
 203:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink23, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

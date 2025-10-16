@@ -510,8 +510,8 @@ _ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
   %8 = load atomic i64, ptr @_ZL8StatLock monotonic, align 8
   %.0.i.i2.i = inttoptr i64 %8 to ptr
   %9 = load atomic i64, ptr @_ZL8StatInfo acquire, align 8
-  %.not.i5 = icmp eq i64 %9, 0
-  br i1 %.not.i5, label %10, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  %.not.i4 = icmp eq i64 %9, 0
+  br i1 %.not.i4, label %10, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
 10:                                               ; preds = %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL8StatInfo, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_113StatisticInfoEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_113StatisticInfoEE4callEPv) #21
@@ -519,7 +519,7 @@ _ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
 
 _ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit, %10
   %11 = load atomic i64, ptr @_ZL8StatInfo monotonic, align 8
-  %.0.i.i2.i6 = inttoptr i64 %11 to ptr
+  %.0.i.i2.i5 = inttoptr i64 %11 to ptr
   %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i) #21
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %13
@@ -536,14 +536,14 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN4llv
 16:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
   %17 = load i8, ptr @_ZL11EnableStats, align 1, !tbaa !58, !range !59, !noundef !60
   %18 = trunc nuw i8 %17 to i1
-  %.b4 = load i1, ptr @_ZL7Enabled, align 1
-  %or.cond = select i1 %18, i1 true, i1 %.b4
+  %.b = load i1, ptr @_ZL7Enabled, align 1
+  %or.cond = select i1 %18, i1 true, i1 %.b
   br i1 %or.cond, label %19, label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i5, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !62
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !65
   %.not.i.i = icmp eq ptr %21, %23
   br i1 %.not.i.i, label %26, label %24
@@ -555,7 +555,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN4llv
   br label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
 26:                                               ; preds = %19
-  %27 = load ptr, ptr %.0.i.i2.i6, align 8, !tbaa !68
+  %27 = load ptr, ptr %.0.i.i2.i5, align 8, !tbaa !68
   %28 = ptrtoint ptr %21 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
@@ -596,7 +596,7 @@ _ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
   br label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  store ptr %39, ptr %.0.i.i2.i6, align 8, !tbaa !68
+  store ptr %39, ptr %.0.i.i2.i5, align 8, !tbaa !68
   store ptr %43, ptr %20, align 8, !tbaa !62
   %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !65
@@ -622,10 +622,10 @@ define dso_local void @_ZN4llvm16EnableStatisticsEb(i1 noundef zeroext %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm20AreStatisticsEnabledEv() local_unnamed_addr #4 {
-  %.b1 = load i1, ptr @_ZL7Enabled, align 1
+  %.b = load i1, ptr @_ZL7Enabled, align 1
   %1 = load i8, ptr @_ZL11EnableStats, align 1, !range !59
   %2 = trunc nuw i8 %1 to i1
-  %3 = select i1 %.b1, i1 true, i1 %2
+  %3 = select i1 %.b, i1 true, i1 %2
   ret i1 %3
 }
 

@@ -3678,9 +3678,9 @@ proto_item_set_generated.exit450:                 ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit453:                 ; preds = %proto_item_set_generated.exit450, %162, %165
   %169 = load i8, ptr %146, align 4
-  %.b3.i = load i1, ptr @s_rapid_ranges_configured, align 1
+  %.b.i = load i1, ptr @s_rapid_ranges_configured, align 1
   %170 = zext i8 %169 to i32
-  br i1 %.b3.i, label %171, label %get_mac_lte_rapid_description.exit
+  br i1 %.b.i, label %171, label %get_mac_lte_rapid_description.exit
 
 171:                                              ; preds = %proto_item_set_generated.exit453
   %172 = load i32, ptr @s_rapid_ranges_groupA, align 4
@@ -6816,9 +6816,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %27, %30
   %81 = zext nneg i32 %.0107 to i64
   %82 = getelementptr i8, ptr %15, i64 %81
   store i8 %80, ptr %82, align 1
-  %.b3.i = load i1, ptr @s_rapid_ranges_configured, align 1
+  %.b.i = load i1, ptr @s_rapid_ranges_configured, align 1
   %83 = and i32 %79, 255
-  br i1 %.b3.i, label %84, label %get_mac_lte_rapid_description.exit
+  br i1 %.b.i, label %84, label %get_mac_lte_rapid_description.exit
 
 84:                                               ; preds = %76
   %85 = load i32, ptr @s_rapid_ranges_groupA, align 4
@@ -7108,9 +7108,9 @@ proto_item_set_generated.exit:                    ; preds = %96, %99, %102
   %251 = add i32 %.sink.i, %.1122
   %252 = load i32, ptr @hf_mac_lte_rar_temporary_crnti, align 4
   %253 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %123, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
-  %.b3.i.i = load i1, ptr @s_rapid_ranges_configured, align 1
+  %.b.i.i = load i1, ptr @s_rapid_ranges_configured, align 1
   %254 = zext i8 %119 to i32
-  br i1 %.b3.i.i, label %255, label %dissect_rar_entry.exit
+  br i1 %.b.i.i, label %255, label %dissect_rar_entry.exit
 
 255:                                              ; preds = %250
   %256 = load i32, ptr @s_rapid_ranges_groupA, align 4

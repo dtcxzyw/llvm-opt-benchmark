@@ -1417,8 +1417,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_batadv() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_batadv.inited, align 1
-  br i1 %.b1, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_batadv.inited, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_batadv_plugin, align 4

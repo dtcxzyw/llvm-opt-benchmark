@@ -1433,8 +1433,8 @@ declare void @_ZNSt6thread6detachEv(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix14restoreSignalsEv() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %.b1 = load i1, ptr @_ZN3nixL20savedSignalMaskIsSetE, align 1
-  br i1 %.b1, label %1, label %8
+  %.b = load i1, ptr @_ZN3nixL20savedSignalMaskIsSetE, align 1
+  br i1 %.b, label %1, label %8
 
 1:                                                ; preds = %0
   %2 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @_ZN3nixL15savedSignalMaskE, ptr noundef null) #3

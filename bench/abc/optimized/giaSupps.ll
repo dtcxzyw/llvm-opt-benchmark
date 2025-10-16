@@ -10013,14 +10013,14 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdStartTruthTa
   %56 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %56, ptr %57, align 8, !tbaa !34
-  %.val41.val59 = load i32, ptr %40, align 4, !tbaa !30
-  %58 = icmp sgt i32 %.val41.val59, 0
+  %.val41.val58 = load i32, ptr %40, align 4, !tbaa !30
+  %58 = icmp sgt i32 %.val41.val58, 0
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_WrdStart.exit, %Vec_IntPush.exit
-  %59 = phi ptr [ %.pre.i62, %Vec_IntPush.exit ], [ %56, %Vec_WrdStart.exit ]
-  %.060 = phi i32 [ %60, %Vec_IntPush.exit ], [ 0, %Vec_WrdStart.exit ]
-  %60 = add nuw nsw i32 %.060, 1
+  %59 = phi ptr [ %.pre.i61, %Vec_IntPush.exit ], [ %56, %Vec_WrdStart.exit ]
+  %.059 = phi i32 [ %60, %Vec_IntPush.exit ], [ 0, %Vec_WrdStart.exit ]
+  %60 = add nuw nsw i32 %.059, 1
   %61 = load i32, ptr %55, align 4, !tbaa !30
   %62 = load i32, ptr %54, align 8, !tbaa !33
   %63 = icmp eq i32 %61, %62
@@ -10058,19 +10058,19 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdStartTruthTa
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %75, %77, %67, %69
-  %.sink75 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %76, %75 ], [ %78, %77 ]
+  %.sink74 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %76, %75 ], [ %78, %77 ]
   %.sink = phi i32 [ 16, %67 ], [ 16, %69 ], [ %72, %75 ], [ %72, %77 ]
-  store ptr %.sink75, ptr %57, align 8, !tbaa !34
+  store ptr %.sink74, ptr %57, align 8, !tbaa !34
   store i32 %.sink, ptr %54, align 8, !tbaa !33
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i62 = phi ptr [ %59, %.lr.ph ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
+  %.pre.i61 = phi ptr [ %59, %.lr.ph ], [ %.sink74, %Vec_IntPush.exit.sink.split ]
   %79 = load i32, ptr %55, align 4, !tbaa !30
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %55, align 4, !tbaa !30
   %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds i32, ptr %.pre.i62, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.pre.i61, i64 %81
   store i32 %60, ptr %82, align 4, !tbaa !35
   %.val41 = load ptr, ptr %2, align 8, !tbaa !168
   %83 = getelementptr i8, ptr %.val41, i64 4
@@ -10088,8 +10088,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val43 = load ptr, ptr %85, align 8, !tbaa !173
   %86 = getelementptr i8, ptr %.val43, i64 8
   %.val43.val = load ptr, ptr %86, align 8, !tbaa !34
-  %.val43.val.val56 = load i32, ptr %.val43.val, align 4, !tbaa !35
-  %87 = mul nsw i32 %.val43.val.val56, %41
+  %.val43.val.val = load i32, ptr %.val43.val, align 4, !tbaa !35
+  %87 = mul nsw i32 %.val43.val.val, %41
   %88 = getelementptr i8, ptr %39, i64 8
   %.val37 = load ptr, ptr %88, align 8, !tbaa !10
   %89 = sext i32 %87 to i64

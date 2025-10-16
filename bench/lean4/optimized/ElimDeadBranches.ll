@@ -108675,8 +108675,8 @@ declare ptr @l_Lean_registerTraceClass(ptr noundef, i8 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_LCNF_ElimDeadBranches(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b25 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b25, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #8
@@ -108715,25 +108715,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !4
-  br label %lean_dec_ref.exit35
+  br label %lean_dec_ref.exit34
 
 19:                                               ; preds = %14
-  %.not.i34 = icmp eq i32 %15, 0
-  br i1 %.not.i34, label %lean_dec_ref.exit35, label %20
+  %.not.i33 = icmp eq i32 %15, 0
+  br i1 %.not.i33, label %lean_dec_ref.exit34, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #8
-  br label %lean_dec_ref.exit35
+  br label %lean_dec_ref.exit34
 
-lean_dec_ref.exit35:                              ; preds = %17, %19, %20
+lean_dec_ref.exit34:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Compiler_LCNF_PassManager(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val36 = load i32, ptr %22, align 4
-  %.mask.i42 = and i32 %.val36, -16777216
-  %23 = icmp eq i32 %.mask.i42, 16777216
+  %.val35 = load i32, ptr %22, align 4
+  %.mask.i41 = and i32 %.val35, -16777216
+  %23 = icmp eq i32 %.mask.i41, 16777216
   br i1 %23, label %633, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit35
+24:                                               ; preds = %lean_dec_ref.exit34
   %25 = load i32, ptr %21, align 4, !tbaa !4
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !13
@@ -108741,25 +108741,25 @@ lean_dec_ref.exit35:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !4
-  br label %lean_dec_ref.exit33
+  br label %lean_dec_ref.exit32
 
 29:                                               ; preds = %24
-  %.not.i32 = icmp eq i32 %25, 0
-  br i1 %.not.i32, label %lean_dec_ref.exit33, label %30
+  %.not.i31 = icmp eq i32 %25, 0
+  br i1 %.not.i31, label %lean_dec_ref.exit32, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #8
-  br label %lean_dec_ref.exit33
+  br label %lean_dec_ref.exit32
 
-lean_dec_ref.exit33:                              ; preds = %27, %29, %30
+lean_dec_ref.exit32:                              ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Compiler_LCNF_PhaseExt(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val37 = load i32, ptr %32, align 4
-  %.mask.i43 = and i32 %.val37, -16777216
-  %33 = icmp eq i32 %.mask.i43, 16777216
+  %.val36 = load i32, ptr %32, align 4
+  %.mask.i42 = and i32 %.val36, -16777216
+  %33 = icmp eq i32 %.mask.i42, 16777216
   br i1 %33, label %633, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit33
+34:                                               ; preds = %lean_dec_ref.exit32
   %35 = load i32, ptr %31, align 4, !tbaa !4
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !13
@@ -108767,25 +108767,25 @@ lean_dec_ref.exit33:                              ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !4
-  br label %lean_dec_ref.exit31
+  br label %lean_dec_ref.exit30
 
 39:                                               ; preds = %34
-  %.not.i30 = icmp eq i32 %35, 0
-  br i1 %.not.i30, label %lean_dec_ref.exit31, label %40
+  %.not.i29 = icmp eq i32 %35, 0
+  br i1 %.not.i29, label %lean_dec_ref.exit30, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #8
-  br label %lean_dec_ref.exit31
+  br label %lean_dec_ref.exit30
 
-lean_dec_ref.exit31:                              ; preds = %37, %39, %40
+lean_dec_ref.exit30:                              ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Lean_Compiler_LCNF_InferType(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val38 = load i32, ptr %42, align 4
-  %.mask.i44 = and i32 %.val38, -16777216
-  %43 = icmp eq i32 %.mask.i44, 16777216
+  %.val37 = load i32, ptr %42, align 4
+  %.mask.i43 = and i32 %.val37, -16777216
+  %43 = icmp eq i32 %.mask.i43, 16777216
   br i1 %43, label %633, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit31
+44:                                               ; preds = %lean_dec_ref.exit30
   %45 = load i32, ptr %41, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !13
@@ -108793,17 +108793,17 @@ lean_dec_ref.exit31:                              ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !4
-  br label %lean_dec_ref.exit29
+  br label %lean_dec_ref.exit28
 
 49:                                               ; preds = %44
-  %.not.i28 = icmp eq i32 %45, 0
-  br i1 %.not.i28, label %lean_dec_ref.exit29, label %50
+  %.not.i27 = icmp eq i32 %45, 0
+  br i1 %.not.i27, label %lean_dec_ref.exit28, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #8
-  br label %lean_dec_ref.exit29
+  br label %lean_dec_ref.exit28
 
-lean_dec_ref.exit29:                              ; preds = %47, %49, %50
+lean_dec_ref.exit28:                              ; preds = %47, %49, %50
   store ptr inttoptr (i64 1 to ptr), ptr @l_Lean_Compiler_LCNF_UnreachableBranches_instInhabitedValue, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %51 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 1, i64 noundef 1) #8
@@ -108815,11 +108815,11 @@ lean_dec_ref.exit29:                              ; preds = %47, %49, %50
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_init_l_Array_Array_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__1___closed__2.exit
 
-55:                                               ; preds = %lean_dec_ref.exit29
+55:                                               ; preds = %lean_dec_ref.exit28
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Array_Array_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__1___closed__2.exit: ; preds = %lean_dec_ref.exit29
+_init_l_Array_Array_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__1___closed__2.exit: ; preds = %lean_dec_ref.exit28
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 1, ptr %53, align 4, !tbaa !4
   store i32 50397200, ptr %56, align 4
@@ -108961,8 +108961,8 @@ _init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Com
   tail call void @lean_mark_persistent(ptr noundef %105) #8
   %106 = load ptr, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__3, align 8, !tbaa !11
   %107 = getelementptr i8, ptr %106, i64 24
-  %.val.i45 = load i64, ptr %107, align 8, !tbaa !9
-  %108 = shl i64 %.val.i45, 1
+  %.val.i44 = load i64, ptr %107, align 8, !tbaa !9
+  %108 = shl i64 %.val.i44, 1
   %109 = or disjoint i64 %108, 1
   %110 = inttoptr i64 %109 to ptr
   store ptr %110, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__4, align 8, !tbaa !11
@@ -108970,10 +108970,10 @@ _init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Com
   %111 = load ptr, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__4, align 8, !tbaa !11
   %112 = ptrtoint ptr %111 to i64
   %113 = and i64 %112, 1
-  %.not.i.i46 = icmp eq i64 %113, 0
+  %.not.i.i45 = icmp eq i64 %113, 0
   %114 = icmp ult ptr %111, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i47 = or i1 %114, %.not.i.i46
-  br i1 %or.cond.i.i47, label %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5.exit, label %115
+  %or.cond.i.i46 = or i1 %114, %.not.i.i45
+  br i1 %or.cond.i.i46, label %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5.exit, label %115
 
 115:                                              ; preds = %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__2.exit
   %116 = lshr i64 %112, 1
@@ -108981,9 +108981,9 @@ _init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Com
   br label %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5.exit
 
 _init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5.exit: ; preds = %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__2.exit, %115
-  %.1.i.i48 = phi ptr [ %117, %115 ], [ %111, %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__2.exit ]
-  store ptr %.1.i.i48, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i48) #8
+  %.1.i.i47 = phi ptr [ %117, %115 ], [ %111, %_init_l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__2.exit ]
+  store ptr %.1.i.i47, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__5, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i47) #8
   %118 = load ptr, ptr @l_List_repr___at___private_Lean_Compiler_LCNF_ElimDeadBranches_0__Lean_Compiler_LCNF_UnreachableBranches_reprValue____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_44____spec__5___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #8
   %119 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
@@ -109804,22 +109804,22 @@ _init_l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_
   store ptr %408, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_1977____closed__13, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %408) #8
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit27, label %418
+  br i1 %.not, label %lean_dec_ref.exit26, label %418
 
 418:                                              ; preds = %_init_l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_1977____closed__13.exit
   %419 = load ptr, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_1977____closed__13, align 8, !tbaa !11
   %420 = tail call ptr @l_Lean_registerSimplePersistentEnvExtension___rarg(ptr noundef %419, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %421 = getelementptr i8, ptr %420, i64 4
-  %.val39 = load i32, ptr %421, align 4
-  %.mask.i49 = and i32 %.val39, -16777216
-  %422 = icmp eq i32 %.mask.i49, 16777216
+  %.val38 = load i32, ptr %421, align 4
+  %.mask.i48 = and i32 %.val38, -16777216
+  %422 = icmp eq i32 %.mask.i48, 16777216
   br i1 %422, label %633, label %423
 
 423:                                              ; preds = %418
   %424 = getelementptr i8, ptr %420, i64 8
-  %.val41 = load ptr, ptr %424, align 8, !tbaa !11
-  store ptr %.val41, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_functionSummariesExt, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.val41) #8
+  %.val40 = load ptr, ptr %424, align 8, !tbaa !11
+  store ptr %.val40, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_functionSummariesExt, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.val40) #8
   %425 = load i32, ptr %420, align 8, !tbaa !4
   %426 = icmp sgt i32 %425, 1
   br i1 %426, label %427, label %429, !prof !13
@@ -109827,17 +109827,17 @@ _init_l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_
 427:                                              ; preds = %423
   %428 = add nsw i32 %425, -1
   store i32 %428, ptr %420, align 4, !tbaa !4
-  br label %lean_dec_ref.exit27
+  br label %lean_dec_ref.exit26
 
 429:                                              ; preds = %423
-  %.not.i26 = icmp eq i32 %425, 0
-  br i1 %.not.i26, label %lean_dec_ref.exit27, label %430
+  %.not.i25 = icmp eq i32 %425, 0
+  br i1 %.not.i25, label %lean_dec_ref.exit26, label %430
 
 430:                                              ; preds = %429
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %420) #8
-  br label %lean_dec_ref.exit27
+  br label %lean_dec_ref.exit26
 
-lean_dec_ref.exit27:                              ; preds = %430, %429, %427, %_init_l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_1977____closed__13.exit
+lean_dec_ref.exit26:                              ; preds = %430, %429, %427, %_init_l_Lean_Compiler_LCNF_UnreachableBranches_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_1977____closed__13.exit
   %431 = load ptr, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_functionSummariesExt, align 8, !tbaa !11
   store ptr %431, ptr @l_Lean_Compiler_LCNF_UnreachableBranches_addFunctionSummary___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %431) #8
@@ -109852,11 +109852,11 @@ lean_dec_ref.exit27:                              ; preds = %430, %429, %427, %_
   %437 = icmp eq ptr %436, null
   br i1 %437, label %438, label %_init_l_Lean_Compiler_LCNF_UnreachableBranches_getFunctionSummary_x3f___closed__2.exit
 
-438:                                              ; preds = %lean_dec_ref.exit27
+438:                                              ; preds = %lean_dec_ref.exit26
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Compiler_LCNF_UnreachableBranches_getFunctionSummary_x3f___closed__2.exit: ; preds = %lean_dec_ref.exit27
+_init_l_Lean_Compiler_LCNF_UnreachableBranches_getFunctionSummary_x3f___closed__2.exit: ; preds = %lean_dec_ref.exit26
   %439 = getelementptr inbounds nuw i8, ptr %436, i64 4
   store i32 1, ptr %436, align 4, !tbaa !4
   store i32 131096, ptr %439, align 4
@@ -110112,8 +110112,8 @@ _init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDea
   tail call void @lean_mark_persistent(ptr noundef %528) #8
   %529 = load ptr, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__1, align 8, !tbaa !11
   %530 = getelementptr i8, ptr %529, i64 24
-  %.val.i50 = load i64, ptr %530, align 8, !tbaa !9
-  %531 = shl i64 %.val.i50, 1
+  %.val.i49 = load i64, ptr %530, align 8, !tbaa !9
+  %531 = shl i64 %.val.i49, 1
   %532 = or disjoint i64 %531, 1
   %533 = inttoptr i64 %532 to ptr
   store ptr %533, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__2, align 8, !tbaa !11
@@ -110121,10 +110121,10 @@ _init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDea
   %534 = load ptr, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__2, align 8, !tbaa !11
   %535 = ptrtoint ptr %534 to i64
   %536 = and i64 %535, 1
-  %.not.i.i51 = icmp eq i64 %536, 0
+  %.not.i.i50 = icmp eq i64 %536, 0
   %537 = icmp ult ptr %534, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i52 = or i1 %537, %.not.i.i51
-  br i1 %or.cond.i.i52, label %_init_l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3.exit, label %538
+  %or.cond.i.i51 = or i1 %537, %.not.i.i50
+  br i1 %or.cond.i.i51, label %_init_l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3.exit, label %538
 
 538:                                              ; preds = %_init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead_go___spec__7___closed__3.exit
   %539 = lshr i64 %535, 1
@@ -110132,9 +110132,9 @@ _init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDea
   br label %_init_l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3.exit
 
 _init_l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3.exit: ; preds = %_init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead_go___spec__7___closed__3.exit, %538
-  %.1.i.i53 = phi ptr [ %540, %538 ], [ %534, %_init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead_go___spec__7___closed__3.exit ]
-  store ptr %.1.i.i53, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i53) #8
+  %.1.i.i52 = phi ptr [ %540, %538 ], [ %534, %_init_l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead_go___spec__7___closed__3.exit ]
+  store ptr %.1.i.i52, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__3, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i52) #8
   %541 = load ptr, ptr @l_Prod_repr___at_Lean_Compiler_LCNF_UnreachableBranches_elimDead___spec__6___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #8
   %542 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
@@ -110328,9 +110328,9 @@ _init_l_Lean_Compiler_LCNF_elimDeadBranches___closed__3.exit: ; preds = %_init_l
   %621 = load ptr, ptr @l_Lean_Compiler_LCNF_initFn____x40_Lean_Compiler_LCNF_ElimDeadBranches___hyg_6435____closed__15, align 8, !tbaa !11
   %622 = tail call ptr @l_Lean_registerTraceClass(ptr noundef %620, i8 noundef zeroext 1, ptr noundef %621, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %623 = getelementptr i8, ptr %622, i64 4
-  %.val40 = load i32, ptr %623, align 4
-  %.mask.i54 = and i32 %.val40, -16777216
-  %624 = icmp eq i32 %.mask.i54, 16777216
+  %.val39 = load i32, ptr %623, align 4
+  %.mask.i53 = and i32 %.val39, -16777216
+  %624 = icmp eq i32 %.mask.i53, 16777216
   br i1 %624, label %633, label %625
 
 625:                                              ; preds = %619
@@ -110355,8 +110355,8 @@ lean_dec_ref.exit:                                ; preds = %631, %630, %628, %_
   %632 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %633
 
-633:                                              ; preds = %619, %418, %lean_dec_ref.exit31, %lean_dec_ref.exit33, %lean_dec_ref.exit35, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %632, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit35 ], [ %31, %lean_dec_ref.exit33 ], [ %41, %lean_dec_ref.exit31 ], [ %420, %418 ], [ %622, %619 ]
+633:                                              ; preds = %619, %418, %lean_dec_ref.exit30, %lean_dec_ref.exit32, %lean_dec_ref.exit34, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %632, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit34 ], [ %31, %lean_dec_ref.exit32 ], [ %41, %lean_dec_ref.exit30 ], [ %420, %418 ], [ %622, %619 ]
   ret ptr %.0
 }
 

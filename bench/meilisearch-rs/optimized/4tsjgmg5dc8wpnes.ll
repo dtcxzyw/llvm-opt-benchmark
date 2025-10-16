@@ -7183,7 +7183,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17hf96de5cab24f9a58E.exit: ; preds = %44
   %.sroa.14.1..sroa_idx21 = getelementptr inbounds nuw i8, ptr %11, i64 11
   %.sroa.14.1.copyload22 = load ptr, ptr %.sroa.14.1..sroa_idx21, align 1, !noalias !1819
   %.sroa.18.1..sroa_idx28 = getelementptr inbounds nuw i8, ptr %11, i64 19
-  %.sroa.18.1.copyload57 = load i8, ptr %.sroa.18.1..sroa_idx28, align 1, !noalias !1819
+  %.sroa.18.1.copyload = load i8, ptr %.sroa.18.1..sroa_idx28, align 1, !noalias !1819
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1793
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7191,7 +7191,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17hf96de5cab24f9a58E.exit: ; preds = %44
   %.sroa.4.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.14.1.copyload22, ptr %.sroa.4.0..sroa_idx36, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.18.1.copyload57, ptr %.sroa.6.0..sroa_idx, align 8
+  store i8 %.sroa.18.1.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   br label %66
@@ -7214,7 +7214,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17hf96de5cab24f9a58E.exit: ; preds = %44
   %.sroa.14.1..sroa_idx23 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %.sroa.14.1.copyload24 = load ptr, ptr %.sroa.14.1..sroa_idx23, align 1, !noalias !1820
   %.sroa.18.1..sroa_idx29 = getelementptr inbounds nuw i8, ptr %7, i64 19
-  %.sroa.18.1.copyload3056 = load i8, ptr %.sroa.18.1..sroa_idx29, align 1, !noalias !1820
+  %.sroa.18.1.copyload30 = load i8, ptr %.sroa.18.1..sroa_idx29, align 1, !noalias !1820
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1808
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7222,7 +7222,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17hf96de5cab24f9a58E.exit: ; preds = %44
   %.sroa.4.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.14.1.copyload24, ptr %.sroa.4.0..sroa_idx38, align 8
   %.sroa.6.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.18.1.copyload3056, ptr %.sroa.6.0..sroa_idx40, align 8
+  store i8 %.sroa.18.1.copyload30, ptr %.sroa.6.0..sroa_idx40, align 8
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   br label %66
@@ -7959,7 +7959,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hf6429bd737eb1fe4E.exit: ; preds = %
   %.sroa.19.1..sroa_idx33 = getelementptr inbounds nuw i8, ptr %11, i64 11
   %.sroa.19.1.copyload34 = load ptr, ptr %.sroa.19.1..sroa_idx33, align 1, !noalias !2018
   %.sroa.25.1..sroa_idx44 = getelementptr inbounds nuw i8, ptr %11, i64 19
-  %.sroa.25.1.copyload76 = load i8, ptr %.sroa.25.1..sroa_idx44, align 1, !noalias !2018
+  %.sroa.25.1.copyload = load i8, ptr %.sroa.25.1..sroa_idx44, align 1, !noalias !2018
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1993
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7967,7 +7967,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hf6429bd737eb1fe4E.exit: ; preds = %
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.19.1.copyload34, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.956.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.25.1.copyload76, ptr %.sroa.956.0..sroa_idx, align 8
+  store i8 %.sroa.25.1.copyload, ptr %.sroa.956.0..sroa_idx, align 8
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14)
   br label %119
@@ -7990,7 +7990,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hf6429bd737eb1fe4E.exit: ; preds = %
   %.sroa.19.1..sroa_idx35 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %.sroa.19.1.copyload36 = load ptr, ptr %.sroa.19.1..sroa_idx35, align 1, !noalias !2019
   %.sroa.25.1..sroa_idx45 = getelementptr inbounds nuw i8, ptr %7, i64 19
-  %.sroa.25.1.copyload4675 = load i8, ptr %.sroa.25.1..sroa_idx45, align 1, !noalias !2019
+  %.sroa.25.1.copyload46 = load i8, ptr %.sroa.25.1..sroa_idx45, align 1, !noalias !2019
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2007
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7998,7 +7998,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hf6429bd737eb1fe4E.exit: ; preds = %
   %.sroa.6.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.19.1.copyload36, ptr %.sroa.6.0..sroa_idx52, align 8
   %.sroa.956.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.25.1.copyload4675, ptr %.sroa.956.0..sroa_idx57, align 8
+  store i8 %.sroa.25.1.copyload46, ptr %.sroa.956.0..sroa_idx57, align 8
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14)
   br label %119

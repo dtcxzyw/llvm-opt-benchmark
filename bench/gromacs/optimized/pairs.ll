@@ -74,19 +74,19 @@ define void @_Z8do_pairsiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS4_PfN3gmx8Arr
   %53 = alloca %struct.t_pbc, align 4
   %54 = icmp eq i32 %0, 33
   %indvars.iv.i71.sroa.gep = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %indvars.iv.i71.sroa.gep122 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %indvars.iv.i71.sroa.gep128 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %indvars.iv.i71.sroa.gep134 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %indvars.iv.i71.sroa.gep140 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %indvars.iv.i71.sroa.gep146 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %indvars.iv.i71.sroa.gep152 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %indvars.iv.i71.sroa.gep123 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %indvars.iv.i71.sroa.gep129 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %indvars.iv.i71.sroa.gep135 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %indvars.iv.i71.sroa.gep141 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %indvars.iv.i71.sroa.gep147 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %indvars.iv.i71.sroa.gep153 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %indvars.iv.i80.sroa.gep = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %indvars.iv.i80.sroa.gep166 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %indvars.iv.i80.sroa.gep172 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %indvars.iv.i80.sroa.gep178 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %indvars.iv.i80.sroa.gep184 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %indvars.iv.i80.sroa.gep190 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %indvars.iv.i80.sroa.gep196 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %indvars.iv.i80.sroa.gep167 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %indvars.iv.i80.sroa.gep173 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %indvars.iv.i80.sroa.gep179 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %indvars.iv.i80.sroa.gep185 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %indvars.iv.i80.sroa.gep191 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %indvars.iv.i80.sroa.gep197 = getelementptr inbounds nuw i8, ptr %24, i64 4
   br i1 %54, label %55, label %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit.thread
 
 55:                                               ; preds = %20
@@ -773,10 +773,10 @@ common.resume:                                    ; preds = %897, %502
   %515 = load float, ptr %514, align 4, !tbaa !155
   %516 = fsub float 1.000000e+00, %515
   store float %516, ptr %36, align 4, !tbaa !155
-  store float %512, ptr %indvars.iv.i71.sroa.gep152, align 4, !tbaa !155
-  store float %515, ptr %indvars.iv.i71.sroa.gep146, align 4, !tbaa !155
+  store float %512, ptr %indvars.iv.i71.sroa.gep153, align 4, !tbaa !155
+  store float %515, ptr %indvars.iv.i71.sroa.gep147, align 4, !tbaa !155
   store float -1.000000e+00, ptr %37, align 4, !tbaa !155
-  store float 1.000000e+00, ptr %indvars.iv.i71.sroa.gep140, align 4, !tbaa !155
+  store float 1.000000e+00, ptr %indvars.iv.i71.sroa.gep141, align 4, !tbaa !155
   %517 = load ptr, ptr %15, align 8, !tbaa !4
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 144
   %519 = load ptr, ptr %518, align 8, !tbaa !171
@@ -790,25 +790,25 @@ common.resume:                                    ; preds = %897, %502
 .split.us.i:                                      ; preds = %509, %.split.us.i
   %525 = phi i1 [ false, %.split.us.i ], [ true, %509 ]
   %indvars.iv9.i.sroa.phi = phi ptr [ %indvars.iv.i71.sroa.gep, %.split.us.i ], [ %41, %509 ]
-  %indvars.iv9.i.sroa.phi124 = phi ptr [ %indvars.iv.i71.sroa.gep122, %.split.us.i ], [ %40, %509 ]
-  %indvars.iv9.i.sroa.phi130 = phi ptr [ %indvars.iv.i71.sroa.gep128, %.split.us.i ], [ %39, %509 ]
-  %indvars.iv9.i.sroa.phi136 = phi ptr [ %indvars.iv.i71.sroa.gep134, %.split.us.i ], [ %38, %509 ]
-  %indvars.iv9.i.sroa.phi142 = phi ptr [ %indvars.iv.i71.sroa.gep140, %.split.us.i ], [ %37, %509 ]
-  %indvars.iv9.i.sroa.phi148 = phi ptr [ %indvars.iv.i71.sroa.gep146, %.split.us.i ], [ %36, %509 ]
-  %indvars.iv9.i.sroa.phi154 = phi ptr [ %indvars.iv.i71.sroa.gep152, %.split.us.i ], [ %35, %509 ]
-  %526 = load float, ptr %indvars.iv9.i.sroa.phi154, align 4, !tbaa !155
+  %indvars.iv9.i.sroa.phi125 = phi ptr [ %indvars.iv.i71.sroa.gep123, %.split.us.i ], [ %40, %509 ]
+  %indvars.iv9.i.sroa.phi131 = phi ptr [ %indvars.iv.i71.sroa.gep129, %.split.us.i ], [ %39, %509 ]
+  %indvars.iv9.i.sroa.phi137 = phi ptr [ %indvars.iv.i71.sroa.gep135, %.split.us.i ], [ %38, %509 ]
+  %indvars.iv9.i.sroa.phi143 = phi ptr [ %indvars.iv.i71.sroa.gep141, %.split.us.i ], [ %37, %509 ]
+  %indvars.iv9.i.sroa.phi149 = phi ptr [ %indvars.iv.i71.sroa.gep147, %.split.us.i ], [ %36, %509 ]
+  %indvars.iv9.i.sroa.phi155 = phi ptr [ %indvars.iv.i71.sroa.gep153, %.split.us.i ], [ %35, %509 ]
+  %526 = load float, ptr %indvars.iv9.i.sroa.phi155, align 4, !tbaa !155
   %527 = fsub float 1.000000e+00, %526
   %528 = fmul float %527, %527
-  store float %528, ptr %indvars.iv9.i.sroa.phi136, align 4, !tbaa !155
-  %529 = load float, ptr %indvars.iv9.i.sroa.phi142, align 4, !tbaa !155
+  store float %528, ptr %indvars.iv9.i.sroa.phi137, align 4, !tbaa !155
+  %529 = load float, ptr %indvars.iv9.i.sroa.phi143, align 4, !tbaa !155
   %530 = fmul float %529, %524
   %531 = fmul float %530, 0x3FC5555560000000
   %532 = fmul float %527, %531
-  store float %532, ptr %indvars.iv9.i.sroa.phi124, align 4, !tbaa !155
-  %533 = load float, ptr %indvars.iv9.i.sroa.phi148, align 4, !tbaa !155
+  store float %532, ptr %indvars.iv9.i.sroa.phi125, align 4, !tbaa !155
+  %533 = load float, ptr %indvars.iv9.i.sroa.phi149, align 4, !tbaa !155
   %534 = fsub float 1.000000e+00, %533
   %535 = fmul float %534, %534
-  store float %535, ptr %indvars.iv9.i.sroa.phi130, align 4, !tbaa !155
+  store float %535, ptr %indvars.iv9.i.sroa.phi131, align 4, !tbaa !155
   %536 = fmul float %531, %534
   store float %536, ptr %indvars.iv9.i.sroa.phi, align 4, !tbaa !155
   br i1 %525, label %.split.us.i, label %.loopexit.i, !llvm.loop !175
@@ -816,27 +816,27 @@ common.resume:                                    ; preds = %897, %502
 .split.i:                                         ; preds = %509, %.split.i
   %537 = phi i1 [ false, %.split.i ], [ true, %509 ]
   %indvars.iv.i71.sroa.phi = phi ptr [ %indvars.iv.i71.sroa.gep, %.split.i ], [ %41, %509 ]
-  %indvars.iv.i71.sroa.phi121 = phi ptr [ %indvars.iv.i71.sroa.gep122, %.split.i ], [ %40, %509 ]
-  %indvars.iv.i71.sroa.phi127 = phi ptr [ %indvars.iv.i71.sroa.gep128, %.split.i ], [ %39, %509 ]
-  %indvars.iv.i71.sroa.phi133 = phi ptr [ %indvars.iv.i71.sroa.gep134, %.split.i ], [ %38, %509 ]
-  %indvars.iv.i71.sroa.phi139 = phi ptr [ %indvars.iv.i71.sroa.gep140, %.split.i ], [ %37, %509 ]
-  %indvars.iv.i71.sroa.phi145 = phi ptr [ %indvars.iv.i71.sroa.gep146, %.split.i ], [ %36, %509 ]
-  %indvars.iv.i71.sroa.phi151 = phi ptr [ %indvars.iv.i71.sroa.gep152, %.split.i ], [ %35, %509 ]
-  %538 = load float, ptr %indvars.iv.i71.sroa.phi151, align 4, !tbaa !155
+  %indvars.iv.i71.sroa.phi122 = phi ptr [ %indvars.iv.i71.sroa.gep123, %.split.i ], [ %40, %509 ]
+  %indvars.iv.i71.sroa.phi128 = phi ptr [ %indvars.iv.i71.sroa.gep129, %.split.i ], [ %39, %509 ]
+  %indvars.iv.i71.sroa.phi134 = phi ptr [ %indvars.iv.i71.sroa.gep135, %.split.i ], [ %38, %509 ]
+  %indvars.iv.i71.sroa.phi140 = phi ptr [ %indvars.iv.i71.sroa.gep141, %.split.i ], [ %37, %509 ]
+  %indvars.iv.i71.sroa.phi146 = phi ptr [ %indvars.iv.i71.sroa.gep147, %.split.i ], [ %36, %509 ]
+  %indvars.iv.i71.sroa.phi152 = phi ptr [ %indvars.iv.i71.sroa.gep153, %.split.i ], [ %35, %509 ]
+  %538 = load float, ptr %indvars.iv.i71.sroa.phi152, align 4, !tbaa !155
   %539 = fsub float 1.000000e+00, %538
-  store float %539, ptr %indvars.iv.i71.sroa.phi133, align 4, !tbaa !155
-  %540 = load float, ptr %indvars.iv.i71.sroa.phi139, align 4, !tbaa !155
+  store float %539, ptr %indvars.iv.i71.sroa.phi134, align 4, !tbaa !155
+  %540 = load float, ptr %indvars.iv.i71.sroa.phi140, align 4, !tbaa !155
   %541 = fmul float %540, %523
   %542 = fmul float %541, 0x3FC5555560000000
-  store float %542, ptr %indvars.iv.i71.sroa.phi121, align 4, !tbaa !155
-  %543 = load float, ptr %indvars.iv.i71.sroa.phi145, align 4, !tbaa !155
+  store float %542, ptr %indvars.iv.i71.sroa.phi122, align 4, !tbaa !155
+  %543 = load float, ptr %indvars.iv.i71.sroa.phi146, align 4, !tbaa !155
   %544 = fsub float 1.000000e+00, %543
-  store float %544, ptr %indvars.iv.i71.sroa.phi127, align 4, !tbaa !155
+  store float %544, ptr %indvars.iv.i71.sroa.phi128, align 4, !tbaa !155
   store float %542, ptr %indvars.iv.i71.sroa.phi, align 4, !tbaa !155
   br i1 %537, label %.split.i, label %.loopexit.i, !llvm.loop !175
 
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %..loopexit_crit_edge.i
-  %.sroa.0115.1 = phi ptr [ %493, %..loopexit_crit_edge.i ], [ %spec.select, %.split.us.i ], [ %spec.select, %.split.i ]
+  %.sroa.0116.1 = phi ptr [ %493, %..loopexit_crit_edge.i ], [ %spec.select, %.split.us.i ], [ %spec.select, %.split.i ]
   %545 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ %517, %.split.us.i ], [ %517, %.split.i ]
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 108
   %547 = load float, ptr %546, align 4, !tbaa !151
@@ -1025,8 +1025,8 @@ common.resume:                                    ; preds = %897, %502
   br i1 %679, label %684, label %680
 
 680:                                              ; preds = %668
-  %.b218.i = load i1, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
-  br i1 %.b218.i, label %.backedge.i, label %681
+  %.b.i = load i1, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
+  br i1 %.b.i, label %.backedge.i, label %681
 
 681:                                              ; preds = %680
   %sqrt.i72 = call float @llvm.sqrt.f32(float %674)
@@ -1043,9 +1043,9 @@ common.resume:                                    ; preds = %897, %502
   br i1 %.1213.i, label %685, label %761
 
 685:                                              ; preds = %684
-  %686 = getelementptr inbounds float, ptr %.sroa.0115.1, i64 %565
+  %686 = getelementptr inbounds float, ptr %.sroa.0116.1, i64 %565
   %687 = load float, ptr %686, align 4, !tbaa !155
-  %688 = getelementptr inbounds float, ptr %.sroa.0115.1, i64 %568
+  %688 = getelementptr inbounds float, ptr %.sroa.0116.1, i64 %568
   %689 = load float, ptr %688, align 4, !tbaa !155
   %690 = fmul float %687, %689
   %691 = fmul float %547, %690
@@ -1365,15 +1365,15 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %902 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %903 = load i32, ptr %902, align 8, !tbaa !170
   %.not.i76 = icmp eq i32 %903, 0
-  br i1 %.not.i76, label %..loopexit_crit_edge.i94, label %904
+  br i1 %.not.i76, label %..loopexit_crit_edge.i95, label %904
 
-..loopexit_crit_edge.i94:                         ; preds = %899
-  %.pre.i95 = load ptr, ptr %15, align 8, !tbaa !4
+..loopexit_crit_edge.i95:                         ; preds = %899
+  %.pre.i96 = load ptr, ptr %15, align 8, !tbaa !4
   br label %.loopexit.i81
 
 904:                                              ; preds = %899
   %905 = icmp eq ptr %494, %496
-  %spec.select204 = select i1 %905, ptr %492, ptr %493
+  %spec.select205 = select i1 %905, ptr %492, ptr %493
   %906 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %907 = load float, ptr %906, align 4, !tbaa !155
   %908 = fsub float 1.000000e+00, %907
@@ -1382,10 +1382,10 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %910 = load float, ptr %909, align 4, !tbaa !155
   %911 = fsub float 1.000000e+00, %910
   store float %911, ptr %25, align 4, !tbaa !155
-  store float %907, ptr %indvars.iv.i80.sroa.gep196, align 4, !tbaa !155
-  store float %910, ptr %indvars.iv.i80.sroa.gep190, align 4, !tbaa !155
+  store float %907, ptr %indvars.iv.i80.sroa.gep197, align 4, !tbaa !155
+  store float %910, ptr %indvars.iv.i80.sroa.gep191, align 4, !tbaa !155
   store float -1.000000e+00, ptr %26, align 4, !tbaa !155
-  store float 1.000000e+00, ptr %indvars.iv.i80.sroa.gep184, align 4, !tbaa !155
+  store float 1.000000e+00, ptr %indvars.iv.i80.sroa.gep185, align 4, !tbaa !155
   %912 = load ptr, ptr %15, align 8, !tbaa !4
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 144
   %914 = load ptr, ptr %913, align 8, !tbaa !171
@@ -1394,59 +1394,59 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %917 = icmp eq i32 %916, 2
   %918 = sitofp i32 %916 to float
   %919 = uitofp nneg i32 %916 to float
-  br i1 %917, label %.split.us.i92, label %.split.i79
+  br i1 %917, label %.split.us.i93, label %.split.i79
 
-.split.us.i92:                                    ; preds = %904, %.split.us.i92
-  %920 = phi i1 [ false, %.split.us.i92 ], [ true, %904 ]
-  %indvars.iv9.i93.sroa.phi = phi ptr [ %indvars.iv.i80.sroa.gep, %.split.us.i92 ], [ %30, %904 ]
-  %indvars.iv9.i93.sroa.phi168 = phi ptr [ %indvars.iv.i80.sroa.gep166, %.split.us.i92 ], [ %29, %904 ]
-  %indvars.iv9.i93.sroa.phi174 = phi ptr [ %indvars.iv.i80.sroa.gep172, %.split.us.i92 ], [ %28, %904 ]
-  %indvars.iv9.i93.sroa.phi180 = phi ptr [ %indvars.iv.i80.sroa.gep178, %.split.us.i92 ], [ %27, %904 ]
-  %indvars.iv9.i93.sroa.phi186 = phi ptr [ %indvars.iv.i80.sroa.gep184, %.split.us.i92 ], [ %26, %904 ]
-  %indvars.iv9.i93.sroa.phi192 = phi ptr [ %indvars.iv.i80.sroa.gep190, %.split.us.i92 ], [ %25, %904 ]
-  %indvars.iv9.i93.sroa.phi198 = phi ptr [ %indvars.iv.i80.sroa.gep196, %.split.us.i92 ], [ %24, %904 ]
-  %921 = load float, ptr %indvars.iv9.i93.sroa.phi198, align 4, !tbaa !155
+.split.us.i93:                                    ; preds = %904, %.split.us.i93
+  %920 = phi i1 [ false, %.split.us.i93 ], [ true, %904 ]
+  %indvars.iv9.i94.sroa.phi = phi ptr [ %indvars.iv.i80.sroa.gep, %.split.us.i93 ], [ %30, %904 ]
+  %indvars.iv9.i94.sroa.phi169 = phi ptr [ %indvars.iv.i80.sroa.gep167, %.split.us.i93 ], [ %29, %904 ]
+  %indvars.iv9.i94.sroa.phi175 = phi ptr [ %indvars.iv.i80.sroa.gep173, %.split.us.i93 ], [ %28, %904 ]
+  %indvars.iv9.i94.sroa.phi181 = phi ptr [ %indvars.iv.i80.sroa.gep179, %.split.us.i93 ], [ %27, %904 ]
+  %indvars.iv9.i94.sroa.phi187 = phi ptr [ %indvars.iv.i80.sroa.gep185, %.split.us.i93 ], [ %26, %904 ]
+  %indvars.iv9.i94.sroa.phi193 = phi ptr [ %indvars.iv.i80.sroa.gep191, %.split.us.i93 ], [ %25, %904 ]
+  %indvars.iv9.i94.sroa.phi199 = phi ptr [ %indvars.iv.i80.sroa.gep197, %.split.us.i93 ], [ %24, %904 ]
+  %921 = load float, ptr %indvars.iv9.i94.sroa.phi199, align 4, !tbaa !155
   %922 = fsub float 1.000000e+00, %921
   %923 = fmul float %922, %922
-  store float %923, ptr %indvars.iv9.i93.sroa.phi180, align 4, !tbaa !155
-  %924 = load float, ptr %indvars.iv9.i93.sroa.phi186, align 4, !tbaa !155
+  store float %923, ptr %indvars.iv9.i94.sroa.phi181, align 4, !tbaa !155
+  %924 = load float, ptr %indvars.iv9.i94.sroa.phi187, align 4, !tbaa !155
   %925 = fmul float %924, %919
   %926 = fmul float %925, 0x3FC5555560000000
   %927 = fmul float %922, %926
-  store float %927, ptr %indvars.iv9.i93.sroa.phi168, align 4, !tbaa !155
-  %928 = load float, ptr %indvars.iv9.i93.sroa.phi192, align 4, !tbaa !155
+  store float %927, ptr %indvars.iv9.i94.sroa.phi169, align 4, !tbaa !155
+  %928 = load float, ptr %indvars.iv9.i94.sroa.phi193, align 4, !tbaa !155
   %929 = fsub float 1.000000e+00, %928
   %930 = fmul float %929, %929
-  store float %930, ptr %indvars.iv9.i93.sroa.phi174, align 4, !tbaa !155
+  store float %930, ptr %indvars.iv9.i94.sroa.phi175, align 4, !tbaa !155
   %931 = fmul float %926, %929
-  store float %931, ptr %indvars.iv9.i93.sroa.phi, align 4, !tbaa !155
-  br i1 %920, label %.split.us.i92, label %.loopexit.i81, !llvm.loop !199
+  store float %931, ptr %indvars.iv9.i94.sroa.phi, align 4, !tbaa !155
+  br i1 %920, label %.split.us.i93, label %.loopexit.i81, !llvm.loop !199
 
 .split.i79:                                       ; preds = %904, %.split.i79
   %932 = phi i1 [ false, %.split.i79 ], [ true, %904 ]
   %indvars.iv.i80.sroa.phi = phi ptr [ %indvars.iv.i80.sroa.gep, %.split.i79 ], [ %30, %904 ]
-  %indvars.iv.i80.sroa.phi165 = phi ptr [ %indvars.iv.i80.sroa.gep166, %.split.i79 ], [ %29, %904 ]
-  %indvars.iv.i80.sroa.phi171 = phi ptr [ %indvars.iv.i80.sroa.gep172, %.split.i79 ], [ %28, %904 ]
-  %indvars.iv.i80.sroa.phi177 = phi ptr [ %indvars.iv.i80.sroa.gep178, %.split.i79 ], [ %27, %904 ]
-  %indvars.iv.i80.sroa.phi183 = phi ptr [ %indvars.iv.i80.sroa.gep184, %.split.i79 ], [ %26, %904 ]
-  %indvars.iv.i80.sroa.phi189 = phi ptr [ %indvars.iv.i80.sroa.gep190, %.split.i79 ], [ %25, %904 ]
-  %indvars.iv.i80.sroa.phi195 = phi ptr [ %indvars.iv.i80.sroa.gep196, %.split.i79 ], [ %24, %904 ]
-  %933 = load float, ptr %indvars.iv.i80.sroa.phi195, align 4, !tbaa !155
+  %indvars.iv.i80.sroa.phi166 = phi ptr [ %indvars.iv.i80.sroa.gep167, %.split.i79 ], [ %29, %904 ]
+  %indvars.iv.i80.sroa.phi172 = phi ptr [ %indvars.iv.i80.sroa.gep173, %.split.i79 ], [ %28, %904 ]
+  %indvars.iv.i80.sroa.phi178 = phi ptr [ %indvars.iv.i80.sroa.gep179, %.split.i79 ], [ %27, %904 ]
+  %indvars.iv.i80.sroa.phi184 = phi ptr [ %indvars.iv.i80.sroa.gep185, %.split.i79 ], [ %26, %904 ]
+  %indvars.iv.i80.sroa.phi190 = phi ptr [ %indvars.iv.i80.sroa.gep191, %.split.i79 ], [ %25, %904 ]
+  %indvars.iv.i80.sroa.phi196 = phi ptr [ %indvars.iv.i80.sroa.gep197, %.split.i79 ], [ %24, %904 ]
+  %933 = load float, ptr %indvars.iv.i80.sroa.phi196, align 4, !tbaa !155
   %934 = fsub float 1.000000e+00, %933
-  store float %934, ptr %indvars.iv.i80.sroa.phi177, align 4, !tbaa !155
-  %935 = load float, ptr %indvars.iv.i80.sroa.phi183, align 4, !tbaa !155
+  store float %934, ptr %indvars.iv.i80.sroa.phi178, align 4, !tbaa !155
+  %935 = load float, ptr %indvars.iv.i80.sroa.phi184, align 4, !tbaa !155
   %936 = fmul float %935, %918
   %937 = fmul float %936, 0x3FC5555560000000
-  store float %937, ptr %indvars.iv.i80.sroa.phi165, align 4, !tbaa !155
-  %938 = load float, ptr %indvars.iv.i80.sroa.phi189, align 4, !tbaa !155
+  store float %937, ptr %indvars.iv.i80.sroa.phi166, align 4, !tbaa !155
+  %938 = load float, ptr %indvars.iv.i80.sroa.phi190, align 4, !tbaa !155
   %939 = fsub float 1.000000e+00, %938
-  store float %939, ptr %indvars.iv.i80.sroa.phi171, align 4, !tbaa !155
+  store float %939, ptr %indvars.iv.i80.sroa.phi172, align 4, !tbaa !155
   store float %937, ptr %indvars.iv.i80.sroa.phi, align 4, !tbaa !155
   br i1 %932, label %.split.i79, label %.loopexit.i81, !llvm.loop !199
 
-.loopexit.i81:                                    ; preds = %.split.i79, %.split.us.i92, %..loopexit_crit_edge.i94
-  %.sroa.0159.1 = phi ptr [ %493, %..loopexit_crit_edge.i94 ], [ %spec.select204, %.split.us.i92 ], [ %spec.select204, %.split.i79 ]
-  %940 = phi ptr [ %.pre.i95, %..loopexit_crit_edge.i94 ], [ %912, %.split.us.i92 ], [ %912, %.split.i79 ]
+.loopexit.i81:                                    ; preds = %.split.i79, %.split.us.i93, %..loopexit_crit_edge.i95
+  %.sroa.0160.1 = phi ptr [ %493, %..loopexit_crit_edge.i95 ], [ %spec.select205, %.split.us.i93 ], [ %spec.select205, %.split.i79 ]
+  %940 = phi ptr [ %.pre.i96, %..loopexit_crit_edge.i95 ], [ %912, %.split.us.i93 ], [ %912, %.split.i79 ]
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 108
   %942 = load float, ptr %941, align 4, !tbaa !151
   %943 = icmp sgt i32 %1, 0
@@ -1461,9 +1461,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %949 = getelementptr inbounds nuw i8, ptr %15, i64 160
   br label %950
 
-950:                                              ; preds = %.backedge.i87, %.lr.ph.i82
-  %indvars.iv12.i83 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next13.i84, %.backedge.i87 ]
-  %.02075.i = phi i1 [ false, %.lr.ph.i82 ], [ %.1208.i, %.backedge.i87 ]
+950:                                              ; preds = %.backedge.i88, %.lr.ph.i82
+  %indvars.iv12.i83 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next13.i84, %.backedge.i88 ]
+  %.02075.i = phi i1 [ false, %.lr.ph.i82 ], [ %.1208.i, %.backedge.i88 ]
   %951 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv12.i83
   %952 = load i32, ptr %951, align 4, !tbaa !154
   %953 = getelementptr i8, ptr %951, i64 4
@@ -1591,9 +1591,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 
 1044:                                             ; preds = %1037
   %1045 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef %7, ptr noundef %1042, ptr noundef %1043, ptr noundef nonnull %21)
-  %.pre14.i89 = load float, ptr %21, align 4, !tbaa !155
-  %.pre15.i90 = load float, ptr %947, align 4, !tbaa !155
-  %.pre16.i91 = load float, ptr %948, align 4, !tbaa !155
+  %.pre14.i90 = load float, ptr %21, align 4, !tbaa !155
+  %.pre15.i91 = load float, ptr %947, align 4, !tbaa !155
+  %.pre16.i92 = load float, ptr %948, align 4, !tbaa !155
   br label %1060
 
 1046:                                             ; preds = %1037
@@ -1616,9 +1616,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br label %1060
 
 1060:                                             ; preds = %1046, %1044
-  %1061 = phi float [ %1059, %1046 ], [ %.pre16.i91, %1044 ]
-  %1062 = phi float [ %1054, %1046 ], [ %.pre15.i90, %1044 ]
-  %1063 = phi float [ %1049, %1046 ], [ %.pre14.i89, %1044 ]
+  %1061 = phi float [ %1059, %1046 ], [ %.pre16.i92, %1044 ]
+  %1062 = phi float [ %1054, %1046 ], [ %.pre15.i91, %1044 ]
+  %1063 = phi float [ %1049, %1046 ], [ %.pre14.i90, %1044 ]
   %1064 = fmul float %1062, %1062
   %1065 = call float @llvm.fmuladd.f32(float %1063, float %1063, float %1064)
   %1066 = call noundef float @llvm.fmuladd.f32(float %1061, float %1061, float %1065)
@@ -1630,16 +1630,16 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br i1 %1071, label %1076, label %1072
 
 1072:                                             ; preds = %1060
-  %.b212.i = load i1, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
-  br i1 %.b212.i, label %.backedge.i87, label %1073
+  %.b.i86 = load i1, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
+  br i1 %.b.i86, label %.backedge.i88, label %1073
 
 1073:                                             ; preds = %1072
-  %sqrt.i86 = call float @llvm.sqrt.f32(float %1066)
-  call fastcc void @_ZL14warning_rlimitPA3_KfiiPiff(ptr noundef %4, i32 noundef %954, i32 noundef %956, ptr noundef %19, float noundef %sqrt.i86, float noundef %1069)
+  %sqrt.i87 = call float @llvm.sqrt.f32(float %1066)
+  call fastcc void @_ZL14warning_rlimitPA3_KfiiPiff(ptr noundef %4, i32 noundef %954, i32 noundef %956, ptr noundef %19, float noundef %sqrt.i87, float noundef %1069)
   store i1 true, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
-  br label %.backedge.i87
+  br label %.backedge.i88
 
-.backedge.i87:                                    ; preds = %1234, %1073, %1072
+.backedge.i88:                                    ; preds = %1234, %1073, %1072
   %1074 = trunc nuw i64 %indvars.iv.next13.i84 to i32
   %1075 = icmp sgt i32 %1, %1074
   br i1 %1075, label %950, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !200
@@ -1648,9 +1648,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br i1 %.1208.i, label %1077, label %1153
 
 1077:                                             ; preds = %1076
-  %1078 = getelementptr inbounds float, ptr %.sroa.0159.1, i64 %957
+  %1078 = getelementptr inbounds float, ptr %.sroa.0160.1, i64 %957
   %1079 = load float, ptr %1078, align 4, !tbaa !155
-  %1080 = getelementptr inbounds float, ptr %.sroa.0159.1, i64 %960
+  %1080 = getelementptr inbounds float, ptr %.sroa.0160.1, i64 %960
   %1081 = load float, ptr %1080, align 4, !tbaa !155
   %1082 = fmul float %1079, %1081
   %1083 = fmul float %942, %1082
@@ -1749,8 +1749,8 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1158 = getelementptr inbounds nuw i8, ptr %1067, i64 52
   %1159 = load i32, ptr %1158, align 4, !tbaa !195
   %1160 = sitofp i32 %1159 to float
-  %sqrt3.i88 = call float @llvm.sqrt.f32(float %1066)
-  %1161 = fdiv float 1.000000e+00, %sqrt3.i88
+  %sqrt3.i89 = call float @llvm.sqrt.f32(float %1066)
+  %1161 = fdiv float 1.000000e+00, %sqrt3.i89
   %1162 = fmul float %1066, %1161
   %1163 = fmul float %1162, %1155
   %1164 = fptosi float %1163 to i32
@@ -1870,9 +1870,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   store float %1258, ptr %1256, align 4, !tbaa !155
   store float %1261, ptr %1259, align 4, !tbaa !155
   store float %1264, ptr %1262, align 4, !tbaa !155
-  br label %.backedge.i87
+  br label %.backedge.i88
 
-_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit: ; preds = %.backedge.i87, %.loopexit.i81
+_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit: ; preds = %.backedge.i88, %.loopexit.i81
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

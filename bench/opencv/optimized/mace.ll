@@ -1045,8 +1045,8 @@ define linkonce_odr hidden void @_ZN2cv4face8MACEImpl4saltERKNSt7__cxx1112basic_
   %8 = load ptr, ptr %1, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !41
-  %.b21.i = load i1, ptr @_ZZN2cv4faceL5crc64EPKhmmE11initialized, align 1
-  br i1 %.b21.i, label %20, label %.preheader.i
+  %.b.i = load i1, ptr @_ZZN2cv4faceL5crc64EPKhmmE11initialized, align 1
+  br i1 %.b.i, label %20, label %.preheader.i
 
 11:                                               ; preds = %12
   store i1 true, ptr @_ZZN2cv4faceL5crc64EPKhmmE11initialized, align 1
@@ -1060,44 +1060,44 @@ define linkonce_odr hidden void @_ZN2cv4face8MACEImpl4saltERKNSt7__cxx1112basic_
   %13 = getelementptr inbounds nuw i64, ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 %indvars.iv.i
   store i64 %18, ptr %13, align 8, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond30.not.i, label %11, label %.preheader.i, !llvm.loop !67
+  %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 256
+  br i1 %exitcond29.not.i, label %11, label %.preheader.i, !llvm.loop !67
 
 14:                                               ; preds = %14, %.preheader.i
-  %.01823.i = phi i32 [ 0, %.preheader.i ], [ %19, %14 ]
-  %.01922.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %18, %14 ]
-  %15 = and i64 %.01922.i, 1
+  %.01822.i = phi i32 [ 0, %.preheader.i ], [ %19, %14 ]
+  %.01921.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %18, %14 ]
+  %15 = and i64 %.01921.i, 1
   %.not.i = icmp eq i64 %15, 0
   %16 = select i1 %.not.i, i64 0, i64 -3932672073523589310
-  %17 = lshr i64 %.01922.i, 1
+  %17 = lshr i64 %.01921.i, 1
   %18 = xor i64 %16, %17
-  %19 = add nuw nsw i32 %.01823.i, 1
+  %19 = add nuw nsw i32 %.01822.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
   br i1 %exitcond.not.i, label %12, label %14, !llvm.loop !69
 
 20:                                               ; preds = %11, %2
-  %.not27.i = icmp eq i64 %10, 0
-  br i1 %.not27.i, label %32, label %.lr.ph.i
+  %.not26.i = icmp eq i64 %10, 0
+  br i1 %.not26.i, label %32, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %21 = xor i64 %30, -1
   br label %32
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %.026.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %20 ]
-  %.01725.i = phi i64 [ %30, %.lr.ph.i ], [ -1, %20 ]
-  %22 = and i64 %.01725.i, 255
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.026.i
+  %.025.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %20 ]
+  %.01724.i = phi i64 [ %30, %.lr.ph.i ], [ -1, %20 ]
+  %22 = and i64 %.01724.i, 255
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.025.i
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = zext i8 %24 to i64
   %26 = xor i64 %22, %25
   %27 = getelementptr inbounds nuw i64, ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !66
-  %29 = lshr i64 %.01725.i, 8
+  %29 = lshr i64 %.01724.i, 8
   %30 = xor i64 %28, %29
-  %31 = add nuw i64 %.026.i, 1
-  %exitcond31.not.i = icmp eq i64 %31, %10
-  br i1 %exitcond31.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !70
+  %31 = add nuw i64 %.025.i, 1
+  %exitcond30.not.i = icmp eq i64 %31, %10
+  br i1 %exitcond30.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !70
 
 32:                                               ; preds = %20, %._crit_edge.loopexit.i
   %.017.lcssa.i = phi i64 [ 0, %20 ], [ %21, %._crit_edge.loopexit.i ]

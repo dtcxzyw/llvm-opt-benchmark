@@ -3315,21 +3315,21 @@ _ZN11SymbolTable11should_growEv.exit.i:           ; preds = %8
 
 19:                                               ; preds = %_ZN11SymbolTable11should_growEv.exit.i
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not3.i = icmp eq ptr %20, null
-  br i1 %.not3.i, label %_ZN11SymbolTable18maybe_rehash_tableEv.exit.thread, label %21
+  %.not2.i = icmp eq ptr %20, null
+  br i1 %.not2.i, label %_ZN11SymbolTable18maybe_rehash_tableEv.exit.thread, label %21
 
 21:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.31)
   br label %_ZN11SymbolTable18maybe_rehash_tableEv.exit.thread
 
 _ZN11SymbolTable11should_growEv.exit.thread.i:    ; preds = %_ZN11SymbolTable11should_growEv.exit.i, %8
-  %.b1.i = load i1, ptr @_ZL9_rehashed, align 1
-  br i1 %.b1.i, label %22, label %25
+  %.b.i = load i1, ptr @_ZL9_rehashed, align 1
+  br i1 %.b.i, label %22, label %25
 
 22:                                               ; preds = %_ZN11SymbolTable11should_growEv.exit.thread.i
   %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not2.i = icmp eq ptr %23, null
-  br i1 %.not2.i, label %_ZN11SymbolTable18maybe_rehash_tableEv.exit.thread, label %24
+  %.not1.i = icmp eq ptr %23, null
+  br i1 %.not1.i, label %_ZN11SymbolTable18maybe_rehash_tableEv.exit.thread, label %24
 
 24:                                               ; preds = %22
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.32)
@@ -3426,8 +3426,8 @@ _ZN11SymbolTable11should_growEv.exit:             ; preds = %4
 
 15:                                               ; preds = %_ZN11SymbolTable11should_growEv.exit
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not3 = icmp eq ptr %16, null
-  br i1 %.not3, label %18, label %17
+  %.not2 = icmp eq ptr %16, null
+  br i1 %.not2, label %18, label %17
 
 17:                                               ; preds = %15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.31)
@@ -3438,13 +3438,13 @@ _ZN11SymbolTable11should_growEv.exit:             ; preds = %4
   br label %25
 
 _ZN11SymbolTable11should_growEv.exit.thread:      ; preds = %4, %_ZN11SymbolTable11should_growEv.exit
-  %.b1 = load i1, ptr @_ZL9_rehashed, align 1
-  br i1 %.b1, label %19, label %23
+  %.b = load i1, ptr @_ZL9_rehashed, align 1
+  br i1 %.b, label %19, label %23
 
 19:                                               ; preds = %_ZN11SymbolTable11should_growEv.exit.thread
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not2 = icmp eq ptr %20, null
-  br i1 %.not2, label %22, label %21
+  %.not1 = icmp eq ptr %20, null
+  br i1 %.not1, label %22, label %21
 
 21:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.32)

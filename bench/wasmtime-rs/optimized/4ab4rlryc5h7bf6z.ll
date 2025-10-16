@@ -39688,9 +39688,9 @@ define void @_ZN17cranelift_codegen10data_value9DataValue18read_from_slice_ne17h
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd421e6e2fad60f42E.exit": ; preds = %7
-  %.val.i125 = load i8, ptr %1, align 1, !alias.scope !7448
+  %.val.i = load i8, ptr %1, align 1, !alias.scope !7448
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.val.i125, ptr %10, align 1
+  store i8 %.val.i, ptr %10, align 1
   br label %35
 
 11:                                               ; preds = %4
@@ -39822,18 +39822,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit: ; preds = %
   br label %35
 
 50:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit
-  %switch.tableidx126 = add nsw i16 %38, -6
-  %51 = icmp ult i16 %switch.tableidx126, 10
-  br i1 %51, label %switch.lookup127, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
+  %switch.tableidx125 = add nsw i16 %38, -6
+  %51 = icmp ult i16 %switch.tableidx125, 10
+  br i1 %51, label %switch.lookup126, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
 
-switch.lookup127:                                 ; preds = %50
-  %52 = zext nneg i16 %switch.tableidx126 to i64
-  %switch.gep128 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen10data_value9DataValue15read_value_from17heb99f77caf53844bE, i64 %52
-  %switch.load129 = load i32, ptr %switch.gep128, align 4
+switch.lookup126:                                 ; preds = %50
+  %52 = zext nneg i16 %switch.tableidx125 to i64
+  %switch.gep127 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen10data_value9DataValue15read_value_from17heb99f77caf53844bE, i64 %52
+  %switch.load128 = load i32, ptr %switch.gep127, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
 
-_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97: ; preds = %switch.lookup127, %50
-  %.0.i.i.i95 = phi i32 [ 0, %50 ], [ %switch.load129, %switch.lookup127 ]
+_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97: ; preds = %switch.lookup126, %50
+  %.0.i.i.i95 = phi i32 [ 0, %50 ], [ %switch.load128, %switch.lookup126 ]
   %53 = shl nuw nsw i32 %.0.i.i.i95, %43
   %54 = icmp eq i32 %53, 64
   br i1 %54, label %55, label %59

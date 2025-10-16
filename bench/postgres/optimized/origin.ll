@@ -1222,8 +1222,8 @@ define dso_local i64 @replorigin_get_progress(i16 noundef zeroext %0, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.b29 = load i1, ptr @replorigin_session_setup.registered_cleanup, align 1
-  br i1 %.b29, label %4, label %3
+  %.b = load i1, ptr @replorigin_session_setup.registered_cleanup, align 1
+  br i1 %.b, label %4, label %3
 
 3:                                                ; preds = %2
   tail call void @on_shmem_exit(ptr noundef nonnull @ReplicationOriginExitCleanup, i64 noundef 0) #9
@@ -1257,18 +1257,18 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 
 17:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.02741 = phi i32 [ -1, %.lr.ph ], [ %.2.ph, %36 ]
+  %.02740 = phi i32 [ -1, %.lr.ph ], [ %.2.ph, %36 ]
   %18 = getelementptr inbounds nuw %struct.ReplicationState, ptr %16, i64 %indvars.iv
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %19, 0
-  %21 = icmp eq i32 %.02741, -1
+  %21 = icmp eq i32 %.02740, -1
   %or.cond = select i1 %20, i1 %21, i1 false
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond, label %36, label %23
 
 23:                                               ; preds = %17
-  %.not30 = icmp eq i16 %19, %0
-  br i1 %.not30, label %24, label %36
+  %.not29 = icmp eq i16 %19, %0
+  br i1 %.not29, label %24, label %36
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -1276,7 +1276,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   %27 = icmp ne i32 %26, 0
   %28 = icmp eq i32 %1, 0
   %or.cond3 = and i1 %28, %27
-  br i1 %or.cond3, label %29, label %.thread35
+  br i1 %or.cond3, label %29, label %.thread34
 
 29:                                               ; preds = %24
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1288,12 +1288,12 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1148, ptr noundef nonnull @__func__.replorigin_session_setup) #9
   unreachable
 
-.thread35:                                        ; preds = %24
+.thread34:                                        ; preds = %24
   store ptr %18, ptr @session_replication_state, align 8
   br label %50
 
 36:                                               ; preds = %17, %23
-  %.2.ph = phi i32 [ %.02741, %23 ], [ %22, %17 ]
+  %.2.ph = phi i32 [ %.02740, %23 ], [ %22, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !15
@@ -1326,8 +1326,8 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   store i16 %0, ptr %49, align 8
   br label %50
 
-50:                                               ; preds = %.thread35, %45, %46
-  %51 = phi ptr [ %18, %.thread35 ], [ %.pr, %45 ], [ %49, %46 ]
+50:                                               ; preds = %.thread34, %45, %46
+  %51 = phi ptr [ %18, %.thread34 ], [ %.pr, %45 ], [ %49, %46 ]
   %52 = icmp eq i32 %1, 0
   br i1 %52, label %53, label %56
 
@@ -1340,8 +1340,8 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %58 = load i32, ptr %57, align 8
-  %.not31 = icmp eq i32 %58, %1
-  br i1 %.not31, label %63, label %59
+  %.not30 = icmp eq i32 %58, %1
+  br i1 %.not30, label %63, label %59
 
 59:                                               ; preds = %56
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10

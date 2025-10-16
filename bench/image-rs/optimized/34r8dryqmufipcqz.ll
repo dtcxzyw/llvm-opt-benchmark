@@ -608,14 +608,14 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 27:                                               ; preds = %5
   %28 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.fbd0a4e148fbe6762a2d1a1104c17af0.5, i64 noundef 10)
-          to label %.loopexit457 unwind label %.loopexit.split-lp
+          to label %.loopexit450 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %114, %129, %145, %165, %184, %193
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.invoke455, %.invoke, %27, %43, %53, %73, %79, %86
+.loopexit.split-lp:                               ; preds = %.invoke448, %.invoke, %27, %43, %53, %73, %79, %86
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -625,10 +625,10 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   invoke void @"_ZN4core3ptr117drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$$RF$mut$u20$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h069e4e8b1d60914eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20) #24
           to label %202 unwind label %200
 
-.loopexit457:                                     ; preds = %197, %188, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202", %154, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195", %133, %27, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit", %90, %81, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit", %57
-  %.pre1.i205260.lcssa.sink = phi ptr [ %.pre1.i262, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit" ], [ %.pre1.i162263, %81 ], [ %.pre1.i173264, %90 ], [ %80, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit" ], [ %28, %27 ], [ %.pre1.i185258, %133 ], [ %146, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195" ], [ %.pre1.i179259, %154 ], [ %166, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202" ], [ %.pre1.i205260, %188 ], [ %.pre1.i212261, %197 ]
+.loopexit450:                                     ; preds = %197, %188, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202", %154, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195", %133, %27, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit", %90, %81, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit", %57
+  %.pre1.i205.lcssa.sink = phi ptr [ %.pre1.i, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit" ], [ %.pre1.i162, %81 ], [ %.pre1.i173, %90 ], [ %80, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit" ], [ %28, %27 ], [ %.pre1.i185, %133 ], [ %146, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195" ], [ %.pre1.i179, %154 ], [ %166, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202" ], [ %.pre1.i205, %188 ], [ %.pre1.i212, %197 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pre1.i205260.lcssa.sink, ptr %30, align 8
+  store ptr %.pre1.i205.lcssa.sink, ptr %30, align 8
   br label %94
 
 31:                                               ; preds = %5
@@ -649,12 +649,12 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0113.lcssa424 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
-  %.0115.lcssa422 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
-  %.0118.lcssa421 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
-  %36 = zext i8 %.0115.lcssa422 to i64
+  %.0113.lcssa417 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
+  %.0115.lcssa415 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
+  %.0118.lcssa414 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
+  %36 = zext i8 %.0115.lcssa415 to i64
   %37 = add nuw nsw i64 %36, 1
-  %38 = add i8 %.0115.lcssa422, -1
+  %38 = add i8 %.0115.lcssa415, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !123
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !123
@@ -710,23 +710,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 57:                                               ; preds = %43
   %.pre.i = load i64, ptr %19, align 8, !range !146, !alias.scope !147, !noalias !150
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.pre1.i262 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !147, !noalias !150
+  %.pre1.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !147, !noalias !150
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !123
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !123
   %trunc139 = trunc nuw i64 %.pre.i to i1
-  br i1 %trunc139, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
+  br i1 %trunc139, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
-  %58 = add i64 %.0118.lcssa421, %36
-  %59 = icmp ugt i64 %.0118.lcssa421, %58
+  %58 = add i64 %.0118.lcssa414, %36
+  %59 = icmp ugt i64 %.0118.lcssa414, %58
   br i1 %59, label %.invoke, label %60
 
 60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
   %61 = icmp ugt i64 %58, %4
-  br i1 %61, label %.invoke455, label %67
+  br i1 %61, label %.invoke448, label %67
 
 .invoke:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
-  %62 = phi i64 [ %.0118.lcssa421, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118348, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ], [ %.0118348, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ]
+  %62 = phi i64 [ %.0118.lcssa414, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118341, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ], [ %.0118341, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ]
   %63 = phi i64 [ %58, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %155, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ], [ %135, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ]
   %64 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %62, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #26
@@ -735,17 +735,17 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.invoke455:                                       ; preds = %157, %137, %60
+.invoke448:                                       ; preds = %157, %137, %60
   %65 = phi i64 [ %58, %60 ], [ %135, %137 ], [ %155, %157 ]
   %66 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %60 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %137 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %157 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %65, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66) #26
-          to label %.cont456 unwind label %.loopexit.split-lp
+          to label %.cont449 unwind label %.loopexit.split-lp
 
-.cont456:                                         ; preds = %.invoke455
+.cont449:                                         ; preds = %.invoke448
   unreachable
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa421
+  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa414
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %69 = load i64, ptr %20, align 8, !alias.scope !152, !noalias !155, !noundef !19
   %70 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !152, !noalias !155, !noundef !19
@@ -767,30 +767,30 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit": ; preds = %73
   %78 = icmp eq ptr %74, null
-  br i1 %78, label %79, label %.loopexit457
+  br i1 %78, label %79, label %.loopexit450
 
 79:                                               ; preds = %.thread239, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit.thread", %90, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit"
-  %.0113.lcssa423 = phi i64 [ %.0113.lcssa424, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit" ], [ %.3, %90 ], [ %.0113.lcssa424, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit.thread" ], [ %.3, %.thread239 ]
+  %.0113.lcssa416 = phi i64 [ %.0113.lcssa417, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit" ], [ %.3, %90 ], [ %.0113.lcssa417, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit.thread" ], [ %.3, %.thread239 ]
   %.pn = phi i64 [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit" ], [ 2, %90 ], [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit.thread" ], [ 2, %.thread239 ]
-  %.1 = add i64 %.pn, %.0113.lcssa423
+  %.1 = add i64 %.pn, %.0113.lcssa416
   %80 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf17h39628bf0f8ae975fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
           to label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit" unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %53
   %.pre.i160 = load i64, ptr %17, align 8, !range !146, !alias.scope !157, !noalias !160
   %.phi.trans.insert.i161 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.pre1.i162263 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !157, !noalias !160
+  %.pre1.i162 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !157, !noalias !160
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !136
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !136
   %trunc141 = trunc nuw i64 %.pre.i160 to i1
-  br i1 %trunc141, label %.loopexit457, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge"
+  br i1 %trunc141, label %.loopexit450, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge": ; preds = %81
-  %.pre399 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !162, !noalias !167
+  %.pre392 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !162, !noalias !167
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170": ; preds = %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge", %.thread236
-  %82 = phi i64 [ %.pre399, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge" ], [ %56, %.thread236 ]
+  %82 = phi i64 [ %.pre392, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge" ], [ %56, %.thread236 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !172
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !172
@@ -818,23 +818,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 90:                                               ; preds = %86
   %.pre.i171 = load i64, ptr %15, align 8, !range !146, !alias.scope !175, !noalias !178
   %.phi.trans.insert.i172 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre1.i173264 = load ptr, ptr %.phi.trans.insert.i172, align 8, !alias.scope !175, !noalias !178
+  %.pre1.i173 = load ptr, ptr %.phi.trans.insert.i172, align 8, !alias.scope !175, !noalias !178
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !172
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !172
   %trunc143 = trunc nuw i64 %.pre.i171 to i1
-  br i1 %trunc143, label %.loopexit457, label %79
+  br i1 %trunc143, label %.loopexit450, label %79
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit": ; preds = %79
   %91 = icmp eq ptr %80, null
-  br i1 %91, label %92, label %.loopexit457
+  br i1 %91, label %92, label %.loopexit450
 
 92:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit"
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.1, ptr %93, align 8
   br label %94
 
-94:                                               ; preds = %92, %.loopexit457
-  %.sink = phi i64 [ 0, %92 ], [ 1, %.loopexit457 ]
+94:                                               ; preds = %92, %.loopexit450
+  %.sink = phi i64 [ 0, %92 ], [ 1, %.loopexit450 ]
   store i64 %.sink, ptr %0, align 8
   call void @"_ZN4core3ptr117drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$$RF$mut$u20$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h069e4e8b1d60914eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -842,32 +842,32 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 95:                                               ; preds = %175, %.lr.ph
   %96 = phi i64 [ %32, %.lr.ph ], [ %176, %175 ]
-  %.0112351 = phi i64 [ 1, %.lr.ph ], [ %99, %175 ]
-  %.0113350 = phi i64 [ 0, %.lr.ph ], [ %.3, %175 ]
-  %.0115349 = phi i8 [ 1, %.lr.ph ], [ %.1116, %175 ]
-  %.0118348 = phi i64 [ 0, %.lr.ph ], [ %.1119, %175 ]
-  %.0121347 = phi i8 [ 0, %.lr.ph ], [ %.1122, %175 ]
-  %.0123346 = phi i8 [ %34, %.lr.ph ], [ %98, %175 ]
-  %.0125345 = phi i8 [ 0, %.lr.ph ], [ %.1126, %175 ]
-  %97 = getelementptr inbounds i8, ptr %3, i64 %.0112351
+  %.0112344 = phi i64 [ 1, %.lr.ph ], [ %99, %175 ]
+  %.0113343 = phi i64 [ 0, %.lr.ph ], [ %.3, %175 ]
+  %.0115342 = phi i8 [ 1, %.lr.ph ], [ %.1116, %175 ]
+  %.0118341 = phi i64 [ 0, %.lr.ph ], [ %.1119, %175 ]
+  %.0121340 = phi i8 [ 0, %.lr.ph ], [ %.1122, %175 ]
+  %.0123339 = phi i8 [ %34, %.lr.ph ], [ %98, %175 ]
+  %.0125338 = phi i8 [ 0, %.lr.ph ], [ %.1126, %175 ]
+  %97 = getelementptr inbounds i8, ptr %3, i64 %.0112344
   %98 = load i8, ptr %97, align 1, !noundef !19
-  %99 = add nuw i64 %.0112351, 1
-  %100 = add i8 %.0115349, 1
-  %101 = trunc nuw i8 %.0125345 to i1
+  %99 = add nuw i64 %.0112344, 1
+  %100 = add i8 %.0115342, 1
+  %101 = trunc nuw i8 %.0125338 to i1
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %95
-  %103 = icmp slt i8 %.0115349, -1
+  %103 = icmp slt i8 %.0115342, -1
   br i1 %103, label %109, label %107
 
 104:                                              ; preds = %95
-  %105 = icmp ne i8 %98, %.0123346
-  %106 = icmp slt i8 %.0115349, -1
+  %105 = icmp ne i8 %98, %.0123339
+  %106 = icmp slt i8 %.0115342, -1
   %or.cond3 = select i1 %105, i1 true, i1 %106
   br i1 %or.cond3, label %178, label %175
 
 107:                                              ; preds = %102
-  %108 = icmp eq i8 %98, %.0123346
+  %108 = icmp eq i8 %98, %.0123339
   br i1 %108, label %118, label %175
 
 109:                                              ; preds = %102
@@ -897,9 +897,9 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
 
 118:                                              ; preds = %107
-  %119 = sub i8 %100, %.0121347
+  %119 = sub i8 %100, %.0121340
   %120 = icmp ugt i8 %119, 2
-  %121 = icmp eq i8 %.0121347, 0
+  %121 = icmp eq i8 %.0121340, 0
   %or.cond = or i1 %121, %120
   br i1 %or.cond, label %122, label %175
 
@@ -907,7 +907,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %121, label %175, label %123
 
 123:                                              ; preds = %122
-  %124 = add nsw i8 %.0121347, -1
+  %124 = add nsw i8 %.0121340, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !196
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !196
@@ -935,24 +935,24 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 133:                                              ; preds = %129
   %.pre.i183 = load i64, ptr %11, align 8, !range !146, !alias.scope !206, !noalias !209
-  %.pre1.i185258 = load ptr, ptr %.phi.trans.insert.i184, align 8, !alias.scope !206, !noalias !209
+  %.pre1.i185 = load ptr, ptr %.phi.trans.insert.i184, align 8, !alias.scope !206, !noalias !209
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !196
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !196
   %trunc = trunc nuw i64 %.pre.i183 to i1
-  br i1 %trunc, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
+  br i1 %trunc, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189": ; preds = %.thread242, %133
-  %134 = zext i8 %.0121347 to i64
-  %135 = add i64 %.0118348, %134
-  %136 = icmp ugt i64 %.0118348, %135
+  %134 = zext i8 %.0121340 to i64
+  %135 = add i64 %.0118341, %134
+  %136 = icmp ugt i64 %.0118341, %135
   br i1 %136, label %.invoke, label %137
 
 137:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
   %138 = icmp ugt i64 %135, %4
-  br i1 %138, label %.invoke455, label %139
+  br i1 %138, label %.invoke448, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %3, i64 %.0118348
+  %140 = getelementptr inbounds i8, ptr %3, i64 %.0118341
   call void @llvm.experimental.noalias.scope.decl(metadata !211)
   %141 = load i64, ptr %20, align 8, !alias.scope !211, !noalias !214, !noundef !19
   %142 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !211, !noalias !214, !noundef !19
@@ -974,32 +974,32 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195": ; preds = %145
   %150 = icmp eq ptr %146, null
-  br i1 %150, label %151, label %.loopexit457
+  br i1 %150, label %151, label %.loopexit450
 
 151:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit195"
   %152 = add nuw nsw i64 %134, 1
-  %153 = add i64 %152, %.0113350
+  %153 = add i64 %152, %.0113343
   br label %175
 
 154:                                              ; preds = %114
   %.pre.i177 = load i64, ptr %13, align 8, !range !146, !alias.scope !216, !noalias !219
-  %.pre1.i179259 = load ptr, ptr %.phi.trans.insert.i178, align 8, !alias.scope !216, !noalias !219
+  %.pre1.i179 = load ptr, ptr %.phi.trans.insert.i178, align 8, !alias.scope !216, !noalias !219
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !183
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !183
   %trunc133 = trunc nuw i64 %.pre.i177 to i1
-  br i1 %trunc133, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
+  br i1 %trunc133, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196": ; preds = %.thread246, %154
-  %155 = add i64 %.0118348, 128
-  %156 = icmp ugt i64 %.0118348, -129
+  %155 = add i64 %.0118341, 128
+  %156 = icmp ugt i64 %.0118341, -129
   br i1 %156, label %.invoke, label %157
 
 157:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
   %158 = icmp ugt i64 %155, %4
-  br i1 %158, label %.invoke455, label %159
+  br i1 %158, label %.invoke448, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %3, i64 %.0118348
+  %160 = getelementptr inbounds i8, ptr %3, i64 %.0118341
   call void @llvm.experimental.noalias.scope.decl(metadata !221)
   %161 = load i64, ptr %20, align 8, !alias.scope !221, !noalias !224, !noundef !19
   %162 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !221, !noalias !224, !noundef !19
@@ -1021,26 +1021,26 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202": ; preds = %165
   %170 = icmp eq ptr %166, null
-  br i1 %170, label %171, label %.loopexit457
+  br i1 %170, label %171, label %.loopexit450
 
 171:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha72b1d8d49b79363E.exit202"
-  %172 = add i64 %.0113350, 129
-  %173 = add i8 %.0115349, -127
-  %174 = and i8 %.0115349, 127
+  %172 = add i64 %.0113343, 129
+  %173 = add i8 %.0115342, -127
+  %174 = and i8 %.0115342, 127
   br label %175
 
 175:                                              ; preds = %151, %122, %107, %104, %118, %198, %171
   %.1126 = phi i8 [ 0, %198 ], [ 1, %104 ], [ 0, %171 ], [ 1, %122 ], [ 1, %151 ], [ 0, %118 ], [ 0, %107 ]
-  %.1122 = phi i8 [ 0, %198 ], [ %.0121347, %104 ], [ %174, %171 ], [ 0, %122 ], [ %.0121347, %151 ], [ %.0121347, %118 ], [ %.0115349, %107 ]
-  %.1119 = phi i64 [ %.0112351, %198 ], [ %.0118348, %104 ], [ %155, %171 ], [ %.0118348, %122 ], [ %.0118348, %151 ], [ %.0118348, %118 ], [ %.0118348, %107 ]
+  %.1122 = phi i8 [ 0, %198 ], [ %.0121340, %104 ], [ %174, %171 ], [ 0, %122 ], [ %.0121340, %151 ], [ %.0121340, %118 ], [ %.0115342, %107 ]
+  %.1119 = phi i64 [ %.0112344, %198 ], [ %.0118341, %104 ], [ %155, %171 ], [ %.0118341, %122 ], [ %.0118341, %151 ], [ %.0118341, %118 ], [ %.0118341, %107 ]
   %.1116 = phi i8 [ 1, %198 ], [ %100, %104 ], [ %173, %171 ], [ %119, %122 ], [ %119, %151 ], [ %100, %118 ], [ %100, %107 ]
-  %.3 = phi i64 [ %199, %198 ], [ %.0113350, %104 ], [ %172, %171 ], [ %.0113350, %122 ], [ %153, %151 ], [ %.0113350, %118 ], [ %.0113350, %107 ]
+  %.3 = phi i64 [ %199, %198 ], [ %.0113343, %104 ], [ %172, %171 ], [ %.0113343, %122 ], [ %153, %151 ], [ %.0113343, %118 ], [ %.0113343, %107 ]
   %176 = add i64 %96, -1
   %177 = icmp eq i64 %176, 0
   br i1 %177, label %._crit_edge, label %95
 
 178:                                              ; preds = %104
-  %179 = sub i8 1, %.0115349
+  %179 = sub i8 1, %.0115342
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !229
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !229
@@ -1068,11 +1068,11 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 188:                                              ; preds = %184
   %.pre.i203 = load i64, ptr %9, align 8, !range !146, !alias.scope !239, !noalias !242
-  %.pre1.i205260 = load ptr, ptr %.phi.trans.insert.i204, align 8, !alias.scope !239, !noalias !242
+  %.pre1.i205 = load ptr, ptr %.phi.trans.insert.i204, align 8, !alias.scope !239, !noalias !242
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !229
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !229
   %trunc135 = trunc nuw i64 %.pre.i203 to i1
-  br i1 %trunc135, label %.loopexit457, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge"
+  br i1 %trunc135, label %.loopexit450, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge": ; preds = %188
   %.pre = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !249
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !254
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !254
-  store i8 %.0123346, ptr %6, align 1, !noalias !254
+  store i8 %.0123339, ptr %6, align 1, !noalias !254
   call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %190 = load i64, ptr %20, align 8, !alias.scope !244, !noalias !249, !noundef !19
   %191 = sub i64 %190, %189
@@ -1097,7 +1097,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .thread253:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209"
   %194 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !249, !nonnull !19, !noundef !19
   %195 = getelementptr inbounds i8, ptr %194, i64 %189
-  store i8 %.0123346, ptr %195, align 1, !noalias !256
+  store i8 %.0123339, ptr %195, align 1, !noalias !256
   %196 = add i64 %189, 1
   store i64 %196, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !249
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !254
@@ -1106,14 +1106,14 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 197:                                              ; preds = %193
   %.pre.i210 = load i64, ptr %7, align 8, !range !146, !alias.scope !257, !noalias !260
-  %.pre1.i212261 = load ptr, ptr %.phi.trans.insert.i211, align 8, !alias.scope !257, !noalias !260
+  %.pre1.i212 = load ptr, ptr %.phi.trans.insert.i211, align 8, !alias.scope !257, !noalias !260
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !254
   %trunc137 = trunc nuw i64 %.pre.i210 to i1
-  br i1 %trunc137, label %.loopexit457, label %198
+  br i1 %trunc137, label %.loopexit450, label %198
 
 198:                                              ; preds = %.thread253, %197
-  %199 = add i64 %.0113350, 2
+  %199 = add i64 %.0113343, 2
   br label %175
 
 200:                                              ; preds = %29
@@ -1162,14 +1162,14 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 27:                                               ; preds = %5
   %28 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.fbd0a4e148fbe6762a2d1a1104c17af0.5, i64 noundef 10)
-          to label %.loopexit457 unwind label %.loopexit.split-lp
+          to label %.loopexit450 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %114, %129, %145, %165, %184, %193
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.invoke455, %.invoke, %27, %43, %53, %73, %79, %86
+.loopexit.split-lp:                               ; preds = %.invoke448, %.invoke, %27, %43, %53, %73, %79, %86
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1179,10 +1179,10 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   invoke void @"_ZN4core3ptr104drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$$RF$mut$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$$GT$17h73593dfc2c68409fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20) #24
           to label %202 unwind label %200
 
-.loopexit457:                                     ; preds = %197, %188, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202", %154, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195", %133, %27, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit", %90, %81, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit", %57
-  %.pre1.i205260.lcssa.sink = phi ptr [ %.pre1.i262, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit" ], [ %.pre1.i162263, %81 ], [ %.pre1.i173264, %90 ], [ %80, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit" ], [ %28, %27 ], [ %.pre1.i185258, %133 ], [ %146, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195" ], [ %.pre1.i179259, %154 ], [ %166, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202" ], [ %.pre1.i205260, %188 ], [ %.pre1.i212261, %197 ]
+.loopexit450:                                     ; preds = %197, %188, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202", %154, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195", %133, %27, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit", %90, %81, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit", %57
+  %.pre1.i205.lcssa.sink = phi ptr [ %.pre1.i, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit" ], [ %.pre1.i162, %81 ], [ %.pre1.i173, %90 ], [ %80, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit" ], [ %28, %27 ], [ %.pre1.i185, %133 ], [ %146, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195" ], [ %.pre1.i179, %154 ], [ %166, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202" ], [ %.pre1.i205, %188 ], [ %.pre1.i212, %197 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pre1.i205260.lcssa.sink, ptr %30, align 8
+  store ptr %.pre1.i205.lcssa.sink, ptr %30, align 8
   br label %94
 
 31:                                               ; preds = %5
@@ -1203,12 +1203,12 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0113.lcssa424 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
-  %.0115.lcssa422 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
-  %.0118.lcssa421 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
-  %36 = zext i8 %.0115.lcssa422 to i64
+  %.0113.lcssa417 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
+  %.0115.lcssa415 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
+  %.0118.lcssa414 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
+  %36 = zext i8 %.0115.lcssa415 to i64
   %37 = add nuw nsw i64 %36, 1
-  %38 = add i8 %.0115.lcssa422, -1
+  %38 = add i8 %.0115.lcssa415, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !271
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !271
@@ -1264,23 +1264,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 57:                                               ; preds = %43
   %.pre.i = load i64, ptr %19, align 8, !range !146, !alias.scope !294, !noalias !297
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.pre1.i262 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !294, !noalias !297
+  %.pre1.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !294, !noalias !297
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !271
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !271
   %trunc139 = trunc nuw i64 %.pre.i to i1
-  br i1 %trunc139, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
+  br i1 %trunc139, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
-  %58 = add i64 %.0118.lcssa421, %36
-  %59 = icmp ugt i64 %.0118.lcssa421, %58
+  %58 = add i64 %.0118.lcssa414, %36
+  %59 = icmp ugt i64 %.0118.lcssa414, %58
   br i1 %59, label %.invoke, label %60
 
 60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
   %61 = icmp ugt i64 %58, %4
-  br i1 %61, label %.invoke455, label %67
+  br i1 %61, label %.invoke448, label %67
 
 .invoke:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
-  %62 = phi i64 [ %.0118.lcssa421, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118348, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ], [ %.0118348, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ]
+  %62 = phi i64 [ %.0118.lcssa414, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118341, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ], [ %.0118341, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ]
   %63 = phi i64 [ %58, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %155, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ], [ %135, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ]
   %64 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189" ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %62, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #26
@@ -1289,17 +1289,17 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.invoke455:                                       ; preds = %157, %137, %60
+.invoke448:                                       ; preds = %157, %137, %60
   %65 = phi i64 [ %58, %60 ], [ %135, %137 ], [ %155, %157 ]
   %66 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %60 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %137 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %157 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %65, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66) #26
-          to label %.cont456 unwind label %.loopexit.split-lp
+          to label %.cont449 unwind label %.loopexit.split-lp
 
-.cont456:                                         ; preds = %.invoke455
+.cont449:                                         ; preds = %.invoke448
   unreachable
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa421
+  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa414
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %69 = load i64, ptr %20, align 8, !alias.scope !299, !noalias !302, !noundef !19
   %70 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !299, !noalias !302, !noundef !19
@@ -1321,30 +1321,30 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit": ; preds = %73
   %78 = icmp eq ptr %74, null
-  br i1 %78, label %79, label %.loopexit457
+  br i1 %78, label %79, label %.loopexit450
 
 79:                                               ; preds = %.thread239, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit.thread", %90, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit"
-  %.0113.lcssa423 = phi i64 [ %.0113.lcssa424, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit" ], [ %.3, %90 ], [ %.0113.lcssa424, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit.thread" ], [ %.3, %.thread239 ]
+  %.0113.lcssa416 = phi i64 [ %.0113.lcssa417, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit" ], [ %.3, %90 ], [ %.0113.lcssa417, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit.thread" ], [ %.3, %.thread239 ]
   %.pn = phi i64 [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit" ], [ 2, %90 ], [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit.thread" ], [ 2, %.thread239 ]
-  %.1 = add i64 %.pn, %.0113.lcssa423
+  %.1 = add i64 %.pn, %.0113.lcssa416
   %80 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf17h23cef312326a1728E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
           to label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit" unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %53
   %.pre.i160 = load i64, ptr %17, align 8, !range !146, !alias.scope !304, !noalias !307
   %.phi.trans.insert.i161 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.pre1.i162263 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !304, !noalias !307
+  %.pre1.i162 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !304, !noalias !307
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !284
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !284
   %trunc141 = trunc nuw i64 %.pre.i160 to i1
-  br i1 %trunc141, label %.loopexit457, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge"
+  br i1 %trunc141, label %.loopexit450, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge": ; preds = %81
-  %.pre399 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !309, !noalias !314
+  %.pre392 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !309, !noalias !314
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170": ; preds = %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge", %.thread236
-  %82 = phi i64 [ %.pre399, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge" ], [ %56, %.thread236 ]
+  %82 = phi i64 [ %.pre392, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit170_crit_edge" ], [ %56, %.thread236 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !319
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !319
@@ -1372,23 +1372,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 90:                                               ; preds = %86
   %.pre.i171 = load i64, ptr %15, align 8, !range !146, !alias.scope !322, !noalias !325
   %.phi.trans.insert.i172 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre1.i173264 = load ptr, ptr %.phi.trans.insert.i172, align 8, !alias.scope !322, !noalias !325
+  %.pre1.i173 = load ptr, ptr %.phi.trans.insert.i172, align 8, !alias.scope !322, !noalias !325
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !319
   %trunc143 = trunc nuw i64 %.pre.i171 to i1
-  br i1 %trunc143, label %.loopexit457, label %79
+  br i1 %trunc143, label %.loopexit450, label %79
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit": ; preds = %79
   %91 = icmp eq ptr %80, null
-  br i1 %91, label %92, label %.loopexit457
+  br i1 %91, label %92, label %.loopexit450
 
 92:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit"
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.1, ptr %93, align 8
   br label %94
 
-94:                                               ; preds = %92, %.loopexit457
-  %.sink = phi i64 [ 0, %92 ], [ 1, %.loopexit457 ]
+94:                                               ; preds = %92, %.loopexit450
+  %.sink = phi i64 [ 0, %92 ], [ 1, %.loopexit450 ]
   store i64 %.sink, ptr %0, align 8
   call void @"_ZN4core3ptr104drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$$RF$mut$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$$GT$17h73593dfc2c68409fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1396,32 +1396,32 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 95:                                               ; preds = %175, %.lr.ph
   %96 = phi i64 [ %32, %.lr.ph ], [ %176, %175 ]
-  %.0112351 = phi i64 [ 1, %.lr.ph ], [ %99, %175 ]
-  %.0113350 = phi i64 [ 0, %.lr.ph ], [ %.3, %175 ]
-  %.0115349 = phi i8 [ 1, %.lr.ph ], [ %.1116, %175 ]
-  %.0118348 = phi i64 [ 0, %.lr.ph ], [ %.1119, %175 ]
-  %.0121347 = phi i8 [ 0, %.lr.ph ], [ %.1122, %175 ]
-  %.0123346 = phi i8 [ %34, %.lr.ph ], [ %98, %175 ]
-  %.0125345 = phi i8 [ 0, %.lr.ph ], [ %.1126, %175 ]
-  %97 = getelementptr inbounds i8, ptr %3, i64 %.0112351
+  %.0112344 = phi i64 [ 1, %.lr.ph ], [ %99, %175 ]
+  %.0113343 = phi i64 [ 0, %.lr.ph ], [ %.3, %175 ]
+  %.0115342 = phi i8 [ 1, %.lr.ph ], [ %.1116, %175 ]
+  %.0118341 = phi i64 [ 0, %.lr.ph ], [ %.1119, %175 ]
+  %.0121340 = phi i8 [ 0, %.lr.ph ], [ %.1122, %175 ]
+  %.0123339 = phi i8 [ %34, %.lr.ph ], [ %98, %175 ]
+  %.0125338 = phi i8 [ 0, %.lr.ph ], [ %.1126, %175 ]
+  %97 = getelementptr inbounds i8, ptr %3, i64 %.0112344
   %98 = load i8, ptr %97, align 1, !noundef !19
-  %99 = add nuw i64 %.0112351, 1
-  %100 = add i8 %.0115349, 1
-  %101 = trunc nuw i8 %.0125345 to i1
+  %99 = add nuw i64 %.0112344, 1
+  %100 = add i8 %.0115342, 1
+  %101 = trunc nuw i8 %.0125338 to i1
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %95
-  %103 = icmp slt i8 %.0115349, -1
+  %103 = icmp slt i8 %.0115342, -1
   br i1 %103, label %109, label %107
 
 104:                                              ; preds = %95
-  %105 = icmp ne i8 %98, %.0123346
-  %106 = icmp slt i8 %.0115349, -1
+  %105 = icmp ne i8 %98, %.0123339
+  %106 = icmp slt i8 %.0115342, -1
   %or.cond3 = select i1 %105, i1 true, i1 %106
   br i1 %or.cond3, label %178, label %175
 
 107:                                              ; preds = %102
-  %108 = icmp eq i8 %98, %.0123346
+  %108 = icmp eq i8 %98, %.0123339
   br i1 %108, label %118, label %175
 
 109:                                              ; preds = %102
@@ -1451,9 +1451,9 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
 
 118:                                              ; preds = %107
-  %119 = sub i8 %100, %.0121347
+  %119 = sub i8 %100, %.0121340
   %120 = icmp ugt i8 %119, 2
-  %121 = icmp eq i8 %.0121347, 0
+  %121 = icmp eq i8 %.0121340, 0
   %or.cond = or i1 %121, %120
   br i1 %or.cond, label %122, label %175
 
@@ -1461,7 +1461,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %121, label %175, label %123
 
 123:                                              ; preds = %122
-  %124 = add nsw i8 %.0121347, -1
+  %124 = add nsw i8 %.0121340, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !343
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !343
@@ -1489,24 +1489,24 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 133:                                              ; preds = %129
   %.pre.i183 = load i64, ptr %11, align 8, !range !146, !alias.scope !353, !noalias !356
-  %.pre1.i185258 = load ptr, ptr %.phi.trans.insert.i184, align 8, !alias.scope !353, !noalias !356
+  %.pre1.i185 = load ptr, ptr %.phi.trans.insert.i184, align 8, !alias.scope !353, !noalias !356
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !343
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !343
   %trunc = trunc nuw i64 %.pre.i183 to i1
-  br i1 %trunc, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
+  br i1 %trunc, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189": ; preds = %.thread242, %133
-  %134 = zext i8 %.0121347 to i64
-  %135 = add i64 %.0118348, %134
-  %136 = icmp ugt i64 %.0118348, %135
+  %134 = zext i8 %.0121340 to i64
+  %135 = add i64 %.0118341, %134
+  %136 = icmp ugt i64 %.0118341, %135
   br i1 %136, label %.invoke, label %137
 
 137:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit189"
   %138 = icmp ugt i64 %135, %4
-  br i1 %138, label %.invoke455, label %139
+  br i1 %138, label %.invoke448, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %3, i64 %.0118348
+  %140 = getelementptr inbounds i8, ptr %3, i64 %.0118341
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
   %141 = load i64, ptr %20, align 8, !alias.scope !358, !noalias !361, !noundef !19
   %142 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !358, !noalias !361, !noundef !19
@@ -1528,32 +1528,32 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195": ; preds = %145
   %150 = icmp eq ptr %146, null
-  br i1 %150, label %151, label %.loopexit457
+  br i1 %150, label %151, label %.loopexit450
 
 151:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit195"
   %152 = add nuw nsw i64 %134, 1
-  %153 = add i64 %152, %.0113350
+  %153 = add i64 %152, %.0113343
   br label %175
 
 154:                                              ; preds = %114
   %.pre.i177 = load i64, ptr %13, align 8, !range !146, !alias.scope !363, !noalias !366
-  %.pre1.i179259 = load ptr, ptr %.phi.trans.insert.i178, align 8, !alias.scope !363, !noalias !366
+  %.pre1.i179 = load ptr, ptr %.phi.trans.insert.i178, align 8, !alias.scope !363, !noalias !366
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !330
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !330
   %trunc133 = trunc nuw i64 %.pre.i177 to i1
-  br i1 %trunc133, label %.loopexit457, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
+  br i1 %trunc133, label %.loopexit450, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196": ; preds = %.thread246, %154
-  %155 = add i64 %.0118348, 128
-  %156 = icmp ugt i64 %.0118348, -129
+  %155 = add i64 %.0118341, 128
+  %156 = icmp ugt i64 %.0118341, -129
   br i1 %156, label %.invoke, label %157
 
 157:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit196"
   %158 = icmp ugt i64 %155, %4
-  br i1 %158, label %.invoke455, label %159
+  br i1 %158, label %.invoke448, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %3, i64 %.0118348
+  %160 = getelementptr inbounds i8, ptr %3, i64 %.0118341
   call void @llvm.experimental.noalias.scope.decl(metadata !368)
   %161 = load i64, ptr %20, align 8, !alias.scope !368, !noalias !371, !noundef !19
   %162 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !368, !noalias !371, !noundef !19
@@ -1575,26 +1575,26 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202": ; preds = %165
   %170 = icmp eq ptr %166, null
-  br i1 %170, label %171, label %.loopexit457
+  br i1 %170, label %171, label %.loopexit450
 
 171:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17ha591a307127da608E.exit202"
-  %172 = add i64 %.0113350, 129
-  %173 = add i8 %.0115349, -127
-  %174 = and i8 %.0115349, 127
+  %172 = add i64 %.0113343, 129
+  %173 = add i8 %.0115342, -127
+  %174 = and i8 %.0115342, 127
   br label %175
 
 175:                                              ; preds = %151, %122, %107, %104, %118, %198, %171
   %.1126 = phi i8 [ 0, %198 ], [ 1, %104 ], [ 0, %171 ], [ 1, %122 ], [ 1, %151 ], [ 0, %118 ], [ 0, %107 ]
-  %.1122 = phi i8 [ 0, %198 ], [ %.0121347, %104 ], [ %174, %171 ], [ 0, %122 ], [ %.0121347, %151 ], [ %.0121347, %118 ], [ %.0115349, %107 ]
-  %.1119 = phi i64 [ %.0112351, %198 ], [ %.0118348, %104 ], [ %155, %171 ], [ %.0118348, %122 ], [ %.0118348, %151 ], [ %.0118348, %118 ], [ %.0118348, %107 ]
+  %.1122 = phi i8 [ 0, %198 ], [ %.0121340, %104 ], [ %174, %171 ], [ 0, %122 ], [ %.0121340, %151 ], [ %.0121340, %118 ], [ %.0115342, %107 ]
+  %.1119 = phi i64 [ %.0112344, %198 ], [ %.0118341, %104 ], [ %155, %171 ], [ %.0118341, %122 ], [ %.0118341, %151 ], [ %.0118341, %118 ], [ %.0118341, %107 ]
   %.1116 = phi i8 [ 1, %198 ], [ %100, %104 ], [ %173, %171 ], [ %119, %122 ], [ %119, %151 ], [ %100, %118 ], [ %100, %107 ]
-  %.3 = phi i64 [ %199, %198 ], [ %.0113350, %104 ], [ %172, %171 ], [ %.0113350, %122 ], [ %153, %151 ], [ %.0113350, %118 ], [ %.0113350, %107 ]
+  %.3 = phi i64 [ %199, %198 ], [ %.0113343, %104 ], [ %172, %171 ], [ %.0113343, %122 ], [ %153, %151 ], [ %.0113343, %118 ], [ %.0113343, %107 ]
   %176 = add i64 %96, -1
   %177 = icmp eq i64 %176, 0
   br i1 %177, label %._crit_edge, label %95
 
 178:                                              ; preds = %104
-  %179 = sub i8 1, %.0115349
+  %179 = sub i8 1, %.0115342
   call void @llvm.experimental.noalias.scope.decl(metadata !373)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !376
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !376
@@ -1622,11 +1622,11 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 188:                                              ; preds = %184
   %.pre.i203 = load i64, ptr %9, align 8, !range !146, !alias.scope !386, !noalias !389
-  %.pre1.i205260 = load ptr, ptr %.phi.trans.insert.i204, align 8, !alias.scope !386, !noalias !389
+  %.pre1.i205 = load ptr, ptr %.phi.trans.insert.i204, align 8, !alias.scope !386, !noalias !389
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !376
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !376
   %trunc135 = trunc nuw i64 %.pre.i203 to i1
-  br i1 %trunc135, label %.loopexit457, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge"
+  br i1 %trunc135, label %.loopexit450, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209_crit_edge": ; preds = %188
   %.pre = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !391, !noalias !396
@@ -1637,7 +1637,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !401
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !401
-  store i8 %.0123346, ptr %6, align 1, !noalias !401
+  store i8 %.0123339, ptr %6, align 1, !noalias !401
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
   %190 = load i64, ptr %20, align 8, !alias.scope !391, !noalias !396, !noundef !19
   %191 = sub i64 %190, %189
@@ -1651,7 +1651,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .thread253:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209"
   %194 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !391, !noalias !396, !nonnull !19, !noundef !19
   %195 = getelementptr inbounds i8, ptr %194, i64 %189
-  store i8 %.0123346, ptr %195, align 1, !noalias !403
+  store i8 %.0123339, ptr %195, align 1, !noalias !403
   %196 = add i64 %189, 1
   store i64 %196, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !391, !noalias !396
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !401
@@ -1660,14 +1660,14 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 197:                                              ; preds = %193
   %.pre.i210 = load i64, ptr %7, align 8, !range !146, !alias.scope !404, !noalias !407
-  %.pre1.i212261 = load ptr, ptr %.phi.trans.insert.i211, align 8, !alias.scope !404, !noalias !407
+  %.pre1.i212 = load ptr, ptr %.phi.trans.insert.i211, align 8, !alias.scope !404, !noalias !407
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !401
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !401
   %trunc137 = trunc nuw i64 %.pre.i210 to i1
-  br i1 %trunc137, label %.loopexit457, label %198
+  br i1 %trunc137, label %.loopexit450, label %198
 
 198:                                              ; preds = %.thread253, %197
-  %199 = add i64 %.0113350, 2
+  %199 = add i64 %.0113343, 2
   br label %175
 
 200:                                              ; preds = %29
@@ -1723,7 +1723,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.invoke460, %.invoke, %27, %43, %53, %73, %79, %82, %91
+.loopexit.split-lp:                               ; preds = %.invoke453, %.invoke, %27, %43, %53, %73, %79, %82, %91
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1734,9 +1734,9 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
           to label %207 unwind label %205
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread": ; preds = %202, %193, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit204", %159, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit197", %138, %27, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit", %.noexc170, %95, %86, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit", %57
-  %.pre1.i207264.lcssa.sink = phi ptr [ %.pre1.i266, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit" ], [ %.pre1.i162267, %86 ], [ %.pre1.i175268, %95 ], [ %85, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit" ], [ %80, %.noexc170 ], [ %28, %27 ], [ %.pre1.i187262, %138 ], [ %151, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit197" ], [ %.pre1.i181263, %159 ], [ %171, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit204" ], [ %.pre1.i207264, %193 ], [ %.pre1.i214265, %202 ]
+  %.pre1.i207.lcssa.sink = phi ptr [ %.pre1.i, %57 ], [ %74, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit" ], [ %.pre1.i162, %86 ], [ %.pre1.i175, %95 ], [ %85, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit" ], [ %80, %.noexc170 ], [ %28, %27 ], [ %.pre1.i187, %138 ], [ %151, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit197" ], [ %.pre1.i181, %159 ], [ %171, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit204" ], [ %.pre1.i207, %193 ], [ %.pre1.i214, %202 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pre1.i207264.lcssa.sink, ptr %30, align 8
+  store ptr %.pre1.i207.lcssa.sink, ptr %30, align 8
   br label %99
 
 31:                                               ; preds = %5
@@ -1757,12 +1757,12 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0113.lcssa429 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
-  %.0115.lcssa427 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
-  %.0118.lcssa426 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
-  %36 = zext i8 %.0115.lcssa427 to i64
+  %.0113.lcssa422 = phi i64 [ %.3, %._crit_edge ], [ 0, %31 ]
+  %.0115.lcssa420 = phi i8 [ %.1116, %._crit_edge ], [ 1, %31 ]
+  %.0118.lcssa419 = phi i64 [ %.1119, %._crit_edge ], [ 0, %31 ]
+  %36 = zext i8 %.0115.lcssa420 to i64
   %37 = add nuw nsw i64 %36, 1
-  %38 = add i8 %.0115.lcssa427, -1
+  %38 = add i8 %.0115.lcssa420, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !415)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !418
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !418
@@ -1818,23 +1818,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 57:                                               ; preds = %43
   %.pre.i = load i64, ptr %19, align 8, !range !146, !alias.scope !441, !noalias !444
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.pre1.i266 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !441, !noalias !444
+  %.pre1.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !441, !noalias !444
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !418
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !418
   %trunc139 = trunc nuw i64 %.pre.i to i1
   br i1 %trunc139, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
-  %58 = add i64 %.0118.lcssa426, %36
-  %59 = icmp ugt i64 %.0118.lcssa426, %58
+  %58 = add i64 %.0118.lcssa419, %36
+  %59 = icmp ugt i64 %.0118.lcssa419, %58
   br i1 %59, label %.invoke, label %60
 
 60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
   %61 = icmp ugt i64 %58, %4
-  br i1 %61, label %.invoke460, label %67
+  br i1 %61, label %.invoke453, label %67
 
 .invoke:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
-  %62 = phi i64 [ %.0118.lcssa426, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118352, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191" ], [ %.0118352, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198" ]
+  %62 = phi i64 [ %.0118.lcssa419, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %.0118345, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191" ], [ %.0118345, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198" ]
   %63 = phi i64 [ %58, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ %160, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198" ], [ %140, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191" ]
   %64 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198" ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191" ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %62, i64 noundef %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #26
@@ -1843,17 +1843,17 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.invoke460:                                       ; preds = %162, %142, %60
+.invoke453:                                       ; preds = %162, %142, %60
   %65 = phi i64 [ %58, %60 ], [ %140, %142 ], [ %160, %162 ]
   %66 = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.8, %60 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.10, %142 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.11, %162 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %65, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66) #26
-          to label %.cont461 unwind label %.loopexit.split-lp
+          to label %.cont454 unwind label %.loopexit.split-lp
 
-.cont461:                                         ; preds = %.invoke460
+.cont454:                                         ; preds = %.invoke453
   unreachable
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa426
+  %68 = getelementptr inbounds i8, ptr %3, i64 %.0118.lcssa419
   call void @llvm.experimental.noalias.scope.decl(metadata !446)
   %69 = load i64, ptr %20, align 8, !alias.scope !446, !noalias !449, !noundef !19
   %70 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !446, !noalias !449, !noundef !19
@@ -1878,9 +1878,9 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %78, label %79, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread"
 
 79:                                               ; preds = %.thread241, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit.thread", %95, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit"
-  %.0113.lcssa428 = phi i64 [ %.0113.lcssa429, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit" ], [ %.3, %95 ], [ %.0113.lcssa429, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit.thread" ], [ %.3, %.thread241 ]
+  %.0113.lcssa421 = phi i64 [ %.0113.lcssa422, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit" ], [ %.3, %95 ], [ %.0113.lcssa422, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit.thread" ], [ %.3, %.thread241 ]
   %.pn = phi i64 [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit" ], [ 2, %95 ], [ %37, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit.thread" ], [ 2, %.thread241 ]
-  %.1 = add i64 %.pn, %.0113.lcssa428
+  %.1 = add i64 %.pn, %.0113.lcssa421
   %80 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf17h0ffd06cc90052f27E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
           to label %.noexc170 unwind label %.loopexit.split-lp
 
@@ -1898,18 +1898,18 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 86:                                               ; preds = %53
   %.pre.i160 = load i64, ptr %17, align 8, !range !146, !alias.scope !460, !noalias !463
   %.phi.trans.insert.i161 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.pre1.i162267 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !460, !noalias !463
+  %.pre1.i162 = load ptr, ptr %.phi.trans.insert.i161, align 8, !alias.scope !460, !noalias !463
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !431
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !431
   %trunc141 = trunc nuw i64 %.pre.i160 to i1
   br i1 %trunc141, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172_crit_edge": ; preds = %86
-  %.pre403 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !465, !noalias !470
+  %.pre396 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !465, !noalias !470
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172": ; preds = %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172_crit_edge", %.thread238
-  %87 = phi i64 [ %.pre403, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172_crit_edge" ], [ %56, %.thread238 ]
+  %87 = phi i64 [ %.pre396, %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit172_crit_edge" ], [ %56, %.thread238 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !474)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !475
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !475
@@ -1937,7 +1937,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 95:                                               ; preds = %91
   %.pre.i173 = load i64, ptr %15, align 8, !range !146, !alias.scope !478, !noalias !481
   %.phi.trans.insert.i174 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.pre1.i175268 = load ptr, ptr %.phi.trans.insert.i174, align 8, !alias.scope !478, !noalias !481
+  %.pre1.i175 = load ptr, ptr %.phi.trans.insert.i174, align 8, !alias.scope !478, !noalias !481
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !475
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !475
   %trunc143 = trunc nuw i64 %.pre.i173 to i1
@@ -1961,32 +1961,32 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 100:                                              ; preds = %180, %.lr.ph
   %101 = phi i64 [ %32, %.lr.ph ], [ %181, %180 ]
-  %.0112355 = phi i64 [ 1, %.lr.ph ], [ %104, %180 ]
-  %.0113354 = phi i64 [ 0, %.lr.ph ], [ %.3, %180 ]
-  %.0115353 = phi i8 [ 1, %.lr.ph ], [ %.1116, %180 ]
-  %.0118352 = phi i64 [ 0, %.lr.ph ], [ %.1119, %180 ]
-  %.0121351 = phi i8 [ 0, %.lr.ph ], [ %.1122, %180 ]
-  %.0123350 = phi i8 [ %34, %.lr.ph ], [ %103, %180 ]
-  %.0125349 = phi i8 [ 0, %.lr.ph ], [ %.1126, %180 ]
-  %102 = getelementptr inbounds i8, ptr %3, i64 %.0112355
+  %.0112348 = phi i64 [ 1, %.lr.ph ], [ %104, %180 ]
+  %.0113347 = phi i64 [ 0, %.lr.ph ], [ %.3, %180 ]
+  %.0115346 = phi i8 [ 1, %.lr.ph ], [ %.1116, %180 ]
+  %.0118345 = phi i64 [ 0, %.lr.ph ], [ %.1119, %180 ]
+  %.0121344 = phi i8 [ 0, %.lr.ph ], [ %.1122, %180 ]
+  %.0123343 = phi i8 [ %34, %.lr.ph ], [ %103, %180 ]
+  %.0125342 = phi i8 [ 0, %.lr.ph ], [ %.1126, %180 ]
+  %102 = getelementptr inbounds i8, ptr %3, i64 %.0112348
   %103 = load i8, ptr %102, align 1, !noundef !19
-  %104 = add nuw i64 %.0112355, 1
-  %105 = add i8 %.0115353, 1
-  %106 = trunc nuw i8 %.0125349 to i1
+  %104 = add nuw i64 %.0112348, 1
+  %105 = add i8 %.0115346, 1
+  %106 = trunc nuw i8 %.0125342 to i1
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %100
-  %108 = icmp slt i8 %.0115353, -1
+  %108 = icmp slt i8 %.0115346, -1
   br i1 %108, label %114, label %112
 
 109:                                              ; preds = %100
-  %110 = icmp ne i8 %103, %.0123350
-  %111 = icmp slt i8 %.0115353, -1
+  %110 = icmp ne i8 %103, %.0123343
+  %111 = icmp slt i8 %.0115346, -1
   %or.cond3 = select i1 %110, i1 true, i1 %111
   br i1 %or.cond3, label %183, label %180
 
 112:                                              ; preds = %107
-  %113 = icmp eq i8 %103, %.0123350
+  %113 = icmp eq i8 %103, %.0123343
   br i1 %113, label %123, label %180
 
 114:                                              ; preds = %107
@@ -2016,9 +2016,9 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198"
 
 123:                                              ; preds = %112
-  %124 = sub i8 %105, %.0121351
+  %124 = sub i8 %105, %.0121344
   %125 = icmp ugt i8 %124, 2
-  %126 = icmp eq i8 %.0121351, 0
+  %126 = icmp eq i8 %.0121344, 0
   %or.cond = or i1 %126, %125
   br i1 %or.cond, label %127, label %180
 
@@ -2026,7 +2026,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %126, label %180, label %128
 
 128:                                              ; preds = %127
-  %129 = add nsw i8 %.0121351, -1
+  %129 = add nsw i8 %.0121344, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !496)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !499
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !499
@@ -2054,24 +2054,24 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 138:                                              ; preds = %134
   %.pre.i185 = load i64, ptr %11, align 8, !range !146, !alias.scope !509, !noalias !512
-  %.pre1.i187262 = load ptr, ptr %.phi.trans.insert.i186, align 8, !alias.scope !509, !noalias !512
+  %.pre1.i187 = load ptr, ptr %.phi.trans.insert.i186, align 8, !alias.scope !509, !noalias !512
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !499
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !499
   %trunc = trunc nuw i64 %.pre.i185 to i1
   br i1 %trunc, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191": ; preds = %.thread246, %138
-  %139 = zext i8 %.0121351 to i64
-  %140 = add i64 %.0118352, %139
-  %141 = icmp ugt i64 %.0118352, %140
+  %139 = zext i8 %.0121344 to i64
+  %140 = add i64 %.0118345, %139
+  %141 = icmp ugt i64 %.0118345, %140
   br i1 %141, label %.invoke, label %142
 
 142:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit191"
   %143 = icmp ugt i64 %140, %4
-  br i1 %143, label %.invoke460, label %144
+  br i1 %143, label %.invoke453, label %144
 
 144:                                              ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %3, i64 %.0118352
+  %145 = getelementptr inbounds i8, ptr %3, i64 %.0118345
   call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %146 = load i64, ptr %20, align 8, !alias.scope !514, !noalias !517, !noundef !19
   %147 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !514, !noalias !517, !noundef !19
@@ -2097,28 +2097,28 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 156:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit197.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit197"
   %157 = add nuw nsw i64 %139, 1
-  %158 = add i64 %157, %.0113354
+  %158 = add i64 %157, %.0113347
   br label %180
 
 159:                                              ; preds = %119
   %.pre.i179 = load i64, ptr %13, align 8, !range !146, !alias.scope !519, !noalias !522
-  %.pre1.i181263 = load ptr, ptr %.phi.trans.insert.i180, align 8, !alias.scope !519, !noalias !522
+  %.pre1.i181 = load ptr, ptr %.phi.trans.insert.i180, align 8, !alias.scope !519, !noalias !522
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !486
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !486
   %trunc133 = trunc nuw i64 %.pre.i179 to i1
   br i1 %trunc133, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198": ; preds = %.thread250, %159
-  %160 = add i64 %.0118352, 128
-  %161 = icmp ugt i64 %.0118352, -129
+  %160 = add i64 %.0118345, 128
+  %161 = icmp ugt i64 %.0118345, -129
   br i1 %161, label %.invoke, label %162
 
 162:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit198"
   %163 = icmp ugt i64 %160, %4
-  br i1 %163, label %.invoke460, label %164
+  br i1 %163, label %.invoke453, label %164
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %3, i64 %.0118352
+  %165 = getelementptr inbounds i8, ptr %3, i64 %.0118345
   call void @llvm.experimental.noalias.scope.decl(metadata !524)
   %166 = load i64, ptr %20, align 8, !alias.scope !524, !noalias !527, !noundef !19
   %167 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !524, !noalias !527, !noundef !19
@@ -2143,23 +2143,23 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br i1 %175, label %176, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread"
 
 176:                                              ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit204.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h408bcca9242aa7acE.exit204"
-  %177 = add i64 %.0113354, 129
-  %178 = add i8 %.0115353, -127
-  %179 = and i8 %.0115353, 127
+  %177 = add i64 %.0113347, 129
+  %178 = add i8 %.0115346, -127
+  %179 = and i8 %.0115346, 127
   br label %180
 
 180:                                              ; preds = %156, %127, %112, %109, %123, %203, %176
   %.1126 = phi i8 [ 0, %203 ], [ 1, %109 ], [ 0, %176 ], [ 1, %127 ], [ 1, %156 ], [ 0, %123 ], [ 0, %112 ]
-  %.1122 = phi i8 [ 0, %203 ], [ %.0121351, %109 ], [ %179, %176 ], [ 0, %127 ], [ %.0121351, %156 ], [ %.0121351, %123 ], [ %.0115353, %112 ]
-  %.1119 = phi i64 [ %.0112355, %203 ], [ %.0118352, %109 ], [ %160, %176 ], [ %.0118352, %127 ], [ %.0118352, %156 ], [ %.0118352, %123 ], [ %.0118352, %112 ]
+  %.1122 = phi i8 [ 0, %203 ], [ %.0121344, %109 ], [ %179, %176 ], [ 0, %127 ], [ %.0121344, %156 ], [ %.0121344, %123 ], [ %.0115346, %112 ]
+  %.1119 = phi i64 [ %.0112348, %203 ], [ %.0118345, %109 ], [ %160, %176 ], [ %.0118345, %127 ], [ %.0118345, %156 ], [ %.0118345, %123 ], [ %.0118345, %112 ]
   %.1116 = phi i8 [ 1, %203 ], [ %105, %109 ], [ %178, %176 ], [ %124, %127 ], [ %124, %156 ], [ %105, %123 ], [ %105, %112 ]
-  %.3 = phi i64 [ %204, %203 ], [ %.0113354, %109 ], [ %177, %176 ], [ %.0113354, %127 ], [ %158, %156 ], [ %.0113354, %123 ], [ %.0113354, %112 ]
+  %.3 = phi i64 [ %204, %203 ], [ %.0113347, %109 ], [ %177, %176 ], [ %.0113347, %127 ], [ %158, %156 ], [ %.0113347, %123 ], [ %.0113347, %112 ]
   %181 = add i64 %101, -1
   %182 = icmp eq i64 %181, 0
   br i1 %182, label %._crit_edge, label %100
 
 183:                                              ; preds = %109
-  %184 = sub i8 1, %.0115353
+  %184 = sub i8 1, %.0115346
   call void @llvm.experimental.noalias.scope.decl(metadata !529)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !532
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !532
@@ -2187,7 +2187,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 193:                                              ; preds = %189
   %.pre.i205 = load i64, ptr %9, align 8, !range !146, !alias.scope !542, !noalias !545
-  %.pre1.i207264 = load ptr, ptr %.phi.trans.insert.i206, align 8, !alias.scope !542, !noalias !545
+  %.pre1.i207 = load ptr, ptr %.phi.trans.insert.i206, align 8, !alias.scope !542, !noalias !545
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !532
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !532
   %trunc135 = trunc nuw i64 %.pre.i205 to i1
@@ -2202,7 +2202,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   call void @llvm.experimental.noalias.scope.decl(metadata !556)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !557
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !557
-  store i8 %.0123350, ptr %6, align 1, !noalias !557
+  store i8 %.0123343, ptr %6, align 1, !noalias !557
   call void @llvm.experimental.noalias.scope.decl(metadata !558)
   %195 = load i64, ptr %20, align 8, !alias.scope !547, !noalias !552, !noundef !19
   %196 = sub i64 %195, %194
@@ -2216,7 +2216,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 .thread257:                                       ; preds = %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit211"
   %199 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !547, !noalias !552, !nonnull !19, !noundef !19
   %200 = getelementptr inbounds i8, ptr %199, i64 %194
-  store i8 %.0123350, ptr %200, align 1, !noalias !559
+  store i8 %.0123343, ptr %200, align 1, !noalias !559
   %201 = add i64 %194, 1
   store i64 %201, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !547, !noalias !552
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !557
@@ -2225,14 +2225,14 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
 
 202:                                              ; preds = %198
   %.pre.i212 = load i64, ptr %7, align 8, !range !146, !alias.scope !560, !noalias !563
-  %.pre1.i214265 = load ptr, ptr %.phi.trans.insert.i213, align 8, !alias.scope !560, !noalias !563
+  %.pre1.i214 = load ptr, ptr %.phi.trans.insert.i213, align 8, !alias.scope !560, !noalias !563
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !557
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !557
   %trunc137 = trunc nuw i64 %.pre.i212 to i1
   br i1 %trunc137, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %203
 
 203:                                              ; preds = %.thread257, %202
-  %204 = add i64 %.0113354, 2
+  %204 = add i64 %.0113347, 2
   br label %180
 
 205:                                              ; preds = %29

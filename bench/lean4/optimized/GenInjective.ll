@@ -589,8 +589,8 @@ declare ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_GenInjective(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b16 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b16, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -632,9 +632,9 @@ define ptr @initialize_Lean_Elab_GenInjective(i8 noundef zeroext %0, ptr noundef
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_Injective(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val23 = load i32, ptr %19, align 4
-  %.mask.i26 = and i32 %.val23, -16777216
-  %20 = icmp eq i32 %.mask.i26, 16777216
+  %.val22 = load i32, ptr %19, align 4
+  %.mask.i25 = and i32 %.val22, -16777216
+  %20 = icmp eq i32 %.mask.i25, 16777216
   br i1 %20, label %138, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -645,17 +645,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
 26:                                               ; preds = %21
-  %.not.i17 = icmp eq i32 %22, 0
-  br i1 %.not.i17, label %lean_dec_ref.exit18, label %27
+  %.not.i16 = icmp eq i32 %22, 0
+  br i1 %.not.i16, label %lean_dec_ref.exit17, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
-lean_dec_ref.exit18:                              ; preds = %24, %26, %27
+lean_dec_ref.exit17:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #3
   store ptr %28, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -696,11 +696,11 @@ lean_dec_ref.exit18:                              ; preds = %24, %26, %27
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit
 
-47:                                               ; preds = %lean_dec_ref.exit18
+47:                                               ; preds = %lean_dec_ref.exit17
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit: ; preds = %lean_dec_ref.exit18
+_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit: ; preds = %lean_dec_ref.exit17
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 1, ptr %45, align 4, !tbaa !4
   store i32 -184549352, ptr %48, align 4
@@ -713,7 +713,7 @@ _init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Comman
   store ptr %45, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %45) #3
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit20, label %52
+  br i1 %.not, label %lean_dec_ref.exit19, label %52
 
 52:                                               ; preds = %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit
   %53 = load ptr, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__9, align 8, !tbaa !10
@@ -722,9 +722,9 @@ _init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Comman
   %56 = load ptr, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10, align 8, !tbaa !10
   %57 = tail call ptr @l_Lean_KeyedDeclsAttribute_addBuiltin___rarg(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %58 = getelementptr i8, ptr %57, i64 4
-  %.val24 = load i32, ptr %58, align 4
-  %.mask.i27 = and i32 %.val24, -16777216
-  %59 = icmp eq i32 %.mask.i27, 16777216
+  %.val23 = load i32, ptr %58, align 4
+  %.mask.i26 = and i32 %.val23, -16777216
+  %59 = icmp eq i32 %.mask.i26, 16777216
   br i1 %59, label %138, label %60
 
 60:                                               ; preds = %52
@@ -735,27 +735,27 @@ _init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Comman
 63:                                               ; preds = %60
   %64 = add nsw i32 %61, -1
   store i32 %64, ptr %57, align 4, !tbaa !4
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
 65:                                               ; preds = %60
-  %.not.i19 = icmp eq i32 %61, 0
-  br i1 %.not.i19, label %lean_dec_ref.exit20, label %66
+  %.not.i18 = icmp eq i32 %61, 0
+  br i1 %.not.i18, label %lean_dec_ref.exit19, label %66
 
 66:                                               ; preds = %65
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %57) #3
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
-lean_dec_ref.exit20:                              ; preds = %66, %65, %63, %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit
+lean_dec_ref.exit19:                              ; preds = %66, %65, %63, %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__10.exit
   tail call void @lean_inc_heartbeat() #3
   %67 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__1.exit
 
-69:                                               ; preds = %lean_dec_ref.exit20
+69:                                               ; preds = %lean_dec_ref.exit19
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit20
+_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__1.exit: ; preds = %lean_dec_ref.exit19
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 1, ptr %67, align 4, !tbaa !4
   store i32 131096, ptr %70, align 4
@@ -893,16 +893,16 @@ _init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Comman
   store ptr %112, ptr %118, align 8, !tbaa !10
   store ptr %113, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__7, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %113) #3
-  br i1 %.not, label %lean_dec_ref.exit22, label %119
+  br i1 %.not, label %lean_dec_ref.exit21, label %119
 
 119:                                              ; preds = %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__7.exit
   %120 = load ptr, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems__1___closed__8, align 8, !tbaa !10
   %121 = load ptr, ptr @l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__7, align 8, !tbaa !10
   %122 = tail call ptr @l_Lean_addBuiltinDeclarationRanges(ptr noundef %120, ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %123 = getelementptr i8, ptr %122, i64 4
-  %.val25 = load i32, ptr %123, align 4
-  %.mask.i28 = and i32 %.val25, -16777216
-  %124 = icmp eq i32 %.mask.i28, 16777216
+  %.val24 = load i32, ptr %123, align 4
+  %.mask.i27 = and i32 %.val24, -16777216
+  %124 = icmp eq i32 %.mask.i27, 16777216
   br i1 %124, label %138, label %125
 
 125:                                              ; preds = %119
@@ -913,39 +913,39 @@ _init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Comman
 128:                                              ; preds = %125
   %129 = add nsw i32 %126, -1
   store i32 %129, ptr %122, align 4, !tbaa !4
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 130:                                              ; preds = %125
-  %.not.i21 = icmp eq i32 %126, 0
-  br i1 %.not.i21, label %lean_dec_ref.exit22, label %131
+  %.not.i20 = icmp eq i32 %126, 0
+  br i1 %.not.i20, label %lean_dec_ref.exit21, label %131
 
 131:                                              ; preds = %130
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %122) #3
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
-lean_dec_ref.exit22:                              ; preds = %131, %130, %128, %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__7.exit
+lean_dec_ref.exit21:                              ; preds = %131, %130, %128, %_init_l_Lean_Elab_Command_elabGenInjectiveTheorems___regBuiltin_Lean_Elab_Command_elabGenInjectiveTheorems_declRange__3___closed__7.exit
   tail call void @lean_inc_heartbeat() #3
   %132 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %.sink.split
 
-134:                                              ; preds = %lean_dec_ref.exit22
+134:                                              ; preds = %lean_dec_ref.exit21
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit22, %3
-  %.sink50 = phi ptr [ %4, %3 ], [ %132, %lean_dec_ref.exit22 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
-  store i32 1, ptr %.sink50, align 4, !tbaa !4
+.sink.split:                                      ; preds = %lean_dec_ref.exit21, %3
+  %.sink49 = phi ptr [ %4, %3 ], [ %132, %lean_dec_ref.exit21 ]
+  %135 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
+  store i32 1, ptr %.sink49, align 4, !tbaa !4
   store i32 131096, ptr %135, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %136, align 8, !tbaa !10
-  %137 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %137, align 8, !tbaa !10
   br label %138
 
 138:                                              ; preds = %.sink.split, %119, %52, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %57, %52 ], [ %122, %119 ], [ %.sink50, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %57, %52 ], [ %122, %119 ], [ %.sink49, %.sink.split ]
   ret ptr %.0
 }
 

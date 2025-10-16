@@ -591,8 +591,8 @@ define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr noundef captures(none) %0)
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SnapBuildClearExportedSnapshot() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @ExportInProgress, align 1
-  br i1 %.b1, label %1, label %8
+  %.b = load i1, ptr @ExportInProgress, align 1
+  br i1 %.b, label %1, label %8
 
 1:                                                ; preds = %0
   %2 = tail call zeroext i1 @IsTransactionState() #13

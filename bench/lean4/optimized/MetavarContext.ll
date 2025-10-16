@@ -348900,8 +348900,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %4
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_MetavarContext(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #7
@@ -348930,25 +348930,25 @@ define ptr @initialize_Lean_MetavarContext(i8 noundef zeroext %0, ptr noundef re
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #7
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Util_MonadCache(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %541, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -348956,25 +348956,25 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #7
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lean_LocalContext(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %541, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -350008,13 +350008,13 @@ _init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM___closed__3.exit: ; preds =
   tail call void @lean_inc_heartbeat() #7
   %410 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #7
   %411 = icmp eq ptr %410, null
-  br i1 %411, label %412, label %lean_alloc_closure.exit.i24
+  br i1 %411, label %412, label %lean_alloc_closure.exit.i23
 
 412:                                              ; preds = %_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM___closed__3.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-lean_alloc_closure.exit.i24:                      ; preds = %_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM___closed__3.exit
+lean_alloc_closure.exit.i23:                      ; preds = %_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM___closed__3.exit
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 4
   store i32 1, ptr %410, align 4, !tbaa !4
   store i32 -184549336, ptr %413, align 4
@@ -350034,11 +350034,11 @@ lean_alloc_closure.exit.i24:                      ; preds = %_init_l_Lean_Metava
   %421 = icmp eq ptr %420, null
   br i1 %421, label %422, label %_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM.exit
 
-422:                                              ; preds = %lean_alloc_closure.exit.i24
+422:                                              ; preds = %lean_alloc_closure.exit.i23
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM.exit: ; preds = %lean_alloc_closure.exit.i24
+_init_l_Lean_MetavarContext_MkBinding_instMonadMCtxM.exit: ; preds = %lean_alloc_closure.exit.i23
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 4
   store i32 1, ptr %420, align 4, !tbaa !4
   store i32 131096, ptr %423, align 4
@@ -350223,13 +350223,13 @@ _init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM___closed__3.exit: ; 
   tail call void @lean_inc_heartbeat() #7
   %489 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #7
   %490 = icmp eq ptr %489, null
-  br i1 %490, label %491, label %lean_alloc_closure.exit.i31
+  br i1 %490, label %491, label %lean_alloc_closure.exit.i30
 
 491:                                              ; preds = %_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM___closed__3.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-lean_alloc_closure.exit.i31:                      ; preds = %_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM___closed__3.exit
+lean_alloc_closure.exit.i30:                      ; preds = %_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM___closed__3.exit
   %492 = getelementptr inbounds nuw i8, ptr %489, i64 4
   store i32 1, ptr %489, align 4, !tbaa !4
   store i32 -184549336, ptr %492, align 4
@@ -350249,11 +350249,11 @@ lean_alloc_closure.exit.i31:                      ; preds = %_init_l_Lean_Metava
   %500 = icmp eq ptr %499, null
   br i1 %500, label %501, label %_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM.exit
 
-501:                                              ; preds = %lean_alloc_closure.exit.i31
+501:                                              ; preds = %lean_alloc_closure.exit.i30
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM.exit: ; preds = %lean_alloc_closure.exit.i31
+_init_l_Lean_MetavarContext_LevelMVarToParam_instMonadMCtxM.exit: ; preds = %lean_alloc_closure.exit.i30
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 4
   store i32 1, ptr %499, align 4, !tbaa !4
   store i32 131096, ptr %502, align 4
@@ -350360,18 +350360,18 @@ _init_l_Lean_MetavarContext_getExprAssignmentDomain___closed__1.exit: ; preds = 
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_MetavarContext_getExprAssignmentDomain___closed__1.exit, %3
-  %.sink101 = phi ptr [ %4, %3 ], [ %535, %_init_l_Lean_MetavarContext_getExprAssignmentDomain___closed__1.exit ]
-  %538 = getelementptr inbounds nuw i8, ptr %.sink101, i64 4
-  store i32 1, ptr %.sink101, align 4, !tbaa !4
+  %.sink100 = phi ptr [ %4, %3 ], [ %535, %_init_l_Lean_MetavarContext_getExprAssignmentDomain___closed__1.exit ]
+  %538 = getelementptr inbounds nuw i8, ptr %.sink100, i64 4
+  store i32 1, ptr %.sink100, align 4, !tbaa !4
   store i32 131096, ptr %538, align 4
-  %539 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %539, align 8, !tbaa !9
-  %540 = getelementptr inbounds nuw i8, ptr %.sink101, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %540, align 8, !tbaa !9
   br label %541
 
-541:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink101, %.sink.split ]
+541:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink100, %.sink.split ]
   ret ptr %.0
 }
 

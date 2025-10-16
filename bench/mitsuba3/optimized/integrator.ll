@@ -1476,35 +1476,35 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %148 = load i32, ptr %147, align 4
   store i32 %148, ptr %28, align 4
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.preheader202, label %.critedge
+  br i1 %149, label %.preheader201, label %.critedge
 
-.preheader202:                                    ; preds = %146
+.preheader201:                                    ; preds = %146
   %150 = load i32, ptr %24, align 4
   %151 = load i32, ptr %18, align 8
   %152 = load i32, ptr %.026.i.sroa.gep157, align 4
   %invariant.op = add i32 %151, -1
-  %invariant.op227 = add i32 %152, -1
-  br label %.preheader201
+  %invariant.op226 = add i32 %152, -1
+  br label %.preheader200
 
-.preheader201:                                    ; preds = %.preheader202, %158
-  %storemerge203 = phi i32 [ 32, %.preheader202 ], [ %159, %158 ]
-  %.reass = add i32 %storemerge203, %invariant.op
-  %.reass228 = add i32 %storemerge203, %invariant.op227
-  %153 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %storemerge203, i1 true)
+.preheader200:                                    ; preds = %.preheader201, %158
+  %storemerge202 = phi i32 [ 32, %.preheader201 ], [ %159, %158 ]
+  %.reass = add i32 %storemerge202, %invariant.op
+  %.reass227 = add i32 %storemerge202, %invariant.op226
+  %153 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %storemerge202, i1 true)
   %154 = lshr i32 %.reass, %153
-  %155 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %storemerge203, i1 true)
-  %156 = lshr i32 %.reass228, %155
+  %155 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %storemerge202, i1 true)
+  %156 = lshr i32 %.reass227, %155
   %157 = mul i32 %156, %154
   %.not113 = icmp ult i32 %157, %150
   br i1 %.not113, label %158, label %.critedge.loopexit
 
-158:                                              ; preds = %.preheader201
-  %159 = lshr i32 %storemerge203, 1
+158:                                              ; preds = %.preheader200
+  %159 = lshr i32 %storemerge202, 1
   %160 = icmp eq i32 %159, 1
-  br i1 %160, label %.critedge.loopexit, label %.preheader201, !llvm.loop !16
+  br i1 %160, label %.critedge.loopexit, label %.preheader200, !llvm.loop !16
 
-.critedge.loopexit:                               ; preds = %.preheader201, %158
-  %storemerge.lcssa = phi i32 [ %storemerge203, %.preheader201 ], [ 1, %158 ]
+.critedge.loopexit:                               ; preds = %.preheader200, %158
+  %storemerge.lcssa = phi i32 [ %storemerge202, %.preheader200 ], [ 1, %158 ]
   store i32 %storemerge.lcssa, ptr %28, align 4
   br label %.critedge
 

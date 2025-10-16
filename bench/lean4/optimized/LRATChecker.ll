@@ -1836,8 +1836,8 @@ lean_dec.exit:                                    ; preds = %25, %24, %22, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Tactic_BVDecide_LRAT_Internal_LRATChecker(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -1879,9 +1879,9 @@ define ptr @initialize_Std_Tactic_BVDecide_LRAT_Internal_LRATChecker(i8 noundef 
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Tactic_BVDecide_LRAT_Internal_Formula_Class(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %44, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -1892,27 +1892,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #5
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !4
   store i32 -184549352, ptr %31, align 4
@@ -1944,18 +1944,18 @@ _init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit, %3
-  %.sink23 = phi ptr [ %4, %3 ], [ %38, %_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
-  store i32 1, ptr %.sink23, align 4, !tbaa !4
+  %.sink22 = phi ptr [ %4, %3 ], [ %38, %_init_l_Std_Tactic_BVDecide_LRAT_Internal_Result_noConfusion___rarg___closed__1.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !4
   store i32 131096, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %42, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %43, align 8, !tbaa !10
   br label %44
 
 44:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

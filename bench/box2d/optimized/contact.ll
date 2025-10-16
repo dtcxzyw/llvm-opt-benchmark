@@ -147,8 +147,8 @@ define hidden void @b2ContactSimArray_Destroy(ptr noundef captures(none) initial
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @b2InitializeContactRegisters() local_unnamed_addr #3 {
-  %.b1 = load i1, ptr @s_initialized, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @s_initialized, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store ptr @b2CircleManifold, ptr @s_registers, align 16, !tbaa !15

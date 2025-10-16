@@ -3728,8 +3728,8 @@ define internal void @php_sapi_phpdbg_register_vars(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sapi_phpdbg_log_message(ptr noundef %0, i32 %1) #0 {
-  %.b78 = load i1, ptr @phpdbg_booted, align 1
-  br i1 %.b78, label %3, label %42
+  %.b7 = load i1, ptr @phpdbg_booted, align 1
+  br i1 %.b7, label %3, label %42
 
 3:                                                ; preds = %2
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !173
@@ -3742,14 +3742,14 @@ define internal void @php_sapi_phpdbg_log_message(ptr noundef %0, i32 %1) #0 {
 8:                                                ; preds = %3
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !173
   %10 = and i64 %9, 268435456
-  %.not9 = icmp eq i64 %10, 0
-  br i1 %.not9, label %11, label %.loopexit
+  %.not8 = icmp eq i64 %10, 0
+  br i1 %.not8, label %11, label %.loopexit
 
 11:                                               ; preds = %8
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 488), align 8, !tbaa !254
   %13 = and i32 %12, 4437
-  %.not10 = icmp eq i32 %13, 0
-  br i1 %.not10, label %.loopexit, label %zend_string_alloc.exit
+  %.not9 = icmp eq i32 %13, 0
+  br i1 %.not9, label %.loopexit, label %zend_string_alloc.exit
 
 zend_string_alloc.exit:                           ; preds = %11
   %14 = tail call ptr @zend_get_executed_filename() #27
@@ -3800,8 +3800,8 @@ zend_string_alloc.exit:                           ; preds = %11
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %zend_string_alloc.exit, %29, %36, %37
-  %.b11 = load i1, ptr @phpdbg_fully_started, align 1
-  br i1 %.b11, label %.preheader, label %.loopexit
+  %.b = load i1, ptr @phpdbg_fully_started, align 1
+  br i1 %.b, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %zend_string_release.exit, %39
   %38 = tail call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null) #27
@@ -3812,8 +3812,8 @@ zend_string_release.exit:                         ; preds = %zend_string_alloc.e
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !173
   %41 = and i64 %40, 327680
-  %.not12 = icmp eq i64 %41, 0
-  br i1 %.not12, label %.preheader, label %.loopexit
+  %.not10 = icmp eq i64 %41, 0
+  br i1 %.not10, label %.preheader, label %.loopexit
 
 42:                                               ; preds = %2
   %43 = load ptr, ptr @stdout, align 8, !tbaa !199

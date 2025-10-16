@@ -5657,8 +5657,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %2, %13
   store ptr %23, ptr %3, align 8, !tbaa !99
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %24, align 8, !tbaa !101
-  %.b71 = load i1, ptr @_ZN5IpoptL25copyright_message_printedE, align 1
-  br i1 %.b71, label %33, label %25
+  %.b = load i1, ptr @_ZN5IpoptL25copyright_message_printedE, align 1
+  br i1 %.b, label %33, label %25
 
 25:                                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5698,7 +5698,7 @@ _ZN5Ipopt14IpoptAlgorithm23print_copyright_messageERKNS_10JournalistE.exit: ; pr
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 392
   %46 = load i8, ptr %45, align 8, !tbaa !92, !range !61, !noundef !62
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %_ZN5Ipopt9TimedTask5StartEv.exit109
+  br i1 %47, label %48, label %_ZN5Ipopt9TimedTask5StartEv.exit108
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 394
@@ -5711,24 +5711,24 @@ _ZN5Ipopt14IpoptAlgorithm23print_copyright_messageERKNS_10JournalistE.exit: ; pr
 .noexc:                                           ; preds = %48
   store double %51, ptr %44, align 8, !tbaa !96
   %52 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc107 unwind label %130
+          to label %.noexc106 unwind label %130
 
-.noexc107:                                        ; preds = %.noexc
+.noexc106:                                        ; preds = %.noexc
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 360
   store double %52, ptr %53, align 8, !tbaa !97
   %54 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc108 unwind label %130
+          to label %.noexc107 unwind label %130
 
-.noexc108:                                        ; preds = %.noexc107
+.noexc107:                                        ; preds = %.noexc106
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 376
   store double %54, ptr %55, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit109
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit108
 
-_ZN5Ipopt9TimedTask5StartEv.exit109:              ; preds = %.noexc108, %42
+_ZN5Ipopt9TimedTask5StartEv.exit108:              ; preds = %.noexc107, %42
   invoke void @_ZN5Ipopt14IpoptAlgorithm18InitializeIteratesEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %56 unwind label %130
 
-56:                                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit109
+56:                                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit108
   %57 = load ptr, ptr %8, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 344
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 392
@@ -5742,9 +5742,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit109:              ; preds = %.noexc108, %42
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 393
   store i8 0, ptr %64, align 1, !tbaa !95
   %65 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc110 unwind label %130
+          to label %.noexc109 unwind label %130
 
-.noexc110:                                        ; preds = %62
+.noexc109:                                        ; preds = %62
   %66 = load double, ptr %58, align 8, !tbaa !96
   %67 = fsub double %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 352
@@ -5752,9 +5752,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit109:              ; preds = %.noexc108, %42
   %70 = fadd double %69, %67
   store double %70, ptr %68, align 8, !tbaa !103
   %71 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc111 unwind label %130
+          to label %.noexc110 unwind label %130
 
-.noexc111:                                        ; preds = %.noexc110
+.noexc110:                                        ; preds = %.noexc109
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 360
   %73 = load double, ptr %72, align 8, !tbaa !97
   %74 = fsub double %71, %73
@@ -5763,9 +5763,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit109:              ; preds = %.noexc108, %42
   %77 = fadd double %76, %74
   store double %77, ptr %75, align 8, !tbaa !104
   %78 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc112 unwind label %130
+          to label %.noexc111 unwind label %130
 
-.noexc112:                                        ; preds = %.noexc111
+.noexc111:                                        ; preds = %.noexc110
   %79 = getelementptr inbounds nuw i8, ptr %57, i64 376
   %80 = load double, ptr %79, align 8, !tbaa !98
   %81 = fsub double %78, %80
@@ -5773,52 +5773,52 @@ _ZN5Ipopt9TimedTask5StartEv.exit109:              ; preds = %.noexc108, %42
   %83 = load double, ptr %82, align 8, !tbaa !105
   %84 = fadd double %83, %81
   store double %84, ptr %82, align 8, !tbaa !105
-  %.pre267.pre = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre266.pre = load ptr, ptr %8, align 8, !tbaa !47
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
-_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %.noexc112, %56
-  %.pre267 = phi ptr [ %.pre267.pre, %.noexc112 ], [ %57, %56 ]
+_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %.noexc111, %56
+  %.pre266 = phi ptr [ %.pre266.pre, %.noexc111 ], [ %57, %56 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %86 = load i8, ptr %85, align 8, !tbaa !90, !range !61, !noundef !62
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %132, label %88
 
 88:                                               ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
-  %89 = getelementptr inbounds nuw i8, ptr %.pre267, i64 288
-  %90 = getelementptr inbounds nuw i8, ptr %.pre267, i64 336
+  %89 = getelementptr inbounds nuw i8, ptr %.pre266, i64 288
+  %90 = getelementptr inbounds nuw i8, ptr %.pre266, i64 336
   %91 = load i8, ptr %90, align 8, !tbaa !92, !range !61, !noundef !62
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %_ZN5Ipopt9TimedTask5StartEv.exit116
+  br i1 %92, label %93, label %_ZN5Ipopt9TimedTask5StartEv.exit115
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds nuw i8, ptr %.pre267, i64 338
+  %94 = getelementptr inbounds nuw i8, ptr %.pre266, i64 338
   store i8 0, ptr %94, align 2, !tbaa !94
-  %95 = getelementptr inbounds nuw i8, ptr %.pre267, i64 337
+  %95 = getelementptr inbounds nuw i8, ptr %.pre266, i64 337
   store i8 1, ptr %95, align 1, !tbaa !95
   %96 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc113 unwind label %130
+          to label %.noexc112 unwind label %130
 
-.noexc113:                                        ; preds = %93
+.noexc112:                                        ; preds = %93
   store double %96, ptr %89, align 8, !tbaa !96
   %97 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
+          to label %.noexc113 unwind label %130
+
+.noexc113:                                        ; preds = %.noexc112
+  %98 = getelementptr inbounds nuw i8, ptr %.pre266, i64 304
+  store double %97, ptr %98, align 8, !tbaa !97
+  %99 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
           to label %.noexc114 unwind label %130
 
 .noexc114:                                        ; preds = %.noexc113
-  %98 = getelementptr inbounds nuw i8, ptr %.pre267, i64 304
-  store double %97, ptr %98, align 8, !tbaa !97
-  %99 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc115 unwind label %130
-
-.noexc115:                                        ; preds = %.noexc114
-  %100 = getelementptr inbounds nuw i8, ptr %.pre267, i64 320
+  %100 = getelementptr inbounds nuw i8, ptr %.pre266, i64 320
   store double %99, ptr %100, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit116
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit115
 
-_ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
+_ZN5Ipopt9TimedTask5StartEv.exit115:              ; preds = %.noexc114, %88
   invoke void @_ZN5Ipopt14IpoptAlgorithm22PrintProblemStatisticsEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %101 unwind label %130
 
-101:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit116
+101:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit115
   %102 = load ptr, ptr %8, align 8, !tbaa !47
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 288
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 336
@@ -5832,9 +5832,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 337
   store i8 0, ptr %109, align 1, !tbaa !95
   %110 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc117 unwind label %130
+          to label %.noexc116 unwind label %130
 
-.noexc117:                                        ; preds = %107
+.noexc116:                                        ; preds = %107
   %111 = load double, ptr %103, align 8, !tbaa !96
   %112 = fsub double %110, %111
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 296
@@ -5842,9 +5842,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
   %115 = fadd double %114, %112
   store double %115, ptr %113, align 8, !tbaa !103
   %116 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc118 unwind label %130
+          to label %.noexc117 unwind label %130
 
-.noexc118:                                        ; preds = %.noexc117
+.noexc117:                                        ; preds = %.noexc116
   %117 = getelementptr inbounds nuw i8, ptr %102, i64 304
   %118 = load double, ptr %117, align 8, !tbaa !97
   %119 = fsub double %116, %118
@@ -5853,9 +5853,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
   %122 = fadd double %121, %119
   store double %122, ptr %120, align 8, !tbaa !104
   %123 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc119 unwind label %130
+          to label %.noexc118 unwind label %130
 
-.noexc119:                                        ; preds = %.noexc118
+.noexc118:                                        ; preds = %.noexc117
   %124 = getelementptr inbounds nuw i8, ptr %102, i64 320
   %125 = load double, ptr %124, align 8, !tbaa !98
   %126 = fsub double %123, %125
@@ -5863,10 +5863,10 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
   %128 = load double, ptr %127, align 8, !tbaa !105
   %129 = fadd double %128, %126
   store double %129, ptr %127, align 8, !tbaa !105
-  %.pre266 = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre265 = load ptr, ptr %8, align 8, !tbaa !47
   br label %132
 
-130:                                              ; preds = %.noexc122, %.noexc121, %138, %.noexc118, %.noexc117, %107, %.noexc114, %.noexc113, %93, %.noexc111, %.noexc110, %62, %.noexc107, %.noexc, %48, %_ZN5Ipopt9TimedTask5StartEv.exit116, %_ZN5Ipopt9TimedTask5StartEv.exit109
+130:                                              ; preds = %.noexc121, %.noexc120, %138, %.noexc117, %.noexc116, %107, %.noexc113, %.noexc112, %93, %.noexc110, %.noexc109, %62, %.noexc106, %.noexc, %48, %_ZN5Ipopt9TimedTask5StartEv.exit115, %_ZN5Ipopt9TimedTask5StartEv.exit108
   %131 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
@@ -5885,13 +5885,13 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %687
 
-132:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %101, %.noexc119
-  %133 = phi ptr [ %.pre267, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ %102, %101 ], [ %.pre266, %.noexc119 ]
+132:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %101, %.noexc118
+  %133 = phi ptr [ %.pre266, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ %102, %101 ], [ %.pre265, %.noexc118 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 736
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 784
   %136 = load i8, ptr %135, align 8, !tbaa !92, !range !61, !noundef !62
   %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %138, label %_ZN5Ipopt9TimedTask5StartEv.exit124
+  br i1 %137, label %138, label %_ZN5Ipopt9TimedTask5StartEv.exit123
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 786
@@ -5899,25 +5899,25 @@ _ZN5Ipopt9TimedTask5StartEv.exit116:              ; preds = %.noexc115, %88
   %140 = getelementptr inbounds nuw i8, ptr %133, i64 785
   store i8 1, ptr %140, align 1, !tbaa !95
   %141 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc121 unwind label %130
+          to label %.noexc120 unwind label %130
 
-.noexc121:                                        ; preds = %138
+.noexc120:                                        ; preds = %138
   store double %141, ptr %134, align 8, !tbaa !96
   %142 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc122 unwind label %130
+          to label %.noexc121 unwind label %130
 
-.noexc122:                                        ; preds = %.noexc121
+.noexc121:                                        ; preds = %.noexc120
   %143 = getelementptr inbounds nuw i8, ptr %133, i64 752
   store double %142, ptr %143, align 8, !tbaa !97
   %144 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc123 unwind label %130
+          to label %.noexc122 unwind label %130
 
-.noexc123:                                        ; preds = %.noexc122
+.noexc122:                                        ; preds = %.noexc121
   %145 = getelementptr inbounds nuw i8, ptr %133, i64 768
   store double %144, ptr %145, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit124
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit123
 
-_ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
+_ZN5Ipopt9TimedTask5StartEv.exit123:              ; preds = %.noexc122, %132
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %147 = load ptr, ptr %146, align 8, !tbaa !20
   %148 = load ptr, ptr %147, align 8, !tbaa !8
@@ -5926,13 +5926,13 @@ _ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
   %151 = invoke noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(49) %147, i1 noundef zeroext true)
           to label %152 unwind label %.loopexit.split-lp
 
-152:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit124
+152:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit123
   %153 = load ptr, ptr %8, align 8, !tbaa !47
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 736
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 784
   %156 = load i8, ptr %155, align 8, !tbaa !92, !range !61, !noundef !62
   %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %158, label %_ZN5Ipopt9TimedTask3EndEv.exit128
+  br i1 %157, label %158, label %_ZN5Ipopt9TimedTask3EndEv.exit127
 
 158:                                              ; preds = %152
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 786
@@ -5940,9 +5940,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 785
   store i8 0, ptr %160, align 1, !tbaa !95
   %161 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc125 unwind label %.loopexit.split-lp
+          to label %.noexc124 unwind label %.loopexit.split-lp
 
-.noexc125:                                        ; preds = %158
+.noexc124:                                        ; preds = %158
   %162 = load double, ptr %154, align 8, !tbaa !96
   %163 = fsub double %161, %162
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 744
@@ -5950,9 +5950,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
   %166 = fadd double %165, %163
   store double %166, ptr %164, align 8, !tbaa !103
   %167 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc126 unwind label %.loopexit.split-lp
+          to label %.noexc125 unwind label %.loopexit.split-lp
 
-.noexc126:                                        ; preds = %.noexc125
+.noexc125:                                        ; preds = %.noexc124
   %168 = getelementptr inbounds nuw i8, ptr %153, i64 752
   %169 = load double, ptr %168, align 8, !tbaa !97
   %170 = fsub double %167, %169
@@ -5961,9 +5961,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
   %173 = fadd double %172, %170
   store double %173, ptr %171, align 8, !tbaa !104
   %174 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc127 unwind label %.loopexit.split-lp
+          to label %.noexc126 unwind label %.loopexit.split-lp
 
-.noexc127:                                        ; preds = %.noexc126
+.noexc126:                                        ; preds = %.noexc125
   %175 = getelementptr inbounds nuw i8, ptr %153, i64 768
   %176 = load double, ptr %175, align 8, !tbaa !98
   %177 = fsub double %174, %176
@@ -5971,13 +5971,13 @@ _ZN5Ipopt9TimedTask5StartEv.exit124:              ; preds = %.noexc123, %132
   %179 = load double, ptr %178, align 8, !tbaa !105
   %180 = fadd double %179, %177
   store double %180, ptr %178, align 8, !tbaa !105
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit128
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit127
 
-_ZN5Ipopt9TimedTask3EndEv.exit128:                ; preds = %152, %.noexc127
+_ZN5Ipopt9TimedTask3EndEv.exit127:                ; preds = %152, %.noexc126
   %181 = icmp eq i32 %151, 0
   br i1 %181, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit128
+.lr.ph:                                           ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit127
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5986,13 +5986,13 @@ _ZN5Ipopt9TimedTask3EndEv.exit128:                ; preds = %152, %.noexc127
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %188
 
-188:                                              ; preds = %.lr.ph, %_ZN5Ipopt9TimedTask3EndEv.exit202
+188:                                              ; preds = %.lr.ph, %_ZN5Ipopt9TimedTask3EndEv.exit201
   %189 = load ptr, ptr %8, align 8, !tbaa !47
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 400
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 448
   %192 = load i8, ptr %191, align 8, !tbaa !92, !range !61, !noundef !62
   %193 = trunc nuw i8 %192 to i1
-  br i1 %193, label %194, label %_ZN5Ipopt9TimedTask5StartEv.exit132
+  br i1 %193, label %194, label %_ZN5Ipopt9TimedTask5StartEv.exit131
 
 194:                                              ; preds = %188
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 450
@@ -6000,33 +6000,33 @@ _ZN5Ipopt9TimedTask3EndEv.exit128:                ; preds = %152, %.noexc127
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 449
   store i8 1, ptr %196, align 1, !tbaa !95
   %197 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc129 unwind label %.loopexit
+          to label %.noexc128 unwind label %.loopexit
 
-.noexc129:                                        ; preds = %194
+.noexc128:                                        ; preds = %194
   store double %197, ptr %190, align 8, !tbaa !96
   %198 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc130 unwind label %.loopexit
+          to label %.noexc129 unwind label %.loopexit
 
-.noexc130:                                        ; preds = %.noexc129
+.noexc129:                                        ; preds = %.noexc128
   %199 = getelementptr inbounds nuw i8, ptr %189, i64 416
   store double %198, ptr %199, align 8, !tbaa !97
   %200 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc131 unwind label %.loopexit
+          to label %.noexc130 unwind label %.loopexit
 
-.noexc131:                                        ; preds = %.noexc130
+.noexc130:                                        ; preds = %.noexc129
   %201 = getelementptr inbounds nuw i8, ptr %189, i64 432
   store double %200, ptr %201, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit132
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit131
 
-_ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
+_ZN5Ipopt9TimedTask5StartEv.exit131:              ; preds = %.noexc130, %188
   %202 = load ptr, ptr %182, align 8, !tbaa !53
   %203 = load ptr, ptr %202, align 8, !tbaa !8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %205 = load ptr, ptr %204, align 8
   invoke void (ptr, i32, i32, ptr, ...) %205(ptr noundef nonnull align 8 dereferenceable(40) %202, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.64)
-          to label %.noexc133 unwind label %.loopexit
+          to label %.noexc132 unwind label %.loopexit
 
-.noexc133:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit132
+.noexc132:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit131
   %206 = load ptr, ptr %182, align 8, !tbaa !53
   %207 = load ptr, ptr %8, align 8, !tbaa !47
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 68
@@ -6035,17 +6035,17 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8
   invoke void (ptr, i32, i32, ptr, ...) %212(ptr noundef nonnull align 8 dereferenceable(40) %206, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.65, i32 noundef %209)
-          to label %.noexc134 unwind label %.loopexit
+          to label %.noexc133 unwind label %.loopexit
 
-.noexc134:                                        ; preds = %.noexc133
+.noexc133:                                        ; preds = %.noexc132
   %213 = load ptr, ptr %182, align 8, !tbaa !53
   %214 = load ptr, ptr %213, align 8, !tbaa !8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8
   invoke void (ptr, i32, i32, ptr, ...) %216(ptr noundef nonnull align 8 dereferenceable(40) %213, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.66)
-          to label %.noexc135 unwind label %.loopexit
+          to label %.noexc134 unwind label %.loopexit
 
-.noexc135:                                        ; preds = %.noexc134
+.noexc134:                                        ; preds = %.noexc133
   %217 = load ptr, ptr %183, align 8, !tbaa !29
   %218 = load ptr, ptr %217, align 8, !tbaa !8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
@@ -6053,7 +6053,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   invoke void %220(ptr noundef nonnull align 8 dereferenceable(49) %217)
           to label %221 unwind label %.loopexit
 
-221:                                              ; preds = %.noexc135
+221:                                              ; preds = %.noexc134
   %222 = load ptr, ptr %8, align 8, !tbaa !47
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 400
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 448
@@ -6067,9 +6067,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %229 = getelementptr inbounds nuw i8, ptr %222, i64 449
   store i8 0, ptr %229, align 1, !tbaa !95
   %230 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc137 unwind label %.loopexit
+          to label %.noexc136 unwind label %.loopexit
 
-.noexc137:                                        ; preds = %227
+.noexc136:                                        ; preds = %227
   %231 = load double, ptr %223, align 8, !tbaa !96
   %232 = fsub double %230, %231
   %233 = getelementptr inbounds nuw i8, ptr %222, i64 408
@@ -6077,9 +6077,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %235 = fadd double %234, %232
   store double %235, ptr %233, align 8, !tbaa !103
   %236 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc138 unwind label %.loopexit
+          to label %.noexc137 unwind label %.loopexit
 
-.noexc138:                                        ; preds = %.noexc137
+.noexc137:                                        ; preds = %.noexc136
   %237 = getelementptr inbounds nuw i8, ptr %222, i64 416
   %238 = load double, ptr %237, align 8, !tbaa !97
   %239 = fsub double %236, %238
@@ -6088,9 +6088,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %242 = fadd double %241, %239
   store double %242, ptr %240, align 8, !tbaa !104
   %243 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc139 unwind label %.loopexit
+          to label %.noexc138 unwind label %.loopexit
 
-.noexc139:                                        ; preds = %.noexc138
+.noexc138:                                        ; preds = %.noexc137
   %244 = getelementptr inbounds nuw i8, ptr %222, i64 432
   %245 = load double, ptr %244, align 8, !tbaa !98
   %246 = fsub double %243, %245
@@ -6098,16 +6098,16 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %248 = load double, ptr %247, align 8, !tbaa !105
   %249 = fadd double %248, %246
   store double %249, ptr %247, align 8, !tbaa !105
-  %.pre268 = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre267 = load ptr, ptr %8, align 8, !tbaa !47
   br label %250
 
-250:                                              ; preds = %221, %.noexc139
-  %251 = phi ptr [ %222, %221 ], [ %.pre268, %.noexc139 ]
+250:                                              ; preds = %221, %.noexc138
+  %251 = phi ptr [ %222, %221 ], [ %.pre267, %.noexc138 ]
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 456
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 504
   %254 = load i8, ptr %253, align 8, !tbaa !92, !range !61, !noundef !62
   %255 = trunc nuw i8 %254 to i1
-  br i1 %255, label %256, label %_ZN5Ipopt9TimedTask5StartEv.exit144
+  br i1 %255, label %256, label %_ZN5Ipopt9TimedTask5StartEv.exit143
 
 256:                                              ; preds = %250
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 506
@@ -6115,25 +6115,25 @@ _ZN5Ipopt9TimedTask5StartEv.exit132:              ; preds = %.noexc131, %188
   %258 = getelementptr inbounds nuw i8, ptr %251, i64 505
   store i8 1, ptr %258, align 1, !tbaa !95
   %259 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc141 unwind label %.loopexit
+          to label %.noexc140 unwind label %.loopexit
 
-.noexc141:                                        ; preds = %256
+.noexc140:                                        ; preds = %256
   store double %259, ptr %252, align 8, !tbaa !96
   %260 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc142 unwind label %.loopexit
+          to label %.noexc141 unwind label %.loopexit
 
-.noexc142:                                        ; preds = %.noexc141
+.noexc141:                                        ; preds = %.noexc140
   %261 = getelementptr inbounds nuw i8, ptr %251, i64 472
   store double %260, ptr %261, align 8, !tbaa !97
   %262 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc143 unwind label %.loopexit
+          to label %.noexc142 unwind label %.loopexit
 
-.noexc143:                                        ; preds = %.noexc142
+.noexc142:                                        ; preds = %.noexc141
   %263 = getelementptr inbounds nuw i8, ptr %251, i64 488
   store double %262, ptr %263, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit144
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit143
 
-_ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
+_ZN5Ipopt9TimedTask5StartEv.exit143:              ; preds = %.noexc142, %250
   %264 = load ptr, ptr %184, align 8, !tbaa !26
   %265 = load ptr, ptr %264, align 8, !tbaa !8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
@@ -6141,7 +6141,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   invoke void %267(ptr noundef nonnull align 8 dereferenceable(49) %264)
           to label %268 unwind label %.loopexit
 
-268:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit144
+268:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit143
   %269 = load ptr, ptr %8, align 8, !tbaa !47
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 120
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 144
@@ -6169,9 +6169,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   %284 = getelementptr inbounds nuw i8, ptr %277, i64 505
   store i8 0, ptr %284, align 1, !tbaa !95
   %285 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc146 unwind label %.loopexit
+          to label %.noexc145 unwind label %.loopexit
 
-.noexc146:                                        ; preds = %282
+.noexc145:                                        ; preds = %282
   %286 = load double, ptr %278, align 8, !tbaa !96
   %287 = fsub double %285, %286
   %288 = getelementptr inbounds nuw i8, ptr %277, i64 464
@@ -6179,9 +6179,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   %290 = fadd double %289, %287
   store double %290, ptr %288, align 8, !tbaa !103
   %291 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc147 unwind label %.loopexit
+          to label %.noexc146 unwind label %.loopexit
 
-.noexc147:                                        ; preds = %.noexc146
+.noexc146:                                        ; preds = %.noexc145
   %292 = getelementptr inbounds nuw i8, ptr %277, i64 472
   %293 = load double, ptr %292, align 8, !tbaa !97
   %294 = fsub double %291, %293
@@ -6190,9 +6190,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   %297 = fadd double %296, %294
   store double %297, ptr %295, align 8, !tbaa !104
   %298 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc148 unwind label %.loopexit
+          to label %.noexc147 unwind label %.loopexit
 
-.noexc148:                                        ; preds = %.noexc147
+.noexc147:                                        ; preds = %.noexc146
   %299 = getelementptr inbounds nuw i8, ptr %277, i64 488
   %300 = load double, ptr %299, align 8, !tbaa !98
   %301 = fsub double %298, %300
@@ -6200,16 +6200,16 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   %303 = load double, ptr %302, align 8, !tbaa !105
   %304 = fadd double %303, %301
   store double %304, ptr %302, align 8, !tbaa !105
-  %.pre269 = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre268 = load ptr, ptr %8, align 8, !tbaa !47
   br label %305
 
-305:                                              ; preds = %268, %.noexc148
-  %306 = phi ptr [ %277, %268 ], [ %.pre269, %.noexc148 ]
+305:                                              ; preds = %268, %.noexc147
+  %306 = phi ptr [ %277, %268 ], [ %.pre268, %.noexc147 ]
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 512
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 560
   %309 = load i8, ptr %308, align 8, !tbaa !92, !range !61, !noundef !62
   %310 = trunc nuw i8 %309 to i1
-  br i1 %310, label %311, label %_ZN5Ipopt9TimedTask5StartEv.exit153
+  br i1 %310, label %311, label %_ZN5Ipopt9TimedTask5StartEv.exit152
 
 311:                                              ; preds = %305
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 562
@@ -6217,33 +6217,33 @@ _ZN5Ipopt9TimedTask5StartEv.exit144:              ; preds = %.noexc143, %250
   %313 = getelementptr inbounds nuw i8, ptr %306, i64 561
   store i8 1, ptr %313, align 1, !tbaa !95
   %314 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc150 unwind label %.loopexit257
+          to label %.noexc149 unwind label %.loopexit256
 
-.noexc150:                                        ; preds = %311
+.noexc149:                                        ; preds = %311
   store double %314, ptr %307, align 8, !tbaa !96
   %315 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc151 unwind label %.loopexit257
+          to label %.noexc150 unwind label %.loopexit256
 
-.noexc151:                                        ; preds = %.noexc150
+.noexc150:                                        ; preds = %.noexc149
   %316 = getelementptr inbounds nuw i8, ptr %306, i64 528
   store double %315, ptr %316, align 8, !tbaa !97
   %317 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc152 unwind label %.loopexit257
+          to label %.noexc151 unwind label %.loopexit256
 
-.noexc152:                                        ; preds = %.noexc151
+.noexc151:                                        ; preds = %.noexc150
   %318 = getelementptr inbounds nuw i8, ptr %306, i64 544
   store double %317, ptr %318, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit153
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit152
 
-_ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
+_ZN5Ipopt9TimedTask5StartEv.exit152:              ; preds = %.noexc151, %305
   %319 = load ptr, ptr %182, align 8, !tbaa !53
   %320 = load ptr, ptr %319, align 8, !tbaa !8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load ptr, ptr %321, align 8
   invoke void (ptr, i32, i32, ptr, ...) %322(ptr noundef nonnull align 8 dereferenceable(40) %319, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.64)
-          to label %.noexc154 unwind label %.loopexit257
+          to label %.noexc153 unwind label %.loopexit256
 
-.noexc154:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit153
+.noexc153:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit152
   %323 = load ptr, ptr %182, align 8, !tbaa !53
   %324 = load ptr, ptr %8, align 8, !tbaa !47
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 68
@@ -6252,29 +6252,29 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
   invoke void (ptr, i32, i32, ptr, ...) %329(ptr noundef nonnull align 8 dereferenceable(40) %323, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.67, i32 noundef %326)
-          to label %.noexc155 unwind label %.loopexit257
+          to label %.noexc154 unwind label %.loopexit256
 
-.noexc155:                                        ; preds = %.noexc154
+.noexc154:                                        ; preds = %.noexc153
   %330 = load ptr, ptr %182, align 8, !tbaa !53
   %331 = load ptr, ptr %330, align 8, !tbaa !8
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
   %333 = load ptr, ptr %332, align 8
   invoke void (ptr, i32, i32, ptr, ...) %333(ptr noundef nonnull align 8 dereferenceable(40) %330, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.66)
-          to label %.noexc156 unwind label %.loopexit257
+          to label %.noexc155 unwind label %.loopexit256
 
-.noexc156:                                        ; preds = %.noexc155
+.noexc155:                                        ; preds = %.noexc154
   %334 = load ptr, ptr %185, align 8, !tbaa !17
   %335 = load ptr, ptr %334, align 8, !tbaa !8
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load ptr, ptr %336, align 8
   %338 = invoke noundef zeroext i1 %337(ptr noundef nonnull align 8 dereferenceable(49) %334)
-          to label %.noexc157 unwind label %.loopexit257
+          to label %.noexc156 unwind label %.loopexit256
 
-.noexc157:                                        ; preds = %.noexc156
+.noexc156:                                        ; preds = %.noexc155
   %339 = load ptr, ptr %182, align 8, !tbaa !53
   br i1 %338, label %340, label %347
 
-340:                                              ; preds = %.noexc157
+340:                                              ; preds = %.noexc156
   %341 = load ptr, ptr %8, align 8, !tbaa !47
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 72
   %343 = load double, ptr %342, align 8, !tbaa !120
@@ -6282,14 +6282,14 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load ptr, ptr %345, align 8
   invoke void (ptr, i32, i32, ptr, ...) %346(ptr noundef nonnull align 8 dereferenceable(40) %339, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.68, double noundef %343)
-          to label %351 unwind label %.loopexit257
+          to label %351 unwind label %.loopexit256
 
-347:                                              ; preds = %.noexc157
+347:                                              ; preds = %.noexc156
   %348 = load ptr, ptr %339, align 8, !tbaa !8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load ptr, ptr %349, align 8
   invoke void (ptr, i32, i32, ptr, ...) %350(ptr noundef nonnull align 8 dereferenceable(40) %339, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.69)
-          to label %351 unwind label %.loopexit257
+          to label %351 unwind label %.loopexit256
 
 351:                                              ; preds = %347, %340
   %352 = load ptr, ptr %8, align 8, !tbaa !47
@@ -6297,7 +6297,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 560
   %355 = load i8, ptr %354, align 8, !tbaa !92, !range !61, !noundef !62
   %356 = trunc nuw i8 %355 to i1
-  br i1 %356, label %357, label %_ZN5Ipopt9TimedTask3EndEv.exit163
+  br i1 %356, label %357, label %_ZN5Ipopt9TimedTask3EndEv.exit162
 
 357:                                              ; preds = %351
   %358 = getelementptr inbounds nuw i8, ptr %352, i64 562
@@ -6305,9 +6305,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %359 = getelementptr inbounds nuw i8, ptr %352, i64 561
   store i8 0, ptr %359, align 1, !tbaa !95
   %360 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc160 unwind label %.loopexit257
+          to label %.noexc159 unwind label %.loopexit256
 
-.noexc160:                                        ; preds = %357
+.noexc159:                                        ; preds = %357
   %361 = load double, ptr %353, align 8, !tbaa !96
   %362 = fsub double %360, %361
   %363 = getelementptr inbounds nuw i8, ptr %352, i64 520
@@ -6315,9 +6315,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %365 = fadd double %364, %362
   store double %365, ptr %363, align 8, !tbaa !103
   %366 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc161 unwind label %.loopexit257
+          to label %.noexc160 unwind label %.loopexit256
 
-.noexc161:                                        ; preds = %.noexc160
+.noexc160:                                        ; preds = %.noexc159
   %367 = getelementptr inbounds nuw i8, ptr %352, i64 528
   %368 = load double, ptr %367, align 8, !tbaa !97
   %369 = fsub double %366, %368
@@ -6326,9 +6326,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %372 = fadd double %371, %369
   store double %372, ptr %370, align 8, !tbaa !104
   %373 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc162 unwind label %.loopexit257
+          to label %.noexc161 unwind label %.loopexit256
 
-.noexc162:                                        ; preds = %.noexc161
+.noexc161:                                        ; preds = %.noexc160
   %374 = getelementptr inbounds nuw i8, ptr %352, i64 544
   %375 = load double, ptr %374, align 8, !tbaa !98
   %376 = fsub double %373, %375
@@ -6336,18 +6336,18 @@ _ZN5Ipopt9TimedTask5StartEv.exit153:              ; preds = %.noexc152, %305
   %378 = load double, ptr %377, align 8, !tbaa !105
   %379 = fadd double %378, %376
   store double %379, ptr %377, align 8, !tbaa !105
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit163
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit162
 
-_ZN5Ipopt9TimedTask3EndEv.exit163:                ; preds = %.noexc162, %351
-  br i1 %338, label %380, label %_ZN5Ipopt9TimedTask3EndEv.exit171.thread
+_ZN5Ipopt9TimedTask3EndEv.exit162:                ; preds = %.noexc161, %351
+  br i1 %338, label %380, label %_ZN5Ipopt9TimedTask3EndEv.exit170.thread
 
-380:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit163
+380:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
   %381 = load ptr, ptr %8, align 8, !tbaa !47
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 568
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 616
   %384 = load i8, ptr %383, align 8, !tbaa !92, !range !61, !noundef !62
   %385 = trunc nuw i8 %384 to i1
-  br i1 %385, label %386, label %_ZN5Ipopt9TimedTask5StartEv.exit167
+  br i1 %385, label %386, label %_ZN5Ipopt9TimedTask5StartEv.exit166
 
 386:                                              ; preds = %380
   %387 = getelementptr inbounds nuw i8, ptr %381, i64 618
@@ -6355,35 +6355,35 @@ _ZN5Ipopt9TimedTask3EndEv.exit163:                ; preds = %.noexc162, %351
   %388 = getelementptr inbounds nuw i8, ptr %381, i64 617
   store i8 1, ptr %388, align 1, !tbaa !95
   %389 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc164 unwind label %.loopexit257
+          to label %.noexc163 unwind label %.loopexit256
 
-.noexc164:                                        ; preds = %386
+.noexc163:                                        ; preds = %386
   store double %389, ptr %382, align 8, !tbaa !96
   %390 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc165 unwind label %.loopexit257
+          to label %.noexc164 unwind label %.loopexit256
 
-.noexc165:                                        ; preds = %.noexc164
+.noexc164:                                        ; preds = %.noexc163
   %391 = getelementptr inbounds nuw i8, ptr %381, i64 584
   store double %390, ptr %391, align 8, !tbaa !97
   %392 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc166 unwind label %.loopexit257
+          to label %.noexc165 unwind label %.loopexit256
 
-.noexc166:                                        ; preds = %.noexc165
+.noexc165:                                        ; preds = %.noexc164
   %393 = getelementptr inbounds nuw i8, ptr %381, i64 600
   store double %392, ptr %393, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit167
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit166
 
-_ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
+_ZN5Ipopt9TimedTask5StartEv.exit166:              ; preds = %.noexc165, %380
   %394 = invoke noundef zeroext i1 @_ZN5Ipopt14IpoptAlgorithm22ComputeSearchDirectionEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %395 unwind label %.loopexit257
+          to label %395 unwind label %.loopexit256
 
-395:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit167
+395:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit166
   %396 = load ptr, ptr %8, align 8, !tbaa !47
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 568
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 616
   %399 = load i8, ptr %398, align 8, !tbaa !92, !range !61, !noundef !62
   %400 = trunc nuw i8 %399 to i1
-  br i1 %400, label %401, label %_ZN5Ipopt9TimedTask3EndEv.exit171
+  br i1 %400, label %401, label %_ZN5Ipopt9TimedTask3EndEv.exit170
 
 401:                                              ; preds = %395
   %402 = getelementptr inbounds nuw i8, ptr %396, i64 618
@@ -6391,9 +6391,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
   %403 = getelementptr inbounds nuw i8, ptr %396, i64 617
   store i8 0, ptr %403, align 1, !tbaa !95
   %404 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc168 unwind label %.loopexit257
+          to label %.noexc167 unwind label %.loopexit256
 
-.noexc168:                                        ; preds = %401
+.noexc167:                                        ; preds = %401
   %405 = load double, ptr %397, align 8, !tbaa !96
   %406 = fsub double %404, %405
   %407 = getelementptr inbounds nuw i8, ptr %396, i64 576
@@ -6401,9 +6401,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
   %409 = fadd double %408, %406
   store double %409, ptr %407, align 8, !tbaa !103
   %410 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc169 unwind label %.loopexit257
+          to label %.noexc168 unwind label %.loopexit256
 
-.noexc169:                                        ; preds = %.noexc168
+.noexc168:                                        ; preds = %.noexc167
   %411 = getelementptr inbounds nuw i8, ptr %396, i64 584
   %412 = load double, ptr %411, align 8, !tbaa !97
   %413 = fsub double %410, %412
@@ -6412,9 +6412,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
   %416 = fadd double %415, %413
   store double %416, ptr %414, align 8, !tbaa !104
   %417 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc170 unwind label %.loopexit257
+          to label %.noexc169 unwind label %.loopexit256
 
-.noexc170:                                        ; preds = %.noexc169
+.noexc169:                                        ; preds = %.noexc168
   %418 = getelementptr inbounds nuw i8, ptr %396, i64 600
   %419 = load double, ptr %418, align 8, !tbaa !98
   %420 = fsub double %417, %419
@@ -6422,9 +6422,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
   %422 = load double, ptr %421, align 8, !tbaa !105
   %423 = fadd double %422, %420
   store double %423, ptr %421, align 8, !tbaa !105
-  br i1 %394, label %461, label %_ZN5Ipopt9TimedTask3EndEv.exit171.thread
+  br i1 %394, label %461, label %_ZN5Ipopt9TimedTask3EndEv.exit170.thread
 
-.loopexit:                                        ; preds = %194, %.noexc129, %.noexc130, %_ZN5Ipopt9TimedTask5StartEv.exit132, %.noexc133, %.noexc134, %.noexc135, %227, %.noexc137, %.noexc138, %256, %.noexc141, %.noexc142, %_ZN5Ipopt9TimedTask5StartEv.exit144, %282, %.noexc146, %.noexc147
+.loopexit:                                        ; preds = %194, %.noexc128, %.noexc129, %_ZN5Ipopt9TimedTask5StartEv.exit131, %.noexc132, %.noexc133, %.noexc134, %227, %.noexc136, %.noexc137, %256, %.noexc140, %.noexc141, %_ZN5Ipopt9TimedTask5StartEv.exit143, %282, %.noexc145, %.noexc146
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
@@ -6443,7 +6443,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %687
 
-.loopexit.split-lp:                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit124, %158, %.noexc125, %.noexc126, %629, %.noexc203, %.noexc204, %_ZN5Ipopt9TimedTask5StartEv.exit206, %648, %.noexc209, %.noexc210
+.loopexit.split-lp:                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit123, %158, %.noexc124, %.noexc125, %629, %.noexc202, %.noexc203, %_ZN5Ipopt9TimedTask5StartEv.exit205, %648, %.noexc208, %.noexc209
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
@@ -6462,8 +6462,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %687
 
-.loopexit257:                                     ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit167, %_ZN5Ipopt9TimedTask3EndEv.exit171.thread, %434, %_ZN5Ipopt9TimedTask5StartEv.exit190, %566, %574, %_ZN5Ipopt9TimedTask5StartEv.exit198, %311, %.noexc150, %.noexc151, %_ZN5Ipopt9TimedTask5StartEv.exit153, %.noexc154, %.noexc155, %.noexc156, %340, %347, %357, %.noexc160, %.noexc161, %386, %.noexc164, %.noexc165, %401, %.noexc168, %.noexc169, %467, %.noexc175, %.noexc176, %_ZN5Ipopt9TimedTask5StartEv.exit178, %.noexc179, %.noexc180, %.noexc181, %500, %.noexc183, %.noexc184, %529, %.noexc187, %.noexc188, %543, %.noexc191, %.noexc192, %581, %.noexc195, %.noexc196, %600, %.noexc199, %.noexc200
-  %lpad.loopexit259 = landingpad { ptr, i32 }
+.loopexit256:                                     ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit166, %_ZN5Ipopt9TimedTask3EndEv.exit170.thread, %434, %_ZN5Ipopt9TimedTask5StartEv.exit189, %566, %574, %_ZN5Ipopt9TimedTask5StartEv.exit197, %311, %.noexc149, %.noexc150, %_ZN5Ipopt9TimedTask5StartEv.exit152, %.noexc153, %.noexc154, %.noexc155, %340, %347, %357, %.noexc159, %.noexc160, %386, %.noexc163, %.noexc164, %401, %.noexc167, %.noexc168, %467, %.noexc174, %.noexc175, %_ZN5Ipopt9TimedTask5StartEv.exit177, %.noexc178, %.noexc179, %.noexc180, %500, %.noexc182, %.noexc183, %529, %.noexc186, %.noexc187, %543, %.noexc190, %.noexc191, %581, %.noexc194, %.noexc195, %600, %.noexc198, %.noexc199
+  %lpad.loopexit258 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
           catch ptr @_ZTIN5Ipopt24ACCEPTABLE_POINT_REACHEDE
@@ -6481,8 +6481,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %687
 
-.loopexit.split-lp258:                            ; preds = %435
-  %lpad.loopexit.split-lp260 = landingpad { ptr, i32 }
+.loopexit.split-lp257:                            ; preds = %435
+  %lpad.loopexit.split-lp259 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
           catch ptr @_ZTIN5Ipopt24ACCEPTABLE_POINT_REACHEDE
@@ -6500,18 +6500,18 @@ _ZN5Ipopt9TimedTask5StartEv.exit167:              ; preds = %.noexc166, %380
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %687
 
-_ZN5Ipopt9TimedTask3EndEv.exit171:                ; preds = %395
-  br i1 %394, label %461, label %_ZN5Ipopt9TimedTask3EndEv.exit171.thread
+_ZN5Ipopt9TimedTask3EndEv.exit170:                ; preds = %395
+  br i1 %394, label %461, label %_ZN5Ipopt9TimedTask3EndEv.exit170.thread
 
-_ZN5Ipopt9TimedTask3EndEv.exit171.thread:         ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit163, %.noexc170, %_ZN5Ipopt9TimedTask3EndEv.exit171
+_ZN5Ipopt9TimedTask3EndEv.exit170.thread:         ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162, %.noexc169, %_ZN5Ipopt9TimedTask3EndEv.exit170
   %424 = load ptr, ptr %186, align 8, !tbaa !14
   %425 = load ptr, ptr %424, align 8, !tbaa !8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 56
   %427 = load ptr, ptr %426, align 8
   %428 = invoke noundef zeroext i1 %427(ptr noundef nonnull align 8 dereferenceable(49) %424)
-          to label %429 unwind label %.loopexit257
+          to label %429 unwind label %.loopexit256
 
-429:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit171.thread
+429:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit170.thread
   %430 = load ptr, ptr %182, align 8, !tbaa !53
   %431 = load ptr, ptr %430, align 8, !tbaa !8
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
@@ -6520,18 +6520,18 @@ _ZN5Ipopt9TimedTask3EndEv.exit171.thread:         ; preds = %_ZN5Ipopt9TimedTask
 
 434:                                              ; preds = %429
   invoke void (ptr, i32, i32, ptr, ...) %433(ptr noundef nonnull align 8 dereferenceable(40) %430, i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.61)
-          to label %461 unwind label %.loopexit257
+          to label %461 unwind label %.loopexit256
 
 435:                                              ; preds = %429
   invoke void (ptr, i32, i32, ptr, ...) %433(ptr noundef nonnull align 8 dereferenceable(40) %430, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @.str.62)
-          to label %436 unwind label %.loopexit.split-lp258
+          to label %436 unwind label %.loopexit.split-lp257
 
 436:                                              ; preds = %435
   %437 = tail call ptr @__cxa_allocate_exception(i64 112) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %438 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread
+          to label %438 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread
 
 438:                                              ; preds = %436
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6547,7 +6547,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit171.thread:         ; preds = %_ZN5Ipopt9TimedTask
   invoke void @__cxa_throw(ptr nonnull %437, ptr nonnull @_ZTIN5Ipopt23STEP_COMPUTATION_FAILEDE, ptr nonnull @_ZN5Ipopt14IpoptExceptionD2Ev) #22
           to label %1099 unwind label %442
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread: ; preds = %436
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread: ; preds = %436
   %441 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
@@ -6601,7 +6601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %442, 
   %449 = load ptr, ptr %4, align 8, !tbaa !38
   %450 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %451 = icmp eq ptr %449, %450
-  br i1 %451, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174
+  br i1 %451, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %438
   %452 = landingpad { ptr, i32 }
@@ -6625,20 +6625,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %453 = load ptr, ptr %4, align 8, !tbaa !38
   %454 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %455 = icmp eq ptr %453, %454
-  br i1 %455, label %.sink.split, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread254
+  br i1 %455, label %.sink.split, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread253
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread254: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread253: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
   %456 = load i64, ptr %454, align 8, !tbaa !43
   %457 = add i64 %456, 1
   call void @_ZdlPvm(ptr noundef %453, i64 noundef %457) #21
   br label %.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.066, label %460, label %687
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %458 = load i64, ptr %450, align 8, !tbaa !43
   %459 = add i64 %458, 1
   call void @_ZdlPvm(ptr noundef %449, i64 noundef %459) #21
@@ -6646,24 +6646,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.066, label %460, label %687
 
-.sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread254
-  %.pn.pn243.ph = phi { ptr, i32 } [ %452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread254 ], [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.thread ], [ %452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
+.sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread253
+  %.pn.pn242.ph = phi { ptr, i32 } [ %452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread253 ], [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.thread ], [ %452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %460
 
-460:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174
-  %.pn.pn243 = phi { ptr, i32 } [ %443, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173 ], [ %.pn.pn243.ph, %.sink.split ]
+460:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173
+  %.pn.pn242 = phi { ptr, i32 } [ %443, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172 ], [ %.pn.pn242.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %437) #20
   br label %687
 
-461:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit171, %434, %.noexc170
+461:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit170, %434, %.noexc169
   %462 = load ptr, ptr %8, align 8, !tbaa !47
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 624
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 672
   %465 = load i8, ptr %464, align 8, !tbaa !92, !range !61, !noundef !62
   %466 = trunc nuw i8 %465 to i1
-  br i1 %466, label %467, label %_ZN5Ipopt9TimedTask5StartEv.exit178
+  br i1 %466, label %467, label %_ZN5Ipopt9TimedTask5StartEv.exit177
 
 467:                                              ; preds = %461
   %468 = getelementptr inbounds nuw i8, ptr %462, i64 674
@@ -6671,33 +6671,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %_Z
   %469 = getelementptr inbounds nuw i8, ptr %462, i64 673
   store i8 1, ptr %469, align 1, !tbaa !95
   %470 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc175 unwind label %.loopexit257
+          to label %.noexc174 unwind label %.loopexit256
 
-.noexc175:                                        ; preds = %467
+.noexc174:                                        ; preds = %467
   store double %470, ptr %463, align 8, !tbaa !96
   %471 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc176 unwind label %.loopexit257
+          to label %.noexc175 unwind label %.loopexit256
 
-.noexc176:                                        ; preds = %.noexc175
+.noexc175:                                        ; preds = %.noexc174
   %472 = getelementptr inbounds nuw i8, ptr %462, i64 640
   store double %471, ptr %472, align 8, !tbaa !97
   %473 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc177 unwind label %.loopexit257
+          to label %.noexc176 unwind label %.loopexit256
 
-.noexc177:                                        ; preds = %.noexc176
+.noexc176:                                        ; preds = %.noexc175
   %474 = getelementptr inbounds nuw i8, ptr %462, i64 656
   store double %473, ptr %474, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit178
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit177
 
-_ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
+_ZN5Ipopt9TimedTask5StartEv.exit177:              ; preds = %.noexc176, %461
   %475 = load ptr, ptr %182, align 8, !tbaa !53
   %476 = load ptr, ptr %475, align 8, !tbaa !8
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 16
   %478 = load ptr, ptr %477, align 8
   invoke void (ptr, i32, i32, ptr, ...) %478(ptr noundef nonnull align 8 dereferenceable(40) %475, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.64)
-          to label %.noexc179 unwind label %.loopexit257
+          to label %.noexc178 unwind label %.loopexit256
 
-.noexc179:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit178
+.noexc178:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit177
   %479 = load ptr, ptr %182, align 8, !tbaa !53
   %480 = load ptr, ptr %8, align 8, !tbaa !47
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 68
@@ -6706,25 +6706,25 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 16
   %485 = load ptr, ptr %484, align 8
   invoke void (ptr, i32, i32, ptr, ...) %485(ptr noundef nonnull align 8 dereferenceable(40) %479, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.74, i32 noundef %482)
-          to label %.noexc180 unwind label %.loopexit257
+          to label %.noexc179 unwind label %.loopexit256
 
-.noexc180:                                        ; preds = %.noexc179
+.noexc179:                                        ; preds = %.noexc178
   %486 = load ptr, ptr %182, align 8, !tbaa !53
   %487 = load ptr, ptr %486, align 8, !tbaa !8
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %489 = load ptr, ptr %488, align 8
   invoke void (ptr, i32, i32, ptr, ...) %489(ptr noundef nonnull align 8 dereferenceable(40) %486, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.66)
-          to label %.noexc181 unwind label %.loopexit257
+          to label %.noexc180 unwind label %.loopexit256
 
-.noexc181:                                        ; preds = %.noexc180
+.noexc180:                                        ; preds = %.noexc179
   %490 = load ptr, ptr %186, align 8, !tbaa !14
   %491 = load ptr, ptr %490, align 8, !tbaa !8
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 24
   %493 = load ptr, ptr %492, align 8
   invoke void %493(ptr noundef nonnull align 8 dereferenceable(49) %490)
-          to label %494 unwind label %.loopexit257
+          to label %494 unwind label %.loopexit256
 
-494:                                              ; preds = %.noexc181
+494:                                              ; preds = %.noexc180
   %495 = load ptr, ptr %8, align 8, !tbaa !47
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 624
   %497 = getelementptr inbounds nuw i8, ptr %495, i64 672
@@ -6738,9 +6738,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %502 = getelementptr inbounds nuw i8, ptr %495, i64 673
   store i8 0, ptr %502, align 1, !tbaa !95
   %503 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc183 unwind label %.loopexit257
+          to label %.noexc182 unwind label %.loopexit256
 
-.noexc183:                                        ; preds = %500
+.noexc182:                                        ; preds = %500
   %504 = load double, ptr %496, align 8, !tbaa !96
   %505 = fsub double %503, %504
   %506 = getelementptr inbounds nuw i8, ptr %495, i64 632
@@ -6748,9 +6748,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %508 = fadd double %507, %505
   store double %508, ptr %506, align 8, !tbaa !103
   %509 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc184 unwind label %.loopexit257
+          to label %.noexc183 unwind label %.loopexit256
 
-.noexc184:                                        ; preds = %.noexc183
+.noexc183:                                        ; preds = %.noexc182
   %510 = getelementptr inbounds nuw i8, ptr %495, i64 640
   %511 = load double, ptr %510, align 8, !tbaa !97
   %512 = fsub double %509, %511
@@ -6759,9 +6759,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %515 = fadd double %514, %512
   store double %515, ptr %513, align 8, !tbaa !104
   %516 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc185 unwind label %.loopexit257
+          to label %.noexc184 unwind label %.loopexit256
 
-.noexc185:                                        ; preds = %.noexc184
+.noexc184:                                        ; preds = %.noexc183
   %517 = getelementptr inbounds nuw i8, ptr %495, i64 656
   %518 = load double, ptr %517, align 8, !tbaa !98
   %519 = fsub double %516, %518
@@ -6769,16 +6769,16 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %521 = load double, ptr %520, align 8, !tbaa !105
   %522 = fadd double %521, %519
   store double %522, ptr %520, align 8, !tbaa !105
-  %.pre270 = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre269 = load ptr, ptr %8, align 8, !tbaa !47
   br label %523
 
-523:                                              ; preds = %494, %.noexc185
-  %524 = phi ptr [ %495, %494 ], [ %.pre270, %.noexc185 ]
+523:                                              ; preds = %494, %.noexc184
+  %524 = phi ptr [ %495, %494 ], [ %.pre269, %.noexc184 ]
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 680
   %526 = getelementptr inbounds nuw i8, ptr %524, i64 728
   %527 = load i8, ptr %526, align 8, !tbaa !92, !range !61, !noundef !62
   %528 = trunc nuw i8 %527 to i1
-  br i1 %528, label %529, label %_ZN5Ipopt9TimedTask5StartEv.exit190
+  br i1 %528, label %529, label %_ZN5Ipopt9TimedTask5StartEv.exit189
 
 529:                                              ; preds = %523
   %530 = getelementptr inbounds nuw i8, ptr %524, i64 730
@@ -6786,29 +6786,29 @@ _ZN5Ipopt9TimedTask5StartEv.exit178:              ; preds = %.noexc177, %461
   %531 = getelementptr inbounds nuw i8, ptr %524, i64 729
   store i8 1, ptr %531, align 1, !tbaa !95
   %532 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc187 unwind label %.loopexit257
+          to label %.noexc186 unwind label %.loopexit256
 
-.noexc187:                                        ; preds = %529
+.noexc186:                                        ; preds = %529
   store double %532, ptr %525, align 8, !tbaa !96
   %533 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc188 unwind label %.loopexit257
+          to label %.noexc187 unwind label %.loopexit256
 
-.noexc188:                                        ; preds = %.noexc187
+.noexc187:                                        ; preds = %.noexc186
   %534 = getelementptr inbounds nuw i8, ptr %524, i64 696
   store double %533, ptr %534, align 8, !tbaa !97
   %535 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc189 unwind label %.loopexit257
+          to label %.noexc188 unwind label %.loopexit256
 
-.noexc189:                                        ; preds = %.noexc188
+.noexc188:                                        ; preds = %.noexc187
   %536 = getelementptr inbounds nuw i8, ptr %524, i64 712
   store double %535, ptr %536, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit190
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit189
 
-_ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
+_ZN5Ipopt9TimedTask5StartEv.exit189:              ; preds = %.noexc188, %523
   invoke void @_ZN5Ipopt14IpoptAlgorithm16AcceptTrialPointEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %537 unwind label %.loopexit257
+          to label %537 unwind label %.loopexit256
 
-537:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit190
+537:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit189
   %538 = load ptr, ptr %8, align 8, !tbaa !47
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 680
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 728
@@ -6822,9 +6822,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %545 = getelementptr inbounds nuw i8, ptr %538, i64 729
   store i8 0, ptr %545, align 1, !tbaa !95
   %546 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc191 unwind label %.loopexit257
+          to label %.noexc190 unwind label %.loopexit256
 
-.noexc191:                                        ; preds = %543
+.noexc190:                                        ; preds = %543
   %547 = load double, ptr %539, align 8, !tbaa !96
   %548 = fsub double %546, %547
   %549 = getelementptr inbounds nuw i8, ptr %538, i64 688
@@ -6832,9 +6832,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %551 = fadd double %550, %548
   store double %551, ptr %549, align 8, !tbaa !103
   %552 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc192 unwind label %.loopexit257
+          to label %.noexc191 unwind label %.loopexit256
 
-.noexc192:                                        ; preds = %.noexc191
+.noexc191:                                        ; preds = %.noexc190
   %553 = getelementptr inbounds nuw i8, ptr %538, i64 696
   %554 = load double, ptr %553, align 8, !tbaa !97
   %555 = fsub double %552, %554
@@ -6843,9 +6843,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %558 = fadd double %557, %555
   store double %558, ptr %556, align 8, !tbaa !104
   %559 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc193 unwind label %.loopexit257
+          to label %.noexc192 unwind label %.loopexit256
 
-.noexc193:                                        ; preds = %.noexc192
+.noexc192:                                        ; preds = %.noexc191
   %560 = getelementptr inbounds nuw i8, ptr %538, i64 712
   %561 = load double, ptr %560, align 8, !tbaa !98
   %562 = fsub double %559, %561
@@ -6853,25 +6853,25 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %564 = load double, ptr %563, align 8, !tbaa !105
   %565 = fadd double %564, %562
   store double %565, ptr %563, align 8, !tbaa !105
-  %.pre271 = load ptr, ptr %8, align 8, !tbaa !47
+  %.pre270 = load ptr, ptr %8, align 8, !tbaa !47
   br label %566
 
-566:                                              ; preds = %537, %.noexc193
-  %567 = phi ptr [ %538, %537 ], [ %.pre271, %.noexc193 ]
+566:                                              ; preds = %537, %.noexc192
+  %567 = phi ptr [ %538, %537 ], [ %.pre270, %.noexc192 ]
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 68
   %569 = load i32, ptr %568, align 4, !tbaa !106
   %570 = add nsw i32 %569, 1
   store i32 %570, ptr %568, align 4, !tbaa !106
   %571 = load ptr, ptr %187, align 8, !tbaa !44
   %572 = invoke noundef zeroext i1 @_ZNK5Ipopt25IpoptCalculatedQuantities15IsSquareProblemEv(ptr noundef nonnull align 8 dereferenceable(2185) %571)
-          to label %573 unwind label %.loopexit257
+          to label %573 unwind label %.loopexit256
 
 573:                                              ; preds = %566
   br i1 %572, label %574, label %575
 
 574:                                              ; preds = %573
   invoke void @_ZN5Ipopt14IpoptAlgorithm29ComputeFeasibilityMultipliersEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %575 unwind label %.loopexit257
+          to label %575 unwind label %.loopexit256
 
 575:                                              ; preds = %573, %574
   %576 = load ptr, ptr %8, align 8, !tbaa !47
@@ -6879,7 +6879,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 784
   %579 = load i8, ptr %578, align 8, !tbaa !92, !range !61, !noundef !62
   %580 = trunc nuw i8 %579 to i1
-  br i1 %580, label %581, label %_ZN5Ipopt9TimedTask5StartEv.exit198
+  br i1 %580, label %581, label %_ZN5Ipopt9TimedTask5StartEv.exit197
 
 581:                                              ; preds = %575
   %582 = getelementptr inbounds nuw i8, ptr %576, i64 786
@@ -6887,39 +6887,39 @@ _ZN5Ipopt9TimedTask5StartEv.exit190:              ; preds = %.noexc189, %523
   %583 = getelementptr inbounds nuw i8, ptr %576, i64 785
   store i8 1, ptr %583, align 1, !tbaa !95
   %584 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc195 unwind label %.loopexit257
+          to label %.noexc194 unwind label %.loopexit256
 
-.noexc195:                                        ; preds = %581
+.noexc194:                                        ; preds = %581
   store double %584, ptr %577, align 8, !tbaa !96
   %585 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc196 unwind label %.loopexit257
+          to label %.noexc195 unwind label %.loopexit256
 
-.noexc196:                                        ; preds = %.noexc195
+.noexc195:                                        ; preds = %.noexc194
   %586 = getelementptr inbounds nuw i8, ptr %576, i64 752
   store double %585, ptr %586, align 8, !tbaa !97
   %587 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc197 unwind label %.loopexit257
+          to label %.noexc196 unwind label %.loopexit256
 
-.noexc197:                                        ; preds = %.noexc196
+.noexc196:                                        ; preds = %.noexc195
   %588 = getelementptr inbounds nuw i8, ptr %576, i64 768
   store double %587, ptr %588, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit198
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit197
 
-_ZN5Ipopt9TimedTask5StartEv.exit198:              ; preds = %.noexc197, %575
+_ZN5Ipopt9TimedTask5StartEv.exit197:              ; preds = %.noexc196, %575
   %589 = load ptr, ptr %146, align 8, !tbaa !20
   %590 = load ptr, ptr %589, align 8, !tbaa !8
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 24
   %592 = load ptr, ptr %591, align 8
   %593 = invoke noundef i32 %592(ptr noundef nonnull align 8 dereferenceable(49) %589, i1 noundef zeroext true)
-          to label %594 unwind label %.loopexit257
+          to label %594 unwind label %.loopexit256
 
-594:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit198
+594:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit197
   %595 = load ptr, ptr %8, align 8, !tbaa !47
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 736
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 784
   %598 = load i8, ptr %597, align 8, !tbaa !92, !range !61, !noundef !62
   %599 = trunc nuw i8 %598 to i1
-  br i1 %599, label %600, label %_ZN5Ipopt9TimedTask3EndEv.exit202
+  br i1 %599, label %600, label %_ZN5Ipopt9TimedTask3EndEv.exit201
 
 600:                                              ; preds = %594
   %601 = getelementptr inbounds nuw i8, ptr %595, i64 786
@@ -6927,9 +6927,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit198:              ; preds = %.noexc197, %575
   %602 = getelementptr inbounds nuw i8, ptr %595, i64 785
   store i8 0, ptr %602, align 1, !tbaa !95
   %603 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc199 unwind label %.loopexit257
+          to label %.noexc198 unwind label %.loopexit256
 
-.noexc199:                                        ; preds = %600
+.noexc198:                                        ; preds = %600
   %604 = load double, ptr %596, align 8, !tbaa !96
   %605 = fsub double %603, %604
   %606 = getelementptr inbounds nuw i8, ptr %595, i64 744
@@ -6937,9 +6937,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit198:              ; preds = %.noexc197, %575
   %608 = fadd double %607, %605
   store double %608, ptr %606, align 8, !tbaa !103
   %609 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc200 unwind label %.loopexit257
+          to label %.noexc199 unwind label %.loopexit256
 
-.noexc200:                                        ; preds = %.noexc199
+.noexc199:                                        ; preds = %.noexc198
   %610 = getelementptr inbounds nuw i8, ptr %595, i64 752
   %611 = load double, ptr %610, align 8, !tbaa !97
   %612 = fsub double %609, %611
@@ -6948,9 +6948,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit198:              ; preds = %.noexc197, %575
   %615 = fadd double %614, %612
   store double %615, ptr %613, align 8, !tbaa !104
   %616 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc201 unwind label %.loopexit257
+          to label %.noexc200 unwind label %.loopexit256
 
-.noexc201:                                        ; preds = %.noexc200
+.noexc200:                                        ; preds = %.noexc199
   %617 = getelementptr inbounds nuw i8, ptr %595, i64 768
   %618 = load double, ptr %617, align 8, !tbaa !98
   %619 = fsub double %616, %618
@@ -6958,20 +6958,20 @@ _ZN5Ipopt9TimedTask5StartEv.exit198:              ; preds = %.noexc197, %575
   %621 = load double, ptr %620, align 8, !tbaa !105
   %622 = fadd double %621, %619
   store double %622, ptr %620, align 8, !tbaa !105
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit202
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit201
 
-_ZN5Ipopt9TimedTask3EndEv.exit202:                ; preds = %594, %.noexc201
+_ZN5Ipopt9TimedTask3EndEv.exit201:                ; preds = %594, %.noexc200
   %623 = icmp eq i32 %593, 0
   br i1 %623, label %188, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit202, %_ZN5Ipopt9TimedTask3EndEv.exit128
-  %.064.lcssa = phi i32 [ %151, %_ZN5Ipopt9TimedTask3EndEv.exit128 ], [ %593, %_ZN5Ipopt9TimedTask3EndEv.exit202 ]
+._crit_edge:                                      ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit201, %_ZN5Ipopt9TimedTask3EndEv.exit127
+  %.064.lcssa = phi i32 [ %151, %_ZN5Ipopt9TimedTask3EndEv.exit127 ], [ %593, %_ZN5Ipopt9TimedTask3EndEv.exit201 ]
   %624 = load ptr, ptr %8, align 8, !tbaa !47
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 456
   %626 = getelementptr inbounds nuw i8, ptr %624, i64 504
   %627 = load i8, ptr %626, align 8, !tbaa !92, !range !61, !noundef !62
   %628 = trunc nuw i8 %627 to i1
-  br i1 %628, label %629, label %_ZN5Ipopt9TimedTask5StartEv.exit206
+  br i1 %628, label %629, label %_ZN5Ipopt9TimedTask5StartEv.exit205
 
 629:                                              ; preds = %._crit_edge
   %630 = getelementptr inbounds nuw i8, ptr %624, i64 506
@@ -6979,25 +6979,25 @@ _ZN5Ipopt9TimedTask3EndEv.exit202:                ; preds = %594, %.noexc201
   %631 = getelementptr inbounds nuw i8, ptr %624, i64 505
   store i8 1, ptr %631, align 1, !tbaa !95
   %632 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc203 unwind label %.loopexit.split-lp
+          to label %.noexc202 unwind label %.loopexit.split-lp
 
-.noexc203:                                        ; preds = %629
+.noexc202:                                        ; preds = %629
   store double %632, ptr %625, align 8, !tbaa !96
   %633 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc204 unwind label %.loopexit.split-lp
+          to label %.noexc203 unwind label %.loopexit.split-lp
 
-.noexc204:                                        ; preds = %.noexc203
+.noexc203:                                        ; preds = %.noexc202
   %634 = getelementptr inbounds nuw i8, ptr %624, i64 472
   store double %633, ptr %634, align 8, !tbaa !97
   %635 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc205 unwind label %.loopexit.split-lp
+          to label %.noexc204 unwind label %.loopexit.split-lp
 
-.noexc205:                                        ; preds = %.noexc204
+.noexc204:                                        ; preds = %.noexc203
   %636 = getelementptr inbounds nuw i8, ptr %624, i64 488
   store double %635, ptr %636, align 8, !tbaa !98
-  br label %_ZN5Ipopt9TimedTask5StartEv.exit206
+  br label %_ZN5Ipopt9TimedTask5StartEv.exit205
 
-_ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_edge
+_ZN5Ipopt9TimedTask5StartEv.exit205:              ; preds = %.noexc204, %._crit_edge
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %638 = load ptr, ptr %637, align 8, !tbaa !26
   %639 = load ptr, ptr %638, align 8, !tbaa !8
@@ -7006,13 +7006,13 @@ _ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_
   invoke void %641(ptr noundef nonnull align 8 dereferenceable(49) %638)
           to label %642 unwind label %.loopexit.split-lp
 
-642:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit206
+642:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit205
   %643 = load ptr, ptr %8, align 8, !tbaa !47
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 456
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 504
   %646 = load i8, ptr %645, align 8, !tbaa !92, !range !61, !noundef !62
   %647 = trunc nuw i8 %646 to i1
-  br i1 %647, label %648, label %_ZN5Ipopt9TimedTask3EndEv.exit212
+  br i1 %647, label %648, label %_ZN5Ipopt9TimedTask3EndEv.exit211
 
 648:                                              ; preds = %642
   %649 = getelementptr inbounds nuw i8, ptr %643, i64 506
@@ -7020,9 +7020,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_
   %650 = getelementptr inbounds nuw i8, ptr %643, i64 505
   store i8 0, ptr %650, align 1, !tbaa !95
   %651 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
-          to label %.noexc209 unwind label %.loopexit.split-lp
+          to label %.noexc208 unwind label %.loopexit.split-lp
 
-.noexc209:                                        ; preds = %648
+.noexc208:                                        ; preds = %648
   %652 = load double, ptr %644, align 8, !tbaa !96
   %653 = fsub double %651, %652
   %654 = getelementptr inbounds nuw i8, ptr %643, i64 464
@@ -7030,9 +7030,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_
   %656 = fadd double %655, %653
   store double %656, ptr %654, align 8, !tbaa !103
   %657 = invoke noundef double @_ZN5Ipopt7SysTimeEv()
-          to label %.noexc210 unwind label %.loopexit.split-lp
+          to label %.noexc209 unwind label %.loopexit.split-lp
 
-.noexc210:                                        ; preds = %.noexc209
+.noexc209:                                        ; preds = %.noexc208
   %658 = getelementptr inbounds nuw i8, ptr %643, i64 472
   %659 = load double, ptr %658, align 8, !tbaa !97
   %660 = fsub double %657, %659
@@ -7041,9 +7041,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_
   %663 = fadd double %662, %660
   store double %663, ptr %661, align 8, !tbaa !104
   %664 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
-          to label %.noexc211 unwind label %.loopexit.split-lp
+          to label %.noexc210 unwind label %.loopexit.split-lp
 
-.noexc211:                                        ; preds = %.noexc210
+.noexc210:                                        ; preds = %.noexc209
   %665 = getelementptr inbounds nuw i8, ptr %643, i64 488
   %666 = load double, ptr %665, align 8, !tbaa !98
   %667 = fsub double %664, %666
@@ -7051,9 +7051,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit206:              ; preds = %.noexc205, %._crit_
   %669 = load double, ptr %668, align 8, !tbaa !105
   %670 = fadd double %669, %667
   store double %670, ptr %668, align 8, !tbaa !105
-  br label %_ZN5Ipopt9TimedTask3EndEv.exit212
+  br label %_ZN5Ipopt9TimedTask3EndEv.exit211
 
-_ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %642
+_ZN5Ipopt9TimedTask3EndEv.exit211:                ; preds = %.noexc210, %642
   switch i32 %.064.lcssa, label %676 [
     i32 1, label %.critedge
     i32 2, label %671
@@ -7064,26 +7064,26 @@ _ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %642
     i32 7, label %675
   ]
 
-671:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+671:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %.critedge
 
-672:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+672:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %677
 
-673:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+673:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %677
 
-674:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+674:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %.critedge
 
-675:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+675:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %.critedge
 
-676:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212
+676:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211
   br label %.critedge
 
-677:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212, %672, %673
-  %.061 = phi i32 [ 2, %672 ], [ 3, %673 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit212 ]
+677:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211, %672, %673
+  %.061 = phi i32 [ 2, %672 ], [ 3, %673 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit211 ]
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %679 = load ptr, ptr %678, align 8, !tbaa !14
   %680 = icmp eq ptr %679, null
@@ -7117,10 +7117,10 @@ _ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %642
   invoke void @_ZN5Ipopt22BacktrackingLineSearch12StopWatchDogEv(ptr noundef nonnull align 8 dereferenceable(264) %679)
           to label %.critedge unwind label %684
 
-687:                                              ; preds = %.loopexit257, %.loopexit.split-lp258, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173, %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174, %460, %130
-  %.pn74.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %685, %684 ], [ %.pn.pn243, %460 ], [ %443, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ]
-  %.1 = extractvalue { ptr, i32 } %.pn74.pn.pn, 0
-  %.141 = extractvalue { ptr, i32 } %.pn74.pn.pn, 1
+687:                                              ; preds = %.loopexit256, %.loopexit.split-lp257, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %460, %130
+  %.pn73.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %685, %684 ], [ %.pn.pn242, %460 ], [ %443, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit258, %.loopexit256 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp257 ]
+  %.1 = extractvalue { ptr, i32 } %.pn73.pn.pn, 0
+  %.141 = extractvalue { ptr, i32 } %.pn73.pn.pn, 1
   %688 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt18TINY_STEP_DETECTEDE) #20
   %689 = icmp eq i32 %.141, %688
   br i1 %689, label %690, label %739
@@ -7153,8 +7153,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %642
   invoke void @__cxa_end_catch()
           to label %.critedge unwind label %1093
 
-.critedge:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212, %675, %674, %671, %676, %1080, %1047, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239, %1018, %969, %944, %922, %900, %878, %856, %834, %785, %760, %708, %681, %686, %677
-  %.162 = phi i32 [ %.061, %677 ], [ %.061, %686 ], [ %.061, %681 ], [ 4, %708 ], [ 5, %760 ], [ 6, %785 ], [ 10, %834 ], [ 1, %856 ], [ 2, %878 ], [ 3, %900 ], [ 7, %922 ], [ 11, %944 ], [ 12, %969 ], [ 13, %1018 ], [ 16, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239 ], [ 8, %1047 ], [ %.263, %1080 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit212 ], [ 7, %675 ], [ 9, %674 ], [ 5, %671 ], [ 16, %676 ]
+.critedge:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit211, %675, %674, %671, %676, %1080, %1047, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit238, %1018, %969, %944, %922, %900, %878, %856, %834, %785, %760, %708, %681, %686, %677
+  %.162 = phi i32 [ %.061, %677 ], [ %.061, %686 ], [ %.061, %681 ], [ 4, %708 ], [ 5, %760 ], [ 6, %785 ], [ 10, %834 ], [ 1, %856 ], [ 2, %878 ], [ 3, %900 ], [ 7, %922 ], [ 11, %944 ], [ 12, %969 ], [ 13, %1018 ], [ 16, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit238 ], [ 8, %1047 ], [ %.263, %1080 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit211 ], [ 7, %675 ], [ 9, %674 ], [ 5, %671 ], [ 16, %676 ]
   %709 = load ptr, ptr %3, align 8, !tbaa !123
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 48
   %711 = load i8, ptr %710, align 8, !tbaa !92, !range !61, !noundef !62
@@ -7658,9 +7658,9 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.critedge, %.noexc2
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 16
   %1036 = load ptr, ptr %1035, align 8
   invoke void (ptr, i32, i32, ptr, ...) %1036(ptr noundef nonnull align 8 dereferenceable(40) %1025, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @.str.115, ptr noundef %1027, ptr noundef %1029, i32 noundef %1031, ptr noundef %1033)
-          to label %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239 unwind label %1037
+          to label %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit238 unwind label %1037
 
-_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239: ; preds = %1022
+_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit238: ; preds = %1022
   invoke void @__cxa_end_catch()
           to label %.critedge unwind label %1039
 
@@ -7670,7 +7670,7 @@ _ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevel
   invoke void @__cxa_end_catch()
           to label %1095 unwind label %1096
 
-1039:                                             ; preds = %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239
+1039:                                             ; preds = %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit238
   %1040 = landingpad { ptr, i32 }
           cleanup
   br label %1095
@@ -7828,7 +7828,7 @@ _ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevel
   br label %1095
 
 1095:                                             ; preds = %1019, %1037, %1039, %1041, %1043, %1045, %1048, %1050, %1052, %1054, %1056, %1058, %1060, %1062, %1064, %1066, %1068, %1070, %1072, %1074, %1076, %1078, %1081, %1083, %1085, %1087, %1089, %1091, %1093, %31
-  %.merged = phi { ptr, i32 } [ %32, %31 ], [ %.pn74.pn.pn, %1019 ], [ %1040, %1039 ], [ %1038, %1037 ], [ %1044, %1043 ], [ %1042, %1041 ], [ %1049, %1048 ], [ %1046, %1045 ], [ %1053, %1052 ], [ %1051, %1050 ], [ %1057, %1056 ], [ %1055, %1054 ], [ %1061, %1060 ], [ %1059, %1058 ], [ %1065, %1064 ], [ %1063, %1062 ], [ %1069, %1068 ], [ %1067, %1066 ], [ %1073, %1072 ], [ %1071, %1070 ], [ %1077, %1076 ], [ %1075, %1074 ], [ %1082, %1081 ], [ %1079, %1078 ], [ %1086, %1085 ], [ %1084, %1083 ], [ %1090, %1089 ], [ %1088, %1087 ], [ %1094, %1093 ], [ %1092, %1091 ]
+  %.merged = phi { ptr, i32 } [ %32, %31 ], [ %.pn73.pn.pn, %1019 ], [ %1040, %1039 ], [ %1038, %1037 ], [ %1044, %1043 ], [ %1042, %1041 ], [ %1049, %1048 ], [ %1046, %1045 ], [ %1053, %1052 ], [ %1051, %1050 ], [ %1057, %1056 ], [ %1055, %1054 ], [ %1061, %1060 ], [ %1059, %1058 ], [ %1065, %1064 ], [ %1063, %1062 ], [ %1069, %1068 ], [ %1067, %1066 ], [ %1073, %1072 ], [ %1071, %1070 ], [ %1077, %1076 ], [ %1075, %1074 ], [ %1082, %1081 ], [ %1079, %1078 ], [ %1086, %1085 ], [ %1084, %1083 ], [ %1090, %1089 ], [ %1088, %1087 ], [ %1094, %1093 ], [ %1092, %1091 ]
   call void @_ZN5Ipopt8EndTasksD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.merged

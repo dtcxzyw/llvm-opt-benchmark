@@ -12962,12 +12962,12 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7GfVec3fEEERKT_v.exit20.i
   %104 = fptrunc double %103 to float
   %.sroa.0.0.copyload.i.i16.i.i.i = load <2 x float>, ptr %.0.i13.i, align 4
   %.sroa.6.0..sroa_idx.i.i17.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i13.i, i64 8
-  %.sroa.6.0.copyload.i.i18.i7.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i17.i.i.i, align 4
+  %.sroa.6.0.copyload.i.i18.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i17.i.i.i, align 4
   %.sroa.0.0.vec.extract.i.i19.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i16.i.i.i, i64 0
   %105 = fmul float %0, %.sroa.0.0.vec.extract.i.i19.i.i.i
   %.sroa.0.4.vec.extract.i.i21.i.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i16.i.i.i, i64 1
   %106 = fmul float %0, %.sroa.0.4.vec.extract.i.i21.i.i.i
-  %107 = fmul float %0, %.sroa.6.0.copyload.i.i18.i7.i.i
+  %107 = fmul float %0, %.sroa.6.0.copyload.i.i18.i.i.i
   %108 = fadd float %105, %98
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %108, i64 0
   %109 = fadd float %106, %101
@@ -13202,12 +13202,12 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_7VtArrayINS_7GfVec3fEEEEE
   %.sroa.6.0.copyload.i.i.i.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i, align 4
   %.sroa.0.0.copyload.i.i16.i.i.i.i = load <2 x float>, ptr %201, align 4
   %.sroa.6.0..sroa_idx.i.i17.i.i.i.i = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %.sroa.6.0.copyload.i.i18.i7.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i17.i.i.i.i, align 4
+  %.sroa.6.0.copyload.i.i18.i.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i17.i.i.i.i, align 4
   %203 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef %.0.i24.i)
           to label %204 unwind label %221
 
 204:                                              ; preds = %202
-  %205 = fmul float %0, %.sroa.6.0.copyload.i.i18.i7.i.i.i
+  %205 = fmul float %0, %.sroa.6.0.copyload.i.i18.i.i.i.i
   %206 = fpext float %.sroa.6.0.copyload.i.i.i.i.i.i to double
   %207 = fmul double %193, %206
   %208 = fptrunc double %207 to float

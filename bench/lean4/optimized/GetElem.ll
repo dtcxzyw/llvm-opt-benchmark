@@ -4766,8 +4766,8 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_GetElem(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -6585,8 +6585,8 @@ _init_l_LawfulGetElem_getElem_x3f__def___autoParam___closed__77.exit: ; preds = 
   tail call void @lean_mark_persistent(ptr noundef %766) #5
   %767 = load ptr, ptr @l___aux__Init__GetElem______macroRules__term_____x5b___x5d___x21__1___closed__1, align 8, !tbaa !4
   %768 = getelementptr i8, ptr %767, i64 8
-  %.val.i5 = load i64, ptr %768, align 8, !tbaa !15
-  %769 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %768, align 8, !tbaa !15
+  %769 = shl i64 %.val.i4, 1
   %770 = add i64 %769, -1
   %771 = inttoptr i64 %770 to ptr
   store ptr %771, ptr @l_LawfulGetElem_getElem_x21__def___autoParam___closed__1, align 8, !tbaa !4
@@ -6768,8 +6768,8 @@ _init_l_LawfulGetElem_getElem_x21__def___autoParam___closed__12.exit: ; preds = 
   tail call void @lean_mark_persistent(ptr noundef %845) #5
   %846 = load ptr, ptr @l_LawfulGetElem_getElem_x21__def___autoParam___closed__15, align 8, !tbaa !4
   %847 = getelementptr i8, ptr %846, i64 8
-  %.val.i6 = load i64, ptr %847, align 8, !tbaa !15
-  %848 = shl i64 %.val.i6, 1
+  %.val.i5 = load i64, ptr %847, align 8, !tbaa !15
+  %848 = shl i64 %.val.i5, 1
   %849 = add i64 %848, -1
   %850 = inttoptr i64 %849 to ptr
   store ptr %850, ptr @l_LawfulGetElem_getElem_x21__def___autoParam___closed__16, align 8, !tbaa !4
@@ -7356,18 +7356,18 @@ _init_l_Array_instGetElem_x3fNatLtSize___closed__3.exit: ; preds = %_init_l_Arra
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Array_instGetElem_x3fNatLtSize___closed__3.exit, %3
-  %.sink97 = phi ptr [ %4, %3 ], [ %1090, %_init_l_Array_instGetElem_x3fNatLtSize___closed__3.exit ]
-  %1093 = getelementptr inbounds nuw i8, ptr %.sink97, i64 4
-  store i32 1, ptr %.sink97, align 4, !tbaa !8
+  %.sink96 = phi ptr [ %4, %3 ], [ %1090, %_init_l_Array_instGetElem_x3fNatLtSize___closed__3.exit ]
+  %1093 = getelementptr inbounds nuw i8, ptr %.sink96, i64 4
+  store i32 1, ptr %.sink96, align 4, !tbaa !8
   store i32 131096, ptr %1093, align 4
-  %1094 = getelementptr inbounds nuw i8, ptr %.sink97, i64 8
+  %1094 = getelementptr inbounds nuw i8, ptr %.sink96, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1094, align 8, !tbaa !4
-  %1095 = getelementptr inbounds nuw i8, ptr %.sink97, i64 16
+  %1095 = getelementptr inbounds nuw i8, ptr %.sink96, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1095, align 8, !tbaa !4
   br label %1096
 
 1096:                                             ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink97, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink96, %.sink.split ]
   ret ptr %.0
 }
 

@@ -105358,8 +105358,8 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Widget_UserWidget(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b40 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b40, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -105398,25 +105398,25 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
   store i32 %18, ptr %11, align 4, !tbaa !8
-  br label %lean_dec_ref.exit56
+  br label %lean_dec_ref.exit55
 
 19:                                               ; preds = %14
-  %.not.i55 = icmp eq i32 %15, 0
-  br i1 %.not.i55, label %lean_dec_ref.exit56, label %20
+  %.not.i54 = icmp eq i32 %15, 0
+  br i1 %.not.i54, label %lean_dec_ref.exit55, label %20
 
 20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %11) #6
-  br label %lean_dec_ref.exit56
+  br label %lean_dec_ref.exit55
 
-lean_dec_ref.exit56:                              ; preds = %17, %19, %20
+lean_dec_ref.exit55:                              ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Lean_Server_Rpc_RequestHandling(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val57 = load i32, ptr %22, align 4
-  %.mask.i69 = and i32 %.val57, -16777216
-  %23 = icmp eq i32 %.mask.i69, 16777216
+  %.val56 = load i32, ptr %22, align 4
+  %.mask.i68 = and i32 %.val56, -16777216
+  %23 = icmp eq i32 %.mask.i68, 16777216
   br i1 %23, label %967, label %24
 
-24:                                               ; preds = %lean_dec_ref.exit56
+24:                                               ; preds = %lean_dec_ref.exit55
   %25 = load i32, ptr %21, align 4, !tbaa !8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %27, label %29, !prof !11
@@ -105424,25 +105424,25 @@ lean_dec_ref.exit56:                              ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !8
-  br label %lean_dec_ref.exit54
+  br label %lean_dec_ref.exit53
 
 29:                                               ; preds = %24
-  %.not.i53 = icmp eq i32 %25, 0
-  br i1 %.not.i53, label %lean_dec_ref.exit54, label %30
+  %.not.i52 = icmp eq i32 %25, 0
+  br i1 %.not.i52, label %lean_dec_ref.exit53, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #6
-  br label %lean_dec_ref.exit54
+  br label %lean_dec_ref.exit53
 
-lean_dec_ref.exit54:                              ; preds = %27, %29, %30
+lean_dec_ref.exit53:                              ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Lean_Widget_Types(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val58 = load i32, ptr %32, align 4
-  %.mask.i70 = and i32 %.val58, -16777216
-  %33 = icmp eq i32 %.mask.i70, 16777216
+  %.val57 = load i32, ptr %32, align 4
+  %.mask.i69 = and i32 %.val57, -16777216
+  %33 = icmp eq i32 %.mask.i69, 16777216
   br i1 %33, label %967, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit54
+34:                                               ; preds = %lean_dec_ref.exit53
   %35 = load i32, ptr %31, align 4, !tbaa !8
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !11
@@ -105450,17 +105450,17 @@ lean_dec_ref.exit54:                              ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !8
-  br label %lean_dec_ref.exit52
+  br label %lean_dec_ref.exit51
 
 39:                                               ; preds = %34
-  %.not.i51 = icmp eq i32 %35, 0
-  br i1 %.not.i51, label %lean_dec_ref.exit52, label %40
+  %.not.i50 = icmp eq i32 %35, 0
+  br i1 %.not.i50, label %lean_dec_ref.exit51, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #6
-  br label %lean_dec_ref.exit52
+  br label %lean_dec_ref.exit51
 
-lean_dec_ref.exit52:                              ; preds = %37, %39, %40
+lean_dec_ref.exit51:                              ; preds = %37, %39, %40
   %41 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #6
   store ptr %41, ptr @l___private_Lean_Widget_UserWidget_0__Lean_Widget_evalModuleUnsafe___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %41) #6
@@ -105490,11 +105490,11 @@ lean_dec_ref.exit52:                              ; preds = %37, %39, %40
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_init_l_Lean_Widget_instToModuleModule___closed__1.exit
 
-55:                                               ; preds = %lean_dec_ref.exit52
+55:                                               ; preds = %lean_dec_ref.exit51
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Widget_instToModuleModule___closed__1.exit: ; preds = %lean_dec_ref.exit52
+_init_l_Lean_Widget_instToModuleModule___closed__1.exit: ; preds = %lean_dec_ref.exit51
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 1, ptr %53, align 4, !tbaa !8
   store i32 -184549352, ptr %56, align 4
@@ -105510,21 +105510,21 @@ _init_l_Lean_Widget_instToModuleModule___closed__1.exit: ; preds = %lean_dec_ref
   store ptr %60, ptr @l_Lean_Widget_instToModuleModule, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %60) #6
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit50, label %61
+  br i1 %.not, label %lean_dec_ref.exit49, label %61
 
 61:                                               ; preds = %_init_l_Lean_Widget_instToModuleModule___closed__1.exit
   %62 = tail call ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_49_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %63 = getelementptr i8, ptr %62, i64 4
-  %.val59 = load i32, ptr %63, align 4
-  %.mask.i71 = and i32 %.val59, -16777216
-  %64 = icmp eq i32 %.mask.i71, 16777216
+  %.val58 = load i32, ptr %63, align 4
+  %.mask.i70 = and i32 %.val58, -16777216
+  %64 = icmp eq i32 %.mask.i70, 16777216
   br i1 %64, label %967, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr i8, ptr %62, i64 8
-  %.val65 = load ptr, ptr %66, align 8, !tbaa !4
-  store ptr %.val65, ptr @l___private_Lean_Widget_UserWidget_0__Lean_Widget_builtinModulesRef, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val65) #6
+  %.val64 = load ptr, ptr %66, align 8, !tbaa !4
+  store ptr %.val64, ptr @l___private_Lean_Widget_UserWidget_0__Lean_Widget_builtinModulesRef, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val64) #6
   %67 = load i32, ptr %62, align 8, !tbaa !8
   %68 = icmp sgt i32 %67, 1
   br i1 %68, label %69, label %71, !prof !11
@@ -105532,17 +105532,17 @@ _init_l_Lean_Widget_instToModuleModule___closed__1.exit: ; preds = %lean_dec_ref
 69:                                               ; preds = %65
   %70 = add nsw i32 %67, -1
   store i32 %70, ptr %62, align 4, !tbaa !8
-  br label %lean_dec_ref.exit50
+  br label %lean_dec_ref.exit49
 
 71:                                               ; preds = %65
-  %.not.i49 = icmp eq i32 %67, 0
-  br i1 %.not.i49, label %lean_dec_ref.exit50, label %72
+  %.not.i48 = icmp eq i32 %67, 0
+  br i1 %.not.i48, label %lean_dec_ref.exit49, label %72
 
 72:                                               ; preds = %71
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %62) #6
-  br label %lean_dec_ref.exit50
+  br label %lean_dec_ref.exit49
 
-lean_dec_ref.exit50:                              ; preds = %72, %71, %69, %_init_l_Lean_Widget_instToModuleModule___closed__1.exit
+lean_dec_ref.exit49:                              ; preds = %72, %71, %69, %_init_l_Lean_Widget_instToModuleModule___closed__1.exit
   %73 = load ptr, ptr @l___private_Lean_Widget_UserWidget_0__Lean_Widget_builtinModulesRef, align 8, !tbaa !4
   store ptr %73, ptr @l_Lean_Widget_addBuiltinModule___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %73) #6
@@ -105560,11 +105560,11 @@ lean_dec_ref.exit50:                              ; preds = %72, %71, %69, %_ini
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__3.exit
 
-81:                                               ; preds = %lean_dec_ref.exit50
+81:                                               ; preds = %lean_dec_ref.exit49
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__3.exit: ; preds = %lean_dec_ref.exit50
+_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__3.exit: ; preds = %lean_dec_ref.exit49
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 1, ptr %79, align 4, !tbaa !8
   store i32 -184549352, ptr %82, align 4
@@ -105649,22 +105649,22 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6.
   store ptr inttoptr (i64 1 to ptr), ptr %113, align 8, !tbaa !4
   store ptr %104, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %104) #6
-  br i1 %.not, label %lean_dec_ref.exit48, label %114
+  br i1 %.not, label %lean_dec_ref.exit47, label %114
 
 114:                                              ; preds = %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6.exit
   %115 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6, align 8, !tbaa !4
   %116 = tail call ptr @l_Lean_registerSimplePersistentEnvExtension___rarg(ptr noundef %115, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %117 = getelementptr i8, ptr %116, i64 4
-  %.val60 = load i32, ptr %117, align 4
-  %.mask.i72 = and i32 %.val60, -16777216
-  %118 = icmp eq i32 %.mask.i72, 16777216
+  %.val59 = load i32, ptr %117, align 4
+  %.mask.i71 = and i32 %.val59, -16777216
+  %118 = icmp eq i32 %.mask.i71, 16777216
   br i1 %118, label %967, label %119
 
 119:                                              ; preds = %114
   %120 = getelementptr i8, ptr %116, i64 8
-  %.val66 = load ptr, ptr %120, align 8, !tbaa !4
-  store ptr %.val66, ptr @l_Lean_Widget_moduleRegistry, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val66) #6
+  %.val65 = load ptr, ptr %120, align 8, !tbaa !4
+  store ptr %.val65, ptr @l_Lean_Widget_moduleRegistry, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val65) #6
   %121 = load i32, ptr %116, align 8, !tbaa !8
   %122 = icmp sgt i32 %121, 1
   br i1 %122, label %123, label %125, !prof !11
@@ -105672,17 +105672,17 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6.
 123:                                              ; preds = %119
   %124 = add nsw i32 %121, -1
   store i32 %124, ptr %116, align 4, !tbaa !8
-  br label %lean_dec_ref.exit48
+  br label %lean_dec_ref.exit47
 
 125:                                              ; preds = %119
-  %.not.i47 = icmp eq i32 %121, 0
-  br i1 %.not.i47, label %lean_dec_ref.exit48, label %126
+  %.not.i46 = icmp eq i32 %121, 0
+  br i1 %.not.i46, label %lean_dec_ref.exit47, label %126
 
 126:                                              ; preds = %125
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %116) #6
-  br label %lean_dec_ref.exit48
+  br label %lean_dec_ref.exit47
 
-lean_dec_ref.exit48:                              ; preds = %126, %125, %123, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6.exit
+lean_dec_ref.exit47:                              ; preds = %126, %125, %123, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____closed__6.exit
   %127 = load ptr, ptr @l_Lean_warningAsError, align 8, !tbaa !4
   store ptr %127, ptr @l_Lean_logWarning___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____spec__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %127) #6
@@ -105730,11 +105730,11 @@ lean_dec_ref.exit48:                              ; preds = %126, %125, %123, %_
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____lambda__4___closed__1.exit
 
-149:                                              ; preds = %lean_dec_ref.exit48
+149:                                              ; preds = %lean_dec_ref.exit47
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____lambda__4___closed__1.exit: ; preds = %lean_dec_ref.exit48
+_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____lambda__4___closed__1.exit: ; preds = %lean_dec_ref.exit47
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i64 257, ptr %151, align 8, !tbaa !12
@@ -106169,21 +106169,21 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14
   store ptr %323, ptr %331, align 8, !tbaa !4
   store ptr %324, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %324) #6
-  br i1 %.not, label %lean_dec_ref.exit46, label %332
+  br i1 %.not, label %lean_dec_ref.exit45, label %332
 
 332:                                              ; preds = %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14.exit
   %333 = tail call ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %334 = getelementptr i8, ptr %333, i64 4
-  %.val61 = load i32, ptr %334, align 4
-  %.mask.i73 = and i32 %.val61, -16777216
-  %335 = icmp eq i32 %.mask.i73, 16777216
+  %.val60 = load i32, ptr %334, align 4
+  %.mask.i72 = and i32 %.val60, -16777216
+  %335 = icmp eq i32 %.mask.i72, 16777216
   br i1 %335, label %967, label %336
 
 336:                                              ; preds = %332
   %337 = getelementptr i8, ptr %333, i64 8
-  %.val67 = load ptr, ptr %337, align 8, !tbaa !4
-  store ptr %.val67, ptr @l_Lean_Widget_widgetModuleAttrImpl, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val67) #6
+  %.val66 = load ptr, ptr %337, align 8, !tbaa !4
+  store ptr %.val66, ptr @l_Lean_Widget_widgetModuleAttrImpl, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val66) #6
   %338 = load i32, ptr %333, align 8, !tbaa !8
   %339 = icmp sgt i32 %338, 1
   br i1 %339, label %340, label %342, !prof !11
@@ -106191,17 +106191,17 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14
 340:                                              ; preds = %336
   %341 = add nsw i32 %338, -1
   store i32 %341, ptr %333, align 4, !tbaa !8
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
 342:                                              ; preds = %336
-  %.not.i45 = icmp eq i32 %338, 0
-  br i1 %.not.i45, label %lean_dec_ref.exit46, label %343
+  %.not.i44 = icmp eq i32 %338, 0
+  br i1 %.not.i44, label %lean_dec_ref.exit45, label %343
 
 343:                                              ; preds = %342
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %333) #6
-  br label %lean_dec_ref.exit46
+  br label %lean_dec_ref.exit45
 
-lean_dec_ref.exit46:                              ; preds = %343, %342, %340, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14.exit
+lean_dec_ref.exit45:                              ; preds = %343, %342, %340, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_200____closed__14.exit
   %344 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.20, i64 noundef 4, i64 noundef 4) #6
   store ptr %344, ptr @l___private_Lean_Widget_UserWidget_0__Lean_Widget_toJsonGetWidgetSourceParams____x40_Lean_Widget_UserWidget___hyg_780____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %344) #6
@@ -106213,11 +106213,11 @@ lean_dec_ref.exit46:                              ; preds = %343, %342, %340, %_
   %347 = icmp eq ptr %346, null
   br i1 %347, label %348, label %_init_l_Lean_Widget_instToJsonGetWidgetSourceParams___closed__1.exit
 
-348:                                              ; preds = %lean_dec_ref.exit46
+348:                                              ; preds = %lean_dec_ref.exit45
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Widget_instToJsonGetWidgetSourceParams___closed__1.exit: ; preds = %lean_dec_ref.exit46
+_init_l_Lean_Widget_instToJsonGetWidgetSourceParams___closed__1.exit: ; preds = %lean_dec_ref.exit45
   %349 = getelementptr inbounds nuw i8, ptr %346, i64 4
   store i32 1, ptr %346, align 4, !tbaa !8
   store i32 -184549352, ptr %349, align 4
@@ -106511,16 +106511,16 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3
   store i16 0, ptr %474, align 2, !tbaa !16
   store ptr %468, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %468) #6
-  br i1 %.not, label %lean_dec_ref.exit44, label %475
+  br i1 %.not, label %lean_dec_ref.exit43, label %475
 
 475:                                              ; preds = %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3.exit
   %476 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__2, align 8, !tbaa !4
   %477 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3, align 8, !tbaa !4
   %478 = tail call ptr @l_Lean_Server_registerBuiltinRpcProcedure___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____spec__1(ptr noundef %476, ptr noundef %477, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %479 = getelementptr i8, ptr %478, i64 4
-  %.val62 = load i32, ptr %479, align 4
-  %.mask.i74 = and i32 %.val62, -16777216
-  %480 = icmp eq i32 %.mask.i74, 16777216
+  %.val61 = load i32, ptr %479, align 4
+  %.mask.i73 = and i32 %.val61, -16777216
+  %480 = icmp eq i32 %.mask.i73, 16777216
   br i1 %480, label %967, label %481
 
 481:                                              ; preds = %475
@@ -106531,17 +106531,17 @@ _init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3
 484:                                              ; preds = %481
   %485 = add nsw i32 %482, -1
   store i32 %485, ptr %478, align 4, !tbaa !8
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
 486:                                              ; preds = %481
-  %.not.i43 = icmp eq i32 %482, 0
-  br i1 %.not.i43, label %lean_dec_ref.exit44, label %487
+  %.not.i42 = icmp eq i32 %482, 0
+  br i1 %.not.i42, label %lean_dec_ref.exit43, label %487
 
 487:                                              ; preds = %486
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %478) #6
-  br label %lean_dec_ref.exit44
+  br label %lean_dec_ref.exit43
 
-lean_dec_ref.exit44:                              ; preds = %487, %486, %484, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3.exit
+lean_dec_ref.exit43:                              ; preds = %487, %486, %484, %_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1327____closed__3.exit
   %488 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.33, i64 noundef 15, i64 noundef 15) #6
   store ptr %488, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1386____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %488) #6
@@ -106557,22 +106557,22 @@ lean_dec_ref.exit44:                              ; preds = %487, %486, %484, %_
   %494 = tail call fastcc ptr @_init_l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1386____closed__4()
   store ptr %494, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1386____closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %494) #6
-  br i1 %.not, label %lean_dec_ref.exit42, label %495
+  br i1 %.not, label %lean_dec_ref.exit41, label %495
 
-495:                                              ; preds = %lean_dec_ref.exit44
+495:                                              ; preds = %lean_dec_ref.exit43
   %496 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_1386____closed__4, align 8, !tbaa !4
   %497 = tail call ptr @l_Lean_registerSimpleScopedEnvExtension___rarg(ptr noundef %496, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %498 = getelementptr i8, ptr %497, i64 4
-  %.val63 = load i32, ptr %498, align 4
-  %.mask.i75 = and i32 %.val63, -16777216
-  %499 = icmp eq i32 %.mask.i75, 16777216
+  %.val62 = load i32, ptr %498, align 4
+  %.mask.i74 = and i32 %.val62, -16777216
+  %499 = icmp eq i32 %.mask.i74, 16777216
   br i1 %499, label %967, label %500
 
 500:                                              ; preds = %495
   %501 = getelementptr i8, ptr %497, i64 8
-  %.val68 = load ptr, ptr %501, align 8, !tbaa !4
-  store ptr %.val68, ptr @l_Lean_Widget_panelWidgetsExt, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val68) #6
+  %.val67 = load ptr, ptr %501, align 8, !tbaa !4
+  store ptr %.val67, ptr @l_Lean_Widget_panelWidgetsExt, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val67) #6
   %502 = load i32, ptr %497, align 8, !tbaa !8
   %503 = icmp sgt i32 %502, 1
   br i1 %503, label %504, label %506, !prof !11
@@ -106580,17 +106580,17 @@ lean_dec_ref.exit44:                              ; preds = %487, %486, %484, %_
 504:                                              ; preds = %500
   %505 = add nsw i32 %502, -1
   store i32 %505, ptr %497, align 4, !tbaa !8
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
 506:                                              ; preds = %500
-  %.not.i41 = icmp eq i32 %502, 0
-  br i1 %.not.i41, label %lean_dec_ref.exit42, label %507
+  %.not.i40 = icmp eq i32 %502, 0
+  br i1 %.not.i40, label %lean_dec_ref.exit41, label %507
 
 507:                                              ; preds = %506
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %497) #6
-  br label %lean_dec_ref.exit42
+  br label %lean_dec_ref.exit41
 
-lean_dec_ref.exit42:                              ; preds = %507, %506, %504, %lean_dec_ref.exit44
+lean_dec_ref.exit41:                              ; preds = %507, %506, %504, %lean_dec_ref.exit43
   %508 = load ptr, ptr @l_Lean_Widget_panelWidgetsExt, align 8, !tbaa !4
   store ptr %508, ptr @l_Lean_Widget_evalPanelWidgets___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %508) #6
@@ -107533,14 +107533,14 @@ lean_dec_ref.exit42:                              ; preds = %507, %506, %504, %l
   tail call void @lean_mark_persistent(ptr noundef nonnull %952) #6
   br i1 %.not, label %lean_dec_ref.exit, label %953
 
-953:                                              ; preds = %lean_dec_ref.exit42
+953:                                              ; preds = %lean_dec_ref.exit41
   %954 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_5397____closed__2, align 8, !tbaa !4
   %955 = load ptr, ptr @l_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_5397____closed__3, align 8, !tbaa !4
   %956 = tail call ptr @l_Lean_Server_registerBuiltinRpcProcedure___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_5397____spec__1(ptr noundef %954, ptr noundef %955, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %957 = getelementptr i8, ptr %956, i64 4
-  %.val64 = load i32, ptr %957, align 4
-  %.mask.i76 = and i32 %.val64, -16777216
-  %958 = icmp eq i32 %.mask.i76, 16777216
+  %.val63 = load i32, ptr %957, align 4
+  %.mask.i75 = and i32 %.val63, -16777216
+  %958 = icmp eq i32 %.mask.i75, 16777216
   br i1 %958, label %967, label %959
 
 959:                                              ; preds = %953
@@ -107561,12 +107561,12 @@ lean_dec_ref.exit42:                              ; preds = %507, %506, %504, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %956) #6
   br label %lean_dec_ref.exit
 
-lean_dec_ref.exit:                                ; preds = %965, %964, %962, %lean_dec_ref.exit42
+lean_dec_ref.exit:                                ; preds = %965, %964, %962, %lean_dec_ref.exit41
   %966 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %967
 
-967:                                              ; preds = %953, %495, %475, %332, %114, %61, %lean_dec_ref.exit54, %lean_dec_ref.exit56, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %966, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit56 ], [ %31, %lean_dec_ref.exit54 ], [ %62, %61 ], [ %116, %114 ], [ %333, %332 ], [ %478, %475 ], [ %497, %495 ], [ %956, %953 ]
+967:                                              ; preds = %953, %495, %475, %332, %114, %61, %lean_dec_ref.exit53, %lean_dec_ref.exit55, %10, %lean_dec_ref.exit, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %966, %lean_dec_ref.exit ], [ %11, %10 ], [ %21, %lean_dec_ref.exit55 ], [ %31, %lean_dec_ref.exit53 ], [ %62, %61 ], [ %116, %114 ], [ %333, %332 ], [ %478, %475 ], [ %497, %495 ], [ %956, %953 ]
   ret ptr %.0
 }
 

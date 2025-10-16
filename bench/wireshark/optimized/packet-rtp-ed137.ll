@@ -1294,8 +1294,8 @@ proto_item_set_generated.exit:                    ; preds = %4, %10, %13
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rtp_ed137() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_rtp_ed137.prefs_initialized, align 1
-  br i1 %.b1, label %4, label %1
+  %.b = load i1, ptr @proto_reg_handoff_rtp_ed137.prefs_initialized, align 1
+  br i1 %.b, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @rtp_hdr_ext_ed137_handle, align 8

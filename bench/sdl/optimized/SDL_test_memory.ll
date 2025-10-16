@@ -138,17 +138,17 @@ define internal ptr @SDLTest_TrackedMalloc(i64 noundef %0) #0 {
 
 4:                                                ; preds = %1
   tail call fastcc void @SDL_TrackAllocation(ptr noundef %3, i64 noundef %0)
-  %.b6.i = load i1, ptr @s_randfill_allocations, align 1
+  %.b.i = load i1, ptr @s_randfill_allocations, align 1
   %5 = icmp ne i64 %0, 0
-  %or.cond.i = and i1 %5, %.b6.i
+  %or.cond.i = and i1 %5, %.b.i
   br i1 %or.cond.i, label %.lr.ph.i, label %rand_fill_memory.exit
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %4 ]
+  %.06.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %4 ]
   %6 = tail call zeroext i8 @SDLTest_RandomUint8() #4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.07.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.06.i
   store i8 %6, ptr %7, align 1
-  %8 = add nuw i64 %.07.i, 1
+  %8 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %8, %0
   br i1 %exitcond.not.i, label %rand_fill_memory.exit, label %.lr.ph.i, !llvm.loop !4
 
@@ -249,15 +249,15 @@ SDL_GetTrackedAllocationSize.exit:                ; preds = %20, %SDL_GetTracked
   br i1 %29, label %30, label %rand_fill_memory.exit
 
 30:                                               ; preds = %28
-  %.b6.i = load i1, ptr @s_randfill_allocations, align 1
-  br i1 %.b6.i, label %.lr.ph.i, label %rand_fill_memory.exit
+  %.b.i = load i1, ptr @s_randfill_allocations, align 1
+  br i1 %.b.i, label %.lr.ph.i, label %rand_fill_memory.exit
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
-  %.07.i = phi i64 [ %33, %.lr.ph.i ], [ %.019, %30 ]
+  %.06.i = phi i64 [ %33, %.lr.ph.i ], [ %.019, %30 ]
   %31 = call zeroext i8 @SDLTest_RandomUint8() #4
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 %.07.i
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 %.06.i
   store i8 %31, ptr %32, align 1
-  %33 = add i64 %.07.i, 1
+  %33 = add i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %33, %1
   br i1 %exitcond.not.i, label %rand_fill_memory.exit, label %.lr.ph.i, !llvm.loop !4
 

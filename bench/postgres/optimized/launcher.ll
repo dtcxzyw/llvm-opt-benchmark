@@ -1529,8 +1529,8 @@ declare zeroext i1 @dshash_delete_key(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOXact_ApplyLauncher(i1 noundef zeroext %0) local_unnamed_addr #1 {
-  %.b2 = load i1, ptr @on_commit_launcher_wakeup, align 1
-  %or.cond = select i1 %0, i1 %.b2, i1 false
+  %.b = load i1, ptr @on_commit_launcher_wakeup, align 1
+  %or.cond = select i1 %0, i1 %.b, i1 false
   br i1 %or.cond, label %2, label %ApplyLauncherWakeup.exit
 
 2:                                                ; preds = %1
@@ -1550,8 +1550,8 @@ ApplyLauncherWakeup.exit:                         ; preds = %5, %2, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @ApplyLauncherWakeupAtCommit() local_unnamed_addr #5 {
-  %.b1 = load i1, ptr @on_commit_launcher_wakeup, align 1
-  br i1 %.b1, label %2, label %1
+  %.b = load i1, ptr @on_commit_launcher_wakeup, align 1
+  br i1 %.b, label %2, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @on_commit_launcher_wakeup, align 1

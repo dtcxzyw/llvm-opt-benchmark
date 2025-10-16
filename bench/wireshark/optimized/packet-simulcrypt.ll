@@ -550,8 +550,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_simulcrypt() #0 {
-  %.b5 = load i1, ptr @proto_reg_handoff_simulcrypt.initialized, align 1
-  br i1 %.b5, label %4, label %.preheader
+  %.b = load i1, ptr @proto_reg_handoff_simulcrypt.initialized, align 1
+  br i1 %.b, label %4, label %.preheader
 
 .preheader:                                       ; preds = %0
   %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.371)

@@ -143,8 +143,8 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.b21 = load i1, ptr @util_initialized, align 1
-  br i1 %.b21, label %42, label %4
+  %.b = load i1, ptr @util_initialized, align 1
+  br i1 %.b, label %42, label %4
 
 4:                                                ; preds = %3
   store i1 true, ptr @util_initialized, align 1
@@ -163,8 +163,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 
 11:                                               ; preds = %6
   %12 = tail call i32 @pmix_pinstall_dirs_base_init(ptr noundef %0, i64 noundef %1) #17
-  %.not22 = icmp eq i32 %12, 0
-  br i1 %.not22, label %16, label %13
+  %.not21 = icmp eq i32 %12, 0
+  br i1 %.not21, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -174,8 +174,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 16:                                               ; preds = %11
   %17 = tail call i32 @pmix_show_help_init(ptr noundef null) #17
   %18 = tail call i32 @pmix_util_keyval_parse_init() #17
-  %.not23 = icmp eq i32 %18, 0
-  br i1 %.not23, label %22, label %19
+  %.not22 = icmp eq i32 %18, 0
+  br i1 %.not22, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -184,8 +184,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 
 22:                                               ; preds = %16
   %23 = tail call i32 @pmix_mca_base_var_init() #17
-  %.not24 = icmp eq i32 %23, 0
-  br i1 %.not24, label %27, label %24
+  %.not23 = icmp eq i32 %23, 0
+  br i1 %.not23, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -194,8 +194,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 
 27:                                               ; preds = %22
   %28 = tail call i32 @pmix_mca_base_open(ptr noundef %2) #17
-  %.not25 = icmp eq i32 %28, 0
-  br i1 %.not25, label %32, label %29
+  %.not24 = icmp eq i32 %28, 0
+  br i1 %.not24, label %32, label %29
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -204,8 +204,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 
 32:                                               ; preds = %27
   %33 = tail call i32 @pmix_net_init() #17
-  %.not26 = icmp eq i32 %33, 0
-  br i1 %.not26, label %37, label %34
+  %.not25 = icmp eq i32 %33, 0
+  br i1 %.not25, label %37, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -214,8 +214,8 @@ define i32 @pmix_init_util(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
 
 37:                                               ; preds = %32
   %38 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @pmix_pif_base_framework, i32 noundef 0) #17
-  %.not27 = icmp eq i32 %38, 0
-  br i1 %.not27, label %42, label %39
+  %.not26 = icmp eq i32 %38, 0
+  br i1 %.not26, label %42, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr @stderr, align 8, !tbaa !9

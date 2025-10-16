@@ -842,8 +842,8 @@ define dso_local void @InitializeSessionUserIdStandalone() local_unnamed_addr #0
   store i32 10, ptr @AuthenticatedUserId, align 4
   store i32 10, ptr @SessionUserId, align 4
   store i8 1, ptr @SessionUserIsSuperuser, align 1
-  %.b4.i = load i1, ptr @SetRoleIsActive, align 1
-  br i1 %.b4.i, label %SetSessionAuthorization.exit.thread, label %SetSessionAuthorization.exit
+  %.b.i = load i1, ptr @SetRoleIsActive, align 1
+  br i1 %.b.i, label %SetSessionAuthorization.exit.thread, label %SetSessionAuthorization.exit
 
 SetSessionAuthorization.exit.thread:              ; preds = %0
   store i1 false, ptr @SetRoleIsActive, align 1
@@ -881,8 +881,8 @@ define dso_local void @SetSessionAuthorization(i32 noundef %0, i1 noundef zeroex
   %3 = zext i1 %1 to i8
   store i32 %0, ptr @SessionUserId, align 4
   store i8 %3, ptr @SessionUserIsSuperuser, align 1
-  %.b4 = load i1, ptr @SetRoleIsActive, align 1
-  br i1 %.b4, label %6, label %4
+  %.b = load i1, ptr @SetRoleIsActive, align 1
+  br i1 %.b, label %6, label %4
 
 4:                                                ; preds = %2
   store i32 %0, ptr @OuterUserId, align 4
@@ -967,9 +967,9 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @GetCurrentRoleId() local_unnamed_addr #8 {
-  %.b1 = load i1, ptr @SetRoleIsActive, align 1
+  %.b = load i1, ptr @SetRoleIsActive, align 1
   %1 = load i32, ptr @OuterUserId, align 4
-  %.0 = select i1 %.b1, i32 %1, i32 0
+  %.0 = select i1 %.b, i32 %1, i32 0
   ret i32 %.0
 }
 

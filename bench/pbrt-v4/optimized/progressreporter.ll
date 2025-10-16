@@ -569,8 +569,8 @@ define dso_local void @_ZN4pbrt16ProgressReporter8printBarEv(ptr noundef nonnull
   %7 = tail call ptr @__errno_location() #27
   %8 = load i32, ptr %7, align 4, !tbaa !48
   %9 = icmp eq i32 %8, 25
-  %.b2.i = load i1, ptr @_ZZN4pbrtL13TerminalWidthEvE6warned, align 1
-  %or.cond.i = select i1 %9, i1 true, i1 %.b2.i
+  %.b.i = load i1, ptr @_ZZN4pbrtL13TerminalWidthEvE6warned, align 1
+  %or.cond.i = select i1 %9, i1 true, i1 %.b.i
   br i1 %or.cond.i, label %_ZN4pbrtL13TerminalWidthEv.exit, label %10
 
 10:                                               ; preds = %6

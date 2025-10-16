@@ -93,14 +93,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @SDL_JoysticksInitialized() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_joysticks_initialized, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @SDL_joysticks_initialized, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @SDL_JoysticksQuitting() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_joysticks_quitting, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @SDL_joysticks_quitting, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -124,9 +124,9 @@ define hidden void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #1 {
   %1 = load i32, ptr @SDL_joysticks_locked, align 4
   %2 = add nsw i32 %1, -1
   store i32 %2, ptr @SDL_joysticks_locked, align 4
-  %.b4 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b = load i1, ptr @SDL_joysticks_initialized, align 1
   %3 = icmp ne i32 %2, 0
-  %or.cond = select i1 %.b4, i1 true, i1 %3
+  %or.cond = select i1 %.b, i1 true, i1 %3
   br i1 %or.cond, label %.critedge, label %4
 
 4:                                                ; preds = %0
@@ -225,9 +225,9 @@ define hidden noundef zeroext i1 @SDL_InitJoysticks() local_unnamed_addr #1 {
   %21 = load i32, ptr @SDL_joysticks_locked, align 4
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %23 = icmp ne i32 %22, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %23
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %23
   br i1 %or.cond.i, label %.critedge.i, label %24
 
 24:                                               ; preds = %20
@@ -830,9 +830,9 @@ define hidden zeroext i1 @SDL_JoysticksOpened() local_unnamed_addr #1 {
   %3 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_joystick_lock_pending, i32 noundef -1) #13
   %4 = load i32, ptr @SDL_joysticks_locked, align 4
   %5 = load ptr, ptr @SDL_joysticks, align 8
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %6 = icmp ne i32 %4, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %6
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %6
   br i1 %or.cond.i, label %.critedge.i, label %7
 
 7:                                                ; preds = %0
@@ -894,9 +894,9 @@ define hidden noundef zeroext i1 @SDL_JoystickHandledByAnotherDriver(ptr noundef
   %21 = load i32, ptr @SDL_joysticks_locked, align 4
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %23 = icmp ne i32 %22, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %23
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %23
   br i1 %or.cond.i, label %.critedge.i, label %24
 
 24:                                               ; preds = %20
@@ -951,9 +951,9 @@ define hidden zeroext i1 @SDL_HasJoystick_REAL() local_unnamed_addr #1 {
   %14 = load i32, ptr @SDL_joysticks_locked, align 4
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %16 = icmp ne i32 %15, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %16
   br i1 %or.cond.i, label %.critedge.i, label %17
 
 17:                                               ; preds = %13
@@ -1079,9 +1079,9 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
   %42 = load i32, ptr @SDL_joysticks_locked, align 4
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %44 = icmp ne i32 %43, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %44
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %44
   br i1 %or.cond.i, label %.critedge.i, label %45
 
 45:                                               ; preds = %41
@@ -1286,9 +1286,9 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %SDL
   %47 = load i32, ptr @SDL_joysticks_locked, align 4
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %49 = icmp ne i32 %48, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %49
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %49
   br i1 %or.cond.i, label %.critedge.i5, label %50
 
 50:                                               ; preds = %46
@@ -1376,9 +1376,9 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %1
   %25 = load i32, ptr @SDL_joysticks_locked, align 4
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %27 = icmp ne i32 %26, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %27
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %27
   br i1 %or.cond.i, label %.critedge.i2, label %28
 
 28:                                               ; preds = %24
@@ -1449,9 +1449,9 @@ define hidden i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef %0) local_un
 
 SDL_GetPlayerIndexForJoystickID.exit:             ; preds = %13, %1, %._crit_edge.loopexit.split.loop.exit.i
   %.0.lcssa.i = phi i32 [ 0, %1 ], [ %14, %._crit_edge.loopexit.split.loop.exit.i ], [ %6, %13 ]
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %5, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %SDL_GetPlayerIndexForJoystickID.exit
@@ -1534,9 +1534,9 @@ SDL_GetDriverAndJoystickIndex.exit.preheader:     ; preds = %15
   %20 = load i32, ptr @SDL_joysticks_locked, align 4
   %21 = add nsw i32 %20, -1
   store i32 %21, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %22 = icmp ne i32 %21, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %22
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %22
   br i1 %or.cond.i, label %.critedge.i85, label %23
 
 23:                                               ; preds = %.loopexit
@@ -1573,9 +1573,9 @@ SDL_GetDriverAndJoystickIndex.exit.preheader:     ; preds = %15
   %36 = load i32, ptr @SDL_joysticks_locked, align 4
   %37 = add nsw i32 %36, -1
   store i32 %37, ptr @SDL_joysticks_locked, align 4
-  %.b4.i86 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i86 = load i1, ptr @SDL_joysticks_initialized, align 1
   %38 = icmp ne i32 %37, 0
-  %or.cond.i87 = select i1 %.b4.i86, i1 true, i1 %38
+  %or.cond.i87 = select i1 %.b.i86, i1 true, i1 %38
   br i1 %or.cond.i87, label %.critedge.i88, label %39
 
 39:                                               ; preds = %32
@@ -1613,9 +1613,9 @@ SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoy
   %49 = load i32, ptr @SDL_joysticks_locked, align 4
   %50 = add nsw i32 %49, -1
   store i32 %50, ptr @SDL_joysticks_locked, align 4
-  %.b4.i90 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i90 = load i1, ptr @SDL_joysticks_initialized, align 1
   %51 = icmp ne i32 %50, 0
-  %or.cond.i91 = select i1 %.b4.i90, i1 true, i1 %51
+  %or.cond.i91 = select i1 %.b.i90, i1 true, i1 %51
   br i1 %or.cond.i91, label %.critedge.i92, label %52
 
 52:                                               ; preds = %48
@@ -1665,9 +1665,9 @@ SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoy
   %72 = load i32, ptr @SDL_joysticks_locked, align 4
   %73 = add nsw i32 %72, -1
   store i32 %73, ptr @SDL_joysticks_locked, align 4
-  %.b4.i94 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i94 = load i1, ptr @SDL_joysticks_initialized, align 1
   %74 = icmp ne i32 %73, 0
-  %or.cond.i95 = select i1 %.b4.i94, i1 true, i1 %74
+  %or.cond.i95 = select i1 %.b.i94, i1 true, i1 %74
   br i1 %or.cond.i95, label %.critedge.i96, label %75
 
 75:                                               ; preds = %71
@@ -1826,9 +1826,9 @@ SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoy
   %159 = load i32, ptr @SDL_joysticks_locked, align 4
   %160 = add nsw i32 %159, -1
   store i32 %160, ptr @SDL_joysticks_locked, align 4
-  %.b4.i98 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i98 = load i1, ptr @SDL_joysticks_initialized, align 1
   %161 = icmp ne i32 %160, 0
-  %or.cond.i99 = select i1 %.b4.i98, i1 true, i1 %161
+  %or.cond.i99 = select i1 %.b.i98, i1 true, i1 %161
   br i1 %or.cond.i99, label %.critedge.i100, label %162
 
 162:                                              ; preds = %158
@@ -2278,9 +2278,9 @@ ShouldAttemptSensorFusion.exit.thread:            ; preds = %.critedge.sink.spli
   %345 = load i32, ptr @SDL_joysticks_locked, align 4
   %346 = add nsw i32 %345, -1
   store i32 %346, ptr @SDL_joysticks_locked, align 4
-  %.b4.i121 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i121 = load i1, ptr @SDL_joysticks_initialized, align 1
   %347 = icmp ne i32 %346, 0
-  %or.cond.i122 = select i1 %.b4.i121, i1 true, i1 %347
+  %or.cond.i122 = select i1 %.b.i121, i1 true, i1 %347
   br i1 %or.cond.i122, label %.critedge.i123, label %348
 
 348:                                              ; preds = %ShouldAttemptSensorFusion.exit.thread
@@ -2339,9 +2339,9 @@ define hidden void @SDL_CloseJoystick_REAL(ptr noundef %0) local_unnamed_addr #1
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -2376,9 +2376,9 @@ define hidden void @SDL_CloseJoystick_REAL(ptr noundef %0) local_unnamed_addr #1
   %26 = load i32, ptr @SDL_joysticks_locked, align 4
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr @SDL_joysticks_locked, align 4
-  %.b4.i42 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i42 = load i1, ptr @SDL_joysticks_initialized, align 1
   %28 = icmp ne i32 %27, 0
-  %or.cond.i43 = select i1 %.b4.i42, i1 true, i1 %28
+  %or.cond.i43 = select i1 %.b.i42, i1 true, i1 %28
   br i1 %or.cond.i43, label %.critedge.i44, label %29
 
 29:                                               ; preds = %25
@@ -2574,9 +2574,9 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
   %109 = load i32, ptr @SDL_joysticks_locked, align 4
   %110 = add nsw i32 %109, -1
   store i32 %110, ptr @SDL_joysticks_locked, align 4
-  %.b4.i46 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i46 = load i1, ptr @SDL_joysticks_initialized, align 1
   %111 = icmp ne i32 %110, 0
-  %or.cond.i47 = select i1 %.b4.i46, i1 true, i1 %111
+  %or.cond.i47 = select i1 %.b.i46, i1 true, i1 %111
   br i1 %or.cond.i47, label %.critedge.i48, label %112
 
 112:                                              ; preds = %._crit_edge
@@ -2770,9 +2770,9 @@ define hidden i32 @SDL_AttachVirtualJoystick_REAL(ptr noundef %0) local_unnamed_
   %8 = load i32, ptr @SDL_joysticks_locked, align 4
   %9 = add nsw i32 %8, -1
   store i32 %9, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %10 = icmp ne i32 %9, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %10
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %10
   br i1 %or.cond.i, label %.critedge.i, label %11
 
 11:                                               ; preds = %1
@@ -2814,9 +2814,9 @@ define hidden zeroext i1 @SDL_DetachVirtualJoystick_REAL(i32 noundef %0) local_u
   %8 = load i32, ptr @SDL_joysticks_locked, align 4
   %9 = add nsw i32 %8, -1
   store i32 %9, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %10 = icmp ne i32 %9, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %10
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %10
   br i1 %or.cond.i, label %.critedge.i, label %11
 
 11:                                               ; preds = %1
@@ -2902,9 +2902,9 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %SDL_GetDriverAndJoy
   %20 = load i32, ptr @SDL_joysticks_locked, align 4
   %21 = add nsw i32 %20, -1
   store i32 %21, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %22 = icmp ne i32 %21, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %22
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %22
   br i1 %or.cond.i, label %.critedge.i3, label %23
 
 23:                                               ; preds = %SDL_GetDriverAndJoystickIndex.exit
@@ -2949,9 +2949,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef %0, i32 no
   %12 = load i32, ptr @SDL_joysticks_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -2985,9 +2985,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef %0, i32 no
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i7 = select i1 %.b4.i6, i1 true, i1 %30
+  %or.cond.i7 = select i1 %.b.i6, i1 true, i1 %30
   br i1 %or.cond.i7, label %.critedge.i8, label %31
 
 31:                                               ; preds = %26
@@ -3015,9 +3015,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef %0, i32 no
   %40 = load i32, ptr @SDL_joysticks_locked, align 4
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %42 = icmp ne i32 %41, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %42
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %42
   br i1 %or.cond.i11, label %.critedge.i12, label %43
 
 43:                                               ; preds = %38
@@ -3066,9 +3066,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef %0, i32 no
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -3102,9 +3102,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef %0, i32 no
   %29 = load i32, ptr @SDL_joysticks_locked, align 4
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr @SDL_joysticks_locked, align 4
-  %.b4.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
   %31 = icmp ne i32 %30, 0
-  %or.cond.i8 = select i1 %.b4.i7, i1 true, i1 %31
+  %or.cond.i8 = select i1 %.b.i7, i1 true, i1 %31
   br i1 %or.cond.i8, label %.critedge.i9, label %32
 
 32:                                               ; preds = %27
@@ -3132,9 +3132,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef %0, i32 no
   %41 = load i32, ptr @SDL_joysticks_locked, align 4
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr @SDL_joysticks_locked, align 4
-  %.b4.i11 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i11 = load i1, ptr @SDL_joysticks_initialized, align 1
   %43 = icmp ne i32 %42, 0
-  %or.cond.i12 = select i1 %.b4.i11, i1 true, i1 %43
+  %or.cond.i12 = select i1 %.b.i11, i1 true, i1 %43
   br i1 %or.cond.i12, label %.critedge.i13, label %44
 
 44:                                               ; preds = %39
@@ -3181,9 +3181,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef %0, i32 
   %12 = load i32, ptr @SDL_joysticks_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -3217,9 +3217,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef %0, i32 
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i7 = select i1 %.b4.i6, i1 true, i1 %30
+  %or.cond.i7 = select i1 %.b.i6, i1 true, i1 %30
   br i1 %or.cond.i7, label %.critedge.i8, label %31
 
 31:                                               ; preds = %26
@@ -3247,9 +3247,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef %0, i32 
   %40 = load i32, ptr @SDL_joysticks_locked, align 4
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %42 = icmp ne i32 %41, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %42
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %42
   br i1 %or.cond.i11, label %.critedge.i12, label %43
 
 43:                                               ; preds = %38
@@ -3296,9 +3296,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef %0, i32 nou
   %12 = load i32, ptr @SDL_joysticks_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -3332,9 +3332,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef %0, i32 nou
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i7 = select i1 %.b4.i6, i1 true, i1 %30
+  %or.cond.i7 = select i1 %.b.i6, i1 true, i1 %30
   br i1 %or.cond.i7, label %.critedge.i8, label %31
 
 31:                                               ; preds = %26
@@ -3362,9 +3362,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef %0, i32 nou
   %40 = load i32, ptr @SDL_joysticks_locked, align 4
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %42 = icmp ne i32 %41, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %42
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %42
   br i1 %or.cond.i11, label %.critedge.i12, label %43
 
 43:                                               ; preds = %38
@@ -3411,9 +3411,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef %0, i3
   %16 = load i32, ptr @SDL_joysticks_locked, align 4
   %17 = add nsw i32 %16, -1
   store i32 %17, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %18 = icmp ne i32 %17, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %18
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %18
   br i1 %or.cond.i, label %.critedge.i, label %19
 
 19:                                               ; preds = %14
@@ -3447,9 +3447,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef %0, i3
   %32 = load i32, ptr @SDL_joysticks_locked, align 4
   %33 = add nsw i32 %32, -1
   store i32 %33, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %34 = icmp ne i32 %33, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %34
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %34
   br i1 %or.cond.i11, label %.critedge.i12, label %35
 
 35:                                               ; preds = %30
@@ -3477,9 +3477,9 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef %0, i3
   %44 = load i32, ptr @SDL_joysticks_locked, align 4
   %45 = add nsw i32 %44, -1
   store i32 %45, ptr @SDL_joysticks_locked, align 4
-  %.b4.i14 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i14 = load i1, ptr @SDL_joysticks_initialized, align 1
   %46 = icmp ne i32 %45, 0
-  %or.cond.i15 = select i1 %.b4.i14, i1 true, i1 %46
+  %or.cond.i15 = select i1 %.b.i14, i1 true, i1 %46
   br i1 %or.cond.i15, label %.critedge.i16, label %47
 
 47:                                               ; preds = %42
@@ -3526,9 +3526,9 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef %0,
   %14 = load i32, ptr @SDL_joysticks_locked, align 4
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %16 = icmp ne i32 %15, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %16
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %16
   br i1 %or.cond.i, label %.critedge.i, label %17
 
 17:                                               ; preds = %12
@@ -3562,9 +3562,9 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef %0,
   %30 = load i32, ptr @SDL_joysticks_locked, align 4
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr @SDL_joysticks_locked, align 4
-  %.b4.i8 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i8 = load i1, ptr @SDL_joysticks_initialized, align 1
   %32 = icmp ne i32 %31, 0
-  %or.cond.i9 = select i1 %.b4.i8, i1 true, i1 %32
+  %or.cond.i9 = select i1 %.b.i8, i1 true, i1 %32
   br i1 %or.cond.i9, label %.critedge.i10, label %33
 
 33:                                               ; preds = %28
@@ -3592,9 +3592,9 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef %0,
   %42 = load i32, ptr @SDL_joysticks_locked, align 4
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr @SDL_joysticks_locked, align 4
-  %.b4.i12 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i12 = load i1, ptr @SDL_joysticks_initialized, align 1
   %44 = icmp ne i32 %43, 0
-  %or.cond.i13 = select i1 %.b4.i12, i1 true, i1 %44
+  %or.cond.i13 = select i1 %.b.i12, i1 true, i1 %44
   br i1 %or.cond.i13, label %.critedge.i14, label %45
 
 45:                                               ; preds = %40
@@ -3688,9 +3688,9 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %2
   %25 = load i32, ptr @SDL_joysticks_locked, align 4
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %27 = icmp ne i32 %26, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %27
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %27
   br i1 %or.cond.i, label %.critedge.i2, label %28
 
 28:                                               ; preds = %24
@@ -3734,9 +3734,9 @@ define hidden i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef %0) local_unnamed_add
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -3765,9 +3765,9 @@ define hidden i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef %0) local_unnamed_add
   %23 = load i32, ptr @SDL_joysticks_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -3812,9 +3812,9 @@ define hidden i32 @SDL_GetNumJoystickHats_REAL(ptr noundef %0) local_unnamed_add
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -3843,9 +3843,9 @@ define hidden i32 @SDL_GetNumJoystickHats_REAL(ptr noundef %0) local_unnamed_add
   %23 = load i32, ptr @SDL_joysticks_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -3883,9 +3883,9 @@ define hidden i32 @SDL_GetNumJoystickBalls_REAL(ptr noundef %0) local_unnamed_ad
   %5 = load i32, ptr @SDL_joysticks_locked, align 4
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %7 = icmp ne i32 %6, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %7
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %7
   br i1 %or.cond.i, label %.critedge.i, label %8
 
 8:                                                ; preds = %3
@@ -3935,9 +3935,9 @@ define hidden i32 @SDL_GetNumJoystickButtons_REAL(ptr noundef %0) local_unnamed_
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -3966,9 +3966,9 @@ define hidden i32 @SDL_GetNumJoystickButtons_REAL(ptr noundef %0) local_unnamed_
   %23 = load i32, ptr @SDL_joysticks_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -4013,9 +4013,9 @@ define hidden signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef %0, i32 noundef 
   %11 = load i32, ptr @SDL_joysticks_locked, align 4
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %13
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %13
   br i1 %or.cond.i, label %.critedge.i, label %14
 
 14:                                               ; preds = %9
@@ -4062,9 +4062,9 @@ define hidden signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef %0, i32 noundef 
   %35 = load i32, ptr @SDL_joysticks_locked, align 4
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %37 = icmp ne i32 %36, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %37
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %37
   br i1 %or.cond.i11, label %.critedge.i12, label %38
 
 38:                                               ; preds = %34
@@ -4109,9 +4109,9 @@ define hidden zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef %0, i
   %12 = load i32, ptr @SDL_joysticks_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -4176,9 +4176,9 @@ define hidden zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef %0, i
   %42 = load i32, ptr @SDL_joysticks_locked, align 4
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr @SDL_joysticks_locked, align 4
-  %.b4.i16 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i16 = load i1, ptr @SDL_joysticks_initialized, align 1
   %44 = icmp ne i32 %43, 0
-  %or.cond.i17 = select i1 %.b4.i16, i1 true, i1 %44
+  %or.cond.i17 = select i1 %.b.i16, i1 true, i1 %44
   br i1 %or.cond.i17, label %.critedge.i18, label %45
 
 45:                                               ; preds = %41
@@ -4223,9 +4223,9 @@ define hidden zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef %0, i32 noundef %1
   %11 = load i32, ptr @SDL_joysticks_locked, align 4
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %13
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %13
   br i1 %or.cond.i, label %.critedge.i, label %14
 
 14:                                               ; preds = %9
@@ -4271,9 +4271,9 @@ define hidden zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef %0, i32 noundef %1
   %34 = load i32, ptr @SDL_joysticks_locked, align 4
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %36 = icmp ne i32 %35, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %36
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %36
   br i1 %or.cond.i11, label %.critedge.i12, label %37
 
 37:                                               ; preds = %33
@@ -4318,9 +4318,9 @@ define hidden zeroext i1 @SDL_GetJoystickBall_REAL(ptr noundef %0, i32 noundef %
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -4401,9 +4401,9 @@ define hidden zeroext i1 @SDL_GetJoystickBall_REAL(ptr noundef %0, i32 noundef %
   %52 = load i32, ptr @SDL_joysticks_locked, align 4
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr @SDL_joysticks_locked, align 4
-  %.b4.i23 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i23 = load i1, ptr @SDL_joysticks_initialized, align 1
   %54 = icmp ne i32 %53, 0
-  %or.cond.i24 = select i1 %.b4.i23, i1 true, i1 %54
+  %or.cond.i24 = select i1 %.b.i23, i1 true, i1 %54
   br i1 %or.cond.i24, label %.critedge.i25, label %55
 
 55:                                               ; preds = %51
@@ -4448,9 +4448,9 @@ define hidden zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %0, i32 noundef
   %11 = load i32, ptr @SDL_joysticks_locked, align 4
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %13
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %13
   br i1 %or.cond.i, label %.critedge.i, label %14
 
 14:                                               ; preds = %9
@@ -4497,9 +4497,9 @@ define hidden zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %0, i32 noundef
   %35 = load i32, ptr @SDL_joysticks_locked, align 4
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr @SDL_joysticks_locked, align 4
-  %.b4.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i10 = load i1, ptr @SDL_joysticks_initialized, align 1
   %37 = icmp ne i32 %36, 0
-  %or.cond.i11 = select i1 %.b4.i10, i1 true, i1 %37
+  %or.cond.i11 = select i1 %.b.i10, i1 true, i1 %37
   br i1 %or.cond.i11, label %.critedge.i12, label %38
 
 38:                                               ; preds = %34
@@ -4544,9 +4544,9 @@ define hidden zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef %0) local_unnam
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -4576,9 +4576,9 @@ define hidden zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef %0) local_unnam
   %24 = load i32, ptr @SDL_joysticks_locked, align 4
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %26 = icmp ne i32 %25, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %26
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %26
   br i1 %or.cond.i4, label %.critedge.i5, label %27
 
 27:                                               ; preds = %20
@@ -4623,9 +4623,9 @@ define hidden i32 @SDL_GetJoystickID_REAL(ptr noundef %0) local_unnamed_addr #1 
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -4653,9 +4653,9 @@ define hidden i32 @SDL_GetJoystickID_REAL(ptr noundef %0) local_unnamed_addr #1 
   %22 = load i32, ptr @SDL_joysticks_locked, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %24 = icmp ne i32 %23, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %24
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %24
   br i1 %or.cond.i4, label %.critedge.i5, label %25
 
 25:                                               ; preds = %20
@@ -4711,9 +4711,9 @@ define hidden noundef ptr @SDL_GetJoystickFromID_REAL(i32 noundef %0) local_unna
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.06, %.lr.ph ], [ null, %9 ]
   store i32 %5, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %11 = icmp ne i32 %5, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %11
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %11
   br i1 %or.cond.i, label %.critedge.i, label %12
 
 12:                                               ; preds = %._crit_edge
@@ -4783,9 +4783,9 @@ SDL_GetJoystickIDForPlayerIndex.exit:             ; preds = %1, %9
 ._crit_edge:                                      ; preds = %16, %.lr.ph, %SDL_GetJoystickIDForPlayerIndex.exit
   %.0.lcssa = phi ptr [ null, %SDL_GetJoystickIDForPlayerIndex.exit ], [ %.08, %.lr.ph ], [ null, %16 ]
   store i32 %5, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %18 = icmp ne i32 %5, 0
-  %or.cond.i5 = select i1 %.b4.i, i1 true, i1 %18
+  %or.cond.i5 = select i1 %.b.i, i1 true, i1 %18
   br i1 %or.cond.i5, label %.critedge.i, label %19
 
 19:                                               ; preds = %._crit_edge
@@ -4829,9 +4829,9 @@ define hidden i32 @SDL_GetJoystickProperties_REAL(ptr noundef %0) local_unnamed_
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -4870,9 +4870,9 @@ define hidden i32 @SDL_GetJoystickProperties_REAL(ptr noundef %0) local_unnamed_
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i5 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i5 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i6 = select i1 %.b4.i5, i1 true, i1 %30
+  %or.cond.i6 = select i1 %.b.i5, i1 true, i1 %30
   br i1 %or.cond.i6, label %.critedge.i7, label %31
 
 31:                                               ; preds = %26
@@ -4919,9 +4919,9 @@ define hidden ptr @SDL_GetJoystickName_REAL(ptr noundef %0) local_unnamed_addr #
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -5007,9 +5007,9 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread: ; preds = %20, %SDL_GetDrive
   %44 = load i32, ptr @SDL_joysticks_locked, align 4
   %45 = add nsw i32 %44, -1
   store i32 %45, ptr @SDL_joysticks_locked, align 4
-  %.b4.i9 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i9 = load i1, ptr @SDL_joysticks_initialized, align 1
   %46 = icmp ne i32 %45, 0
-  %or.cond.i10 = select i1 %.b4.i9, i1 true, i1 %46
+  %or.cond.i10 = select i1 %.b.i9, i1 true, i1 %46
   br i1 %or.cond.i10, label %.critedge.i11, label %47
 
 47:                                               ; preds = %40
@@ -5054,9 +5054,9 @@ define hidden ptr @SDL_GetJoystickPath_REAL(ptr noundef %0) local_unnamed_addr #
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -5098,9 +5098,9 @@ define hidden ptr @SDL_GetJoystickPath_REAL(ptr noundef %0) local_unnamed_addr #
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i8 = select i1 %.b4.i7, i1 true, i1 %30
+  %or.cond.i8 = select i1 %.b.i7, i1 true, i1 %30
   br i1 %or.cond.i8, label %.critedge.i9, label %31
 
 31:                                               ; preds = %27
@@ -5145,9 +5145,9 @@ define hidden i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef %0) local_unnamed
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -5204,9 +5204,9 @@ SDL_GetPlayerIndexForJoystickID.exit:             ; preds = %29, %20, %._crit_ed
   %32 = load i32, ptr @SDL_joysticks_locked, align 4
   %33 = add nsw i32 %32, -1
   store i32 %33, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %34 = icmp ne i32 %33, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %34
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %34
   br i1 %or.cond.i4, label %.critedge.i5, label %35
 
 35:                                               ; preds = %SDL_GetPlayerIndexForJoystickID.exit
@@ -5251,9 +5251,9 @@ define hidden noundef zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef %0
   %11 = load i32, ptr @SDL_joysticks_locked, align 4
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %13
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %13
   br i1 %or.cond.i, label %.critedge.i, label %14
 
 14:                                               ; preds = %9
@@ -5282,9 +5282,9 @@ define hidden noundef zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef %0
   %24 = load i32, ptr @SDL_joysticks_locked, align 4
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr @SDL_joysticks_locked, align 4
-  %.b4.i4 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i4 = load i1, ptr @SDL_joysticks_initialized, align 1
   %26 = icmp ne i32 %25, 0
-  %or.cond.i5 = select i1 %.b4.i4, i1 true, i1 %26
+  %or.cond.i5 = select i1 %.b.i4, i1 true, i1 %26
   br i1 %or.cond.i5, label %.critedge.i6, label %27
 
 27:                                               ; preds = %21
@@ -5522,9 +5522,9 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef %0, i16 no
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -5610,9 +5610,9 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef %0, i16 no
   %56 = load i32, ptr @SDL_joysticks_locked, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr @SDL_joysticks_locked, align 4
-  %.b4.i37 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i37 = load i1, ptr @SDL_joysticks_initialized, align 1
   %58 = icmp ne i32 %57, 0
-  %or.cond.i38 = select i1 %.b4.i37, i1 true, i1 %58
+  %or.cond.i38 = select i1 %.b.i37, i1 true, i1 %58
   br i1 %or.cond.i38, label %.critedge.i39, label %59
 
 59:                                               ; preds = %55
@@ -5657,9 +5657,9 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef %0
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -5744,9 +5744,9 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef %0
   %56 = load i32, ptr @SDL_joysticks_locked, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr @SDL_joysticks_locked, align 4
-  %.b4.i34 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i34 = load i1, ptr @SDL_joysticks_initialized, align 1
   %58 = icmp ne i32 %57, 0
-  %or.cond.i35 = select i1 %.b4.i34, i1 true, i1 %58
+  %or.cond.i35 = select i1 %.b.i34, i1 true, i1 %58
   br i1 %or.cond.i35, label %.critedge.i36, label %59
 
 59:                                               ; preds = %55
@@ -5791,9 +5791,9 @@ define hidden zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef %0, i8 noundef zer
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -5863,9 +5863,9 @@ define hidden zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef %0, i8 noundef zer
   %47 = load i32, ptr @SDL_joysticks_locked, align 4
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr @SDL_joysticks_locked, align 4
-  %.b4.i25 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i25 = load i1, ptr @SDL_joysticks_initialized, align 1
   %49 = icmp ne i32 %48, 0
-  %or.cond.i26 = select i1 %.b4.i25, i1 true, i1 %49
+  %or.cond.i26 = select i1 %.b.i25, i1 true, i1 %49
   br i1 %or.cond.i26, label %.critedge.i27, label %50
 
 50:                                               ; preds = %44
@@ -5910,9 +5910,9 @@ define hidden zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %0, ptr nounde
   %12 = load i32, ptr @SDL_joysticks_locked, align 4
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %14 = icmp ne i32 %13, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %14
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %14
   br i1 %or.cond.i, label %.critedge.i, label %15
 
 15:                                               ; preds = %10
@@ -5944,9 +5944,9 @@ define hidden zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %0, ptr nounde
   %28 = load i32, ptr @SDL_joysticks_locked, align 4
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr @SDL_joysticks_locked, align 4
-  %.b4.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i6 = load i1, ptr @SDL_joysticks_initialized, align 1
   %30 = icmp ne i32 %29, 0
-  %or.cond.i7 = select i1 %.b4.i6, i1 true, i1 %30
+  %or.cond.i7 = select i1 %.b.i6, i1 true, i1 %30
   br i1 %or.cond.i7, label %.critedge.i8, label %31
 
 31:                                               ; preds = %22
@@ -6232,8 +6232,8 @@ define hidden void @SDL_PrivateJoystickSensorRate(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PrivateJoystickAdded(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %union.SDL_Event, align 8
-  %.b1.i = load i1, ptr @SDL_joysticks_quitting, align 1
-  br i1 %.b1.i, label %48, label %3
+  %.b.i = load i1, ptr @SDL_joysticks_quitting, align 1
+  br i1 %.b.i, label %48, label %3
 
 3:                                                ; preds = %1
   store i1 true, ptr @SDL_joystick_being_added, align 1
@@ -6367,8 +6367,8 @@ declare void @SDL_PrivateGamepadAdded(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @SDL_IsJoystickBeingAdded() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @SDL_joystick_being_added, align 1
-  ret i1 %.b1
+  %.b = load i1, ptr @SDL_joystick_being_added, align 1
+  ret i1 %.b
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6468,8 +6468,8 @@ define hidden void @SDL_PrivateJoystickForceRecentering(ptr noundef captures(non
   br i1 %58, label %SDL_SendJoystickHat.exit, label %59
 
 59:                                               ; preds = %53
-  %.b1.i.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i, label %60
+  %.b.i.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i, label %60
 
 60:                                               ; preds = %59
   %61 = call zeroext i1 @SDL_HasWindows() #13
@@ -6571,8 +6571,8 @@ SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoy
   br i1 %109, label %SDL_SendJoystickTouchpad.exit, label %110
 
 110:                                              ; preds = %107
-  %.b1.i.i37 = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i.i37, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38, label %111
+  %.b.i.i37 = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i.i37, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread.i38, label %111
 
 111:                                              ; preds = %110
   %112 = call zeroext i1 @SDL_HasWindows() #13
@@ -6725,8 +6725,8 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
   br label %57
 
 57:                                               ; preds = %.critedge, %39
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %58
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %58
 
 58:                                               ; preds = %57
   %59 = tail call zeroext i1 @SDL_HasWindows() #13
@@ -6826,8 +6826,8 @@ define hidden void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef captures(
   br i1 %20, label %38, label %21
 
 21:                                               ; preds = %14
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %22
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %22
 
 22:                                               ; preds = %21
   %23 = tail call zeroext i1 @SDL_HasWindows() #13
@@ -6885,8 +6885,8 @@ define hidden void @SDL_SendJoystickHat(i64 noundef %0, ptr noundef captures(non
   br i1 %15, label %34, label %16
 
 16:                                               ; preds = %9
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %17
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %17
 
 17:                                               ; preds = %16
   %18 = tail call zeroext i1 @SDL_HasWindows() #13
@@ -7045,8 +7045,8 @@ define hidden void @SDL_SendJoystickTouchpad(i64 noundef %0, ptr noundef capture
 
 .thread:                                          ; preds = %63, %59, %55, %67
   %.0 = phi i32 [ %.64, %67 ], [ 1623, %55 ], [ 1623, %59 ], [ 1623, %63 ]
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %68
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %68
 
 68:                                               ; preds = %.thread
   %69 = tail call zeroext i1 @SDL_HasWindows() #13
@@ -7118,8 +7118,8 @@ define hidden void @SDL_SendJoystickBall(i64 noundef %0, ptr noundef readonly ca
   br i1 %.not, label %10, label %SDL_PrivateJoystickShouldIgnoreEvent.exit
 
 10:                                               ; preds = %5
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %16, label %11
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %16, label %11
 
 11:                                               ; preds = %10
   %12 = tail call zeroext i1 @SDL_HasWindows() #13
@@ -7465,9 +7465,9 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %124 = load i32, ptr @SDL_joysticks_locked, align 4
   %125 = add nsw i32 %124, -1
   store i32 %125, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %126 = icmp ne i32 %125, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %126
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %126
   br i1 %or.cond.i, label %.critedge.i70, label %127
 
 127:                                              ; preds = %123
@@ -8690,9 +8690,9 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %1
   %26 = load i32, ptr @SDL_joysticks_locked, align 4
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %28 = icmp ne i32 %27, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %28
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %28
   br i1 %or.cond.i, label %.critedge.i2, label %29
 
 29:                                               ; preds = %25
@@ -8809,9 +8809,9 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   %37 = load i32, ptr @SDL_joysticks_locked, align 4
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %39 = icmp ne i32 %38, 0
-  %or.cond.i3 = select i1 %.b4.i, i1 true, i1 %39
+  %or.cond.i3 = select i1 %.b.i, i1 true, i1 %39
   br i1 %or.cond.i3, label %.critedge.i, label %40
 
 40:                                               ; preds = %SDL_GetJoystickGUIDInfo_REAL.exit
@@ -8925,9 +8925,9 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   %37 = load i32, ptr @SDL_joysticks_locked, align 4
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %39 = icmp ne i32 %38, 0
-  %or.cond.i3 = select i1 %.b4.i, i1 true, i1 %39
+  %or.cond.i3 = select i1 %.b.i, i1 true, i1 %39
   br i1 %or.cond.i3, label %.critedge.i, label %40
 
 40:                                               ; preds = %SDL_GetJoystickGUIDInfo_REAL.exit
@@ -9254,9 +9254,9 @@ define hidden { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef %0) local_unnam
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9287,9 +9287,9 @@ define hidden { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef %0) local_unnam
   %22 = load i32, ptr @SDL_joysticks_locked, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr @SDL_joysticks_locked, align 4
-  %.b4.i5 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i5 = load i1, ptr @SDL_joysticks_initialized, align 1
   %24 = icmp ne i32 %23, 0
-  %or.cond.i6 = select i1 %.b4.i5, i1 true, i1 %24
+  %or.cond.i6 = select i1 %.b.i5, i1 true, i1 %24
   br i1 %or.cond.i6, label %.critedge.i7, label %25
 
 25:                                               ; preds = %20
@@ -9337,9 +9337,9 @@ define hidden zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) local_unna
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9443,9 +9443,9 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   %52 = load i32, ptr @SDL_joysticks_locked, align 4
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr @SDL_joysticks_locked, align 4
-  %.b4.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
   %54 = icmp ne i32 %53, 0
-  %or.cond.i8 = select i1 %.b4.i7, i1 true, i1 %54
+  %or.cond.i8 = select i1 %.b.i7, i1 true, i1 %54
   br i1 %or.cond.i8, label %.critedge.i9, label %55
 
 55:                                               ; preds = %SDL_GetJoystickGUIDInfo_REAL.exit
@@ -9490,9 +9490,9 @@ define hidden zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) local_unn
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9595,9 +9595,9 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   %52 = load i32, ptr @SDL_joysticks_locked, align 4
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr @SDL_joysticks_locked, align 4
-  %.b4.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i7 = load i1, ptr @SDL_joysticks_initialized, align 1
   %54 = icmp ne i32 %53, 0
-  %or.cond.i8 = select i1 %.b4.i7, i1 true, i1 %54
+  %or.cond.i8 = select i1 %.b.i7, i1 true, i1 %54
   br i1 %or.cond.i8, label %.critedge.i9, label %55
 
 55:                                               ; preds = %SDL_GetJoystickGUIDInfo_REAL.exit
@@ -9664,9 +9664,9 @@ define hidden zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef %0) l
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9695,9 +9695,9 @@ define hidden zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef %0) l
   %23 = load i32, ptr @SDL_joysticks_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -9742,9 +9742,9 @@ define hidden ptr @SDL_GetJoystickSerial_REAL(ptr noundef %0) local_unnamed_addr
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9774,9 +9774,9 @@ define hidden ptr @SDL_GetJoystickSerial_REAL(ptr noundef %0) local_unnamed_addr
   %24 = load i32, ptr @SDL_joysticks_locked, align 4
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr @SDL_joysticks_locked, align 4
-  %.b4.i4 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i4 = load i1, ptr @SDL_joysticks_initialized, align 1
   %26 = icmp ne i32 %25, 0
-  %or.cond.i5 = select i1 %.b4.i4, i1 true, i1 %26
+  %or.cond.i5 = select i1 %.b.i4, i1 true, i1 %26
   br i1 %or.cond.i5, label %.critedge.i6, label %27
 
 27:                                               ; preds = %20
@@ -9829,9 +9829,9 @@ define hidden i32 @SDL_GetJoystickType_REAL(ptr noundef %0) local_unnamed_addr #
   %16 = load i32, ptr @SDL_joysticks_locked, align 4
   %17 = add nsw i32 %16, -1
   store i32 %17, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %18 = icmp ne i32 %17, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %18
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %18
   br i1 %or.cond.i, label %.critedge.i, label %19
 
 19:                                               ; preds = %14
@@ -9861,9 +9861,9 @@ define hidden i32 @SDL_GetJoystickType_REAL(ptr noundef %0) local_unnamed_addr #
   %29 = load i32, ptr @SDL_joysticks_locked, align 4
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr @SDL_joysticks_locked, align 4
-  %.b4.i8 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i8 = load i1, ptr @SDL_joysticks_initialized, align 1
   %31 = icmp ne i32 %30, 0
-  %or.cond.i9 = select i1 %.b4.i8, i1 true, i1 %31
+  %or.cond.i9 = select i1 %.b.i8, i1 true, i1 %31
   br i1 %or.cond.i9, label %.critedge.i10, label %32
 
 32:                                               ; preds = %26
@@ -9949,9 +9949,9 @@ define hidden i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef %0) local_unn
   %10 = load i32, ptr @SDL_joysticks_locked, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %12 = icmp ne i32 %11, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %12
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %12
   br i1 %or.cond.i, label %.critedge.i, label %13
 
 13:                                               ; preds = %8
@@ -9980,9 +9980,9 @@ define hidden i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef %0) local_unn
   %23 = load i32, ptr @SDL_joysticks_locked, align 4
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr @SDL_joysticks_locked, align 4
-  %.b4.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i3 = load i1, ptr @SDL_joysticks_initialized, align 1
   %25 = icmp ne i32 %24, 0
-  %or.cond.i4 = select i1 %.b4.i3, i1 true, i1 %25
+  %or.cond.i4 = select i1 %.b.i3, i1 true, i1 %25
   br i1 %or.cond.i4, label %.critedge.i5, label %26
 
 26:                                               ; preds = %20
@@ -10035,9 +10035,9 @@ define hidden i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef %0, ptr noundef wri
   %13 = load i32, ptr @SDL_joysticks_locked, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr @SDL_joysticks_locked, align 4
-  %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i = load i1, ptr @SDL_joysticks_initialized, align 1
   %15 = icmp ne i32 %14, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %15
+  %or.cond.i = select i1 %.b.i, i1 true, i1 %15
   br i1 %or.cond.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %11
@@ -10075,9 +10075,9 @@ define hidden i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef %0, ptr noundef wri
   %30 = load i32, ptr @SDL_joysticks_locked, align 4
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr @SDL_joysticks_locked, align 4
-  %.b4.i9 = load i1, ptr @SDL_joysticks_initialized, align 1
+  %.b.i9 = load i1, ptr @SDL_joysticks_initialized, align 1
   %32 = icmp ne i32 %31, 0
-  %or.cond.i10 = select i1 %.b4.i9, i1 true, i1 %32
+  %or.cond.i10 = select i1 %.b.i9, i1 true, i1 %32
   br i1 %or.cond.i10, label %.critedge.i11, label %33
 
 33:                                               ; preds = %29
@@ -10108,8 +10108,8 @@ SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i11, %36,
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %union.SDL_Event, align 8
-  %.b1.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
-  br i1 %.b1.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit, label %8
+  %.b.i = load i1, ptr @SDL_joystick_allows_background_events, align 1
+  br i1 %.b.i, label %SDL_PrivateJoystickShouldIgnoreEvent.exit, label %8
 
 8:                                                ; preds = %6
   %9 = tail call zeroext i1 @SDL_HasWindows() #13

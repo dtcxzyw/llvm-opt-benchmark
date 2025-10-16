@@ -4163,8 +4163,8 @@ define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm23ConvergingVLIWScheduler1
   %9 = load ptr, ptr %8, align 8, !tbaa !468
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !468
-  %.not100104 = icmp eq ptr %9, %11
-  br i1 %.not100104, label %._crit_edge, label %.lr.ph
+  %.not100102 = icmp eq ptr %9, %11
+  br i1 %.not100102, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4180,11 +4180,11 @@ define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm23ConvergingVLIWScheduler1
   ret i32 %.067.lcssa
 
 17:                                               ; preds = %.lr.ph, %.thread
-  %.067108 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
-  %.sroa.080.0105 = phi ptr [ %9, %.lr.ph ], [ %134, %.thread ]
+  %.067106 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
+  %.sroa.080.0103 = phi ptr [ %9, %.lr.ph ], [ %134, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %6, i8 0, i64 12, i1 false)
-  %18 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %18 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %19 = load ptr, ptr %18, align 8, !tbaa !126
   %20 = load ptr, ptr %12, align 8, !tbaa !155
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4456
@@ -4219,7 +4219,7 @@ define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm23ConvergingVLIWScheduler1
 
 _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS6_IjEE.exit: ; preds = %38, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %40 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %40 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %41 = load ptr, ptr %0, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 152
   %43 = load ptr, ptr %42, align 8
@@ -4232,8 +4232,8 @@ _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegP
   %47 = icmp slt i32 %44, 0
   %48 = load i32, ptr %13, align 4
   %49 = icmp slt i32 %48, 0
-  %or.cond110 = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond110, label %50, label %66
+  %or.cond108 = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond108, label %50, label %66
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %7, align 8, !tbaa !266
@@ -4243,7 +4243,7 @@ _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegP
   ]
 
 52:                                               ; preds = %50
-  %53 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %53 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 200
   %55 = load i32, ptr %54, align 8, !tbaa !472
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 200
@@ -4252,7 +4252,7 @@ _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegP
   br i1 %58, label %.thread.sink.split, label %.thread
 
 59:                                               ; preds = %50
-  %60 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %60 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 200
   %62 = load i32, ptr %61, align 8, !tbaa !472
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 200
@@ -4262,7 +4262,7 @@ _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegP
 
 66:                                               ; preds = %46
   %67 = icmp sgt i32 %44, %48
-  %68 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %68 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   br i1 %67, label %.thread.sink.split, label %69
 
 69:                                               ; preds = %66
@@ -4286,15 +4286,15 @@ _ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegP
   br i1 %81, label %82, label %110
 
 82:                                               ; preds = %79
-  %83 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %83 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %84 = load i32, ptr %15, align 8, !tbaa !179
   %85 = load i32, ptr %16, align 8, !tbaa !265
   %.not.i = icmp ult i32 %84, %85
-  %.pre111 = load i32, ptr %7, align 8, !tbaa !266
+  %.pre109 = load i32, ptr %7, align 8, !tbaa !266
   br i1 %.not.i, label %86, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
 
 86:                                               ; preds = %82
-  %87 = icmp eq i32 %.pre111, 1
+  %87 = icmp eq i32 %.pre109, 1
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 254
   %89 = load i8, ptr %88, align 2
   br i1 %87, label %90, label %93
@@ -4331,16 +4331,16 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread: ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit._ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread_crit_edge, %82
-  %101 = phi i32 [ %.pre, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit._ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread_crit_edge ], [ %.pre111, %82 ]
+  %101 = phi i32 [ %.pre, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit._ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread_crit_edge ], [ %.pre109, %82 ]
   %102 = icmp eq i32 %101, 1
-  %103 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %103 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %104 = load ptr, ptr %3, align 8, !tbaa !487
   %. = select i1 %102, i64 128, i64 48
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %.
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 %.
-  %.0.in.in102 = load i32, ptr %106, align 8, !tbaa !26
-  %.066.in.in103 = load i32, ptr %105, align 8, !tbaa !26
-  %107 = icmp ugt i32 %.066.in.in103, %.0.in.in102
+  %.0.in.in = load i32, ptr %106, align 8, !tbaa !26
+  %.066.in.in = load i32, ptr %105, align 8, !tbaa !26
+  %107 = icmp ugt i32 %.066.in.in, %.0.in.in
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
@@ -4350,12 +4350,12 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   br label %109
 
 109:                                              ; preds = %108, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
-  %.6 = phi i32 [ 6, %108 ], [ %.067108, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread ]
-  %.not75 = icmp eq i32 %.066.in.in103, %.0.in.in102
+  %.6 = phi i32 [ 6, %108 ], [ %.067106, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread ]
+  %.not75 = icmp eq i32 %.066.in.in, %.0.in.in
   br i1 %.not75, label %110, label %.thread
 
 110:                                              ; preds = %109, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit, %79
-  %.5 = phi i32 [ %.6, %109 ], [ %.067108, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit ], [ %.067108, %79 ]
+  %.5 = phi i32 [ %.6, %109 ], [ %.067106, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit ], [ %.067106, %79 ]
   %111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17UseNewerCandidate, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
   %112 = trunc nuw i8 %111 to i1
   %113 = load i32, ptr %13, align 4
@@ -4371,7 +4371,7 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   ]
 
 117:                                              ; preds = %115
-  %118 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %118 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 200
   %120 = load i32, ptr %119, align 8, !tbaa !472
   %121 = load ptr, ptr %3, align 8, !tbaa !487
@@ -4381,7 +4381,7 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   br i1 %124, label %.thread.sink.split, label %.thread
 
 125:                                              ; preds = %115
-  %126 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %126 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 200
   %128 = load i32, ptr %127, align 8, !tbaa !472
   %129 = load ptr, ptr %3, align 8, !tbaa !487
@@ -4392,21 +4392,21 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
 
 .thread.sink.split.sink.split:                    ; preds = %77, %_ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS6_IjEE.exit
   %.1.ph.ph = phi i32 [ 1, %_ZN4llvm18RegPressureTracker19getMaxPressureDeltaEPKNS_12MachineInstrERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS6_IjEE.exit ], [ 7, %77 ]
-  %133 = load ptr, ptr %.sroa.080.0105, align 8, !tbaa !151
+  %133 = load ptr, ptr %.sroa.080.0103, align 8, !tbaa !151
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %125, %117, %66, %59, %52
-  %.sink120 = phi ptr [ %53, %52 ], [ %60, %59 ], [ %68, %66 ], [ %118, %117 ], [ %126, %125 ], [ %133, %.thread.sink.split.sink.split ]
+  %.sink118 = phi ptr [ %53, %52 ], [ %60, %59 ], [ %68, %66 ], [ %118, %117 ], [ %126, %125 ], [ %133, %.thread.sink.split.sink.split ]
   %.1.ph = phi i32 [ 1, %52 ], [ 1, %59 ], [ 6, %66 ], [ 1, %117 ], [ 1, %125 ], [ %.1.ph.ph, %.thread.sink.split.sink.split ]
-  store ptr %.sink120, ptr %3, align 8, !tbaa !487
+  store ptr %.sink118, ptr %3, align 8, !tbaa !487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 2 dereferenceable(12) %6, i64 12, i1 false)
   store i32 %44, ptr %13, align 4, !tbaa !490
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %110, %125, %117, %115, %50, %52, %109, %77, %59
-  %.1 = phi i32 [ %.067108, %59 ], [ %.6, %109 ], [ %.067108, %77 ], [ %.067108, %52 ], [ %.067108, %50 ], [ %.5, %115 ], [ %.5, %117 ], [ %.5, %125 ], [ %.5, %110 ], [ %.1.ph, %.thread.sink.split ]
+  %.1 = phi i32 [ %.067106, %59 ], [ %.6, %109 ], [ %.067106, %77 ], [ %.067106, %52 ], [ %.067106, %50 ], [ %.5, %115 ], [ %.5, %117 ], [ %.5, %125 ], [ %.5, %110 ], [ %.1.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.080.0105, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.080.0103, i64 8
   %.not100 = icmp eq ptr %134, %11
   br i1 %.not100, label %._crit_edge, label %17, !llvm.loop !493
 }

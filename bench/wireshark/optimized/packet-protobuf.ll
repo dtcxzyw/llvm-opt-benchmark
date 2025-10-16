@@ -632,8 +632,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_protobuf() #0 {
-  %.b2 = load i1, ptr @protobuf_dissector_called, align 1
-  br i1 %.b2, label %1, label %4
+  %.b = load i1, ptr @protobuf_dissector_called, align 1
+  br i1 %.b, label %1, label %4
 
 1:                                                ; preds = %0
   %2 = load i8, ptr @old_dissect_bytes_as_string, align 1, !range !6, !noundef !7
@@ -846,8 +846,8 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.json_dumper, align 8
-  %.b109 = load i1, ptr @protobuf_dissector_called, align 1
-  br i1 %.b109, label %7, label %6
+  %.b = load i1, ptr @protobuf_dissector_called, align 1
+  br i1 %.b, label %7, label %6
 
 6:                                                ; preds = %4
   store i1 true, ptr @protobuf_dissector_called, align 1
@@ -863,31 +863,31 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = load i32, ptr @ett_protobuf, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %14, label %.thread135
+  br i1 %.not, label %14, label %.thread134
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %16 = load ptr, ptr %15, align 8
-  %.not110 = icmp eq ptr %16, null
-  br i1 %.not110, label %.thread, label %17
+  %.not109 = icmp eq ptr %16, null
+  br i1 %.not109, label %.thread, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %16, ptr noundef nonnull @.str.173)
-  %.not111 = icmp eq ptr %18, null
-  br i1 %.not111, label %.thread, label %.thread135
+  %.not110 = icmp eq ptr %18, null
+  br i1 %.not110, label %.thread, label %.thread134
 
-.thread135:                                       ; preds = %7, %17
-  %.092138 = phi ptr [ %18, %17 ], [ %3, %7 ]
-  %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.092138, i32 noundef 44) #15
-  %.not112 = icmp eq ptr %19, null
-  br i1 %.not112, label %find_message_type_by_udp_port.exit.thread, label %20
+.thread134:                                       ; preds = %7, %17
+  %.092137 = phi ptr [ %18, %17 ], [ %3, %7 ]
+  %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.092137, i32 noundef 44) #15
+  %.not111 = icmp eq ptr %19, null
+  br i1 %.not111, label %find_message_type_by_udp_port.exit.thread, label %20
 
-20:                                               ; preds = %.thread135
+20:                                               ; preds = %.thread134
   %21 = getelementptr i8, ptr %19, i64 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.174, ptr noundef %21)
-  %22 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %.092138, ptr noundef nonnull @.str.175)
-  %.not113 = icmp eq i32 %22, 0
-  br i1 %.not113, label %26, label %23
+  %22 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %.092137, ptr noundef nonnull @.str.175)
+  %.not112 = icmp eq i32 %22, 0
+  br i1 %.not112, label %26, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @pbw_pool, align 8
@@ -903,8 +903,8 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @wmem_strsplit(ptr noundef %31, ptr noundef %spec.select, ptr noundef nonnull @.str.176, i32 noundef 2)
   %33 = load ptr, ptr %32, align 8
-  %.not114 = icmp eq ptr %33, null
-  br i1 %.not114, label %find_message_type_by_udp_port.exit.thread, label %34
+  %.not113 = icmp eq ptr %33, null
+  br i1 %.not113, label %find_message_type_by_udp_port.exit.thread, label %34
 
 34:                                               ; preds = %26
   %35 = getelementptr i8, ptr %32, i64 8
@@ -930,14 +930,14 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %37, !llvm.loop !8
 
 44:                                               ; preds = %37
-  %.not118 = icmp eq ptr %36, null
-  br i1 %.not118, label %find_message_type_by_udp_port.exit.thread, label %45
+  %.not117 = icmp eq ptr %36, null
+  br i1 %.not117, label %find_message_type_by_udp_port.exit.thread, label %45
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr @pbw_pool, align 8
   %47 = tail call ptr @pbw_DescriptorPool_FindMethodByName(ptr noundef %46, ptr noundef nonnull %33)
-  %.not119 = icmp eq ptr %47, null
-  br i1 %.not119, label %find_message_type_by_udp_port.exit.thread, label %48
+  %.not118 = icmp eq ptr %47, null
+  br i1 %.not118, label %find_message_type_by_udp_port.exit.thread, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(8) @.str.177) #15
@@ -954,18 +954,18 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
 
 55:                                               ; preds = %51, %53, %23
   %.1 = phi ptr [ %25, %23 ], [ %52, %51 ], [ %54, %53 ]
-  %.not120 = icmp eq ptr %.1, null
-  br i1 %.not120, label %find_message_type_by_udp_port.exit.thread, label %56
+  %.not119 = icmp eq ptr %.1, null
+  br i1 %.not119, label %find_message_type_by_udp_port.exit.thread, label %56
 
 56:                                               ; preds = %55
   %57 = tail call ptr @pbw_Descriptor_full_name(ptr noundef nonnull %.1)
-  %.not121 = icmp eq ptr %57, null
-  br i1 %.not121, label %.thread156, label %58
+  %.not120 = icmp eq ptr %57, null
+  br i1 %.not120, label %.thread155, label %58
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.178, ptr noundef nonnull %57)
-  br label %.thread156
+  br label %.thread155
 
 .thread:                                          ; preds = %14, %17
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -973,8 +973,8 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   %62 = icmp ne i32 %61, 3
   %63 = load i32, ptr @num_protobuf_udp_message_types, align 4
   %.not15.i = icmp eq i32 %63, 0
-  %or.cond166 = select i1 %62, i1 true, i1 %.not15.i
-  br i1 %or.cond166, label %find_message_type_by_udp_port.exit.thread, label %.lr.ph.i
+  %or.cond165 = select i1 %62, i1 true, i1 %.not15.i
+  br i1 %or.cond165, label %find_message_type_by_udp_port.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -1025,28 +1025,28 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
 find_message_type_by_udp_port.exit:               ; preds = %80
   %86 = load ptr, ptr @pbw_pool, align 8
   %87 = tail call ptr @pbw_DescriptorPool_FindMessageTypeByName(ptr noundef %86, ptr noundef nonnull %79)
-  %.not122 = icmp eq ptr %87, null
-  br i1 %.not122, label %find_message_type_by_udp_port.exit.thread, label %.thread156
+  %.not121 = icmp eq ptr %87, null
+  br i1 %.not121, label %find_message_type_by_udp_port.exit.thread, label %.thread155
 
-find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, %.thread135, %55, %.thread, %find_message_type_by_udp_port.exit
+find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, %.thread134, %55, %.thread, %find_message_type_by_udp_port.exit
   %88 = tail call ptr @wmem_file_scope()
   %89 = load i32, ptr @proto_http, align 4
   %90 = tail call ptr @p_get_proto_data(ptr noundef %88, ptr noundef %1, i32 noundef %89, i32 noundef 0)
-  %.not123 = icmp eq ptr %90, null
-  br i1 %.not123, label %.thread152, label %91
+  %.not122 = icmp eq ptr %90, null
+  br i1 %.not122, label %.thread151, label %91
 
 91:                                               ; preds = %find_message_type_by_udp_port.exit.thread
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %93 = load ptr, ptr %92, align 8
-  %.not124 = icmp eq ptr %93, null
-  br i1 %.not124, label %.thread152, label %.preheader167
+  %.not123 = icmp eq ptr %93, null
+  br i1 %.not123, label %.thread151, label %.preheader166
 
-.preheader167:                                    ; preds = %91
+.preheader166:                                    ; preds = %91
   %94 = load i32, ptr @num_protobuf_uri_message_types, align 4
-  %.not171 = icmp eq i32 %94, 0
-  br i1 %.not171, label %.thread152, label %.lr.ph
+  %.not170 = icmp eq i32 %94, 0
+  br i1 %.not170, label %.thread151, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader167
+.lr.ph:                                           ; preds = %.preheader166
   %95 = load ptr, ptr @protobuf_uri_message_types, align 8
   %wide.trip.count = zext i32 %94 to i64
   br label %97
@@ -1054,7 +1054,7 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
 96:                                               ; preds = %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread152, label %97, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread151, label %97, !llvm.loop !11
 
 97:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
@@ -1067,35 +1067,35 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %103 = load ptr, ptr %102, align 8
   %char0 = load i8, ptr %103, align 1
-  %.not125 = icmp eq i8 %char0, 0
-  br i1 %.not125, label %.thread152, label %104
+  %.not124 = icmp eq i8 %char0, 0
+  br i1 %.not124, label %.thread151, label %104
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr @pbw_pool, align 8
   %106 = tail call ptr @pbw_DescriptorPool_FindMessageTypeByName(ptr noundef %105, ptr noundef %103)
-  %.not126 = icmp eq ptr %106, null
-  br i1 %.not126, label %.thread152, label %.thread156
+  %.not125 = icmp eq ptr %106, null
+  br i1 %.not125, label %.thread151, label %.thread155
 
-.thread152:                                       ; preds = %96, %.preheader167, %101, %find_message_type_by_udp_port.exit.thread, %91, %104
+.thread151:                                       ; preds = %96, %.preheader166, %101, %find_message_type_by_udp_port.exit.thread, %91, %104
   %107 = load ptr, ptr @default_message_type, align 8
-  %char0127 = load i8, ptr %107, align 1
-  %.not128 = icmp eq i8 %char0127, 0
-  br i1 %.not128, label %.thread159, label %108
+  %char0126 = load i8, ptr %107, align 1
+  %.not127 = icmp eq i8 %char0126, 0
+  br i1 %.not127, label %.thread158, label %108
 
-108:                                              ; preds = %.thread152
+108:                                              ; preds = %.thread151
   %109 = load ptr, ptr @pbw_pool, align 8
   %110 = tail call ptr @pbw_DescriptorPool_FindMessageTypeByName(ptr noundef %109, ptr noundef %107)
-  br label %.thread156
+  br label %.thread155
 
-.thread156:                                       ; preds = %56, %58, %find_message_type_by_udp_port.exit, %108, %104
+.thread155:                                       ; preds = %56, %58, %find_message_type_by_udp_port.exit, %108, %104
   %.9 = phi ptr [ %106, %104 ], [ %110, %108 ], [ %87, %find_message_type_by_udp_port.exit ], [ %.1, %58 ], [ %.1, %56 ]
   %111 = load i8, ptr @display_json_mapping, align 1, !range !6, !noundef !7
   %112 = trunc nuw i8 %111 to i1
   %113 = icmp ne ptr %.9, null
   %or.cond = select i1 %112, i1 %113, i1 false
-  br i1 %or.cond, label %114, label %.thread159
+  br i1 %or.cond, label %114, label %.thread158
 
-114:                                              ; preds = %.thread156
+114:                                              ; preds = %.thread155
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %5, i8 0, i64 1136, i1 false)
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1122,16 +1122,16 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   %128 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %127)
   %129 = load ptr, ptr %115, align 8
   %130 = call ptr @g_string_free(ptr noundef %129, i32 noundef 0)
-  %.not129 = icmp eq ptr %130, null
-  br i1 %.not129, label %138, label %.preheader
+  %.not128 = icmp eq ptr %130, null
+  br i1 %.not128, label %138, label %.preheader
 
 .preheader:                                       ; preds = %124, %134
   %.093 = phi ptr [ %135, %134 ], [ %130, %124 ]
   %131 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.093, i32 noundef 10) #15
-  %.not130 = icmp eq ptr %131, null
-  br i1 %.not130, label %.thread163, label %134
+  %.not129 = icmp eq ptr %131, null
+  br i1 %.not129, label %.thread162, label %134
 
-.thread163:                                       ; preds = %.preheader
+.thread162:                                       ; preds = %.preheader
   %132 = load i32, ptr @hf_json_mapping_line, align 4
   %133 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %132, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %.093, ptr noundef nonnull @.str.168, ptr noundef nonnull %.093)
   br label %.loopexit
@@ -1141,10 +1141,10 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   store i8 0, ptr %131, align 1
   %136 = load i32, ptr @hf_json_mapping_line, align 4
   %137 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %136, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %.093, ptr noundef nonnull @.str.168, ptr noundef nonnull %.093)
-  %.not131 = icmp eq ptr %135, null
-  br i1 %.not131, label %.loopexit, label %.preheader, !llvm.loop !12
+  %.not130 = icmp eq ptr %135, null
+  br i1 %.not130, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %134, %.thread163
+.loopexit:                                        ; preds = %134, %.thread162
   call void @g_free(ptr noundef nonnull %130)
   br label %138
 
@@ -1152,13 +1152,13 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %140
 
-.thread159:                                       ; preds = %.thread152, %.thread156
-  %.9162 = phi ptr [ %.9, %.thread156 ], [ null, %.thread152 ]
+.thread158:                                       ; preds = %.thread151, %.thread155
+  %.9161 = phi ptr [ %.9, %.thread155 ], [ null, %.thread151 ]
   %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  tail call fastcc void @dissect_protobuf_message(ptr noundef %0, i32 noundef 0, i32 noundef %139, ptr noundef %1, ptr noundef %13, ptr noundef %.9162, i32 noundef -1, i1 noundef zeroext true, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call fastcc void @dissect_protobuf_message(ptr noundef %0, i32 noundef 0, i32 noundef %139, ptr noundef %1, ptr noundef %13, ptr noundef %.9161, i32 noundef -1, i1 noundef zeroext true, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %140
 
-140:                                              ; preds = %.thread159, %138
+140:                                              ; preds = %.thread158, %138
   %141 = call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %141
 }
@@ -1316,20 +1316,20 @@ deregister_header_fields.exit47:                  ; preds = %37, %35, %._crit_ed
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unnamed_addr #0 {
   %.not = icmp samesign ult i32 %0, 2
-  br i1 %.not, label %.loopexit67, label %.preheader
+  br i1 %.not, label %.loopexit66, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %.05469 = load ptr, ptr @old_udp_port_ranges, align 8
-  %.not6170 = icmp eq ptr %.05469, null
-  br i1 %.not6170, label %._crit_edge.thread, label %.lr.ph
+  %.05468 = load ptr, ptr @old_udp_port_ranges, align 8
+  %.not6169 = icmp eq ptr %.05468, null
+  br i1 %.not6169, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.05471 = phi ptr [ %.054, %.lr.ph ], [ %.05469, %.preheader ]
-  %2 = load ptr, ptr %.05471, align 8
+  %.05470 = phi ptr [ %.054, %.lr.ph ], [ %.05468, %.preheader ]
+  %2 = load ptr, ptr %.05470, align 8
   %3 = load ptr, ptr @protobuf_handle, align 8
   tail call void @dissector_delete_uint_range(ptr noundef nonnull @.str.249, ptr noundef %2, ptr noundef %3)
   tail call void @wmem_free(ptr noundef null, ptr noundef %2)
-  %4 = getelementptr inbounds nuw i8, ptr %.05471, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.05470, i64 8
   %.054 = load ptr, ptr %4, align 8
   %.not61 = icmp eq ptr %.054, null
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -1346,49 +1346,49 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
 
 ._crit_edge.thread:                               ; preds = %.preheader, %5, %._crit_edge
   %6 = load i32, ptr @num_protobuf_udp_message_types, align 4
-  %.not85 = icmp eq i32 %6, 0
-  br i1 %.not85, label %.loopexit67, label %.lr.ph74.preheader
+  %.not84 = icmp eq i32 %6, 0
+  br i1 %.not84, label %.loopexit66, label %.lr.ph73.preheader
 
-.lr.ph74.preheader:                               ; preds = %._crit_edge.thread
-  %.pre99 = load ptr, ptr @protobuf_udp_message_types, align 8
-  br label %.lr.ph74
+.lr.ph73.preheader:                               ; preds = %._crit_edge.thread
+  %.pre98 = load ptr, ptr @protobuf_udp_message_types, align 8
+  br label %.lr.ph73
 
-.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %16
-  %7 = phi i32 [ %6, %.lr.ph74.preheader ], [ %17, %16 ]
-  %8 = phi ptr [ %.pre99, %.lr.ph74.preheader ], [ %18, %16 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next, %16 ]
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %16
+  %7 = phi i32 [ %6, %.lr.ph73.preheader ], [ %17, %16 ]
+  %8 = phi ptr [ %.pre98, %.lr.ph73.preheader ], [ %18, %16 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next, %16 ]
   %9 = getelementptr %struct.protobuf_udp_message_type_t, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %.not66 = icmp eq ptr %10, null
-  br i1 %.not66, label %16, label %11
+  %.not65 = icmp eq ptr %10, null
+  br i1 %.not65, label %16, label %11
 
-11:                                               ; preds = %.lr.ph74
+11:                                               ; preds = %.lr.ph73
   %12 = tail call ptr @range_copy(ptr noundef null, ptr noundef nonnull %10)
   %13 = load ptr, ptr @old_udp_port_ranges, align 8
   %14 = tail call ptr @g_slist_append(ptr noundef %13, ptr noundef %12)
   store ptr %14, ptr @old_udp_port_ranges, align 8
   %15 = load ptr, ptr @protobuf_handle, align 8
   tail call void @dissector_add_uint_range(ptr noundef nonnull @.str.249, ptr noundef %12, ptr noundef %15)
-  %.pre98 = load ptr, ptr @protobuf_udp_message_types, align 8
-  %.pre100 = load i32, ptr @num_protobuf_udp_message_types, align 4
+  %.pre97 = load ptr, ptr @protobuf_udp_message_types, align 8
+  %.pre99 = load i32, ptr @num_protobuf_udp_message_types, align 4
   br label %16
 
-16:                                               ; preds = %.lr.ph74, %11
-  %17 = phi i32 [ %7, %.lr.ph74 ], [ %.pre100, %11 ]
-  %18 = phi ptr [ %8, %.lr.ph74 ], [ %.pre98, %11 ]
+16:                                               ; preds = %.lr.ph73, %11
+  %17 = phi i32 [ %7, %.lr.ph73 ], [ %.pre99, %11 ]
+  %18 = phi ptr [ %8, %.lr.ph73 ], [ %.pre97, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %17 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph74, label %.loopexit67, !llvm.loop !16
+  br i1 %20, label %.lr.ph73, label %.loopexit66, !llvm.loop !16
 
-.loopexit67:                                      ; preds = %16, %._crit_edge.thread, %1
-  %.b63 = load i1, ptr @protobuf_dissector_called, align 1
-  br i1 %.b63, label %21, label %flush_and_report_error.exit
+.loopexit66:                                      ; preds = %16, %._crit_edge.thread, %1
+  %.b = load i1, ptr @protobuf_dissector_called, align 1
+  br i1 %.b, label %21, label %flush_and_report_error.exit
 
-21:                                               ; preds = %.loopexit67
+21:                                               ; preds = %.loopexit66
   %22 = and i32 %0, 1
-  %.not64 = icmp eq i32 %22, 0
-  br i1 %.not64, label %.thread, label %23
+  %.not63 = icmp eq i32 %22, 0
+  br i1 %.not63, label %.thread, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr @num_protobuf_search_paths, align 4
@@ -1402,39 +1402,39 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   %31 = getelementptr i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
   %32 = load i32, ptr @num_protobuf_search_paths, align 4
-  %.not86 = icmp eq i32 %32, 0
-  br i1 %.not86, label %._crit_edge78, label %.lr.ph77
+  %.not85 = icmp eq i32 %32, 0
+  br i1 %.not85, label %._crit_edge77, label %.lr.ph76
 
-.lr.ph77:                                         ; preds = %23
+.lr.ph76:                                         ; preds = %23
   %33 = load ptr, ptr @protobuf_search_paths, align 8
   %wide.trip.count = zext i32 %32 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph77, %34
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next93, %34 ]
-  %35 = getelementptr %struct.protobuf_search_path_t, ptr %33, i64 %indvars.iv92
+34:                                               ; preds = %.lr.ph76, %34
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next92, %34 ]
+  %35 = getelementptr %struct.protobuf_search_path_t, ptr %33, i64 %indvars.iv91
   %36 = load ptr, ptr %35, align 8
-  %37 = add nuw i64 %indvars.iv92, 2
+  %37 = add nuw i64 %indvars.iv91, 2
   %38 = and i64 %37, 4294967295
   %39 = getelementptr ptr, ptr %28, i64 %38
   store ptr %36, ptr %39, align 8
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge78, label %34, !llvm.loop !17
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge77, label %34, !llvm.loop !17
 
-._crit_edge78:                                    ; preds = %34, %23
+._crit_edge77:                                    ; preds = %34, %23
   tail call void @pbw_reinit_DescriptorPool(ptr noundef nonnull @pbw_pool, ptr noundef %28, ptr noundef nonnull @buffer_error)
   br label %40
 
-40:                                               ; preds = %._crit_edge78, %57
-  %41 = phi i64 [ 0, %._crit_edge78 ], [ %59, %57 ]
-  %.279 = phi i32 [ 0, %._crit_edge78 ], [ %58, %57 ]
-  %42 = icmp ult i32 %.279, 2
+40:                                               ; preds = %._crit_edge77, %57
+  %41 = phi i64 [ 0, %._crit_edge77 ], [ %59, %57 ]
+  %.278 = phi i32 [ 0, %._crit_edge77 ], [ %58, %57 ]
+  %42 = icmp ult i32 %.278, 2
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @protobuf_search_paths, align 8
-  %45 = add i32 %.279, -2
+  %45 = add i32 %.278, -2
   %46 = zext i32 %45 to i64
   %47 = getelementptr %struct.protobuf_search_path_t, ptr %44, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -1454,13 +1454,13 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   br label %.loopexit
 
 57:                                               ; preds = %43, %51
-  %58 = add i32 %.279, 1
+  %58 = add i32 %.278, 1
   %59 = zext i32 %58 to i64
-  %.not87 = icmp samesign ugt i64 %26, %59
-  br i1 %.not87, label %40, label %.loopexit, !llvm.loop !18
+  %.not86 = icmp samesign ugt i64 %26, %59
+  br i1 %.not86, label %40, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %57, %56
-  %.not112 = phi i1 [ true, %56 ], [ false, %57 ]
+  %.not111 = phi i1 [ true, %56 ], [ false, %57 ]
   %60 = load ptr, ptr %28, align 8
   tail call void @g_free(ptr noundef %60)
   %61 = load ptr, ptr %31, align 8
@@ -1468,31 +1468,31 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   tail call void @g_free(ptr noundef %28)
   tail call fastcc void @update_header_fields(i1 noundef zeroext true)
   %62 = load i32, ptr @num_protobuf_udp_message_types, align 4
-  %.not88 = icmp eq i32 %62, 0
-  %brmerge = or i1 %.not88, %.not112
-  br i1 %brmerge, label %._crit_edge84, label %.lr.ph83.split.preheader
+  %.not87 = icmp eq i32 %62, 0
+  %brmerge = or i1 %.not87, %.not111
+  br i1 %brmerge, label %._crit_edge83, label %.lr.ph82.split.preheader
 
 .thread:                                          ; preds = %21
   %63 = load i32, ptr @num_protobuf_udp_message_types, align 4
-  %.not88109 = icmp eq i32 %63, 0
-  br i1 %.not88109, label %._crit_edge84, label %.lr.ph83.split.preheader
+  %.not87108 = icmp eq i32 %63, 0
+  br i1 %.not87108, label %._crit_edge83, label %.lr.ph82.split.preheader
 
-.lr.ph83.split.preheader:                         ; preds = %.loopexit, %.thread
-  br label %.lr.ph83.split
+.lr.ph82.split.preheader:                         ; preds = %.loopexit, %.thread
+  br label %.lr.ph82.split
 
-.lr.ph83.split:                                   ; preds = %.lr.ph83.split.preheader, %74
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %74 ], [ 0, %.lr.ph83.split.preheader ]
+.lr.ph82.split:                                   ; preds = %.lr.ph82.split.preheader, %74
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %74 ], [ 0, %.lr.ph82.split.preheader ]
   %64 = load ptr, ptr @protobuf_udp_message_types, align 8
-  %65 = getelementptr %struct.protobuf_udp_message_type_t, ptr %64, i64 %indvars.iv95
+  %65 = getelementptr %struct.protobuf_udp_message_type_t, ptr %64, i64 %indvars.iv94
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %.not89 = icmp eq ptr %67, null
-  br i1 %.not89, label %74, label %68
+  %.not88 = icmp eq ptr %67, null
+  br i1 %.not88, label %74, label %68
 
-68:                                               ; preds = %.lr.ph83.split
+68:                                               ; preds = %.lr.ph82.split
   %char0 = load i8, ptr %67, align 1
-  %.not65 = icmp eq i8 %char0, 0
-  br i1 %.not65, label %74, label %69
+  %.not64 = icmp eq i8 %char0, 0
+  br i1 %.not64, label %74, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr @pbw_pool, align 8
@@ -1504,19 +1504,19 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   tail call void (ptr, ...) @buffer_error(ptr noundef nonnull @.str.251, ptr noundef nonnull %67)
   br label %74
 
-74:                                               ; preds = %.lr.ph83.split, %68, %69, %73
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+74:                                               ; preds = %.lr.ph82.split, %68, %69, %73
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %75 = load i32, ptr @num_protobuf_udp_message_types, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp samesign ult i64 %indvars.iv.next96, %76
-  br i1 %77, label %.lr.ph83.split, label %._crit_edge84, !llvm.loop !19
+  %77 = icmp samesign ult i64 %indvars.iv.next95, %76
+  br i1 %77, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !19
 
-._crit_edge84:                                    ; preds = %74, %.loopexit, %.thread
+._crit_edge83:                                    ; preds = %74, %.loopexit, %.thread
   %78 = load ptr, ptr @err_msg_buf, align 8
   %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %flush_and_report_error.exit, label %79
 
-79:                                               ; preds = %._crit_edge84
+79:                                               ; preds = %._crit_edge83
   %80 = tail call ptr @wmem_strbuf_finalize(ptr noundef nonnull %78)
   store ptr null, ptr @err_msg_buf, align 8
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.253, ptr noundef %80)
@@ -1524,7 +1524,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   tail call void @wmem_free(ptr noundef %81, ptr noundef %80)
   br label %flush_and_report_error.exit
 
-flush_and_report_error.exit:                      ; preds = %79, %._crit_edge84, %.loopexit67
+flush_and_report_error.exit:                      ; preds = %79, %._crit_edge83, %.loopexit66
   ret void
 }
 

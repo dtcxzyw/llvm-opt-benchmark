@@ -1251,7 +1251,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
   %.pre-phi68 = phi i64 [ 8, %106 ], [ %104, %.thread12 ]
   %111 = phi ptr [ %109, %106 ], [ %74, %.thread12 ]
   %112 = icmp sgt i32 %102, 0
-  %113 = icmp slt i64 %.pre-phi68, 11
+  %113 = icmp samesign ult i64 %.pre-phi68, 11
   %114 = select i1 %112, i1 %113, i1 false
   br i1 %114, label %.preheader, label %.thread14
 

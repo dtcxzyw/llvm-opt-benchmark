@@ -667,13 +667,13 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   unreachable
 
 4:                                                ; preds = %0
-  %.b37 = load i1, ptr @jobacct_gather_fini.fini_ran, align 1
-  br i1 %.b37, label %5, label %9
+  %.b = load i1, ptr @jobacct_gather_fini.fini_ran, align 1
+  br i1 %.b, label %5, label %9
 
 5:                                                ; preds = %4
   %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
-  %.not50 = icmp eq i32 %6, 0
-  br i1 %.not50, label %55, label %7
+  %.not49 = icmp eq i32 %6, 0
+  br i1 %.not49, label %55, label %7
 
 7:                                                ; preds = %5
   %8 = tail call ptr @__errno_location() #11
@@ -684,18 +684,18 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 9:                                                ; preds = %4
   store i1 true, ptr @jobacct_gather_fini.fini_ran, align 1
   %10 = load ptr, ptr @g_context, align 8
-  %.not38 = icmp eq ptr %10, null
-  br i1 %.not38, label %43, label %11
+  %.not37 = icmp eq ptr %10, null
+  br i1 %.not37, label %43, label %11
 
 11:                                               ; preds = %9
   %12 = load i64, ptr @watch_tasks_thread_id, align 8
-  %.not39 = icmp eq i64 %12, 0
-  br i1 %.not39, label %40, label %13
+  %.not38 = icmp eq i64 %12, 0
+  br i1 %.not38, label %40, label %13
 
 13:                                               ; preds = %11
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
-  %.not40 = icmp eq i32 %14, 0
-  br i1 %.not40, label %17, label %15
+  %.not39 = icmp eq i32 %14, 0
+  br i1 %.not39, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #11
@@ -705,8 +705,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 
 17:                                               ; preds = %13
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
-  %.not41 = icmp eq i32 %18, 0
-  br i1 %.not41, label %21, label %19
+  %.not40 = icmp eq i32 %18, 0
+  br i1 %.not40, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = tail call ptr @__errno_location() #11
@@ -716,8 +716,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 
 21:                                               ; preds = %17
   %22 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 120)) #10
-  %.not42 = icmp eq i32 %22, 0
-  br i1 %.not42, label %26, label %23
+  %.not41 = icmp eq i32 %22, 0
+  br i1 %.not41, label %26, label %23
 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #11
@@ -727,8 +727,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 
 26:                                               ; preds = %23, %21
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
-  %.not43 = icmp eq i32 %27, 0
-  br i1 %.not43, label %30, label %28
+  %.not42 = icmp eq i32 %27, 0
+  br i1 %.not42, label %30, label %28
 
 28:                                               ; preds = %26
   %29 = tail call ptr @__errno_location() #11
@@ -738,14 +738,14 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 
 30:                                               ; preds = %26
   %31 = load i64, ptr @watch_tasks_thread_id, align 8
-  %.not44 = icmp eq i64 %31, 0
-  br i1 %.not44, label %.thread, label %32
+  %.not43 = icmp eq i64 %31, 0
+  br i1 %.not43, label %.thread, label %32
 
 32:                                               ; preds = %30
   %33 = tail call i32 @pthread_join(i64 noundef %31, ptr noundef null) #10
   store i64 0, ptr @watch_tasks_thread_id, align 8
-  %.not45 = icmp eq i32 %33, 0
-  br i1 %.not45, label %.thread, label %34
+  %.not44 = icmp eq i32 %33, 0
+  br i1 %.not44, label %.thread, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #11
@@ -756,8 +756,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 .thread:                                          ; preds = %30, %34, %32
   store i64 0, ptr @watch_tasks_thread_id, align 8
   %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #10
-  %.not46 = icmp eq i32 %37, 0
-  br i1 %.not46, label %.thread._crit_edge, label %38
+  %.not45 = icmp eq i32 %37, 0
+  br i1 %.not45, label %.thread._crit_edge, label %38
 
 .thread._crit_edge:                               ; preds = %.thread
   %.pre = load ptr, ptr @g_context, align 8
@@ -778,8 +778,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 43:                                               ; preds = %9, %40
   %.024 = phi i32 [ %42, %40 ], [ 0, %9 ]
   %44 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_run_mutex) #10
-  %.not47 = icmp eq i32 %44, 0
-  br i1 %.not47, label %47, label %45
+  %.not46 = icmp eq i32 %44, 0
+  br i1 %.not46, label %47, label %45
 
 45:                                               ; preds = %43
   %46 = tail call ptr @__errno_location() #11
@@ -790,8 +790,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 47:                                               ; preds = %43
   store i32 0, ptr @plugin_inited, align 4
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_run_mutex) #10
-  %.not48 = icmp eq i32 %48, 0
-  br i1 %.not48, label %51, label %49
+  %.not47 = icmp eq i32 %48, 0
+  br i1 %.not47, label %51, label %49
 
 49:                                               ; preds = %47
   %50 = tail call ptr @__errno_location() #11
@@ -801,8 +801,8 @@ define dso_local i32 @jobacct_gather_fini() local_unnamed_addr #0 {
 
 51:                                               ; preds = %47
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
-  %.not49 = icmp eq i32 %52, 0
-  br i1 %.not49, label %55, label %53
+  %.not48 = icmp eq i32 %52, 0
+  br i1 %.not48, label %55, label %53
 
 53:                                               ; preds = %51
   %54 = tail call ptr @__errno_location() #11

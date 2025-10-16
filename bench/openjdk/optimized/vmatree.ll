@@ -406,10 +406,10 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.i.i:   ; preds = %151
   %159 = trunc i64 %158 to i8
   %160 = lshr i64 %154, 32
   %161 = trunc nuw i64 %160 to i32
-  %.sroa.0.0.copyload.i11.i.i.i = load i32, ptr %24, align 4
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %24, align 4
   %162 = load i8, ptr %23, align 1
   %163 = icmp eq i8 %162, %159
-  %164 = icmp eq i32 %.sroa.0.0.copyload.i11.i.i.i, %161
+  %164 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, %161
   %165 = select i1 %163, i1 %164, i1 false
   br i1 %165, label %166, label %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i
 
@@ -466,12 +466,12 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i: ; preds = %_ZN7VMATree14I
   br i1 %176, label %_ZN7VMATree14IntervalChange7is_noopEv.exit70, label %_ZN7VMATree14IntervalChange7is_noopEv.exit70.thread
 
 _ZN7VMATree14IntervalChange7is_noopEv.exit70:     ; preds = %"_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit.thread"
-  %.sroa.0.0.copyload.i11.i68 = load i32, ptr %24, align 4
+  %.sroa.0.0.copyload.i.i68 = load i32, ptr %24, align 4
   %177 = load i8, ptr %23, align 1
-  %.sroa.0.0.copyload.i112.i69 = load i32, ptr %27, align 4
+  %.sroa.0.0.copyload.i1.i69 = load i32, ptr %27, align 4
   %178 = load i8, ptr %26, align 1
   %179 = icmp eq i8 %177, %178
-  %180 = icmp eq i32 %.sroa.0.0.copyload.i11.i68, %.sroa.0.0.copyload.i112.i69
+  %180 = icmp eq i32 %.sroa.0.0.copyload.i.i68, %.sroa.0.0.copyload.i1.i69
   %181 = select i1 %179, i1 %180, i1 false
   br i1 %181, label %182, label %_ZN7VMATree14IntervalChange7is_noopEv.exit70.thread
 

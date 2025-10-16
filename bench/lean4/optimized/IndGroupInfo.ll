@@ -9735,8 +9735,8 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %6
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_PreDefinition_Structural_IndGroupInfo(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -10076,8 +10076,8 @@ _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_S
   tail call void @lean_mark_persistent(ptr noundef %123) #4
   %124 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__11, align 8, !tbaa !11
   %125 = getelementptr i8, ptr %124, i64 24
-  %.val.i5 = load i64, ptr %125, align 8, !tbaa !13
-  %126 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %125, align 8, !tbaa !13
+  %126 = shl i64 %.val.i4, 1
   %127 = or disjoint i64 %126, 1
   %128 = inttoptr i64 %127 to ptr
   store ptr %128, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__12, align 8, !tbaa !11
@@ -10085,10 +10085,10 @@ _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_S
   %129 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__12, align 8, !tbaa !11
   %130 = ptrtoint ptr %129 to i64
   %131 = and i64 %130, 1
-  %.not.i.i6 = icmp eq i64 %131, 0
+  %.not.i.i5 = icmp eq i64 %131, 0
   %132 = icmp ult ptr %129, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i7 = or i1 %132, %.not.i.i6
-  br i1 %or.cond.i.i7, label %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit, label %133
+  %or.cond.i.i6 = or i1 %132, %.not.i.i5
+  br i1 %or.cond.i.i6, label %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit, label %133
 
 133:                                              ; preds = %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit
   %134 = lshr i64 %130, 1
@@ -10096,9 +10096,9 @@ _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_S
   br label %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit
 
 _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit: ; preds = %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit, %133
-  %.1.i.i8 = phi ptr [ %135, %133 ], [ %129, %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit ]
-  store ptr %.1.i.i8, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i8) #4
+  %.1.i.i7 = phi ptr [ %135, %133 ], [ %129, %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit ]
+  store ptr %.1.i.i7, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i7) #4
   %136 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__11, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #4
   %137 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
@@ -10500,18 +10500,18 @@ _init_l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5___closed__1.exit, %3
-  %.sink43 = phi ptr [ %4, %3 ], [ %276, %_init_l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5___closed__1.exit ]
-  %279 = getelementptr inbounds nuw i8, ptr %.sink43, i64 4
-  store i32 1, ptr %.sink43, align 4, !tbaa !5
+  %.sink42 = phi ptr [ %4, %3 ], [ %276, %_init_l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5___closed__1.exit ]
+  %279 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
+  store i32 1, ptr %.sink42, align 4, !tbaa !5
   store i32 131096, ptr %279, align 4
-  %280 = getelementptr inbounds nuw i8, ptr %.sink43, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %280, align 8, !tbaa !11
-  %281 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %281, align 8, !tbaa !11
   br label %282
 
 282:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink43, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

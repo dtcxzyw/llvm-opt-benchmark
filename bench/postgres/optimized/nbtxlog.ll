@@ -568,7 +568,7 @@ BufferGetPage.exit.i26:                           ; preds = %290, %284
   %303 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 %302
   %.val56.i = load i16, ptr %303, align 2
   %304 = getelementptr i8, ptr %303, i64 2
-  %.val5760.i = load i16, ptr %304, align 2
+  %.val57.i = load i16, ptr %304, align 2
   %305 = zext i16 %296 to i64
   %306 = getelementptr %struct.ItemIdData, ptr %299, i64 %305
   %.val55.i = load i32, ptr %306, align 4
@@ -577,7 +577,7 @@ BufferGetPage.exit.i26:                           ; preds = %290, %284
   %309 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 %308
   store i16 %.val56.i, ptr %309, align 2
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 2
-  store i16 %.val5760.i, ptr %310, align 2
+  store i16 %.val57.i, ptr %310, align 2
   call void @PageIndexTupleDelete(ptr noundef %.0.i.i.i27, i16 noundef zeroext %297) #6
   %311 = lshr i64 %276, 32
   %312 = trunc nuw i64 %311 to i32

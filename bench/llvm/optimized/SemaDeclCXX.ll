@@ -86404,10 +86404,10 @@ _ZNK5clang10Declarator13isInvalidTypeEv.exit:     ; preds = %3
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.sroa.03.0.copyload.i23 = load i32, ptr %29, align 4
+  %.sroa.03.0.copyload.i = load i32, ptr %29, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %30, i32 %.sroa.03.0.copyload.i23, i32 noundef 3738, i1 noundef zeroext false) #28
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %30, i32 %.sroa.03.0.copyload.i, i32 noundef 3738, i1 noundef zeroext false) #28
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %32 = load i8, ptr %31, align 8, !tbaa !1066, !range !36, !noundef !37
   %33 = trunc nuw i8 %32 to i1
@@ -121891,8 +121891,8 @@ _ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.i: ; p
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %265 = load ptr, ptr %152, align 8, !tbaa !1322
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %.sroa.01.0.copyload.i92.i = load i32, ptr %266, align 8, !tbaa !51
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %264, i32 %.sroa.01.0.copyload.i92.i, i32 noundef 3819, i1 noundef zeroext false) #28
+  %.sroa.01.0.copyload.i.i = load i32, ptr %266, align 8, !tbaa !51
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %264, i32 %.sroa.01.0.copyload.i.i, i32 noundef 3819, i1 noundef zeroext false) #28
   %267 = load ptr, ptr %152, align 8, !tbaa !1322
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %.sroa.01.0.copyload.i71.i = load i32, ptr %268, align 8, !tbaa !51

@@ -11041,7 +11041,7 @@ common.resume:                                    ; preds = %607, %611, %583, %5
   br label %428
 
 428:                                              ; preds = %585, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit", %571, %564, %535, %526, %440, %436, %432, %427
-  %.sroa.16.sroa.11.sroa.0.0 = phi i24 [ %.sroa.5173.sroa.0.0.copyload, %427 ], [ %.sroa.5161.sroa.0.0.copyload, %432 ], [ undef, %436 ], [ undef, %440 ], [ undef, %526 ], [ %.sroa.16.sroa.11.0.extract.trunc221, %535 ], [ undef, %564 ], [ %.sroa.16.sroa.11.0.extract.trunc223, %571 ], [ undef, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit" ], [ %.sroa.5151.sroa.0.0.copyload315, %585 ]
+  %.sroa.16.sroa.11.sroa.0.0 = phi i24 [ %.sroa.5173.sroa.0.0.copyload, %427 ], [ %.sroa.5161.sroa.0.0.copyload, %432 ], [ undef, %436 ], [ undef, %440 ], [ undef, %526 ], [ %.sroa.16.sroa.11.0.extract.trunc221, %535 ], [ undef, %564 ], [ %.sroa.16.sroa.11.0.extract.trunc223, %571 ], [ undef, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit" ], [ %.sroa.5151.sroa.0.0.copyload, %585 ]
   %.sroa.16.sroa.0.0 = phi i8 [ %88, %427 ], [ %93, %432 ], [ undef, %436 ], [ undef, %440 ], [ undef, %526 ], [ %.sroa.16.sroa.0.0.extract.trunc218, %535 ], [ undef, %564 ], [ %.sroa.16.sroa.0.0.extract.trunc219, %571 ], [ undef, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit" ], [ %579, %585 ]
   %.sroa.26.0 = phi ptr [ %.sroa.5173.sroa.4.0.copyload, %427 ], [ %.sroa.5161.sroa.4.0.copyload, %432 ], [ %265, %436 ], [ %411, %440 ], [ %521, %526 ], [ %536, %535 ], [ %559, %564 ], [ %572, %571 ], [ %606, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit" ], [ %.sroa.5151.sroa.4.0.copyload, %585 ]
   %.sroa.0.0239 = phi i32 [ %85, %427 ], [ %90, %432 ], [ 46, %436 ], [ 49, %440 ], [ 16, %526 ], [ 1, %535 ], [ 17, %564 ], [ 0, %571 ], [ 9, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ffdc8f8953c8d95E.exit" ], [ %576, %585 ]
@@ -11446,7 +11446,7 @@ common.resume:                                    ; preds = %607, %611, %583, %5
 
 582:                                              ; preds = %575
   %.sroa.5151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 5
-  %.sroa.5151.sroa.0.0.copyload315 = load i24, ptr %.sroa.5151.0..sroa_idx, align 1
+  %.sroa.5151.sroa.0.0.copyload = load i24, ptr %.sroa.5151.0..sroa_idx, align 1
   %.sroa.5151.sroa.4.0..sroa.5151.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.5151.sroa.4.0.copyload = load ptr, ptr %.sroa.5151.sroa.4.0..sroa.5151.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %49)

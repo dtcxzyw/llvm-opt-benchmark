@@ -624,8 +624,8 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
 17:                                               ; preds = %6
   %18 = tail call ptr @val_to_str_ext(i32 noundef %16, ptr noundef nonnull @ses_vals_ext, ptr noundef nonnull @.str.245)
   tail call void @col_add_str(ptr noundef %15, i32 noundef 25, ptr noundef %18)
-  %.not143 = icmp eq ptr %3, null
-  br i1 %.not143, label %63, label %19
+  %.not142 = icmp eq ptr %3, null
+  br i1 %.not142, label %63, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr @proto_clses, align 4
@@ -637,13 +637,13 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
   br label %63
 
 26:                                               ; preds = %6
-  %.not142 = icmp eq ptr %3, null
+  %.not141 = icmp eq ptr %3, null
   br i1 %4, label %27, label %36
 
 27:                                               ; preds = %26
   %28 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @ses_category0_vals, ptr noundef nonnull @.str.245)
   tail call void @col_add_str(ptr noundef %15, i32 noundef 25, ptr noundef %28)
-  br i1 %.not142, label %63, label %29
+  br i1 %.not141, label %63, label %29
 
 29:                                               ; preds = %27
   %30 = load i32, ptr @proto_ses, align 4
@@ -657,7 +657,7 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
 36:                                               ; preds = %26
   %37 = tail call ptr @val_to_str_ext(i32 noundef %16, ptr noundef nonnull @ses_vals_ext, ptr noundef nonnull @.str.245)
   tail call void @col_add_str(ptr noundef %15, i32 noundef 25, ptr noundef %37)
-  br i1 %.not142, label %45, label %38
+  br i1 %.not141, label %45, label %38
 
 38:                                               ; preds = %36
   %39 = load i32, ptr @proto_ses, align 4
@@ -685,9 +685,9 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
   %48 = tail call ptr @wmem_file_scope()
   %49 = load i32, ptr @proto_ses, align 4
   %50 = tail call ptr @p_get_proto_data(ptr noundef %48, ptr noundef %2, i32 noundef %49, i32 noundef 0)
-  %.b139 = load i1, ptr @ses_rtse_reassemble, align 1
+  %.b = load i1, ptr @ses_rtse_reassemble, align 1
   %51 = icmp eq ptr %50, null
-  %or.cond.not = select i1 %.b139, i1 %51, i1 false
+  %or.cond.not = select i1 %.b, i1 %51, i1 false
   br i1 %or.cond.not, label %52, label %58
 
 52:                                               ; preds = %47
@@ -702,8 +702,8 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
 
 58:                                               ; preds = %52, %47
   %.0120 = phi ptr [ %50, %47 ], [ %54, %52 ]
-  %.not141 = icmp ne ptr %.0120, null
-  br i1 %.not141, label %59, label %62
+  %.not140 = icmp ne ptr %.0120, null
+  br i1 %.not140, label %59, label %62
 
 59:                                               ; preds = %58
   %60 = load i32, ptr %.0120, align 4
@@ -719,7 +719,7 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
 63:                                               ; preds = %17, %19, %29, %27, %62, %46, %45
   %.1128 = phi ptr [ %31, %29 ], [ null, %27 ], [ %.2129, %45 ], [ %.2129, %46 ], [ %.2129, %62 ], [ %21, %19 ], [ null, %17 ]
   %.1125 = phi ptr [ %33, %29 ], [ null, %27 ], [ %.2126, %45 ], [ %.2126, %46 ], [ %.2126, %62 ], [ %23, %19 ], [ null, %17 ]
-  %.0122 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %45 ], [ true, %46 ], [ %.not141, %62 ], [ true, %19 ], [ true, %17 ]
+  %.0122 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %45 ], [ true, %46 ], [ %.not140, %62 ], [ true, %19 ], [ true, %17 ]
   %64 = add i32 %1, 1
   %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %66 = icmp eq i8 %65, -1
@@ -738,8 +738,8 @@ get_item_len.exit:                                ; preds = %67, %70
   %storemerge.i = phi i32 [ 1, %70 ], [ 3, %67 ]
   %.0.i = phi i16 [ %71, %70 ], [ %69, %67 ]
   %72 = zext i16 %.0.i to i32
-  %.not144 = icmp eq ptr %3, null
-  br i1 %.not144, label %.split, label %.split131
+  %.not143 = icmp eq ptr %3, null
+  br i1 %.not143, label %.split, label %.split131
 
 .split131:                                        ; preds = %get_item_len.exit
   %73 = load i32, ptr @hf_ses_length, align 4
@@ -747,9 +747,9 @@ get_item_len.exit:                                ; preds = %67, %70
   br label %.split
 
 .split:                                           ; preds = %get_item_len.exit, %.split131
-  %.sink161 = phi ptr [ %3, %.split131 ], [ null, %get_item_len.exit ]
+  %.sink160 = phi ptr [ %3, %.split131 ], [ null, %get_item_len.exit ]
   %75 = add i32 %storemerge.i, %64
-  %76 = call fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %.0.i, ptr noundef %.sink161, ptr noundef %.1125, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %76 = call fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %.0.i, ptr noundef %.sink160, ptr noundef %.1125, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %77 = add i32 %75, %72
   call void @proto_item_set_end(ptr noundef %.1128, ptr noundef %0, i32 noundef %77)
   %78 = load i8, ptr @ses_desegment, align 1, !range !8, !noundef !9
@@ -794,12 +794,12 @@ get_item_len.exit:                                ; preds = %67, %70
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.246, i32 noundef %96, ptr noundef nonnull %100)
   %101 = load i8, ptr %7, align 1
   %102 = and i8 %101, 2
-  %.not146 = icmp eq i8 %102, 0
-  %103 = call ptr @fragment_add_seq_next(ptr noundef nonnull @ses_reassembly_table, ptr noundef %0, i32 noundef %77, ptr noundef %2, i32 noundef %.0, ptr noundef null, i32 noundef %96, i1 noundef zeroext %.not146)
+  %.not145 = icmp eq i8 %102, 0
+  %103 = call ptr @fragment_add_seq_next(ptr noundef nonnull @ses_reassembly_table, ptr noundef %0, i32 noundef %77, ptr noundef %2, i32 noundef %.0, ptr noundef null, i32 noundef %96, i1 noundef zeroext %.not145)
   %104 = load i8, ptr %7, align 1
   %105 = and i8 %104, 2
-  %.not147 = icmp eq i8 %105, 0
-  %106 = select i1 %.not147, ptr %.1125, ptr %3
+  %.not146 = icmp eq i8 %105, 0
+  %106 = select i1 %.not146, ptr %.1125, ptr %3
   %107 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef nonnull @.str.249, ptr noundef %103, ptr noundef nonnull @ses_frag_items, ptr noundef null, ptr noundef %106)
   %108 = add i32 %96, %77
   br label %109
@@ -807,13 +807,13 @@ get_item_len.exit:                                ; preds = %67, %70
 109:                                              ; preds = %88, %95
   %.0121 = phi ptr [ %89, %88 ], [ %107, %95 ]
   %.0119 = phi i32 [ %77, %88 ], [ %108, %95 ]
-  %.not155 = icmp eq ptr %.0121, null
-  br i1 %.not155, label %.thread, label %110
+  %.not154 = icmp eq ptr %.0121, null
+  br i1 %.not154, label %.thread, label %110
 
 110:                                              ; preds = %109
   %111 = load ptr, ptr @pres_handle, align 8
-  %.not148 = icmp eq ptr %111, null
-  br i1 %.not148, label %112, label %114
+  %.not147 = icmp eq ptr %111, null
+  br i1 %.not147, label %112, label %114
 
 112:                                              ; preds = %110
   %113 = call i32 @call_data_dissector(ptr noundef nonnull %.0121, ptr noundef %2, ptr noundef %3)

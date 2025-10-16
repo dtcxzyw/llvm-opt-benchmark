@@ -78357,8 +78357,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_MacroArgUtil(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -78804,18 +78804,18 @@ _init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit: ; preds = %_init_l_Le
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit, %3
-  %.sink18 = phi ptr [ %4, %3 ], [ %191, %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit ]
-  %194 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
-  store i32 1, ptr %.sink18, align 4, !tbaa !8
+  %.sink17 = phi ptr [ %4, %3 ], [ %191, %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit ]
+  %194 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
+  store i32 1, ptr %.sink17, align 4, !tbaa !8
   store i32 131096, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %195, align 8, !tbaa !4
-  %196 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %196, align 8, !tbaa !4
   br label %197
 
 197:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 

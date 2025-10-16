@@ -1618,8 +1618,8 @@ define hidden void @proto_reg_handoff_dtls() #0 {
 
 dtls_parse_old_keys.exit:                         ; preds = %0, %6, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.b1 = load i1, ptr @proto_reg_handoff_dtls.initialized, align 1
-  br i1 %.b1, label %52, label %42
+  %.b = load i1, ptr @proto_reg_handoff_dtls.initialized, align 1
+  br i1 %.b, label %52, label %42
 
 42:                                               ; preds = %dtls_parse_old_keys.exit
   %43 = load i32, ptr @proto_dtls, align 4

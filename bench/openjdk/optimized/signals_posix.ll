@@ -381,8 +381,8 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_
   br i1 %6, label %7, label %_ZL25get_chained_signal_actioni.exit.thread
 
 7:                                                ; preds = %3
-  %.b3.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
-  br i1 %.b3.i, label %8, label %.thread.i
+  %.b.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
+  br i1 %.b.i, label %8, label %.thread.i
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @_ZL17get_signal_action, align 8
@@ -1498,8 +1498,8 @@ _ZNK19SavedSignalHandlers3getEi.exit:             ; preds = %27
   br label %_ZNK19SavedSignalHandlers3getEi.exit.thread
 
 _ZNK19SavedSignalHandlers3getEi.exit.thread:      ; preds = %27, %33, %44, %36, %_ZNK19SavedSignalHandlers3getEi.exit
-  %.b3.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
-  br i1 %.b3.i, label %45, label %.thread.i
+  %.b.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
+  br i1 %.b.i, label %45, label %.thread.i
 
 45:                                               ; preds = %_ZNK19SavedSignalHandlers3getEi.exit.thread
   %46 = load ptr, ptr @_ZL17get_signal_action, align 8
@@ -2123,16 +2123,16 @@ _ZL16signal_sets_initv.exit:                      ; preds = %117, %121
   br label %132
 
 131:                                              ; preds = %127
-  %.b45.pr.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
-  br i1 %.b45.pr.i, label %132, label %133
+  %.b4.pr.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
+  br i1 %.b4.pr.i, label %132, label %133
 
 132:                                              ; preds = %131, %.thread.i
-  %.011.i = phi ptr [ %129, %.thread.i ], [ null, %131 ]
+  %.08.i = phi ptr [ %129, %.thread.i ], [ null, %131 ]
   call void %128() #20
   br label %133
 
 133:                                              ; preds = %132, %131
-  %.010.i = phi ptr [ %.011.i, %132 ], [ null, %131 ]
+  %.07.i = phi ptr [ %.08.i, %132 ], [ null, %131 ]
   call fastcc void @_ZL18set_signal_handleri(i32 noundef 11)
   call fastcc void @_ZL18set_signal_handleri(i32 noundef 13)
   call fastcc void @_ZL18set_signal_handleri(i32 noundef 7)
@@ -2158,11 +2158,11 @@ _ZL16signal_sets_initv.exit:                      ; preds = %117, %121
   br label %146
 
 146:                                              ; preds = %136, %133
-  %.b36.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
-  br i1 %.b36.i, label %147, label %148
+  %.b3.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
+  br i1 %.b3.i, label %147, label %148
 
 147:                                              ; preds = %146
-  call void %.010.i() #20
+  call void %.07.i() #20
   br label %148
 
 148:                                              ; preds = %147, %146
@@ -2171,13 +2171,13 @@ _ZL16signal_sets_initv.exit:                      ; preds = %117, %121
   br i1 %150, label %151, label %_ZL23install_signal_handlersv.exit
 
 151:                                              ; preds = %148
-  %.b7.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
-  br i1 %.b7.i, label %152, label %156
+  %.b.i = load i1, ptr @_ZL17libjsig_is_loaded, align 1
+  br i1 %.b.i, label %152, label %156
 
 152:                                              ; preds = %151
   %153 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not12.i = icmp eq ptr %153, null
-  br i1 %.not12.i, label %155, label %154
+  %.not9.i = icmp eq ptr %153, null
+  br i1 %.not9.i, label %155, label %154
 
 154:                                              ; preds = %152
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.191)
@@ -2194,8 +2194,8 @@ _ZL16signal_sets_initv.exit:                      ; preds = %117, %121
 
 159:                                              ; preds = %156
   %160 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not13.i = icmp eq ptr %160, null
-  br i1 %.not13.i, label %162, label %161
+  %.not10.i = icmp eq ptr %160, null
+  br i1 %.not10.i, label %162, label %161
 
 161:                                              ; preds = %159
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.192)

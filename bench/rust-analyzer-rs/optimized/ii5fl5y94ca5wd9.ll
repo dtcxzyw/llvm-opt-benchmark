@@ -14118,13 +14118,13 @@ define hidden void @_ZN5salsa5Cycle5catch17h3af4642132f060deE(ptr noalias nounde
   %.sroa.6.4..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.6.4.copyload3 = load ptr, ptr %.sroa.6.4..sroa_idx2, align 4, !noalias !3083
   %.sroa.8.4..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.8.4.copyload18 = load i32, ptr %.sroa.8.4..sroa_idx4, align 4, !noalias !3083
+  %.sroa.8.4.copyload = load i32, ptr %.sroa.8.4..sroa_idx4, align 4, !noalias !3083
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3078
   store i32 %.sroa.4.4.copyload1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store ptr %.sroa.6.4.copyload3, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.8.4.copyload18, ptr %.sroa.3.0..sroa_idx, align 4
+  store i32 %.sroa.8.4.copyload, ptr %.sroa.3.0..sroa_idx, align 4
   br label %20
 
 5:                                                ; preds = %2
@@ -14514,13 +14514,13 @@ define hidden void @_ZN5salsa5Cycle5catch17h8ce20a628ddb85b4E(ptr noalias nounde
   %.sroa.6.4..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.6.4.copyload3 = load ptr, ptr %.sroa.6.4..sroa_idx2, align 4, !noalias !3168
   %.sroa.8.4..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.8.4.copyload18 = load i32, ptr %.sroa.8.4..sroa_idx4, align 4, !noalias !3168
+  %.sroa.8.4.copyload = load i32, ptr %.sroa.8.4..sroa_idx4, align 4, !noalias !3168
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3163
   store i32 %.sroa.4.4.copyload1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store ptr %.sroa.6.4.copyload3, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.8.4.copyload18, ptr %.sroa.3.0..sroa_idx, align 4
+  store i32 %.sroa.8.4.copyload, ptr %.sroa.3.0..sroa_idx, align 4
   br label %20
 
 5:                                                ; preds = %2

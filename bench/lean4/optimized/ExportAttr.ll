@@ -2024,8 +2024,8 @@ define nonnull ptr @l_Lean_isExport___boxed(ptr noundef %0, ptr noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_ExportAttr(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -2054,17 +2054,17 @@ define ptr @initialize_Lean_Compiler_ExportAttr(i8 noundef zeroext %0, ptr nound
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !5
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 16:                                               ; preds = %11
-  %.not.i10 = icmp eq i32 %12, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %17
+  %.not.i9 = icmp eq i32 %12, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #3
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %14, %16, %17
+lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 61, i64 noundef 61) #3
   store ptr %18, ptr @l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____lambda__2___closed__1, align 8, !tbaa !13
   tail call void @lean_mark_persistent(ptr noundef %18) #3
@@ -2101,11 +2101,11 @@ lean_dec_ref.exit11:                              ; preds = %14, %16, %17
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %_init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__7.exit
 
-35:                                               ; preds = %lean_dec_ref.exit11
+35:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-_init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__7.exit: ; preds = %lean_dec_ref.exit11
+_init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__7.exit: ; preds = %lean_dec_ref.exit10
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i64 0, ptr %37, align 8, !tbaa !11
@@ -2216,16 +2216,16 @@ _init_l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__11.exit:
   %75 = load ptr, ptr @l_Lean_initFn____x40_Lean_Compiler_ExportAttr___hyg_94____closed__11, align 8, !tbaa !13
   %76 = tail call ptr @l_Lean_registerParametricAttribute___rarg(ptr noundef %75, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %77 = getelementptr i8, ptr %76, i64 4
-  %.val12 = load i32, ptr %77, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %78 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %77, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %78 = icmp eq i32 %.mask.i13, 16777216
   br i1 %78, label %97, label %79
 
 79:                                               ; preds = %74
   %80 = getelementptr i8, ptr %76, i64 8
-  %.val13 = load ptr, ptr %80, align 8, !tbaa !13
-  store ptr %.val13, ptr @l_Lean_exportAttr, align 8, !tbaa !13
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #3
+  %.val12 = load ptr, ptr %80, align 8, !tbaa !13
+  store ptr %.val12, ptr @l_Lean_exportAttr, align 8, !tbaa !13
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #3
   %81 = load i32, ptr %76, align 8, !tbaa !5
   %82 = icmp sgt i32 %81, 1
   br i1 %82, label %83, label %85, !prof !10
@@ -2264,18 +2264,18 @@ lean_dec_ref.exit:                                ; preds = %86, %85, %83, %_ini
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %91, %lean_dec_ref.exit ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !5
+  %.sink28 = phi ptr [ %4, %3 ], [ %91, %lean_dec_ref.exit ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
+  store i32 1, ptr %.sink28, align 4, !tbaa !5
   store i32 131096, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !13
-  %96 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %96, align 8, !tbaa !13
   br label %97
 
 97:                                               ; preds = %.sink.split, %74, %7
-  %.0 = phi ptr [ %8, %7 ], [ %76, %74 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %76, %74 ], [ %.sink28, %.sink.split ]
   ret ptr %.0
 }
 

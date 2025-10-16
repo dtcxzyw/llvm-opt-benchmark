@@ -85424,7 +85424,7 @@ define void @"_ZN5typst6layout4page1_98_$LT$impl$u20$typst..foundations..element
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.514.0..sroa_idx.i, i64 16, i1 false), !noalias !17028
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17028
   %36 = icmp eq ptr %32, null
-  br i1 %36, label %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit, label %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread487
+  br i1 %36, label %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit, label %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread486
 
 _ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17028
@@ -85435,7 +85435,7 @@ _ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread:
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %48
 
-_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread487: ; preds = %35
+_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread486: ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %32, ptr %39, align 8, !alias.scope !17025, !noalias !17031
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -85452,7 +85452,7 @@ _ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br i1 %40, label %48, label %41
 
-41:                                               ; preds = %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread487, %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit
+41:                                               ; preds = %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit.thread486, %_ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.0221.0.copyload = load ptr, ptr %42, align 8
   %.sroa.5223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -85723,7 +85723,7 @@ _ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit: ; pred
   %144 = load ptr, ptr %18, align 8, !noundef !16
   %145 = icmp eq ptr %144, null
   %146 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.0261.0.copyload471 = load i16, ptr %146, align 8
+  %.sroa.0261.0.copyload = load i16, ptr %146, align 8
   %147 = load i64, ptr %146, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %145, label %148, label %149
@@ -85995,7 +85995,7 @@ _ZN5typst11foundations4args4Args13named_or_find17h6b25fa572540c3c2E.exit: ; pred
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 464
   store i64 %110, ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %5, i64 472
-  store i16 %.sroa.0261.0.copyload471, ptr %243, align 8
+  store i16 %.sroa.0261.0.copyload, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %166, ptr %244, align 8
   %.sroa.2132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -93668,7 +93668,7 @@ define void @"_ZN5typst6layout5place1_100_$LT$impl$u20$typst..foundations..eleme
   %12 = load ptr, ptr %11, align 8, !noundef !16
   %13 = icmp eq ptr %12, null
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.067.0.copyload107 = load i16, ptr %14, align 8
+  %.sroa.067.0.copyload = load i16, ptr %14, align 8
   %15 = load i64, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %13, label %16, label %22
@@ -93782,7 +93782,7 @@ define void @"_ZN5typst6layout5place1_100_$LT$impl$u20$typst..foundations..eleme
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i16 %.sroa.067.0.copyload107, ptr %66, align 8
+  store i16 %.sroa.067.0.copyload, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 114
   store i8 %20, ptr %67, align 2
   store i64 %26, ptr %4, align 8
@@ -100300,7 +100300,7 @@ define void @"_ZN5typst5model5enum_1_98_$LT$impl$u20$typst..foundations..element
   %77 = load ptr, ptr %7, align 8, !noundef !16
   %78 = icmp eq ptr %77, null
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0120.0.copyload154 = load i16, ptr %79, align 8
+  %.sroa.0120.0.copyload = load i16, ptr %79, align 8
   %80 = load i64, ptr %79, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %78, label %81, label %100
@@ -100353,7 +100353,7 @@ define void @"_ZN5typst5model5enum_1_98_$LT$impl$u20$typst..foundations..element
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 %.sroa.6117.0.copyload, ptr %.sroa.470.0..sroa_idx, align 8
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store i16 %.sroa.0120.0.copyload154, ptr %97, align 8
+  store i16 %.sroa.0120.0.copyload, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i64 %83, ptr %98, align 8
   %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -100371,10 +100371,10 @@ define void @"_ZN5typst5model5enum_1_98_$LT$impl$u20$typst..foundations..element
   ret void
 
 100:                                              ; preds = %82, %76, %59, %51, %44, %75, %42
-  %.sink163 = phi ptr [ %71, %75 ], [ %43, %42 ], [ %45, %44 ], [ %55, %51 ], [ %63, %59 ], [ %77, %76 ], [ %86, %82 ]
+  %.sink162 = phi ptr [ %71, %75 ], [ %43, %42 ], [ %45, %44 ], [ %55, %51 ], [ %63, %59 ], [ %77, %76 ], [ %86, %82 ]
   %.sink = phi i64 [ %73, %75 ], [ %40, %42 ], [ %49, %44 ], [ %57, %51 ], [ %65, %59 ], [ %80, %76 ], [ %88, %82 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink163, ptr %101, align 8
+  store ptr %.sink162, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %102, align 8
   store ptr null, ptr %0, align 8

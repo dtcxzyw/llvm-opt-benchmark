@@ -10747,8 +10747,8 @@ lean_dec.exit:                                    ; preds = %43, %42, %40, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_NatInstTesters(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -11112,18 +11112,18 @@ _init_l_Lean_Meta_isInstHPowNat___closed__1.exit: ; preds = %_init_l_Lean_Meta_i
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit, %3
-  %.sink21 = phi ptr [ %4, %3 ], [ %136, %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
-  store i32 1, ptr %.sink21, align 4, !tbaa !4
+  %.sink20 = phi ptr [ %4, %3 ], [ %136, %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit ]
+  %139 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
+  store i32 1, ptr %.sink20, align 4, !tbaa !4
   store i32 131096, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %140, align 8, !tbaa !9
-  %141 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %141, align 8, !tbaa !9
   br label %142
 
 142:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink21, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
   ret ptr %.0
 }
 

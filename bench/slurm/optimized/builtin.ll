@@ -118,17 +118,17 @@ define dso_local noalias noundef ptr @builtin_agent(ptr noundef readnone capture
   tail call fastcc void @_load_config()
   %10 = tail call i64 @time(ptr noundef null) #11
   store i64 %10, ptr @builtin_agent.last_sched_time, align 8
-  %.b1323 = load i1, ptr @stop_builtin, align 1
-  br i1 %.b1323, label %_my_sleep.exit._crit_edge, label %.lr.ph
+  %.b120 = load i1, ptr @stop_builtin, align 1
+  br i1 %.b120, label %_my_sleep.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre39 = load i32, ptr @builtin_interval, align 4
+  %.pre36 = load i32, ptr @builtin_interval, align 4
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.backedge
-  %14 = phi i32 [ %.pre39, %.lr.ph ], [ %137, %.backedge ]
+  %14 = phi i32 [ %.pre36, %.lr.ph ], [ %137, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #11
@@ -150,8 +150,8 @@ define dso_local noalias noundef ptr @builtin_agent(ptr noundef readnone capture
   unreachable
 
 24:                                               ; preds = %13
-  %.b11.i = load i1, ptr @stop_builtin, align 1
-  br i1 %.b11.i, label %30, label %25
+  %.b.i = load i1, ptr @stop_builtin, align 1
+  br i1 %.b.i, label %30, label %25
 
 25:                                               ; preds = %24
   %26 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @term_cond, ptr noundef nonnull @term_lock, ptr noundef nonnull %8) #11
@@ -168,8 +168,8 @@ define dso_local noalias noundef ptr @builtin_agent(ptr noundef readnone capture
 
 30:                                               ; preds = %27, %25, %25, %24
   %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @term_lock) #11
-  %.not12.i = icmp eq i32 %31, 0
-  br i1 %.not12.i, label %_my_sleep.exit, label %32
+  %.not11.i = icmp eq i32 %31, 0
+  br i1 %.not11.i, label %_my_sleep.exit, label %32
 
 32:                                               ; preds = %30
   %33 = tail call ptr @__errno_location() #12
@@ -180,12 +180,12 @@ define dso_local noalias noundef ptr @builtin_agent(ptr noundef readnone capture
 _my_sleep.exit:                                   ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.b4 = load i1, ptr @stop_builtin, align 1
-  br i1 %.b4, label %_my_sleep.exit._crit_edge, label %34
+  %.b = load i1, ptr @stop_builtin, align 1
+  br i1 %.b, label %_my_sleep.exit._crit_edge, label %34
 
 34:                                               ; preds = %_my_sleep.exit
-  %.b25 = load i1, ptr @config_flag, align 1
-  br i1 %.b25, label %35, label %36
+  %.b2 = load i1, ptr @config_flag, align 1
+  br i1 %.b2, label %35, label %36
 
 35:                                               ; preds = %34
   store i1 false, ptr @config_flag, align 1
@@ -237,8 +237,8 @@ _my_sleep.exit:                                   ; preds = %30
 51:                                               ; preds = %53, %.outer.i
   %52 = call ptr @list_pop(ptr noundef %49) #11
   store ptr %52, ptr %2, align 8
-  %.not.i6 = icmp eq ptr %52, null
-  br i1 %.not.i6, label %.loopexit.i, label %53
+  %.not.i3 = icmp eq ptr %52, null
+  br i1 %.not.i3, label %.loopexit.i, label %53
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -430,8 +430,8 @@ _compute_start_times.exit:                        ; preds = %133, %134
 
 .backedge:                                        ; preds = %_compute_start_times.exit, %36
   %137 = phi i32 [ %.pre, %_compute_start_times.exit ], [ %40, %36 ]
-  %.b13 = load i1, ptr @stop_builtin, align 1
-  br i1 %.b13, label %_my_sleep.exit._crit_edge, label %13, !llvm.loop !11
+  %.b1 = load i1, ptr @stop_builtin, align 1
+  br i1 %.b1, label %_my_sleep.exit._crit_edge, label %13, !llvm.loop !11
 
 _my_sleep.exit._crit_edge:                        ; preds = %.backedge, %_my_sleep.exit, %1
   ret ptr null

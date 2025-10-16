@@ -110,8 +110,8 @@ define internal range(i32 -1, 2) i32 @keyset_compare(ptr noundef readonly captur
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @ua_keysets_lookup(i64 noundef %0) local_unnamed_addr #6 {
-  %.b2 = load i1, ptr @g_sorted, align 1
-  br i1 %.b2, label %2, label %bsearch.exit
+  %.b = load i1, ptr @g_sorted, align 1
+  br i1 %.b, label %2, label %bsearch.exit
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @g_keysets, align 8

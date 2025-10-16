@@ -4633,8 +4633,8 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Expr(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b68 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b68, label %3, label %10
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %10
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -4686,9 +4686,9 @@ lean_io_result_mk_ok.exit:                        ; preds = %3
 lean_dec_ref.exit:                                ; preds = %17, %19, %20
   %21 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Const(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val101 = load i32, ptr %22, align 4
-  %.mask.i117 = and i32 %.val101, -16777216
-  %23 = icmp eq i32 %.mask.i117, 16777216
+  %.val100 = load i32, ptr %22, align 4
+  %.mask.i116 = and i32 %.val100, -16777216
+  %23 = icmp eq i32 %.mask.i116, 16777216
   br i1 %23, label %182, label %24
 
 24:                                               ; preds = %lean_dec_ref.exit
@@ -4699,25 +4699,25 @@ lean_dec_ref.exit:                                ; preds = %17, %19, %20
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
   store i32 %28, ptr %21, align 4, !tbaa !4
-  br label %lean_dec_ref.exit70
+  br label %lean_dec_ref.exit69
 
 29:                                               ; preds = %24
-  %.not.i69 = icmp eq i32 %25, 0
-  br i1 %.not.i69, label %lean_dec_ref.exit70, label %30
+  %.not.i68 = icmp eq i32 %25, 0
+  br i1 %.not.i68, label %lean_dec_ref.exit69, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #4
-  br label %lean_dec_ref.exit70
+  br label %lean_dec_ref.exit69
 
-lean_dec_ref.exit70:                              ; preds = %27, %29, %30
+lean_dec_ref.exit69:                              ; preds = %27, %29, %30
   %31 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Var(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %32 = getelementptr i8, ptr %31, i64 4
-  %.val102 = load i32, ptr %32, align 4
-  %.mask.i118 = and i32 %.val102, -16777216
-  %33 = icmp eq i32 %.mask.i118, 16777216
+  %.val101 = load i32, ptr %32, align 4
+  %.mask.i117 = and i32 %.val101, -16777216
+  %33 = icmp eq i32 %.mask.i117, 16777216
   br i1 %33, label %182, label %34
 
-34:                                               ; preds = %lean_dec_ref.exit70
+34:                                               ; preds = %lean_dec_ref.exit69
   %35 = load i32, ptr %31, align 4, !tbaa !4
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %37, label %39, !prof !9
@@ -4725,25 +4725,25 @@ lean_dec_ref.exit70:                              ; preds = %27, %29, %30
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
   store i32 %38, ptr %31, align 4, !tbaa !4
-  br label %lean_dec_ref.exit72
+  br label %lean_dec_ref.exit71
 
 39:                                               ; preds = %34
-  %.not.i71 = icmp eq i32 %35, 0
-  br i1 %.not.i71, label %lean_dec_ref.exit72, label %40
+  %.not.i70 = icmp eq i32 %35, 0
+  br i1 %.not.i70, label %lean_dec_ref.exit71, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %31) #4
-  br label %lean_dec_ref.exit72
+  br label %lean_dec_ref.exit71
 
-lean_dec_ref.exit72:                              ; preds = %37, %39, %40
+lean_dec_ref.exit71:                              ; preds = %37, %39, %40
   %41 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Not(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %42 = getelementptr i8, ptr %41, i64 4
-  %.val103 = load i32, ptr %42, align 4
-  %.mask.i119 = and i32 %.val103, -16777216
-  %43 = icmp eq i32 %.mask.i119, 16777216
+  %.val102 = load i32, ptr %42, align 4
+  %.mask.i118 = and i32 %.val102, -16777216
+  %43 = icmp eq i32 %.mask.i118, 16777216
   br i1 %43, label %182, label %44
 
-44:                                               ; preds = %lean_dec_ref.exit72
+44:                                               ; preds = %lean_dec_ref.exit71
   %45 = load i32, ptr %41, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %49, !prof !9
@@ -4751,25 +4751,25 @@ lean_dec_ref.exit72:                              ; preds = %37, %39, %40
 47:                                               ; preds = %44
   %48 = add nsw i32 %45, -1
   store i32 %48, ptr %41, align 4, !tbaa !4
-  br label %lean_dec_ref.exit74
+  br label %lean_dec_ref.exit73
 
 49:                                               ; preds = %44
-  %.not.i73 = icmp eq i32 %45, 0
-  br i1 %.not.i73, label %lean_dec_ref.exit74, label %50
+  %.not.i72 = icmp eq i32 %45, 0
+  br i1 %.not.i72, label %lean_dec_ref.exit73, label %50
 
 50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #4
-  br label %lean_dec_ref.exit74
+  br label %lean_dec_ref.exit73
 
-lean_dec_ref.exit74:                              ; preds = %47, %49, %50
+lean_dec_ref.exit73:                              ; preds = %47, %49, %50
   %51 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_ShiftLeft(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %52 = getelementptr i8, ptr %51, i64 4
-  %.val104 = load i32, ptr %52, align 4
-  %.mask.i120 = and i32 %.val104, -16777216
-  %53 = icmp eq i32 %.mask.i120, 16777216
+  %.val103 = load i32, ptr %52, align 4
+  %.mask.i119 = and i32 %.val103, -16777216
+  %53 = icmp eq i32 %.mask.i119, 16777216
   br i1 %53, label %182, label %54
 
-54:                                               ; preds = %lean_dec_ref.exit74
+54:                                               ; preds = %lean_dec_ref.exit73
   %55 = load i32, ptr %51, align 4, !tbaa !4
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %57, label %59, !prof !9
@@ -4777,25 +4777,25 @@ lean_dec_ref.exit74:                              ; preds = %47, %49, %50
 57:                                               ; preds = %54
   %58 = add nsw i32 %55, -1
   store i32 %58, ptr %51, align 4, !tbaa !4
-  br label %lean_dec_ref.exit76
+  br label %lean_dec_ref.exit75
 
 59:                                               ; preds = %54
-  %.not.i75 = icmp eq i32 %55, 0
-  br i1 %.not.i75, label %lean_dec_ref.exit76, label %60
+  %.not.i74 = icmp eq i32 %55, 0
+  br i1 %.not.i74, label %lean_dec_ref.exit75, label %60
 
 60:                                               ; preds = %59
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %51) #4
-  br label %lean_dec_ref.exit76
+  br label %lean_dec_ref.exit75
 
-lean_dec_ref.exit76:                              ; preds = %57, %59, %60
+lean_dec_ref.exit75:                              ; preds = %57, %59, %60
   %61 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_ShiftRight(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %62 = getelementptr i8, ptr %61, i64 4
-  %.val105 = load i32, ptr %62, align 4
-  %.mask.i121 = and i32 %.val105, -16777216
-  %63 = icmp eq i32 %.mask.i121, 16777216
+  %.val104 = load i32, ptr %62, align 4
+  %.mask.i120 = and i32 %.val104, -16777216
+  %63 = icmp eq i32 %.mask.i120, 16777216
   br i1 %63, label %182, label %64
 
-64:                                               ; preds = %lean_dec_ref.exit76
+64:                                               ; preds = %lean_dec_ref.exit75
   %65 = load i32, ptr %61, align 4, !tbaa !4
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %67, label %69, !prof !9
@@ -4803,25 +4803,25 @@ lean_dec_ref.exit76:                              ; preds = %57, %59, %60
 67:                                               ; preds = %64
   %68 = add nsw i32 %65, -1
   store i32 %68, ptr %61, align 4, !tbaa !4
-  br label %lean_dec_ref.exit78
+  br label %lean_dec_ref.exit77
 
 69:                                               ; preds = %64
-  %.not.i77 = icmp eq i32 %65, 0
-  br i1 %.not.i77, label %lean_dec_ref.exit78, label %70
+  %.not.i76 = icmp eq i32 %65, 0
+  br i1 %.not.i76, label %lean_dec_ref.exit77, label %70
 
 70:                                               ; preds = %69
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %61) #4
-  br label %lean_dec_ref.exit78
+  br label %lean_dec_ref.exit77
 
-lean_dec_ref.exit78:                              ; preds = %67, %69, %70
+lean_dec_ref.exit77:                              ; preds = %67, %69, %70
   %71 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Add(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %72 = getelementptr i8, ptr %71, i64 4
-  %.val106 = load i32, ptr %72, align 4
-  %.mask.i122 = and i32 %.val106, -16777216
-  %73 = icmp eq i32 %.mask.i122, 16777216
+  %.val105 = load i32, ptr %72, align 4
+  %.mask.i121 = and i32 %.val105, -16777216
+  %73 = icmp eq i32 %.mask.i121, 16777216
   br i1 %73, label %182, label %74
 
-74:                                               ; preds = %lean_dec_ref.exit78
+74:                                               ; preds = %lean_dec_ref.exit77
   %75 = load i32, ptr %71, align 4, !tbaa !4
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %79, !prof !9
@@ -4829,25 +4829,25 @@ lean_dec_ref.exit78:                              ; preds = %67, %69, %70
 77:                                               ; preds = %74
   %78 = add nsw i32 %75, -1
   store i32 %78, ptr %71, align 4, !tbaa !4
-  br label %lean_dec_ref.exit80
+  br label %lean_dec_ref.exit79
 
 79:                                               ; preds = %74
-  %.not.i79 = icmp eq i32 %75, 0
-  br i1 %.not.i79, label %lean_dec_ref.exit80, label %80
+  %.not.i78 = icmp eq i32 %75, 0
+  br i1 %.not.i78, label %lean_dec_ref.exit79, label %80
 
 80:                                               ; preds = %79
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %71) #4
-  br label %lean_dec_ref.exit80
+  br label %lean_dec_ref.exit79
 
-lean_dec_ref.exit80:                              ; preds = %77, %79, %80
+lean_dec_ref.exit79:                              ; preds = %77, %79, %80
   %81 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Append(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %82 = getelementptr i8, ptr %81, i64 4
-  %.val107 = load i32, ptr %82, align 4
-  %.mask.i123 = and i32 %.val107, -16777216
-  %83 = icmp eq i32 %.mask.i123, 16777216
+  %.val106 = load i32, ptr %82, align 4
+  %.mask.i122 = and i32 %.val106, -16777216
+  %83 = icmp eq i32 %.mask.i122, 16777216
   br i1 %83, label %182, label %84
 
-84:                                               ; preds = %lean_dec_ref.exit80
+84:                                               ; preds = %lean_dec_ref.exit79
   %85 = load i32, ptr %81, align 4, !tbaa !4
   %86 = icmp sgt i32 %85, 1
   br i1 %86, label %87, label %89, !prof !9
@@ -4855,25 +4855,25 @@ lean_dec_ref.exit80:                              ; preds = %77, %79, %80
 87:                                               ; preds = %84
   %88 = add nsw i32 %85, -1
   store i32 %88, ptr %81, align 4, !tbaa !4
-  br label %lean_dec_ref.exit82
+  br label %lean_dec_ref.exit81
 
 89:                                               ; preds = %84
-  %.not.i81 = icmp eq i32 %85, 0
-  br i1 %.not.i81, label %lean_dec_ref.exit82, label %90
+  %.not.i80 = icmp eq i32 %85, 0
+  br i1 %.not.i80, label %lean_dec_ref.exit81, label %90
 
 90:                                               ; preds = %89
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %81) #4
-  br label %lean_dec_ref.exit82
+  br label %lean_dec_ref.exit81
 
-lean_dec_ref.exit82:                              ; preds = %87, %89, %90
+lean_dec_ref.exit81:                              ; preds = %87, %89, %90
   %91 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Replicate(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %92 = getelementptr i8, ptr %91, i64 4
-  %.val108 = load i32, ptr %92, align 4
-  %.mask.i124 = and i32 %.val108, -16777216
-  %93 = icmp eq i32 %.mask.i124, 16777216
+  %.val107 = load i32, ptr %92, align 4
+  %.mask.i123 = and i32 %.val107, -16777216
+  %93 = icmp eq i32 %.mask.i123, 16777216
   br i1 %93, label %182, label %94
 
-94:                                               ; preds = %lean_dec_ref.exit82
+94:                                               ; preds = %lean_dec_ref.exit81
   %95 = load i32, ptr %91, align 4, !tbaa !4
   %96 = icmp sgt i32 %95, 1
   br i1 %96, label %97, label %99, !prof !9
@@ -4881,25 +4881,25 @@ lean_dec_ref.exit82:                              ; preds = %87, %89, %90
 97:                                               ; preds = %94
   %98 = add nsw i32 %95, -1
   store i32 %98, ptr %91, align 4, !tbaa !4
-  br label %lean_dec_ref.exit84
+  br label %lean_dec_ref.exit83
 
 99:                                               ; preds = %94
-  %.not.i83 = icmp eq i32 %95, 0
-  br i1 %.not.i83, label %lean_dec_ref.exit84, label %100
+  %.not.i82 = icmp eq i32 %95, 0
+  br i1 %.not.i82, label %lean_dec_ref.exit83, label %100
 
 100:                                              ; preds = %99
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %91) #4
-  br label %lean_dec_ref.exit84
+  br label %lean_dec_ref.exit83
 
-lean_dec_ref.exit84:                              ; preds = %97, %99, %100
+lean_dec_ref.exit83:                              ; preds = %97, %99, %100
   %101 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Extract(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %102 = getelementptr i8, ptr %101, i64 4
-  %.val109 = load i32, ptr %102, align 4
-  %.mask.i125 = and i32 %.val109, -16777216
-  %103 = icmp eq i32 %.mask.i125, 16777216
+  %.val108 = load i32, ptr %102, align 4
+  %.mask.i124 = and i32 %.val108, -16777216
+  %103 = icmp eq i32 %.mask.i124, 16777216
   br i1 %103, label %182, label %104
 
-104:                                              ; preds = %lean_dec_ref.exit84
+104:                                              ; preds = %lean_dec_ref.exit83
   %105 = load i32, ptr %101, align 4, !tbaa !4
   %106 = icmp sgt i32 %105, 1
   br i1 %106, label %107, label %109, !prof !9
@@ -4907,25 +4907,25 @@ lean_dec_ref.exit84:                              ; preds = %97, %99, %100
 107:                                              ; preds = %104
   %108 = add nsw i32 %105, -1
   store i32 %108, ptr %101, align 4, !tbaa !4
-  br label %lean_dec_ref.exit86
+  br label %lean_dec_ref.exit85
 
 109:                                              ; preds = %104
-  %.not.i85 = icmp eq i32 %105, 0
-  br i1 %.not.i85, label %lean_dec_ref.exit86, label %110
+  %.not.i84 = icmp eq i32 %105, 0
+  br i1 %.not.i84, label %lean_dec_ref.exit85, label %110
 
 110:                                              ; preds = %109
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %101) #4
-  br label %lean_dec_ref.exit86
+  br label %lean_dec_ref.exit85
 
-lean_dec_ref.exit86:                              ; preds = %107, %109, %110
+lean_dec_ref.exit85:                              ; preds = %107, %109, %110
   %111 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_RotateLeft(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %112 = getelementptr i8, ptr %111, i64 4
-  %.val110 = load i32, ptr %112, align 4
-  %.mask.i126 = and i32 %.val110, -16777216
-  %113 = icmp eq i32 %.mask.i126, 16777216
+  %.val109 = load i32, ptr %112, align 4
+  %.mask.i125 = and i32 %.val109, -16777216
+  %113 = icmp eq i32 %.mask.i125, 16777216
   br i1 %113, label %182, label %114
 
-114:                                              ; preds = %lean_dec_ref.exit86
+114:                                              ; preds = %lean_dec_ref.exit85
   %115 = load i32, ptr %111, align 4, !tbaa !4
   %116 = icmp sgt i32 %115, 1
   br i1 %116, label %117, label %119, !prof !9
@@ -4933,25 +4933,25 @@ lean_dec_ref.exit86:                              ; preds = %107, %109, %110
 117:                                              ; preds = %114
   %118 = add nsw i32 %115, -1
   store i32 %118, ptr %111, align 4, !tbaa !4
-  br label %lean_dec_ref.exit88
+  br label %lean_dec_ref.exit87
 
 119:                                              ; preds = %114
-  %.not.i87 = icmp eq i32 %115, 0
-  br i1 %.not.i87, label %lean_dec_ref.exit88, label %120
+  %.not.i86 = icmp eq i32 %115, 0
+  br i1 %.not.i86, label %lean_dec_ref.exit87, label %120
 
 120:                                              ; preds = %119
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %111) #4
-  br label %lean_dec_ref.exit88
+  br label %lean_dec_ref.exit87
 
-lean_dec_ref.exit88:                              ; preds = %117, %119, %120
+lean_dec_ref.exit87:                              ; preds = %117, %119, %120
   %121 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_RotateRight(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %122 = getelementptr i8, ptr %121, i64 4
-  %.val111 = load i32, ptr %122, align 4
-  %.mask.i127 = and i32 %.val111, -16777216
-  %123 = icmp eq i32 %.mask.i127, 16777216
+  %.val110 = load i32, ptr %122, align 4
+  %.mask.i126 = and i32 %.val110, -16777216
+  %123 = icmp eq i32 %.mask.i126, 16777216
   br i1 %123, label %182, label %124
 
-124:                                              ; preds = %lean_dec_ref.exit88
+124:                                              ; preds = %lean_dec_ref.exit87
   %125 = load i32, ptr %121, align 4, !tbaa !4
   %126 = icmp sgt i32 %125, 1
   br i1 %126, label %127, label %129, !prof !9
@@ -4959,25 +4959,25 @@ lean_dec_ref.exit88:                              ; preds = %117, %119, %120
 127:                                              ; preds = %124
   %128 = add nsw i32 %125, -1
   store i32 %128, ptr %121, align 4, !tbaa !4
-  br label %lean_dec_ref.exit90
+  br label %lean_dec_ref.exit89
 
 129:                                              ; preds = %124
-  %.not.i89 = icmp eq i32 %125, 0
-  br i1 %.not.i89, label %lean_dec_ref.exit90, label %130
+  %.not.i88 = icmp eq i32 %125, 0
+  br i1 %.not.i88, label %lean_dec_ref.exit89, label %130
 
 130:                                              ; preds = %129
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %121) #4
-  br label %lean_dec_ref.exit90
+  br label %lean_dec_ref.exit89
 
-lean_dec_ref.exit90:                              ; preds = %127, %129, %130
+lean_dec_ref.exit89:                              ; preds = %127, %129, %130
   %131 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Mul(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %132 = getelementptr i8, ptr %131, i64 4
-  %.val112 = load i32, ptr %132, align 4
-  %.mask.i128 = and i32 %.val112, -16777216
-  %133 = icmp eq i32 %.mask.i128, 16777216
+  %.val111 = load i32, ptr %132, align 4
+  %.mask.i127 = and i32 %.val111, -16777216
+  %133 = icmp eq i32 %.mask.i127, 16777216
   br i1 %133, label %182, label %134
 
-134:                                              ; preds = %lean_dec_ref.exit90
+134:                                              ; preds = %lean_dec_ref.exit89
   %135 = load i32, ptr %131, align 4, !tbaa !4
   %136 = icmp sgt i32 %135, 1
   br i1 %136, label %137, label %139, !prof !9
@@ -4985,25 +4985,25 @@ lean_dec_ref.exit90:                              ; preds = %127, %129, %130
 137:                                              ; preds = %134
   %138 = add nsw i32 %135, -1
   store i32 %138, ptr %131, align 4, !tbaa !4
-  br label %lean_dec_ref.exit92
+  br label %lean_dec_ref.exit91
 
 139:                                              ; preds = %134
-  %.not.i91 = icmp eq i32 %135, 0
-  br i1 %.not.i91, label %lean_dec_ref.exit92, label %140
+  %.not.i90 = icmp eq i32 %135, 0
+  br i1 %.not.i90, label %lean_dec_ref.exit91, label %140
 
 140:                                              ; preds = %139
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %131) #4
-  br label %lean_dec_ref.exit92
+  br label %lean_dec_ref.exit91
 
-lean_dec_ref.exit92:                              ; preds = %137, %139, %140
+lean_dec_ref.exit91:                              ; preds = %137, %139, %140
   %141 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Udiv(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %142 = getelementptr i8, ptr %141, i64 4
-  %.val113 = load i32, ptr %142, align 4
-  %.mask.i129 = and i32 %.val113, -16777216
-  %143 = icmp eq i32 %.mask.i129, 16777216
+  %.val112 = load i32, ptr %142, align 4
+  %.mask.i128 = and i32 %.val112, -16777216
+  %143 = icmp eq i32 %.mask.i128, 16777216
   br i1 %143, label %182, label %144
 
-144:                                              ; preds = %lean_dec_ref.exit92
+144:                                              ; preds = %lean_dec_ref.exit91
   %145 = load i32, ptr %141, align 4, !tbaa !4
   %146 = icmp sgt i32 %145, 1
   br i1 %146, label %147, label %149, !prof !9
@@ -5011,25 +5011,25 @@ lean_dec_ref.exit92:                              ; preds = %137, %139, %140
 147:                                              ; preds = %144
   %148 = add nsw i32 %145, -1
   store i32 %148, ptr %141, align 4, !tbaa !4
-  br label %lean_dec_ref.exit94
+  br label %lean_dec_ref.exit93
 
 149:                                              ; preds = %144
-  %.not.i93 = icmp eq i32 %145, 0
-  br i1 %.not.i93, label %lean_dec_ref.exit94, label %150
+  %.not.i92 = icmp eq i32 %145, 0
+  br i1 %.not.i92, label %lean_dec_ref.exit93, label %150
 
 150:                                              ; preds = %149
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %141) #4
-  br label %lean_dec_ref.exit94
+  br label %lean_dec_ref.exit93
 
-lean_dec_ref.exit94:                              ; preds = %147, %149, %150
+lean_dec_ref.exit93:                              ; preds = %147, %149, %150
   %151 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Umod(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %152 = getelementptr i8, ptr %151, i64 4
-  %.val114 = load i32, ptr %152, align 4
-  %.mask.i130 = and i32 %.val114, -16777216
-  %153 = icmp eq i32 %.mask.i130, 16777216
+  %.val113 = load i32, ptr %152, align 4
+  %.mask.i129 = and i32 %.val113, -16777216
+  %153 = icmp eq i32 %.mask.i129, 16777216
   br i1 %153, label %182, label %154
 
-154:                                              ; preds = %lean_dec_ref.exit94
+154:                                              ; preds = %lean_dec_ref.exit93
   %155 = load i32, ptr %151, align 4, !tbaa !4
   %156 = icmp sgt i32 %155, 1
   br i1 %156, label %157, label %159, !prof !9
@@ -5037,25 +5037,25 @@ lean_dec_ref.exit94:                              ; preds = %147, %149, %150
 157:                                              ; preds = %154
   %158 = add nsw i32 %155, -1
   store i32 %158, ptr %151, align 4, !tbaa !4
-  br label %lean_dec_ref.exit96
+  br label %lean_dec_ref.exit95
 
 159:                                              ; preds = %154
-  %.not.i95 = icmp eq i32 %155, 0
-  br i1 %.not.i95, label %lean_dec_ref.exit96, label %160
+  %.not.i94 = icmp eq i32 %155, 0
+  br i1 %.not.i94, label %lean_dec_ref.exit95, label %160
 
 160:                                              ; preds = %159
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %151) #4
-  br label %lean_dec_ref.exit96
+  br label %lean_dec_ref.exit95
 
-lean_dec_ref.exit96:                              ; preds = %157, %159, %160
+lean_dec_ref.exit95:                              ; preds = %157, %159, %160
   %161 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Reverse(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %162 = getelementptr i8, ptr %161, i64 4
-  %.val115 = load i32, ptr %162, align 4
-  %.mask.i131 = and i32 %.val115, -16777216
-  %163 = icmp eq i32 %.mask.i131, 16777216
+  %.val114 = load i32, ptr %162, align 4
+  %.mask.i130 = and i32 %.val114, -16777216
+  %163 = icmp eq i32 %.mask.i130, 16777216
   br i1 %163, label %182, label %164
 
-164:                                              ; preds = %lean_dec_ref.exit96
+164:                                              ; preds = %lean_dec_ref.exit95
   %165 = load i32, ptr %161, align 4, !tbaa !4
   %166 = icmp sgt i32 %165, 1
   br i1 %166, label %167, label %169, !prof !9
@@ -5063,25 +5063,25 @@ lean_dec_ref.exit96:                              ; preds = %157, %159, %160
 167:                                              ; preds = %164
   %168 = add nsw i32 %165, -1
   store i32 %168, ptr %161, align 4, !tbaa !4
-  br label %lean_dec_ref.exit98
+  br label %lean_dec_ref.exit97
 
 169:                                              ; preds = %164
-  %.not.i97 = icmp eq i32 %165, 0
-  br i1 %.not.i97, label %lean_dec_ref.exit98, label %170
+  %.not.i96 = icmp eq i32 %165, 0
+  br i1 %.not.i96, label %lean_dec_ref.exit97, label %170
 
 170:                                              ; preds = %169
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %161) #4
-  br label %lean_dec_ref.exit98
+  br label %lean_dec_ref.exit97
 
-lean_dec_ref.exit98:                              ; preds = %167, %169, %170
+lean_dec_ref.exit97:                              ; preds = %167, %169, %170
   %171 = tail call ptr @initialize_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Impl_Expr(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %172 = getelementptr i8, ptr %171, i64 4
-  %.val116 = load i32, ptr %172, align 4
-  %.mask.i132 = and i32 %.val116, -16777216
-  %173 = icmp eq i32 %.mask.i132, 16777216
+  %.val115 = load i32, ptr %172, align 4
+  %.mask.i131 = and i32 %.val115, -16777216
+  %173 = icmp eq i32 %.mask.i131, 16777216
   br i1 %173, label %182, label %174
 
-174:                                              ; preds = %lean_dec_ref.exit98
+174:                                              ; preds = %lean_dec_ref.exit97
   %175 = load i32, ptr %171, align 4, !tbaa !4
   %176 = icmp sgt i32 %175, 1
   br i1 %176, label %177, label %179, !prof !9
@@ -5089,22 +5089,22 @@ lean_dec_ref.exit98:                              ; preds = %167, %169, %170
 177:                                              ; preds = %174
   %178 = add nsw i32 %175, -1
   store i32 %178, ptr %171, align 4, !tbaa !4
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
 179:                                              ; preds = %174
-  %.not.i99 = icmp eq i32 %175, 0
-  br i1 %.not.i99, label %lean_dec_ref.exit100, label %180
+  %.not.i98 = icmp eq i32 %175, 0
+  br i1 %.not.i98, label %lean_dec_ref.exit99, label %180
 
 180:                                              ; preds = %179
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %171) #4
-  br label %lean_dec_ref.exit100
+  br label %lean_dec_ref.exit99
 
-lean_dec_ref.exit100:                             ; preds = %177, %179, %180
+lean_dec_ref.exit99:                              ; preds = %177, %179, %180
   %181 = tail call fastcc ptr @lean_io_result_mk_ok(ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %182
 
-182:                                              ; preds = %lean_dec_ref.exit98, %lean_dec_ref.exit96, %lean_dec_ref.exit94, %lean_dec_ref.exit92, %lean_dec_ref.exit90, %lean_dec_ref.exit88, %lean_dec_ref.exit86, %lean_dec_ref.exit84, %lean_dec_ref.exit82, %lean_dec_ref.exit80, %lean_dec_ref.exit78, %lean_dec_ref.exit76, %lean_dec_ref.exit74, %lean_dec_ref.exit72, %lean_dec_ref.exit70, %lean_dec_ref.exit, %10, %lean_dec_ref.exit100, %lean_io_result_mk_ok.exit
-  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %181, %lean_dec_ref.exit100 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit ], [ %31, %lean_dec_ref.exit70 ], [ %41, %lean_dec_ref.exit72 ], [ %51, %lean_dec_ref.exit74 ], [ %61, %lean_dec_ref.exit76 ], [ %71, %lean_dec_ref.exit78 ], [ %81, %lean_dec_ref.exit80 ], [ %91, %lean_dec_ref.exit82 ], [ %101, %lean_dec_ref.exit84 ], [ %111, %lean_dec_ref.exit86 ], [ %121, %lean_dec_ref.exit88 ], [ %131, %lean_dec_ref.exit90 ], [ %141, %lean_dec_ref.exit92 ], [ %151, %lean_dec_ref.exit94 ], [ %161, %lean_dec_ref.exit96 ], [ %171, %lean_dec_ref.exit98 ]
+182:                                              ; preds = %lean_dec_ref.exit97, %lean_dec_ref.exit95, %lean_dec_ref.exit93, %lean_dec_ref.exit91, %lean_dec_ref.exit89, %lean_dec_ref.exit87, %lean_dec_ref.exit85, %lean_dec_ref.exit83, %lean_dec_ref.exit81, %lean_dec_ref.exit79, %lean_dec_ref.exit77, %lean_dec_ref.exit75, %lean_dec_ref.exit73, %lean_dec_ref.exit71, %lean_dec_ref.exit69, %lean_dec_ref.exit, %10, %lean_dec_ref.exit99, %lean_io_result_mk_ok.exit
+  %.0 = phi ptr [ %4, %lean_io_result_mk_ok.exit ], [ %181, %lean_dec_ref.exit99 ], [ %11, %10 ], [ %21, %lean_dec_ref.exit ], [ %31, %lean_dec_ref.exit69 ], [ %41, %lean_dec_ref.exit71 ], [ %51, %lean_dec_ref.exit73 ], [ %61, %lean_dec_ref.exit75 ], [ %71, %lean_dec_ref.exit77 ], [ %81, %lean_dec_ref.exit79 ], [ %91, %lean_dec_ref.exit81 ], [ %101, %lean_dec_ref.exit83 ], [ %111, %lean_dec_ref.exit85 ], [ %121, %lean_dec_ref.exit87 ], [ %131, %lean_dec_ref.exit89 ], [ %141, %lean_dec_ref.exit91 ], [ %151, %lean_dec_ref.exit93 ], [ %161, %lean_dec_ref.exit95 ], [ %171, %lean_dec_ref.exit97 ]
   ret ptr %.0
 }
 

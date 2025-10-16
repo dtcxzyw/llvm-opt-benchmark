@@ -12139,8 +12139,8 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Init_Data_Random(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -12169,27 +12169,27 @@ define ptr @initialize_Init_Data_Random(i8 noundef zeroext %0, ptr noundef readn
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 16:                                               ; preds = %11
-  %.not.i9 = icmp eq i32 %12, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %14, %16, %17
+lean_dec_ref.exit9:                               ; preds = %14, %16, %17
   tail call void @lean_inc_heartbeat() #5
   %18 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %_init_l_instInhabitedStdGen___closed__1.exit
 
-20:                                               ; preds = %lean_dec_ref.exit10
+20:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_instInhabitedStdGen___closed__1.exit:     ; preds = %lean_dec_ref.exit10
+_init_l_instInhabitedStdGen___closed__1.exit:     ; preds = %lean_dec_ref.exit9
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 1, ptr %18, align 4, !tbaa !4
   store i32 131096, ptr %21, align 4
@@ -12426,16 +12426,16 @@ _init_l_instRandomGenStdGen___closed__4.exit:     ; preds = %_init_l_instRandomG
   tail call void @lean_mark_persistent(ptr noundef %96) #5
   %97 = tail call ptr @l_initFn____x40_Init_Data_Random___hyg_765_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %98 = getelementptr i8, ptr %97, i64 4
-  %.val11 = load i32, ptr %98, align 4
-  %.mask.i13 = and i32 %.val11, -16777216
-  %99 = icmp eq i32 %.mask.i13, 16777216
+  %.val10 = load i32, ptr %98, align 4
+  %.mask.i12 = and i32 %.val10, -16777216
+  %99 = icmp eq i32 %.mask.i12, 16777216
   br i1 %99, label %115, label %100
 
 100:                                              ; preds = %_init_l_instRandomGenStdGen___closed__4.exit
   %101 = getelementptr i8, ptr %97, i64 8
-  %.val12 = load ptr, ptr %101, align 8, !tbaa !9
-  store ptr %.val12, ptr @l_IO_stdGenRef, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val12) #5
+  %.val11 = load ptr, ptr %101, align 8, !tbaa !9
+  store ptr %.val11, ptr @l_IO_stdGenRef, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val11) #5
   %102 = load i32, ptr %97, align 8, !tbaa !4
   %103 = icmp sgt i32 %102, 1
   br i1 %103, label %104, label %106, !prof !11
@@ -12467,18 +12467,18 @@ lean_dec_ref.exit:                                ; preds = %104, %106, %107
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink32 = phi ptr [ %4, %3 ], [ %109, %lean_dec_ref.exit ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
-  store i32 1, ptr %.sink32, align 4, !tbaa !4
+  %.sink31 = phi ptr [ %4, %3 ], [ %109, %lean_dec_ref.exit ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sink31, i64 4
+  store i32 1, ptr %.sink31, align 4, !tbaa !4
   store i32 131096, ptr %112, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %113, align 8, !tbaa !9
-  %114 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %114, align 8, !tbaa !9
   br label %115
 
 115:                                              ; preds = %.sink.split, %_init_l_instRandomGenStdGen___closed__4.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %97, %_init_l_instRandomGenStdGen___closed__4.exit ], [ %.sink32, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %97, %_init_l_instRandomGenStdGen___closed__4.exit ], [ %.sink31, %.sink.split ]
   ret ptr %.0
 }
 

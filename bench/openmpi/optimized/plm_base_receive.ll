@@ -89,8 +89,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_plm_base_comm_start() local_unnamed_addr #0 {
-  %.b14 = load i1, ptr @recv_issued, align 1
-  br i1 %.b14, label %52, label %1
+  %.b = load i1, ptr @recv_issued, align 1
+  br i1 %.b, label %52, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4, !tbaa !3
@@ -2357,8 +2357,8 @@ declare void @prte_plm_base_daemon_topology(i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_plm_base_comm_stop() local_unnamed_addr #0 {
-  %.b14 = load i1, ptr @recv_issued, align 1
-  br i1 %.b14, label %1, label %52
+  %.b = load i1, ptr @recv_issued, align 1
+  br i1 %.b, label %1, label %52
 
 1:                                                ; preds = %0
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4, !tbaa !3

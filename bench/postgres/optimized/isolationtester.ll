@@ -1207,8 +1207,8 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 
 152:                                              ; preds = %._crit_edge.i
   %153 = icmp slt i32 %.226.i, %.024.i
-  %.b28.i = load i1, ptr @any_new_notice, align 1
-  %154 = select i1 %153, i1 true, i1 %.b28.i
+  %.b.i = load i1, ptr @any_new_notice, align 1
+  %154 = select i1 %153, i1 true, i1 %.b.i
   br i1 %154, label %127, label %try_complete_steps.exit, !llvm.loop !32
 
 try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i, %152
@@ -1414,8 +1414,8 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
 
 262:                                              ; preds = %._crit_edge.i159
   %263 = icmp slt i32 %.226.i156, %.024.i150
-  %.b28.i160 = load i1, ptr @any_new_notice, align 1
-  %264 = select i1 %263, i1 true, i1 %.b28.i160
+  %.b.i160 = load i1, ptr @any_new_notice, align 1
+  %264 = select i1 %263, i1 true, i1 %.b.i160
   br i1 %264, label %237, label %try_complete_steps.exit162, !llvm.loop !32
 
 try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i159, %262
@@ -1494,8 +1494,8 @@ try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i
 
 294:                                              ; preds = %._crit_edge.i172
   %295 = icmp slt i32 %.226.i169, %.024.i163
-  %.b28.i173 = load i1, ptr @any_new_notice, align 1
-  %296 = select i1 %295, i1 true, i1 %.b28.i173
+  %.b.i173 = load i1, ptr @any_new_notice, align 1
+  %296 = select i1 %295, i1 true, i1 %.b.i173
   br i1 %296, label %.preheader1, label %try_complete_steps.exit175, !llvm.loop !32
 
 try_complete_steps.exit175:                       ; preds = %.preheader1, %._crit_edge.i172, %294

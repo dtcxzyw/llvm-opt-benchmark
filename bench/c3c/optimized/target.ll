@@ -448,8 +448,8 @@ define dso_local void @target_destroy() local_unnamed_addr #1 {
 define dso_local nonnull ptr @llvm_target_machine_create() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %.b5 = load i1, ptr @llvm_target_machine_create.llvm_initialized, align 1
-  br i1 %.b5, label %4, label %3
+  %.b = load i1, ptr @llvm_target_machine_create.llvm_initialized, align 1
+  br i1 %.b, label %4, label %3
 
 3:                                                ; preds = %0
   store i1 true, ptr @llvm_target_machine_create.llvm_initialized, align 1
@@ -533,23 +533,23 @@ switch.lookup:                                    ; preds = %10
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 24), align 8
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %26)
-  %putchar6 = call i32 @putchar(i32 10)
+  %putchar5 = call i32 @putchar(i32 10)
   br label %28
 
 28:                                               ; preds = %21, %24
   %29 = load ptr, ptr %2, align 8
   %30 = load ptr, ptr @platform_target, align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 16), align 8
-  %.not7 = icmp eq ptr %31, null
-  %32 = select i1 %.not7, ptr @.str.24, ptr %31
+  %.not6 = icmp eq ptr %31, null
+  %32 = select i1 %.not6, ptr @.str.24, ptr %31
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 24), align 8
-  %.not8 = icmp eq ptr %33, null
-  %34 = select i1 %.not8, ptr @.str.24, ptr %33
+  %.not7 = icmp eq ptr %33, null
+  %34 = select i1 %.not7, ptr @.str.24, ptr %33
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 8), align 8
   %36 = call ptr @LLVMCreateTargetMachine(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %32, ptr noundef nonnull %34, i32 noundef %35, i32 noundef %switch.load, i32 noundef 0) #17
   call void @LLVMSetTargetMachineUseInitArray(ptr noundef %36, i1 noundef zeroext true) #17
-  %.not9 = icmp eq ptr %36, null
-  br i1 %.not9, label %37, label %38
+  %.not8 = icmp eq ptr %36, null
+  br i1 %.not8, label %37, label %38
 
 37:                                               ; preds = %28
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.25) #16

@@ -944,8 +944,8 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_truncate6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOXact_LargeObject(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %.b7 = load i1, ptr @lo_cleanup_needed, align 1
-  br i1 %.b7, label %2, label %22
+  %.b = load i1, ptr @lo_cleanup_needed, align 1
+  br i1 %.b, label %2, label %22
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @cookies_size, align 4
@@ -954,17 +954,17 @@ define dso_local void @AtEOXact_LargeObject(i1 noundef zeroext %0) local_unnamed
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %2
-  %.pre12 = load ptr, ptr @cookies, align 8
+  %.pre11 = load ptr, ptr @cookies, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %5 = phi i32 [ %3, %.lr.ph.preheader ], [ %15, %14 ]
-  %6 = phi ptr [ %.pre12, %.lr.ph.preheader ], [ %16, %14 ]
+  %6 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %16, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %.not8 = icmp eq ptr %8, null
-  br i1 %.not8, label %14, label %9
+  %.not7 = icmp eq ptr %8, null
+  br i1 %.not7, label %14, label %9
 
 9:                                                ; preds = %.lr.ph
   store ptr null, ptr %7, align 8
@@ -981,11 +981,11 @@ define dso_local void @AtEOXact_LargeObject(i1 noundef zeroext %0) local_unnamed
 closeLOfd.exit:                                   ; preds = %9, %12
   tail call void @inv_close(ptr noundef nonnull %8) #9
   %.pre = load ptr, ptr @cookies, align 8
-  %.pre13 = load i32, ptr @cookies_size, align 4
+  %.pre12 = load i32, ptr @cookies_size, align 4
   br label %14
 
 14:                                               ; preds = %.lr.ph, %closeLOfd.exit
-  %15 = phi i32 [ %5, %.lr.ph ], [ %.pre13, %closeLOfd.exit ]
+  %15 = phi i32 [ %5, %.lr.ph ], [ %.pre12, %closeLOfd.exit ]
   %16 = phi ptr [ %6, %.lr.ph ], [ %.pre, %closeLOfd.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64

@@ -1202,8 +1202,8 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %69
-  %.b23.i = load i1, ptr @node_tres, align 1
-  br i1 %.b23.i, label %74, label %75
+  %.b.i = load i1, ptr @node_tres, align 1
+  br i1 %.b.i, label %74, label %75
 
 74:                                               ; preds = %73
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.68) #20
@@ -1240,8 +1240,8 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 94:                                               ; preds = %83, %75, %65, %53, %41, %31
   %.0.i = phi i32 [ %34, %31 ], [ %56, %53 ], [ %68, %65 ], [ %78, %75 ], [ %86, %83 ], [ %44, %41 ]
-  %.not24.i = icmp eq i32 %.0.i, 0
-  br i1 %.not24.i, label %_cluster_rep.exit, label %95
+  %.not23.i = icmp eq i32 %.0.i, 0
+  br i1 %.not23.i, label %_cluster_rep.exit, label %95
 
 95:                                               ; preds = %94
   store i32 1, ptr @exit_code, align 4

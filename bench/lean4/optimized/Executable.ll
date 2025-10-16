@@ -59575,8 +59575,8 @@ declare ptr @l_Lean_RBNode_setBlack___rarg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Build_Executable(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -60048,18 +60048,18 @@ _init_l_Lake_LeanExe_initFacetConfigs.exit:       ; preds = %l_Lean_RBNode_inser
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_LeanExe_initFacetConfigs.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_LeanExe_initFacetConfigs.exit ]
-  %187 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink24 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_LeanExe_initFacetConfigs.exit ]
+  %187 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !4
   store i32 131096, ptr %187, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %188, align 8, !tbaa !10
-  %189 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %189, align 8, !tbaa !10
   br label %190
 
 190:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

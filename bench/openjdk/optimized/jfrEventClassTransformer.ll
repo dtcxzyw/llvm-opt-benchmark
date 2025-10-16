@@ -1412,8 +1412,8 @@ _ZL50invalid_preconditions_for_subklass_on_initial_loadPK13InstanceKlass.exit.th
   br i1 %41, label %_ZL26java_base_can_read_jdk_jfrv.exit.i.i, label %42
 
 42:                                               ; preds = %39
-  %.b89.i.i.i = load i1, ptr @_ZZL26java_base_can_read_jdk_jfrvE8can_read, align 1
-  br i1 %.b89.i.i.i, label %_ZL26java_base_can_read_jdk_jfrv.exit.i.i, label %43
+  %.b8.i.i.i = load i1, ptr @_ZZL26java_base_can_read_jdk_jfrvE8can_read, align 1
+  br i1 %.b8.i.i.i, label %_ZL26java_base_can_read_jdk_jfrv.exit.i.i, label %43
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr @_ZZL26java_base_can_read_jdk_jfrvE21jdk_jfr_module_symbol, align 8
@@ -1461,8 +1461,8 @@ _ZN11MutexLockerD2Ev.exit.i.i.i:                  ; preds = %57, %_ZN11MutexLock
   br i1 %62, label %64, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %61
-  %.b10.pre.i.i.i = load i1, ptr @_ZZL26java_base_can_read_jdk_jfrvE8can_read, align 1
-  %63 = xor i1 %.b10.pre.i.i.i, true
+  %.b.pre.i.i.i = load i1, ptr @_ZZL26java_base_can_read_jdk_jfrvE8can_read, align 1
+  %63 = xor i1 %.b.pre.i.i.i, true
   br label %_ZL26java_base_can_read_jdk_jfrv.exit.i.i
 
 64:                                               ; preds = %61

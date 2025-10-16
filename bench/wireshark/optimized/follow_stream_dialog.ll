@@ -11363,8 +11363,8 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %_ZN11QBasicMutex4lo
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %_ZN11QBasicMutex6unlockEv.exit
-  %.not1828 = icmp eq ptr %16, null
-  br i1 %.not1828, label %._crit_edge, label %.lr.ph
+  %.not1827 = icmp eq ptr %16, null
+  br i1 %.not1827, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -11372,12 +11372,12 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %_ZN11QBasicMutex4lo
   br label %19
 
 19:                                               ; preds = %.lr.ph, %65
-  %.01729 = phi ptr [ %16, %.lr.ph ], [ %67, %65 ]
+  %.01728 = phi ptr [ %16, %.lr.ph ], [ %67, %65 ]
   %20 = load i8, ptr %17, align 4, !range !54, !noundef !55
   %21 = trunc nuw i8 %20 to i1
   %.not = xor i1 %21, true
-  %.b19 = load i1, ptr @_ZL13isReadRunning, align 1
-  %or.cond = select i1 %.not, i1 %.b19, i1 false
+  %.b = load i1, ptr @_ZL13isReadRunning, align 1
+  %or.cond = select i1 %.not, i1 %.b, i1 false
   br i1 %or.cond, label %27, label %._crit_edge
 
 .loopexit:                                        ; preds = %36, %44, %57, %62, %63
@@ -11414,7 +11414,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %22, %_ZN17QArrayDat
   resume { ptr, i32 } %lpad.phi
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr %.01729, align 8
+  %28 = load ptr, ptr %.01728, align 8
   %29 = load i8, ptr %28, align 8, !range !54, !noundef !55
   %30 = trunc nuw i8 %29 to i1
   %31 = load i32, ptr %13, align 8
@@ -11429,7 +11429,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %22, %_ZN17QArrayDat
   br i1 %35, label %65, label %36
 
 36:                                               ; preds = %32, %34
-  %.027 = phi ptr [ %2, %32 ], [ %3, %34 ]
+  %.026 = phi ptr [ %2, %32 ], [ %3, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
@@ -11449,7 +11449,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %22, %_ZN17QArrayDat
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  invoke void @_ZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPj(ptr noundef align 8 dereferenceable_or_null(452) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %48, i1 noundef zeroext %50, i32 noundef %52, ptr noundef nonnull byval(%struct.nstime_t) align 8 %53, ptr noundef nonnull %.027)
+  invoke void @_ZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPj(ptr noundef align 8 dereferenceable_or_null(452) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %48, i1 noundef zeroext %50, i32 noundef %52, ptr noundef nonnull byval(%struct.nstime_t) align 8 %53, ptr noundef nonnull %.026)
           to label %54 unwind label %.loopexit
 
 54:                                               ; preds = %44
@@ -11477,7 +11477,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %22, %_ZN17QArrayDat
   br label %65
 
 65:                                               ; preds = %32, %34, %64, %54
-  %66 = getelementptr inbounds nuw i8, ptr %.01729, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.01728, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not18 = icmp eq ptr %67, null
   br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !154
@@ -11485,38 +11485,38 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %22, %_ZN17QArrayDat
 ._crit_edge:                                      ; preds = %65, %19, %.preheader
   %68 = cmpxchg ptr @_ZL16loop_break_mutex, i64 0, i64 1 acquire acquire, align 8
   %69 = extractvalue { i64, i1 } %68, 1
-  br i1 %69, label %_ZN11QBasicMutex4lockEv.exit21, label %70
+  br i1 %69, label %_ZN11QBasicMutex4lockEv.exit20, label %70
 
 70:                                               ; preds = %._crit_edge
   call void @_ZN11QBasicMutex12lockInternalEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZL16loop_break_mutex) #29
-  br label %_ZN11QBasicMutex4lockEv.exit21
+  br label %_ZN11QBasicMutex4lockEv.exit20
 
-_ZN11QBasicMutex4lockEv.exit21:                   ; preds = %._crit_edge, %70
+_ZN11QBasicMutex4lockEv.exit20:                   ; preds = %._crit_edge, %70
   store i1 false, ptr @_ZL13isReadRunning, align 1
   %71 = cmpxchg ptr @_ZL16loop_break_mutex, i64 1, i64 0 release monotonic, align 8
   %72 = extractvalue { i64, i1 } %71, 1
-  br i1 %72, label %_ZN11QBasicMutex6unlockEv.exit22, label %73
+  br i1 %72, label %_ZN11QBasicMutex6unlockEv.exit21, label %73
 
-73:                                               ; preds = %_ZN11QBasicMutex4lockEv.exit21
+73:                                               ; preds = %_ZN11QBasicMutex4lockEv.exit20
   call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZL16loop_break_mutex) #29
-  br label %_ZN11QBasicMutex6unlockEv.exit22
+  br label %_ZN11QBasicMutex6unlockEv.exit21
 
-_ZN11QBasicMutex6unlockEv.exit22:                 ; preds = %_ZN11QBasicMutex4lockEv.exit21, %73
+_ZN11QBasicMutex6unlockEv.exit21:                 ; preds = %_ZN11QBasicMutex4lockEv.exit20, %73
   %74 = load ptr, ptr %5, align 8
-  %.not.i.i.i23 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i23, label %_ZN10QByteArrayD2Ev.exit26, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i24
+  %.not.i.i.i22 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i22, label %_ZN10QByteArrayD2Ev.exit25, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i23
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i24:     ; preds = %_ZN11QBasicMutex6unlockEv.exit22
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i23:     ; preds = %_ZN11QBasicMutex6unlockEv.exit21
   %75 = atomicrmw sub ptr %74, i32 1 seq_cst, align 4
-  %.not.i.i25 = icmp eq i32 %75, 1
-  br i1 %.not.i.i25, label %76, label %_ZN10QByteArrayD2Ev.exit26
+  %.not.i.i24 = icmp eq i32 %75, 1
+  br i1 %.not.i.i24, label %76, label %_ZN10QByteArrayD2Ev.exit25
 
-76:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i24
+76:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i23
   %77 = load ptr, ptr %5, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %77, i64 noundef 1, i64 noundef 8) #29
-  br label %_ZN10QByteArrayD2Ev.exit26
+  br label %_ZN10QByteArrayD2Ev.exit25
 
-_ZN10QByteArrayD2Ev.exit26:                       ; preds = %_ZN11QBasicMutex6unlockEv.exit22, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i24, %76
+_ZN10QByteArrayD2Ev.exit25:                       ; preds = %_ZN11QBasicMutex6unlockEv.exit21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i23, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

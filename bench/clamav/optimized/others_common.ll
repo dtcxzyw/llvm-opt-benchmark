@@ -1544,8 +1544,8 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @cli_rndnum(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
-  %.b1 = load i1, ptr @rand_seeded, align 1
-  br i1 %.b1, label %12, label %3
+  %.b = load i1, ptr @rand_seeded, align 1
+  br i1 %.b, label %12, label %3
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1804,8 +1804,8 @@ cli_max_calloc.exit:                              ; preds = %.thread.thread
 
 21:                                               ; preds = %cli_max_calloc.exit, %cli_rndnum.exit
   %indvars.iv = phi i64 [ 16, %cli_max_calloc.exit ], [ %indvars.iv.next, %cli_rndnum.exit ]
-  %.b1.i = load i1, ptr @rand_seeded, align 1
-  br i1 %.b1.i, label %cli_rndnum.exit, label %22
+  %.b.i = load i1, ptr @rand_seeded, align 1
+  br i1 %.b.i, label %cli_rndnum.exit, label %22
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

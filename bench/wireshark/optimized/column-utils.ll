@@ -5199,9 +5199,9 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @col_data_changed() local_unnamed_addr #13 {
-  %.b1 = load i1, ptr @col_data_changed_, align 1
+  %.b = load i1, ptr @col_data_changed_, align 1
   store i1 false, ptr @col_data_changed_, align 1
-  ret i1 %.b1
+  ret i1 %.b
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

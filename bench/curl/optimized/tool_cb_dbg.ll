@@ -135,52 +135,52 @@ sub_0:                                            ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !38
   %59 = load i8, ptr %58, align 1
-  %.not121 = icmp eq i8 %59, 45
-  br i1 %.not121, label %.tail.thread, label %sub_0109
+  %.not120 = icmp eq i8 %59, 45
+  br i1 %.not120, label %.tail.thread, label %sub_0108
 
 .tail.thread:                                     ; preds = %sub_0
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %61 = load i8, ptr %60, align 1
-  %.not86149 = icmp eq i8 %61, 0
-  br i1 %.not86149, label %62, label %.tail108.thread
+  %.not86148 = icmp eq i8 %61, 0
+  br i1 %.not86148, label %62, label %.tail107.thread
 
 62:                                               ; preds = %.tail.thread
   %63 = load ptr, ptr @stdout, align 8, !tbaa !23
   store ptr %63, ptr %55, align 8, !tbaa !37
   br label %75
 
-sub_0109:                                         ; preds = %sub_0
+sub_0108:                                         ; preds = %sub_0
   %64 = zext i8 %59 to i32
   %65 = sub nsw i32 37, %64
-  %.not122 = icmp eq i8 %59, 37
-  br i1 %.not122, label %sub_1110, label %.tail108
+  %.not121 = icmp eq i8 %59, 37
+  br i1 %.not121, label %sub_1109, label %.tail107
 
-sub_1110:                                         ; preds = %sub_0109
+sub_1109:                                         ; preds = %sub_0108
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = sub nsw i32 0, %68
-  br label %.tail108
+  br label %.tail107
 
-.tail108:                                         ; preds = %sub_0109, %sub_1110
-  %70 = phi i32 [ %65, %sub_0109 ], [ %69, %sub_1110 ]
+.tail107:                                         ; preds = %sub_0108, %sub_1109
+  %70 = phi i32 [ %65, %sub_0108 ], [ %69, %sub_1109 ]
   %.not87 = icmp eq i32 %70, 0
-  br i1 %.not87, label %71, label %.tail108.thread
+  br i1 %.not87, label %71, label %.tail107.thread
 
-71:                                               ; preds = %.tail108
+71:                                               ; preds = %.tail107
   %72 = load ptr, ptr @tool_stderr, align 8, !tbaa !23
   store ptr %72, ptr %55, align 8, !tbaa !37
   br label %75
 
-.tail108.thread:                                  ; preds = %.tail.thread, %.tail108
+.tail107.thread:                                  ; preds = %.tail.thread, %.tail107
   %73 = call noalias ptr @fopen(ptr noundef nonnull %58, ptr noundef nonnull @.str.5)
   store ptr %73, ptr %55, align 8, !tbaa !37
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i8 1, ptr %74, align 8, !tbaa !39
   br label %75
 
-75:                                               ; preds = %62, %.tail108.thread, %71, %54
-  %76 = phi ptr [ %63, %62 ], [ %73, %.tail108.thread ], [ %72, %71 ], [ %56, %54 ]
+75:                                               ; preds = %62, %.tail107.thread, %71, %54
+  %76 = phi ptr [ %63, %62 ], [ %73, %.tail107.thread ], [ %72, %71 ], [ %56, %54 ]
   %.not88 = icmp eq ptr %76, null
   %spec.select = select i1 %.not88, ptr %13, ptr %76
   %.not89 = icmp eq ptr %spec.select, null
@@ -213,20 +213,20 @@ sub_1110:                                         ; preds = %sub_0109
 
 .preheader:                                       ; preds = %83
   %84 = add i64 %3, -1
-  %.not124 = icmp eq i64 %84, 0
-  br i1 %.not124, label %._crit_edge, label %.lr.ph
+  %.not123 = icmp eq i64 %84, 0
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %102
-  %.075.neg118 = phi i64 [ %.075.neg, %102 ], [ 0, %.preheader ]
-  %.0117 = phi i64 [ %.pre-phi, %102 ], [ 0, %.preheader ]
-  %.075116 = phi i64 [ %.1, %102 ], [ 0, %.preheader ]
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 %.0117
+  %.075.neg117 = phi i64 [ %.075.neg, %102 ], [ 0, %.preheader ]
+  %.0116 = phi i64 [ %.pre-phi, %102 ], [ 0, %.preheader ]
+  %.075115 = phi i64 [ %.1, %102 ], [ 0, %.preheader ]
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 %.0116
   %86 = load i8, ptr %85, align 1, !tbaa !35
   %87 = icmp eq i8 %86, 10
   br i1 %87, label %88, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre = add nuw i64 %.0117, 1
+  %.pre = add nuw i64 %.0116, 1
   br label %102
 
 88:                                               ; preds = %.lr.ph
@@ -236,11 +236,11 @@ sub_1110:                                         ; preds = %sub_0109
 
 91:                                               ; preds = %88
   %92 = load i8, ptr %7, align 16, !tbaa !35
-  %.not.i97 = icmp eq i8 %92, 0
+  %.not.i96 = icmp eq i8 %92, 0
   %93 = load i8, ptr %8, align 16
   %.not10.i = icmp eq i8 %93, 0
-  %or.cond105 = select i1 %.not.i97, i1 %.not10.i, i1 false
-  br i1 %or.cond105, label %96, label %94
+  %or.cond104 = select i1 %.not.i96, i1 %.not10.i, i1 false
+  br i1 %or.cond104, label %96, label %94
 
 94:                                               ; preds = %91
   %95 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @.str.18) #5
@@ -251,16 +251,16 @@ sub_1110:                                         ; preds = %sub_0109
   br label %log_line_start.exit
 
 log_line_start.exit:                              ; preds = %96, %94, %88
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 %.075116
-  %99 = add nuw i64 %.0117, 1
-  %100 = add i64 %99, %.075.neg118
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 %.075115
+  %99 = add nuw i64 %.0116, 1
+  %100 = add i64 %99, %.075.neg117
   %101 = call i64 @fwrite(ptr noundef %98, i64 noundef %100, i64 noundef 1, ptr noundef nonnull %spec.select)
   store i8 0, ptr @tool_debug_cb.newl, align 1, !tbaa !41
   br label %102
 
 102:                                              ; preds = %.lr.ph._crit_edge, %log_line_start.exit
   %.pre-phi = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %99, %log_line_start.exit ]
-  %.1 = phi i64 [ %.075116, %.lr.ph._crit_edge ], [ %99, %log_line_start.exit ]
+  %.1 = phi i64 [ %.075115, %.lr.ph._crit_edge ], [ %99, %log_line_start.exit ]
   %.075.neg = sub i64 0, %.1
   %exitcond.not = icmp eq i64 %.pre-phi, %84
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
@@ -300,33 +300,33 @@ log_line_start.exit:                              ; preds = %96, %94, %88
 118:                                              ; preds = %82, %82
   %119 = load i8, ptr @tool_debug_cb.newl, align 1, !tbaa !41, !range !28, !noundef !29
   %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %log_line_start.exit100, label %121
+  br i1 %120, label %log_line_start.exit99, label %121
 
 121:                                              ; preds = %118
   %122 = load i8, ptr %7, align 16, !tbaa !35
-  %.not.i98 = icmp eq i8 %122, 0
+  %.not.i97 = icmp eq i8 %122, 0
   %123 = load i8, ptr %8, align 16
-  %.not10.i99 = icmp eq i8 %123, 0
-  %or.cond106 = select i1 %.not.i98, i1 %.not10.i99, i1 false
+  %.not10.i98 = icmp eq i8 %123, 0
+  %or.cond105 = select i1 %.not.i97, i1 %.not10.i98, i1 false
   %124 = zext nneg i32 %1 to i64
   %125 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !44
-  br i1 %or.cond106, label %129, label %127
+  br i1 %or.cond105, label %129, label %127
 
 127:                                              ; preds = %121
   %128 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %126) #5
-  br label %log_line_start.exit100
+  br label %log_line_start.exit99
 
 129:                                              ; preds = %121
   %130 = call i32 @fputs(ptr noundef %126, ptr noundef nonnull %spec.select)
-  br label %log_line_start.exit100
+  br label %log_line_start.exit99
 
-log_line_start.exit100:                           ; preds = %129, %127, %118
+log_line_start.exit99:                            ; preds = %129, %127, %118
   %131 = call i64 @fwrite(ptr noundef %2, i64 noundef %3, i64 noundef 1, ptr noundef nonnull %spec.select)
-  %.not93 = icmp eq i64 %3, 0
-  br i1 %.not93, label %138, label %132
+  %.not92 = icmp eq i64 %3, 0
+  br i1 %.not92, label %138, label %132
 
-132:                                              ; preds = %log_line_start.exit100
+132:                                              ; preds = %log_line_start.exit99
   %133 = getelementptr i8, ptr %2, i64 %3
   %134 = getelementptr i8, ptr %133, i64 -1
   %135 = load i8, ptr %134, align 1, !tbaa !35
@@ -334,15 +334,15 @@ log_line_start.exit100:                           ; preds = %129, %127, %118
   %137 = zext i1 %136 to i8
   br label %138
 
-138:                                              ; preds = %132, %log_line_start.exit100
-  %139 = phi i8 [ 0, %log_line_start.exit100 ], [ %137, %132 ]
+138:                                              ; preds = %132, %log_line_start.exit99
+  %139 = phi i8 [ 0, %log_line_start.exit99 ], [ %137, %132 ]
   store i8 %139, ptr @tool_debug_cb.newl, align 1, !tbaa !41
   store i1 false, ptr @tool_debug_cb.traced_data, align 1
   br label %251
 
 140:                                              ; preds = %82, %82, %82, %82
-  %.b90 = load i1, ptr @tool_debug_cb.traced_data, align 1
-  br i1 %.b90, label %251, label %141
+  %.b = load i1, ptr @tool_debug_cb.traced_data, align 1
+  br i1 %.b, label %251, label %141
 
 141:                                              ; preds = %140
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 3
@@ -352,37 +352,37 @@ log_line_start.exit100:                           ; preds = %129, %127, %118
 
 145:                                              ; preds = %141
   %146 = load ptr, ptr @tool_stderr, align 8, !tbaa !23
-  %.not91 = icmp eq ptr %spec.select, %146
+  %.not90 = icmp eq ptr %spec.select, %146
   %147 = load ptr, ptr @stdout, align 8
-  %.not92 = icmp eq ptr %spec.select, %147
-  %or.cond96 = select i1 %.not91, i1 true, i1 %.not92
-  br i1 %or.cond96, label %251, label %148
+  %.not91 = icmp eq ptr %spec.select, %147
+  %or.cond95 = select i1 %.not90, i1 true, i1 %.not91
+  br i1 %or.cond95, label %251, label %148
 
 148:                                              ; preds = %145, %141
   %149 = load i8, ptr @tool_debug_cb.newl, align 1, !tbaa !41, !range !28, !noundef !29
   %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %log_line_start.exit103, label %151
+  br i1 %150, label %log_line_start.exit102, label %151
 
 151:                                              ; preds = %148
   %152 = load i8, ptr %7, align 16, !tbaa !35
-  %.not.i101 = icmp eq i8 %152, 0
+  %.not.i100 = icmp eq i8 %152, 0
   %153 = load i8, ptr %8, align 16
-  %.not10.i102 = icmp eq i8 %153, 0
-  %or.cond107 = select i1 %.not.i101, i1 %.not10.i102, i1 false
+  %.not10.i101 = icmp eq i8 %153, 0
+  %or.cond106 = select i1 %.not.i100, i1 %.not10.i101, i1 false
   %154 = zext nneg i32 %1 to i64
   %155 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !44
-  br i1 %or.cond107, label %159, label %157
+  br i1 %or.cond106, label %159, label %157
 
 157:                                              ; preds = %151
   %158 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %156) #5
-  br label %log_line_start.exit103
+  br label %log_line_start.exit102
 
 159:                                              ; preds = %151
   %160 = call i32 @fputs(ptr noundef %156, ptr noundef nonnull %spec.select)
-  br label %log_line_start.exit103
+  br label %log_line_start.exit102
 
-log_line_start.exit103:                           ; preds = %159, %157, %148
+log_line_start.exit102:                           ; preds = %159, %157, %148
   %161 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.7, i64 noundef %3) #5
   store i8 0, ptr @tool_debug_cb.newl, align 1, !tbaa !41
   store i1 true, ptr @tool_debug_cb.traced_data, align 1
@@ -427,8 +427,8 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
 172:                                              ; preds = %163, %171, %170, %169, %168, %167
   %.078 = phi ptr [ @.str.10, %167 ], [ @.str.11, %168 ], [ @.str.12, %169 ], [ @.str.13, %170 ], [ @.str.14, %171 ], [ @.str.9, %163 ]
   %173 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.22, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %.078, i64 noundef %3, i64 noundef %3) #5
-  %.not.i104 = icmp eq i64 %3, 0
-  br i1 %.not.i104, label %dump.exit, label %.lr.ph.i
+  %.not.i103 = icmp eq i64 %3, 0
+  br i1 %.not.i103, label %dump.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %172
   %174 = icmp eq i32 %80, 2
@@ -594,7 +594,7 @@ dump.exit:                                        ; preds = %.critedge.loopexit.
   %250 = call i32 @fflush(ptr noundef nonnull %spec.select)
   br label %251
 
-251:                                              ; preds = %163, %164, %116, %138, %162, %145, %log_line_start.exit103, %140, %dump.exit, %77
+251:                                              ; preds = %163, %164, %116, %138, %162, %145, %log_line_start.exit102, %140, %dump.exit, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

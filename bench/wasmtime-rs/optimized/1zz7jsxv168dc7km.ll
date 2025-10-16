@@ -3442,8 +3442,8 @@ define hidden noalias noundef nonnull ptr @"_ZN16wasmtime_runtime9store_box17Sto
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw7replace17h1084add03fafa7a6E(ptr noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.0, align 8, !noundef !4
-  %.b1 = load i1, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.1, align 8
-  br i1 %.b1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hec601d551e43d34eE.exit", label %3
+  %.b = load i1, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.1, align 8
+  br i1 %.b, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hec601d551e43d34eE.exit", label %3
 
 3:                                                ; preds = %1
   tail call void @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init17hafc6ced787d23673E()
@@ -3457,8 +3457,8 @@ define noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw7replace17h1084ad
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16wasmtime_runtime12traphandlers3tls3raw10initialize17h5daf304d7f871abfE() unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.b1 = load i1, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.1, align 8
-  br i1 %.b1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h96a9ac8e32fb2e40E.exit", label %1
+  %.b = load i1, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.1, align 8
+  br i1 %.b, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h96a9ac8e32fb2e40E.exit", label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3PTR7__getit3VAL17h5d61a850639fdfd9E.0, align 8, !noundef !4

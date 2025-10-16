@@ -2195,15 +2195,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPK4Typ
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.b18 = load i1, ptr @_ZZN4Type15get_simple_typeE11eSimpleTypeE6inited, align 1
-  br i1 %.b18, label %2, label %.preheader20.preheader
+  %.b = load i1, ptr @_ZZN4Type15get_simple_typeE11eSimpleTypeE6inited, align 1
+  br i1 %.b, label %2, label %.preheader19.preheader
 
-.preheader20.preheader:                           ; preds = %1
+.preheader19.preheader:                           ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) @_ZN4Type12simple_typesE, i8 0, i64 112, i1 false), !tbaa !35
   store i1 true, ptr @_ZZN4Type15get_simple_typeE11eSimpleTypeE6inited, align 1
   br label %2
 
-2:                                                ; preds = %.preheader20.preheader, %1
+2:                                                ; preds = %.preheader19.preheader, %1
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw ptr, ptr @_ZN4Type12simple_typesE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !35
@@ -2226,8 +2226,8 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %14 = phi ptr [ %25, %24 ], [ null, %.preheader ]
-  %.01725 = phi i64 [ %26, %24 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01725
+  %.01724 = phi i64 [ %26, %24 ], [ 0, %.preheader ]
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01724
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = icmp eq i32 %17, 0
@@ -2245,7 +2245,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
 
 24:                                               ; preds = %23, %19, %.lr.ph
   %25 = phi ptr [ %16, %23 ], [ %14, %19 ], [ %14, %.lr.ph ]
-  %26 = add nuw i64 %.01725, 1
+  %26 = add nuw i64 %.01724, 1
   %exitcond.not = icmp eq i64 %26, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 

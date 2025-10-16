@@ -13560,8 +13560,8 @@ define dso_local ptr @slurm_get_tres_sub_string(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @slurm_select_cr_type() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @slurm_select_cr_type.cr_set, align 1
-  br i1 %.b1, label %3, label %1
+  %.b = load i1, ptr @slurm_select_cr_type.cr_set, align 1
+  br i1 %.b, label %3, label %1
 
 1:                                                ; preds = %0
   %2 = tail call i32 @select_g_get_info_from_plugin(i32 noundef 0, ptr noundef null, ptr noundef nonnull @slurm_select_cr_type.cr_type) #24

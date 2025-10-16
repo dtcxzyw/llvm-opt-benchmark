@@ -1182,8 +1182,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Compiler_FFI(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -1225,9 +1225,9 @@ define ptr @initialize_Lean_Compiler_FFI(i8 noundef zeroext %0, ptr noundef read
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Init_System_FilePath(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %68, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -1238,17 +1238,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #3
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 0) #3
   store ptr %28, ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #3
@@ -1260,7 +1260,7 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit, label %33
 
-33:                                               ; preds = %lean_dec_ref.exit10
+33:                                               ; preds = %lean_dec_ref.exit9
   %34 = getelementptr i8, ptr %30, i64 8
   %.val.i.i.i = load i64, ptr %34, align 8, !tbaa !12
   %35 = getelementptr i8, ptr %31, i64 8
@@ -1273,8 +1273,8 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   %39 = zext i1 %38 to i8
   br label %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit
 
-_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit: ; preds = %lean_dec_ref.exit10, %33, %37
-  %40 = phi i8 [ 1, %lean_dec_ref.exit10 ], [ 0, %33 ], [ %39, %37 ]
+_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit: ; preds = %lean_dec_ref.exit9, %33, %37
+  %40 = phi i8 [ 1, %lean_dec_ref.exit9 ], [ 0, %33 ], [ %39, %37 ]
   store i8 %40, ptr @l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2, align 1, !tbaa !14
   %41 = tail call ptr @lean_array_mk(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   store ptr %41, ptr @l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__3, align 8, !tbaa !4
@@ -1327,8 +1327,8 @@ _init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___cl
   tail call void @lean_mark_persistent(ptr noundef %59) #3
   %60 = load ptr, ptr @l_Lean_Compiler_FFI_getInternalLinkerFlags___closed__2, align 8, !tbaa !4
   %61 = getelementptr i8, ptr %60, i64 8
-  %.val.i13 = load i64, ptr %61, align 8, !tbaa !12
-  store i64 %.val.i13, ptr @l_Lean_Compiler_FFI_getInternalLinkerFlags___closed__3, align 8, !tbaa !12
+  %.val.i12 = load i64, ptr %61, align 8, !tbaa !12
+  store i64 %.val.i12, ptr @l_Lean_Compiler_FFI_getInternalLinkerFlags___closed__3, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #3
   %62 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %63 = icmp eq ptr %62, null
@@ -1339,18 +1339,18 @@ _init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___cl
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %62, %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !8
+  %.sink24 = phi ptr [ %4, %3 ], [ %62, %_init_l___private_Lean_Compiler_FFI_0__Lean_Compiler_FFI_flagsStringToArray___closed__2.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !8
   store i32 131096, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !4
   br label %68
 
 68:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

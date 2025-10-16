@@ -1578,8 +1578,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_Config_OutFormat(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -1704,8 +1704,8 @@ _init_l_Lake_instToTextArray___rarg___closed__2.exit: ; preds = %_init_l_Lake_in
   %49 = load ptr, ptr @l_Lake_instToTextArray___rarg___closed__1, align 8, !tbaa !10
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, 1
-  %.not.i5 = icmp eq i64 %51, 0
-  br i1 %.not.i5, label %.critedge.i.i, label %_init_l_Lake_instToTextArray___rarg___closed__3.exit, !prof !17
+  %.not.i4 = icmp eq i64 %51, 0
+  br i1 %.not.i4, label %.critedge.i.i, label %_init_l_Lake_instToTextArray___rarg___closed__3.exit, !prof !17
 
 .critedge.i.i:                                    ; preds = %_init_l_Lake_instToTextArray___rarg___closed__2.exit
   %52 = tail call ptr @lean_nat_big_sub(ptr noundef %49, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
@@ -1723,15 +1723,15 @@ _init_l_Lake_instToTextArray___rarg___closed__3.exit: ; preds = %_init_l_Lake_in
   %56 = load ptr, ptr @l_Lake_instToTextArray___rarg___closed__4, align 8, !tbaa !10
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1
-  %.not.i6 = icmp eq i64 %58, 0
-  br i1 %.not.i6, label %.critedge.i.i7, label %_init_l_Lake_instToTextArray___rarg___closed__5.exit, !prof !17
+  %.not.i5 = icmp eq i64 %58, 0
+  br i1 %.not.i5, label %.critedge.i.i6, label %_init_l_Lake_instToTextArray___rarg___closed__5.exit, !prof !17
 
-.critedge.i.i7:                                   ; preds = %_init_l_Lake_instToTextArray___rarg___closed__3.exit
+.critedge.i.i6:                                   ; preds = %_init_l_Lake_instToTextArray___rarg___closed__3.exit
   %59 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %56) #5
   br label %_init_l_Lake_instToTextArray___rarg___closed__5.exit
 
-_init_l_Lake_instToTextArray___rarg___closed__5.exit: ; preds = %_init_l_Lake_instToTextArray___rarg___closed__3.exit, %.critedge.i.i7
-  %.0.i.i = phi ptr [ %59, %.critedge.i.i7 ], [ %56, %_init_l_Lake_instToTextArray___rarg___closed__3.exit ]
+_init_l_Lake_instToTextArray___rarg___closed__5.exit: ; preds = %_init_l_Lake_instToTextArray___rarg___closed__3.exit, %.critedge.i.i6
+  %.0.i.i = phi ptr [ %59, %.critedge.i.i6 ], [ %56, %_init_l_Lake_instToTextArray___rarg___closed__3.exit ]
   store ptr %.0.i.i, ptr @l_Lake_instToTextArray___rarg___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i) #5
   %60 = load ptr, ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg___closed__1, align 8, !tbaa !10
@@ -1776,18 +1776,18 @@ _init_l_Lake_instFormatQuery___closed__1.exit:    ; preds = %_init_l_Lake_instTo
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instFormatQuery___closed__1.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %72, %_init_l_Lake_instFormatQuery___closed__1.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !4
+  %.sink18 = phi ptr [ %4, %3 ], [ %72, %_init_l_Lake_instFormatQuery___closed__1.exit ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
+  store i32 1, ptr %.sink18, align 4, !tbaa !4
   store i32 131096, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %76, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %77, align 8, !tbaa !10
   br label %78
 
 78:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
   ret ptr %.0
 }
 

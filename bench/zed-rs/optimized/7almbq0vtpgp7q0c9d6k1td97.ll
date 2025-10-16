@@ -2207,12 +2207,12 @@ define hidden void @"_ZN174_$LT$$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C
   %14 = load ptr, ptr %8, align 8, !alias.scope !402, !noalias !403, !nonnull !36, !align !38, !noundef !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = add i64 %10, -8
-  %.sroa.0.0.copyload.i.i.i.i.i11 = load i64, ptr %14, align 1, !alias.scope !405, !noalias !409
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %14, align 1, !alias.scope !405, !noalias !409
   store ptr %15, ptr %8, align 8, !alias.scope !402, !noalias !403
   store i64 %16, ptr %9, align 8, !alias.scope !402, !noalias !403
   store i64 1, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i11, ptr %17, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %17, align 8
   br label %12
 
 18:                                               ; preds = %6
@@ -2256,12 +2256,12 @@ define hidden void @"_ZN174_$LT$$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C
   %14 = load ptr, ptr %8, align 8, !alias.scope !430, !noalias !431, !nonnull !36, !align !38, !noundef !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = add i64 %10, -8
-  %.sroa.0.0.copyload.i.i.i.i.i11 = load i64, ptr %14, align 1, !alias.scope !433, !noalias !437
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %14, align 1, !alias.scope !433, !noalias !437
   store ptr %15, ptr %8, align 8, !alias.scope !430, !noalias !431
   store i64 %16, ptr %9, align 8, !alias.scope !430, !noalias !431
   store i64 1, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i11, ptr %17, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %17, align 8
   br label %12
 
 18:                                               ; preds = %6
@@ -11873,10 +11873,10 @@ define hidden void @"_ZN7bincode2de25Deserializer$LT$R$C$O$GT$11read_string17hcb
   %11 = load ptr, ptr %1, align 8, !alias.scope !3157, !noalias !3158, !nonnull !36, !align !38, !noundef !36
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = add i64 %8, -8
-  %.sroa.0.0.copyload.i.i22.i = load i64, ptr %11, align 1, !alias.scope !3161, !noalias !3165
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %11, align 1, !alias.scope !3161, !noalias !3165
   store ptr %12, ptr %1, align 8, !alias.scope !3157, !noalias !3158
   store i64 %13, ptr %7, align 8, !alias.scope !3157, !noalias !3158
-  %14 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i22.i), !noalias !3167
+  %14 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i), !noalias !3167
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i
 
 15:                                               ; preds = %2
@@ -12273,10 +12273,10 @@ define hidden { i64, ptr } @_ZN7bincode6config3int11IntEncoding15deserialize_len
   %6 = load ptr, ptr %0, align 8, !alias.scope !3334, !noalias !3335, !nonnull !36, !align !38, !noundef !36
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = add i64 %3, -8
-  %.sroa.0.0.copyload.i.i4 = load i64, ptr %6, align 1, !alias.scope !3337, !noalias !3341
+  %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 1, !alias.scope !3337, !noalias !3341
   store ptr %7, ptr %0, align 8, !alias.scope !3334, !noalias !3335
   store i64 %8, ptr %2, align 8, !alias.scope !3334, !noalias !3335
-  %9 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i4)
+  %9 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %13
 
 10:                                               ; preds = %1
@@ -13774,10 +13774,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %7 = load ptr, ptr %1, align 8, !alias.scope !4136, !noalias !4137, !nonnull !36, !align !38, !noundef !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = add i64 %4, -8
-  %.sroa.0.0.copyload.i.i9 = load i64, ptr %7, align 1, !alias.scope !4139, !noalias !4143
+  %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 1, !alias.scope !4139, !noalias !4143
   store ptr %8, ptr %1, align 8, !alias.scope !4136, !noalias !4137
   store i64 %9, ptr %3, align 8, !alias.scope !4136, !noalias !4137
-  %10 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9)
+  %10 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit
 
 11:                                               ; preds = %2
@@ -13821,10 +13821,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %7 = load ptr, ptr %1, align 8, !alias.scope !4154, !noalias !4155, !nonnull !36, !align !38, !noundef !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = add i64 %4, -8
-  %.sroa.0.0.copyload.i.i9 = load i64, ptr %7, align 1, !alias.scope !4157, !noalias !4161
+  %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 1, !alias.scope !4157, !noalias !4161
   store ptr %8, ptr %1, align 8, !alias.scope !4154, !noalias !4155
   store i64 %9, ptr %3, align 8, !alias.scope !4154, !noalias !4155
-  %10 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9)
+  %10 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit
 
 11:                                               ; preds = %2
@@ -14134,10 +14134,10 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   %10 = load ptr, ptr %1, align 8, !alias.scope !4282, !noalias !4283, !nonnull !36, !align !38, !noundef !36
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = add i64 %7, -8
-  %.sroa.0.0.copyload.i.i9.i.i = load i64, ptr %10, align 1, !alias.scope !4286, !noalias !4290
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %10, align 1, !alias.scope !4286, !noalias !4290
   store ptr %11, ptr %1, align 8, !alias.scope !4282, !noalias !4283
   store i64 %12, ptr %6, align 8, !alias.scope !4282, !noalias !4283
-  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9.i.i), !noalias !4292
+  %13 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i.i), !noalias !4292
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i
 
 14:                                               ; preds = %4
@@ -16775,10 +16775,10 @@ define hidden void @"_ZN181_$LT$semantic_index..embedding.._..$LT$impl$u20$serde
   %8 = load ptr, ptr %1, align 8, !alias.scope !4719, !noalias !4720, !nonnull !36, !align !38, !noundef !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = add i64 %5, -8
-  %.sroa.0.0.copyload.i.i9.i = load i64, ptr %8, align 1, !alias.scope !4723, !noalias !4727
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %8, align 1, !alias.scope !4723, !noalias !4727
   store ptr %9, ptr %1, align 8, !alias.scope !4719, !noalias !4720
   store i64 %10, ptr %4, align 8, !alias.scope !4719, !noalias !4720
-  %11 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9.i), !noalias !4729
+  %11 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i), !noalias !4729
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i
 
 12:                                               ; preds = %2
@@ -16962,10 +16962,10 @@ define hidden void @"_ZN196_$LT$semantic_index..embedding_index.._..$LT$impl$u20
   %52 = load ptr, ptr %1, align 8, !alias.scope !4798, !noalias !4799, !nonnull !36, !align !38, !noundef !36
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = add i64 %49, -8
-  %.sroa.0.0.copyload.i.i9.i.i.i.i.i = load i64, ptr %52, align 1, !alias.scope !4804, !noalias !4808
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %52, align 1, !alias.scope !4804, !noalias !4808
   store ptr %53, ptr %1, align 8, !alias.scope !4798, !noalias !4799
   store i64 %54, ptr %48, align 8, !alias.scope !4798, !noalias !4799
-  %55 = invoke { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9.i.i.i.i.i)
+  %55 = invoke { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i.i.i.i.i)
           to label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i unwind label %37
 
 56:                                               ; preds = %47
@@ -17174,10 +17174,10 @@ define hidden void @"_ZN197_$LT$semantic_index..embedding_index.._..$LT$impl$u20
   %34 = load ptr, ptr %1, align 8, !alias.scope !4900, !noalias !4901, !nonnull !36, !align !38, !noundef !36
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = add i64 %31, -8
-  %.sroa.0.0.copyload.i.i9.i.i.i.i.i.i.i = load i64, ptr %34, align 1, !alias.scope !4904, !noalias !4908
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %34, align 1, !alias.scope !4904, !noalias !4908
   store ptr %35, ptr %1, align 8, !alias.scope !4900, !noalias !4901
   store i64 %36, ptr %30, align 8, !alias.scope !4900, !noalias !4901
-  %37 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i9.i.i.i.i.i.i.i), !noalias !4910
+  %37 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i), !noalias !4910
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i.i.i
 
 38:                                               ; preds = %29
@@ -17321,10 +17321,10 @@ define hidden void @"_ZN190_$LT$semantic_index..summary_index.._..$LT$impl$u20$s
   %26 = load ptr, ptr %1, align 8, !alias.scope !4938, !noalias !4939, !nonnull !36, !align !38, !noundef !36
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = add i64 %23, -8
-  %.sroa.0.0.copyload.i.i28.i.i.i.i.i = load i64, ptr %26, align 1, !alias.scope !4950, !noalias !4954
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %26, align 1, !alias.scope !4950, !noalias !4954
   store ptr %27, ptr %1, align 8, !alias.scope !4938, !noalias !4939
   store i64 %28, ptr %22, align 8, !alias.scope !4938, !noalias !4939
-  %29 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i28.i.i.i.i.i), !noalias !4956
+  %29 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i.i.i.i.i), !noalias !4956
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h617b42cbd988511eE.llvm.7674728272632859446.exit.i.i.i.i.i
 
 30:                                               ; preds = %21

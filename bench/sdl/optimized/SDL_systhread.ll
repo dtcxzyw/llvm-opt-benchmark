@@ -25,8 +25,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden zeroext i1 @SDL_SYS_CreateThread(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %union.pthread_attr_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b7 = load i1, ptr @checked_setname, align 1
-  br i1 %.b7, label %7, label %5
+  %.b = load i1, ptr @checked_setname, align 1
+  br i1 %.b, label %7, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str) #6
@@ -43,8 +43,8 @@ define hidden zeroext i1 @SDL_SYS_CreateThread(ptr noundef %0, ptr noundef readn
   %10 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %4, i32 noundef 0) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i64, ptr %11, align 8
-  %.not8 = icmp eq i64 %12, 0
-  br i1 %.not8, label %15, label %13
+  %.not7 = icmp eq i64 %12, 0
+  br i1 %.not7, label %15, label %13
 
 13:                                               ; preds = %9
   %14 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %4, i64 noundef %12) #6
@@ -53,8 +53,8 @@ define hidden zeroext i1 @SDL_SYS_CreateThread(ptr noundef %0, ptr noundef readn
 15:                                               ; preds = %13, %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = call i32 @pthread_create(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @RunThread, ptr noundef nonnull %0) #6
-  %.not9 = icmp eq i32 %17, 0
-  br i1 %.not9, label %19, label %.sink.split
+  %.not8 = icmp eq i32 %17, 0
+  br i1 %.not8, label %19, label %.sink.split
 
 .sink.split:                                      ; preds = %15, %7
   %.str.2.sink = phi ptr [ @.str.1, %7 ], [ @.str.2, %15 ]

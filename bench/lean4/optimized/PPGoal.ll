@@ -32298,8 +32298,8 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %6
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_PPGoal(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b24 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b24, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -32328,17 +32328,17 @@ define ptr @initialize_Lean_Meta_PPGoal(i8 noundef zeroext %0, ptr noundef readn
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit32
+  br label %lean_dec_ref.exit31
 
 16:                                               ; preds = %11
-  %.not.i31 = icmp eq i32 %12, 0
-  br i1 %.not.i31, label %lean_dec_ref.exit32, label %17
+  %.not.i30 = icmp eq i32 %12, 0
+  br i1 %.not.i30, label %lean_dec_ref.exit31, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
-  br label %lean_dec_ref.exit32
+  br label %lean_dec_ref.exit31
 
-lean_dec_ref.exit32:                              ; preds = %14, %16, %17
+lean_dec_ref.exit31:                              ; preds = %14, %16, %17
   %18 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 2, i64 noundef 2) #5
   store ptr %18, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %18) #5
@@ -32360,11 +32360,11 @@ lean_dec_ref.exit32:                              ; preds = %14, %16, %17
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit
 
-28:                                               ; preds = %lean_dec_ref.exit32
+28:                                               ; preds = %lean_dec_ref.exit31
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; preds = %lean_dec_ref.exit32
+_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; preds = %lean_dec_ref.exit31
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 1, ptr %26, align 4, !tbaa !8
   store i32 196640, ptr %29, align 4
@@ -32390,7 +32390,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; pr
   store ptr %39, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %39) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit30, label %40
+  br i1 %.not, label %lean_dec_ref.exit29, label %40
 
 40:                                               ; preds = %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit
   %41 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__3, align 8, !tbaa !4
@@ -32398,16 +32398,16 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; pr
   %43 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__8, align 8, !tbaa !4
   %44 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_5____spec__1(ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %45 = getelementptr i8, ptr %44, i64 4
-  %.val33 = load i32, ptr %45, align 4
-  %.mask.i41 = and i32 %.val33, -16777216
-  %46 = icmp eq i32 %.mask.i41, 16777216
+  %.val32 = load i32, ptr %45, align 4
+  %.mask.i40 = and i32 %.val32, -16777216
+  %46 = icmp eq i32 %.mask.i40, 16777216
   br i1 %46, label %238, label %47
 
 47:                                               ; preds = %40
   %48 = getelementptr i8, ptr %44, i64 8
-  %.val37 = load ptr, ptr %48, align 8, !tbaa !4
-  store ptr %.val37, ptr @l_Lean_Meta_pp_auxDecls, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val37) #5
+  %.val36 = load ptr, ptr %48, align 8, !tbaa !4
+  store ptr %.val36, ptr @l_Lean_Meta_pp_auxDecls, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val36) #5
   %49 = load i32, ptr %44, align 8, !tbaa !8
   %50 = icmp sgt i32 %49, 1
   br i1 %50, label %51, label %53, !prof !13
@@ -32415,17 +32415,17 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit: ; pr
 51:                                               ; preds = %47
   %52 = add nsw i32 %49, -1
   store i32 %52, ptr %44, align 4, !tbaa !8
-  br label %lean_dec_ref.exit30
+  br label %lean_dec_ref.exit29
 
 53:                                               ; preds = %47
-  %.not.i29 = icmp eq i32 %49, 0
-  br i1 %.not.i29, label %lean_dec_ref.exit30, label %54
+  %.not.i28 = icmp eq i32 %49, 0
+  br i1 %.not.i28, label %lean_dec_ref.exit29, label %54
 
 54:                                               ; preds = %53
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %44) #5
-  br label %lean_dec_ref.exit30
+  br label %lean_dec_ref.exit29
 
-lean_dec_ref.exit30:                              ; preds = %54, %53, %51, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit
+lean_dec_ref.exit29:                              ; preds = %54, %53, %51, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_5____closed__5.exit
   %55 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 24, i64 noundef 24) #5
   store ptr %55, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %55) #5
@@ -32444,11 +32444,11 @@ lean_dec_ref.exit30:                              ; preds = %54, %53, %51, %_ini
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit
 
-64:                                               ; preds = %lean_dec_ref.exit30
+64:                                               ; preds = %lean_dec_ref.exit29
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; preds = %lean_dec_ref.exit30
+_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; preds = %lean_dec_ref.exit29
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 1, ptr %62, align 4, !tbaa !8
   store i32 196640, ptr %65, align 4
@@ -32467,7 +32467,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; p
   %73 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72) #5
   store ptr %73, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %73) #5
-  br i1 %.not, label %lean_dec_ref.exit28, label %74
+  br i1 %.not, label %lean_dec_ref.exit27, label %74
 
 74:                                               ; preds = %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit
   %75 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__2, align 8, !tbaa !4
@@ -32475,16 +32475,16 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; p
   %77 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__5, align 8, !tbaa !4
   %78 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_5____spec__1(ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %79 = getelementptr i8, ptr %78, i64 4
-  %.val34 = load i32, ptr %79, align 4
-  %.mask.i42 = and i32 %.val34, -16777216
-  %80 = icmp eq i32 %.mask.i42, 16777216
+  %.val33 = load i32, ptr %79, align 4
+  %.mask.i41 = and i32 %.val33, -16777216
+  %80 = icmp eq i32 %.mask.i41, 16777216
   br i1 %80, label %238, label %81
 
 81:                                               ; preds = %74
   %82 = getelementptr i8, ptr %78, i64 8
-  %.val38 = load ptr, ptr %82, align 8, !tbaa !4
-  store ptr %.val38, ptr @l_Lean_Meta_pp_implementationDetailHyps, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val38) #5
+  %.val37 = load ptr, ptr %82, align 8, !tbaa !4
+  store ptr %.val37, ptr @l_Lean_Meta_pp_implementationDetailHyps, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val37) #5
   %83 = load i32, ptr %78, align 8, !tbaa !8
   %84 = icmp sgt i32 %83, 1
   br i1 %84, label %85, label %87, !prof !13
@@ -32492,17 +32492,17 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit: ; p
 85:                                               ; preds = %81
   %86 = add nsw i32 %83, -1
   store i32 %86, ptr %78, align 4, !tbaa !8
-  br label %lean_dec_ref.exit28
+  br label %lean_dec_ref.exit27
 
 87:                                               ; preds = %81
-  %.not.i27 = icmp eq i32 %83, 0
-  br i1 %.not.i27, label %lean_dec_ref.exit28, label %88
+  %.not.i26 = icmp eq i32 %83, 0
+  br i1 %.not.i26, label %lean_dec_ref.exit27, label %88
 
 88:                                               ; preds = %87
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %78) #5
-  br label %lean_dec_ref.exit28
+  br label %lean_dec_ref.exit27
 
-lean_dec_ref.exit28:                              ; preds = %88, %87, %85, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit
+lean_dec_ref.exit27:                              ; preds = %88, %87, %85, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_45____closed__4.exit
   %89 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 17, i64 noundef 17) #5
   store ptr %89, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %89) #5
@@ -32521,11 +32521,11 @@ lean_dec_ref.exit28:                              ; preds = %88, %87, %85, %_ini
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit
 
-98:                                               ; preds = %lean_dec_ref.exit28
+98:                                               ; preds = %lean_dec_ref.exit27
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; preds = %lean_dec_ref.exit28
+_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; preds = %lean_dec_ref.exit27
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 1, ptr %96, align 4, !tbaa !8
   store i32 196640, ptr %99, align 4
@@ -32544,7 +32544,7 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; p
   %107 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106) #5
   store ptr %107, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %107) #5
-  br i1 %.not, label %lean_dec_ref.exit26, label %108
+  br i1 %.not, label %lean_dec_ref.exit25, label %108
 
 108:                                              ; preds = %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit
   %109 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__2, align 8, !tbaa !4
@@ -32552,16 +32552,16 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; p
   %111 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__5, align 8, !tbaa !4
   %112 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_5____spec__1(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %113 = getelementptr i8, ptr %112, i64 4
-  %.val35 = load i32, ptr %113, align 4
-  %.mask.i43 = and i32 %.val35, -16777216
-  %114 = icmp eq i32 %.mask.i43, 16777216
+  %.val34 = load i32, ptr %113, align 4
+  %.mask.i42 = and i32 %.val34, -16777216
+  %114 = icmp eq i32 %.mask.i42, 16777216
   br i1 %114, label %238, label %115
 
 115:                                              ; preds = %108
   %116 = getelementptr i8, ptr %112, i64 8
-  %.val39 = load ptr, ptr %116, align 8, !tbaa !4
-  store ptr %.val39, ptr @l_Lean_Meta_pp_inaccessibleNames, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val39) #5
+  %.val38 = load ptr, ptr %116, align 8, !tbaa !4
+  store ptr %.val38, ptr @l_Lean_Meta_pp_inaccessibleNames, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val38) #5
   %117 = load i32, ptr %112, align 8, !tbaa !8
   %118 = icmp sgt i32 %117, 1
   br i1 %118, label %119, label %121, !prof !13
@@ -32569,17 +32569,17 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit: ; p
 119:                                              ; preds = %115
   %120 = add nsw i32 %117, -1
   store i32 %120, ptr %112, align 4, !tbaa !8
-  br label %lean_dec_ref.exit26
+  br label %lean_dec_ref.exit25
 
 121:                                              ; preds = %115
-  %.not.i25 = icmp eq i32 %117, 0
-  br i1 %.not.i25, label %lean_dec_ref.exit26, label %122
+  %.not.i24 = icmp eq i32 %117, 0
+  br i1 %.not.i24, label %lean_dec_ref.exit25, label %122
 
 122:                                              ; preds = %121
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %112) #5
-  br label %lean_dec_ref.exit26
+  br label %lean_dec_ref.exit25
 
-lean_dec_ref.exit26:                              ; preds = %122, %121, %119, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit
+lean_dec_ref.exit25:                              ; preds = %122, %121, %119, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_85____closed__4.exit
   %123 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.9, i64 noundef 13, i64 noundef 13) #5
   store ptr %123, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %123) #5
@@ -32598,11 +32598,11 @@ lean_dec_ref.exit26:                              ; preds = %122, %121, %119, %_
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__4.exit
 
-132:                                              ; preds = %lean_dec_ref.exit26
+132:                                              ; preds = %lean_dec_ref.exit25
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__4.exit: ; preds = %lean_dec_ref.exit26
+_init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__4.exit: ; preds = %lean_dec_ref.exit25
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 1, ptr %130, align 4, !tbaa !8
   store i32 196640, ptr %133, align 4
@@ -32629,16 +32629,16 @@ _init_l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__4.exit: ; 
   %145 = load ptr, ptr @l_Lean_Meta_initFn____x40_Lean_Meta_PPGoal___hyg_125____closed__5, align 8, !tbaa !4
   %146 = tail call ptr @l_Lean_Option_register___at_Lean_initFn____x40_Lean_Util_Profile___hyg_5____spec__1(ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %147 = getelementptr i8, ptr %146, i64 4
-  %.val36 = load i32, ptr %147, align 4
-  %.mask.i44 = and i32 %.val36, -16777216
-  %148 = icmp eq i32 %.mask.i44, 16777216
+  %.val35 = load i32, ptr %147, align 4
+  %.mask.i43 = and i32 %.val35, -16777216
+  %148 = icmp eq i32 %.mask.i43, 16777216
   br i1 %148, label %238, label %149
 
 149:                                              ; preds = %142
   %150 = getelementptr i8, ptr %146, i64 8
-  %.val40 = load ptr, ptr %150, align 8, !tbaa !4
-  store ptr %.val40, ptr @l_Lean_Meta_pp_showLetValues, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val40) #5
+  %.val39 = load ptr, ptr %150, align 8, !tbaa !4
+  store ptr %.val39, ptr @l_Lean_Meta_pp_showLetValues, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val39) #5
   %151 = load i32, ptr %146, align 8, !tbaa !8
   %152 = icmp sgt i32 %151, 1
   br i1 %152, label %153, label %155, !prof !13
@@ -32894,18 +32894,18 @@ _init_l_Lean_Meta_ppGoal___closed__8.exit:        ; preds = %_init_l_Lean_Meta_p
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_ppGoal___closed__8.exit, %3
-  %.sink74 = phi ptr [ %4, %3 ], [ %232, %_init_l_Lean_Meta_ppGoal___closed__8.exit ]
-  %235 = getelementptr inbounds nuw i8, ptr %.sink74, i64 4
-  store i32 1, ptr %.sink74, align 4, !tbaa !8
+  %.sink73 = phi ptr [ %4, %3 ], [ %232, %_init_l_Lean_Meta_ppGoal___closed__8.exit ]
+  %235 = getelementptr inbounds nuw i8, ptr %.sink73, i64 4
+  store i32 1, ptr %.sink73, align 4, !tbaa !8
   store i32 131096, ptr %235, align 4
-  %236 = getelementptr inbounds nuw i8, ptr %.sink74, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %.sink73, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %236, align 8, !tbaa !4
-  %237 = getelementptr inbounds nuw i8, ptr %.sink74, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %.sink73, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %237, align 8, !tbaa !4
   br label %238
 
 238:                                              ; preds = %.sink.split, %142, %108, %74, %40, %7
-  %.0 = phi ptr [ %8, %7 ], [ %44, %40 ], [ %78, %74 ], [ %112, %108 ], [ %146, %142 ], [ %.sink74, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %44, %40 ], [ %78, %74 ], [ %112, %108 ], [ %146, %142 ], [ %.sink73, %.sink.split ]
   ret ptr %.0
 }
 

@@ -87,8 +87,8 @@ SDL_QuitQuit_Internal.exit:                       ; preds = %SDL_EventSignal_Qui
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendPendingSignalEvents() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @send_quit_pending, align 1
-  br i1 %.b1, label %1, label %2
+  %.b = load i1, ptr @send_quit_pending, align 1
+  br i1 %.b, label %1, label %2
 
 1:                                                ; preds = %0
   store i1 false, ptr @send_quit_pending, align 1

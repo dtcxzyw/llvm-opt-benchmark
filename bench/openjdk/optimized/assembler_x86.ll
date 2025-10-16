@@ -113630,8 +113630,8 @@ define hidden void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_add
   %1 = alloca %class.InstructionAttr, align 8
   %2 = alloca %class.CodeBuffer, align 8
   %3 = alloca %class.MacroAssembler, align 8
-  %.b11 = load i1, ptr @_ZL11precomputed, align 1
-  br i1 %.b11, label %4, label %6
+  %.b = load i1, ptr @_ZL11precomputed, align 1
+  br i1 %.b, label %4, label %6
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @g_assert_poison, align 8
@@ -113821,8 +113821,8 @@ _ZN9Assembler19vzeroupper_uncachedEv.exit:        ; preds = %6, %_ZN9Assembler21
   %109 = sub i64 %108, %100
   %110 = trunc i64 %109 to i32
   store i32 %110, ptr @_ZL9pusha_len, align 4
-  %sext12 = shl i64 %109, 32
-  %111 = ashr exact i64 %sext12, 32
+  %sext11 = shl i64 %109, 32
+  %111 = ashr exact i64 %sext11, 32
   %112 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %111, i8 noundef zeroext 9, i32 noundef 0) #18
   store ptr %112, ptr @_ZL10pusha_code, align 8
   %113 = load i32, ptr @_ZL9pusha_len, align 4

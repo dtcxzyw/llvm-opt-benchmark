@@ -45788,8 +45788,8 @@ lean_dec.exit:                                    ; preds = %69, %68, %66, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Meta_Tactic_Grind_Cases(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -45818,17 +45818,17 @@ define ptr @initialize_Lean_Meta_Tactic_Grind_Cases(i8 noundef zeroext %0, ptr n
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 16:                                               ; preds = %11
-  %.not.i10 = icmp eq i32 %12, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %17
+  %.not.i9 = icmp eq i32 %12, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %14, %16, %17
+lean_dec_ref.exit10:                              ; preds = %14, %16, %17
   %18 = tail call ptr @l_Lean_PersistentHashMap_mkEmptyEntriesArray(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   store ptr %18, ptr @l_Lean_Meta_Grind_instInhabitedCasesTypes___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %18) #6
@@ -45838,11 +45838,11 @@ lean_dec_ref.exit11:                              ; preds = %14, %16, %17
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_init_l_Lean_Meta_Grind_instInhabitedCasesTypes___closed__2.exit
 
-22:                                               ; preds = %lean_dec_ref.exit11
+22:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-_init_l_Lean_Meta_Grind_instInhabitedCasesTypes___closed__2.exit: ; preds = %lean_dec_ref.exit11
+_init_l_Lean_Meta_Grind_instInhabitedCasesTypes___closed__2.exit: ; preds = %lean_dec_ref.exit10
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %20, align 4, !tbaa !4
   store i32 65552, ptr %23, align 4
@@ -46148,16 +46148,16 @@ _init_l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_Cases___hyg_188____
   %138 = load ptr, ptr @l_Lean_Meta_Grind_initFn____x40_Lean_Meta_Tactic_Grind_Cases___hyg_188____closed__8, align 8, !tbaa !9
   %139 = tail call ptr @l_Lean_registerSimpleScopedEnvExtension___rarg(ptr noundef %138, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %140 = getelementptr i8, ptr %139, i64 4
-  %.val12 = load i32, ptr %140, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %141 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %140, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %141 = icmp eq i32 %.mask.i13, 16777216
   br i1 %141, label %351, label %142
 
 142:                                              ; preds = %137
   %143 = getelementptr i8, ptr %139, i64 8
-  %.val13 = load ptr, ptr %143, align 8, !tbaa !9
-  store ptr %.val13, ptr @l_Lean_Meta_Grind_casesExt, align 8, !tbaa !9
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #6
+  %.val12 = load ptr, ptr %143, align 8, !tbaa !9
+  store ptr %.val12, ptr @l_Lean_Meta_Grind_casesExt, align 8, !tbaa !9
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #6
   %144 = load i32, ptr %139, align 8, !tbaa !4
   %145 = icmp sgt i32 %144, 1
   br i1 %145, label %146, label %148, !prof !11
@@ -46668,18 +46668,18 @@ _init_l_Std_Range_forIn_x27_loop___at_Lean_Meta_Grind_cases___spec__1___closed__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Range_forIn_x27_loop___at_Lean_Meta_Grind_cases___spec__1___closed__4.exit, %3
-  %.sink49 = phi ptr [ %4, %3 ], [ %345, %_init_l_Std_Range_forIn_x27_loop___at_Lean_Meta_Grind_cases___spec__1___closed__4.exit ]
-  %348 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
-  store i32 1, ptr %.sink49, align 4, !tbaa !4
+  %.sink48 = phi ptr [ %4, %3 ], [ %345, %_init_l_Std_Range_forIn_x27_loop___at_Lean_Meta_Grind_cases___spec__1___closed__4.exit ]
+  %348 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
+  store i32 1, ptr %.sink48, align 4, !tbaa !4
   store i32 131096, ptr %348, align 4
-  %349 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %349, align 8, !tbaa !9
-  %350 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %350, align 8, !tbaa !9
   br label %351
 
 351:                                              ; preds = %.sink.split, %137, %7
-  %.0 = phi ptr [ %8, %7 ], [ %139, %137 ], [ %.sink49, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %139, %137 ], [ %.sink48, %.sink.split ]
   ret ptr %.0
 }
 

@@ -24152,12 +24152,12 @@ declare i32 @uv_fs_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, ptr } @_ZN13cmSystemTools13GetSystemNameEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.cmsys::RegularExpressionMatch", align 8
-  %.b1 = load i1, ptr @_ZZN13cmSystemTools13GetSystemNameEvE11initialized, align 1
-  br i1 %.b1, label %2, label %3
+  %.b = load i1, ptr @_ZZN13cmSystemTools13GetSystemNameEvE11initialized, align 1
+  br i1 %.b, label %2, label %3
 
 2:                                                ; preds = %0
-  %.sroa.010.0.copyload = load i64, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.0, align 8, !tbaa !27
-  %.sroa.412.0.copyload = load ptr, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.1, align 8, !tbaa !22
+  %.sroa.09.0.copyload = load i64, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.0, align 8, !tbaa !27
+  %.sroa.411.0.copyload = load ptr, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.1, align 8, !tbaa !22
   br label %36
 
 3:                                                ; preds = %0
@@ -24214,7 +24214,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit:          ; preds = %15
 
 22:                                               ; preds = %18
   %.pre = load i64, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.0, align 8, !tbaa !35
-  %.sroa.412.0.copyload13.pre.pre = load ptr, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.1, align 8, !tbaa !22
+  %.sroa.411.0.copyload12.pre.pre = load ptr, ptr @_ZZN13cmSystemTools13GetSystemNameEvE10systemName.1, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %.pre, 0
   br i1 %.not.i.i.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %23
 
@@ -24223,13 +24223,13 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit:          ; preds = %15
   br i1 %.not2531.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.412.0.copyload13.pre.pre, i64 %.pre
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.411.0.copyload12.pre.pre, i64 %.pre
   %25 = ptrtoint ptr %24 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %29, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %.pre, %.lr.ph.i.i ], [ %32, %29 ]
-  %.02132.i.i = phi ptr [ %.sroa.412.0.copyload13.pre.pre, %.lr.ph.i.i ], [ %30, %29 ]
+  %.02132.i.i = phi ptr [ %.sroa.411.0.copyload12.pre.pre, %.lr.ph.i.i ], [ %30, %29 ]
   %26 = add i64 %.033.i.i, -7
   %27 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 107, i64 noundef %26) #40
   %.not26.i.i = icmp eq ptr %27, null
@@ -24249,10 +24249,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %33 = ptrtoint ptr %27 to i64
-  %34 = ptrtoint ptr %.sroa.412.0.copyload13.pre.pre to i64
+  %34 = ptrtoint ptr %.sroa.411.0.copyload12.pre.pre to i64
   %35 = sub i64 %33, %34
-  %.not2 = icmp eq i64 %35, -1
-  br i1 %.not2, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split
+  %.not1 = icmp eq i64 %35, -1
+  br i1 %.not1, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, %18
   %.sink = phi i64 [ 5, %18 ], [ 8, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ]
@@ -24262,16 +24262,16 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split:
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %29, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split, %23, %22, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
-  %.sroa.412.0.copyload13 = phi ptr [ %.sroa.412.0.copyload13.pre.pre, %23 ], [ %.sroa.412.0.copyload13.pre.pre, %22 ], [ %.sroa.412.0.copyload13.pre.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.str.84.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.sroa.412.0.copyload13.pre.pre, %29 ], [ %.sroa.412.0.copyload13.pre.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.010.0.copyload11 = phi i64 [ %.pre, %23 ], [ 0, %22 ], [ %.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.pre, %29 ], [ %.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.411.0.copyload12 = phi ptr [ %.sroa.411.0.copyload12.pre.pre, %23 ], [ %.sroa.411.0.copyload12.pre.pre, %22 ], [ %.sroa.411.0.copyload12.pre.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.str.84.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.sroa.411.0.copyload12.pre.pre, %29 ], [ %.sroa.411.0.copyload12.pre.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.09.0.copyload10 = phi i64 [ %.pre, %23 ], [ 0, %22 ], [ %.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.pre, %29 ], [ %.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %36
 
 36:                                               ; preds = %3, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, %2
-  %.sroa.010.0 = phi i64 [ %.sroa.010.0.copyload, %2 ], [ %.sroa.010.0.copyload11, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ 0, %3 ]
-  %.sroa.412.0 = phi ptr [ %.sroa.412.0.copyload, %2 ], [ %.sroa.412.0.copyload13, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ @.str.9, %3 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.010.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.412.0, 1
+  %.sroa.09.0 = phi i64 [ %.sroa.09.0.copyload, %2 ], [ %.sroa.09.0.copyload10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ 0, %3 ]
+  %.sroa.411.0 = phi ptr [ %.sroa.411.0.copyload, %2 ], [ %.sroa.411.0.copyload12, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ @.str.9, %3 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.09.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.411.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 

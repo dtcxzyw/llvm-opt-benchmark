@@ -63,8 +63,8 @@ define internal range(i32 0, -1) i32 @isolation_start_test(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.b13 = load i1, ptr @looked_up_isolation_exec, align 1
-  br i1 %.b13, label %15, label %9
+  %.b = load i1, ptr @looked_up_isolation_exec, align 1
+  br i1 %.b, label %15, label %9
 
 9:                                                ; preds = %4
   %10 = tail call i32 @find_other_exec(ptr noundef nonnull @saved_argv0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @isolation_exec) #8
@@ -110,8 +110,8 @@ define internal range(i32 0, -1) i32 @isolation_start_test(ptr noundef %0, ptr n
   call void @add_stringlist_item(ptr noundef %2, ptr noundef nonnull %7) #8
   call void @initStringInfo(ptr noundef nonnull %8) #8
   %32 = load ptr, ptr @launcher, align 8
-  %.not14 = icmp eq ptr %32, null
-  br i1 %.not14, label %34, label %33
+  %.not13 = icmp eq ptr %32, null
+  br i1 %.not13, label %34, label %33
 
 33:                                               ; preds = %31
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %32) #8

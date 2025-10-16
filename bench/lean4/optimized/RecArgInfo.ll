@@ -2374,8 +2374,8 @@ lean_dec.exit:                                    ; preds = %47, %46, %44, %l_Le
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Elab_PreDefinition_Structural_RecArgInfo(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b16 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b16, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -2417,9 +2417,9 @@ define ptr @initialize_Lean_Elab_PreDefinition_Structural_RecArgInfo(i8 noundef 
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Meta_ForEachExpr(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val23 = load i32, ptr %19, align 4
-  %.mask.i26 = and i32 %.val23, -16777216
-  %20 = icmp eq i32 %.mask.i26, 16777216
+  %.val22 = load i32, ptr %19, align 4
+  %.mask.i25 = and i32 %.val22, -16777216
+  %20 = icmp eq i32 %.mask.i25, 16777216
   br i1 %20, label %198, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -2430,25 +2430,25 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
 26:                                               ; preds = %21
-  %.not.i17 = icmp eq i32 %22, 0
-  br i1 %.not.i17, label %lean_dec_ref.exit18, label %27
+  %.not.i16 = icmp eq i32 %22, 0
+  br i1 %.not.i16, label %lean_dec_ref.exit17, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
-  br label %lean_dec_ref.exit18
+  br label %lean_dec_ref.exit17
 
-lean_dec_ref.exit18:                              ; preds = %24, %26, %27
+lean_dec_ref.exit17:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lean_Elab_PreDefinition_FixedParams(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val24 = load i32, ptr %29, align 4
-  %.mask.i27 = and i32 %.val24, -16777216
-  %30 = icmp eq i32 %.mask.i27, 16777216
+  %.val23 = load i32, ptr %29, align 4
+  %.mask.i26 = and i32 %.val23, -16777216
+  %30 = icmp eq i32 %.mask.i26, 16777216
   br i1 %30, label %198, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit18
+31:                                               ; preds = %lean_dec_ref.exit17
   %32 = load i32, ptr %28, align 4, !tbaa !8
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -2456,25 +2456,25 @@ lean_dec_ref.exit18:                              ; preds = %24, %26, %27
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
   store i32 %35, ptr %28, align 4, !tbaa !8
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
 36:                                               ; preds = %31
-  %.not.i19 = icmp eq i32 %32, 0
-  br i1 %.not.i19, label %lean_dec_ref.exit20, label %37
+  %.not.i18 = icmp eq i32 %32, 0
+  br i1 %.not.i18, label %lean_dec_ref.exit19, label %37
 
 37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #4
-  br label %lean_dec_ref.exit20
+  br label %lean_dec_ref.exit19
 
-lean_dec_ref.exit20:                              ; preds = %34, %36, %37
+lean_dec_ref.exit19:                              ; preds = %34, %36, %37
   %38 = tail call ptr @initialize_Lean_Elab_PreDefinition_Structural_IndGroupInfo(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %39 = getelementptr i8, ptr %38, i64 4
-  %.val25 = load i32, ptr %39, align 4
-  %.mask.i28 = and i32 %.val25, -16777216
-  %40 = icmp eq i32 %.mask.i28, 16777216
+  %.val24 = load i32, ptr %39, align 4
+  %.mask.i27 = and i32 %.val24, -16777216
+  %40 = icmp eq i32 %.mask.i27, 16777216
   br i1 %40, label %198, label %41
 
-41:                                               ; preds = %lean_dec_ref.exit20
+41:                                               ; preds = %lean_dec_ref.exit19
   %42 = load i32, ptr %38, align 4, !tbaa !8
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %46, !prof !11
@@ -2482,17 +2482,17 @@ lean_dec_ref.exit20:                              ; preds = %34, %36, %37
 44:                                               ; preds = %41
   %45 = add nsw i32 %42, -1
   store i32 %45, ptr %38, align 4, !tbaa !8
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
 46:                                               ; preds = %41
-  %.not.i21 = icmp eq i32 %42, 0
-  br i1 %.not.i21, label %lean_dec_ref.exit22, label %47
+  %.not.i20 = icmp eq i32 %42, 0
+  br i1 %.not.i20, label %lean_dec_ref.exit21, label %47
 
 47:                                               ; preds = %46
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %38) #4
-  br label %lean_dec_ref.exit22
+  br label %lean_dec_ref.exit21
 
-lean_dec_ref.exit22:                              ; preds = %44, %46, %47
+lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   %48 = tail call ptr @lean_alloc_object(i64 noundef 24) #4
   store i32 1, ptr %48, align 4, !tbaa !8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -2510,11 +2510,11 @@ lean_dec_ref.exit22:                              ; preds = %44, %46, %47
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %_init_l_Lean_Elab_Structural_instInhabitedRecArgInfo___closed__2.exit
 
-57:                                               ; preds = %lean_dec_ref.exit22
+57:                                               ; preds = %lean_dec_ref.exit21
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_Elab_Structural_instInhabitedRecArgInfo___closed__2.exit: ; preds = %lean_dec_ref.exit22
+_init_l_Lean_Elab_Structural_instInhabitedRecArgInfo___closed__2.exit: ; preds = %lean_dec_ref.exit21
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 1, ptr %55, align 4, !tbaa !8
   store i32 131096, ptr %58, align 4
@@ -2909,18 +2909,18 @@ _init_l_Lean_Elab_Structural_instReprRecArgInfo___closed__1.exit: ; preds = %_in
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Structural_instReprRecArgInfo___closed__1.exit, %3
-  %.sink58 = phi ptr [ %4, %3 ], [ %192, %_init_l_Lean_Elab_Structural_instReprRecArgInfo___closed__1.exit ]
-  %195 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
-  store i32 1, ptr %.sink58, align 4, !tbaa !8
+  %.sink57 = phi ptr [ %4, %3 ], [ %192, %_init_l_Lean_Elab_Structural_instReprRecArgInfo___closed__1.exit ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sink57, i64 4
+  store i32 1, ptr %.sink57, align 4, !tbaa !8
   store i32 131096, ptr %195, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %.sink57, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %196, align 8, !tbaa !4
-  %197 = getelementptr inbounds nuw i8, ptr %.sink58, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %197, align 8, !tbaa !4
   br label %198
 
-198:                                              ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink58, %.sink.split ]
+198:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink57, %.sink.split ]
   ret ptr %.0
 }
 

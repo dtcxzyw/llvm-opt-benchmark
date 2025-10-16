@@ -230,13 +230,13 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
   br label %29
 
 28:                                               ; preds = %29
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 4
-  br i1 %exitcond.not.i23, label %auth_get_plugin_name.exit24, label %29, !llvm.loop !8
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 4
+  br i1 %exitcond.not.i22, label %auth_get_plugin_name.exit23, label %29, !llvm.loop !8
 
 29:                                               ; preds = %28, %27
-  %indvars.iv.i21 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i22, %28 ]
-  %30 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i21
+  %indvars.iv.i20 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i21, %28 ]
+  %30 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i20
   %31 = load i32, ptr %30, align 16
   %32 = icmp eq i32 %31, 103
   br i1 %32, label %33, label %28
@@ -244,9 +244,9 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load ptr, ptr %34, align 8
-  br label %auth_get_plugin_name.exit24
+  br label %auth_get_plugin_name.exit23
 
-auth_get_plugin_name.exit24:                      ; preds = %28, %33
+auth_get_plugin_name.exit23:                      ; preds = %28, %33
   %36 = phi ptr [ %35, %33 ], [ @.str.4, %28 ]
   %37 = tail call ptr @xstrdup(ptr noundef %36) #12
   store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
@@ -256,8 +256,8 @@ thread-pre-split:                                 ; preds = %25
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
   br label %38
 
-38:                                               ; preds = %thread-pre-split, %auth_get_plugin_name.exit24
-  %39 = phi ptr [ %.pr, %thread-pre-split ], [ %37, %auth_get_plugin_name.exit24 ]
+38:                                               ; preds = %thread-pre-split, %auth_get_plugin_name.exit23
+  %39 = phi ptr [ %.pr, %thread-pre-split ], [ %37, %auth_get_plugin_name.exit23 ]
   store ptr %39, ptr %2, align 8
   %.not14 = icmp eq ptr %39, null
   br i1 %.not14, label %.loopexit, label %40
@@ -283,7 +283,7 @@ thread-pre-split:                                 ; preds = %25
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %83
-  %.129 = phi ptr [ %.2, %83 ], [ %.07, %.lr.ph.preheader ]
+  %.128 = phi ptr [ %.2, %83 ], [ %.07, %.lr.ph.preheader ]
   %48 = load i32, ptr @g_context_num, align 4
   %49 = add nsw i32 %48, 1
   %50 = sext i32 %49 to i64
@@ -338,24 +338,24 @@ thread-pre-split:                                 ; preds = %25
   br i1 %.not18, label %._crit_edge, label %81
 
 ._crit_edge:                                      ; preds = %78
-  %.pre33 = load ptr, ptr %2, align 8
+  %.pre32 = load ptr, ptr %2, align 8
   br label %83
 
 81:                                               ; preds = %78
-  %82 = call ptr @strtok_r(ptr noundef %.129, ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #12
+  %82 = call ptr @strtok_r(ptr noundef %.128, ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #12
   store ptr %82, ptr %2, align 8
   br label %83
 
 83:                                               ; preds = %._crit_edge, %81
-  %84 = phi ptr [ %82, %81 ], [ %.pre33, %._crit_edge ]
-  %.2 = phi ptr [ null, %81 ], [ %.129, %._crit_edge ]
+  %84 = phi ptr [ %82, %81 ], [ %.pre32, %._crit_edge ]
+  %.2 = phi ptr [ null, %81 ], [ %.128, %._crit_edge ]
   %.not15 = icmp eq ptr %84, null
   br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %83, %38, %40, %7, %75
   %.0 = phi i32 [ 0, %7 ], [ 0, %40 ], [ -1, %75 ], [ 0, %38 ], [ 0, %83 ]
-  %.b19 = load i1, ptr @at_forked, align 1
-  br i1 %.b19, label %87, label %85
+  %.b = load i1, ptr @at_forked, align 1
+  br i1 %.b, label %87, label %85
 
 85:                                               ; preds = %.loopexit
   %86 = call i32 @pthread_atfork(ptr noundef null, ptr noundef null, ptr noundef nonnull @_atfork_child) #12
@@ -365,8 +365,8 @@ thread-pre-split:                                 ; preds = %25
 87:                                               ; preds = %85, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %1) #12
   %88 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not20 = icmp eq i32 %88, 0
-  br i1 %.not20, label %91, label %89
+  %.not19 = icmp eq i32 %88, 0
+  br i1 %.not19, label %91, label %89
 
 89:                                               ; preds = %87
   %90 = tail call ptr @__errno_location() #13
@@ -1281,13 +1281,13 @@ define internal void @_atfork_child() #1 {
   unreachable
 
 4:                                                ; preds = %0
-  %.b5 = load i1, ptr @externally_locked, align 1
-  br i1 %.b5, label %5, label %9
+  %.b = load i1, ptr @externally_locked, align 1
+  br i1 %.b, label %5, label %9
 
 5:                                                ; preds = %4
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @context_lock) #12
-  %.not6 = icmp eq i32 %6, 0
-  br i1 %.not6, label %9, label %7
+  %.not5 = icmp eq i32 %6, 0
+  br i1 %.not5, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = tail call ptr @__errno_location() #13

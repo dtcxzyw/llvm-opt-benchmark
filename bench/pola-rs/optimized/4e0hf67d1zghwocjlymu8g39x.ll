@@ -5646,8 +5646,8 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h340666c447
   %194 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %187
   %195 = icmp ne ptr %193, null
   call void @llvm.assume(i1 %195)
-  %.sroa.03.0.copyload.i2.i.i.i.i.i = load i8, ptr %193, align 1, !alias.scope !1007, !noalias !1010
-  store i8 %.sroa.03.0.copyload.i2.i.i.i.i.i, ptr %194, align 1, !noalias !1010
+  %.sroa.03.0.copyload.i.i.i.i.i.i = load i8, ptr %193, align 1, !alias.scope !1007, !noalias !1010
+  store i8 %.sroa.03.0.copyload.i.i.i.i.i.i, ptr %194, align 1, !noalias !1010
   %196 = load i64, ptr %180, align 8, !alias.scope !996, !noalias !1003, !noundef !7
   %197 = load i64, ptr %181, align 8, !alias.scope !996, !noalias !1003, !noundef !7
   %198 = icmp ult i64 %196, %197
@@ -11703,8 +11703,8 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h77e68cd725
   %113 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %106
   %114 = icmp ne ptr %112, null
   call void @llvm.assume(i1 %114)
-  %.sroa.03.0.copyload.i2.i.i.i.i.i = load i8, ptr %112, align 1, !alias.scope !2393, !noalias !2396
-  store i8 %.sroa.03.0.copyload.i2.i.i.i.i.i, ptr %113, align 1, !noalias !2396
+  %.sroa.03.0.copyload.i.i.i.i.i.i = load i8, ptr %112, align 1, !alias.scope !2393, !noalias !2396
+  store i8 %.sroa.03.0.copyload.i.i.i.i.i.i, ptr %113, align 1, !noalias !2396
   %115 = load i64, ptr %99, align 8, !alias.scope !2382, !noalias !2389, !noundef !7
   %116 = load i64, ptr %100, align 8, !alias.scope !2382, !noalias !2389, !noundef !7
   %117 = icmp ult i64 %115, %116

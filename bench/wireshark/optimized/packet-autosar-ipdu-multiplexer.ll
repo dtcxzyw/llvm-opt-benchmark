@@ -1376,8 +1376,8 @@ define internal void @reset_ipdum_pdu_transport_mapping_cb() #0 {
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_autosar_ipdu_multiplexer() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_autosar_ipdu_multiplexer.initialized, align 1
-  br i1 %.b1, label %12, label %1
+  %.b = load i1, ptr @proto_reg_handoff_autosar_ipdu_multiplexer.initialized, align 1
+  br i1 %.b, label %12, label %1
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @proto_ipdu_multiplexer, align 4

@@ -1817,8 +1817,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_InternalExceptionId(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b9 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b9, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -1888,21 +1888,21 @@ _init_l_Lean_instBEqInternalExceptionId___closed__1.exit: ; preds = %lean_dec_re
   store ptr %26, ptr @l_Lean_initFn____x40_Lean_InternalExceptionId___hyg_84____closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %26) #4
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit11, label %27
+  br i1 %.not, label %lean_dec_ref.exit10, label %27
 
 27:                                               ; preds = %_init_l_Lean_instBEqInternalExceptionId___closed__1.exit
   %28 = tail call ptr @l_Lean_initFn____x40_Lean_InternalExceptionId___hyg_84_(ptr noundef nonnull inttoptr (i64 1 to ptr))
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val12 = load i32, ptr %29, align 4
-  %.mask.i14 = and i32 %.val12, -16777216
-  %30 = icmp eq i32 %.mask.i14, 16777216
+  %.val11 = load i32, ptr %29, align 4
+  %.mask.i13 = and i32 %.val11, -16777216
+  %30 = icmp eq i32 %.mask.i13, 16777216
   br i1 %30, label %64, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %28, i64 8
-  %.val13 = load ptr, ptr %32, align 8, !tbaa !11
-  store ptr %.val13, ptr @l_Lean_internalExceptionsRef, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.val13) #4
+  %.val12 = load ptr, ptr %32, align 8, !tbaa !11
+  store ptr %.val12, ptr @l_Lean_internalExceptionsRef, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.val12) #4
   %33 = load i32, ptr %28, align 8, !tbaa !5
   %34 = icmp sgt i32 %33, 1
   br i1 %34, label %35, label %37, !prof !10
@@ -1910,17 +1910,17 @@ _init_l_Lean_instBEqInternalExceptionId___closed__1.exit: ; preds = %lean_dec_re
 35:                                               ; preds = %31
   %36 = add nsw i32 %33, -1
   store i32 %36, ptr %28, align 4, !tbaa !5
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
 37:                                               ; preds = %31
-  %.not.i10 = icmp eq i32 %33, 0
-  br i1 %.not.i10, label %lean_dec_ref.exit11, label %38
+  %.not.i9 = icmp eq i32 %33, 0
+  br i1 %.not.i9, label %lean_dec_ref.exit10, label %38
 
 38:                                               ; preds = %37
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #4
-  br label %lean_dec_ref.exit11
+  br label %lean_dec_ref.exit10
 
-lean_dec_ref.exit11:                              ; preds = %38, %37, %35, %_init_l_Lean_instBEqInternalExceptionId___closed__1.exit
+lean_dec_ref.exit10:                              ; preds = %38, %37, %35, %_init_l_Lean_instBEqInternalExceptionId___closed__1.exit
   %39 = load ptr, ptr @l_Lean_internalExceptionsRef, align 8, !tbaa !11
   store ptr %39, ptr @l_Lean_registerInternalExceptionId___lambda__1___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %39) #4
@@ -1929,11 +1929,11 @@ lean_dec_ref.exit11:                              ; preds = %38, %37, %35, %_ini
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %_init_l_Lean_registerInternalExceptionId___closed__1.exit
 
-42:                                               ; preds = %lean_dec_ref.exit11
+42:                                               ; preds = %lean_dec_ref.exit10
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-_init_l_Lean_registerInternalExceptionId___closed__1.exit: ; preds = %lean_dec_ref.exit11
+_init_l_Lean_registerInternalExceptionId___closed__1.exit: ; preds = %lean_dec_ref.exit10
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 1, ptr %40, align 4, !tbaa !5
   store i32 -184549352, ptr %43, align 4
@@ -1988,18 +1988,18 @@ _init_l_Lean_InternalExceptionId_getName___closed__2.exit: ; preds = %_init_l_Le
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_InternalExceptionId_getName___closed__2.exit, %3
-  %.sink27 = phi ptr [ %4, %3 ], [ %58, %_init_l_Lean_InternalExceptionId_getName___closed__2.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
-  store i32 1, ptr %.sink27, align 4, !tbaa !5
+  %.sink26 = phi ptr [ %4, %3 ], [ %58, %_init_l_Lean_InternalExceptionId_getName___closed__2.exit ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !5
   store i32 131096, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %62, align 8, !tbaa !11
-  %63 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %63, align 8, !tbaa !11
   br label %64
 
 64:                                               ; preds = %.sink.split, %27, %7
-  %.0 = phi ptr [ %8, %7 ], [ %28, %27 ], [ %.sink27, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %28, %27 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

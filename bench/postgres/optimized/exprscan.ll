@@ -1487,8 +1487,8 @@ define dso_local void @expr_yyerror_more(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.b8 = load i1, ptr @last_was_newline, align 1
-  br i1 %.b8, label %.loopexit, label %.preheader
+  %.b = load i1, ptr @last_was_newline, align 1
+  br i1 %.b, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader
   %9 = call i32 @expr_yylex(ptr noundef nonnull %4, ptr noundef nonnull %0)

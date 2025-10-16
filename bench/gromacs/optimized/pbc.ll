@@ -502,8 +502,8 @@ define noundef range(i32 0, 3) i32 @_Z12guessPbcTypePA3_Kf(ptr noundef readonly 
   br i1 %27, label %39, label %28
 
 28:                                               ; preds = %24, %20, %18
-  %.b15 = load i1, ptr @_ZL12bWarnedGuess, align 1
-  br i1 %.b15, label %39, label %29
+  %.b = load i1, ptr @_ZL12bWarnedGuess, align 1
+  br i1 %.b, label %39, label %29
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -521,8 +521,8 @@ define noundef range(i32 0, 3) i32 @_Z12guessPbcTypePA3_Kf(ptr noundef readonly 
 39:                                               ; preds = %28, %29, %24, %14, %10
   %.0 = phi i32 [ 0, %10 ], [ 2, %14 ], [ 1, %24 ], [ 1, %29 ], [ 1, %28 ]
   %40 = load ptr, ptr @debug, align 8, !tbaa !24
-  %.not16 = icmp eq ptr %40, null
-  br i1 %.not16, label %46, label %41
+  %.not15 = icmp eq ptr %40, null
+  br i1 %.not15, label %46, label %41
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.0 to i64

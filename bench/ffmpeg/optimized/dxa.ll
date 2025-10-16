@@ -498,8 +498,8 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %223 = icmp ugt ptr %.126373.i, %190
   %or.cond.i = select i1 %222, i1 true, i1 %223
   %224 = icmp ugt ptr %.125974.i, %190
-  %or.cond286.i = select i1 %or.cond.i, i1 true, i1 %224
-  br i1 %or.cond286.i, label %decode_13.exit, label %225
+  %or.cond285.i = select i1 %or.cond.i, i1 true, i1 %224
+  br i1 %or.cond285.i, label %decode_13.exit, label %225
 
 225:                                              ; preds = %.lr.ph.i
   %226 = getelementptr inbounds nuw i8, ptr %.022886.i, i64 %indvars.iv124.i
@@ -531,14 +531,14 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %233 = lshr i8 %232, 4
   %234 = zext nneg i8 %233 to i32
   %235 = sub nsw i32 8, %234
-  %.not2842.i = icmp slt i8 %232, 0
-  %spec.select.i = select i1 %.not2842.i, i32 %235, i32 %234
+  %.not2832.i = icmp slt i8 %232, 0
+  %spec.select.i = select i1 %.not2832.i, i32 %235, i32 %234
   %236 = getelementptr inbounds nuw i8, ptr %.126373.i, i64 1
   %237 = and i8 %232, 15
   %238 = zext nneg i8 %237 to i32
-  %.not285.i = icmp samesign ult i8 %237, 8
+  %.not284.i = icmp samesign ult i8 %237, 8
   %239 = sub nsw i32 8, %238
-  %.0229.i = select i1 %.not285.i, i32 %238, i32 %239
+  %.0229.i = select i1 %.not284.i, i32 %238, i32 %239
   %240 = sub nsw i32 0, %spec.select.i
   %241 = sext i32 %240 to i64
   %242 = icmp slt i64 %indvars.iv124.i, %241
@@ -550,8 +550,8 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %245 = add i32 %reass.sub191, -4
   %246 = icmp slt i32 %245, %spec.select.i
   %247 = icmp slt i32 %.0229.i, %invariant.op.i
-  %or.cond288.i = select i1 %246, i1 true, i1 %247
-  br i1 %or.cond288.i, label %252, label %248
+  %or.cond287.i = select i1 %246, i1 true, i1 %247
+  br i1 %or.cond287.i, label %252, label %248
 
 248:                                              ; preds = %243
   %249 = load i32, ptr %193, align 4, !tbaa !28
@@ -636,9 +636,9 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %.4273.idx.i = zext nneg i32 %.lobit.i to i64
   %.4273.i = getelementptr inbounds nuw i8, ptr %.327241.i, i64 %.4273.idx.i
   %.in.in.i = select i1 %.not282.not.i, ptr %287, ptr %.327241.i
-  %.in283.i = load i8, ptr %.in.in.i, align 1, !tbaa !38
+  %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !38
   %288 = getelementptr inbounds nuw i8, ptr %.125345.i, i64 %indvars.iv.i
-  store i8 %.in283.i, ptr %288, align 1, !tbaa !38
+  store i8 %.in.i, ptr %288, align 1, !tbaa !38
   %289 = shl i32 %.243.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -711,7 +711,7 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %321 = zext nneg i8 %320 to i32
   %322 = sub nsw i32 8, %321
   %.not1.i = icmp slt i8 %319, 0
-  %spec.select289.i = select i1 %.not1.i, i32 %322, i32 %321
+  %spec.select288.i = select i1 %.not1.i, i32 %322, i32 %321
   %323 = getelementptr inbounds nuw i8, ptr %.326555.i, i64 1
   %324 = and i8 %319, 15
   %325 = zext nneg i8 %324 to i32
@@ -719,7 +719,7 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %326 = sub nsw i32 8, %325
   %.5234.i = select i1 %.not281.i, i32 %325, i32 %326
   %327 = or disjoint i32 %310, %307
-  %328 = sub nsw i32 0, %spec.select289.i
+  %328 = sub nsw i32 0, %spec.select288.i
   %329 = icmp slt i32 %327, %328
   br i1 %329, label %342, label %330
 
@@ -727,7 +727,7 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   %331 = load i32, ptr %191, align 8, !tbaa !27
   %reass.sub = sub i32 %331, %327
   %332 = add i32 %reass.sub, -2
-  %333 = icmp slt i32 %332, %spec.select289.i
+  %333 = icmp slt i32 %332, %spec.select288.i
   br i1 %333, label %342, label %334
 
 334:                                              ; preds = %330
@@ -744,12 +744,12 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   br i1 %341, label %342, label %343
 
 342:                                              ; preds = %338, %334, %330, %318
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %spec.select289.i, i32 noundef %.5234.i) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %spec.select288.i, i32 noundef %.5234.i) #8
   br label %decode_13.exit
 
 343:                                              ; preds = %338
   %344 = mul nsw i32 %.5234.i, %187
-  %345 = add nsw i32 %344, %spec.select289.i
+  %345 = add nsw i32 %344, %spec.select288.i
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds i8, ptr %315, i64 %346
   br label %348

@@ -188,9 +188,9 @@ define internal void @maskedmin8(ptr noundef readonly captures(none) %0, ptr nou
   %18 = sub nsw i32 %9, %17
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %20 = icmp samesign ult i32 %14, %19
-  %.in39 = select i1 %20, i8 %11, i8 %16
+  %.in = select i1 %20, i8 %11, i8 %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.in39, ptr %21, align 1, !tbaa !46
+  store i8 %.in, ptr %21, align 1, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
@@ -224,9 +224,9 @@ define internal void @maskedmax8(ptr noundef readonly captures(none) %0, ptr nou
   %18 = sub nsw i32 %9, %17
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %20 = icmp samesign ugt i32 %14, %19
-  %.in39 = select i1 %20, i8 %11, i8 %16
+  %.in = select i1 %20, i8 %11, i8 %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.in39, ptr %21, align 1, !tbaa !46
+  store i8 %.in, ptr %21, align 1, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
@@ -260,9 +260,9 @@ define internal void @maskedmin16(ptr noundef readonly captures(none) %0, ptr no
   %18 = sub nsw i32 %9, %17
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %20 = icmp samesign ult i32 %14, %19
-  %.in39 = select i1 %20, i16 %11, i16 %16
+  %.in = select i1 %20, i16 %11, i16 %16
   %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  store i16 %.in39, ptr %21, align 2, !tbaa !50
+  store i16 %.in, ptr %21, align 2, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
@@ -296,9 +296,9 @@ define internal void @maskedmax16(ptr noundef readonly captures(none) %0, ptr no
   %18 = sub nsw i32 %9, %17
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %20 = icmp samesign ugt i32 %14, %19
-  %.in39 = select i1 %20, i16 %11, i16 %16
+  %.in = select i1 %20, i16 %11, i16 %16
   %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  store i16 %.in39, ptr %21, align 2, !tbaa !50
+  store i16 %.in, ptr %21, align 2, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53

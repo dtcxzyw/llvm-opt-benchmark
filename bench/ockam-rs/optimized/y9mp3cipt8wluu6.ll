@@ -4002,13 +4002,13 @@ define hidden void @"_ZN3der4asn18optional79_$LT$impl$u20$der..decode..Decode$u2
 
 46:                                               ; preds = %"_ZN69_$LT$der..bytes_ref..BytesRef$u20$as$u20$der..decode..DecodeValue$GT$12decode_value17hf691b2091d556eb1E.exit.i.i"
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.7.i.i.sroa.0.sroa.4.4.copyload41 = load i32, ptr %47, align 8, !noalias !555
+  %.sroa.7.i.i.sroa.0.sroa.4.4.copyload = load i32, ptr %47, align 8, !noalias !555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i.i.sroa.6, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i.i.sroa.6.4..sroa_idx, i64 20, i1 false), !noalias !555
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.1022, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i.i.sroa.6, i64 20, i1 false), !noalias !567
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i.sroa.6)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.7.i.i.sroa.0.sroa.4.4.copyload41, ptr %48, align 8, !alias.scope !571
+  store i32 %.sroa.7.i.i.sroa.0.sroa.4.4.copyload, ptr %48, align 8, !alias.scope !571
   %.sroa.1022.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.1022.8..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.1022, i64 20, i1 false), !alias.scope !571
   %.sroa.11.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -135,8 +135,8 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @tap_queue_packet(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @tapping_is_active, align 1
-  br i1 %.b8, label %4, label %18
+  %.b = load i1, ptr @tapping_is_active, align 1
+  br i1 %.b, label %4, label %18
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @tap_packet_index, align 4
@@ -291,8 +291,8 @@ tap_build_interesting.exit:                       ; preds = %18, %17, %1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 {
-  %.b34 = load i1, ptr @tapping_is_active, align 1
-  br i1 %.b34, label %2, label %.loopexit
+  %.b = load i1, ptr @tapping_is_active, align 1
+  br i1 %.b, label %2, label %.loopexit
 
 2:                                                ; preds = %1
   store i1 false, ptr @tapping_is_active, align 1
@@ -300,19 +300,19 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   %.not = icmp eq i32 %3, 0
   %4 = load ptr, ptr @tap_listener_queue, align 8
   %5 = icmp eq ptr %4, null
-  %or.cond55 = select i1 %.not, i1 true, i1 %5
-  br i1 %or.cond55, label %.loopexit, label %.preheader
+  %or.cond54 = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond54, label %.loopexit, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
-  %.043.pr = load ptr, ptr @tap_listener_queue, align 8
+  %.042.pr = load ptr, ptr @tap_listener_queue, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheaderthread-pre-split
-  %.043 = phi ptr [ %.043.pr, %.preheaderthread-pre-split ], [ %4, %2 ]
+  %.042 = phi ptr [ %.042.pr, %.preheaderthread-pre-split ], [ %4, %2 ]
   %6 = phi i32 [ %65, %.preheaderthread-pre-split ], [ %3, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheaderthread-pre-split ], [ 0, %2 ]
-  %.not3544 = icmp eq ptr %.043, null
-  br i1 %.not3544, label %._crit_edge, label %.lr.ph
+  %.not3443 = icmp eq ptr %.042, null
+  br i1 %.not3443, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr %struct._tap_packet_t, ptr @tap_packet_array, i64 %indvars.iv
@@ -322,40 +322,40 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %64
-  %.045 = phi ptr [ %.043, %.lr.ph ], [ %.0, %64 ]
+  %.044 = phi ptr [ %.042, %.lr.ph ], [ %.0, %64 ]
   %12 = load i32, ptr %8, align 4
   %13 = and i32 %12, 1
-  %.not36 = icmp eq i32 %13, 0
-  br i1 %.not36, label %18, label %14
+  %.not35 = icmp eq i32 %13, 0
+  br i1 %.not35, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.045, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.044, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 4
-  %.not37 = icmp eq i32 %17, 0
-  br i1 %.not37, label %64, label %18
+  %.not36 = icmp eq i32 %17, 0
+  br i1 %.not36, label %64, label %18
 
 18:                                               ; preds = %14, %11
   %19 = load i32, ptr %7, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %23, label %64
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %.045, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 56
   %25 = load ptr, ptr %24, align 8
-  %.not38 = icmp eq ptr %25, null
-  br i1 %.not38, label %64, label %26
+  %.not37 = icmp eq ptr %25, null
+  br i1 %.not37, label %64, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %.045, i64 13
+  %27 = getelementptr inbounds nuw i8, ptr %.044, i64 13
   %28 = load i8, ptr %27, align 1, !range !10, !noundef !11
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %64, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.045, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.044, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 64
   %34 = icmp ne i32 %33, 0
@@ -371,8 +371,8 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 39:                                               ; preds = %37
   %40 = load i32, ptr %31, align 8
   %41 = and i32 %40, 16
-  %.not39 = icmp eq i32 %41, 0
-  br i1 %.not39, label %64, label %42
+  %.not38 = icmp eq i32 %41, 0
+  br i1 %.not38, label %64, label %42
 
 42:                                               ; preds = %39
   %43 = or i32 %32, 1048576
@@ -380,10 +380,10 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 
 44:                                               ; preds = %37, %42, %30
   %.030 = phi i32 [ %32, %37 ], [ %43, %42 ], [ %32, %30 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.045, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.044, i64 32
   %46 = load ptr, ptr %45, align 8
-  %.not40 = icmp eq ptr %46, null
-  br i1 %.not40, label %54, label %47
+  %.not39 = icmp eq ptr %46, null
+  br i1 %.not39, label %54, label %47
 
 47:                                               ; preds = %44
   %48 = tail call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %46, ptr noundef %0)
@@ -392,8 +392,8 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 49:                                               ; preds = %47
   %50 = load i32, ptr %31, align 8
   %51 = and i32 %50, 16
-  %.not41 = icmp eq i32 %51, 0
-  br i1 %.not41, label %64, label %52
+  %.not40 = icmp eq i32 %51, 0
+  br i1 %.not40, label %64, label %52
 
 52:                                               ; preds = %49
   %53 = or i32 %.030, 1048576
@@ -402,7 +402,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 54:                                               ; preds = %47, %52, %44
   %.1 = phi i32 [ %.030, %47 ], [ %53, %52 ], [ %.030, %44 ]
   %55 = load ptr, ptr %24, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.045, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.044, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %9, align 8
   %59 = load ptr, ptr %10, align 8
@@ -413,7 +413,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   ]
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %.045, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.044, i64 12
   store i8 1, ptr %62, align 4
   br label %64
 
@@ -422,9 +422,9 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br label %64
 
 64:                                               ; preds = %39, %49, %63, %61, %54, %14, %18, %26, %23
-  %.0 = load ptr, ptr %.045, align 8
-  %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %._crit_edge.loopexit, label %11, !llvm.loop !12
+  %.0 = load ptr, ptr %.044, align 8
+  %.not34 = icmp eq ptr %.0, null
+  br i1 %.not34, label %._crit_edge.loopexit, label %11, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %64
   %.pre = load i32, ptr @tap_packet_index, align 4
@@ -446,10 +446,10 @@ declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  %.b9 = load i1, ptr @tapping_is_active, align 1
+  %.b = load i1, ptr @tapping_is_active, align 1
   %3 = load i32, ptr @tap_packet_index, align 4
   %.not = icmp ne i32 %3, 0
-  %or.cond.not = select i1 %.b9, i1 %.not, i1 false
+  %or.cond.not = select i1 %.b, i1 %.not, i1 false
   br i1 %or.cond.not, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %2
@@ -458,16 +458,16 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 
 .preheader:                                       ; preds = %.preheader.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %12 ]
-  %.0811 = phi i32 [ %1, %.preheader.preheader ], [ %.1, %12 ]
+  %.0810 = phi i32 [ %1, %.preheader.preheader ], [ %.1, %12 ]
   %4 = getelementptr %struct._tap_packet_t, ptr @tap_packet_array, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %.preheader
-  %8 = add i32 %.0811, -1
-  %.not10 = icmp eq i32 %.0811, 0
-  br i1 %.not10, label %9, label %12
+  %8 = add i32 %.0810, -1
+  %.not9 = icmp eq i32 %.0810, 0
+  br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -475,7 +475,7 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br label %.loopexit
 
 12:                                               ; preds = %.preheader, %7
-  %.1 = phi i32 [ %8, %7 ], [ %.0811, %.preheader ]
+  %.1 = phi i32 [ %8, %7 ], [ %.0810, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15

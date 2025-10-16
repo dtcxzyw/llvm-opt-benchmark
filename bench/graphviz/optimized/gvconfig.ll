@@ -175,8 +175,8 @@ define ptr @gvconfig_libdir(ptr noundef readonly captures(none) %0) local_unname
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = icmp eq i32 %10, 0
-  %.b3 = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  %or.cond = select i1 %11, i1 true, i1 %.b3
+  %.b = load i1, ptr @gvconfig_libdir.dirShown, align 1
+  %or.cond = select i1 %11, i1 true, i1 %.b
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %7
@@ -335,8 +335,8 @@ gvconfig_plugin_install_builtins.exit:            ; preds = %gvconfig_plugin_ins
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load i32, ptr %53, align 8, !tbaa !48
   %55 = icmp eq i32 %54, 0
-  %.b3.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  %or.cond.i = select i1 %55, i1 true, i1 %.b3.i
+  %.b.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
+  %or.cond.i = select i1 %55, i1 true, i1 %.b.i
   br i1 %or.cond.i, label %gvconfig_libdir.exit, label %56
 
 56:                                               ; preds = %51
@@ -468,8 +468,8 @@ agxbdisown.exit:                                  ; preds = %79, %.thread.i, %ag
   %105 = phi ptr [ %101, %100 ], [ @gvconfig_libdir.line, %102 ], [ %99, %98 ]
   %106 = load i32, ptr %53, align 8, !tbaa !48
   %107 = icmp eq i32 %106, 0
-  %.b3.i.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  %or.cond.i.i = select i1 %107, i1 true, i1 %.b3.i.i
+  %.b.i.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
+  %or.cond.i.i = select i1 %107, i1 true, i1 %.b.i.i
   br i1 %or.cond.i.i, label %gvconfig_libdir.exit.i, label %108
 
 108:                                              ; preds = %104

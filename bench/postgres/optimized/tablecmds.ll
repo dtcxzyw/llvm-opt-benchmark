@@ -7892,19 +7892,19 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph16.i:                                       ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %.not175.i = icmp eq ptr %0, null
+  %.not174.i = icmp eq ptr %0, null
   %23 = load i32, ptr %21, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph33, label %ATRewriteTables.exit
 
-.lr.ph33:                                         ; preds = %.lr.ph16.i, %.critedge181.i
-  %indvars.iv44.i32 = phi i64 [ %indvars.iv.next45.i, %.critedge181.i ], [ 0, %.lr.ph16.i ]
+.lr.ph33:                                         ; preds = %.lr.ph16.i, %.critedge180.i
+  %indvars.iv44.i32 = phi i64 [ %indvars.iv.next45.i, %.critedge180.i ], [ 0, %.lr.ph16.i ]
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv44.i32
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 4
-  switch i8 %29, label %.critedge181.i [
+  switch i8 %29, label %.critedge180.i [
     i8 114, label %45
     i8 105, label %45
     i8 83, label %45
@@ -7912,7 +7912,7 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
     i8 109, label %45
   ]
 
-.lr.ph26.i:                                       ; preds = %.critedge181.i
+.lr.ph26.i:                                       ; preds = %.critedge180.i
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 22
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 23
@@ -8053,9 +8053,9 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
   %114 = trunc nuw i8 %113 to i1
   %115 = getelementptr inbounds nuw i8, ptr %27, i64 165
   %.in.in.i = select i1 %114, ptr %115, ptr %89
-  %.in174.i = load i8, ptr %.in.in.i, align 1
+  %.in.i = load i8, ptr %.in.in.i, align 1
   call void @table_close(ptr noundef nonnull %64, i32 noundef 0) #14
-  br i1 %.not175.i, label %119, label %116
+  br i1 %.not174.i, label %119, label %116
 
 116:                                              ; preds = %106
   %117 = load i32, ptr %27, align 8
@@ -8065,17 +8065,17 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
 
 119:                                              ; preds = %116, %106
   %120 = load i32, ptr %27, align 8
-  %121 = call i32 @make_new_heap(i32 noundef %120, i32 noundef %.0139.i, i32 noundef %.0138.i, i8 noundef signext %.in174.i, i32 noundef %4) #14
+  %121 = call i32 @make_new_heap(i32 noundef %120, i32 noundef %.0139.i, i32 noundef %.0138.i, i8 noundef signext %.in.i, i32 noundef %4) #14
   call fastcc void @ATRewriteTable(ptr noundef nonnull %27, i32 noundef %121)
   %122 = load i32, ptr %27, align 8
   %123 = load i32, ptr %101, align 8
-  %.not176.i = icmp eq i32 %123, 0
+  %.not175.i = icmp eq i32 %123, 0
   %124 = load i32, ptr @RecentXmin, align 4
   %125 = call i32 @ReadNextMultiXactId() #14
-  call void @finish_heap_swap(i32 noundef %122, i32 noundef %121, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %.not176.i, i32 noundef %124, i32 noundef %125, i8 noundef signext %.in174.i) #14
+  call void @finish_heap_swap(i32 noundef %122, i32 noundef %121, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %.not175.i, i32 noundef %124, i32 noundef %125, i8 noundef signext %.in.i) #14
   %126 = load ptr, ptr @object_access_hook, align 8
-  %.not177.i = icmp eq ptr %126, null
-  br i1 %.not177.i, label %152, label %127
+  %.not176.i = icmp eq ptr %126, null
+  br i1 %.not176.i, label %152, label %127
 
 127:                                              ; preds = %119
   %128 = load i32, ptr %27, align 8
@@ -8132,21 +8132,21 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
   %153 = getelementptr inbounds nuw i8, ptr %27, i64 164
   %154 = load i8, ptr %153, align 4, !range !6, !noundef !7
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %.critedge181.i
+  br i1 %155, label %156, label %.critedge180.i
 
 156:                                              ; preds = %152
   %157 = load i32, ptr %27, align 8
   %158 = call ptr @getOwnedSequences(i32 noundef %157) #14
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  %.not178.i = icmp eq ptr %158, null
-  br i1 %.not178.i, label %.critedge181.i, label %.lr.ph.i
+  %.not177.i = icmp eq ptr %158, null
+  br i1 %.not177.i, label %.critedge180.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %156
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %27, i64 165
   %162 = load i32, ptr %159, align 4
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph13.i, label %.critedge181.i
+  br i1 %163, label %.lr.ph13.i, label %.critedge180.i
 
 .lr.ph13.i:                                       ; preds = %.lr.ph.i, %.lr.ph13.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph13.i ], [ 0, %.lr.ph.i ]
@@ -8159,23 +8159,23 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
   %168 = load i32, ptr %159, align 4
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next.i, %169
-  br i1 %170, label %.lr.ph13.i, label %.critedge181.i
+  br i1 %170, label %.lr.ph13.i, label %.critedge180.i
 
-.critedge181.i:                                   ; preds = %.lr.ph13.i, %.lr.ph.i, %156, %152, %.lr.ph33
+.critedge180.i:                                   ; preds = %.lr.ph13.i, %.lr.ph.i, %156, %152, %.lr.ph33
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i32, 1
   %171 = load i32, ptr %21, align 4
   %172 = sext i32 %171 to i64
   %173 = icmp slt i64 %indvars.iv.next45.i, %172
   br i1 %173, label %.lr.ph33, label %.lr.ph26.i
 
-.lr.ph38:                                         ; preds = %.lr.ph26.i, %.critedge185.thread.i
-  %indvars.iv50.i37 = phi i64 [ %indvars.iv.next51.i, %.critedge185.thread.i ], [ 0, %.lr.ph26.i ]
+.lr.ph38:                                         ; preds = %.lr.ph26.i, %.critedge184.thread.i
+  %indvars.iv50.i37 = phi i64 [ %indvars.iv.next51.i, %.critedge184.thread.i ], [ 0, %.lr.ph26.i ]
   %174 = load ptr, ptr %22, align 8
   %175 = getelementptr inbounds nuw %union.ListCell, ptr %174, i64 %indvars.iv50.i37
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %178 = load i8, ptr %177, align 4
-  switch i8 %178, label %.critedge185.thread.i [
+  switch i8 %178, label %.critedge184.thread.i [
     i8 114, label %180
     i8 105, label %180
     i8 83, label %180
@@ -8183,7 +8183,7 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
     i8 109, label %180
   ]
 
-.lr.ph34.i:                                       ; preds = %.critedge185.thread.i
+.lr.ph34.i:                                       ; preds = %.critedge184.thread.i
   %179 = icmp sgt i32 %274, 0
   br i1 %179, label %.lr.ph39.i, label %ATRewriteTables.exit
 
@@ -8191,14 +8191,14 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 120
   %182 = load ptr, ptr %181, align 8
   %.not164.i = icmp eq ptr %182, null
-  br i1 %.not164.i, label %.critedge185.thread.i, label %.lr.ph21.i
+  br i1 %.not164.i, label %.critedge184.thread.i, label %.lr.ph21.i
 
 .lr.ph21.i:                                       ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %185 = load i32, ptr %183, align 4
   %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %.lr.ph36, label %.critedge185.thread.i
+  br i1 %186, label %.lr.ph36, label %.critedge184.thread.i
 
 .lr.ph36:                                         ; preds = %.lr.ph21.i, %269
   %187 = phi i32 [ %270, %269 ], [ %185, %.lr.ph21.i ]
@@ -8212,9 +8212,9 @@ define internal fastcc void @ATController(ptr noundef %0, ptr noundef %1, ptr no
   %193 = icmp eq i32 %192, 9
   br i1 %193, label %194, label %269
 
-.critedge185.i:                                   ; preds = %269
+.critedge184.i:                                   ; preds = %269
   %.not166.i = icmp eq ptr %.1142.i, null
-  br i1 %.not166.i, label %.critedge185.thread.i, label %273
+  br i1 %.not166.i, label %.critedge184.thread.i, label %273
 
 194:                                              ; preds = %.lr.ph36
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -8371,22 +8371,22 @@ validateForeignKeyConstraint.exit.i:              ; preds = %263, %220
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i34, 1
   %271 = sext i32 %270 to i64
   %272 = icmp slt i64 %indvars.iv.next48.i, %271
-  br i1 %272, label %.lr.ph36, label %.critedge185.i
+  br i1 %272, label %.lr.ph36, label %.critedge184.i
 
-273:                                              ; preds = %.critedge185.i
+273:                                              ; preds = %.critedge184.i
   call void @table_close(ptr noundef nonnull %.1142.i, i32 noundef 0) #14
-  br label %.critedge185.thread.i
+  br label %.critedge184.thread.i
 
-.critedge185.thread.i:                            ; preds = %.lr.ph21.i, %273, %.critedge185.i, %180, %.lr.ph38
+.critedge184.thread.i:                            ; preds = %.lr.ph21.i, %273, %.critedge184.i, %180, %.lr.ph38
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i37, 1
   %274 = load i32, ptr %21, align 4
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next51.i, %275
   br i1 %276, label %.lr.ph38, label %.lr.ph34.i
 
-.lr.ph39.i:                                       ; preds = %.lr.ph34.i, %.critedge189.i
-  %277 = phi i32 [ %293, %.critedge189.i ], [ %274, %.lr.ph34.i ]
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.critedge189.i ], [ 0, %.lr.ph34.i ]
+.lr.ph39.i:                                       ; preds = %.lr.ph34.i, %.critedge188.i
+  %277 = phi i32 [ %293, %.critedge188.i ], [ %274, %.lr.ph34.i ]
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.critedge188.i ], [ 0, %.lr.ph34.i ]
   %278 = load ptr, ptr %22, align 8
   %279 = getelementptr inbounds nuw %union.ListCell, ptr %278, i64 %indvars.iv56.i
   %280 = load ptr, ptr %279, align 8
@@ -8394,13 +8394,13 @@ validateForeignKeyConstraint.exit.i:              ; preds = %263, %220
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %.not162.i = icmp eq ptr %282, null
-  br i1 %.not162.i, label %.critedge189.i, label %.lr.ph29.i
+  br i1 %.not162.i, label %.critedge188.i, label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph39.i
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %285 = load i32, ptr %283, align 4
   %286 = icmp sgt i32 %285, 0
-  br i1 %286, label %.lr.ph32.i, label %.critedge189.i
+  br i1 %286, label %.lr.ph32.i, label %.critedge188.i
 
 .lr.ph32.i:                                       ; preds = %.lr.ph29.i, %.lr.ph32.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %.lr.ph32.i ], [ 0, %.lr.ph29.i ]
@@ -8413,20 +8413,20 @@ validateForeignKeyConstraint.exit.i:              ; preds = %263, %220
   %290 = load i32, ptr %283, align 4
   %291 = sext i32 %290 to i64
   %292 = icmp slt i64 %indvars.iv.next54.i, %291
-  br i1 %292, label %.lr.ph32.i, label %.critedge189.loopexit.i
+  br i1 %292, label %.lr.ph32.i, label %.critedge188.loopexit.i
 
-.critedge189.loopexit.i:                          ; preds = %.lr.ph32.i
+.critedge188.loopexit.i:                          ; preds = %.lr.ph32.i
   %.pre62.i = load i32, ptr %21, align 4
-  br label %.critedge189.i
+  br label %.critedge188.i
 
-.critedge189.i:                                   ; preds = %.critedge189.loopexit.i, %.lr.ph29.i, %.lr.ph39.i
-  %293 = phi i32 [ %.pre62.i, %.critedge189.loopexit.i ], [ %277, %.lr.ph29.i ], [ %277, %.lr.ph39.i ]
+.critedge188.i:                                   ; preds = %.critedge188.loopexit.i, %.lr.ph29.i, %.lr.ph39.i
+  %293 = phi i32 [ %.pre62.i, %.critedge188.loopexit.i ], [ %277, %.lr.ph29.i ], [ %277, %.lr.ph39.i ]
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %294 = sext i32 %293 to i64
   %295 = icmp slt i64 %indvars.iv.next57.i, %294
   br i1 %295, label %.lr.ph39.i, label %ATRewriteTables.exit
 
-ATRewriteTables.exit:                             ; preds = %.critedge189.i, %.lr.ph16.i, %.lr.ph26.i, %.critedge, %.lr.ph34.i
+ATRewriteTables.exit:                             ; preds = %.critedge188.i, %.lr.ph16.i, %.lr.ph26.i, %.critedge, %.lr.ph34.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

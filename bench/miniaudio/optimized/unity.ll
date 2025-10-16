@@ -30396,18 +30396,18 @@ ma_channel_map_copy_or_default.exit:              ; preds = %108, %103, %101
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %110, ptr %111, align 8, !tbaa !807
-  %.val133 = load i32, ptr %11, align 4, !tbaa !769
+  %.val = load i32, ptr %11, align 4, !tbaa !769
   %.val109 = load i32, ptr %73, align 8, !tbaa !785
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %113, i8 0, i64 48, i1 false)
-  %114 = icmp eq i32 %.val133, 0
+  %114 = icmp eq i32 %.val, 0
   br i1 %114, label %ma_spatializer_get_heap_layout.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %ma_channel_map_copy_or_default.exit
   %.sroa.3.0.insert.ext.i.i = zext i32 %.val109 to i64
   %.sroa.3.0.insert.shift.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i, 32
-  %115 = zext i32 %.val133 to i64
+  %115 = zext i32 %.val to i64
   %116 = shl nuw nsw i64 %115, 2
   %117 = shl nuw nsw i64 %115, 3
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 160

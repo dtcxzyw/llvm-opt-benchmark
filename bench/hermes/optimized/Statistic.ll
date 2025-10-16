@@ -147,16 +147,16 @@ _ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
   %2 = load atomic i64, ptr @_ZL8StatLock monotonic, align 8
   %atomic-temp.i.0.i1.i = inttoptr i64 %2 to ptr
   %3 = load atomic i64, ptr @_ZL8StatInfo acquire, align 8
-  %tobool.not.i2 = icmp eq i64 %3, 0
-  br i1 %tobool.not.i2, label %if.then.i4, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  %tobool.not.i1 = icmp eq i64 %3, 0
+  br i1 %tobool.not.i1, label %if.then.i3, label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
-if.then.i4:                                       ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
+if.then.i3:                                       ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
   tail call void @_ZNK4llvh17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL8StatInfo, ptr noundef nonnull @_ZN4llvh14object_creatorIN12_GLOBAL__N_113StatisticInfoEE4callEv, ptr noundef nonnull @_ZN4llvh14object_deleterIN12_GLOBAL__N_113StatisticInfoEE4callEPv) #21
   br label %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
-_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit, %if.then.i4
+_ZN4llvh13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit, %if.then.i3
   %4 = load atomic i64, ptr @_ZL8StatInfo monotonic, align 8
-  %atomic-temp.i.0.i1.i3 = inttoptr i64 %4 to ptr
+  %atomic-temp.i.0.i1.i2 = inttoptr i64 %4 to ptr
   %call.i.i = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
   br i1 %call.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -173,44 +173,44 @@ if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
   %6 = load atomic i8, ptr %Initialized monotonic, align 4
-  %tobool.i.i5 = trunc i8 %6 to i1
-  br i1 %tobool.i.i5, label %cleanup, label %if.end
+  %tobool.i.i4 = trunc i8 %6 to i1
+  br i1 %tobool.i.i4, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
-  %tobool.i.i6 = trunc i8 %7 to i1
-  %.b1 = load i1, ptr @_ZL7Enabled, align 1
-  %or.cond = select i1 %tobool.i.i6, i1 true, i1 %.b1
+  %tobool.i.i5 = trunc i8 %7 to i1
+  %.b = load i1, ptr @_ZL7Enabled, align 1
+  %or.cond = select i1 %tobool.i.i5, i1 true, i1 %.b
   br i1 %or.cond, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i3, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i2, i64 8
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i3, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i2, i64 16
   %9 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, %9
-  br i1 %cmp.not.i.i, label %if.else.i.i8, label %if.then.i.i7
+  br i1 %cmp.not.i.i, label %if.else.i.i7, label %if.then.i.i6
 
-if.then.i.i7:                                     ; preds = %if.then8
+if.then.i.i6:                                     ; preds = %if.then8
   store ptr %this, ptr %8, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end9
 
-if.else.i.i8:                                     ; preds = %if.then8
-  %11 = load ptr, ptr %atomic-temp.i.0.i1.i3, align 8
+if.else.i.i7:                                     ; preds = %if.then8
+  %11 = load ptr, ptr %atomic-temp.i.0.i1.i2, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPN4llvh9StatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.else.i.i8
+if.then.i.i.i.i:                                  ; preds = %if.else.i.i7
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #22
   unreachable
 
-_ZNKSt6vectorIPN4llvh9StatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i8
+_ZNKSt6vectorIPN4llvh9StatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i7
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
@@ -240,32 +240,32 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN4llv
   br label %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  store ptr %call5.i.i.i.i.i.i, ptr %atomic-temp.i.0.i1.i3, align 8
+  store ptr %call5.i.i.i.i.i.i, ptr %atomic-temp.i.0.i1.i2, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i7, %if.end
+if.end9:                                          ; preds = %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i6, %if.end
   store atomic i8 1, ptr %Initialized release, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit, %if.end9
-  %call.i.i9 = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
-  br i1 %call.i.i9, label %if.then.i.i12, label %if.else.i.i10
+  %call.i.i8 = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
+  br i1 %call.i.i8, label %if.then.i.i11, label %if.else.i.i9
 
-if.then.i.i12:                                    ; preds = %cleanup
-  %call2.i.i13 = tail call noundef zeroext i1 @_ZN4llvh3sys9MutexImpl7releaseEv(ptr noundef nonnull align 8 dereferenceable(13) %atomic-temp.i.0.i1.i) #21
+if.then.i.i11:                                    ; preds = %cleanup
+  %call2.i.i12 = tail call noundef zeroext i1 @_ZN4llvh3sys9MutexImpl7releaseEv(ptr noundef nonnull align 8 dereferenceable(13) %atomic-temp.i.0.i1.i) #21
   br label %if.end11
 
-if.else.i.i10:                                    ; preds = %cleanup
-  %acquired.i.i11 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i, i64 8
-  %13 = load i32, ptr %acquired.i.i11, align 8
+if.else.i.i9:                                     ; preds = %cleanup
+  %acquired.i.i10 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i, i64 8
+  %13 = load i32, ptr %acquired.i.i10, align 8
   %dec.i.i = add i32 %13, -1
-  store i32 %dec.i.i, ptr %acquired.i.i11, align 8
+  store i32 %dec.i.i, ptr %acquired.i.i10, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %if.else.i.i10, %if.then.i.i12, %entry
+if.end11:                                         ; preds = %if.else.i.i9, %if.then.i.i11, %entry
   ret void
 }
 
@@ -281,10 +281,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh20AreStatisticsEnabledEv() local_unnamed_addr #3 {
 entry:
-  %.b1 = load i1, ptr @_ZL7Enabled, align 1
+  %.b = load i1, ptr @_ZL7Enabled, align 1
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i = trunc i8 %0 to i1
-  %1 = select i1 %.b1, i1 true, i1 %tobool.i.i
+  %1 = select i1 %.b, i1 true, i1 %tobool.i.i
   ret i1 %1
 }
 

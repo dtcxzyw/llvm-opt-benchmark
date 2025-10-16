@@ -34,8 +34,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gets_interactive(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.b5 = load i1, ptr @useReadline, align 1
-  br i1 %.b5, label %3, label %5
+  %.b = load i1, ptr @useReadline, align 1
+  br i1 %.b, label %3, label %5
 
 3:                                                ; preds = %2
   tail call void @rl_reset_screen_size() #9
@@ -168,9 +168,9 @@ define dso_local ptr @gets_fromFile(ptr noundef captures(none) %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_append_history(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @useHistory, align 1
+  %.b = load i1, ptr @useHistory, align 1
   %3 = icmp ne ptr %0, null
-  %or.cond = and i1 %3, %.b8
+  %or.cond = and i1 %3, %.b
   br i1 %or.cond, label %4, label %12
 
 4:                                                ; preds = %2
@@ -184,8 +184,8 @@ define dso_local void @pg_append_history(ptr noundef %0, ptr noundef %1) local_u
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -1
   %10 = load i8, ptr %9, align 1
-  %.not9 = icmp eq i8 %10, 10
-  br i1 %.not9, label %12, label %11
+  %.not8 = icmp eq i8 %10, 10
+  br i1 %.not8, label %12, label %11
 
 11:                                               ; preds = %6, %4
   tail call void @appendPQExpBufferChar(ptr noundef %1, i8 noundef signext 10) #9
@@ -225,19 +225,19 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 10
-  br i1 %15, label %8, label %.critedge.split.loop.exit21, !llvm.loop !4
+  br i1 %15, label %8, label %.critedge.split.loop.exit20, !llvm.loop !4
 
-.critedge.split.loop.exit21:                      ; preds = %11
+.critedge.split.loop.exit20:                      ; preds = %11
   %16 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %.critedge.split.loop.exit21
-  %.0.in.lcssa = phi i32 [ %16, %.critedge.split.loop.exit21 ], [ %7, %8 ]
+.critedge:                                        ; preds = %8, %.critedge.split.loop.exit20
+  %.0.in.lcssa = phi i32 [ %16, %.critedge.split.loop.exit20 ], [ %7, %8 ]
   %17 = sext i32 %.0.in.lcssa to i64
   %18 = getelementptr inbounds i8, ptr %2, i64 %17
   store i8 0, ptr %18, align 1
-  %.b16 = load i1, ptr @useHistory, align 1
-  br i1 %.b16, label %19, label %37
+  %.b = load i1, ptr @useHistory, align 1
+  br i1 %.b, label %19, label %37
 
 19:                                               ; preds = %.critedge
   %20 = load i8, ptr %2, align 1
@@ -247,10 +247,10 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %19
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 436), align 4
   %23 = and i32 %22, 1
-  %.not17 = icmp ne i32 %23, 0
+  %.not16 = icmp ne i32 %23, 0
   %24 = icmp eq i8 %20, 32
-  %or.cond18 = and i1 %24, %.not17
-  br i1 %or.cond18, label %37, label %25
+  %or.cond17 = and i1 %24, %.not16
+  br i1 %or.cond17, label %37, label %25
 
 25:                                               ; preds = %21
   %26 = and i32 %22, 2
@@ -458,10 +458,10 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @finishInput() #0 {
-  %.b2 = load i1, ptr @useHistory, align 1
+  %.b = load i1, ptr @useHistory, align 1
   %1 = load ptr, ptr @psql_history, align 8
   %2 = icmp ne ptr %1, null
-  %or.cond = select i1 %.b2, i1 %2, i1 false
+  %or.cond = select i1 %.b, i1 %2, i1 false
   br i1 %or.cond, label %3, label %44
 
 3:                                                ; preds = %0
@@ -578,8 +578,8 @@ saveHistory.exit:                                 ; preds = %3, %38, %42
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %.b17 = load i1, ptr @useHistory, align 1
-  br i1 %.b17, label %3, label %26
+  %.b = load i1, ptr @useHistory, align 1
+  br i1 %.b, label %3, label %26
 
 3:                                                ; preds = %2
   %4 = icmp eq ptr %0, null
@@ -606,29 +606,29 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   %14 = tail call ptr @previous_history() #9
   %15 = tail call i32 @history_set_pos(i32 noundef 0) #9
   %16 = tail call ptr @current_history() #9
-  %.not1920 = icmp eq ptr %16, null
-  br i1 %.not1920, label %._crit_edge, label %.lr.ph
+  %.not1819 = icmp eq ptr %16, null
+  br i1 %.not1819, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %.fr = freeze ptr %14
-  %.not18 = icmp eq ptr %.fr, null
-  br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not17 = icmp eq ptr %.fr, null
+  br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01221.us = phi ptr [ %19, %.lr.ph.split.us ], [ %16, %.lr.ph ]
-  %17 = load ptr, ptr %.01221.us, align 8
+  %.01220.us = phi ptr [ %19, %.lr.ph.split.us ], [ %16, %.lr.ph ]
+  %17 = load ptr, ptr %.01220.us, align 8
   %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %17) #9
   %19 = tail call ptr @next_history() #9
-  %.not19.us = icmp eq ptr %19, null
-  br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  %.not18.us = icmp eq ptr %19, null
+  br i1 %.not18.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.01221 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
-  %20 = load ptr, ptr %.01221, align 8
+  %.01220 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
+  %20 = load ptr, ptr %.01220, align 8
   %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %20) #9
   %22 = tail call ptr @previous_history() #9
-  %.not19 = icmp eq ptr %22, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  %.not18 = icmp eq ptr %22, null
+  br i1 %.not18, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   br i1 %4, label %23, label %24

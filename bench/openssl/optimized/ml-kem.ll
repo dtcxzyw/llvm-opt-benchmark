@@ -129,13 +129,13 @@ define internal void @create_mlkem_raw_key(ptr noundef captures(none) %0, ptr no
   %5 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !11
-  %.0.copyload.i25.i = load i16, ptr %6, align 1
+  %.0.copyload.i.i = load i16, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %7, ptr %0, align 8, !tbaa !11
   %8 = load i64, ptr %1, align 8, !tbaa !9
   %9 = add i64 %8, -2
   store i64 %9, ptr %1, align 8, !tbaa !9
-  %10 = urem i16 %.0.copyload.i25.i, 6
+  %10 = urem i16 %.0.copyload.i.i, 6
   switch i16 %10, label %19 [
     i16 0, label %select_keytype_and_size.exit
     i16 1, label %11
@@ -225,13 +225,13 @@ define internal void @keygen_mlkem_real_key(ptr noundef captures(none) %0, ptr n
 switch.lookup:                                    ; preds = %30, %4
   %.0 = phi ptr [ %2, %4 ], [ %3, %30 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !11
-  %.0.copyload.i25.i = load i16, ptr %5, align 1
+  %.0.copyload.i.i = load i16, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %6, ptr %0, align 8, !tbaa !11
   %7 = load i64, ptr %1, align 8, !tbaa !9
   %8 = add i64 %7, -2
   store i64 %8, ptr %1, align 8, !tbaa !9
-  %9 = urem i16 %.0.copyload.i25.i, 3
+  %9 = urem i16 %.0.copyload.i.i, 3
   %10 = zext nneg i16 %9 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.keygen_mlkem_real_key, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8

@@ -136,7 +136,7 @@ define hidden void @av1_read_tx_type(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not.i, label %.segfeature_active.exit.thread_crit_edge, label %segfeature_active.exit
 
 .segfeature_active.exit.thread_crit_edge:         ; preds = %20
-  %.pre83 = zext nneg i16 %24 to i64
+  %.pre82 = zext nneg i16 %24 to i64
   br label %segfeature_active.exit.thread
 
 segfeature_active.exit:                           ; preds = %20
@@ -149,17 +149,17 @@ segfeature_active.exit:                           ; preds = %20
   br i1 %.not42, label %segfeature_active.exit.thread, label %get_ext_tx_types.exit.thread
 
 segfeature_active.exit.thread:                    ; preds = %.segfeature_active.exit.thread_crit_edge, %segfeature_active.exit
-  %.pre-phi84 = phi i64 [ %.pre83, %.segfeature_active.exit.thread_crit_edge ], [ %27, %segfeature_active.exit ]
+  %.pre-phi83 = phi i64 [ %.pre82, %.segfeature_active.exit.thread_crit_edge ], [ %27, %segfeature_active.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 10660
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.pre-phi84
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %.pre-phi83
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %get_ext_tx_types.exit.thread, label %35
 
 35:                                               ; preds = %segfeature_active.exit.thread
   %36 = and i16 %23, 128
-  %.not.i46 = icmp eq i16 %36, 0
-  br i1 %.not.i46, label %37, label %is_inter_block.exit
+  %.not.i45 = icmp eq i16 %36, 0
+  br i1 %.not.i45, label %37, label %is_inter_block.exit
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -182,11 +182,11 @@ is_inter_block.exit:                              ; preds = %35, %37
 49:                                               ; preds = %is_inter_block.exit
   %50 = and i64 %47, 99848
   %.not11.i.i = icmp eq i64 %50, 0
-  br i1 %.not11.i.i, label %51, label %get_ext_tx_types.exit.thread90
+  br i1 %.not11.i.i, label %51, label %get_ext_tx_types.exit.thread89
 
 51:                                               ; preds = %49
   %.not12.i.i = icmp eq i8 %45, 0
-  br i1 %.not12.i.i, label %get_ext_tx_types.exit, label %.thread64
+  br i1 %.not12.i.i, label %get_ext_tx_types.exit, label %.thread63
 
 get_ext_tx_types.exit:                            ; preds = %51
   %52 = zext nneg i32 %42 to i64
@@ -195,25 +195,25 @@ get_ext_tx_types.exit:                            ; preds = %51
   %55 = and i64 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
   %57 = load i8, ptr %56, align 1
-  %.not75 = icmp eq i8 %57, 0
-  br i1 %.not75, label %get_ext_tx_types.exit.thread, label %.thread71
+  %.not74 = icmp eq i8 %57, 0
+  br i1 %.not74, label %get_ext_tx_types.exit.thread, label %.thread70
 
-get_ext_tx_types.exit.thread90:                   ; preds = %49
-  %.not7592 = icmp eq i32 %42, 0
-  br i1 %.not7592, label %get_ext_tx_types.exit.thread, label %.thread93
+get_ext_tx_types.exit.thread89:                   ; preds = %49
+  %.not7491 = icmp eq i32 %42, 0
+  br i1 %.not7491, label %get_ext_tx_types.exit.thread, label %.thread92
 
-.thread93:                                        ; preds = %get_ext_tx_types.exit.thread90
+.thread92:                                        ; preds = %get_ext_tx_types.exit.thread89
   %58 = trunc nuw nsw i32 %42 to i8
   br label %get_ext_tx_set.exit
 
-.thread64:                                        ; preds = %51
+.thread63:                                        ; preds = %51
   %.not13.i = icmp eq i32 %42, 0
   %59 = select i1 %.not13.i, i8 2, i8 1
-  %.not13.i.i52 = icmp eq i32 %42, 0
-  %60 = select i1 %.not13.i.i52, i8 2, i8 1
+  %.not13.i.i51 = icmp eq i32 %42, 0
+  %60 = select i1 %.not13.i.i51, i8 2, i8 1
   br label %get_ext_tx_set.exit
 
-.thread71:                                        ; preds = %get_ext_tx_types.exit
+.thread70:                                        ; preds = %get_ext_tx_types.exit
   %61 = zext nneg i32 %42 to i64
   %62 = getelementptr inbounds nuw [2 x i8], ptr @av1_ext_tx_set_lookup, i64 %61
   %63 = lshr i64 394756, %46
@@ -225,12 +225,12 @@ get_ext_tx_types.exit.thread90:                   ; preds = %49
   %69 = load i8, ptr %68, align 1
   br label %get_ext_tx_set.exit
 
-get_ext_tx_set.exit:                              ; preds = %.thread93, %.thread64, %.thread71
-  %.0.i57 = phi i8 [ %58, %.thread93 ], [ %59, %.thread64 ], [ %66, %.thread71 ]
-  %.0.i.i49 = phi i8 [ %58, %.thread93 ], [ %60, %.thread64 ], [ %69, %.thread71 ]
+get_ext_tx_set.exit:                              ; preds = %.thread92, %.thread63, %.thread70
+  %.0.i56 = phi i8 [ %58, %.thread92 ], [ %59, %.thread63 ], [ %66, %.thread70 ]
+  %.0.i.i48 = phi i8 [ %58, %.thread92 ], [ %60, %.thread63 ], [ %69, %.thread70 ]
   %70 = zext nneg i32 %42 to i64
   %71 = getelementptr inbounds nuw [6 x i32], ptr @ext_tx_set_index, i64 %70
-  %72 = zext i8 %.0.i.i49 to i64
+  %72 = zext i8 %.0.i.i48 to i64
   %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr @txsize_sqr_map, i64 %46
@@ -241,7 +241,7 @@ get_ext_tx_set.exit:                              ; preds = %.thread93, %.thread
   br i1 %.not43, label %130, label %79
 
 79:                                               ; preds = %get_ext_tx_set.exit
-  %80 = zext i8 %.0.i57 to i64
+  %80 = zext i8 %.0.i56 to i64
   %81 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_inv, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 20492
   %83 = sext i32 %74 to i64
@@ -254,8 +254,8 @@ get_ext_tx_set.exit:                              ; preds = %.thread93, %.thread
   %90 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %89, ptr noundef nonnull %86, i32 noundef %88) #9
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %92 = load i8, ptr %91, align 8
-  %.not.i53 = icmp eq i8 %92, 0
-  br i1 %.not.i53, label %get_ext_tx_types.exit.thread.sink.split, label %93
+  %.not.i52 = icmp eq i8 %92, 0
+  br i1 %.not.i52, label %get_ext_tx_types.exit.thread.sink.split, label %93
 
 93:                                               ; preds = %79
   %94 = sext i32 %88 to i64
@@ -269,8 +269,8 @@ get_ext_tx_set.exit:                              ; preds = %.thread93, %.thread
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, %100
   %104 = add i32 %103, %98
-  %.not76 = icmp eq i8 %.0.i57, 0
-  br i1 %.not76, label %update_cdf.exit.i, label %.lr.ph.i.i
+  %.not75 = icmp eq i8 %.0.i56, 0
+  br i1 %.not75, label %update_cdf.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %93
   %105 = zext i32 %90 to i64
@@ -343,15 +343,15 @@ update_cdf.exit.i:                                ; preds = %._crit_edge.loopexi
 
 140:                                              ; preds = %138, %133
   %.in.in = phi ptr [ %137, %133 ], [ %139, %138 ]
-  %.in45 = load i8, ptr %.in.in, align 1
-  %141 = zext i8 %.0.i57 to i64
+  %.in = load i8, ptr %.in.in, align 1
+  %141 = zext i8 %.0.i56 to i64
   %142 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_inv, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %78, i64 15188
   %144 = sext i32 %74 to i64
   %145 = getelementptr inbounds [4 x [13 x [17 x i16]]], ptr %143, i64 %144
   %146 = zext i8 %76 to i64
   %147 = getelementptr inbounds nuw [13 x [17 x i16]], ptr %145, i64 %146
-  %148 = zext i8 %.in45 to i64
+  %148 = zext i8 %.in to i64
   %149 = getelementptr inbounds nuw [17 x i16], ptr %147, i64 %148
   %150 = getelementptr inbounds nuw i32, ptr @av1_num_ext_tx_set, i64 %141
   %151 = load i32, ptr %150, align 4
@@ -360,15 +360,15 @@ update_cdf.exit.i:                                ; preds = %._crit_edge.loopexi
 
 get_ext_tx_types.exit.thread.sink.split:          ; preds = %update_cdf.exit.i, %79, %140
   %.sink = phi i32 [ %152, %140 ], [ %90, %79 ], [ %90, %update_cdf.exit.i ]
-  %.sink97 = phi ptr [ %142, %140 ], [ %81, %79 ], [ %81, %update_cdf.exit.i ]
+  %.sink96 = phi ptr [ %142, %140 ], [ %81, %79 ], [ %81, %update_cdf.exit.i ]
   %153 = sext i32 %.sink to i64
-  %154 = getelementptr inbounds i32, ptr %.sink97, i64 %153
+  %154 = getelementptr inbounds i32, ptr %.sink96, i64 %153
   %155 = load i32, ptr %154, align 4
   %156 = trunc i32 %155 to i8
   store i8 %156, ptr %17, align 1
   br label %get_ext_tx_types.exit.thread
 
-get_ext_tx_types.exit.thread:                     ; preds = %get_ext_tx_types.exit.thread.sink.split, %get_ext_tx_types.exit.thread90, %is_inter_block.exit, %segfeature_active.exit.thread, %6, %segfeature_active.exit, %get_ext_tx_types.exit
+get_ext_tx_types.exit.thread:                     ; preds = %get_ext_tx_types.exit.thread.sink.split, %get_ext_tx_types.exit.thread89, %is_inter_block.exit, %segfeature_active.exit.thread, %6, %segfeature_active.exit, %get_ext_tx_types.exit
   ret void
 }
 

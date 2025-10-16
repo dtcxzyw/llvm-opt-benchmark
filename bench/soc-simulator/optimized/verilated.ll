@@ -25020,11 +25020,11 @@ define dso_local { i32, ptr } @_ZN19VerilatedContextImp9argc_argvEv(ptr noundef 
   unreachable
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %1, %7
-  %.b10 = load i1, ptr @_ZZN19VerilatedContextImp9argc_argvEvE8s_loaded, align 1
-  br i1 %.b10, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, label %10
+  %.b = load i1, ptr @_ZZN19VerilatedContextImp9argc_argvEvE8s_loaded, align 1
+  br i1 %.b, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, label %10
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %.pre20 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
+  %.pre19 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
   br label %49
 
 10:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
@@ -25062,8 +25062,8 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.011.016 = phi ptr [ %41, %36 ], [ %27, %.lr.ph.preheader ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
+  %.sroa.010.015 = phi ptr [ %41, %36 ], [ %27, %.lr.ph.preheader ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 1
   %35 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %34) #56
@@ -25072,12 +25072,12 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
 36:                                               ; preds = %.lr.ph
   %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %.sroa.011.016, align 8
+  %38 = load ptr, ptr %.sroa.010.015, align 8
   %39 = load i64, ptr %32, align 8
   %40 = add i64 %39, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %38, i64 %40, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 32
   %42 = icmp eq ptr %41, %29
   br i1 %42, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -25098,11 +25098,11 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
 
 ._crit_edge.loopexit:                             ; preds = %36
   %.pre = load ptr, ptr @_ZZN19VerilatedContextImp9argc_argvEvE7s_argvp, align 8
-  %.pre19 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
+  %.pre18 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %45 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ %20, %25 ]
+  %45 = phi i32 [ %.pre18, %._crit_edge.loopexit ], [ %20, %25 ]
   %46 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %24, %25 ]
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds ptr, ptr %46, i64 %47
@@ -25110,7 +25110,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
   br label %49
 
 49:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, %._crit_edge
-  %50 = phi i32 [ %.pre20, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge ], [ %45, %._crit_edge ]
+  %50 = phi i32 [ %.pre19, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge ], [ %45, %._crit_edge ]
   %51 = load ptr, ptr @_ZZN19VerilatedContextImp9argc_argvEvE7s_argvp, align 8
   %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %50, 0
   %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %51, 1

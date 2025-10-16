@@ -36,9 +36,9 @@ $_ZN9btMatrixXIfE6resizeEii = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef float @_Z9btMachEpsv() local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
+  %.b = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
   %.pre = load float, ptr @_ZZ9btMachEpsvE7machEps, align 4, !tbaa !4
-  br i1 %.b1, label %7, label %.preheader
+  br i1 %.b, label %7, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
   %1 = phi float [ %2, %.preheader ], [ %.pre, %0 ]
@@ -60,17 +60,17 @@ define dso_local noundef float @_Z9btMachEpsv() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef float @_Z9btEpsRootv() local_unnamed_addr #1 {
-  %.b1 = load i1, ptr @_ZZ9btEpsRootvE17alreadyCalculated, align 1
-  br i1 %.b1, label %._crit_edge, label %1
+  %.b = load i1, ptr @_ZZ9btEpsRootvE17alreadyCalculated, align 1
+  br i1 %.b, label %._crit_edge, label %1
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load float, ptr @_ZZ9btEpsRootvE7epsroot, align 4, !tbaa !4
   br label %10
 
 1:                                                ; preds = %0
-  %.b1.i = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
+  %.b.i = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
   %.pre.i = load float, ptr @_ZZ9btMachEpsvE7machEps, align 4, !tbaa !4
-  br i1 %.b1.i, label %_Z9btMachEpsv.exit, label %.preheader.i
+  br i1 %.b.i, label %_Z9btMachEpsv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %2 = phi float [ %3, %.preheader.i ], [ %.pre.i, %1 ]
@@ -1627,9 +1627,9 @@ define dso_local noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds float, ptr %28, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !4
-  %.b1.i = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
+  %.b.i = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
   %.pre.i = load float, ptr @_ZZ9btMachEpsvE7machEps, align 4, !tbaa !4
-  br i1 %.b1.i, label %_Z9btMachEpsv.exit, label %.preheader.i
+  br i1 %.b.i, label %_Z9btMachEpsv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %19, %.preheader.i
   %32 = phi float [ %33, %.preheader.i ], [ %.pre.i, %19 ]
@@ -2100,9 +2100,9 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i149: ; preds = %191, %_ZN
 200:                                              ; preds = %.lr.ph239
   %201 = fsub float %.464236, %175
   %202 = tail call noundef float @llvm.fabs.f32(float %201)
-  %.b1.i161 = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
+  %.b.i161 = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
   %.pre.i162 = load float, ptr @_ZZ9btMachEpsvE7machEps, align 4, !tbaa !4
-  br i1 %.b1.i161, label %_Z9btMachEpsv.exit164, label %.preheader.i163
+  br i1 %.b.i161, label %_Z9btMachEpsv.exit164, label %.preheader.i163
 
 .preheader.i163:                                  ; preds = %200, %.preheader.i163
   %203 = phi float [ %204, %.preheader.i163 ], [ %.pre.i162, %200 ]

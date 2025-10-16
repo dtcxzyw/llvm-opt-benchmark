@@ -408,8 +408,8 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
   br i1 %or.cond, label %18, label %3
 
 3:                                                ; preds = %1
-  %.b14 = load i1, ptr @findshortopt.singles_done, align 1
-  br i1 %.b14, label %13, label %.preheader
+  %.b = load i1, ptr @findshortopt.singles_done, align 1
+  br i1 %.b, label %13, label %.preheader
 
 .preheader:                                       ; preds = %3, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %3 ]
@@ -882,8 +882,8 @@ findlongopt.exit:                                 ; preds = %45, %60, %14
   br i1 %or.cond.i, label %.critedge, label %292
 
 292:                                              ; preds = %289
-  %.b14.i = load i1, ptr @findshortopt.singles_done, align 1
-  br i1 %.b14.i, label %findshortopt.exit, label %.preheader.i
+  %.b.i = load i1, ptr @findshortopt.singles_done, align 1
+  br i1 %.b.i, label %findshortopt.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %292, %300
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %300 ], [ 0, %292 ]

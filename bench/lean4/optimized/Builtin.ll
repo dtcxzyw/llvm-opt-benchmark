@@ -9175,8 +9175,8 @@ declare ptr @l_Lean_Elab_Command_addLinter(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Linter_Builtin(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b17 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b17, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -9218,9 +9218,9 @@ define ptr @initialize_Lean_Linter_Builtin(i8 noundef zeroext %0, ptr noundef re
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lean_Elab_Command(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val24 = load i32, ptr %19, align 4
-  %.mask.i28 = and i32 %.val24, -16777216
-  %20 = icmp eq i32 %.mask.i28, 16777216
+  %.val23 = load i32, ptr %19, align 4
+  %.mask.i27 = and i32 %.val23, -16777216
+  %20 = icmp eq i32 %.mask.i27, 16777216
   br i1 %20, label %264, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -9231,17 +9231,17 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
 26:                                               ; preds = %21
-  %.not.i18 = icmp eq i32 %22, 0
-  br i1 %.not.i18, label %lean_dec_ref.exit19, label %27
+  %.not.i17 = icmp eq i32 %22, 0
+  br i1 %.not.i17, label %lean_dec_ref.exit18, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
-  br label %lean_dec_ref.exit19
+  br label %lean_dec_ref.exit18
 
-lean_dec_ref.exit19:                              ; preds = %24, %26, %27
+lean_dec_ref.exit18:                              ; preds = %24, %26, %27
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 6, i64 noundef 6) #5
   store ptr %28, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %28) #5
@@ -9266,11 +9266,11 @@ lean_dec_ref.exit19:                              ; preds = %24, %26, %27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit
 
-39:                                               ; preds = %lean_dec_ref.exit19
+39:                                               ; preds = %lean_dec_ref.exit18
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit: ; preds = %lean_dec_ref.exit19
+_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit: ; preds = %lean_dec_ref.exit18
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 1, ptr %37, align 4, !tbaa !8
   store i32 196640, ptr %40, align 4
@@ -9296,7 +9296,7 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit:
   store ptr %50, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__9, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %50) #5
   %.not = icmp eq i8 %0, 0
-  br i1 %.not, label %lean_dec_ref.exit21, label %51
+  br i1 %.not, label %lean_dec_ref.exit20, label %51
 
 51:                                               ; preds = %_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit
   %52 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__3, align 8, !tbaa !4
@@ -9304,16 +9304,16 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit:
   %54 = load ptr, ptr @l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__9, align 8, !tbaa !4
   %55 = tail call ptr @l_Lean_Option_register___at_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_6____spec__1(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %56 = getelementptr i8, ptr %55, i64 4
-  %.val25 = load i32, ptr %56, align 4
-  %.mask.i29 = and i32 %.val25, -16777216
-  %57 = icmp eq i32 %.mask.i29, 16777216
+  %.val24 = load i32, ptr %56, align 4
+  %.mask.i28 = and i32 %.val24, -16777216
+  %57 = icmp eq i32 %.mask.i28, 16777216
   br i1 %57, label %264, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr i8, ptr %55, i64 8
-  %.val27 = load ptr, ptr %59, align 8, !tbaa !4
-  store ptr %.val27, ptr @l_Lean_Linter_linter_suspiciousUnexpanderPatterns, align 8, !tbaa !4
-  tail call void @lean_mark_persistent(ptr noundef %.val27) #5
+  %.val26 = load ptr, ptr %59, align 8, !tbaa !4
+  store ptr %.val26, ptr @l_Lean_Linter_linter_suspiciousUnexpanderPatterns, align 8, !tbaa !4
+  tail call void @lean_mark_persistent(ptr noundef %.val26) #5
   %60 = load i32, ptr %55, align 8, !tbaa !8
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %62, label %64, !prof !11
@@ -9321,17 +9321,17 @@ _init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit:
 62:                                               ; preds = %58
   %63 = add nsw i32 %60, -1
   store i32 %63, ptr %55, align 4, !tbaa !8
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
 64:                                               ; preds = %58
-  %.not.i20 = icmp eq i32 %60, 0
-  br i1 %.not.i20, label %lean_dec_ref.exit21, label %65
+  %.not.i19 = icmp eq i32 %60, 0
+  br i1 %.not.i19, label %lean_dec_ref.exit20, label %65
 
 65:                                               ; preds = %64
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %55) #5
-  br label %lean_dec_ref.exit21
+  br label %lean_dec_ref.exit20
 
-lean_dec_ref.exit21:                              ; preds = %65, %64, %62, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit
+lean_dec_ref.exit20:                              ; preds = %65, %64, %62, %_init_l_Lean_Linter_initFn____x40_Lean_Linter_Builtin___hyg_5____closed__6.exit
   %66 = load ptr, ptr @l_Lean_Linter_linter_suspiciousUnexpanderPatterns, align 8, !tbaa !4
   store ptr %66, ptr @l_Lean_Linter_getLinterSuspiciousUnexpanderPatterns___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %66) #5
@@ -9408,11 +9408,11 @@ lean_dec_ref.exit21:                              ; preds = %65, %64, %62, %_ini
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Linter_suspiciousUnexpanderPatterns___elambda__1___spec__6___lambda__1___closed__2.exit
 
-103:                                              ; preds = %lean_dec_ref.exit21
+103:                                              ; preds = %lean_dec_ref.exit20
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Linter_suspiciousUnexpanderPatterns___elambda__1___spec__6___lambda__1___closed__2.exit: ; preds = %lean_dec_ref.exit21
+_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Linter_suspiciousUnexpanderPatterns___elambda__1___spec__6___lambda__1___closed__2.exit: ; preds = %lean_dec_ref.exit20
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 1, ptr %101, align 4, !tbaa !8
   store i32 50397200, ptr %104, align 4
@@ -9707,15 +9707,15 @@ _init_l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3.exit: ; preds = %_i
   %245 = load ptr, ptr @l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3, align 8, !tbaa !4
   store ptr %245, ptr @l_Lean_Linter_suspiciousUnexpanderPatterns, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %245) #5
-  br i1 %.not, label %lean_dec_ref.exit23, label %246
+  br i1 %.not, label %lean_dec_ref.exit22, label %246
 
 246:                                              ; preds = %_init_l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3.exit
   %247 = load ptr, ptr @l_Lean_Linter_suspiciousUnexpanderPatterns, align 8, !tbaa !4
   %248 = tail call ptr @l_Lean_Elab_Command_addLinter(ptr noundef %247, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %249 = getelementptr i8, ptr %248, i64 4
-  %.val26 = load i32, ptr %249, align 4
-  %.mask.i30 = and i32 %.val26, -16777216
-  %250 = icmp eq i32 %.mask.i30, 16777216
+  %.val25 = load i32, ptr %249, align 4
+  %.mask.i29 = and i32 %.val25, -16777216
+  %250 = icmp eq i32 %.mask.i29, 16777216
   br i1 %250, label %264, label %251
 
 251:                                              ; preds = %246
@@ -9726,39 +9726,39 @@ _init_l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3.exit: ; preds = %_i
 254:                                              ; preds = %251
   %255 = add nsw i32 %252, -1
   store i32 %255, ptr %248, align 4, !tbaa !8
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
 256:                                              ; preds = %251
-  %.not.i22 = icmp eq i32 %252, 0
-  br i1 %.not.i22, label %lean_dec_ref.exit23, label %257
+  %.not.i21 = icmp eq i32 %252, 0
+  br i1 %.not.i21, label %lean_dec_ref.exit22, label %257
 
 257:                                              ; preds = %256
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %248) #5
-  br label %lean_dec_ref.exit23
+  br label %lean_dec_ref.exit22
 
-lean_dec_ref.exit23:                              ; preds = %257, %256, %254, %_init_l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3.exit
+lean_dec_ref.exit22:                              ; preds = %257, %256, %254, %_init_l_Lean_Linter_suspiciousUnexpanderPatterns___closed__3.exit
   tail call void @lean_inc_heartbeat() #5
   %258 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %259 = icmp eq ptr %258, null
   br i1 %259, label %260, label %.sink.split
 
-260:                                              ; preds = %lean_dec_ref.exit23
+260:                                              ; preds = %lean_dec_ref.exit22
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-.sink.split:                                      ; preds = %lean_dec_ref.exit23, %3
-  %.sink51 = phi ptr [ %4, %3 ], [ %258, %lean_dec_ref.exit23 ]
-  %261 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
-  store i32 1, ptr %.sink51, align 4, !tbaa !8
+.sink.split:                                      ; preds = %lean_dec_ref.exit22, %3
+  %.sink50 = phi ptr [ %4, %3 ], [ %258, %lean_dec_ref.exit22 ]
+  %261 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
+  store i32 1, ptr %.sink50, align 4, !tbaa !8
   store i32 131096, ptr %261, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %262, align 8, !tbaa !4
-  %263 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %263, align 8, !tbaa !4
   br label %264
 
 264:                                              ; preds = %.sink.split, %246, %51, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %55, %51 ], [ %248, %246 ], [ %.sink51, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %55, %51 ], [ %248, %246 ], [ %.sink50, %.sink.split ]
   ret ptr %.0
 }
 

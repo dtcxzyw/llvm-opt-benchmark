@@ -454,9 +454,9 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_autosar_nm() #0 {
-  %.b1 = load i1, ptr @proto_reg_handoff_autosar_nm.initialized, align 1
+  %.b = load i1, ptr @proto_reg_handoff_autosar_nm.initialized, align 1
   %1 = load ptr, ptr @nm_handle, align 8
-  br i1 %.b1, label %5, label %2
+  br i1 %.b, label %5, label %2
 
 2:                                                ; preds = %0
   tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.100, ptr noundef %1)

@@ -32117,8 +32117,8 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15process_p
           to label %.noexc1793 unwind label %361
 
 .noexc1793:                                       ; preds = %"_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.thread.i"
-  %.sroa.091.0188.i = call i64 @llvm.umin.i64(i64 %791, i64 65535)
-  %.sroa.091.0.i = trunc nuw i64 %.sroa.091.0188.i to i16
+  %.sroa.091.0187.i = call i64 @llvm.umin.i64(i64 %791, i64 65535)
+  %.sroa.091.0.i = trunc nuw i64 %.sroa.091.0187.i to i16
   %792 = getelementptr inbounds nuw i8, ptr %1, i64 5886
   %793 = load i8, ptr %792, align 2, !range !103, !alias.scope !994, !noalias !997, !noundef !3
   %794 = trunc nuw i8 %793 to i1
@@ -32136,8 +32136,8 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15process_p
 "_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.i": ; preds = %758
   %797 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %.sroa.087.0.copyload.i = load i32, ptr %797, align 2, !alias.scope !997, !noalias !994
-  %.sroa.089.0.copyload187.i = load i32, ptr %481, align 2, !alias.scope !994, !noalias !997
-  %798 = icmp eq i32 %.sroa.087.0.copyload.i, %.sroa.089.0.copyload187.i
+  %.sroa.089.0.copyload.i = load i32, ptr %481, align 2, !alias.scope !994, !noalias !997
+  %798 = icmp eq i32 %.sroa.087.0.copyload.i, %.sroa.089.0.copyload.i
   br i1 %798, label %799, label %"_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.thread.i"
 
 799:                                              ; preds = %"_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.i"

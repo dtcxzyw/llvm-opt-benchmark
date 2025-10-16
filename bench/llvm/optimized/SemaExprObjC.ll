@@ -39973,7 +39973,7 @@ define dso_local void @_ZN5clang8SemaObjC24diagnoseARCUnbridgedCastEPNS_4ExprE(p
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %.sroa.0.0.copyload.i2336 = load i32, ptr %10, align 4, !tbaa !18
+  %.sroa.0.0.copyload.i23 = load i32, ptr %10, align 4, !tbaa !18
   br label %19
 
 11:                                               ; preds = %2
@@ -39995,7 +39995,7 @@ define dso_local void @_ZN5clang8SemaObjC24diagnoseARCUnbridgedCastEPNS_4ExprE(p
 
 19:                                               ; preds = %11, %8
   %.sroa.031.0 = phi i32 [ %17, %11 ], [ %.sroa.0.0.copyload.i, %8 ]
-  %.sroa.6.0 = phi i32 [ %18, %11 ], [ %.sroa.0.0.copyload.i2336, %8 ]
+  %.sroa.6.0 = phi i32 [ %18, %11 ], [ %.sroa.0.0.copyload.i23, %8 ]
   %.0 = phi i32 [ 3, %11 ], [ 1, %8 ]
   %storemerge.in = load ptr, ptr %7, align 8, !tbaa !1578
   %storemerge = load i64, ptr %storemerge.in, align 8, !tbaa !45

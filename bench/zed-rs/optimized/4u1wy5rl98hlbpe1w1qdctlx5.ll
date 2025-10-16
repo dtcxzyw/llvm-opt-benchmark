@@ -2223,10 +2223,10 @@ define hidden void @"_ZN7bincode2de25Deserializer$LT$R$C$O$GT$11read_string17h54
   %9 = load ptr, ptr %1, align 8, !alias.scope !593, !noalias !594, !nonnull !12, !align !141, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = add i64 %6, -8
-  %.sroa.0.0.copyload.i.i25.i = load i64, ptr %9, align 1, !alias.scope !597, !noalias !601
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %9, align 1, !alias.scope !597, !noalias !601
   store ptr %10, ptr %1, align 8, !alias.scope !593, !noalias !594
   store i64 %11, ptr %5, align 8, !alias.scope !593, !noalias !594
-  %12 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i25.i), !noalias !603
+  %12 = tail call { i64, ptr } @_ZN7bincode6config3int17cast_u64_to_usize17h3bc89005515cf82aE(i64 noundef %.sroa.0.0.copyload.i.i.i), !noalias !603
   br label %_ZN7bincode6config3int11IntEncoding15deserialize_len17h56ecf417716185beE.exit.i
 
 13:                                               ; preds = %2

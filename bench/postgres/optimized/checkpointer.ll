@@ -131,15 +131,15 @@ define dso_local void @CheckpointerMain(ptr noundef readnone captures(none) %0, 
   call void @AtEOXact_SMgr() #12
   call void @AtEOXact_Files(i1 noundef zeroext false) #12
   call void @AtEOXact_HashTables(i1 noundef zeroext false) #12
-  %.b55 = load i1, ptr @ckpt_active, align 1
-  br i1 %.b55, label %16, label %35
+  %.b = load i1, ptr @ckpt_active, align 1
+  br i1 %.b, label %16, label %35
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @CheckpointerShmem, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %18, i8 1, ptr nonnull elementtype(i8) %18) #12, !srcloc !4
-  %.not56 = icmp eq i8 %19, 0
-  br i1 %.not56, label %24, label %20
+  %.not55 = icmp eq i8 %19, 0
+  br i1 %.not55, label %24, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @CheckpointerShmem, align 8
@@ -259,8 +259,8 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %38, %41
 
 AbsorbSyncRequests.exit:                          ; preds = %.critedge, %._crit_edge.i, %77
   %78 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
-  %.not.i77 = icmp eq i32 %78, 0
-  br i1 %.not.i77, label %80, label %79
+  %.not.i76 = icmp eq i32 %78, 0
+  br i1 %.not.i76, label %80, label %79
 
 79:                                               ; preds = %AbsorbSyncRequests.exit
   call void @ProcessProcSignalBarrier() #12
@@ -295,27 +295,27 @@ UpdateSharedMemoryConfig.exit.i:                  ; preds = %84, %82, %80
 
 HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryConfig.exit.i, %87
   %88 = load volatile i32, ptr @ShutdownXLOGPending, align 4
-  %.not57 = icmp eq i32 %88, 0
-  br i1 %.not57, label %89, label %.thread97
+  %.not56 = icmp eq i32 %88, 0
+  br i1 %.not56, label %89, label %.thread96
 
 89:                                               ; preds = %HandleCheckpointerInterrupts.exit
   %90 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not58 = icmp eq i32 %90, 0
-  br i1 %.not58, label %91, label %.thread97
+  %.not57 = icmp eq i32 %90, 0
+  br i1 %.not57, label %91, label %.thread96
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr @CheckpointerShmem, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %94 = load volatile i32, ptr %93, align 4
-  %.not59 = icmp ne i32 %94, 0
+  %.not58 = icmp ne i32 %94, 0
   %95 = call i64 @time(ptr noundef null) #12
   %96 = load i64, ptr @last_checkpoint_time, align 8
   %97 = sub i64 %95, %96
   %98 = trunc i64 %97 to i32
   %99 = load i32, ptr @CheckPointTimeout, align 4
-  %.not60 = icmp sle i32 %99, %98
-  %narrow = select i1 %.not60, i1 true, i1 %.not59
-  %.047 = select i1 %.not60, i32 256, i32 0
+  %.not59 = icmp sle i32 %99, %98
+  %narrow = select i1 %.not59, i1 true, i1 %.not58
+  %.047 = select i1 %.not59, i32 256, i32 0
   br i1 %narrow, label %100, label %193
 
 100:                                              ; preds = %91
@@ -323,8 +323,8 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   %102 = load ptr, ptr @CheckpointerShmem, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %103, i8 1, ptr nonnull elementtype(i8) %103) #12, !srcloc !4
-  %.not61 = icmp eq i8 %104, 0
-  br i1 %.not61, label %109, label %105
+  %.not60 = icmp eq i8 %104, 0
+  br i1 %.not60, label %109, label %105
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr @CheckpointerShmem, align 8
@@ -349,19 +349,19 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 24
   call void @ConditionVariableBroadcast(ptr noundef nonnull %119) #12
   %120 = and i32 %112, 2
-  %.not62 = icmp eq i32 %120, 0
-  %spec.select72 = select i1 %.not62, i1 %101, i1 false
-  %not..not60 = xor i1 %.not60, true
-  %121 = select i1 %not..not60, i1 true, i1 %.not59
+  %.not61 = icmp eq i32 %120, 0
+  %spec.select71 = select i1 %.not61, i1 %101, i1 false
+  %not..not59 = xor i1 %.not59, true
+  %121 = select i1 %not..not59, i1 true, i1 %.not58
   br i1 %121, label %123, label %122
 
 122:                                              ; preds = %109
-  br i1 %spec.select72, label %.thread90, label %.thread
+  br i1 %spec.select71, label %.thread89, label %.thread
 
 123:                                              ; preds = %109
-  br i1 %.not59, label %128, label %133
+  br i1 %.not58, label %128, label %133
 
-.thread90:                                        ; preds = %122
+.thread89:                                        ; preds = %122
   %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 24), align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 24), align 8
@@ -374,29 +374,29 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   br label %133
 
 128:                                              ; preds = %123
-  br i1 %spec.select72, label %.thread91, label %.thread89
+  br i1 %spec.select71, label %.thread90, label %.thread88
 
-.thread91:                                        ; preds = %128
+.thread90:                                        ; preds = %128
   %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   %130 = add i64 %129, 1
   store i64 %130, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   br label %133
 
-.thread89:                                        ; preds = %128
+.thread88:                                        ; preds = %128
   %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %132 = add i64 %131, 1
   store i64 %132, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   br label %133
 
-133:                                              ; preds = %.thread90, %.thread, %.thread91, %.thread89, %123
+133:                                              ; preds = %.thread89, %.thread, %.thread90, %.thread88, %123
   %134 = and i32 %112, 128
-  %.not63 = icmp ne i32 %134, 0
-  %not.spec.select72 = xor i1 %spec.select72, true
-  %or.cond = select i1 %not.spec.select72, i1 %.not63, i1 false
+  %.not62 = icmp ne i32 %134, 0
+  %not.spec.select71 = xor i1 %spec.select71, true
+  %or.cond = select i1 %not.spec.select71, i1 %.not62, i1 false
   %135 = load i32, ptr @CheckPointWarning, align 4
   %136 = icmp sgt i32 %135, %98
-  %or.cond74 = select i1 %or.cond, i1 %136, i1 false
-  br i1 %or.cond74, label %137, label %143
+  %or.cond73 = select i1 %or.cond, i1 %136, i1 false
+  br i1 %or.cond73, label %137, label %143
 
 137:                                              ; preds = %133
   %138 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -412,7 +412,7 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
 
 143:                                              ; preds = %137, %139, %133
   store i1 true, ptr @ckpt_active, align 1
-  br i1 %spec.select72, label %147, label %144
+  br i1 %spec.select71, label %147, label %144
 
 144:                                              ; preds = %143
   %145 = call i64 @GetInsertRecPtr() #12
@@ -436,8 +436,8 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   %151 = load ptr, ptr @CheckpointerShmem, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %152, i8 1, ptr nonnull elementtype(i8) %152) #12, !srcloc !4
-  %.not64 = icmp eq i8 %153, 0
-  br i1 %.not64, label %158, label %154
+  %.not63 = icmp eq i8 %153, 0
+  br i1 %.not63, label %158, label %154
 
 154:                                              ; preds = %150
   %155 = load ptr, ptr @CheckpointerShmem, align 8
@@ -457,7 +457,7 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   store i8 0, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 36
   call void @ConditionVariableBroadcast(ptr noundef nonnull %165) #12
-  br i1 %spec.select72, label %170, label %166
+  br i1 %spec.select71, label %170, label %166
 
 166:                                              ; preds = %158
   store i64 %95, ptr @last_checkpoint_time, align 8
@@ -490,8 +490,8 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
 179:                                              ; preds = %171, %174, %166, %167
   store i1 false, ptr @ckpt_active, align 1
   %180 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
-  %.not.i78 = icmp eq i32 %180, 0
-  br i1 %.not.i78, label %182, label %181
+  %.not.i77 = icmp eq i32 %180, 0
+  br i1 %.not.i77, label %182, label %181
 
 181:                                              ; preds = %179
   call void @ProcessProcSignalBarrier() #12
@@ -499,8 +499,8 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
 
 182:                                              ; preds = %181, %179
   %183 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not1.i79 = icmp eq i32 %183, 0
-  br i1 %.not1.i79, label %UpdateSharedMemoryConfig.exit.i80, label %184
+  %.not1.i78 = icmp eq i32 %183, 0
+  br i1 %.not1.i78, label %UpdateSharedMemoryConfig.exit.i79, label %184
 
 184:                                              ; preds = %182
   store volatile i32 0, ptr @ConfigReloadPending, align 4
@@ -508,31 +508,31 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   call void @SyncRepUpdateSyncStandbysDefined() #12
   call void @UpdateFullPageWrites() #12
   %185 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
-  br i1 %185, label %186, label %UpdateSharedMemoryConfig.exit.i80
+  br i1 %185, label %186, label %UpdateSharedMemoryConfig.exit.i79
 
 186:                                              ; preds = %184
   %187 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1380, ptr noundef nonnull @__func__.UpdateSharedMemoryConfig) #12
-  br label %UpdateSharedMemoryConfig.exit.i80
+  br label %UpdateSharedMemoryConfig.exit.i79
 
-UpdateSharedMemoryConfig.exit.i80:                ; preds = %186, %184, %182
+UpdateSharedMemoryConfig.exit.i79:                ; preds = %186, %184, %182
   %188 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not2.i81 = icmp eq i32 %188, 0
-  br i1 %.not2.i81, label %HandleCheckpointerInterrupts.exit82, label %189
+  %.not2.i80 = icmp eq i32 %188, 0
+  br i1 %.not2.i80, label %HandleCheckpointerInterrupts.exit81, label %189
 
-189:                                              ; preds = %UpdateSharedMemoryConfig.exit.i80
+189:                                              ; preds = %UpdateSharedMemoryConfig.exit.i79
   call void @ProcessLogMemoryContextInterrupt() #12
-  br label %HandleCheckpointerInterrupts.exit82
+  br label %HandleCheckpointerInterrupts.exit81
 
-HandleCheckpointerInterrupts.exit82:              ; preds = %UpdateSharedMemoryConfig.exit.i80, %189
+HandleCheckpointerInterrupts.exit81:              ; preds = %UpdateSharedMemoryConfig.exit.i79, %189
   %190 = load volatile i32, ptr @ShutdownXLOGPending, align 4
-  %.not65 = icmp eq i32 %190, 0
-  br i1 %.not65, label %191, label %.thread97
+  %.not64 = icmp eq i32 %190, 0
+  br i1 %.not64, label %191, label %.thread96
 
-191:                                              ; preds = %HandleCheckpointerInterrupts.exit82
+191:                                              ; preds = %HandleCheckpointerInterrupts.exit81
   %192 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not66 = icmp eq i32 %192, 0
-  br i1 %.not66, label %193, label %.thread97
+  %.not65 = icmp eq i32 %192, 0
+  br i1 %.not65, label %193, label %.thread96
 
 193:                                              ; preds = %191, %91
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -561,8 +561,8 @@ HandleCheckpointerInterrupts.exit82:              ; preds = %UpdateSharedMemoryC
   %209 = sub i64 %199, %208
   %210 = trunc i64 %209 to i32
   %211 = load i32, ptr @XLogArchiveTimeout, align 4
-  %.not.i83 = icmp sgt i32 %211, %210
-  br i1 %.not.i83, label %CheckArchiveTimeout.exit, label %212
+  %.not.i82 = icmp sgt i32 %211, %210
+  br i1 %.not.i82, label %CheckArchiveTimeout.exit, label %212
 
 212:                                              ; preds = %205
   %213 = call i64 @GetLastImportantRecPtr() #12
@@ -600,8 +600,8 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   %228 = load ptr, ptr @CheckpointerShmem, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 20
   %230 = load volatile i32, ptr %229, align 4
-  %.not67 = icmp eq i32 %230, 0
-  br i1 %.not67, label %231, label %.critedge.backedge
+  %.not66 = icmp eq i32 %230, 0
+  br i1 %.not66, label %231, label %.critedge.backedge
 
 231:                                              ; preds = %CheckArchiveTimeout.exit
   %232 = call i64 @time(ptr noundef null) #12
@@ -609,8 +609,8 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   %234 = sub i64 %232, %233
   %235 = trunc i64 %234 to i32
   %236 = load i32, ptr @CheckPointTimeout, align 4
-  %.not68 = icmp sgt i32 %236, %235
-  br i1 %.not68, label %237, label %.critedge.backedge
+  %.not67 = icmp sgt i32 %236, %235
+  br i1 %.not67, label %237, label %.critedge.backedge
 
 237:                                              ; preds = %231
   %238 = sub i32 %236, %235
@@ -627,8 +627,8 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   %245 = sub i64 %232, %244
   %246 = trunc i64 %245 to i32
   %247 = load i32, ptr @XLogArchiveTimeout, align 4
-  %.not69 = icmp sgt i32 %247, %246
-  br i1 %.not69, label %248, label %.critedge.backedge
+  %.not68 = icmp sgt i32 %247, %246
+  br i1 %.not68, label %248, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %243, %231, %CheckArchiveTimeout.exit, %251
   br label %.critedge
@@ -646,13 +646,13 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   %255 = call i32 @WaitLatch(ptr noundef %252, i32 noundef 41, i64 noundef %254, i32 noundef 83886084) #12
   br label %.critedge.backedge
 
-.thread97:                                        ; preds = %191, %HandleCheckpointerInterrupts.exit82, %HandleCheckpointerInterrupts.exit, %89
+.thread96:                                        ; preds = %191, %HandleCheckpointerInterrupts.exit81, %HandleCheckpointerInterrupts.exit, %89
   store i8 1, ptr @ExitOnAnyError, align 1
   %256 = load volatile i32, ptr @ShutdownXLOGPending, align 4
-  %.not70 = icmp eq i32 %256, 0
-  br i1 %.not70, label %.preheader, label %257
+  %.not69 = icmp eq i32 %256, 0
+  br i1 %.not69, label %.preheader, label %257
 
-257:                                              ; preds = %.thread97
+257:                                              ; preds = %.thread96
   %258 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %259 = add i64 %258, 1
   store i64 %259, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
@@ -663,15 +663,15 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   store volatile i32 0, ptr @ShutdownXLOGPending, align 4
   br label %.preheader
 
-.preheader:                                       ; preds = %257, %.thread97
+.preheader:                                       ; preds = %257, %.thread96
   br label %260
 
 260:                                              ; preds = %.preheader, %273
   %261 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %261) #12
   %262 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
-  %.not.i84 = icmp eq i32 %262, 0
-  br i1 %.not.i84, label %264, label %263
+  %.not.i83 = icmp eq i32 %262, 0
+  br i1 %.not.i83, label %264, label %263
 
 263:                                              ; preds = %260
   call void @ProcessProcSignalBarrier() #12
@@ -679,8 +679,8 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
 
 264:                                              ; preds = %263, %260
   %265 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not1.i85 = icmp eq i32 %265, 0
-  br i1 %.not1.i85, label %UpdateSharedMemoryConfig.exit.i86, label %266
+  %.not1.i84 = icmp eq i32 %265, 0
+  br i1 %.not1.i84, label %UpdateSharedMemoryConfig.exit.i85, label %266
 
 266:                                              ; preds = %264
   store volatile i32 0, ptr @ConfigReloadPending, align 4
@@ -688,33 +688,33 @@ CheckArchiveTimeout.exit:                         ; preds = %193, %196, %198, %2
   call void @SyncRepUpdateSyncStandbysDefined() #12
   call void @UpdateFullPageWrites() #12
   %267 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
-  br i1 %267, label %268, label %UpdateSharedMemoryConfig.exit.i86
+  br i1 %267, label %268, label %UpdateSharedMemoryConfig.exit.i85
 
 268:                                              ; preds = %266
   %269 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1380, ptr noundef nonnull @__func__.UpdateSharedMemoryConfig) #12
-  br label %UpdateSharedMemoryConfig.exit.i86
+  br label %UpdateSharedMemoryConfig.exit.i85
 
-UpdateSharedMemoryConfig.exit.i86:                ; preds = %268, %266, %264
+UpdateSharedMemoryConfig.exit.i85:                ; preds = %268, %266, %264
   %270 = load volatile i32, ptr @LogMemoryContextPending, align 4
-  %.not2.i87 = icmp eq i32 %270, 0
-  br i1 %.not2.i87, label %HandleCheckpointerInterrupts.exit88, label %271
+  %.not2.i86 = icmp eq i32 %270, 0
+  br i1 %.not2.i86, label %HandleCheckpointerInterrupts.exit87, label %271
 
-271:                                              ; preds = %UpdateSharedMemoryConfig.exit.i86
+271:                                              ; preds = %UpdateSharedMemoryConfig.exit.i85
   call void @ProcessLogMemoryContextInterrupt() #12
-  br label %HandleCheckpointerInterrupts.exit88
+  br label %HandleCheckpointerInterrupts.exit87
 
-HandleCheckpointerInterrupts.exit88:              ; preds = %UpdateSharedMemoryConfig.exit.i86, %271
+HandleCheckpointerInterrupts.exit87:              ; preds = %UpdateSharedMemoryConfig.exit.i85, %271
   %272 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not71 = icmp eq i32 %272, 0
-  br i1 %.not71, label %273, label %276
+  %.not70 = icmp eq i32 %272, 0
+  br i1 %.not70, label %273, label %276
 
-273:                                              ; preds = %HandleCheckpointerInterrupts.exit88
+273:                                              ; preds = %HandleCheckpointerInterrupts.exit87
   %274 = load ptr, ptr @MyLatch, align 8
   %275 = call i32 @WaitLatch(ptr noundef %274, i32 noundef 33, i64 noundef 0, i32 noundef 83886085) #12
   br label %260
 
-276:                                              ; preds = %HandleCheckpointerInterrupts.exit88
+276:                                              ; preds = %HandleCheckpointerInterrupts.exit87
   call void @proc_exit(i32 noundef 0) #14
   unreachable
 }

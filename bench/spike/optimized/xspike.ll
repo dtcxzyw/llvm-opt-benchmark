@@ -50,26 +50,26 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   %22 = load i32, ptr %3, align 4, !tbaa !3
   %23 = call i64 @read(i32 noundef %22, ptr noundef nonnull %4, i64 noundef 4096)
   %24 = icmp slt i64 %23, 2
-  br i1 %24, label %_ZL10fork_xtermPi.exit.thread15, label %25
+  br i1 %24, label %_ZL10fork_xtermPi.exit.thread14, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %4, i64 %23
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %.not.i = icmp eq i8 %28, 10
-  br i1 %.not.i, label %29, label %_ZL10fork_xtermPi.exit.thread15
+  br i1 %.not.i, label %29, label %_ZL10fork_xtermPi.exit.thread14
 
 29:                                               ; preds = %25
   store i8 0, ptr %27, align 1, !tbaa !7
   %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2)
   %.inv.i = icmp sgt i32 %30, -1
-  br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread15
+  br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread14
 
-_ZL10fork_xtermPi.exit.thread15:                  ; preds = %25, %21, %29
+_ZL10fork_xtermPi.exit.thread14:                  ; preds = %25, %21, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL10fork_xtermPi.exit.thread
 
-_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread15
+_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr @stderr, align 8, !tbaa !8
   %32 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %31) #9
@@ -109,8 +109,8 @@ _ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_
 _ZL10fork_spikeiPPc.exit:                         ; preds = %37, %_ZL10fork_spikeiPPc.exit
   %50 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 0)
   %51 = icmp sgt i32 %50, -1
-  %.b8 = load i1, ptr @_ZZ4mainE11signal_exit, align 1
-  %or.cond = select i1 %51, i1 true, i1 %.b8
+  %.b = load i1, ptr @_ZZ4mainE11signal_exit, align 1
+  %or.cond = select i1 %51, i1 true, i1 %.b
   br i1 %or.cond, label %52, label %_ZL10fork_spikeiPPc.exit, !llvm.loop !11
 
 52:                                               ; preds = %_ZL10fork_spikeiPPc.exit

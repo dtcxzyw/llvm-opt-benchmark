@@ -29,14 +29,14 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = load i8, ptr %11, align 8, !range !3, !noundef !4
-  %.not42 = icmp eq i8 %12, 0
+  %.not41 = icmp eq i8 %12, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %.not42, label %.thread40, label %21
+  br i1 %.not41, label %.thread39, label %21
 
 13:                                               ; preds = %9
-  %.b34 = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
+  %.b = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %.b34, label %21, label %14
+  br i1 %.b, label %21, label %14
 
 14:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
@@ -46,16 +46,16 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   %16 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %7) #4
   br i1 %16, label %20, label %.sink.split
 
-.thread40:                                        ; preds = %10
+.thread39:                                        ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   store i32 4098, ptr %7, align 8
   %17 = load i32, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %17, ptr %18, align 8
   %19 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %7) #4
-  br i1 %19, label %.thread41, label %.sink.split
+  br i1 %19, label %.thread40, label %.sink.split
 
-.thread41:                                        ; preds = %.thread40
+.thread40:                                        ; preds = %.thread39
   store i8 1, ptr %11, align 8
   br label %21
 
@@ -63,29 +63,29 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   store i1 true, ptr @SDL_SendDrop.app_is_dropping, align 1
   br label %21
 
-21:                                               ; preds = %10, %.thread41, %20, %13
+21:                                               ; preds = %10, %.thread40, %20, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   store i32 %1, ptr %7, align 8
-  %.not36 = icmp eq ptr %2, null
-  br i1 %.not36, label %25, label %22
+  %.not35 = icmp eq ptr %2, null
+  br i1 %.not35, label %25, label %22
 
 22:                                               ; preds = %21
   %23 = call ptr @SDL_CreateTemporaryString(ptr noundef nonnull %2) #4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %23, ptr %24, align 8
-  %.not37 = icmp eq ptr %23, null
-  br i1 %.not37, label %.sink.split, label %25
+  %.not36 = icmp eq ptr %23, null
+  br i1 %.not36, label %.sink.split, label %25
 
 25:                                               ; preds = %22, %21
-  %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %29, label %26
+  %.not37 = icmp eq ptr %3, null
+  br i1 %.not37, label %29, label %26
 
 26:                                               ; preds = %25
   %27 = call ptr @SDL_CreateTemporaryString(ptr noundef nonnull %3) #4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %27, ptr %28, align 8
-  %.not39 = icmp eq ptr %27, null
-  br i1 %.not39, label %.sink.split, label %29
+  %.not38 = icmp eq ptr %27, null
+  br i1 %.not38, label %.sink.split, label %29
 
 29:                                               ; preds = %26, %25
   br i1 %.not, label %32, label %30
@@ -103,7 +103,7 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
 
 ._crit_edge:                                      ; preds = %32
   %.pre = load float, ptr @SDL_SendDrop.last_drop_x, align 4
-  %.pre43 = load float, ptr @SDL_SendDrop.last_drop_y, align 4
+  %.pre42 = load float, ptr @SDL_SendDrop.last_drop_y, align 4
   br label %37
 
 36:                                               ; preds = %32
@@ -112,7 +112,7 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
-  %38 = phi float [ %.pre43, %._crit_edge ], [ %5, %36 ]
+  %38 = phi float [ %.pre42, %._crit_edge ], [ %5, %36 ]
   %39 = phi float [ %.pre, %._crit_edge ], [ %4, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %39, ptr %40, align 4
@@ -140,8 +140,8 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   store float 0.000000e+00, ptr @SDL_SendDrop.last_drop_y, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %22, %26, %.thread40, %48, %37
-  %.1.ph = phi i1 [ %42, %37 ], [ %42, %48 ], [ false, %.thread40 ], [ false, %26 ], [ false, %22 ], [ false, %14 ]
+.sink.split:                                      ; preds = %14, %22, %26, %.thread39, %48, %37
+  %.1.ph = phi i1 [ %42, %37 ], [ %42, %48 ], [ false, %.thread39 ], [ false, %26 ], [ false, %22 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
@@ -163,14 +163,14 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = load i8, ptr %8, align 8, !range !3, !noundef !4
-  %.not42.i = icmp eq i8 %9, 0
+  %.not41.i = icmp eq i8 %9, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %.not42.i, label %.thread40.i, label %17
+  br i1 %.not41.i, label %.thread39.i, label %17
 
 10:                                               ; preds = %6
-  %.b34.i = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
+  %.b.i = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %.b34.i, label %.thread, label %11
+  br i1 %.b.i, label %.thread, label %11
 
 11:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -178,16 +178,16 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   %12 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #4
   br i1 %12, label %16, label %.sink.split.i
 
-.thread40.i:                                      ; preds = %7
+.thread39.i:                                      ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   store i32 4098, ptr %4, align 8
   %13 = load i32, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %13, ptr %14, align 8
   %15 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #4
-  br i1 %15, label %.thread41.i, label %.sink.split.i
+  br i1 %15, label %.thread40.i, label %.sink.split.i
 
-.thread41.i:                                      ; preds = %.thread40.i
+.thread40.i:                                      ; preds = %.thread39.i
   store i8 1, ptr %8, align 8
   br label %17
 
@@ -200,7 +200,7 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   store i32 4100, ptr %4, align 8
   br label %19
 
-17:                                               ; preds = %7, %.thread41.i
+17:                                               ; preds = %7, %.thread40.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   store i32 4100, ptr %4, align 8
   %18 = load i32, ptr %0, align 8
@@ -219,8 +219,8 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   %24 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %19, %.thread40.i, %11
-  %.1.ph.i = phi i1 [ %24, %19 ], [ false, %.thread40.i ], [ false, %11 ]
+.sink.split.i:                                    ; preds = %19, %.thread39.i, %11
+  %.1.ph.i = phi i1 [ %24, %19 ], [ false, %.thread39.i ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SendDrop.exit
 

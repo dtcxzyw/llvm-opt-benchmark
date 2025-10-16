@@ -100,8 +100,8 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %21 = load i64, ptr @progress_meter.stamp.0, align 8
   %22 = load i64, ptr @progress_meter.stamp.1, align 8
   %23 = tail call i64 @tvdiff(i64 %19, i64 %20, i64 %21, i64 %22) #7
-  %.b94 = load i1, ptr @progress_meter.header, align 1
-  br i1 %.b94, label %27, label %24
+  %.b = load i1, ptr @progress_meter.header, align 1
+  br i1 %.b, label %27, label %24
 
 24:                                               ; preds = %17
   store i1 true, ptr @progress_meter.header, align 1
@@ -134,32 +134,32 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %36 = load i64, ptr @all_ulalready, align 8, !tbaa !46
   %all_dltotal.promoted = load i64, ptr @all_dltotal, align 8
   %all_ultotal.promoted = load i64, ptr @all_ultotal, align 8
-  %.076117 = load ptr, ptr @transfers, align 8, !tbaa !47
-  %.not118 = icmp eq ptr %.076117, null
-  br i1 %.not118, label %._crit_edge, label %.lr.ph
+  %.076115 = load ptr, ptr @transfers, align 8, !tbaa !47
+  %.not116 = icmp eq ptr %.076115, null
+  br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %63
-  %.076124 = phi ptr [ %.076, %63 ], [ %.076117, %29 ]
-  %.077123 = phi i64 [ %41, %63 ], [ %35, %29 ]
-  %.081122 = phi i64 [ %44, %63 ], [ %36, %29 ]
-  %.082121 = phi i64 [ %spec.select, %63 ], [ 0, %29 ]
-  %.084120 = phi i1 [ %.185, %63 ], [ true, %29 ]
-  %.086119 = phi i1 [ %.187, %63 ], [ true, %29 ]
+  %.076122 = phi ptr [ %.076, %63 ], [ %.076115, %29 ]
+  %.077121 = phi i64 [ %41, %63 ], [ %35, %29 ]
+  %.081120 = phi i64 [ %44, %63 ], [ %36, %29 ]
+  %.082119 = phi i64 [ %spec.select, %63 ], [ 0, %29 ]
+  %.084118 = phi i1 [ %.185, %63 ], [ true, %29 ]
+  %.086117 = phi i1 [ %.187, %63 ], [ true, %29 ]
   %37 = phi i64 [ %54, %63 ], [ %all_dltotal.promoted, %29 ]
   %38 = phi i64 [ %64, %63 ], [ %all_ultotal.promoted, %29 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.076124, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %.076122, i64 408
   %40 = load i64, ptr %39, align 8, !tbaa !25
-  %41 = add nsw i64 %40, %.077123
-  %42 = getelementptr inbounds nuw i8, ptr %.076124, i64 424
+  %41 = add nsw i64 %40, %.077121
+  %42 = getelementptr inbounds nuw i8, ptr %.076122, i64 424
   %43 = load i64, ptr %42, align 8, !tbaa !27
-  %44 = add nsw i64 %43, %.081122
-  %45 = getelementptr inbounds nuw i8, ptr %.076124, i64 400
+  %44 = add nsw i64 %43, %.081120
+  %45 = getelementptr inbounds nuw i8, ptr %.076122, i64 400
   %46 = load i64, ptr %45, align 8, !tbaa !24
-  %.not97 = icmp eq i64 %46, 0
-  br i1 %.not97, label %53, label %47
+  %.not95 = icmp eq i64 %46, 0
+  br i1 %.not95, label %53, label %47
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %.076124, i64 448
+  %48 = getelementptr inbounds nuw i8, ptr %.076122, i64 448
   %49 = load i8, ptr %48, align 8, !tbaa !48, !range !29, !noundef !30
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %53, label %51
@@ -172,14 +172,14 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 
 53:                                               ; preds = %.lr.ph, %47, %51
   %54 = phi i64 [ %37, %47 ], [ %52, %51 ], [ %37, %.lr.ph ]
-  %.187 = phi i1 [ %.086119, %47 ], [ %.086119, %51 ], [ false, %.lr.ph ]
-  %55 = getelementptr inbounds nuw i8, ptr %.076124, i64 416
+  %.187 = phi i1 [ %.086117, %47 ], [ %.086117, %51 ], [ false, %.lr.ph ]
+  %55 = getelementptr inbounds nuw i8, ptr %.076122, i64 416
   %56 = load i64, ptr %55, align 8, !tbaa !26
-  %.not98 = icmp eq i64 %56, 0
-  br i1 %.not98, label %63, label %57
+  %.not96 = icmp eq i64 %56, 0
+  br i1 %.not96, label %63, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %.076124, i64 449
+  %58 = getelementptr inbounds nuw i8, ptr %.076122, i64 449
   %59 = load i8, ptr %58, align 1, !tbaa !49, !range !29, !noundef !30
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %63, label %61
@@ -192,12 +192,12 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 
 63:                                               ; preds = %53, %57, %61
   %64 = phi i64 [ %38, %57 ], [ %62, %61 ], [ %38, %53 ]
-  %.185 = phi i1 [ %.084120, %57 ], [ %.084120, %61 ], [ false, %53 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.076124, i64 475
+  %.185 = phi i1 [ %.084118, %57 ], [ %.084118, %61 ], [ false, %53 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.076122, i64 475
   %66 = load i8, ptr %65, align 1, !tbaa !50, !range !29, !noundef !30
   %67 = zext nneg i8 %66 to i64
-  %spec.select = add nuw nsw i64 %.082121, %67
-  %.076 = load ptr, ptr %.076124, align 8, !tbaa !47
+  %spec.select = add nuw nsw i64 %.082119, %67
+  %.076 = load ptr, ptr %.076122, align 8, !tbaa !47
   %.not = icmp eq ptr %.076, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
@@ -254,8 +254,8 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   br label %91
 
 90:                                               ; preds = %82
-  %.b9395.pr = load i1, ptr @indexwrapped, align 1
-  br i1 %.b9395.pr, label %91, label %108
+  %.b93.pr = load i1, ptr @indexwrapped, align 1
+  br i1 %.b93.pr, label %91, label %108
 
 91:                                               ; preds = %.thread, %90
   %92 = phi i32 [ 0, %.thread ], [ %88, %90 ]
@@ -286,9 +286,9 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %.080 = phi i64 [ %99, %91 ], [ %111, %108 ]
   %.079 = phi i64 [ %104, %91 ], [ %.077.lcssa, %108 ]
   %.078 = phi i64 [ %107, %91 ], [ %.081.lcssa, %108 ]
-  %spec.select99 = call i64 @llvm.umax.i64(i64 %.080, i64 1)
+  %spec.select97 = call i64 @llvm.umax.i64(i64 %.080, i64 1)
   %113 = sitofp i64 %.079 to double
-  %114 = sitofp i64 %spec.select99 to double
+  %114 = sitofp i64 %spec.select97 to double
   %115 = fdiv double %114, 1.000000e+03
   %116 = fdiv double %113, %115
   %117 = fptosi double %116 to i64
@@ -352,25 +352,25 @@ time2str.exit:                                    ; preds = %129, %132, %141, %1
 
 148:                                              ; preds = %time2str.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
-  br label %time2str.exit107
+  br label %time2str.exit105
 
 149:                                              ; preds = %time2str.exit
   %150 = icmp samesign ult i64 %125, 360000
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %149
-  %.lhs.trunc.i101 = trunc nuw nsw i64 %125 to i32
-  %152 = udiv i32 %.lhs.trunc.i101, 3600
-  %.zext.i102 = zext nneg i32 %152 to i64
-  %.neg23.i103 = mul nsw i64 %.zext.i102, -3600
-  %153 = add nsw i64 %.neg23.i103, %125
-  %.lhs.trunc25.i104 = trunc nsw i64 %153 to i32
-  %154 = sdiv i32 %.lhs.trunc25.i104, 60
-  %.sext.i105 = sext i32 %154 to i64
-  %.neg24.i106 = mul nsw i64 %.sext.i105, -60
-  %155 = add nsw i64 %.neg24.i106, %153
-  %156 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i102, i64 noundef %.sext.i105, i64 noundef %155) #7
-  br label %time2str.exit107
+  %.lhs.trunc.i99 = trunc nuw nsw i64 %125 to i32
+  %152 = udiv i32 %.lhs.trunc.i99, 3600
+  %.zext.i100 = zext nneg i32 %152 to i64
+  %.neg23.i101 = mul nsw i64 %.zext.i100, -3600
+  %153 = add nsw i64 %.neg23.i101, %125
+  %.lhs.trunc25.i102 = trunc nsw i64 %153 to i32
+  %154 = sdiv i32 %.lhs.trunc25.i102, 60
+  %.sext.i103 = sext i32 %154 to i64
+  %.neg24.i104 = mul nsw i64 %.sext.i103, -60
+  %155 = add nsw i64 %.neg24.i104, %153
+  %156 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i100, i64 noundef %.sext.i103, i64 noundef %155) #7
+  br label %time2str.exit105
 
 157:                                              ; preds = %149
   %158 = udiv i64 %125, 86400
@@ -378,46 +378,46 @@ time2str.exit:                                    ; preds = %129, %132, %141, %1
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %157
-  %.neg.i100 = mul nsw i64 %158, -86400
-  %161 = add nsw i64 %.neg.i100, %125
+  %.neg.i98 = mul nsw i64 %158, -86400
+  %161 = add nsw i64 %.neg.i98, %125
   %162 = sdiv i64 %161, 3600
   %163 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %158, i64 noundef %162) #7
-  br label %time2str.exit107
+  br label %time2str.exit105
 
 164:                                              ; preds = %157
   %165 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %158) #7
-  br label %time2str.exit107
+  br label %time2str.exit105
 
 166:                                              ; preds = %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
-  br label %time2str.exit107
+  br label %time2str.exit105
 
-time2str.exit107:                                 ; preds = %164, %160, %151, %148, %166
+time2str.exit105:                                 ; preds = %164, %160, %151, %148, %166
   %167 = icmp slt i64 %33, 1000
   br i1 %167, label %168, label %169
 
-168:                                              ; preds = %time2str.exit107
+168:                                              ; preds = %time2str.exit105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
-  br label %time2str.exit115
+  br label %time2str.exit113
 
-169:                                              ; preds = %time2str.exit107
+169:                                              ; preds = %time2str.exit105
   %170 = icmp samesign ult i64 %34, 360000
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %169
-  %.lhs.trunc.i109 = trunc nuw nsw i64 %34 to i32
-  %172 = udiv i32 %.lhs.trunc.i109, 3600
-  %.zext.i110 = zext nneg i32 %172 to i64
-  %.neg23.i111 = mul nsw i64 %.zext.i110, -3600
-  %173 = add nsw i64 %.neg23.i111, %34
-  %.lhs.trunc25.i112 = trunc nsw i64 %173 to i32
-  %174 = sdiv i32 %.lhs.trunc25.i112, 60
-  %.sext.i113 = sext i32 %174 to i64
-  %.neg24.i114 = mul nsw i64 %.sext.i113, -60
-  %175 = add nsw i64 %.neg24.i114, %173
-  %176 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i110, i64 noundef %.sext.i113, i64 noundef %175) #7
-  br label %time2str.exit115
+  %.lhs.trunc.i107 = trunc nuw nsw i64 %34 to i32
+  %172 = udiv i32 %.lhs.trunc.i107, 3600
+  %.zext.i108 = zext nneg i32 %172 to i64
+  %.neg23.i109 = mul nsw i64 %.zext.i108, -3600
+  %173 = add nsw i64 %.neg23.i109, %34
+  %.lhs.trunc25.i110 = trunc nsw i64 %173 to i32
+  %174 = sdiv i32 %.lhs.trunc25.i110, 60
+  %.sext.i111 = sext i32 %174 to i64
+  %.neg24.i112 = mul nsw i64 %.sext.i111, -60
+  %175 = add nsw i64 %.neg24.i112, %173
+  %176 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i108, i64 noundef %.sext.i111, i64 noundef %175) #7
+  br label %time2str.exit113
 
 177:                                              ; preds = %169
   %178 = udiv i64 %34, 86400
@@ -425,17 +425,17 @@ time2str.exit107:                                 ; preds = %164, %160, %151, %1
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %177
-  %.neg.i108 = mul nsw i64 %178, -86400
-  %181 = add nsw i64 %.neg.i108, %34
+  %.neg.i106 = mul nsw i64 %178, -86400
+  %181 = add nsw i64 %.neg.i106, %34
   %182 = sdiv i64 %181, 3600
   %183 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %178, i64 noundef %182) #7
-  br label %time2str.exit115
+  br label %time2str.exit113
 
 184:                                              ; preds = %177
   %185 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %178) #7
-  br label %time2str.exit115
+  br label %time2str.exit113
 
-time2str.exit115:                                 ; preds = %168, %171, %180, %184
+time2str.exit113:                                 ; preds = %168, %171, %180, %184
   %186 = load ptr, ptr @tool_stderr, align 8, !tbaa !45
   %187 = call fastcc ptr @max5data(i64 noundef %.077.lcssa, ptr noundef %7)
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 6
@@ -453,8 +453,8 @@ time2str.exit115:                                 ; preds = %168, %171, %180, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %195
 
-195:                                              ; preds = %27, %3, %13, %time2str.exit115
-  %.0 = phi i1 [ true, %time2str.exit115 ], [ false, %13 ], [ false, %3 ], [ false, %27 ]
+195:                                              ; preds = %27, %3, %13, %time2str.exit113
+  %.0 = phi i1 [ true, %time2str.exit113 ], [ false, %13 ], [ false, %3 ], [ false, %27 ]
   ret i1 %.0
 }
 

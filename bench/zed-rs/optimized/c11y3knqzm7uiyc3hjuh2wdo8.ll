@@ -106907,7 +106907,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw i8, ptr %164, i64 %187
-  %.sroa.02.0.copyload3.i.i.i.i = load i8, ptr %199, align 1, !alias.scope !29899, !noalias !29902
+  %.sroa.02.0.copyload.i.i.i.i = load i8, ptr %199, align 1, !alias.scope !29899, !noalias !29902
   %200 = icmp eq i64 %180, 1
   br i1 %200, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit65.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit65.i.i.i"
 
@@ -106944,7 +106944,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds nuw i8, ptr %164, i64 %201
-  %.sroa.02.0.copyload3.i68.i.i.i = load i8, ptr %212, align 1, !alias.scope !29907, !noalias !29910
+  %.sroa.02.0.copyload.i68.i.i.i = load i8, ptr %212, align 1, !alias.scope !29907, !noalias !29910
   %213 = icmp eq i64 %180, 2
   br i1 %213, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit71.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit71.i.i.i"
 
@@ -106981,7 +106981,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 224:                                              ; preds = %220
   %225 = getelementptr inbounds nuw i8, ptr %164, i64 %214
-  %.sroa.02.0.copyload3.i74.i.i.i = load i8, ptr %225, align 1, !alias.scope !29915, !noalias !29918
+  %.sroa.02.0.copyload.i74.i.i.i = load i8, ptr %225, align 1, !alias.scope !29915, !noalias !29918
   %226 = icmp eq i64 %180, 3
   br i1 %226, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit77.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit77.i.i.i"
 
@@ -107022,14 +107022,14 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %164, i64 %231
-  %.sroa.02.0.copyload3.i80.i.i.i = load i8, ptr %239, align 1, !alias.scope !29923, !noalias !29926
-  %.sroa.5.1.insert.ext.i.i = zext i8 %.sroa.02.0.copyload3.i.i.i.i to i32
-  %.sroa.5.2.insert.ext.i.i = zext i8 %.sroa.02.0.copyload3.i68.i.i.i to i32
+  %.sroa.02.0.copyload.i80.i.i.i = load i8, ptr %239, align 1, !alias.scope !29923, !noalias !29926
+  %.sroa.5.1.insert.ext.i.i = zext i8 %.sroa.02.0.copyload.i.i.i.i to i32
+  %.sroa.5.2.insert.ext.i.i = zext i8 %.sroa.02.0.copyload.i68.i.i.i to i32
   %.sroa.5.2.insert.shift.i.i = shl nuw nsw i32 %.sroa.5.2.insert.ext.i.i, 8
   %.sroa.5.2.insert.insert.i.i = or disjoint i32 %.sroa.5.2.insert.shift.i.i, %.sroa.5.1.insert.ext.i.i
-  %.sroa.5.3.insert.ext.i.i = zext i8 %.sroa.02.0.copyload3.i74.i.i.i to i32
+  %.sroa.5.3.insert.ext.i.i = zext i8 %.sroa.02.0.copyload.i74.i.i.i to i32
   %.sroa.5.3.insert.shift.i.i = shl nuw nsw i32 %.sroa.5.3.insert.ext.i.i, 16
-  %.sroa.5.4.insert.ext.i.i = zext i8 %.sroa.02.0.copyload3.i80.i.i.i to i32
+  %.sroa.5.4.insert.ext.i.i = zext i8 %.sroa.02.0.copyload.i80.i.i.i to i32
   %.sroa.5.4.insert.shift.i.i = shl nuw i32 %.sroa.5.4.insert.ext.i.i, 24
   %240 = or disjoint i32 %.sroa.5.3.insert.shift.i.i, %.sroa.5.4.insert.shift.i.i
   %.sroa.5.4.insert.insert.i.i = or disjoint i32 %240, %.sroa.5.2.insert.insert.i.i
@@ -107270,7 +107270,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 338:                                              ; preds = %333
   %339 = getelementptr inbounds nuw i8, ptr %303, i64 %326
-  %.sroa.02.0.copyload.i.i.i.i = load i16, ptr %339, align 1, !alias.scope !29969, !noalias !29972
+  %.sroa.02.0.copyload.i.i.i54.i = load i16, ptr %339, align 1, !alias.scope !29969, !noalias !29972
   %340 = icmp eq i64 %319, 1
   br i1 %340, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit129.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit129.i.i.i"
 
@@ -107582,7 +107582,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   %.sroa.8.14.insert.shift.i.i = shl nuw i64 %.sroa.8.14.insert.ext.i.i, 48
   %.sroa.8.14.insert.insert.i.i = or disjoint i64 %.sroa.8.12.insert.insert.i.i, %.sroa.8.14.insert.shift.i.i
   %452 = inttoptr i64 %.sroa.8.14.insert.insert.i.i to ptr
-  %.sroa.54.4.insert.ext.i = zext i16 %.sroa.02.0.copyload.i.i.i.i to i32
+  %.sroa.54.4.insert.ext.i = zext i16 %.sroa.02.0.copyload.i.i.i54.i to i32
   %.sroa.54.6.insert.ext.i = zext i16 %.sroa.02.0.copyload.i133.i.i.i to i32
   %.sroa.54.6.insert.shift.i = shl nuw i32 %.sroa.54.6.insert.ext.i, 16
   %.sroa.54.6.insert.insert.i = or disjoint i32 %.sroa.54.6.insert.shift.i, %.sroa.54.4.insert.ext.i

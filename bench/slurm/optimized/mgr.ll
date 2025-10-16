@@ -1396,8 +1396,8 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
   %24 = tail call ptr @jobacctinfo_create(ptr noundef null) #17
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %24, ptr %25, align 8
-  %.b30 = load i1, ptr @_one_step_complete_msg.acct_sent, align 1
-  br i1 %.b30, label %32, label %26
+  %.b = load i1, ptr @_one_step_complete_msg.acct_sent, align 1
+  br i1 %.b, label %32, label %26
 
 26:                                               ; preds = %3
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 144), align 8
@@ -1447,8 +1447,8 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
 50:                                               ; preds = %46, %45
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 104), align 8
   %52 = call i32 @slurm_conf_get_addr(ptr noundef %51, ptr noundef nonnull %4, i16 noundef zeroext 0) #17
-  %.not31 = icmp eq i32 %52, 0
-  br i1 %.not31, label %.lr.ph, label %53
+  %.not30 = icmp eq i32 %52, 0
+  br i1 %.not30, label %.lr.ph, label %53
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 104), align 8
@@ -1457,14 +1457,14 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
   br label %._crit_edge
 
 57:                                               ; preds = %61
-  %58 = add nuw nsw i32 %.135, 1
-  %exitcond.not = icmp eq i32 %.135, 4
+  %58 = add nuw nsw i32 %.134, 1
+  %exitcond.not = icmp eq i32 %.134, 4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %50, %57
-  %.135 = phi i32 [ %58, %57 ], [ 0, %50 ]
-  %.not34 = icmp eq i32 %.135, 0
-  br i1 %.not34, label %61, label %59
+  %.134 = phi i32 [ %58, %57 ], [ 0, %50 ]
+  %.not33 = icmp eq i32 %.134, 0
+  br i1 %.not33, label %61, label %59
 
 59:                                               ; preds = %.lr.ph
   %60 = call i32 @sleep(i32 noundef 1) #17
@@ -1495,14 +1495,14 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
 70:                                               ; preds = %.sink.split, %68, %._crit_edge
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %72 = load ptr, ptr %71, align 8
-  %.not32 = icmp eq ptr %72, null
-  br i1 %.not32, label %.preheader, label %76
+  %.not31 = icmp eq ptr %72, null
+  br i1 %.not31, label %.preheader, label %76
 
 .preheader:                                       ; preds = %70
   %73 = load ptr, ptr @working_cluster_rec, align 8
   %74 = call i32 @slurm_send_recv_controller_rc_msg(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %73) #17
   %75 = icmp slt i32 %74, 0
-  br i1 %75, label %.lr.ph37, label %.loopexit
+  br i1 %75, label %.lr.ph36, label %.loopexit
 
 76:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1526,39 +1526,39 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
 
 87:                                               ; preds = %85, %76
   %88 = call i32 @slurm_send_recv_node_msg(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 0) #17
-  %.not33 = icmp eq i32 %88, 0
+  %.not32 = icmp eq i32 %88, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not33, label %.loopexit, label %104
+  br i1 %.not32, label %.loopexit, label %104
 
-.lr.ph37:                                         ; preds = %.preheader, %94
-  %.236 = phi i32 [ %89, %94 ], [ 1, %.preheader ]
-  %89 = add nuw nsw i32 %.236, 1
-  %90 = icmp eq i32 %.236, 1
+.lr.ph36:                                         ; preds = %.preheader, %94
+  %.235 = phi i32 [ %89, %94 ], [ 1, %.preheader ]
+  %89 = add nuw nsw i32 %.235, 1
+  %90 = icmp eq i32 %.235, 1
   br i1 %90, label %91, label %94
 
-91:                                               ; preds = %.lr.ph37
+91:                                               ; preds = %.lr.ph36
   %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
   %93 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50, i32 noundef %92) #17
   br label %94
 
-94:                                               ; preds = %91, %.lr.ph37
+94:                                               ; preds = %91, %.lr.ph36
   %95 = call i32 @sleep(i32 noundef 60) #17
   %96 = load ptr, ptr @working_cluster_rec, align 8
   %97 = call i32 @slurm_send_recv_controller_rc_msg(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %96) #17
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.lr.ph37, label %._crit_edge38, !llvm.loop !18
+  br i1 %98, label %.lr.ph36, label %._crit_edge37, !llvm.loop !18
 
-._crit_edge38:                                    ; preds = %94
+._crit_edge37:                                    ; preds = %94
   %99 = call i32 @get_log_level() #17
   %100 = icmp sgt i32 %99, 2
   br i1 %100, label %101, label %.loopexit
 
-101:                                              ; preds = %._crit_edge38
+101:                                              ; preds = %._crit_edge37
   %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.51, i32 noundef %102) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.preheader, %101, %._crit_edge38, %87
+.loopexit:                                        ; preds = %61, %.preheader, %101, %._crit_edge37, %87
   %103 = load ptr, ptr %25, align 8
   call void @jobacctinfo_destroy(ptr noundef %103) #17
   br label %104
@@ -4567,11 +4567,11 @@ define internal void @_x11_signal_handler(ptr readnone captures(none) %0, i32 %1
   unreachable
 
 15:                                               ; preds = %11
-  %.b15 = load i1, ptr @_x11_signal_handler.run_once, align 1
+  %.b = load i1, ptr @_x11_signal_handler.run_once, align 1
   store i1 true, ptr @_x11_signal_handler.run_once, align 1
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_x11_signal_handler.mutex) #17
-  %.not16 = icmp eq i32 %16, 0
-  br i1 %.not16, label %19, label %17
+  %.not15 = icmp eq i32 %16, 0
+  br i1 %.not15, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @__errno_location() #18
@@ -4581,7 +4581,7 @@ define internal void @_x11_signal_handler(ptr readnone captures(none) %0, i32 %1
 
 19:                                               ; preds = %15
   %20 = tail call i32 @get_log_level() #17
-  br i1 %.b15, label %21, label %24
+  br i1 %.b, label %21, label %24
 
 21:                                               ; preds = %19
   %22 = icmp sgt i32 %20, 7
@@ -4620,8 +4620,8 @@ _need_join_container.exit:                        ; preds = %30, %27
 
 35:                                               ; preds = %_need_join_container.exit
   %36 = call i32 @shutdown_x11_forward(ptr noundef %2) #17
-  %.not.i19 = icmp eq i32 %36, 0
-  br i1 %.not.i19, label %39, label %37
+  %.not.i18 = icmp eq i32 %36, 0
+  br i1 %.not.i18, label %39, label %37
 
 37:                                               ; preds = %35
   %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef nonnull @__func__._shutdown_x11_forward) #17
@@ -4651,8 +4651,8 @@ _shutdown_x11_forward.exit:                       ; preds = %39, %.sink.split.i
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 @container_g_join(ptr noundef nonnull %47, i32 noundef %49, i1 noundef zeroext false) #17
-  %.not18 = icmp eq i32 %50, 0
-  br i1 %.not18, label %53, label %51
+  %.not17 = icmp eq i32 %50, 0
+  br i1 %.not17, label %53, label %51
 
 51:                                               ; preds = %46
   %52 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60) #17
@@ -4686,8 +4686,8 @@ _shutdown_x11_forward.exit:                       ; preds = %39, %.sink.split.i
 
 65:                                               ; preds = %61
   %66 = and i32 %62, 65280
-  %.not17 = icmp eq i32 %66, 0
-  br i1 %.not17, label %68, label %.sink.split
+  %.not16 = icmp eq i32 %66, 0
+  br i1 %.not16, label %68, label %.sink.split
 
 .sink.split:                                      ; preds = %65, %61, %58
   %.str.80.sink = phi ptr [ @.str.79, %58 ], [ @.str.80, %61 ], [ @.str.81, %65 ]

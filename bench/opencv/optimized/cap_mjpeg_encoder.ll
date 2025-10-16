@@ -196,16 +196,16 @@ define hidden void @_ZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiii(ptr no
   %13 = alloca [4096 x i16], align 16
   %14 = alloca %"class.cv::mjpeg::MjpegEncoder", align 8
   %15 = alloca %"class.cv::Range", align 8
-  %.b123 = load i1, ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE14init_cat_table, align 1
-  %indvars.iv172.sroa.gep225 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  br i1 %.b123, label %26, label %.preheader148
+  %.b = load i1, ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE14init_cat_table, align 1
+  %indvars.iv171.sroa.gep224 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  br i1 %.b, label %26, label %.preheader147
 
-16:                                               ; preds = %.preheader148
+16:                                               ; preds = %.preheader147
   store i1 true, ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE14init_cat_table, align 1
   br label %26
 
-.preheader148:                                    ; preds = %5, %.preheader148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader148 ], [ -4096, %5 ]
+.preheader147:                                    ; preds = %5, %.preheader147
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader147 ], [ -4096, %5 ]
   %17 = trunc nsw i64 %indvars.iv to i32
   %18 = sitofp i32 %17 to float
   %19 = bitcast float %18 to i32
@@ -219,7 +219,7 @@ define hidden void @_ZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiii(ptr no
   store i8 %23, ptr %25, align 1, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4097
-  br i1 %exitcond.not, label %16, label %.preheader148, !llvm.loop !6
+  br i1 %exitcond.not, label %16, label %.preheader147, !llvm.loop !6
 
 26:                                               ; preds = %16, %5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -298,18 +298,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 
 58:                                               ; preds = %47, %78
   %59 = phi i1 [ true, %47 ], [ false, %78 ]
-  %indvars.iv172.sroa.phi = phi ptr [ %10, %47 ], [ %indvars.iv172.sroa.gep225, %78 ]
-  %indvars.iv172 = phi i32 [ 0, %47 ], [ 1, %78 ]
+  %indvars.iv171.sroa.phi = phi ptr [ %10, %47 ], [ %indvars.iv171.sroa.gep224, %78 ]
+  %indvars.iv171 = phi i32 [ 0, %47 ], [ 1, %78 ]
   %_ZN2cv5mjpegL13jpegTableK1_TE._ZN2cv5mjpegL13jpegTableK2_TE = select i1 %59, ptr @_ZN2cv5mjpegL13jpegTableK1_TE, ptr @_ZN2cv5mjpegL13jpegTableK2_TE
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65499)
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 67)
-  tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %indvars.iv172)
+  tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %indvars.iv171)
   %60 = select i1 %59, i32 0, i32 %56
   br label %61
 
 61:                                               ; preds = %58, %61
-  %indvars.iv168 = phi i64 [ 0, %58 ], [ %indvars.iv.next169, %61 ]
-  %62 = getelementptr inbounds nuw i8, ptr @_ZN2cv5mjpegL6zigzagE, i64 %indvars.iv168
+  %indvars.iv167 = phi i64 [ 0, %58 ], [ %indvars.iv.next168, %61 ]
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN2cv5mjpegL6zigzagE, i64 %indvars.iv167
   %63 = load i8, ptr %62, align 1, !tbaa !3
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %_ZN2cv5mjpegL13jpegTableK1_TE._ZN2cv5mjpegL13jpegTableK2_TE, i64 %64
@@ -326,27 +326,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %74 = mul nsw i32 %71, %73
   %75 = sdiv i32 33554432, %74
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds nuw i16, ptr %indvars.iv172.sroa.phi, i64 %64
+  %77 = getelementptr inbounds nuw i16, ptr %indvars.iv171.sroa.phi, i64 %64
   store i16 %76, ptr %77, align 2, !tbaa !49
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %spec.store.select4)
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next169, 64
-  br i1 %exitcond171.not, label %78, label %61, !llvm.loop !51
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next168, 64
+  br i1 %exitcond170.not, label %78, label %61, !llvm.loop !51
 
 78:                                               ; preds = %61
   %79 = and i1 %48, %59
   br i1 %79, label %58, label %.preheader, !llvm.loop !52
 
 80:                                               ; preds = %.preheader, %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit
-  %.1110152 = phi i32 [ 0, %.preheader ], [ %165, %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit ]
-  %81 = icmp eq i32 %.1110152, 0
-  %82 = icmp eq i32 %.1110152, 1
-  %83 = icmp eq i32 %.1110152, 2
+  %.1110151 = phi i32 [ 0, %.preheader ], [ %165, %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit ]
+  %81 = icmp eq i32 %.1110151, 0
+  %82 = icmp eq i32 %.1110151, 1
+  %83 = icmp eq i32 %.1110151, 2
   %84 = select i1 %83, ptr @_ZN2cv5mjpegL11jpegTableK4E, ptr @_ZN2cv5mjpegL11jpegTableK6E
   %85 = select i1 %82, ptr @_ZN2cv5mjpegL11jpegTableK5E, ptr %84
   %86 = select i1 %81, ptr @_ZN2cv5mjpegL11jpegTableK3E, ptr %85
-  %87 = and i32 %.1110152, 1
-  %88 = icmp samesign ugt i32 %.1110152, 1
+  %87 = and i32 %.1110151, 1
+  %88 = icmp samesign ugt i32 %.1110151, 1
   %89 = zext i1 %88 to i32
   %.not = icmp eq i32 %87, 0
   %90 = select i1 %.not, i32 28, i32 178
@@ -409,15 +409,15 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   store i32 -1, ptr %.029.i, align 4, !tbaa !48
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %88, i64 1024, i64 0
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  %.sroa.sel147.idx.sroa.sel.idx.sroa.sel.idx = select i1 %88, i64 64, i64 0
-  %.sroa.sel147.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.sel147.idx.sroa.sel.idx.sroa.sel.idx
-  %111 = select i1 %.not, ptr %.sroa.sel147.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
+  %.sroa.sel146.idx.sroa.sel.idx.sroa.sel.idx = select i1 %88, i64 64, i64 0
+  %.sroa.sel146.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.sel146.idx.sroa.sel.idx.sroa.sel.idx
+  %111 = select i1 %.not, ptr %.sroa.sel146.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   %112 = select i1 %.not, i32 16, i32 256
   %113 = load i32, ptr %.02935.i, align 4, !tbaa !48
   %114 = icmp sgt i32 %113, -1
-  br i1 %114, label %.lr.ph72.i, label %._crit_edge.i133
+  br i1 %114, label %.lr.ph72.i, label %._crit_edge.i132
 
-.loopexit.loopexit.i:                             ; preds = %.lr.ph.i136
+.loopexit.loopexit.i:                             ; preds = %.lr.ph.i135
   %115 = trunc nsw i64 %smax to i32
   br label %.loopexit.i
 
@@ -429,7 +429,7 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %117 = getelementptr inbounds nuw i32, ptr %13, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !48
   %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %.lr.ph72.i, label %._crit_edge.i133, !llvm.loop !55
+  br i1 %119, label %.lr.ph72.i, label %._crit_edge.i132, !llvm.loop !55
 
 .lr.ph72.i:                                       ; preds = %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit, %.loopexit.i
   %120 = phi i32 [ %118, %.loopexit.i ], [ %113, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit ]
@@ -437,31 +437,31 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %.05270.i = phi i32 [ %.153.lcssa.i, %.loopexit.i ], [ 2147483647, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit ]
   %.05569.i = phi i32 [ %.156.lcssa.i, %.loopexit.i ], [ -2147483648, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit ]
   %121 = add i32 %.04871.i, 1
-  %.not.i134 = icmp eq i32 %120, 0
-  br i1 %.not.i134, label %.loopexit.i, label %.lr.ph.preheader.i135
+  %.not.i133 = icmp eq i32 %120, 0
+  br i1 %.not.i133, label %.loopexit.i, label %.lr.ph.preheader.i134
 
-.lr.ph.preheader.i135:                            ; preds = %.lr.ph72.i
+.lr.ph.preheader.i134:                            ; preds = %.lr.ph72.i
   %122 = add nuw nsw i32 %121, %120
   %123 = sext i32 %121 to i64
   %124 = sext i32 %122 to i64
   %125 = add nsw i64 %123, 1
   %smax = tail call i64 @llvm.smax.i64(i64 %125, i64 %124)
-  br label %.lr.ph.i136
+  br label %.lr.ph.i135
 
-.lr.ph.i136:                                      ; preds = %.lr.ph.i136, %.lr.ph.preheader.i135
-  %indvars.iv.i137 = phi i64 [ %123, %.lr.ph.preheader.i135 ], [ %indvars.iv.next.i138, %.lr.ph.i136 ]
-  %.15365.i = phi i32 [ %.05270.i, %.lr.ph.preheader.i135 ], [ %spec.select.i, %.lr.ph.i136 ]
-  %.15664.i = phi i32 [ %.05569.i, %.lr.ph.preheader.i135 ], [ %.257.i, %.lr.ph.i136 ]
-  %126 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i137
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135, %.lr.ph.preheader.i134
+  %indvars.iv.i136 = phi i64 [ %123, %.lr.ph.preheader.i134 ], [ %indvars.iv.next.i137, %.lr.ph.i135 ]
+  %.15365.i = phi i32 [ %.05270.i, %.lr.ph.preheader.i134 ], [ %spec.select.i, %.lr.ph.i135 ]
+  %.15664.i = phi i32 [ %.05569.i, %.lr.ph.preheader.i134 ], [ %.257.i, %.lr.ph.i135 ]
+  %126 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i136
   %127 = load i32, ptr %126, align 4, !tbaa !48
   %128 = ashr i32 %127, 20
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %128, i32 %.15365.i)
   %.257.i = tail call i32 @llvm.smax.i32(i32 %128, i32 %.15664.i)
-  %indvars.iv.next.i138 = add nsw i64 %indvars.iv.i137, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next.i138, %smax
-  br i1 %exitcond175.not, label %.loopexit.loopexit.i, label %.lr.ph.i136, !llvm.loop !56
+  %indvars.iv.next.i137 = add nsw i64 %indvars.iv.i136, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next.i137, %smax
+  br i1 %exitcond174.not, label %.loopexit.loopexit.i, label %.lr.ph.i135, !llvm.loop !56
 
-._crit_edge.i133:                                 ; preds = %.loopexit.i, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit
+._crit_edge.i132:                                 ; preds = %.loopexit.i, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit
   %.055.lcssa.i = phi i32 [ -2147483648, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit ], [ %.156.lcssa.i, %.loopexit.i ]
   %.052.lcssa.i = phi i32 [ 2147483647, %_ZN2cvL24createSourceHuffmanTableEPKhPiii.exit ], [ %.153.lcssa.i, %.loopexit.i ]
   %129 = sub nsw i32 %.055.lcssa.i, %.052.lcssa.i
@@ -469,7 +469,7 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %131 = icmp sgt i32 %130, %112
   br i1 %131, label %132, label %139
 
-132:                                              ; preds = %._crit_edge.i133
+132:                                              ; preds = %._crit_edge.i132
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -492,7 +492,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %316, %279, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %280, %279 ], [ %.pn127.pn.pn, %316 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %280, %279 ], [ %.pn126.pn.pn, %316 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -500,18 +500,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %134
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-139:                                              ; preds = %._crit_edge.i133
+139:                                              ; preds = %._crit_edge.i132
   %140 = sext i32 %130 to i64
   %141 = shl nsw i64 %140, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %111, i8 0, i64 %141, i1 false)
   store i32 %.052.lcssa.i, ptr %111, align 16, !tbaa !48
   %142 = add nsw i32 %129, 1
-  %.sroa.sel147.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %88, i64 68, i64 4
-  %.sroa.sel147.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.sel147.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.sroa.sel146.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %88, i64 68, i64 4
+  %.sroa.sel146.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.sel146.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %.sroa.sel.idx.sroa.sel.sroa.sel.v.sroa.sel.v = select i1 %88, i64 1028, i64 4
   %.sroa.sel.idx.sroa.sel.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.sel.idx.sroa.sel.sroa.sel.v.sroa.sel.v
-  %.sroa.sel144 = select i1 %.not, ptr %.sroa.sel147.sroa.sel.v.sroa.sel.v.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.sroa.sel.v.sroa.sel
-  store i32 %142, ptr %.sroa.sel144, align 4, !tbaa !48
+  %.sroa.sel143 = select i1 %.not, ptr %.sroa.sel146.sroa.sel.v.sroa.sel.v.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.sroa.sel.v.sroa.sel
+  store i32 %142, ptr %.sroa.sel143, align 4, !tbaa !48
   br i1 %114, label %.lr.ph83.i, label %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit
 
 .lr.ph83.i:                                       ; preds = %139, %._crit_edge78.i
@@ -559,9 +559,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %134
   br i1 %164, label %.lr.ph83.i, label %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit, !llvm.loop !58
 
 _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %139
-  %165 = add nuw nsw i32 %.1110152, 1
-  %exitcond176.not = icmp eq i32 %165, %57
-  br i1 %exitcond176.not, label %166, label %80, !llvm.loop !59
+  %165 = add nuw nsw i32 %.1110151, 1
+  %exitcond175.not = icmp eq i32 %165, %57
+  br i1 %exitcond175.not, label %166, label %80, !llvm.loop !59
 
 166:                                              ; preds = %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65472)
@@ -573,7 +573,7 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %29)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %33)
   %169 = icmp sgt i32 %33, 0
-  br i1 %169, label %.lr.ph, label %._crit_edge157.critedge
+  br i1 %169, label %.lr.ph, label %._crit_edge156.critedge
 
 .lr.ph:                                           ; preds = %166
   %170 = zext i1 %48 to i32
@@ -581,17 +581,17 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   br label %172
 
 172:                                              ; preds = %.lr.ph, %172
-  %.2111153 = phi i32 [ 0, %.lr.ph ], [ %173, %172 ]
-  %173 = add nuw nsw i32 %.2111153, 1
+  %.2111152 = phi i32 [ 0, %.lr.ph ], [ %173, %172 ]
+  %173 = add nuw nsw i32 %.2111152, 1
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %173)
-  %174 = icmp eq i32 %.2111153, 0
+  %174 = icmp eq i32 %.2111152, 0
   %. = select i1 %174, i32 %171, i32 17
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %.)
-  %175 = icmp ne i32 %.2111153, 0
+  %175 = icmp ne i32 %.2111152, 0
   %176 = zext i1 %175 to i32
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %176)
-  %exitcond177.not = icmp eq i32 %173, %33
-  br i1 %exitcond177.not, label %._crit_edge, label %172, !llvm.loop !60
+  %exitcond176.not = icmp eq i32 %173, %33
+  br i1 %exitcond176.not, label %._crit_edge, label %172, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %172
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65498)
@@ -599,29 +599,29 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   %178 = add nuw nsw i32 %177, 6
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %178)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %33)
-  br label %.lr.ph156
+  br label %.lr.ph155
 
-.lr.ph156:                                        ; preds = %._crit_edge, %.lr.ph156
-  %.3112154 = phi i32 [ %179, %.lr.ph156 ], [ 0, %._crit_edge ]
-  %179 = add nuw nsw i32 %.3112154, 1
+.lr.ph155:                                        ; preds = %._crit_edge, %.lr.ph155
+  %.3112153 = phi i32 [ %179, %.lr.ph155 ], [ 0, %._crit_edge ]
+  %179 = add nuw nsw i32 %.3112153, 1
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %179)
-  %180 = icmp ne i32 %.3112154, 0
+  %180 = icmp ne i32 %.3112153, 0
   %181 = zext i1 %180 to i32
   %182 = select i1 %180, i32 16, i32 0
   %183 = or disjoint i32 %182, %181
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %183)
-  %exitcond178.not = icmp eq i32 %179, %33
-  br i1 %exitcond178.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !61
+  %exitcond177.not = icmp eq i32 %179, %33
+  br i1 %exitcond177.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !61
 
-._crit_edge157.critedge:                          ; preds = %166
+._crit_edge156.critedge:                          ; preds = %166
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65498)
   %184 = shl nsw i32 %33, 1
   %185 = add nsw i32 %184, 6
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %185)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %33)
-  br label %._crit_edge157
+  br label %._crit_edge156
 
-._crit_edge157:                                   ; preds = %.lr.ph156, %._crit_edge157.critedge
+._crit_edge156:                                   ; preds = %.lr.ph155, %._crit_edge156.critedge
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 63)
   tail call void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 0)
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -657,10 +657,10 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   %214 = sub i64 %212, %213
   %215 = sdiv exact i64 %214, 40
   %216 = add nsw i64 %208, %215
-  %.not.i139 = icmp eq i64 %216, 0
-  br i1 %.not.i139, label %_ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit, label %.lr.ph.i140
+  %.not.i138 = icmp eq i64 %216, 0
+  br i1 %.not.i138, label %_ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit, label %.lr.ph.i139
 
-.lr.ph.i140:                                      ; preds = %._crit_edge157
+.lr.ph.i139:                                      ; preds = %._crit_edge156
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %218 = load ptr, ptr %217, align 8, !tbaa !65, !noalias !67
   %219 = ptrtoint ptr %218 to i64
@@ -668,9 +668,9 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   %221 = sdiv exact i64 %220, 40
   br label %222
 
-222:                                              ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i, %.lr.ph.i140
-  %223 = phi i64 [ 0, %.lr.ph.i140 ], [ %246, %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i ]
-  %.04.i = phi i32 [ 0, %.lr.ph.i140 ], [ %245, %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i ]
+222:                                              ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i, %.lr.ph.i139
+  %223 = phi i64 [ 0, %.lr.ph.i139 ], [ %246, %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i ]
+  %.04.i = phi i32 [ 0, %.lr.ph.i139 ], [ %245, %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i ]
   %224 = add nsw i64 %223, %221
   %225 = icmp sgt i64 %224, -1
   br i1 %225, label %226, label %232
@@ -715,7 +715,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i: ; preds = %236, %228
   %247 = icmp ugt i64 %216, %246
   br i1 %247, label %222, label %_ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit, !llvm.loop !75
 
-_ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i, %._crit_edge157
+_ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit.i, %._crit_edge156
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %248, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -799,16 +799,16 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mj
 285:                                              ; preds = %283
   %286 = load i32, ptr %248, align 8, !tbaa !76
   %287 = add nsw i32 %286, -1
-  %.not166 = icmp eq i32 %287, 0
-  br i1 %.not166, label %._crit_edge161, label %.lr.ph160.preheader
+  %.not165 = icmp eq i32 %287, 0
+  br i1 %.not165, label %._crit_edge160, label %.lr.ph159.preheader
 
-.lr.ph160.preheader:                              ; preds = %285
+.lr.ph159.preheader:                              ; preds = %285
   %wide.trip.count = zext i32 %287 to i64
-  br label %.lr.ph160
+  br label %.lr.ph159
 
-._crit_edge161:                                   ; preds = %300, %285
-  %.pre-phi190 = phi i64 [ 0, %285 ], [ %wide.trip.count, %300 ]
-  %288 = getelementptr inbounds nuw i32, ptr %284, i64 %.pre-phi190
+._crit_edge160:                                   ; preds = %300, %285
+  %.pre-phi189 = phi i64 [ 0, %285 ], [ %wide.trip.count, %300 ]
+  %288 = getelementptr inbounds nuw i32, ptr %284, i64 %.pre-phi189
   %289 = load i32, ptr %288, align 4, !tbaa !48
   %290 = load i32, ptr %187, align 4, !tbaa !62
   %291 = sub nsw i32 32, %290
@@ -826,29 +826,29 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mj
           cleanup
   br label %316
 
-296:                                              ; preds = %303, %._crit_edge161
+296:                                              ; preds = %303, %._crit_edge160
   %297 = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-.lr.ph160:                                        ; preds = %.lr.ph160.preheader, %300
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next180, %300 ]
-  %298 = getelementptr inbounds nuw i32, ptr %284, i64 %indvars.iv179
+.lr.ph159:                                        ; preds = %.lr.ph159.preheader, %300
+  %indvars.iv178 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next179, %300 ]
+  %298 = getelementptr inbounds nuw i32, ptr %284, i64 %indvars.iv178
   %299 = load i32, ptr %298, align 4, !tbaa !48
   invoke void @_ZN2cv17AVIWriteContainer10jputStreamEj(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef %299)
           to label %300 unwind label %301
 
-300:                                              ; preds = %.lr.ph160
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count
-  br i1 %exitcond182.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !96
+300:                                              ; preds = %.lr.ph159
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %exitcond181.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count
+  br i1 %exitcond181.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !96
 
-301:                                              ; preds = %.lr.ph160
+301:                                              ; preds = %.lr.ph159
   %302 = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-303:                                              ; preds = %._crit_edge161
+303:                                              ; preds = %._crit_edge160
   invoke void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65497)
           to label %304 unwind label %296
 
@@ -860,29 +860,29 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mj
   %307 = add i64 %305, 3
   %308 = and i64 %307, -4
   %309 = icmp ult i64 %305, %308
-  br i1 %309, label %.lr.ph164, label %._crit_edge165
+  br i1 %309, label %.lr.ph163, label %._crit_edge164
 
-.lr.ph164:                                        ; preds = %306, %310
-  %.0100162 = phi i64 [ %311, %310 ], [ %305, %306 ]
+.lr.ph163:                                        ; preds = %306, %310
+  %.0100161 = phi i64 [ %311, %310 ], [ %305, %306 ]
   invoke void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 0)
           to label %310 unwind label %314
 
-310:                                              ; preds = %.lr.ph164
-  %311 = add i64 %.0100162, 1
-  %exitcond183.not = icmp eq i64 %311, %308
-  br i1 %exitcond183.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !97
+310:                                              ; preds = %.lr.ph163
+  %311 = add i64 %.0100161, 1
+  %exitcond182.not = icmp eq i64 %311, %308
+  br i1 %exitcond182.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !97
 
 312:                                              ; preds = %304
   %313 = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-314:                                              ; preds = %.lr.ph164
+314:                                              ; preds = %.lr.ph163
   %315 = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-._crit_edge165:                                   ; preds = %310, %306
+._crit_edge164:                                   ; preds = %310, %306
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %14) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -892,7 +892,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mj
   ret void
 
 316:                                              ; preds = %294, %312, %314, %301, %296, %292
-  %.pn127.pn.pn = phi { ptr, i32 } [ %293, %292 ], [ %295, %294 ], [ %302, %301 ], [ %297, %296 ], [ %315, %314 ], [ %313, %312 ]
+  %.pn126.pn.pn = phi { ptr, i32 } [ %293, %292 ], [ %295, %294 ], [ %302, %301 ], [ %297, %296 ], [ %315, %314 ], [ %313, %312 ]
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %14) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

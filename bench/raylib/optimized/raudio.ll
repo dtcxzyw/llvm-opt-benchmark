@@ -30123,18 +30123,18 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %11
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %118, ptr %119, align 8
-  %.val135 = load i32, ptr %11, align 4
+  %.val = load i32, ptr %11, align 4
   %.val109 = load i32, ptr %73, align 8
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %120, i8 0, i64 48, i1 false)
-  %121 = icmp eq i32 %.val135, 0
+  %121 = icmp eq i32 %.val, 0
   br i1 %121, label %ma_spatializer_get_heap_layout.exit.thread, label %ma_zero_memory_default.exit.i
 
 ma_zero_memory_default.exit.i:                    ; preds = %ma_channel_map_copy_or_default.exit
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %.sroa.3.0.insert.ext.i.i = zext i32 %.val109 to i64
   %.sroa.3.0.insert.shift.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i, 32
-  %123 = zext i32 %.val135 to i64
+  %123 = zext i32 %.val to i64
   %124 = shl nuw nsw i64 %123, 2
   %125 = shl nuw nsw i64 %123, 3
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -118743,15 +118743,15 @@ define internal fastcc void @compute_sorted_huffman(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %.preheader, label %.preheader98
+  br i1 %.not, label %.preheader, label %.preheader97
 
-.preheader98:                                     ; preds = %3
+.preheader97:                                     ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader98
+.lr.ph:                                           ; preds = %.preheader97
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   br label %33
@@ -118760,47 +118760,47 @@ define internal fastcc void @compute_sorted_huffman(ptr noundef readonly capture
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph103, label %.loopexit
+  br i1 %13, label %.lr.ph102, label %.loopexit
 
-.lr.ph103:                                        ; preds = %.preheader
+.lr.ph102:                                        ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   br label %16
 
-16:                                               ; preds = %.lr.ph103, %include_in_sort.exit.thread
-  %17 = phi i32 [ %12, %.lr.ph103 ], [ %30, %include_in_sort.exit.thread ]
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %include_in_sort.exit.thread ]
-  %.063101 = phi i32 [ 0, %.lr.ph103 ], [ %.164, %include_in_sort.exit.thread ]
+16:                                               ; preds = %.lr.ph102, %include_in_sort.exit.thread
+  %17 = phi i32 [ %12, %.lr.ph102 ], [ %30, %include_in_sort.exit.thread ]
+  %indvars.iv112 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next113, %include_in_sort.exit.thread ]
+  %.063100 = phi i32 [ 0, %.lr.ph102 ], [ %.164, %include_in_sort.exit.thread ]
   %.val = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %.val, 0
-  br i1 %.not.i, label %18, label %include_in_sort.exit.thread80
+  br i1 %.not.i, label %18, label %include_in_sort.exit.thread79
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv113
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv112
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, 1
   %or.cond = icmp ult i8 %21, 12
-  br i1 %or.cond, label %include_in_sort.exit.thread, label %include_in_sort.exit.thread80
+  br i1 %or.cond, label %include_in_sort.exit.thread, label %include_in_sort.exit.thread79
 
-include_in_sort.exit.thread80:                    ; preds = %18, %16
+include_in_sort.exit.thread79:                    ; preds = %18, %16
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv113
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv112
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef i32 @llvm.bitreverse.i32(i32 %24)
   %26 = load ptr, ptr %15, align 8
-  %27 = add nsw i32 %.063101, 1
-  %28 = sext i32 %.063101 to i64
+  %27 = add nsw i32 %.063100, 1
+  %28 = sext i32 %.063100 to i64
   %29 = getelementptr inbounds i32, ptr %26, i64 %28
   store i32 %25, ptr %29, align 4
   %.pre = load i32, ptr %11, align 4
   br label %include_in_sort.exit.thread
 
-include_in_sort.exit.thread:                      ; preds = %18, %include_in_sort.exit.thread80
-  %30 = phi i32 [ %.pre, %include_in_sort.exit.thread80 ], [ %17, %18 ]
-  %.164 = phi i32 [ %27, %include_in_sort.exit.thread80 ], [ %.063101, %18 ]
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+include_in_sort.exit.thread:                      ; preds = %18, %include_in_sort.exit.thread79
+  %30 = phi i32 [ %.pre, %include_in_sort.exit.thread79 ], [ %17, %18 ]
+  %.164 = phi i32 [ %27, %include_in_sort.exit.thread79 ], [ %.063100, %18 ]
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next114, %31
+  %32 = icmp slt i64 %indvars.iv.next113, %31
   br i1 %32, label %16, label %.loopexit
 
 33:                                               ; preds = %.lr.ph, %33
@@ -118818,7 +118818,7 @@ include_in_sort.exit.thread:                      ; preds = %18, %include_in_sor
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %33, label %.loopexit
 
-.loopexit:                                        ; preds = %33, %include_in_sort.exit.thread, %.preheader98, %.preheader
+.loopexit:                                        ; preds = %33, %include_in_sort.exit.thread, %.preheader97, %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2112
@@ -118836,62 +118836,62 @@ include_in_sort.exit.thread:                      ; preds = %18, %include_in_sor
   %.in = select i1 %.not66, ptr %53, ptr %45
   %54 = load i32, ptr %.in, align 4
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph109, label %._crit_edge110
+  br i1 %55, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph109:                                        ; preds = %.loopexit
+.lr.ph108:                                        ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %54 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph109, %include_in_sort.exit77.thread
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next117, %include_in_sort.exit77.thread ]
+59:                                               ; preds = %.lr.ph108, %include_in_sort.exit76.thread
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next116, %include_in_sort.exit76.thread ]
   %60 = load i8, ptr %4, align 1
   %.not67 = icmp eq i8 %60, 0
-  br i1 %.not67, label %63, label %include_in_sort.exit77.thread92
+  br i1 %.not67, label %63, label %include_in_sort.exit76.thread91
 
-include_in_sort.exit77.thread92:                  ; preds = %59
-  %61 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv116
+include_in_sort.exit76.thread91:                  ; preds = %59
+  %61 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv115
   %62 = load i32, ptr %61, align 4
   %.pn = zext i32 %62 to i64
   %.in68.in = getelementptr inbounds nuw i8, ptr %1, i64 %.pn
-  %.in6869 = load i8, ptr %.in68.in, align 1
+  %.in68 = load i8, ptr %.in68.in, align 1
   br label %65
 
 63:                                               ; preds = %59
-  %.in68.in85 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv116
-  %.in686986 = load i8, ptr %.in68.in85, align 1
-  %64 = add i8 %.in686986, 1
-  %or.cond97 = icmp ult i8 %64, 12
-  br i1 %or.cond97, label %include_in_sort.exit77.thread, label %65
+  %.in68.in84 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv115
+  %.in6885 = load i8, ptr %.in68.in84, align 1
+  %64 = add i8 %.in6885, 1
+  %or.cond96 = icmp ult i8 %64, 12
+  br i1 %or.cond96, label %include_in_sort.exit76.thread, label %65
 
-65:                                               ; preds = %63, %include_in_sort.exit77.thread92
-  %.in68698796 = phi i8 [ %.in6869, %include_in_sort.exit77.thread92 ], [ %.in686986, %63 ]
+65:                                               ; preds = %63, %include_in_sort.exit76.thread91
+  %.in688695 = phi i8 [ %.in68, %include_in_sort.exit76.thread91 ], [ %.in6885, %63 ]
   %66 = load ptr, ptr %56, align 8
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv116
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv115
   %68 = load i32, ptr %67, align 4
   %69 = tail call noundef i32 @llvm.bitreverse.i32(i32 %68)
   %70 = load i32, ptr %45, align 8
   %71 = icmp sgt i32 %70, 1
-  br i1 %71, label %.lr.ph106, label %._crit_edge
+  br i1 %71, label %.lr.ph105, label %._crit_edge
 
-.lr.ph106:                                        ; preds = %65
+.lr.ph105:                                        ; preds = %65
   %72 = load ptr, ptr %43, align 8
   br label %73
 
-73:                                               ; preds = %.lr.ph106, %73
-  %.059105 = phi i32 [ %70, %.lr.ph106 ], [ %.160, %73 ]
-  %.061104 = phi i32 [ 0, %.lr.ph106 ], [ %.162, %73 ]
-  %74 = lshr i32 %.059105, 1
-  %75 = add nuw nsw i32 %74, %.061104
+73:                                               ; preds = %.lr.ph105, %73
+  %.059104 = phi i32 [ %70, %.lr.ph105 ], [ %.160, %73 ]
+  %.061103 = phi i32 [ 0, %.lr.ph105 ], [ %.162, %73 ]
+  %74 = lshr i32 %.059104, 1
+  %75 = add nuw nsw i32 %74, %.061103
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i32, ptr %72, i64 %76
   %78 = load i32, ptr %77, align 4
-  %.not72 = icmp ugt i32 %78, %69
-  %79 = sub nsw i32 %.059105, %74
-  %.162 = select i1 %.not72, i32 %.061104, i32 %75
-  %.160 = select i1 %.not72, i32 %74, i32 %79
+  %.not71 = icmp ugt i32 %78, %69
+  %79 = sub nsw i32 %.059104, %74
+  %.162 = select i1 %.not71, i32 %.061103, i32 %75
+  %.160 = select i1 %.not71, i32 %74, i32 %79
   %80 = icmp sgt i32 %.160, 1
   br i1 %80, label %73, label %._crit_edge.loopexit
 
@@ -118904,29 +118904,29 @@ include_in_sort.exit77.thread92:                  ; preds = %59
   br i1 %.not67, label %89, label %82
 
 82:                                               ; preds = %._crit_edge
-  %83 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv116
+  %83 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv115
   %84 = load i32, ptr %83, align 4
   %85 = load ptr, ptr %57, align 8
   %86 = getelementptr inbounds nuw i32, ptr %85, i64 %.061.lcssa
   store i32 %84, ptr %86, align 4
   %87 = load ptr, ptr %58, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.061.lcssa
-  store i8 %.in68698796, ptr %88, align 1
-  br label %include_in_sort.exit77.thread
+  store i8 %.in688695, ptr %88, align 1
+  br label %include_in_sort.exit76.thread
 
 89:                                               ; preds = %._crit_edge
   %90 = load ptr, ptr %57, align 8
   %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.061.lcssa
-  %92 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv115 to i32
   store i32 %92, ptr %91, align 4
-  br label %include_in_sort.exit77.thread
+  br label %include_in_sort.exit76.thread
 
-include_in_sort.exit77.thread:                    ; preds = %63, %82, %89
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge110, label %59
+include_in_sort.exit76.thread:                    ; preds = %63, %82, %89
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge109, label %59
 
-._crit_edge110:                                   ; preds = %include_in_sort.exit77.thread, %.loopexit
+._crit_edge109:                                   ; preds = %include_in_sort.exit76.thread, %.loopexit
   ret void
 }
 

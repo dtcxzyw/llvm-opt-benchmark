@@ -272,21 +272,21 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %33 = zext i32 %32 to i64
   %.idx.i = mul nuw nsw i64 %33, 56
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
-  %.not47.i = icmp eq i32 %32, 0
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not46.i = icmp eq i32 %32, 0
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %25, 32
   br label %35
 
 35:                                               ; preds = %.critedge26.i, %.lr.ph.i
-  %.02048.i = phi ptr [ %30, %.lr.ph.i ], [ %53, %.critedge26.i ]
-  %36 = load i32, ptr %.02048.i, align 8, !tbaa !78
+  %.02047.i = phi ptr [ %30, %.lr.ph.i ], [ %53, %.critedge26.i ]
+  %36 = load i32, ptr %.02047.i, align 8, !tbaa !78
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %38, label %.critedge26.i
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 28
   %.sroa.0.0.copyload.i.i = load i32, ptr %39, align 4, !tbaa !3
   %40 = icmp eq i32 %.sroa.0.0.copyload.i.i, %.sroa.030.0.extract.trunc.i
   br i1 %40, label %41, label %.critedge26.i
@@ -310,7 +310,7 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i: ; preds = %_ZN5clang4editgt
   br i1 %47, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 44
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = add i32 %49, %44
   %.sroa.2.0.insert.ext.i.i = zext i32 %50 to i64
@@ -320,7 +320,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS
   br i1 %spec.select.i.i, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %.critedge26.i
 
 .critedge26.i:                                    ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %38, %35
-  %53 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 56
   %.not.i = icmp eq ptr %53, %34
   br i1 %.not.i, label %._crit_edge.i, label %35
 
@@ -429,21 +429,21 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %46 = zext i32 %45 to i64
   %.idx.i = mul nuw nsw i64 %46, 56
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
-  %.not47.i = icmp eq i32 %45, 0
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not46.i = icmp eq i32 %45, 0
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %38, 32
   br label %48
 
 48:                                               ; preds = %.critedge26.i, %.lr.ph.i
-  %.02048.i = phi ptr [ %43, %.lr.ph.i ], [ %66, %.critedge26.i ]
-  %49 = load i32, ptr %.02048.i, align 8, !tbaa !78
+  %.02047.i = phi ptr [ %43, %.lr.ph.i ], [ %66, %.critedge26.i ]
+  %49 = load i32, ptr %.02047.i, align 8, !tbaa !78
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %.critedge26.i
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 28
   %.sroa.0.0.copyload.i.i = load i32, ptr %52, align 4, !tbaa !3
   %53 = icmp eq i32 %.sroa.0.0.copyload.i.i, %.sroa.030.0.extract.trunc.i
   br i1 %53, label %54, label %.critedge26.i
@@ -467,7 +467,7 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i: ; preds = %_ZN5clang4editgt
   br i1 %60, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread.i
-  %61 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 44
   %62 = load i32, ptr %61, align 4, !tbaa !10
   %63 = add i32 %62, %57
   %.sroa.2.0.insert.ext.i.i = zext i32 %63 to i64
@@ -477,7 +477,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.i:     ; preds = %_ZN5clang4editgtENS
   br i1 %spec.select.i.i, label %_ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.exit, label %.critedge26.i
 
 .critedge26.i:                                    ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.i, %51, %48
-  %66 = getelementptr inbounds nuw i8, ptr %.02048.i, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %.02047.i, i64 56
   %.not.i = icmp eq ptr %66, %47
   br i1 %.not.i, label %._crit_edge.i, label %48
 
@@ -1686,21 +1686,21 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit17canInsertInOffsetENS
   %8 = zext i32 %7 to i64
   %.idx = mul nuw nsw i64 %8, 56
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %.not47 = icmp eq i32 %7, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.not46 = icmp eq i32 %7, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.sroa.24.0.extract.shift.i.i = lshr i64 %2, 32
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.critedge26
-  %.02048 = phi ptr [ %5, %.lr.ph ], [ %28, %.critedge26 ]
-  %11 = load i32, ptr %.02048, align 8, !tbaa !78
+  %.02047 = phi ptr [ %5, %.lr.ph ], [ %28, %.critedge26 ]
+  %11 = load i32, ptr %.02047, align 8, !tbaa !78
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %.critedge26
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.02048, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %.02047, i64 28
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 4, !tbaa !3
   %15 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.030.0.extract.trunc
   br i1 %15, label %16, label %.critedge26
@@ -1724,7 +1724,7 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread: ; preds = %16, %_ZN5clang4edi
   br i1 %22, label %.thread, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread
-  %23 = getelementptr inbounds nuw i8, ptr %.02048, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.02047, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = add i32 %24, %19
   %.sroa.2.0.insert.ext.i = zext i32 %25 to i64
@@ -1734,7 +1734,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %_ZN5clang4editgtENS
   br i1 %spec.select.i, label %.thread, label %.critedge26
 
 .critedge26:                                      ; preds = %_ZN5clang4editgtENS0_10FileOffsetES1_.exit, %13, %_ZN5clang4editltENS0_10FileOffsetES1_.exit, %10
-  %28 = getelementptr inbounds nuw i8, ptr %.02048, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.02047, i64 56
   %.not = icmp eq ptr %28, %9
   br i1 %.not, label %._crit_edge, label %10
 

@@ -2153,8 +2153,8 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
 1130:                                             ; preds = %1126, %1123
   %1131 = phi ptr [ %1124, %1123 ], [ %1128, %1126 ]
   %.in.in.i.i.i.i = phi ptr [ %1125, %1123 ], [ %1129, %1126 ]
-  %.in30.i.i.i.i = load i8, ptr %.in.in.i.i.i.i, align 2, !tbaa !69
-  %.not25.i.i.i.i.i = icmp eq i8 %.in30.i.i.i.i, 0
+  %.in.i.i.i.i = load i8, ptr %.in.in.i.i.i.i, align 2, !tbaa !69
+  %.not25.i.i.i.i.i = icmp eq i8 %.in.i.i.i.i, 0
   br i1 %.not25.i.i.i.i.i, label %.loopexit.i.i.i.i33, label %.lr.ph.i.i.i.i.i27
 
 .lr.ph.i.i.i.i.i27:                               ; preds = %1130
@@ -2165,7 +2165,7 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
   %1136 = lshr i32 %1135, 3
   %1137 = trunc nuw nsw i32 %1136 to i16
   %1138 = add nsw i16 %1137, -2
-  %wide.trip.count.i.i.i.i.i28 = zext i8 %.in30.i.i.i.i to i64
+  %wide.trip.count.i.i.i.i.i28 = zext i8 %.in.i.i.i.i to i64
   br label %1139
 
 1139:                                             ; preds = %1154, %.lr.ph.i.i.i.i.i27
@@ -2198,12 +2198,12 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
   br i1 %exitcond.not.i.i.i.i.i32, label %.loopexit.i.i.i.i33, label %1139, !llvm.loop !232
 
 .loopexit.i.i.i.i33:                              ; preds = %1154, %1130
-  store i8 %.in30.i.i.i.i, ptr %1120, align 1, !tbaa !69
+  store i8 %.in.i.i.i.i, ptr %1120, align 1, !tbaa !69
   %1155 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %1156 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1157 = load i8, ptr %1121, align 1, !tbaa !231
-  %.not31.i.i.i.i = icmp eq i8 %1157, 0
-  br i1 %.not31.i.i.i.i, label %1161, label %1158
+  %.not30.i20.i.i.i = icmp eq i8 %1157, 0
+  br i1 %.not30.i20.i.i.i, label %1161, label %1158
 
 1158:                                             ; preds = %.loopexit.i.i.i.i33
   %1159 = getelementptr inbounds nuw i8, ptr %1052, i64 38784
@@ -2218,12 +2218,12 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
 
 1165:                                             ; preds = %1161, %1158
   %1166 = phi ptr [ %1159, %1158 ], [ %1163, %1161 ]
-  %.in.in33.i.i.i.i = phi ptr [ %1160, %1158 ], [ %1164, %1161 ]
-  %.in34.i.i.i.i = load i8, ptr %.in.in33.i.i.i.i, align 2, !tbaa !69
-  %.not25.i35.i.i.i.i = icmp eq i8 %.in34.i.i.i.i, 0
-  br i1 %.not25.i35.i.i.i.i, label %ph_vb_pos.exit44.i.i.i.i, label %.lr.ph.i36.i.i.i.i
+  %.in32.in.i.i.i.i = phi ptr [ %1160, %1158 ], [ %1164, %1161 ]
+  %.in32.i.i.i.i = load i8, ptr %.in32.in.i.i.i.i, align 2, !tbaa !69
+  %.not25.i33.i.i.i.i = icmp eq i8 %.in32.i.i.i.i, 0
+  br i1 %.not25.i33.i.i.i.i, label %ph_vb_pos.exit42.i.i.i.i, label %.lr.ph.i34.i.i.i.i
 
-.lr.ph.i36.i.i.i.i:                               ; preds = %1165
+.lr.ph.i34.i.i.i.i:                               ; preds = %1165
   %1167 = getelementptr inbounds nuw i8, ptr %1054, i64 10
   %1168 = load i16, ptr %1167, align 2, !tbaa !151
   %1169 = zext i16 %1168 to i32
@@ -2231,12 +2231,12 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
   %1171 = lshr i32 %1170, 3
   %1172 = trunc nuw nsw i32 %1171 to i16
   %1173 = add nsw i16 %1172, -2
-  %wide.trip.count.i37.i.i.i.i = zext i8 %.in34.i.i.i.i to i64
+  %wide.trip.count.i35.i.i.i.i = zext i8 %.in32.i.i.i.i to i64
   br label %1174
 
-1174:                                             ; preds = %1189, %.lr.ph.i36.i.i.i.i
-  %indvars.iv.i38.i.i.i.i = phi i64 [ 0, %.lr.ph.i36.i.i.i.i ], [ %indvars.iv.next.i40.i.i.i.i, %1189 ]
-  %1175 = getelementptr inbounds nuw i16, ptr %1166, i64 %indvars.iv.i38.i.i.i.i
+1174:                                             ; preds = %1189, %.lr.ph.i34.i.i.i.i
+  %indvars.iv.i36.i.i.i.i = phi i64 [ 0, %.lr.ph.i34.i.i.i.i ], [ %indvars.iv.next.i38.i.i.i.i, %1189 ]
+  %1175 = getelementptr inbounds nuw i16, ptr %1166, i64 %indvars.iv.i36.i.i.i.i
   %1176 = load i16, ptr %1175, align 2, !tbaa !99
   %1177 = icmp ult i16 %1173, %1176
   br i1 %1177, label %decode_frame_ps.exit, label %1178
@@ -2244,10 +2244,10 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
 1178:                                             ; preds = %1174
   %1179 = shl i16 %1176, 3
   %1180 = add i16 %1179, 8
-  %1181 = getelementptr inbounds nuw i16, ptr %1155, i64 %indvars.iv.i38.i.i.i.i
+  %1181 = getelementptr inbounds nuw i16, ptr %1155, i64 %indvars.iv.i36.i.i.i.i
   store i16 %1180, ptr %1181, align 2, !tbaa !99
-  %.not.i39.i.i.i.i = icmp eq i64 %indvars.iv.i38.i.i.i.i, 0
-  br i1 %.not.i39.i.i.i.i, label %1189, label %1182
+  %.not.i37.i.i.i.i = icmp eq i64 %indvars.iv.i36.i.i.i.i, 0
+  br i1 %.not.i37.i.i.i.i, label %1189, label %1182
 
 1182:                                             ; preds = %1178
   %1183 = zext i16 %1180 to i32
@@ -2259,15 +2259,15 @@ ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095,
   br i1 %1188, label %decode_frame_ps.exit, label %1189
 
 1189:                                             ; preds = %1182, %1178
-  %indvars.iv.next.i40.i.i.i.i = add nuw nsw i64 %indvars.iv.i38.i.i.i.i, 1
-  %exitcond.not.i41.i.i.i.i = icmp eq i64 %indvars.iv.next.i40.i.i.i.i, %wide.trip.count.i37.i.i.i.i
-  br i1 %exitcond.not.i41.i.i.i.i, label %ph_vb_pos.exit44.i.i.i.i, label %1174, !llvm.loop !232
+  %indvars.iv.next.i38.i.i.i.i = add nuw nsw i64 %indvars.iv.i36.i.i.i.i, 1
+  %exitcond.not.i39.i.i.i.i = icmp eq i64 %indvars.iv.next.i38.i.i.i.i, %wide.trip.count.i35.i.i.i.i
+  br i1 %exitcond.not.i39.i.i.i.i, label %ph_vb_pos.exit42.i.i.i.i, label %1174, !llvm.loop !232
 
-ph_vb_pos.exit44.i.i.i.i:                         ; preds = %1189, %1165
-  store i8 %.in34.i.i.i.i, ptr %1156, align 1, !tbaa !69
+ph_vb_pos.exit42.i.i.i.i:                         ; preds = %1189, %1165
+  store i8 %.in32.i.i.i.i, ptr %1156, align 1, !tbaa !69
   br label %decode_ph.exit.i
 
-decode_ph.exit.i:                                 ; preds = %ph_vb_pos.exit44.i.i.i.i, %1111
+decode_ph.exit.i:                                 ; preds = %ph_vb_pos.exit42.i.i.i.i, %1111
   %1190 = getelementptr inbounds nuw i8, ptr %1029, i64 47
   %1191 = load i8, ptr %1190, align 1, !tbaa !233
   %.not42.i = icmp eq i8 %1191, 0

@@ -145,8 +145,8 @@ define void @_ZN3net54protobuf_ShutdownFile_source_5faddress_5ftoken_2eprotoEv()
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net49protobuf_AddDesc_source_5faddress_5ftoken_2eprotoEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.b2 = load i1, ptr @_ZZN3net49protobuf_AddDesc_source_5faddress_5ftoken_2eprotoEvE12already_here, align 1
-  br i1 %.b2, label %9, label %1
+  %.b = load i1, ptr @_ZZN3net49protobuf_AddDesc_source_5faddress_5ftoken_2eprotoEvE12already_here, align 1
+  br i1 %.b, label %9, label %1
 
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN3net49protobuf_AddDesc_source_5faddress_5ftoken_2eprotoEvE12already_here, align 1

@@ -46,8 +46,8 @@ define ptr @readLiveSignal_0(ptr noundef readonly captures(none) %0, i32 noundef
   %6 = getelementptr inbounds ptr, ptr %.val.val, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr i8, ptr %7, i64 8
-  %.val35 = load ptr, ptr %8, align 8, !tbaa !24
-  ret ptr %.val35
+  %.val3 = load ptr, ptr %8, align 8, !tbaa !24
+  ret ptr %.val3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -60,8 +60,8 @@ define ptr @readLiveSignal_k(ptr noundef readonly captures(none) %0, i32 noundef
   %6 = getelementptr inbounds ptr, ptr %.val.val, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr i8, ptr %7, i64 8
-  %.val35 = load ptr, ptr %8, align 8, !tbaa !24
-  ret ptr %.val35
+  %.val3 = load ptr, ptr %8, align 8, !tbaa !24
+  ret ptr %.val3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -89,7 +89,7 @@ define noundef ptr @introduceAbsorberLogic(ptr noundef readonly captures(none) %
   %19 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = getelementptr i8, ptr %20, i64 8
-  %.val35.i = load ptr, ptr %21, align 8, !tbaa !24
+  %.val3.i = load ptr, ptr %21, align 8, !tbaa !24
   %22 = load i32, ptr %2, align 4, !tbaa !29
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %30, label %24
@@ -99,8 +99,8 @@ define noundef ptr @introduceAbsorberLogic(ptr noundef readonly captures(none) %
   %26 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr i8, ptr %27, i64 8
-  %.val35.i144 = load ptr, ptr %28, align 8, !tbaa !24
-  %29 = ptrtoint ptr %.val35.i144 to i64
+  %.val3.i144 = load ptr, ptr %28, align 8, !tbaa !24
+  %29 = ptrtoint ptr %.val3.i144 to i64
   br label %30
 
 30:                                               ; preds = %4, %24
@@ -252,7 +252,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge4:                                       ; preds = %101, %.critedge2
   %106 = icmp eq i32 %3, 0
-  %107 = ptrtoint ptr %.val35.i to i64
+  %107 = ptrtoint ptr %.val3.i to i64
   %108 = and i64 %107, 1
   %.not121 = icmp eq i64 %108, 0
   br i1 %106, label %109, label %126
@@ -261,7 +261,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not121, label %110, label %113
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds nuw i8, ptr %.val35.i, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !31
   br label %121
 
@@ -286,7 +286,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not121, label %127, label %130
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds nuw i8, ptr %.val35.i, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 40
   %129 = load ptr, ptr %128, align 8, !tbaa !31
   br label %138
 
@@ -475,13 +475,13 @@ define void @modifyAigToApplySafetyInvar(ptr noundef %0, i32 noundef %1, i32 nou
   %7 = getelementptr inbounds ptr, ptr %.val13.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr i8, ptr %8, i64 8
-  %.val1518 = load ptr, ptr %9, align 8, !tbaa !24
+  %.val15 = load ptr, ptr %9, align 8, !tbaa !24
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds ptr, ptr %.val13.val, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = getelementptr i8, ptr %12, i64 8
-  %.val1419 = load ptr, ptr %13, align 8, !tbaa !24
-  %14 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.val1518, ptr noundef %.val1419) #17
+  %.val14 = load ptr, ptr %13, align 8, !tbaa !24
+  %14 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.val15, ptr noundef %.val14) #17
   tail call void @Aig_ObjPatchFanin0(ptr noundef %0, ptr noundef %12, ptr noundef %14) #17
   ret void
 }
@@ -507,13 +507,13 @@ define range(i32 0, 2) i32 @flipConePdr(ptr noundef %0, i32 noundef %1, i32 noun
   %13 = getelementptr inbounds ptr, ptr %.val13.val.i, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val1518.i = load ptr, ptr %15, align 8, !tbaa !24
+  %.val15.i = load ptr, ptr %15, align 8, !tbaa !24
   %16 = sext i32 %2 to i64
   %17 = getelementptr inbounds ptr, ptr %.val13.val.i, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = getelementptr i8, ptr %18, i64 8
-  %.val1419.i = load ptr, ptr %19, align 8, !tbaa !24
-  %20 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.val1518.i, ptr noundef %.val1419.i) #17
+  %.val14.i = load ptr, ptr %19, align 8, !tbaa !24
+  %20 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.val15.i, ptr noundef %.val14.i) #17
   tail call void @Aig_ObjPatchFanin0(ptr noundef %0, ptr noundef %18, ptr noundef %20) #17
   br label %21
 

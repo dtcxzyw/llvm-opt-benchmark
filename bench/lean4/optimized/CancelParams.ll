@@ -883,8 +883,8 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Data_Lsp_CancelParams(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #4
@@ -1167,18 +1167,18 @@ _init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit: ; preds = %_init_l__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit, %3
-  %.sink20 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
-  store i32 1, ptr %.sink20, align 4, !tbaa !4
+  %.sink19 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit ]
+  %109 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
+  store i32 1, ptr %.sink19, align 4, !tbaa !4
   store i32 131096, ptr %109, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %110, align 8, !tbaa !10
-  %111 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %111, align 8, !tbaa !10
   br label %112
 
 112:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
   ret ptr %.0
 }
 

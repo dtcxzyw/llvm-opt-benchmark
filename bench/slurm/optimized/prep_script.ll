@@ -149,8 +149,8 @@ define dso_local i32 @prep_p_epilog(ptr noundef %0, ptr noundef %1) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @prep_p_prolog_slurmctld(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
-  %.b3 = load i1, ptr @have_prolog_slurmctld, align 1
-  br i1 %.b3, label %3, label %4
+  %.b = load i1, ptr @have_prolog_slurmctld, align 1
+  br i1 %.b, label %3, label %4
 
 3:                                                ; preds = %2
   tail call void @slurmctld_script(ptr noundef %0, i1 noundef zeroext false) #5
@@ -166,8 +166,8 @@ declare void @slurmctld_script(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @prep_p_epilog_slurmctld(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
-  %.b3 = load i1, ptr @have_epilog_slurmctld, align 1
-  br i1 %.b3, label %3, label %4
+  %.b = load i1, ptr @have_epilog_slurmctld, align 1
+  br i1 %.b, label %3, label %4
 
 3:                                                ; preds = %2
   tail call void @slurmctld_script(ptr noundef %0, i1 noundef zeroext true) #5
@@ -191,14 +191,14 @@ define dso_local void @prep_p_required(i32 noundef %0, ptr noundef writeonly cap
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i1 @running_in_slurmctld() #5
-  %.b9 = load i1, ptr @have_prolog_slurmctld, align 1
-  %or.cond = select i1 %4, i1 %.b9, i1 false
+  %.b = load i1, ptr @have_prolog_slurmctld, align 1
+  %or.cond = select i1 %4, i1 %.b, i1 false
   br i1 %or.cond, label %.sink.split, label %9
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @running_in_slurmctld() #5
-  %.b78 = load i1, ptr @have_epilog_slurmctld, align 1
-  %or.cond3 = select i1 %6, i1 %.b78, i1 false
+  %.b7 = load i1, ptr @have_epilog_slurmctld, align 1
+  %or.cond3 = select i1 %6, i1 %.b7, i1 false
   br i1 %or.cond3, label %.sink.split, label %9
 
 7:                                                ; preds = %2, %2

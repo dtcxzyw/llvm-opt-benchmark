@@ -84781,14 +84781,14 @@ _ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.14728845296163
 262:                                              ; preds = %.noexc6.i
   %263 = load i8, ptr %254, align 1, !range !729, !alias.scope !21873, !noalias !21878, !noundef !4
   %264 = getelementptr inbounds nuw i8, ptr %254, i64 1
-  %.sroa.0.0.copyload.i.i.i.i.i15.i = load i16, ptr %264, align 1, !alias.scope !21873, !noalias !21878
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %264, align 1, !alias.scope !21873, !noalias !21878
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !21859
   %265 = trunc nuw i8 %263 to i1
   br i1 %265, label %266, label %277
 
 266:                                              ; preds = %262
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !21816
-  store i16 %.sroa.0.0.copyload.i.i.i.i.i15.i, ptr %27, align 2, !noalias !21816
+  store i16 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %27, align 2, !noalias !21816
   invoke fastcc void @_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE(ptr noalias noundef align 8 dereferenceable(16) %29, i32 noundef 45)
           to label %267 unwind label %256, !noalias !21816
 

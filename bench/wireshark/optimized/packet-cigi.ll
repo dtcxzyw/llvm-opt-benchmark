@@ -4013,8 +4013,8 @@ define hidden void @proto_reg_handoff_cigi() #0 {
   br label %6
 
 6:                                                ; preds = %.sink.split, %3
-  %.b1 = load i1, ptr @proto_reg_handoff_cigi.inited, align 1
-  br i1 %.b1, label %227, label %7
+  %.b = load i1, ptr @proto_reg_handoff_cigi.inited, align 1
+  br i1 %.b, label %227, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @cigi_handle, align 8

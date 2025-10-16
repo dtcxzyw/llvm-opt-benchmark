@@ -44610,9 +44610,9 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hba71c4a9852e668
   %11 = lshr i128 %10, 64
   %12 = xor i128 %11, %10
   %13 = trunc i128 %12 to i64
-  %.val.i13 = load i64, ptr %5, align 8, !alias.scope !8623, !noalias !8626, !noundef !4
+  %.val.i = load i64, ptr %5, align 8, !alias.scope !8623, !noalias !8626, !noundef !4
   %14 = xor i64 %.val121.i, %13
-  %15 = xor i64 %.val.i13, 4983270260364809079
+  %15 = xor i64 %.val.i, 4983270260364809079
   %16 = zext i64 %14 to i128
   %17 = zext i64 %15 to i128
   %18 = mul nuw i128 %16, %17

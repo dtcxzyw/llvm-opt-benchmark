@@ -513,8 +513,8 @@ define hidden void @_ZN18ObjectSampleWriterC2ER19JfrCheckpointWriterP9EdgeStore(
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %.b6.i = load i1, ptr @_ZZL20register_serializersvE13is_registered, align 1
-  br i1 %.b6.i, label %_ZL20register_serializersv.exit, label %5
+  %.b.i = load i1, ptr @_ZZL20register_serializersvE13is_registered, align 1
+  br i1 %.b.i, label %_ZL20register_serializersv.exit, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #10

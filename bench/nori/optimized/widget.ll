@@ -480,8 +480,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %24, %32
-  %or.cond9.i = select i1 %or.cond.i, i1 %33, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
+  %or.cond8.i = select i1 %or.cond.i, i1 %33, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 52
@@ -525,8 +525,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load i32, ptr %56, align 8
   %58 = icmp slt i32 %49, %57
-  %or.cond9.i18 = select i1 %or.cond.i17, i1 %58, i1 false
-  br i1 %or.cond9.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
+  %or.cond8.i18 = select i1 %or.cond.i17, i1 %58, i1 false
+  br i1 %or.cond8.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19: ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -585,8 +585,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %24, %32
-  %or.cond9.i = select i1 %or.cond.i, i1 %33, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
+  %or.cond8.i = select i1 %or.cond.i, i1 %33, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 52
@@ -630,8 +630,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load i32, ptr %56, align 8
   %58 = icmp slt i32 %49, %57
-  %or.cond9.i18 = select i1 %or.cond.i17, i1 %58, i1 false
-  br i1 %or.cond9.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
+  %or.cond8.i18 = select i1 %or.cond.i17, i1 %58, i1 false
+  br i1 %or.cond8.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19: ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -694,8 +694,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %30, %38
-  %or.cond9.i = select i1 %or.cond.i, i1 %39, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
+  %or.cond8.i = select i1 %or.cond.i, i1 %39, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 52
@@ -820,8 +820,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %19
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %32, %40
-  %or.cond9.i = select i1 %or.cond.i, i1 %41, i1 false
-  br i1 %or.cond9.i, label %42, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
+  %or.cond8.i = select i1 %or.cond.i, i1 %41, i1 false
+  br i1 %or.cond8.i, label %42, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
 
 42:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 52
@@ -850,8 +850,8 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiE
   %63 = icmp sgt i32 %61, -1
   %or.cond.i33 = select i1 %62, i1 %63, i1 false
   %64 = icmp slt i32 %57, %40
-  %or.cond9.i34 = select i1 %or.cond.i33, i1 %64, i1 false
-  br i1 %or.cond9.i34, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge
+  %or.cond8.i34 = select i1 %or.cond.i33, i1 %64, i1 false
+  br i1 %or.cond8.i34, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit
   br i1 %46, label %69, label %76
@@ -953,8 +953,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %14
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %36 = load i32, ptr %35, align 4
   %37 = icmp slt i32 %28, %36
-  %or.cond9.i = select i1 %or.cond.i, i1 %37, i1 false
-  br i1 %or.cond9.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
+  %or.cond8.i = select i1 %or.cond.i, i1 %37, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %.critedge
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 52

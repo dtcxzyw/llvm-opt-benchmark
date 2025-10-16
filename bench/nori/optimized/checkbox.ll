@@ -149,11 +149,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge: ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %20, %29
-  %or.cond9.i = select i1 %or.cond.i, i1 %30, i1 false
+  %or.cond8.i = select i1 %or.cond.i, i1 %30, i1 false
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %25, %32
-  %or.cond11 = select i1 %or.cond9.i, i1 %33, i1 false
+  %or.cond11 = select i1 %or.cond8.i, i1 %33, i1 false
   br i1 %or.cond11, label %34, label %.sink.split
 
 34:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge

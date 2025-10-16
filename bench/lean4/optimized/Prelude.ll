@@ -43563,8 +43563,8 @@ lean_dec.exit:                                    ; preds = %15, %14, %12, %5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef nonnull ptr @initialize_Init_Prelude(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b1 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b1, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #11
@@ -45381,13 +45381,13 @@ _init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM___closed__6.exit: ; preds
   tail call void @lean_inc_heartbeat() #11
   %674 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
   %675 = icmp eq ptr %674, null
-  br i1 %675, label %676, label %lean_alloc_closure.exit.i26
+  br i1 %675, label %676, label %lean_alloc_closure.exit.i25
 
 676:                                              ; preds = %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM___closed__6.exit
   tail call void @lean_internal_panic_out_of_memory() #12
   unreachable
 
-lean_alloc_closure.exit.i26:                      ; preds = %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM___closed__6.exit
+lean_alloc_closure.exit.i25:                      ; preds = %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM___closed__6.exit
   %677 = getelementptr inbounds nuw i8, ptr %674, i64 4
   store i32 1, ptr %674, align 4, !tbaa !4
   store i32 -184549344, ptr %677, align 4
@@ -45405,11 +45405,11 @@ lean_alloc_closure.exit.i26:                      ; preds = %_init_l_Lean_Pretty
   %684 = icmp eq ptr %683, null
   br i1 %684, label %685, label %lean_alloc_closure.exit13.i
 
-685:                                              ; preds = %lean_alloc_closure.exit.i26
+685:                                              ; preds = %lean_alloc_closure.exit.i25
   tail call void @lean_internal_panic_out_of_memory() #12
   unreachable
 
-lean_alloc_closure.exit13.i:                      ; preds = %lean_alloc_closure.exit.i26
+lean_alloc_closure.exit13.i:                      ; preds = %lean_alloc_closure.exit.i25
   %686 = getelementptr inbounds nuw i8, ptr %683, i64 4
   store i32 1, ptr %683, align 4, !tbaa !4
   store i32 -184549344, ptr %686, align 4
@@ -45456,15 +45456,15 @@ _init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM.exit: ; preds = %lean_all
   unreachable
 
 lean_io_result_mk_ok.exit:                        ; preds = %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM.exit, %3
-  %.sink100 = phi ptr [ %4, %3 ], [ %701, %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM.exit ]
-  %704 = getelementptr inbounds nuw i8, ptr %.sink100, i64 4
-  store i32 1, ptr %.sink100, align 4, !tbaa !4
+  %.sink99 = phi ptr [ %4, %3 ], [ %701, %_init_l_Lean_PrettyPrinter_instMonadQuotationUnexpandM.exit ]
+  %704 = getelementptr inbounds nuw i8, ptr %.sink99, i64 4
+  store i32 1, ptr %.sink99, align 4, !tbaa !4
   store i32 131096, ptr %704, align 4
-  %705 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
+  %705 = getelementptr inbounds nuw i8, ptr %.sink99, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %705, align 8, !tbaa !10
-  %706 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
+  %706 = getelementptr inbounds nuw i8, ptr %.sink99, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %706, align 8, !tbaa !10
-  ret ptr %.sink100
+  ret ptr %.sink99
 }
 
 declare void @lean_mark_persistent(ptr noundef) local_unnamed_addr #1

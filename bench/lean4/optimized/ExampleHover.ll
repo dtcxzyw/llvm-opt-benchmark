@@ -10765,8 +10765,8 @@ lean_dec.exit:                                    ; preds = %54, %53, %51, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lean_Server_FileWorker_ExampleHover(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b4 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b4, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #3
@@ -10849,8 +10849,8 @@ _init_l___private_Lean_Server_FileWorker_ExampleHover_0__Lean_Server_FileWorker_
   tail call void @lean_mark_persistent(ptr noundef nonnull %33) #3
   %34 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__1, align 8, !tbaa !11
   %35 = getelementptr i8, ptr %34, i64 8
-  %.val.i5 = load i64, ptr %35, align 8, !tbaa !13
-  %36 = shl i64 %.val.i5, 1
+  %.val.i4 = load i64, ptr %35, align 8, !tbaa !13
+  %36 = shl i64 %.val.i4, 1
   %37 = add i64 %36, -1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__3, align 8, !tbaa !11
@@ -10883,16 +10883,16 @@ _init_l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExam
   tail call void @lean_mark_persistent(ptr noundef %48) #3
   %49 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__5, align 8, !tbaa !11
   %50 = getelementptr i8, ptr %49, i64 24
-  %.val.i6 = load i64, ptr %50, align 8, !tbaa !13
-  %51 = shl i64 %.val.i6, 1
+  %.val.i5 = load i64, ptr %50, align 8, !tbaa !13
+  %51 = shl i64 %.val.i5, 1
   %52 = or disjoint i64 %51, 1
   %53 = inttoptr i64 %52 to ptr
   store ptr %53, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %53) #3
   %54 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__5, align 8, !tbaa !11
   %55 = getelementptr i8, ptr %54, i64 8
-  %.val.i7 = load i64, ptr %55, align 8, !tbaa !13
-  %56 = shl i64 %.val.i7, 1
+  %.val.i6 = load i64, ptr %55, align 8, !tbaa !13
+  %56 = shl i64 %.val.i6, 1
   %57 = add i64 %56, -1
   %58 = inttoptr i64 %57 to ptr
   store ptr %58, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__7, align 8, !tbaa !11
@@ -10950,18 +10950,18 @@ _init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit: ; preds =
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !5
+  %.sink18 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
+  store i32 1, ptr %.sink18, align 4, !tbaa !5
   store i32 131096, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !11
-  %80 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %80, align 8, !tbaa !11
   br label %81
 
 81:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
   ret ptr %.0
 }
 

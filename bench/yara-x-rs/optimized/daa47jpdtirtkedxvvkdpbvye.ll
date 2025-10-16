@@ -25732,7 +25732,7 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   br label %"_ZN6yara_x7modules3elf6parser9ElfParser9parse_sym28_$u7b$$u7b$closure$u7d$$u7d$17ha443e322d6b68d9fE.exit.thread"
 
 65:                                               ; preds = %60
-  %.sroa.6191.0.copyload.i79.i.i = load i16, ptr %.sroa.6191.0..sroa_idx.i.i.i, align 8, !noalias !2970
+  %.sroa.6191.0.copyload.i.i.i = load i16, ptr %.sroa.6191.0..sroa_idx.i.i.i, align 8, !noalias !2970
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2970
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2966
   br label %"_ZN6yara_x7modules3elf6parser9ElfParser9parse_sym28_$u7b$$u7b$closure$u7d$$u7d$17ha443e322d6b68d9fE.exit"
@@ -25804,7 +25804,7 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   br label %94
 
 84:                                               ; preds = %80
-  %.sroa.6142.0.copyload.i87.i.i = load i8, ptr %.sroa.6142.0..sroa_idx.i.i.i, align 8, !noalias !2992
+  %.sroa.6142.0.copyload.i.i.i = load i8, ptr %.sroa.6142.0..sroa_idx.i.i.i, align 8, !noalias !2992
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2992
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2992
   call void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h93eaa50ab4d8a047E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 1 dereferenceable(1) %70, ptr noalias noundef nonnull readonly align 1 %.sroa.0140.0.copyload.i.i.i, i64 noundef %.sroa.5141.0.copyload.i.i.i), !noalias !2997
@@ -25867,15 +25867,15 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
 
 "_ZN6yara_x7modules3elf6parser9ElfParser9parse_sym28_$u7b$$u7b$closure$u7d$$u7d$17ha443e322d6b68d9fE.exit": ; preds = %65, %95
   %.sroa.6105.0.copyload.i.i.i.sink = phi i32 [ %.sroa.6105.0.copyload.i.i.i, %65 ], [ %.sroa.6105.0.copyload.i.i13.i, %95 ]
-  %.sroa.6191.0.copyload.i79.i.i.sink = phi i16 [ %.sroa.6191.0.copyload.i79.i.i, %65 ], [ %.sroa.6161.0.copyload.i.i.i, %95 ]
+  %.sroa.6191.0.copyload.i.i.i.sink = phi i16 [ %.sroa.6191.0.copyload.i.i.i, %65 ], [ %.sroa.6161.0.copyload.i.i.i, %95 ]
   %.sroa.6153.0.copyload.i.i.i.sink = phi i8 [ %.sroa.6153.0.copyload.i.i.i, %65 ], [ %.sroa.6123.0.copyload.i.i.i, %95 ]
-  %.sroa.6172.0.copyload.i.i.i.sink = phi i8 [ %.sroa.6172.0.copyload.i.i.i, %65 ], [ %.sroa.6142.0.copyload.i87.i.i, %95 ]
+  %.sroa.6172.0.copyload.i.i.i.sink = phi i8 [ %.sroa.6172.0.copyload.i.i.i, %65 ], [ %.sroa.6142.0.copyload.i.i.i, %95 ]
   %.sroa.20.0 = phi i64 [ %52, %65 ], [ %.sroa.6195.0.copyload.i.i.i, %95 ]
   %.sroa.14.0 = phi i64 [ %42, %65 ], [ %.sroa.6180.0.copyload.i.i.i, %95 ]
   %.sroa.8.0 = phi i64 [ %.sroa.5190.0.copyload.i.i.i, %65 ], [ %.sroa.5194.0.copyload.i.i.i, %95 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0189.0.copyload.i.i.i, %65 ], [ %.sroa.0193.0.copyload.i.i.i, %95 ]
   %.sroa.27.32.insert.ext68 = zext i32 %.sroa.6105.0.copyload.i.i.i.sink to i64
-  %.sroa.27.36.insert.ext73 = zext i16 %.sroa.6191.0.copyload.i79.i.i.sink to i64
+  %.sroa.27.36.insert.ext73 = zext i16 %.sroa.6191.0.copyload.i.i.i.sink to i64
   %.sroa.27.36.insert.shift74 = shl nuw nsw i64 %.sroa.27.36.insert.ext73, 32
   %.sroa.27.38.insert.ext78 = zext i8 %.sroa.6153.0.copyload.i.i.i.sink to i64
   %.sroa.27.38.insert.shift79 = shl nuw nsw i64 %.sroa.27.38.insert.ext78, 48

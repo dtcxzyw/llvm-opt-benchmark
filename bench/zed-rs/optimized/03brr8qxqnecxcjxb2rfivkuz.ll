@@ -156972,13 +156972,13 @@ define hidden { i64, ptr } @"_ZN7project7Project34handle_update_project_collabor
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load i8, ptr %9, align 8, !range !5223, !noundef !5
-  switch i8 %10, label %default.unreachable85 [
+  switch i8 %10, label %default.unreachable81 [
     i8 0, label %11
     i8 1, label %69
     i8 2, label %70
   ]
 
-default.unreachable85:                            ; preds = %2
+default.unreachable81:                            ; preds = %2
   unreachable
 
 11:                                               ; preds = %2
@@ -156990,13 +156990,13 @@ default.unreachable85:                            ; preds = %2
   %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.647.0.copyload = load i32, ptr %.sroa.647.0..sroa_idx, align 4
   %.sroa.748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.748.0.copyload8182 = load i32, ptr %.sroa.748.0..sroa_idx, align 8
+  %.sroa.748.0.copyload = load i32, ptr %.sroa.748.0..sroa_idx, align 8
   %.sroa.849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.849.sroa.0.0.copyload = load i32, ptr %.sroa.849.0..sroa_idx, align 4
   %.sroa.849.sroa.6.0..sroa.849.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.849.sroa.6.0.copyload = load i32, ptr %.sroa.849.sroa.6.0..sroa.849.0..sroa_idx.sroa_idx, align 8
   %.sroa.849.sroa.7.0..sroa.849.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.sroa.849.sroa.7.0.copyload8384 = load i32, ptr %.sroa.849.sroa.7.0..sroa.849.0..sroa_idx.sroa_idx, align 4
+  %.sroa.849.sroa.7.0.copyload = load i32, ptr %.sroa.849.sroa.7.0..sroa.849.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
@@ -157026,7 +157026,7 @@ default.unreachable85:                            ; preds = %2
 22:                                               ; preds = %11
   store i32 %.sroa.647.0.copyload, ptr %6, align 4
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %.sroa.748.0.copyload8182, ptr %23, align 4
+  store i32 %.sroa.748.0.copyload, ptr %23, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %trunc.i27 = trunc nuw i32 %.sroa.849.sroa.0.0.copyload to i1
   br i1 %trunc.i27, label %32, label %24
@@ -157054,7 +157054,7 @@ default.unreachable85:                            ; preds = %2
 32:                                               ; preds = %22
   store i32 %.sroa.849.sroa.6.0.copyload, ptr %5, align 4
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.sroa.849.sroa.7.0.copyload8384, ptr %33, align 4
+  store i32 %.sroa.849.sroa.7.0.copyload, ptr %33, align 4
   %34 = invoke { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$u20$gpui..Context$GT$12update_model17h72621973a9c77c0cE.llvm.18280151739928133679"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
           to label %"_ZN4gpui3app10entity_map14Model$LT$T$GT$6update17h3dec4b5c620c3e2dE.exit" unwind label %35
 

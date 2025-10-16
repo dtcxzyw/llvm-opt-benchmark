@@ -163,9 +163,9 @@ _ZL13next_class_idv.exit:                         ; preds = %2
   %6 = shl i64 %4, 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %6, ptr %7, align 8
-  %.b1011.i = load i1, ptr @_ZL30found_jdk_internal_event_klass, align 1
-  %.b12.i = load i1, ptr @_ZL25found_jdk_jfr_event_klass, align 1
-  %or.cond.i = select i1 %.b1011.i, i1 %.b12.i, i1 false
+  %.b10.i = load i1, ptr @_ZL30found_jdk_internal_event_klass, align 1
+  %.b.i = load i1, ptr @_ZL25found_jdk_jfr_event_klass, align 1
+  %or.cond.i = select i1 %.b10.i, i1 %.b.i, i1 false
   br i1 %or.cond.i, label %_ZL11check_klassPK5Klass.exit, label %8
 
 8:                                                ; preds = %_ZL13next_class_idv.exit
@@ -195,10 +195,10 @@ _ZL13next_class_idv.exit:                         ; preds = %2
   %21 = phi ptr [ %.pre.i, %17 ], [ %14, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %.b913.i = load i1, ptr @_ZL30found_jdk_internal_event_klass, align 1
+  %.b9.i = load i1, ptr @_ZL30found_jdk_internal_event_klass, align 1
   %24 = icmp ne ptr %21, %23
-  %or.cond16.not.i = select i1 %.b913.i, i1 true, i1 %24
-  br i1 %or.cond16.not.i, label %36, label %25
+  %or.cond12.not.i = select i1 %.b9.i, i1 true, i1 %24
+  br i1 %or.cond12.not.i, label %36, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -215,7 +215,7 @@ _ZNK5Klass12class_loaderEv.exit.i:                ; preds = %25
   br i1 %33, label %_ZNK5Klass12class_loaderEv.exit.thread.i, label %_ZNK5Klass12class_loaderEv.exit._crit_edge.i
 
 _ZNK5Klass12class_loaderEv.exit._crit_edge.i:     ; preds = %_ZNK5Klass12class_loaderEv.exit.i
-  %.pre20.i = load ptr, ptr @_ZZL11check_klassPK5KlassE17jdk_jfr_event_sym, align 8
+  %.pre16.i = load ptr, ptr @_ZZL11check_klassPK5KlassE17jdk_jfr_event_sym, align 8
   br label %36
 
 _ZNK5Klass12class_loaderEv.exit.thread.i:         ; preds = %_ZNK5Klass12class_loaderEv.exit.i, %25
@@ -227,11 +227,11 @@ _ZNK5Klass12class_loaderEv.exit.thread.i:         ; preds = %_ZNK5Klass12class_l
   br label %_ZL11check_klassPK5Klass.exit
 
 36:                                               ; preds = %_ZNK5Klass12class_loaderEv.exit._crit_edge.i, %19
-  %37 = phi ptr [ %.pre20.i, %_ZNK5Klass12class_loaderEv.exit._crit_edge.i ], [ %20, %19 ]
-  %.b814.i = load i1, ptr @_ZL25found_jdk_jfr_event_klass, align 1
+  %37 = phi ptr [ %.pre16.i, %_ZNK5Klass12class_loaderEv.exit._crit_edge.i ], [ %20, %19 ]
+  %.b8.i = load i1, ptr @_ZL25found_jdk_jfr_event_klass, align 1
   %38 = icmp ne ptr %37, %23
-  %or.cond18.not.i = select i1 %.b814.i, i1 true, i1 %38
-  br i1 %or.cond18.not.i, label %_ZL11check_klassPK5Klass.exit, label %39
+  %or.cond14.not.i = select i1 %.b8.i, i1 true, i1 %38
+  br i1 %or.cond14.not.i, label %_ZL11check_klassPK5Klass.exit, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -239,15 +239,15 @@ _ZNK5Klass12class_loaderEv.exit.thread.i:         ; preds = %_ZNK5Klass12class_l
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZNK5Klass12class_loaderEv.exit19.thread.i, label %_ZNK5Klass12class_loaderEv.exit19.i
+  br i1 %44, label %_ZNK5Klass12class_loaderEv.exit15.thread.i, label %_ZNK5Klass12class_loaderEv.exit15.i
 
-_ZNK5Klass12class_loaderEv.exit19.i:              ; preds = %39
+_ZNK5Klass12class_loaderEv.exit15.i:              ; preds = %39
   %45 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %46 = tail call noundef ptr %45(ptr noundef nonnull %43) #8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZNK5Klass12class_loaderEv.exit19.thread.i, label %_ZL11check_klassPK5Klass.exit
+  br i1 %47, label %_ZNK5Klass12class_loaderEv.exit15.thread.i, label %_ZL11check_klassPK5Klass.exit
 
-_ZNK5Klass12class_loaderEv.exit19.thread.i:       ; preds = %_ZNK5Klass12class_loaderEv.exit19.i, %39
+_ZNK5Klass12class_loaderEv.exit15.thread.i:       ; preds = %_ZNK5Klass12class_loaderEv.exit15.i, %39
   store i1 true, ptr @_ZL25found_jdk_jfr_event_klass, align 1
   %48 = load i8, ptr %7, align 1
   %49 = or i8 %48, 32
@@ -255,7 +255,7 @@ _ZNK5Klass12class_loaderEv.exit19.thread.i:       ; preds = %_ZNK5Klass12class_l
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   br label %_ZL11check_klassPK5Klass.exit
 
-_ZL11check_klassPK5Klass.exit:                    ; preds = %_ZL13next_class_idv.exit, %_ZNK5Klass12class_loaderEv.exit.thread.i, %36, %_ZNK5Klass12class_loaderEv.exit19.i, %_ZNK5Klass12class_loaderEv.exit19.thread.i
+_ZL11check_klassPK5Klass.exit:                    ; preds = %_ZL13next_class_idv.exit, %_ZNK5Klass12class_loaderEv.exit.thread.i, %36, %_ZNK5Klass12class_loaderEv.exit15.i, %_ZNK5Klass12class_loaderEv.exit15.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null

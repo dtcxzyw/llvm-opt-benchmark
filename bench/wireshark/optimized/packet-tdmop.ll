@@ -297,8 +297,8 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_tdmop() #0 {
-  %.b3 = load i1, ptr @proto_reg_handoff_tdmop.init, align 1
-  br i1 %.b3, label %9, label %1
+  %.b = load i1, ptr @proto_reg_handoff_tdmop.init, align 1
+  br i1 %.b, label %9, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @tdmop_handle, align 8
@@ -323,25 +323,25 @@ define hidden void @proto_reg_handoff_tdmop() #0 {
 
 9:                                                ; preds = %0
   %.pre = load i32, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
-  %.pre6 = load i32, ptr @pref_tdmop_ethertype, align 4
-  %10 = icmp eq i32 %.pre, %.pre6
+  %.pre5 = load i32, ptr @pref_tdmop_ethertype, align 4
+  %10 = icmp eq i32 %.pre, %.pre5
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @tdmop_handle, align 8
   tail call void @dissector_delete_uint(ptr noundef nonnull @.str.39, i32 noundef %.pre, ptr noundef %12)
   %13 = load i32, ptr @pref_tdmop_ethertype, align 4
-  %.not5 = icmp eq i32 %13, 0
-  br i1 %.not5, label %16, label %14
+  %.not4 = icmp eq i32 %13, 0
+  br i1 %.not4, label %16, label %14
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @tdmop_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.39, i32 noundef %13, ptr noundef %15)
-  %.pre7 = load i32, ptr @pref_tdmop_ethertype, align 4
+  %.pre6 = load i32, ptr @pref_tdmop_ethertype, align 4
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = phi i32 [ %.pre7, %14 ], [ 0, %11 ]
+  %17 = phi i32 [ %.pre6, %14 ], [ 0, %11 ]
   store i32 %17, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
   br label %18
 

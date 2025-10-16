@@ -100,8 +100,8 @@ define internal fastcc void @_ctypes_init_fielddesc() unnamed_addr #0 {
   br label %_PyMutex_Lock.exit
 
 _PyMutex_Lock.exit:                               ; preds = %0, %3
-  %.b1 = load i1, ptr @_ctypes_init_fielddesc.initialized, align 1
-  br i1 %.b1, label %108, label %4
+  %.b = load i1, ptr @_ctypes_init_fielddesc.initialized, align 1
+  br i1 %.b, label %108, label %4
 
 4:                                                ; preds = %_PyMutex_Lock.exit
   store i64 0, ptr @formattable, align 8

@@ -109602,8 +109602,8 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Lake_CLI_Translate_Lean(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b12 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b12, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #6
@@ -109632,25 +109632,25 @@ define ptr @initialize_Lake_CLI_Translate_Lean(i8 noundef zeroext %0, ptr nounde
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
   store i32 %15, ptr %8, align 4, !tbaa !8
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
 16:                                               ; preds = %11
-  %.not.i15 = icmp eq i32 %12, 0
-  br i1 %.not.i15, label %lean_dec_ref.exit16, label %17
+  %.not.i14 = icmp eq i32 %12, 0
+  br i1 %.not.i14, label %lean_dec_ref.exit15, label %17
 
 17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #6
-  br label %lean_dec_ref.exit16
+  br label %lean_dec_ref.exit15
 
-lean_dec_ref.exit16:                              ; preds = %14, %16, %17
+lean_dec_ref.exit15:                              ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Lake_Config_Package(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val17 = load i32, ptr %19, align 4
-  %.mask.i19 = and i32 %.val17, -16777216
-  %20 = icmp eq i32 %.mask.i19, 16777216
+  %.val16 = load i32, ptr %19, align 4
+  %.mask.i18 = and i32 %.val16, -16777216
+  %20 = icmp eq i32 %.mask.i18, 16777216
   br i1 %20, label %1769, label %21
 
-21:                                               ; preds = %lean_dec_ref.exit16
+21:                                               ; preds = %lean_dec_ref.exit15
   %22 = load i32, ptr %18, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
@@ -109658,25 +109658,25 @@ lean_dec_ref.exit16:                              ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !8
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
 26:                                               ; preds = %21
-  %.not.i13 = icmp eq i32 %22, 0
-  br i1 %.not.i13, label %lean_dec_ref.exit14, label %27
+  %.not.i12 = icmp eq i32 %22, 0
+  br i1 %.not.i12, label %lean_dec_ref.exit13, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #6
-  br label %lean_dec_ref.exit14
+  br label %lean_dec_ref.exit13
 
-lean_dec_ref.exit14:                              ; preds = %24, %26, %27
+lean_dec_ref.exit13:                              ; preds = %24, %26, %27
   %28 = tail call ptr @initialize_Lean_Parser_Module(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val18 = load i32, ptr %29, align 4
-  %.mask.i20 = and i32 %.val18, -16777216
-  %30 = icmp eq i32 %.mask.i20, 16777216
+  %.val17 = load i32, ptr %29, align 4
+  %.mask.i19 = and i32 %.val17, -16777216
+  %30 = icmp eq i32 %.mask.i19, 16777216
   br i1 %30, label %1769, label %31
 
-31:                                               ; preds = %lean_dec_ref.exit14
+31:                                               ; preds = %lean_dec_ref.exit13
   %32 = load i32, ptr %28, align 4, !tbaa !8
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %34, label %36, !prof !11
@@ -110842,8 +110842,8 @@ _init_l_Lake_PartialBuildKey_toLean_go___closed__6.exit: ; preds = %_init_l_Lake
   %533 = load ptr, ptr @l_Lean_firstFrontendMacroScope, align 8, !tbaa !12
   %534 = ptrtoint ptr %533 to i64
   %535 = and i64 %534, 1
-  %.not.i21 = icmp eq i64 %535, 0
-  br i1 %.not.i21, label %.critedge.i.i, label %536, !prof !18
+  %.not.i20 = icmp eq i64 %535, 0
+  br i1 %.not.i20, label %.critedge.i.i, label %536, !prof !18
 
 536:                                              ; preds = %_init_l_Lake_PartialBuildKey_toLean_go___closed__6.exit
   %537 = lshr i64 %534, 1
@@ -111119,8 +111119,8 @@ _init_l_Lean_RBNode_foldM___at_Lake_Dependency_mkRequire___spec__1___closed__12.
   tail call void @lean_mark_persistent(ptr noundef nonnull %660) #6
   %661 = load ptr, ptr @l_Lake_Dependency_mkRequire___closed__1, align 8, !tbaa !12
   %662 = getelementptr i8, ptr %661, i64 8
-  %.val.i22 = load i64, ptr %662, align 8, !tbaa !4
-  %663 = shl i64 %.val.i22, 1
+  %.val.i21 = load i64, ptr %662, align 8, !tbaa !4
+  %663 = shl i64 %.val.i21, 1
   %664 = add i64 %663, -1
   %665 = inttoptr i64 %664 to ptr
   store ptr %665, ptr @l_Lake_Dependency_mkRequire___closed__3, align 8, !tbaa !12
@@ -111956,8 +111956,8 @@ _init_l_Lake_commandGen__lean__encoders_x25____x40_Lake_CLI_Translate_Lean___hyg
   %1029 = load ptr, ptr %1028, align 8, !tbaa !12
   %1030 = ptrtoint ptr %1029 to i64
   %1031 = and i64 %1030, 1
-  %.not.i23 = icmp eq i64 %1031, 0
-  br i1 %.not.i23, label %1032, label %lean_inc.exit.i
+  %.not.i22 = icmp eq i64 %1031, 0
+  br i1 %.not.i22, label %1032, label %lean_inc.exit.i
 
 1032:                                             ; preds = %_init_l_Lake_commandGen__lean__encoders_x25____x40_Lake_CLI_Translate_Lean___hyg_3966____closed__17.exit
   %.val.i.i = load i32, ptr %1029, align 4, !tbaa !8
@@ -111985,7 +111985,7 @@ _init_l_Lake_commandGen__lean__encoders_x25____x40_Lake_CLI_Translate_Lean___hyg
 
 lean_inc.exit.i:                                  ; preds = %_init_l_Lake_commandGen__lean__encoders_x25____x40_Lake_CLI_Translate_Lean___hyg_3966____closed__17.exit
   %1039 = getelementptr i8, ptr %1029, i64 8
-  %.val.i24 = load i64, ptr %1039, align 8, !tbaa !4
+  %.val.i23 = load i64, ptr %1039, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit
 
 1040:                                             ; preds = %1038, %1034
@@ -112009,7 +112009,7 @@ lean_inc.exit.i:                                  ; preds = %_init_l_Lake_comman
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit
 
 _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit: ; preds = %.thread8.i, %lean_inc.exit.i, %1044, %1046, %1047
-  %.in.in.in.i = phi i64 [ %.val.i24, %lean_inc.exit.i ], [ %.val6.i, %1044 ], [ %.val6.i, %1046 ], [ %.val6.i, %1047 ], [ %.val67.i, %.thread8.i ]
+  %.in.in.in.i = phi i64 [ %.val.i23, %lean_inc.exit.i ], [ %.val6.i, %1044 ], [ %.val6.i, %1046 ], [ %.val6.i, %1047 ], [ %.val67.i, %.thread8.i ]
   %.in.in.i = shl i64 %.in.in.in.i, 1
   %.in.i = or disjoint i64 %.in.in.i, 1
   %1048 = inttoptr i64 %.in.i to ptr
@@ -112018,47 +112018,47 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1049 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1, align 8, !tbaa !12
   %1050 = ptrtoint ptr %1049 to i64
   %1051 = and i64 %1050, 1
-  %.not.i25 = icmp eq i64 %1051, 0
-  br i1 %.not.i25, label %.critedge.i.i27, label %1052, !prof !18
+  %.not.i24 = icmp eq i64 %1051, 0
+  br i1 %.not.i24, label %.critedge.i.i26, label %1052, !prof !18
 
 1052:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit
   %1053 = icmp ugt ptr %1049, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit
 
-.critedge.i.i27:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit
+.critedge.i.i26:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1.exit
   %1054 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1049) #6
   %.pre = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1, align 8, !tbaa !12
-  %.pre166 = ptrtoint ptr %.pre to i64
+  %.pre165 = ptrtoint ptr %.pre to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit: ; preds = %1052, %.critedge.i.i27
-  %.pre-phi = phi i64 [ %1050, %1052 ], [ %.pre166, %.critedge.i.i27 ]
-  %1055 = phi ptr [ %1049, %1052 ], [ %.pre, %.critedge.i.i27 ]
-  %.0.i.i26 = phi i1 [ %1053, %1052 ], [ %1054, %.critedge.i.i27 ]
-  %1056 = zext i1 %.0.i.i26 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit: ; preds = %1052, %.critedge.i.i26
+  %.pre-phi = phi i64 [ %1050, %1052 ], [ %.pre165, %.critedge.i.i26 ]
+  %1055 = phi ptr [ %1049, %1052 ], [ %.pre, %.critedge.i.i26 ]
+  %.0.i.i25 = phi i1 [ %1053, %1052 ], [ %1054, %.critedge.i.i26 ]
+  %1056 = zext i1 %.0.i.i25 to i8
   store i8 %1056, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2, align 1, !tbaa !17
   %1057 = and i64 %.pre-phi, 1
-  %.not.i28 = icmp eq i64 %1057, 0
-  br i1 %.not.i28, label %.critedge.i.i30, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit, !prof !18
+  %.not.i27 = icmp eq i64 %1057, 0
+  br i1 %.not.i27, label %.critedge.i.i29, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit, !prof !18
 
-.critedge.i.i30:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit
+.critedge.i.i29:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit
   %1058 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1055, ptr noundef %1055) #6
   %1059 = zext i1 %1058 to i8
-  %.pre153 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1, align 8, !tbaa !12
-  %.pre167 = ptrtoint ptr %.pre153 to i64
+  %.pre152 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__1, align 8, !tbaa !12
+  %.pre166 = ptrtoint ptr %.pre152 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit, %.critedge.i.i30
-  %.pre-phi168 = phi i64 [ %.pre-phi, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %.pre167, %.critedge.i.i30 ]
-  %1060 = phi ptr [ %1055, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %.pre153, %.critedge.i.i30 ]
-  %.0.i.i29 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %1059, %.critedge.i.i30 ]
-  store i8 %.0.i.i29, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3, align 1, !tbaa !17
-  %1061 = and i64 %.pre-phi168, 1
-  %.not.i.i31 = icmp eq i64 %1061, 0
-  br i1 %.not.i.i31, label %1064, label %1062
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit, %.critedge.i.i29
+  %.pre-phi167 = phi i64 [ %.pre-phi, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %.pre166, %.critedge.i.i29 ]
+  %1060 = phi ptr [ %1055, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %.pre152, %.critedge.i.i29 ]
+  %.0.i.i28 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__2.exit ], [ %1059, %.critedge.i.i29 ]
+  store i8 %.0.i.i28, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3, align 1, !tbaa !17
+  %1061 = and i64 %.pre-phi167, 1
+  %.not.i.i30 = icmp eq i64 %1061, 0
+  br i1 %.not.i.i30, label %1064, label %1062
 
 1062:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit
-  %1063 = lshr i64 %.pre-phi168, 1
+  %1063 = lshr i64 %.pre-phi167, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__4.exit
 
 1064:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__3.exit
@@ -112073,42 +112073,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1069 = load ptr, ptr %1068, align 8, !tbaa !12
   %1070 = ptrtoint ptr %1069 to i64
   %1071 = and i64 %1070, 1
-  %.not.i32 = icmp eq i64 %1071, 0
-  br i1 %.not.i32, label %1072, label %lean_inc.exit.i33
+  %.not.i31 = icmp eq i64 %1071, 0
+  br i1 %.not.i31, label %1072, label %lean_inc.exit.i32
 
 1072:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__4.exit
-  %.val.i.i38 = load i32, ptr %1069, align 4, !tbaa !8
-  %1073 = icmp sgt i32 %.val.i.i38, 0
+  %.val.i.i37 = load i32, ptr %1069, align 4, !tbaa !8
+  %1073 = icmp sgt i32 %.val.i.i37, 0
   br i1 %1073, label %1074, label %1076, !prof !11
 
 1074:                                             ; preds = %1072
-  %1075 = add nuw i32 %.val.i.i38, 1
+  %1075 = add nuw i32 %.val.i.i37, 1
   store i32 %1075, ptr %1069, align 4, !tbaa !8
   br label %1080
 
 1076:                                             ; preds = %1072
-  %.not.i5.i39 = icmp eq i32 %.val.i.i38, 0
-  br i1 %.not.i5.i39, label %.thread8.i43, label %1078
+  %.not.i5.i38 = icmp eq i32 %.val.i.i37, 0
+  br i1 %.not.i5.i38, label %.thread8.i42, label %1078
 
-.thread8.i43:                                     ; preds = %1076
+.thread8.i42:                                     ; preds = %1076
   %1077 = getelementptr i8, ptr %1069, i64 8
-  %.val67.i44 = load i64, ptr %1077, align 8, !tbaa !4
+  %.val67.i43 = load i64, ptr %1077, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
 
 1078:                                             ; preds = %1076
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1069) #6
-  %.pr.i40 = load i32, ptr %1069, align 4, !tbaa !8
+  %.pr.i39 = load i32, ptr %1069, align 4, !tbaa !8
   br label %1080
 
-lean_inc.exit.i33:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__4.exit
+lean_inc.exit.i32:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___closed__4.exit
   %1079 = getelementptr i8, ptr %1069, i64 8
-  %.val.i34 = load i64, ptr %1079, align 8, !tbaa !4
+  %.val.i33 = load i64, ptr %1079, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
 
 1080:                                             ; preds = %1078, %1074
-  %1081 = phi i32 [ %.pr.i40, %1078 ], [ %1075, %1074 ]
+  %1081 = phi i32 [ %.pr.i39, %1078 ], [ %1075, %1074 ]
   %1082 = getelementptr i8, ptr %1069, i64 8
-  %.val6.i41 = load i64, ptr %1082, align 8, !tbaa !4
+  %.val6.i40 = load i64, ptr %1082, align 8, !tbaa !4
   %1083 = icmp sgt i32 %1081, 1
   br i1 %1083, label %1084, label %1086, !prof !16
 
@@ -112118,64 +112118,64 @@ lean_inc.exit.i33:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
 
 1086:                                             ; preds = %1080
-  %.not.i.i42 = icmp eq i32 %1081, 0
-  br i1 %.not.i.i42, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit, label %1087
+  %.not.i.i41 = icmp eq i32 %1081, 0
+  br i1 %.not.i.i41, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit, label %1087
 
 1087:                                             ; preds = %1086
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1069) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit: ; preds = %.thread8.i43, %lean_inc.exit.i33, %1084, %1086, %1087
-  %.in.in.in.i35 = phi i64 [ %.val.i34, %lean_inc.exit.i33 ], [ %.val6.i41, %1084 ], [ %.val6.i41, %1086 ], [ %.val6.i41, %1087 ], [ %.val67.i44, %.thread8.i43 ]
-  %.in.in.i36 = shl i64 %.in.in.in.i35, 1
-  %.in.i37 = or disjoint i64 %.in.in.i36, 1
-  %1088 = inttoptr i64 %.in.i37 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit: ; preds = %.thread8.i42, %lean_inc.exit.i32, %1084, %1086, %1087
+  %.in.in.in.i34 = phi i64 [ %.val.i33, %lean_inc.exit.i32 ], [ %.val6.i40, %1084 ], [ %.val6.i40, %1086 ], [ %.val6.i40, %1087 ], [ %.val67.i43, %.thread8.i42 ]
+  %.in.in.i35 = shl i64 %.in.in.in.i34, 1
+  %.in.i36 = or disjoint i64 %.in.in.i35, 1
+  %1088 = inttoptr i64 %.in.i36 to ptr
   store ptr %1088, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1088) #6
   %1089 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
   %1090 = ptrtoint ptr %1089 to i64
   %1091 = and i64 %1090, 1
-  %.not.i45 = icmp eq i64 %1091, 0
-  br i1 %.not.i45, label %.critedge.i.i47, label %1092, !prof !18
+  %.not.i44 = icmp eq i64 %1091, 0
+  br i1 %.not.i44, label %.critedge.i.i46, label %1092, !prof !18
 
 1092:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
   %1093 = icmp ugt ptr %1089, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit
 
-.critedge.i.i47:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
+.critedge.i.i46:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1.exit
   %1094 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1089) #6
-  %.pre154 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
-  %.pre169 = ptrtoint ptr %.pre154 to i64
+  %.pre153 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
+  %.pre168 = ptrtoint ptr %.pre153 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit: ; preds = %1092, %.critedge.i.i47
-  %.pre-phi170 = phi i64 [ %1090, %1092 ], [ %.pre169, %.critedge.i.i47 ]
-  %1095 = phi ptr [ %1089, %1092 ], [ %.pre154, %.critedge.i.i47 ]
-  %.0.i.i46 = phi i1 [ %1093, %1092 ], [ %1094, %.critedge.i.i47 ]
-  %1096 = zext i1 %.0.i.i46 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit: ; preds = %1092, %.critedge.i.i46
+  %.pre-phi169 = phi i64 [ %1090, %1092 ], [ %.pre168, %.critedge.i.i46 ]
+  %1095 = phi ptr [ %1089, %1092 ], [ %.pre153, %.critedge.i.i46 ]
+  %.0.i.i45 = phi i1 [ %1093, %1092 ], [ %1094, %.critedge.i.i46 ]
+  %1096 = zext i1 %.0.i.i45 to i8
   store i8 %1096, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2, align 1, !tbaa !17
-  %1097 = and i64 %.pre-phi170, 1
-  %.not.i48 = icmp eq i64 %1097, 0
-  br i1 %.not.i48, label %.critedge.i.i50, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit, !prof !18
+  %1097 = and i64 %.pre-phi169, 1
+  %.not.i47 = icmp eq i64 %1097, 0
+  br i1 %.not.i47, label %.critedge.i.i49, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit, !prof !18
 
-.critedge.i.i50:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit
+.critedge.i.i49:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit
   %1098 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1095, ptr noundef %1095) #6
   %1099 = zext i1 %1098 to i8
-  %.pre155 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
-  %.pre171 = ptrtoint ptr %.pre155 to i64
+  %.pre154 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__1, align 8, !tbaa !12
+  %.pre170 = ptrtoint ptr %.pre154 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit, %.critedge.i.i50
-  %.pre-phi172 = phi i64 [ %.pre-phi170, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %.pre171, %.critedge.i.i50 ]
-  %1100 = phi ptr [ %1095, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %.pre155, %.critedge.i.i50 ]
-  %.0.i.i49 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %1099, %.critedge.i.i50 ]
-  store i8 %.0.i.i49, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3, align 1, !tbaa !17
-  %1101 = and i64 %.pre-phi172, 1
-  %.not.i.i51 = icmp eq i64 %1101, 0
-  br i1 %.not.i.i51, label %1104, label %1102
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit, %.critedge.i.i49
+  %.pre-phi171 = phi i64 [ %.pre-phi169, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %.pre170, %.critedge.i.i49 ]
+  %1100 = phi ptr [ %1095, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %.pre154, %.critedge.i.i49 ]
+  %.0.i.i48 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__2.exit ], [ %1099, %.critedge.i.i49 ]
+  store i8 %.0.i.i48, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3, align 1, !tbaa !17
+  %1101 = and i64 %.pre-phi171, 1
+  %.not.i.i50 = icmp eq i64 %1101, 0
+  br i1 %.not.i.i50, label %1104, label %1102
 
 1102:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit
-  %1103 = lshr i64 %.pre-phi172, 1
+  %1103 = lshr i64 %.pre-phi171, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__4.exit
 
 1104:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__3.exit
@@ -112190,42 +112190,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1109 = load ptr, ptr %1108, align 8, !tbaa !12
   %1110 = ptrtoint ptr %1109 to i64
   %1111 = and i64 %1110, 1
-  %.not.i52 = icmp eq i64 %1111, 0
-  br i1 %.not.i52, label %1112, label %lean_inc.exit.i53
+  %.not.i51 = icmp eq i64 %1111, 0
+  br i1 %.not.i51, label %1112, label %lean_inc.exit.i52
 
 1112:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__4.exit
-  %.val.i.i58 = load i32, ptr %1109, align 4, !tbaa !8
-  %1113 = icmp sgt i32 %.val.i.i58, 0
+  %.val.i.i57 = load i32, ptr %1109, align 4, !tbaa !8
+  %1113 = icmp sgt i32 %.val.i.i57, 0
   br i1 %1113, label %1114, label %1116, !prof !11
 
 1114:                                             ; preds = %1112
-  %1115 = add nuw i32 %.val.i.i58, 1
+  %1115 = add nuw i32 %.val.i.i57, 1
   store i32 %1115, ptr %1109, align 4, !tbaa !8
   br label %1120
 
 1116:                                             ; preds = %1112
-  %.not.i5.i59 = icmp eq i32 %.val.i.i58, 0
-  br i1 %.not.i5.i59, label %.thread8.i63, label %1118
+  %.not.i5.i58 = icmp eq i32 %.val.i.i57, 0
+  br i1 %.not.i5.i58, label %.thread8.i62, label %1118
 
-.thread8.i63:                                     ; preds = %1116
+.thread8.i62:                                     ; preds = %1116
   %1117 = getelementptr i8, ptr %1109, i64 8
-  %.val67.i64 = load i64, ptr %1117, align 8, !tbaa !4
+  %.val67.i63 = load i64, ptr %1117, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
 
 1118:                                             ; preds = %1116
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1109) #6
-  %.pr.i60 = load i32, ptr %1109, align 4, !tbaa !8
+  %.pr.i59 = load i32, ptr %1109, align 4, !tbaa !8
   br label %1120
 
-lean_inc.exit.i53:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__4.exit
+lean_inc.exit.i52:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___closed__4.exit
   %1119 = getelementptr i8, ptr %1109, i64 8
-  %.val.i54 = load i64, ptr %1119, align 8, !tbaa !4
+  %.val.i53 = load i64, ptr %1119, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
 
 1120:                                             ; preds = %1118, %1114
-  %1121 = phi i32 [ %.pr.i60, %1118 ], [ %1115, %1114 ]
+  %1121 = phi i32 [ %.pr.i59, %1118 ], [ %1115, %1114 ]
   %1122 = getelementptr i8, ptr %1109, i64 8
-  %.val6.i61 = load i64, ptr %1122, align 8, !tbaa !4
+  %.val6.i60 = load i64, ptr %1122, align 8, !tbaa !4
   %1123 = icmp sgt i32 %1121, 1
   br i1 %1123, label %1124, label %1126, !prof !16
 
@@ -112235,64 +112235,64 @@ lean_inc.exit.i53:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
 
 1126:                                             ; preds = %1120
-  %.not.i.i62 = icmp eq i32 %1121, 0
-  br i1 %.not.i.i62, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit, label %1127
+  %.not.i.i61 = icmp eq i32 %1121, 0
+  br i1 %.not.i.i61, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit, label %1127
 
 1127:                                             ; preds = %1126
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1109) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit: ; preds = %.thread8.i63, %lean_inc.exit.i53, %1124, %1126, %1127
-  %.in.in.in.i55 = phi i64 [ %.val.i54, %lean_inc.exit.i53 ], [ %.val6.i61, %1124 ], [ %.val6.i61, %1126 ], [ %.val6.i61, %1127 ], [ %.val67.i64, %.thread8.i63 ]
-  %.in.in.i56 = shl i64 %.in.in.in.i55, 1
-  %.in.i57 = or disjoint i64 %.in.in.i56, 1
-  %1128 = inttoptr i64 %.in.i57 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit: ; preds = %.thread8.i62, %lean_inc.exit.i52, %1124, %1126, %1127
+  %.in.in.in.i54 = phi i64 [ %.val.i53, %lean_inc.exit.i52 ], [ %.val6.i60, %1124 ], [ %.val6.i60, %1126 ], [ %.val6.i60, %1127 ], [ %.val67.i63, %.thread8.i62 ]
+  %.in.in.i55 = shl i64 %.in.in.in.i54, 1
+  %.in.i56 = or disjoint i64 %.in.in.i55, 1
+  %1128 = inttoptr i64 %.in.i56 to ptr
   store ptr %1128, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1128) #6
   %1129 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
   %1130 = ptrtoint ptr %1129 to i64
   %1131 = and i64 %1130, 1
-  %.not.i65 = icmp eq i64 %1131, 0
-  br i1 %.not.i65, label %.critedge.i.i67, label %1132, !prof !18
+  %.not.i64 = icmp eq i64 %1131, 0
+  br i1 %.not.i64, label %.critedge.i.i66, label %1132, !prof !18
 
 1132:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
   %1133 = icmp ugt ptr %1129, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit
 
-.critedge.i.i67:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
+.critedge.i.i66:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1.exit
   %1134 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1129) #6
-  %.pre156 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
-  %.pre173 = ptrtoint ptr %.pre156 to i64
+  %.pre155 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
+  %.pre172 = ptrtoint ptr %.pre155 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit: ; preds = %1132, %.critedge.i.i67
-  %.pre-phi174 = phi i64 [ %1130, %1132 ], [ %.pre173, %.critedge.i.i67 ]
-  %1135 = phi ptr [ %1129, %1132 ], [ %.pre156, %.critedge.i.i67 ]
-  %.0.i.i66 = phi i1 [ %1133, %1132 ], [ %1134, %.critedge.i.i67 ]
-  %1136 = zext i1 %.0.i.i66 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit: ; preds = %1132, %.critedge.i.i66
+  %.pre-phi173 = phi i64 [ %1130, %1132 ], [ %.pre172, %.critedge.i.i66 ]
+  %1135 = phi ptr [ %1129, %1132 ], [ %.pre155, %.critedge.i.i66 ]
+  %.0.i.i65 = phi i1 [ %1133, %1132 ], [ %1134, %.critedge.i.i66 ]
+  %1136 = zext i1 %.0.i.i65 to i8
   store i8 %1136, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2, align 1, !tbaa !17
-  %1137 = and i64 %.pre-phi174, 1
-  %.not.i68 = icmp eq i64 %1137, 0
-  br i1 %.not.i68, label %.critedge.i.i70, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit, !prof !18
+  %1137 = and i64 %.pre-phi173, 1
+  %.not.i67 = icmp eq i64 %1137, 0
+  br i1 %.not.i67, label %.critedge.i.i69, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit, !prof !18
 
-.critedge.i.i70:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit
+.critedge.i.i69:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit
   %1138 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1135, ptr noundef %1135) #6
   %1139 = zext i1 %1138 to i8
-  %.pre157 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
-  %.pre175 = ptrtoint ptr %.pre157 to i64
+  %.pre156 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__1, align 8, !tbaa !12
+  %.pre174 = ptrtoint ptr %.pre156 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit, %.critedge.i.i70
-  %.pre-phi176 = phi i64 [ %.pre-phi174, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %.pre175, %.critedge.i.i70 ]
-  %1140 = phi ptr [ %1135, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %.pre157, %.critedge.i.i70 ]
-  %.0.i.i69 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %1139, %.critedge.i.i70 ]
-  store i8 %.0.i.i69, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3, align 1, !tbaa !17
-  %1141 = and i64 %.pre-phi176, 1
-  %.not.i.i71 = icmp eq i64 %1141, 0
-  br i1 %.not.i.i71, label %1144, label %1142
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit, %.critedge.i.i69
+  %.pre-phi175 = phi i64 [ %.pre-phi173, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %.pre174, %.critedge.i.i69 ]
+  %1140 = phi ptr [ %1135, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %.pre156, %.critedge.i.i69 ]
+  %.0.i.i68 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__2.exit ], [ %1139, %.critedge.i.i69 ]
+  store i8 %.0.i.i68, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3, align 1, !tbaa !17
+  %1141 = and i64 %.pre-phi175, 1
+  %.not.i.i70 = icmp eq i64 %1141, 0
+  br i1 %.not.i.i70, label %1144, label %1142
 
 1142:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit
-  %1143 = lshr i64 %.pre-phi176, 1
+  %1143 = lshr i64 %.pre-phi175, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__4.exit
 
 1144:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__3.exit
@@ -112307,42 +112307,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1149 = load ptr, ptr %1148, align 8, !tbaa !12
   %1150 = ptrtoint ptr %1149 to i64
   %1151 = and i64 %1150, 1
-  %.not.i72 = icmp eq i64 %1151, 0
-  br i1 %.not.i72, label %1152, label %lean_inc.exit.i73
+  %.not.i71 = icmp eq i64 %1151, 0
+  br i1 %.not.i71, label %1152, label %lean_inc.exit.i72
 
 1152:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__4.exit
-  %.val.i.i78 = load i32, ptr %1149, align 4, !tbaa !8
-  %1153 = icmp sgt i32 %.val.i.i78, 0
+  %.val.i.i77 = load i32, ptr %1149, align 4, !tbaa !8
+  %1153 = icmp sgt i32 %.val.i.i77, 0
   br i1 %1153, label %1154, label %1156, !prof !11
 
 1154:                                             ; preds = %1152
-  %1155 = add nuw i32 %.val.i.i78, 1
+  %1155 = add nuw i32 %.val.i.i77, 1
   store i32 %1155, ptr %1149, align 4, !tbaa !8
   br label %1160
 
 1156:                                             ; preds = %1152
-  %.not.i5.i79 = icmp eq i32 %.val.i.i78, 0
-  br i1 %.not.i5.i79, label %.thread8.i83, label %1158
+  %.not.i5.i78 = icmp eq i32 %.val.i.i77, 0
+  br i1 %.not.i5.i78, label %.thread8.i82, label %1158
 
-.thread8.i83:                                     ; preds = %1156
+.thread8.i82:                                     ; preds = %1156
   %1157 = getelementptr i8, ptr %1149, i64 8
-  %.val67.i84 = load i64, ptr %1157, align 8, !tbaa !4
+  %.val67.i83 = load i64, ptr %1157, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
 
 1158:                                             ; preds = %1156
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1149) #6
-  %.pr.i80 = load i32, ptr %1149, align 4, !tbaa !8
+  %.pr.i79 = load i32, ptr %1149, align 4, !tbaa !8
   br label %1160
 
-lean_inc.exit.i73:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__4.exit
+lean_inc.exit.i72:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___closed__4.exit
   %1159 = getelementptr i8, ptr %1149, i64 8
-  %.val.i74 = load i64, ptr %1159, align 8, !tbaa !4
+  %.val.i73 = load i64, ptr %1159, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
 
 1160:                                             ; preds = %1158, %1154
-  %1161 = phi i32 [ %.pr.i80, %1158 ], [ %1155, %1154 ]
+  %1161 = phi i32 [ %.pr.i79, %1158 ], [ %1155, %1154 ]
   %1162 = getelementptr i8, ptr %1149, i64 8
-  %.val6.i81 = load i64, ptr %1162, align 8, !tbaa !4
+  %.val6.i80 = load i64, ptr %1162, align 8, !tbaa !4
   %1163 = icmp sgt i32 %1161, 1
   br i1 %1163, label %1164, label %1166, !prof !16
 
@@ -112352,64 +112352,64 @@ lean_inc.exit.i73:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
 
 1166:                                             ; preds = %1160
-  %.not.i.i82 = icmp eq i32 %1161, 0
-  br i1 %.not.i.i82, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit, label %1167
+  %.not.i.i81 = icmp eq i32 %1161, 0
+  br i1 %.not.i.i81, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit, label %1167
 
 1167:                                             ; preds = %1166
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1149) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit: ; preds = %.thread8.i83, %lean_inc.exit.i73, %1164, %1166, %1167
-  %.in.in.in.i75 = phi i64 [ %.val.i74, %lean_inc.exit.i73 ], [ %.val6.i81, %1164 ], [ %.val6.i81, %1166 ], [ %.val6.i81, %1167 ], [ %.val67.i84, %.thread8.i83 ]
-  %.in.in.i76 = shl i64 %.in.in.in.i75, 1
-  %.in.i77 = or disjoint i64 %.in.in.i76, 1
-  %1168 = inttoptr i64 %.in.i77 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit: ; preds = %.thread8.i82, %lean_inc.exit.i72, %1164, %1166, %1167
+  %.in.in.in.i74 = phi i64 [ %.val.i73, %lean_inc.exit.i72 ], [ %.val6.i80, %1164 ], [ %.val6.i80, %1166 ], [ %.val6.i80, %1167 ], [ %.val67.i83, %.thread8.i82 ]
+  %.in.in.i75 = shl i64 %.in.in.in.i74, 1
+  %.in.i76 = or disjoint i64 %.in.in.i75, 1
+  %1168 = inttoptr i64 %.in.i76 to ptr
   store ptr %1168, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1168) #6
   %1169 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
   %1170 = ptrtoint ptr %1169 to i64
   %1171 = and i64 %1170, 1
-  %.not.i85 = icmp eq i64 %1171, 0
-  br i1 %.not.i85, label %.critedge.i.i87, label %1172, !prof !18
+  %.not.i84 = icmp eq i64 %1171, 0
+  br i1 %.not.i84, label %.critedge.i.i86, label %1172, !prof !18
 
 1172:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
   %1173 = icmp ugt ptr %1169, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit
 
-.critedge.i.i87:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
+.critedge.i.i86:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1.exit
   %1174 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1169) #6
-  %.pre158 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
-  %.pre177 = ptrtoint ptr %.pre158 to i64
+  %.pre157 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
+  %.pre176 = ptrtoint ptr %.pre157 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit: ; preds = %1172, %.critedge.i.i87
-  %.pre-phi178 = phi i64 [ %1170, %1172 ], [ %.pre177, %.critedge.i.i87 ]
-  %1175 = phi ptr [ %1169, %1172 ], [ %.pre158, %.critedge.i.i87 ]
-  %.0.i.i86 = phi i1 [ %1173, %1172 ], [ %1174, %.critedge.i.i87 ]
-  %1176 = zext i1 %.0.i.i86 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit: ; preds = %1172, %.critedge.i.i86
+  %.pre-phi177 = phi i64 [ %1170, %1172 ], [ %.pre176, %.critedge.i.i86 ]
+  %1175 = phi ptr [ %1169, %1172 ], [ %.pre157, %.critedge.i.i86 ]
+  %.0.i.i85 = phi i1 [ %1173, %1172 ], [ %1174, %.critedge.i.i86 ]
+  %1176 = zext i1 %.0.i.i85 to i8
   store i8 %1176, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2, align 1, !tbaa !17
-  %1177 = and i64 %.pre-phi178, 1
-  %.not.i88 = icmp eq i64 %1177, 0
-  br i1 %.not.i88, label %.critedge.i.i90, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit, !prof !18
+  %1177 = and i64 %.pre-phi177, 1
+  %.not.i87 = icmp eq i64 %1177, 0
+  br i1 %.not.i87, label %.critedge.i.i89, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit, !prof !18
 
-.critedge.i.i90:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit
+.critedge.i.i89:                                  ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit
   %1178 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1175, ptr noundef %1175) #6
   %1179 = zext i1 %1178 to i8
-  %.pre159 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
-  %.pre179 = ptrtoint ptr %.pre159 to i64
+  %.pre158 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__1, align 8, !tbaa !12
+  %.pre178 = ptrtoint ptr %.pre158 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit, %.critedge.i.i90
-  %.pre-phi180 = phi i64 [ %.pre-phi178, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %.pre179, %.critedge.i.i90 ]
-  %1180 = phi ptr [ %1175, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %.pre159, %.critedge.i.i90 ]
-  %.0.i.i89 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %1179, %.critedge.i.i90 ]
-  store i8 %.0.i.i89, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3, align 1, !tbaa !17
-  %1181 = and i64 %.pre-phi180, 1
-  %.not.i.i91 = icmp eq i64 %1181, 0
-  br i1 %.not.i.i91, label %1184, label %1182
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit, %.critedge.i.i89
+  %.pre-phi179 = phi i64 [ %.pre-phi177, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %.pre178, %.critedge.i.i89 ]
+  %1180 = phi ptr [ %1175, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %.pre158, %.critedge.i.i89 ]
+  %.0.i.i88 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__2.exit ], [ %1179, %.critedge.i.i89 ]
+  store i8 %.0.i.i88, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3, align 1, !tbaa !17
+  %1181 = and i64 %.pre-phi179, 1
+  %.not.i.i90 = icmp eq i64 %1181, 0
+  br i1 %.not.i.i90, label %1184, label %1182
 
 1182:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit
-  %1183 = lshr i64 %.pre-phi180, 1
+  %1183 = lshr i64 %.pre-phi179, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__4.exit
 
 1184:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__3.exit
@@ -112424,42 +112424,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1189 = load ptr, ptr %1188, align 8, !tbaa !12
   %1190 = ptrtoint ptr %1189 to i64
   %1191 = and i64 %1190, 1
-  %.not.i92 = icmp eq i64 %1191, 0
-  br i1 %.not.i92, label %1192, label %lean_inc.exit.i93
+  %.not.i91 = icmp eq i64 %1191, 0
+  br i1 %.not.i91, label %1192, label %lean_inc.exit.i92
 
 1192:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__4.exit
-  %.val.i.i98 = load i32, ptr %1189, align 4, !tbaa !8
-  %1193 = icmp sgt i32 %.val.i.i98, 0
+  %.val.i.i97 = load i32, ptr %1189, align 4, !tbaa !8
+  %1193 = icmp sgt i32 %.val.i.i97, 0
   br i1 %1193, label %1194, label %1196, !prof !11
 
 1194:                                             ; preds = %1192
-  %1195 = add nuw i32 %.val.i.i98, 1
+  %1195 = add nuw i32 %.val.i.i97, 1
   store i32 %1195, ptr %1189, align 4, !tbaa !8
   br label %1200
 
 1196:                                             ; preds = %1192
-  %.not.i5.i99 = icmp eq i32 %.val.i.i98, 0
-  br i1 %.not.i5.i99, label %.thread8.i103, label %1198
+  %.not.i5.i98 = icmp eq i32 %.val.i.i97, 0
+  br i1 %.not.i5.i98, label %.thread8.i102, label %1198
 
-.thread8.i103:                                    ; preds = %1196
+.thread8.i102:                                    ; preds = %1196
   %1197 = getelementptr i8, ptr %1189, i64 8
-  %.val67.i104 = load i64, ptr %1197, align 8, !tbaa !4
+  %.val67.i103 = load i64, ptr %1197, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
 
 1198:                                             ; preds = %1196
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1189) #6
-  %.pr.i100 = load i32, ptr %1189, align 4, !tbaa !8
+  %.pr.i99 = load i32, ptr %1189, align 4, !tbaa !8
   br label %1200
 
-lean_inc.exit.i93:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__4.exit
+lean_inc.exit.i92:                                ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___closed__4.exit
   %1199 = getelementptr i8, ptr %1189, i64 8
-  %.val.i94 = load i64, ptr %1199, align 8, !tbaa !4
+  %.val.i93 = load i64, ptr %1199, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
 
 1200:                                             ; preds = %1198, %1194
-  %1201 = phi i32 [ %.pr.i100, %1198 ], [ %1195, %1194 ]
+  %1201 = phi i32 [ %.pr.i99, %1198 ], [ %1195, %1194 ]
   %1202 = getelementptr i8, ptr %1189, i64 8
-  %.val6.i101 = load i64, ptr %1202, align 8, !tbaa !4
+  %.val6.i100 = load i64, ptr %1202, align 8, !tbaa !4
   %1203 = icmp sgt i32 %1201, 1
   br i1 %1203, label %1204, label %1206, !prof !16
 
@@ -112469,64 +112469,64 @@ lean_inc.exit.i93:                                ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
 
 1206:                                             ; preds = %1200
-  %.not.i.i102 = icmp eq i32 %1201, 0
-  br i1 %.not.i.i102, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit, label %1207
+  %.not.i.i101 = icmp eq i32 %1201, 0
+  br i1 %.not.i.i101, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit, label %1207
 
 1207:                                             ; preds = %1206
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1189) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit: ; preds = %.thread8.i103, %lean_inc.exit.i93, %1204, %1206, %1207
-  %.in.in.in.i95 = phi i64 [ %.val.i94, %lean_inc.exit.i93 ], [ %.val6.i101, %1204 ], [ %.val6.i101, %1206 ], [ %.val6.i101, %1207 ], [ %.val67.i104, %.thread8.i103 ]
-  %.in.in.i96 = shl i64 %.in.in.in.i95, 1
-  %.in.i97 = or disjoint i64 %.in.in.i96, 1
-  %1208 = inttoptr i64 %.in.i97 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit: ; preds = %.thread8.i102, %lean_inc.exit.i92, %1204, %1206, %1207
+  %.in.in.in.i94 = phi i64 [ %.val.i93, %lean_inc.exit.i92 ], [ %.val6.i100, %1204 ], [ %.val6.i100, %1206 ], [ %.val6.i100, %1207 ], [ %.val67.i103, %.thread8.i102 ]
+  %.in.in.i95 = shl i64 %.in.in.in.i94, 1
+  %.in.i96 = or disjoint i64 %.in.in.i95, 1
+  %1208 = inttoptr i64 %.in.i96 to ptr
   store ptr %1208, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1208) #6
   %1209 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
   %1210 = ptrtoint ptr %1209 to i64
   %1211 = and i64 %1210, 1
-  %.not.i105 = icmp eq i64 %1211, 0
-  br i1 %.not.i105, label %.critedge.i.i107, label %1212, !prof !18
+  %.not.i104 = icmp eq i64 %1211, 0
+  br i1 %.not.i104, label %.critedge.i.i106, label %1212, !prof !18
 
 1212:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
   %1213 = icmp ugt ptr %1209, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit
 
-.critedge.i.i107:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
+.critedge.i.i106:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1.exit
   %1214 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1209) #6
-  %.pre160 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
-  %.pre181 = ptrtoint ptr %.pre160 to i64
+  %.pre159 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
+  %.pre180 = ptrtoint ptr %.pre159 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit: ; preds = %1212, %.critedge.i.i107
-  %.pre-phi182 = phi i64 [ %1210, %1212 ], [ %.pre181, %.critedge.i.i107 ]
-  %1215 = phi ptr [ %1209, %1212 ], [ %.pre160, %.critedge.i.i107 ]
-  %.0.i.i106 = phi i1 [ %1213, %1212 ], [ %1214, %.critedge.i.i107 ]
-  %1216 = zext i1 %.0.i.i106 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit: ; preds = %1212, %.critedge.i.i106
+  %.pre-phi181 = phi i64 [ %1210, %1212 ], [ %.pre180, %.critedge.i.i106 ]
+  %1215 = phi ptr [ %1209, %1212 ], [ %.pre159, %.critedge.i.i106 ]
+  %.0.i.i105 = phi i1 [ %1213, %1212 ], [ %1214, %.critedge.i.i106 ]
+  %1216 = zext i1 %.0.i.i105 to i8
   store i8 %1216, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2, align 1, !tbaa !17
-  %1217 = and i64 %.pre-phi182, 1
-  %.not.i108 = icmp eq i64 %1217, 0
-  br i1 %.not.i108, label %.critedge.i.i110, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit, !prof !18
+  %1217 = and i64 %.pre-phi181, 1
+  %.not.i107 = icmp eq i64 %1217, 0
+  br i1 %.not.i107, label %.critedge.i.i109, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit, !prof !18
 
-.critedge.i.i110:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit
+.critedge.i.i109:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit
   %1218 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1215, ptr noundef %1215) #6
   %1219 = zext i1 %1218 to i8
-  %.pre161 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
-  %.pre183 = ptrtoint ptr %.pre161 to i64
+  %.pre160 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__1, align 8, !tbaa !12
+  %.pre182 = ptrtoint ptr %.pre160 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit, %.critedge.i.i110
-  %.pre-phi184 = phi i64 [ %.pre-phi182, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %.pre183, %.critedge.i.i110 ]
-  %1220 = phi ptr [ %1215, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %.pre161, %.critedge.i.i110 ]
-  %.0.i.i109 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %1219, %.critedge.i.i110 ]
-  store i8 %.0.i.i109, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3, align 1, !tbaa !17
-  %1221 = and i64 %.pre-phi184, 1
-  %.not.i.i111 = icmp eq i64 %1221, 0
-  br i1 %.not.i.i111, label %1224, label %1222
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit, %.critedge.i.i109
+  %.pre-phi183 = phi i64 [ %.pre-phi181, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %.pre182, %.critedge.i.i109 ]
+  %1220 = phi ptr [ %1215, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %.pre160, %.critedge.i.i109 ]
+  %.0.i.i108 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__2.exit ], [ %1219, %.critedge.i.i109 ]
+  store i8 %.0.i.i108, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3, align 1, !tbaa !17
+  %1221 = and i64 %.pre-phi183, 1
+  %.not.i.i110 = icmp eq i64 %1221, 0
+  br i1 %.not.i.i110, label %1224, label %1222
 
 1222:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit
-  %1223 = lshr i64 %.pre-phi184, 1
+  %1223 = lshr i64 %.pre-phi183, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__4.exit
 
 1224:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__3.exit
@@ -112541,42 +112541,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1229 = load ptr, ptr %1228, align 8, !tbaa !12
   %1230 = ptrtoint ptr %1229 to i64
   %1231 = and i64 %1230, 1
-  %.not.i112 = icmp eq i64 %1231, 0
-  br i1 %.not.i112, label %1232, label %lean_inc.exit.i113
+  %.not.i111 = icmp eq i64 %1231, 0
+  br i1 %.not.i111, label %1232, label %lean_inc.exit.i112
 
 1232:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__4.exit
-  %.val.i.i118 = load i32, ptr %1229, align 4, !tbaa !8
-  %1233 = icmp sgt i32 %.val.i.i118, 0
+  %.val.i.i117 = load i32, ptr %1229, align 4, !tbaa !8
+  %1233 = icmp sgt i32 %.val.i.i117, 0
   br i1 %1233, label %1234, label %1236, !prof !11
 
 1234:                                             ; preds = %1232
-  %1235 = add nuw i32 %.val.i.i118, 1
+  %1235 = add nuw i32 %.val.i.i117, 1
   store i32 %1235, ptr %1229, align 4, !tbaa !8
   br label %1240
 
 1236:                                             ; preds = %1232
-  %.not.i5.i119 = icmp eq i32 %.val.i.i118, 0
-  br i1 %.not.i5.i119, label %.thread8.i123, label %1238
+  %.not.i5.i118 = icmp eq i32 %.val.i.i117, 0
+  br i1 %.not.i5.i118, label %.thread8.i122, label %1238
 
-.thread8.i123:                                    ; preds = %1236
+.thread8.i122:                                    ; preds = %1236
   %1237 = getelementptr i8, ptr %1229, i64 8
-  %.val67.i124 = load i64, ptr %1237, align 8, !tbaa !4
+  %.val67.i123 = load i64, ptr %1237, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
 
 1238:                                             ; preds = %1236
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1229) #6
-  %.pr.i120 = load i32, ptr %1229, align 4, !tbaa !8
+  %.pr.i119 = load i32, ptr %1229, align 4, !tbaa !8
   br label %1240
 
-lean_inc.exit.i113:                               ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__4.exit
+lean_inc.exit.i112:                               ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___closed__4.exit
   %1239 = getelementptr i8, ptr %1229, i64 8
-  %.val.i114 = load i64, ptr %1239, align 8, !tbaa !4
+  %.val.i113 = load i64, ptr %1239, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
 
 1240:                                             ; preds = %1238, %1234
-  %1241 = phi i32 [ %.pr.i120, %1238 ], [ %1235, %1234 ]
+  %1241 = phi i32 [ %.pr.i119, %1238 ], [ %1235, %1234 ]
   %1242 = getelementptr i8, ptr %1229, i64 8
-  %.val6.i121 = load i64, ptr %1242, align 8, !tbaa !4
+  %.val6.i120 = load i64, ptr %1242, align 8, !tbaa !4
   %1243 = icmp sgt i32 %1241, 1
   br i1 %1243, label %1244, label %1246, !prof !16
 
@@ -112586,64 +112586,64 @@ lean_inc.exit.i113:                               ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
 
 1246:                                             ; preds = %1240
-  %.not.i.i122 = icmp eq i32 %1241, 0
-  br i1 %.not.i.i122, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit, label %1247
+  %.not.i.i121 = icmp eq i32 %1241, 0
+  br i1 %.not.i.i121, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit, label %1247
 
 1247:                                             ; preds = %1246
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1229) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit: ; preds = %.thread8.i123, %lean_inc.exit.i113, %1244, %1246, %1247
-  %.in.in.in.i115 = phi i64 [ %.val.i114, %lean_inc.exit.i113 ], [ %.val6.i121, %1244 ], [ %.val6.i121, %1246 ], [ %.val6.i121, %1247 ], [ %.val67.i124, %.thread8.i123 ]
-  %.in.in.i116 = shl i64 %.in.in.in.i115, 1
-  %.in.i117 = or disjoint i64 %.in.in.i116, 1
-  %1248 = inttoptr i64 %.in.i117 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit: ; preds = %.thread8.i122, %lean_inc.exit.i112, %1244, %1246, %1247
+  %.in.in.in.i114 = phi i64 [ %.val.i113, %lean_inc.exit.i112 ], [ %.val6.i120, %1244 ], [ %.val6.i120, %1246 ], [ %.val6.i120, %1247 ], [ %.val67.i123, %.thread8.i122 ]
+  %.in.in.i115 = shl i64 %.in.in.in.i114, 1
+  %.in.i116 = or disjoint i64 %.in.in.i115, 1
+  %1248 = inttoptr i64 %.in.i116 to ptr
   store ptr %1248, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1248) #6
   %1249 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
   %1250 = ptrtoint ptr %1249 to i64
   %1251 = and i64 %1250, 1
-  %.not.i125 = icmp eq i64 %1251, 0
-  br i1 %.not.i125, label %.critedge.i.i127, label %1252, !prof !18
+  %.not.i124 = icmp eq i64 %1251, 0
+  br i1 %.not.i124, label %.critedge.i.i126, label %1252, !prof !18
 
 1252:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
   %1253 = icmp ugt ptr %1249, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit
 
-.critedge.i.i127:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
+.critedge.i.i126:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1.exit
   %1254 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1249) #6
-  %.pre162 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
-  %.pre185 = ptrtoint ptr %.pre162 to i64
+  %.pre161 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
+  %.pre184 = ptrtoint ptr %.pre161 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit: ; preds = %1252, %.critedge.i.i127
-  %.pre-phi186 = phi i64 [ %1250, %1252 ], [ %.pre185, %.critedge.i.i127 ]
-  %1255 = phi ptr [ %1249, %1252 ], [ %.pre162, %.critedge.i.i127 ]
-  %.0.i.i126 = phi i1 [ %1253, %1252 ], [ %1254, %.critedge.i.i127 ]
-  %1256 = zext i1 %.0.i.i126 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit: ; preds = %1252, %.critedge.i.i126
+  %.pre-phi185 = phi i64 [ %1250, %1252 ], [ %.pre184, %.critedge.i.i126 ]
+  %1255 = phi ptr [ %1249, %1252 ], [ %.pre161, %.critedge.i.i126 ]
+  %.0.i.i125 = phi i1 [ %1253, %1252 ], [ %1254, %.critedge.i.i126 ]
+  %1256 = zext i1 %.0.i.i125 to i8
   store i8 %1256, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2, align 1, !tbaa !17
-  %1257 = and i64 %.pre-phi186, 1
-  %.not.i128 = icmp eq i64 %1257, 0
-  br i1 %.not.i128, label %.critedge.i.i130, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit, !prof !18
+  %1257 = and i64 %.pre-phi185, 1
+  %.not.i127 = icmp eq i64 %1257, 0
+  br i1 %.not.i127, label %.critedge.i.i129, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit, !prof !18
 
-.critedge.i.i130:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit
+.critedge.i.i129:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit
   %1258 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1255, ptr noundef %1255) #6
   %1259 = zext i1 %1258 to i8
-  %.pre163 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
-  %.pre187 = ptrtoint ptr %.pre163 to i64
+  %.pre162 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__1, align 8, !tbaa !12
+  %.pre186 = ptrtoint ptr %.pre162 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit, %.critedge.i.i130
-  %.pre-phi188 = phi i64 [ %.pre-phi186, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %.pre187, %.critedge.i.i130 ]
-  %1260 = phi ptr [ %1255, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %.pre163, %.critedge.i.i130 ]
-  %.0.i.i129 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %1259, %.critedge.i.i130 ]
-  store i8 %.0.i.i129, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3, align 1, !tbaa !17
-  %1261 = and i64 %.pre-phi188, 1
-  %.not.i.i131 = icmp eq i64 %1261, 0
-  br i1 %.not.i.i131, label %1264, label %1262
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit, %.critedge.i.i129
+  %.pre-phi187 = phi i64 [ %.pre-phi185, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %.pre186, %.critedge.i.i129 ]
+  %1260 = phi ptr [ %1255, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %.pre162, %.critedge.i.i129 ]
+  %.0.i.i128 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__2.exit ], [ %1259, %.critedge.i.i129 ]
+  store i8 %.0.i.i128, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3, align 1, !tbaa !17
+  %1261 = and i64 %.pre-phi187, 1
+  %.not.i.i130 = icmp eq i64 %1261, 0
+  br i1 %.not.i.i130, label %1264, label %1262
 
 1262:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit
-  %1263 = lshr i64 %.pre-phi188, 1
+  %1263 = lshr i64 %.pre-phi187, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__4.exit
 
 1264:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__3.exit
@@ -112658,42 +112658,42 @@ _init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___au
   %1269 = load ptr, ptr %1268, align 8, !tbaa !12
   %1270 = ptrtoint ptr %1269 to i64
   %1271 = and i64 %1270, 1
-  %.not.i132 = icmp eq i64 %1271, 0
-  br i1 %.not.i132, label %1272, label %lean_inc.exit.i133
+  %.not.i131 = icmp eq i64 %1271, 0
+  br i1 %.not.i131, label %1272, label %lean_inc.exit.i132
 
 1272:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__4.exit
-  %.val.i.i138 = load i32, ptr %1269, align 4, !tbaa !8
-  %1273 = icmp sgt i32 %.val.i.i138, 0
+  %.val.i.i137 = load i32, ptr %1269, align 4, !tbaa !8
+  %1273 = icmp sgt i32 %.val.i.i137, 0
   br i1 %1273, label %1274, label %1276, !prof !11
 
 1274:                                             ; preds = %1272
-  %1275 = add nuw i32 %.val.i.i138, 1
+  %1275 = add nuw i32 %.val.i.i137, 1
   store i32 %1275, ptr %1269, align 4, !tbaa !8
   br label %1280
 
 1276:                                             ; preds = %1272
-  %.not.i5.i139 = icmp eq i32 %.val.i.i138, 0
-  br i1 %.not.i5.i139, label %.thread8.i143, label %1278
+  %.not.i5.i138 = icmp eq i32 %.val.i.i137, 0
+  br i1 %.not.i5.i138, label %.thread8.i142, label %1278
 
-.thread8.i143:                                    ; preds = %1276
+.thread8.i142:                                    ; preds = %1276
   %1277 = getelementptr i8, ptr %1269, i64 8
-  %.val67.i144 = load i64, ptr %1277, align 8, !tbaa !4
+  %.val67.i143 = load i64, ptr %1277, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
 
 1278:                                             ; preds = %1276
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1269) #6
-  %.pr.i140 = load i32, ptr %1269, align 4, !tbaa !8
+  %.pr.i139 = load i32, ptr %1269, align 4, !tbaa !8
   br label %1280
 
-lean_inc.exit.i133:                               ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__4.exit
+lean_inc.exit.i132:                               ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___closed__4.exit
   %1279 = getelementptr i8, ptr %1269, i64 8
-  %.val.i134 = load i64, ptr %1279, align 8, !tbaa !4
+  %.val.i133 = load i64, ptr %1279, align 8, !tbaa !4
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
 
 1280:                                             ; preds = %1278, %1274
-  %1281 = phi i32 [ %.pr.i140, %1278 ], [ %1275, %1274 ]
+  %1281 = phi i32 [ %.pr.i139, %1278 ], [ %1275, %1274 ]
   %1282 = getelementptr i8, ptr %1269, i64 8
-  %.val6.i141 = load i64, ptr %1282, align 8, !tbaa !4
+  %.val6.i140 = load i64, ptr %1282, align 8, !tbaa !4
   %1283 = icmp sgt i32 %1281, 1
   br i1 %1283, label %1284, label %1286, !prof !16
 
@@ -112703,64 +112703,64 @@ lean_inc.exit.i133:                               ; preds = %_init_l___private_L
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
 
 1286:                                             ; preds = %1280
-  %.not.i.i142 = icmp eq i32 %1281, 0
-  br i1 %.not.i.i142, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit, label %1287
+  %.not.i.i141 = icmp eq i32 %1281, 0
+  br i1 %.not.i.i141, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit, label %1287
 
 1287:                                             ; preds = %1286
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1269) #6
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit: ; preds = %.thread8.i143, %lean_inc.exit.i133, %1284, %1286, %1287
-  %.in.in.in.i135 = phi i64 [ %.val.i134, %lean_inc.exit.i133 ], [ %.val6.i141, %1284 ], [ %.val6.i141, %1286 ], [ %.val6.i141, %1287 ], [ %.val67.i144, %.thread8.i143 ]
-  %.in.in.i136 = shl i64 %.in.in.in.i135, 1
-  %.in.i137 = or disjoint i64 %.in.in.i136, 1
-  %1288 = inttoptr i64 %.in.i137 to ptr
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit: ; preds = %.thread8.i142, %lean_inc.exit.i132, %1284, %1286, %1287
+  %.in.in.in.i134 = phi i64 [ %.val.i133, %lean_inc.exit.i132 ], [ %.val6.i140, %1284 ], [ %.val6.i140, %1286 ], [ %.val6.i140, %1287 ], [ %.val67.i143, %.thread8.i142 ]
+  %.in.in.i135 = shl i64 %.in.in.in.i134, 1
+  %.in.i136 = or disjoint i64 %.in.in.i135, 1
+  %1288 = inttoptr i64 %.in.i136 to ptr
   store ptr %1288, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %1288) #6
   %1289 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
   %1290 = ptrtoint ptr %1289 to i64
   %1291 = and i64 %1290, 1
-  %.not.i145 = icmp eq i64 %1291, 0
-  br i1 %.not.i145, label %.critedge.i.i147, label %1292, !prof !18
+  %.not.i144 = icmp eq i64 %1291, 0
+  br i1 %.not.i144, label %.critedge.i.i146, label %1292, !prof !18
 
 1292:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
   %1293 = icmp ugt ptr %1289, inttoptr (i64 1 to ptr)
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit
 
-.critedge.i.i147:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
+.critedge.i.i146:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1.exit
   %1294 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1289) #6
-  %.pre164 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
-  %.pre189 = ptrtoint ptr %.pre164 to i64
+  %.pre163 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
+  %.pre188 = ptrtoint ptr %.pre163 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit: ; preds = %1292, %.critedge.i.i147
-  %.pre-phi190 = phi i64 [ %1290, %1292 ], [ %.pre189, %.critedge.i.i147 ]
-  %1295 = phi ptr [ %1289, %1292 ], [ %.pre164, %.critedge.i.i147 ]
-  %.0.i.i146 = phi i1 [ %1293, %1292 ], [ %1294, %.critedge.i.i147 ]
-  %1296 = zext i1 %.0.i.i146 to i8
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit: ; preds = %1292, %.critedge.i.i146
+  %.pre-phi189 = phi i64 [ %1290, %1292 ], [ %.pre188, %.critedge.i.i146 ]
+  %1295 = phi ptr [ %1289, %1292 ], [ %.pre163, %.critedge.i.i146 ]
+  %.0.i.i145 = phi i1 [ %1293, %1292 ], [ %1294, %.critedge.i.i146 ]
+  %1296 = zext i1 %.0.i.i145 to i8
   store i8 %1296, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2, align 1, !tbaa !17
-  %1297 = and i64 %.pre-phi190, 1
-  %.not.i148 = icmp eq i64 %1297, 0
-  br i1 %.not.i148, label %.critedge.i.i150, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit, !prof !18
+  %1297 = and i64 %.pre-phi189, 1
+  %.not.i147 = icmp eq i64 %1297, 0
+  br i1 %.not.i147, label %.critedge.i.i149, label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit, !prof !18
 
-.critedge.i.i150:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit
+.critedge.i.i149:                                 ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit
   %1298 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1295, ptr noundef %1295) #6
   %1299 = zext i1 %1298 to i8
-  %.pre165 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
-  %.pre191 = ptrtoint ptr %.pre165 to i64
+  %.pre164 = load ptr, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__1, align 8, !tbaa !12
+  %.pre190 = ptrtoint ptr %.pre164 to i64
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit
 
-_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit, %.critedge.i.i150
-  %.pre-phi192 = phi i64 [ %.pre-phi190, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %.pre191, %.critedge.i.i150 ]
-  %1300 = phi ptr [ %1295, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %.pre165, %.critedge.i.i150 ]
-  %.0.i.i149 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %1299, %.critedge.i.i150 ]
-  store i8 %.0.i.i149, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3, align 1, !tbaa !17
-  %1301 = and i64 %.pre-phi192, 1
-  %.not.i.i151 = icmp eq i64 %1301, 0
-  br i1 %.not.i.i151, label %1304, label %1302
+_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit: ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit, %.critedge.i.i149
+  %.pre-phi191 = phi i64 [ %.pre-phi189, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %.pre190, %.critedge.i.i149 ]
+  %1300 = phi ptr [ %1295, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %.pre164, %.critedge.i.i149 ]
+  %.0.i.i148 = phi i8 [ 1, %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__2.exit ], [ %1299, %.critedge.i.i149 ]
+  store i8 %.0.i.i148, ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3, align 1, !tbaa !17
+  %1301 = and i64 %.pre-phi191, 1
+  %.not.i.i150 = icmp eq i64 %1301, 0
+  br i1 %.not.i.i150, label %1304, label %1302
 
 1302:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit
-  %1303 = lshr i64 %.pre-phi192, 1
+  %1303 = lshr i64 %.pre-phi191, 1
   br label %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__4.exit
 
 1304:                                             ; preds = %_init_l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___closed__3.exit
@@ -113757,18 +113757,18 @@ _init_l_Lake_Package_mkLeanConfig___closed__28.exit: ; preds = %_init_l_Lake_Pac
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Package_mkLeanConfig___closed__28.exit, %3
-  %.sink281 = phi ptr [ %4, %3 ], [ %1763, %_init_l_Lake_Package_mkLeanConfig___closed__28.exit ]
-  %1766 = getelementptr inbounds nuw i8, ptr %.sink281, i64 4
-  store i32 1, ptr %.sink281, align 4, !tbaa !8
+  %.sink280 = phi ptr [ %4, %3 ], [ %1763, %_init_l_Lake_Package_mkLeanConfig___closed__28.exit ]
+  %1766 = getelementptr inbounds nuw i8, ptr %.sink280, i64 4
+  store i32 1, ptr %.sink280, align 4, !tbaa !8
   store i32 131096, ptr %1766, align 4
-  %1767 = getelementptr inbounds nuw i8, ptr %.sink281, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %.sink280, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1767, align 8, !tbaa !12
-  %1768 = getelementptr inbounds nuw i8, ptr %.sink281, i64 16
+  %1768 = getelementptr inbounds nuw i8, ptr %.sink280, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1768, align 8, !tbaa !12
   br label %1769
 
-1769:                                             ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink281, %.sink.split ]
+1769:                                             ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink280, %.sink.split ]
   ret ptr %.0
 }
 

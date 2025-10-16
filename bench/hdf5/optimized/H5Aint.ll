@@ -286,8 +286,8 @@ define range(i32 0, 2) i32 @H5A_top_term_package() local_unnamed_addr #0 {
   %4 = trunc nuw i8 %3 to i1
   %5 = xor i1 %4, true
   %6 = select i1 %2, i1 true, i1 %5
-  %.b4 = load i1, ptr @H5A_top_package_initialize_s, align 1
-  %or.cond = select i1 %6, i1 %.b4, i1 false, !prof !12
+  %.b = load i1, ptr @H5A_top_package_initialize_s, align 1
+  %or.cond = select i1 %6, i1 %.b, i1 false, !prof !12
   br i1 %or.cond, label %7, label %12, !prof !12
 
 7:                                                ; preds = %0

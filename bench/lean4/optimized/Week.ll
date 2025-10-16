@@ -2576,8 +2576,8 @@ lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %
 
 ; Function Attrs: nounwind uwtable
 define ptr @initialize_Std_Time_Date_Unit_Week(i8 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %.b8 = load i1, ptr @_G_initialized, align 1
-  br i1 %.b8, label %3, label %7
+  %.b = load i1, ptr @_G_initialized, align 1
+  br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
   tail call void @lean_inc_heartbeat() #5
@@ -2619,9 +2619,9 @@ define ptr @initialize_Std_Time_Date_Unit_Week(i8 noundef zeroext %0, ptr nounde
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %18 = tail call ptr @initialize_Std_Time_Date_Unit_Day(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val11 = load i32, ptr %19, align 4
-  %.mask.i12 = and i32 %.val11, -16777216
-  %20 = icmp eq i32 %.mask.i12, 16777216
+  %.val10 = load i32, ptr %19, align 4
+  %.mask.i11 = and i32 %.val10, -16777216
+  %20 = icmp eq i32 %.mask.i11, 16777216
   br i1 %20, label %486, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
@@ -2632,27 +2632,27 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
   store i32 %25, ptr %18, align 4, !tbaa !5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
 26:                                               ; preds = %21
-  %.not.i9 = icmp eq i32 %22, 0
-  br i1 %.not.i9, label %lean_dec_ref.exit10, label %27
+  %.not.i8 = icmp eq i32 %22, 0
+  br i1 %.not.i8, label %lean_dec_ref.exit9, label %27
 
 27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
-  br label %lean_dec_ref.exit10
+  br label %lean_dec_ref.exit9
 
-lean_dec_ref.exit10:                              ; preds = %24, %26, %27
+lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   tail call void @lean_inc_heartbeat() #5
   %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit
 
-30:                                               ; preds = %lean_dec_ref.exit10
+30:                                               ; preds = %lean_dec_ref.exit9
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
-_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.exit10
+_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.exit9
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %28, align 4, !tbaa !5
   store i32 -184549352, ptr %31, align 4
@@ -2679,8 +2679,8 @@ _init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.
   %36 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__2, align 8, !tbaa !11
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
-  %.not.i.i13 = icmp eq i64 %38, 0
-  br i1 %.not.i.i13, label %.critedge.i.i16, label %39, !prof !13
+  %.not.i.i12 = icmp eq i64 %38, 0
+  br i1 %.not.i.i12, label %.critedge.i.i15, label %39, !prof !13
 
 39:                                               ; preds = %_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit
   %40 = shl i64 %37, 31
@@ -2701,19 +2701,19 @@ _init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit: ; preds = %lean_dec_ref.
   %51 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %42) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit
 
-.critedge.i.i16:                                  ; preds = %_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit
+.critedge.i.i15:                                  ; preds = %_init_l_Std_Time_Week_instOrdinalRepr___closed__1.exit
   %52 = tail call ptr @lean_int_big_sub(ptr noundef %36, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit: ; preds = %45, %50, %.critedge.i.i16
-  %.0.i.i15 = phi ptr [ %52, %.critedge.i.i16 ], [ %49, %45 ], [ %51, %50 ]
-  store ptr %.0.i.i15, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i15) #5
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit: ; preds = %45, %50, %.critedge.i.i15
+  %.0.i.i14 = phi ptr [ %52, %.critedge.i.i15 ], [ %49, %45 ], [ %51, %50 ]
+  store ptr %.0.i.i14, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i14) #5
   %53 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__3, align 8, !tbaa !11
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
-  %.not.i.i17 = icmp eq i64 %55, 0
-  br i1 %.not.i.i17, label %.critedge.i.i20, label %56, !prof !13
+  %.not.i.i16 = icmp eq i64 %55, 0
+  br i1 %.not.i.i16, label %.critedge.i.i19, label %56, !prof !13
 
 56:                                               ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit
   %57 = shl i64 %54, 31
@@ -2733,28 +2733,28 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit: ; preds = %45, %50,
   %67 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %59) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
 
-.critedge.i.i20:                                  ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit
+.critedge.i.i19:                                  ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__3.exit
   %68 = tail call ptr @lean_int_big_add(ptr noundef %53, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit: ; preds = %61, %66, %.critedge.i.i20
-  %.0.i.i19 = phi ptr [ %68, %.critedge.i.i20 ], [ %65, %61 ], [ %67, %66 ]
-  store ptr %.0.i.i19, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i19) #5
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit: ; preds = %61, %66, %.critedge.i.i19
+  %.0.i.i18 = phi ptr [ %68, %.critedge.i.i19 ], [ %65, %61 ], [ %67, %66 ]
+  store ptr %.0.i.i18, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i18) #5
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %69 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   %70 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
   %71 = ptrtoint ptr %69 to i64
   %72 = and i64 %71, 1
-  %.not.i.i24 = icmp eq i64 %72, 0
-  br i1 %.not.i.i24, label %.critedge.i.i26, label %73, !prof !13
+  %.not.i.i23 = icmp eq i64 %72, 0
+  br i1 %.not.i.i23, label %.critedge.i.i25, label %73, !prof !13
 
 73:                                               ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
   %74 = ptrtoint ptr %70 to i64
   %75 = and i64 %74, 1
   %.not21.i.i = icmp eq i64 %75, 0
-  br i1 %.not21.i.i, label %.critedge.i.i26, label %76, !prof !13
+  br i1 %.not21.i.i, label %.critedge.i.i25, label %76, !prof !13
 
 76:                                               ; preds = %73
   %77 = shl i64 %74, 31
@@ -2769,42 +2769,42 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit: ; preds = %61, %66,
   %84 = icmp slt i64 %83, 0
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %80, i1 true)
   %85 = select i1 %84, i64 %.p.i.i, i64 0
-  %.0.i.i25 = add nsw i64 %85, %83
-  %86 = add nsw i64 %.0.i.i25, 2147483648
+  %.0.i.i24 = add nsw i64 %85, %83
+  %86 = add nsw i64 %.0.i.i24, 2147483648
   %87 = icmp samesign ult i64 %86, 4294967296
   br i1 %87, label %88, label %93, !prof !10
 
 88:                                               ; preds = %79
-  %89 = shl nsw i64 %.0.i.i25, 1
+  %89 = shl nsw i64 %.0.i.i24, 1
   %90 = and i64 %89, 8589934590
   %91 = or disjoint i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
 93:                                               ; preds = %79
-  %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i25) #5
+  %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i24) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
-.critedge.i.i26:                                  ; preds = %73, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
+.critedge.i.i25:                                  ; preds = %73, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
   %95 = tail call ptr @lean_int_big_emod(ptr noundef %69, ptr noundef %70) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit: ; preds = %76, %88, %93, %.critedge.i.i26
-  %.1.i.i = phi ptr [ %95, %.critedge.i.i26 ], [ %69, %76 ], [ %92, %88 ], [ %94, %93 ]
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit: ; preds = %76, %88, %93, %.critedge.i.i25
+  %.1.i.i = phi ptr [ %95, %.critedge.i.i25 ], [ %69, %76 ], [ %92, %88 ], [ %94, %93 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #5
   %96 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   %97 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
   %98 = ptrtoint ptr %96 to i64
   %99 = and i64 %98, 1
-  %.not.i.i27 = icmp eq i64 %99, 0
-  br i1 %.not.i.i27, label %.critedge.i.i30, label %100, !prof !13
+  %.not.i.i26 = icmp eq i64 %99, 0
+  br i1 %.not.i.i26, label %.critedge.i.i29, label %100, !prof !13
 
 100:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
   %101 = ptrtoint ptr %97 to i64
   %102 = and i64 %101, 1
-  %.not7.i.i28 = icmp eq i64 %102, 0
-  br i1 %.not7.i.i28, label %.critedge.i.i30, label %103, !prof !13
+  %.not7.i.i27 = icmp eq i64 %102, 0
+  br i1 %.not7.i.i27, label %.critedge.i.i29, label %103, !prof !13
 
 103:                                              ; preds = %100
   %104 = shl i64 %98, 31
@@ -2827,26 +2827,26 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit: ; preds = %76, %88,
   %117 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %108) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
 
-.critedge.i.i30:                                  ; preds = %100, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
+.critedge.i.i29:                                  ; preds = %100, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
   %118 = tail call ptr @lean_int_big_add(ptr noundef %96, ptr noundef %97) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit: ; preds = %111, %116, %.critedge.i.i30
-  %.0.i.i29 = phi ptr [ %118, %.critedge.i.i30 ], [ %115, %111 ], [ %117, %116 ]
-  store ptr %.0.i.i29, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i29) #5
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit: ; preds = %111, %116, %.critedge.i.i29
+  %.0.i.i28 = phi ptr [ %118, %.critedge.i.i29 ], [ %115, %111 ], [ %117, %116 ]
+  store ptr %.0.i.i28, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i28) #5
   %119 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   %120 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
   %121 = ptrtoint ptr %119 to i64
   %122 = and i64 %121, 1
-  %.not.i.i31 = icmp eq i64 %122, 0
-  br i1 %.not.i.i31, label %.critedge.i.i36, label %123, !prof !13
+  %.not.i.i30 = icmp eq i64 %122, 0
+  br i1 %.not.i.i30, label %.critedge.i.i35, label %123, !prof !13
 
 123:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
   %124 = ptrtoint ptr %120 to i64
   %125 = and i64 %124, 1
-  %.not21.i.i32 = icmp eq i64 %125, 0
-  br i1 %.not21.i.i32, label %.critedge.i.i36, label %126, !prof !13
+  %.not21.i.i31 = icmp eq i64 %125, 0
+  br i1 %.not21.i.i31, label %.critedge.i.i35, label %126, !prof !13
 
 126:                                              ; preds = %123
   %127 = shl i64 %124, 31
@@ -2859,37 +2859,37 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit: ; preds = %111, %11
   %132 = ashr i64 %131, 32
   %133 = srem i64 %132, %130
   %134 = icmp slt i64 %133, 0
-  %.p.i.i33 = tail call i64 @llvm.abs.i64(i64 %130, i1 true)
-  %135 = select i1 %134, i64 %.p.i.i33, i64 0
-  %.0.i.i34 = add nsw i64 %135, %133
-  %136 = add nsw i64 %.0.i.i34, 2147483648
+  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %130, i1 true)
+  %135 = select i1 %134, i64 %.p.i.i32, i64 0
+  %.0.i.i33 = add nsw i64 %135, %133
+  %136 = add nsw i64 %.0.i.i33, 2147483648
   %137 = icmp samesign ult i64 %136, 4294967296
   br i1 %137, label %138, label %143, !prof !10
 
 138:                                              ; preds = %129
-  %139 = shl nsw i64 %.0.i.i34, 1
+  %139 = shl nsw i64 %.0.i.i33, 1
   %140 = and i64 %139, 8589934590
   %141 = or disjoint i64 %140, 1
   %142 = inttoptr i64 %141 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
 143:                                              ; preds = %129
-  %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i34) #5
+  %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i33) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
-.critedge.i.i36:                                  ; preds = %123, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
+.critedge.i.i35:                                  ; preds = %123, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
   %145 = tail call ptr @lean_int_big_emod(ptr noundef %119, ptr noundef %120) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit: ; preds = %126, %138, %143, %.critedge.i.i36
-  %.1.i.i35 = phi ptr [ %145, %.critedge.i.i36 ], [ %119, %126 ], [ %142, %138 ], [ %144, %143 ]
-  store ptr %.1.i.i35, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i35) #5
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit: ; preds = %126, %138, %143, %.critedge.i.i35
+  %.1.i.i34 = phi ptr [ %145, %.critedge.i.i35 ], [ %119, %126 ], [ %142, %138 ], [ %144, %143 ]
+  store ptr %.1.i.i34, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i34) #5
   %146 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
   %147 = ptrtoint ptr %146 to i64
   %148 = and i64 %147, 1
-  %.not.i.i37 = icmp eq i64 %148, 0
-  br i1 %.not.i.i37, label %.critedge.i.i40, label %149, !prof !13
+  %.not.i.i36 = icmp eq i64 %148, 0
+  br i1 %.not.i.i36, label %.critedge.i.i39, label %149, !prof !13
 
 149:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
   %150 = shl i64 %147, 31
@@ -2909,14 +2909,14 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit: ; preds = %126, %13
   %160 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %152) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
 
-.critedge.i.i40:                                  ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
+.critedge.i.i39:                                  ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
   %161 = tail call ptr @lean_int_big_add(ptr noundef %146, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit: ; preds = %154, %159, %.critedge.i.i40
-  %.0.i.i39 = phi ptr [ %161, %.critedge.i.i40 ], [ %158, %154 ], [ %160, %159 ]
-  store ptr %.0.i.i39, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i39) #5
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit: ; preds = %154, %159, %.critedge.i.i39
+  %.0.i.i38 = phi ptr [ %161, %.critedge.i.i39 ], [ %158, %154 ], [ %160, %159 ]
+  store ptr %.0.i.i38, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i38) #5
   %162 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
   store ptr %162, ptr @l_Std_Time_Week_instInhabitedOrdinal, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %162) #5
@@ -3128,8 +3128,8 @@ _init_l_Std_Time_Week_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   %229 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__2, align 8, !tbaa !11
   %230 = ptrtoint ptr %229 to i64
   %231 = and i64 %230, 1
-  %.not.i.i45 = icmp eq i64 %231, 0
-  br i1 %.not.i.i45, label %.critedge.i.i48, label %232, !prof !13
+  %.not.i.i44 = icmp eq i64 %231, 0
+  br i1 %.not.i.i44, label %.critedge.i.i47, label %232, !prof !13
 
 232:                                              ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
   %233 = shl i64 %230, 31
@@ -3150,19 +3150,19 @@ _init_l_Std_Time_Week_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   %244 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %235) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
 
-.critedge.i.i48:                                  ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
+.critedge.i.i47:                                  ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
   %245 = tail call ptr @lean_int_big_sub(ptr noundef %229, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit: ; preds = %238, %243, %.critedge.i.i48
-  %.0.i.i47 = phi ptr [ %245, %.critedge.i.i48 ], [ %242, %238 ], [ %244, %243 ]
-  store ptr %.0.i.i47, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i47) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit: ; preds = %238, %243, %.critedge.i.i47
+  %.0.i.i46 = phi ptr [ %245, %.critedge.i.i47 ], [ %242, %238 ], [ %244, %243 ]
+  store ptr %.0.i.i46, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i46) #5
   %246 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
   %247 = ptrtoint ptr %246 to i64
   %248 = and i64 %247, 1
-  %.not.i.i49 = icmp eq i64 %248, 0
-  br i1 %.not.i.i49, label %.critedge.i.i52, label %249, !prof !13
+  %.not.i.i48 = icmp eq i64 %248, 0
+  br i1 %.not.i.i48, label %.critedge.i.i51, label %249, !prof !13
 
 249:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
   %250 = shl i64 %247, 31
@@ -3182,26 +3182,26 @@ _init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit: ; preds = %
   %260 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %252) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
 
-.critedge.i.i52:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
+.critedge.i.i51:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
   %261 = tail call ptr @lean_int_big_add(ptr noundef %246, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit: ; preds = %254, %259, %.critedge.i.i52
-  %.0.i.i51 = phi ptr [ %261, %.critedge.i.i52 ], [ %258, %254 ], [ %260, %259 ]
-  store ptr %.0.i.i51, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i51) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit: ; preds = %254, %259, %.critedge.i.i51
+  %.0.i.i50 = phi ptr [ %261, %.critedge.i.i51 ], [ %258, %254 ], [ %260, %259 ]
+  store ptr %.0.i.i50, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i50) #5
   %262 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
   %263 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
   %264 = ptrtoint ptr %262 to i64
   %265 = and i64 %264, 1
-  %.not.i.i53 = icmp eq i64 %265, 0
-  br i1 %.not.i.i53, label %.critedge.i.i58, label %266, !prof !13
+  %.not.i.i52 = icmp eq i64 %265, 0
+  br i1 %.not.i.i52, label %.critedge.i.i57, label %266, !prof !13
 
 266:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
   %267 = ptrtoint ptr %263 to i64
   %268 = and i64 %267, 1
-  %.not21.i.i54 = icmp eq i64 %268, 0
-  br i1 %.not21.i.i54, label %.critedge.i.i58, label %269, !prof !13
+  %.not21.i.i53 = icmp eq i64 %268, 0
+  br i1 %.not21.i.i53, label %.critedge.i.i57, label %269, !prof !13
 
 269:                                              ; preds = %266
   %270 = shl i64 %267, 31
@@ -3214,44 +3214,44 @@ _init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit: ; preds = %
   %275 = ashr i64 %274, 32
   %276 = srem i64 %275, %273
   %277 = icmp slt i64 %276, 0
-  %.p.i.i55 = tail call i64 @llvm.abs.i64(i64 %273, i1 true)
-  %278 = select i1 %277, i64 %.p.i.i55, i64 0
-  %.0.i.i56 = add nsw i64 %278, %276
-  %279 = add nsw i64 %.0.i.i56, 2147483648
+  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %273, i1 true)
+  %278 = select i1 %277, i64 %.p.i.i54, i64 0
+  %.0.i.i55 = add nsw i64 %278, %276
+  %279 = add nsw i64 %.0.i.i55, 2147483648
   %280 = icmp samesign ult i64 %279, 4294967296
   br i1 %280, label %281, label %286, !prof !10
 
 281:                                              ; preds = %272
-  %282 = shl nsw i64 %.0.i.i56, 1
+  %282 = shl nsw i64 %.0.i.i55, 1
   %283 = and i64 %282, 8589934590
   %284 = or disjoint i64 %283, 1
   %285 = inttoptr i64 %284 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
 286:                                              ; preds = %272
-  %287 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i56) #5
+  %287 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i55) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
-.critedge.i.i58:                                  ; preds = %266, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
+.critedge.i.i57:                                  ; preds = %266, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
   %288 = tail call ptr @lean_int_big_emod(ptr noundef %262, ptr noundef %263) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit: ; preds = %269, %281, %286, %.critedge.i.i58
-  %.1.i.i57 = phi ptr [ %288, %.critedge.i.i58 ], [ %262, %269 ], [ %285, %281 ], [ %287, %286 ]
-  store ptr %.1.i.i57, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i57) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit: ; preds = %269, %281, %286, %.critedge.i.i57
+  %.1.i.i56 = phi ptr [ %288, %.critedge.i.i57 ], [ %262, %269 ], [ %285, %281 ], [ %287, %286 ]
+  store ptr %.1.i.i56, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i56) #5
   %289 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
   %290 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
   %291 = ptrtoint ptr %289 to i64
   %292 = and i64 %291, 1
-  %.not.i.i59 = icmp eq i64 %292, 0
-  br i1 %.not.i.i59, label %.critedge.i.i62, label %293, !prof !13
+  %.not.i.i58 = icmp eq i64 %292, 0
+  br i1 %.not.i.i58, label %.critedge.i.i61, label %293, !prof !13
 
 293:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
   %294 = ptrtoint ptr %290 to i64
   %295 = and i64 %294, 1
-  %.not7.i.i60 = icmp eq i64 %295, 0
-  br i1 %.not7.i.i60, label %.critedge.i.i62, label %296, !prof !13
+  %.not7.i.i59 = icmp eq i64 %295, 0
+  br i1 %.not7.i.i59, label %.critedge.i.i61, label %296, !prof !13
 
 296:                                              ; preds = %293
   %297 = shl i64 %291, 31
@@ -3274,26 +3274,26 @@ _init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit: ; preds = %
   %310 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %301) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
 
-.critedge.i.i62:                                  ; preds = %293, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
+.critedge.i.i61:                                  ; preds = %293, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
   %311 = tail call ptr @lean_int_big_add(ptr noundef %289, ptr noundef %290) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit: ; preds = %304, %309, %.critedge.i.i62
-  %.0.i.i61 = phi ptr [ %311, %.critedge.i.i62 ], [ %308, %304 ], [ %310, %309 ]
-  store ptr %.0.i.i61, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i61) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit: ; preds = %304, %309, %.critedge.i.i61
+  %.0.i.i60 = phi ptr [ %311, %.critedge.i.i61 ], [ %308, %304 ], [ %310, %309 ]
+  store ptr %.0.i.i60, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i60) #5
   %312 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
   %313 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
   %314 = ptrtoint ptr %312 to i64
   %315 = and i64 %314, 1
-  %.not.i.i63 = icmp eq i64 %315, 0
-  br i1 %.not.i.i63, label %.critedge.i.i68, label %316, !prof !13
+  %.not.i.i62 = icmp eq i64 %315, 0
+  br i1 %.not.i.i62, label %.critedge.i.i67, label %316, !prof !13
 
 316:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
   %317 = ptrtoint ptr %313 to i64
   %318 = and i64 %317, 1
-  %.not21.i.i64 = icmp eq i64 %318, 0
-  br i1 %.not21.i.i64, label %.critedge.i.i68, label %319, !prof !13
+  %.not21.i.i63 = icmp eq i64 %318, 0
+  br i1 %.not21.i.i63, label %.critedge.i.i67, label %319, !prof !13
 
 319:                                              ; preds = %316
   %320 = shl i64 %317, 31
@@ -3306,37 +3306,37 @@ _init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit: ; preds = %
   %325 = ashr i64 %324, 32
   %326 = srem i64 %325, %323
   %327 = icmp slt i64 %326, 0
-  %.p.i.i65 = tail call i64 @llvm.abs.i64(i64 %323, i1 true)
-  %328 = select i1 %327, i64 %.p.i.i65, i64 0
-  %.0.i.i66 = add nsw i64 %328, %326
-  %329 = add nsw i64 %.0.i.i66, 2147483648
+  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %323, i1 true)
+  %328 = select i1 %327, i64 %.p.i.i64, i64 0
+  %.0.i.i65 = add nsw i64 %328, %326
+  %329 = add nsw i64 %.0.i.i65, 2147483648
   %330 = icmp samesign ult i64 %329, 4294967296
   br i1 %330, label %331, label %336, !prof !10
 
 331:                                              ; preds = %322
-  %332 = shl nsw i64 %.0.i.i66, 1
+  %332 = shl nsw i64 %.0.i.i65, 1
   %333 = and i64 %332, 8589934590
   %334 = or disjoint i64 %333, 1
   %335 = inttoptr i64 %334 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
 336:                                              ; preds = %322
-  %337 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i66) #5
+  %337 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i65) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
-.critedge.i.i68:                                  ; preds = %316, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
+.critedge.i.i67:                                  ; preds = %316, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
   %338 = tail call ptr @lean_int_big_emod(ptr noundef %312, ptr noundef %313) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit: ; preds = %319, %331, %336, %.critedge.i.i68
-  %.1.i.i67 = phi ptr [ %338, %.critedge.i.i68 ], [ %312, %319 ], [ %335, %331 ], [ %337, %336 ]
-  store ptr %.1.i.i67, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i67) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit: ; preds = %319, %331, %336, %.critedge.i.i67
+  %.1.i.i66 = phi ptr [ %338, %.critedge.i.i67 ], [ %312, %319 ], [ %335, %331 ], [ %337, %336 ]
+  store ptr %.1.i.i66, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i66) #5
   %339 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
   %340 = ptrtoint ptr %339 to i64
   %341 = and i64 %340, 1
-  %.not.i.i69 = icmp eq i64 %341, 0
-  br i1 %.not.i.i69, label %.critedge.i.i72, label %342, !prof !13
+  %.not.i.i68 = icmp eq i64 %341, 0
+  br i1 %.not.i.i68, label %.critedge.i.i71, label %342, !prof !13
 
 342:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
   %343 = shl i64 %340, 31
@@ -3356,14 +3356,14 @@ _init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit: ; preds = %
   %353 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %345) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
 
-.critedge.i.i72:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
+.critedge.i.i71:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
   %354 = tail call ptr @lean_int_big_add(ptr noundef %339, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit: ; preds = %347, %352, %.critedge.i.i72
-  %.0.i.i71 = phi ptr [ %354, %.critedge.i.i72 ], [ %351, %347 ], [ %353, %352 ]
-  store ptr %.0.i.i71, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.0.i.i71) #5
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit: ; preds = %347, %352, %.critedge.i.i71
+  %.0.i.i70 = phi ptr [ %354, %.critedge.i.i71 ], [ %351, %347 ], [ %353, %352 ]
+  store ptr %.0.i.i70, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.0.i.i70) #5
   %355 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
   store ptr %355, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %355) #5
@@ -3633,9 +3633,9 @@ _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit: ; pr
   %473 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.8) #5
   %474 = ptrtoint ptr %473 to i64
   %475 = and i64 %474, 1
-  %.not.i.i73 = icmp eq i64 %475, 0
+  %.not.i.i72 = icmp eq i64 %475, 0
   %476 = icmp ult ptr %473, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %476, %.not.i.i73
+  %or.cond.i.i = or i1 %476, %.not.i.i72
   br i1 %or.cond.i.i, label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit, label %477
 
 477:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit
@@ -3644,9 +3644,9 @@ _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit: ; pr
   br label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit
 
 _init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit, %477
-  %.1.i.i74 = phi ptr [ %479, %477 ], [ %473, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ]
-  store ptr %.1.i.i74, ptr @l_Std_Time_Week_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %.1.i.i74) #5
+  %.1.i.i73 = phi ptr [ %479, %477 ], [ %473, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ]
+  store ptr %.1.i.i73, ptr @l_Std_Time_Week_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %.1.i.i73) #5
   store ptr inttoptr (i64 1209601 to ptr), ptr @l_Std_Time_Week_Offset_toSeconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1209601 to ptr)) #5
   store ptr inttoptr (i64 20161 to ptr), ptr @l_Std_Time_Week_Offset_toMinutes___closed__1, align 8, !tbaa !11
@@ -3665,18 +3665,18 @@ _init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit, %3
-  %.sink104 = phi ptr [ %4, %3 ], [ %480, %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit ]
-  %483 = getelementptr inbounds nuw i8, ptr %.sink104, i64 4
-  store i32 1, ptr %.sink104, align 4, !tbaa !5
+  %.sink103 = phi ptr [ %4, %3 ], [ %480, %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit ]
+  %483 = getelementptr inbounds nuw i8, ptr %.sink103, i64 4
+  store i32 1, ptr %.sink103, align 4, !tbaa !5
   store i32 131096, ptr %483, align 4
-  %484 = getelementptr inbounds nuw i8, ptr %.sink104, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %.sink103, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %484, align 8, !tbaa !11
-  %485 = getelementptr inbounds nuw i8, ptr %.sink104, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %.sink103, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %485, align 8, !tbaa !11
   br label %486
 
 486:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink104, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink103, %.sink.split ]
   ret ptr %.0
 }
 
