@@ -6569,10 +6569,7 @@ invoke.cont204:                                   ; preds = %for.cond.cleanup218
   %conv7.i.i918 = or disjoint i32 %rem49.i894, 24
   %narrow = add nuw nsw i16 %rem49.i887, 42
   %add.i.i923 = zext nneg i16 %narrow to i32
-  %conv230 = shl nuw nsw i32 %rem49.i894, 16
-  %agg.tmp227.sroa.2.0.insert.shift = add nuw nsw i32 %conv230, -327680
-  %conv7.i.i943 = ashr exact i32 %agg.tmp227.sroa.2.0.insert.shift, 16
-  %mul.i.i941 = add nsw i32 %conv7.i.i943, 30
+  %mul.i.i941 = add nuw nsw i32 %rem49.i894, 25
   br label %invoke.cont233
 
 for.cond.cleanup218.loopexit:                     ; preds = %if.end253.1

@@ -4383,12 +4383,9 @@ if.then.i.i41.i:                                  ; preds = %while.body.i354
   %__value.sroa.2.0.copyload.i = load i32, ptr %__value.sroa.2.0..sroa_idx.i, align 8
   store ptr %rootPair.sroa.0.0.copyload.i, ptr %incdec.ptr.i.i.i356, align 8
   store i32 %rootPair.sroa.2.0.copyload.i, ptr %__value.sroa.2.0..sroa_idx.i, align 8
-  %add.ptr.i.i43.i.idx = shl nuw nsw i64 %conv.i.i42.i, 4
-  %sub.ptr.sub.i = add nsw i64 %add.ptr.i.i43.i.idx, -16
-  %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
-  %sub.i.i1125 = add nsw i64 %sub.ptr.div.i, -1
+  %sub.i.i1125 = add nsw i64 %conv.i.i42.i, -2
   %div.i.i2529 = lshr i64 %sub.i.i1125, 1
-  %cmp25.i.i = icmp samesign ugt i64 %sub.ptr.sub.i, 32
+  %cmp25.i.i = icmp ugt i32 %478, 3
   br i1 %cmp25.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i.i41.i, %while.body.i.i
@@ -4417,12 +4414,12 @@ while.body.i.i:                                   ; preds = %if.then.i.i41.i, %w
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then.i.i41.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.then.i.i41.i ], [ %spec.select.i.i, %while.body.i.i ]
-  %485 = and i64 %sub.ptr.sub.i, 16
-  %cmp6.i.i = icmp eq i64 %485, 0
-  br i1 %cmp6.i.i, label %land.lhs.true.i.i1130, label %if.end18.i.i
+  %485 = and i64 %conv.i.i42.i, 1
+  %cmp6.i.i.not = icmp eq i64 %485, 0
+  br i1 %cmp6.i.i.not, label %if.end18.i.i, label %land.lhs.true.i.i1130
 
 land.lhs.true.i.i1130:                            ; preds = %while.end.i.i
-  %sub7.i.i = add nsw i64 %sub.ptr.div.i, -2
+  %sub7.i.i = add nsw i64 %conv.i.i42.i, -3
   %div8.i.i = ashr exact i64 %sub7.i.i, 1
   %cmp9.i.i1131 = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div8.i.i
   br i1 %cmp9.i.i1131, label %if.end18.i.thread.i, label %if.end18.i.i

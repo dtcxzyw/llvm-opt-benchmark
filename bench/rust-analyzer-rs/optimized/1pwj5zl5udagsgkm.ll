@@ -182,36 +182,34 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 4
-  %12 = add nuw nsw i64 %11, 1
-  %13 = lshr i64 %12, 1
-  %.0 = select i1 %6, i64 %11, i64 %13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i64, ptr %15, align 8, !alias.scope !22, !noundef !21
-  %17 = icmp ugt i64 %.0, %16
-  br i1 %17, label %23, label %18
+  %. = select i1 %6, i64 4, i64 5
+  %11 = lshr i64 %10, %.
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load i64, ptr %13, align 8, !alias.scope !22, !noundef !21
+  %15 = icmp ugt i64 %11, %14
+  br i1 %15, label %21, label %16
 
-18:                                               ; preds = %23, %3
-  %19 = load i64, ptr %0, align 8, !alias.scope !22, !noundef !21
-  %20 = load i64, ptr %14, align 8, !alias.scope !22, !noundef !21
-  %21 = sub i64 %19, %20
-  %22 = icmp ugt i64 %.0, %21
-  br i1 %22, label %29, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
+16:                                               ; preds = %21, %3
+  %17 = load i64, ptr %0, align 8, !alias.scope !22, !noundef !21
+  %18 = load i64, ptr %12, align 8, !alias.scope !22, !noundef !21
+  %19 = sub i64 %17, %18
+  %20 = icmp ugt i64 %11, %19
+  br i1 %20, label %27, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
 
-23:                                               ; preds = %3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %14, align 8, !alias.scope !22, !noundef !21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !alias.scope !22, !nonnull !21, !noundef !21
-  %28 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hd91a6eb60d41a8a4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %25, i1 noundef zeroext true)
-  br label %18
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load i64, ptr %12, align 8, !alias.scope !22, !noundef !21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !alias.scope !22, !nonnull !21, !noundef !21
+  %26 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hd91a6eb60d41a8a4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 %25, i64 noundef %23, i1 noundef zeroext true)
+  br label %16
 
-29:                                               ; preds = %18
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h26158b80cbf5b543E.llvm.9817217397473310483"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.0)
+27:                                               ; preds = %16
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h26158b80cbf5b543E.llvm.9817217397473310483"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
 
-"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit": ; preds = %18, %29
+"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit": ; preds = %16, %27
   tail call void @_ZN4core4iter6traits8iterator8Iterator4fold17h8eaf399f9bff6065E.llvm.17596014262530528876(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }

@@ -37993,18 +37993,17 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3943
   %450 = load ptr, ptr %145, align 8, !alias.scope !3940, !noalias !3946, !nonnull !4, !noundef !4
   %451 = load i64, ptr %146, align 8, !alias.scope !3940, !noalias !3946, !noundef !4
-  %.idx.i7.i = shl nuw nsw i64 %451, 3
-  %452 = getelementptr inbounds nuw i8, ptr %450, i64 %.idx.i7.i
+  %452 = getelementptr inbounds nuw { { i32, i32 } }, ptr %450, i64 %451
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3947
   %453 = invoke noundef i64 @_ZN8foldhash4seed19gen_per_hasher_seed17ha42e040d22b4621fE()
-          to label %.noexc.i8.i unwind label %462, !noalias !3952
+          to label %.noexc.i7.i unwind label %462, !noalias !3952
 
-.noexc.i8.i:                                      ; preds = %449
+.noexc.i7.i:                                      ; preds = %449
   %454 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8foldhash4seed6global19GLOBAL_SEED_STORAGE17h6bd12a329340ff68E, i64 32) acquire, align 8, !noalias !3947
   %.not.i.i.i.i.i.i = icmp eq i8 %454, 2
   br i1 %.not.i.i.i.i.i.i, label %.noexc6.i.i, label %455, !prof !181
 
-455:                                              ; preds = %.noexc.i8.i
+455:                                              ; preds = %.noexc.i7.i
   invoke void @_ZN8foldhash4seed6global10GlobalSeed9init_slow17h222909b0edf1b257E()
           to label %.noexc6.i.i unwind label %462, !noalias !3953
 
@@ -38014,7 +38013,7 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   invoke void @"_ZN4core3ptr119drop_in_place$LT$hashbrown..set..HashSet$LT$polars_stream..graph..GraphNodeKey$C$foldhash..quality..RandomState$GT$$GT$17hcd80ad2dc850a27fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16) #38
           to label %.body.i.i unwind label %460, !noalias !3954
 
-.noexc6.i.i:                                      ; preds = %455, %.noexc.i8.i
+.noexc6.i.i:                                      ; preds = %455, %.noexc.i7.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) @anon.cfba456b36b811dcd9f9fe528b26821b.10, i64 32, i1 false), !noalias !3947
   store i64 %453, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !3947
   %.not.i.i.i.i = icmp eq i64 %451, 0
@@ -38070,7 +38069,7 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   unreachable
 
 472:                                              ; preds = %.loopexit223, %.loopexit.split-lp224, %491
-  %.pn.i.i = phi { ptr, i32 } [ %lpad.phi.i11.i, %491 ], [ %lpad.loopexit225, %.loopexit223 ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp224 ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.phi.i10.i, %491 ], [ %lpad.loopexit225, %.loopexit223 ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp224 ]
   invoke void @"_ZN4core3ptr119drop_in_place$LT$hashbrown..set..HashSet$LT$polars_stream..graph..GraphNodeKey$C$foldhash..quality..RandomState$GT$$GT$17hcd80ad2dc850a27fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #38
           to label %.body.i.i unwind label %620, !noalias !3953
 
@@ -38124,20 +38123,20 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 4
   %489 = load i32, ptr %488, align 4, !noalias !3953, !noundef !4
   %490 = invoke noundef align 8 dereferenceable(64) ptr @"_ZN89_$LT$slotmap..basic..SlotMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h05eeafd6d9a9e847E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i32 noundef %487, i32 noundef %489, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfba456b36b811dcd9f9fe528b26821b.243)
-          to label %492 unwind label %.loopexit.split-lp.i9.i, !noalias !3953
+          to label %492 unwind label %.loopexit.split-lp.i8.i, !noalias !3953
 
 .loopexit13.i.i:                                  ; preds = %614, %545, %518, %.lr.ph.i.i
   %lpad.loopexit.i12.i = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-.loopexit.split-lp.i9.i:                          ; preds = %.lr.ph15.i.i
-  %lpad.loopexit.split-lp.i10.i = landingpad { ptr, i32 }
+.loopexit.split-lp.i8.i:                          ; preds = %.lr.ph15.i.i
+  %lpad.loopexit.split-lp.i9.i = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-491:                                              ; preds = %.loopexit.split-lp.i9.i, %.loopexit13.i.i
-  %lpad.phi.i11.i = phi { ptr, i32 } [ %lpad.loopexit.i12.i, %.loopexit13.i.i ], [ %lpad.loopexit.split-lp.i10.i, %.loopexit.split-lp.i9.i ]
+491:                                              ; preds = %.loopexit.split-lp.i8.i, %.loopexit13.i.i
+  %lpad.phi.i10.i = phi { ptr, i32 } [ %lpad.loopexit.i12.i, %.loopexit13.i.i ], [ %lpad.loopexit.split-lp.i9.i, %.loopexit.split-lp.i8.i ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_stream..graph..LogicalPipeKey$GT$$GT$17h9cc5f8240d226a01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #38
           to label %472 unwind label %620, !noalias !3953
 
@@ -38146,8 +38145,8 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   %494 = load ptr, ptr %493, align 8, !noalias !3953, !nonnull !4, !noundef !4
   %495 = getelementptr inbounds nuw i8, ptr %490, i64 16
   %496 = load i64, ptr %495, align 8, !noalias !3953, !noundef !4
-  %.idx16.i.i = shl nuw nsw i64 %496, 3
-  %497 = getelementptr inbounds nuw i8, ptr %494, i64 %.idx16.i.i
+  %.idx.i11.i = shl nuw nsw i64 %496, 3
+  %497 = getelementptr inbounds nuw i8, ptr %494, i64 %.idx.i11.i
   %498 = icmp eq i64 %496, 0
   br i1 %498, label %.loopexit.i13.i, label %.lr.ph.i.i
 

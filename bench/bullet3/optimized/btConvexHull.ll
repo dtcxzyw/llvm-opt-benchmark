@@ -1187,9 +1187,7 @@ define dso_local void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef 
 
 31:                                               ; preds = %26
   %.cmp.le.i = icmp eq i64 %indvars.iv.i, 0
-  %.urem.le.i = shl nuw nsw i64 %indvars.iv.i, 32
-  %sext32.i = add nsw i64 %.urem.le.i, -4294967296
-  %32 = ashr exact i64 %sext32.i, 32
+  %32 = add nsw i64 %indvars.iv.i, -1
   %33 = select i1 %.cmp.le.i, i64 2, i64 %32
   %34 = getelementptr inbounds i32, ptr %6, i64 %33
   br label %_ZN14btHullTriangle4neibEii.exit
@@ -1207,9 +1205,7 @@ define dso_local void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef 
 
 42:                                               ; preds = %37
   %.cmp.le23.i = icmp eq i64 %indvars.iv.i, 0
-  %.urem.le26.i = shl nuw nsw i64 %indvars.iv.i, 32
-  %sext.i = add nsw i64 %.urem.le26.i, -4294967296
-  %43 = ashr exact i64 %sext.i, 32
+  %43 = add nsw i64 %indvars.iv.i, -1
   %44 = select i1 %.cmp.le23.i, i64 2, i64 %43
   %45 = getelementptr inbounds i32, ptr %6, i64 %44
   br label %_ZN14btHullTriangle4neibEii.exit
@@ -1242,9 +1238,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %46, %31, %42
 
 60:                                               ; preds = %55
   %.cmp.le.i31 = icmp eq i64 %indvars.iv.i24, 0
-  %.urem.le.i32 = shl nuw nsw i64 %indvars.iv.i24, 32
-  %sext32.i33 = add nsw i64 %.urem.le.i32, -4294967296
-  %61 = ashr exact i64 %sext32.i33, 32
+  %61 = add nsw i64 %indvars.iv.i24, -1
   %62 = select i1 %.cmp.le.i31, i64 2, i64 %61
   %63 = getelementptr inbounds i32, ptr %7, i64 %62
   br label %_ZN14btHullTriangle4neibEii.exit34
@@ -1262,9 +1256,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %46, %31, %42
 
 71:                                               ; preds = %66
   %.cmp.le23.i28 = icmp eq i64 %indvars.iv.i24, 0
-  %.urem.le26.i29 = shl nuw nsw i64 %indvars.iv.i24, 32
-  %sext.i30 = add nsw i64 %.urem.le26.i29, -4294967296
-  %72 = ashr exact i64 %sext.i30, 32
+  %72 = add nsw i64 %indvars.iv.i24, -1
   %73 = select i1 %.cmp.le23.i28, i64 2, i64 %72
   %74 = getelementptr inbounds i32, ptr %7, i64 %73
   br label %_ZN14btHullTriangle4neibEii.exit34
@@ -1301,9 +1293,7 @@ _ZN14btHullTriangle4neibEii.exit34:               ; preds = %75, %60, %71
 92:                                               ; preds = %87
   %.cmp.le.i42 = icmp eq i64 %indvars.iv.i35, 0
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %.urem.le.i43 = shl nuw nsw i64 %indvars.iv.i35, 32
-  %sext32.i44 = add nsw i64 %.urem.le.i43, -4294967296
-  %94 = ashr exact i64 %sext32.i44, 32
+  %94 = add nsw i64 %indvars.iv.i35, -1
   %95 = select i1 %.cmp.le.i42, i64 2, i64 %94
   %96 = getelementptr inbounds i32, ptr %93, i64 %95
   br label %_ZN14btHullTriangle4neibEii.exit45
@@ -1322,9 +1312,7 @@ _ZN14btHullTriangle4neibEii.exit34:               ; preds = %75, %60, %71
 104:                                              ; preds = %99
   %.cmp.le23.i39 = icmp eq i64 %indvars.iv.i35, 0
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %.urem.le26.i40 = shl nuw nsw i64 %indvars.iv.i35, 32
-  %sext.i41 = add nsw i64 %.urem.le26.i40, -4294967296
-  %106 = ashr exact i64 %sext.i41, 32
+  %106 = add nsw i64 %indvars.iv.i35, -1
   %107 = select i1 %.cmp.le23.i39, i64 2, i64 %106
   %108 = getelementptr inbounds i32, ptr %105, i64 %107
   br label %_ZN14btHullTriangle4neibEii.exit45
@@ -1357,9 +1345,7 @@ _ZN14btHullTriangle4neibEii.exit45:               ; preds = %109, %92, %104
 
 122:                                              ; preds = %117
   %.cmp.le.i53 = icmp eq i64 %indvars.iv.i46, 0
-  %.urem.le.i54 = shl nuw nsw i64 %indvars.iv.i46, 32
-  %sext32.i55 = add nsw i64 %.urem.le.i54, -4294967296
-  %123 = ashr exact i64 %sext32.i55, 32
+  %123 = add nsw i64 %indvars.iv.i46, -1
   %124 = select i1 %.cmp.le.i53, i64 2, i64 %123
   %125 = getelementptr inbounds i32, ptr %7, i64 %124
   br label %_ZN14btHullTriangle4neibEii.exit56
@@ -1377,9 +1363,7 @@ _ZN14btHullTriangle4neibEii.exit45:               ; preds = %109, %92, %104
 
 133:                                              ; preds = %128
   %.cmp.le23.i50 = icmp eq i64 %indvars.iv.i46, 0
-  %.urem.le26.i51 = shl nuw nsw i64 %indvars.iv.i46, 32
-  %sext.i52 = add nsw i64 %.urem.le26.i51, -4294967296
-  %134 = ashr exact i64 %sext.i52, 32
+  %134 = add nsw i64 %indvars.iv.i46, -1
   %135 = select i1 %.cmp.le23.i50, i64 2, i64 %134
   %136 = getelementptr inbounds i32, ptr %7, i64 %135
   br label %_ZN14btHullTriangle4neibEii.exit56
@@ -1412,9 +1396,7 @@ _ZN14btHullTriangle4neibEii.exit56:               ; preds = %137, %122, %133
 
 151:                                              ; preds = %146
   %.cmp.le.i64 = icmp eq i64 %indvars.iv.i57, 0
-  %.urem.le.i65 = shl nuw nsw i64 %indvars.iv.i57, 32
-  %sext32.i66 = add nsw i64 %.urem.le.i65, -4294967296
-  %152 = ashr exact i64 %sext32.i66, 32
+  %152 = add nsw i64 %indvars.iv.i57, -1
   %153 = select i1 %.cmp.le.i64, i64 2, i64 %152
   %154 = getelementptr inbounds i32, ptr %6, i64 %153
   br label %_ZN14btHullTriangle4neibEii.exit67
@@ -1432,9 +1414,7 @@ _ZN14btHullTriangle4neibEii.exit56:               ; preds = %137, %122, %133
 
 162:                                              ; preds = %157
   %.cmp.le23.i61 = icmp eq i64 %indvars.iv.i57, 0
-  %.urem.le26.i62 = shl nuw nsw i64 %indvars.iv.i57, 32
-  %sext.i63 = add nsw i64 %.urem.le26.i62, -4294967296
-  %163 = ashr exact i64 %sext.i63, 32
+  %163 = add nsw i64 %indvars.iv.i57, -1
   %164 = select i1 %.cmp.le23.i61, i64 2, i64 %163
   %165 = getelementptr inbounds i32, ptr %6, i64 %164
   br label %_ZN14btHullTriangle4neibEii.exit67
@@ -1471,9 +1451,7 @@ _ZN14btHullTriangle4neibEii.exit67:               ; preds = %166, %151, %162
 183:                                              ; preds = %178
   %.cmp.le.i75 = icmp eq i64 %indvars.iv.i68, 0
   %184 = getelementptr inbounds nuw i8, ptr %170, i64 12
-  %.urem.le.i76 = shl nuw nsw i64 %indvars.iv.i68, 32
-  %sext32.i77 = add nsw i64 %.urem.le.i76, -4294967296
-  %185 = ashr exact i64 %sext32.i77, 32
+  %185 = add nsw i64 %indvars.iv.i68, -1
   %186 = select i1 %.cmp.le.i75, i64 2, i64 %185
   %187 = getelementptr inbounds i32, ptr %184, i64 %186
   br label %_ZN14btHullTriangle4neibEii.exit78
@@ -1492,9 +1470,7 @@ _ZN14btHullTriangle4neibEii.exit67:               ; preds = %166, %151, %162
 195:                                              ; preds = %190
   %.cmp.le23.i72 = icmp eq i64 %indvars.iv.i68, 0
   %196 = getelementptr inbounds nuw i8, ptr %170, i64 12
-  %.urem.le26.i73 = shl nuw nsw i64 %indvars.iv.i68, 32
-  %sext.i74 = add nsw i64 %.urem.le26.i73, -4294967296
-  %197 = ashr exact i64 %sext.i74, 32
+  %197 = add nsw i64 %indvars.iv.i68, -1
   %198 = select i1 %.cmp.le23.i72, i64 2, i64 %197
   %199 = getelementptr inbounds i32, ptr %196, i64 %198
   br label %_ZN14btHullTriangle4neibEii.exit78
@@ -1710,9 +1686,7 @@ define dso_local void @_ZN11HullLibrary7extrudeEP14btHullTrianglei(ptr noundef n
 30:                                               ; preds = %25
   %.cmp.le.i = icmp eq i64 %indvars.iv.i, 0
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %.urem.le.i = shl nuw nsw i64 %indvars.iv.i, 32
-  %sext32.i = add nsw i64 %.urem.le.i, -4294967296
-  %32 = ashr exact i64 %sext32.i, 32
+  %32 = add nsw i64 %indvars.iv.i, -1
   %33 = select i1 %.cmp.le.i, i64 2, i64 %32
   %34 = getelementptr inbounds i32, ptr %31, i64 %33
   br label %_ZN14btHullTriangle4neibEii.exit
@@ -1731,9 +1705,7 @@ define dso_local void @_ZN11HullLibrary7extrudeEP14btHullTrianglei(ptr noundef n
 42:                                               ; preds = %37
   %.cmp.le23.i = icmp eq i64 %indvars.iv.i, 0
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %.urem.le26.i = shl nuw nsw i64 %indvars.iv.i, 32
-  %sext.i = add nsw i64 %.urem.le26.i, -4294967296
-  %44 = ashr exact i64 %sext.i, 32
+  %44 = add nsw i64 %indvars.iv.i, -1
   %45 = select i1 %.cmp.le23.i, i64 2, i64 %44
   %46 = getelementptr inbounds i32, ptr %43, i64 %45
   br label %_ZN14btHullTriangle4neibEii.exit
@@ -1781,9 +1753,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %47, %30, %42
 69:                                               ; preds = %64
   %.cmp.le.i47 = icmp eq i64 %indvars.iv.i40, 0
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %.urem.le.i48 = shl nuw nsw i64 %indvars.iv.i40, 32
-  %sext32.i49 = add nsw i64 %.urem.le.i48, -4294967296
-  %71 = ashr exact i64 %sext32.i49, 32
+  %71 = add nsw i64 %indvars.iv.i40, -1
   %72 = select i1 %.cmp.le.i47, i64 2, i64 %71
   %73 = getelementptr inbounds i32, ptr %70, i64 %72
   br label %_ZN14btHullTriangle4neibEii.exit50
@@ -1802,9 +1772,7 @@ _ZN14btHullTriangle4neibEii.exit:                 ; preds = %47, %30, %42
 81:                                               ; preds = %76
   %.cmp.le23.i44 = icmp eq i64 %indvars.iv.i40, 0
   %82 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %.urem.le26.i45 = shl nuw nsw i64 %indvars.iv.i40, 32
-  %sext.i46 = add nsw i64 %.urem.le26.i45, -4294967296
-  %83 = ashr exact i64 %sext.i46, 32
+  %83 = add nsw i64 %indvars.iv.i40, -1
   %84 = select i1 %.cmp.le23.i44, i64 2, i64 %83
   %85 = getelementptr inbounds i32, ptr %82, i64 %84
   br label %_ZN14btHullTriangle4neibEii.exit50
@@ -1852,9 +1820,7 @@ _ZN14btHullTriangle4neibEii.exit50:               ; preds = %86, %69, %81
 108:                                              ; preds = %103
   %.cmp.le.i58 = icmp eq i64 %indvars.iv.i51, 0
   %109 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %.urem.le.i59 = shl nuw nsw i64 %indvars.iv.i51, 32
-  %sext32.i60 = add nsw i64 %.urem.le.i59, -4294967296
-  %110 = ashr exact i64 %sext32.i60, 32
+  %110 = add nsw i64 %indvars.iv.i51, -1
   %111 = select i1 %.cmp.le.i58, i64 2, i64 %110
   %112 = getelementptr inbounds i32, ptr %109, i64 %111
   br label %_ZN14btHullTriangle4neibEii.exit61
@@ -1873,9 +1839,7 @@ _ZN14btHullTriangle4neibEii.exit50:               ; preds = %86, %69, %81
 120:                                              ; preds = %115
   %.cmp.le23.i55 = icmp eq i64 %indvars.iv.i51, 0
   %121 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %.urem.le26.i56 = shl nuw nsw i64 %indvars.iv.i51, 32
-  %sext.i57 = add nsw i64 %.urem.le26.i56, -4294967296
-  %122 = ashr exact i64 %sext.i57, 32
+  %122 = add nsw i64 %indvars.iv.i51, -1
   %123 = select i1 %.cmp.le23.i55, i64 2, i64 %122
   %124 = getelementptr inbounds i32, ptr %121, i64 %123
   br label %_ZN14btHullTriangle4neibEii.exit61

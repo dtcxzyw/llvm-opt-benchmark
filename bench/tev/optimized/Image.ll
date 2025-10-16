@@ -74481,180 +74481,178 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
   %43 = getelementptr inbounds i8, ptr %42, i64 %21
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   %45 = invoke noalias noundef nonnull dereferenceable(4080) ptr @_Znwm(i64 noundef 4080) #32
-          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit unwind label %105
+          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit unwind label %104
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit: ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit
   %46 = icmp eq i64 %21, %41
-  br i1 %46, label %47, label %61
+  br i1 %46, label %47, label %60
 
 47:                                               ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit
   %48 = icmp sgt i64 %21, 0
-  br i1 %48, label %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i, label %52
+  br i1 %48, label %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i, label %51
 
 _ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i: ; preds = %47
-  %49 = lshr exact i64 %21, 3
-  %50 = add nuw nsw i64 %49, 1
-  %.neg.i88 = lshr i64 %50, 1
-  %.neg.i = sub nsw i64 0, %.neg.i88
-  %51 = getelementptr inbounds ptr, ptr %43, i64 %.neg.i
-  br label %61
+  %49 = lshr i64 %21, 4
+  %.neg.i = sub nsw i64 0, %49
+  %50 = getelementptr inbounds ptr, ptr %43, i64 %.neg.i
+  br label %60
 
-52:                                               ; preds = %47
-  %53 = ashr exact i64 %21, 2
-  %54 = icmp eq ptr %17, %18
-  %.sroa.speculated.i = select i1 %54, i64 1, i64 %53
-  %55 = icmp ugt i64 %.sroa.speculated.i, 2305843009213693951
-  br i1 %55, label %56, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
+51:                                               ; preds = %47
+  %52 = ashr exact i64 %21, 2
+  %53 = icmp eq ptr %17, %18
+  %.sroa.speculated.i = select i1 %53, i64 1, i64 %52
+  %54 = icmp ugt i64 %.sroa.speculated.i, 2305843009213693951
+  br i1 %54, label %55, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
 
-56:                                               ; preds = %52
+55:                                               ; preds = %51
   invoke void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #34
-          to label %.noexc unwind label %107
+          to label %.noexc unwind label %106
 
-.noexc:                                           ; preds = %56
+.noexc:                                           ; preds = %55
   unreachable
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: ; preds = %52
-  %57 = shl nuw nsw i64 %.sroa.speculated.i, 3
-  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #32
-          to label %59 unwind label %107
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: ; preds = %51
+  %56 = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #32
+          to label %58 unwind label %106
 
-59:                                               ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %.sroa.speculated.i
+58:                                               ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %.sroa.speculated.i
   tail call void @_ZdlPv(ptr noundef nonnull %42) #30
   %.pre = load ptr, ptr %16, align 8
   %.pre110 = load ptr, ptr %9, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %59, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit
-  %62 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre110, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
-  %63 = phi ptr [ %17, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre, %59 ], [ %17, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
-  %.sroa.049.3 = phi ptr [ %42, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %58, %59 ], [ %42, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
-  %.sroa.954.3 = phi ptr [ %51, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %58, %59 ], [ %43, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
-  %.sroa.41.1 = phi ptr [ %44, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %60, %59 ], [ %44, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+60:                                               ; preds = %58, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit
+  %61 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre110, %58 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+  %62 = phi ptr [ %17, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre, %58 ], [ %17, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+  %.sroa.049.3 = phi ptr [ %42, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %57, %58 ], [ %42, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+  %.sroa.954.3 = phi ptr [ %50, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %57, %58 ], [ %43, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+  %.sroa.41.1 = phi ptr [ %44, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %59, %58 ], [ %44, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   store ptr %45, ptr %.sroa.954.3, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.954.3, i64 8
-  %.not98 = icmp eq ptr %63, %62
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.954.3, i64 8
+  %.not98 = icmp eq ptr %62, %61
   br i1 %.not98, label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, label %.lr.ph
 
-.lr.ph:                                           ; preds = %61, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
-  %.0103 = phi ptr [ %65, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %63, %61 ]
-  %.sroa.41.0102 = phi ptr [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.41.1, %61 ]
-  %.sroa.24.1101 = phi ptr [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %64, %61 ]
-  %.sroa.954.1100 = phi ptr [ %102, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.954.3, %61 ]
-  %.sroa.049.199 = phi ptr [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.049.3, %61 ]
-  %65 = getelementptr inbounds i8, ptr %.0103, i64 -8
-  %66 = icmp eq ptr %.sroa.954.1100, %.sroa.049.199
-  br i1 %66, label %67, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
+.lr.ph:                                           ; preds = %60, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
+  %.0103 = phi ptr [ %64, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %62, %60 ]
+  %.sroa.41.0102 = phi ptr [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.41.1, %60 ]
+  %.sroa.24.1101 = phi ptr [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %63, %60 ]
+  %.sroa.954.1100 = phi ptr [ %101, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.954.3, %60 ]
+  %.sroa.049.199 = phi ptr [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.049.3, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.0103, i64 -8
+  %65 = icmp eq ptr %.sroa.954.1100, %.sroa.049.199
+  br i1 %65, label %66, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
-67:                                               ; preds = %.lr.ph
-  %68 = icmp ult ptr %.sroa.24.1101, %.sroa.41.0102
-  %69 = ptrtoint ptr %.sroa.41.0102 to i64
-  br i1 %68, label %70, label %83
+66:                                               ; preds = %.lr.ph
+  %67 = icmp ult ptr %.sroa.24.1101, %.sroa.41.0102
+  %68 = ptrtoint ptr %.sroa.41.0102 to i64
+  br i1 %67, label %69, label %82
 
-70:                                               ; preds = %67
-  %71 = ptrtoint ptr %.sroa.24.1101 to i64
-  %72 = sub i64 %69, %71
-  %73 = ashr exact i64 %72, 3
-  %74 = add nsw i64 %73, 1
-  %75 = sdiv i64 %74, 2
-  %76 = getelementptr inbounds ptr, ptr %.sroa.24.1101, i64 %75
-  %77 = ptrtoint ptr %.sroa.954.1100 to i64
-  %78 = sub i64 %71, %77
-  %79 = ashr exact i64 %78, 3
-  %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds ptr, ptr %76, i64 %80
+69:                                               ; preds = %66
+  %70 = ptrtoint ptr %.sroa.24.1101 to i64
+  %71 = sub i64 %68, %70
+  %72 = ashr exact i64 %71, 3
+  %73 = add nsw i64 %72, 1
+  %74 = sdiv i64 %73, 2
+  %75 = getelementptr inbounds ptr, ptr %.sroa.24.1101, i64 %74
+  %76 = ptrtoint ptr %.sroa.954.1100 to i64
+  %77 = sub i64 %70, %76
+  %78 = ashr exact i64 %77, 3
+  %79 = sub nsw i64 0, %78
+  %80 = getelementptr inbounds ptr, ptr %75, i64 %79
   %.not.i.i.i.i.i.i.i.i24 = icmp eq ptr %.sroa.24.1101, %.sroa.954.1100
-  br i1 %.not.i.i.i.i.i.i.i.i24, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit, label %82
+  br i1 %.not.i.i.i.i.i.i.i.i24, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit, label %81
 
-82:                                               ; preds = %70
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %81, ptr nonnull align 8 %.sroa.954.1100, i64 %78, i1 false)
+81:                                               ; preds = %69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %80, ptr nonnull align 8 %.sroa.954.1100, i64 %77, i1 false)
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
-83:                                               ; preds = %67
-  %84 = ptrtoint ptr %.sroa.954.1100 to i64
-  %85 = sub i64 %69, %84
-  %86 = ashr exact i64 %85, 2
-  %87 = icmp eq ptr %.sroa.41.0102, %.sroa.954.1100
-  %.sroa.speculated.i14 = select i1 %87, i64 1, i64 %86
-  %88 = icmp ugt i64 %.sroa.speculated.i14, 2305843009213693951
-  br i1 %88, label %89, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
+82:                                               ; preds = %66
+  %83 = ptrtoint ptr %.sroa.954.1100 to i64
+  %84 = sub i64 %68, %83
+  %85 = ashr exact i64 %84, 2
+  %86 = icmp eq ptr %.sroa.41.0102, %.sroa.954.1100
+  %.sroa.speculated.i14 = select i1 %86, i64 1, i64 %85
+  %87 = icmp ugt i64 %.sroa.speculated.i14, 2305843009213693951
+  br i1 %87, label %88, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
 
-89:                                               ; preds = %83
+88:                                               ; preds = %82
   invoke void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #34
           to label %.noexc26 unwind label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp
 
-.noexc26:                                         ; preds = %89
+.noexc26:                                         ; preds = %88
   unreachable
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15: ; preds = %83
-  %90 = shl nuw i64 %.sroa.speculated.i14, 3
-  %91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #32
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15: ; preds = %82
+  %89 = shl nuw i64 %.sroa.speculated.i14, 3
+  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #32
           to label %.noexc27 unwind label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
 
 .noexc27:                                         ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
-  %92 = add nuw nsw i64 %.sroa.speculated.i14, 3
-  %93 = lshr i64 %92, 2
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
-  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %.sroa.speculated.i14
-  %96 = ptrtoint ptr %.sroa.24.1101 to i64
-  %97 = sub i64 %96, %84
-  %98 = getelementptr inbounds i8, ptr %94, i64 %97
+  %91 = add nuw nsw i64 %.sroa.speculated.i14, 3
+  %92 = lshr i64 %91, 2
+  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw ptr, ptr %90, i64 %.sroa.speculated.i14
+  %95 = ptrtoint ptr %.sroa.24.1101 to i64
+  %96 = sub i64 %95, %83
+  %97 = getelementptr inbounds i8, ptr %93, i64 %96
   %.not10.i.i.i16 = icmp eq ptr %.sroa.24.1101, %.sroa.954.1100
   br i1 %.not10.i.i.i16, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %.noexc27, %.lr.ph.i.i.i17
-  %.sroa.0.012.i.i.i18 = phi ptr [ %100, %.lr.ph.i.i.i17 ], [ %94, %.noexc27 ]
-  %.sroa.08.011.i.i.i19 = phi ptr [ %101, %.lr.ph.i.i.i17 ], [ %.sroa.954.1100, %.noexc27 ]
-  %99 = load ptr, ptr %.sroa.08.011.i.i.i19, align 8
-  store ptr %99, ptr %.sroa.0.012.i.i.i18, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i18, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i19, i64 8
-  %.not.i.i.i20 = icmp eq ptr %100, %98
+  %.sroa.0.012.i.i.i18 = phi ptr [ %99, %.lr.ph.i.i.i17 ], [ %93, %.noexc27 ]
+  %.sroa.08.011.i.i.i19 = phi ptr [ %100, %.lr.ph.i.i.i17 ], [ %.sroa.954.1100, %.noexc27 ]
+  %98 = load ptr, ptr %.sroa.08.011.i.i.i19, align 8
+  store ptr %98, ptr %.sroa.0.012.i.i.i18, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i18, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i19, i64 8
+  %.not.i.i.i20 = icmp eq ptr %99, %97
   br i1 %.not.i.i.i20, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21, label %.lr.ph.i.i.i17, !llvm.loop !1276
 
 _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21: ; preds = %.lr.ph.i.i.i17, %.noexc27
-  %storemerge.i22 = phi ptr [ %94, %.noexc27 ], [ %98, %.lr.ph.i.i.i17 ]
+  %storemerge.i22 = phi ptr [ %93, %.noexc27 ], [ %97, %.lr.ph.i.i.i17 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.199) #30
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit: ; preds = %70, %82, %.lr.ph, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21
-  %.sroa.049.4 = phi ptr [ %91, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.049.199, %.lr.ph ], [ %.sroa.049.199, %82 ], [ %.sroa.049.199, %70 ]
-  %.sroa.954.4 = phi ptr [ %94, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.954.1100, %.lr.ph ], [ %81, %82 ], [ %81, %70 ]
-  %.sroa.24.4 = phi ptr [ %storemerge.i22, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.24.1101, %.lr.ph ], [ %76, %82 ], [ %76, %70 ]
-  %.sroa.41.2 = phi ptr [ %95, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.41.0102, %.lr.ph ], [ %.sroa.41.0102, %82 ], [ %.sroa.41.0102, %70 ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.954.4, i64 -8
-  %103 = load ptr, ptr %65, align 8
-  store ptr %103, ptr %102, align 8
-  %104 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %65, %104
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit: ; preds = %69, %81, %.lr.ph, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21
+  %.sroa.049.4 = phi ptr [ %90, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.049.199, %.lr.ph ], [ %.sroa.049.199, %81 ], [ %.sroa.049.199, %69 ]
+  %.sroa.954.4 = phi ptr [ %93, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.954.1100, %.lr.ph ], [ %80, %81 ], [ %80, %69 ]
+  %.sroa.24.4 = phi ptr [ %storemerge.i22, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.24.1101, %.lr.ph ], [ %75, %81 ], [ %75, %69 ]
+  %.sroa.41.2 = phi ptr [ %94, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.41.0102, %.lr.ph ], [ %.sroa.41.0102, %81 ], [ %.sroa.41.0102, %69 ]
+  %101 = getelementptr inbounds i8, ptr %.sroa.954.4, i64 -8
+  %102 = load ptr, ptr %64, align 8
+  store ptr %102, ptr %101, align 8
+  %103 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %64, %103
   br i1 %.not, label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, label %.lr.ph
 
-105:                                              ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40
 
-107:                                              ; preds = %56, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
+106:                                              ; preds = %55, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %45) #30
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40
 
-_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30: ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit, %61
-  %.sroa.049.1.lcssa = phi ptr [ %.sroa.049.3, %61 ], [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
-  %.sroa.954.1.lcssa = phi ptr [ %.sroa.954.3, %61 ], [ %102, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
-  %.sroa.24.1.lcssa = phi ptr [ %64, %61 ], [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
-  %.sroa.41.0.lcssa = phi ptr [ %.sroa.41.1, %61 ], [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
-  %108 = load ptr, ptr %0, align 8
+_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30: ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit, %60
+  %.sroa.049.1.lcssa = phi ptr [ %.sroa.049.3, %60 ], [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
+  %.sroa.954.1.lcssa = phi ptr [ %.sroa.954.3, %60 ], [ %101, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
+  %.sroa.24.1.lcssa = phi ptr [ %63, %60 ], [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
+  %.sroa.41.0.lcssa = phi ptr [ %.sroa.41.1, %60 ], [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ]
+  %107 = load ptr, ptr %0, align 8
   store ptr %.sroa.049.1.lcssa, ptr %0, align 8
   store ptr %.sroa.954.1.lcssa, ptr %9, align 8
   store ptr %.sroa.24.1.lcssa, ptr %16, align 8
   store ptr %.sroa.41.0.lcssa, ptr %22, align 8
-  %.not.i = icmp eq ptr %108, null
-  br i1 %.not.i, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit, label %109
+  %.not.i = icmp eq ptr %107, null
+  br i1 %.not.i, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit, label %108
 
-109:                                              ; preds = %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30
-  tail call void @_ZdlPv(ptr noundef nonnull %108) #30
+108:                                              ; preds = %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30
+  tail call void @_ZdlPv(ptr noundef nonnull %107) #30
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit
 
 _ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit: ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
@@ -74662,18 +74660,18 @@ _ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allo
           cleanup
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40
 
-_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp: ; preds = %89
+_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp: ; preds = %88
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40: ; preds = %107, %105, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
-  %.sroa.049.28087 = phi ptr [ %42, %107 ], [ %42, %105 ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
-  %.pn8185 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %107 ], [ %106, %105 ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40: ; preds = %106, %104, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
+  %.sroa.049.28087 = phi ptr [ %42, %106 ], [ %42, %104 ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+  %.pn8185 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %106 ], [ %105, %104 ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.28087) #30
   resume { ptr, i32 } %.pn8185
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %31, %32, %109, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, %10
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %31, %32, %108, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, %10
   ret void
 }
 

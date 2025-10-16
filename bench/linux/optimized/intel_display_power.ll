@@ -2653,9 +2653,9 @@ define internal fastcc void @icl_display_core_init(ptr noundef %0, i1 noundef ze
   %214 = add nuw nsw i32 %213, 282928
   %215 = load ptr, ptr %38, align 8
   tail call void %215(ptr noundef nonnull %31, i32 %214, i32 noundef -2147483648, i1 noundef zeroext true) #10
-  %216 = add nuw nsw i64 %208, 1
-  %217 = and i64 %216, 15
-  %218 = icmp samesign ugt i64 %217, 7
+  %216 = and i64 %208, 7
+  %217 = add nuw nsw i64 %216, 1
+  %218 = icmp eq i64 %216, 7
   br i1 %218, label %.thread16, label %202, !prof !110, !llvm.loop !118
 
 .preheader:                                       ; preds = %185, %241
@@ -2692,9 +2692,9 @@ define internal fastcc void @icl_display_core_init(ptr noundef %0, i1 noundef ze
   br label %241
 
 241:                                              ; preds = %234, %227
-  %242 = add nuw nsw i64 %224, 1
-  %243 = and i64 %242, 15
-  %244 = icmp samesign ugt i64 %243, 7
+  %242 = and i64 %224, 7
+  %243 = add nuw nsw i64 %242, 1
+  %244 = icmp eq i64 %242, 7
   br i1 %244, label %.thread16, label %.preheader, !prof !110, !llvm.loop !119
 
 .thread16:                                        ; preds = %.preheader, %241, %223, %202, %211, %207, %.thread14, %.thread

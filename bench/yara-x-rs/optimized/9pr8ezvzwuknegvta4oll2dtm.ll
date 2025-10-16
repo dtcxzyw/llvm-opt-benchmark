@@ -19,11 +19,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdfab0e0d462a50acE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -38,11 +36,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hda11b0d67178db5dE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -57,11 +53,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95b8d7cb0396207aE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -76,11 +70,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hde8b8aaa032d839eE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -95,11 +87,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h95bc158ed028de58E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -114,11 +104,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6894af04c3bae116E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -133,11 +121,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6e2a707cf99f176eE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -152,11 +138,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7b91c91f6cb92a90E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -171,11 +155,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h39a937b3071a4475E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -190,11 +172,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h265fff6c6c95efa4E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -209,11 +189,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6710711be794dfc3E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
@@ -228,11 +206,9 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 1
-  %12 = add nuw i64 %11, 1
-  %.sroa.0.0.in = select i1 %6, i64 %10, i64 %12
-  %.sroa.0.0 = lshr i64 %.sroa.0.0.in, 1
-  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.sroa.0.0)
+  %. = select i1 %6, i64 1, i64 2
+  %11 = lshr i64 %10, %.
+  tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17he14a73e2b7b9e2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h811215a74295376cE"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }

@@ -2952,24 +2952,24 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.79251
   %17 = load ptr, ptr %16, align 8, !noalias !257, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !257, !nonnull !4, !noundef !4
-  %.not = icmp eq ptr %17, %19
-  br i1 %.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit.i", label %20
-
-20:                                               ; preds = %11
+  %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
-  %22 = ptrtoint ptr %17 to i64
-  %23 = sub nuw i64 %22, %21
-  %24 = lshr exact i64 %23, 4
+  %22 = sub nuw i64 %20, %21
+  %.not = icmp ult i64 %22, 16
+  br i1 %.not, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit.i", label %23
+
+23:                                               ; preds = %11
+  %24 = lshr i64 %22, 4
   %25 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hd242dea37d2accefE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i1 noundef zeroext true)
           to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit.i" unwind label %26, !noalias !261
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit.i": ; preds = %20, %11
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit.i": ; preds = %23, %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17hdf706e9e7904002aE.llvm.18123795597341512700(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %32 unwind label %30
 
-26:                                               ; preds = %20
+26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr148drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$$RF$deltalake_core..kernel..models..schema..DataType$RP$$GT$$GT$17heb59859db7612f22E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #56

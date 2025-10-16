@@ -9795,13 +9795,13 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %91
+  br i1 %26, label %27, label %90
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !39
   %30 = icmp ult i32 %29, 256
-  br i1 %30, label %31, label %80
+  br i1 %30, label %31, label %79
 
 31:                                               ; preds = %27
   %32 = load i16, ptr %0, align 4, !tbaa !24
@@ -9837,159 +9837,157 @@ define hidden i32 @psa_generate_key_custom(ptr noundef %0, ptr noundef readonly 
   br label %.thread94
 
 50:                                               ; preds = %43
-  switch i16 %32, label %68 [
+  switch i16 %32, label %67 [
     i16 28673, label %51
-    i16 16385, label %57
-    i16 28674, label %60
-    i16 16386, label %64
+    i16 16385, label %56
+    i16 28674, label %59
+    i16 16386, label %63
   ]
 
 51:                                               ; preds = %50
-  %52 = lshr i16 %33, 1
-  %narrow62 = add nuw i16 %52, 1
-  %53 = lshr i16 %narrow62, 3
-  %narrow63 = add nuw nsw i16 %53, 5
-  %54 = zext nneg i16 %narrow63 to i32
-  %55 = mul nuw nsw i32 %54, 9
-  %56 = add nuw nsw i32 %55, 14
+  %52 = lshr i16 %33, 4
+  %narrow63 = add nuw nsw i16 %52, 5
+  %53 = zext nneg i16 %narrow63 to i32
+  %54 = mul nuw nsw i32 %53, 9
+  %55 = add nuw nsw i32 %54, 14
   br label %.thread94
 
-57:                                               ; preds = %50
-  %58 = lshr i16 %33, 3
-  %narrow61 = add nuw nsw i16 %58, 16
-  %59 = zext nneg i16 %narrow61 to i32
+56:                                               ; preds = %50
+  %57 = lshr i16 %33, 3
+  %narrow61 = add nuw nsw i16 %57, 16
+  %58 = zext nneg i16 %narrow61 to i32
   br label %.thread94
 
-60:                                               ; preds = %50
-  %61 = lshr i16 %33, 3
-  %62 = mul nuw nsw i16 %61, 3
-  %narrow59 = add nuw nsw i16 %62, 90
-  %63 = zext nneg i16 %narrow59 to i32
+59:                                               ; preds = %50
+  %60 = lshr i16 %33, 3
+  %61 = mul nuw nsw i16 %60, 3
+  %narrow59 = add nuw nsw i16 %61, 90
+  %62 = zext nneg i16 %narrow59 to i32
   br label %.thread94
 
-64:                                               ; preds = %50
-  %65 = lshr i16 %33, 3
-  %66 = mul nuw nsw i16 %65, 3
-  %narrow = add nuw nsw i16 %66, 74
-  %67 = zext nneg i16 %narrow to i32
+63:                                               ; preds = %50
+  %64 = lshr i16 %33, 3
+  %65 = mul nuw nsw i16 %64, 3
+  %narrow = add nuw nsw i16 %65, 74
+  %66 = zext nneg i16 %narrow to i32
   br label %.thread94
 
-68:                                               ; preds = %50
+67:                                               ; preds = %50
   %trunc = and i16 %32, -256
   switch i16 %trunc, label %.thread94 [
-    i16 28928, label %69
-    i16 16640, label %73
+    i16 28928, label %68
+    i16 16640, label %72
   ]
 
-69:                                               ; preds = %68
-  %70 = zext i16 %33 to i32
-  %71 = add nuw nsw i32 %70, 7
-  %72 = lshr i32 %71, 3
+68:                                               ; preds = %67
+  %69 = zext i16 %33 to i32
+  %70 = add nuw nsw i32 %69, 7
+  %71 = lshr i32 %70, 3
   br label %.thread94
 
-73:                                               ; preds = %68
-  %74 = zext i16 %33 to i32
-  %75 = add nuw nsw i32 %74, 7
-  %76 = lshr i32 %75, 2
-  %77 = or i32 %76, 1
+72:                                               ; preds = %67
+  %73 = zext i16 %33 to i32
+  %74 = add nuw nsw i32 %73, 7
+  %75 = lshr i32 %74, 2
+  %76 = or i32 %75, 1
   br label %.thread94
 
-.thread94:                                        ; preds = %39, %51, %60, %69, %73, %64, %57, %46, %68
-  %78 = phi i32 [ %42, %39 ], [ %49, %46 ], [ %56, %51 ], [ %59, %57 ], [ %63, %60 ], [ %67, %64 ], [ %72, %69 ], [ %77, %73 ], [ 0, %68 ]
-  %79 = zext nneg i32 %78 to i64
-  store i64 %79, ptr %8, align 8, !tbaa !25
-  br label %84
+.thread94:                                        ; preds = %39, %51, %59, %68, %72, %63, %56, %46, %67
+  %77 = phi i32 [ %42, %39 ], [ %49, %46 ], [ %55, %51 ], [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %71, %68 ], [ %76, %72 ], [ 0, %67 ]
+  %78 = zext nneg i32 %77 to i64
+  store i64 %78, ptr %8, align 8, !tbaa !25
+  br label %83
 
-80:                                               ; preds = %27
-  %81 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %0, ptr noundef nonnull %8) #22
-  %.not54 = icmp eq i32 %81, 0
-  br i1 %.not54, label %82, label %.thread
+79:                                               ; preds = %27
+  %80 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %0, ptr noundef nonnull %8) #22
+  %.not54 = icmp eq i32 %80, 0
+  br i1 %.not54, label %81, label %.thread
 
-82:                                               ; preds = %80
+81:                                               ; preds = %79
   %.pre = load ptr, ptr %6, align 8, !tbaa !29
   %.pre82 = load i64, ptr %8, align 8, !tbaa !25
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre83 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
-  %83 = icmp eq ptr %.pre83, null
-  br i1 %83, label %84, label %.thread.thread
+  %82 = icmp eq ptr %.pre83, null
+  br i1 %82, label %83, label %.thread.thread
 
-84:                                               ; preds = %.thread94, %82
-  %85 = phi ptr [ %23, %.thread94 ], [ %.pre, %82 ]
-  %86 = phi i64 [ %79, %.thread94 ], [ %.pre82, %82 ]
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %88 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %86) #21
-  store ptr %88, ptr %87, align 8, !tbaa !16
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread, label %psa_allocate_buffer_to_slot.exit
+83:                                               ; preds = %.thread94, %81
+  %84 = phi ptr [ %23, %.thread94 ], [ %.pre, %81 ]
+  %85 = phi i64 [ %78, %.thread94 ], [ %.pre82, %81 ]
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %87 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %85) #21
+  store ptr %87, ptr %86, align 8, !tbaa !16
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.thread, label %psa_allocate_buffer_to_slot.exit
 
-psa_allocate_buffer_to_slot.exit:                 ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  store i64 %86, ptr %90, align 8, !tbaa !23
-  br label %91
+psa_allocate_buffer_to_slot.exit:                 ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  store i64 %85, ptr %89, align 8, !tbaa !23
+  br label %90
 
-91:                                               ; preds = %psa_allocate_buffer_to_slot.exit, %22
-  %92 = phi ptr [ %88, %psa_allocate_buffer_to_slot.exit ], [ %25, %22 ]
-  %93 = phi ptr [ %85, %psa_allocate_buffer_to_slot.exit ], [ %23, %22 ]
-  %94 = getelementptr i8, ptr %0, i64 4
-  %.val.i = load i32, ptr %94, align 4, !tbaa !39
-  %95 = load i32, ptr %1, align 4, !tbaa !95
-  %.not.i.i = icmp ne i32 %95, 0
+90:                                               ; preds = %psa_allocate_buffer_to_slot.exit, %22
+  %91 = phi ptr [ %87, %psa_allocate_buffer_to_slot.exit ], [ %25, %22 ]
+  %92 = phi ptr [ %84, %psa_allocate_buffer_to_slot.exit ], [ %23, %22 ]
+  %93 = getelementptr i8, ptr %0, i64 4
+  %.val.i = load i32, ptr %93, align 4, !tbaa !39
+  %94 = load i32, ptr %1, align 4, !tbaa !95
+  %.not.i.i = icmp ne i32 %94, 0
   %.not2.i.i = icmp ne i64 %3, 0
   %narrow.i.not18.i = or i1 %.not2.i.i, %.not.i.i
-  %96 = icmp ugt i32 %.val.i, 255
-  %or.cond.not17.i = select i1 %96, i1 %narrow.i.not18.i, i1 false
+  %95 = icmp ugt i32 %.val.i, 255
+  %or.cond.not17.i = select i1 %95, i1 %narrow.i.not18.i, i1 false
   %.mux.i = select i1 %or.cond.not17.i, i32 -134, i32 -135
-  br i1 %96, label %psa_driver_wrapper_generate_key.exit.thread, label %psa_driver_wrapper_generate_key.exit
+  br i1 %95, label %psa_driver_wrapper_generate_key.exit.thread, label %psa_driver_wrapper_generate_key.exit
 
-psa_driver_wrapper_generate_key.exit:             ; preds = %91
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %98 = load i64, ptr %97, align 8, !tbaa !23
-  %99 = call i32 @psa_generate_key_internal(ptr noundef nonnull %0, ptr nonnull readonly poison, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %92, i64 noundef %98, ptr noundef nonnull %97)
-  %.not65 = icmp eq i32 %99, 0
+psa_driver_wrapper_generate_key.exit:             ; preds = %90
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %97 = load i64, ptr %96, align 8, !tbaa !23
+  %98 = call i32 @psa_generate_key_internal(ptr noundef nonnull %0, ptr nonnull readonly poison, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %91, i64 noundef %97, ptr noundef nonnull %96)
+  %.not65 = icmp eq i32 %98, 0
   %.pre84 = load ptr, ptr %6, align 8, !tbaa !29
-  br i1 %.not65, label %106, label %psa_driver_wrapper_generate_key.exit.thread
+  br i1 %.not65, label %105, label %psa_driver_wrapper_generate_key.exit.thread
 
-psa_driver_wrapper_generate_key.exit.thread:      ; preds = %91, %psa_driver_wrapper_generate_key.exit
-  %100 = phi ptr [ %.pre84, %psa_driver_wrapper_generate_key.exit ], [ %93, %91 ]
-  %.0.i6977 = phi i32 [ %99, %psa_driver_wrapper_generate_key.exit ], [ %.mux.i, %91 ]
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %102 = load ptr, ptr %101, align 8, !tbaa !16
-  %.not.i70 = icmp eq ptr %102, null
-  br i1 %.not.i70, label %psa_remove_key_data_from_memory.exit, label %103
+psa_driver_wrapper_generate_key.exit.thread:      ; preds = %90, %psa_driver_wrapper_generate_key.exit
+  %99 = phi ptr [ %.pre84, %psa_driver_wrapper_generate_key.exit ], [ %92, %90 ]
+  %.0.i6977 = phi i32 [ %98, %psa_driver_wrapper_generate_key.exit ], [ %.mux.i, %90 ]
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %101 = load ptr, ptr %100, align 8, !tbaa !16
+  %.not.i70 = icmp eq ptr %101, null
+  br i1 %.not.i70, label %psa_remove_key_data_from_memory.exit, label %102
 
-103:                                              ; preds = %psa_driver_wrapper_generate_key.exit.thread
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %105 = load i64, ptr %104, align 8, !tbaa !23
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %102, i64 noundef %105) #22
+102:                                              ; preds = %psa_driver_wrapper_generate_key.exit.thread
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 48
+  %104 = load i64, ptr %103, align 8, !tbaa !23
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %101, i64 noundef %104) #22
   br label %psa_remove_key_data_from_memory.exit
 
-psa_remove_key_data_from_memory.exit:             ; preds = %psa_driver_wrapper_generate_key.exit.thread, %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+psa_remove_key_data_from_memory.exit:             ; preds = %psa_driver_wrapper_generate_key.exit.thread, %102
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
   br label %.thread
 
-106:                                              ; preds = %psa_driver_wrapper_generate_key.exit
-  %107 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
-  %108 = load i32, ptr %107, align 4, !tbaa !30
-  %109 = and i32 %108, 255
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.thread.i, label %111
+105:                                              ; preds = %psa_driver_wrapper_generate_key.exit
+  %106 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
+  %107 = load i32, ptr %106, align 4, !tbaa !30
+  %108 = and i32 %107, 255
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %.thread.i, label %110
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %.pre84, i64 40
-  %113 = load ptr, ptr %112, align 8, !tbaa !16
-  %114 = getelementptr inbounds nuw i8, ptr %.pre84, i64 48
-  %115 = load i64, ptr %114, align 8, !tbaa !23
-  %116 = call i32 @psa_save_persistent_key(ptr noundef nonnull %.pre84, ptr noundef %113, i64 noundef %115) #22
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %.thread.i, label %.thread
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %.pre84, i64 40
+  %112 = load ptr, ptr %111, align 8, !tbaa !16
+  %113 = getelementptr inbounds nuw i8, ptr %.pre84, i64 48
+  %114 = load i64, ptr %113, align 8, !tbaa !23
+  %115 = call i32 @psa_save_persistent_key(ptr noundef nonnull %.pre84, ptr noundef %112, i64 noundef %114) #22
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %.thread.i, label %.thread
 
-.thread.i:                                        ; preds = %111, %106
-  %118 = getelementptr inbounds nuw i8, ptr %.pre84, i64 20
-  %119 = load i32, ptr %118, align 4, !tbaa !31
-  store i32 %119, ptr %4, align 4, !tbaa !34
-  %120 = getelementptr inbounds nuw i8, ptr %.pre84, i64 24
-  %121 = load i32, ptr %120, align 8, !tbaa !26
-  %.not.i.i71 = icmp eq i32 %121, 1
+.thread.i:                                        ; preds = %110, %105
+  %117 = getelementptr inbounds nuw i8, ptr %.pre84, i64 20
+  %118 = load i32, ptr %117, align 4, !tbaa !31
+  store i32 %118, ptr %4, align 4, !tbaa !34
+  %119 = getelementptr inbounds nuw i8, ptr %.pre84, i64 24
+  %120 = load i32, ptr %119, align 8, !tbaa !26
+  %.not.i.i71 = icmp eq i32 %120, 1
   br i1 %.not.i.i71, label %psa_finish_key_creation.exit, label %psa_key_slot_state_transition.exit.i
 
 psa_key_slot_state_transition.exit.i:             ; preds = %.thread.i
@@ -9997,68 +9995,68 @@ psa_key_slot_state_transition.exit.i:             ; preds = %.thread.i
   br label %.thread
 
 psa_finish_key_creation.exit:                     ; preds = %.thread.i
-  store i32 2, ptr %120, align 8, !tbaa !26
+  store i32 2, ptr %119, align 8, !tbaa !26
   br label %psa_fail_key_creation.exit
 
-.thread:                                          ; preds = %84, %80, %psa_remove_key_data_from_memory.exit, %31, %20, %psa_key_slot_state_transition.exit.i, %111
-  %.1.ph.ph = phi i32 [ -141, %84 ], [ %21, %20 ], [ %35, %31 ], [ %.0.i6977, %psa_remove_key_data_from_memory.exit ], [ %81, %80 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %116, %111 ]
+.thread:                                          ; preds = %83, %79, %psa_remove_key_data_from_memory.exit, %31, %20, %psa_key_slot_state_transition.exit.i, %110
+  %.1.ph.ph = phi i32 [ -141, %83 ], [ %21, %20 ], [ %35, %31 ], [ %.0.i6977, %psa_remove_key_data_from_memory.exit ], [ %80, %79 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %115, %110 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !29
-  %122 = icmp eq ptr %.pr, null
-  br i1 %122, label %psa_fail_key_creation.exit, label %.thread.thread
+  %121 = icmp eq ptr %.pr, null
+  br i1 %121, label %psa_fail_key_creation.exit, label %.thread.thread
 
-.thread.thread:                                   ; preds = %82, %.thread
-  %.1.ph97 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %82 ]
-  %123 = phi ptr [ %.pr, %.thread ], [ %.pre, %82 ]
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  %125 = load ptr, ptr %124, align 8, !tbaa !16
-  %.not.i.i.i = icmp eq ptr %125, null
-  br i1 %.not.i.i.i, label %psa_remove_key_data_from_memory.exit.i.i, label %126
+.thread.thread:                                   ; preds = %81, %.thread
+  %.1.ph97 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %81 ]
+  %122 = phi ptr [ %.pr, %.thread ], [ %.pre, %81 ]
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %124 = load ptr, ptr %123, align 8, !tbaa !16
+  %.not.i.i.i = icmp eq ptr %124, null
+  br i1 %.not.i.i.i, label %psa_remove_key_data_from_memory.exit.i.i, label %125
 
-126:                                              ; preds = %.thread.thread
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 48
-  %128 = load i64, ptr %127, align 8, !tbaa !23
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %125, i64 noundef %128) #22
+125:                                              ; preds = %.thread.thread
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  %127 = load i64, ptr %126, align 8, !tbaa !23
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %124, i64 noundef %127) #22
   br label %psa_remove_key_data_from_memory.exit.i.i
 
-psa_remove_key_data_from_memory.exit.i.i:         ; preds = %126, %.thread.thread
-  %129 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %130 = load i32, ptr %129, align 8, !tbaa !26
-  switch i32 %130, label %.thread.i.i [
-    i32 2, label %131
-    i32 3, label %131
-    i32 1, label %136
+psa_remove_key_data_from_memory.exit.i.i:         ; preds = %125, %.thread.thread
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %129 = load i32, ptr %128, align 8, !tbaa !26
+  switch i32 %129, label %.thread.i.i [
+    i32 2, label %130
+    i32 3, label %130
+    i32 1, label %135
   ]
 
 .thread.i.i:                                      ; preds = %psa_remove_key_data_from_memory.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %123, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 56, i1 false)
   br label %psa_fail_key_creation.exit
 
-131:                                              ; preds = %psa_remove_key_data_from_memory.exit.i.i, %psa_remove_key_data_from_memory.exit.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %133 = load i64, ptr %132, align 8, !tbaa !27
-  %.not9.i.i = icmp eq i64 %133, 1
-  %134 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %135 = load i8, ptr %134, align 4, !tbaa !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %123, i8 0, i64 56, i1 false)
-  br i1 %.not9.i.i, label %141, label %psa_fail_key_creation.exit
+130:                                              ; preds = %psa_remove_key_data_from_memory.exit.i.i, %psa_remove_key_data_from_memory.exit.i.i
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %132 = load i64, ptr %131, align 8, !tbaa !27
+  %.not9.i.i = icmp eq i64 %132, 1
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %134 = load i8, ptr %133, align 4, !tbaa !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 56, i1 false)
+  br i1 %.not9.i.i, label %140, label %psa_fail_key_creation.exit
 
-136:                                              ; preds = %psa_remove_key_data_from_memory.exit.i.i
-  %137 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %138 = load i64, ptr %137, align 8, !tbaa !27
-  %.not.i.i72 = icmp eq i64 %138, 0
-  %139 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %140 = load i8, ptr %139, align 4, !tbaa !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %123, i8 0, i64 56, i1 false)
-  br i1 %.not.i.i72, label %141, label %psa_fail_key_creation.exit
+135:                                              ; preds = %psa_remove_key_data_from_memory.exit.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %137 = load i64, ptr %136, align 8, !tbaa !27
+  %.not.i.i72 = icmp eq i64 %137, 0
+  %138 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %139 = load i8, ptr %138, align 4, !tbaa !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 56, i1 false)
+  br i1 %.not.i.i72, label %140, label %psa_fail_key_creation.exit
 
-141:                                              ; preds = %136, %131
-  %142 = phi i8 [ %135, %131 ], [ %140, %136 ]
-  %143 = zext i8 %142 to i64
-  %144 = call i32 @psa_free_key_slot(i64 noundef %143, ptr noundef nonnull %123) #22
+140:                                              ; preds = %135, %130
+  %141 = phi i8 [ %134, %130 ], [ %139, %135 ]
+  %142 = zext i8 %141 to i64
+  %143 = call i32 @psa_free_key_slot(i64 noundef %142, ptr noundef nonnull %122) #22
   br label %psa_fail_key_creation.exit
 
-psa_fail_key_creation.exit:                       ; preds = %141, %136, %131, %.thread.i.i, %.thread, %psa_finish_key_creation.exit, %19, %18, %11, %5
-  %.042 = phi i32 [ -135, %5 ], [ -135, %11 ], [ -135, %18 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph97, %.thread.i.i ], [ %.1.ph97, %131 ], [ %.1.ph97, %136 ], [ %.1.ph97, %141 ]
+psa_fail_key_creation.exit:                       ; preds = %140, %135, %130, %.thread.i.i, %.thread, %psa_finish_key_creation.exit, %19, %18, %11, %5
+  %.042 = phi i32 [ -135, %5 ], [ -135, %11 ], [ -135, %18 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph97, %.thread.i.i ], [ %.1.ph97, %130 ], [ %.1.ph97, %135 ], [ %.1.ph97, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

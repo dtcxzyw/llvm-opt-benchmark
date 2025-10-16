@@ -27119,12 +27119,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
 
 89:                                               ; preds = %78, %78
   %90 = load ptr, ptr %65, align 8, !tbaa !29
-  %.idx4.i = add nuw nsw i64 %84, 576460752303423487
-  %91 = add nuw nsw i64 %.idx4.i, %82
-  %92 = and i64 %91, 576460752303423487
-  %93 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %90, i64 %92
-  %.not2067.i = icmp eq ptr %90, null
-  br i1 %.not2067.i, label %.critedge.i.i, label %94
+  %.not205.i = icmp eq ptr %90, null
+  %91 = getelementptr %struct._zend_ssa_op, ptr %90, i64 %82
+  %92 = getelementptr %struct._zend_ssa_op, ptr %91, i64 %84
+  %93 = getelementptr i8, ptr %92, i64 -36
+  %.not2067.i = icmp eq ptr %93, null
+  %.not206.i = or i1 %.not205.i, %.not2067.i
+  br i1 %.not205.i, label %.critedge.i.i, label %94
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %69, align 8, !tbaa !162
@@ -27326,12 +27327,12 @@ _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %
   %spec.select.i = or i32 %205, %.0.i.i
   %206 = icmp eq i8 %88, 62
   %207 = and i32 %204, -2147483648
-  %.sink45.i = select i1 %206, i32 -1026, i32 1073740798
-  %.sink44.i = select i1 %206, i32 %207, i32 1024
-  %208 = and i32 %spec.select.i, %.sink45.i
+  %.sink46.i = select i1 %206, i32 -1026, i32 1073740798
+  %.sink45.i = select i1 %206, i32 %207, i32 1024
+  %208 = and i32 %spec.select.i, %.sink46.i
   %209 = or i32 %.015816.i, %208
-  %210 = or i32 %209, %.sink44.i
-  br i1 %.not2067.i, label %227, label %211
+  %210 = or i32 %209, %.sink45.i
+  br i1 %.not206.i, label %227, label %211
 
 211:                                              ; preds = %_ssa_op1_info.exit.i
   %212 = load ptr, ptr %66, align 8, !tbaa !163
@@ -27341,7 +27342,7 @@ _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %
 213:                                              ; preds = %211
   %214 = load i32, ptr %93, align 4, !tbaa !51
   %215 = icmp sgt i32 %214, -1
-  %216 = and i32 %.sink44.i, 1024
+  %216 = and i32 %.sink45.i, 1024
   %.not210.i = icmp eq i32 %216, 0
   %or.cond.i = select i1 %215, i1 %.not210.i, i1 false
   br i1 %or.cond.i, label %217, label %227
@@ -27441,7 +27442,7 @@ _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %
   br label %is_recursive_tail_call.exit.i
 
 263:                                              ; preds = %232
-  br i1 %.not2067.i, label %is_recursive_tail_call.exit.i, label %264
+  br i1 %.not206.i, label %is_recursive_tail_call.exit.i, label %264
 
 264:                                              ; preds = %263
   %265 = load ptr, ptr %66, align 8, !tbaa !163

@@ -133,12 +133,10 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 4
-  %12 = add nuw nsw i64 %11, 1
-  %13 = lshr i64 %12, 1
-  %.sroa.0.0 = select i1 %6, i64 %11, i64 %13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h8e61d8dbeff4d41bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.sroa.0.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  %. = select i1 %6, i64 4, i64 5
+  %11 = lshr i64 %10, %.
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h8e61d8dbeff4d41bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
   tail call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4667d3a1cd4210e4E"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }

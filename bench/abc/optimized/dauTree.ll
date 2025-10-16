@@ -2364,8 +2364,8 @@ define ptr @Dss_ManCacheCreate(ptr noundef captures(none) %0, ptr noundef readon
   %12 = load ptr, ptr %4, align 8, !tbaa !82
   %.val = load i32, ptr %2, align 4
   %13 = lshr i32 %.val, 26
-  %14 = add nuw nsw i32 %13, 11
-  %15 = and i32 %14, 120
+  %14 = and i32 %13, 56
+  %15 = add nuw nsw i32 %14, 8
   %16 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %12, i32 noundef %15) #30
   %17 = load i64, ptr %6, align 8
   %18 = lshr i64 %17, 24
@@ -2373,10 +2373,10 @@ define ptr @Dss_ManCacheCreate(ptr noundef captures(none) %0, ptr noundef readon
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %1, i64 %19, i1 false)
   %.val16 = load i32, ptr %2, align 4
   %20 = lshr i32 %.val16, 26
-  %21 = add nuw nsw i32 %20, 11
-  %22 = and i32 %21, 120
+  %21 = and i32 %20, 56
+  %22 = add nuw nsw i32 %21, 8
   %23 = zext nneg i32 %22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr nonnull align 4 %2, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(1) %2, i64 %23, i1 false)
   store ptr %16, ptr %11, align 8, !tbaa !83
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %24, align 8, !tbaa !86
@@ -6451,8 +6451,8 @@ Abc_Clock.exit50._crit_edge:                      ; preds = %Abc_Clock.exit50
   %133 = load ptr, ptr %126, align 8, !tbaa !82
   %.val.i51 = load i32, ptr %.04455, align 4
   %134 = lshr i32 %.val.i51, 26
-  %135 = add nuw nsw i32 %134, 11
-  %136 = and i32 %135, 120
+  %135 = and i32 %134, 56
+  %136 = add nuw nsw i32 %135, 8
   %137 = call ptr @Mem_FlexEntryFetch(ptr noundef %133, i32 noundef %136) #30
   %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %139 = lshr i64 %138, 24
@@ -6460,10 +6460,10 @@ Abc_Clock.exit50._crit_edge:                      ; preds = %Abc_Clock.exit50
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr nonnull align 16 @Dss_ManSharedMapDerive.Buffer, i64 %140, i1 false)
   %.val16.i = load i32, ptr %.04455, align 4
   %141 = lshr i32 %.val16.i, 26
-  %142 = add nuw nsw i32 %141, 11
-  %143 = and i32 %142, 120
+  %142 = and i32 %141, 56
+  %143 = add nuw nsw i32 %142, 8
   %144 = zext nneg i32 %143 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %137, ptr nonnull readonly align 4 %.04455, i64 %144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %137, ptr noundef nonnull readonly align 4 dereferenceable(1) %.04455, i64 %144, i1 false)
   store ptr %137, ptr %132, align 8, !tbaa !83
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr null, ptr %145, align 8, !tbaa !86

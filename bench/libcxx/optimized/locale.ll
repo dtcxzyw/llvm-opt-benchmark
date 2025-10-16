@@ -77726,13 +77726,9 @@ _ZNSt3__114__rotate_rightB8ne210000INS_17_ClassicAlgPolicyENS_11__wrap_iterIPwEE
 
 36:                                               ; preds = %19
   %37 = ptrtoint ptr %31 to i64
-  %gepdiff = add nsw i64 %.idx, -12
-  %38 = icmp eq i64 %gepdiff, 12
-  br i1 %38, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i.i.i.preheader
-
-.preheader.i.i.i.i.preheader:                     ; preds = %36
-  %39 = ashr exact i64 %gepdiff, 2
-  br label %.preheader.i.i.i.i
+  %38 = add i64 %30, -3
+  %39 = icmp eq i64 %38, 3
+  br i1 %39, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i.i.i
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -77753,9 +77749,9 @@ _ZNSt3__114__rotate_rightB8ne210000INS_17_ClassicAlgPolicyENS_11__wrap_iterIPwEE
   %or.cond.i.i.i.i.i = select i1 %44, i1 true, i1 %45
   br i1 %or.cond.i.i.i.i.i, label %_ZNSt3__16rotateB8ne210000INS_11__wrap_iterIPwEEEET_S4_S4_S4_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !570
 
-.preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %.preheader.i.i.i.i
-  %.06.i.i.i.i.i = phi i64 [ %46, %.preheader.i.i.i.i ], [ %39, %.preheader.i.i.i.i.preheader ]
-  %.0.i.i.i.i.i = phi i64 [ %.06.i.i.i.i.i, %.preheader.i.i.i.i ], [ 3, %.preheader.i.i.i.i.preheader ]
+.preheader.i.i.i.i:                               ; preds = %36, %.preheader.i.i.i.i
+  %.06.i.i.i.i.i = phi i64 [ %46, %.preheader.i.i.i.i ], [ %38, %36 ]
+  %.0.i.i.i.i.i = phi i64 [ %.06.i.i.i.i.i, %.preheader.i.i.i.i ], [ 3, %36 ]
   %46 = srem i64 %.0.i.i.i.i.i, %.06.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i64 %46, 0
   br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !559

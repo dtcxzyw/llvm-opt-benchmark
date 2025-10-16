@@ -8546,8 +8546,7 @@ _ZN5boost10filesystem4pathD2Ev.exit21:            ; preds = %_ZN5boost10filesyst
   %53 = sext i32 %1 to i64
   %.idx = shl nsw i64 %53, 3
   %54 = getelementptr inbounds i8, ptr %2, i64 %.idx
-  %gepdiff = add nsw i64 %.idx, -8
-  %55 = ashr exact i64 %gepdiff, 3
+  %55 = add nsw i64 %53, -1
   %56 = icmp ugt i64 %55, 288230376151711743
   br i1 %56, label %57, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
 
@@ -8563,7 +8562,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
-  %58 = shl nuw nsw i64 %gepdiff, 2
+  %gepdiff = shl nuw nsw i64 %53, 5
+  %58 = add nsw i64 %gepdiff, -32
   %59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #40
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %.thread
 
@@ -8588,7 +8588,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %.not.i.i6.i, label %.body, label %64
 
 64:                                               ; preds = %63
-  %.idx41 = shl nuw nsw i64 %gepdiff, 2
+  %.idx41 = shl nuw nsw i64 %55, 5
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx41) #38
   br label %.body
 
@@ -8625,7 +8625,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i23, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %75
 
 75:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %.idx38 = shl nuw nsw i64 %gepdiff, 2
+  %.idx38 = shl nuw nsw i64 %55, 5
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx38) #38
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 

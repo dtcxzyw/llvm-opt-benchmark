@@ -33976,7 +33976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6o
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 4, ptr %80, align 4, !tbaa !718
   %gepdiff = add nsw i64 %.idx, -8
-  %81 = ashr exact i64 %gepdiff, 3
+  %81 = add nsw i64 %76, -1
   %82 = icmp ugt i64 %81, 4
   br i1 %82, label %83, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i.i.i
 
@@ -34404,7 +34404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   store i32 0, ptr %174, align 8, !tbaa !717
   store i32 4, ptr %175, align 4, !tbaa !718
   %gepdiff176 = add nsw i64 %.idx175, -8
-  %236 = ashr exact i64 %gepdiff176, 3
+  %236 = add nsw i64 %234, -1
   %237 = icmp ugt i64 %236, 4
   br i1 %237, label %238, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i.i.i93
 

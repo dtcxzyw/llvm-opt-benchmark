@@ -19129,8 +19129,7 @@ _ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.i: ; preds = %for.inc5425, 
   %cmp7.i11777 = icmp samesign ult i64 %s.013724, 32
   %add.ptr.i.i.i.i15.i11814 = getelementptr inbounds i8, ptr %add.ptr.i10835, i64 -4
   %sub.i.i.i.i.i16.i = add nsw i64 %mul.i.i.i10820, -4
-  %sub.ptr.div.i.i.i.i.i.i = lshr exact i64 %sub.i.i.i.i.i16.i, 2
-  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 1, %s.013724
   %add.ptr.i.i.i.i.i17.i11815 = getelementptr inbounds i32, ptr %add.ptr.i10835, i64 %idx.neg.i.i.i.i.i.i
   %add.ptr.i.i.i.i11768 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i10821, i64 4
   br label %for.body.i10839.preheader

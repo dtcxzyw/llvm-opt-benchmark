@@ -6714,10 +6714,8 @@ _ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit: ; preds = %entry, %if.end
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %16 = load i32, ptr %Size.i.i, align 8
   %conv.i.i2 = zext i32 %16 to i64
-  %17 = sub nsw i64 %conv.i.i2, %conv.i
-  %reass.sub = shl nsw i64 %17, 4
-  %gepdiff = add nsw i64 %reass.sub, -16
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %gepdiff, 4
+  %17 = xor i64 %conv.i, -1
+  %sub.ptr.div.i.i.i.i.i.i = add nsw i64 %17, %conv.i.i2
   %cmp6.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.preheader, label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit
 

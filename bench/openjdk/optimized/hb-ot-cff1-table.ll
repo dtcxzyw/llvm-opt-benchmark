@@ -6872,16 +6872,16 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit62: ; preds = %_ZN3CFF12inte
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3CFF7opset_tINS_8number_tEE10process_opEjRNS_12interp_env_tIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4128) %1) local_unnamed_addr #1 comdat align 2 {
-  switch i32 %0, label %104 [
+  switch i32 %0, label %103 [
     i32 28, label %3
     i32 247, label %42
     i32 248, label %42
     i32 249, label %42
     i32 250, label %42
-    i32 251, label %73
-    i32 252, label %73
-    i32 253, label %73
-    i32 254, label %73
+    i32 251, label %72
+    i32 252, label %72
+    i32 253, label %72
+    i32 254, label %72
   ]
 
 3:                                                ; preds = %2
@@ -6956,165 +6956,166 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit: ; preds = %33, %38
   store double %40, ptr %.0.i.i, align 8
   %41 = add i32 %26, 2
   store i32 %41, ptr %5, align 4
-  br label %126
+  br label %125
 
 42:                                               ; preds = %2, %2, %2, %2
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = shl nuw nsw i32 %0, 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load i32, ptr %47, align 8
-  %.not.i23 = icmp ult i32 %46, %48
-  br i1 %.not.i23, label %51, label %49
+  %45 = add nuw nsw i32 %44, 2304
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %49 = load i32, ptr %48, align 8
+  %.not.i23 = icmp ult i32 %47, %49
+  br i1 %.not.i23, label %52, label %50
 
-49:                                               ; preds = %42
-  %50 = add i32 %48, 1
-  store i32 %50, ptr %45, align 4
+50:                                               ; preds = %42
+  %51 = add i32 %49, 1
+  store i32 %51, ptr %46, align 4
   br label %_ZN3CFF14byte_str_ref_tixEi.exit25
 
-51:                                               ; preds = %42
-  %52 = load ptr, ptr %1, align 8
-  %53 = zext i32 %46 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+52:                                               ; preds = %42
+  %53 = load ptr, ptr %1, align 8
+  %54 = zext i32 %47 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   br label %_ZN3CFF14byte_str_ref_tixEi.exit25
 
-_ZN3CFF14byte_str_ref_tixEi.exit25:               ; preds = %49, %51
-  %55 = phi i32 [ %50, %49 ], [ %46, %51 ]
-  %.0.i24 = phi ptr [ @_hb_NullPool, %49 ], [ %54, %51 ]
-  %56 = load i8, ptr %.0.i24, align 1
-  %57 = zext i8 %56 to i32
-  %58 = add nuw nsw i32 %44, 2412
-  %59 = add nuw nsw i32 %58, %57
-  %60 = and i32 %59, 65535
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp ult i32 %62, 513
-  br i1 %63, label %64, label %69
+_ZN3CFF14byte_str_ref_tixEi.exit25:               ; preds = %50, %52
+  %56 = phi i32 [ %51, %50 ], [ %47, %52 ]
+  %.0.i24 = phi ptr [ @_hb_NullPool, %50 ], [ %55, %52 ]
+  %57 = load i8, ptr %.0.i24, align 1
+  %58 = zext i8 %57 to i32
+  %.masked = and i32 %45, 65280
+  %59 = or disjoint i32 %.masked, 108
+  %sext19 = add nuw nsw i32 %59, %58
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp ult i32 %61, 513
+  br i1 %62, label %63, label %68
 
-64:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit25
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = add nuw nsw i32 %62, 1
-  store i32 %66, ptr %61, align 4
-  %67 = zext nneg i32 %62 to i64
-  %68 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %65, i64 %67
+63:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit25
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %65 = add nuw nsw i32 %61, 1
+  store i32 %65, ptr %60, align 4
+  %66 = zext nneg i32 %61 to i64
+  %67 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %64, i64 %66
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27
 
-69:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit25
+68:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit25
   store i8 1, ptr %43, align 8
-  %70 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %70, ptr @_hb_CrapPool, align 16
+  %69 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %69, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27
 
-_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27: ; preds = %64, %69
-  %.0.i.i26 = phi ptr [ %68, %64 ], [ @_hb_CrapPool, %69 ]
-  %71 = uitofp nneg i32 %60 to double
-  store double %71, ptr %.0.i.i26, align 8
-  %72 = add i32 %55, 1
-  store i32 %72, ptr %45, align 4
-  br label %126
+_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27: ; preds = %63, %68
+  %.0.i.i26 = phi ptr [ %67, %63 ], [ @_hb_CrapPool, %68 ]
+  %70 = uitofp nneg i32 %sext19 to double
+  store double %70, ptr %.0.i.i26, align 8
+  %71 = add i32 %56, 1
+  store i32 %71, ptr %46, align 4
+  br label %125
 
-73:                                               ; preds = %2, %2, %2, %2
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = shl nuw nsw i32 %0, 16
-  %sext = add nsw i32 %75, -16449536
-  %76 = lshr exact i32 %sext, 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load i32, ptr %79, align 8
-  %.not.i28 = icmp ult i32 %78, %80
-  br i1 %.not.i28, label %83, label %81
+72:                                               ; preds = %2, %2, %2, %2
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %74 = shl nuw nsw i32 %0, 16
+  %sext = add nsw i32 %74, -16449536
+  %75 = lshr exact i32 %sext, 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %79 = load i32, ptr %78, align 8
+  %.not.i28 = icmp ult i32 %77, %79
+  br i1 %.not.i28, label %82, label %80
 
-81:                                               ; preds = %73
-  %82 = add i32 %80, 1
-  store i32 %82, ptr %77, align 4
+80:                                               ; preds = %72
+  %81 = add i32 %79, 1
+  store i32 %81, ptr %76, align 4
   br label %_ZN3CFF14byte_str_ref_tixEi.exit30
 
-83:                                               ; preds = %73
-  %84 = load ptr, ptr %1, align 8
-  %85 = zext i32 %78 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
+82:                                               ; preds = %72
+  %83 = load ptr, ptr %1, align 8
+  %84 = zext i32 %77 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   br label %_ZN3CFF14byte_str_ref_tixEi.exit30
 
-_ZN3CFF14byte_str_ref_tixEi.exit30:               ; preds = %81, %83
-  %87 = phi i32 [ %82, %81 ], [ %78, %83 ]
-  %.0.i29 = phi ptr [ @_hb_NullPool, %81 ], [ %86, %83 ]
-  %88 = load i8, ptr %.0.i29, align 1
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i32 %76, %89
-  %91 = sub nuw nsw i32 -108, %90
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp ult i32 %93, 513
-  br i1 %94, label %95, label %100
+_ZN3CFF14byte_str_ref_tixEi.exit30:               ; preds = %80, %82
+  %86 = phi i32 [ %81, %80 ], [ %77, %82 ]
+  %.0.i29 = phi ptr [ @_hb_NullPool, %80 ], [ %85, %82 ]
+  %87 = load i8, ptr %.0.i29, align 1
+  %88 = zext i8 %87 to i32
+  %89 = or disjoint i32 %75, %88
+  %90 = sub nuw nsw i32 -108, %89
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp ult i32 %92, 513
+  br i1 %93, label %94, label %99
 
-95:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit30
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %97 = add nuw nsw i32 %93, 1
-  store i32 %97, ptr %92, align 4
-  %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %96, i64 %98
+94:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit30
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %96 = add nuw nsw i32 %92, 1
+  store i32 %96, ptr %91, align 4
+  %97 = zext nneg i32 %92 to i64
+  %98 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %95, i64 %97
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32
 
-100:                                              ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit30
-  store i8 1, ptr %74, align 8
-  %101 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %101, ptr @_hb_CrapPool, align 16
+99:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit30
+  store i8 1, ptr %73, align 8
+  %100 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %100, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32
 
-_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32: ; preds = %95, %100
-  %.0.i.i31 = phi ptr [ %99, %95 ], [ @_hb_CrapPool, %100 ]
-  %102 = sitofp i32 %91 to double
-  store double %102, ptr %.0.i.i31, align 8
-  %103 = add i32 %87, 1
-  store i32 %103, ptr %77, align 4
-  br label %126
+_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32: ; preds = %94, %99
+  %.0.i.i31 = phi ptr [ %98, %94 ], [ @_hb_CrapPool, %99 ]
+  %101 = sitofp i32 %90 to double
+  store double %101, ptr %.0.i.i31, align 8
+  %102 = add i32 %86, 1
+  store i32 %102, ptr %76, align 4
+  br label %125
 
-104:                                              ; preds = %2
-  %105 = add i32 %0, -32
-  %or.cond = icmp ult i32 %105, 215
-  br i1 %or.cond, label %106, label %120
+103:                                              ; preds = %2
+  %104 = add i32 %0, -32
+  %or.cond = icmp ult i32 %104, 215
+  br i1 %or.cond, label %105, label %119
 
-106:                                              ; preds = %104
-  %107 = add nsw i32 %0, -139
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp ult i32 %109, 513
-  br i1 %110, label %111, label %116
+105:                                              ; preds = %103
+  %106 = add nsw i32 %0, -139
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp ult i32 %108, 513
+  br i1 %109, label %110, label %115
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %113 = add nuw nsw i32 %109, 1
-  store i32 %113, ptr %108, align 4
-  %114 = zext nneg i32 %109 to i64
-  %115 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %112, i64 %114
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %112 = add nuw nsw i32 %108, 1
+  store i32 %112, ptr %107, align 4
+  %113 = zext nneg i32 %108 to i64
+  %114 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %111, i64 %113
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34
 
-116:                                              ; preds = %106
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 1, ptr %117, align 8
-  %118 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %118, ptr @_hb_CrapPool, align 16
+115:                                              ; preds = %105
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 1, ptr %116, align 8
+  %117 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %117, ptr @_hb_CrapPool, align 16
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34
 
-_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34: ; preds = %111, %116
-  %.0.i.i33 = phi ptr [ %115, %111 ], [ @_hb_CrapPool, %116 ]
-  %119 = sitofp i32 %107 to double
-  store double %119, ptr %.0.i.i33, align 8
-  br label %126
+_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34: ; preds = %110, %115
+  %.0.i.i33 = phi ptr [ %114, %110 ], [ @_hb_CrapPool, %115 ]
+  %118 = sitofp i32 %106 to double
+  store double %118, ptr %.0.i.i33, align 8
+  br label %125
 
-120:                                              ; preds = %104
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %121, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = add i32 %123, 1
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %124, ptr %125, align 4
-  br label %126
+119:                                              ; preds = %103
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 0, ptr %120, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, 1
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %123, ptr %124, align 4
+  br label %125
 
-126:                                              ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34, %120, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit
+125:                                              ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34, %119, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27, %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit
   ret void
 }
 

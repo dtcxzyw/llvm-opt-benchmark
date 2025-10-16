@@ -2202,108 +2202,98 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull writ
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.88, i64 noundef %1) #22
-  br label %68
+  br label %58
 
 7:                                                ; preds = %3
   %8 = and i64 %2, 1
   %.not40 = icmp eq i64 %8, 0
-  br i1 %.not40, label %14, label %9
+  br i1 %.not40, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = lshr i64 %1, 9
-  %11 = add nuw nsw i64 %10, 1
-  %12 = lshr i64 %11, 1
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %12, ptr noundef nonnull @.str.90) #22
-  br label %68
+  %10 = lshr i64 %1, 10
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %10, ptr noundef nonnull @.str.90) #22
+  br label %58
 
-14:                                               ; preds = %7
-  %15 = and i64 %2, 32
-  %.not41 = icmp eq i64 %15, 0
-  br i1 %.not41, label %42, label %16
+12:                                               ; preds = %7
+  %13 = and i64 %2, 32
+  %.not41 = icmp eq i64 %13, 0
+  br i1 %.not41, label %40, label %14
+
+14:                                               ; preds = %12
+  %15 = icmp ult i64 %1, 10000000
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
-  %17 = icmp ult i64 %1, 10000000
-  br i1 %17, label %18, label %23
-
-18:                                               ; preds = %16
   %.lhs.trunc = trunc nuw nsw i64 %1 to i32
-  %19 = udiv i32 %.lhs.trunc, 500
-  %narrow = add nuw nsw i32 %19, 1
-  %20 = lshr i32 %narrow, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %21, ptr noundef nonnull @.str.90) #22
-  br label %68
+  %17 = udiv i32 %.lhs.trunc, 500
+  %narrow = add nuw nsw i32 %17, 1
+  %18 = lshr i32 %narrow, 1
+  %19 = zext nneg i32 %18 to i64
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %19, ptr noundef nonnull @.str.90) #22
+  br label %58
 
-23:                                               ; preds = %16
-  %24 = icmp ult i64 %1, 10000000000
-  br i1 %24, label %25, label %30
+21:                                               ; preds = %14
+  %22 = icmp ult i64 %1, 10000000000
+  br i1 %22, label %23, label %28
 
-25:                                               ; preds = %23
-  %26 = udiv i64 %1, 500000
-  %27 = add nuw nsw i64 %26, 1
-  %28 = lshr i64 %27, 1
-  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %28, ptr noundef nonnull @.str.91) #22
-  br label %68
+23:                                               ; preds = %21
+  %24 = udiv i64 %1, 500000
+  %25 = add nuw nsw i64 %24, 1
+  %26 = lshr i64 %25, 1
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %26, ptr noundef nonnull @.str.91) #22
+  br label %58
 
-30:                                               ; preds = %23
-  %31 = icmp ult i64 %1, 10000000000000
-  br i1 %31, label %32, label %37
+28:                                               ; preds = %21
+  %29 = icmp ult i64 %1, 10000000000000
+  br i1 %29, label %30, label %35
 
-32:                                               ; preds = %30
-  %33 = udiv i64 %1, 500000000
-  %34 = add nuw nsw i64 %33, 1
-  %35 = lshr i64 %34, 1
-  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %35, ptr noundef nonnull @.str.92) #22
-  br label %68
+30:                                               ; preds = %28
+  %31 = udiv i64 %1, 500000000
+  %32 = add nuw nsw i64 %31, 1
+  %33 = lshr i64 %32, 1
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %33, ptr noundef nonnull @.str.92) #22
+  br label %58
 
-37:                                               ; preds = %30
-  %38 = udiv i64 %1, 500000000000
-  %39 = add nuw nsw i64 %38, 1
-  %40 = lshr i64 %39, 1
-  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %40, ptr noundef nonnull @.str.93) #22
-  br label %68
+35:                                               ; preds = %28
+  %36 = udiv i64 %1, 500000000000
+  %37 = add nuw nsw i64 %36, 1
+  %38 = lshr i64 %37, 1
+  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %38, ptr noundef nonnull @.str.93) #22
+  br label %58
 
-42:                                               ; preds = %14
-  %43 = icmp ult i64 %1, 10485760
-  br i1 %43, label %44, label %49
+40:                                               ; preds = %12
+  %41 = icmp ult i64 %1, 10485760
+  br i1 %41, label %42, label %45
 
-44:                                               ; preds = %42
-  %45 = lshr i64 %1, 9
-  %46 = add nuw nsw i64 %45, 1
-  %47 = lshr i64 %46, 1
-  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %47, ptr noundef nonnull @.str.94) #22
-  br label %68
+42:                                               ; preds = %40
+  %43 = lshr i64 %1, 10
+  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %43, ptr noundef nonnull @.str.94) #22
+  br label %58
 
-49:                                               ; preds = %42
-  %50 = icmp ult i64 %1, 10737418240
-  br i1 %50, label %51, label %56
+45:                                               ; preds = %40
+  %46 = icmp ult i64 %1, 10737418240
+  br i1 %46, label %47, label %50
 
-51:                                               ; preds = %49
-  %52 = lshr i64 %1, 19
-  %53 = add nuw nsw i64 %52, 1
-  %54 = lshr i64 %53, 1
-  %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %54, ptr noundef nonnull @.str.95) #22
-  br label %68
+47:                                               ; preds = %45
+  %48 = lshr i64 %1, 20
+  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %48, ptr noundef nonnull @.str.95) #22
+  br label %58
 
-56:                                               ; preds = %49
-  %57 = icmp ult i64 %1, 10995116277760
-  br i1 %57, label %58, label %63
+50:                                               ; preds = %45
+  %51 = icmp ult i64 %1, 10995116277760
+  br i1 %51, label %52, label %55
 
-58:                                               ; preds = %56
-  %59 = lshr i64 %1, 29
-  %60 = add nuw nsw i64 %59, 1
-  %61 = lshr i64 %60, 1
-  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %61, ptr noundef nonnull @.str.96) #22
-  br label %68
+52:                                               ; preds = %50
+  %53 = lshr i64 %1, 30
+  %54 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %53, ptr noundef nonnull @.str.96) #22
+  br label %58
 
-63:                                               ; preds = %56
-  %64 = lshr i64 %1, 39
-  %65 = add nuw nsw i64 %64, 1
-  %66 = lshr i64 %65, 1
-  %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %66, ptr noundef nonnull @.str.97) #22
-  br label %68
+55:                                               ; preds = %50
+  %56 = lshr i64 %1, 40
+  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %56, ptr noundef nonnull @.str.97) #22
+  br label %58
 
-68:                                               ; preds = %63, %58, %51, %44, %37, %32, %25, %18, %9, %5
+58:                                               ; preds = %55, %52, %47, %42, %35, %30, %23, %16, %9, %5
   ret void
 }
 

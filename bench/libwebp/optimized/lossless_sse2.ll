@@ -169,7 +169,7 @@ define internal i32 @Predictor10_SSE2(ptr noundef readonly captures(none) %0, pt
   %15 = bitcast <16 x i8> %14 to <8 x i16>
   %16 = bitcast <16 x i8> %11 to <8 x i16>
   %17 = add nuw nsw <8 x i16> %15, %16
-  %18 = lshr <8 x i16> %17, splat (i16 1)
+  %18 = lshr <8 x i16> %17, splat (i16 2)
   %19 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %6, i64 0
   %20 = bitcast <4 x i32> %19 to <16 x i8>
   %21 = shufflevector <16 x i8> %20, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -179,13 +179,12 @@ define internal i32 @Predictor10_SSE2(ptr noundef readonly captures(none) %0, pt
   %25 = bitcast <16 x i8> %24 to <8 x i16>
   %26 = bitcast <16 x i8> %21 to <8 x i16>
   %27 = add nuw nsw <8 x i16> %25, %26
-  %28 = lshr <8 x i16> %27, splat (i16 1)
+  %28 = lshr <8 x i16> %27, splat (i16 2)
   %29 = add nuw nsw <8 x i16> %28, %18
-  %30 = lshr <8 x i16> %29, splat (i16 1)
-  %31 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %30, <8 x i16> poison)
-  %32 = bitcast <16 x i8> %31 to <4 x i32>
-  %33 = extractelement <4 x i32> %32, i64 0
-  ret i32 %33
+  %30 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %29, <8 x i16> poison)
+  %31 = bitcast <16 x i8> %30 to <4 x i32>
+  %32 = extractelement <4 x i32> %31, i64 0
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -5715,27 +5715,26 @@ put_sbits.exit:                                   ; preds = %put_sbits.exit.preh
   %2908 = getelementptr inbounds %struct.EncBlockInfo, ptr %19, i64 %indvars.iv1286
   %2909 = getelementptr inbounds nuw i8, ptr %2908, i64 64
   %2910 = load i16, ptr %2909, align 4, !tbaa !87
-  %2911 = lshr i16 %2910, 3
-  %narrow = add nuw nsw i16 %2911, 1026
-  %2912 = getelementptr inbounds nuw i8, ptr %2895, i64 4
-  %2913 = load i32, ptr %2912, align 4, !tbaa !65
-  %2914 = and i32 %2913, 16
-  %2915 = icmp ne i32 %2914, 0
-  %2916 = icmp ne i64 %indvars.iv1284, 0
-  %or.cond9 = and i1 %2916, %2915
-  br i1 %or.cond9, label %put_bits.exit, label %2917
+  %2911 = getelementptr inbounds nuw i8, ptr %2895, i64 4
+  %2912 = load i32, ptr %2911, align 4, !tbaa !65
+  %2913 = and i32 %2912, 16
+  %2914 = icmp ne i32 %2913, 0
+  %2915 = icmp ne i64 %indvars.iv1284, 0
+  %or.cond9 = and i1 %2915, %2914
+  br i1 %or.cond9, label %put_bits.exit, label %2916
 
-2917:                                             ; preds = %put_sbits.exit
-  %2918 = getelementptr inbounds nuw i8, ptr %2908, i64 60
-  %2919 = load i32, ptr %2918, align 4, !tbaa !89
+2916:                                             ; preds = %put_sbits.exit
+  %2917 = getelementptr inbounds nuw i8, ptr %2908, i64 60
+  %2918 = load i32, ptr %2917, align 4, !tbaa !89
   br label %put_bits.exit
 
-put_bits.exit:                                    ; preds = %2917, %put_sbits.exit
-  %2920 = phi i32 [ %2919, %2917 ], [ 1, %put_sbits.exit ]
-  %2921 = lshr i16 %narrow, 1
-  %2922 = and i16 %2921, 1022
+put_bits.exit:                                    ; preds = %2916, %put_sbits.exit
+  %2919 = phi i32 [ %2918, %2916 ], [ 1, %put_sbits.exit ]
+  %2920 = lshr i16 %2910, 4
+  %2921 = and i16 %2920, 1022
+  %2922 = xor i16 %2921, 512
   %2923 = zext nneg i16 %2922 to i32
-  %2924 = or i32 %2920, %2923
+  %2924 = or i32 %2919, %2923
   %2925 = getelementptr inbounds nuw i8, ptr %2908, i64 56
   %2926 = load i32, ptr %2925, align 4, !tbaa !97
   %2927 = shl i32 %2924, 2
