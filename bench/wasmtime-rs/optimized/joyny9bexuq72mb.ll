@@ -638,35 +638,35 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit"
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h9fc0f9bb8c5d6385E.llvm.6452179527160401088"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, i1 noundef zeroext true)
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h9fc0f9bb8c5d6385E.llvm.6452179527160401088"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit": ; preds = %2, %14
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit": ; preds = %2, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !27
   store ptr %.sroa.0.0.copyload3, ptr %3, align 8, !noalias !34
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.6.0.copyload5, ptr %.sroa.414.0..sroa_idx, align 8, !noalias !34
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.8.0.copyload8, ptr %.sroa.515.0..sroa_idx, align 8, !noalias !34
-  %17 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h815afac9d0bd7c7dE.llvm.14851531119274094909"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !35
-  %18 = extractvalue { i64, ptr } %17, 1
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h9ba54c1a262870e6E.llvm.5246528701130514578.exit, label %.lr.ph.i.i.i
+  %19 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h815afac9d0bd7c7dE.llvm.14851531119274094909"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !35
+  %20 = extractvalue { i64, ptr } %19, 1
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h9ba54c1a262870e6E.llvm.5246528701130514578.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit", %.lr.ph.i.i.i
-  %20 = phi ptr [ %27, %.lr.ph.i.i.i ], [ %18, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit" ]
-  %21 = phi { i64, ptr } [ %26, %.lr.ph.i.i.i ], [ %17, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit" ]
-  %22 = extractvalue { i64, ptr } %21, 0
-  %23 = trunc i64 %22 to i32
+  %22 = phi ptr [ %29, %.lr.ph.i.i.i ], [ %20, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit" ]
+  %23 = phi { i64, ptr } [ %28, %.lr.ph.i.i.i ], [ %19, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit" ]
+  %24 = extractvalue { i64, ptr } %23, 0
+  %25 = trunc i64 %24 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %24 = load i32, ptr %20, align 4, !alias.scope !41, !noalias !44, !noundef !16
-  %25 = call { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4706b7e4569f9a78E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %24, i32 noundef %23), !noalias !46
-  %26 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h815afac9d0bd7c7dE.llvm.14851531119274094909"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !51
-  %27 = extractvalue { i64, ptr } %26, 1
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h9ba54c1a262870e6E.llvm.5246528701130514578.exit, label %.lr.ph.i.i.i
+  %26 = load i32, ptr %22, align 4, !alias.scope !41, !noalias !44, !noundef !16
+  %27 = call { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4706b7e4569f9a78E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %26, i32 noundef %25), !noalias !46
+  %28 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h815afac9d0bd7c7dE.llvm.14851531119274094909"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !51
+  %29 = extractvalue { i64, ptr } %28, 1
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h9ba54c1a262870e6E.llvm.5246528701130514578.exit, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h9ba54c1a262870e6E.llvm.5246528701130514578.exit: ; preds = %.lr.ph.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d815fb02ed3b8f1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !27

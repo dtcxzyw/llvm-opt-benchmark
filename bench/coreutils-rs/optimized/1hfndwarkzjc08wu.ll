@@ -209,7 +209,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %15, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit"
 
-15:                                               ; preds = %3
+15:    ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hb5d9243673bdfbc2E.llvm.18144421730205919254"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit"
@@ -238,7 +238,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %15 = icmp ugt i64 %12, %14
   br i1 %15, label %16, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit"
 
-16:                                               ; preds = %3
+16:    ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hb5d9243673bdfbc2E.llvm.18144421730205919254"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit"
@@ -246,25 +246,25 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit": ; preds = %3, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !78
   store ptr %1, ptr %4, align 8, !noalias !83
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %19, align 8, !noalias !83
-  %20 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h111f1ff751556898E.llvm.14055365465535721004(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !83
-  %21 = extractvalue { i32, i32 } %20, 0
-  %22 = icmp eq i32 %21, 0
-  %23 = extractvalue { i32, i32 } %20, 1
-  %.not45.i.i.i = icmp eq i32 %23, 1114112
-  %.not6.i.i.i = select i1 %22, i1 true, i1 %.not45.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %21, align 8, !noalias !83
+  %22 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h111f1ff751556898E.llvm.14055365465535721004(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !83
+  %23 = extractvalue { i32, i32 } %22, 0
+  %24 = icmp eq i32 %23, 0
+  %25 = extractvalue { i32, i32 } %22, 1
+  %.not45.i.i.i = icmp eq i32 %25, 1114112
+  %.not6.i.i.i = select i1 %24, i1 true, i1 %.not45.i.i.i
   br i1 %.not6.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h648b3422ab9e57deE.llvm.6972018267913095843.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit", %.lr.ph.i.i.i
-  %24 = phi i32 [ %29, %.lr.ph.i.i.i ], [ %23, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit" ]
-  %25 = call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd2cc994b8908097aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %24), !noalias !86
-  %26 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h111f1ff751556898E.llvm.14055365465535721004(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %27 = extractvalue { i32, i32 } %26, 0
-  %28 = icmp eq i32 %27, 0
-  %29 = extractvalue { i32, i32 } %26, 1
-  %.not4.i.i.i = icmp eq i32 %29, 1114112
-  %.not.i.i.i = select i1 %28, i1 true, i1 %.not4.i.i.i
+  %26 = phi i32 [ %31, %.lr.ph.i.i.i ], [ %25, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit" ]
+  %27 = call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd2cc994b8908097aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %26), !noalias !86
+  %28 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h111f1ff751556898E.llvm.14055365465535721004(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  %29 = extractvalue { i32, i32 } %28, 0
+  %30 = icmp eq i32 %29, 0
+  %31 = extractvalue { i32, i32 } %28, 1
+  %.not4.i.i.i = icmp eq i32 %31, 1114112
+  %.not.i.i.i = select i1 %30, i1 true, i1 %.not4.i.i.i
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h648b3422ab9e57deE.llvm.6972018267913095843.exit, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h648b3422ab9e57deE.llvm.6972018267913095843.exit: ; preds = %.lr.ph.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h56a32cb7d528fc8eE.exit"

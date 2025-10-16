@@ -1650,7 +1650,7 @@ define dso_local range(i32 0, 129) i32 @i128_clz(ptr noundef readonly captures(n
   %35 = trunc nuw nsw i64 %34 to i32
   br label %75
 
-36:                                               ; preds = %1
+36:; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
@@ -1686,13 +1686,13 @@ define dso_local range(i32 0, 129) i32 @i128_clz(ptr noundef readonly captures(n
   %69 = shl i64 %64, %68
   %isnotneg.i3 = icmp sgt i64 %69, -1
   %70 = zext i1 %isnotneg.i3 to i64
-  %71 = or disjoint i64 %63, %68
+  %72 = or disjoint i64 %63, %68
   %72 = add nuw nsw i64 %71, %70
   %73 = trunc nuw nsw i64 %72 to i32
-  %74 = add nuw nsw i32 %73, 64
+  %75 = add nuw nsw i32 %73, 64
   br label %75
 
-75:                                               ; preds = %36, %3
+75:; preds = %36, %3
   %76 = phi i32 [ %35, %3 ], [ %74, %36 ]
   ret i32 %76
 }

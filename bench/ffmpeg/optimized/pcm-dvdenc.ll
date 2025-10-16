@@ -51,7 +51,7 @@ define internal range(i32 -22, 1) i32 @pcm_dvd_encode_init(ptr noundef initializ
 
 22:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #6
-  br label %64
+  br label %63
 
 23:                                               ; preds = %1
   %24 = icmp eq i32 %7, 1
@@ -64,14 +64,14 @@ define internal range(i32 -22, 1) i32 @pcm_dvd_encode_init(ptr noundef initializ
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %27, ptr %28, align 4, !tbaa !35
   %29 = sdiv i32 2008, %27
-  br label %52
+  br label %51
 
 30:                                               ; preds = %23
   switch i32 %12, label %38 [
     i32 1, label %31
     i32 2, label %31
     i32 4, label %31
-    i32 8, label %36
+    i32 8, label %35
   ]
 
 31:                                               ; preds = %30, %30, %30
@@ -80,61 +80,61 @@ define internal range(i32 -22, 1) i32 @pcm_dvd_encode_init(ptr noundef initializ
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %33, ptr %34, align 4, !tbaa !35
   %.rhs.trunc = trunc nuw nsw i32 %12 to i8
-  %35 = udiv i8 4, %.rhs.trunc
-  %.zext = zext nneg i8 %35 to i32
-  br label %43
+  %34 = udiv i8 4, %.rhs.trunc
+  %.zext = zext nneg i8 %34 to i32
+  br label %42
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %9, ptr %37, align 4, !tbaa !35
-  br label %43
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %9, ptr %36, align 4, !tbaa !35
+  br label %42
 
-38:                                               ; preds = %30
-  %39 = shl nsw i32 %12, 2
-  %40 = mul nsw i32 %39, %9
-  %41 = ashr exact i32 %40, 3
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !35
-  br label %43
+37:                                               ; preds = %30
+  %38 = shl nsw i32 %12, 2
+  %39 = mul nsw i32 %38, %9
+  %40 = ashr exact i32 %39, 3
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %40, ptr %41, align 4, !tbaa !35
+  br label %42
 
-43:                                               ; preds = %38, %36, %31
+42:                                               ; preds = %37, %35, %31
   %.sink58 = phi i32 [ 4, %38 ], [ 1, %36 ], [ %.zext, %31 ]
   %.sink = phi i32 [ %12, %38 ], [ 2, %36 ], [ 1, %31 ]
-  %44 = phi i32 [ %41, %38 ], [ %9, %36 ], [ %33, %31 ]
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink58, ptr %45, align 4, !tbaa !33
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.sink, ptr %46, align 4, !tbaa !36
-  %47 = sdiv i32 2008, %44
-  %48 = add nsw i32 %47, -1
-  %49 = add nsw i32 %48, %.sink58
-  %50 = sub nsw i32 0, %.sink58
-  %51 = and i32 %49, %50
-  br label %52
+  %43 = phi i32 [ %40, %38 ], [ %9, %36 ], [ %33, %31 ]
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sink58, ptr %44, align 4, !tbaa !33
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %.sink, ptr %45, align 4, !tbaa !36
+  %46 = sdiv i32 2008, %43
+  %47 = add nsw i32 %46, -1
+  %48 = add nsw i32 %47, %.sink58
+  %49 = sub nsw i32 0, %.sink58
+  %50 = and i32 %48, %49
+  br label %51
 
-52:                                               ; preds = %43, %25
-  %.0 = phi i32 [ %29, %25 ], [ %51, %43 ]
+51:                                               ; preds = %42, %25
+  %.0 = phi i32 [ %29, %25 ], [ %50, %43 ]
   store i8 12, ptr %3, align 4, !tbaa !37
-  %53 = shl nuw nsw i32 %switch.select56, 6
-  %54 = or disjoint i32 %53, %switch.select
-  %55 = load i32, ptr %11, align 4, !tbaa !30
-  %56 = add i32 %55, 255
-  %57 = or i32 %54, %56
-  %58 = trunc i32 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %58, ptr %59, align 1, !tbaa !37
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 -128, ptr %60, align 2, !tbaa !37
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %62 = load i32, ptr %61, align 8, !tbaa !38
-  %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %63, label %64
+  %52 = shl nuw nsw i32 %switch.select56, 6
+  %53 = or disjoint i32 %52, %switch.select
+  %54 = load i32, ptr %11, align 4, !tbaa !30
+  %55 = add i32 %54, 255
+  %56 = or i32 %53, %55
+  %57 = trunc i32 %56 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 %57, ptr %58, align 1, !tbaa !37
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 -128, ptr %59, align 2, !tbaa !37
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %61 = load i32, ptr %60, align 8, !tbaa !38
+  %.not = icmp eq i32 %61, 0
+  br i1 %.not, label %62, label %63
 
-63:                                               ; preds = %52
-  store i32 %.0, ptr %61, align 8, !tbaa !38
-  br label %64
+62:                                               ; preds = %51
+  store i32 %.0, ptr %60, align 8, !tbaa !38
+  br label %63
 
-64:                                               ; preds = %52, %63, %22
+63:                                               ; preds = %51, %62, %22
   %.050 = phi i32 [ -22, %22 ], [ 0, %63 ], [ 0, %52 ]
   ret i32 %.050
 }

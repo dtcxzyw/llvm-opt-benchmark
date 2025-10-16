@@ -7589,9 +7589,9 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !391
 
 62:                                               ; preds = %.lr.ph78, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit
-  %63 = phi i32 [ %20, %.lr.ph78 ], [ %154, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit ]
+  %63 = phi i32 [ %20, %.lr.ph78 ], [ %156, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit ]
   %indvars.iv91 = phi i64 [ %57, %.lr.ph78 ], [ %indvars.iv.next92, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit ]
-  %.02675 = phi ptr [ %43, %.lr.ph78 ], [ %156, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit ]
+  %.02675 = phi ptr [ %43, %.lr.ph78 ], [ %158, %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit ]
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph71, label %._crit_edge72.thread
 
@@ -7771,33 +7771,33 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %125, %121
 
 _ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit: ; preds = %140, %126
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, 1
-  %154 = load i32, ptr %19, align 8, !tbaa !387
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i16, ptr %.02675, i64 %155
-  %157 = load i32, ptr %36, align 4, !tbaa !32
-  %158 = sext i32 %157 to i64
-  %159 = icmp slt i64 %indvars.iv.next92, %158
-  br i1 %159, label %62, label %._crit_edge79.loopexit, !llvm.loop !399
+  %156 = load i32, ptr %19, align 8, !tbaa !387
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds i16, ptr %.02675, i64 %157
+  %159 = load i32, ptr %36, align 4, !tbaa !32
+  %160 = sext i32 %159 to i64
+  %161 = icmp slt i64 %indvars.iv.next92, %160
+  br i1 %161, label %62, label %._crit_edge79.loopexit, !llvm.loop !399
 
 ._crit_edge79.loopexit:                           ; preds = %_ZNK2cv13VResizeLinearIhisNS_11FixedPtCastIihLi22EEENS_12VResizeNoVecEEclEPPKiPhPKsi.exit
   %.pre97 = load ptr, ptr %4, align 8, !tbaa !17
   br label %._crit_edge79
 
 ._crit_edge79:                                    ; preds = %._crit_edge79.loopexit, %._crit_edge
-  %160 = phi ptr [ %.pre97, %._crit_edge79.loopexit ], [ %30, %._crit_edge ]
+  %162 = phi ptr [ %.pre97, %._crit_edge79.loopexit ], [ %30, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i.i36 = icmp eq ptr %160, %23
-  %161 = icmp eq ptr %160, null
-  %or.cond115 = or i1 %.not.i.i36, %161
-  br i1 %or.cond115, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit37, label %162
+  %.not.i.i36 = icmp eq ptr %162, %23
+  %163 = icmp eq ptr %162, null
+  %or.cond115 = or i1 %.not.i.i36, %163
+  br i1 %or.cond115, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit37, label %164
 
-162:                                              ; preds = %._crit_edge79
-  call void @_ZdaPv(ptr noundef nonnull %160) #21
+164:                                              ; preds = %._crit_edge79
+  call void @_ZdaPv(ptr noundef nonnull %162) #21
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit37
 
-_ZN2cv10AutoBufferIiLm264EED2Ev.exit37:           ; preds = %162, %._crit_edge79
+_ZN2cv10AutoBufferIiLm264EED2Ev.exit37:           ; preds = %164, %._crit_edge79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

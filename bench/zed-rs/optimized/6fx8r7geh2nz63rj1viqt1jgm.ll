@@ -7861,12 +7861,12 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %15, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %16, i1 noundef zeroext true)
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %18, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %15
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %17
   tail call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h02755e1bc3b6c9a2E.llvm.15011353581665487143"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
@@ -7888,12 +7888,12 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %15, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %16, i1 noundef zeroext true)
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %18, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %15
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %17
   tail call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haf98f2c652b0274fE.llvm.587420211104578620"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
@@ -7998,12 +7998,12 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %15, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %16, i1 noundef zeroext true)
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3c41869c0d80f228E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %18, i1 noundef zeroext true)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %15
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h962855f165362afcE.exit": ; preds = %3, %17
   tail call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ef438f6ece48a2cE.llvm.15011353581665487143"(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }

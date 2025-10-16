@@ -27327,11 +27327,11 @@ _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %
   %spec.select.i = or i32 %205, %.0.i.i
   %206 = icmp eq i8 %88, 62
   %207 = and i32 %204, -2147483648
-  %.sink46.i = select i1 %206, i32 -1026, i32 1073740798
-  %.sink45.i = select i1 %206, i32 %207, i32 1024
-  %208 = and i32 %spec.select.i, %.sink46.i
+  %.sink45.i = select i1 %206, i32 -1026, i32 1073740798
+  %.sink44.i = select i1 %206, i32 %207, i32 1024
+  %208 = and i32 %spec.select.i, %.sink45.i
   %209 = or i32 %.015816.i, %208
-  %210 = or i32 %209, %.sink45.i
+  %210 = or i32 %209, %.sink44.i
   br i1 %.not206.i, label %227, label %211
 
 211:                                              ; preds = %_ssa_op1_info.exit.i
@@ -27342,7 +27342,7 @@ _ssa_op1_info.exit.i:                             ; preds = %.lr.ph.i.i, %184, %
 213:                                              ; preds = %211
   %214 = load i32, ptr %93, align 4, !tbaa !51
   %215 = icmp sgt i32 %214, -1
-  %216 = and i32 %.sink45.i, 1024
+  %216 = and i32 %.sink44.i, 1024
   %.not210.i = icmp eq i32 %216, 0
   %or.cond.i = select i1 %215, i1 %.not210.i, i1 false
   br i1 %or.cond.i, label %217, label %227

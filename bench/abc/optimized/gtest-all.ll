@@ -106783,7 +106783,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4
 
 46:                                               ; preds = %24
   %47 = icmp eq i64 %25, 1
-  br i1 %47, label %48, label %56
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %46
   %.idx = shl nsw i64 %.0, 3
@@ -106804,31 +106804,31 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vecto
   store ptr %51, ptr %.sroa.042.0, align 8, !tbaa !791
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
-56:                                               ; preds = %46
-  %57 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
-  %58 = sub i64 0, %25
-  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
-  %60 = icmp sgt i64 %.085, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge
+57:                                               ; preds = %46
+  %58 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
+  %59 = sub i64 0, %25
+  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %61 = icmp sgt i64 %.085, 0
+  br i1 %61, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.sroa.042.3.lcssa = phi ptr [ %59, %56 ], [ %.sroa.042.0, %.lr.ph ]
-  %61 = srem i64 %.0, %25
-  %.not = icmp eq i64 %61, 0
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.sroa.042.3.lcssa = phi ptr [ %60, %56 ], [ %.sroa.042.0, %.lr.ph ]
+  %62 = srem i64 %.0, %25
+  %.not = icmp eq i64 %62, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
   %.sroa.042.0.be = phi ptr [ %.sroa.042.1.lcssa, %44 ], [ %.sroa.042.3.lcssa, %._crit_edge ]
-  %.085.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
+  %.085.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.0.be = phi i64 [ %.085, %44 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !1916
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
+.lr.ph:                                           ; preds = %57, %.lr.ph
   %.02795 = phi i64 [ %66, %.lr.ph ], [ 0, %56 ]
-  %.sroa.0.094 = phi ptr [ %63, %.lr.ph ], [ %57, %56 ]
-  %.sroa.042.393 = phi ptr [ %62, %.lr.ph ], [ %59, %56 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.042.393, i64 -8
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 -8
+  %.sroa.0.094 = phi ptr [ %64, %.lr.ph ], [ %58, %56 ]
+  %.sroa.042.393 = phi ptr [ %63, %.lr.ph ], [ %60, %56 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.042.393, i64 -8
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 -8
   %64 = load ptr, ptr %62, align 8, !tbaa !791
   %65 = load ptr, ptr %63, align 8, !tbaa !791
   store ptr %65, ptr %62, align 8, !tbaa !791

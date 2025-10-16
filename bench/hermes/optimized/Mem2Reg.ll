@@ -4415,8 +4415,8 @@ while.body.i.i:                                   ; preds = %if.then.i.i41.i, %w
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then.i.i41.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.then.i.i41.i ], [ %spec.select.i.i, %while.body.i.i ]
   %485 = and i64 %conv.i.i42.i, 1
-  %cmp6.i.i.not = icmp eq i64 %485, 0
-  br i1 %cmp6.i.i.not, label %if.end18.i.i, label %land.lhs.true.i.i1130
+  %cmp6.i.i = icmp eq i64 %485, 0
+  br i1 %cmp6.i.i, label %if.end18.i.i, label %land.lhs.true.i.i1130
 
 land.lhs.true.i.i1130:                            ; preds = %while.end.i.i
   %sub7.i.i = add nsw i64 %conv.i.i42.i, -3

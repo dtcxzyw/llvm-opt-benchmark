@@ -266,7 +266,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %13 = lshr i64 %12, %spec.select
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17he39b3c4958a1139cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %13, ptr noalias noundef nonnull readonly align 1 %14)
-          to label %_ZN4core4iter6traits8iterator8Iterator8for_each17h164725f8c71d6492E.exit unwind label %16
+          to label %_ZN4core4iter6traits8iterator8Iterator8for_each17h164725f8c71d6492E.exit unwind label %18
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h164725f8c71d6492E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -276,17 +276,17 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h164725f8c71d6492E.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %16
-  resume { ptr, i32 } %17
+17:                                               ; preds = %18
+  resume { ptr, i32 } %19
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr266drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ty_server..session..settings..WorkspaceSettings$GT$$C$ty_server..session..settings..AllSettings..from_init_options..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h586aaed464d34962E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #24
-          to label %15 unwind label %18
+          to label %15 unwind label %20
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #25
   unreachable

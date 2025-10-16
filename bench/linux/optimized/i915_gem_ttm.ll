@@ -823,13 +823,13 @@ define internal noundef ptr @i915_ttm_tt_create(ptr noundef %0, i32 noundef %1) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @i915_ttm_bo_destroy
-  br i1 %6, label %7, label %73
+  br i1 %6, label %7, label %75
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 112) #12
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %73, label %11
+  br i1 %10, label %75, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -893,38 +893,38 @@ define internal noundef ptr @i915_ttm_tt_create(ptr noundef %0, i32 noundef %1) 
   %55 = lshr i64 %54, 20
   br label %56
 
-56:                                               ; preds = %51, %48
+56:; preds = %51, %48
   %57 = phi i64 [ %55, %51 ], [ 0, %48 ]
   %58 = tail call i32 @ttm_tt_init(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %49, i32 noundef %38, i64 noundef %57) #11
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %72
 
-60:                                               ; preds = %56
+60:; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %63 = load i64, ptr %62, align 8
   store volatile i32 1, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i64 %63, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store ptr @tt_rsgt_ops, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i64 %63, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store ptr @tt_rsgt_ops, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %68 = load ptr, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %70, ptr %71, align 8
-  br label %73
+  br label %75
 
-72:                                               ; preds = %56
+74:                                               ; preds = %56
   tail call void @kfree(ptr noundef nonnull %9) #11
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72, %60, %7, %2
-  %74 = phi ptr [ null, %72 ], [ %9, %60 ], [ null, %2 ], [ null, %7 ]
-  ret ptr %74
+75:                                               ; preds = %74, %60, %7, %2
+  %76 = phi ptr [ null, %72 ], [ %9, %60 ], [ null, %2 ], [ null, %7 ]
+  ret ptr %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

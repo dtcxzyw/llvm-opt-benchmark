@@ -11266,53 +11266,53 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
 
 ._crit_edge:                                      ; preds = %38
   %.pre59 = load i64, ptr %5, align 8, !tbaa !60
-  br label %61
+  br label %62
 
 .thread:                                          ; preds = %33, %35, %38
-  %56 = load i64, ptr %5, align 8, !tbaa !60
-  %57 = icmp sgt i64 %56, 0
-  br i1 %57, label %58, label %83
+  %57 = load i64, ptr %5, align 8, !tbaa !60
+  %58 = icmp sgt i64 %57, 0
+  br i1 %58, label %59, label %83
 
-58:                                               ; preds = %.thread
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 760
-  %60 = load i64, ptr %59, align 8, !tbaa !468
-  %.not48 = icmp eq i64 %56, %60
-  br i1 %.not48, label %83, label %61
+59:                                               ; preds = %.thread
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 760
+  %61 = load i64, ptr %60, align 8, !tbaa !468
+  %.not48 = icmp eq i64 %57, %61
+  br i1 %.not48, label %83, label %62
 
-61:                                               ; preds = %._crit_edge, %58
-  %62 = phi i64 [ %.pre59, %._crit_edge ], [ %56, %58 ]
+62:                                               ; preds = %._crit_edge, %59
+  %63 = phi i64 [ %.pre59, %._crit_edge ], [ %57, %58 ]
   %.val52 = load ptr, ptr %9, align 8, !tbaa !241
   %.val53 = load i16, ptr %19, align 8, !tbaa !25
   %.val54 = load ptr, ptr %11, align 8, !tbaa !223
-  %63 = getelementptr i8, ptr %.val52, i64 792
-  %.val52.val = load ptr, ptr %63, align 8, !tbaa !465
-  %64 = getelementptr i8, ptr %.val54, i64 24
-  %.val54.val = load i16, ptr %64, align 8, !tbaa !436
-  %65 = call fastcc i64 @af_loader_compute_darkening(ptr %.val52.val, i16 %.val53, i16 %.val54.val, i64 noundef %62)
-  %66 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !469
-  %sext = shl i64 %65, 32
-  %68 = ashr exact i64 %sext, 32
-  %sext57 = shl i64 %67, 32
-  %69 = ashr exact i64 %sext57, 32
-  %70 = mul nsw i64 %69, %68
-  %71 = ashr i64 %70, 63
-  %72 = add nsw i64 %70, 32768
-  %73 = add nsw i64 %72, %71
-  %74 = load i64, ptr %5, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 760
-  store i64 %74, ptr %75, align 8, !tbaa !468
-  %76 = load i16, ptr %15, align 8, !tbaa !461
-  store i16 %76, ptr %17, align 8, !tbaa !462
-  %77 = shl i64 %73, 16
-  %78 = ashr i64 %77, 48
+  %64 = getelementptr i8, ptr %.val52, i64 792
+  %.val52.val = load ptr, ptr %64, align 8, !tbaa !465
+  %65 = getelementptr i8, ptr %.val54, i64 24
+  %.val54.val = load i16, ptr %65, align 8, !tbaa !436
+  %66 = call fastcc i64 @af_loader_compute_darkening(ptr %.val52.val, i16 %.val53, i16 %.val54.val, i64 noundef %63)
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %68 = load i64, ptr %67, align 8, !tbaa !469
+  %sext = shl i64 %66, 32
+  %69 = ashr exact i64 %sext, 32
+  %sext57 = shl i64 %68, 32
+  %70 = ashr exact i64 %sext57, 32
+  %71 = mul nsw i64 %70, %69
+  %72 = ashr i64 %71, 63
+  %73 = add nsw i64 %71, 32768
+  %74 = add nsw i64 %73, %72
+  %75 = load i64, ptr %5, align 8, !tbaa !60
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 760
+  store i64 %75, ptr %76, align 8, !tbaa !468
+  %77 = load i16, ptr %15, align 8, !tbaa !461
+  store i16 %77, ptr %17, align 8, !tbaa !462
+  %78 = shl i64 %74, 16
+  %78 = ashr i64 %78, 48
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 776
   store i64 %78, ptr %79, align 8, !tbaa !470
   %.neg58 = add nsw i64 %22, -524288
-  %80 = sub i64 %.neg58, %65
-  %81 = call i64 @FT_DivFix(i64 noundef %80, i64 noundef %22) #20
-  %82 = getelementptr inbounds nuw i8, ptr %10, i64 784
-  store i64 %81, ptr %82, align 8, !tbaa !471
+  %82 = sub i64 %.neg58, %66
+  %83 = call i64 @FT_DivFix(i64 noundef %82, i64 noundef %22) #20
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 784
+  store i64 %83, ptr %84, align 8, !tbaa !471
   br label %83
 
 83:                                               ; preds = %61, %58, %.thread
@@ -11329,7 +11329,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
   call void @FT_Outline_Transform(ptr noundef nonnull %84, ptr noundef nonnull %6) #20
   br label %93
 
-93:                                               ; preds = %23, %3, %83
+85:                                               ; preds = %23, %3, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

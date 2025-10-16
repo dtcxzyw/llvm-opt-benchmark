@@ -3218,118 +3218,118 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit53: ; preds = %_ZN4a
     i32 5, label %137
   ]
 
-133:                                              ; preds = %126
+134:                                              ; preds = %126
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StackArray19RunWithCapacityImplILm1EEEvNS_11FunctionRefIFvNS_4SpanIjEEEEE(ptr nonnull %5, ptr nonnull readonly @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
 
-134:                                              ; preds = %126
+135:                                              ; preds = %126
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StackArray19RunWithCapacityImplILm2EEEvNS_11FunctionRefIFvNS_4SpanIjEEEEE(ptr nonnull %5, ptr nonnull readonly @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
 
-135:                                              ; preds = %126
+136:                                              ; preds = %126
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StackArray19RunWithCapacityImplILm3EEEvNS_11FunctionRefIFvNS_4SpanIjEEEEE(ptr nonnull %5, ptr nonnull readonly @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
 
-136:                                              ; preds = %126
+137:                                              ; preds = %126
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StackArray19RunWithCapacityImplILm4EEEvNS_11FunctionRefIFvNS_4SpanIjEEEEE(ptr nonnull %5, ptr nonnull readonly @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
 
-137:                                              ; preds = %126
+138:                                              ; preds = %126
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110StackArray19RunWithCapacityImplILm5EEEvNS_11FunctionRefIFvNS_4SpanIjEEEEE(ptr nonnull %5, ptr nonnull readonly @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS4_EEEEUlNS_4SpanIjEEE_vJSA_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit: ; preds = %126, %133, %134, %135, %136, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %138 = load ptr, ptr %63, align 8, !tbaa !32
-  %139 = load i64, ptr %6, align 8, !tbaa !24
-  %140 = icmp eq i64 %139, 0
-  br i1 %140, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62, label %141
+  %139 = load ptr, ptr %63, align 8, !tbaa !32
+  %140 = load i64, ptr %6, align 8, !tbaa !24
+  %141 = icmp eq i64 %140, 0
+  br i1 %141, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62, label %142
 
-141:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %143 = load i64, ptr %142, align 8, !tbaa !71
-  %144 = add i64 %143, %139
-  store i64 %144, ptr %142, align 8, !tbaa !71
-  %145 = getelementptr inbounds nuw i8, ptr %138, i64 1056
-  %146 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %147 = ptrtoint ptr %145 to i64
-  %148 = load ptr, ptr %146, align 8, !tbaa !74
-  %149 = ptrtoint ptr %148 to i64
-  %150 = sub i64 %147, %149
-  %151 = icmp ugt i64 %139, %150
-  br i1 %151, label %.lr.ph.i57, label %._crit_edge.i54
+142:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %144 = load i64, ptr %143, align 8, !tbaa !71
+  %145 = add i64 %144, %140
+  store i64 %145, ptr %143, align 8, !tbaa !71
+  %146 = getelementptr inbounds nuw i8, ptr %139, i64 1056
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %148 = ptrtoint ptr %146 to i64
+  %149 = load ptr, ptr %147, align 8, !tbaa !74
+  %150 = ptrtoint ptr %149 to i64
+  %151 = sub i64 %148, %150
+  %152 = icmp ugt i64 %140, %151
+  br i1 %152, label %.lr.ph.i57, label %._crit_edge.i54
 
-.lr.ph.i57:                                       ; preds = %141
-  %152 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %153 = ptrtoint ptr %152 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  br label %155
+.lr.ph.i57:                                       ; preds = %142
+  %153 = getelementptr inbounds nuw i8, ptr %139, i64 32
+  %154 = ptrtoint ptr %153 to i64
+  %155 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  br label %156
 
-155:                                              ; preds = %162, %.lr.ph.i57
-  %156 = phi i64 [ %150, %.lr.ph.i57 ], [ 1024, %162 ]
-  %157 = phi ptr [ %148, %.lr.ph.i57 ], [ %152, %162 ]
-  %.010.i58 = phi i64 [ %139, %.lr.ph.i57 ], [ %158, %162 ]
-  %158 = sub nuw i64 %.010.i58, %156
-  %.not.i59 = icmp eq ptr %145, %157
-  br i1 %.not.i59, label %162, label %159
+156:                                              ; preds = %163, %.lr.ph.i57
+  %157 = phi i64 [ %151, %.lr.ph.i57 ], [ 1024, %162 ]
+  %158 = phi ptr [ %149, %.lr.ph.i57 ], [ %153, %162 ]
+  %.010.i58 = phi i64 [ %140, %.lr.ph.i57 ], [ %159, %162 ]
+  %159 = sub nuw i64 %.010.i58, %157
+  %.not.i59 = icmp eq ptr %146, %158
+  br i1 %.not.i59, label %163, label %160
 
-159:                                              ; preds = %155
-  call void @llvm.memset.p0.i64(ptr align 1 %157, i8 48, i64 %156, i1 false)
-  %160 = load ptr, ptr %146, align 8, !tbaa !74
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 %156
-  store ptr %161, ptr %146, align 8, !tbaa !74
-  %.pre.i60 = ptrtoint ptr %161 to i64
-  br label %162
+160:                                              ; preds = %156
+  call void @llvm.memset.p0.i64(ptr align 1 %158, i8 48, i64 %157, i1 false)
+  %161 = load ptr, ptr %147, align 8, !tbaa !74
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %157
+  store ptr %162, ptr %147, align 8, !tbaa !74
+  %.pre.i60 = ptrtoint ptr %162 to i64
+  br label %163
 
-162:                                              ; preds = %159, %155
-  %.pre-phi.i61 = phi i64 [ %.pre.i60, %159 ], [ %147, %155 ]
-  %163 = sub i64 %.pre-phi.i61, %153
-  %164 = load ptr, ptr %154, align 8, !tbaa !75
-  %165 = load ptr, ptr %138, align 8, !tbaa !76
-  call void %164(ptr noundef %165, i64 %163, ptr nonnull %152)
-  store ptr %152, ptr %146, align 8, !tbaa !74
-  %166 = icmp ugt i64 %158, 1024
-  br i1 %166, label %155, label %._crit_edge.i54, !llvm.loop !77
+163:                                              ; preds = %160, %156
+  %.pre-phi.i61 = phi i64 [ %.pre.i60, %159 ], [ %148, %155 ]
+  %164 = sub i64 %.pre-phi.i61, %154
+  %165 = load ptr, ptr %155, align 8, !tbaa !75
+  %166 = load ptr, ptr %139, align 8, !tbaa !76
+  call void %164(ptr noundef %166, i64 %164, ptr nonnull %153)
+  store ptr %153, ptr %147, align 8, !tbaa !74
+  %167 = icmp ugt i64 %159, 1024
+  br i1 %167, label %156, label %._crit_edge.i54, !llvm.loop !77
 
-._crit_edge.i54:                                  ; preds = %162, %141
-  %.0.lcssa.i55 = phi i64 [ %139, %141 ], [ %158, %162 ]
-  %.lcssa.i56 = phi ptr [ %148, %141 ], [ %152, %162 ]
+._crit_edge.i54:                                  ; preds = %163, %142
+  %.0.lcssa.i55 = phi i64 [ %140, %141 ], [ %159, %162 ]
+  %.lcssa.i56 = phi ptr [ %149, %141 ], [ %153, %162 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i56, i8 48, i64 %.0.lcssa.i55, i1 false)
-  %167 = load ptr, ptr %146, align 8, !tbaa !74
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 %.0.lcssa.i55
-  store ptr %168, ptr %146, align 8, !tbaa !74
+  %168 = load ptr, ptr %147, align 8, !tbaa !74
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %.0.lcssa.i55
+  store ptr %169, ptr %147, align 8, !tbaa !74
   %.pre96 = load ptr, ptr %63, align 8, !tbaa !32
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit, %._crit_edge.i54
-  %169 = phi ptr [ %138, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre96, %._crit_edge.i54 ]
-  %170 = icmp eq i64 %.sroa.12.082, 0
-  br i1 %170, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71, label %171
+  %170 = phi ptr [ %139, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator13RunConversionENS_7uint128EiNS_11FunctionRefIFvS2_EEE.exit ], [ %.pre96, %._crit_edge.i54 ]
+  %171 = icmp eq i64 %.sroa.12.082, 0
+  br i1 %171, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71, label %172
 
-171:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %173 = load i64, ptr %172, align 8, !tbaa !71
-  %174 = add i64 %173, %.sroa.12.082
-  store i64 %174, ptr %172, align 8, !tbaa !71
-  %175 = getelementptr inbounds nuw i8, ptr %169, i64 1056
-  %176 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %177 = ptrtoint ptr %175 to i64
-  %178 = load ptr, ptr %176, align 8, !tbaa !74
-  %179 = ptrtoint ptr %178 to i64
-  %180 = sub i64 %177, %179
-  %181 = icmp ugt i64 %.sroa.12.082, %180
-  br i1 %181, label %.lr.ph.i66, label %._crit_edge.i63
+172:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %174 = load i64, ptr %173, align 8, !tbaa !71
+  %175 = add i64 %174, %.sroa.12.082
+  store i64 %175, ptr %173, align 8, !tbaa !71
+  %176 = getelementptr inbounds nuw i8, ptr %170, i64 1056
+  %177 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %178 = ptrtoint ptr %176 to i64
+  %179 = load ptr, ptr %177, align 8, !tbaa !74
+  %180 = ptrtoint ptr %179 to i64
+  %181 = sub i64 %178, %180
+  %182 = icmp ugt i64 %.sroa.12.082, %181
+  br i1 %182, label %.lr.ph.i66, label %._crit_edge.i63
 
-.lr.ph.i66:                                       ; preds = %171
-  %182 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %183 = ptrtoint ptr %182 to i64
-  %184 = getelementptr inbounds nuw i8, ptr %169, i64 8
+.lr.ph.i66:                                       ; preds = %172
+  %183 = getelementptr inbounds nuw i8, ptr %170, i64 32
+  %184 = ptrtoint ptr %183 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %170, i64 8
   br label %185
 
-185:                                              ; preds = %192, %.lr.ph.i66
-  %186 = phi i64 [ %180, %.lr.ph.i66 ], [ 1024, %192 ]
-  %187 = phi ptr [ %178, %.lr.ph.i66 ], [ %182, %192 ]
+._crit_edge.i63:                                  ; preds = %192, %.lr.ph.i66
+  %.0.lcssa.i64 = phi i64 [ %180, %.lr.ph.i66 ], [ 1024, %192 ]
+  %.lcssa.i65 = phi ptr [ %179, %.lr.ph.i66 ], [ %183, %192 ]
   %.010.i67 = phi i64 [ %.sroa.12.082, %.lr.ph.i66 ], [ %188, %192 ]
   %188 = sub nuw nsw i64 %.010.i67, %186
   %.not.i68 = icmp eq ptr %175, %187
@@ -3357,9 +3357,9 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62: ; preds = %_ZN4a
   %.0.lcssa.i64 = phi i64 [ %.sroa.12.082, %171 ], [ %188, %192 ]
   %.lcssa.i65 = phi ptr [ %178, %171 ], [ %182, %192 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i65, i8 32, i64 %.0.lcssa.i64, i1 false)
-  %197 = load ptr, ptr %176, align 8, !tbaa !74
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 %.0.lcssa.i64
-  store ptr %198, ptr %176, align 8, !tbaa !74
+  %198 = load ptr, ptr %177, align 8, !tbaa !74
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %.0.lcssa.i64
+  store ptr %199, ptr %177, align 8, !tbaa !74
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit71: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit62, %._crit_edge.i63

@@ -77726,9 +77726,9 @@ _ZNSt3__114__rotate_rightB8ne210000INS_17_ClassicAlgPolicyENS_11__wrap_iterIPwEE
 
 36:                                               ; preds = %19
   %37 = ptrtoint ptr %31 to i64
-  %38 = add i64 %30, -3
-  %39 = icmp eq i64 %38, 3
-  br i1 %39, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i.i.i
+  %gepdiff = add i64 %30, -3
+  %38 = icmp eq i64 %gepdiff, 3
+  br i1 %38, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i.i.i
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 12

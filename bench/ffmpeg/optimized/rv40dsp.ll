@@ -3512,11 +3512,11 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
 define internal void @rv40_weight_func_rnd_16(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #2 {
   br label %.preheader
 
-.preheader:                                       ; preds = %6, %21
-  %.025 = phi i32 [ 0, %6 ], [ %25, %21 ]
-  %.01824 = phi ptr [ %0, %6 ], [ %24, %21 ]
-  %.01923 = phi ptr [ %1, %6 ], [ %22, %21 ]
-  %.02022 = phi ptr [ %2, %6 ], [ %23, %21 ]
+.preheader:                                       ; preds = %6, %23
+  %.025 = phi i32 [ 0, %6 ], [ %27, %21 ]
+  %.01824 = phi ptr [ %0, %6 ], [ %26, %21 ]
+  %.01923 = phi ptr [ %1, %6 ], [ %24, %21 ]
+  %.02022 = phi ptr [ %2, %6 ], [ %25, %21 ]
   br label %7
 
 7:                                                ; preds = %.preheader, %7
@@ -3537,17 +3537,17 @@ define internal void @rv40_weight_func_rnd_16(ptr noundef writeonly captures(non
   store i8 %19, ptr %20, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %21, label %7, !llvm.loop !24
+  br i1 %exitcond.not, label %23, label %7, !llvm.loop !24
 
-21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %.01923, i64 %5
-  %23 = getelementptr inbounds i8, ptr %.02022, i64 %5
-  %24 = getelementptr inbounds i8, ptr %.01824, i64 %5
-  %25 = add nuw nsw i32 %.025, 1
-  %exitcond27.not = icmp eq i32 %25, 16
-  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !25
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds i8, ptr %.01923, i64 %5
+  %25 = getelementptr inbounds i8, ptr %.02022, i64 %5
+  %26 = getelementptr inbounds i8, ptr %.01824, i64 %5
+  %27 = add nuw nsw i32 %.025, 1
+  %exitcond27.not = icmp eq i32 %27, 16
+  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !25
 
-26:                                               ; preds = %21
+28:                                               ; preds = %23
   ret void
 }
 
@@ -3555,11 +3555,11 @@ define internal void @rv40_weight_func_rnd_16(ptr noundef writeonly captures(non
 define internal void @rv40_weight_func_rnd_8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #2 {
   br label %.preheader
 
-.preheader:                                       ; preds = %6, %21
-  %.025 = phi i32 [ 0, %6 ], [ %25, %21 ]
-  %.01824 = phi ptr [ %0, %6 ], [ %24, %21 ]
-  %.01923 = phi ptr [ %1, %6 ], [ %22, %21 ]
-  %.02022 = phi ptr [ %2, %6 ], [ %23, %21 ]
+.preheader:                                       ; preds = %6, %23
+  %.025 = phi i32 [ 0, %6 ], [ %27, %21 ]
+  %.01824 = phi ptr [ %0, %6 ], [ %26, %21 ]
+  %.01923 = phi ptr [ %1, %6 ], [ %24, %21 ]
+  %.02022 = phi ptr [ %2, %6 ], [ %25, %21 ]
   br label %7
 
 7:                                                ; preds = %.preheader, %7
@@ -3580,17 +3580,17 @@ define internal void @rv40_weight_func_rnd_8(ptr noundef writeonly captures(none
   store i8 %19, ptr %20, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %7, !llvm.loop !26
+  br i1 %exitcond.not, label %23, label %7, !llvm.loop !26
 
-21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %.01923, i64 %5
-  %23 = getelementptr inbounds i8, ptr %.02022, i64 %5
-  %24 = getelementptr inbounds i8, ptr %.01824, i64 %5
-  %25 = add nuw nsw i32 %.025, 1
-  %exitcond27.not = icmp eq i32 %25, 8
-  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !27
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds i8, ptr %.01923, i64 %5
+  %25 = getelementptr inbounds i8, ptr %.02022, i64 %5
+  %26 = getelementptr inbounds i8, ptr %.01824, i64 %5
+  %27 = add nuw nsw i32 %.025, 1
+  %exitcond27.not = icmp eq i32 %27, 8
+  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !27
 
-26:                                               ; preds = %21
+28:                                               ; preds = %23
   ret void
 }
 

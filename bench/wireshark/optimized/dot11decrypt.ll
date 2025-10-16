@@ -2538,15 +2538,15 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 172
   br label %24
 
-24:                                               ; preds = %.lr.ph80, %71
+24:                                               ; preds = %.lr.ph80, %72
   %.pre8384 = phi i64 [ %16, %.lr.ph80 ], [ %.pre8385, %71 ]
-  %25 = phi i64 [ %16, %.lr.ph80 ], [ %72, %71 ]
-  %.04979 = phi i64 [ 0, %.lr.ph80 ], [ %73, %71 ]
+  %25 = phi i64 [ %16, %.lr.ph80 ], [ %73, %71 ]
+  %.04979 = phi i64 [ 0, %.lr.ph80 ], [ %74, %71 ]
   %.05478 = phi i32 [ 3, %.lr.ph80 ], [ %.256, %71 ]
   %26 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %17, i64 %.04979
   %27 = load i8, ptr %26, align 8
   %.not = icmp eq i8 %27, 6
-  br i1 %.not, label %28, label %71
+  br i1 %.not, label %28, label %72
 
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2697,30 +2697,30 @@ Dot11DecryptGetTkLen.exit.thread.i:               ; preds = %Dot11DecryptGetTkLe
 Dot11DecryptGetPtkLen.exit:                       ; preds = %Dot11DecryptGetTkLen.exit.thread.i, %58
   %.0.i66 = phi i32 [ 0, %Dot11DecryptGetTkLen.exit.thread.i ], [ %61, %58 ]
   store i32 %.0.i66, ptr %23, align 4
-  %62 = tail call fastcc i32 @Dot11DecryptRsnaMng(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9)
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %35
+  %63 = tail call fastcc i32 @Dot11DecryptRsnaMng(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9)
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %35
 
-64:                                               ; preds = %Dot11DecryptGetPtkLen.exit
+65:                                               ; preds = %Dot11DecryptGetPtkLen.exit
   %.val.i = load ptr, ptr %0, align 8
-  %65 = tail call ptr @g_hash_table_lookup(ptr noundef %.val.i, ptr noundef %4)
-  %.not.i67 = icmp eq ptr %65, null
-  br i1 %.not.i67, label %67, label %66
+  %66 = tail call ptr @g_hash_table_lookup(ptr noundef %.val.i, ptr noundef %4)
+  %.not.i67 = icmp eq ptr %66, null
+  br i1 %.not.i67, label %68, label %67
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %65, i64 176, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %65, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %66, i64 176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %66, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
-  store ptr %9, ptr %65, align 8
+  store ptr %9, ptr %66, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %74
+  br label %75
 
-67:                                               ; preds = %64
-  %68 = tail call dereferenceable_or_null(12) ptr @g_memdup2(ptr noundef %4, i64 noundef 12) #16
-  %69 = load ptr, ptr %0, align 8
-  %70 = tail call i32 @g_hash_table_insert(ptr noundef %69, ptr noundef %68, ptr noundef nonnull %9)
-  br label %74
+68:                                               ; preds = %65
+  %69 = tail call dereferenceable_or_null(12) ptr @g_memdup2(ptr noundef %4, i64 noundef 12) #16
+  %70 = load ptr, ptr %0, align 8
+  %71 = tail call i32 @g_hash_table_insert(ptr noundef %70, ptr noundef %69, ptr noundef nonnull %9)
+  br label %75
 
 Dot11DecryptAddSa.exit.loopexit:                  ; preds = %35
   %.pre83.pre = load i64, ptr %15, align 8
@@ -2728,28 +2728,28 @@ Dot11DecryptAddSa.exit.loopexit:                  ; preds = %35
 
 Dot11DecryptAddSa.exit:                           ; preds = %Dot11DecryptAddSa.exit.loopexit, %28
   %.pre83 = phi i64 [ %.pre8384, %28 ], [ %.pre83.pre, %Dot11DecryptAddSa.exit.loopexit ]
-  %.357 = phi i32 [ %.05478, %28 ], [ %62, %Dot11DecryptAddSa.exit.loopexit ]
+  %.357 = phi i32 [ %.05478, %28 ], [ %63, %Dot11DecryptAddSa.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %71
+  br label %72
 
-71:                                               ; preds = %Dot11DecryptAddSa.exit, %24
+72:                                               ; preds = %Dot11DecryptAddSa.exit, %24
   %.pre8385 = phi i64 [ %.pre8384, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
-  %72 = phi i64 [ %25, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
+  %73 = phi i64 [ %25, %24 ], [ %.pre83, %Dot11DecryptAddSa.exit ]
   %.256 = phi i32 [ %.05478, %24 ], [ %.357, %Dot11DecryptAddSa.exit ]
-  %73 = add nuw i64 %.04979, 1
-  %.not65 = icmp ult i64 %73, %72
+  %74 = add nuw i64 %.04979, 1
+  %.not65 = icmp ult i64 %74, %73
   br i1 %.not65, label %24, label %.thread, !llvm.loop !42
 
-74:                                               ; preds = %66, %67
+75:                                               ; preds = %67, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Dot11DecryptNewSa.exit.thread
 
-.thread:                                          ; preds = %71, %10
+.thread:                                          ; preds = %72, %10
   %.054.lcssa = phi i32 [ 3, %10 ], [ %.256, %71 ]
   tail call void @g_free(ptr noundef nonnull %9)
   br label %Dot11DecryptNewSa.exit.thread
 
-Dot11DecryptNewSa.exit.thread:                    ; preds = %74, %6, %.thread
+Dot11DecryptNewSa.exit.thread:                    ; preds = %75, %6, %.thread
   %.051 = phi i32 [ %.054.lcssa, %.thread ], [ 0, %74 ], [ 3, %6 ]
   ret i32 %.051
 }

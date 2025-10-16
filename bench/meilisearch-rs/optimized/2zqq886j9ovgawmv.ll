@@ -9677,12 +9677,12 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %16 = icmp ugt i64 %13, %15
   br i1 %16, label %17, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd7bae255f5ee3b7E.exit"
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = invoke fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h112baf1827125938E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
-          to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd7bae255f5ee3b7E.exit" unwind label %21
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = invoke fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h112baf1827125938E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20)
+          to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd7bae255f5ee3b7E.exit" unwind label %23
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd7bae255f5ee3b7E.exit": ; preds = %17, %2
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd7bae255f5ee3b7E.exit": ; preds = %19, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h0debefc06e81546aE.llvm.8666068179502612882(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -9690,17 +9690,17 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-20:                                               ; preds = %21
-  resume { ptr, i32 } %22
+22:                                               ; preds = %23
+  resume { ptr, i32 } %24
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr426drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$milli..search..facet..facet_distribution..OrderBy$RP$$GT$$C$milli..search..facet..facet_distribution..FacetDistribution..facets$LT$alloc..vec..Vec$LT$$LP$$RF$alloc..string..String$C$milli..search..facet..facet_distribution..OrderBy$RP$$GT$$C$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h99b8d254327ae000E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #69
-          to label %20 unwind label %23
+          to label %20 unwind label %25
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #70
   unreachable

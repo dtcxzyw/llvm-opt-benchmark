@@ -3750,7 +3750,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %35 = sext i32 %0 to i64
   %.idx = shl nsw i64 %35, 3
   %36 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %37 = add nsw i64 %35, -1
+  %gepdiff = add nsw i64 %35, -1
   %38 = icmp ugt i64 %37, 288230376151711743
   br i1 %38, label %.noexc.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
 
@@ -3763,7 +3763,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
-  %gepdiff = shl nuw nsw i64 %35, 5
+  %39 = shl nuw nsw i64 %35, 5
   %39 = add nsw i64 %gepdiff, -32
   %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #27
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i
@@ -3784,7 +3784,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %.not.i.i6.i, label %.body, label %46
 
 46:                                               ; preds = %45
-  %.idx313 = shl nuw nsw i64 %37, 5
+  %.idx313 = shl nuw nsw i64 %gepdiff, 5
   tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %.idx313) #24
   br label %.body
 

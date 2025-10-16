@@ -5723,18 +5723,18 @@ put_sbits.exit:                                   ; preds = %put_sbits.exit.preh
   %or.cond9 = and i1 %2915, %2914
   br i1 %or.cond9, label %put_bits.exit, label %2916
 
-2916:                                             ; preds = %put_sbits.exit
+2916:; preds = %put_sbits.exit
   %2917 = getelementptr inbounds nuw i8, ptr %2908, i64 60
   %2918 = load i32, ptr %2917, align 4, !tbaa !89
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %2916, %put_sbits.exit
-  %2919 = phi i32 [ %2918, %2916 ], [ 1, %put_sbits.exit ]
-  %2920 = lshr i16 %2910, 4
-  %2921 = and i16 %2920, 1022
+  %2920 = phi i32 [ %2918, %2916 ], [ 1, %put_sbits.exit ]
+  %2921 = lshr i16 %2910, 4
+  %2922 = and i16 %2921, 1022
   %2922 = xor i16 %2921, 512
   %2923 = zext nneg i16 %2922 to i32
-  %2924 = or i32 %2919, %2923
+  %2924 = or i32 %2920, %2923
   %2925 = getelementptr inbounds nuw i8, ptr %2908, i64 56
   %2926 = load i32, ptr %2925, align 4, !tbaa !97
   %2927 = shl i32 %2924, 2

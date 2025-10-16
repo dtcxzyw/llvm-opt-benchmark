@@ -3694,17 +3694,17 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %14 = invoke ptr @PyLong_FromUnsignedLong(i64 noundef %13) #21
           to label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE3$_3mJRKNS_7ndarrayIJEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSD_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESR_SS_ST_SU_SW_.exit" unwind label %15
 
-15:                                               ; preds = %10
+15:; preds = %10
   %16 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #24
+  %18 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE3$_3mJRKNS_7ndarrayIJEEEEJLm0EEJNS_5scopeENS_4nameENS_3argEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSD_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESR_SS_ST_SU_SW_.exit": ; preds = %10, %5
   %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %14, %10 ]
-  %18 = load ptr, ptr %6, align 8, !tbaa !115
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %18) #22
+  %19 = load ptr, ptr %6, align 8, !tbaa !115
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %19) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }

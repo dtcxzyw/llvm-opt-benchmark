@@ -46376,7 +46376,7 @@ define linkonce_odr dso_local void @_ZN5Catch5clara6detail4ArgsC2EiPKPKc(ptr nou
   %.idx = shl nsw i64 %24, 3
   %25 = getelementptr inbounds i8, ptr %2, i64 %.idx
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %26 = add nsw i64 %24, -1
+  %gepdiff = add nsw i64 %24, -1
   %27 = icmp ugt i64 %26, 288230376151711743
   br i1 %27, label %28, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
 
@@ -46392,7 +46392,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
-  %gepdiff = shl nuw nsw i64 %24, 5
+  %29 = shl nuw nsw i64 %24, 5
   %29 = add nsw i64 %gepdiff, -32
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #63
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i unwind label %35

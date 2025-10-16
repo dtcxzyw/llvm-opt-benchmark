@@ -48130,12 +48130,12 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %19 = icmp ugt i64 %16, %18
   br i1 %19, label %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit"
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hd242dea37d2accefE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21, i1 noundef zeroext true)
-          to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit" unwind label %23
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = invoke { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hd242dea37d2accefE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i1 noundef zeroext true)
+          to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit" unwind label %25
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit": ; preds = %20, %2
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc6b624ed36e8f982E.exit": ; preds = %22, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hdf706e9e7904002aE.llvm.18123795597341512700(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -48143,20 +48143,20 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !15074
   store ptr %5, ptr %3, align 8, !noalias !15074
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h580749897a9a8741E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr148drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$$RF$deltalake_core..kernel..models..schema..DataType$RP$$GT$$GT$17heb59859db7612f22E.exit" unwind label %25
+          to label %"_ZN4core3ptr148drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$$RF$deltalake_core..kernel..models..schema..DataType$RP$$GT$$GT$17heb59859db7612f22E.exit" unwind label %27
 
-"_ZN4core3ptr148drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$$RF$deltalake_core..kernel..models..schema..DataType$RP$$GT$$GT$17heb59859db7612f22E.exit": ; preds = %23
+"_ZN4core3ptr148drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$alloc..string..String$C$$RF$deltalake_core..kernel..models..schema..DataType$RP$$GT$$GT$17heb59859db7612f22E.exit": ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !15074
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %26
 
-25:                                               ; preds = %23
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable

@@ -1085,9 +1085,9 @@ define hidden void @"_ZN123_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
 "_ZN73_$LT$foldhash..quality..RandomState$u20$as$u20$core..default..Default$GT$7default17h0e84b1a4281ed383E.exit": ; preds = %2, %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %14 = icmp eq ptr %.sroa.5.0.copyload11, %.sroa.0.0.copyload9
-  br i1 %14, label %15, label %17
+  br i1 %14, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit.thread", label %17
 
-15:                                               ; preds = %"_ZN73_$LT$foldhash..quality..RandomState$u20$as$u20$core..default..Default$GT$7default17h0e84b1a4281ed383E.exit"
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit.thread": ; preds = %"_ZN73_$LT$foldhash..quality..RandomState$u20$as$u20$core..default..Default$GT$7default17h0e84b1a4281ed383E.exit"
   store i64 0, ptr %6, align 8, !alias.scope !41
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !41
@@ -1095,8 +1095,8 @@ define hidden void @"_ZN123_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   store i64 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !alias.scope !41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.f18896686a9f4af98d4255051cb23e14.80, i64 32, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 %11, ptr %16, align 8, !alias.scope !41
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i64 %11, ptr %15, align 8, !alias.scope !41
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit"
 
 17:                                               ; preds = %"_ZN73_$LT$foldhash..quality..RandomState$u20$as$u20$core..default..Default$GT$7default17h0e84b1a4281ed383E.exit"
@@ -1112,7 +1112,7 @@ define hidden void @"_ZN123_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i64, ptr %20, align 8, !range !51, !noalias !47, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %19, label %23, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h1e52054ade93e224E.exit.i", !prof !16
+  br i1 %19, label %23, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit", !prof !16
 
 23:                                               ; preds = %.noexc.i.i
   %24 = load i64, ptr %22, align 8, !noalias !47
@@ -1134,11 +1134,11 @@ define hidden void @"_ZN123_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #30, !noalias !44
   unreachable
 
-common.resume:                                    ; preds = %57, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %58, %57 ]
+common.resume:                                    ; preds = %60, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %61, %57 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h1e52054ade93e224E.exit.i": ; preds = %.noexc.i.i
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit": ; preds = %.noexc.i.i
   %29 = load ptr, ptr %22, align 8, !noalias !47, !nonnull !3, !noundef !3
   %30 = icmp ule i64 %10, %21
   tail call void @llvm.assume(i1 %30)
@@ -1163,7 +1163,7 @@ common.resume:                                    ; preds = %57, %25
   %34 = phi ptr [ inttoptr (i64 8 to ptr), %15 ], [ %29, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h1e52054ade93e224E.exit.i" ]
   %..i = phi i64 [ 3, %15 ], [ %33, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h1e52054ade93e224E.exit.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %36 = lshr i64 %9, %..i
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1198,7 +1198,7 @@ common.resume:                                    ; preds = %57, %25
   %54 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserve_exact17hb1dd57ff6bce97beE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i64 noundef %40, i64 noundef %49, i64 noundef 8, i64 noundef 104)
           to label %.noexc7 unwind label %57
 
-.noexc7:                                          ; preds = %53
+36:                                               ; preds = %53
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = icmp eq i64 %55, -9223372036854775807
   br i1 %56, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h5433daa561f6f100E.exit.i", label %._crit_edge.i.i.i
@@ -1215,22 +1215,22 @@ common.resume:                                    ; preds = %57, %25
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.6.0.copyload13, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !64
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf53d14c662ae398eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
-          to label %59 unwind label %57
+          to label %59 unwind label %60
 
-57:                                               ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h5433daa561f6f100E.exit.i", %53, %51, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit"
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h5433daa561f6f100E.exit.i", %53, %51, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h1e0adf700c492f99E.exit"
+  %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr157drop_in_place$LT$indexmap..map..IndexMap$LT$polars_utils..pl_str..PlSmallStr$C$polars_arrow..datatypes..field..Field$C$foldhash..quality..RandomState$GT$$GT$17h9aa03818b29ec0beE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #29
-          to label %common.resume unwind label %60
+          to label %common.resume unwind label %63
 
-59:                                               ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h5433daa561f6f100E.exit.i"
+62:                                               ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h5433daa561f6f100E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-60:                                               ; preds = %57
-  %61 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #30
   unreachable

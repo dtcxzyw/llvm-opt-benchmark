@@ -190,14 +190,14 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %15 = icmp ugt i64 %11, %14
   br i1 %15, label %21, label %16
 
-16:                                               ; preds = %21, %3
+16: ; preds = %21, %3
   %17 = load i64, ptr %0, align 8, !alias.scope !22, !noundef !21
   %18 = load i64, ptr %12, align 8, !alias.scope !22, !noundef !21
   %19 = sub i64 %17, %18
   %20 = icmp ugt i64 %11, %19
   br i1 %20, label %27, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
 
-21:                                               ; preds = %3
+21:   ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %12, align 8, !alias.scope !22, !noundef !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -205,7 +205,7 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %26 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hd91a6eb60d41a8a4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 %25, i64 noundef %23, i1 noundef zeroext true)
   br label %16
 
-27:                                               ; preds = %16
+27:; preds = %16
   tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h26158b80cbf5b543E.llvm.9817217397473310483"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %11)
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17hde00a85b901d1ab2E.exit"
 

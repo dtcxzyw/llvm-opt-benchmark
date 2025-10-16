@@ -2848,7 +2848,7 @@ define internal void @intra_pred_horiz(ptr noundef writeonly captures(none) %0, 
 define internal void @intra_pred_lp(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   br label %.preheader
 
-.preheader:                                       ; preds = %4, %39
+.preheader:                                       ; preds = %4, %40
   %indvars.iv23 = phi i64 [ 0, %4 ], [ %indvars.iv.next24, %39 ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -2890,14 +2890,14 @@ define internal void @intra_pred_lp(ptr noundef writeonly captures(none) %0, ptr
   %38 = getelementptr i8, ptr %9, i64 %indvars.iv
   store i8 %37, ptr %38, align 1, !tbaa !24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %39, label %10, !llvm.loop !98
+  br i1 %exitcond.not, label %40, label %10, !llvm.loop !98
 
-39:                                               ; preds = %10
+40:                                               ; preds = %10
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %40, label %.preheader, !llvm.loop !99
+  br i1 %exitcond26.not, label %41, label %.preheader, !llvm.loop !99
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   ret void
 }
 
@@ -2905,7 +2905,7 @@ define internal void @intra_pred_lp(ptr noundef writeonly captures(none) %0, ptr
 define internal void @intra_pred_down_left(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   br label %.preheader
 
-.preheader:                                       ; preds = %4, %43
+.preheader:                                       ; preds = %4, %44
   %indvars.iv29 = phi i64 [ 0, %4 ], [ %indvars.iv.next30, %43 ]
   %5 = mul nsw i64 %3, %indvars.iv29
   %6 = getelementptr i8, ptr %0, i64 %5
@@ -2951,14 +2951,14 @@ define internal void @intra_pred_down_left(ptr noundef writeonly captures(none) 
   store i8 %41, ptr %42, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %43, label %7, !llvm.loop !100
+  br i1 %exitcond.not, label %44, label %7, !llvm.loop !100
 
-43:                                               ; preds = %7
+44:                                               ; preds = %7
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 8
-  br i1 %exitcond32.not, label %44, label %.preheader, !llvm.loop !101
+  br i1 %exitcond32.not, label %45, label %.preheader, !llvm.loop !101
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   ret void
 }
 

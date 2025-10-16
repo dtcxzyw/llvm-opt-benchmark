@@ -51750,7 +51750,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 
 46:                                               ; preds = %24
   %47 = icmp eq i64 %25, 1
-  br i1 %47, label %48, label %56
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %46
   %.idx = shl nsw i64 %.0, 2
@@ -51771,31 +51771,31 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   store i32 %51, ptr %.sroa.043.0, align 4, !tbaa !20
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
-56:                                               ; preds = %46
-  %57 = getelementptr inbounds i32, ptr %.sroa.043.0, i64 %.0
-  %58 = sub i64 0, %25
-  %59 = getelementptr inbounds i32, ptr %57, i64 %58
-  %60 = icmp sgt i64 %.086, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge
+57:                                               ; preds = %46
+  %58 = getelementptr inbounds i32, ptr %.sroa.043.0, i64 %.0
+  %59 = sub i64 0, %25
+  %60 = getelementptr inbounds i32, ptr %58, i64 %59
+  %61 = icmp sgt i64 %.086, 0
+  br i1 %61, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.sroa.043.3.lcssa = phi ptr [ %59, %56 ], [ %.sroa.043.0, %.lr.ph ]
-  %61 = srem i64 %.0, %25
-  %.not = icmp eq i64 %61, 0
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.sroa.043.3.lcssa = phi ptr [ %60, %56 ], [ %.sroa.043.0, %.lr.ph ]
+  %62 = srem i64 %.0, %25
+  %.not = icmp eq i64 %62, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
   %.sroa.043.0.be = phi ptr [ %.sroa.043.1.lcssa, %44 ], [ %.sroa.043.3.lcssa, %._crit_edge ]
-  %.086.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
+  %.086.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.0.be = phi i64 [ %.086, %44 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !805
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
+.lr.ph:                                           ; preds = %57, %.lr.ph
   %.02896 = phi i64 [ %66, %.lr.ph ], [ 0, %56 ]
-  %.sroa.0.095 = phi ptr [ %63, %.lr.ph ], [ %57, %56 ]
-  %.sroa.043.394 = phi ptr [ %62, %.lr.ph ], [ %59, %56 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.043.394, i64 -4
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.095, i64 -4
+  %.sroa.0.095 = phi ptr [ %64, %.lr.ph ], [ %58, %56 ]
+  %.sroa.043.394 = phi ptr [ %63, %.lr.ph ], [ %60, %56 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.043.394, i64 -4
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.095, i64 -4
   %64 = load i32, ptr %62, align 4, !tbaa !20
   %65 = load i32, ptr %63, align 4, !tbaa !20
   store i32 %65, ptr %62, align 4, !tbaa !20
@@ -76503,8 +76503,8 @@ define internal fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
-  %.tr6983 = phi i64 [ %4, %.lr.ph ], [ %114, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
-  %.tr6882 = phi i64 [ %3, %.lr.ph ], [ %113, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
+  %.tr6983 = phi i64 [ %4, %.lr.ph ], [ %115, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
+  %.tr6882 = phi i64 [ %3, %.lr.ph ], [ %114, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %.tr6680 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %.tr78 = phi ptr [ %0, %.lr.ph ], [ %.sroa.023.0.i.i, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %10 = add nsw i64 %.tr6983, %.tr6882
@@ -76705,7 +76705,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 92:                                               ; preds = %70
   %93 = icmp eq i64 %71, 1
-  br i1 %93, label %94, label %102
+  br i1 %93, label %94, label %103
 
 94:                                               ; preds = %92
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
@@ -76726,31 +76726,31 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6v
   store i64 %97, ptr %.sroa.068.0.i.i, align 4
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
 
-102:                                              ; preds = %92
-  %103 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
-  %104 = sub i64 0, %71
-  %105 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %103, i64 %104
-  %106 = icmp sgt i64 %.093.i.i, 0
-  br i1 %106, label %.lr.ph.i.i, label %._crit_edge.i.i
+103:                                              ; preds = %92
+  %104 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
+  %105 = sub i64 0, %71
+  %106 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %104, i64 %105
+  %107 = icmp sgt i64 %.093.i.i, 0
+  br i1 %107, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %102
-  %.sroa.068.3.lcssa.i.i = phi ptr [ %105, %102 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
-  %107 = srem i64 %.0.i.i, %71
-  %.not.i.i = icmp eq i64 %107, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %103
+  %.sroa.068.3.lcssa.i.i = phi ptr [ %106, %102 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
+  %108 = srem i64 %.0.i.i, %71
+  %.not.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %90
   %.sroa.068.0.i.i.be = phi ptr [ %.sroa.068.1.lcssa.i.i, %90 ], [ %.sroa.068.3.lcssa.i.i, %._crit_edge.i.i ]
-  %.093.i.i.be = phi i64 [ %91, %90 ], [ %107, %._crit_edge.i.i ]
+  %.093.i.i.be = phi i64 [ %91, %90 ], [ %108, %._crit_edge.i.i ]
   %.0.i.i.be = phi i64 [ %.093.i.i, %90 ], [ %71, %._crit_edge.i.i ]
   br label %70, !llvm.loop !2069
 
-.lr.ph.i.i:                                       ; preds = %102, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %103, %.lr.ph.i.i
   %.026103.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ 0, %102 ]
-  %.sroa.0.0102.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %103, %102 ]
-  %.sroa.068.3101.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %105, %102 ]
-  %108 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
+  %.sroa.0.0102.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %104, %102 ]
+  %.sroa.068.3101.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %106, %102 ]
+  %109 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
+  %110 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
   %110 = load i64, ptr %108, align 4
   %111 = load i64, ptr %109, align 4
   store i64 %111, ptr %108, align 4
@@ -76762,8 +76762,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6v
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit: ; preds = %._crit_edge109.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %49, %51, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
   %.sroa.023.0.i.i = phi ptr [ %.sroa.0.0, %49 ], [ %.sroa.062.0, %51 ], [ %69, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %69, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %.tr6680, %.lr.ph.i.i.i ], [ %69, %._crit_edge.i.i ], [ %69, %._crit_edge109.i.i ]
   tail call fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_SC_T1_(ptr %.tr78, ptr %.sroa.062.0, ptr %.sroa.023.0.i.i, i64 noundef %.0, i64 noundef %.043)
-  %113 = sub nsw i64 %.tr6882, %.0
-  %114 = sub nsw i64 %.tr6983, %.043
+  %114 = sub nsw i64 %.tr6882, %.0
+  %115 = sub nsw i64 %.tr6983, %.043
   %115 = icmp eq i64 %113, 0
   %116 = icmp eq i64 %114, 0
   %or.cond = or i1 %115, %116
@@ -77599,7 +77599,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 81:                                               ; preds = %59
   %82 = icmp eq i64 %60, 1
-  br i1 %82, label %83, label %91
+  br i1 %82, label %83, label %92
 
 83:                                               ; preds = %81
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
@@ -77620,31 +77620,31 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6v
   store i64 %86, ptr %.sroa.068.0.i.i, align 4
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
 
-91:                                               ; preds = %81
-  %92 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
-  %93 = sub i64 0, %60
-  %94 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %92, i64 %93
-  %95 = icmp sgt i64 %.093.i.i, 0
-  br i1 %95, label %.lr.ph.i.i, label %._crit_edge.i.i
+92:                                               ; preds = %81
+  %93 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
+  %94 = sub i64 0, %60
+  %95 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %93, i64 %94
+  %96 = icmp sgt i64 %.093.i.i, 0
+  br i1 %96, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %91
-  %.sroa.068.3.lcssa.i.i = phi ptr [ %94, %91 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
-  %96 = srem i64 %.0.i.i, %60
-  %.not.i.i = icmp eq i64 %96, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %92
+  %.sroa.068.3.lcssa.i.i = phi ptr [ %95, %91 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
+  %97 = srem i64 %.0.i.i, %60
+  %.not.i.i = icmp eq i64 %97, 0
   br i1 %.not.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %79
   %.sroa.068.0.i.i.be = phi ptr [ %.sroa.068.1.lcssa.i.i, %79 ], [ %.sroa.068.3.lcssa.i.i, %._crit_edge.i.i ]
-  %.093.i.i.be = phi i64 [ %80, %79 ], [ %96, %._crit_edge.i.i ]
+  %.093.i.i.be = phi i64 [ %80, %79 ], [ %97, %._crit_edge.i.i ]
   %.0.i.i.be = phi i64 [ %.093.i.i, %79 ], [ %60, %._crit_edge.i.i ]
   br label %59, !llvm.loop !2069
 
-.lr.ph.i.i:                                       ; preds = %91, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %92, %.lr.ph.i.i
   %.026103.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %91 ]
-  %.sroa.0.0102.i.i = phi ptr [ %98, %.lr.ph.i.i ], [ %92, %91 ]
-  %.sroa.068.3101.i.i = phi ptr [ %97, %.lr.ph.i.i ], [ %94, %91 ]
-  %97 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
+  %.sroa.0.0102.i.i = phi ptr [ %99, %.lr.ph.i.i ], [ %93, %91 ]
+  %.sroa.068.3101.i.i = phi ptr [ %98, %.lr.ph.i.i ], [ %95, %91 ]
+  %98 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
+  %99 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
   %99 = load i64, ptr %97, align 4
   %100 = load i64, ptr %98, align 4
   store i64 %100, ptr %97, align 4
@@ -80996,8 +80996,8 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
-  %.tr7387 = phi i64 [ %4, %.lr.ph ], [ %114, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
-  %.tr7286 = phi i64 [ %3, %.lr.ph ], [ %113, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
+  %.tr7387 = phi i64 [ %4, %.lr.ph ], [ %115, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
+  %.tr7286 = phi i64 [ %3, %.lr.ph ], [ %114, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %.tr7084 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %.tr82 = phi ptr [ %0, %.lr.ph ], [ %.sroa.023.0.i.i, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit ]
   %10 = add nsw i64 %.tr7387, %.tr7286
@@ -81198,7 +81198,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 92:                                               ; preds = %70
   %93 = icmp eq i64 %71, 1
-  br i1 %93, label %94, label %102
+  br i1 %93, label %94, label %103
 
 94:                                               ; preds = %92
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
@@ -81219,31 +81219,31 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6v
   store i64 %97, ptr %.sroa.068.0.i.i, align 4
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
 
-102:                                              ; preds = %92
-  %103 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
-  %104 = sub i64 0, %71
-  %105 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %103, i64 %104
-  %106 = icmp sgt i64 %.093.i.i, 0
-  br i1 %106, label %.lr.ph.i.i, label %._crit_edge.i.i
+103:                                              ; preds = %92
+  %104 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %.sroa.068.0.i.i, i64 %.0.i.i
+  %105 = sub i64 0, %71
+  %106 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %104, i64 %105
+  %107 = icmp sgt i64 %.093.i.i, 0
+  br i1 %107, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %102
-  %.sroa.068.3.lcssa.i.i = phi ptr [ %105, %102 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
-  %107 = srem i64 %.0.i.i, %71
-  %.not.i.i = icmp eq i64 %107, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %103
+  %.sroa.068.3.lcssa.i.i = phi ptr [ %106, %102 ], [ %.sroa.068.0.i.i, %.lr.ph.i.i ]
+  %108 = srem i64 %.0.i.i, %71
+  %.not.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %90
   %.sroa.068.0.i.i.be = phi ptr [ %.sroa.068.1.lcssa.i.i, %90 ], [ %.sroa.068.3.lcssa.i.i, %._crit_edge.i.i ]
-  %.093.i.i.be = phi i64 [ %91, %90 ], [ %107, %._crit_edge.i.i ]
+  %.093.i.i.be = phi i64 [ %91, %90 ], [ %108, %._crit_edge.i.i ]
   %.0.i.i.be = phi i64 [ %.093.i.i, %90 ], [ %71, %._crit_edge.i.i ]
   br label %70, !llvm.loop !2069
 
-.lr.ph.i.i:                                       ; preds = %102, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %103, %.lr.ph.i.i
   %.026103.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ 0, %102 ]
-  %.sroa.0.0102.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %103, %102 ]
-  %.sroa.068.3101.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %105, %102 ]
-  %108 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
+  %.sroa.0.0102.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %104, %102 ]
+  %.sroa.068.3101.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %106, %102 ]
+  %109 = getelementptr inbounds i8, ptr %.sroa.068.3101.i.i, i64 -8
+  %110 = getelementptr inbounds i8, ptr %.sroa.0.0102.i.i, i64 -8
   %110 = load i64, ptr %108, align 4
   %111 = load i64, ptr %109, align 4
   store i64 %111, ptr %108, align 4
@@ -81255,8 +81255,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6v
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit: ; preds = %._crit_edge109.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %49, %51, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
   %.sroa.023.0.i.i = phi ptr [ %.sroa.0.0, %49 ], [ %.sroa.066.0, %51 ], [ %69, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %69, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %.tr7084, %.lr.ph.i.i.i ], [ %69, %._crit_edge.i.i ], [ %69, %._crit_edge109.i.i ]
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_41MutatingTest_StableSortWithPredicate_Test8TestBodyEvE3$_0EEEvT_SE_SE_T0_SF_T1_"(ptr %.tr82, ptr %.sroa.066.0, ptr %.sroa.023.0.i.i, i64 noundef %.0, i64 noundef %.047)
-  %113 = sub nsw i64 %.tr7286, %.0
-  %114 = sub nsw i64 %.tr7387, %.047
+  %114 = sub nsw i64 %.tr7286, %.0
+  %115 = sub nsw i64 %.tr7387, %.047
   %115 = icmp eq i64 %113, 0
   %116 = icmp eq i64 %114, 0
   %or.cond = or i1 %115, %116
