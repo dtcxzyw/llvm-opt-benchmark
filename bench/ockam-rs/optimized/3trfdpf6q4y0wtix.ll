@@ -18855,9 +18855,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0130, %20
+  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0129, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -18938,8 +18938,8 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-.critedge:                                        ; preds = %230, %101
-  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+77:                                               ; preds = %230, %101
+  %.1 = phi i8 [ 3, %230 ], [ 4, %101 ]
   store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2600
   br label %77
 
@@ -19450,7 +19450,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2611
-  br i1 %225, label %.critedge, label %231
+  br i1 %225, label %77, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2600, !nonnull !4, !align !111, !noundef !4
@@ -19573,9 +19573,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0130, %20
+  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0129, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -19656,8 +19656,8 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-.critedge:                                        ; preds = %230, %101
-  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+77:                                               ; preds = %230, %101
+  %.1 = phi i8 [ 3, %230 ], [ 4, %101 ]
   store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2685
   br label %77
 
@@ -20168,7 +20168,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2696
-  br i1 %225, label %.critedge, label %231
+  br i1 %225, label %77, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2685, !nonnull !4, !align !111, !noundef !4
@@ -20291,9 +20291,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0130, %20
+  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0129, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -20374,8 +20374,8 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-.critedge:                                        ; preds = %230, %101
-  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+77:                                               ; preds = %230, %101
+  %.1 = phi i8 [ 3, %230 ], [ 4, %101 ]
   store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2769
   br label %77
 
@@ -20886,7 +20886,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2780
-  br i1 %225, label %.critedge, label %231
+  br i1 %225, label %77, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2769, !nonnull !4, !align !111, !noundef !4

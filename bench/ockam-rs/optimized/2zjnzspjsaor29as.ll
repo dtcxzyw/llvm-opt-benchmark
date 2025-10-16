@@ -211,9 +211,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 59:                                               ; preds = %3, %101
   %60 = phi i1 [ true, %3 ], [ false, %101 ]
-  %.sroa.0.0155 = phi i32 [ 0, %3 ], [ 1, %101 ]
-  %.0154 = phi i1 [ false, %3 ], [ %.1, %101 ]
-  %61 = add i32 %.sroa.0.0155, %23
+  %.sroa.0.0154 = phi i32 [ 0, %3 ], [ 1, %101 ]
+  %.0153 = phi i1 [ false, %3 ], [ %.1, %101 ]
+  %61 = add i32 %.sroa.0.0154, %23
   %trunc = trunc i32 %61 to i1
   %62 = load i8, ptr %24, align 1, !noundef !14
   br i1 %trunc, label %68, label %66
@@ -388,8 +388,8 @@ common.resume:                                    ; preds = %.body.i23, %.body.i
   store i8 %87, ptr %.sroa.4.0..sroa_idx, align 1
   br label %65
 
-.critedge:                                        ; preds = %254, %125
-  %.sink.i.ph = phi i8 [ 3, %254 ], [ 4, %125 ]
+101:                                              ; preds = %254, %125
+  %.1 = phi i8 [ 3, %254 ], [ 4, %125 ]
   store i8 %.sink.i.ph, ptr %32, align 8, !noalias !35
   br label %101
 
@@ -480,7 +480,7 @@ common.resume:                                    ; preds = %.body.i23, %.body.i
 
 125:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h5e6babb96367dff9E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !35
-  br label %.critedge
+  br label %101
 
 126:                                              ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17ha249912d56a95885E.llvm.14529172514207159973.exit.i.i"
   %127 = landingpad { ptr, i32 }
@@ -900,7 +900,7 @@ default.unreachable11.i.i:                        ; preds = %243
 254:                                              ; preds = %248
   %..i.i = select i1 %249, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert148.i, align 8, !noalias !47
-  br i1 %249, label %.critedge, label %255
+  br i1 %249, label %101, label %255
 
 255:                                              ; preds = %254
   %256 = load ptr, ptr %31, align 8, !noalias !35, !nonnull !14, !align !16, !noundef !14
