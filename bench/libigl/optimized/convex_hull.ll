@@ -48490,7 +48490,7 @@ _ZN4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyh
   %97 = and i64 %indvars.iv, 63
   %98 = shl nuw i64 1, %97
   %.fca.1.extract = extractvalue { ptr, i8 } %.pn.i.i, 1
-  %99 = trunc i8 %.fca.1.extract to i1
+  %99 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %.critedge.thread
