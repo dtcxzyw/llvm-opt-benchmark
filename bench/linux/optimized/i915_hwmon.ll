@@ -853,7 +853,7 @@ define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 nounde
   %112 = select i1 %110, i1 %111, i1 false
   br i1 %112, label %113, label %.thread6
 
-113:                                              ; preds = %96
+113:   ; preds = %96
   %114 = trunc nuw nsw i128 %109 to i64
   %115 = trunc nuw nsw i128 %104 to i64
   %116 = load i64, ptr %4, align 8

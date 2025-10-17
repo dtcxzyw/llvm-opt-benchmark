@@ -2318,8 +2318,8 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.th
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
-  %lhsc235 = load i8, ptr %.sroa.9.0156, align 1
-  %10 = icmp eq i8 %lhsc235, 48
+  %lhsc234 = load i8, ptr %.sroa.9.0156, align 1
+  %10 = icmp eq i8 %lhsc234, 48
   br i1 %10, label %.critedge.sink.split, label %.lr.ph.i.preheader.lr.ph
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76: ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread

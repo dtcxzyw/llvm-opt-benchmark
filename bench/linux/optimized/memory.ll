@@ -7610,19 +7610,19 @@ define internal fastcc ptr @pfn_swap_entry_to_page(i64 range(i64 0, 893626756060
   %8 = getelementptr %struct.page, ptr %3, i64 %7
   %9 = and i64 %0, 8646911284551352320
   %10 = icmp ne i64 %9, 8070450532247928832
-  %.mask = and i64 %0, 8935141660703064064
-  %11 = icmp ne i64 %.mask, 8646911284551352320
-  %12 = and i1 %11, %10
+  %11 = and i64 %0, 8935141660703064064
+  %12 = icmp ne i64 %11, 8646911284551352320
+  %12 = and i1 %12, %10
   br i1 %12, label %44, label %13
 
-13:                                               ; preds = %5
+20:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %21, label %18, !prof !13
 
-18:                                               ; preds = %13
+23:                                               ; preds = %13
   %19 = add nsw i64 %15, -1
   %20 = inttoptr i64 %19 to ptr
   br label %38
@@ -7631,43 +7631,43 @@ define internal fastcc ptr @pfn_swap_entry_to_page(i64 range(i64 0, 893626756060
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #18
           to label %38 [label %22], !srcloc !6
 
-22:                                               ; preds = %21
-  %23 = ptrtoint ptr %8 to i64
-  %24 = and i64 %23, 4095
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %37
+24:                                               ; preds = %21
+  %25 = ptrtoint ptr %8 to i64
+  %26 = and i64 %25, 4095
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %39
 
-26:                                               ; preds = %22
-  %27 = load volatile i64, ptr %8, align 8
-  %28 = and i64 %27, 64
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %37, label %30
+28:                                               ; preds = %24
+  %29 = load volatile i64, ptr %8, align 8
+  %30 = and i64 %29, 64
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %39, label %32
 
-30:                                               ; preds = %26
-  %31 = getelementptr i8, ptr %8, i64 72
-  %32 = load volatile i64, ptr %31, align 8
-  %33 = and i64 %32, 1
-  %34 = icmp eq i64 %33, 0
-  %35 = add nsw i64 %32, -1
-  %36 = inttoptr i64 %35 to ptr
-  br i1 %34, label %37, label %38
+32:                                               ; preds = %28
+  %33 = getelementptr i8, ptr %8, i64 72
+  %34 = load volatile i64, ptr %33, align 8
+  %35 = and i64 %34, 1
+  %36 = icmp eq i64 %35, 0
+  %37 = add nsw i64 %34, -1
+  %38 = inttoptr i64 %37 to ptr
+  br i1 %36, label %39, label %40
 
-37:                                               ; preds = %30, %26, %22
-  br label %38
+39:                                               ; preds = %32, %28, %24
+  br label %40
 
-38:                                               ; preds = %37, %30, %21, %18
-  %39 = phi ptr [ %20, %18 ], [ %36, %30 ], [ %8, %37 ], [ %8, %21 ]
-  %40 = load volatile i64, ptr %39, align 8
-  %41 = and i64 %40, 1
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %44, !prof !23
+40:                                               ; preds = %39, %32, %21, %23
+  %41 = phi ptr [ %20, %18 ], [ %38, %30 ], [ %8, %37 ], [ %8, %21 ]
+  %42 = load volatile i64, ptr %41, align 8
+  %43 = and i64 %42, 1
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %46, !prof !23
 
-43:                                               ; preds = %38
+45:                                               ; preds = %40
   tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #18, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 466, i32 0, i64 12) #18, !srcloc !60
   unreachable
 
-44:                                               ; preds = %38, %5
+46:                                               ; preds = %40, %5
   ret ptr %8
 }
 

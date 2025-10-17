@@ -13402,11 +13402,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.not.i = icmp ugt i128 %.0.copyload.i.i.i, 18446744073709551615
   %54 = load ptr, ptr %3, align 8
-  %55 = icmp eq ptr %54, null
+  %.not.i = icmp eq ptr %54, null
   %or.cond.i = select i1 %.not.i, i1 %55, i1 false
   br i1 %or.cond.i, label %56, label %79
 
-56:                                               ; preds = %52
+56: ; preds = %52
   %57 = lshr i128 %.0.copyload.i.i.i, 32
   %58 = trunc i128 %57 to i32
   %59 = lshr i128 %.0.copyload.i.i.i, 64
