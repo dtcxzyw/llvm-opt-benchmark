@@ -3387,151 +3387,145 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13b3TestSepAxisRK22b3ConvexP
   br label %64
 
 ._crit_edge.i:                                    ; preds = %64
-  %63 = fcmp ogt float %.250, %77
-  br i1 %63, label %78, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
+  %63 = fcmp ogt float %.250, %.246
+  br i1 %63, label %75, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
 
 64:                                               ; preds = %64, %.lr.ph.i
   %.149 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i ], [ %.250, %64 ]
   %.145 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i ], [ %.246, %64 ]
-  %65 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i ], [ %77, %64 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
   %gep.i = getelementptr %class.b3Vector3, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %66 = load float, ptr %gep.i, align 16, !tbaa !89
-  %67 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
-  %68 = load float, ptr %67, align 4, !tbaa !89
-  %69 = fmul float %47, %68
-  %70 = tail call float @llvm.fmuladd.f32(float %66, float %43, float %69)
-  %71 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
-  %72 = load float, ptr %71, align 8, !tbaa !89
-  %73 = tail call noundef float @llvm.fmuladd.f32(float %72, float %51, float %70)
-  %74 = fcmp olt float %73, %.149
-  %.250 = select i1 %74, float %73, float %.149
-  %75 = select i1 %74, float %.145, float %65
-  %76 = fcmp ogt float %73, %75
-  %.246 = select i1 %76, float %73, float %.145
-  %77 = select i1 %76, float %73, float %75
+  %65 = load float, ptr %gep.i, align 16, !tbaa !89
+  %66 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
+  %67 = load float, ptr %66, align 4, !tbaa !89
+  %68 = fmul float %47, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %65, float %43, float %68)
+  %70 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
+  %71 = load float, ptr %70, align 8, !tbaa !89
+  %72 = tail call noundef float @llvm.fmuladd.f32(float %71, float %51, float %69)
+  %73 = fcmp olt float %72, %.149
+  %.250 = select i1 %73, float %72, float %.149
+  %74 = fcmp ogt float %72, %.145
+  %.246 = select i1 %74, float %72, float %.145
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %64, !llvm.loop !167
 
-78:                                               ; preds = %._crit_edge.i
+75:                                               ; preds = %._crit_edge.i
   br label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
 
-_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit: ; preds = %10, %._crit_edge.i, %78
-  %.347 = phi float [ %.246, %._crit_edge.i ], [ %.250, %78 ], [ 0x47EFFFFFE0000000, %10 ]
-  %79 = phi float [ %.250, %._crit_edge.i ], [ %77, %78 ], [ 0xC7EFFFFFE0000000, %10 ]
-  %80 = fmul float %29, %54
-  %81 = tail call float @llvm.fmuladd.f32(float %52, float %23, float %80)
-  %82 = tail call noundef float @llvm.fmuladd.f32(float %56, float %25, float %81)
-  %83 = fadd float %82, %79
-  %84 = fadd float %82, %.347
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %86 = load i32, ptr %85, align 4, !tbaa !145
-  %87 = load float, ptr %5, align 16, !tbaa !89
+_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit: ; preds = %10, %._crit_edge.i, %75
+  %.347 = phi float [ %.246, %._crit_edge.i ], [ %.250, %75 ], [ 0x47EFFFFFE0000000, %10 ]
+  %76 = phi float [ %.250, %._crit_edge.i ], [ %.246, %75 ], [ 0xC7EFFFFFE0000000, %10 ]
+  %77 = fmul float %29, %54
+  %78 = tail call float @llvm.fmuladd.f32(float %52, float %23, float %77)
+  %79 = tail call noundef float @llvm.fmuladd.f32(float %56, float %25, float %78)
+  %80 = fadd float %79, %76
+  %81 = fadd float %79, %.347
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %83 = load i32, ptr %82, align 4, !tbaa !145
+  %84 = load float, ptr %5, align 16, !tbaa !89
+  %85 = fneg float %84
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %87 = load float, ptr %86, align 4, !tbaa !89
   %88 = fneg float %87
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %90 = load float, ptr %89, align 4, !tbaa !89
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %90 = load float, ptr %89, align 8, !tbaa !89
   %91 = fneg float %90
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %93 = load float, ptr %92, align 8, !tbaa !89
-  %94 = fneg float %93
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %96 = load float, ptr %95, align 4, !tbaa !110
-  %97 = fmul float %25, %91
-  %98 = tail call float @llvm.fmuladd.f32(float %96, float %23, float %97)
-  %99 = tail call float @llvm.fmuladd.f32(float %93, float %29, float %98)
-  %100 = fmul float %23, %94
-  %101 = tail call float @llvm.fmuladd.f32(float %96, float %29, float %100)
-  %102 = tail call float @llvm.fmuladd.f32(float %87, float %25, float %101)
-  %103 = fmul float %29, %88
-  %104 = tail call float @llvm.fmuladd.f32(float %96, float %25, float %103)
-  %105 = tail call float @llvm.fmuladd.f32(float %90, float %23, float %104)
-  %106 = fmul float %29, %90
-  %107 = tail call float @llvm.fmuladd.f32(float %87, float %23, float %106)
-  %108 = tail call float @llvm.fmuladd.f32(float %93, float %25, float %107)
-  %109 = fmul float %96, %99
-  %110 = tail call float @llvm.fmuladd.f32(float %108, float %87, float %109)
-  %111 = tail call float @llvm.fmuladd.f32(float %102, float %93, float %110)
-  %112 = tail call float @llvm.fmuladd.f32(float %105, float %91, float %111)
-  %113 = fmul float %96, %102
-  %114 = tail call float @llvm.fmuladd.f32(float %108, float %90, float %113)
-  %115 = tail call float @llvm.fmuladd.f32(float %105, float %87, float %114)
-  %116 = tail call float @llvm.fmuladd.f32(float %99, float %94, float %115)
-  %117 = fmul float %96, %105
-  %118 = tail call float @llvm.fmuladd.f32(float %108, float %93, float %117)
-  %119 = tail call float @llvm.fmuladd.f32(float %99, float %90, float %118)
-  %120 = tail call float @llvm.fmuladd.f32(float %102, float %88, float %119)
-  %121 = load float, ptr %4, align 16, !tbaa !89
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %123 = load float, ptr %122, align 4, !tbaa !89
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %125 = load float, ptr %124, align 8, !tbaa !89
-  %126 = icmp sgt i32 %86, 0
-  br i1 %126, label %.lr.ph.i22, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %93 = load float, ptr %92, align 4, !tbaa !110
+  %94 = fmul float %25, %88
+  %95 = tail call float @llvm.fmuladd.f32(float %93, float %23, float %94)
+  %96 = tail call float @llvm.fmuladd.f32(float %90, float %29, float %95)
+  %97 = fmul float %23, %91
+  %98 = tail call float @llvm.fmuladd.f32(float %93, float %29, float %97)
+  %99 = tail call float @llvm.fmuladd.f32(float %84, float %25, float %98)
+  %100 = fmul float %29, %85
+  %101 = tail call float @llvm.fmuladd.f32(float %93, float %25, float %100)
+  %102 = tail call float @llvm.fmuladd.f32(float %87, float %23, float %101)
+  %103 = fmul float %29, %87
+  %104 = tail call float @llvm.fmuladd.f32(float %84, float %23, float %103)
+  %105 = tail call float @llvm.fmuladd.f32(float %90, float %25, float %104)
+  %106 = fmul float %93, %96
+  %107 = tail call float @llvm.fmuladd.f32(float %105, float %84, float %106)
+  %108 = tail call float @llvm.fmuladd.f32(float %99, float %90, float %107)
+  %109 = tail call float @llvm.fmuladd.f32(float %102, float %88, float %108)
+  %110 = fmul float %93, %99
+  %111 = tail call float @llvm.fmuladd.f32(float %105, float %87, float %110)
+  %112 = tail call float @llvm.fmuladd.f32(float %102, float %84, float %111)
+  %113 = tail call float @llvm.fmuladd.f32(float %96, float %91, float %112)
+  %114 = fmul float %93, %102
+  %115 = tail call float @llvm.fmuladd.f32(float %105, float %90, float %114)
+  %116 = tail call float @llvm.fmuladd.f32(float %96, float %87, float %115)
+  %117 = tail call float @llvm.fmuladd.f32(float %99, float %85, float %116)
+  %118 = load float, ptr %4, align 16, !tbaa !89
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %120 = load float, ptr %119, align 4, !tbaa !89
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %122 = load float, ptr %121, align 8, !tbaa !89
+  %123 = icmp sgt i32 %83, 0
+  br i1 %123, label %.lr.ph.i22, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
 
 .lr.ph.i22:                                       ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %128 = load i32, ptr %127, align 16, !tbaa !146
-  %129 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %130 = load ptr, ptr %129, align 8, !tbaa !54
-  %131 = sext i32 %128 to i64
-  %wide.trip.count.i23 = zext nneg i32 %86 to i64
-  %invariant.gep.i24 = getelementptr %class.b3Vector3, ptr %130, i64 %131
-  br label %133
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %125 = load i32, ptr %124, align 16, !tbaa !146
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %127 = load ptr, ptr %126, align 8, !tbaa !54
+  %128 = sext i32 %125 to i64
+  %wide.trip.count.i23 = zext nneg i32 %83 to i64
+  %invariant.gep.i24 = getelementptr %class.b3Vector3, ptr %127, i64 %128
+  br label %130
 
-._crit_edge.i20:                                  ; preds = %133
-  %132 = fcmp ogt float %.243, %146
-  br i1 %132, label %147, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
+._crit_edge.i20:                                  ; preds = %130
+  %129 = fcmp ogt float %.243, %.2
+  br i1 %129, label %141, label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
 
-133:                                              ; preds = %133, %.lr.ph.i22
-  %.142 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i22 ], [ %.243, %133 ]
-  %.1 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i22 ], [ %.2, %133 ]
-  %134 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i22 ], [ %146, %133 ]
-  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %133 ]
+130:                                              ; preds = %130, %.lr.ph.i22
+  %.142 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i22 ], [ %.243, %130 ]
+  %.1 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i22 ], [ %.2, %130 ]
+  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %130 ]
   %gep.i26 = getelementptr %class.b3Vector3, ptr %invariant.gep.i24, i64 %indvars.iv.i25
-  %135 = load float, ptr %gep.i26, align 16, !tbaa !89
-  %136 = getelementptr inbounds nuw i8, ptr %gep.i26, i64 4
-  %137 = load float, ptr %136, align 4, !tbaa !89
-  %138 = fmul float %116, %137
-  %139 = tail call float @llvm.fmuladd.f32(float %135, float %112, float %138)
-  %140 = getelementptr inbounds nuw i8, ptr %gep.i26, i64 8
-  %141 = load float, ptr %140, align 8, !tbaa !89
-  %142 = tail call noundef float @llvm.fmuladd.f32(float %141, float %120, float %139)
-  %143 = fcmp olt float %142, %.142
-  %.243 = select i1 %143, float %142, float %.142
-  %144 = select i1 %143, float %.1, float %134
-  %145 = fcmp ogt float %142, %144
-  %.2 = select i1 %145, float %142, float %.1
-  %146 = select i1 %145, float %142, float %144
+  %131 = load float, ptr %gep.i26, align 16, !tbaa !89
+  %132 = getelementptr inbounds nuw i8, ptr %gep.i26, i64 4
+  %133 = load float, ptr %132, align 4, !tbaa !89
+  %134 = fmul float %113, %133
+  %135 = tail call float @llvm.fmuladd.f32(float %131, float %109, float %134)
+  %136 = getelementptr inbounds nuw i8, ptr %gep.i26, i64 8
+  %137 = load float, ptr %136, align 8, !tbaa !89
+  %138 = tail call noundef float @llvm.fmuladd.f32(float %137, float %117, float %135)
+  %139 = fcmp olt float %138, %.142
+  %.243 = select i1 %139, float %138, float %.142
+  %140 = fcmp ogt float %138, %.1
+  %.2 = select i1 %140, float %138, float %.1
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i23
-  br i1 %exitcond.not.i28, label %._crit_edge.i20, label %133, !llvm.loop !167
+  br i1 %exitcond.not.i28, label %._crit_edge.i20, label %130, !llvm.loop !167
 
-147:                                              ; preds = %._crit_edge.i20
+141:                                              ; preds = %._crit_edge.i20
   br label %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
 
-_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30: ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit, %._crit_edge.i20, %147
-  %.3 = phi float [ %.2, %._crit_edge.i20 ], [ %.243, %147 ], [ 0x47EFFFFFE0000000, %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
-  %148 = phi float [ %.243, %._crit_edge.i20 ], [ %146, %147 ], [ 0xC7EFFFFFE0000000, %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
-  %149 = fmul float %29, %123
-  %150 = tail call float @llvm.fmuladd.f32(float %121, float %23, float %149)
-  %151 = tail call noundef float @llvm.fmuladd.f32(float %125, float %25, float %150)
-  %152 = fadd float %151, %148
-  %153 = fadd float %151, %.3
-  %154 = fcmp uge float %84, %152
-  %155 = fcmp uge float %153, %83
-  %or.cond.not = select i1 %154, i1 %155, i1 false
-  br i1 %or.cond.not, label %156, label %161
+_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30: ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit, %._crit_edge.i20, %141
+  %.3 = phi float [ %.2, %._crit_edge.i20 ], [ %.243, %141 ], [ 0x47EFFFFFE0000000, %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
+  %142 = phi float [ %.243, %._crit_edge.i20 ], [ %.2, %141 ], [ 0xC7EFFFFFE0000000, %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
+  %143 = fmul float %29, %120
+  %144 = tail call float @llvm.fmuladd.f32(float %118, float %23, float %143)
+  %145 = tail call noundef float @llvm.fmuladd.f32(float %122, float %25, float %144)
+  %146 = fadd float %145, %142
+  %147 = fadd float %145, %.3
+  %148 = fcmp uge float %81, %146
+  %149 = fcmp uge float %147, %80
+  %or.cond.not = select i1 %148, i1 %149, i1 false
+  br i1 %or.cond.not, label %150, label %155
 
-156:                                              ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
-  %157 = fsub float %84, %152
-  %158 = fsub float %153, %83
-  %159 = fcmp olt float %157, %158
-  %160 = select i1 %159, float %157, float %158
-  store float %160, ptr %9, align 4, !tbaa !110
-  br label %161
+150:                                              ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30
+  %151 = fsub float %81, %146
+  %152 = fsub float %147, %80
+  %153 = fcmp olt float %151, %152
+  %154 = select i1 %153, float %151, float %152
+  store float %154, ptr %9, align 4, !tbaa !110
+  br label %155
 
-161:                                              ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30, %156
+155:                                              ; preds = %_Z13b3ProjectAxisRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit30, %150
   ret i1 %or.cond.not
 }
 
