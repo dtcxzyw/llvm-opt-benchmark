@@ -84108,7 +84108,7 @@ define hidden i32 @qoa_max_frame_size(ptr noundef readonly captures(none) %0) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 9) i32 @qoa_decode_header(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #17 {
   %4 = icmp slt i32 %1, 16
-  br i1 %4, label %65, label %5
+  br i1 %4, label %66, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
@@ -84130,62 +84130,63 @@ define hidden range(i32 0, 9) i32 @qoa_decode_header(ptr noundef readonly captur
   %22 = shl nuw nsw i64 %21, 32
   %23 = or disjoint i64 %18, %22
   %.not = icmp eq i64 %23, 8173858939415298048
-  br i1 %.not, label %24, label %65
+  br i1 %.not, label %24, label %66
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw i32 %27, 24
+  %27 = zext i8 %26 to i64
+  %28 = shl nuw nsw i64 %27, 24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 16
+  %31 = zext i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %32, %28
-  %41 = or disjoint i32 %40, %39
-  %42 = or disjoint i32 %41, %36
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %42, ptr %43, align 4
-  %.not14 = icmp eq i32 %42, 0
-  br i1 %.not14, label %65, label %44
+  %39 = zext i8 %38 to i64
+  %40 = or disjoint i64 %28, %32
+  %41 = or disjoint i64 %40, %39
+  %42 = or disjoint i64 %41, %36
+  %43 = trunc nuw i64 %42 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %43, ptr %44, align 4
+  %.not14 = icmp eq i64 %42, 0
+  br i1 %.not14, label %66, label %45
 
-44:                                               ; preds = %24
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %49, 16
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = or disjoint i32 %50, %54
-  %59 = or disjoint i32 %58, %57
-  %60 = zext i8 %46 to i32
-  store i32 %60, ptr %2, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %59, ptr %61, align 4
-  %62 = icmp eq i8 %46, 0
-  br i1 %62, label %65, label %63
+45:                                               ; preds = %24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = shl nuw nsw i32 %54, 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = or disjoint i32 %51, %55
+  %60 = or disjoint i32 %59, %58
+  %61 = zext i8 %47 to i32
+  store i32 %61, ptr %2, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %60, ptr %62, align 4
+  %63 = icmp eq i8 %47, 0
+  br i1 %63, label %66, label %64
 
-63:                                               ; preds = %44
-  %64 = icmp eq i32 %59, 0
-  %spec.select = select i1 %64, i32 0, i32 8
-  br label %65
+64:                                               ; preds = %45
+  %65 = icmp eq i32 %60, 0
+  %spec.select = select i1 %65, i32 0, i32 8
+  br label %66
 
-65:                                               ; preds = %63, %5, %24, %44, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %24 ], [ 0, %44 ], [ %spec.select, %63 ]
+66:                                               ; preds = %64, %5, %24, %45, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %24 ], [ 0, %45 ], [ %spec.select, %64 ]
   ret i32 %.0
 }
 
@@ -84555,89 +84556,90 @@ define hidden noalias noundef ptr @qoa_decode(ptr noundef readonly captures(none
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = shl nuw i32 %28, 24
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, 24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = shl nuw nsw i32 %32, 16
+  %32 = zext i8 %31 to i64
+  %33 = shl nuw nsw i64 %32, 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw nsw i32 %36, 8
+  %36 = zext i8 %35 to i64
+  %37 = shl nuw nsw i64 %36, 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %33, %29
-  %42 = or disjoint i32 %41, %40
-  %43 = or disjoint i32 %42, %37
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %43, ptr %44, align 4
-  %.not14.i = icmp eq i32 %43, 0
-  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %45
+  %40 = zext i8 %39 to i64
+  %41 = or disjoint i64 %33, %29
+  %42 = or disjoint i64 %41, %40
+  %43 = or disjoint i64 %42, %37
+  %44 = trunc nuw i64 %43 to i32
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %44, ptr %45, align 4
+  %.not14.i = icmp eq i64 %43, 0
+  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %46
 
-45:                                               ; preds = %25
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = shl nuw nsw i32 %50, 16
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %51
-  %60 = or disjoint i32 %59, %58
-  %61 = zext i8 %47 to i32
-  store i32 %61, ptr %2, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %60, ptr %62, align 4
-  %63 = icmp eq i8 %47, 0
-  %64 = icmp eq i32 %60, 0
-  %or.cond = select i1 %63, i1 true, i1 %64
+46:                                               ; preds = %25
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %55, 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = or disjoint i32 %56, %52
+  %61 = or disjoint i32 %60, %59
+  %62 = zext i8 %48 to i32
+  store i32 %62, ptr %2, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %61, ptr %63, align 4
+  %64 = icmp eq i8 %48, 0
+  %65 = icmp eq i32 %61, 0
+  %or.cond = select i1 %64, i1 true, i1 %65
   br i1 %or.cond, label %qoa_decode_header.exit.thread, label %qoa_decode_header.exit
 
-qoa_decode_header.exit:                           ; preds = %45
-  %65 = mul i32 %43, %61
-  %66 = sext i32 %65 to i64
-  %67 = shl nsw i64 %66, 1
-  %68 = tail call noalias ptr @malloc(i64 noundef %67) #82
+qoa_decode_header.exit:                           ; preds = %46
+  %66 = mul i32 %62, %44
+  %67 = sext i32 %66 to i64
+  %68 = shl nsw i64 %67, 1
+  %69 = tail call noalias ptr @malloc(i64 noundef %68) #82
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %80, %qoa_decode_header.exit
-  %.026 = phi i32 [ 0, %qoa_decode_header.exit ], [ %79, %80 ]
-  %.025 = phi i32 [ 8, %qoa_decode_header.exit ], [ %81, %80 ]
-  %70 = load i32, ptr %2, align 4
-  %71 = mul i32 %70, %.026
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %68, i64 %72
-  %74 = zext i32 %.025 to i64
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %74
-  %76 = sub i32 %1, %.025
-  %77 = call i32 @qoa_decode_frame(ptr noundef nonnull %75, i32 noundef %76, ptr noundef nonnull %2, ptr noundef %73, ptr noundef nonnull %4)
-  %78 = load i32, ptr %4, align 4
-  %79 = add i32 %78, %.026
-  %.not29 = icmp eq i32 %77, 0
-  br i1 %.not29, label %.critedge, label %80
+70:                                               ; preds = %81, %qoa_decode_header.exit
+  %.026 = phi i32 [ 0, %qoa_decode_header.exit ], [ %80, %81 ]
+  %.025 = phi i32 [ 8, %qoa_decode_header.exit ], [ %82, %81 ]
+  %71 = load i32, ptr %2, align 4
+  %72 = mul i32 %71, %.026
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i16, ptr %69, i64 %73
+  %75 = zext i32 %.025 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %75
+  %77 = sub i32 %1, %.025
+  %78 = call i32 @qoa_decode_frame(ptr noundef nonnull %76, i32 noundef %77, ptr noundef nonnull %2, ptr noundef %74, ptr noundef nonnull %4)
+  %79 = load i32, ptr %4, align 4
+  %80 = add i32 %79, %.026
+  %.not29 = icmp eq i32 %78, 0
+  br i1 %.not29, label %.critedge, label %81
 
-80:                                               ; preds = %69
-  %81 = add i32 %77, %.025
-  %82 = load i32, ptr %44, align 4
-  %83 = icmp ult i32 %79, %82
-  br i1 %83, label %69, label %.critedge
+81:                                               ; preds = %70
+  %82 = add i32 %78, %.025
+  %83 = load i32, ptr %45, align 4
+  %84 = icmp ult i32 %80, %83
+  br i1 %84, label %70, label %.critedge
 
-.critedge:                                        ; preds = %69, %80
-  store i32 %79, ptr %44, align 4
+.critedge:                                        ; preds = %70, %81
+  store i32 %80, ptr %45, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %qoa_decode_header.exit.thread
 
-qoa_decode_header.exit.thread:                    ; preds = %45, %25, %6, %3, %.critedge
-  %.0 = phi ptr [ %68, %.critedge ], [ null, %3 ], [ null, %6 ], [ null, %25 ], [ null, %45 ]
+qoa_decode_header.exit.thread:                    ; preds = %46, %25, %6, %3, %.critedge
+  %.0 = phi ptr [ %69, %.critedge ], [ null, %3 ], [ null, %6 ], [ null, %25 ], [ null, %46 ]
   ret ptr %.0
 }
 
@@ -84724,7 +84726,7 @@ define hidden noundef ptr @qoaplay_open(ptr noundef readonly captures(none) %0) 
   %2 = alloca [16 x i8], align 16
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.170)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %84, label %4
+  br i1 %.not, label %85, label %4
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -84758,86 +84760,87 @@ define hidden noundef ptr @qoaplay_open(ptr noundef readonly captures(none) %0) 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load i8, ptr %27, align 4
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw i32 %29, 24
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, 24
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 16
+  %33 = zext i8 %32 to i64
+  %34 = shl nuw nsw i64 %33, 16
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %36 = load i8, ptr %35, align 2
-  %37 = zext i8 %36 to i32
-  %38 = shl nuw nsw i32 %37, 8
+  %37 = zext i8 %36 to i64
+  %38 = shl nuw nsw i64 %37, 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = or disjoint i32 %34, %30
-  %43 = or disjoint i32 %42, %41
-  %44 = or disjoint i32 %43, %38
-  %.not14.i = icmp eq i32 %44, 0
-  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %45
+  %41 = zext i8 %40 to i64
+  %42 = or disjoint i64 %34, %30
+  %43 = or disjoint i64 %42, %41
+  %44 = or disjoint i64 %43, %38
+  %45 = trunc nuw i64 %44 to i32
+  %.not14.i = icmp eq i64 %44, 0
+  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %46
 
-45:                                               ; preds = %26
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %47 = load i8, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = shl nuw nsw i32 %50, 16
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %53 = load i8, ptr %52, align 2
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %51
-  %60 = or disjoint i32 %59, %58
-  %61 = icmp eq i8 %47, 0
-  %62 = icmp eq i32 %60, 0
-  %or.cond = select i1 %61, i1 true, i1 %62
+46:                                               ; preds = %26
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %48 = load i8, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %54 = load i8, ptr %53, align 2
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %55, 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = or disjoint i32 %56, %52
+  %61 = or disjoint i32 %60, %59
+  %62 = icmp eq i8 %48, 0
+  %63 = icmp eq i32 %61, 0
+  %or.cond = select i1 %62, i1 true, i1 %63
   br i1 %or.cond, label %qoa_decode_header.exit.thread, label %qoa_decode_header.exit
 
-qoa_decode_header.exit:                           ; preds = %45
-  %63 = zext i8 %47 to i32
-  %64 = tail call i32 @fseek(ptr noundef nonnull %3, i64 noundef 8, i32 noundef 0)
-  %65 = shl nuw nsw i32 %63, 4
-  %66 = or disjoint i32 %65, 8
-  %67 = shl nuw nsw i32 %63, 11
-  %68 = add nuw nsw i32 %66, %67
-  %69 = mul nuw nsw i32 %63, 20480
-  %70 = zext nneg i32 %68 to i64
-  %71 = or disjoint i32 %69, 336
-  %narrow = add nuw nsw i32 %71, %68
-  %72 = zext nneg i32 %narrow to i64
-  %73 = tail call noalias ptr @malloc(i64 noundef %72) #82
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %74, i8 0, i64 328, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 272
-  store ptr %3, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 280
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  store i32 8, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 336
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 304
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %70
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 320
-  store ptr %80, ptr %81, align 8
-  store i32 %63, ptr %73, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 %60, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 %44, ptr %83, align 8
+qoa_decode_header.exit:                           ; preds = %46
+  %64 = zext i8 %48 to i32
+  %65 = tail call i32 @fseek(ptr noundef nonnull %3, i64 noundef 8, i32 noundef 0)
+  %66 = shl nuw nsw i32 %64, 4
+  %67 = or disjoint i32 %66, 8
+  %68 = shl nuw nsw i32 %64, 11
+  %69 = add nuw nsw i32 %67, %68
+  %70 = mul nuw nsw i32 %64, 20480
+  %71 = zext nneg i32 %69 to i64
+  %72 = or disjoint i32 %70, 336
+  %narrow = add nuw nsw i32 %72, %69
+  %73 = zext nneg i32 %narrow to i64
+  %74 = tail call noalias ptr @malloc(i64 noundef %73) #82
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %75, i8 0, i64 328, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 272
+  store ptr %3, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 280
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  store i32 8, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 336
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 304
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %71
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 320
+  store ptr %81, ptr %82, align 8
+  store i32 %64, ptr %74, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 %61, ptr %83, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %45, ptr %84, align 8
   br label %qoa_decode_header.exit.thread
 
-qoa_decode_header.exit.thread:                    ; preds = %45, %26, %7, %qoa_decode_header.exit, %4
-  %.1 = phi ptr [ null, %4 ], [ %73, %qoa_decode_header.exit ], [ null, %7 ], [ null, %26 ], [ null, %45 ]
+qoa_decode_header.exit.thread:                    ; preds = %46, %26, %7, %qoa_decode_header.exit, %4
+  %.1 = phi ptr [ null, %4 ], [ %74, %qoa_decode_header.exit ], [ null, %7 ], [ null, %26 ], [ null, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %84
+  br label %85
 
-84:                                               ; preds = %1, %qoa_decode_header.exit.thread
+85:                                               ; preds = %1, %qoa_decode_header.exit.thread
   %.0 = phi ptr [ %.1, %qoa_decode_header.exit.thread ], [ null, %1 ]
   ret ptr %.0
 }
@@ -84882,72 +84885,73 @@ define hidden noundef ptr @qoaplay_open_memory(ptr noundef readonly captures(non
   %.sroa.830.0.copyload = load i8, ptr %.sroa.830.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1
-  %15 = zext i8 %.sroa.7.0.copyload to i32
-  %16 = shl nuw i32 %15, 24
-  %17 = zext i8 %.sroa.830.0.copyload to i32
-  %18 = shl nuw nsw i32 %17, 16
-  %19 = zext i8 %.sroa.9.0.copyload to i32
-  %20 = shl nuw nsw i32 %19, 8
-  %21 = zext i8 %.sroa.1031.0.copyload to i32
-  %22 = or disjoint i32 %20, %21
-  %23 = or disjoint i32 %22, %18
-  %24 = or disjoint i32 %23, %16
-  %.not14.i = icmp eq i32 %24, 0
-  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %25
+  %15 = zext i8 %.sroa.7.0.copyload to i64
+  %16 = shl nuw nsw i64 %15, 24
+  %17 = zext i8 %.sroa.830.0.copyload to i64
+  %18 = shl nuw nsw i64 %17, 16
+  %19 = zext i8 %.sroa.9.0.copyload to i64
+  %20 = shl nuw nsw i64 %19, 8
+  %21 = zext i8 %.sroa.1031.0.copyload to i64
+  %22 = or disjoint i64 %20, %21
+  %23 = or disjoint i64 %22, %18
+  %24 = or disjoint i64 %23, %16
+  %25 = trunc nuw i64 %24 to i32
+  %.not14.i = icmp eq i64 %24, 0
+  br i1 %.not14.i, label %qoa_decode_header.exit.thread, label %26
 
-25:                                               ; preds = %14
-  %26 = zext i8 %.sroa.12.0.copyload to i32
-  %27 = shl nuw nsw i32 %26, 16
-  %28 = zext i8 %.sroa.13.0.copyload to i32
-  %29 = shl nuw nsw i32 %28, 8
-  %30 = zext i8 %.sroa.14.0.copyload to i32
-  %31 = or disjoint i32 %29, %27
-  %32 = or disjoint i32 %31, %30
-  %33 = icmp eq i8 %.sroa.11.0.copyload, 0
-  %34 = icmp eq i32 %32, 0
-  %or.cond = select i1 %33, i1 true, i1 %34
+26:                                               ; preds = %14
+  %27 = zext i8 %.sroa.12.0.copyload to i32
+  %28 = shl nuw nsw i32 %27, 16
+  %29 = zext i8 %.sroa.13.0.copyload to i32
+  %30 = shl nuw nsw i32 %29, 8
+  %31 = zext i8 %.sroa.14.0.copyload to i32
+  %32 = or disjoint i32 %30, %28
+  %33 = or disjoint i32 %32, %31
+  %34 = icmp eq i8 %.sroa.11.0.copyload, 0
+  %35 = icmp eq i32 %33, 0
+  %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %qoa_decode_header.exit.thread, label %qoa_decode_header.exit
 
-qoa_decode_header.exit:                           ; preds = %25
-  %35 = zext i8 %.sroa.11.0.copyload to i32
-  %36 = shl nuw nsw i32 %35, 4
-  %37 = or disjoint i32 %36, 8
-  %38 = shl nuw nsw i32 %35, 11
-  %39 = add nuw nsw i32 %37, %38
-  %40 = mul nuw nsw i32 %35, 20480
-  %41 = zext nneg i32 %39 to i64
-  %42 = or disjoint i32 %40, 336
-  %narrow = add nuw nsw i32 %42, %39
-  %43 = zext nneg i32 %narrow to i64
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #82
-  %45 = sext i32 %1 to i64
-  %46 = tail call noalias ptr @malloc(i64 noundef %45) #82
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 280
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %48, i8 0, i64 328, i1 false)
-  store ptr %46, ptr %47, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr nonnull align 1 %0, i64 %45, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 288
-  store i32 %1, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 292
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 296
-  store i32 8, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 336
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 304
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %41
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 320
-  store ptr %54, ptr %55, align 8
-  store i32 %35, ptr %44, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 %32, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %24, ptr %57, align 8
+qoa_decode_header.exit:                           ; preds = %26
+  %36 = zext i8 %.sroa.11.0.copyload to i32
+  %37 = shl nuw nsw i32 %36, 4
+  %38 = or disjoint i32 %37, 8
+  %39 = shl nuw nsw i32 %36, 11
+  %40 = add nuw nsw i32 %38, %39
+  %41 = mul nuw nsw i32 %36, 20480
+  %42 = zext nneg i32 %40 to i64
+  %43 = or disjoint i32 %41, 336
+  %narrow = add nuw nsw i32 %43, %40
+  %44 = zext nneg i32 %narrow to i64
+  %45 = tail call noalias ptr @malloc(i64 noundef %44) #82
+  %46 = sext i32 %1 to i64
+  %47 = tail call noalias ptr @malloc(i64 noundef %46) #82
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 280
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %49, i8 0, i64 328, i1 false)
+  store ptr %47, ptr %48, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 1 %0, i64 %46, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 288
+  store i32 %1, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 292
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 296
+  store i32 8, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 336
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 304
+  store ptr %53, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %42
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 320
+  store ptr %55, ptr %56, align 8
+  store i32 %36, ptr %45, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 %33, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i32 %25, ptr %58, align 8
   br label %qoa_decode_header.exit.thread
 
-qoa_decode_header.exit.thread:                    ; preds = %25, %14, %2, %qoa_decode_header.exit
-  %.0 = phi ptr [ %44, %qoa_decode_header.exit ], [ null, %2 ], [ null, %14 ], [ null, %25 ]
+qoa_decode_header.exit.thread:                    ; preds = %26, %14, %2, %qoa_decode_header.exit
+  %.0 = phi ptr [ %45, %qoa_decode_header.exit ], [ null, %2 ], [ null, %14 ], [ null, %26 ]
   ret ptr %.0
 }
 

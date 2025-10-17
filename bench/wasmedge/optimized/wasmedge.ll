@@ -1709,7 +1709,9 @@ define { i64, i64 } @WasmEdge_ValueGetV128(ptr noundef readonly byval(%struct.Wa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @WasmEdge_ValueIsNullRef(ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load i128, ptr %0, align 16
-  %3 = icmp ult i128 %2, 18446744073709551616
+  %.sroa.24.0.extract.shift = lshr i128 %2, 64
+  %.sroa.24.0.extract.trunc = trunc nuw i128 %.sroa.24.0.extract.shift to i64
+  %3 = icmp eq i64 %.sroa.24.0.extract.trunc, 0
   ret i1 %3
 }
 

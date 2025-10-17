@@ -5432,7 +5432,7 @@ add_group_mask_entry.exit105.i:                   ; preds = %137, %add_group_mas
 192:                                              ; preds = %188
   %193 = load i32, ptr @ett_data, align 4
   %194 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %193)
-  %195 = icmp eq i32 %190, 0
+  %195 = icmp eq i64 %.val, 0
   %196 = icmp ne i32 %4, 0
   %or.cond.i94 = and i1 %196, %195
   br i1 %or.cond.i94, label %197, label %add_group_mask_entry.exit.i95
@@ -5884,7 +5884,7 @@ decode_smart_resp_temps.exit.i:                   ; preds = %411, %383
 449:                                              ; preds = %445
   %450 = load i32, ptr @ett_data, align 4
   %451 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %450)
-  %452 = icmp eq i32 %447, 0
+  %452 = icmp eq i64 %.val75, 0
   %453 = icmp ugt i32 %4, 1
   %or.cond.i101 = and i1 %453, %452
   br i1 %or.cond.i101, label %454, label %add_group_mask_entry.exit.i102
@@ -6385,7 +6385,7 @@ dissect_nvme_get_logpage_selftest_result.exit.i:  ; preds = %623
 728:                                              ; preds = %724
   %729 = load i32, ptr @ett_data, align 4
   %730 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %729)
-  %731 = icmp eq i32 %726, 0
+  %731 = icmp eq i64 %.val78, 0
   %732 = icmp ne i32 %4, 0
   %or.cond.i146 = and i1 %732, %731
   br i1 %or.cond.i146, label %733, label %add_group_mask_entry.exit.i147
@@ -6669,7 +6669,7 @@ add_group_mask_entry.exit.i147:                   ; preds = %738, %728
 898:                                              ; preds = %894
   %899 = load i32, ptr @ett_data, align 4
   %900 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %899)
-  %901 = icmp eq i32 %896, 0
+  %901 = icmp eq i64 %.val79, 0
   %902 = icmp ne i32 %4, 0
   %or.cond.i153 = and i1 %902, %901
   br i1 %or.cond.i153, label %903, label %add_group_mask_entry.exit.i154
@@ -7485,7 +7485,7 @@ dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheade
 1327:                                             ; preds = %1323
   %1328 = load i32, ptr @ett_data, align 4
   %1329 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %1328)
-  %1330 = icmp eq i32 %1325, 0
+  %1330 = icmp eq i64 %.val82, 0
   %1331 = icmp ugt i32 %4, 7
   %or.cond.i191 = and i1 %1331, %1330
   br i1 %or.cond.i191, label %1332, label %1335
@@ -7579,7 +7579,7 @@ dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheade
 1373:                                             ; preds = %1369
   %1374 = load i32, ptr @ett_data, align 4
   %1375 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %1374)
-  %1376 = icmp eq i32 %1371, 0
+  %1376 = icmp eq i64 %.val83, 0
   %1377 = icmp ugt i32 %4, 1
   %or.cond.i197 = and i1 %1377, %1376
   br i1 %or.cond.i197, label %1378, label %1381

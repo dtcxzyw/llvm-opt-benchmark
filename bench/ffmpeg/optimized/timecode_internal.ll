@@ -46,7 +46,6 @@ define void @ff_timecode_set_smpte(ptr noundef writeonly captures(none) initiali
   %39 = and i1 %38, %.not
   %40 = zext i1 %39 to i32
   store i32 %40, ptr %0, align 4, !tbaa !4
-  %.sroa.011.0.extract.trunc.i = trunc i64 %5 to i32
   %sext.i = shl i64 %5, 32
   %41 = ashr exact i64 %sext.i, 32
   %42 = ashr i64 %5, 32
@@ -74,8 +73,9 @@ av_cmp_q.exit:                                    ; preds = %9
 
 52:                                               ; preds = %50
   %53 = icmp ugt i64 %5, 4294967295
-  %or.cond = icmp sgt i32 %.sroa.011.0.extract.trunc.i, 0
-  %or.cond37 = or i1 %53, %or.cond
+  %54 = add nsw i64 %5, -1
+  %or.cond = icmp ult i64 %54, 2147483647
+  %or.cond37 = select i1 %53, i1 true, i1 %or.cond
   br i1 %or.cond37, label %av_cmp_q.exit.thread.sink.split, label %av_cmp_q.exit32.thread
 
 av_cmp_q.exit32.thread:                           ; preds = %52, %50
@@ -83,10 +83,10 @@ av_cmp_q.exit32.thread:                           ; preds = %52, %50
 
 av_cmp_q.exit.thread.sink.split:                  ; preds = %52, %av_cmp_q.exit32.thread
   %.sink39 = phi i32 [ 23, %av_cmp_q.exit32.thread ], [ 7, %52 ]
-  %54 = lshr i32 %6, %.sink39
-  %.lobit = and i32 %54, 1
-  %55 = or disjoint i32 %49, %.lobit
-  store i32 %55, ptr %4, align 4, !tbaa !4
+  %55 = lshr i32 %6, %.sink39
+  %.lobit = and i32 %55, 1
+  %56 = or disjoint i32 %49, %.lobit
+  store i32 %56, ptr %4, align 4, !tbaa !4
   br label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread.sink.split, %9, %47, %av_cmp_q.exit

@@ -2639,7 +2639,7 @@ strbuf_setlen.exit.i:                             ; preds = %83, %81
   br label %107, !llvm.loop !86
 
 93:                                               ; preds = %88
-  %.not48.i = icmp eq i32 %53, 0
+  %.not48.i = icmp eq i64 %44, 0
   br i1 %.not48.i, label %94, label %100
 
 94:                                               ; preds = %93

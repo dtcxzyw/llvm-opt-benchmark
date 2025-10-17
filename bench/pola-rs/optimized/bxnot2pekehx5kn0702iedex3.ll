@@ -7562,8 +7562,9 @@ define internal noundef zeroext i1 @"_ZN106_$LT$polars_arrow..scalar..primitive.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN106_$LT$polars_arrow..scalar..primitive..PrimitiveScalar$LT$T$GT$$u20$as$u20$polars_arrow..scalar..Scalar$GT$8is_valid17h6f6f5f71495ca77dE"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(64) %0) unnamed_addr #1 {
   %2 = load i128, ptr %0, align 16, !range !585, !noundef !4
-  %3 = icmp ne i128 %2, 0
-  ret i1 %3
+  %3 = trunc nuw nsw i128 %2 to i64
+  %4 = icmp ne i64 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -7598,8 +7599,9 @@ define internal noundef zeroext i1 @"_ZN106_$LT$polars_arrow..scalar..primitive.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN106_$LT$polars_arrow..scalar..primitive..PrimitiveScalar$LT$T$GT$$u20$as$u20$polars_arrow..scalar..Scalar$GT$8is_valid17hd3fac36564db8fc6E"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(64) %0) unnamed_addr #1 {
   %2 = load i128, ptr %0, align 16, !range !585, !noundef !4
-  %3 = icmp ne i128 %2, 0
-  ret i1 %3
+  %3 = trunc nuw nsw i128 %2 to i64
+  %4 = icmp ne i64 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

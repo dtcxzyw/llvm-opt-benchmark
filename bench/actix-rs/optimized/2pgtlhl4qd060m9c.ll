@@ -2693,7 +2693,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
   call void @llvm.assume(i1 %96)
   %97 = icmp slt i8 %.sroa.87.0.extract.trunc.i, 60
   call void @llvm.assume(i1 %97)
-  %98 = icmp eq i8 %.sroa.87.0.extract.trunc.i, 0
+  %98 = icmp samesign ult i32 %4, 65536
   br i1 %98, label %"_ZN68_$LT$time..utc_offset..UtcOffset$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcec2afd92d2744c8E.exit.i", label %.thread.i
 
 .thread.i:                                        ; preds = %95
@@ -2783,8 +2783,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
 
 136:                                              ; preds = %131
   %137 = udiv i32 %.sroa.722.022.i, 10000000
-  %.lhs.trunc59.i = trunc nuw nsw i32 %137 to i8
-  %138 = urem i8 %.lhs.trunc59.i, 10
+  %.lhs.trunc60.i = trunc nuw nsw i32 %137 to i8
+  %138 = urem i8 %.lhs.trunc60.i, 10
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %141, label %143
 

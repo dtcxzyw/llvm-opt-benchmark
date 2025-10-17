@@ -19836,7 +19836,7 @@ ensure_min_linux_ver.exit.thread19.i.i:           ; preds = %GC_parse_version.ex
   br label %66
 
 ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.exit.i.i.i
-  %61 = icmp ne i32 %49, 3
+  %61 = icmp ne i64 %48, 3
   %62 = icmp slt i32 %.1.i.i.i, 18
   %.not30.i.i = or i1 %61, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -20720,7 +20720,7 @@ GC_parse_version.exit.i:                          ; preds = %166, %164
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %GC_parse_version.exit.i
-  %172 = icmp eq i32 %159, 2
+  %172 = icmp eq i64 %158, 2
   %173 = icmp sgt i32 %.1.i, 18
   %or.cond.i23 = select i1 %172, i1 %173, i1 false
   br i1 %or.cond.i23, label %174, label %setup_mark_lock.exit

@@ -14264,13 +14264,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZL25matchSVEDataVectorRegNameN4llvm9StringRefE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %spec.select.i2282.i = call i64 @llvm.umax.i64(i64 %.sroa.68.31.i, i64 4294967296)
-  %spec.select.i.i = trunc i64 %spec.select.i2282.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not = icmp eq i32 %spec.select.i.i, 0
+  %.not = icmp eq i64 %spec.select.i2282.i, 4294967296
   br i1 %.not, label %61, label %58
 
 58:                                               ; preds = %_ZL25matchSVEDataVectorRegNameN4llvm9StringRefE.exit
+  %spec.select.i.i = trunc i64 %spec.select.i2282.i to i32
   %59 = icmp eq i32 %3, 2
   %60 = select i1 %59, i32 %spec.select.i.i, i32 0
   br label %217
@@ -14391,13 +14391,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZL30matchSVEPredicateVectorRegNameN4llvm9StringRefE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i72
   %spec.select.i632.i = call i64 @llvm.umax.i64(i64 %.sroa.36.15.i, i64 4294967296)
-  %spec.select.i.i73 = trunc i64 %spec.select.i632.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not46 = icmp eq i32 %spec.select.i.i73, 0
+  %.not46 = icmp eq i64 %spec.select.i632.i, 4294967296
   br i1 %.not46, label %90, label %87
 
 87:                                               ; preds = %_ZL30matchSVEPredicateVectorRegNameN4llvm9StringRefE.exit
+  %spec.select.i.i73 = trunc i64 %spec.select.i632.i to i32
   %88 = icmp eq i32 %3, 4
   %89 = select i1 %88, i32 %spec.select.i.i73, i32 0
   br label %217
@@ -14518,13 +14518,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZL33matchSVEPredicateAsCounterRegNameN4llvm9StringRefE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i110
   %spec.select.i632.i111 = call i64 @llvm.umax.i64(i64 %.sroa.36.15.i109, i64 4294967296)
-  %spec.select.i.i112 = trunc i64 %spec.select.i632.i111 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not47 = icmp eq i32 %spec.select.i.i112, 0
+  %.not47 = icmp eq i64 %spec.select.i632.i111, 4294967296
   br i1 %.not47, label %119, label %116
 
 116:                                              ; preds = %_ZL33matchSVEPredicateAsCounterRegNameN4llvm9StringRefE.exit
+  %spec.select.i.i112 = trunc i64 %spec.select.i632.i111 to i32
   %117 = icmp eq i32 %3, 3
   %118 = select i1 %117, i32 %spec.select.i.i112, i32 0
   br label %217
@@ -14725,13 +14725,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZL22MatchNeonVectorRegNameN4llvm9StringRefE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i185, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i182
   %spec.select.i2282.i183 = call i64 @llvm.umax.i64(i64 %.sroa.68.31.i181, i64 4294967296)
-  %spec.select.i.i184 = trunc i64 %spec.select.i2282.i183 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not48 = icmp eq i32 %spec.select.i.i184, 0
+  %.not48 = icmp eq i64 %spec.select.i2282.i183, 4294967296
   br i1 %.not48, label %164, label %161
 
 161:                                              ; preds = %_ZL22MatchNeonVectorRegNameN4llvm9StringRefE.exit
+  %spec.select.i.i184 = trunc i64 %spec.select.i2282.i183 to i32
   %162 = icmp eq i32 %3, 1
   %163 = select i1 %162, i32 %spec.select.i.i184, i32 0
   br label %217
@@ -14831,7 +14831,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not51 = icmp eq i32 %spec.select.i231, 0
+  %.not51 = icmp eq i64 %spec.select.i231294, 4294967296
   %193 = icmp eq i32 %3, 0
   %194 = select i1 %193, i32 %spec.select.i231, i32 0
   br i1 %.not51, label %195, label %217

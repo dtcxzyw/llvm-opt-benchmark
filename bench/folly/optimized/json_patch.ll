@@ -3441,7 +3441,8 @@ _ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81:    ; preds = %53
   %61 = load ptr, ptr %60, align 8, !tbaa !77
   %62 = getelementptr inbounds i8, ptr %61, i64 -32
   %63 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(32) %62)
-  %64 = icmp eq i24 %63, 2
+  %.sroa.0201.0.extract.trunc = trunc nuw nsw i24 %63 to i8
+  %64 = icmp eq i8 %.sroa.0201.0.extract.trunc, 2
   br i1 %64, label %.thread239, label %119
 
 .thread239:                                       ; preds = %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81
@@ -3524,7 +3525,8 @@ _ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_poin
   %91 = load ptr, ptr %90, align 8, !tbaa !77
   %92 = getelementptr inbounds i8, ptr %91, i64 -32
   %93 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(32) %92)
-  %94 = icmp eq i24 %93, 2
+  %.sroa.0180.0.extract.trunc = trunc nuw nsw i24 %93 to i8
+  %94 = icmp eq i8 %.sroa.0180.0.extract.trunc, 2
   br i1 %94, label %.thread241, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108
@@ -3593,7 +3595,8 @@ _ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_poi
   %112 = load ptr, ptr %111, align 8, !tbaa !77
   %113 = getelementptr inbounds i8, ptr %112, i64 -32
   %114 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(32) %113)
-  %115 = icmp eq i24 %114, 2
+  %.sroa.0156.0.extract.trunc = trunc nuw nsw i24 %114 to i8
+  %115 = icmp eq i8 %.sroa.0156.0.extract.trunc, 2
   br i1 %115, label %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, label %119
 
 _ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135: ; preds = %_ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit

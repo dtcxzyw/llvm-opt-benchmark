@@ -1805,34 +1805,34 @@ define internal range(i32 -2147483648, 1) i32 @matroska_read_header(ptr noundef 
   %113 = load ptr, ptr %110, align 8, !tbaa !52
   %114 = getelementptr inbounds nuw %struct.MatroskaSeekhead, ptr %113, i64 %indvars.iv.i
   %115 = load i64, ptr %114, align 8, !tbaa !54
-  %116 = trunc i64 %115 to i32
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !59
-  %119 = load i64, ptr %111, align 8, !tbaa !60
-  %120 = add i64 %119, %118
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %117 = load i64, ptr %116, align 8, !tbaa !59
+  %118 = load i64, ptr %111, align 8, !tbaa !60
+  %119 = add i64 %118, %117
   %.not31.i = icmp ugt i64 %115, 4294967295
-  %121 = icmp slt i64 %120, %119
-  %or.cond.i = select i1 %.not31.i, i1 true, i1 %121
-  br i1 %or.cond.i, label %134, label %122
+  %120 = icmp slt i64 %119, %118
+  %or.cond.i = select i1 %.not31.i, i1 true, i1 %120
+  br i1 %or.cond.i, label %134, label %121
 
-122:                                              ; preds = %112
-  %123 = call fastcc ptr @matroska_find_level1_elem(ptr noundef nonnull %22, i32 noundef %116, i64 noundef %120)
+121:                                              ; preds = %112
+  %122 = trunc nuw i64 %115 to i32
+  %123 = call fastcc ptr @matroska_find_level1_elem(ptr noundef nonnull %22, i32 noundef %122, i64 noundef %119)
   %.not32.i = icmp eq ptr %123, null
   br i1 %.not32.i, label %134, label %124
 
-124:                                              ; preds = %122
+124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
   %126 = load i32, ptr %125, align 4, !tbaa !66
   %.not33.i = icmp eq i32 %126, 0
   br i1 %.not33.i, label %127, label %134
 
 127:                                              ; preds = %124
-  store i64 %120, ptr %123, align 8, !tbaa !67
-  %128 = icmp eq i32 %116, 475249515
+  store i64 %119, ptr %123, align 8, !tbaa !67
+  %128 = icmp eq i64 %115, 475249515
   br i1 %128, label %134, label %129
 
 129:                                              ; preds = %127
-  %130 = call fastcc i32 @matroska_parse_seekhead_entry(ptr noundef nonnull %22, i64 noundef %120)
+  %130 = call fastcc i32 @matroska_parse_seekhead_entry(ptr noundef nonnull %22, i64 noundef %119)
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %133, label %132
 
@@ -1844,7 +1844,7 @@ define internal range(i32 -2147483648, 1) i32 @matroska_read_header(ptr noundef 
   store i32 -1, ptr %26, align 8, !tbaa !68
   br label %matroska_execute_seekhead.exit
 
-134:                                              ; preds = %132, %127, %124, %122, %112
+134:                                              ; preds = %132, %127, %124, %121, %112
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %135 = load i32, ptr %101, align 8, !tbaa !53
   %136 = sext i32 %135 to i64
@@ -1933,7 +1933,7 @@ matroska_execute_seekhead.exit:                   ; preds = %134, %100, %.prehea
   %.1..1..1..1..1..1..1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1
   %.2..2..2..2..2..2..2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2
   %.3..3..3..3..3..3..3..3..3..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 3
-  %.4..4..4..4..4..4..4..4..4..sroa_idx662 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %.4..4..4..4..4..4..4..4..4..sroa_idx663 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %187
 
 187:                                              ; preds = %mkv_parse_block_addition_mappings.exit.i, %.lr.ph338.i
@@ -2743,7 +2743,7 @@ matroska_aac_sri.exit180.i.i.i:                   ; preds = %562, %.split.loop.e
   %.0.lcssa.i178.i.i.i = phi i8 [ %565, %.split.loop.exit.i179.i.i.i ], [ -128, %562 ]
   store i8 86, ptr %.2..2..2..2..2..2..2..2..2..sroa_idx, align 2, !tbaa !119
   store i8 -27, ptr %.3..3..3..3..3..3..3..3..3..sroa_idx, align 1, !tbaa !119
-  store i8 %.0.lcssa.i178.i.i.i, ptr %.4..4..4..4..4..4..4..4..4..sroa_idx662, align 4, !tbaa !119
+  store i8 %.0.lcssa.i178.i.i.i, ptr %.4..4..4..4..4..4..4..4..4..sroa_idx663, align 4, !tbaa !119
   br label %matroska_parse_flac.exit.i.i.i
 
 566:                                              ; preds = %506

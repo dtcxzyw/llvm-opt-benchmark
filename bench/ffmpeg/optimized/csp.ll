@@ -174,7 +174,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
   br i1 %70, label %av_cmp_q.exit.thread103, label %71
 
 71:                                               ; preds = %69
-  %.not = icmp eq i32 %.sroa.011.0.extract.trunc.i, 0
+  %.not = icmp eq i64 %59, 0
   br i1 %.not, label %av_cmp_q.exit.thread.split.loop.exit, label %72
 
 72:                                               ; preds = %71
@@ -184,7 +184,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
 av_cmp_q.exit:                                    ; preds = %63, %72
   %.0.i = phi i32 [ %68, %63 ], [ %73, %72 ]
   %74 = icmp slt i32 %.0.i, 0
-  br i1 %74, label %av_cmp_q.exit.thread.split.loop.exit109, label %av_cmp_q.exit.thread103
+  br i1 %74, label %av_cmp_q.exit.thread.split.loop.exit110, label %av_cmp_q.exit.thread103
 
 av_cmp_q.exit.thread103:                          ; preds = %69, %9, %av_cmp_q.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -195,12 +195,12 @@ av_cmp_q.exit.thread.split.loop.exit:             ; preds = %71
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread.split.loop.exit109:          ; preds = %av_cmp_q.exit
+av_cmp_q.exit.thread.split.loop.exit110:          ; preds = %av_cmp_q.exit
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread103, %av_cmp_q.exit.thread.split.loop.exit109, %av_cmp_q.exit.thread.split.loop.exit
-  %spec.select = phi i32 [ %75, %av_cmp_q.exit.thread.split.loop.exit ], [ %76, %av_cmp_q.exit.thread.split.loop.exit109 ], [ 2, %av_cmp_q.exit.thread103 ]
+av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread103, %av_cmp_q.exit.thread.split.loop.exit110, %av_cmp_q.exit.thread.split.loop.exit
+  %spec.select = phi i32 [ %75, %av_cmp_q.exit.thread.split.loop.exit ], [ %76, %av_cmp_q.exit.thread.split.loop.exit110 ], [ 2, %av_cmp_q.exit.thread103 ]
   ret i32 %spec.select
 }
 

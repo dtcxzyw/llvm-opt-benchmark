@@ -32377,6 +32377,7 @@ define internal fastcc void @_ZN4fish3env16environment_impl12EnvStackImpl11set_i
   %.sroa.04.1.extract.shift = lshr i24 %3, 8
   %.sroa.04.1.extract.trunc = trunc i24 %.sroa.04.1.extract.shift to i8
   %.sroa.04.2.extract.shift = lshr i24 %3, 16
+  %.sroa.04.2.extract.trunc = trunc nuw nsw i24 %.sroa.04.2.extract.shift to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %16)
@@ -32584,11 +32585,11 @@ define internal fastcc void @_ZN4fish3env16environment_impl12EnvStackImpl11set_i
 96:                                               ; preds = %72, %44
   %.pn.i = phi ptr [ %82, %72 ], [ %42, %44 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 -24
-  %.not13 = icmp eq i24 %.sroa.04.2.extract.shift, 2
+  %.not13 = icmp eq i8 %.sroa.04.2.extract.trunc, 2
   br i1 %.not13, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = trunc nuw i24 %.sroa.04.2.extract.shift to i1
+  %98 = trunc i24 %.sroa.04.2.extract.shift to i1
   br label %101
 
 99:                                               ; preds = %96
