@@ -560,18 +560,18 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
   %.sroa.01.0.insert.ext.i.i.i107.i = zext i64 %270 to i128
   %271 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i, %.sroa.03.0.insert.ext.i.i.i.i
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %271, 64
-  %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %272 = add nsw i32 %.pre5, -63
-  %273 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i, 0
+  %273 = icmp ult i128 %271, 18446744073709551616
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %266
-  %.sroa.0.0.extract.trunc.i.i.i108.i = trunc i128 %271 to i64
+  %.sroa.0.0.extract.trunc.i.i.i108.i = trunc nuw i128 %271 to i64
   %275 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 276:                                              ; preds = %266
+  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %271, 64
+  %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %277 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
@@ -602,7 +602,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
   %.sroa.2.0.extract.trunc.i.i.i.i24 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i23 to i64
   %289 = add nsw i32 %215, -63
   %290 = icmp ult i32 %.val70.i, 28
-  %291 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i24, 0
+  %291 = icmp ult i128 %288, 18446744073709551616
   br i1 %290, label %302, label %292
 
 292:                                              ; preds = %283
@@ -1343,18 +1343,18 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
   %.sroa.01.0.insert.ext.i.i.i107.i = zext i64 %273 to i128
   %274 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i, %.sroa.03.0.insert.ext.i.i.i.i
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %274, 64
-  %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %275 = add nsw i32 %.pre5, -63
-  %276 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i, 0
+  %276 = icmp ult i128 %274, 18446744073709551616
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %269
-  %.sroa.0.0.extract.trunc.i.i.i108.i = trunc i128 %274 to i64
+  %.sroa.0.0.extract.trunc.i.i.i108.i = trunc nuw i128 %274 to i64
   %278 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0.0.extract.trunc.i.i.i108.i, i1 false)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 279:                                              ; preds = %269
+  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %274, 64
+  %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %280 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
@@ -1385,7 +1385,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
   %.sroa.2.0.extract.trunc.i.i.i.i24 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i23 to i64
   %292 = add nsw i32 %215, -63
   %293 = icmp ult i32 %.val70.i, 28
-  %294 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i24, 0
+  %294 = icmp ult i128 %291, 18446744073709551616
   br i1 %293, label %305, label %295
 
 295:                                              ; preds = %286

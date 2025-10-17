@@ -13400,24 +13400,24 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %5, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = lshr i128 %.0.copyload.i.i.i, 64
-  %55 = trunc nuw i128 %54 to i64
-  %.not.i = icmp ne i64 %55, 0
-  %56 = load ptr, ptr %3, align 8
-  %57 = icmp eq ptr %56, null
-  %or.cond.i = select i1 %.not.i, i1 %57, i1 false
-  br i1 %or.cond.i, label %58, label %79
+  %.not.i = icmp ugt i128 %.0.copyload.i.i.i, 18446744073709551615
+  %54 = load ptr, ptr %3, align 8
+  %55 = icmp eq ptr %54, null
+  %or.cond.i = select i1 %.not.i, i1 %55, i1 false
+  br i1 %or.cond.i, label %56, label %79
 
-58:                                               ; preds = %52
-  %59 = lshr i128 %.0.copyload.i.i.i, 32
-  %60 = trunc i128 %59 to i32
-  %61 = inttoptr i64 %55 to ptr
+56:                                               ; preds = %52
+  %57 = lshr i128 %.0.copyload.i.i.i, 32
+  %58 = trunc i128 %57 to i32
+  %59 = lshr i128 %.0.copyload.i.i.i, 64
+  %60 = trunc nuw i128 %59 to i64
+  %61 = inttoptr i64 %60 to ptr
   %62 = load i32, ptr %61, align 8, !tbaa !136
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = icmp sgt i32 %62, 0
   br i1 %64, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %58
+.lr.ph.preheader.i:                               ; preds = %56
   %wide.trip.count.i9 = zext nneg i32 %62 to i64
   br label %.lr.ph.i
 
@@ -13427,9 +13427,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !138
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %58
-  %65 = phi i32 [ %.pre, %._crit_edge.loopexit.i ], [ %60, %58 ]
-  %66 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %61, %58 ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %56
+  %65 = phi i32 [ %.pre, %._crit_edge.loopexit.i ], [ %58, %56 ]
+  %66 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %61, %56 ]
   %67 = sext i32 %65 to i64
   %68 = shl nsw i64 %67, 3
   %69 = add nsw i64 %68, 8

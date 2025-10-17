@@ -11670,7 +11670,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i: ; preds = %41, %_ZNSt6vect
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %59 = load i8, ptr %58, align 2
   %60 = icmp ne i8 %59, 99
-  %61 = icmp eq i64 %.sroa.22.0.extract.trunc, 0
+  %61 = icmp ult i128 %57, 18446744073709551616
   %or.cond = select i1 %60, i1 %61, i1 false
   br i1 %or.cond, label %62, label %64
 
@@ -11734,7 +11734,7 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i: ; preds =
   br i1 %60, label %80, label %_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit
 
 80:                                               ; preds = %.loopexit.i
-  %81 = icmp ne i64 %.sroa.22.0.extract.trunc, 0
+  %81 = icmp ugt i128 %57, 18446744073709551615
   tail call void @llvm.assume(i1 %81)
   br label %_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit
 
@@ -12746,7 +12746,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i: ; preds = %41, %_ZNSt6vect
 
 58:                                               ; preds = %56
   %59 = icmp ne i8 %.sroa.218.0.extract.trunc, 99
-  %60 = icmp eq i64 %.sroa.24.0.extract.trunc, 0
+  %60 = icmp ult i128 %57, 18446744073709551616
   %or.cond = select i1 %59, i1 %60, i1 false
   br i1 %or.cond, label %61, label %68
 
@@ -12794,7 +12794,7 @@ _ZN8WasmEdgeneERKNS_7ValTypeES2_.exit.thread:     ; preds = %63
   ]
 
 71:                                               ; preds = %68
-  %72 = icmp ne i64 %.sroa.24.0.extract.trunc, 0
+  %72 = icmp ugt i128 %57, 18446744073709551615
   tail call void @llvm.assume(i1 %72)
   br label %_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit
 
@@ -13008,7 +13008,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i.i.i: ; preds = %49, %_ZNSt6
   %.sroa.22.0.extract.trunc23.i.i = trunc nuw i128 %.sroa.22.0.extract.shift22.i.i to i64
   %.sroa.02.0.extract.trunc24.i.i = trunc i128 %65 to i64
   %66 = icmp ne i8 %.sroa.28.0.extract.trunc.i.i, 99
-  %67 = icmp eq i64 %.sroa.22.0.extract.trunc23.i.i, 0
+  %67 = icmp ult i128 %65, 18446744073709551616
   %or.cond.i.i = select i1 %66, i1 %67, i1 false
   br i1 %or.cond.i.i, label %68, label %76
 

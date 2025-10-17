@@ -23201,7 +23201,6 @@ define i40 @"_ZN121_$LT$ruff_workspace..options..Flake8AnnotationsOptions$u20$as
   %.sroa.01.3.extract.shift = lshr i40 %0, 24
   %.sroa.01.3.extract.trunc = trunc i40 %.sroa.01.3.extract.shift to i8
   %.sroa.01.4.extract.shift = lshr i40 %0, 32
-  %.sroa.01.4.extract.trunc = trunc nuw i40 %.sroa.01.4.extract.shift to i8
   %.sroa.07.1.extract.shift = lshr i40 %1, 8
   %.sroa.07.1.extract.trunc = trunc i40 %.sroa.07.1.extract.shift to i8
   %.sroa.07.2.extract.shift = lshr i40 %1, 16
@@ -23209,7 +23208,6 @@ define i40 @"_ZN121_$LT$ruff_workspace..options..Flake8AnnotationsOptions$u20$as
   %.sroa.07.3.extract.shift = lshr i40 %1, 24
   %.sroa.07.3.extract.trunc = trunc i40 %.sroa.07.3.extract.shift to i8
   %.sroa.07.4.extract.shift = lshr i40 %1, 32
-  %.sroa.07.4.extract.trunc = trunc nuw i40 %.sroa.07.4.extract.shift to i8
   %.not = icmp eq i8 %.sroa.01.0.extract.trunc, 2
   %.sroa.07.0.extract.trunc = trunc i40 %1 to i8
   %spec.select = select i1 %.not, i8 %.sroa.07.0.extract.trunc, i8 %.sroa.01.0.extract.trunc
@@ -23219,13 +23217,12 @@ define i40 @"_ZN121_$LT$ruff_workspace..options..Flake8AnnotationsOptions$u20$as
   %.sroa.018.0 = select i1 %.not25, i8 %.sroa.07.2.extract.trunc, i8 %.sroa.01.2.extract.trunc
   %.not26 = icmp eq i8 %.sroa.01.3.extract.trunc, 2
   %.sroa.020.0 = select i1 %.not26, i8 %.sroa.07.3.extract.trunc, i8 %.sroa.01.3.extract.trunc
-  %.not27 = icmp eq i8 %.sroa.01.4.extract.trunc, 2
-  %.sroa.022.0 = select i1 %.not27, i8 %.sroa.07.4.extract.trunc, i8 %.sroa.01.4.extract.trunc
-  %.sroa.513.0.insert.ext = zext i8 %.sroa.022.0 to i40
-  %.sroa.513.0.insert.shift = shl nuw i40 %.sroa.513.0.insert.ext, 32
+  %.not27 = icmp eq i40 %.sroa.01.4.extract.shift, 2
+  %.sroa.022.0.v = select i1 %.not27, i40 %.sroa.07.4.extract.shift, i40 %.sroa.01.4.extract.shift
+  %.sroa.513.0.insert.shift = shl nuw i40 %.sroa.022.0.v, 32
   %.sroa.412.0.insert.ext = zext i8 %.sroa.020.0 to i40
   %.sroa.412.0.insert.shift = shl nuw nsw i40 %.sroa.412.0.insert.ext, 24
-  %.sroa.412.0.insert.insert = or disjoint i40 %.sroa.513.0.insert.shift, %.sroa.412.0.insert.shift
+  %.sroa.412.0.insert.insert = or disjoint i40 %.sroa.412.0.insert.shift, %.sroa.513.0.insert.shift
   %.sroa.311.0.insert.ext = zext i8 %.sroa.018.0 to i40
   %.sroa.311.0.insert.shift = shl nuw nsw i40 %.sroa.311.0.insert.ext, 16
   %.sroa.311.0.insert.insert = or disjoint i40 %.sroa.412.0.insert.insert, %.sroa.311.0.insert.shift

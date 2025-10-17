@@ -5339,8 +5339,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit.i68
   %1070 = load i64, ptr %1069, align 8, !noundef !4
   %1071 = call fastcc i24 @_ZN5uu_ls24match_quoting_style_name17h5004c6194d20203eE(ptr noalias noundef nonnull readonly align 1 %1068, i64 noundef %1070, i1 noundef zeroext %1038)
   %.2.extract.shift.i = lshr i24 %1071, 16
-  %.2.extract.trunc.i = trunc nuw nsw i24 %.2.extract.shift.i to i8
-  %1072 = icmp eq i8 %.2.extract.trunc.i, 4
+  %1072 = icmp eq i24 %.2.extract.shift.i, 4
   br i1 %1072, label %1073, label %1074
 
 1073:                                             ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit.i687
@@ -5349,6 +5348,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit.i68
   br label %.invoke
 
 1074:                                             ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit.i687
+  %.2.extract.trunc.i = trunc nuw nsw i24 %.2.extract.shift.i to i8
   %.1.extract.shift.i = lshr i24 %1071, 8
   %.1.extract.trunc.i = trunc i24 %.1.extract.shift.i to i8
   %.0.extract.trunc.i = trunc i24 %1071 to i8
@@ -5399,7 +5399,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h1df44266d04bfe42E.exit.i68
   %.1.extract.trunc40.i = trunc i24 %.1.extract.shift39.i to i8
   %.2.extract.shift42.i = lshr i24 %1089, 16
   %.2.extract.trunc43.i = trunc nuw nsw i24 %.2.extract.shift42.i to i8
-  %1090 = icmp eq i8 %.2.extract.trunc43.i, 4
+  %1090 = icmp eq i24 %.2.extract.shift42.i, 4
   br i1 %1090, label %1095, label %1096
 
 1091:                                             ; preds = %"_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h8b03744aad145c95E.exit56.i"

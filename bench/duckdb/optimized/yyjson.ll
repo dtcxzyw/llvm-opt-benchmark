@@ -7896,18 +7896,18 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   br label %.preheader4149.sink.split
 
 .preheader4149.sink.split:                        ; preds = %115, %2256, %._crit_edge4931, %147
-  %.sink10196 = phi ptr [ %148, %147 ], [ %2253, %._crit_edge4931 ], [ %2257, %2256 ], [ %86, %115 ]
+  %.sink10212 = phi ptr [ %148, %147 ], [ %2253, %._crit_edge4931 ], [ %2257, %2256 ], [ %86, %115 ]
   %.1529.i.ph.ph = phi ptr [ %.4496.i, %147 ], [ %.8536.i.ph, %._crit_edge4931 ], [ %.8536.i.ph, %2256 ], [ %105, %115 ]
   %.1493.i.ph.ph = phi ptr [ %.4496.i, %147 ], [ %.8500.i.ph, %._crit_edge4931 ], [ %.8500.i.ph, %2256 ], [ %105, %115 ]
   %.1467.i.ph.ph = phi ptr [ %.4470.i, %147 ], [ %.8474.i.ph, %._crit_edge4931 ], [ %.8474.i.ph, %2256 ], [ %104, %115 ]
   %.1450.i.ph.ph = phi ptr [ %.4453.i, %147 ], [ %.8457.i.ph, %._crit_edge4931 ], [ %.8457.i.ph, %2256 ], [ %102, %115 ]
   %.1442.i.ph.ph = phi i64 [ 0, %147 ], [ %.4445.i.ph, %._crit_edge4931 ], [ %.4445.i.ph, %2256 ], [ 0, %115 ]
   %.1.i.ph.ph = phi i64 [ %.3.i, %147 ], [ %.6.i.ph, %._crit_edge4931 ], [ %.6.i.ph, %2256 ], [ %100, %115 ]
-  store ptr %.sink10196, ptr %21, align 8, !tbaa !86
+  store ptr %.sink10212, ptr %21, align 8, !tbaa !86
   br label %.preheader4149
 
 .preheader4149:                                   ; preds = %.preheader4149.sink.split, %139, %115
-  %.promoted49336694 = phi ptr [ %79, %115 ], [ %140, %139 ], [ %.sink10196, %.preheader4149.sink.split ]
+  %.promoted49336694 = phi ptr [ %79, %115 ], [ %140, %139 ], [ %.sink10212, %.preheader4149.sink.split ]
   %.1529.i.ph = phi ptr [ %105, %115 ], [ %.4496.i, %139 ], [ %.1529.i.ph.ph, %.preheader4149.sink.split ]
   %.1493.i.ph = phi ptr [ %105, %115 ], [ %.4496.i, %139 ], [ %.1493.i.ph.ph, %.preheader4149.sink.split ]
   %.1467.i.ph = phi ptr [ %104, %115 ], [ %.4470.i, %139 ], [ %.1467.i.ph.ph, %.preheader4149.sink.split ]
@@ -8388,8 +8388,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463.thread
 
 .preheader4146thread-pre-split:                   ; preds = %.preheader4146thread-pre-split.lr.ph, %.preheader4146thread-pre-split
-  %.4314610138 = phi ptr [ %324, %.preheader4146thread-pre-split.lr.ph ], [ %329, %.preheader4146thread-pre-split ]
-  %329 = getelementptr inbounds nuw i8, ptr %.4314610138, i64 1
+  %.4314610154 = phi ptr [ %324, %.preheader4146thread-pre-split.lr.ph ], [ %329, %.preheader4146thread-pre-split ]
+  %329 = getelementptr inbounds nuw i8, ptr %.4314610154, i64 1
   %.pr = load i8, ptr %329, align 1, !tbaa !75
   %330 = icmp eq i8 %.pr, 48
   br i1 %330, label %.preheader4146thread-pre-split, label %.preheader4146._crit_edge, !prof !156, !llvm.loop !155
@@ -8398,14 +8398,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
   br label %331, !llvm.loop !155
 
 331:                                              ; preds = %.preheader4146._crit_edge, %.preheader4146.preheader
-  %.lcssa9410 = phi i8 [ %.pr, %.preheader4146._crit_edge ], [ %325, %.preheader4146.preheader ]
+  %.lcssa9422 = phi i8 [ %.pr, %.preheader4146._crit_edge ], [ %325, %.preheader4146.preheader ]
   %.43146.lcssa = phi ptr [ %329, %.preheader4146._crit_edge ], [ %324, %.preheader4146.preheader ]
-  %332 = add i8 %.lcssa9410, -58
+  %332 = add i8 %.lcssa9422, -58
   %.not3948 = icmp ult i8 %332, -10
   br i1 %.not3948, label %.thread7312, label %333, !prof !3
 
 333:                                              ; preds = %331
-  %334 = zext nneg i8 %.lcssa9410 to i64
+  %334 = zext nneg i8 %.lcssa9422 to i64
   %335 = add nsw i64 %334, -48
   %336 = getelementptr inbounds i8, ptr %.43146.lcssa, i64 -1
   br label %724
@@ -8422,7 +8422,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
 
 .thread7312:                                      ; preds = %331, %337
   %.131437315 = phi ptr [ %312, %337 ], [ %.43146.lcssa, %331 ]
-  %340 = phi i8 [ %313, %337 ], [ %.lcssa9410, %331 ]
+  %340 = phi i8 [ %313, %337 ], [ %.lcssa9422, %331 ]
   %341 = and i8 %340, -33
   %.not3950.not = icmp eq i8 %341, 69
   br i1 %.not3950.not, label %342, label %.loopexit4134, !prof !3
@@ -9605,8 +9605,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463.thread
 
 .preheader4143thread-pre-split:                   ; preds = %.preheader4143thread-pre-split.lr.ph, %.preheader4143thread-pre-split
-  %.9315110141 = phi ptr [ %997, %.preheader4143thread-pre-split.lr.ph ], [ %1002, %.preheader4143thread-pre-split ]
-  %1002 = getelementptr inbounds nuw i8, ptr %.9315110141, i64 1
+  %.9315110157 = phi ptr [ %997, %.preheader4143thread-pre-split.lr.ph ], [ %1002, %.preheader4143thread-pre-split ]
+  %1002 = getelementptr inbounds nuw i8, ptr %.9315110157, i64 1
   %.pr7316 = load i8, ptr %1002, align 1, !tbaa !75
   %1003 = icmp eq i8 %.pr7316, 48
   br i1 %1003, label %.preheader4143thread-pre-split, label %.preheader4143..preheader4142_crit_edge, !llvm.loop !161
@@ -9615,14 +9615,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
   br label %.preheader4142, !llvm.loop !161
 
 .preheader4142:                                   ; preds = %.preheader4143..preheader4142_crit_edge, %.preheader4143.preheader
-  %.lcssa9406 = phi i8 [ %.pr7316, %.preheader4143..preheader4142_crit_edge ], [ %998, %.preheader4143.preheader ]
+  %.lcssa9418 = phi i8 [ %.pr7316, %.preheader4143..preheader4142_crit_edge ], [ %998, %.preheader4143.preheader ]
   %.93151.lcssa = phi ptr [ %1002, %.preheader4143..preheader4142_crit_edge ], [ %997, %.preheader4143.preheader ]
-  %1004 = add i8 %.lcssa9406, -58
+  %1004 = add i8 %.lcssa9418, -58
   %.not39864957 = icmp ult i8 %1004, -10
   br i1 %.not39864957, label %._crit_edge4961, label %.lr.ph4960
 
 .lr.ph4960:                                       ; preds = %.preheader4142, %.lr.ph4960
-  %1005 = phi i8 [ %1011, %.lr.ph4960 ], [ %.lcssa9406, %.preheader4142 ]
+  %1005 = phi i8 [ %1011, %.lr.ph4960 ], [ %.lcssa9418, %.preheader4142 ]
   %.0599.i4074959 = phi i64 [ %1010, %.lr.ph4960 ], [ 0, %.preheader4142 ]
   %.1031524958 = phi ptr [ %1006, %.lr.ph4960 ], [ %.93151.lcssa, %.preheader4142 ]
   %1006 = getelementptr inbounds nuw i8, ptr %.1031524958, i64 1
@@ -10143,7 +10143,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1213: ; preds = %1194
   br i1 %exitcond6369.not, label %._crit_edge5009, label %.lr.ph5008, !llvm.loop !166
 
 ._crit_edge5009:                                  ; preds = %.lr.ph5008
-  %.not19.i1399 = icmp eq i64 %1265, 0
+  %.not19.i1399 = icmp ult i128 %1263, 18446744073709551616
   br i1 %.not19.i1399, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401, label %1267
 
 1267:                                             ; preds = %._crit_edge5009
@@ -10223,7 +10223,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1254, %._
   br i1 %exitcond6379.not, label %._crit_edge5029, label %1287, !llvm.loop !166
 
 ._crit_edge5029:                                  ; preds = %1287
-  %.not19.i1405 = icmp eq i64 %1295, 0
+  %.not19.i1405 = icmp ult i128 %1293, 18446744073709551616
   br i1 %.not19.i1405, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225, label %1297
 
 1297:                                             ; preds = %._crit_edge5029
@@ -10297,7 +10297,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1254, %._
   br i1 %exitcond6349.not, label %._crit_edge4975, label %.lr.ph4974, !llvm.loop !166
 
 ._crit_edge4975:                                  ; preds = %.lr.ph4974
-  %.not19.i1387 = icmp eq i64 %1319, 0
+  %.not19.i1387 = icmp ult i128 %1317, 18446744073709551616
   br i1 %.not19.i1387, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389, label %1321
 
 1321:                                             ; preds = %._crit_edge4975
@@ -10378,7 +10378,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389: ; preds = %1308, %._
   br i1 %exitcond6359.not, label %._crit_edge4996, label %1343, !llvm.loop !166
 
 ._crit_edge4996:                                  ; preds = %1343
-  %.not19.i1393 = icmp eq i64 %1351, 0
+  %.not19.i1393 = icmp ult i128 %1349, 18446744073709551616
   br i1 %.not19.i1393, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225, label %1353
 
 1353:                                             ; preds = %._crit_edge4996
@@ -11734,7 +11734,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463: ; preds =
   %2040 = and i32 %.sroa.212780.2.in.lcssa, 12291
   %2041 = icmp eq i32 %2040, 0
   %2042 = or i1 %2039, %2041
-  br i1 %2042, label %.lr.ph10147, label %.critedge6.i756
+  br i1 %2042, label %.lr.ph10163, label %.critedge6.i756
 
 .lr.ph5162:                                       ; preds = %.preheader4122, %.lr.ph5162
   %.sroa.02732.25161.in = phi i32 [ %.sroa.0.0.copyload.i941, %.lr.ph5162 ], [ %storemerge.i746.lcssa, %.preheader4122 ]
@@ -11752,21 +11752,21 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463: ; preds =
   %2049 = and i1 %2046, %2048
   br i1 %2049, label %.lr.ph5162, label %.preheader4121.loopexit, !llvm.loop !178
 
-.lr.ph5176:                                       ; preds = %.lr.ph10147
+.lr.ph5176:                                       ; preds = %.lr.ph10163
   %2050 = and i32 %.sroa.0.0.copyload.i942, 4
   %2051 = icmp eq i32 %2050, 0
   %2052 = and i32 %.sroa.0.0.copyload.i942, 12291
   %2053 = icmp eq i32 %2052, 0
   %2054 = or i1 %2051, %2053
-  br i1 %2054, label %.lr.ph10147, label %.critedge6.i756.loopexit, !llvm.loop !179
+  br i1 %2054, label %.lr.ph10163, label %.critedge6.i756.loopexit, !llvm.loop !179
 
-.lr.ph10147:                                      ; preds = %.lr.ph5176.preheader, %.lr.ph5176
-  %.14.i752517210146 = phi ptr [ %2056, %.lr.ph5176 ], [ %.13.i750.lcssa, %.lr.ph5176.preheader ]
-  %.7.i753517310145 = phi ptr [ %2055, %.lr.ph5176 ], [ %.6.i751.lcssa, %.lr.ph5176.preheader ]
-  %.sroa.02732.0.insert.insert2756517510144 = phi i32 [ %.sroa.0.0.copyload.i942, %.lr.ph5176 ], [ %.sroa.212780.2.in.lcssa, %.lr.ph5176.preheader ]
-  store i32 %.sroa.02732.0.insert.insert2756517510144, ptr %.7.i753517310145, align 1
-  %2055 = getelementptr inbounds nuw i8, ptr %.7.i753517310145, i64 4
-  %2056 = getelementptr inbounds nuw i8, ptr %.14.i752517210146, i64 4
+.lr.ph10163:                                      ; preds = %.lr.ph5176.preheader, %.lr.ph5176
+  %.14.i752517210162 = phi ptr [ %2056, %.lr.ph5176 ], [ %.13.i750.lcssa, %.lr.ph5176.preheader ]
+  %.7.i753517310161 = phi ptr [ %2055, %.lr.ph5176 ], [ %.6.i751.lcssa, %.lr.ph5176.preheader ]
+  %.sroa.02732.0.insert.insert2756517510160 = phi i32 [ %.sroa.0.0.copyload.i942, %.lr.ph5176 ], [ %.sroa.212780.2.in.lcssa, %.lr.ph5176.preheader ]
+  store i32 %.sroa.02732.0.insert.insert2756517510160, ptr %.7.i753517310161, align 1
+  %2055 = getelementptr inbounds nuw i8, ptr %.7.i753517310161, i64 4
+  %2056 = getelementptr inbounds nuw i8, ptr %.14.i752517210162, i64 4
   %.sroa.0.0.copyload.i942 = load i32, ptr %2056, align 1
   %2057 = and i32 %.sroa.0.0.copyload.i942, -1061109512
   %2058 = icmp ne i32 %2057, -2139062032
@@ -11775,7 +11775,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463: ; preds =
   %or.cond292.i755 = or i1 %.not289.i754, %2058
   br i1 %or.cond292.i755, label %..critedge6.i756.loopexit_crit_edge, label %.lr.ph5176, !llvm.loop !179
 
-..critedge6.i756.loopexit_crit_edge:              ; preds = %.lr.ph10147
+..critedge6.i756.loopexit_crit_edge:              ; preds = %.lr.ph10163
   %2060 = trunc i32 %.sroa.0.0.copyload.i942 to i16
   br label %.critedge6.i756, !llvm.loop !179
 
@@ -12419,18 +12419,18 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2132
   br label %.preheader4212.sink.split
 
 .preheader4212.sink.split:                        ; preds = %112, %4953, %._crit_edge4926, %2330
-  %.sink10197 = phi ptr [ %2331, %2330 ], [ %4950, %._crit_edge4926 ], [ %4954, %4953 ], [ %86, %112 ]
+  %.sink10213 = phi ptr [ %2331, %2330 ], [ %4950, %._crit_edge4926 ], [ %4954, %4953 ], [ %86, %112 ]
   %.0528.i.ph.ph = phi ptr [ %.23515.i, %2330 ], [ %.20548.i.ph, %._crit_edge4926 ], [ %.20548.i.ph, %4953 ], [ %105, %112 ]
   %.0492.i.ph.ph = phi ptr [ %.23515.i, %2330 ], [ %.21513.i.ph, %._crit_edge4926 ], [ %.21513.i.ph, %4953 ], [ %105, %112 ]
   %.0466.i.ph.ph = phi ptr [ %.22488.i, %2330 ], [ %.20486.i.ph, %._crit_edge4926 ], [ %.20486.i.ph, %4953 ], [ %104, %112 ]
   %.0449.i.ph.ph = phi ptr [ %.23.i, %2330 ], [ %.21.i.ph, %._crit_edge4926 ], [ %.21.i.ph, %4953 ], [ %102, %112 ]
   %.0441.i.ph.ph = phi i64 [ 0, %2330 ], [ %.6447.i.ph, %._crit_edge4926 ], [ %.6447.i.ph, %4953 ], [ 0, %112 ]
   %.0440.i.ph.ph = phi i64 [ %.14.i, %2330 ], [ %.13.i.ph, %._crit_edge4926 ], [ %.13.i.ph, %4953 ], [ %100, %112 ]
-  store ptr %.sink10197, ptr %21, align 8, !tbaa !86
+  store ptr %.sink10213, ptr %21, align 8, !tbaa !86
   br label %.preheader4212
 
 .preheader4212:                                   ; preds = %.preheader4212.sink.split, %2322, %112
-  %.promoted45546667 = phi ptr [ %79, %112 ], [ %2323, %2322 ], [ %.sink10197, %.preheader4212.sink.split ]
+  %.promoted45546667 = phi ptr [ %79, %112 ], [ %2323, %2322 ], [ %.sink10213, %.preheader4212.sink.split ]
   %.0528.i.ph = phi ptr [ %105, %112 ], [ %.23515.i, %2322 ], [ %.0528.i.ph.ph, %.preheader4212.sink.split ]
   %.0492.i.ph = phi ptr [ %105, %112 ], [ %.23515.i, %2322 ], [ %.0492.i.ph.ph, %.preheader4212.sink.split ]
   %.0466.i.ph = phi ptr [ %104, %112 ], [ %.22488.i, %2322 ], [ %.0466.i.ph.ph, %.preheader4212.sink.split ]
@@ -13643,7 +13643,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2132
   %2938 = and i32 %.sroa.213014.2.in.lcssa, 12291
   %2939 = icmp eq i32 %2938, 0
   %2940 = or i1 %2937, %2939
-  br i1 %2940, label %.lr.ph10116, label %.critedge6.i840
+  br i1 %2940, label %.lr.ph10132, label %.critedge6.i840
 
 .lr.ph4667:                                       ; preds = %.preheader4199, %.lr.ph4667
   %.sroa.02966.24666.in = phi i32 [ %.sroa.0.0.copyload.i925, %.lr.ph4667 ], [ %storemerge.i830.lcssa, %.preheader4199 ]
@@ -13661,21 +13661,21 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2132
   %2947 = and i1 %2944, %2946
   br i1 %2947, label %.lr.ph4667, label %.preheader4198.loopexit, !llvm.loop !178
 
-.lr.ph4681:                                       ; preds = %.lr.ph10116
+.lr.ph4681:                                       ; preds = %.lr.ph10132
   %2948 = and i32 %.sroa.0.0.copyload.i926, 4
   %2949 = icmp eq i32 %2948, 0
   %2950 = and i32 %.sroa.0.0.copyload.i926, 12291
   %2951 = icmp eq i32 %2950, 0
   %2952 = or i1 %2949, %2951
-  br i1 %2952, label %.lr.ph10116, label %.critedge6.i840.loopexit, !llvm.loop !179
+  br i1 %2952, label %.lr.ph10132, label %.critedge6.i840.loopexit, !llvm.loop !179
 
-.lr.ph10116:                                      ; preds = %.lr.ph4681.preheader, %.lr.ph4681
-  %.14.i836467710115 = phi ptr [ %2954, %.lr.ph4681 ], [ %.13.i834.lcssa, %.lr.ph4681.preheader ]
-  %.7.i837467810114 = phi ptr [ %2953, %.lr.ph4681 ], [ %.6.i835.lcssa, %.lr.ph4681.preheader ]
-  %.sroa.02966.0.insert.insert2990468010113 = phi i32 [ %.sroa.0.0.copyload.i926, %.lr.ph4681 ], [ %.sroa.213014.2.in.lcssa, %.lr.ph4681.preheader ]
-  store i32 %.sroa.02966.0.insert.insert2990468010113, ptr %.7.i837467810114, align 1
-  %2953 = getelementptr inbounds nuw i8, ptr %.7.i837467810114, i64 4
-  %2954 = getelementptr inbounds nuw i8, ptr %.14.i836467710115, i64 4
+.lr.ph10132:                                      ; preds = %.lr.ph4681.preheader, %.lr.ph4681
+  %.14.i836467710131 = phi ptr [ %2954, %.lr.ph4681 ], [ %.13.i834.lcssa, %.lr.ph4681.preheader ]
+  %.7.i837467810130 = phi ptr [ %2953, %.lr.ph4681 ], [ %.6.i835.lcssa, %.lr.ph4681.preheader ]
+  %.sroa.02966.0.insert.insert2990468010129 = phi i32 [ %.sroa.0.0.copyload.i926, %.lr.ph4681 ], [ %.sroa.213014.2.in.lcssa, %.lr.ph4681.preheader ]
+  store i32 %.sroa.02966.0.insert.insert2990468010129, ptr %.7.i837467810130, align 1
+  %2953 = getelementptr inbounds nuw i8, ptr %.7.i837467810130, i64 4
+  %2954 = getelementptr inbounds nuw i8, ptr %.14.i836467710131, i64 4
   %.sroa.0.0.copyload.i926 = load i32, ptr %2954, align 1
   %2955 = and i32 %.sroa.0.0.copyload.i926, -1061109512
   %2956 = icmp ne i32 %2955, -2139062032
@@ -13684,7 +13684,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2132
   %or.cond292.i839 = or i1 %.not289.i838, %2956
   br i1 %or.cond292.i839, label %..critedge6.i840.loopexit_crit_edge, label %.lr.ph4681, !llvm.loop !179
 
-..critedge6.i840.loopexit_crit_edge:              ; preds = %.lr.ph10116
+..critedge6.i840.loopexit_crit_edge:              ; preds = %.lr.ph10132
   %2958 = trunc i32 %.sroa.0.0.copyload.i926 to i16
   br label %.critedge6.i840, !llvm.loop !179
 
@@ -14834,7 +14834,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit847: ; preds =
   %3544 = and i32 %.sroa.212897.2.in.lcssa, 12291
   %3545 = icmp eq i32 %3544, 0
   %3546 = or i1 %3543, %3545
-  br i1 %3546, label %.lr.ph10131, label %.critedge6.i798
+  br i1 %3546, label %.lr.ph10147, label %.critedge6.i798
 
 .lr.ph4902:                                       ; preds = %.preheader4164, %.lr.ph4902
   %.sroa.02849.24901.in = phi i32 [ %.sroa.0.0.copyload.i933, %.lr.ph4902 ], [ %storemerge.i788.lcssa, %.preheader4164 ]
@@ -14852,21 +14852,21 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit847: ; preds =
   %3553 = and i1 %3550, %3552
   br i1 %3553, label %.lr.ph4902, label %.preheader4163.loopexit, !llvm.loop !178
 
-.lr.ph4916:                                       ; preds = %.lr.ph10131
+.lr.ph4916:                                       ; preds = %.lr.ph10147
   %3554 = and i32 %.sroa.0.0.copyload.i934, 4
   %3555 = icmp eq i32 %3554, 0
   %3556 = and i32 %.sroa.0.0.copyload.i934, 12291
   %3557 = icmp eq i32 %3556, 0
   %3558 = or i1 %3555, %3557
-  br i1 %3558, label %.lr.ph10131, label %.critedge6.i798.loopexit, !llvm.loop !179
+  br i1 %3558, label %.lr.ph10147, label %.critedge6.i798.loopexit, !llvm.loop !179
 
-.lr.ph10131:                                      ; preds = %.lr.ph4916.preheader, %.lr.ph4916
-  %.14.i794491210130 = phi ptr [ %3560, %.lr.ph4916 ], [ %.13.i792.lcssa, %.lr.ph4916.preheader ]
-  %.7.i795491310129 = phi ptr [ %3559, %.lr.ph4916 ], [ %.6.i793.lcssa, %.lr.ph4916.preheader ]
-  %.sroa.02849.0.insert.insert2873491510128 = phi i32 [ %.sroa.0.0.copyload.i934, %.lr.ph4916 ], [ %.sroa.212897.2.in.lcssa, %.lr.ph4916.preheader ]
-  store i32 %.sroa.02849.0.insert.insert2873491510128, ptr %.7.i795491310129, align 1
-  %3559 = getelementptr inbounds nuw i8, ptr %.7.i795491310129, i64 4
-  %3560 = getelementptr inbounds nuw i8, ptr %.14.i794491210130, i64 4
+.lr.ph10147:                                      ; preds = %.lr.ph4916.preheader, %.lr.ph4916
+  %.14.i794491210146 = phi ptr [ %3560, %.lr.ph4916 ], [ %.13.i792.lcssa, %.lr.ph4916.preheader ]
+  %.7.i795491310145 = phi ptr [ %3559, %.lr.ph4916 ], [ %.6.i793.lcssa, %.lr.ph4916.preheader ]
+  %.sroa.02849.0.insert.insert2873491510144 = phi i32 [ %.sroa.0.0.copyload.i934, %.lr.ph4916 ], [ %.sroa.212897.2.in.lcssa, %.lr.ph4916.preheader ]
+  store i32 %.sroa.02849.0.insert.insert2873491510144, ptr %.7.i795491310145, align 1
+  %3559 = getelementptr inbounds nuw i8, ptr %.7.i795491310145, i64 4
+  %3560 = getelementptr inbounds nuw i8, ptr %.14.i794491210146, i64 4
   %.sroa.0.0.copyload.i934 = load i32, ptr %3560, align 1
   %3561 = and i32 %.sroa.0.0.copyload.i934, -1061109512
   %3562 = icmp ne i32 %3561, -2139062032
@@ -14875,7 +14875,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit847: ; preds =
   %or.cond292.i797 = or i1 %.not289.i796, %3562
   br i1 %or.cond292.i797, label %..critedge6.i798.loopexit_crit_edge, label %.lr.ph4916, !llvm.loop !179
 
-..critedge6.i798.loopexit_crit_edge:              ; preds = %.lr.ph10131
+..critedge6.i798.loopexit_crit_edge:              ; preds = %.lr.ph10147
   %3564 = trunc i32 %.sroa.0.0.copyload.i934 to i16
   br label %.critedge6.i798, !llvm.loop !179
 
@@ -15158,8 +15158,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit570.thread
 
 .preheader4186thread-pre-split:                   ; preds = %.preheader4186thread-pre-split.lr.ph, %.preheader4186thread-pre-split
-  %.410122 = phi ptr [ %3666, %.preheader4186thread-pre-split.lr.ph ], [ %3671, %.preheader4186thread-pre-split ]
-  %3671 = getelementptr inbounds nuw i8, ptr %.410122, i64 1
+  %.410138 = phi ptr [ %3666, %.preheader4186thread-pre-split.lr.ph ], [ %3671, %.preheader4186thread-pre-split ]
+  %3671 = getelementptr inbounds nuw i8, ptr %.410138, i64 1
   %.pr7335 = load i8, ptr %3671, align 1, !tbaa !75
   %3672 = icmp eq i8 %.pr7335, 48
   br i1 %3672, label %.preheader4186thread-pre-split, label %.preheader4186._crit_edge, !prof !156, !llvm.loop !155
@@ -15168,14 +15168,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %3673, !llvm.loop !155
 
 3673:                                             ; preds = %.preheader4186._crit_edge, %.preheader4186.preheader
-  %.lcssa9771 = phi i8 [ %.pr7335, %.preheader4186._crit_edge ], [ %3667, %.preheader4186.preheader ]
+  %.lcssa9787 = phi i8 [ %.pr7335, %.preheader4186._crit_edge ], [ %3667, %.preheader4186.preheader ]
   %.4.lcssa = phi ptr [ %3671, %.preheader4186._crit_edge ], [ %3666, %.preheader4186.preheader ]
-  %3674 = add i8 %.lcssa9771, -58
+  %3674 = add i8 %.lcssa9787, -58
   %.not3817 = icmp ult i8 %3674, -10
   br i1 %.not3817, label %.thread7336, label %3675, !prof !3
 
 3675:                                             ; preds = %3673
-  %3676 = zext nneg i8 %.lcssa9771 to i64
+  %3676 = zext nneg i8 %.lcssa9787 to i64
   %3677 = add nsw i64 %3676, -48
   %3678 = getelementptr inbounds i8, ptr %.4.lcssa, i64 -1
   br label %4066
@@ -15192,7 +15192,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 .thread7336:                                      ; preds = %3673, %3679
   %.17339 = phi ptr [ %3654, %3679 ], [ %.4.lcssa, %3673 ]
-  %3682 = phi i8 [ %3655, %3679 ], [ %.lcssa9771, %3673 ]
+  %3682 = phi i8 [ %3655, %3679 ], [ %.lcssa9787, %3673 ]
   %3683 = and i8 %3682, -33
   %.not3819.not = icmp eq i8 %3683, 69
   br i1 %.not3819.not, label %3684, label %.loopexit4174, !prof !3
@@ -16375,8 +16375,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit570.thread
 
 .preheader4183thread-pre-split:                   ; preds = %.preheader4183thread-pre-split.lr.ph, %.preheader4183thread-pre-split
-  %.910125 = phi ptr [ %4339, %.preheader4183thread-pre-split.lr.ph ], [ %4344, %.preheader4183thread-pre-split ]
-  %4344 = getelementptr inbounds nuw i8, ptr %.910125, i64 1
+  %.910141 = phi ptr [ %4339, %.preheader4183thread-pre-split.lr.ph ], [ %4344, %.preheader4183thread-pre-split ]
+  %4344 = getelementptr inbounds nuw i8, ptr %.910141, i64 1
   %.pr7340 = load i8, ptr %4344, align 1, !tbaa !75
   %4345 = icmp eq i8 %.pr7340, 48
   br i1 %4345, label %.preheader4183thread-pre-split, label %.preheader4183..preheader4182_crit_edge, !llvm.loop !161
@@ -16385,14 +16385,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %.preheader4182, !llvm.loop !161
 
 .preheader4182:                                   ; preds = %.preheader4183..preheader4182_crit_edge, %.preheader4183.preheader
-  %.lcssa9767 = phi i8 [ %.pr7340, %.preheader4183..preheader4182_crit_edge ], [ %4340, %.preheader4183.preheader ]
+  %.lcssa9783 = phi i8 [ %.pr7340, %.preheader4183..preheader4182_crit_edge ], [ %4340, %.preheader4183.preheader ]
   %.9.lcssa = phi ptr [ %4344, %.preheader4183..preheader4182_crit_edge ], [ %4339, %.preheader4183.preheader ]
-  %4346 = add i8 %.lcssa9767, -58
+  %4346 = add i8 %.lcssa9783, -58
   %.not38554700 = icmp ult i8 %4346, -10
   br i1 %.not38554700, label %._crit_edge4704, label %.lr.ph4703
 
 .lr.ph4703:                                       ; preds = %.preheader4182, %.lr.ph4703
-  %4347 = phi i8 [ %4353, %.lr.ph4703 ], [ %.lcssa9767, %.preheader4182 ]
+  %4347 = phi i8 [ %4353, %.lr.ph4703 ], [ %.lcssa9783, %.preheader4182 ]
   %.0599.i5144702 = phi i64 [ %4352, %.lr.ph4703 ], [ 0, %.preheader4182 ]
   %.104701 = phi ptr [ %4348, %.lr.ph4703 ], [ %.9.lcssa, %.preheader4182 ]
   %4348 = getelementptr inbounds nuw i8, ptr %.104701, i64 1
@@ -16913,7 +16913,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4536
   br i1 %exitcond6314.not, label %._crit_edge4752, label %.lr.ph4751, !llvm.loop !166
 
 ._crit_edge4752:                                  ; preds = %.lr.ph4751
-  %.not19.i1423 = icmp eq i64 %4607, 0
+  %.not19.i1423 = icmp ult i128 %4605, 18446744073709551616
   br i1 %.not19.i1423, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425, label %4609
 
 4609:                                             ; preds = %._crit_edge4752
@@ -16993,7 +16993,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4596, %._
   br i1 %exitcond6324.not, label %._crit_edge4772, label %4629, !llvm.loop !166
 
 ._crit_edge4772:                                  ; preds = %4629
-  %.not19.i1429 = icmp eq i64 %4637, 0
+  %.not19.i1429 = icmp ult i128 %4635, 18446744073709551616
   br i1 %.not19.i1429, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %4639
 
 4639:                                             ; preds = %._crit_edge4772
@@ -17067,7 +17067,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4596, %._
   br i1 %exitcond6294.not, label %._crit_edge4718, label %.lr.ph4717, !llvm.loop !166
 
 ._crit_edge4718:                                  ; preds = %.lr.ph4717
-  %.not19.i1411 = icmp eq i64 %4661, 0
+  %.not19.i1411 = icmp ult i128 %4659, 18446744073709551616
   br i1 %.not19.i1411, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413, label %4663
 
 4663:                                             ; preds = %._crit_edge4718
@@ -17148,7 +17148,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413: ; preds = %4650, %._
   br i1 %exitcond6304.not, label %._crit_edge4739, label %4685, !llvm.loop !166
 
 ._crit_edge4739:                                  ; preds = %4685
-  %.not19.i1417 = icmp eq i64 %4693, 0
+  %.not19.i1417 = icmp ult i128 %4691, 18446744073709551616
   br i1 %.not19.i1417, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %4695
 
 4695:                                             ; preds = %._crit_edge4739
@@ -18561,8 +18561,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 .preheader4051thread-pre-split:                   ; preds = %.preheader4051thread-pre-split.lr.ph, %.preheader4051thread-pre-split
-  %.4318410180 = phi ptr [ %5250, %.preheader4051thread-pre-split.lr.ph ], [ %5255, %.preheader4051thread-pre-split ]
-  %5255 = getelementptr inbounds nuw i8, ptr %.4318410180, i64 1
+  %.4318410196 = phi ptr [ %5250, %.preheader4051thread-pre-split.lr.ph ], [ %5255, %.preheader4051thread-pre-split ]
+  %5255 = getelementptr inbounds nuw i8, ptr %.4318410196, i64 1
   %.pr7360 = load i8, ptr %5255, align 1, !tbaa !75
   %5256 = icmp eq i8 %.pr7360, 48
   br i1 %5256, label %.preheader4051thread-pre-split, label %.preheader4051._crit_edge, !prof !156, !llvm.loop !155
@@ -18571,14 +18571,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
   br label %5257, !llvm.loop !155
 
 5257:                                             ; preds = %.preheader4051._crit_edge, %.preheader4051.preheader
-  %.lcssa8795 = phi i8 [ %.pr7360, %.preheader4051._crit_edge ], [ %5251, %.preheader4051.preheader ]
+  %.lcssa8799 = phi i8 [ %.pr7360, %.preheader4051._crit_edge ], [ %5251, %.preheader4051.preheader ]
   %.43184.lcssa = phi ptr [ %5255, %.preheader4051._crit_edge ], [ %5250, %.preheader4051.preheader ]
-  %5258 = add i8 %.lcssa8795, -58
+  %5258 = add i8 %.lcssa8799, -58
   %.not3705 = icmp ult i8 %5258, -10
   br i1 %.not3705, label %.thread7361, label %5259, !prof !3
 
 5259:                                             ; preds = %5257
-  %5260 = zext nneg i8 %.lcssa8795 to i64
+  %5260 = zext nneg i8 %.lcssa8799 to i64
   %5261 = add nsw i64 %5260, -48
   %5262 = getelementptr inbounds i8, ptr %.43184.lcssa, i64 -1
   br label %5650
@@ -18595,7 +18595,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
 
 .thread7361:                                      ; preds = %5257, %5263
   %.131817364 = phi ptr [ %5238, %5263 ], [ %.43184.lcssa, %5257 ]
-  %5266 = phi i8 [ %5239, %5263 ], [ %.lcssa8795, %5257 ]
+  %5266 = phi i8 [ %5239, %5263 ], [ %.lcssa8799, %5257 ]
   %5267 = and i8 %5266, -33
   %.not3707.not = icmp eq i8 %5267, 69
   br i1 %.not3707.not, label %5268, label %.loopexit4039, !prof !3
@@ -19778,8 +19778,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 .preheader4048thread-pre-split:                   ; preds = %.preheader4048thread-pre-split.lr.ph, %.preheader4048thread-pre-split
-  %.9318910183 = phi ptr [ %5923, %.preheader4048thread-pre-split.lr.ph ], [ %5928, %.preheader4048thread-pre-split ]
-  %5928 = getelementptr inbounds nuw i8, ptr %.9318910183, i64 1
+  %.9318910199 = phi ptr [ %5923, %.preheader4048thread-pre-split.lr.ph ], [ %5928, %.preheader4048thread-pre-split ]
+  %5928 = getelementptr inbounds nuw i8, ptr %.9318910199, i64 1
   %.pr7365 = load i8, ptr %5928, align 1, !tbaa !75
   %5929 = icmp eq i8 %.pr7365, 48
   br i1 %5929, label %.preheader4048thread-pre-split, label %.preheader4048..preheader4047_crit_edge, !llvm.loop !161
@@ -19788,14 +19788,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
   br label %.preheader4047, !llvm.loop !161
 
 .preheader4047:                                   ; preds = %.preheader4048..preheader4047_crit_edge, %.preheader4048.preheader
-  %.lcssa8791 = phi i8 [ %.pr7365, %.preheader4048..preheader4047_crit_edge ], [ %5924, %.preheader4048.preheader ]
+  %.lcssa8795 = phi i8 [ %.pr7365, %.preheader4048..preheader4047_crit_edge ], [ %5924, %.preheader4048.preheader ]
   %.93189.lcssa = phi ptr [ %5928, %.preheader4048..preheader4047_crit_edge ], [ %5923, %.preheader4048.preheader ]
-  %5930 = add i8 %.lcssa8791, -58
+  %5930 = add i8 %.lcssa8795, -58
   %.not37435546 = icmp ult i8 %5930, -10
   br i1 %.not37435546, label %._crit_edge5550, label %.lr.ph5549
 
 .lr.ph5549:                                       ; preds = %.preheader4047, %.lr.ph5549
-  %5931 = phi i8 [ %5937, %.lr.ph5549 ], [ %.lcssa8791, %.preheader4047 ]
+  %5931 = phi i8 [ %5937, %.lr.ph5549 ], [ %.lcssa8795, %.preheader4047 ]
   %.0599.i5548 = phi i64 [ %5936, %.lr.ph5549 ], [ 0, %.preheader4047 ]
   %.1031905547 = phi ptr [ %5932, %.lr.ph5549 ], [ %.93189.lcssa, %.preheader4047 ]
   %5932 = getelementptr inbounds nuw i8, ptr %.1031905547, i64 1
@@ -20316,7 +20316,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %6120
   br i1 %exitcond6479.not, label %._crit_edge5598, label %.lr.ph5597, !llvm.loop !166
 
 ._crit_edge5598:                                  ; preds = %.lr.ph5597
-  %.not19.i1351 = icmp eq i64 %6191, 0
+  %.not19.i1351 = icmp ult i128 %6189, 18446744073709551616
   br i1 %.not19.i1351, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353, label %6193
 
 6193:                                             ; preds = %._crit_edge5598
@@ -20396,7 +20396,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6180, %._
   br i1 %exitcond6489.not, label %._crit_edge5618, label %6213, !llvm.loop !166
 
 ._crit_edge5618:                                  ; preds = %6213
-  %.not19.i1357 = icmp eq i64 %6221, 0
+  %.not19.i1357 = icmp ult i128 %6219, 18446744073709551616
   br i1 %.not19.i1357, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237, label %6223
 
 6223:                                             ; preds = %._crit_edge5618
@@ -20470,7 +20470,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6180, %._
   br i1 %exitcond6459.not, label %._crit_edge5564, label %.lr.ph5563, !llvm.loop !166
 
 ._crit_edge5564:                                  ; preds = %.lr.ph5563
-  %.not19.i = icmp eq i64 %6245, 0
+  %.not19.i = icmp ult i128 %6243, 18446744073709551616
   br i1 %.not19.i, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %6247
 
 6247:                                             ; preds = %._crit_edge5564
@@ -20551,7 +20551,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6234, %._crit
   br i1 %exitcond6469.not, label %._crit_edge5585, label %6269, !llvm.loop !166
 
 ._crit_edge5585:                                  ; preds = %6269
-  %.not19.i1345 = icmp eq i64 %6277, 0
+  %.not19.i1345 = icmp ult i128 %6275, 18446744073709551616
   br i1 %.not19.i1345, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237, label %6279
 
 6279:                                             ; preds = %._crit_edge5585
@@ -21901,7 +21901,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %.
   %6964 = and i32 %.sroa.21.2.in.lcssa, 12291
   %6965 = icmp eq i32 %6964, 0
   %6966 = or i1 %6963, %6965
-  br i1 %6966, label %.lr.ph10189, label %.critedge6.i
+  br i1 %6966, label %.lr.ph10205, label %.critedge6.i
 
 .lr.ph5751:                                       ; preds = %.preheader4028, %.lr.ph5751
   %.sroa.02382.25750.in = phi i32 [ %.sroa.0.0.copyload.i965, %.lr.ph5751 ], [ %storemerge.i629.lcssa, %.preheader4028 ]
@@ -21919,21 +21919,21 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %.
   %6973 = and i1 %6970, %6972
   br i1 %6973, label %.lr.ph5751, label %.preheader4027.loopexit, !llvm.loop !178
 
-.lr.ph5765:                                       ; preds = %.lr.ph10189
+.lr.ph5765:                                       ; preds = %.lr.ph10205
   %6974 = and i32 %.sroa.0.0.copyload.i966, 4
   %6975 = icmp eq i32 %6974, 0
   %6976 = and i32 %.sroa.0.0.copyload.i966, 12291
   %6977 = icmp eq i32 %6976, 0
   %6978 = or i1 %6975, %6977
-  br i1 %6978, label %.lr.ph10189, label %.critedge6.i.loopexit, !llvm.loop !179
+  br i1 %6978, label %.lr.ph10205, label %.critedge6.i.loopexit, !llvm.loop !179
 
-.lr.ph10189:                                      ; preds = %.lr.ph5765.preheader, %.lr.ph5765
-  %.14.i634576110188 = phi ptr [ %6980, %.lr.ph5765 ], [ %.13.i632.lcssa, %.lr.ph5765.preheader ]
-  %.7.i635576210187 = phi ptr [ %6979, %.lr.ph5765 ], [ %.6.i633.lcssa, %.lr.ph5765.preheader ]
-  %.sroa.02382.0.insert.insert2406576410186 = phi i32 [ %.sroa.0.0.copyload.i966, %.lr.ph5765 ], [ %.sroa.21.2.in.lcssa, %.lr.ph5765.preheader ]
-  store i32 %.sroa.02382.0.insert.insert2406576410186, ptr %.7.i635576210187, align 1
-  %6979 = getelementptr inbounds nuw i8, ptr %.7.i635576210187, i64 4
-  %6980 = getelementptr inbounds nuw i8, ptr %.14.i634576110188, i64 4
+.lr.ph10205:                                      ; preds = %.lr.ph5765.preheader, %.lr.ph5765
+  %.14.i634576110204 = phi ptr [ %6980, %.lr.ph5765 ], [ %.13.i632.lcssa, %.lr.ph5765.preheader ]
+  %.7.i635576210203 = phi ptr [ %6979, %.lr.ph5765 ], [ %.6.i633.lcssa, %.lr.ph5765.preheader ]
+  %.sroa.02382.0.insert.insert2406576410202 = phi i32 [ %.sroa.0.0.copyload.i966, %.lr.ph5765 ], [ %.sroa.21.2.in.lcssa, %.lr.ph5765.preheader ]
+  store i32 %.sroa.02382.0.insert.insert2406576410202, ptr %.7.i635576210203, align 1
+  %6979 = getelementptr inbounds nuw i8, ptr %.7.i635576210203, i64 4
+  %6980 = getelementptr inbounds nuw i8, ptr %.14.i634576110204, i64 4
   %.sroa.0.0.copyload.i966 = load i32, ptr %6980, align 1
   %6981 = and i32 %.sroa.0.0.copyload.i966, -1061109512
   %6982 = icmp ne i32 %6981, -2139062032
@@ -21942,7 +21942,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %.
   %or.cond292.i = or i1 %.not289.i, %6982
   br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph5765, !llvm.loop !179
 
-..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph10189
+..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph10205
   %6984 = trunc i32 %.sroa.0.0.copyload.i966 to i16
   br label %.critedge6.i, !llvm.loop !179
 
@@ -23590,7 +23590,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7056
   %7788 = and i32 %.sroa.212663.2.in.lcssa, 12291
   %7789 = icmp eq i32 %7788, 0
   %7790 = or i1 %7787, %7789
-  br i1 %7790, label %.lr.ph10157, label %.critedge6.i714
+  br i1 %7790, label %.lr.ph10173, label %.critedge6.i714
 
 .lr.ph5284:                                       ; preds = %.preheader4103, %.lr.ph5284
   %.sroa.02615.25283.in = phi i32 [ %.sroa.0.0.copyload.i949, %.lr.ph5284 ], [ %storemerge.i704.lcssa, %.preheader4103 ]
@@ -23608,21 +23608,21 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7056
   %7797 = and i1 %7794, %7796
   br i1 %7797, label %.lr.ph5284, label %.preheader4102.loopexit, !llvm.loop !178
 
-.lr.ph5298:                                       ; preds = %.lr.ph10157
+.lr.ph5298:                                       ; preds = %.lr.ph10173
   %7798 = and i32 %.sroa.0.0.copyload.i950, 4
   %7799 = icmp eq i32 %7798, 0
   %7800 = and i32 %.sroa.0.0.copyload.i950, 12291
   %7801 = icmp eq i32 %7800, 0
   %7802 = or i1 %7799, %7801
-  br i1 %7802, label %.lr.ph10157, label %.critedge6.i714.loopexit, !llvm.loop !179
+  br i1 %7802, label %.lr.ph10173, label %.critedge6.i714.loopexit, !llvm.loop !179
 
-.lr.ph10157:                                      ; preds = %.lr.ph5298.preheader, %.lr.ph5298
-  %.14.i710529410156 = phi ptr [ %7804, %.lr.ph5298 ], [ %.13.i708.lcssa, %.lr.ph5298.preheader ]
-  %.7.i711529510155 = phi ptr [ %7803, %.lr.ph5298 ], [ %.6.i709.lcssa, %.lr.ph5298.preheader ]
-  %.sroa.02615.0.insert.insert2639529710154 = phi i32 [ %.sroa.0.0.copyload.i950, %.lr.ph5298 ], [ %.sroa.212663.2.in.lcssa, %.lr.ph5298.preheader ]
-  store i32 %.sroa.02615.0.insert.insert2639529710154, ptr %.7.i711529510155, align 1
-  %7803 = getelementptr inbounds nuw i8, ptr %.7.i711529510155, i64 4
-  %7804 = getelementptr inbounds nuw i8, ptr %.14.i710529410156, i64 4
+.lr.ph10173:                                      ; preds = %.lr.ph5298.preheader, %.lr.ph5298
+  %.14.i710529410172 = phi ptr [ %7804, %.lr.ph5298 ], [ %.13.i708.lcssa, %.lr.ph5298.preheader ]
+  %.7.i711529510171 = phi ptr [ %7803, %.lr.ph5298 ], [ %.6.i709.lcssa, %.lr.ph5298.preheader ]
+  %.sroa.02615.0.insert.insert2639529710170 = phi i32 [ %.sroa.0.0.copyload.i950, %.lr.ph5298 ], [ %.sroa.212663.2.in.lcssa, %.lr.ph5298.preheader ]
+  store i32 %.sroa.02615.0.insert.insert2639529710170, ptr %.7.i711529510171, align 1
+  %7803 = getelementptr inbounds nuw i8, ptr %.7.i711529510171, i64 4
+  %7804 = getelementptr inbounds nuw i8, ptr %.14.i710529410172, i64 4
   %.sroa.0.0.copyload.i950 = load i32, ptr %7804, align 1
   %7805 = and i32 %.sroa.0.0.copyload.i950, -1061109512
   %7806 = icmp ne i32 %7805, -2139062032
@@ -23631,7 +23631,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7056
   %or.cond292.i713 = or i1 %.not289.i712, %7806
   br i1 %or.cond292.i713, label %..critedge6.i714.loopexit_crit_edge, label %.lr.ph5298, !llvm.loop !179
 
-..critedge6.i714.loopexit_crit_edge:              ; preds = %.lr.ph10157
+..critedge6.i714.loopexit_crit_edge:              ; preds = %.lr.ph10173
   %7808 = trunc i32 %.sroa.0.0.copyload.i950 to i16
   br label %.critedge6.i714, !llvm.loop !179
 
@@ -24769,7 +24769,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit721: ; preds =
   %8393 = and i32 %.sroa.212546.2.in.lcssa, 12291
   %8394 = icmp eq i32 %8393, 0
   %8395 = or i1 %8392, %8394
-  br i1 %8395, label %.lr.ph10173, label %.critedge6.i672
+  br i1 %8395, label %.lr.ph10189, label %.critedge6.i672
 
 .lr.ph5519:                                       ; preds = %.preheader4069, %.lr.ph5519
   %.sroa.02498.25518.in = phi i32 [ %.sroa.0.0.copyload.i957, %.lr.ph5519 ], [ %storemerge.i662.lcssa, %.preheader4069 ]
@@ -24787,21 +24787,21 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit721: ; preds =
   %8402 = and i1 %8399, %8401
   br i1 %8402, label %.lr.ph5519, label %.preheader4068.loopexit, !llvm.loop !178
 
-.lr.ph5533:                                       ; preds = %.lr.ph10173
+.lr.ph5533:                                       ; preds = %.lr.ph10189
   %8403 = and i32 %.sroa.0.0.copyload.i958, 4
   %8404 = icmp eq i32 %8403, 0
   %8405 = and i32 %.sroa.0.0.copyload.i958, 12291
   %8406 = icmp eq i32 %8405, 0
   %8407 = or i1 %8404, %8406
-  br i1 %8407, label %.lr.ph10173, label %.critedge6.i672.loopexit, !llvm.loop !179
+  br i1 %8407, label %.lr.ph10189, label %.critedge6.i672.loopexit, !llvm.loop !179
 
-.lr.ph10173:                                      ; preds = %.lr.ph5533.preheader, %.lr.ph5533
-  %.14.i668552910172 = phi ptr [ %8409, %.lr.ph5533 ], [ %.13.i666.lcssa, %.lr.ph5533.preheader ]
-  %.7.i669553010171 = phi ptr [ %8408, %.lr.ph5533 ], [ %.6.i667.lcssa, %.lr.ph5533.preheader ]
-  %.sroa.02498.0.insert.insert2522553210170 = phi i32 [ %.sroa.0.0.copyload.i958, %.lr.ph5533 ], [ %.sroa.212546.2.in.lcssa, %.lr.ph5533.preheader ]
-  store i32 %.sroa.02498.0.insert.insert2522553210170, ptr %.7.i669553010171, align 1
-  %8408 = getelementptr inbounds nuw i8, ptr %.7.i669553010171, i64 4
-  %8409 = getelementptr inbounds nuw i8, ptr %.14.i668552910172, i64 4
+.lr.ph10189:                                      ; preds = %.lr.ph5533.preheader, %.lr.ph5533
+  %.14.i668552910188 = phi ptr [ %8409, %.lr.ph5533 ], [ %.13.i666.lcssa, %.lr.ph5533.preheader ]
+  %.7.i669553010187 = phi ptr [ %8408, %.lr.ph5533 ], [ %.6.i667.lcssa, %.lr.ph5533.preheader ]
+  %.sroa.02498.0.insert.insert2522553210186 = phi i32 [ %.sroa.0.0.copyload.i958, %.lr.ph5533 ], [ %.sroa.212546.2.in.lcssa, %.lr.ph5533.preheader ]
+  store i32 %.sroa.02498.0.insert.insert2522553210186, ptr %.7.i669553010187, align 1
+  %8408 = getelementptr inbounds nuw i8, ptr %.7.i669553010187, i64 4
+  %8409 = getelementptr inbounds nuw i8, ptr %.14.i668552910188, i64 4
   %.sroa.0.0.copyload.i958 = load i32, ptr %8409, align 1
   %8410 = and i32 %.sroa.0.0.copyload.i958, -1061109512
   %8411 = icmp ne i32 %8410, -2139062032
@@ -24810,7 +24810,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit721: ; preds =
   %or.cond292.i671 = or i1 %.not289.i670, %8411
   br i1 %or.cond292.i671, label %..critedge6.i672.loopexit_crit_edge, label %.lr.ph5533, !llvm.loop !179
 
-..critedge6.i672.loopexit_crit_edge:              ; preds = %.lr.ph10173
+..critedge6.i672.loopexit_crit_edge:              ; preds = %.lr.ph10189
   %8413 = trunc i32 %.sroa.0.0.copyload.i958 to i16
   br label %.critedge6.i672, !llvm.loop !179
 
@@ -25093,8 +25093,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit356.thread
 
 .preheader4091thread-pre-split:                   ; preds = %.preheader4091thread-pre-split.lr.ph, %.preheader4091thread-pre-split
-  %.4322210164 = phi ptr [ %8515, %.preheader4091thread-pre-split.lr.ph ], [ %8520, %.preheader4091thread-pre-split ]
-  %8520 = getelementptr inbounds nuw i8, ptr %.4322210164, i64 1
+  %.4322210180 = phi ptr [ %8515, %.preheader4091thread-pre-split.lr.ph ], [ %8520, %.preheader4091thread-pre-split ]
+  %8520 = getelementptr inbounds nuw i8, ptr %.4322210180, i64 1
   %.pr7385 = load i8, ptr %8520, align 1, !tbaa !75
   %8521 = icmp eq i8 %.pr7385, 48
   br i1 %8521, label %.preheader4091thread-pre-split, label %.preheader4091._crit_edge, !prof !156, !llvm.loop !155
@@ -25103,14 +25103,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
   br label %8522, !llvm.loop !155
 
 8522:                                             ; preds = %.preheader4091._crit_edge, %.preheader4091.preheader
-  %.lcssa9015 = phi i8 [ %.pr7385, %.preheader4091._crit_edge ], [ %8516, %.preheader4091.preheader ]
+  %.lcssa9023 = phi i8 [ %.pr7385, %.preheader4091._crit_edge ], [ %8516, %.preheader4091.preheader ]
   %.43222.lcssa = phi ptr [ %8520, %.preheader4091._crit_edge ], [ %8515, %.preheader4091.preheader ]
-  %8523 = add i8 %.lcssa9015, -58
+  %8523 = add i8 %.lcssa9023, -58
   %.not3577 = icmp ult i8 %8523, -10
   br i1 %.not3577, label %.thread7386, label %8524, !prof !3
 
 8524:                                             ; preds = %8522
-  %8525 = zext nneg i8 %.lcssa9015 to i64
+  %8525 = zext nneg i8 %.lcssa9023 to i64
   %8526 = add nsw i64 %8525, -48
   %8527 = getelementptr inbounds i8, ptr %.43222.lcssa, i64 -1
   br label %8915
@@ -25127,7 +25127,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
 
 .thread7386:                                      ; preds = %8522, %8528
   %.132197389 = phi ptr [ %8503, %8528 ], [ %.43222.lcssa, %8522 ]
-  %8531 = phi i8 [ %8504, %8528 ], [ %.lcssa9015, %8522 ]
+  %8531 = phi i8 [ %8504, %8528 ], [ %.lcssa9023, %8522 ]
   %8532 = and i8 %8531, -33
   %.not3579.not = icmp eq i8 %8532, 69
   br i1 %.not3579.not, label %8533, label %.loopexit4079, !prof !3
@@ -26310,8 +26310,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit356.thread
 
 .preheader4088thread-pre-split:                   ; preds = %.preheader4088thread-pre-split.lr.ph, %.preheader4088thread-pre-split
-  %.9322710167 = phi ptr [ %9188, %.preheader4088thread-pre-split.lr.ph ], [ %9193, %.preheader4088thread-pre-split ]
-  %9193 = getelementptr inbounds nuw i8, ptr %.9322710167, i64 1
+  %.9322710183 = phi ptr [ %9188, %.preheader4088thread-pre-split.lr.ph ], [ %9193, %.preheader4088thread-pre-split ]
+  %9193 = getelementptr inbounds nuw i8, ptr %.9322710183, i64 1
   %.pr7390 = load i8, ptr %9193, align 1, !tbaa !75
   %9194 = icmp eq i8 %.pr7390, 48
   br i1 %9194, label %.preheader4088thread-pre-split, label %.preheader4088..preheader4087_crit_edge, !llvm.loop !161
@@ -26320,14 +26320,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
   br label %.preheader4087, !llvm.loop !161
 
 .preheader4087:                                   ; preds = %.preheader4088..preheader4087_crit_edge, %.preheader4088.preheader
-  %.lcssa9011 = phi i8 [ %.pr7390, %.preheader4088..preheader4087_crit_edge ], [ %9189, %.preheader4088.preheader ]
+  %.lcssa9019 = phi i8 [ %.pr7390, %.preheader4088..preheader4087_crit_edge ], [ %9189, %.preheader4088.preheader ]
   %.93227.lcssa = phi ptr [ %9193, %.preheader4088..preheader4087_crit_edge ], [ %9188, %.preheader4088.preheader ]
-  %9195 = add i8 %.lcssa9011, -58
+  %9195 = add i8 %.lcssa9019, -58
   %.not36155317 = icmp ult i8 %9195, -10
   br i1 %.not36155317, label %._crit_edge5321, label %.lr.ph5320
 
 .lr.ph5320:                                       ; preds = %.preheader4087, %.lr.ph5320
-  %9196 = phi i8 [ %9202, %.lr.ph5320 ], [ %.lcssa9011, %.preheader4087 ]
+  %9196 = phi i8 [ %9202, %.lr.ph5320 ], [ %.lcssa9019, %.preheader4087 ]
   %.0599.i3005319 = phi i64 [ %9201, %.lr.ph5320 ], [ 0, %.preheader4087 ]
   %.1032285318 = phi ptr [ %9197, %.lr.ph5320 ], [ %.93227.lcssa, %.preheader4087 ]
   %9197 = getelementptr inbounds nuw i8, ptr %.1032285318, i64 1
@@ -26848,7 +26848,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1215: ; preds = %9385
   br i1 %exitcond6424.not, label %._crit_edge5369, label %.lr.ph5368, !llvm.loop !166
 
 ._crit_edge5369:                                  ; preds = %.lr.ph5368
-  %.not19.i1375 = icmp eq i64 %9456, 0
+  %.not19.i1375 = icmp ult i128 %9454, 18446744073709551616
   br i1 %.not19.i1375, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377, label %9458
 
 9458:                                             ; preds = %._crit_edge5369
@@ -26928,7 +26928,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9445, %._
   br i1 %exitcond6434.not, label %._crit_edge5389, label %9478, !llvm.loop !166
 
 ._crit_edge5389:                                  ; preds = %9478
-  %.not19.i1381 = icmp eq i64 %9486, 0
+  %.not19.i1381 = icmp ult i128 %9484, 18446744073709551616
   br i1 %.not19.i1381, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231, label %9488
 
 9488:                                             ; preds = %._crit_edge5389
@@ -27002,7 +27002,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9445, %._
   br i1 %exitcond6404.not, label %._crit_edge5335, label %.lr.ph5334, !llvm.loop !166
 
 ._crit_edge5335:                                  ; preds = %.lr.ph5334
-  %.not19.i1363 = icmp eq i64 %9510, 0
+  %.not19.i1363 = icmp ult i128 %9508, 18446744073709551616
   br i1 %.not19.i1363, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365, label %9512
 
 9512:                                             ; preds = %._crit_edge5335
@@ -27083,7 +27083,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365: ; preds = %9499, %._
   br i1 %exitcond6414.not, label %._crit_edge5356, label %9534, !llvm.loop !166
 
 ._crit_edge5356:                                  ; preds = %9534
-  %.not19.i1369 = icmp eq i64 %9542, 0
+  %.not19.i1369 = icmp ult i128 %9540, 18446744073709551616
   br i1 %.not19.i1369, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231, label %9544
 
 9544:                                             ; preds = %._crit_edge5356
@@ -28573,8 +28573,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %._crit_edge1111.sink.split
 
 .preheader709thread-pre-split:                    ; preds = %.preheader709thread-pre-split.lr.ph, %.preheader709thread-pre-split
-  %.41616 = phi ptr [ %109, %.preheader709thread-pre-split.lr.ph ], [ %114, %.preheader709thread-pre-split ]
-  %114 = getelementptr inbounds nuw i8, ptr %.41616, i64 1
+  %.41620 = phi ptr [ %109, %.preheader709thread-pre-split.lr.ph ], [ %114, %.preheader709thread-pre-split ]
+  %114 = getelementptr inbounds nuw i8, ptr %.41620, i64 1
   %.pr = load i8, ptr %114, align 1, !tbaa !75
   %115 = icmp eq i8 %.pr, 48
   br i1 %115, label %.preheader709thread-pre-split, label %.preheader709._crit_edge, !prof !156, !llvm.loop !155
@@ -28583,14 +28583,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %116, !llvm.loop !155
 
 116:                                              ; preds = %.preheader709._crit_edge, %.preheader709.preheader
-  %.lcssa1615 = phi i8 [ %.pr, %.preheader709._crit_edge ], [ %110, %.preheader709.preheader ]
+  %.lcssa1619 = phi i8 [ %.pr, %.preheader709._crit_edge ], [ %110, %.preheader709.preheader ]
   %.4.lcssa = phi ptr [ %114, %.preheader709._crit_edge ], [ %109, %.preheader709.preheader ]
-  %117 = add i8 %.lcssa1615, -58
+  %117 = add i8 %.lcssa1619, -58
   %.not631 = icmp ult i8 %117, -10
   br i1 %.not631, label %.thread1240, label %118, !prof !3
 
 118:                                              ; preds = %116
-  %119 = zext nneg i8 %.lcssa1615 to i64
+  %119 = zext nneg i8 %.lcssa1619 to i64
   %120 = add nsw i64 %119, -48
   %121 = getelementptr inbounds i8, ptr %.4.lcssa, i64 -1
   br label %509
@@ -28607,7 +28607,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 .thread1240:                                      ; preds = %116, %122
   %.15511243 = phi ptr [ %97, %122 ], [ %.4.lcssa, %116 ]
-  %125 = phi i8 [ %98, %122 ], [ %.lcssa1615, %116 ]
+  %125 = phi i8 [ %98, %122 ], [ %.lcssa1619, %116 ]
   %126 = and i8 %125, -33
   %.not633.not = icmp eq i8 %126, 69
   br i1 %.not633.not, label %127, label %.loopexit697, !prof !3
@@ -29790,8 +29790,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %._crit_edge1111.sink.split
 
 .preheader706thread-pre-split:                    ; preds = %.preheader706thread-pre-split.lr.ph, %.preheader706thread-pre-split
-  %.91618 = phi ptr [ %782, %.preheader706thread-pre-split.lr.ph ], [ %787, %.preheader706thread-pre-split ]
-  %787 = getelementptr inbounds nuw i8, ptr %.91618, i64 1
+  %.91622 = phi ptr [ %782, %.preheader706thread-pre-split.lr.ph ], [ %787, %.preheader706thread-pre-split ]
+  %787 = getelementptr inbounds nuw i8, ptr %.91622, i64 1
   %.pr1244 = load i8, ptr %787, align 1, !tbaa !75
   %788 = icmp eq i8 %.pr1244, 48
   br i1 %788, label %.preheader706thread-pre-split, label %.preheader706..preheader705_crit_edge, !llvm.loop !161
@@ -29800,14 +29800,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br label %.preheader705, !llvm.loop !161
 
 .preheader705:                                    ; preds = %.preheader706..preheader705_crit_edge, %.preheader706.preheader
-  %.lcssa1611 = phi i8 [ %.pr1244, %.preheader706..preheader705_crit_edge ], [ %783, %.preheader706.preheader ]
+  %.lcssa1615 = phi i8 [ %.pr1244, %.preheader706..preheader705_crit_edge ], [ %783, %.preheader706.preheader ]
   %.9.lcssa = phi ptr [ %787, %.preheader706..preheader705_crit_edge ], [ %782, %.preheader706.preheader ]
-  %789 = add i8 %.lcssa1611, -58
+  %789 = add i8 %.lcssa1615, -58
   %.not669754 = icmp ult i8 %789, -10
   br i1 %.not669754, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader705, %.lr.ph
-  %790 = phi i8 [ %796, %.lr.ph ], [ %.lcssa1611, %.preheader705 ]
+  %790 = phi i8 [ %796, %.lr.ph ], [ %.lcssa1615, %.preheader705 ]
   %.0599.i756 = phi i64 [ %795, %.lr.ph ], [ 0, %.preheader705 ]
   %.10755 = phi ptr [ %791, %.lr.ph ], [ %.9.lcssa, %.preheader705 ]
   %791 = getelementptr inbounds nuw i8, ptr %.10755, i64 1
@@ -30322,7 +30322,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %981
   br i1 %exitcond1072.not, label %._crit_edge802, label %.lr.ph801, !llvm.loop !166
 
 ._crit_edge802:                                   ; preds = %.lr.ph801
-  %.not19.i254 = icmp eq i64 %1053, 0
+  %.not19.i254 = icmp ult i128 %1051, 18446744073709551616
   br i1 %.not19.i254, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256, label %1055
 
 1055:                                             ; preds = %._crit_edge802
@@ -30402,7 +30402,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
   br i1 %exitcond1082.not, label %._crit_edge822, label %1075, !llvm.loop !166
 
 ._crit_edge822:                                   ; preds = %1075
-  %.not19.i260 = icmp eq i64 %1083, 0
+  %.not19.i260 = icmp ult i128 %1081, 18446744073709551616
   br i1 %.not19.i260, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %1085
 
 1085:                                             ; preds = %._crit_edge822
@@ -30476,7 +30476,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
   br i1 %exitcond1052.not, label %._crit_edge769, label %.lr.ph768, !llvm.loop !166
 
 ._crit_edge769:                                   ; preds = %.lr.ph768
-  %.not19.i = icmp eq i64 %1107, 0
+  %.not19.i = icmp ult i128 %1105, 18446744073709551616
   br i1 %.not19.i, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %1109
 
 1109:                                             ; preds = %._crit_edge769
@@ -30557,7 +30557,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1096, %._crit
   br i1 %exitcond1062.not, label %._crit_edge789, label %1131, !llvm.loop !166
 
 ._crit_edge789:                                   ; preds = %1131
-  %.not19.i248 = icmp eq i64 %1139, 0
+  %.not19.i248 = icmp ult i128 %1137, 18446744073709551616
   br i1 %.not19.i248, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %1141
 
 1141:                                             ; preds = %._crit_edge789
@@ -31886,7 +31886,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1822 = and i32 %.sroa.21.2.in.lcssa, 12291
   %1823 = icmp eq i32 %1822, 0
   %1824 = or i1 %1821, %1823
-  br i1 %1824, label %.lr.ph1624, label %.critedge6.i
+  br i1 %1824, label %.lr.ph1628, label %.critedge6.i
 
 .lr.ph951:                                        ; preds = %.preheader688, %.lr.ph951
   %.sroa.0.2950.in = phi i32 [ %.sroa.0.0.copyload.i174, %.lr.ph951 ], [ %storemerge.i156.lcssa, %.preheader688 ]
@@ -31904,21 +31904,21 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1831 = and i1 %1828, %1830
   br i1 %1831, label %.lr.ph951, label %.preheader687.loopexit, !llvm.loop !178
 
-.lr.ph965:                                        ; preds = %.lr.ph1624
+.lr.ph965:                                        ; preds = %.lr.ph1628
   %1832 = and i32 %.sroa.0.0.copyload.i175, 4
   %1833 = icmp eq i32 %1832, 0
   %1834 = and i32 %.sroa.0.0.copyload.i175, 12291
   %1835 = icmp eq i32 %1834, 0
   %1836 = or i1 %1833, %1835
-  br i1 %1836, label %.lr.ph1624, label %.critedge6.i.loopexit, !llvm.loop !179
+  br i1 %1836, label %.lr.ph1628, label %.critedge6.i.loopexit, !llvm.loop !179
 
-.lr.ph1624:                                       ; preds = %.lr.ph965.preheader, %.lr.ph965
-  %.14.i1619611623 = phi ptr [ %1838, %.lr.ph965 ], [ %.13.i159.lcssa, %.lr.ph965.preheader ]
-  %.7.i1629621622 = phi ptr [ %1837, %.lr.ph965 ], [ %.6.i160.lcssa, %.lr.ph965.preheader ]
-  %.sroa.0.0.insert.insert4449641621 = phi i32 [ %.sroa.0.0.copyload.i175, %.lr.ph965 ], [ %.sroa.21.2.in.lcssa, %.lr.ph965.preheader ]
-  store i32 %.sroa.0.0.insert.insert4449641621, ptr %.7.i1629621622, align 1
-  %1837 = getelementptr inbounds nuw i8, ptr %.7.i1629621622, i64 4
-  %1838 = getelementptr inbounds nuw i8, ptr %.14.i1619611623, i64 4
+.lr.ph1628:                                       ; preds = %.lr.ph965.preheader, %.lr.ph965
+  %.14.i1619611627 = phi ptr [ %1838, %.lr.ph965 ], [ %.13.i159.lcssa, %.lr.ph965.preheader ]
+  %.7.i1629621626 = phi ptr [ %1837, %.lr.ph965 ], [ %.6.i160.lcssa, %.lr.ph965.preheader ]
+  %.sroa.0.0.insert.insert4449641625 = phi i32 [ %.sroa.0.0.copyload.i175, %.lr.ph965 ], [ %.sroa.21.2.in.lcssa, %.lr.ph965.preheader ]
+  store i32 %.sroa.0.0.insert.insert4449641625, ptr %.7.i1629621626, align 1
+  %1837 = getelementptr inbounds nuw i8, ptr %.7.i1629621626, i64 4
+  %1838 = getelementptr inbounds nuw i8, ptr %.14.i1619611627, i64 4
   %.sroa.0.0.copyload.i175 = load i32, ptr %1838, align 1
   %1839 = and i32 %.sroa.0.0.copyload.i175, -1061109512
   %1840 = icmp ne i32 %1839, -2139062032
@@ -31927,7 +31927,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %or.cond292.i = or i1 %.not289.i, %1840
   br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph965, !llvm.loop !179
 
-..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph1624
+..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph1628
   %1842 = trunc i32 %.sroa.0.0.copyload.i175 to i16
   br label %.critedge6.i, !llvm.loop !179
 
@@ -32917,8 +32917,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br label %.preheader371thread-pre-split, !llvm.loop !155
 
 .preheader371thread-pre-split:                    ; preds = %.preheader371thread-pre-split.lr.ph, %.preheader371thread-pre-split
-  %.4729 = phi ptr [ %94, %.preheader371thread-pre-split.lr.ph ], [ %98, %.preheader371thread-pre-split ]
-  %98 = getelementptr inbounds nuw i8, ptr %.4729, i64 1
+  %.4733 = phi ptr [ %94, %.preheader371thread-pre-split.lr.ph ], [ %98, %.preheader371thread-pre-split ]
+  %98 = getelementptr inbounds nuw i8, ptr %.4733, i64 1
   %.pr = load i8, ptr %98, align 1, !tbaa !75
   %99 = icmp eq i8 %.pr, 48
   br i1 %99, label %.preheader371thread-pre-split, label %.preheader371._crit_edge, !prof !156, !llvm.loop !155
@@ -32927,14 +32927,14 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br label %100, !llvm.loop !155
 
 100:                                              ; preds = %.preheader371._crit_edge, %.preheader371.preheader
-  %.lcssa728 = phi i8 [ %.pr, %.preheader371._crit_edge ], [ %95, %.preheader371.preheader ]
+  %.lcssa732 = phi i8 [ %.pr, %.preheader371._crit_edge ], [ %95, %.preheader371.preheader ]
   %.4.lcssa = phi ptr [ %98, %.preheader371._crit_edge ], [ %94, %.preheader371.preheader ]
-  %101 = add i8 %.lcssa728, -58
+  %101 = add i8 %.lcssa732, -58
   %.not308 = icmp ult i8 %101, -10
   br i1 %.not308, label %.thread652, label %102, !prof !3
 
 102:                                              ; preds = %100
-  %103 = zext nneg i8 %.lcssa728 to i64
+  %103 = zext nneg i8 %.lcssa732 to i64
   %104 = add nsw i64 %103, -48
   %105 = getelementptr inbounds i8, ptr %.4.lcssa, i64 -1
   br label %488
@@ -32946,7 +32946,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 .thread652:                                       ; preds = %100, %106
   %.1655 = phi ptr [ %82, %106 ], [ %.4.lcssa, %100 ]
-  %108 = phi i8 [ %83, %106 ], [ %.lcssa728, %100 ]
+  %108 = phi i8 [ %83, %106 ], [ %.lcssa732, %100 ]
   %109 = and i8 %108, -33
   %.not310.not = icmp eq i8 %109, 69
   br i1 %.not310.not, label %110, label %.loopexit, !prof !3
@@ -34073,8 +34073,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br label %.preheader368thread-pre-split, !llvm.loop !161
 
 .preheader368thread-pre-split:                    ; preds = %.preheader368thread-pre-split.lr.ph, %.preheader368thread-pre-split
-  %.9731 = phi ptr [ %751, %.preheader368thread-pre-split.lr.ph ], [ %755, %.preheader368thread-pre-split ]
-  %755 = getelementptr inbounds nuw i8, ptr %.9731, i64 1
+  %.9735 = phi ptr [ %751, %.preheader368thread-pre-split.lr.ph ], [ %755, %.preheader368thread-pre-split ]
+  %755 = getelementptr inbounds nuw i8, ptr %.9735, i64 1
   %.pr656 = load i8, ptr %755, align 1, !tbaa !75
   %756 = icmp eq i8 %.pr656, 48
   br i1 %756, label %.preheader368thread-pre-split, label %.preheader368..preheader367_crit_edge, !llvm.loop !161
@@ -34083,14 +34083,14 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br label %.preheader367, !llvm.loop !161
 
 .preheader367:                                    ; preds = %.preheader368..preheader367_crit_edge, %.preheader368.preheader
-  %.lcssa724 = phi i8 [ %.pr656, %.preheader368..preheader367_crit_edge ], [ %752, %.preheader368.preheader ]
+  %.lcssa728 = phi i8 [ %.pr656, %.preheader368..preheader367_crit_edge ], [ %752, %.preheader368.preheader ]
   %.9.lcssa = phi ptr [ %755, %.preheader368..preheader367_crit_edge ], [ %751, %.preheader368.preheader ]
-  %757 = add i8 %.lcssa724, -58
+  %757 = add i8 %.lcssa728, -58
   %.not346379 = icmp ult i8 %757, -10
   br i1 %.not346379, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader367, %.lr.ph
-  %758 = phi i8 [ %764, %.lr.ph ], [ %.lcssa724, %.preheader367 ]
+  %758 = phi i8 [ %764, %.lr.ph ], [ %.lcssa728, %.preheader367 ]
   %.0599.i381 = phi i64 [ %763, %.lr.ph ], [ 0, %.preheader367 ]
   %.10380 = phi ptr [ %759, %.lr.ph ], [ %.9.lcssa, %.preheader367 ]
   %759 = getelementptr inbounds nuw i8, ptr %.10380, i64 1
@@ -34560,7 +34560,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %939
   br i1 %exitcond530.not, label %._crit_edge427, label %.lr.ph426, !llvm.loop !166
 
 ._crit_edge427:                                   ; preds = %.lr.ph426
-  %.not19.i64 = icmp eq i64 %1006, 0
+  %.not19.i64 = icmp ult i128 %1004, 18446744073709551616
   br i1 %.not19.i64, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66, label %1008
 
 1008:                                             ; preds = %._crit_edge427
@@ -34640,7 +34640,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
   br i1 %exitcond540.not, label %._crit_edge447, label %1028, !llvm.loop !166
 
 ._crit_edge447:                                   ; preds = %1028
-  %.not19.i70 = icmp eq i64 %1036, 0
+  %.not19.i70 = icmp ult i128 %1034, 18446744073709551616
   br i1 %.not19.i70, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %1038
 
 1038:                                             ; preds = %._crit_edge447
@@ -34714,7 +34714,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
   br i1 %exitcond510.not, label %._crit_edge394, label %.lr.ph393, !llvm.loop !166
 
 ._crit_edge394:                                   ; preds = %.lr.ph393
-  %.not19.i = icmp eq i64 %1060, 0
+  %.not19.i = icmp ult i128 %1058, 18446744073709551616
   br i1 %.not19.i, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %1062
 
 1062:                                             ; preds = %._crit_edge394
@@ -34795,7 +34795,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1049, %._crit
   br i1 %exitcond520.not, label %._crit_edge414, label %1084, !llvm.loop !166
 
 ._crit_edge414:                                   ; preds = %1084
-  %.not19.i58 = icmp eq i64 %1092, 0
+  %.not19.i58 = icmp ult i128 %1090, 18446744073709551616
   br i1 %.not19.i58, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %1094
 
 1094:                                             ; preds = %._crit_edge414
@@ -61134,7 +61134,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   br i1 %exitcond193.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !166
 
 ._crit_edge129:                                   ; preds = %.lr.ph128
-  %.not19.i = icmp eq i64 %65, 0
+  %.not19.i = icmp ult i128 %63, 18446744073709551616
   br i1 %.not19.i, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61.sink.split
 
 67:                                               ; preds = %50
@@ -61202,7 +61202,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   br i1 %exitcond173.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !166
 
 ._crit_edge100:                                   ; preds = %.lr.ph99
-  %.not19.i75 = icmp eq i64 %85, 0
+  %.not19.i75 = icmp ult i128 %83, 18446744073709551616
   br i1 %.not19.i75, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77, label %87
 
 87:                                               ; preds = %._crit_edge100
@@ -61288,7 +61288,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
   br i1 %exitcond183.not, label %._crit_edge116, label %109, !llvm.loop !166
 
 ._crit_edge116:                                   ; preds = %109
-  %.not19.i81 = icmp eq i64 %117, 0
+  %.not19.i81 = icmp ult i128 %115, 18446744073709551616
   br i1 %.not19.i81, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61.sink.split
 
 _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61.sink.split: ; preds = %._crit_edge116, %._crit_edge129

@@ -30493,7 +30493,7 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17hd
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr106drop_in_place$LT$jpeg_decoder..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hd4b148b124532403E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %8) #22
-          to label %53 unwind label %51
+          to label %52 unwind label %50
 
 11:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !3985)
@@ -30566,7 +30566,7 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17hd
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %27 = load i64, ptr %26, align 8, !range !101, !alias.scope !4008, !noundef !19
   %28 = icmp eq i64 %27, -9223372036854775808
-  br i1 %28, label %47, label %29
+  br i1 %28, label %.thread99, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -30610,9 +30610,9 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17hd
   store i8 %.sroa.0.0.copyload, ptr %41, align 8
   %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.244.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.244, i64 63, i1 false)
-  br label %50
+  br label %49
 
-42:                                               ; preds = %29, %37, %33, %29
+42:                                               ; preds = %29, %29, %33, %37
   %spec.select = phi i8 [ 2, %29 ], [ 0, %33 ], [ 1, %37 ], [ 2, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %44 = load i32, ptr %43, align 4, !alias.scope !4008
@@ -30625,11 +30625,11 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17hd
   store i8 %spec.select, ptr %.sroa.536.0..sroa_idx, align 4
   %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 325
   store i8 %46, ptr %.sroa.637.0..sroa_idx, align 1
-  br label %49
+  br label %48
 
-47:                                               ; preds = %25
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 4, ptr %48, align 8
+.thread99:                                        ; preds = %25
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 4, ptr %47, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 3, ptr %.sroa.576.0..sroa_idx, align 1
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -30638,24 +30638,24 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17hd
   store i8 1, ptr %.sroa.677.sroa.2.0..sroa.677.0..sroa_idx.sroa_idx, align 1
   %.sroa.677.sroa.4.0..sroa.677.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %.sroa.677.sroa.4.0..sroa.677.0..sroa_idx.sroa_idx, align 8
-  br label %50
+  br label %49
 
-49:                                               ; preds = %50, %42
+48:                                               ; preds = %49, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-50:                                               ; preds = %47, %40
+49:                                               ; preds = %.thread99, %40
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr106drop_in_place$LT$jpeg_decoder..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hd4b148b124532403E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %8)
-  br label %49
+  br label %48
 
-51:                                               ; preds = %9
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %9
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-53:                                               ; preds = %9
+52:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 
@@ -30682,7 +30682,7 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17he
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr119drop_in_place$LT$jpeg_decoder..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h7aa6f68c4f809ca0E"(ptr noalias noundef nonnull align 8 dereferenceable(344) %8) #22
-          to label %53 unwind label %51
+          to label %52 unwind label %50
 
 11:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !4011)
@@ -30755,7 +30755,7 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17he
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %27 = load i64, ptr %26, align 8, !range !101, !alias.scope !4034, !noundef !19
   %28 = icmp eq i64 %27, -9223372036854775808
-  br i1 %28, label %47, label %29
+  br i1 %28, label %.thread99, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -30799,9 +30799,9 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17he
   store i8 %.sroa.0.0.copyload, ptr %41, align 8
   %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.244.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.244, i64 63, i1 false)
-  br label %50
+  br label %49
 
-42:                                               ; preds = %29, %37, %33, %29
+42:                                               ; preds = %29, %29, %33, %37
   %spec.select = phi i8 [ 2, %29 ], [ 0, %33 ], [ 1, %37 ], [ 2, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %44 = load i32, ptr %43, align 4, !alias.scope !4034
@@ -30814,11 +30814,11 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17he
   store i8 %spec.select, ptr %.sroa.536.0..sroa_idx, align 4
   %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 349
   store i8 %46, ptr %.sroa.637.0..sroa_idx, align 1
-  br label %49
+  br label %48
 
-47:                                               ; preds = %25
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 4, ptr %48, align 8
+.thread99:                                        ; preds = %25
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 4, ptr %47, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 3, ptr %.sroa.576.0..sroa_idx, align 1
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -30827,24 +30827,24 @@ define hidden void @"_ZN5image6codecs4jpeg7decoder20JpegDecoder$LT$R$GT$3new17he
   store i8 1, ptr %.sroa.677.sroa.2.0..sroa.677.0..sroa_idx.sroa_idx, align 1
   %.sroa.677.sroa.4.0..sroa.677.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %.sroa.677.sroa.4.0..sroa.677.0..sroa_idx.sroa_idx, align 8
-  br label %50
+  br label %49
 
-49:                                               ; preds = %50, %42
+48:                                               ; preds = %49, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-50:                                               ; preds = %47, %40
+49:                                               ; preds = %.thread99, %40
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr119drop_in_place$LT$jpeg_decoder..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h7aa6f68c4f809ca0E"(ptr noalias noundef nonnull align 8 dereferenceable(344) %8)
-  br label %49
+  br label %48
 
-51:                                               ; preds = %9
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %9
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-53:                                               ; preds = %9
+52:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 

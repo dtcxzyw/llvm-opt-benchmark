@@ -5610,9 +5610,9 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %31
 
-31:                                               ; preds = %146, %22
-  %32 = phi i32 [ 0, %22 ], [ %148, %146 ]
-  %33 = phi i32 [ %26, %22 ], [ %147, %146 ]
+31:                                               ; preds = %145, %22
+  %32 = phi i32 [ 0, %22 ], [ %147, %145 ]
+  %33 = phi i32 [ %26, %22 ], [ %146, %145 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5626,7 +5626,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %38 = and i32 %37, 28
   %39 = add nuw nsw i32 %38, 4
   %40 = icmp sgt i32 %36, -1
-  br i1 %40, label %146, label %41
+  br i1 %40, label %145, label %41
 
 41:                                               ; preds = %31
   %42 = lshr i32 %36, 4
@@ -5640,7 +5640,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %50 = trunc i32 %49 to i8
   %51 = and i32 %49, 255
   %52 = icmp samesign ugt i32 %51, 7
-  br i1 %52, label %146, label %53
+  br i1 %52, label %145, label %53
 
 53:                                               ; preds = %41
   %54 = trunc nuw nsw i32 %43 to i8
@@ -5649,7 +5649,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
   %57 = and i1 %55, %56
   %58 = zext nneg i32 %43 to i64
   %59 = getelementptr %struct.resource, ptr %27, i64 %58
-  %60 = icmp eq i8 %54, 8
+  %60 = icmp eq i32 %43, 8
   %61 = select i1 %60, ptr %28, ptr null
   %62 = select i1 %57, ptr %59, ptr %61
   %63 = icmp samesign ult i32 %43, 10
@@ -5670,7 +5670,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 73:                                               ; preds = %70
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.75, i32 noundef %43) #28
-  br label %146
+  br label %145
 
 74:                                               ; preds = %70
   switch i8 %50, label %.critedge [
@@ -5689,7 +5689,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 .critedge:                                        ; preds = %74
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.76, i32 noundef %51) #28
-  br label %146
+  br label %145
 
 77:                                               ; preds = %74, %74, %75, %76
   %78 = phi i64 [ 304, %75 ], [ 560, %76 ], [ 8752, %74 ], [ 8752, %74 ]
@@ -5752,7 +5752,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 120:                                              ; preds = %115
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.77) #28
-  br label %146
+  br label %145
 
 121:                                              ; preds = %115
   %122 = sub i32 %116, %33
@@ -5761,7 +5761,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 124:                                              ; preds = %121
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.78, i32 noundef %39, i32 noundef %122) #28
-  br label %146
+  br label %145
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %30, align 8
@@ -5786,42 +5786,41 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 136:                                              ; preds = %130
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
-  br label %146
+  br label %145
 
 137:                                              ; preds = %130
-  %138 = icmp eq i32 %43, 8
-  br i1 %138, label %139, label %140
+  br i1 %60, label %138, label %139
+
+138:                                              ; preds = %137
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
+  br label %145
 
 139:                                              ; preds = %137
+  %140 = icmp samesign ugt i32 %43, 8
+  %141 = icmp ne i32 %43, 15
+  %142 = and i1 %140, %141
+  br i1 %142, label %143, label %144
+
+143:                                              ; preds = %139
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
-  br label %146
+  br label %145
 
-140:                                              ; preds = %137
-  %141 = icmp samesign ugt i32 %43, 8
-  %142 = icmp ne i32 %43, 15
-  %143 = and i1 %141, %142
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %140
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
-  br label %146
-
-145:                                              ; preds = %140
+144:                                              ; preds = %139
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.80, i32 noundef %43, ptr noundef nonnull %62, i32 noundef %51) #28
-  br label %146
+  br label %145
 
-146:                                              ; preds = %145, %144, %139, %136, %124, %120, %.critedge, %73, %41, %31
-  %147 = add i32 %39, %33
+145:                                              ; preds = %144, %143, %138, %136, %124, %120, %.critedge, %73, %41, %31
+  %146 = add i32 %39, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %148 = add nuw nsw i32 %32, 1
-  %149 = load i8, ptr %7, align 1
-  %150 = zext i8 %149 to i32
-  %151 = icmp samesign ult i32 %148, %150
-  br i1 %151, label %31, label %.loopexit, !llvm.loop !53
+  %147 = add nuw nsw i32 %32, 1
+  %148 = load i8, ptr %7, align 1
+  %149 = zext i8 %148 to i32
+  %150 = icmp samesign ult i32 %147, %149
+  br i1 %150, label %31, label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %146, %10, %1
+.loopexit:                                        ; preds = %145, %10, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
