@@ -34,6 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i48 %2) local_unnamed_addr #0 {
   %.sroa.3.0.extract.shift = lshr i48 %2, 32
+  %.sroa.3.0.extract.trunc = zext nneg i48 %.sroa.3.0.extract.shift to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
@@ -43,7 +44,7 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %10 = and i16 %9, 128
   %.not = icmp eq i16 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %.not, label %69, label %12
+  br i1 %.not, label %68, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -52,7 +53,7 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %16 = add nsw i64 %15, -32
   %17 = getelementptr i8, ptr %0, i64 %15
   %.not33 = icmp ult i48 %2, 4294967296
-  br i1 %.not33, label %64, label %18
+  br i1 %.not33, label %63, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 38
@@ -73,93 +74,92 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %30 = and i48 %29, -4294967296
   %31 = zext i48 %30 to i64
   %32 = or disjoint i64 %28, %31
-  %33 = zext nneg i48 %.sroa.3.0.extract.shift to i64
-  %34 = or disjoint i64 %32, %33
+  %33 = or disjoint i64 %32, %.sroa.3.0.extract.trunc
   %.val.i42 = load i16, ptr %.02835, align 2
-  %35 = getelementptr i8, ptr %24, i64 10
-  %.val5.i43 = load i16, ptr %35, align 2
-  %36 = zext i16 %.val.i42 to i64
-  %37 = zext i16 %.val5.i43 to i64
-  %38 = shl nuw i64 %36, 48
-  %39 = shl nuw nsw i64 %37, 32
-  %40 = or disjoint i64 %39, %38
-  %41 = getelementptr i8, ptr %24, i64 12
-  %.val8.i44 = load i16, ptr %41, align 2
-  %42 = zext i16 %.val8.i44 to i64
-  %43 = or disjoint i64 %40, %42
-  %.not3445 = icmp ugt i64 %43, %34
+  %34 = getelementptr i8, ptr %24, i64 10
+  %.val5.i43 = load i16, ptr %34, align 2
+  %35 = zext i16 %.val.i42 to i64
+  %36 = zext i16 %.val5.i43 to i64
+  %37 = shl nuw i64 %35, 48
+  %38 = shl nuw nsw i64 %36, 32
+  %39 = or disjoint i64 %38, %37
+  %40 = getelementptr i8, ptr %24, i64 12
+  %.val8.i44 = load i16, ptr %40, align 2
+  %41 = zext i16 %.val8.i44 to i64
+  %42 = or disjoint i64 %39, %41
+  %.not3445 = icmp ugt i64 %42, %33
   br i1 %.not3445, label %.critedge, label %.lr.ph48
 
-44:                                               ; preds = %.lr.ph48
+43:                                               ; preds = %.lr.ph48
   %.val.i = load i16, ptr %.028, align 2
-  %45 = getelementptr i8, ptr %59, i64 10
-  %.val5.i = load i16, ptr %45, align 2
-  %46 = zext i16 %.val.i to i64
-  %47 = zext i16 %.val5.i to i64
-  %48 = shl nuw i64 %46, 48
-  %49 = shl nuw nsw i64 %47, 32
-  %50 = or disjoint i64 %49, %48
-  %51 = getelementptr i8, ptr %59, i64 12
-  %.val8.i = load i16, ptr %51, align 2
-  %52 = zext i16 %.val8.i to i64
-  %53 = or disjoint i64 %50, %52
-  %.not34 = icmp ugt i64 %53, %34
+  %44 = getelementptr i8, ptr %58, i64 10
+  %.val5.i = load i16, ptr %44, align 2
+  %45 = zext i16 %.val.i to i64
+  %46 = zext i16 %.val5.i to i64
+  %47 = shl nuw i64 %45, 48
+  %48 = shl nuw nsw i64 %46, 32
+  %49 = or disjoint i64 %48, %47
+  %50 = getelementptr i8, ptr %58, i64 12
+  %.val8.i = load i16, ptr %50, align 2
+  %51 = zext i16 %.val8.i to i64
+  %52 = or disjoint i64 %49, %51
+  %.not34 = icmp ugt i64 %52, %33
   br i1 %.not34, label %.critedge, label %.lr.ph48, !llvm.loop !4
 
-.lr.ph48:                                         ; preds = %.lr.ph, %44
-  %.pn3747 = phi ptr [ %59, %44 ], [ %24, %.lr.ph ]
-  %.0283846 = phi ptr [ %.028, %44 ], [ %.02835, %.lr.ph ]
-  %54 = getelementptr inbounds nuw i8, ptr %.pn3747, i64 14
-  %55 = load i16, ptr %54, align 2
-  %56 = zext i16 %55 to i64
-  %57 = add nuw nsw i64 %56, 1
-  %58 = and i64 %57, 131070
-  %59 = getelementptr inbounds nuw i8, ptr %.0283846, i64 %58
-  %.028 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %60 = icmp ult ptr %.028, %17
-  br i1 %60, label %44, label %..critedge.loopexit_crit_edge, !llvm.loop !4
+.lr.ph48:                                         ; preds = %.lr.ph, %43
+  %.pn3747 = phi ptr [ %58, %43 ], [ %24, %.lr.ph ]
+  %.0283846 = phi ptr [ %.028, %43 ], [ %.02835, %.lr.ph ]
+  %53 = getelementptr inbounds nuw i8, ptr %.pn3747, i64 14
+  %54 = load i16, ptr %53, align 2
+  %55 = zext i16 %54 to i64
+  %56 = add nuw nsw i64 %55, 1
+  %57 = and i64 %56, 131070
+  %58 = getelementptr inbounds nuw i8, ptr %.0283846, i64 %57
+  %.028 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %59 = icmp ult ptr %.028, %17
+  br i1 %59, label %43, label %..critedge.loopexit_crit_edge, !llvm.loop !4
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph48
   br label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %44, %.lr.ph, %..critedge.loopexit_crit_edge, %18
-  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283846, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283846, %44 ]
-  %61 = ptrtoint ptr %17 to i64
-  %62 = ptrtoint ptr %.130.lcssa to i64
-  %63 = sub i64 %61, %62
-  br label %64
+.critedge:                                        ; preds = %43, %.lr.ph, %..critedge.loopexit_crit_edge, %18
+  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283846, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283846, %43 ]
+  %60 = ptrtoint ptr %17 to i64
+  %61 = ptrtoint ptr %.130.lcssa to i64
+  %62 = sub i64 %60, %61
+  br label %63
 
-64:                                               ; preds = %.critedge, %12
-  %.031 = phi i64 [ %63, %.critedge ], [ %16, %12 ]
+63:                                               ; preds = %.critedge, %12
+  %.031 = phi i64 [ %62, %.critedge ], [ %16, %12 ]
   %.029 = phi ptr [ %.130.lcssa, %.critedge ], [ %11, %12 ]
   %.not32 = icmp eq i64 %.031, 0
-  br i1 %.not32, label %68, label %65
+  br i1 %.not32, label %67, label %64
 
-65:                                               ; preds = %64
-  %66 = trunc i64 %.031 to i32
-  %67 = tail call ptr @ginPostingListDecodeAllSegments(ptr noundef nonnull %.029, i32 noundef %66, ptr noundef %1) #10
-  br label %79
+64:                                               ; preds = %63
+  %65 = trunc i64 %.031 to i32
+  %66 = tail call ptr @ginPostingListDecodeAllSegments(ptr noundef nonnull %.029, i32 noundef %65, ptr noundef %1) #10
+  br label %78
 
-68:                                               ; preds = %64
+67:                                               ; preds = %63
   store i32 0, ptr %1, align 4
-  br label %79
+  br label %78
 
-69:                                               ; preds = %3
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %71 = load i16, ptr %70, align 4
-  %72 = zext i16 %71 to i32
-  store i32 %72, ptr %1, align 4
-  %73 = zext i16 %71 to i64
-  %74 = mul nuw nsw i64 %73, 6
-  %75 = tail call ptr @palloc(i64 noundef %74) #10
-  %76 = load i32, ptr %1, align 4
-  %77 = sext i32 %76 to i64
-  %78 = mul nsw i64 %77, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %75, ptr nonnull align 2 %11, i64 %78, i1 false)
-  br label %79
+68:                                               ; preds = %3
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %70 = load i16, ptr %69, align 4
+  %71 = zext i16 %70 to i32
+  store i32 %71, ptr %1, align 4
+  %72 = zext i16 %70 to i64
+  %73 = mul nuw nsw i64 %72, 6
+  %74 = tail call ptr @palloc(i64 noundef %73) #10
+  %75 = load i32, ptr %1, align 4
+  %76 = sext i32 %75 to i64
+  %77 = mul nsw i64 %76, 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %74, ptr nonnull align 2 %11, i64 %77, i1 false)
+  br label %78
 
-79:                                               ; preds = %65, %68, %69
-  %.1 = phi ptr [ %75, %69 ], [ %67, %65 ], [ null, %68 ]
+78:                                               ; preds = %64, %67, %68
+  %.1 = phi ptr [ %74, %68 ], [ %66, %64 ], [ null, %67 ]
   ret ptr %.1
 }
 

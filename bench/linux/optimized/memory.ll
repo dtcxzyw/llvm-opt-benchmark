@@ -1987,7 +1987,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
 343:                                              ; preds = %309
   %344 = and i32 %319, 30
   %345 = icmp ne i32 %344, 28
-  %346 = icmp ne i32 %319, 30
+  %346 = icmp ne i64 %318, 30
   %347 = and i1 %346, %345
   br i1 %347, label %363, label %348
 
@@ -3382,7 +3382,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 466:                                              ; preds = %446
   %467 = and i32 %454, 30
   %468 = icmp ne i32 %467, 28
-  %469 = icmp ne i32 %454, 30
+  %469 = icmp ne i64 %453, 30
   %470 = and i1 %469, %468
   br i1 %470, label %611, label %471
 
@@ -6802,7 +6802,7 @@ define dso_local i32 @do_swap_page(ptr noundef initializes((88, 96)) %0) local_u
 18:                                               ; preds = %1
   %19 = and i32 %16, 30
   %20 = icmp ne i32 %19, 28
-  %21 = icmp ne i32 %16, 30
+  %21 = icmp ne i64 %15, 30
   %22 = and i1 %21, %20
   br i1 %22, label %30, label %23
 
@@ -7608,67 +7608,66 @@ define internal fastcc ptr @pfn_swap_entry_to_page(i64 range(i64 0, 893626756060
   %6 = phi i64 [ 17179869183, %4 ], [ 1099511627775, %1 ], [ 1099511627775, %1 ]
   %7 = and i64 %6, %0
   %8 = getelementptr %struct.page, ptr %3, i64 %7
-  %9 = lshr i64 %0, 58
-  %10 = trunc nuw nsw i64 %9 to i32
-  %11 = and i32 %10, 30
-  %12 = icmp ne i32 %11, 28
-  %13 = icmp ne i32 %10, 30
-  %14 = and i1 %13, %12
-  br i1 %14, label %46, label %15
+  %9 = and i64 %0, 8646911284551352320
+  %10 = icmp ne i64 %9, 8070450532247928832
+  %.mask = and i64 %0, 8935141660703064064
+  %11 = icmp ne i64 %.mask, 8646911284551352320
+  %12 = and i1 %11, %10
+  br i1 %12, label %44, label %13
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load volatile i64, ptr %16, align 8
-  %18 = and i64 %17, 1
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %23, label %20, !prof !13
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %15 = load volatile i64, ptr %14, align 8
+  %16 = and i64 %15, 1
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %21, label %18, !prof !13
 
-20:                                               ; preds = %15
-  %21 = add nsw i64 %17, -1
-  %22 = inttoptr i64 %21 to ptr
-  br label %40
+18:                                               ; preds = %13
+  %19 = add nsw i64 %15, -1
+  %20 = inttoptr i64 %19 to ptr
+  br label %38
 
-23:                                               ; preds = %15
+21:                                               ; preds = %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #18
-          to label %40 [label %24], !srcloc !6
+          to label %38 [label %22], !srcloc !6
 
-24:                                               ; preds = %23
-  %25 = ptrtoint ptr %8 to i64
-  %26 = and i64 %25, 4095
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %39
+22:                                               ; preds = %21
+  %23 = ptrtoint ptr %8 to i64
+  %24 = and i64 %23, 4095
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %37
 
-28:                                               ; preds = %24
-  %29 = load volatile i64, ptr %8, align 8
-  %30 = and i64 %29, 64
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %39, label %32
+26:                                               ; preds = %22
+  %27 = load volatile i64, ptr %8, align 8
+  %28 = and i64 %27, 64
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %37, label %30
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %8, i64 72
-  %34 = load volatile i64, ptr %33, align 8
-  %35 = and i64 %34, 1
-  %36 = icmp eq i64 %35, 0
-  %37 = add nsw i64 %34, -1
-  %38 = inttoptr i64 %37 to ptr
-  br i1 %36, label %39, label %40
+30:                                               ; preds = %26
+  %31 = getelementptr i8, ptr %8, i64 72
+  %32 = load volatile i64, ptr %31, align 8
+  %33 = and i64 %32, 1
+  %34 = icmp eq i64 %33, 0
+  %35 = add nsw i64 %32, -1
+  %36 = inttoptr i64 %35 to ptr
+  br i1 %34, label %37, label %38
 
-39:                                               ; preds = %32, %28, %24
-  br label %40
+37:                                               ; preds = %30, %26, %22
+  br label %38
 
-40:                                               ; preds = %39, %32, %23, %20
-  %41 = phi ptr [ %22, %20 ], [ %38, %32 ], [ %8, %39 ], [ %8, %23 ]
-  %42 = load volatile i64, ptr %41, align 8
-  %43 = and i64 %42, 1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %46, !prof !23
+38:                                               ; preds = %37, %30, %21, %18
+  %39 = phi ptr [ %20, %18 ], [ %36, %30 ], [ %8, %37 ], [ %8, %21 ]
+  %40 = load volatile i64, ptr %39, align 8
+  %41 = and i64 %40, 1
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %44, !prof !23
 
-45:                                               ; preds = %40
+43:                                               ; preds = %38
   tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #18, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 466, i32 0, i64 12) #18, !srcloc !60
   unreachable
 
-46:                                               ; preds = %40, %5
+44:                                               ; preds = %38, %5
   ret ptr %8
 }
 
@@ -10200,7 +10199,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %350, label %409, label %351
 
 351:                                              ; preds = %345
-  %352 = icmp eq i32 %302, 1
+  %352 = icmp eq i64 %301, 1
   br i1 %352, label %353, label %365
 
 353:                                              ; preds = %351

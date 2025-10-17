@@ -34113,18 +34113,18 @@ _ZN3fmt3v116detail9dragonbox37floor_log10_pow2_minus_log10_4_over_3Ei.exit: ; pr
   %48 = lshr i128 %42, 90
   %49 = trunc i128 %48 to i32
   %.not.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i, label %50, label %.preheader192
+  br i1 %.not.i.i, label %50, label %.preheader191
 
 50:                                               ; preds = %47
   invoke void @_Z23throw_assertion_failurePKc(ptr noundef nonnull @.str.6)
-          to label %.preheader192 unwind label %60
+          to label %.preheader191 unwind label %60
 
-.preheader192:                                    ; preds = %50, %47
+.preheader191:                                    ; preds = %50, %47
   br label %51
 
-51:                                               ; preds = %.preheader192, %51
-  %.0140 = phi i32 [ %53, %51 ], [ %49, %.preheader192 ]
-  %.0.i.i = phi i32 [ %55, %51 ], [ 8, %.preheader192 ]
+51:                                               ; preds = %.preheader191, %51
+  %.0140 = phi i32 [ %53, %51 ], [ %49, %.preheader191 ]
+  %.0.i.i = phi i32 [ %55, %51 ], [ 8, %.preheader191 ]
   %52 = mul i32 %.0140, -1030792151
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 30)
   %54 = icmp ugt i32 %53, 42949672
@@ -34295,7 +34295,7 @@ _ZN3fmt3v116detail9dragonbox16floor_log10_pow2Ei.exit: ; preds = %86, %88
 
 149:                                              ; preds = %138, %130, %132
   %150 = add nsw i32 %91, 1
-  %.not.i54 = icmp eq i64 %126, 0
+  %.not.i54 = icmp ult i64 %122, 1000
   br i1 %.not.i54, label %151, label %156
 
 151:                                              ; preds = %149
@@ -34327,10 +34327,13 @@ _ZN3fmt3v116detail9dragonbox16floor_log10_pow2Ei.exit: ; preds = %86, %88
   br i1 %or.cond176, label %162, label %.preheader183
 
 162:                                              ; preds = %156
+  %.not.i.i60 = icmp ult i64 %122, 100000000000
+  br i1 %.not.i.i60, label %165, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %162
   %163 = lshr i128 %157, 90
   %164 = trunc nuw nsw i128 %163 to i32
-  %.not.i.i60 = icmp eq i32 %164, 0
-  br i1 %.not.i.i60, label %165, label %.preheader
+  br label %.preheader
 
 165:                                              ; preds = %162
   %166 = call ptr @__cxa_allocate_exception(i64 16) #32
@@ -34351,9 +34354,9 @@ _ZN3fmt3v116detail9dragonbox16floor_log10_pow2Ei.exit: ; preds = %86, %88
   call void @__cxa_free_exception(ptr nonnull %166) #32
   br label %.body93
 
-.preheader:                                       ; preds = %162, %.preheader
-  %.0139 = phi i32 [ %171, %.preheader ], [ %164, %162 ]
-  %.0.i.i61 = phi i32 [ %173, %.preheader ], [ 8, %162 ]
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.0139 = phi i32 [ %171, %.preheader ], [ %164, %.preheader.preheader ]
+  %.0.i.i61 = phi i32 [ %173, %.preheader ], [ 8, %.preheader.preheader ]
   %170 = mul i32 %.0139, -1030792151
   %171 = call i32 @llvm.fshl.i32(i32 %170, i32 %170, i32 30)
   %172 = icmp ugt i32 %171, 42949672

@@ -2860,7 +2860,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %11 = or disjoint i32 %10, %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %14 = icmp eq i16 %.sroa.11.0.extract.trunc, -1
+  %14 = icmp eq i48 %.sroa.11.0.extract.shift, 65535
   %.not71 = icmp ne i32 %11, -1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = and i1 %14, %.not71

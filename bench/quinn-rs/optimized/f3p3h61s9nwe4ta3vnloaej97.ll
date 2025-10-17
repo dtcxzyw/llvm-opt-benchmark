@@ -2288,7 +2288,7 @@ _ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i: ; preds = 
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !198
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !198
   call void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 1 %7, i64 noundef 16), !noalias !195
-  %228 = icmp ne i32 %.sroa.051.1.extract.trunc.i, 0
+  %228 = icmp ugt i40 %183, 255
   %229 = icmp ne i16 %191, 0
   %or.cond2.not59.i = or i1 %228, %229
   %230 = icmp ne i128 %.sroa.046.0.copyload.i, 0

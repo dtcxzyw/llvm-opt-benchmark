@@ -9905,11 +9905,10 @@ define void @_ZN3nix20hashDerivationModuloERNS_5StoreERKNS_10DerivationEb(ptr de
   %30 = alloca %"class.std::map.330", align 8
   %31 = tail call i24 @_ZNK3nix15BasicDerivation4typeEv(ptr noundef nonnull align 8 dereferenceable(272) %2)
   %.sroa.2267.0.extract.shift = lshr i24 %31, 16
-  %.sroa.2267.0.extract.trunc = trunc nuw nsw i24 %.sroa.2267.0.extract.shift to i8
-  %32 = icmp eq i8 %.sroa.2267.0.extract.trunc, 1
+  %32 = icmp eq i24 %.sroa.2267.0.extract.shift, 1
   %33 = and i24 %31, 256
   %34 = icmp ne i24 %33, 0
-  %spec.select.i.i.i = and i1 %34, %32
+  %spec.select.i.i.i = and i1 %32, %34
   br i1 %spec.select.i.i.i, label %35, label %173
 
 35:                                               ; preds = %4
@@ -10329,7 +10328,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix4HashESt4less
   br label %544
 
 173:                                              ; preds = %4
-  %174 = icmp eq i8 %.sroa.2267.0.extract.trunc, 2
+  %174 = icmp eq i24 %.sroa.2267.0.extract.shift, 2
   br i1 %174, label %175, label %215
 
 175:                                              ; preds = %173

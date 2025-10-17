@@ -149244,7 +149244,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends13eval_multip
   store i64 %.sroa.0.0.extract.trunc, ptr %43, align 8, !tbaa !1539
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %44, align 8, !tbaa !1539
-  %.not.i111 = icmp eq i64 %.sroa.2.0.extract.trunc, 0
+  %.not.i111 = icmp ult i128 %37, 18446744073709551616
   %45 = select i1 %.not.i111, i64 1, i64 2
   %46 = load i64, ptr %0, align 16
   %spec.select.i.i114 = select i1 %40, i64 2, i64 %46
@@ -154513,7 +154513,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.083.0.extract.trunc, ptr %372, align 8, !tbaa !1539
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i64 %.sroa.284.0.extract.trunc, ptr %373, align 8, !tbaa !1539
-  %.not.i313 = icmp eq i64 %.sroa.284.0.extract.trunc, 0
+  %.not.i313 = icmp ult i128 %366, 18446744073709551616
   %374 = select i1 %.not.i313, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %0, i64 noundef %374, i64 noundef %374)
           to label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIoEENSt9enable_ifIXaasr3std7is_sameIT_oEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit314 unwind label %375
@@ -154543,7 +154543,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.0.0.extract.trunc, ptr %385, align 8, !tbaa !1539
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %386, align 8, !tbaa !1539
-  %.not.i312 = icmp eq i64 %.sroa.2.0.extract.trunc, 0
+  %.not.i312 = icmp ult i128 %380, 18446744073709551616
   %387 = select i1 %.not.i312, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %3, i64 noundef %387, i64 noundef %387)
           to label %_ZN5boost14multiprecision8backends13eval_subtractILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELm0ELm0ELS3_1ELS4_0ES5_EENSt9enable_ifIXaantsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valuentsr18is_trivial_cpp_intINS7_IXT4_EXT5_EXT6_EXT7_ET8_EEEE5valueEvE4typeERS9_RKSB_.exit330.sink.split unwind label %388
@@ -156101,7 +156101,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %.sroa.08.0.extract.trunc, ptr %256, align 8, !tbaa !1539
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i64 %.sroa.29.0.extract.trunc, ptr %257, align 8, !tbaa !1539
-  %.not.i160 = icmp eq i64 %.sroa.29.0.extract.trunc, 0
+  %.not.i160 = icmp ult i128 %250, 18446744073709551616
   %258 = select i1 %.not.i160, i64 1, i64 2
   %259 = load i64, ptr %0, align 16
   %spec.select.i.i195 = select i1 %253, i64 2, i64 %259

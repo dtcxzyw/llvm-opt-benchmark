@@ -6543,7 +6543,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long
   br i1 %1306, label %.thread1990.sink.split, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit
 
 _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit: ; preds = %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit
-  %1307 = icmp eq i32 %1224, 500000
+  %1307 = icmp eq i128 %1222, 500000
   %1308 = and i32 %.08722044, 1
   %1309 = or i32 %.0.i.i1405, %1308
   %1310 = icmp ne i32 %1309, 0
@@ -10415,7 +10415,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22d
 
 68:                                               ; preds = %49, %40
   %69 = add nsw i32 %5, 1
-  %70 = icmp eq i64 %36, 0
+  %70 = icmp ult i64 %33, 1000
   br i1 %70, label %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit, label %71
 
 71:                                               ; preds = %68

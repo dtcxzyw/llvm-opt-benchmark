@@ -59565,63 +59565,63 @@ define linkonce_odr hidden void @_ZN5boost4json6detail8charconv6detail10fast_flo
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %12
-  %.7296 = phi ptr [ %13, %12 ], [ %6, %4 ]
-  %.0.copyload.i = load i64, ptr %.7296, align 1
+  %.7302 = phi ptr [ %13, %12 ], [ %6, %4 ]
+  %.0.copyload.i = load i64, ptr %.7302, align 1
   %.not.i = icmp eq i64 %.0.copyload.i, 3472328296227680304
   br i1 %.not.i, label %12, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.7296, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.7302, i64 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %10, %14
   %16 = icmp sgt i64 %15, 7
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !740
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph, %4
-  %.7.lcssa = phi ptr [ %6, %4 ], [ %.7296, %.lr.ph ], [ %13, %12 ]
-  %.not8.i301 = icmp eq ptr %.7.lcssa, %9
-  br i1 %.not8.i301, label %._crit_edge333, label %.lr.ph304
+  %.7.lcssa = phi ptr [ %6, %4 ], [ %.7302, %.lr.ph ], [ %13, %12 ]
+  %.not8.i307 = icmp eq ptr %.7.lcssa, %9
+  br i1 %.not8.i307, label %._crit_edge339, label %.lr.ph310
 
-.lr.ph304:                                        ; preds = %._crit_edge, %18
-  %.8302 = phi ptr [ %19, %18 ], [ %.7.lcssa, %._crit_edge ]
-  %17 = load i8, ptr %.8302, align 1, !tbaa !15
+.lr.ph310:                                        ; preds = %._crit_edge, %18
+  %.8308 = phi ptr [ %19, %18 ], [ %.7.lcssa, %._crit_edge ]
+  %17 = load i8, ptr %.8308, align 1, !tbaa !15
   %.not9.i = icmp eq i8 %17, 48
   br i1 %.not9.i, label %18, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
 
-18:                                               ; preds = %.lr.ph304
-  %19 = getelementptr inbounds nuw i8, ptr %.8302, i64 1
+18:                                               ; preds = %.lr.ph310
+  %19 = getelementptr inbounds nuw i8, ptr %.8308, i64 1
   %.not8.i = icmp eq ptr %19, %9
-  br i1 %.not8.i, label %._crit_edge333, label %.lr.ph304, !llvm.loop !741
+  br i1 %.not8.i, label %._crit_edge339, label %.lr.ph310, !llvm.loop !741
 
-_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit: ; preds = %.lr.ph304
-  %.not331 = icmp eq ptr %.8302, %9
-  br i1 %.not331, label %._crit_edge333, label %.preheader279.lr.ph
+_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit: ; preds = %.lr.ph310
+  %.not337 = icmp eq ptr %.8308, %9
+  br i1 %.not337, label %._crit_edge339, label %.preheader279.lr.ph
 
 .preheader279.lr.ph:                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %.preheader279
 
 .preheader279:                                    ; preds = %.preheader279.lr.ph, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122
-  %.0332 = phi ptr [ %.8302, %.preheader279.lr.ph ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122 ]
+  %.0338 = phi ptr [ %.8308, %.preheader279.lr.ph ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122 ]
   %.promoted = load i64, ptr %3, align 8
-  %21 = ptrtoint ptr %.0332 to i64
+  %21 = ptrtoint ptr %.0338 to i64
   %22 = sub i64 %10, %21
   %23 = icmp sgt i64 %22, 7
-  br i1 %23, label %.lr.ph311, label %.critedge
+  br i1 %23, label %.lr.ph317, label %.critedge
 
-.lr.ph311:                                        ; preds = %.preheader279, %28
-  %.1310 = phi ptr [ %43, %28 ], [ %.0332, %.preheader279 ]
-  %.1243309 = phi i64 [ %42, %28 ], [ 0, %.preheader279 ]
+.lr.ph317:                                        ; preds = %.preheader279, %28
+  %.1316 = phi ptr [ %43, %28 ], [ %.0338, %.preheader279 ]
+  %.1243315 = phi i64 [ %42, %28 ], [ 0, %.preheader279 ]
   %24 = phi i1 [ false, %28 ], [ true, %.preheader279 ]
-  %.1250308 = phi i64 [ 8, %28 ], [ 0, %.preheader279 ]
+  %.1250314 = phi i64 [ 8, %28 ], [ 0, %.preheader279 ]
   %25 = phi i64 [ %44, %28 ], [ %.promoted, %.preheader279 ]
   %26 = sub i64 %2, %25
   %27 = icmp ugt i64 %26, 7
   br i1 %27, label %28, label %.critedge
 
-28:                                               ; preds = %.lr.ph311
-  %29 = mul i64 %.1243309, 100000000
-  %30 = load i64, ptr %.1310, align 1
+28:                                               ; preds = %.lr.ph317
+  %29 = mul i64 %.1243315, 100000000
+  %30 = load i64, ptr %.1316, align 1
   %31 = add i64 %30, -3472328296227680304
   %32 = mul i64 %31, 10
   %33 = lshr i64 %31, 8
@@ -59634,56 +59634,56 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit:
   %40 = add i64 %39, %36
   %41 = lshr i64 %40, 32
   %42 = add i64 %41, %29
-  %43 = getelementptr inbounds nuw i8, ptr %.1310, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.1316, i64 8
   %44 = add i64 %25, 8
   store i64 %44, ptr %3, align 8, !tbaa !11
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %10, %45
   %47 = icmp sgt i64 %46, 7
   %or.cond259 = and i1 %47, %24
-  br i1 %or.cond259, label %.lr.ph311, label %.critedge.loopexit.split.loop.exit, !llvm.loop !742
+  br i1 %or.cond259, label %.lr.ph317, label %.critedge.loopexit.split.loop.exit, !llvm.loop !742
 
 .critedge.loopexit.split.loop.exit:               ; preds = %28
-  %48 = add nuw nsw i64 %.1250308, 8
+  %48 = add nuw nsw i64 %.1250314, 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph311, %.critedge.loopexit.split.loop.exit, %.preheader279
-  %.promoted319 = phi i64 [ %.promoted, %.preheader279 ], [ %44, %.critedge.loopexit.split.loop.exit ], [ %25, %.lr.ph311 ]
-  %.1250.lcssa = phi i64 [ 0, %.preheader279 ], [ %48, %.critedge.loopexit.split.loop.exit ], [ %.1250308, %.lr.ph311 ]
-  %.1243.lcssa = phi i64 [ 0, %.preheader279 ], [ %42, %.critedge.loopexit.split.loop.exit ], [ %.1243309, %.lr.ph311 ]
-  %.1.lcssa = phi ptr [ %.0332, %.preheader279 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %.1310, %.lr.ph311 ]
-  %.not60320 = icmp ne ptr %.1.lcssa, %9
-  %49 = icmp ult i64 %.promoted319, %2
-  %or.cond63322 = select i1 %.not60320, i1 %49, i1 false
-  br i1 %or.cond63322, label %.lr.ph326, label %.critedge2
+.critedge:                                        ; preds = %.lr.ph317, %.critedge.loopexit.split.loop.exit, %.preheader279
+  %.promoted325 = phi i64 [ %.promoted, %.preheader279 ], [ %44, %.critedge.loopexit.split.loop.exit ], [ %25, %.lr.ph317 ]
+  %.1250.lcssa = phi i64 [ 0, %.preheader279 ], [ %48, %.critedge.loopexit.split.loop.exit ], [ %.1250314, %.lr.ph317 ]
+  %.1243.lcssa = phi i64 [ 0, %.preheader279 ], [ %42, %.critedge.loopexit.split.loop.exit ], [ %.1243315, %.lr.ph317 ]
+  %.1.lcssa = phi ptr [ %.0338, %.preheader279 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %.1316, %.lr.ph317 ]
+  %.not60326 = icmp ne ptr %.1.lcssa, %9
+  %49 = icmp ult i64 %.promoted325, %2
+  %or.cond63328 = select i1 %.not60326, i1 %49, i1 false
+  br i1 %or.cond63328, label %.lr.ph332, label %.critedge2
 
-.lr.ph326:                                        ; preds = %.critedge, %.lr.ph326
-  %.2325 = phi ptr [ %56, %.lr.ph326 ], [ %.1.lcssa, %.critedge ]
-  %.2244324 = phi i64 [ %55, %.lr.ph326 ], [ %.1243.lcssa, %.critedge ]
-  %.2251323 = phi i64 [ %57, %.lr.ph326 ], [ %.1250.lcssa, %.critedge ]
-  %50 = phi i64 [ %58, %.lr.ph326 ], [ %.promoted319, %.critedge ]
-  %51 = mul i64 %.2244324, 10
-  %52 = load i8, ptr %.2325, align 1, !tbaa !15
+.lr.ph332:                                        ; preds = %.critedge, %.lr.ph332
+  %.2331 = phi ptr [ %56, %.lr.ph332 ], [ %.1.lcssa, %.critedge ]
+  %.2244330 = phi i64 [ %55, %.lr.ph332 ], [ %.1243.lcssa, %.critedge ]
+  %.2251329 = phi i64 [ %57, %.lr.ph332 ], [ %.1250.lcssa, %.critedge ]
+  %50 = phi i64 [ %58, %.lr.ph332 ], [ %.promoted325, %.critedge ]
+  %51 = mul i64 %.2244330, 10
+  %52 = load i8, ptr %.2331, align 1, !tbaa !15
   %53 = sext i8 %52 to i64
   %54 = add i64 %51, -48
   %55 = add i64 %54, %53
-  %56 = getelementptr inbounds nuw i8, ptr %.2325, i64 1
-  %57 = add nuw nsw i64 %.2251323, 1
+  %56 = getelementptr inbounds nuw i8, ptr %.2331, i64 1
+  %57 = add nuw nsw i64 %.2251329, 1
   %58 = add nuw i64 %50, 1
   store i64 %58, ptr %3, align 8, !tbaa !11
-  %59 = icmp samesign ult i64 %.2251323, 18
+  %59 = icmp samesign ult i64 %.2251329, 18
   %.not60 = icmp ne ptr %56, %9
   %or.cond.not268 = select i1 %59, i1 %.not60, i1 false
   %60 = icmp ult i64 %58, %2
   %or.cond63 = select i1 %or.cond.not268, i1 %60, i1 false
-  br i1 %or.cond63, label %.lr.ph326, label %.critedge2, !llvm.loop !743
+  br i1 %or.cond63, label %.lr.ph332, label %.critedge2, !llvm.loop !743
 
-.critedge2:                                       ; preds = %.lr.ph326, %.critedge
-  %.2251.lcssa = phi i64 [ %.1250.lcssa, %.critedge ], [ %57, %.lr.ph326 ]
-  %.2244.lcssa = phi i64 [ %.1243.lcssa, %.critedge ], [ %55, %.lr.ph326 ]
-  %.2.lcssa = phi ptr [ %.1.lcssa, %.critedge ], [ %56, %.lr.ph326 ]
-  %.lcssa292 = phi i64 [ %.promoted319, %.critedge ], [ %58, %.lr.ph326 ]
-  %61 = icmp eq i64 %.lcssa292, %2
+.critedge2:                                       ; preds = %.lr.ph332, %.critedge
+  %.2251.lcssa = phi i64 [ %.1250.lcssa, %.critedge ], [ %57, %.lr.ph332 ]
+  %.2244.lcssa = phi i64 [ %.1243.lcssa, %.critedge ], [ %55, %.lr.ph332 ]
+  %.2.lcssa = phi ptr [ %.1.lcssa, %.critedge ], [ %56, %.lr.ph332 ]
+  %.lcssa297 = phi i64 [ %.promoted325, %.critedge ], [ %58, %.lr.ph332 ]
+  %61 = icmp eq i64 %.lcssa297, %2
   %62 = load i16, ptr %20, align 8, !tbaa !744
   %63 = zext i16 %62 to i64
   %.not19.i.i = icmp eq i16 %62, 0
@@ -59699,7 +59699,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit:
   br label %69
 
 ._crit_edge.i.i:                                  ; preds = %69
-  %.not.i.i82 = icmp ne i64 %77, 0
+  %.not.i.i82 = icmp ugt i128 %75, 18446744073709551615
   %68 = icmp ult i16 %62, 62
   %or.cond260 = and i1 %68, %.not.i.i82
   br i1 %or.cond260, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit
@@ -59769,37 +59769,37 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit: ; preds = %
   %95 = ptrtoint ptr %.2.lcssa to i64
   %96 = sub i64 %10, %95
   %97 = icmp sgt i64 %96, 7
-  br i1 %97, label %.lr.ph335, label %.preheader277
+  br i1 %97, label %.lr.ph341, label %.preheader277
 
 .preheader277:                                    ; preds = %98, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
   %.09.i.lcssa = phi ptr [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ], [ %99, %98 ]
-  %.not.i72337 = icmp eq ptr %.09.i.lcssa, %9
-  br i1 %.not.i72337, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, label %.lr.ph339
+  %.not.i72343 = icmp eq ptr %.09.i.lcssa, %9
+  br i1 %.not.i72343, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, label %.lr.ph345
 
-.lr.ph335:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, %98
-  %.09.i334 = phi ptr [ %99, %98 ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ]
-  %.0.copyload.i73 = load i64, ptr %.09.i334, align 1
+.lr.ph341:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, %98
+  %.09.i340 = phi ptr [ %99, %98 ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ]
+  %.0.copyload.i73 = load i64, ptr %.09.i340, align 1
   %.not11.i = icmp eq i64 %.0.copyload.i73, 3472328296227680304
   br i1 %.not11.i, label %98, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
 
-98:                                               ; preds = %.lr.ph335
-  %99 = getelementptr inbounds nuw i8, ptr %.09.i334, i64 8
+98:                                               ; preds = %.lr.ph341
+  %99 = getelementptr inbounds nuw i8, ptr %.09.i340, i64 8
   %100 = ptrtoint ptr %99 to i64
   %101 = sub i64 %10, %100
   %102 = icmp sgt i64 %101, 7
-  br i1 %102, label %.lr.ph335, label %.preheader277, !llvm.loop !748
+  br i1 %102, label %.lr.ph341, label %.preheader277, !llvm.loop !748
 
-.lr.ph339:                                        ; preds = %.preheader277, %.lr.ph339
-  %.1.i338 = phi ptr [ %104, %.lr.ph339 ], [ %.09.i.lcssa, %.preheader277 ]
-  %103 = load i8, ptr %.1.i338, align 1, !tbaa !15
+.lr.ph345:                                        ; preds = %.preheader277, %.lr.ph345
+  %.1.i344 = phi ptr [ %104, %.lr.ph345 ], [ %.09.i.lcssa, %.preheader277 ]
+  %103 = load i8, ptr %.1.i344, align 1, !tbaa !15
   %.not10.i.not = icmp ne i8 %103, 48
-  %104 = getelementptr inbounds nuw i8, ptr %.1.i338, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.1.i344, i64 1
   %.not.i72 = icmp eq ptr %104, %9
   %or.cond = select i1 %.not10.i.not, i1 true, i1 %.not.i72
-  br i1 %or.cond, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit, label %.lr.ph339, !llvm.loop !749
+  br i1 %or.cond, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit, label %.lr.ph345, !llvm.loop !749
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit: ; preds = %.lr.ph335, %.lr.ph339
-  %.0.i = phi i1 [ %.not10.i.not, %.lr.ph339 ], [ true, %.lr.ph335 ]
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit: ; preds = %.lr.ph341, %.lr.ph345
+  %.0.i = phi i1 [ %.not10.i.not, %.lr.ph345 ], [ true, %.lr.ph341 ]
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !750
   %.not61 = icmp eq ptr %106, null
@@ -59808,61 +59808,61 @@ _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
 _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread: ; preds = %.preheader277
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %108 = load ptr, ptr %107, align 8, !tbaa !750
-  %.not61477 = icmp eq ptr %108, null
-  br i1 %.not61477, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %109
+  %.not61483 = icmp eq ptr %108, null
+  br i1 %.not61483, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %109
 
 109:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
   %110 = phi ptr [ %108, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %106, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
-  %.0.i479 = phi i1 [ false, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %.0.i, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
+  %.0.i485 = phi i1 [ false, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %.0.i, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !11
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.sroa.2.0.copyload
   %112 = ptrtoint ptr %111 to i64
   %113 = icmp sgt i64 %.sroa.2.0.copyload, 7
-  br i1 %113, label %.lr.ph345, label %.preheader275
+  br i1 %113, label %.lr.ph351, label %.preheader275
 
 .preheader275:                                    ; preds = %114, %109
   %.09.i.i.lcssa = phi ptr [ %110, %109 ], [ %115, %114 ]
-  %.not.i.i347 = icmp eq ptr %.09.i.i.lcssa, %111
-  br i1 %.not.i.i347, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph349
+  %.not.i.i353 = icmp eq ptr %.09.i.i.lcssa, %111
+  br i1 %.not.i.i353, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph355
 
-.lr.ph345:                                        ; preds = %109, %114
-  %.09.i.i343 = phi ptr [ %115, %114 ], [ %110, %109 ]
-  %.0.copyload.i.i = load i64, ptr %.09.i.i343, align 1
+.lr.ph351:                                        ; preds = %109, %114
+  %.09.i.i349 = phi ptr [ %115, %114 ], [ %110, %109 ]
+  %.0.copyload.i.i = load i64, ptr %.09.i.i349, align 1
   %.not11.i.i = icmp eq i64 %.0.copyload.i.i, 3472328296227680304
   br i1 %.not11.i.i, label %114, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
 
-114:                                              ; preds = %.lr.ph345
-  %115 = getelementptr inbounds nuw i8, ptr %.09.i.i343, i64 8
+114:                                              ; preds = %.lr.ph351
+  %115 = getelementptr inbounds nuw i8, ptr %.09.i.i349, i64 8
   %116 = ptrtoint ptr %115 to i64
   %117 = sub i64 %112, %116
   %118 = icmp sgt i64 %117, 7
-  br i1 %118, label %.lr.ph345, label %.preheader275, !llvm.loop !748
+  br i1 %118, label %.lr.ph351, label %.preheader275, !llvm.loop !748
 
-119:                                              ; preds = %.lr.ph349
-  %120 = getelementptr inbounds nuw i8, ptr %.1.i.i348, i64 1
+119:                                              ; preds = %.lr.ph355
+  %120 = getelementptr inbounds nuw i8, ptr %.1.i.i354, i64 1
   %.not.i.i = icmp eq ptr %120, %111
-  br i1 %.not.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph349, !llvm.loop !749
+  br i1 %.not.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph355, !llvm.loop !749
 
-.lr.ph349:                                        ; preds = %.preheader275, %119
-  %.1.i.i348 = phi ptr [ %120, %119 ], [ %.09.i.i.lcssa, %.preheader275 ]
-  %121 = load i8, ptr %.1.i.i348, align 1, !tbaa !15
+.lr.ph355:                                        ; preds = %.preheader275, %119
+  %.1.i.i354 = phi ptr [ %120, %119 ], [ %.09.i.i.lcssa, %.preheader275 ]
+  %121 = load i8, ptr %.1.i.i354, align 1, !tbaa !15
   %.not10.i.i = icmp eq i8 %121, 48
   br i1 %.not10.i.i, label %119, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
 
 _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit: ; preds = %119, %.preheader275
-  br i1 %.0.i479, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
+  br i1 %.0.i485, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
 122:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
   br i1 %.0.i, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread: ; preds = %.lr.ph345, %.lr.ph349, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread: ; preds = %.lr.ph351, %.lr.ph355, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
   %123 = zext i16 %.pr to i64
   %.not19.i.i86 = icmp eq i16 %.pr, 0
   br i1 %.not19.i.i86, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95, label %.lr.ph.i.i87
 
 ._crit_edge.i.i91:                                ; preds = %.lr.ph.i.i87
-  %.not.i.i92 = icmp ne i64 %132, 0
+  %.not.i.i92 = icmp samesign ugt i128 %130, 18446744073709551615
   %124 = icmp ult i16 %.pr, 62
   %or.cond261 = and i1 %124, %.not.i.i92
   br i1 %or.cond261, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95
@@ -59932,7 +59932,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   br label %155
 
 ._crit_edge.i.i109:                               ; preds = %155
-  %.not.i.i110 = icmp ne i64 %163, 0
+  %.not.i.i110 = icmp ugt i128 %161, 18446744073709551615
   %154 = icmp ult i16 %62, 62
   %or.cond262 = and i1 %154, %.not.i.i110
   br i1 %or.cond262, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113
@@ -59999,15 +59999,15 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122: ; preds = %171, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113, %.critedge.i.i120, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121
   %.not = icmp eq ptr %.2.lcssa, %9
-  br i1 %.not, label %._crit_edge333, label %.preheader279, !llvm.loop !751
+  br i1 %.not, label %._crit_edge339, label %.preheader279, !llvm.loop !751
 
-._crit_edge333:                                   ; preds = %18, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, %._crit_edge, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
+._crit_edge339:                                   ; preds = %18, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, %._crit_edge, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %182 = load ptr, ptr %181, align 8, !tbaa !750
   %.not55 = icmp eq ptr %182, null
   br i1 %.not55, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %183
 
-183:                                              ; preds = %._crit_edge333
+183:                                              ; preds = %._crit_edge339
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %185 = load i64, ptr %184, align 8, !tbaa !739
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 %185
@@ -60018,41 +60018,41 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122: ; preds 
 .preheader274:                                    ; preds = %183
   %189 = ptrtoint ptr %186 to i64
   %190 = icmp sgt i64 %185, 7
-  br i1 %190, label %.lr.ph351, label %._crit_edge352
+  br i1 %190, label %.lr.ph357, label %._crit_edge358
 
-.lr.ph351:                                        ; preds = %.preheader274, %191
-  %.9350 = phi ptr [ %192, %191 ], [ %182, %.preheader274 ]
-  %.0.copyload.i69 = load i64, ptr %.9350, align 1
+.lr.ph357:                                        ; preds = %.preheader274, %191
+  %.9356 = phi ptr [ %192, %191 ], [ %182, %.preheader274 ]
+  %.0.copyload.i69 = load i64, ptr %.9356, align 1
   %.not.i70 = icmp eq i64 %.0.copyload.i69, 3472328296227680304
-  br i1 %.not.i70, label %191, label %._crit_edge352
+  br i1 %.not.i70, label %191, label %._crit_edge358
 
-191:                                              ; preds = %.lr.ph351
-  %192 = getelementptr inbounds nuw i8, ptr %.9350, i64 8
+191:                                              ; preds = %.lr.ph357
+  %192 = getelementptr inbounds nuw i8, ptr %.9356, i64 8
   %193 = ptrtoint ptr %192 to i64
   %194 = sub i64 %189, %193
   %195 = icmp sgt i64 %194, 7
-  br i1 %195, label %.lr.ph351, label %._crit_edge352, !llvm.loop !740
+  br i1 %195, label %.lr.ph357, label %._crit_edge358, !llvm.loop !740
 
-._crit_edge352:                                   ; preds = %191, %.lr.ph351, %.preheader274
-  %.9.lcssa = phi ptr [ %182, %.preheader274 ], [ %.9350, %.lr.ph351 ], [ %192, %191 ]
-  %.not8.i67356 = icmp eq ptr %.9.lcssa, %186
-  br i1 %.not8.i67356, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph359
+._crit_edge358:                                   ; preds = %191, %.lr.ph357, %.preheader274
+  %.9.lcssa = phi ptr [ %182, %.preheader274 ], [ %.9356, %.lr.ph357 ], [ %192, %191 ]
+  %.not8.i67362 = icmp eq ptr %.9.lcssa, %186
+  br i1 %.not8.i67362, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph365
 
-.lr.ph359:                                        ; preds = %._crit_edge352, %197
-  %.10357 = phi ptr [ %198, %197 ], [ %.9.lcssa, %._crit_edge352 ]
-  %196 = load i8, ptr %.10357, align 1, !tbaa !15
+.lr.ph365:                                        ; preds = %._crit_edge358, %197
+  %.10363 = phi ptr [ %198, %197 ], [ %.9.lcssa, %._crit_edge358 ]
+  %196 = load i8, ptr %.10363, align 1, !tbaa !15
   %.not9.i68 = icmp eq i8 %196, 48
   br i1 %.not9.i68, label %197, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
 
-197:                                              ; preds = %.lr.ph359
-  %198 = getelementptr inbounds nuw i8, ptr %.10357, i64 1
+197:                                              ; preds = %.lr.ph365
+  %198 = getelementptr inbounds nuw i8, ptr %.10363, i64 1
   %.not8.i67 = icmp eq ptr %198, %186
-  br i1 %.not8.i67, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph359, !llvm.loop !741
+  br i1 %.not8.i67, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph365, !llvm.loop !741
 
-_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71: ; preds = %.lr.ph359, %183
-  %.3 = phi ptr [ %182, %183 ], [ %.10357, %.lr.ph359 ]
-  %.not56389 = icmp eq ptr %.3, %186
-  br i1 %.not56389, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.preheader272.lr.ph
+_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71: ; preds = %.lr.ph365, %183
+  %.3 = phi ptr [ %182, %183 ], [ %.10363, %.lr.ph365 ]
+  %.not56395 = icmp eq ptr %.3, %186
+  br i1 %.not56395, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.preheader272.lr.ph
 
 .preheader272.lr.ph:                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
   %199 = ptrtoint ptr %186 to i64
@@ -60060,26 +60060,26 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit7
   br label %.preheader272
 
 .preheader272:                                    ; preds = %.preheader272.lr.ph, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178
-  %.4390 = phi ptr [ %.3, %.preheader272.lr.ph ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178 ]
-  %.promoted363 = load i64, ptr %3, align 8
-  %201 = ptrtoint ptr %.4390 to i64
+  %.4396 = phi ptr [ %.3, %.preheader272.lr.ph ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178 ]
+  %.promoted369 = load i64, ptr %3, align 8
+  %201 = ptrtoint ptr %.4396 to i64
   %202 = sub i64 %199, %201
   %203 = icmp sgt i64 %202, 7
-  br i1 %203, label %.lr.ph367, label %.critedge4
+  br i1 %203, label %.lr.ph373, label %.critedge4
 
-.lr.ph367:                                        ; preds = %.preheader272, %208
-  %.5366 = phi ptr [ %223, %208 ], [ %.4390, %.preheader272 ]
-  %.5247365 = phi i64 [ %222, %208 ], [ 0, %.preheader272 ]
+.lr.ph373:                                        ; preds = %.preheader272, %208
+  %.5372 = phi ptr [ %223, %208 ], [ %.4396, %.preheader272 ]
+  %.5247371 = phi i64 [ %222, %208 ], [ 0, %.preheader272 ]
   %204 = phi i1 [ false, %208 ], [ true, %.preheader272 ]
-  %.5254364 = phi i64 [ 8, %208 ], [ 0, %.preheader272 ]
-  %205 = phi i64 [ %224, %208 ], [ %.promoted363, %.preheader272 ]
+  %.5254370 = phi i64 [ 8, %208 ], [ 0, %.preheader272 ]
+  %205 = phi i64 [ %224, %208 ], [ %.promoted369, %.preheader272 ]
   %206 = sub i64 %2, %205
   %207 = icmp ugt i64 %206, 7
   br i1 %207, label %208, label %.critedge4
 
-208:                                              ; preds = %.lr.ph367
-  %209 = mul i64 %.5247365, 100000000
-  %210 = load i64, ptr %.5366, align 1
+208:                                              ; preds = %.lr.ph373
+  %209 = mul i64 %.5247371, 100000000
+  %210 = load i64, ptr %.5372, align 1
   %211 = add i64 %210, -3472328296227680304
   %212 = mul i64 %211, 10
   %213 = lshr i64 %211, 8
@@ -60092,56 +60092,56 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit7
   %220 = add i64 %219, %216
   %221 = lshr i64 %220, 32
   %222 = add i64 %221, %209
-  %223 = getelementptr inbounds nuw i8, ptr %.5366, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.5372, i64 8
   %224 = add i64 %205, 8
   store i64 %224, ptr %3, align 8, !tbaa !11
   %225 = ptrtoint ptr %223 to i64
   %226 = sub i64 %199, %225
   %227 = icmp sgt i64 %226, 7
   %or.cond263 = and i1 %227, %204
-  br i1 %or.cond263, label %.lr.ph367, label %.critedge4.loopexit.split.loop.exit, !llvm.loop !752
+  br i1 %or.cond263, label %.lr.ph373, label %.critedge4.loopexit.split.loop.exit, !llvm.loop !752
 
 .critedge4.loopexit.split.loop.exit:              ; preds = %208
-  %228 = add nuw nsw i64 %.5254364, 8
+  %228 = add nuw nsw i64 %.5254370, 8
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.lr.ph367, %.critedge4.loopexit.split.loop.exit, %.preheader272
-  %.promoted377 = phi i64 [ %.promoted363, %.preheader272 ], [ %224, %.critedge4.loopexit.split.loop.exit ], [ %205, %.lr.ph367 ]
-  %.5254.lcssa = phi i64 [ 0, %.preheader272 ], [ %228, %.critedge4.loopexit.split.loop.exit ], [ %.5254364, %.lr.ph367 ]
-  %.5247.lcssa = phi i64 [ 0, %.preheader272 ], [ %222, %.critedge4.loopexit.split.loop.exit ], [ %.5247365, %.lr.ph367 ]
-  %.5.lcssa = phi ptr [ %.4390, %.preheader272 ], [ %223, %.critedge4.loopexit.split.loop.exit ], [ %.5366, %.lr.ph367 ]
-  %.not58378 = icmp ne ptr %.5.lcssa, %186
-  %229 = icmp ult i64 %.promoted377, %2
-  %or.cond66380 = select i1 %.not58378, i1 %229, i1 false
-  br i1 %or.cond66380, label %.lr.ph384, label %.critedge6
+.critedge4:                                       ; preds = %.lr.ph373, %.critedge4.loopexit.split.loop.exit, %.preheader272
+  %.promoted383 = phi i64 [ %.promoted369, %.preheader272 ], [ %224, %.critedge4.loopexit.split.loop.exit ], [ %205, %.lr.ph373 ]
+  %.5254.lcssa = phi i64 [ 0, %.preheader272 ], [ %228, %.critedge4.loopexit.split.loop.exit ], [ %.5254370, %.lr.ph373 ]
+  %.5247.lcssa = phi i64 [ 0, %.preheader272 ], [ %222, %.critedge4.loopexit.split.loop.exit ], [ %.5247371, %.lr.ph373 ]
+  %.5.lcssa = phi ptr [ %.4396, %.preheader272 ], [ %223, %.critedge4.loopexit.split.loop.exit ], [ %.5372, %.lr.ph373 ]
+  %.not58384 = icmp ne ptr %.5.lcssa, %186
+  %229 = icmp ult i64 %.promoted383, %2
+  %or.cond66386 = select i1 %.not58384, i1 %229, i1 false
+  br i1 %or.cond66386, label %.lr.ph390, label %.critedge6
 
-.lr.ph384:                                        ; preds = %.critedge4, %.lr.ph384
-  %.6383 = phi ptr [ %236, %.lr.ph384 ], [ %.5.lcssa, %.critedge4 ]
-  %.6248382 = phi i64 [ %235, %.lr.ph384 ], [ %.5247.lcssa, %.critedge4 ]
-  %.6255381 = phi i64 [ %237, %.lr.ph384 ], [ %.5254.lcssa, %.critedge4 ]
-  %230 = phi i64 [ %238, %.lr.ph384 ], [ %.promoted377, %.critedge4 ]
-  %231 = mul i64 %.6248382, 10
-  %232 = load i8, ptr %.6383, align 1, !tbaa !15
+.lr.ph390:                                        ; preds = %.critedge4, %.lr.ph390
+  %.6389 = phi ptr [ %236, %.lr.ph390 ], [ %.5.lcssa, %.critedge4 ]
+  %.6248388 = phi i64 [ %235, %.lr.ph390 ], [ %.5247.lcssa, %.critedge4 ]
+  %.6255387 = phi i64 [ %237, %.lr.ph390 ], [ %.5254.lcssa, %.critedge4 ]
+  %230 = phi i64 [ %238, %.lr.ph390 ], [ %.promoted383, %.critedge4 ]
+  %231 = mul i64 %.6248388, 10
+  %232 = load i8, ptr %.6389, align 1, !tbaa !15
   %233 = sext i8 %232 to i64
   %234 = add i64 %231, -48
   %235 = add i64 %234, %233
-  %236 = getelementptr inbounds nuw i8, ptr %.6383, i64 1
-  %237 = add nuw nsw i64 %.6255381, 1
+  %236 = getelementptr inbounds nuw i8, ptr %.6389, i64 1
+  %237 = add nuw nsw i64 %.6255387, 1
   %238 = add nuw i64 %230, 1
   store i64 %238, ptr %3, align 8, !tbaa !11
-  %239 = icmp samesign ult i64 %.6255381, 18
+  %239 = icmp samesign ult i64 %.6255387, 18
   %.not58 = icmp ne ptr %236, %186
   %or.cond64.not270 = select i1 %239, i1 %.not58, i1 false
   %240 = icmp ult i64 %238, %2
   %or.cond66 = select i1 %or.cond64.not270, i1 %240, i1 false
-  br i1 %or.cond66, label %.lr.ph384, label %.critedge6, !llvm.loop !753
+  br i1 %or.cond66, label %.lr.ph390, label %.critedge6, !llvm.loop !753
 
-.critedge6:                                       ; preds = %.lr.ph384, %.critedge4
-  %.6255.lcssa = phi i64 [ %.5254.lcssa, %.critedge4 ], [ %237, %.lr.ph384 ]
-  %.6248.lcssa = phi i64 [ %.5247.lcssa, %.critedge4 ], [ %235, %.lr.ph384 ]
-  %.6.lcssa = phi ptr [ %.5.lcssa, %.critedge4 ], [ %236, %.lr.ph384 ]
-  %.lcssa284 = phi i64 [ %.promoted377, %.critedge4 ], [ %238, %.lr.ph384 ]
-  %241 = icmp eq i64 %.lcssa284, %2
+.critedge6:                                       ; preds = %.lr.ph390, %.critedge4
+  %.6255.lcssa = phi i64 [ %.5254.lcssa, %.critedge4 ], [ %237, %.lr.ph390 ]
+  %.6248.lcssa = phi i64 [ %.5247.lcssa, %.critedge4 ], [ %235, %.lr.ph390 ]
+  %.6.lcssa = phi ptr [ %.5.lcssa, %.critedge4 ], [ %236, %.lr.ph390 ]
+  %.lcssa286 = phi i64 [ %.promoted383, %.critedge4 ], [ %238, %.lr.ph390 ]
+  %241 = icmp eq i64 %.lcssa286, %2
   %242 = load i16, ptr %200, align 8, !tbaa !744
   %243 = zext i16 %242 to i64
   %.not19.i.i123 = icmp eq i16 %242, 0
@@ -60157,7 +60157,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit7
   br label %249
 
 ._crit_edge.i.i128:                               ; preds = %249
-  %.not.i.i129 = icmp ne i64 %257, 0
+  %.not.i.i129 = icmp ugt i128 %255, 18446744073709551615
   %248 = icmp ult i16 %242, 62
   %or.cond264 = and i1 %248, %.not.i.i129
   br i1 %or.cond264, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132
@@ -60227,44 +60227,44 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141: ; preds 
   %275 = ptrtoint ptr %.6.lcssa to i64
   %276 = sub i64 %199, %275
   %277 = icmp sgt i64 %276, 7
-  br i1 %277, label %.lr.ph392, label %.preheader
+  br i1 %277, label %.lr.ph398, label %.preheader
 
 .preheader:                                       ; preds = %278, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
   %.09.i74.lcssa = phi ptr [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ], [ %279, %278 ]
-  %.not.i76394 = icmp eq ptr %.09.i74.lcssa, %186
-  br i1 %.not.i76394, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph396
+  %.not.i76400 = icmp eq ptr %.09.i74.lcssa, %186
+  br i1 %.not.i76400, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph402
 
-.lr.ph392:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, %278
-  %.09.i74391 = phi ptr [ %279, %278 ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ]
-  %.0.copyload.i79 = load i64, ptr %.09.i74391, align 1
+.lr.ph398:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, %278
+  %.09.i74397 = phi ptr [ %279, %278 ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ]
+  %.0.copyload.i79 = load i64, ptr %.09.i74397, align 1
   %.not11.i80 = icmp eq i64 %.0.copyload.i79, 3472328296227680304
   br i1 %.not11.i80, label %278, label %.loopexit
 
-278:                                              ; preds = %.lr.ph392
-  %279 = getelementptr inbounds nuw i8, ptr %.09.i74391, i64 8
+278:                                              ; preds = %.lr.ph398
+  %279 = getelementptr inbounds nuw i8, ptr %.09.i74397, i64 8
   %280 = ptrtoint ptr %279 to i64
   %281 = sub i64 %199, %280
   %282 = icmp sgt i64 %281, 7
-  br i1 %282, label %.lr.ph392, label %.preheader, !llvm.loop !748
+  br i1 %282, label %.lr.ph398, label %.preheader, !llvm.loop !748
 
-283:                                              ; preds = %.lr.ph396
-  %284 = getelementptr inbounds nuw i8, ptr %.1.i75395, i64 1
+283:                                              ; preds = %.lr.ph402
+  %284 = getelementptr inbounds nuw i8, ptr %.1.i75401, i64 1
   %.not.i76 = icmp eq ptr %284, %186
-  br i1 %.not.i76, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph396, !llvm.loop !749
+  br i1 %.not.i76, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph402, !llvm.loop !749
 
-.lr.ph396:                                        ; preds = %.preheader, %283
-  %.1.i75395 = phi ptr [ %284, %283 ], [ %.09.i74.lcssa, %.preheader ]
-  %285 = load i8, ptr %.1.i75395, align 1, !tbaa !15
+.lr.ph402:                                        ; preds = %.preheader, %283
+  %.1.i75401 = phi ptr [ %284, %283 ], [ %.09.i74.lcssa, %.preheader ]
+  %285 = load i8, ptr %.1.i75401, align 1, !tbaa !15
   %.not10.i77 = icmp eq i8 %285, 48
   br i1 %.not10.i77, label %283, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph392, %.lr.ph396
+.loopexit:                                        ; preds = %.lr.ph398, %.lr.ph402
   %286 = zext i16 %.pr257 to i64
   %.not19.i.i142 = icmp eq i16 %.pr257, 0
   br i1 %.not19.i.i142, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151, label %.lr.ph.i.i143
 
 ._crit_edge.i.i147:                               ; preds = %.lr.ph.i.i143
-  %.not.i.i148 = icmp ne i64 %295, 0
+  %.not.i.i148 = icmp samesign ugt i128 %293, 18446744073709551615
   %287 = icmp ult i16 %.pr257, 62
   %or.cond265 = and i1 %287, %.not.i.i148
   br i1 %or.cond265, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151
@@ -60334,7 +60334,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   br label %318
 
 ._crit_edge.i.i165:                               ; preds = %318
-  %.not.i.i166 = icmp ne i64 %326, 0
+  %.not.i.i166 = icmp ugt i128 %324, 18446744073709551615
   %317 = icmp ult i16 %242, 62
   %or.cond266 = and i1 %317, %.not.i.i166
   br i1 %or.cond266, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169
@@ -60409,7 +60409,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
   store i64 %345, ptr %3, align 8, !tbaa !11
   br label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81: ; preds = %197, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, %283, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, %._crit_edge352, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71, %.preheader, %._crit_edge333, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81: ; preds = %197, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, %283, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, %._crit_edge358, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71, %.preheader, %._crit_edge339, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
   ret void
 }
 
@@ -60891,32 +60891,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail8charconv6de
 .preheader:                                       ; preds = %7, %2
   %.07.lcssa = phi i32 [ %1, %2 ], [ %8, %7 ]
   %4 = icmp samesign ugt i32 %.07.lcssa, 26
-  br i1 %4, label %.lr.ph28, label %._crit_edge
+  br i1 %4, label %.lr.ph30, label %._crit_edge
 
-.lr.ph28:                                         ; preds = %.preheader
+.lr.ph30:                                         ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %.promoted = load i16, ptr %5, align 8, !tbaa !744
   br label %10
 
 .lr.ph:                                           ; preds = %2, %7
-  %.0726 = phi i32 [ %8, %7 ], [ %1, %2 ]
+  %.0728 = phi i32 [ %8, %7 ], [ %1, %2 ]
   %6 = tail call noundef zeroext i1 @_ZN5boost4json6detail8charconv6detail10fast_float8long_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE(ptr noundef nonnull align 8 dereferenceable(498) %0, ptr nonnull @_ZN5boost4json6detail8charconv6detail10fast_float11pow5_tablesIvE16large_power_of_5E, i64 5) #48
   br i1 %6, label %7, label %_ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit
 
 7:                                                ; preds = %.lr.ph
-  %8 = add i32 %.0726, -135
+  %8 = add i32 %.0728, -135
   %9 = icmp ugt i32 %8, 134
   br i1 %9, label %.lr.ph, label %.preheader, !llvm.loop !758
 
-10:                                               ; preds = %.lr.ph28, %27
-  %11 = phi i16 [ %.promoted, %.lr.ph28 ], [ %28, %27 ]
-  %.1827 = phi i32 [ %.07.lcssa, %.lr.ph28 ], [ %29, %27 ]
+10:                                               ; preds = %.lr.ph30, %27
+  %11 = phi i16 [ %.promoted, %.lr.ph30 ], [ %28, %27 ]
+  %.1829 = phi i32 [ %.07.lcssa, %.lr.ph30 ], [ %29, %27 ]
   %12 = zext i16 %11 to i64
   %.not19.i = icmp eq i16 %11, 0
   br i1 %.not19.i, label %27, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp eq i64 %20, 0
+  %.not.i = icmp samesign ult i128 %18, 18446744073709551616
   br i1 %.not.i, label %27, label %23
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -60949,7 +60949,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
 
 27:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, %._crit_edge.i, %10
   %28 = phi i16 [ %26, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i ], [ %11, %._crit_edge.i ], [ 0, %10 ]
-  %29 = add nsw i32 %.1827, -27
+  %29 = add nsw i32 %.1829, -27
   %30 = icmp ugt i32 %29, 26
   br i1 %30, label %10, label %._crit_edge, !llvm.loop !759
 
@@ -60973,7 +60973,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   br label %39
 
 ._crit_edge.i14:                                  ; preds = %39
-  %.not.i15 = icmp eq i64 %47, 0
+  %.not.i15 = icmp ult i128 %45, 18446744073709551616
   br i1 %.not.i15, label %_ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit, label %50
 
 39:                                               ; preds = %39, %.lr.ph.i10
@@ -61015,31 +61015,31 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail8charconv6de
   %5 = alloca %"struct.boost::json::detail::charconv::detail::fast_float::stackvec", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load i16, ptr %6, align 8, !tbaa !744
-  %.fr94 = freeze i16 %7
-  %8 = zext i16 %.fr94 to i64
+  %.fr96 = freeze i16 %7
+  %8 = zext i16 %.fr96 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.496..496..496..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 496
   store i16 0, ptr %.496..496..496..sroa_idx, align 8, !tbaa !744
-  %.not.i.i = icmp ult i16 %.fr94, 63
+  %.not.i.i = icmp ult i16 %.fr96, 63
   br i1 %.not.i.i, label %9, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit
 
 9:                                                ; preds = %3
-  %10 = icmp eq i16 %.fr94, 0
+  %10 = icmp eq i16 %.fr96, 0
   br i1 %10, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i, label %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i
 
 _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; preds = %9
   %.idx.i.i.i.i.i = shl nuw nsw i64 %8, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(498) %4, ptr nonnull align 8 %0, i64 %.idx.i.i.i.i.i, i1 false)
-  %.496..496..496..sroa_idx106 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  %.496..496..496..pre.i.i = load i16, ptr %.496..496..496..sroa_idx106, align 8, !tbaa !744
+  %.496..496..496..sroa_idx114 = getelementptr inbounds nuw i8, ptr %4, i64 496
+  %.496..496..496..pre.i.i = load i16, ptr %.496..496..496..sroa_idx114, align 8, !tbaa !744
   %11 = freeze i16 %.496..496..496..pre.i.i
   br label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i: ; preds = %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i, %9
   %.fr = phi i16 [ 0, %9 ], [ %11, %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i ]
-  %12 = add i16 %.fr, %.fr94
-  %.496..496..496..sroa_idx107 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  store i16 %12, ptr %.496..496..496..sroa_idx107, align 8, !tbaa !744
+  %12 = add i16 %.fr, %.fr96
+  %.496..496..496..sroa_idx115 = getelementptr inbounds nuw i8, ptr %4, i64 496
+  store i16 %12, ptr %.496..496..496..sroa_idx115, align 8, !tbaa !744
   br label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit: ; preds = %3, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i
@@ -61048,7 +61048,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImE
   br i1 %.not, label %.critedge34, label %13
 
 13:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit
-  %.not19.i = icmp eq i16 %.fr94, 0
+  %.not19.i = icmp eq i16 %.fr96, 0
   br i1 %.not19.i, label %_ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
@@ -61057,7 +61057,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImE
   br label %16
 
 ._crit_edge.i:                                    ; preds = %16
-  %.not.i = icmp eq i64 %24, 0
+  %.not.i = icmp ult i128 %22, 18446744073709551616
   br i1 %.not.i, label %_ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit, label %27
 
 16:                                               ; preds = %16, %.lr.ph.i
@@ -61078,19 +61078,19 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImE
   br i1 %exitcond.not.i, label %._crit_edge.i, label %16, !llvm.loop !746
 
 27:                                               ; preds = %._crit_edge.i
-  %28 = icmp ult i16 %.fr94, 62
+  %28 = icmp ult i16 %.fr96, 62
   br i1 %28, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, label %.critedge32
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; preds = %27
   %29 = getelementptr inbounds nuw i64, ptr %0, i64 %8
   store i64 %24, ptr %29, align 8, !tbaa !11
-  %30 = add nuw nsw i16 %.fr94, 1
+  %30 = add nuw nsw i16 %.fr96, 1
   store i16 %30, ptr %6, align 8, !tbaa !744
   br label %_ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit: ; preds = %13, %._crit_edge.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i
-  %.not30.not67.not = icmp eq i64 %2, 1
-  br i1 %.not30.not67.not, label %.critedge34, label %.lr.ph
+  %.not30.not69.not = icmp eq i64 %2, 1
+  br i1 %.not30.not69.not, label %.critedge34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 496
@@ -61105,9 +61105,9 @@ _ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackv
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.critedge.us
-  %.02768.us = phi i64 [ %107, %.critedge.us ], [ 1, %.lr.ph.split.us.preheader ]
+  %.02770.us = phi i64 [ %107, %.critedge.us ], [ 1, %.lr.ph.split.us.preheader ]
   %34 = phi i16 [ %106, %.critedge.us ], [ %.promoted, %.lr.ph.split.us.preheader ]
-  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.02768.us
+  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.02770.us
   %36 = load i64, ptr %35, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29.us = icmp eq i64 %36, 0
@@ -61151,7 +61151,7 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us: ; 
   br i1 %exitcond.not.i40.us, label %._crit_edge.i41.us, label %43, !llvm.loop !746
 
 ._crit_edge.i41.us:                               ; preds = %43
-  %.not.i42.us = icmp eq i64 %51, 0
+  %.not.i42.us = icmp ult i128 %49, 18446744073709551616
   br i1 %.not.i42.us, label %58, label %54
 
 54:                                               ; preds = %._crit_edge.i41.us
@@ -61168,14 +61168,14 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   %59 = phi i16 [ %57, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44.us ], [ %40, %._crit_edge.i41.us ], [ 0, %38 ]
   %60 = zext i16 %59 to i64
   %61 = zext i16 %34 to i64
-  %62 = icmp ugt i64 %.02768.us, %61
-  %63 = sub nsw i64 %61, %.02768.us
+  %62 = icmp ugt i64 %.02770.us, %61
+  %63 = sub nsw i64 %61, %.02770.us
   %64 = icmp ult i64 %63, %60
   %or.cond.i.us = select i1 %62, i1 true, i1 %64
   br i1 %or.cond.i.us, label %65, label %73
 
 65:                                               ; preds = %58
-  %66 = add i64 %.02768.us, %60
+  %66 = add i64 %.02770.us, %60
   %67 = icmp ult i64 %66, 63
   br i1 %67, label %68, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS4_4spanImEE.exit
 
@@ -61197,7 +61197,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm
 
 73:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us, %58
   %74 = phi i16 [ %34, %58 ], [ %storemerge.i.i.i.us, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us ]
-  %invariant.gep.i.us = getelementptr i64, ptr %0, i64 %.02768.us
+  %invariant.gep.i.us = getelementptr i64, ptr %0, i64 %.02770.us
   %.not.i46.us = icmp eq i16 %59, 0
   br i1 %.not.i46.us, label %.critedge.us, label %.lr.ph.i47.us
 
@@ -61235,7 +61235,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm
   br i1 %89, label %91, label %.critedge.us
 
 91:                                               ; preds = %._crit_edge.i49.us
-  %92 = add i64 %.02768.us, %60
+  %92 = add i64 %.02770.us, %60
   %93 = zext i16 %74 to i64
   br label %94
 
@@ -61268,13 +61268,13 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
 .critedge.us:                                     ; preds = %99, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i49.us, %73, %.lr.ph.split.us
   %106 = phi i16 [ %74, %73 ], [ %98, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %74, %._crit_edge.i49.us ], [ %34, %.lr.ph.split.us ], [ %74, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %107 = add nuw i64 %.02768.us, 1
-  %exitcond73.not = icmp eq i64 %107, %2
-  br i1 %exitcond73.not, label %.critedge34, label %.lr.ph.split.us, !llvm.loop !761
+  %107 = add nuw i64 %.02770.us, 1
+  %exitcond77.not = icmp eq i64 %107, %2
+  br i1 %exitcond77.not, label %.critedge34, label %.lr.ph.split.us, !llvm.loop !761
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.02768 = phi i64 [ %110, %.critedge ], [ 1, %.lr.ph ]
-  %108 = getelementptr inbounds nuw i64, ptr %1, i64 %.02768
+  %.02770 = phi i64 [ %110, %.critedge ], [ 1, %.lr.ph ]
+  %108 = getelementptr inbounds nuw i64, ptr %1, i64 %.02770
   %109 = load i64, ptr %108, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29 = icmp eq i64 %109, 0
@@ -61282,7 +61282,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
 
 .critedge:                                        ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %110 = add nuw i64 %.02768, 1
+  %110 = add nuw i64 %.02770, 1
   %exitcond.not = icmp eq i64 %110, %2
   br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !761
 

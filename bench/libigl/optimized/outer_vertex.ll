@@ -7589,7 +7589,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends13eval_mul
   store i64 %.sroa.0.0.extract.trunc, ptr %43, align 8, !tbaa !62
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %44, align 8, !tbaa !62
-  %.not.i111 = icmp eq i64 %.sroa.2.0.extract.trunc, 0
+  %.not.i111 = icmp ult i128 %37, 18446744073709551616
   %45 = select i1 %.not.i111, i64 1, i64 2
   %46 = load i64, ptr %0, align 16
   %spec.select.i.i = select i1 %40, i64 2, i64 %46

@@ -30027,8 +30027,8 @@ define internal fastcc range(i32 -1, 1) i32 @_set_uint128_coeff_exp(ptr noundef 
   %17 = trunc nuw nsw i128 %14 to i64
   %.16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %17, ptr %.16..16..sroa_idx, align 16, !tbaa !3
-  %.not.i17 = icmp eq i64 %17, 0
-  %.not18.i = icmp eq i64 %16, 0
+  %.not.i17 = icmp ult i128 %10, 100000000000000000000000000000000000000
+  %.not18.i = icmp eq i128 %15, 0
   %18 = select i1 %.not18.i, i64 1, i64 2
   %19 = select i1 %.not.i17, i64 %18, i64 3
   %20 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3

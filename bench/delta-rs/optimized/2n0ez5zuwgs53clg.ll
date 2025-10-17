@@ -88106,50 +88106,66 @@ default.unreachable:                              ; preds = %8
 
 86:                                               ; preds = %80
   switch i64 %82, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i" [
-    i64 0, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i"
-    i64 2, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i"
+    i64 0, label %87
+    i64 2, label %89
   ]
 
-"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i": ; preds = %86, %86
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %89 = tail call noundef zeroext i1 @"_ZN79_$LT$datafusion_common..scalar..ScalarValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h41bc8ae7977a51eeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %87, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %88)
-  br i1 %89, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i", label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
+87:                                               ; preds = %86
+  %88 = icmp eq i128 %83, 0
+  br i1 %88, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i", label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i"
 
-"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i": ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i", %86
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
+89:                                               ; preds = %86
+  %90 = icmp eq i128 %83, 2
+  br i1 %90, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i", label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i"
+
+"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i": ; preds = %89, %87
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %93 = tail call noundef zeroext i1 @"_ZN79_$LT$datafusion_common..scalar..ScalarValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h41bc8ae7977a51eeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %91, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %92)
+  br i1 %93, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i", label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
+
+"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i": ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i", %89, %87, %86
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12856)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12859)
-  %92 = load i128, ptr %90, align 16, !range !1886, !alias.scope !12861, !noalias !12862, !noundef !4
-  %93 = trunc nuw nsw i128 %92 to i64
-  %94 = load i128, ptr %91, align 16, !range !1886, !alias.scope !12862, !noalias !12861, !noundef !4
-  %95 = trunc nuw nsw i128 %94 to i64
-  %96 = icmp eq i64 %93, %95
-  br i1 %96, label %97, label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
+  %96 = load i128, ptr %94, align 16, !range !1886, !alias.scope !12861, !noalias !12862, !noundef !4
+  %97 = trunc nuw nsw i128 %96 to i64
+  %98 = load i128, ptr %95, align 16, !range !1886, !alias.scope !12862, !noalias !12861, !noundef !4
+  %99 = trunc nuw nsw i128 %98 to i64
+  %100 = icmp eq i64 %97, %99
+  br i1 %100, label %101, label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
 
-97:                                               ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i"
-  switch i64 %93, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i" [
-    i64 0, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i"
-    i64 2, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i"
+101:                                              ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i"
+  switch i64 %97, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i" [
+    i64 0, label %102
+    i64 2, label %104
   ]
 
-"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i": ; preds = %97, %97
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %100 = tail call noundef zeroext i1 @"_ZN79_$LT$datafusion_common..scalar..ScalarValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h41bc8ae7977a51eeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %98, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %99)
-  br i1 %100, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i", label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
+102:                                              ; preds = %101
+  %103 = icmp eq i128 %98, 0
+  br i1 %103, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i", label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i"
 
-"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i": ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i", %97
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %102 = load i8, ptr %101, align 16, !range !1281, !alias.scope !12844, !noalias !12847, !noundef !4
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %104 = load i8, ptr %103, align 16, !range !1281, !alias.scope !12847, !noalias !12844, !noundef !4
-  %105 = icmp eq i8 %102, %104
+104:                                              ; preds = %101
+  %105 = icmp eq i128 %98, 2
+  br i1 %105, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i", label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i"
+
+"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i": ; preds = %104, %102
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %108 = tail call noundef zeroext i1 @"_ZN79_$LT$datafusion_common..scalar..ScalarValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h41bc8ae7977a51eeE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %106, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %107)
+  br i1 %108, label %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i", label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
+
+"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i": ; preds = %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i", %104, %102, %101
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %110 = load i8, ptr %109, align 16, !range !1281, !alias.scope !12844, !noalias !12847, !noundef !4
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %112 = load i8, ptr %111, align 16, !range !1281, !alias.scope !12847, !noalias !12844, !noundef !4
+  %113 = icmp eq i8 %110, %112
   br label %"_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit"
 
 "_ZN83_$LT$datafusion_expr..window_frame..WindowFrame$u20$as$u20$core..cmp..PartialEq$GT$2eq17h00a7119f04ca3afaE.exit": ; preds = %44, %57, %70, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit6", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit", %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit.thread", %2, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i", %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i", %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i", %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i", %80, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit11", %25, %15, %9, %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit"
-  %.0 = phi i1 [ false, %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit" ], [ false, %9 ], [ false, %15 ], [ false, %25 ], [ %105, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i" ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i" ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit11" ], [ false, %80 ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i" ], [ false, %2 ], [ false, %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit6" ], [ false, %70 ], [ false, %57 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit" ], [ false, %9 ], [ false, %15 ], [ false, %25 ], [ %113, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.thread.i" ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit3.i" ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.i" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit11" ], [ false, %80 ], [ false, %"_ZN88_$LT$datafusion_expr..window_frame..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97fd68876636795dE.exit.thread.i" ], [ false, %2 ], [ false, %"_ZN88_$LT$datafusion_expr..expr..WindowFunctionDefinition$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31a1de744d3c66a1E.exit.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha51d1685b90d102cE.exit6" ], [ false, %70 ], [ false, %57 ], [ false, %44 ]
   ret i1 %.0
 }
 

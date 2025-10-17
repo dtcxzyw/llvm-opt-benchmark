@@ -5479,8 +5479,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint1
   %.sroa.2.0.extract.shift.i.i.i56 = lshr i128 %67, 64
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i.i.i56 to i64
   %.not.i.i57 = icmp ne i64 %.sroa.0.0.extract.trunc.i.i.i55, 0
-  %70 = icmp ne i64 %.sroa.2.0.extract.trunc.i.i.i, 0
-  %71 = select i1 %.not.i.i57, i1 true, i1 %70
+  %70 = icmp ugt i64 %.sroa.5.0.i53, 99
+  %71 = or i1 %70, %.not.i.i57
   br i1 %71, label %65, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !75
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit: ; preds = %65
@@ -5528,8 +5528,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %84, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %.not.i.i.i = icmp ne i64 %.sroa.0.0.extract.trunc.i.i.i.i, 0
-  %87 = icmp ne i64 %.sroa.2.0.extract.trunc.i.i.i.i, 0
-  %88 = select i1 %.not.i.i.i, i1 true, i1 %87
+  %87 = icmp ugt i64 %.sroa.5.0.i.i, 99
+  %88 = or i1 %87, %.not.i.i.i
   br i1 %88, label %82, label %89, !llvm.loop !75
 
 89:                                               ; preds = %82
@@ -5797,8 +5797,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint1
   %.sroa.2.0.extract.shift.i.i.i56 = lshr i128 %67, 64
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i.i.i56 to i64
   %.not.i.i57 = icmp ne i64 %.sroa.0.0.extract.trunc.i.i.i55, 0
-  %70 = icmp ne i64 %.sroa.2.0.extract.trunc.i.i.i, 0
-  %71 = select i1 %.not.i.i57, i1 true, i1 %70
+  %70 = icmp ugt i64 %.sroa.5.0.i53, 99
+  %71 = or i1 %70, %.not.i.i57
   br i1 %71, label %65, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, !llvm.loop !75
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit: ; preds = %65
@@ -5837,8 +5837,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
   %.sroa.2.0.extract.shift.i.i.i67 = lshr i128 %83, 64
   %.sroa.2.0.extract.trunc.i.i.i68 = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i.i.i67 to i64
   %.not.i.i69 = icmp ne i64 %.sroa.0.0.extract.trunc.i.i.i66, 0
-  %86 = icmp ne i64 %.sroa.2.0.extract.trunc.i.i.i68, 0
-  %87 = select i1 %.not.i.i69, i1 true, i1 %86
+  %86 = icmp ugt i64 %.sroa.5.0.i60, 99
+  %87 = or i1 %86, %.not.i.i69
   br i1 %87, label %81, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit71, !llvm.loop !75
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit71: ; preds = %81

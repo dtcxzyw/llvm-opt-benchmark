@@ -73384,7 +73384,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   br i1 %194, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3446e4e74d6362e0E.exit", label %.lr.ph.i25
 
 195:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3446e4e74d6362e0E.exit"
-  %.not.i26 = icmp eq i16 %.sroa.4.0.extract.trunc, 0
+  %.not.i26 = icmp ult i48 %1, 4294967296
   %.pr.pre116 = load i64, ptr %11, align 8
   br i1 %.not.i26, label %_ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68E.exit46, label %.lr.ph.i27
 
@@ -74098,7 +74098,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   br i1 %194, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h8fae77139808a9bbE.exit", label %.lr.ph.i25
 
 195:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h8fae77139808a9bbE.exit"
-  %.not.i26 = icmp eq i16 %.sroa.4.0.extract.trunc, 0
+  %.not.i26 = icmp ult i48 %1, 4294967296
   %.pr.pre116 = load i64, ptr %11, align 8
   br i1 %.not.i26, label %_ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68E.exit46, label %.lr.ph.i27
 

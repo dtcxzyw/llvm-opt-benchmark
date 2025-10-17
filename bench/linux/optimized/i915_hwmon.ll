@@ -843,23 +843,23 @@ define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 nounde
   %102 = zext nneg i64 %101 to i128
   %103 = zext nneg i32 %100 to i128
   %104 = lshr i128 %102, %103
-  %105 = trunc nuw nsw i128 %104 to i64
-  %106 = lshr i64 %97, 32
-  %107 = and i64 %106, 32767
-  %108 = mul nuw nsw i64 %107, 1000000
-  %109 = zext nneg i64 %108 to i128
-  %110 = lshr i128 %109, %103
-  %111 = trunc nuw nsw i128 %110 to i64
-  %112 = icmp ne i64 %105, 0
-  %113 = icmp ne i64 %111, 0
-  %114 = select i1 %112, i1 %113, i1 false
-  br i1 %114, label %115, label %.thread6
+  %105 = lshr i64 %97, 32
+  %106 = and i64 %105, 32767
+  %107 = mul nuw nsw i64 %106, 1000000
+  %108 = zext nneg i64 %107 to i128
+  %109 = lshr i128 %108, %103
+  %110 = icmp ne i128 %104, 0
+  %111 = icmp ne i128 %109, 0
+  %112 = select i1 %110, i1 %111, i1 false
+  br i1 %112, label %113, label %.thread6
 
-115:                                              ; preds = %96
+113:                                              ; preds = %96
+  %114 = trunc nuw nsw i128 %109 to i64
+  %115 = trunc nuw nsw i128 %104 to i64
   %116 = load i64, ptr %4, align 8
-  %117 = icmp ult i64 %116, %111
-  %118 = tail call i64 @llvm.umax.i64(i64 %116, i64 %105)
-  %119 = select i1 %117, i64 %118, i64 %111
+  %117 = icmp ult i64 %116, %114
+  %118 = tail call i64 @llvm.umax.i64(i64 %116, i64 %115)
+  %119 = select i1 %117, i64 %118, i64 %114
   br label %.thread
 
 120:                                              ; preds = %37
@@ -921,8 +921,8 @@ define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 nounde
   %163 = zext nneg i32 %162 to i64
   br label %.thread
 
-.thread:                                          ; preds = %39, %160, %137, %115, %46
-  %164 = phi i64 [ %119, %115 ], [ %143, %137 ], [ %163, %160 ], [ 0, %46 ], [ 0, %39 ]
+.thread:                                          ; preds = %39, %160, %137, %113, %46
+  %164 = phi i64 [ %119, %113 ], [ %143, %137 ], [ %163, %160 ], [ 0, %46 ], [ 0, %39 ]
   store i64 %164, ptr %4, align 8
   br label %.thread6
 
