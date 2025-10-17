@@ -83,10 +83,10 @@ av_cmp_q.exit32.thread:                           ; preds = %52, %50
 
 av_cmp_q.exit.thread.sink.split:                  ; preds = %52, %av_cmp_q.exit32.thread
   %.sink39 = phi i32 [ 23, %av_cmp_q.exit32.thread ], [ 7, %52 ]
-  %55 = lshr i32 %6, %.sink39
-  %.lobit = and i32 %55, 1
-  %56 = or disjoint i32 %49, %.lobit
-  store i32 %56, ptr %4, align 4, !tbaa !4
+  %54 = lshr i32 %6, %.sink39
+  %.lobit = and i32 %54, 1
+  %55 = or disjoint i32 %49, %.lobit
+  store i32 %55, ptr %4, align 4, !tbaa !4
   br label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread.sink.split, %9, %47, %av_cmp_q.exit

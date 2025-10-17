@@ -48,7 +48,7 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %26, label %.lr.ph68.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58, %._crit_edge.i
-  %.145.lcssa.i = phi ptr [ %.044.lcssa.i, %._crit_edge.i ], [ %59, %58 ]
+  %.145.lcssa.i = phi ptr [ %.044.lcssa.i, %._crit_edge.i ], [ %56, %58 ]
   %27 = icmp ult ptr %.145.lcssa.i, %8
   br i1 %27, label %.lr.ph71.preheader.i, label %nal_find_startcode_internal.exit.thread
 
@@ -60,7 +60,7 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %.lr.ph71.i
 
 .lr.ph68.i:                                       ; preds = %._crit_edge.i, %58
-  %.14566.i = phi ptr [ %59, %58 ], [ %.044.lcssa.i, %._crit_edge.i ]
+  %.14566.i = phi ptr [ %56, %58 ], [ %.044.lcssa.i, %._crit_edge.i ]
   %30 = load i32, ptr %.14566.i, align 4
   %31 = sub i32 16843008, %30
   %32 = or i32 %31, %30
@@ -85,35 +85,35 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
 43:                                               ; preds = %39
   %44 = icmp eq i8 %35, 0
   %.mask.i = and i32 %30, -16777216
-  %45 = icmp eq i32 %.mask.i, 16777216
-  %or.cond106.i = and i1 %45, %44
+  %46 = icmp eq i32 %.mask.i, 16777216
+  %or.cond106.i = and i1 %46, %44
   br i1 %or.cond106.i, label %.thread.loopexit93.split.loop.exit.i, label %46
 
-46:                                               ; preds = %43, %36
-  %47 = icmp ult i32 %30, 16777216
-  br i1 %47, label %48, label %58
+46: ; preds = %43, %36
+  %49 = icmp ult i32 %30, 16777216
+  br i1 %49, label %48, label %58
 
-48:                                               ; preds = %46
-  %49 = icmp samesign ult i32 %30, 65536
+.thread93.i:                                      ; preds = %46
+  %50 = icmp samesign ult i32 %30, 65536
   %50 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
   %51 = load i8, ptr %50, align 1, !tbaa !4
   %52 = icmp eq i8 %51, 1
   %or.cond107.i = select i1 %49, i1 %52, i1 false
-  br i1 %or.cond107.i, label %.thread.loopexit93.split.loop.exit98.i, label %._crit_edge84.i
+  br i1 %or.cond107.i, label %.thread.loopexit93.split.loop.exit98.i, label %52
 
-._crit_edge84.i:                                  ; preds = %48
+52:                                               ; preds = %48
   %53 = icmp eq i8 %51, 0
   br i1 %53, label %54, label %58
 
-54:                                               ; preds = %._crit_edge84.i
-  %55 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 5
-  %56 = load i8, ptr %55, align 1, !tbaa !4
+._crit_edge84.i:                                  ; preds = %52
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.14566.i, i64 5
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4
   %57 = icmp eq i8 %56, 1
   br i1 %57, label %.thread.loopexit93.split.loop.exit100.i, label %58
 
-58:                                               ; preds = %54, %._crit_edge84.i, %46, %.lr.ph68.i
-  %59 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
-  %60 = icmp ult ptr %59, %25
+58:; preds = %54, %._crit_edge84.i, %46, %.lr.ph68.i
+  %56 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 4
+  %60 = icmp ult ptr %56, %25
   br i1 %60, label %.lr.ph68.i, label %.preheader.i, !llvm.loop !9
 
 .lr.ph71.i:                                       ; preds = %71, %.lr.ph71.preheader.i
@@ -134,38 +134,38 @@ define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_
   %70 = icmp eq i8 %69, 1
   br i1 %70, label %nal_find_startcode_internal.exit, label %71
 
-71:                                               ; preds = %67, %63, %.lr.ph71.i
+71:; preds = %67, %63, %.lr.ph71.i
   %72 = getelementptr inbounds nuw i8, ptr %.24670.i, i64 1
-  %exitcond.not.i = icmp eq ptr %72, %scevgep.i
+  %71 = icmp eq ptr %72, %scevgep.i
   br i1 %exitcond.not.i, label %nal_find_startcode_internal.exit.thread, label %.lr.ph71.i, !llvm.loop !10
 
-.thread.loopexit93.split.loop.exit.i:             ; preds = %43
-  %73 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 1
+.thread.loopexit95.split.loop.exit.i:             ; preds = %43
+  %82 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 1
   br label %nal_find_startcode_internal.exit
 
 .thread.loopexit93.split.loop.exit98.i:           ; preds = %48
   %74 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 2
   br label %nal_find_startcode_internal.exit
 
-.thread.loopexit93.split.loop.exit100.i:          ; preds = %54
-  %75 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
+nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %54
+  %83 = getelementptr inbounds nuw i8, ptr %.14566.i, i64 3
   br label %nal_find_startcode_internal.exit
 
-nal_find_startcode_internal.exit:                 ; preds = %16, %39, %67, %.thread.loopexit93.split.loop.exit.i, %.thread.loopexit93.split.loop.exit98.i, %.thread.loopexit93.split.loop.exit100.i
-  %.0.i = phi ptr [ %73, %.thread.loopexit93.split.loop.exit.i ], [ %74, %.thread.loopexit93.split.loop.exit98.i ], [ %75, %.thread.loopexit93.split.loop.exit100.i ], [ %.24670.i, %67 ], [ %.14566.i, %39 ], [ %.04456.i, %16 ]
-  %76 = icmp ult ptr %0, %.0.i
-  %77 = icmp ult ptr %.0.i, %1
-  %or.cond = and i1 %76, %77
-  br i1 %or.cond, label %78, label %nal_find_startcode_internal.exit.thread
+nal_find_startcode_internal.exit:                 ; preds = %16, %39, %67, %.thread.loopexit95.split.loop.exit.i, %.thread.loopexit93.split.loop.exit98.i, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19
+  %.0.i = phi ptr [ %82, %.thread.loopexit93.split.loop.exit.i ], [ %74, %.thread.loopexit93.split.loop.exit98.i ], [ %83, %.thread.loopexit93.split.loop.exit100.i ], [ %.24670.i, %67 ], [ %.14566.i, %39 ], [ %.04456.i, %16 ]
+  %84 = icmp ult ptr %0, %.0.i
+  %85 = icmp ult ptr %.0.i, %1
+  %or.cond = and i1 %84, %85
+  br i1 %or.cond, label %86, label %nal_find_startcode_internal.exit.thread
 
-78:                                               ; preds = %nal_find_startcode_internal.exit
-  %79 = getelementptr inbounds i8, ptr %.0.i, i64 -1
-  %80 = load i8, ptr %79, align 1, !tbaa !4
-  %.not = icmp eq i8 %80, 0
-  %spec.select = select i1 %.not, ptr %79, ptr %.0.i
+86:                                               ; preds = %nal_find_startcode_internal.exit
+  %87 = getelementptr inbounds i8, ptr %.0.i, i64 -1
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %.not = icmp eq i8 %88, 0
+  %spec.select = select i1 %.not, ptr %87, ptr %.0.i
   br label %nal_find_startcode_internal.exit.thread
 
-nal_find_startcode_internal.exit.thread:          ; preds = %71, %.preheader.i, %78, %nal_find_startcode_internal.exit
+nal_find_startcode_internal.exit.thread:          ; preds = %71, %.preheader.i, %86, %nal_find_startcode_internal.exit
   %.0 = phi ptr [ %.0.i, %nal_find_startcode_internal.exit ], [ %spec.select, %78 ], [ %1, %.preheader.i ], [ %1, %71 ]
   ret ptr %.0
 }
@@ -215,7 +215,7 @@ define internal fastcc i32 @nal_parse_units(ptr noundef %0, ptr noundef %1, ptr 
   %21 = add i32 %19, 1
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
-  %24 = tail call ptr @av_fast_realloc(ptr noundef %20, ptr noundef nonnull %9, i64 noundef %23) #7
+  %24 = tail call ptr @av_fast_realloc(ptr noundef %20, ptr noundef nonnull %9, i64 noundef %23) #8
   %.not52.not.us = icmp eq ptr %24, null
   br i1 %.not52.not.us, label %.critedge54.thread, label %.critedge54.us
 
@@ -269,8 +269,8 @@ define internal fastcc i32 @nal_parse_units(ptr noundef %0, ptr noundef %1, ptr 
   %48 = ptrtoint ptr %.244 to i64
   %49 = sub i64 %47, %48
   %50 = trunc i64 %49 to i32
-  tail call void @avio_wb32(ptr noundef nonnull %0, i32 noundef %50) #7
-  tail call void @avio_write(ptr noundef nonnull %0, ptr noundef %.244, i32 noundef %50) #7
+  tail call void @avio_wb32(ptr noundef nonnull %0, i32 noundef %50) #8
+  tail call void @avio_write(ptr noundef nonnull %0, ptr noundef %.244, i32 noundef %50) #8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %52, %48
@@ -322,7 +322,7 @@ define i32 @ff_nal_units_create_list(ptr noundef initializes((12, 16)) %0, ptr n
   %20 = add i32 %18, 1
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 3
-  %23 = tail call ptr @av_fast_realloc(ptr noundef %19, ptr noundef nonnull %8, i64 noundef %22) #7
+  %23 = tail call ptr @av_fast_realloc(ptr noundef %19, ptr noundef nonnull %8, i64 noundef %22) #8
   %.not52.not.us.i = icmp eq ptr %23, null
   br i1 %.not52.not.us.i, label %nal_parse_units.exit, label %.critedge54.us.i
 
@@ -370,7 +370,7 @@ define void @ff_nal_units_write_list(ptr noundef readonly captures(none) %0, ptr
   %7 = getelementptr inbounds nuw %struct.NALU, ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !19
-  tail call void @avio_wb32(ptr noundef %1, i32 noundef %9) #7
+  tail call void @avio_wb32(ptr noundef %1, i32 noundef %9) #8
   %10 = load ptr, ptr %0, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw %struct.NALU, ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !21
@@ -378,7 +378,7 @@ define void @ff_nal_units_write_list(ptr noundef readonly captures(none) %0, ptr
   %14 = getelementptr inbounds i8, ptr %2, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !19
-  tail call void @avio_write(ptr noundef %1, ptr noundef %14, i32 noundef %16) #7
+  tail call void @avio_write(ptr noundef %1, ptr noundef %14, i32 noundef %16) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %4, align 4, !tbaa !12
   %18 = zext i32 %17 to i64
@@ -394,7 +394,7 @@ declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 define range(i32 -2147483648, 1) i32 @ff_nal_parse_units_buf(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %4) #7
+  %5 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %4) #8
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %13, label %7
 
@@ -403,7 +403,7 @@ define range(i32 -2147483648, 1) i32 @ff_nal_parse_units_buf(ptr noundef %0, ptr
   %9 = load i32, ptr %2, align 4, !tbaa !18
   %10 = call fastcc i32 @nal_parse_units(ptr noundef %8, ptr noundef null, ptr noundef %0, i32 noundef %9)
   %11 = load ptr, ptr %4, align 8, !tbaa !23
-  %12 = call i32 @avio_close_dyn_buf(ptr noundef %11, ptr noundef %1) #7
+  %12 = call i32 @avio_close_dyn_buf(ptr noundef %11, ptr noundef %1) #8
   store i32 %12, ptr %2, align 4, !tbaa !18
   br label %13
 
@@ -469,7 +469,7 @@ define ptr @ff_nal_mp4_find_startcode(ptr noundef %0, ptr noundef %1, i32 nounde
 define noalias ptr @ff_nal_unit_extract_rbsp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = add i32 %1, 64
   %6 = zext i32 %5 to i64
-  %7 = tail call noalias ptr @av_malloc(i64 noundef %6) #7
+  %7 = tail call noalias ptr @av_malloc(i64 noundef %6) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %48, label %.preheader53
 
@@ -579,27 +579,27 @@ define noalias ptr @ff_nal_unit_extract_rbsp(ptr noundef readonly captures(none)
 declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @av_fast_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }

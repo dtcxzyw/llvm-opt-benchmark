@@ -2783,8 +2783,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
 
 136:                                              ; preds = %131
   %137 = udiv i32 %.sroa.722.022.i, 10000000
-  %.lhs.trunc60.i = trunc nuw nsw i32 %137 to i8
-  %138 = urem i8 %.lhs.trunc60.i, 10
+  %.lhs.trunc59.i = trunc nuw nsw i32 %137 to i8
+  %138 = urem i8 %.lhs.trunc59.i, 10
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %141, label %143
 

@@ -84023,72 +84023,72 @@ define internal fastcc void @"_ZN80_$LT$typst..foundations..content..Inner$LT$T$
 ._crit_edge:                                      ; preds = %19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !invariant.load !4, !noalias !15365
-  br label %35
+  br label %34
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15368)
-  %26 = load i128, ptr %25, align 16, !alias.scope !15368, !noundef !4
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !15371, !nonnull !4
-  tail call void %28(ptr noundef nonnull align 1 %8, i128 noundef %26), !noalias !15371
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load i64, ptr %29, align 16, !alias.scope !15368, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %32 = load ptr, ptr %31, align 8, !invariant.load !4, !noalias !15374, !nonnull !4
-  tail call void %32(ptr noundef nonnull align 1 %8, i64 noundef %30), !noalias !15374
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i64, ptr %33, align 8, !alias.scope !15368, !noundef !4
-  tail call void %32(ptr noundef nonnull align 1 %8, i64 noundef %34), !noalias !15377
-  br label %35
+  %25 = load i128, ptr %24, align 16, !alias.scope !15368, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %27 = load ptr, ptr %26, align 8, !invariant.load !4, !noalias !15371, !nonnull !4
+  tail call void %28(ptr noundef nonnull align 1 %8, i128 noundef %25), !noalias !15371
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load i64, ptr %28, align 16, !alias.scope !15368, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %31 = load ptr, ptr %30, align 8, !invariant.load !4, !noalias !15374, !nonnull !4
+  tail call void %32(ptr noundef nonnull align 1 %8, i64 noundef %29), !noalias !15374
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = load i64, ptr %32, align 8, !alias.scope !15368, !noundef !4
+  tail call void %32(ptr noundef nonnull align 1 %8, i64 noundef %33), !noalias !15377
+  br label %34
 
-35:                                               ; preds = %._crit_edge, %24
-  %36 = phi ptr [ %.pre, %._crit_edge ], [ %32, %24 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val4 = load i64, ptr %37, align 16, !noundef !4
-  %38 = getelementptr i8, ptr %0, i64 56
-  %.val5 = load ptr, ptr %38, align 8
+34:                                               ; preds = %._crit_edge, %23
+  %35 = phi ptr [ %.pre, %._crit_edge ], [ %31, %24 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val4 = load i64, ptr %36, align 16, !noundef !4
+  %37 = getelementptr i8, ptr %0, i64 56
+  %.val5 = load ptr, ptr %37, align 8
   tail call void %36(ptr noundef nonnull align 1 %8, i64 noundef %.val4), !noalias !15365
-  %39 = icmp ne ptr %.val5, null
-  %40 = zext i1 %39 to i64
-  tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %40), !noalias !15380
+  %38 = icmp ne ptr %.val5, null
+  %39 = zext i1 %38 to i64
+  tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %39), !noalias !15380
   %.not.i = icmp eq ptr %.val5, null
-  br i1 %.not.i, label %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit", label %41
+  br i1 %.not.i, label %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit", label %40
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %.val5, i64 8
-  %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
-  %45 = load i64, ptr %44, align 8, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %47 = load ptr, ptr %46, align 8, !invariant.load !4, !noalias !15383, !nonnull !4
-  tail call void %47(ptr noundef nonnull align 1 %8, i64 noundef %45), !noalias !15383
-  %48 = shl nsw i64 %45, 3
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %50 = load ptr, ptr %49, align 8, !invariant.load !4, !noalias !15386, !nonnull !4
-  tail call void %50(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %48), !noalias !15390
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %.val5, i64 8
+  %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
+  %43 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
+  %44 = load i64, ptr %43, align 8, !noundef !4
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %46 = load ptr, ptr %45, align 8, !invariant.load !4, !noalias !15383, !nonnull !4
+  tail call void %47(ptr noundef nonnull align 1 %8, i64 noundef %44), !noalias !15383
+  %47 = shl nsw i64 %44, 3
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %49 = load ptr, ptr %48, align 8, !invariant.load !4, !noalias !15386, !nonnull !4
+  tail call void %50(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %47), !noalias !15390
   br label %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit"
 
-"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit": ; preds = %35, %41
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %52 = load i64, ptr %51, align 8, !range !702, !invariant.load !4
-  %53 = tail call i64 @llvm.umax.i64(i64 %52, i64 16)
-  %54 = add i64 %53, -1
-  %55 = and i64 %54, -80
-  %56 = getelementptr i8, ptr %0, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 80
+"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit": ; preds = %34, %40
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %51 = load i64, ptr %50, align 8, !range !702, !invariant.load !4
+  %52 = tail call i64 @llvm.umax.i64(i64 %51, i64 16)
+  %53 = add i64 %52, -1
+  %54 = and i64 %53, -80
+  %55 = getelementptr i8, ptr %0, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15391)
-  %58 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8, !noalias !15391
-  %.0.i.i.i = inttoptr i64 %58 to ptr
-  %59 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull align 16 %57), !noalias !15391
-  %60 = icmp eq i128 %59, 0
-  br i1 %60, label %61, label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h743b4d33196bc66aE.exit"
+  %57 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8, !noalias !15391
+  %.0.i.i.i = inttoptr i64 %57 to ptr
+  %58 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull align 16 %56), !noalias !15391
+  %59 = icmp eq i128 %58, 0
+  br i1 %59, label %60, label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h743b4d33196bc66aE.exit"
 
-61:                                               ; preds = %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit"
-  %62 = add i64 %52, -1
-  %63 = and i64 %62, -16
-  %64 = getelementptr i8, ptr %57, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 16
+60:                                               ; preds = %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit"
+  %61 = add i64 %51, -1
+  %62 = and i64 %61, -16
+  %63 = getelementptr i8, ptr %56, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15394)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !15397
   %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -84103,26 +84103,26 @@ define internal fastcc void @"_ZN80_$LT$typst..foundations..content..Inner$LT$T$
   store i64 3647846661193119737, ptr %.sroa.412.0..sroa_idx.i.i, align 8, !alias.scope !15401, !noalias !15397
   store i64 9164177758879856238, ptr %4, align 8, !alias.scope !15398, !noalias !15397
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15404)
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %67 = load ptr, ptr %66, align 8, !invariant.load !4, !alias.scope !15407, !noalias !15408, !nonnull !4
-  call void %67(ptr noundef nonnull align 1 %65, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.1106.llvm.2456044669961016091), !noalias !15407
-  %68 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817hd3886009af9ed5acE"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !15397
-  %69 = extractvalue { i64, i64 } %68, 0
-  %70 = extractvalue { i64, i64 } %68, 1
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %66 = load ptr, ptr %65, align 8, !invariant.load !4, !alias.scope !15407, !noalias !15408, !nonnull !4
+  call void %67(ptr noundef nonnull align 1 %64, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.1106.llvm.2456044669961016091), !noalias !15407
+  %67 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817hd3886009af9ed5acE"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !15397
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = extractvalue { i64, i64 } %67, 1
   %71 = zext i64 %69 to i128
   %72 = zext i64 %70 to i128
   %73 = shl nuw i128 %72, 64
   %74 = or disjoint i128 %73, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !15397
-  %75 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8, !noalias !15391
-  %.0.i1.i.i.i = inttoptr i64 %75 to ptr
-  call void %.0.i1.i.i.i(ptr noundef nonnull align 16 %57, i128 noundef %74), !noalias !15391
+  %74 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8, !noalias !15391
+  %.0.i1.i.i.i = inttoptr i64 %74 to ptr
+  call void %.0.i1.i.i.i(ptr noundef nonnull align 16 %56, i128 noundef %74), !noalias !15391
   br label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h743b4d33196bc66aE.exit"
 
-"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h743b4d33196bc66aE.exit": ; preds = %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit", %61
-  %.0.i = phi i128 [ %74, %61 ], [ %59, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit" ]
-  %76 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %77 = load ptr, ptr %76, align 8, !invariant.load !4, !noalias !15410, !nonnull !4
+"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h743b4d33196bc66aE.exit": ; preds = %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit", %60
+  %.0.i = phi i128 [ %74, %61 ], [ %58, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17hbcdfcddffaa87444E.exit" ]
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !noalias !15410, !nonnull !4
   call void %77(ptr noundef nonnull align 1 %8, i128 noundef %.0.i), !noalias !15410
   ret void
 }

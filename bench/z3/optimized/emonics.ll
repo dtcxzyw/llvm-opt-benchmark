@@ -2661,7 +2661,7 @@ define hidden noundef zeroext i1 @_ZNK3nla7emonics21elists_are_consistentERSt13u
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %._crit_edge101, label %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit
+  br i1 %11, label %._crit_edge102, label %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit
 
 _ZN6vectorIN3nla5monicELb1EjE3endEv.exit:         ; preds = %2
   %12 = getelementptr inbounds i8, ptr %10, i64 -4
@@ -2683,7 +2683,7 @@ _ZN6vectorIN3nla5monicELb1EjE3endEv.exit:         ; preds = %2
 ._crit_edge:                                      ; preds = %68
   %.pre = load ptr, ptr %9, align 8, !tbaa !40
   %22 = icmp eq ptr %.pre, null
-  br i1 %22, label %._crit_edge101, label %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
+  br i1 %22, label %._crit_edge102, label %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
 
 _ZN6vectorIN3nla5monicELb1EjE3endEv.exit58:       ; preds = %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit, %._crit_edge
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %10, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit ]
@@ -2692,10 +2692,10 @@ _ZN6vectorIN3nla5monicELb1EjE3endEv.exit58:       ; preds = %_ZN6vectorIN3nla5mo
   %26 = zext i32 %25 to i64
   %27 = mul nuw nsw i64 %26, 40
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
-  %.not4798 = icmp eq i32 %25, 0
-  br i1 %.not4798, label %._crit_edge101, label %.lr.ph100
+  %.not4799 = icmp eq i32 %25, 0
+  br i1 %.not4799, label %._crit_edge102, label %.lr.ph101
 
-.lr.ph100:                                        ; preds = %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
+.lr.ph101:                                        ; preds = %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -2809,12 +2809,12 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt1
   %.not = icmp eq ptr %69, %16
   br i1 %.not, label %._crit_edge, label %38
 
-._crit_edge101:                                   ; preds = %153, %2, %._crit_edge, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
+._crit_edge102:                                   ; preds = %153, %2, %._crit_edge, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit58
   ret i1 true
 
-70:                                               ; preds = %.lr.ph100, %153
-  %.04699 = phi ptr [ %23, %.lr.ph100 ], [ %154, %153 ]
-  %71 = load i32, ptr %.04699, align 8, !tbaa !54
+70:                                               ; preds = %.lr.ph101, %153
+  %.046100 = phi ptr [ %23, %.lr.ph100 ], [ %154, %153 ]
+  %71 = load i32, ptr %.046100, align 8, !tbaa !54
   %72 = load ptr, ptr %29, align 8, !tbaa !47
   %73 = zext i32 %71 to i64
   %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
@@ -2848,7 +2848,7 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %34, align 8, !tbaa !105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %84 = load i32, ptr %.04699, align 8, !tbaa !54
+  %84 = load i32, ptr %.046100, align 8, !tbaa !54
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i32, ptr %72, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !41
@@ -2856,15 +2856,15 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
   br label %91
 
 88:                                               ; preds = %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit
-  %89 = getelementptr inbounds nuw i8, ptr %.04699, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.046100, i64 16
   %90 = invoke ptr @_ZNSt10_HashtableI7svectorIjjESt4pairIKS1_St13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESaISB_ENSt8__detail10_Select1stES7_IS1_EN3nla12hash_svectorENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %89)
           to label %_ZNSt13unordered_mapI7svectorIjjESt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEN3nla12hash_svectorES5_IS1_ESaISt4pairIKS1_S8_EEE4findERSD_.exit unwind label %155
 
 91:                                               ; preds = %_ZNK3nla7emonics18is_canonical_monicEj.exit.thread, %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit
   %92 = phi ptr [ %76, %_ZNK3nla7emonics18is_canonical_monicEj.exit.thread ], [ %132, %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit ]
-  %.sroa.6.097 = phi i40 [ %.sroa.26.0.extract.trunc, %_ZNK3nla7emonics18is_canonical_monicEj.exit.thread ], [ %.sroa.6.1.in, %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit ]
+  %.sroa.6.098 = phi i40 [ %.sroa.26.0.extract.trunc, %_ZNK3nla7emonics18is_canonical_monicEj.exit.thread ], [ %.sroa.6.1.in, %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit ]
   %93 = load ptr, ptr %9, align 8, !tbaa !40
-  %.sroa.6.8.extract.trunc.mask = and i40 %.sroa.6.097, 4294967295
+  %.sroa.6.8.extract.trunc.mask = and i40 %.sroa.6.098, 4294967295
   %94 = zext nneg i40 %.sroa.6.8.extract.trunc.mask to i64
   %95 = getelementptr inbounds nuw %"class.nla::monic", ptr %93, i64 %94
   %96 = load i32, ptr %95, align 8, !tbaa !54
@@ -2942,7 +2942,7 @@ _ZNK3nla7emonics18is_canonical_monicEj.exit.thread: ; preds = %70, %_ZNK10union_
           to label %.noexc77..loopexit_crit_edge unwind label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i
 
 .noexc77..loopexit_crit_edge:                     ; preds = %.noexc77
-  %.pre103 = load ptr, ptr %30, align 8, !tbaa !47
+  %.pre104 = load ptr, ptr %30, align 8, !tbaa !47
   br label %.loopexit
 
 _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit20.i: ; preds = %.noexc77
@@ -2952,12 +2952,12 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
   br label %.body
 
 .loopexit:                                        ; preds = %118, %105, %.noexc77..loopexit_crit_edge, %113
-  %132 = phi ptr [ %.pre103, %.noexc77..loopexit_crit_edge ], [ %92, %113 ], [ %92, %105 ], [ %92, %118 ]
+  %132 = phi ptr [ %.pre104, %.noexc77..loopexit_crit_edge ], [ %92, %113 ], [ %92, %105 ], [ %92, %118 ]
   %133 = icmp eq ptr %132, null
   br i1 %133, label %_ZN3nla7emonics20sign_equiv_monics_itppEv.exit, label %_ZNK10union_findIN3nla7emonicsEE12get_num_varsEv.exit.i68
 
 _ZNK10union_findIN3nla7emonicsEE12get_num_varsEv.exit.i68: ; preds = %.loopexit
-  %.sroa.6.8.extract.trunc84 = trunc i40 %.sroa.6.097 to i32
+  %.sroa.6.8.extract.trunc84 = trunc i40 %.sroa.6.098 to i32
   %134 = getelementptr inbounds i8, ptr %132, i64 -4
   %135 = load i32, ptr %134, align 4, !tbaa !41
   %136 = icmp ugt i32 %135, %.sroa.6.8.extract.trunc84
@@ -3014,9 +3014,9 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit74: ; preds = %_ZNS
   br label %153
 
 153:                                              ; preds = %_ZNK3nla7emonics18is_canonical_monicEj.exit, %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit74
-  %154 = getelementptr inbounds nuw i8, ptr %.04699, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %.046100, i64 40
   %.not47 = icmp eq ptr %154, %28
-  br i1 %.not47, label %._crit_edge101, label %70
+  br i1 %.not47, label %._crit_edge102, label %70
 
 155:                                              ; preds = %88
   %156 = landingpad { ptr, i32 }

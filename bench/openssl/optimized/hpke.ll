@@ -56,7 +56,7 @@ define ptr @OSSL_HPKE_CTX_new(i32 noundef %0, i48 %1, i32 noundef %2, ptr nounde
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 807, ptr noundef nonnull @__func__.OSSL_HPKE_CTX_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524550, ptr noundef null) #6
-  br label %46
+  br label %45
 
 7:                                                ; preds = %5
   %.sroa.0.0.extract.trunc.i = trunc i48 %1 to i16
@@ -80,7 +80,7 @@ define ptr @OSSL_HPKE_CTX_new(i32 noundef %0, i48 %1, i32 noundef %2, ptr nounde
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 811, ptr noundef nonnull @__func__.OSSL_HPKE_CTX_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524550, ptr noundef null) #6
-  br label %46
+  br label %45
 
 hpke_suite_check.exit:                            ; preds = %13
   %or.cond = icmp ugt i32 %2, 1
@@ -90,12 +90,12 @@ hpke_suite_check.exit:                            ; preds = %13
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 815, ptr noundef nonnull @__func__.OSSL_HPKE_CTX_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524550, ptr noundef null) #6
-  br label %46
+  br label %45
 
 18:                                               ; preds = %hpke_suite_check.exit
   %19 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 208, ptr noundef nonnull @.str, i32 noundef 818) #6
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %46, label %21
+  br i1 %20, label %45, label %21
 
 21:                                               ; preds = %18
   store ptr %3, ptr %19, align 8, !tbaa !3
@@ -112,14 +112,14 @@ hpke_suite_check.exit:                            ; preds = %13
 ._crit_edge:                                      ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
-  br label %42
+  br label %41
 
 26:                                               ; preds = %22, %21
   %27 = trunc nuw nsw i48 %.sroa.3.0.extract.shift to i32
   %.not31 = icmp eq i32 %27, 65535
   br i1 %.not31, label %35, label %28
 
-28:                                               ; preds = %26
+33:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !18
   %31 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %3, ptr noundef %30, ptr noundef %4) #6
@@ -132,35 +132,35 @@ hpke_suite_check.exit:                            ; preds = %13
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 830, ptr noundef nonnull @__func__.OSSL_HPKE_CTX_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524557, ptr noundef null) #6
-  br label %42
+  br label %41
 
-35:                                               ; preds = %28, %26
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i32 %2, ptr %36, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %0, ptr %37, align 8, !tbaa !21
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %.sroa.0.0.extract.trunc, ptr %38, align 4
+34:                                               ; preds = %28, %26
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  store i32 %2, ptr %35, align 8, !tbaa !20
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 %0, ptr %36, align 8, !tbaa !21
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  store i32 %.sroa.0.0.extract.trunc, ptr %37, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i16 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %8, ptr %39, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr %11, ptr %40, align 8, !tbaa !24
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr %14, ptr %41, align 8, !tbaa !25
-  br label %46
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr %8, ptr %38, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store ptr %11, ptr %39, align 8, !tbaa !24
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store ptr %14, ptr %40, align 8, !tbaa !25
+  br label %45
 
-42:                                               ; preds = %._crit_edge, %34
-  %43 = phi ptr [ %.pre, %._crit_edge ], [ null, %34 ]
-  tail call void @EVP_CIPHER_free(ptr noundef %43) #6
-  %44 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !16
-  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 844) #6
+41:                                               ; preds = %._crit_edge, %34
+  %42 = phi ptr [ %.pre, %._crit_edge ], [ null, %34 ]
+  tail call void @EVP_CIPHER_free(ptr noundef %42) #6
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  tail call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str, i32 noundef 844) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 845) #6
-  br label %46
+  br label %45
 
-46:                                               ; preds = %18, %42, %35, %17, %16, %6
+45:                                               ; preds = %18, %41, %34, %17, %16, %6
   %.0 = phi ptr [ null, %6 ], [ null, %16 ], [ null, %17 ], [ null, %42 ], [ %19, %35 ], [ null, %18 ]
   ret ptr %.0
 }

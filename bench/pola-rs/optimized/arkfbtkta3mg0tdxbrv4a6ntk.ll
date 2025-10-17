@@ -99367,8 +99367,8 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   store i64 %2, ptr %10, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 16, !alias.scope !7778, !noalias !7781
-  %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre64 = load i64, ptr %.phi.trans.insert63, align 8, !alias.scope !7778, !noalias !7781
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !alias.scope !7778, !noalias !7781
   br label %56
 
 ._crit_edge:                                      ; preds = %161, %11
@@ -99378,8 +99378,8 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   br i1 %25, label %.lr.ph31, label %._crit_edge..loopexit_crit_edge
 
 ._crit_edge..loopexit_crit_edge:                  ; preds = %._crit_edge
-  %.phi.trans.insert66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre67 = load i128, ptr %.phi.trans.insert66, align 16
+  %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre47 = load i128, ptr %.phi.trans.insert46, align 16
   br label %.loopexit
 
 .lr.ph31:                                         ; preds = %._crit_edge
@@ -99396,7 +99396,7 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   %.promoted32 = load i128, ptr %33, align 16
   %.promoted33 = load i128, ptr %34, align 16
   %.promoted34 = load i64, ptr %35, align 8
-  %extract.t54 = trunc i128 %.promoted28 to i1
+  %extract.t = trunc i128 %.promoted28 to i1
   br label %106
 
 36:                                               ; preds = %.lr.ph, %161
@@ -99404,7 +99404,7 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   %38 = phi i128 [ %.promoted26, %.lr.ph ], [ %163, %161 ]
   %.sroa.5.0.i1023 = phi i128 [ %.promoted21, %.lr.ph ], [ %.sroa.5.0.i1022, %161 ]
   %.sroa.05.020 = phi i64 [ %12, %.lr.ph ], [ %39, %161 ]
-  %.sroa.0.0.i.i1819.off0 = phi i1 [ %extract.t, %.lr.ph ], [ %.sroa.0.0.i.i15.off0, %161 ]
+  %.sroa.0.0.i.i1819 = phi i1 [ %extract.t, %.lr.ph ], [ %.sroa.0.0.i.i15, %161 ]
   %.sroa.0.0.i.i1819.off036 = phi i64 [ %extract.t37, %.lr.ph ], [ %.sroa.0.0.i.i15.off041, %161 ]
   %39 = add i64 %.sroa.05.020, 1
   %40 = load ptr, ptr %15, align 8, !nonnull !6, !noundef !6
@@ -99427,7 +99427,7 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   br i1 %55, label %155, label %157
 
 56:                                               ; preds = %164, %24
-  %57 = phi i64 [ %20, %164 ], [ %.pre64, %24 ]
+  %57 = phi i64 [ %20, %164 ], [ %.pre44, %24 ]
   %58 = phi ptr [ %18, %164 ], [ %.pre, %24 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7778)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -99519,7 +99519,7 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   %109 = phi i128 [ %.promoted33, %.lr.ph31 ], [ %140, %137 ]
   %110 = phi i128 [ %.promoted32, %.lr.ph31 ], [ %141, %137 ]
   %.sroa.07.029 = phi i64 [ %9, %.lr.ph31 ], [ %111, %137 ]
-  %.off0 = phi i1 [ %extract.t54, %.lr.ph31 ], [ %.off056, %137 ]
+  %.off0 = phi i1 [ %extract.t, %.lr.ph31 ], [ %.off036, %137 ]
   %111 = add i64 %.sroa.07.029, 1
   %112 = load ptr, ptr %27, align 8, !nonnull !6, !noundef !6
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
@@ -99541,7 +99541,7 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   br i1 %127, label %131, label %133
 
 .loopexit:                                        ; preds = %137, %._crit_edge..loopexit_crit_edge, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$26compute_sum_and_null_count17h42e8017ea5a7f336E.exit"
-  %128 = phi i128 [ %.pre67, %._crit_edge..loopexit_crit_edge ], [ %104, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$26compute_sum_and_null_count17h42e8017ea5a7f336E.exit" ], [ %141, %137 ]
+  %128 = phi i128 [ %.pre47, %._crit_edge..loopexit_crit_edge ], [ %104, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$26compute_sum_and_null_count17h42e8017ea5a7f336E.exit" ], [ %141, %137 ]
   %129 = phi i128 [ %.promoted28, %._crit_edge..loopexit_crit_edge ], [ %.lcssa.i, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$26compute_sum_and_null_count17h42e8017ea5a7f336E.exit" ], [ %138, %137 ]
   store i64 %3, ptr %8, align 16
   store i128 %129, ptr %0, align 16
@@ -99566,9 +99566,9 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   %139 = phi i64 [ %108, %154 ], [ %108, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit" ], [ %132, %131 ]
   %140 = phi i128 [ %109, %154 ], [ %152, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit" ], [ %109, %131 ]
   %141 = phi i128 [ %136, %154 ], [ %153, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit" ], [ %110, %131 ]
-  %.off056 = phi i1 [ true, %154 ], [ true, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit" ], [ %.off0, %131 ]
-  %exitcond62.not = icmp eq i64 %111, %3
-  br i1 %exitcond62.not, label %.loopexit, label %106
+  %.off036 = phi i1 [ true, %154 ], [ true, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit" ], [ %.off0, %131 ]
+  %exitcond42.not = icmp eq i64 %111, %3
+  br i1 %exitcond42.not, label %.loopexit, label %106
 
 142:                                              ; preds = %133
   call void @llvm.experimental.noalias.scope.decl(metadata !7787)
@@ -99616,69 +99616,69 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   call void @llvm.assume(i1 %158)
   %159 = getelementptr inbounds nuw i128, ptr %18, i64 %.sroa.05.020
   %160 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat8is_float17h949bd6b90ac7d773E()
-  br i1 %160, label %187, label %165
+  br i1 %160, label %190, label %165
 
 161:                                              ; preds = %155, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit"
   %162 = phi i64 [ %156, %155 ], [ %37, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
-  %163 = phi i128 [ %38, %155 ], [ %186, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
+  %163 = phi i128 [ %38, %155 ], [ %189, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
   %.sroa.5.0.i1022 = phi i128 [ %.sroa.5.0.i1023, %155 ], [ %.sroa.5.0.i1024, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
-  %.sroa.0.0.i.i15.off0 = phi i1 [ %.sroa.0.0.i.i1819.off0, %155 ], [ %.sroa.0.0.i.i16.off0, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
+  %.sroa.0.0.i.i15 = phi i1 [ %.sroa.0.0.i.i1819, %155 ], [ %.sroa.0.0.i.i16, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
   %.sroa.0.0.i.i15.off041 = phi i64 [ %.sroa.0.0.i.i1819.off036, %155 ], [ %.sroa.0.0.i.i16.off046, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit" ]
   %exitcond.not = icmp eq i64 %39, %2
   br i1 %exitcond.not, label %._crit_edge, label %36
 
-164:                                              ; preds = %187, %155
+164:                                              ; preds = %190, %155
   store i64 %2, ptr %10, align 8
   br label %56
 
-165:                                              ; preds = %187, %157
+165:                                              ; preds = %190, %157
   %166 = load i128, ptr %159, align 16, !noundef !6
   %167 = sub i128 0, %166
   call void @llvm.experimental.noalias.scope.decl(metadata !7793)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i128 %166, ptr %6, align 16, !noalias !7793
   %168 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat8is_float17h949bd6b90ac7d773E(), !noalias !7793
-  br i1 %168, label %171, label %169
+  br i1 %168, label %172, label %169
 
-169:                                              ; preds = %171, %165
+169:                                              ; preds = %172, %165
   %170 = sub i128 %.sroa.5.0.i1023, %166
-  %.sroa.5.0.i10 = select i1 %.sroa.0.0.i.i1819.off0, i128 %170, i128 undef
+  %.sroa.5.0.i10 = select i1 %.sroa.0.0.i.i1819, i128 %170, i128 undef
   store i128 %.sroa.5.0.i10, ptr %21, align 16, !alias.scope !7793
   br label %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit"
 
-171:                                              ; preds = %165
-  %172 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %6), !noalias !7793
-  br i1 %172, label %173, label %169
+172:                                              ; preds = %165
+  %173 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %6), !noalias !7793
+  br i1 %173, label %174, label %169
 
-173:                                              ; preds = %171
+174:                                              ; preds = %172
   call void @llvm.experimental.noalias.scope.decl(metadata !7796)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7793
   store i128 %167, ptr %5, align 16, !noalias !7799
-  %174 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat8is_float17h949bd6b90ac7d773E(), !noalias !7799
-  br i1 %174, label %177, label %175
+  %175 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat8is_float17h949bd6b90ac7d773E(), !noalias !7799
+  br i1 %175, label %179, label %176
 
-175:                                              ; preds = %177, %173
+176:                                              ; preds = %179, %174
   %176 = sub i128 %.sroa.5.0.i1023, %166
-  %.sroa.53.0.i.i = select i1 %.sroa.0.0.i.i1819.off0, i128 %176, i128 undef
+  %.sroa.53.0.i.i = select i1 %.sroa.0.0.i.i1819, i128 %176, i128 undef
   store i128 %.sroa.53.0.i.i, ptr %21, align 16, !alias.scope !7799
   br label %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i"
 
-177:                                              ; preds = %173
-  %178 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %5), !noalias !7799
-  br i1 %178, label %179, label %175
+179:                                              ; preds = %174
+  %180 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %5), !noalias !7799
+  br i1 %180, label %181, label %176
 
-179:                                              ; preds = %177
-  br i1 %.sroa.0.0.i.i1819.off0, label %180, label %183
+181:                                              ; preds = %179
+  br i1 %.sroa.0.0.i.i1819, label %180, label %183
 
-180:                                              ; preds = %179
-  %181 = add i128 %166, %38
-  %182 = sub i128 %.sroa.5.0.i1023, %181
+183:                                              ; preds = %181
+  %184 = add i128 %166, %38
+  %185 = sub i128 %.sroa.5.0.i1023, %184
   store i128 0, ptr %22, align 16, !alias.scope !7800
-  br label %183
+  br label %186
 
-183:                                              ; preds = %180, %179
-  %184 = phi i128 [ 0, %180 ], [ %38, %179 ]
-  %.sroa.5.0.i.i = phi i128 [ %182, %180 ], [ undef, %179 ]
+186:                                              ; preds = %183, %181
+  %187 = phi i128 [ 0, %180 ], [ %38, %179 ]
+  %.sroa.5.0.i.i = phi i128 [ %185, %180 ], [ undef, %179 ]
   %.sroa.0.0.i.i = phi i128 [ 1, %180 ], [ 0, %179 ]
   store i128 %.sroa.0.0.i.i, ptr %1, align 16, !alias.scope !7799
   store i128 %.sroa.5.0.i.i, ptr %21, align 16, !alias.scope !7799
@@ -99686,25 +99686,25 @@ define hidden void @"_ZN138_$LT$polars_compute..rolling..nulls..sum..SumWindow$L
   %extract.t52 = trunc nuw nsw i128 %.sroa.0.0.i.i to i64
   br label %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i"
 
-"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i": ; preds = %183, %175
-  %185 = phi i128 [ %184, %183 ], [ %38, %175 ]
-  %.sroa.5.0.i1025 = phi i128 [ %.sroa.5.0.i.i, %183 ], [ %.sroa.53.0.i.i, %175 ]
-  %.sroa.0.0.i.i17.off0 = phi i1 [ %extract.t49, %183 ], [ %.sroa.0.0.i.i1819.off0, %175 ]
+"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i": ; preds = %186, %176
+  %storemerge = phi i128 [ %184, %183 ], [ %38, %175 ]
+  %188 = phi i128 [ %.sroa.5.0.i.i, %183 ], [ %.sroa.53.0.i.i, %175 ]
+  %.sroa.0.0.i.i17 = phi i1 [ %extract.t49, %183 ], [ %.sroa.0.0.i.i1819, %175 ]
   %.sroa.0.0.i.i17.off051 = phi i64 [ %extract.t52, %183 ], [ %.sroa.0.0.i.i1819.off036, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7793
   br label %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit"
 
 "_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3sub17hec04ca4f799c7c71E.exit": ; preds = %169, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i"
-  %186 = phi i128 [ %38, %169 ], [ %185, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
-  %.sroa.5.0.i1024 = phi i128 [ %.sroa.5.0.i10, %169 ], [ %.sroa.5.0.i1025, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
-  %.sroa.0.0.i.i16.off0 = phi i1 [ %.sroa.0.0.i.i1819.off0, %169 ], [ %.sroa.0.0.i.i17.off0, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
+  %189 = phi i128 [ %38, %169 ], [ %185, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
+  %.sroa.5.0.i1024 = phi i128 [ %.sroa.5.0.i10, %169 ], [ %188, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
+  %.sroa.0.0.i.i16 = phi i1 [ %.sroa.0.0.i.i1819, %169 ], [ %.sroa.0.0.i.i17, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
   %.sroa.0.0.i.i16.off046 = phi i64 [ %.sroa.0.0.i.i1819.off036, %169 ], [ %.sroa.0.0.i.i17.off051, %"_ZN14polars_compute7rolling5nulls3sum18SumWindow$LT$T$GT$3add17h42e504af8cb27047E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %161
 
-187:                                              ; preds = %157
-  %188 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %159)
-  br i1 %188, label %165, label %164
+190:                                              ; preds = %157
+  %191 = call noundef zeroext i1 @_ZN12polars_utils5float7IsFloat9is_finite17ha46d1d864286c335E(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %159)
+  br i1 %191, label %165, label %164
 }
 
 ; Function Attrs: nonlazybind uwtable

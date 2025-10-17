@@ -56,8 +56,8 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %av_cmp_q.exit.thread.us
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %av_cmp_q.exit.thread.us ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv34
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %av_cmp_q.exit.thread.us ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv35
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i64, ptr %6, align 4
   %8 = ashr i64 %7, 32
@@ -69,13 +69,13 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
   br i1 %.not.i.us, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread.us
 
 av_cmp_q.exit.thread.us:                          ; preds = %.split.us
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %.not.us = icmp eq i64 %indvars.iv.next35, 20
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %.not.us = icmp eq i64 %indvars.iv.next36, 20
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %1
-  %.not17 = icmp eq i64 %.fr26, 0
-  br i1 %.not17, label %.loopexit, label %.split.split
+  %.not27 = icmp eq i64 %.fr26, 0
+  br i1 %.not27, label %.loopexit, label %.split.split
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread ], [ 0, %.split ]
@@ -88,27 +88,27 @@ av_cmp_q.exit.thread.us:                          ; preds = %.split.us
   %17 = ashr exact i64 %sext20.i, 32
   %18 = mul nuw nsw i64 %17, %3
   %.not.i = icmp eq i64 %16, %18
-  br i1 %.not.i, label %av_cmp_q.exit, label %av_cmp_q.exit.thread
+  br i1 %.not.i, label %19, label %av_cmp_q.exit.thread
 
-av_cmp_q.exit:                                    ; preds = %.split.split
+19:                                               ; preds = %.split.split
   %.not8.unshifted16 = xor i64 %14, %.fr26
   %19 = and i64 %.not8.unshifted16, 2147483648
   %.not8 = icmp eq i64 %19, 0
   br i1 %.not8, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread:                             ; preds = %.split.split, %av_cmp_q.exit
+av_cmp_q.exit.thread:                             ; preds = %.split.split, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %.not, label %.loopexit, label %.split.split, !llvm.loop !12
 
-av_cmp_q.exit.thread11:                           ; preds = %av_cmp_q.exit, %.split.us
+av_cmp_q.exit.thread11:                           ; preds = %19, %.split.us
   %.us-phi = phi ptr [ %5, %.split.us ], [ %12, %av_cmp_q.exit ]
-  %20 = load i32, ptr %.us-phi, align 4, !tbaa !13
+  %21 = load i32, ptr %.us-phi, align 4, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %av_cmp_q.exit.thread, %av_cmp_q.exit.thread.us, %.split, %av_cmp_q.exit.thread11
-  %21 = phi i32 [ %20, %av_cmp_q.exit.thread11 ], [ 0, %.split ], [ 0, %av_cmp_q.exit.thread.us ], [ 0, %av_cmp_q.exit.thread ]
-  ret i32 %21
+  %22 = phi i32 [ %21, %av_cmp_q.exit.thread11 ], [ 0, %.split ], [ 0, %av_cmp_q.exit.thread.us ], [ 0, %av_cmp_q.exit.thread ]
+  ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)

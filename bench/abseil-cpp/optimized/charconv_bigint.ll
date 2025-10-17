@@ -1330,17 +1330,17 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE10M
   %3 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
-  %4 = icmp ult i64 %1, 4294967296
-  %5 = load i32, ptr %0, align 4, !tbaa !4
-  br i1 %4, label %6, label %31
+  %5 = icmp ult i64 %1, 4294967296
+  %6 = load i32, ptr %0, align 4, !tbaa !4
+  br i1 %5, label %6, label %32
 
-6:                                                ; preds = %2
-  %7 = icmp eq i32 %5, 0
+16:                                               ; preds = %2
+  %17 = icmp eq i32 %6, 0
   %8 = icmp eq i64 %1, 1
   %or.cond.i = or i1 %8, %7
   br i1 %or.cond.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit, label %9
 
-9:                                                ; preds = %6
+.lr.ph.i:                                         ; preds = %16
   %10 = icmp eq i64 %1, 0
   br i1 %10, label %11, label %15
 
@@ -1348,18 +1348,18 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE10M
   %12 = icmp slt i32 %5, 1
   br i1 %12, label %._crit_edge.thread.sink.split.i, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i
 
-_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %11
+_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i:; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = zext nneg i32 %5 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %14, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 0, i64 %.idx.i.i.i.i, i1 false), !tbaa !12
   br label %._crit_edge.thread.sink.split.i
 
-15:                                               ; preds = %9
+15:; preds = %.lr.ph.i
   %16 = icmp sgt i32 %5, 0
   br i1 %16, label %.lr.ph.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
-.lr.ph.i:                                         ; preds = %15
+.lr.ph.i:; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %19
@@ -1385,34 +1385,34 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !17
 
-27:                                               ; preds = %._crit_edge.i
-  %28 = trunc nuw i64 %26 to i32
-  %29 = getelementptr inbounds nuw i32, ptr %17, i64 %wide.trip.count.i
-  store i32 %28, ptr %29, align 4, !tbaa !12
-  %30 = add nuw nsw i32 %5, 1
+28:                                               ; preds = %._crit_edge.i
+  %29 = trunc nuw i64 %26 to i32
+  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %wide.trip.count.i
+  store i32 %29, ptr %30, align 4, !tbaa !12
+  %31 = add nuw nsw i32 %6, 1
   br label %._crit_edge.thread.sink.split.i
 
-._crit_edge.thread.sink.split.i:                  ; preds = %27, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i, %11
-  %.sink.i = phi i32 [ %30, %27 ], [ 0, %11 ], [ 0, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i ]
+._crit_edge.thread.sink.split.i:                  ; preds = %28, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i, %11
+  %.sink.i = phi i32 [ %31, %27 ], [ 0, %11 ], [ 0, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i ]
   store i32 %.sink.i, ptr %0, align 4, !tbaa !4
   br label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
-31:                                               ; preds = %2
-  %32 = icmp sgt i32 %5, -1
-  br i1 %32, label %select.unfold.preheader.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
+32:                                               ; preds = %2
+  %33 = icmp sgt i32 %6, -1
+  br i1 %33, label %select.unfold.preheader.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
-select.unfold.preheader.i:                        ; preds = %31
-  %33 = tail call i32 @llvm.umin.i32(i32 %5, i32 3)
+select.unfold.preheader.i:                        ; preds = %32
+  %34 = tail call i32 @llvm.umin.i32(i32 %6, i32 3)
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
-  %.012.i = phi i32 [ %34, %select.unfold.i ], [ %33, %select.unfold.preheader.i ]
-  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %5, ptr noundef nonnull %3, i32 noundef 2, i32 noundef %.012.i)
-  %34 = add nsw i32 %.012.i, -1
+  %.012.i = phi i32 [ %35, %select.unfold.i ], [ %34, %select.unfold.preheader.i ]
+  call void @_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %6, ptr noundef nonnull %3, i32 noundef 2, i32 noundef %.012.i)
+  %35 = add nsw i32 %.012.i, -1
   %.not.i2 = icmp eq i32 %.012.i, 0
   br i1 %.not.i2, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit, label %select.unfold.i, !llvm.loop !32
 
-_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %select.unfold.i, %31, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %15, %6
+_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %select.unfold.i, %32, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %15, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3630,17 +3630,17 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE10
   %3 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
-  %4 = icmp ult i64 %1, 4294967296
-  %5 = load i32, ptr %0, align 4, !tbaa !44
-  br i1 %4, label %6, label %31
+  %5 = icmp ult i64 %1, 4294967296
+  %6 = load i32, ptr %0, align 4, !tbaa !44
+  br i1 %5, label %6, label %32
 
-6:                                                ; preds = %2
-  %7 = icmp eq i32 %5, 0
+16:                                               ; preds = %2
+  %17 = icmp eq i32 %6, 0
   %8 = icmp eq i64 %1, 1
   %or.cond.i = or i1 %8, %7
   br i1 %or.cond.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit, label %9
 
-9:                                                ; preds = %6
+.lr.ph.i:                                         ; preds = %16
   %10 = icmp eq i64 %1, 0
   br i1 %10, label %11, label %15
 
@@ -3648,18 +3648,18 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE10
   %12 = icmp slt i32 %5, 1
   br i1 %12, label %._crit_edge.thread.sink.split.i, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i
 
-_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %11
+_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i:; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = zext nneg i32 %5 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %14, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 0, i64 %.idx.i.i.i.i, i1 false), !tbaa !12
   br label %._crit_edge.thread.sink.split.i
 
-15:                                               ; preds = %9
+15:; preds = %.lr.ph.i
   %16 = icmp sgt i32 %5, 0
   br i1 %16, label %.lr.ph.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
-.lr.ph.i:                                         ; preds = %15
+.lr.ph.i:; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %19
@@ -3685,34 +3685,34 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !49
 
-27:                                               ; preds = %._crit_edge.i
-  %28 = trunc nuw i64 %26 to i32
-  %29 = getelementptr inbounds nuw i32, ptr %17, i64 %wide.trip.count.i
-  store i32 %28, ptr %29, align 4, !tbaa !12
-  %30 = add nuw nsw i32 %5, 1
+28:                                               ; preds = %._crit_edge.i
+  %29 = trunc nuw i64 %26 to i32
+  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %wide.trip.count.i
+  store i32 %29, ptr %30, align 4, !tbaa !12
+  %31 = add nuw nsw i32 %6, 1
   br label %._crit_edge.thread.sink.split.i
 
-._crit_edge.thread.sink.split.i:                  ; preds = %27, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i, %11
-  %.sink.i = phi i32 [ %30, %27 ], [ 0, %11 ], [ 0, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i ]
+._crit_edge.thread.sink.split.i:                  ; preds = %28, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i, %11
+  %.sink.i = phi i32 [ %31, %27 ], [ 0, %11 ], [ 0, %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i ]
   store i32 %.sink.i, ptr %0, align 4, !tbaa !44
   br label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
-31:                                               ; preds = %2
-  %32 = icmp sgt i32 %5, -1
-  br i1 %32, label %select.unfold.preheader.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
+32:                                               ; preds = %2
+  %33 = icmp sgt i32 %6, -1
+  br i1 %33, label %select.unfold.preheader.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
-select.unfold.preheader.i:                        ; preds = %31
-  %33 = tail call i32 @llvm.umin.i32(i32 %5, i32 83)
+select.unfold.preheader.i:                        ; preds = %32
+  %34 = tail call i32 @llvm.umin.i32(i32 %6, i32 83)
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
-  %.012.i = phi i32 [ %34, %select.unfold.i ], [ %33, %select.unfold.preheader.i ]
-  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340) %0, i32 noundef %5, ptr noundef nonnull %3, i32 noundef 2, i32 noundef %.012.i)
-  %34 = add nsw i32 %.012.i, -1
+  %.012.i = phi i32 [ %35, %select.unfold.i ], [ %34, %select.unfold.preheader.i ]
+  call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340) %0, i32 noundef %6, ptr noundef nonnull %3, i32 noundef 2, i32 noundef %.012.i)
+  %35 = add nsw i32 %.012.i, -1
   %.not.i2 = icmp eq i32 %.012.i, 0
   br i1 %.not.i2, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit, label %select.unfold.i, !llvm.loop !54
 
-_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %select.unfold.i, %31, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %15, %6
+_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %select.unfold.i, %32, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %15, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
