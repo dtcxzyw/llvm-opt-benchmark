@@ -83,7 +83,7 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noun
 7:                                                ; preds = %2
   %8 = icmp ugt i32 %4, %6
   %9 = select i1 %8, i8 1, i8 -1
-  br label %23
+  br label %22
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -96,19 +96,16 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noun
 15:                                               ; preds = %10
   %16 = icmp ugt i32 %12, %14
   %17 = select i1 %16, i8 1, i8 -1
-  br label %23
+  br label %22
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %0, align 8, !tbaa !38
   %20 = load ptr, ptr %1, align 8, !tbaa !38
   %21 = tail call i32 @lv_strcmp(ptr noundef %19, ptr noundef %20) #8
-  %.not18 = icmp eq i32 %21, 0
-  %.inv = icmp slt i32 %21, 1
-  %22 = select i1 %.inv, i8 -1, i8 1
-  %.1 = select i1 %.not18, i8 0, i8 %22
-  br label %23
+  %.1 = tail call i8 @llvm.scmp.i8.i32(i32 %21, i32 0)
+  br label %22
 
-23:                                               ; preds = %18, %15, %7
+22:                                               ; preds = %18, %15, %7
   %.0 = phi i8 [ %9, %7 ], [ %17, %15 ], [ %.1, %18 ]
   ret i8 %.0
 }
@@ -777,6 +774,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

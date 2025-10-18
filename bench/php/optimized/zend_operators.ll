@@ -8252,12 +8252,12 @@ is_numeric_string_ex.exit34:                      ; preds = %15
 
 36:                                               ; preds = %35
   %37 = sub nsw i32 0, %24
-  br label %72
+  br label %75
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %5, align 8, !tbaa !70
   %40 = sitofp i64 %39 to double
-  %.pre53 = load double, ptr %8, align 8, !tbaa !71
+  %.pre40 = load double, ptr %8, align 8, !tbaa !71
   br label %52
 
 41:                                               ; preds = %34
@@ -8265,7 +8265,7 @@ is_numeric_string_ex.exit34:                      ; preds = %15
 
 42:                                               ; preds = %41
   %.not26 = icmp eq i32 %23, 0
-  br i1 %.not26, label %43, label %72
+  br i1 %.not26, label %43, label %75
 
 43:                                               ; preds = %42
   %44 = load i64, ptr %6, align 8, !tbaa !70
@@ -8283,48 +8283,46 @@ is_numeric_string_ex.exit34:                      ; preds = %15
   br i1 %or.cond32, label %is_numeric_string_ex.exit.thread, label %52
 
 52:                                               ; preds = %43, %46, %38
-  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre53, %38 ]
+  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre40, %38 ]
   %54 = phi double [ %.pre, %43 ], [ %47, %46 ], [ %40, %38 ]
   %55 = fsub double %54, %53
   %56 = fcmp une double %55, 0.000000e+00
   %57 = fcmp olt double %55, 0.000000e+00
   %58 = select i1 %57, i32 -1, i32 1
   %59 = select i1 %56, i32 %58, i32 0
-  br label %72
+  br label %75
 
 60:                                               ; preds = %31
   %61 = load i64, ptr %5, align 8, !tbaa !70
   %62 = load i64, ptr %6, align 8, !tbaa !70
   %63 = call i32 @llvm.scmp.i32.i64(i64 %61, i64 %62)
-  br label %72
+  br label %75
 
 is_numeric_string_ex.exit.thread:                 ; preds = %15, %2, %46, %is_numeric_string_ex.exit, %is_numeric_string_ex.exit34, %26
-  %64 = icmp eq ptr %0, %1
-  br i1 %64, label %.thread, label %zend_binary_strcmp.exit
+  %64 = load i64, ptr %10, align 8, !tbaa !10
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %66 = load i64, ptr %65, align 8, !tbaa !10
+  %67 = icmp eq ptr %0, %1
+  br i1 %67, label %zend_binary_strcmp.exit, label %68
 
-zend_binary_strcmp.exit:                          ; preds = %is_numeric_string_ex.exit.thread
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !10
-  %.fr51 = freeze i64 %67
-  %68 = load i64, ptr %10, align 8, !tbaa !10
-  %.fr50 = freeze i64 %68
-  %69 = call i64 @llvm.umin.i64(i64 %.fr50, i64 %.fr51)
-  %70 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %65, i64 noundef %69) #29
-  %.fr = freeze i32 %70
-  %.not.i = icmp eq i32 %.fr, 0
-  %71 = call i32 @llvm.ucmp.i32.i64(i64 %.fr50, i64 %.fr51)
-  %.0.i35 = select i1 %.not.i, i32 %71, i32 %.fr
-  %.not28 = icmp eq i32 %.0.i35, 0
-  %.inv = icmp sgt i32 %.0.i35, -1
-  %. = select i1 %.inv, i32 1, i32 -1
-  br i1 %.not28, label %.thread, label %72
+68:                                               ; preds = %is_numeric_string_ex.exit.thread
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %70 = call i64 @llvm.umin.i64(i64 %64, i64 %66)
+  %71 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %69, i64 noundef %70) #29
+  %.not.i = icmp eq i32 %71, 0
+  br i1 %.not.i, label %72, label %zend_binary_strcmp.exit
 
-.thread:                                          ; preds = %zend_binary_strcmp.exit, %is_numeric_string_ex.exit.thread
-  br label %72
+72:                                               ; preds = %68
+  %73 = call i32 @llvm.ucmp.i32.i64(i64 %64, i64 %66)
+  br label %zend_binary_strcmp.exit
 
-72:                                               ; preds = %zend_binary_strcmp.exit, %.thread, %42, %60, %52, %36
-  %.0 = phi i32 [ %37, %36 ], [ %59, %52 ], [ %63, %60 ], [ %23, %42 ], [ 0, %.thread ], [ %., %zend_binary_strcmp.exit ]
+zend_binary_strcmp.exit:                          ; preds = %is_numeric_string_ex.exit.thread, %68, %72
+  %.0.i35 = phi i32 [ %73, %72 ], [ 0, %is_numeric_string_ex.exit.thread ], [ %71, %68 ]
+  %74 = call i32 @llvm.scmp.i32.i32(i32 %.0.i35, i32 0)
+  br label %75
+
+75:                                               ; preds = %42, %zend_binary_strcmp.exit, %60, %52, %36
+  %.0 = phi i32 [ %74, %zend_binary_strcmp.exit ], [ %37, %36 ], [ %59, %52 ], [ %63, %60 ], [ %23, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8358,7 +8356,7 @@ is_numeric_string_ex.exit:                        ; preds = %2
 12:                                               ; preds = %is_numeric_string_ex.exit
   %13 = load i64, ptr %4, align 8, !tbaa !70
   %14 = call i32 @llvm.scmp.i32.i64(i64 %0, i64 %13)
-  br label %80
+  br label %79
 
 15:                                               ; preds = %is_numeric_string_ex.exit
   %16 = sitofp i64 %0 to double
@@ -8367,7 +8365,7 @@ is_numeric_string_ex.exit:                        ; preds = %2
   %19 = fcmp ogt double %17, %16
   %20 = select i1 %19, i32 -1, i32 1
   %21 = select i1 %18, i32 0, i32 %20
-  br label %80
+  br label %79
 
 is_numeric_string_ex.exit.thread:                 ; preds = %2, %is_numeric_string_ex.exit
   %22 = icmp ult i64 %0, 10
@@ -8496,14 +8494,11 @@ zend_binary_strcmp.exit:                          ; preds = %zend_long_to_str.ex
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %zend_binary_strcmp.exit, %69, %76, %77
-  %.not = icmp eq i32 %.0.i21, 0
-  %.inv = icmp sgt i32 %.0.i21, -1
-  %78 = select i1 %.inv, i32 1, i32 -1
-  %79 = select i1 %.not, i32 0, i32 %78
-  br label %80
+  %78 = call i32 @llvm.scmp.i32.i32(i32 %.0.i21, i32 0)
+  br label %79
 
-80:                                               ; preds = %zend_string_release.exit, %15, %12
-  %.0 = phi i32 [ %14, %12 ], [ %21, %15 ], [ %79, %zend_string_release.exit ]
+79:                                               ; preds = %zend_string_release.exit, %15, %12
+  %.0 = phi i32 [ %14, %12 ], [ %21, %15 ], [ %78, %zend_string_release.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -8537,7 +8532,7 @@ is_numeric_string_ex.exit:                        ; preds = %2
   %16 = fcmp olt double %0, %14
   %17 = select i1 %16, i32 -1, i32 1
   %18 = select i1 %15, i32 0, i32 %17
-  br label %45
+  br label %46
 
 19:                                               ; preds = %is_numeric_string_ex.exit
   %20 = load double, ptr %5, align 8, !tbaa !71
@@ -8545,7 +8540,7 @@ is_numeric_string_ex.exit:                        ; preds = %2
   %22 = fcmp olt double %0, %20
   %23 = select i1 %22, i32 -1, i32 1
   %24 = select i1 %21, i32 0, i32 %23
-  br label %45
+  br label %46
 
 is_numeric_string_ex.exit.thread:                 ; preds = %2, %is_numeric_string_ex.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8584,17 +8579,13 @@ is_numeric_string_ex.exit.thread:                 ; preds = %2, %is_numeric_stri
 
 zend_string_release.exit:                         ; preds = %is_numeric_string_ex.exit.thread, %40, %43
   %.0.i20 = phi i32 [ %44, %43 ], [ 0, %is_numeric_string_ex.exit.thread ], [ %42, %40 ]
-  %.0.i20.fr = freeze i32 %.0.i20
   store i32 0, ptr %32, align 4, !tbaa !7
   call void @_efree(ptr noundef nonnull %32) #28
-  %.not = icmp eq i32 %.0.i20.fr, 0
-  %.inv = icmp sgt i32 %.0.i20.fr, -1
-  %spec.select = select i1 %.inv, i32 1, i32 -1
-  %spec.select23 = select i1 %.not, i32 0, i32 %spec.select
-  br label %45
+  %45 = call i32 @llvm.scmp.i32.i32(i32 %.0.i20, i32 0)
+  br label %46
 
-45:                                               ; preds = %zend_string_release.exit, %19, %12
-  %.0 = phi i32 [ %18, %12 ], [ %24, %19 ], [ %spec.select23, %zend_string_release.exit ]
+46:                                               ; preds = %zend_string_release.exit, %19, %12
+  %.0 = phi i32 [ %18, %12 ], [ %24, %19 ], [ %45, %zend_string_release.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -12157,6 +12148,9 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #27
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
