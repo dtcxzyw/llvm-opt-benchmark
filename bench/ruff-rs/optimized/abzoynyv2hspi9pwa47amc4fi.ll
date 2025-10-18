@@ -28011,10 +28011,9 @@ _ZN4core3cmp9PartialEq2ne17hdc1eb899f47f0f48E.exit.thread: ; preds = %43, %32, %
   br i1 %39, label %40, label %_ZN4core3cmp9PartialEq2ne17hdc1eb899f47f0f48E.exit.thread
 
 40:                                               ; preds = %32
-  switch i64 %35, label %default.unreachable [
+  switch i64 %34, label %43 [
     i64 0, label %.sink.split.sink.split.i.i.i
     i64 1, label %42
-    i64 2, label %43
   ]
 
 .sink.split.sink.split.i.i.i:                     ; preds = %42, %40
@@ -28024,9 +28023,6 @@ _ZN4core3cmp9PartialEq2ne17hdc1eb899f47f0f48E.exit.thread: ; preds = %43, %32, %
   %41 = icmp eq i64 %36, %.sink17.i.i.i
   tail call void @llvm.assume(i1 %41)
   br label %_ZN4core3cmp9PartialEq2ne17hdc1eb899f47f0f48E.exit
-
-default.unreachable:                              ; preds = %40
-  unreachable
 
 42:                                               ; preds = %40
   br label %.sink.split.sink.split.i.i.i

@@ -3355,152 +3355,146 @@ define { i64, ptr } @_ZN4jiff3fmt8temporal6parser14ParsedTimeZone14into_time_zon
   %8 = alloca [16 x i8], align 4
   %9 = alloca [16 x i8], align 8
   %10 = load i8, ptr %0, align 8, !range !224, !noundef !3
-  %11 = add nsw i8 %10, -4
-  %narrow = tail call i8 @llvm.umin.i8(i8 %11, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %12
-    i8 1, label %31
-    i8 2, label %49
+  switch i8 %10, label %48 [
+    i8 4, label %11
+    i8 5, label %30
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !4, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !3
-  store ptr %14, ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = tail call { i64, ptr } @_ZN4jiff2tz2db16TimeZoneDatabase3get17hcec543e6ec98666bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16)
-  %19 = extractvalue { i64, ptr } %18, 0
-  %20 = extractvalue { i64, ptr } %18, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !4, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  store ptr %13, ptr %9, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %15, ptr %16, align 8
+  %17 = tail call { i64, ptr } @_ZN4jiff2tz2db16TimeZoneDatabase3get17hcec543e6ec98666bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %15)
+  %18 = extractvalue { i64, ptr } %17, 0
+  %19 = extractvalue { i64, ptr } %17, 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !270
-  store i64 %19, ptr %4, align 8, !noalias !270
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %20, ptr %22, align 8, !noalias !270
-  %23 = invoke fastcc noundef ptr @"_ZN4jiff3fmt8temporal6parser14ParsedTimeZone14into_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h6962ee692a6dfc95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
-          to label %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" unwind label %27
+  store i64 %18, ptr %4, align 8, !noalias !270
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %19, ptr %21, align 8, !noalias !270
+  %22 = invoke fastcc noundef ptr @"_ZN4jiff3fmt8temporal6parser14ParsedTimeZone14into_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h6962ee692a6dfc95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+          to label %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" unwind label %26
 
-"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit": ; preds = %12
-  %24 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context3imp17he9ca91f447c7b088E"(i64 noundef %19, ptr noundef %20, ptr noundef %23)
+"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit": ; preds = %11
+  %23 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context3imp17he9ca91f447c7b088E"(i64 noundef %18, ptr noundef %19, ptr noundef %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !270
-  %25 = extractvalue { i64, ptr } %24, 0
-  %26 = extractvalue { i64, ptr } %24, 1
-  %. = and i64 %25, 1
-  br label %51
+  %24 = extractvalue { i64, ptr } %23, 0
+  %25 = extractvalue { i64, ptr } %23, 1
+  %. = and i64 %24, 1
+  br label %50
 
-common.resume:                                    ; preds = %45, %41, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %42, %45 ], [ %42, %41 ]
+common.resume:                                    ; preds = %44, %40, %26
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
-27:                                               ; preds = %12
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$jiff..tz..timezone..TimeZone$C$jiff..error..Error$GT$$GT$17h4e9ac3eaf520fce6E"(ptr noalias noundef align 8 dereferenceable(16) %4) #21
-          to label %common.resume unwind label %29
+          to label %common.resume unwind label %28
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %26
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-31:                                               ; preds = %2
+30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  %33 = load i32, ptr %8, align 4, !range !23, !alias.scope !277, !noalias !274, !noundef !3
-  %.not.i = icmp eq i32 %33, 2
-  br i1 %.not.i, label %35, label %34
+  %32 = load i32, ptr %8, align 4, !range !23, !alias.scope !277, !noalias !274, !noundef !3
+  %.not.i = icmp eq i32 %32, 2
+  br i1 %.not.i, label %34, label %33
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call fastcc void @_ZN4jiff3fmt6offset7Numeric9to_offset17hbd70f1a87e05cfe7E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 4 dereferenceable(16) %8)
   br label %_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %36, align 4, !alias.scope !274, !noalias !277
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %35, align 4, !alias.scope !274, !noalias !277
   store i32 0, ptr %6, align 8, !alias.scope !274, !noalias !277
   br label %_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit
 
-_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit: ; preds = %34, %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit: ; preds = %33, %34
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !284
-  %38 = invoke fastcc noundef ptr @"_ZN4jiff3fmt8temporal6parser14ParsedTimeZone14into_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h400b6ee14d52306eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
-          to label %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit" unwind label %41, !noalias !285
+  %37 = invoke fastcc noundef ptr @"_ZN4jiff3fmt8temporal6parser14ParsedTimeZone14into_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h400b6ee14d52306eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36)
+          to label %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit" unwind label %40, !noalias !285
 
 "_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit": ; preds = %_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit
-  call void @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context3imp17h29a90664c1065fd7E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3, ptr noundef %38), !noalias !286
+  call void @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context3imp17h29a90664c1065fd7E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3, ptr noundef %37), !noalias !286
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !279
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %39 = load i32, ptr %7, align 8, !range !24, !noundef !3
-  %40 = trunc nuw i32 %39 to i1
-  br i1 %40, label %54, label %57
+  %38 = load i32, ptr %7, align 8, !range !24, !noundef !3
+  %39 = trunc nuw i32 %38 to i1
+  br i1 %39, label %53, label %56
 
-41:                                               ; preds = %_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZN4jiff3fmt6offset12ParsedOffset9to_offset17ha9f602c9d2b92b59E.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %43 = load i32, ptr %3, align 8, !range !24, !alias.scope !287, !noalias !285, !noundef !3
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %common.resume, label %45
+  %42 = load i32, ptr %3, align 8, !range !24, !alias.scope !287, !noalias !285, !noundef !3
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %common.resume, label %44
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %46)
-          to label %common.resume unwind label %47
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
+          to label %common.resume unwind label %46
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %44
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20, !noalias !285
   unreachable
 
-49:                                               ; preds = %2
+48:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
-  %50 = call noundef ptr @_ZN4jiff2tz8timezone8TimeZone13from_posix_tz17ha534f9193f4e01fbE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %5)
-  br label %51
+  %49 = call noundef ptr @_ZN4jiff2tz8timezone8TimeZone13from_posix_tz17ha534f9193f4e01fbE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %5)
+  br label %50
 
-51:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit", %66, %54, %49
-  %.sroa.6.0 = phi ptr [ %56, %54 ], [ %.sroa.010.0, %66 ], [ %50, %49 ], [ %26, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %54 ], [ 0, %66 ], [ 0, %49 ], [ %., %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" ]
-  %52 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %53 = insertvalue { i64, ptr } %52, ptr %.sroa.6.0, 1
-  ret { i64, ptr } %53
+50:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit", %65, %53, %48
+  %.sroa.6.0 = phi ptr [ %55, %53 ], [ %.sroa.010.0, %65 ], [ %49, %48 ], [ %25, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %53 ], [ 0, %65 ], [ 0, %48 ], [ %., %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h2b23168ce188139eE.exit" ]
+  %51 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %52 = insertvalue { i64, ptr } %51, ptr %.sroa.6.0, 1
+  ret { i64, ptr } %52
 
-54:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit"
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %56 = load ptr, ptr %55, align 8, !noundef !3
+53:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit"
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %55 = load ptr, ptr %54, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %51
+  br label %50
 
-57:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit"
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %59 = load i32, ptr %58, align 4, !noundef !3
+56:                                               ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb70e0ab13d5ed062E.exit"
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %58 = load i32, ptr %57, align 4, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %66, label %61
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %65, label %60
 
-61:                                               ; preds = %57
-  %62 = shl i32 %59, 4
-  %63 = or disjoint i32 %62, 3
-  %64 = sext i32 %63 to i64
-  %65 = call noundef ptr @_ZN4jiff2tz8timezone4repr8polyfill18without_provenance17h27b5cac746cb4abbE(i64 noundef %64)
-  br label %66
+60:                                               ; preds = %56
+  %61 = shl i32 %58, 4
+  %62 = or disjoint i32 %61, 3
+  %63 = sext i32 %62 to i64
+  %64 = call noundef ptr @_ZN4jiff2tz8timezone4repr8polyfill18without_provenance17h27b5cac746cb4abbE(i64 noundef %63)
+  br label %65
 
-66:                                               ; preds = %57, %61
-  %.sroa.010.0 = phi ptr [ %65, %61 ], [ inttoptr (i64 1 to ptr), %57 ]
+65:                                               ; preds = %56, %60
+  %.sroa.010.0 = phi ptr [ %64, %60 ], [ inttoptr (i64 1 to ptr), %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %51
+  br label %50
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
@@ -7171,9 +7165,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #18

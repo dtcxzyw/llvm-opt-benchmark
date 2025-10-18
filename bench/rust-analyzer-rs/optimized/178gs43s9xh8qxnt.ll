@@ -3582,16 +3582,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 
 _ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit: ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15.i"
   %52 = extractvalue { i64, i1 } %47, 0
-  %spec.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %52, i64 3)
-  switch i64 %spec.select.i.i.i.i, label %default.unreachable19 [
+  switch i64 %52, label %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread6 [
     i64 0, label %53
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread6
   ]
-
-default.unreachable19:                            ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit
-  unreachable
 
 53:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.747d24535ae050ae89e729236a9ff074.25, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.747d24535ae050ae89e729236a9ff074.26) #23
@@ -3605,7 +3600,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thre
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %57
 
-_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread6: ; preds = %27, %.preheader.split.i, %.preheader.split.us.i, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17he35e20cb746af4a2E.exit", %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit
+_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread6: ; preds = %27, %.preheader.split.i, %.preheader.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit, %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17he35e20cb746af4a2E.exit"
   ret void
 
 56:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread
@@ -5229,14 +5224,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
@@ -5259,8 +5251,8 @@ attributes #14 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #15 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { cold }
 attributes #22 = { cold noreturn nounwind }

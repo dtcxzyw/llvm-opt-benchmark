@@ -131706,19 +131706,15 @@ define hidden void @"_ZN87_$LT$datafusion_common..table_reference..TableReferenc
   store i64 %13, ptr %9, align 8, !noalias !23217
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !23217
-  %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !noundef !12
-  %.pn3.in.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pn3.i = load ptr, ptr %.pn3.in.i, align 8, !nonnull !12, !noundef !12
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
-  switch i64 %13, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %15
-    i64 2, label %16
+  %.pn1.in.i13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pn1.i14 = load i64, ptr %.pn1.in.i13, align 8, !noundef !12
+  %.pn3.in.i15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pn3.i16 = load ptr, ptr %.pn3.in.i15, align 8, !nonnull !12, !noundef !12
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h461a40f98306e10bE.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i16, i64 noundef %.pn1.i14)
+  switch i64 %11, label %16 [
+    i64 -9223372036854775807, label %14
+    i64 -9223372036854775806, label %15
   ]
-
-default.unreachable:                              ; preds = %2
-  unreachable
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !23222

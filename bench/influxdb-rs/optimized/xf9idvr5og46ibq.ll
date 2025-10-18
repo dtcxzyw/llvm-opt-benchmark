@@ -5871,36 +5871,30 @@ default.unreachable:                              ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hb061768d3d612c29E(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !641, !alias.scope !1181, !noundef !4
-  %3 = add nsw i64 %2, -27
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 5)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-    i64 1, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-    i64 2, label %5
-    i64 3, label %6
-    i64 4, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-    i64 5, label %8
+  switch i64 %2, label %6 [
+    i64 27, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
+    i64 28, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
+    i64 29, label %3
+    i64 30, label %4
+    i64 31, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+3:                                                ; preds = %1
+  br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
 
-8:                                                ; preds = %1
-  br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-
-"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit": ; preds = %1, %1, %1, %5, %6, %8
-  %.sroa.7.0.i = phi ptr [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.258.llvm.14229044446495144540, %5 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.260.llvm.14229044446495144540, %6 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.262.llvm.14229044446495144540, %8 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %0, %5 ], [ %7, %6 ], [ %0, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.7.0.i, 1
-  ret { ptr, ptr } %10
+"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit": ; preds = %1, %1, %1, %3, %4, %6
+  %.sroa.7.0.i = phi ptr [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.258.llvm.14229044446495144540, %3 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.260.llvm.14229044446495144540, %4 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.262.llvm.14229044446495144540, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %0, %3 ], [ %5, %4 ], [ %0, %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %7 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.7.0.i, 1
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

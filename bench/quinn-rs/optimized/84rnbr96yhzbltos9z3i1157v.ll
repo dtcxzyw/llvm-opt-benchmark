@@ -413,33 +413,28 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %5 = load i64, ptr %4, align 8, !range !22, !alias.scope !19, !noalias !23, !noundef !10
   %6 = xor i64 %5, -9223372036854775808
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 2)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
+  switch i64 %6, label %11 [
+    i64 0, label %7
+    i64 1, label %9
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.199, i64 noundef 10), !noalias !19
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.199, i64 noundef 10), !noalias !19
   br label %"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit"
 
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.200, i64 noundef 10), !noalias !19
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.200, i64 noundef 10), !noalias !19
   br label %"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit"
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !25
   store ptr %4, ptr %3, align 8, !noalias !25
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.173, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.201)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.173, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.201)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !25
   br label %"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit"
 
-"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit": ; preds = %8, %10, %12
-  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
+"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit": ; preds = %7, %9, %11
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -886,129 +881,123 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !10, !align !11, !noundef !10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %5 = load i64, ptr %4, align 8, !range !70, !alias.scope !67, !noalias !71, !noundef !10
-  %6 = add i64 %5, 9223372036854775807
-  %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 21)
-  switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %10
-    i64 2, label %12
-    i64 3, label %14
-    i64 4, label %16
-    i64 5, label %18
-    i64 6, label %20
-    i64 7, label %22
-    i64 8, label %24
-    i64 9, label %26
-    i64 10, label %28
-    i64 11, label %30
-    i64 12, label %32
-    i64 13, label %34
-    i64 14, label %36
-    i64 15, label %38
-    i64 16, label %40
-    i64 17, label %42
-    i64 18, label %44
-    i64 19, label %46
-    i64 20, label %48
-    i64 21, label %50
+  switch i64 %5, label %48 [
+    i64 -9223372036854775807, label %6
+    i64 -9223372036854775806, label %8
+    i64 -9223372036854775805, label %10
+    i64 -9223372036854775804, label %12
+    i64 -9223372036854775803, label %14
+    i64 -9223372036854775802, label %16
+    i64 -9223372036854775801, label %18
+    i64 -9223372036854775800, label %20
+    i64 -9223372036854775799, label %22
+    i64 -9223372036854775798, label %24
+    i64 -9223372036854775797, label %26
+    i64 -9223372036854775796, label %28
+    i64 -9223372036854775795, label %30
+    i64 -9223372036854775794, label %32
+    i64 -9223372036854775793, label %34
+    i64 -9223372036854775792, label %36
+    i64 -9223372036854775791, label %38
+    i64 -9223372036854775790, label %40
+    i64 -9223372036854775789, label %42
+    i64 -9223372036854775788, label %44
+    i64 -9223372036854775787, label %46
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.176, i64 noundef 25), !noalias !67
+  br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.176, i64 noundef 25), !noalias !67
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.177, i64 noundef 37), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.177, i64 noundef 37), !noalias !67
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.178, i64 noundef 33), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.178, i64 noundef 33), !noalias !67
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.179, i64 noundef 25), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.179, i64 noundef 25), !noalias !67
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.180, i64 noundef 28), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.180, i64 noundef 28), !noalias !67
+  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.181, i64 noundef 44), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.181, i64 noundef 44), !noalias !67
+  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.182, i64 noundef 22), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 20:                                               ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.182, i64 noundef 22), !noalias !67
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.183, i64 noundef 24), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 22:                                               ; preds = %2
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.183, i64 noundef 24), !noalias !67
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.184, i64 noundef 18), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 24:                                               ; preds = %2
-  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.184, i64 noundef 18), !noalias !67
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.185, i64 noundef 26), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.185, i64 noundef 26), !noalias !67
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.186, i64 noundef 23), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.186, i64 noundef 23), !noalias !67
+  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.187, i64 noundef 29), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 30:                                               ; preds = %2
-  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.187, i64 noundef 29), !noalias !67
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.188, i64 noundef 47), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 32:                                               ; preds = %2
-  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.188, i64 noundef 47), !noalias !67
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.189, i64 noundef 37), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 34:                                               ; preds = %2
-  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.189, i64 noundef 37), !noalias !67
+  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.190, i64 noundef 36), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 36:                                               ; preds = %2
-  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.190, i64 noundef 36), !noalias !67
+  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.191, i64 noundef 34), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 38:                                               ; preds = %2
-  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.191, i64 noundef 34), !noalias !67
+  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.192, i64 noundef 15), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 40:                                               ; preds = %2
-  %41 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.192, i64 noundef 15), !noalias !67
+  %41 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.193, i64 noundef 24), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 42:                                               ; preds = %2
-  %43 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.193, i64 noundef 24), !noalias !67
+  %43 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.194, i64 noundef 20), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 44:                                               ; preds = %2
-  %45 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.194, i64 noundef 20), !noalias !67
+  %45 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.195, i64 noundef 28), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 46:                                               ; preds = %2
-  %47 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.195, i64 noundef 28), !noalias !67
+  %47 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.196, i64 noundef 35), !noalias !67
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 48:                                               ; preds = %2
-  %49 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.196, i64 noundef 35), !noalias !67
-  br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
-
-50:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !73
   store ptr %4, ptr %3, align 8, !noalias !73
-  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.198, i64 noundef 34, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.197)
+  %49 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.198, i64 noundef 34, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.197)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !73
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
-"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit": ; preds = %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50
-  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ]
+"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12840,33 +12829,28 @@ define internal noundef zeroext i1 @"_ZN70_$LT$rustls..error..ExtendedKeyPurpose
   %3 = alloca [8 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !22, !noundef !10
   %5 = xor i64 %4, -9223372036854775808
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
-  switch i64 %6, label %default.unreachable [
-    i64 0, label %7
-    i64 1, label %9
-    i64 2, label %11
+  switch i64 %5, label %10 [
+    i64 0, label %6
+    i64 1, label %8
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.199, i64 noundef 10)
+  br label %12
 
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.199, i64 noundef 10)
-  br label %13
+8:                                                ; preds = %2
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.200, i64 noundef 10)
+  br label %12
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.200, i64 noundef 10)
-  br label %13
-
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.173, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.201)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.4d1af44ccda3402e8c417f5eb083f41d.173, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.4d1af44ccda3402e8c417f5eb083f41d.201)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
+12:                                               ; preds = %10, %8, %6
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -14477,9 +14461,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

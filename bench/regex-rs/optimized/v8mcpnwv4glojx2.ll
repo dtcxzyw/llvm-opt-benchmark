@@ -948,10 +948,11 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12regex_syntax3ast5parse9Primitive4span17he0719f1f0f0c5c27E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !106, !noundef !4
-  %4 = icmp ult i64 %3, -9223372036854775806
-  %. = select i1 %4, i64 56, i64 32
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  ret ptr %5
+  %4 = add i64 %3, 9223372036854775806
+  %switch.selectcmp = icmp ult i64 %4, 4
+  %5 = select i1 %switch.selectcmp, i64 32, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -959,116 +960,110 @@ define hidden { i64, ptr } @_ZN12regex_syntax3ast5parse9Primitive8into_ast17h39f
   %2 = alloca { { [3 x i64], i64, [3 x i64] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !range !106, !noundef !4
-  %5 = add i64 %4, 9223372036854775806
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 4)
-  switch i64 %6, label %default.unreachable [
-    i64 0, label %7
-    i64 1, label %12
-    i64 2, label %17
-    i64 3, label %22
-    i64 4, label %27
+  switch i64 %4, label %25 [
+    i64 -9223372036854775806, label %5
+    i64 -9223372036854775805, label %10
+    i64 -9223372036854775804, label %15
+    i64 -9223372036854775803, label %20
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
+5:                                                ; preds = %1
+  %6 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !107
+  %.fca.0.extract.i.i = extractvalue { ptr, i64 } %6, 0
+  %7 = icmp eq ptr %.fca.0.extract.i.i, null
+  br i1 %7, label %8, label %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit
 
-7:                                                ; preds = %1
-  %8 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !107
-  %.fca.0.extract.i.i = extractvalue { ptr, i64 } %8, 0
-  %9 = icmp eq ptr %.fca.0.extract.i.i, null
-  br i1 %9, label %10, label %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit
-
-10:                                               ; preds = %7
+8:                                                ; preds = %5
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 56) #24, !noalias !107
   unreachable
 
-_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit: ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
-  br label %35
+_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit: ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  br label %33
 
-12:                                               ; preds = %1
-  %13 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !112
-  %.fca.0.extract.i.i18 = extractvalue { ptr, i64 } %13, 0
-  %14 = icmp eq ptr %.fca.0.extract.i.i18, null
-  br i1 %14, label %15, label %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit
+10:                                               ; preds = %1
+  %11 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !112
+  %.fca.0.extract.i.i18 = extractvalue { ptr, i64 } %11, 0
+  %12 = icmp eq ptr %.fca.0.extract.i.i18, null
+  br i1 %12, label %13, label %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit
 
-15:                                               ; preds = %12
+13:                                               ; preds = %10
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 56) #24, !noalias !112
   unreachable
 
-_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit: ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
-  br label %35
+_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit: ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false)
+  br label %33
 
-17:                                               ; preds = %1
-  %18 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 48, i1 noundef zeroext false), !noalias !117
-  %.fca.0.extract.i.i19 = extractvalue { ptr, i64 } %18, 0
-  %19 = icmp eq ptr %.fca.0.extract.i.i19, null
-  br i1 %19, label %20, label %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit
+15:                                               ; preds = %1
+  %16 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 48, i1 noundef zeroext false), !noalias !117
+  %.fca.0.extract.i.i19 = extractvalue { ptr, i64 } %16, 0
+  %17 = icmp eq ptr %.fca.0.extract.i.i19, null
+  br i1 %17, label %18, label %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit
 
-20:                                               ; preds = %17
+18:                                               ; preds = %15
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 48) #24, !noalias !117
   unreachable
 
-_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit: ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.fca.0.extract.i.i19, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false)
-  br label %35
+_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit: ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.fca.0.extract.i.i19, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false)
+  br label %33
 
-22:                                               ; preds = %1
-  %23 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !122
-  %.fca.0.extract.i.i20 = extractvalue { ptr, i64 } %23, 0
-  %24 = icmp eq ptr %.fca.0.extract.i.i20, null
-  br i1 %24, label %25, label %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit
+20:                                               ; preds = %1
+  %21 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !122
+  %.fca.0.extract.i.i20 = extractvalue { ptr, i64 } %21, 0
+  %22 = icmp eq ptr %.fca.0.extract.i.i20, null
+  br i1 %22, label %23, label %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit
 
-25:                                               ; preds = %22
+23:                                               ; preds = %20
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 56) #24, !noalias !122
   unreachable
 
-_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit: ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i20, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false)
-  br label %35
+_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit: ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.fca.0.extract.i.i20, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 56, i1 false)
+  br label %33
 
-27:                                               ; preds = %1
+25:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(112) %0, i64 112, i1 false)
-  %28 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 112, i1 noundef zeroext false)
-          to label %.noexc.i unwind label %31, !noalias !127
+  %26 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16653392013706621149(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.2.llvm.16653392013706621149, i64 noundef 8, i64 noundef 112, i1 noundef zeroext false)
+          to label %.noexc.i unwind label %29, !noalias !127
 
-.noexc.i:                                         ; preds = %27
-  %.fca.0.extract.i.i21 = extractvalue { ptr, i64 } %28, 0
-  %29 = icmp eq ptr %.fca.0.extract.i.i21, null
-  br i1 %29, label %30, label %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit
+.noexc.i:                                         ; preds = %25
+  %.fca.0.extract.i.i21 = extractvalue { ptr, i64 } %26, 0
+  %27 = icmp eq ptr %.fca.0.extract.i.i21, null
+  br i1 %27, label %28, label %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit
 
-30:                                               ; preds = %.noexc.i
+28:                                               ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 112) #24
-          to label %.noexc1.i unwind label %31, !noalias !127
+          to label %.noexc1.i unwind label %29, !noalias !127
 
-.noexc1.i:                                        ; preds = %30
+.noexc1.i:                                        ; preds = %28
   unreachable
 
-31:                                               ; preds = %30, %27
-  %32 = landingpad { ptr, i32 }
+29:                                               ; preds = %28, %25
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassUnicodeKind$GT$17h91152c138cf66822E.llvm.15241997999693184539"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2)
-          to label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassUnicode$GT$17hace7d63f5f412924E.exit.i" unwind label %33
+          to label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassUnicode$GT$17hace7d63f5f412924E.exit.i" unwind label %31
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #26
   unreachable
 
-"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassUnicode$GT$17hace7d63f5f412924E.exit.i": ; preds = %31
-  resume { ptr, i32 } %32
+"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassUnicode$GT$17hace7d63f5f412924E.exit.i": ; preds = %29
+  resume { ptr, i32 } %30
 
 _ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit: ; preds = %.noexc.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.fca.0.extract.i.i21, ptr noundef nonnull align 8 dereferenceable(112) %0, i64 112, i1 false)
-  br label %35
+  br label %33
 
-35:                                               ; preds = %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit
+33:                                               ; preds = %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit
   %.pn22 = phi { i64, ptr } [ { i64 2, ptr poison }, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ], [ { i64 4, ptr poison }, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ { i64 3, ptr poison }, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ { i64 6, ptr poison }, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ { i64 5, ptr poison }, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ]
   %.fca.0.extract.i.i.pn = phi ptr [ %.fca.0.extract.i.i, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ], [ %.fca.0.extract.i.i18, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ %.fca.0.extract.i.i19, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ %.fca.0.extract.i.i20, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ %.fca.0.extract.i.i21, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ]
   %.pn = insertvalue { i64, ptr } %.pn22, ptr %.fca.0.extract.i.i.pn, 1

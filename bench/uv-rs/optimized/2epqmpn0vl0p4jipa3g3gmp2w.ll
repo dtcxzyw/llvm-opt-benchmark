@@ -388,34 +388,25 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h5b7742c313fa15e2E(ptr n
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hb3b4d2ad069419b9E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !37, !alias.scope !38, !noundef !3
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 6)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %5
-    i64 1, label %7
-    i64 2, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
-    i64 3, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
-    i64 4, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
-    i64 5, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
-    i64 6, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
+  switch i64 %3, label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit" [
+    i64 0, label %4
+    i64 1, label %6
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
 
-"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit": ; preds = %1, %1, %1, %1, %1, %5, %7
-  %.sroa.8.0.i = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.206.llvm.5955437837880099222, %5 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.208.llvm.5955437837880099222, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.8.0.i, 1
-  ret { ptr, ptr } %10
+"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit": ; preds = %1, %4, %6
+  %.sroa.8.0.i = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.206.llvm.5955437837880099222, %4 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.208.llvm.5955437837880099222, %6 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
+  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.8.0.i, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -502,7 +493,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
   ret void
 
 7:                                                ; preds = %4
-  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #15
   br label %6
 }
 
@@ -865,7 +856,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.1661679
   %51 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %52 = sub nsw i64 0, %44
   %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %46, i64 noundef range(i64 1, -9223372036854775807) %3) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %46, i64 noundef range(i64 1, -9223372036854775807) %3) #15
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit": ; preds = %50, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.16616795316985032872.exit, %4
@@ -1076,14 +1067,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
-
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1098,10 +1086,9 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #10 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nounwind }
+attributes #13 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}
