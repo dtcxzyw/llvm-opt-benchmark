@@ -2137,8 +2137,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit176: ; preds = %95, %9
 
 104:                                              ; preds = %.lr.ph313
   %105 = add nuw i64 %.0157312, 1
-  %exitcond347.not = icmp eq i64 %105, %103
-  br i1 %exitcond347.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !25
+  %exitcond346.not = icmp eq i64 %105, %103
+  br i1 %exitcond346.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !25
 
 ._crit_edge314:                                   ; preds = %104, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit176
   %106 = add i64 %.0146, 2
@@ -2266,8 +2266,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit182: ; preds = %145, %
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit185: ; preds = %158, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %162 = add nuw i64 %.0145320, 1
-  %exitcond348.not = icmp eq i64 %162, %.0146
-  br i1 %exitcond348.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !27
+  %exitcond347.not = icmp eq i64 %162, %.0146
+  br i1 %exitcond347.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !27
 
 163:                                              ; preds = %3
   %164 = lshr i64 %42, 2

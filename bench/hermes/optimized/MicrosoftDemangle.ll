@@ -8358,17 +8358,14 @@ entry:
   %Last.i.i = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
   %0 = load ptr, ptr %Last.i.i, align 8
   %1 = load ptr, ptr %MangledName, align 8
-  %cmp20.not.i = icmp eq ptr %0, %1
-  br i1 %cmp20.not.i, label %_ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit.thread, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  br label %for.body.i
+  %cmp20.not.i = icmp eq ptr %0, %1
+  br i1 %cmp20.not.i, label %_ZN12_GLOBAL__N_19Demangler20demangleSimpleStringER10StringViewb.exit.thread, label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %i.021.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+for.body.i:                                       ; preds = %entry, %for.inc.i
+  %i.021.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr i8, ptr %1, i64 %i.021.i
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %cmp3.not.i = icmp eq i8 %2, 64
@@ -8715,7 +8712,7 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit: ; preds = %_ZN12Outpu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19Demangler30demangleFunctionIdentifierCodeER10StringView27FunctionIdentifierCodeGroup(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %MangledName, i32 noundef range(i32 0, 3) %Group) unnamed_addr #2 align 2 {
 entry:
-  switch i32 %Group, label %default.unreachable121 [
+  switch i32 %Group, label %default.unreachable120 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb9
     i32 2, label %sw.bb15
@@ -9008,17 +9005,14 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeE
   %Last.i.i.i = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
   %50 = load ptr, ptr %Last.i.i.i, align 8
   %51 = load ptr, ptr %MangledName, align 8
-  %cmp20.not.i.i = icmp eq ptr %50, %51
-  br i1 %cmp20.not.i.i, label %for.end.i.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  br label %for.body.i.i
+  %cmp20.not.i.i = icmp eq ptr %50, %51
+  br i1 %cmp20.not.i.i, label %for.end.i.i, label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %i.021.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i, %for.inc.i.i
+  %i.021.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_29LiteralOperatorIdentifierNodeEJEEEPT_DpOT0_.exit.i ]
   %add.ptr.i.i.i = getelementptr i8, ptr %51, i64 %i.021.i.i
   %52 = load i8, ptr %add.ptr.i.i.i, align 1
   %cmp3.not.i.i = icmp eq i8 %52, 64
@@ -9103,7 +9097,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   store i8 %retval.0.i85, ptr %Operator2.i7.i104, align 8
   br label %return
 
-default.unreachable121:                           ; preds = %entry
+default.unreachable120:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit106, %_ZN12_GLOBAL__N_19Demangler33demangleLiteralOperatorIdentifierER10StringView.exit, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit59, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit, %_ZN12_GLOBAL__N_19Demangler36demangleConversionOperatorIdentifierER10StringView.exit, %_ZN12_GLOBAL__N_19Demangler26demangleStructorIdentifierER10StringViewb.exit

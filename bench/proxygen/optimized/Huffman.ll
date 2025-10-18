@@ -589,13 +589,13 @@ entry:
 define noundef i32 @_ZNK8proxygen7huffman8HuffTree6encodeEN5folly5RangeIPKcEERNS2_2io13QueueAppenderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %buf) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp36.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp36.not, label %if.end57, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
@@ -843,13 +843,13 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 536870913) i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
 entry:
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp7.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
   br label %for.body

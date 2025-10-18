@@ -2916,12 +2916,12 @@ define internal i64 @encoder_7bit_read(ptr noundef writeonly captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %8 = load i64, ptr %7, align 8, !tbaa !69
   %9 = load i64, ptr %5, align 8, !tbaa !68
+  %10 = sub i64 %8, %9
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %.not28 = icmp eq i64 %8, %9
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %10 = sub i64 %8, %9
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %12
 

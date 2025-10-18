@@ -12658,17 +12658,14 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !68
   %5 = load ptr, ptr %2, align 8, !tbaa !66
-  %.not9.not = icmp eq ptr %4, %5
-  br i1 %.not9.not, label %.critedge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  br label %.lr.ph
+  %.not9.not = icmp eq ptr %4, %5
+  br i1 %.not9.not, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0710 = phi i64 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.0710 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.0710
   %10 = load i8, ptr %9, align 1, !tbaa !70
   %11 = icmp eq i8 %10, 1
@@ -14998,17 +14995,14 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE4findE
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !68
   %41 = load ptr, ptr %38, align 8, !tbaa !66
-  %.not9.not.i = icmp eq ptr %40, %41
-  br i1 %.not9.not.i, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %32
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  br label %.lr.ph.i
+  %.not9.not.i = icmp eq ptr %40, %41
+  br i1 %.not9.not.i, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0710.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %48, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %32, %.lr.ph.i
+  %.0710.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.0710.i
   %46 = load i8, ptr %45, align 1, !tbaa !70
   %47 = icmp eq i8 %46, 1
@@ -143887,22 +143881,19 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec13is_fully_zeroEv(ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.025, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = load ptr, ptr %14, align 8, !tbaa !66
-  %.not1022.not = icmp eq ptr %16, %17
-  br i1 %.not1022.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  br label %.lr.ph
+  %.not1022.not = icmp eq ptr %16, %17
+  br i1 %.not1022.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0623, 1
   %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1029
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.0623 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %21
+  %.0623 = phi i64 [ %22, %21 ], [ 0, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.0623
   %24 = load i8, ptr %23, align 1, !tbaa !70
   %.not9 = icmp eq i8 %24, 0
@@ -143948,22 +143939,19 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec13is_fully_onesEv(ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.011.025, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = load ptr, ptr %14, align 8, !tbaa !66
-  %.not1022.not = icmp eq ptr %16, %17
-  br i1 %.not1022.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  br label %.lr.ph
+  %.not1022.not = icmp eq ptr %16, %17
+  br i1 %.not1022.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0623, 1
   %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1031
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.0623 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %21
+  %.0623 = phi i64 [ %22, %21 ], [ 0, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.0623
   %24 = load i8, ptr %23, align 1, !tbaa !70
   %.not9 = icmp eq i8 %24, 1
@@ -144009,22 +143997,19 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec12is_fully_defEv(ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.028, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = load ptr, ptr %14, align 8, !tbaa !66
-  %.not1225.not = icmp eq ptr %16, %17
-  br i1 %.not1225.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  br label %.lr.ph
+  %.not1225.not = icmp eq ptr %16, %17
+  br i1 %.not1225.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0726, 1
   %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1033
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.0726 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %21
+  %.0726 = phi i64 [ %22, %21 ], [ 0, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.0726
   %24 = load i8, ptr %23, align 1, !tbaa !70
   %switch = icmp ult i8 %24, 2
@@ -144070,22 +144055,19 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec14is_fully_undefEv(ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.028, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = load ptr, ptr %14, align 8, !tbaa !66
-  %.not1225.not = icmp eq ptr %16, %17
-  br i1 %.not1225.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %13
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  br label %.lr.ph
+  %.not1225.not = icmp eq ptr %16, %17
+  br i1 %.not1225.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0726, 1
   %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1035
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.0726 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %13, %21
+  %.0726 = phi i64 [ %22, %21 ], [ 0, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.0726
   %24 = load i8, ptr %23, align 1, !tbaa !70
   %25 = and i8 %24, -2
@@ -144132,22 +144114,19 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec15has_marked_bitsEv(ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.09.026, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = load ptr, ptr %14, align 8, !tbaa !66
-  %.not23.not = icmp eq ptr %16, %17
-  br i1 %.not23.not, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  br label %.lr.ph
+  %.not23.not = icmp eq ptr %16, %17
+  br i1 %.not23.not, label %.loopexit, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.0624, 1
   %exitcond.not = icmp eq i64 %22, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !1037
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.0624 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %21
+  %.0624 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.0624
   %24 = load i8, ptr %23, align 1, !tbaa !70
   %25 = icmp eq i8 %24, 5
@@ -144338,17 +144317,14 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
 .noexc:                                           ; preds = %_ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit
   %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = load ptr, ptr %11, align 8, !tbaa !66
-  %.not9.not.i = icmp eq ptr %30, %31
-  br i1 %.not9.not.i, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.noexc
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
-  br label %.lr.ph.i
+  %.not9.not.i = icmp eq ptr %30, %31
+  br i1 %.not9.not.i, label %_ZNK5Yosys5RTLIL5Const7as_boolEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0710.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %38, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
+  %.0710.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %.noexc ]
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.0710.i
   %36 = load i8, ptr %35, align 1, !tbaa !70
   %37 = icmp eq i8 %36, 1

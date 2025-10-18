@@ -1169,14 +1169,11 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %.sroa.0790.0837 = phi ptr [ %121, %.preheader.lr.ph ], [ %156, %._crit_edge835 ]
   %135 = load ptr, ptr %124, align 8, !tbaa !90
   %136 = load ptr, ptr %8, align 8, !tbaa !91
-  %.not839 = icmp eq ptr %135, %136
-  br i1 %.not839, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %136 to i64
   %139 = sub i64 %137, %138
-  br label %.lr.ph
+  %.not839 = icmp eq ptr %135, %136
+  br i1 %.not839, label %._crit_edge, label %.lr.ph
 
 ._crit_edge838:                                   ; preds = %._crit_edge835, %_ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1192,8 +1189,8 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %143 = zext i8 %140 to i64
   br label %.lr.ph822
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0819 = phi i64 [ %148, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.0819 = phi i64 [ %148, %.lr.ph ], [ 0, %.preheader ]
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 %.0819
   %145 = load i8, ptr %144, align 1, !tbaa !89
   %146 = and i8 %145, 127

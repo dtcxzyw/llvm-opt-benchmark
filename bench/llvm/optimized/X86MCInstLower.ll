@@ -8335,7 +8335,7 @@ define internal fastcc noundef range(i32 1, 16) i32 @_ZL7emitNopRN4llvm10MCStrea
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 520
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr nonnull @.str.23, i64 1) #21
-  %33 = add i32 %.082, 1
+  %33 = add nuw nsw i32 %.082, 1
   %.not = icmp eq i32 %33, %.sroa.speculated
   br i1 %.not, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60, label %.lr.ph, !llvm.loop !891
 

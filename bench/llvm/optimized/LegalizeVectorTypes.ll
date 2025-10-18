@@ -34636,7 +34636,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE28reserveForParamAndGetAddres
   store ptr %.fca.0.extract4, ptr %.09.i.i.i.i, align 8, !tbaa !29
   %.sroa.2.0..09.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
   store i32 %.fca.1.extract5, ptr %.sroa.2.0..09.i.i.i.sroa_idx.i, align 8, !tbaa !23
-  %104 = add i64 %.068.i.i.i.i, -1
+  %104 = add nsw i64 %.068.i.i.i.i, -1
   %105 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq i64 %104, 0
   br i1 %.not.i.i.i.i, label %_ZSt20uninitialized_fill_nIPN4llvm7SDValueEmS1_ET_S3_T0_RKT1_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !504

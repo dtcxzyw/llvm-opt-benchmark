@@ -1476,7 +1476,7 @@ _ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12Un
   %.0.i.i = phi i32 [ %104, %103 ], [ %108, %105 ]
   %109 = getelementptr inbounds nuw i32, ptr %1, i64 %.06.i
   store i32 %.0.i.i, ptr %109, align 4, !tbaa !136
-  %110 = add nuw i64 %.06.i, 1
+  %110 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i25 = icmp eq i64 %110, %13
   br i1 %exitcond.not.i25, label %_ZN6duckdb15ChimpGroupStateIjE10LoadValuesEPjm.exit, label %100, !llvm.loop !151
 
@@ -3408,7 +3408,7 @@ _ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12Un
   %.0.i.i = phi i64 [ %104, %103 ], [ %108, %105 ]
   %109 = getelementptr inbounds nuw i64, ptr %1, i64 %.06.i
   store i64 %.0.i.i, ptr %109, align 8, !tbaa !33
-  %110 = add nuw i64 %.06.i, 1
+  %110 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i25 = icmp eq i64 %110, %13
   br i1 %exitcond.not.i25, label %_ZN6duckdb15ChimpGroupStateImE10LoadValuesEPmm.exit, label %100, !llvm.loop !203
 

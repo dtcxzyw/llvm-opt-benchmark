@@ -2252,7 +2252,7 @@ malloc_mutex_lock.exit:                           ; preds = %55, %59
   %.12844.i = phi i32 [ %101, %.lr.ph46.i ], [ %.02751.i, %.lr.ph46.preheader.i ]
   %.13043.i = phi i64 [ %90, %.lr.ph46.i ], [ %.029.i, %.lr.ph46.preheader.i ]
   %.242.i = phi i64 [ %94, %.lr.ph46.i ], [ %.138.lcssa.i, %.lr.ph46.preheader.i ]
-  %90 = add i64 %.13043.i, -1
+  %90 = add nsw i64 %.13043.i, -1
   %91 = icmp ne i64 %.242.i, 0
   tail call void @llvm.assume(i1 %91)
   %92 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.242.i, i1 true)
@@ -2657,7 +2657,7 @@ je_arena_bin_choose.exit:                         ; preds = %6, %17, %21
   %.12844.i = phi i32 [ %69, %.lr.ph46.i ], [ %.02751.i, %.lr.ph46.preheader.i ]
   %.13043.i = phi i64 [ %58, %.lr.ph46.i ], [ %.029.i, %.lr.ph46.preheader.i ]
   %.242.i = phi i64 [ %62, %.lr.ph46.i ], [ %.138.lcssa.i, %.lr.ph46.preheader.i ]
-  %58 = add i64 %.13043.i, -1
+  %58 = add nsw i64 %.13043.i, -1
   %59 = icmp ne i64 %.242.i, 0
   tail call void @llvm.assume(i1 %59)
   %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.242.i, i1 true)

@@ -16,14 +16,11 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   br i1 %.not22, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %4
-  %.not1524.not = icmp eq ptr %1, %0
-  br i1 %.not1524.not, label %._crit_edge, label %.lr.ph26.preheader
-
-.lr.ph26.preheader:                               ; preds = %.preheader
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
-  br label %.lr.ph26
+  %.not1524.not = icmp eq ptr %1, %0
+  br i1 %.not1524.not, label %._crit_edge, label %.lr.ph26
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.01423 = phi ptr [ %17, %.lr.ph ], [ %2, %4 ]
@@ -40,8 +37,8 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %.not = icmp eq ptr %17, %3
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %27
-  %.01225 = phi i64 [ %28, %27 ], [ 0, %.lr.ph26.preheader ]
+.lr.ph26:                                         ; preds = %.preheader, %27
+  %.01225 = phi i64 [ %28, %27 ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.01225
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = zext i8 %19 to i64
@@ -83,13 +80,13 @@ define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPi
 .preheader:                                       ; preds = %_ZN5folly13SparseByteSet3addEh.exit, %4
   %8 = phi i16 [ 0, %4 ], [ %30, %_ZN5folly13SparseByteSet3addEh.exit ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 258
+  %10 = ptrtoint ptr %1 to i64
+  %11 = ptrtoint ptr %0 to i64
+  %12 = sub i64 %10, %11
   %.not1520.not = icmp eq ptr %1, %0
   br i1 %.not1520.not, label %_ZNK5folly13SparseByteSet8containsEh.exit._crit_edge, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %.preheader
-  %10 = ptrtoint ptr %1 to i64
-  %11 = ptrtoint ptr %0 to i64
-  %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %32
 

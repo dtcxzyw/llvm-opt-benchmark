@@ -2298,14 +2298,11 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %130 = load ptr, ptr %129, align 8, !tbaa !77
   %131 = load ptr, ptr %102, align 8, !tbaa !67
-  %.not137 = icmp eq ptr %130, %131
-  br i1 %.not137, label %._crit_edge131, label %.lr.ph130.preheader
-
-.lr.ph130.preheader:                              ; preds = %127
   %132 = ptrtoint ptr %130 to i64
   %133 = ptrtoint ptr %131 to i64
   %134 = sub i64 %132, %133
-  br label %.lr.ph130
+  %.not137 = icmp eq ptr %130, %131
+  br i1 %.not137, label %._crit_edge131, label %.lr.ph130
 
 ._crit_edge131:                                   ; preds = %159, %127
   %135 = phi i32 [ 0, %127 ], [ %160, %159 ]
@@ -2330,9 +2327,9 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
   %153 = icmp slt i32 %135, %152
   br i1 %153, label %.critedge.thread, label %162
 
-.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %159
-  %.0105128 = phi i64 [ %161, %159 ], [ 0, %.lr.ph130.preheader ]
-  %154 = phi i32 [ %160, %159 ], [ 0, %.lr.ph130.preheader ]
+.lr.ph130:                                        ; preds = %127, %159
+  %.0105128 = phi i64 [ %161, %159 ], [ 0, %127 ]
+  %154 = phi i32 [ %160, %159 ], [ 0, %127 ]
   %155 = getelementptr inbounds nuw i8, ptr %131, i64 %.0105128
   %156 = load i8, ptr %155, align 1, !tbaa !98
   %.not125 = icmp eq i8 %156, 0
@@ -2346,8 +2343,8 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
 159:                                              ; preds = %.lr.ph130, %157
   %160 = phi i32 [ %154, %.lr.ph130 ], [ %158, %157 ]
   %161 = add nuw i64 %.0105128, 1
-  %exitcond140.not = icmp eq i64 %161, %134
-  br i1 %exitcond140.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !179
+  %exitcond139.not = icmp eq i64 %161, %134
+  br i1 %exitcond139.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !179
 
 162:                                              ; preds = %._crit_edge131
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef 1, i32 noundef %135, i32 noundef 13)
@@ -2438,8 +2435,8 @@ _ZN2cv6detail15FeaturesMatcherclERKNS0_13ImageFeaturesES4_RNS0_11MatchesInfoE.ex
 216:                                              ; preds = %196, %199
   %.1104 = phi i32 [ %215, %199 ], [ %.0103132, %196 ]
   %217 = add nuw i64 %.0102133, 1
-  %exitcond142.not = icmp eq i64 %217, %170
-  br i1 %exitcond142.not, label %._crit_edge135, label %196, !llvm.loop !180
+  %exitcond141.not = icmp eq i64 %217, %170
+  br i1 %exitcond141.not, label %._crit_edge135, label %196, !llvm.loop !180
 
 ._crit_edge135:                                   ; preds = %216, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -3374,14 +3371,11 @@ define void @_ZN2cv6detail27AffineBestOf2NearestMatcher5matchERKNS0_13ImageFeatu
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !77
   %132 = load ptr, ptr %129, align 8, !tbaa !67
-  %.not70 = icmp eq ptr %131, %132
-  br i1 %.not70, label %._crit_edge68, label %.lr.ph67.preheader
-
-.lr.ph67.preheader:                               ; preds = %127
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
-  br label %.lr.ph67
+  %.not70 = icmp eq ptr %131, %132
+  br i1 %.not70, label %._crit_edge68, label %.lr.ph67
 
 ._crit_edge68.loopexit:                           ; preds = %153
   %136 = sitofp i32 %154 to double
@@ -3404,9 +3398,9 @@ define void @_ZN2cv6detail27AffineBestOf2NearestMatcher5matchERKNS0_13ImageFeatu
   invoke void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %16, i32 noundef 1, i32 noundef 3, i32 noundef 6)
           to label %156 unwind label %179
 
-.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %153
-  %.065 = phi i64 [ %155, %153 ], [ 0, %.lr.ph67.preheader ]
-  %148 = phi i32 [ %154, %153 ], [ 0, %.lr.ph67.preheader ]
+.lr.ph67:                                         ; preds = %127, %153
+  %.065 = phi i64 [ %155, %153 ], [ 0, %127 ]
+  %148 = phi i32 [ %154, %153 ], [ 0, %127 ]
   %149 = getelementptr inbounds nuw i8, ptr %132, i64 %.065
   %150 = load i8, ptr %149, align 1, !tbaa !98
   %.not = icmp eq i8 %150, 0

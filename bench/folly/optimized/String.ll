@@ -2076,8 +2076,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit97: ; pred
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 %271
   store i8 0, ptr %283, align 1, !tbaa !7
   %284 = add nuw nsw i64 %.053102, 1
-  %exitcond107.not = icmp eq i64 %284, %.sroa.speculated
-  br i1 %exitcond107.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !81
+  %exitcond106.not = icmp eq i64 %284, %.sroa.speculated
+  br i1 %exitcond106.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !81
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4

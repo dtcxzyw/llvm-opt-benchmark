@@ -192,13 +192,13 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %51 = load ptr, ptr %33, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !29
+  %54 = ptrtoint ptr %49 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
   %.not164 = icmp eq ptr %49, %53
   br i1 %.not164, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
-  %54 = ptrtoint ptr %49 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
   %57 = getelementptr i8, ptr %0, i64 16
   br label %58
 

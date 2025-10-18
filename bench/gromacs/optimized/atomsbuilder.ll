@@ -1100,11 +1100,7 @@ define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorIfSaIfEE(ptr
 
 .preheader:                                       ; preds = %2
   %.not14 = icmp eq ptr %11, %12
-  br i1 %.not14, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph
+  br i1 %.not14, label %._crit_edge.thread, label %.lr.ph
 
 17:                                               ; preds = %2
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorIfSaIfEEENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 254) #17
@@ -1137,9 +1133,9 @@ define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorIfSaIfEE(ptr
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %._crit_edge.thread, %23, %25
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
-  %.013 = phi i64 [ %35, %34 ], [ 0, %.lr.ph.preheader ]
-  %.01112 = phi i32 [ %.1, %34 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %34
+  %.013 = phi i64 [ %35, %34 ], [ 0, %.preheader ]
+  %.01112 = phi i32 [ %.1, %34 ], [ 0, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 %.013
   %27 = load i8, ptr %26, align 1, !tbaa !47
   %.not = icmp eq i8 %27, 0
@@ -1157,7 +1153,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %._crit_edge.th
 34:                                               ; preds = %.lr.ph, %28
   %.1 = phi i32 [ %.01112, %.lr.ph ], [ %33, %28 ]
   %35 = add nuw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %35, %umax
+  %exitcond.not = icmp eq i64 %35, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 }
 

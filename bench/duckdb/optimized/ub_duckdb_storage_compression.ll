@@ -14774,7 +14774,7 @@ define linkonce_odr void @_ZN6duckdb13PatasFetchRowIfEEvRNS_13ColumnSegmentERNS_
   %68 = and i8 %67, 31
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 %68, ptr %69, align 1, !tbaa !628
-  %70 = add nuw i64 %.07.i.i, 1
+  %70 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %70, %54
   br i1 %exitcond.not.i.i, label %.lr.ph.i6.i, label %57, !llvm.loop !629
 
@@ -14792,7 +14792,7 @@ define linkonce_odr void @_ZN6duckdb13PatasFetchRowIfEEvRNS_13ColumnSegmentERNS_
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !633
   %79 = zext i8 %78 to i64
-  %80 = sub i64 %.011.i.i, %79
+  %80 = sub nsw i64 %.011.i.i, %79
   %81 = getelementptr inbounds nuw i32, ptr %71, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !214
   %83 = invoke noundef i32 @_ZN6duckdb10ByteReader9ReadValueIjEET_hh(ptr noundef nonnull align 8 dereferenceable(12) %51, i8 noundef zeroext %74, i8 noundef zeroext %76)
@@ -14804,7 +14804,7 @@ define linkonce_odr void @_ZN6duckdb13PatasFetchRowIfEEvRNS_13ColumnSegmentERNS_
   %86 = xor i32 %85, %82
   %87 = getelementptr inbounds nuw i32, ptr %71, i64 %.011.i.i
   store i32 %86, ptr %87, align 4, !tbaa !214
-  %88 = add nuw i64 %.011.i.i, 1
+  %88 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i7.i = icmp eq i64 %88, %54
   br i1 %exitcond.not.i7.i, label %_ZN6duckdb14PatasScanStateIfE9LoadGroupILb0EEEvPj.exit, label %72, !llvm.loop !634
 
@@ -110526,7 +110526,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %38 = and i8 %37, 31
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %38, ptr %39, align 1, !tbaa !628
-  %40 = add nuw i64 %.07.i.i, 1
+  %40 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %40, %25
   br i1 %exitcond.not.i.i, label %.lr.ph.i6.i, label %.lr.ph.i.i, !llvm.loop !629
 
@@ -110543,7 +110543,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !633
   %48 = zext i8 %47 to i64
-  %49 = sub i64 %.011.i.i, %48
+  %49 = sub nsw i64 %.011.i.i, %48
   %50 = getelementptr inbounds nuw i32, ptr %1, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !214
   %52 = tail call noundef i32 @_ZN6duckdb10ByteReader9ReadValueIjEET_hh(ptr noundef nonnull align 8 dereferenceable(12) %22, i8 noundef zeroext %43, i8 noundef zeroext %45)
@@ -110552,7 +110552,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %55 = xor i32 %54, %51
   %56 = getelementptr inbounds nuw i32, ptr %1, i64 %.011.i.i
   store i32 %55, ptr %56, align 4, !tbaa !214
-  %57 = add nuw i64 %.011.i.i, 1
+  %57 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i7.i = icmp eq i64 %57, %25
   br i1 %exitcond.not.i7.i, label %_ZN6duckdb14PatasScanStateIfE9LoadGroupILb0EEEvPj.exit, label %41, !llvm.loop !634
 
@@ -110573,7 +110573,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %68 = and i8 %67, 31
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 %68, ptr %69, align 1, !tbaa !628
-  %70 = add nuw i64 %.07.i.i10, 1
+  %70 = add nuw nsw i64 %.07.i.i10, 1
   %exitcond.not.i.i11 = icmp eq i64 %70, %25
   br i1 %exitcond.not.i.i11, label %.lr.ph.i6.i12, label %.lr.ph.i.i9, !llvm.loop !629
 
@@ -110591,7 +110591,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !633
   %79 = zext i8 %78 to i64
-  %80 = sub i64 %.011.i.i13, %79
+  %80 = sub nsw i64 %.011.i.i13, %79
   %81 = getelementptr inbounds nuw i32, ptr %71, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !214
   %83 = tail call noundef i32 @_ZN6duckdb10ByteReader9ReadValueIjEET_hh(ptr noundef nonnull align 8 dereferenceable(12) %22, i8 noundef zeroext %74, i8 noundef zeroext %76)
@@ -110600,7 +110600,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb0EEEvPT_m(p
   %86 = xor i32 %85, %82
   %87 = getelementptr inbounds nuw i32, ptr %71, i64 %.011.i.i13
   store i32 %86, ptr %87, align 4, !tbaa !214
-  %88 = add nuw i64 %.011.i.i13, 1
+  %88 = add nuw nsw i64 %.011.i.i13, 1
   %exitcond.not.i7.i14 = icmp eq i64 %88, %25
   br i1 %exitcond.not.i7.i14, label %_ZN6duckdb14PatasScanStateIfE9LoadGroupILb0EEEvPj.exit16, label %72, !llvm.loop !634
 
@@ -110998,7 +110998,7 @@ define linkonce_odr void @_ZN6duckdb14PatasScanStateIfE9ScanGroupIjLb1EEEvPT_m(p
   %38 = and i8 %37, 31
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %38, ptr %39, align 1, !tbaa !628
-  %40 = add nuw i64 %.07.i.i, 1
+  %40 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %40, %25
   br i1 %exitcond.not.i.i, label %_ZN6duckdb14PatasScanStateIfE9LoadGroupILb1EEEvPj.exit, label %.lr.ph.i.i, !llvm.loop !629
 
@@ -111023,7 +111023,7 @@ _ZN6duckdb14PatasScanStateIfE9LoadGroupILb1EEEvPj.exit: ; preds = %.lr.ph.i.i
   %52 = and i8 %51, 31
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 %52, ptr %53, align 1, !tbaa !628
-  %54 = add nuw i64 %.07.i.i10, 1
+  %54 = add nuw nsw i64 %.07.i.i10, 1
   %exitcond.not.i.i11 = icmp eq i64 %54, %25
   br i1 %exitcond.not.i.i11, label %.lr.ph.i6.i, label %.lr.ph.i.i9, !llvm.loop !629
 
@@ -111041,7 +111041,7 @@ _ZN6duckdb14PatasScanStateIfE9LoadGroupILb1EEEvPj.exit: ; preds = %.lr.ph.i.i
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %62 = load i8, ptr %61, align 1, !tbaa !633
   %63 = zext i8 %62 to i64
-  %64 = sub i64 %.011.i.i, %63
+  %64 = sub nsw i64 %.011.i.i, %63
   %65 = getelementptr inbounds nuw i32, ptr %55, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !214
   %67 = tail call noundef i32 @_ZN6duckdb10ByteReader9ReadValueIjEET_hh(ptr noundef nonnull align 8 dereferenceable(12) %22, i8 noundef zeroext %58, i8 noundef zeroext %60)
@@ -111050,7 +111050,7 @@ _ZN6duckdb14PatasScanStateIfE9LoadGroupILb1EEEvPj.exit: ; preds = %.lr.ph.i.i
   %70 = xor i32 %69, %66
   %71 = getelementptr inbounds nuw i32, ptr %55, i64 %.011.i.i
   store i32 %70, ptr %71, align 4, !tbaa !214
-  %72 = add nuw i64 %.011.i.i, 1
+  %72 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i7.i = icmp eq i64 %72, %25
   br i1 %exitcond.not.i7.i, label %_ZN6duckdb14PatasScanStateIfE9LoadGroupILb0EEEvPj.exit.loopexit, label %56, !llvm.loop !634
 
@@ -111217,7 +111217,7 @@ _ZN6duckdb15PatasGroupStateImE14LoadPackedDataEPtm.exit.thread: ; preds = %2
   %32 = and i8 %31, 63
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %32, ptr %33, align 1, !tbaa !628
-  %34 = add nuw i64 %.07.i, 1
+  %34 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %34, %18
   br i1 %exitcond.not.i, label %.lr.ph.i6, label %21, !llvm.loop !2669
 
@@ -111237,7 +111237,7 @@ _ZN6duckdb15PatasGroupStateImE14LoadPackedDataEPtm.exit.thread: ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !633
   %44 = zext i8 %43 to i64
-  %45 = sub i64 %.011.i, %44
+  %45 = sub nsw i64 %.011.i, %44
   %46 = getelementptr inbounds nuw i64, ptr %1, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !19
   switch i8 %39, label %72 [
@@ -111324,7 +111324,7 @@ _ZN6duckdb5patas18PatasDecompressionImE15DecompressValueERNS_10ByteReaderEhhm.ex
   %81 = xor i64 %80, %47
   %82 = getelementptr inbounds nuw i64, ptr %1, i64 %.011.i
   store i64 %81, ptr %82, align 8, !tbaa !19
-  %83 = add nuw i64 %.011.i, 1
+  %83 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i7 = icmp eq i64 %83, %18
   br i1 %exitcond.not.i7, label %_ZN6duckdb15PatasGroupStateImE10LoadValuesILb0EEEvPmm.exit, label %36, !llvm.loop !2670
 

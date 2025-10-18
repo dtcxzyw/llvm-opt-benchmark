@@ -606,21 +606,21 @@ _ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i: ; 
   %316 = and i64 %.0156198.i, 4294967295
   %317 = getelementptr inbounds nuw i32, ptr %108, i64 %316
   %318 = load i32, ptr %317, align 4, !tbaa !13
-  %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %319
+  %319 = sub i32 %315, %318
+  %320 = zext i32 %318 to i64
+  %321 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %320
+  %322 = zext i32 %319 to i64
   %.not210.i = icmp eq i32 %315, %318
   br i1 %.not210.i, label %.loopexit196.i, label %.lr.ph.i388
 
 .lr.ph.i388:                                      ; preds = %.lr.ph199.i
-  %321 = sub i32 %315, %318
-  %322 = zext i32 %321 to i64
   %323 = getelementptr inbounds nuw i32, ptr %300, i64 %316
   %324 = getelementptr inbounds nuw i32, ptr %306, i64 %316
   br label %325
 
 325:                                              ; preds = %_ZN7meshoptL7hasEdgeERKNS_13EdgeAdjacencyEjj.exit.i, %.lr.ph.i388
   %.0157197.i = phi i64 [ 0, %.lr.ph.i388 ], [ %354, %_ZN7meshoptL7hasEdgeERKNS_13EdgeAdjacencyEjj.exit.i ]
-  %326 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %320, i64 %.0157197.i
+  %326 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %321, i64 %.0157197.i
   %327 = load i32, ptr %326, align 4, !tbaa !20
   %328 = icmp eq i32 %327, %311
   br i1 %328, label %329, label %330
@@ -638,24 +638,21 @@ _ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i: ; 
   %335 = zext i32 %327 to i64
   %336 = getelementptr inbounds nuw i32, ptr %108, i64 %335
   %337 = load i32, ptr %336, align 4, !tbaa !13
-  %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %338
+  %338 = sub i32 %334, %337
+  %339 = zext i32 %337 to i64
+  %340 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %339
+  %341 = zext i32 %338 to i64
   %.not1.not.i.i = icmp eq i32 %334, %337
-  br i1 %.not1.not.i.i, label %.loopexit195.i, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %330
-  %340 = sub i32 %334, %337
-  %341 = zext i32 %340 to i64
-  br label %.lr.ph.i.i
+  br i1 %.not1.not.i.i, label %.loopexit195.i, label %.lr.ph.i.i
 
 342:                                              ; preds = %.lr.ph.i.i
   %343 = add nuw nsw i64 %.0142.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %343, %341
   br i1 %exitcond.not.i.i, label %.loopexit195.i, label %.lr.ph.i.i, !llvm.loop !28
 
-.lr.ph.i.i:                                       ; preds = %342, %.lr.ph.preheader.i.i
-  %.0142.i.i = phi i64 [ %343, %342 ], [ 0, %.lr.ph.preheader.i.i ]
-  %344 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %339, i64 %.0142.i.i
+.lr.ph.i.i:                                       ; preds = %330, %342
+  %.0142.i.i = phi i64 [ %343, %342 ], [ 0, %330 ]
+  %344 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %340, i64 %.0142.i.i
   %345 = load i32, ptr %344, align 4, !tbaa !20
   %346 = icmp eq i32 %345, %311
   br i1 %346, label %_ZN7meshoptL7hasEdgeERKNS_13EdgeAdjacencyEjj.exit.i, label %342
@@ -3354,12 +3351,12 @@ _ZN7meshoptL17sortEdgeCollapsesEPjPKNS_8CollapseEm.exit: ; preds = %.preheader.i
   %2116 = zext i32 %2115 to i64
   %2117 = getelementptr inbounds nuw i32, ptr %108, i64 %2116
   %2118 = load i32, ptr %2117, align 4, !tbaa !13
+  %2119 = sub i32 %2118, %2112
+  %2120 = zext i32 %2119 to i64
   %.not2.not.i.i = icmp eq i32 %2118, %2112
   br i1 %.not2.not.i.i, label %.loopexit9.i, label %.lr.ph.i.i502
 
 .lr.ph.i.i502:                                    ; preds = %2108
-  %2119 = sub i32 %2118, %2112
-  %2120 = zext i32 %2119 to i64
   %2121 = getelementptr inbounds nuw i8, ptr %2109, i64 4
   %2122 = getelementptr inbounds nuw i8, ptr %2109, i64 8
   %2123 = getelementptr inbounds nuw i8, ptr %2110, i64 4
@@ -3498,9 +3495,9 @@ _ZN7meshoptL16hasTriangleFlipsERKNS_13EdgeAdjacencyEPKNS_7Vector3EPKjjj.exit.i: 
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %2219, %.loopexit9.i
-  %.sink22.i = phi i64 [ %2214, %2219 ], [ %2093, %.loopexit9.i ]
+  %.sink20.i = phi i64 [ %2214, %2219 ], [ %2093, %.loopexit9.i ]
   %.sink.i506 = phi i32 [ %2220, %2219 ], [ %2092, %.loopexit9.i ]
-  %2222 = getelementptr inbounds nuw i32, ptr %1482, i64 %.sink22.i
+  %2222 = getelementptr inbounds nuw i32, ptr %1482, i64 %.sink20.i
   store i32 %.sink.i506, ptr %2222, align 4, !tbaa !13
   br label %.loopexit.i
 

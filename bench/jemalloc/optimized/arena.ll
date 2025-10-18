@@ -2728,7 +2728,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge169, %84
   %.12844.i = phi i32 [ %267, %.lr.ph46.i ], [ %.02751.i, %.lr.ph46.preheader.i ]
   %.13043.i = phi i64 [ %256, %.lr.ph46.i ], [ %.029.i, %.lr.ph46.preheader.i ]
   %.242.i = phi i64 [ %260, %.lr.ph46.i ], [ %.138.lcssa.i, %.lr.ph46.preheader.i ]
-  %256 = add i64 %.13043.i, -1
+  %256 = add nsw i64 %.13043.i, -1
   %257 = icmp ne i64 %.242.i, 0
   call void @llvm.assume(i1 %257)
   %258 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.242.i, i1 true)
@@ -3521,7 +3521,7 @@ je_arena_bin_choose.exit:                         ; preds = %6, %17, %21
   %.12844.i = phi i32 [ %70, %.lr.ph46.i ], [ %.02751.i, %.lr.ph46.preheader.i ]
   %.13043.i = phi i64 [ %59, %.lr.ph46.i ], [ %.029.i, %.lr.ph46.preheader.i ]
   %.242.i = phi i64 [ %63, %.lr.ph46.i ], [ %.138.lcssa.i, %.lr.ph46.preheader.i ]
-  %59 = add i64 %.13043.i, -1
+  %59 = add nsw i64 %.13043.i, -1
   %60 = icmp ne i64 %.242.i, 0
   tail call void @llvm.assume(i1 %60)
   %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.242.i, i1 true)

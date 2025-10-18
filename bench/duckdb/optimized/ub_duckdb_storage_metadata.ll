@@ -3991,8 +3991,8 @@ _ZN6duckdb6vectorIhLb1EEixEm.exit39:              ; preds = %.lr.ph.i20
   %117 = shl nuw i64 1, %116
   %118 = or i64 %117, %.08.i21
   %119 = add nuw i64 %.067.i22, 1
-  %exitcond92.not = icmp eq i64 %119, %99
-  br i1 %exitcond92.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit24.loopexit, label %.lr.ph.i20, !llvm.loop !129
+  %exitcond91.not = icmp eq i64 %119, %99
+  br i1 %exitcond91.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit24.loopexit, label %.lr.ph.i20, !llvm.loop !129
 
 _ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit24.loopexit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit39
   %120 = xor i64 %118, -1

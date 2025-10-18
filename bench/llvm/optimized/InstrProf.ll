@@ -6852,11 +6852,7 @@ define dso_local void @_ZN4llvm15InstrProfRecord5mergeERS0_mNS_12function_refIFv
 
 .preheader65:                                     ; preds = %._crit_edge
   %.not72 = icmp eq ptr %42, %43
-  br i1 %.not72, label %.preheader, label %.lr.ph69.preheader
-
-.lr.ph69.preheader:                               ; preds = %.preheader65
-  %umax73 = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
-  br label %.lr.ph69
+  br i1 %.not72, label %.preheader, label %.lr.ph69
 
 47:                                               ; preds = %.lr.ph, %73
   %.067 = phi i64 [ 0, %.lr.ph ], [ %74, %73 ]
@@ -6903,9 +6899,9 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   %70 = icmp ult i64 %69, %53
   %71 = icmp ugt i64 %69, -3
   %or.cond = or i1 %70, %71
-  br i1 %or.cond, label %72, label %.thread88
+  br i1 %or.cond, label %72, label %.thread87
 
-.thread88:                                        ; preds = %.else.i
+.thread87:                                        ; preds = %.else.i
   store i64 %69, ptr %52, align 8, !tbaa !55
   br label %73
 
@@ -6914,7 +6910,7 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   tail call void %3(i64 noundef %4, i32 noundef 18) #29
   br label %73
 
-73:                                               ; preds = %.thread88, %72
+73:                                               ; preds = %.thread87, %72
   %74 = add nuw i64 %.067, 1
   %exitcond.not = icmp eq i64 %74, %18
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !454
@@ -6928,8 +6924,8 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %86
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
-  %.04068 = phi i64 [ %85, %.lr.ph69 ], [ 0, %.lr.ph69.preheader ]
+.lr.ph69:                                         ; preds = %.preheader65, %.lr.ph69
+  %.04068 = phi i64 [ %85, %.lr.ph69 ], [ 0, %.preheader65 ]
   %78 = load ptr, ptr %40, align 8, !tbaa !453
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.04068
   %80 = load i8, ptr %79, align 1, !tbaa !74
@@ -6939,8 +6935,8 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   %84 = or i8 %83, %80
   store i8 %84, ptr %82, align 1, !tbaa !74
   %85 = add nuw i64 %.04068, 1
-  %exitcond74.not = icmp eq i64 %85, %umax73
-  br i1 %exitcond74.not, label %.preheader, label %.lr.ph69, !llvm.loop !455
+  %exitcond73.not = icmp eq i64 %85, %39
+  br i1 %exitcond73.not, label %.preheader, label %.lr.ph69, !llvm.loop !455
 
 86:                                               ; preds = %.preheader, %_ZN4llvm15InstrProfRecord18mergeValueProfDataEjRS0_mNS_12function_refIFvNS_15instrprof_errorEEEE.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN4llvm15InstrProfRecord18mergeValueProfDataEjRS0_mNS_12function_refIFvNS_15instrprof_errorEEEE.exit ]
@@ -7030,8 +7026,8 @@ _ZN4llvm15InstrProfRecord20getValueSitesForKindEj.exit.i: ; preds = %117, %_ZN4l
 
 _ZN4llvm15InstrProfRecord18mergeValueProfDataEjRS0_mNS_12function_refIFvNS_15instrprof_errorEEEE.exit: ; preds = %120, %109, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond76.not, label %.loopexit, label %86, !llvm.loop !459
+  %exitcond75.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond75.not, label %.loopexit, label %86, !llvm.loop !459
 
 .loopexit:                                        ; preds = %_ZN4llvm15InstrProfRecord18mergeValueProfDataEjRS0_mNS_12function_refIFvNS_15instrprof_errorEEEE.exit, %29, %75, %32, %31, %19
   ret void

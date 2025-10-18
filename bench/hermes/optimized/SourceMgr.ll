@@ -3758,13 +3758,13 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %BufferEnd.i, align 8
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %BufferStart.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp9.not = icmp eq ptr %4, %5
   br i1 %cmp9.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   br label %for.body
@@ -3877,13 +3877,13 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %BufferEnd.i, align 8
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %BufferStart.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp9.not = icmp eq ptr %4, %5
   br i1 %cmp9.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   br label %for.body
@@ -3992,13 +3992,13 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %BufferEnd.i, align 8
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %BufferStart.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp9.not = icmp eq ptr %4, %5
   br i1 %cmp9.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   br label %for.body
@@ -4107,13 +4107,13 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %BufferEnd.i, align 8
   %BufferStart.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %BufferStart.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp9.not = icmp eq ptr %4, %5
   br i1 %cmp9.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   br label %for.body

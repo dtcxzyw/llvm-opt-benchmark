@@ -12880,7 +12880,7 @@ select.unfold73:                                  ; preds = %37, %32
   %49 = mul i32 %48, 10
   %50 = add i32 %49, %44
   store i32 %50, ptr %5, align 4, !tbaa !16
-  %51 = add nuw i64 %.01321.i69, 1
+  %51 = add nuw nsw i64 %.01321.i69, 1
   %exitcond.not.i71 = icmp eq i64 %51, %spec.store.select
   br i1 %exitcond.not.i71, label %parse_digits.exit72, label %.lr.ph.i68, !llvm.loop !79
 
