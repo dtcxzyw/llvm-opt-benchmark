@@ -52,6 +52,9 @@ public:
       M.setModuleIdentifier("");
       M.setSourceFileName("");
       StripDebugInfo(M);
+      // Drop unused comdats.
+      for (auto& GO: M.global_objects())
+        GO.setComdat(nullptr);
       M.print(OS, /*AAW=*/nullptr);
     }
     (void)Temp->keep(TargetFileName);
