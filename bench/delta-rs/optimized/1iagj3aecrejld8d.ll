@@ -4798,27 +4798,27 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load i64, ptr %4, align 8, !range !75, !alias.scope !951, !noalias !954, !noundef !46
   %6 = xor i64 %5, -9223372036854775808
   switch i64 %6, label %11 [
-    i64 0, label %7
+    i64 0, label %default.unreachable
     i64 1, label %9
   ]
 
-7:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c76af8064ef2a30f6b22241a47dd282f.20, i64 noundef 3), !noalias !951
   br label %"_ZN104_$LT$aws_sdk_dynamodb..types.._conditional_operator..ConditionalOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd096149ec87420dE.exit"
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c76af8064ef2a30f6b22241a47dd282f.21, i64 noundef 2), !noalias !951
+10:                                               ; preds = %2
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c76af8064ef2a30f6b22241a47dd282f.21, i64 noundef 2), !noalias !951
   br label %"_ZN104_$LT$aws_sdk_dynamodb..types.._conditional_operator..ConditionalOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd096149ec87420dE.exit"
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !956
   store ptr %4, ptr %3, align 8, !noalias !956
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c76af8064ef2a30f6b22241a47dd282f.22, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c76af8064ef2a30f6b22241a47dd282f.23)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c76af8064ef2a30f6b22241a47dd282f.22, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c76af8064ef2a30f6b22241a47dd282f.23)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !956
   br label %"_ZN104_$LT$aws_sdk_dynamodb..types.._conditional_operator..ConditionalOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd096149ec87420dE.exit"
 
-"_ZN104_$LT$aws_sdk_dynamodb..types.._conditional_operator..ConditionalOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd096149ec87420dE.exit": ; preds = %7, %9, %11
-  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
+"_ZN104_$LT$aws_sdk_dynamodb..types.._conditional_operator..ConditionalOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd096149ec87420dE.exit": ; preds = %7, %10, %12
+  %.0.in.i = phi i1 [ %8, %7 ], [ %11, %9 ], [ %13, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -28344,19 +28344,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #29
+declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #30
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #31
+declare i64 @llvm.smax.i64(i64, i64) #28
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -28387,8 +28387,8 @@ attributes #25 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"
 attributes #26 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #29 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: readwrite) }
+attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #32 = { noreturn }
 attributes #33 = { cold }

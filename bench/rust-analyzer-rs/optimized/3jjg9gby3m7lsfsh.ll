@@ -137016,31 +137016,31 @@ define hidden noundef zeroext i1 @"_ZN56_$LT$hir_ty..ImplTraitId$u20$as$u20$core
     i32 6, label %11
   ]
 
-8:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.479, i64 noundef 19, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.480, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.481)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.479, i64 noundef 19, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.480, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.481)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %16
+  br label %17
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.482, i64 noundef 23, ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.483, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.481)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.482, i64 noundef 23, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.483, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.481)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %16
+  br label %17
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %7, ptr %3, align 8
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.484, i64 noundef 23, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.451, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.452)
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h63f5f67b424b9e7bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.4fed8c3522266318007b630b48bfbf77.484, i64 noundef 23, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.451, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4fed8c3522266318007b630b48bfbf77.452)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %14, %11, %8
-  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %15, %14 ]
+17:                                               ; preds = %15, %12, %8
+  %.0.in = phi i1 [ %11, %8 ], [ %14, %11 ], [ %16, %14 ]
   ret i1 %.0.in
 }
 

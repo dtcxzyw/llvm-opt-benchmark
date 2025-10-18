@@ -5874,27 +5874,27 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hb061768d3d612c29E(ptr n
   switch i64 %2, label %6 [
     i64 27, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
     i64 28, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-    i64 29, label %3
-    i64 30, label %4
+    i64 29, label %default.unreachable
+    i64 30, label %6
     i64 31, label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
   ]
 
-3:                                                ; preds = %1
-  br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+default.unreachable:                              ; preds = %1
   br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
 
 6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
 
-"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit": ; preds = %1, %1, %1, %3, %4, %6
+8:                                                ; preds = %1
+  br label %"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit"
+
+"_ZN75_$LT$influxdb3_write..write_buffer..Error$u20$as$u20$core..error..Error$GT$6source17h29bf76e150f1f76eE.exit": ; preds = %1, %1, %1, %3, %6, %8
   %.sroa.7.0.i = phi ptr [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.258.llvm.14229044446495144540, %3 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.260.llvm.14229044446495144540, %4 ], [ @anon.01d8cbf55cc9b6926c328beaecf9b12f.262.llvm.14229044446495144540, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %0, %3 ], [ %5, %4 ], [ %0, %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %7 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.7.0.i, 1
-  ret { ptr, ptr } %8
+  %.sroa.0.0.i = phi ptr [ %0, %3 ], [ %7, %4 ], [ %0, %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.7.0.i, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

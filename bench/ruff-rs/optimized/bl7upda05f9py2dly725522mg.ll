@@ -13226,8 +13226,8 @@ define hidden void @_ZN18ty_python_semantic5types20ConstructorCallError11return_
   %switch.select = select i1 %switch.selectcmp, i64 32, i64 40
   %switch.selectcmp2 = icmp eq i64 %3, 2
   %switch.select3 = select i1 %switch.selectcmp2, i64 24, i64 %switch.select
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.select3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.select3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   ret void
 }
 
@@ -13257,29 +13257,29 @@ define hidden void @_ZN18ty_python_semantic5types20ConstructorCallError17report_
     i64 3, label %18
   ]
 
-15:                                               ; preds = %5
+default.unreachable:                              ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i8, ptr %16, align 8, !range !119, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load ptr, ptr %17, align 8
   call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hde03cc227f4e99f5E"(ptr noalias noundef readonly align 8 dereferenceable(24) %7, i8 %.val, ptr %.val1)
-  br label %23
-
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hd667740f11769d2aE"(ptr noalias noundef readonly align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %19)
-  br label %23
+  br label %25
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hd667740f11769d2aE"(ptr noalias noundef readonly align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0)
-  %.val2 = load i8, ptr %21, align 8, !range !119, !noundef !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val3 = load ptr, ptr %22, align 8
-  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hde03cc227f4e99f5E"(ptr noalias noundef readonly align 8 dereferenceable(24) %7, i8 %.val2, ptr %.val3)
-  br label %23
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hd667740f11769d2aE"(ptr noalias noundef readonly align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %21)
+  br label %25
 
-23:                                               ; preds = %20, %18, %15
+22:                                               ; preds = %5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hd667740f11769d2aE"(ptr noalias noundef readonly align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0)
+  %.val2 = load i8, ptr %23, align 8, !range !119, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val3 = load ptr, ptr %24, align 8
+  call fastcc void @"_ZN18ty_python_semantic5types20ConstructorCallError17report_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$17hde03cc227f4e99f5E"(ptr noalias noundef readonly align 8 dereferenceable(24) %7, i8 %.val2, ptr %.val3)
+  br label %25
+
+25:                                               ; preds = %22, %20, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

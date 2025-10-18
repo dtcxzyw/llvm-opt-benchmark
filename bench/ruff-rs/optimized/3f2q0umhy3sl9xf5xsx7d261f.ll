@@ -38434,15 +38434,15 @@ define hidden void @"_ZN9lsp_types13folding_range1_108_$LT$impl$u20$serde..ser..
     i64 -9223372036854775806, label %8
   ]
 
-5:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !range !1401, !noundef !4
   store i8 1, ptr %0, align 8, !alias.scope !5492
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !5492
-  br label %10
+  br label %12
 
-8:                                                ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -9223372036854775808, ptr %3, align 8, !noalias !5495
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -38451,13 +38451,13 @@ define hidden void @"_ZN9lsp_types13folding_range1_108_$LT$impl$u20$serde..ser..
   store i64 0, ptr %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 8, !noalias !5495
   call void @"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h92eacfb30fa01e1eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %10
+  br label %12
 
-9:                                                ; preds = %2
+11:                                               ; preds = %2
   tail call fastcc void @"_ZN9lsp_types5color1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..color..StaticTextDocumentColorProviderOptions$GT$9serialize17hdd16c49cd9c1d9eaE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1)
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %8, %5
+12:                                               ; preds = %11, %10, %5
   ret void
 }
 
@@ -38884,15 +38884,15 @@ define hidden void @"_ZN9lsp_types5color1_93_$LT$impl$u20$serde..ser..Serialize$
     i64 -9223372036854775806, label %8
   ]
 
-5:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !range !1401, !noundef !4
   store i8 1, ptr %0, align 8, !alias.scope !5535
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !5535
-  br label %10
+  br label %12
 
-8:                                                ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -9223372036854775808, ptr %3, align 8, !noalias !5538
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -38901,13 +38901,13 @@ define hidden void @"_ZN9lsp_types5color1_93_$LT$impl$u20$serde..ser..Serialize$
   store i64 0, ptr %.sroa.8.sroa.7.0..sroa.8.0..sroa_idx4.sroa_idx.i, align 8, !noalias !5538
   call void @"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h92eacfb30fa01e1eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %10
+  br label %12
 
-9:                                                ; preds = %2
+11:                                               ; preds = %2
   tail call fastcc void @"_ZN9lsp_types5color1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..color..StaticTextDocumentColorProviderOptions$GT$9serialize17hdd16c49cd9c1d9eaE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1)
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %8, %5
+12:                                               ; preds = %11, %10, %5
   ret void
 }
 

@@ -3377,27 +3377,27 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$wasmi..module..init_expr.
 define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !616, !noundef !3
   switch i64 %2, label %3 [
-    i64 5, label %6
+    i64 5, label %9
     i64 2, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
     i64 3, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
     i64 4, label %4
   ]
 
-3:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   tail call void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h4188fb37397452b9E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..binary_reader..BinaryReaderError$GT$17h8021be9d56cccb25E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..binary_reader..BinaryReaderError$GT$17h8021be9d56cccb25E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit"
 
-"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit": ; preds = %1, %1, %4, %3, %6
+"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit": ; preds = %1, %1, %4, %3, %9
   ret void
 }
 
@@ -11007,7 +11007,7 @@ define noundef nonnull align 8 ptr @_ZN5wasmi6module6parser12ModuleParser23proce
           cleanup
   %24 = load i64, ptr %6, align 8, !range !616, !noundef !3
   %25 = icmp eq i64 %24, 5
-  br i1 %25, label %30, label %31
+  br i1 %25, label %34, label %35
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1165
@@ -11019,27 +11019,27 @@ define noundef nonnull align 8 ptr @_ZN5wasmi6module6parser12ModuleParser23proce
     i64 3, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
   ]
 
-"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit": ; preds = %26, %26, %26, %29, %28
+"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit": ; preds = %29, %29, %26, %29, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %20
 
-28:                                               ; preds = %26
+29:                                               ; preds = %26
   call void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..types..Types$GT$17h4188fb37397452b9E"(ptr noalias noundef nonnull align 8 dereferenceable(320) %6)
   br label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
 
-29:                                               ; preds = %26
+33:                                               ; preds = %29
   call void @"_ZN4core3ptr119drop_in_place$LT$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17h4adc070517d299c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   br label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE.exit"
 
-30:                                               ; preds = %31, %22
+34:                                               ; preds = %35, %22
   resume { ptr, i32 } %23
 
-31:                                               ; preds = %22
+35:                                               ; preds = %22
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$wasmparser..validator..ValidPayload$C$wasmparser..binary_reader..BinaryReaderError$GT$$GT$17h92dfbb22a1e31c3aE"(ptr noalias noundef align 8 dereferenceable(320) %6) #27
-          to label %30 unwind label %32
+          to label %30 unwind label %36
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+36:                                               ; preds = %35
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
   unreachable

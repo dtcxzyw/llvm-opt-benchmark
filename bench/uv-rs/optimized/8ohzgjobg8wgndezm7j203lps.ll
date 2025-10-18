@@ -663,32 +663,32 @@ define internal noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20
     i64 3, label %10
   ]
 
-6:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 80
   br label %14
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %14
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  br label %15
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %14
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  br label %15
 
-12:                                               ; preds = %1
-  %13 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hb6f6e8b38a9d0c1fE(i8 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.a36afcc231f82cf69f483f7961fbb938.89.llvm.18114576096980994613, i64 noundef 37), !noalias !28
+13:                                               ; preds = %1
+  %14 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hb6f6e8b38a9d0c1fE(i8 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.a36afcc231f82cf69f483f7961fbb938.89.llvm.18114576096980994613, i64 noundef 37), !noalias !28
   br label %"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5flush17h88156f06ccc3072cE.exit"
 
-14:                                               ; preds = %10, %8, %6, %1
+15:                                               ; preds = %11, %9, %6, %1
   %.sroa.9.0.ph.i = phi ptr [ @anon.a36afcc231f82cf69f483f7961fbb938.87.llvm.18114576096980994613, %10 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.86.llvm.18114576096980994613, %8 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.85.llvm.18114576096980994613, %6 ], [ @anon.a36afcc231f82cf69f483f7961fbb938.88.llvm.18114576096980994613, %1 ]
-  %.sroa.01.0.ph.i = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %3, %1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.ph.i, i64 48
-  %16 = load ptr, ptr %15, align 8, !invariant.load !10, !noalias !28, !nonnull !10
-  %17 = tail call noundef ptr %16(ptr noundef nonnull align 1 %.sroa.01.0.ph.i)
+  %.sroa.01.0.ph.i = phi ptr [ %12, %10 ], [ %10, %8 ], [ %7, %6 ], [ %3, %1 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.ph.i, i64 48
+  %17 = load ptr, ptr %16, align 8, !invariant.load !10, !noalias !28, !nonnull !10
+  %18 = tail call noundef ptr %16(ptr noundef nonnull align 1 %.sroa.01.0.ph.i)
   br label %"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5flush17h88156f06ccc3072cE.exit"
 
-"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5flush17h88156f06ccc3072cE.exit": ; preds = %12, %14
-  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ %17, %14 ]
+"_ZN3zip5write87_$LT$impl$u20$std..io..Write$u20$for$u20$zip..write..zip_writer..ZipWriter$LT$W$GT$$GT$5flush17h88156f06ccc3072cE.exit": ; preds = %13, %15
+  %.sroa.0.0.i = phi ptr [ %14, %12 ], [ %18, %14 ]
   ret ptr %.sroa.0.0.i
 }
 

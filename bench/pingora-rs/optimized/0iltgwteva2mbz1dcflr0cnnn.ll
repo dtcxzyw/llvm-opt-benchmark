@@ -19,16 +19,16 @@ define { ptr, i64 } @_ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671
   %4 = icmp ult i32 %switch.tableidx, 4
   br i1 %4, label %switch.lookup, label %7
 
-switch.lookup:                                    ; preds = %1
+switch.lookup:; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %6
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %7
 
-7:                                                ; preds = %1, %switch.lookup
+7: ; preds = %1, %switch.lookup
   %.sroa.6.0 = phi i64 [ %switch.load, %switch.lookup ], [ 5, %1 ]
   %.sroa.0.0 = phi ptr [ %switch.load2, %switch.lookup ], [ @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.4, %1 ]
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0

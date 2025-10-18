@@ -125614,7 +125614,7 @@ define internal { i32, i32 } @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder
   %3 = load i64, ptr %2, align 8, !range !26680, !noundef !22
   %switch.tableidx = add i64 %3, 9223372036854775801
   %4 = icmp ult i64 %switch.tableidx, 3
-  %. = select i1 %4, i64 36, i64 52
+  %.15 = select i1 %4, i64 36, i64 52
   %.15 = select i1 %4, i64 32, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.15

@@ -551,7 +551,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
     i64 3, label %8
   ]
 
-6:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.370, i64 noundef 14), !noalias !43
   br label %"_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8f15639e7f07fd6E.exit"
 
@@ -561,9 +561,9 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !49
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %11, ptr %3, align 8, !noalias !49
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hc92cc99514a1f43aE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.344, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.372, i64 noundef 6, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.373, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.374, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.375)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %13, ptr %3, align 8, !noalias !49
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hc92cc99514a1f43aE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.344, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.372, i64 noundef 6, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.373, ptr noalias noundef nonnull readonly align 1 @anon.b96271f4cf8a6d021d67e6f234d08bd0.374, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.375)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !49
   br label %"_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8f15639e7f07fd6E.exit"
 

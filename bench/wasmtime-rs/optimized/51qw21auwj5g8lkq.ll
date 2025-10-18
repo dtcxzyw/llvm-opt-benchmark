@@ -68,8 +68,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ae3bc1fbce31fb2627c372fddd8499dc.22.llvm.7817899842202007168 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
 @anon.ae3bc1fbce31fb2627c372fddd8499dc.24.llvm.7817899842202007168 = external hidden unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }>, align 8
 @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E = private unnamed_addr constant [21 x ptr] [ptr @anon.961e0144209eac88a8ef535c3acc0d10.46, ptr @anon.961e0144209eac88a8ef535c3acc0d10.47, ptr @anon.961e0144209eac88a8ef535c3acc0d10.48, ptr @anon.961e0144209eac88a8ef535c3acc0d10.49, ptr @anon.961e0144209eac88a8ef535c3acc0d10.50, ptr @anon.961e0144209eac88a8ef535c3acc0d10.51, ptr @anon.961e0144209eac88a8ef535c3acc0d10.52, ptr @anon.961e0144209eac88a8ef535c3acc0d10.53, ptr @anon.961e0144209eac88a8ef535c3acc0d10.54, ptr @anon.961e0144209eac88a8ef535c3acc0d10.55, ptr @anon.961e0144209eac88a8ef535c3acc0d10.56, ptr @anon.961e0144209eac88a8ef535c3acc0d10.57, ptr @anon.961e0144209eac88a8ef535c3acc0d10.58, ptr @anon.961e0144209eac88a8ef535c3acc0d10.59, ptr @anon.961e0144209eac88a8ef535c3acc0d10.60, ptr @anon.961e0144209eac88a8ef535c3acc0d10.61, ptr @anon.961e0144209eac88a8ef535c3acc0d10.62, ptr @anon.961e0144209eac88a8ef535c3acc0d10.63, ptr @anon.961e0144209eac88a8ef535c3acc0d10.64, ptr @anon.961e0144209eac88a8ef535c3acc0d10.65, ptr @anon.961e0144209eac88a8ef535c3acc0d10.66], align 8
-@switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19 = private unnamed_addr constant [21 x ptr] [ptr @anon.961e0144209eac88a8ef535c3acc0d10.46, ptr @anon.961e0144209eac88a8ef535c3acc0d10.48, ptr @anon.961e0144209eac88a8ef535c3acc0d10.47, ptr @anon.961e0144209eac88a8ef535c3acc0d10.50, ptr @anon.961e0144209eac88a8ef535c3acc0d10.49, ptr @anon.961e0144209eac88a8ef535c3acc0d10.52, ptr @anon.961e0144209eac88a8ef535c3acc0d10.51, ptr @anon.961e0144209eac88a8ef535c3acc0d10.54, ptr @anon.961e0144209eac88a8ef535c3acc0d10.53, ptr @anon.961e0144209eac88a8ef535c3acc0d10.55, ptr @anon.961e0144209eac88a8ef535c3acc0d10.56, ptr @anon.961e0144209eac88a8ef535c3acc0d10.57, ptr @anon.961e0144209eac88a8ef535c3acc0d10.58, ptr @anon.961e0144209eac88a8ef535c3acc0d10.59, ptr @anon.961e0144209eac88a8ef535c3acc0d10.60, ptr @anon.961e0144209eac88a8ef535c3acc0d10.61, ptr @anon.961e0144209eac88a8ef535c3acc0d10.62, ptr @anon.961e0144209eac88a8ef535c3acc0d10.63, ptr @anon.961e0144209eac88a8ef535c3acc0d10.64, ptr @anon.961e0144209eac88a8ef535c3acc0d10.65, ptr @anon.961e0144209eac88a8ef535c3acc0d10.66], align 8
-@switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20 = private unnamed_addr constant [21 x i64] [i64 4, i64 2, i64 2, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 4, i64 6, i64 4, i64 6, i64 5, i64 7, i64 4, i64 6, i64 6, i64 5], align 8
+@switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18 = private unnamed_addr constant [21 x ptr] [ptr @anon.961e0144209eac88a8ef535c3acc0d10.46, ptr @anon.961e0144209eac88a8ef535c3acc0d10.48, ptr @anon.961e0144209eac88a8ef535c3acc0d10.47, ptr @anon.961e0144209eac88a8ef535c3acc0d10.50, ptr @anon.961e0144209eac88a8ef535c3acc0d10.49, ptr @anon.961e0144209eac88a8ef535c3acc0d10.52, ptr @anon.961e0144209eac88a8ef535c3acc0d10.51, ptr @anon.961e0144209eac88a8ef535c3acc0d10.54, ptr @anon.961e0144209eac88a8ef535c3acc0d10.53, ptr @anon.961e0144209eac88a8ef535c3acc0d10.55, ptr @anon.961e0144209eac88a8ef535c3acc0d10.56, ptr @anon.961e0144209eac88a8ef535c3acc0d10.57, ptr @anon.961e0144209eac88a8ef535c3acc0d10.58, ptr @anon.961e0144209eac88a8ef535c3acc0d10.59, ptr @anon.961e0144209eac88a8ef535c3acc0d10.60, ptr @anon.961e0144209eac88a8ef535c3acc0d10.61, ptr @anon.961e0144209eac88a8ef535c3acc0d10.62, ptr @anon.961e0144209eac88a8ef535c3acc0d10.63, ptr @anon.961e0144209eac88a8ef535c3acc0d10.64, ptr @anon.961e0144209eac88a8ef535c3acc0d10.65, ptr @anon.961e0144209eac88a8ef535c3acc0d10.66], align 8
+@switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19 = private unnamed_addr constant [21 x i64] [i64 4, i64 2, i64 2, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 4, i64 6, i64 4, i64 6, i64 5, i64 7, i64 4, i64 6, i64 6, i64 5], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h9ea145e901bf4664E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -3127,22 +3127,22 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %.0.val to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %6
-  %switch.load6 = load i64, ptr %switch.gep5, align 8
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18, i64 %6
+  %switch.load7 = load i64, ptr %switch.gep6, align 8
   store ptr %switch.load, ptr %3, align 8
-  store i64 %switch.load6, ptr %4, align 8
+  store i64 %switch.load7, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %switch.tableidx = add i32 %.0.val1, -3
-  %7 = icmp ult i32 %switch.tableidx, 21
+  %7 = add i32 %.0.val1, -3
+  %7 = icmp ult i32 %7, 21
   br i1 %7, label %switch.lookup7, label %10
 
-switch.lookup7:                                   ; preds = %switch.lookup
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 %8
-  %switch.load9 = load ptr, ptr %switch.gep8, align 8
+switch.lookup7:; preds = %switch.lookup
+  %9 = zext nneg i32 %7 to i64
+  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 %9
+  %switch.load12 = load ptr, ptr %switch.gep11, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %9
-  %switch.load11 = load i64, ptr %switch.gep10, align 8
+  %10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %9
+  %switch.load11 = load i64, ptr %10, align 8
   br label %10
 
 10:                                               ; preds = %switch.lookup, %switch.lookup7
@@ -3154,27 +3154,27 @@ switch.lookup7:                                   ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %0)
   store ptr %3, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6b26c0d737f102beE", ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6b26c0d737f102beE", ptr %14, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6b26c0d737f102beE", ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6b26c0d737f102beE", ptr %13, align 8
   store ptr @anon.961e0144209eac88a8ef535c3acc0d10.69, ptr %1, align 8, !alias.scope !469, !noalias !472
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 3, ptr %15, align 8, !alias.scope !469, !noalias !472
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %16, align 8, !alias.scope !469, !noalias !472
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %17, align 8, !alias.scope !469, !noalias !472
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 2, ptr %18, align 8, !alias.scope !469, !noalias !472
-  %19 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %1)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 3, ptr %14, align 8, !alias.scope !469, !noalias !472
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr null, ptr %15, align 8, !alias.scope !469, !noalias !472
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %0, ptr %16, align 8, !alias.scope !469, !noalias !472
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 2, ptr %17, align 8, !alias.scope !469, !noalias !472
+  %18 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %19
+  ret ptr %18
 }
 
 ; Function Attrs: nonlazybind uwtable

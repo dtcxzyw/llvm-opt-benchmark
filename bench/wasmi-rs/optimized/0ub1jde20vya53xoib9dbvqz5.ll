@@ -24945,48 +24945,48 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc12
   %7 = load i8, ptr %6, align 8, !range !353, !noundef !3
   switch i8 %7, label %29 [
     i8 7, label %8
-    i8 8, label %11
+    i8 default.unreachable, label %9
     i8 9, label %14
     i8 10, label %26
   ]
 
-8:                                                ; preds = %3
-  %9 = load i16, ptr %2, align 8, !noundef !3
+default.unreachable:                              ; preds = %3
+  %9 = load i16, ptr %2, align default.unreachable, !noundef !3
   store i16 %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 7, ptr %10, align 8
   br label %30
 
-11:                                               ; preds = %3
-  %12 = load i16, ptr %2, align 8, !noundef !3
-  store i16 %12, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 7, ptr %13, align 8
-  br label %30
+9:                                                ; preds = %3
+  %10 = load i16, ptr %2, align 8, !noundef !3
+  store i16 %10, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 7, ptr %11, align 8
+  br label %31
 
-14:                                               ; preds = %3
-  %15 = load i16, ptr %2, align 8, !noundef !3
+12:                                               ; preds = %3
+  %13 = load i16, ptr %2, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %.val.i = load i8, ptr %16, align 2, !range !40, !alias.scope !523, !noundef !3
-  %17 = icmp eq i8 %.val.i, 1
-  br i1 %17, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %18, !prof !450
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %.val.i = load i8, ptr %17, align 2, !range !40, !alias.scope !523, !noundef !3
+  %18 = icmp eq i8 %.val.i, 1
+  br i1 %18, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %19, !prof !450
 
-18:                                               ; preds = %14
+19:                                               ; preds = %14
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18, !noalias !523
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i: ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.val1.i = load i16, ptr %20, align 8, !alias.scope !526, !noundef !3
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 74
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.val1.i = load i16, ptr %21, align 8, !alias.scope !526, !noundef !3
   store i16 %.val1.i, ptr %5, align 2, !noalias !523
-  %21 = load i16, ptr %19, align 2, !alias.scope !523, !noundef !3
-  %22 = icmp eq i16 %21, %.val1.i
-  br i1 %22, label %23, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, !prof !22
+  %22 = load i16, ptr %20, align 2, !alias.scope !523, !noundef !3
+  %23 = icmp eq i16 %22, %.val1.i
+  br i1 %23, label %24, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, !prof !22
 
-23:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
+24:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !523
   store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.873, ptr %4, align 8, !noalias !523
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -24995,19 +24995,19 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !523
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !523
-  call void @_ZN4core9panicking13assert_failed17h367bd25e741b104fE(i8 noundef 1, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %19, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.874) #18
+  call void @_ZN4core9panicking13assert_failed17h367bd25e741b104fE(i8 noundef 1, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %20, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.874) #18
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit: ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
-  %24 = add i16 %21, -1
-  store i16 %24, ptr %19, align 2, !alias.scope !523
+  %25 = add i16 %22, -1
+  store i16 %25, ptr %20, align 2, !alias.scope !523
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i16 %15, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 7, ptr %25, align 8
-  br label %30
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 7, ptr %26, align 8
+  br label %31
 
-26:                                               ; preds = %3
+30:                                               ; preds = %3
   %27 = load i16, ptr %2, align 8, !noundef !3
   tail call fastcc void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_preserved17h8447f28ac38feaf3E(ptr noalias noundef align 8 dereferenceable(88) %1, i16 noundef %27)
   store i16 %27, ptr %0, align 8
@@ -25017,9 +25017,9 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17
 
 29:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %26, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, %11, %8
+31:                                               ; preds = %29, %26, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, %11, %8
   ret void
 }
 
@@ -28285,16 +28285,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #16
+declare i16 @llvm.smin.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #16
+declare i16 @llvm.smax.i16(i16, i16) #15
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

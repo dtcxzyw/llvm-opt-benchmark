@@ -1824,22 +1824,22 @@ define void @_ZN10polars_ffi9version_013export_column17hf2fe29a562fea056E(ptr de
     i8 29, label %7
   ]
 
-4:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN92_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..Deref$GT$5deref17h160166a383b70c02E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %8)
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column11partitioned17PartitionedColumn22as_materialized_series17hbf9e46c319e72606E(ptr noundef nonnull align 8 %9)
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
-10:                                               ; preds = %2
-  %11 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_materialized_series17ha405365135cf4453E(ptr noundef nonnull align 16 %1)
+11:                                               ; preds = %2
+  %12 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11polars_core5frame6column6scalar12ScalarColumn22as_materialized_series17ha405365135cf4453E(ptr noundef nonnull align 16 %1)
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
-_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %4, %7, %10
-  %.sroa.0.0.i = phi ptr [ %6, %4 ], [ %9, %7 ], [ %11, %10 ]
+_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %4, %8, %11
+  %.sroa.0.0.i = phi ptr [ %6, %4 ], [ %10, %7 ], [ %12, %10 ]
   tail call void @_ZN10polars_ffi9version_013export_series17he741cad0af32141dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i)
   ret void
 }
