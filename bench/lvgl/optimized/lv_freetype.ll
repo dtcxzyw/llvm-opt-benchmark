@@ -83,7 +83,7 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noun
 7:                                                ; preds = %2
   %8 = icmp ugt i32 %4, %6
   %9 = select i1 %8, i8 1, i8 -1
-  br label %22
+  br label %23
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -96,7 +96,7 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noun
 15:                                               ; preds = %10
   %16 = icmp ugt i32 %12, %14
   %17 = select i1 %16, i8 1, i8 -1
-  br label %22
+  br label %23
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %0, align 8, !tbaa !38
@@ -105,7 +105,7 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noun
   %.1 = tail call i8 @llvm.scmp.i8.i32(i32 %21, i32 0)
   br label %22
 
-22:                                               ; preds = %18, %15, %7
+23:                                               ; preds = %18, %15, %7
   %.0 = phi i8 [ %9, %7 ], [ %17, %15 ], [ %.1, %18 ]
   ret i8 %.0
 }
