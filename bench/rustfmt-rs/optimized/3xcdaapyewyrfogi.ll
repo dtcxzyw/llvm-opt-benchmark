@@ -36973,45 +36973,45 @@ define noundef float @_ZN15rustfmt_nightly10formatting5Timer14get_parse_time17hc
     i32 1000000001, label %11
   ]
 
-6:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.264.llvm.15131964271339581801, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h5740899885667996E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87cf9f699931e7f72e5feaf785e04e8d.265.llvm.15131964271339581801) #51
   unreachable
 
-11:                                               ; preds = %1
+12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.87cf9f699931e7f72e5feaf785e04e8d.8.llvm.15131964271339581801, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87cf9f699931e7f72e5feaf785e04e8d.266.llvm.15131964271339581801) #51
   unreachable
 
-12:                                               ; preds = %1
-  %13 = load i64, ptr %0, align 8, !noundef !10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !range !6358, !noundef !10
+13:                                               ; preds = %1
+  %14 = load i64, ptr %0, align 8, !noundef !10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i32, ptr %15, align 8, !range !6358, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i64, ptr %16, align 8, !noundef !10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !range !6358, !noundef !10
-  store i64 %17, ptr %2, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %19, ptr %20, align 8
-  %21 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h259c76bf0d2ea1c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %13, i32 noundef %15)
-  %22 = extractvalue { i64, i32 } %21, 0
-  %23 = extractvalue { i64, i32 } %21, 1
-  %24 = uitofp i64 %22 to float
-  %25 = uitofp i32 %23 to float
-  %26 = fdiv float %25, 1.000000e+09
-  %27 = fadd float %26, %24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load i32, ptr %19, align 8, !range !6358, !noundef !10
+  store i64 %18, ptr %2, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %20, ptr %21, align 8
+  %22 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h259c76bf0d2ea1c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %14, i32 noundef %16)
+  %23 = extractvalue { i64, i32 } %22, 0
+  %24 = extractvalue { i64, i32 } %22, 1
+  %25 = uitofp i64 %23 to float
+  %26 = uitofp i32 %24 to float
+  %27 = fdiv float %26, 1.000000e+09
+  %28 = fadd float %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret float %27
+  ret float %28
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37026,44 +37026,44 @@ define noundef float @_ZN15rustfmt_nightly10formatting5Timer15get_format_time17h
     i32 1000000002, label %11
   ]
 
-6:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.264.llvm.15131964271339581801, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %10, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17h5740899885667996E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87cf9f699931e7f72e5feaf785e04e8d.267.llvm.15131964271339581801) #51
   unreachable
 
-11:                                               ; preds = %1, %1
+12:                                               ; preds = %1, %1
   tail call void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.87cf9f699931e7f72e5feaf785e04e8d.8.llvm.15131964271339581801, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87cf9f699931e7f72e5feaf785e04e8d.268.llvm.15131964271339581801) #51
   unreachable
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !noundef !10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 8, !range !6358, !noundef !10
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8, !range !6358, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i64, ptr %17, align 8, !noundef !10
-  store i64 %18, ptr %2, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %5, ptr %19, align 8
-  %20 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h259c76bf0d2ea1c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %14, i32 noundef %16)
-  %21 = extractvalue { i64, i32 } %20, 0
-  %22 = extractvalue { i64, i32 } %20, 1
-  %23 = uitofp i64 %21 to float
-  %24 = uitofp i32 %22 to float
-  %25 = fdiv float %24, 1.000000e+09
-  %26 = fadd float %25, %23
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load i64, ptr %18, align 8, !noundef !10
+  store i64 %19, ptr %2, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %5, ptr %20, align 8
+  %21 = call { i64, i32 } @_ZN3std4time7Instant14duration_since17h259c76bf0d2ea1c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %15, i32 noundef %17)
+  %22 = extractvalue { i64, i32 } %21, 0
+  %23 = extractvalue { i64, i32 } %21, 1
+  %24 = uitofp i64 %22 to float
+  %25 = uitofp i32 %23 to float
+  %26 = fdiv float %25, 1.000000e+09
+  %27 = fadd float %26, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret float %26
+  ret float %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

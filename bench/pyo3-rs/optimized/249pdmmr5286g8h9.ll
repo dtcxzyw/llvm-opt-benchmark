@@ -5195,35 +5195,35 @@ define hidden zeroext i1 @"_ZN72_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$
   %4 = load i64, ptr %0, align 8
   %5 = xor i64 %4, -9223372036854775808
   switch i64 %5, label %14 [
-    i64 0, label %6
+    i64 0, label %default.unreachable
     i64 1, label %8
     i64 2, label %10
     i64 3, label %12
   ]
 
-6:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   %7 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.93, i64 8)
   br label %16
 
-8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.94, i64 12)
-  br label %16
+9:                                                ; preds = %2
+  %10 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.94, i64 12)
+  br label %17
 
-10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.95, i64 13)
-  br label %16
+11:                                               ; preds = %2
+  %12 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.95, i64 13)
+  br label %17
 
-12:                                               ; preds = %2
-  %13 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.96, i64 12)
-  br label %16
+13:                                               ; preds = %2
+  %14 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.96, i64 12)
+  br label %17
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   store ptr %0, ptr %3, align 8
-  %15 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.163, i64 5, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.164)
-  br label %16
+  %16 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hda3bb1861e902cd2E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.163, i64 5, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.164)
+  br label %17
 
-16:                                               ; preds = %14, %12, %10, %8, %6
-  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
+17:                                               ; preds = %15, %13, %11, %9, %6
+  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %10, %8 ], [ %12, %10 ], [ %14, %12 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5233,34 +5233,34 @@ define hidden void @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$co
   %4 = load i64, ptr %1, align 8
   %5 = xor i64 %4, -9223372036854775808
   switch i64 %5, label %10 [
-    i64 0, label %6
+    i64 0, label %default.unreachable
     i64 1, label %7
     i64 2, label %8
     i64 3, label %9
   ]
 
-6:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %11
-
-7:                                                ; preds = %2
-  store i64 -9223372036854775807, ptr %0, align 8
-  br label %11
+  br label %12
 
 8:                                                ; preds = %2
-  store i64 -9223372036854775806, ptr %0, align 8
-  br label %11
+  store i64 -9223372036854775807, ptr %0, align 8
+  br label %12
 
 9:                                                ; preds = %2
-  store i64 -9223372036854775805, ptr %0, align 8
-  br label %11
+  store i64 -9223372036854775806, ptr %0, align 8
+  br label %12
 
 10:                                               ; preds = %2
+  store i64 -9223372036854775805, ptr %0, align 8
+  br label %12
+
+11:                                               ; preds = %2
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9, %8, %7, %6
+12:                                               ; preds = %10, %9, %8, %7, %6
   ret void
 }
 

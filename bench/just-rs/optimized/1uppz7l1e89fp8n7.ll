@@ -1969,23 +1969,23 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
     i32 33, label %8
   ]
 
-6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.136, i64 noundef 5), !noalias !409
+default.unreachable:                              ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.13default.unreachable, i64 noundef 5), !noalias !409
   br label %"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c670501399532eeE.exit"
 
-8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.137, i64 noundef 11), !noalias !409
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.137, i64 noundef 11), !noalias !409
   br label %"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c670501399532eeE.exit"
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !415
   store ptr %4, ptr %3, align 8, !noalias !415
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.138, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c7970f49f530d4f5fc2450af5a27db93.139)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c7970f49f530d4f5fc2450af5a27db93.138, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c7970f49f530d4f5fc2450af5a27db93.139)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !415
   br label %"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c670501399532eeE.exit"
 
-"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c670501399532eeE.exit": ; preds = %6, %8, %10
-  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
+"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c670501399532eeE.exit": ; preds = %6, %9, %11
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
