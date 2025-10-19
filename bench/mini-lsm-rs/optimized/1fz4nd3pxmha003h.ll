@@ -5109,16 +5109,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i: ; preds 
 
 87:                                               ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread26.i"
   %88 = extractvalue { i64, i1 } %82, 0
-  %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %88, i64 3)
-  switch i64 %spec.select.i.i.i.i, label %default.unreachable [
+  switch i64 %88, label %.thread106 [
     i64 0, label %89
     i64 1, label %.thread
     i64 2, label %.thread102
-    i64 3, label %.thread106
   ]
-
-default.unreachable:                              ; preds = %87
-  unreachable
 
 89:                                               ; preds = %87
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.4dd66198b1e00463ac4f9539cc1b7f60.24, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.25) #32

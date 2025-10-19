@@ -125612,9 +125612,10 @@ switch.lookup:
 define internal { i32, i32 } @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h50384913c1b69123E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !26680, !noundef !22
-  %4 = icmp ult i64 %3, -9223372036854775801
-  %. = select i1 %4, i64 52, i64 36
-  %.15 = select i1 %4, i64 48, i64 32
+  %switch.tableidx = add i64 %3, 9223372036854775801
+  %4 = icmp ult i64 %switch.tableidx, 3
+  %. = select i1 %4, i64 36, i64 52
+  %.15 = select i1 %4, i64 32, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.15
   %.sroa.0.04 = load i32, ptr %5, align 4, !noundef !22

@@ -8,25 +8,32 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.2 = private unnamed_addr constant [7 x i8] c"expired", align 1
 @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.3 = private unnamed_addr constant [8 x i8] c"lock_hit", align 1
 @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.4 = private unnamed_addr constant [5 x i8] c"stale", align 1
-@switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE = private unnamed_addr constant [5 x i64] [i64 3, i64 4, i64 7, i64 8, i64 5], align 8
-@switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1 = private unnamed_addr constant [5 x ptr] [ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.0, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.1, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.2, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.3, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.4], align 8
+@switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE = private unnamed_addr constant [4 x i64] [i64 3, i64 4, i64 7, i64 8], align 8
+@switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1 = private unnamed_addr constant [4 x ptr] [ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.0, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.1, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.2, ptr @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.3], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-switch.lookup:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = load i32, ptr %1, align 8, !range !3, !noundef !4
-  %3 = add nsw i32 %2, -1000000000
-  %narrow = tail call i32 @llvm.umin.i32(i32 %3, i32 4)
-  %4 = zext nneg i32 %narrow to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !range !3, !noundef !4
+  %switch.tableidx = add nsw i32 %3, -1000000000
+  %4 = icmp ult i32 %switch.tableidx, 4
+  br i1 %4, label %switch.lookup, label %7
+
+switch.lookup:                                    ; preds = %1
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %5 = zext nneg i32 %narrow to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %5
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
-  ret { ptr, i64 } %7
+  br label %7
+
+7:                                                ; preds = %1, %switch.lookup
+  %.sroa.6.0 = phi i64 [ %switch.load, %switch.lookup ], [ 5, %1 ]
+  %.sroa.0.0 = phi ptr [ %switch.load2, %switch.lookup ], [ @anon.5ff5f95bcd3f1ca013c8d2b86cb685ee.4, %1 ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.6.0, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

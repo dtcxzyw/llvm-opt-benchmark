@@ -3154,16 +3154,11 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$
 
 _ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit: ; preds = %38
   %44 = extractvalue { i64, i1 } %39, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %44, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %44, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7 [
     i64 0, label %45
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7
   ], !prof !125
-
-default.unreachable:                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
-  unreachable
 
 45:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.4596be5c5edd1b2fd8f3484f59dd1597.58, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4596be5c5edd1b2fd8f3484f59dd1597.60) #26
@@ -3177,7 +3172,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thre
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %48, label %47, !prof !35
 
-_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7: ; preds = %.split.i, %.split.us.i, %47, %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
+_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit, %47
   ret void
 
 47:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
@@ -4223,16 +4218,11 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %56, %.noe
 
 81:                                               ; preds = %75
   %82 = extractvalue { i64, i1 } %76, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %82, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %82, label %.thread73 [
     i64 0, label %83
     i64 1, label %.thread65
     i64 2, label %.thread69
-    i64 3, label %.thread73
   ], !prof !202
-
-default.unreachable:                              ; preds = %81
-  unreachable
 
 83:                                               ; preds = %81
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.4596be5c5edd1b2fd8f3484f59dd1597.58, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4596be5c5edd1b2fd8f3484f59dd1597.67) #26
@@ -5395,16 +5385,11 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T
 
 _ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit: ; preds = %43
   %49 = extractvalue { i64, i1 } %44, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %49, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %49, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7 [
     i64 0, label %50
     i64 1, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
     i64 2, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
-    i64 3, label %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7
   ], !prof !125
-
-default.unreachable:                              ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
-  unreachable
 
 50:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.4596be5c5edd1b2fd8f3484f59dd1597.58, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4596be5c5edd1b2fd8f3484f59dd1597.77) #26
@@ -5418,7 +5403,7 @@ _ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thre
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %53, label %52, !prof !35
 
-_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7: ; preds = %.split.i, %.split.us.i, %52, %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit
+_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread7: ; preds = %.split.i, %.split.us.i, %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit, %52
   ret void
 
 52:                                               ; preds = %_ZN17crossbeam_channel7context7Context10wait_until17h39ad76fe0084f8a8E.exit.thread
@@ -6495,16 +6480,11 @@ _ZN3std4sync4mpmc5waker9SyncWaker8register17h0fb90903e651ebc1E.exit: ; preds = %
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit: ; preds = %110
   %117 = extractvalue { i64, i1 } %111, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %117, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %117, label %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread14 [
     i64 0, label %118
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread14
   ], !prof !125
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit
-  unreachable
 
 118:                                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.4596be5c5edd1b2fd8f3484f59dd1597.58, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4596be5c5edd1b2fd8f3484f59dd1597.83) #26
@@ -6656,7 +6636,7 @@ _ZN3std4sync4mpmc5waker9SyncWaker10unregister17h246602b4dac30b32E.exit: ; preds 
   %.not = icmp eq ptr %.sroa.0.0.copyload9, null
   br i1 %.not, label %180, label %179, !prof !35
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread14: ; preds = %.split.i, %.split.us.i, %179, %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit.thread14: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h3f0880a0ed263402E.exit, %179
   ret void
 
 179:                                              ; preds = %_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h246602b4dac30b32E.exit
@@ -17467,9 +17447,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -17631,7 +17608,7 @@ attributes #26 = { noreturn }
 !122 = distinct !{!122, !"_ZN4core3ops8function6FnOnce9call_once17h0eed40b84f4ffe40E"}
 !123 = !{!"branch_weights", i32 1, i32 1, i32 2000, i32 2000}
 !124 = !{i64 128}
-!125 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!125 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0}
 !126 = !{!127}
 !127 = distinct !{!127, !128, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cdda557bafa4762E: argument 0"}
 !128 = distinct !{!128, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cdda557bafa4762E"}
@@ -17708,7 +17685,7 @@ attributes #26 = { noreturn }
 !199 = distinct !{!199, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe1366d29ddebb9eE"}
 !200 = !{!201}
 !201 = distinct !{!201, !199, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe1366d29ddebb9eE: argument 1"}
-!202 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395, i32 1070899407}
+!202 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395}
 !203 = !{!204}
 !204 = distinct !{!204, !205, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cdda557bafa4762E: argument 0"}
 !205 = distinct !{!205, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5cdda557bafa4762E"}

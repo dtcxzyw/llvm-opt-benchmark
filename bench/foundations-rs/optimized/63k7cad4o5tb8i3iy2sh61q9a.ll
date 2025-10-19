@@ -14290,16 +14290,11 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %56, %.noe
 
 88:                                               ; preds = %81
   %89 = extractvalue { i64, i1 } %82, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %89, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %89, label %.thread66 [
     i64 0, label %90
     i64 1, label %.thread58
     i64 2, label %.thread62
-    i64 3, label %.thread66
   ], !prof !485
-
-default.unreachable:                              ; preds = %88
-  unreachable
 
 90:                                               ; preds = %88
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.7f17b68d495638beaead70223c2b0278.31, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.144) #31
@@ -14853,16 +14848,11 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %56, %.noe
 
 88:                                               ; preds = %81
   %89 = extractvalue { i64, i1 } %82, 0
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %89, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %89, label %.thread74 [
     i64 0, label %90
     i64 1, label %.thread
     i64 2, label %.thread70
-    i64 3, label %.thread74
   ], !prof !485
-
-default.unreachable:                              ; preds = %88
-  unreachable
 
 90:                                               ; preds = %88
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.7f17b68d495638beaead70223c2b0278.31, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f17b68d495638beaead70223c2b0278.152) #31
@@ -23032,7 +23022,7 @@ attributes #31 = { noreturn }
 !482 = !{!483}
 !483 = distinct !{!483, !481, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h081c719effbf85ceE: argument 1"}
 !484 = !{i64 0, i64 -9223372036854775808}
-!485 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395, i32 1070899407}
+!485 = !{!"branch_weights", i32 11, i32 5684834, i32 0, i32 1070899395}
 !486 = !{!487}
 !487 = distinct !{!487, !488, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbadc5c3ebb7122ebE: argument 0"}
 !488 = distinct !{!488, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbadc5c3ebb7122ebE"}

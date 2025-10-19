@@ -18121,41 +18121,36 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$polars_parquet..arrow..read
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE"(ptr noalias noundef align 8 dereferenceable(1344) %0) #38
-          to label %23 unwind label %21
+          to label %22 unwind label %20
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit": ; preds = %8, %5, %1, %12
   %15 = load i64, ptr %0, align 8, !range !4750, !alias.scope !4751, !noundef !3
   %16 = xor i64 %15, -9223372036854775808
-  %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 3)
-  switch i64 %17, label %default.unreachable [
+  switch i64 %16, label %17 [
     i64 0, label %"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit"
     i64 1, label %"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit"
-    i64 2, label %19
-    i64 3, label %18
+    i64 2, label %18
   ]
 
-default.unreachable:                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit"
-  unreachable
-
-18:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit"
+17:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit"
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(1344) %0, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit"
 
-19:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit"
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i64 noundef 4, i64 noundef 4)
+18:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit"
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 4, i64 noundef 4)
   br label %"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %18, %19
+"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %17, %18
   ret void
 
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #37
   unreachable
 
-23:                                               ; preds = %13
+22:                                               ; preds = %13
   resume { ptr, i32 } %14
 }
 
@@ -32286,28 +32281,23 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Optio
 define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..arrow..read..deserialize..binview..StateTranslation$GT$17h622c65aba267259bE"(ptr noalias noundef nonnull align 8 dereferenceable(1344) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4750, !noundef !3
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
-  switch i64 %4, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %6
-    i64 2, label %7
-    i64 3, label %5
+  switch i64 %3, label %4 [
+    i64 0, label %5
+    i64 1, label %5
+    i64 2, label %6
   ]
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(1344) %0, i64 noundef 1, i64 noundef 1)
-  br label %6
+  br label %5
 
-6:                                                ; preds = %1, %1, %7, %5
+5:                                                ; preds = %1, %1, %6, %4
   ret void
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 4, i64 noundef 4)
-  br label %6
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h837b98581749a7caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 4, i64 noundef 4)
+  br label %5
 }
 
 ; Function Attrs: nonlazybind uwtable

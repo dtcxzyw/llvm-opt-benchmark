@@ -232,7 +232,7 @@ _ZN4core3ops8function6FnOnce9call_once17hce56eed94f00872eE.exit: ; preds = %.pre
   br i1 %108, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h1c532cda98e4be1cE.exit.thread", label %109
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h1c532cda98e4be1cE.exit.thread": ; preds = %104, %102, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h1c532cda98e4be1cE.exit"
-  tail call void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa9068f40b126d8175dba68a3caa855e.24) #11
+  tail call void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa9068f40b126d8175dba68a3caa855e.24) #10
   unreachable
 
 109:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h1c532cda98e4be1cE.exit"
@@ -348,11 +348,11 @@ _ZN6arcstr7arc_str9ThinInner17try_allocate_with17h3c052996d90c3824E.exit.i.i.i: 
   br i1 %cond.i.i.i, label %157, label %158
 
 157:                                              ; preds = %_ZN6arcstr7arc_str9ThinInner17try_allocate_with17h3c052996d90c3824E.exit.i.i.i
-  tail call void @_ZN6arcstr7arc_str14alloc_overflow17h8d81b5727031b965E() #11, !noalias !48
+  tail call void @_ZN6arcstr7arc_str14alloc_overflow17h8d81b5727031b965E() #10, !noalias !48
   unreachable
 
 158:                                              ; preds = %_ZN6arcstr7arc_str9ThinInner17try_allocate_with17h3c052996d90c3824E.exit.i.i.i
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef %153, i64 noundef %156) #11, !noalias !48
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef %153, i64 noundef %156) #10, !noalias !48
   unreachable
 
 _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit.i.i: ; preds = %152
@@ -443,31 +443,25 @@ define { ptr, ptr } @"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagErr
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E"(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !60, !noundef !20
-  %4 = add nsw i8 %3, -5
-  %narrow = tail call i8 @llvm.umin.i8(i8 %4, i8 2)
-  switch i8 %narrow, label %default.unreachable [
-    i8 0, label %5
-    i8 1, label %7
-    i8 2, label %9
+  switch i8 %3, label %8 [
+    i8 5, label %4
+    i8 6, label %6
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+4:                                                ; preds = %2
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.29.llvm.5207847320515704180, i64 noundef 17)
+  br label %10
 
-5:                                                ; preds = %2
-  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.29.llvm.5207847320515704180, i64 noundef 17)
-  br label %11
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.30.llvm.5207847320515704180, i64 noundef 23)
+  br label %10
 
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.aa9068f40b126d8175dba68a3caa855e.30.llvm.5207847320515704180, i64 noundef 23)
-  br label %11
+8:                                                ; preds = %2
+  %9 = tail call noundef zeroext i1 @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h3f92fac053ce53c6E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  br label %10
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h3f92fac053ce53c6E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br label %11
-
-11:                                               ; preds = %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
+10:                                               ; preds = %8, %6, %4
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -573,11 +567,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -588,9 +579,8 @@ attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { noreturn }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

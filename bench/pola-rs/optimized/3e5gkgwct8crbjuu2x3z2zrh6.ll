@@ -16728,16 +16728,11 @@ _ZN3std4sync4mpmc5waker9SyncWaker8register17hb62be955e8a18ef7E.exit: ; preds = %
 
 _ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit: ; preds = %110
   %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %111, 0
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.i.i.i, i64 3)
-  switch i64 %spec.select.i.i, label %default.unreachable [
+  switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread14 [
     i64 0, label %116
     i64 1, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
     i64 2, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread
-    i64 3, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread14
   ], !prof !1368
-
-default.unreachable:                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
-  unreachable
 
 116:                                              ; preds = %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6b5837a22e35c85caf5b93f8c7edea13.3, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b5837a22e35c85caf5b93f8c7edea13.34) #30
@@ -16889,7 +16884,7 @@ _ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E.exit: ; preds 
   %.not = icmp eq ptr %.sroa.0.0.copyload9, null
   br i1 %.not, label %178, label %177, !prof !8
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread14: ; preds = %.split.i, %.split.us.i, %177, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit
+_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread14: ; preds = %.split.i, %.split.us.i, %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit, %177
   ret void
 
 177:                                              ; preds = %_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E.exit
@@ -42457,9 +42452,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -43870,7 +43862,7 @@ attributes #32 = { cold noreturn nounwind }
 !1365 = !{!1366}
 !1366 = distinct !{!1366, !1364, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h257dee2ecbf26745E: argument 1"}
 !1367 = !{i64 0, i64 -9223372036854775808}
-!1368 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0, i32 2141263647}
+!1368 = !{!"branch_weights", i32 17, i32 6219984, i32 0, i32 0}
 !1369 = !{!1370}
 !1370 = distinct !{!1370, !1371, !"_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E: argument 0"}
 !1371 = distinct !{!1371, !"_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E"}

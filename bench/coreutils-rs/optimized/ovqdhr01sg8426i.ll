@@ -95,13 +95,12 @@ define hidden noundef ptr @"_ZN117_$LT$uucore..features..format..num_format..Uns
   %42 = load i8, ptr %41, align 1, !range !34, !noundef !4
   %43 = add nsw i8 %42, -2
   %narrow = tail call i8 @llvm.umin.i8(i8 %43, i8 2)
-  switch i8 %narrow, label %default.unreachable164 [
-    i8 0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-    i8 1, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit88
-    i8 2, label %46
+  switch i8 %42, label %46 [
+    i8 2, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+    i8 3, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit88
   ]
 
-default.unreachable164:                           ; preds = %85, %3
+default.unreachable164:                           ; preds = %85
   unreachable
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %3

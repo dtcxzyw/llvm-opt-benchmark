@@ -7937,36 +7937,30 @@ define { ptr, ptr } @"_ZN75_$LT$quinn..connection..SendDatagramError$u20$as$u20$
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN75_$LT$quinn..connection..SendDatagramError$u20$as$u20$core..fmt..Display$GT$3fmt17h958c24c62f83a973E"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !range !590, !noundef !7
-  %4 = add nsw i64 %3, -10
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
-  switch i64 %5, label %default.unreachable [
-    i64 0, label %6
-    i64 1, label %8
-    i64 2, label %10
-    i64 3, label %12
+  switch i64 %3, label %10 [
+    i64 10, label %4
+    i64 11, label %6
+    i64 12, label %8
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
+4:                                                ; preds = %2
+  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.90, i64 noundef 31)
+  br label %12
 
 6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.90, i64 noundef 31)
-  br label %14
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.91, i64 noundef 25)
+  br label %12
 
 8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.91, i64 noundef 25)
-  br label %14
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.92, i64 noundef 18)
+  br label %12
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.92, i64 noundef 18)
-  br label %14
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.93, i64 noundef 15)
+  br label %12
 
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.db68c7da406fdeeb8ee4ffed877df397.93, i64 noundef 15)
-  br label %14
-
-14:                                               ; preds = %12, %10, %8, %6
-  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
+12:                                               ; preds = %10, %8, %6, %4
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in
 }
 

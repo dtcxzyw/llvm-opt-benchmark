@@ -6420,87 +6420,82 @@ define noundef zeroext i1 @"_ZN100_$LT$actix_web..http..header..content_disposit
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = load i64, ptr %0, align 8, !range !1133, !noundef !9
   %10 = xor i64 %9, -9223372036854775808
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 3)
-  switch i64 %11, label %default.unreachable [
-    i64 0, label %12
-    i64 1, label %18
-    i64 2, label %24
-    i64 3, label %30
+  switch i64 %10, label %29 [
+    i64 0, label %11
+    i64 1, label %17
+    i64 2, label %23
   ]
 
-default.unreachable:                              ; preds = %2
-  unreachable
-
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.127, ptr %8, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %16, align 8
-  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %15, align 8
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %37
+  br label %36
 
-18:                                               ; preds = %2
+17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.128, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %22, align 8
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %21, align 8
+  %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %37
+  br label %36
 
-24:                                               ; preds = %2
+23:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.129, ptr %6, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %28, align 8
-  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.eeefbac79169d39eae1d864976b9ca20.4.llvm.1031801374374124631, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %27, align 8
+  %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %37
+  br label %36
 
-30:                                               ; preds = %2
+29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h23a0d404a4b85277E", ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h23a0d404a4b85277E", ptr %30, align 8
   store ptr @anon.eeefbac79169d39eae1d864976b9ca20.108, ptr %4, align 8, !alias.scope !1171, !noalias !1174
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %32, align 8, !alias.scope !1171, !noalias !1174
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %33, align 8, !alias.scope !1171, !noalias !1174
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %34, align 8, !alias.scope !1171, !noalias !1174
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %35, align 8, !alias.scope !1171, !noalias !1174
-  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %31, align 8, !alias.scope !1171, !noalias !1174
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %32, align 8, !alias.scope !1171, !noalias !1174
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %33, align 8, !alias.scope !1171, !noalias !1174
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %34, align 8, !alias.scope !1171, !noalias !1174
+  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %30, %24, %18, %12
-  %.0.in = phi i1 [ %17, %12 ], [ %23, %18 ], [ %29, %24 ], [ %36, %30 ]
+36:                                               ; preds = %29, %23, %17, %11
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %35, %29 ]
   ret i1 %.0.in
 }
 
