@@ -9220,7 +9220,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %2
   %13 = load ptr, ptr %12, align 8, !tbaa !279
   br label %14
 
-14:                                               ; preds = %.lr.ph, %19
+14:                                               ; preds = %.lr.ph, %20
   %.01723 = phi i32 [ 1, %.lr.ph ], [ %21, %19 ]
   %.01922 = phi ptr [ %3, %.lr.ph ], [ %22, %19 ]
   %15 = load i32, ptr %.01922, align 4, !tbaa !249
@@ -9230,14 +9230,14 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %2
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %._crit_edge, label %19
 
-19:                                               ; preds = %14
+20:                                               ; preds = %14
   %20 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %18, i32 0)
   %21 = mul nsw i32 %20, %.01723
   %22 = getelementptr inbounds nuw i8, ptr %.01922, i64 4
   %.not = icmp eq ptr %22, %9
   br i1 %.not, label %._crit_edge, label %14
 
-._crit_edge:                                      ; preds = %14, %19, %2, %_ZNK6vectorIjLb0EjE3endEv.exit
+._crit_edge:                                      ; preds = %14, %20, %2, %_ZNK6vectorIjLb0EjE3endEv.exit
   %spec.select = phi i32 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %2 ], [ %21, %19 ], [ 0, %14 ]
   ret i32 %spec.select
 }
