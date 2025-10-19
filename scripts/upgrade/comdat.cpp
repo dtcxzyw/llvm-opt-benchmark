@@ -6,6 +6,7 @@
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IRReader/IRReader.h>
+#include <llvm/Passes/PassBuilder.h>
 #include <llvm/Support/CommandLine.h>
 #include <llvm/Support/Error.h>
 #include <llvm/Support/FileSystem.h>
@@ -13,6 +14,8 @@
 #include <llvm/Support/SourceMgr.h>
 #include <llvm/Support/ToolOutputFile.h>
 #include <llvm/Support/raw_ostream.h>
+#include <llvm/Transforms/IPO/GlobalDCE.h>
+#include <llvm/Transforms/Scalar/DCE.h>
 #include <cstdlib>
 #include <memory>
 
@@ -30,8 +33,10 @@ int main(int argc, char **argv) {
   SMDiagnostic Err;
   std::string Path = InputFile.getValue();
   auto M = parseIRFile(Path, Err, Context);
-  if (!M)
+  if (!M) {
+    Err.print(argv[1], errs());
     return EXIT_FAILURE;
+  }
   StringRef PathRef = Path;
   if (PathRef.contains("/original/")) {
     M->setModuleIdentifier("");
@@ -45,6 +50,30 @@ int main(int argc, char **argv) {
   }
   for (auto &GO : M->global_objects())
     GO.setComdat(nullptr);
+
+  {
+    LoopAnalysisManager LAM;
+    FunctionAnalysisManager FAM;
+    CGSCCAnalysisManager CGAM;
+    ModuleAnalysisManager MAM;
+
+    PassBuilder PB;
+    // Register all the basic analyses with the managers.
+    PB.registerModuleAnalyses(MAM);
+    PB.registerCGSCCAnalyses(CGAM);
+    PB.registerFunctionAnalyses(FAM);
+    PB.registerLoopAnalyses(LAM);
+    PB.crossRegisterProxies(LAM, FAM, CGAM, MAM);
+
+    ModulePassManager MPM;
+    FunctionPassManager FPM;
+    FPM.addPass(DCEPass());
+    MPM.addPass(createModuleToFunctionPassAdaptor(std::move(FPM)));
+    MPM.addPass(GlobalDCEPass());
+
+    MPM.run(*M, MAM);
+  }
+
   std::error_code EC;
   sys::fs::OpenFlags OpenFlags = sys::fs::OF_Text;
   std::unique_ptr<ToolOutputFile> Out =
