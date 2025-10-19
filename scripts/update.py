@@ -310,12 +310,13 @@ def regen_optimized():
     with open("test.log", "w") as log:
         for fn, status, res, stats in pool.imap_unordered(run_opt, work_list):
             fn = os.path.relpath(fn, BENCH_DIR)
-            fn = fn.replace("/original/", "/")
             if status != "success":
+                fn = "https://github.com/dtcxzyw/llvm-opt-benchmark/blob/main/bench/" + fn
                 progress.write(fn + " " + status)
                 log.write(fn + " " + status + "\n")
                 fail = True
             else:
+                fn = fn.replace("/original/", "/")
                 if COMPTIME_OUT:
                     comptime_res.append((fn, res))
                 if STATS_OUT:
