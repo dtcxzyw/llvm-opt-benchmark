@@ -1237,11 +1237,8 @@ define internal range(i32 -1, 2) i32 @phar_compare_dir_name(ptr noundef readonly
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %10, i64 noundef %12) #10
-  %.not = icmp eq i32 %13, 0
-  %.inv = icmp sgt i32 %13, -1
-  %14 = select i1 %.inv, i32 1, i32 -1
-  %15 = select i1 %.not, i32 0, i32 %14
-  ret i32 %15
+  %14 = tail call i32 @llvm.scmp.i32.i32(i32 %13, i32 0)
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1405,6 +1402,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

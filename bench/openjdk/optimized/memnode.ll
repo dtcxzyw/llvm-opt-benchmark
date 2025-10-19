@@ -11502,7 +11502,7 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %44, %47
   %49 = zext i32 %43 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %41, ptr %50, align 8
-  %51 = trunc i8 %42 to i1
+  %51 = trunc nuw i8 %42 to i1
   %.pre.pre = load i32, ptr %11, align 8
   %52 = icmp uge i32 %.pre.pre, %9
   %or.cond31.not = select i1 %51, i1 true, i1 %52

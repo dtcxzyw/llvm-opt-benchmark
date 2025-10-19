@@ -8799,7 +8799,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
-  %73 = trunc i32 %72 to i1
+  %73 = trunc nuw i32 %72 to i1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha185f8b9e407bd1bE.exit"
@@ -9038,7 +9038,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %69 = phi ptr [ %59, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %39, %60 ]
   %70 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %61, %60 ]
   %71 = extractvalue { i32, i32 } %70, 0
-  %72 = trunc i32 %71 to i1
+  %72 = trunc nuw i32 %71 to i1
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h417522ae968f2ef3E.exit"
@@ -9280,7 +9280,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0
-  %74 = trunc i32 %73 to i1
+  %74 = trunc nuw i32 %73 to i1
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5628ac113b9c5a39E.exit"
@@ -10005,7 +10005,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
-  %73 = trunc i32 %72 to i1
+  %73 = trunc nuw i32 %72 to i1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00b1371cf5f16850E.exit"
@@ -10504,7 +10504,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
-  %73 = trunc i32 %72 to i1
+  %73 = trunc nuw i32 %72 to i1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76b8bde33484dc9E.exit"
@@ -10744,7 +10744,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
-  %73 = trunc i32 %72 to i1
+  %73 = trunc nuw i32 %72 to i1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6754543c86775b3E.exit"
@@ -11376,7 +11376,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0
-  %74 = trunc i32 %73 to i1
+  %74 = trunc nuw i32 %73 to i1
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25e618278d6ca300E.exit"
@@ -12233,7 +12233,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
-  %73 = trunc i32 %72 to i1
+  %73 = trunc nuw i32 %72 to i1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2690b2897b2be3f6E.exit"
@@ -12630,7 +12630,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0
-  %74 = trunc i32 %73 to i1
+  %74 = trunc nuw i32 %73 to i1
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h916d320bc80765cbE.exit"

@@ -571,7 +571,7 @@ common.ret.sink.split.i:                          ; preds = %107, %110
 "_ZN4core3ptr148drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$..reserve_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60e3c97db67cacc1E.exit": ; preds = %105, %common.ret.sink.split.i
   %119 = trunc nuw i64 %101 to i1
   %spec.select = select i1 %119, ptr undef, ptr %102
-  %spec.select14 = sub i64 -9223372036854775806, %101
+  %spec.select14 = sub nuw nsw i64 -9223372036854775806, %101
   store i64 %spec.select14, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %.sroa.2.0..sroa_idx, align 8

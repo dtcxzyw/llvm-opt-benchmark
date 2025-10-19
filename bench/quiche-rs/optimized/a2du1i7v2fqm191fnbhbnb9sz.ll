@@ -452,7 +452,7 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9755616b3aff6781E.exit": ; preds = %147
   %150 = trunc nuw i64 %143 to i1
   %spec.select = select i1 %150, ptr undef, ptr %144
-  %spec.select11 = sub i64 -9223372036854775806, %143
+  %spec.select11 = sub nuw nsw i64 -9223372036854775806, %143
   store i64 %spec.select11, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %.sroa.2.0..sroa_idx, align 8

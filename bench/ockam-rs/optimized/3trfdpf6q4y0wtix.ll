@@ -18855,9 +18855,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0129, %20
+  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0130, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -18870,7 +18870,7 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
   store i8 3, ptr %0, align 8
   br label %58
 
-58:                                               ; preds = %74, %244, %56, %57
+58:                                               ; preds = %74, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit", %56, %57
   ret void
 
 59:                                               ; preds = %52
@@ -18938,8 +18938,13 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-77:                                               ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit", %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8c4dcda1a4c172dcE.exit", %61, %59
-  %.1 = phi i1 [ %.0128, %59 ], [ %.0128, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8c4dcda1a4c172dcE.exit" ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit" ]
+.critedge:                                        ; preds = %230, %101
+  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+  store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2600
+  br label %77
+
+77:                                               ; preds = %.critedge, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8c4dcda1a4c172dcE.exit", %61, %59
+  %.1 = phi i1 [ %.0129, %59 ], [ %.0129, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8c4dcda1a4c172dcE.exit" ], [ true, %.critedge ]
   br i1 %53, label %52, label %51
 
 78:                                               ; preds = %61
@@ -19025,7 +19030,7 @@ common.resume:                                    ; preds = %.body.i, %71
 
 101:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h87096a50dec9a5b6E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2600
-  br label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit"
+  br label %.critedge
 
 102:                                              ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
   %103 = landingpad { ptr, i32 }
@@ -19445,7 +19450,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2611
-  br i1 %225, label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit", label %231
+  br i1 %225, label %.critedge, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2600, !nonnull !4, !align !111, !noundef !4
@@ -19482,22 +19487,14 @@ default.unreachable11.i.i:                        ; preds = %219
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2600
   br label %178
 
-"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit": ; preds = %101, %104, %230
-  %.sink.i = phi i8 [ 4, %101 ], [ 1, %104 ], [ 3, %230 ]
-  %common.ret.op.i = phi { i64, ptr } [ { i64 1, ptr undef }, %101 ], [ zeroinitializer, %104 ], [ { i64 1, ptr undef }, %230 ]
-  store i8 %.sink.i, ptr %27, align 8, !noalias !2600
-  %.fca.0.extract = extractvalue { i64, ptr } %common.ret.op.i, 0
-  %243 = icmp eq i64 %.fca.0.extract, 0
-  br i1 %243, label %244, label %77
-
-244:                                              ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit"
-  %.fca.1.extract = extractvalue { i64, ptr } %common.ret.op.i, 1
-  %245 = load i8, ptr %21, align 1, !noundef !4
-  %246 = or i8 %245, 2
-  store i8 %246, ptr %21, align 1
+"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdaeda3ff4409b1c2E.exit": ; preds = %104
+  store i8 1, ptr %27, align 8, !noalias !2600
+  %243 = load i8, ptr %21, align 1, !noundef !4
+  %244 = or i8 %243, 2
+  store i8 %244, ptr %21, align 1
   store i8 1, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.1.extract, ptr %.sroa.411.0..sroa_idx, align 8
+  store ptr null, ptr %.sroa.411.0..sroa_idx, align 8
   br label %58
 }
 
@@ -19576,9 +19573,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0129, %20
+  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0130, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -19591,7 +19588,7 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
   store i8 3, ptr %0, align 8
   br label %58
 
-58:                                               ; preds = %74, %244, %56, %57
+58:                                               ; preds = %74, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit", %56, %57
   ret void
 
 59:                                               ; preds = %52
@@ -19659,8 +19656,13 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-77:                                               ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit", %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h613e608957970104E.exit", %61, %59
-  %.1 = phi i1 [ %.0128, %59 ], [ %.0128, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h613e608957970104E.exit" ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit" ]
+.critedge:                                        ; preds = %230, %101
+  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+  store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2685
+  br label %77
+
+77:                                               ; preds = %.critedge, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h613e608957970104E.exit", %61, %59
+  %.1 = phi i1 [ %.0129, %59 ], [ %.0129, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h613e608957970104E.exit" ], [ true, %.critedge ]
   br i1 %53, label %52, label %51
 
 78:                                               ; preds = %61
@@ -19746,7 +19748,7 @@ common.resume:                                    ; preds = %.body.i, %71
 
 101:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h87096a50dec9a5b6E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2685
-  br label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit"
+  br label %.critedge
 
 102:                                              ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
   %103 = landingpad { ptr, i32 }
@@ -20166,7 +20168,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2696
-  br i1 %225, label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit", label %231
+  br i1 %225, label %.critedge, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2685, !nonnull !4, !align !111, !noundef !4
@@ -20203,22 +20205,14 @@ default.unreachable11.i.i:                        ; preds = %219
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2685
   br label %178
 
-"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit": ; preds = %101, %104, %230
-  %.sink.i = phi i8 [ 4, %101 ], [ 1, %104 ], [ 3, %230 ]
-  %common.ret.op.i = phi { i64, ptr } [ { i64 1, ptr undef }, %101 ], [ zeroinitializer, %104 ], [ { i64 1, ptr undef }, %230 ]
-  store i8 %.sink.i, ptr %27, align 8, !noalias !2685
-  %.fca.0.extract = extractvalue { i64, ptr } %common.ret.op.i, 0
-  %243 = icmp eq i64 %.fca.0.extract, 0
-  br i1 %243, label %244, label %77
-
-244:                                              ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit"
-  %.fca.1.extract = extractvalue { i64, ptr } %common.ret.op.i, 1
-  %245 = load i8, ptr %21, align 1, !noundef !4
-  %246 = or i8 %245, 2
-  store i8 %246, ptr %21, align 1
+"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3fbf8d8604e5864dE.exit": ; preds = %104
+  store i8 1, ptr %27, align 8, !noalias !2685
+  %243 = load i8, ptr %21, align 1, !noundef !4
+  %244 = or i8 %243, 2
+  store i8 %244, ptr %21, align 1
   store i8 1, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.1.extract, ptr %.sroa.411.0..sroa_idx, align 8
+  store ptr null, ptr %.sroa.411.0..sroa_idx, align 8
   br label %58
 }
 
@@ -20297,9 +20291,9 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
 
 52:                                               ; preds = %3, %77
   %53 = phi i1 [ true, %3 ], [ false, %77 ]
-  %.sroa.0.0129 = phi i32 [ 0, %3 ], [ 1, %77 ]
-  %.0128 = phi i1 [ false, %3 ], [ %.1, %77 ]
-  %54 = add i32 %.sroa.0.0129, %20
+  %.sroa.0.0130 = phi i32 [ 0, %3 ], [ 1, %77 ]
+  %.0129 = phi i1 [ false, %3 ], [ %.1, %77 ]
+  %54 = add i32 %.sroa.0.0130, %20
   %trunc = trunc i32 %54 to i1
   %55 = load i8, ptr %21, align 1, !noundef !4
   br i1 %trunc, label %61, label %59
@@ -20312,7 +20306,7 @@ define hidden void @"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P
   store i8 3, ptr %0, align 8
   br label %58
 
-58:                                               ; preds = %74, %244, %56, %57
+58:                                               ; preds = %74, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit", %56, %57
   ret void
 
 59:                                               ; preds = %52
@@ -20380,8 +20374,13 @@ common.resume:                                    ; preds = %.body.i, %71
   store i8 %70, ptr %.sroa.4.0..sroa_idx, align 1
   br label %58
 
-77:                                               ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit", %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf767bd9fdabb6d3dE.exit", %61, %59
-  %.1 = phi i1 [ %.0128, %59 ], [ %.0128, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf767bd9fdabb6d3dE.exit" ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit" ]
+.critedge:                                        ; preds = %230, %101
+  %.sink.i.ph = phi i8 [ 3, %230 ], [ 4, %101 ]
+  store i8 %.sink.i.ph, ptr %27, align 8, !noalias !2769
+  br label %77
+
+77:                                               ; preds = %.critedge, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf767bd9fdabb6d3dE.exit", %61, %59
+  %.1 = phi i1 [ %.0129, %59 ], [ %.0129, %61 ], [ true, %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf767bd9fdabb6d3dE.exit" ], [ true, %.critedge ]
   br i1 %53, label %52, label %51
 
 78:                                               ; preds = %61
@@ -20467,7 +20466,7 @@ common.resume:                                    ; preds = %.body.i, %71
 
 101:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h87096a50dec9a5b6E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2769
-  br label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit"
+  br label %.critedge
 
 102:                                              ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
   %103 = landingpad { ptr, i32 }
@@ -20887,7 +20886,7 @@ default.unreachable11.i.i:                        ; preds = %219
 230:                                              ; preds = %224
   %..i.i = select i1 %225, i8 3, i8 1
   store i8 %..i.i, ptr %.phi.trans.insert143.i, align 8, !noalias !2780
-  br i1 %225, label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit", label %231
+  br i1 %225, label %.critedge, label %231
 
 231:                                              ; preds = %230
   %232 = load ptr, ptr %26, align 8, !noalias !2769, !nonnull !4, !align !111, !noundef !4
@@ -20924,22 +20923,14 @@ default.unreachable11.i.i:                        ; preds = %219
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2769
   br label %178
 
-"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit": ; preds = %101, %104, %230
-  %.sink.i = phi i8 [ 4, %101 ], [ 1, %104 ], [ 3, %230 ]
-  %common.ret.op.i = phi { i64, ptr } [ { i64 1, ptr undef }, %101 ], [ zeroinitializer, %104 ], [ { i64 1, ptr undef }, %230 ]
-  store i8 %.sink.i, ptr %27, align 8, !noalias !2769
-  %.fca.0.extract = extractvalue { i64, ptr } %common.ret.op.i, 0
-  %243 = icmp eq i64 %.fca.0.extract, 0
-  br i1 %243, label %244, label %77
-
-244:                                              ; preds = %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit"
-  %.fca.1.extract = extractvalue { i64, ptr } %common.ret.op.i, 1
-  %245 = load i8, ptr %21, align 1, !noundef !4
-  %246 = or i8 %245, 2
-  store i8 %246, ptr %21, align 1
+"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be8017697c06dd7E.exit": ; preds = %104
+  store i8 1, ptr %27, align 8, !noalias !2769
+  %243 = load i8, ptr %21, align 1, !noundef !4
+  %244 = or i8 %243, 2
+  store i8 %244, ptr %21, align 1
   store i8 1, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.1.extract, ptr %.sroa.411.0..sroa_idx, align 8
+  store ptr null, ptr %.sroa.411.0..sroa_idx, align 8
   br label %58
 }
 

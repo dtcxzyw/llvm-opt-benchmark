@@ -7602,19 +7602,19 @@ _ZN10serde_json3ser9Formatter10end_object17he84b3f3c5e10d958E.exit.i.i: ; preds 
 define hidden noundef align 8 ptr @"_ZN9lsp_types8progress1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..progress..WorkDoneProgressParams$GT$9serialize17h61f3fac47fe54482E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !552, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775807
-  br i1 %4, label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread", label %.thread24
+  br i1 %4, label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread", label %5
 
-.thread24:                                        ; preds = %2
-  %5 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hf7815e8245597319E.llvm.4014076693086273623"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 @anon.e72d8a8c8f544f53b3213ec31466bea6.72, i64 noundef 13), !noalias !1537
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit", label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread"
+5:                                                ; preds = %2
+  %6 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hf7815e8245597319E.llvm.4014076693086273623"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 @anon.e72d8a8c8f544f53b3213ec31466bea6.72, i64 noundef 13), !noalias !1537
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit", label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread"
 
-"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit": ; preds = %.thread24
-  %7 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5bbf3646983c9c33E.llvm.4014076693086273623"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !1543
+"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit": ; preds = %5
+  %8 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5bbf3646983c9c33E.llvm.4014076693086273623"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !1543
   br label %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread"
 
-"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread": ; preds = %2, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit", %.thread24
-  %.sroa.0.1 = phi ptr [ %5, %.thread24 ], [ %7, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit" ], [ null, %2 ]
+"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit.thread": ; preds = %2, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit", %5
+  %.sroa.0.1 = phi ptr [ %6, %5 ], [ %8, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h47fed480e88f3738E.exit" ], [ null, %2 ]
   ret ptr %.sroa.0.1
 }
 

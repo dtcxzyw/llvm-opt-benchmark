@@ -305,15 +305,12 @@ define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24)
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = icmp eq i32 %1, 0
-  %.inv.i = icmp slt i32 %1, 1
-  %4 = select i1 %.inv.i, i32 -1, i32 1
-  %5 = select i1 %3, i32 0, i32 %4
-  store i32 %5, ptr %0, align 8, !tbaa !6
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %8 = zext nneg i32 %7 to i64
-  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
+  %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %1, i32 0)
+  store i32 %3, ptr %0, align 8, !tbaa !6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
+  %6 = zext nneg i32 %5 to i64
+  tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
   ret void
 }
 
@@ -2394,6 +2391,9 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
