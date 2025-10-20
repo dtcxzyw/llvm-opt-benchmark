@@ -245,7 +245,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %26 = trunc nsw i32 %notmask to i16
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
-  %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)
+  %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr align 1 %1, <16 x i1> %28, <16 x i8> zeroinitializer)
   %30 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %2
   %31 = load <16 x i8>, ptr %30, align 1, !tbaa !10
   %32 = bitcast <4 x i32> %4 to <16 x i8>
@@ -780,7 +780,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %26 = trunc nsw i32 %notmask to i16
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
-  %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)
+  %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr align 1 %1, <16 x i1> %28, <16 x i8> zeroinitializer)
   %30 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %2
   %31 = load <16 x i8>, ptr %30, align 1, !tbaa !10
   %32 = bitcast <4 x i32> %4 to <16 x i8>
@@ -2328,9 +2328,6 @@ declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.avx512.pternlog.d.128(<4 x i32>, <4 x i32>, <4 x i32>, i32 immarg) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x i8> @llvm.masked.load.v16i8.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x i8>) #9
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
 
@@ -2348,6 +2345,9 @@ declare <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64>, <4 x i64>, i8 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32>, <8 x i32>, <8 x i32>, i32 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
+declare <16 x i8> @llvm.masked.load.v16i8.p0(ptr captures(none), <16 x i1>, <16 x i8>) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

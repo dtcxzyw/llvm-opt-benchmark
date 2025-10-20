@@ -163,22 +163,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
   %103 = bitcast i16 %102 to <16 x i1>
-  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.027.lcssa, i32 1, <16 x i1> %103, <16 x float> zeroinitializer)
+  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.027.lcssa, <16 x i1> %103, <16 x float> zeroinitializer)
   %105 = lshr i64 %99, 16
   %106 = trunc i64 %105 to i16
   %107 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 64
   %108 = bitcast i16 %106 to <16 x i1>
-  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %107, i32 1, <16 x i1> %108, <16 x float> zeroinitializer)
+  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %107, <16 x i1> %108, <16 x float> zeroinitializer)
   %110 = lshr i64 %99, 32
   %111 = trunc i64 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 128
   %113 = bitcast i16 %111 to <16 x i1>
-  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %112, i32 1, <16 x i1> %113, <16 x float> zeroinitializer)
+  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %112, <16 x i1> %113, <16 x float> zeroinitializer)
   %115 = lshr i64 %99, 48
   %116 = trunc nuw i64 %115 to i16
   %117 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 192
   %118 = bitcast i16 %116 to <16 x i1>
-  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %117, i32 1, <16 x i1> %118, <16 x float> zeroinitializer)
+  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %117, <16 x i1> %118, <16 x float> zeroinitializer)
   %120 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %121 = shufflevector <16 x float> %114, <16 x float> %119, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %122 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -403,22 +403,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
   %103 = bitcast i16 %102 to <16 x i1>
-  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.027.lcssa, i32 1, <16 x i1> %103, <16 x float> zeroinitializer)
+  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.027.lcssa, <16 x i1> %103, <16 x float> zeroinitializer)
   %105 = lshr i64 %99, 16
   %106 = trunc i64 %105 to i16
   %107 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 64
   %108 = bitcast i16 %106 to <16 x i1>
-  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %107, i32 1, <16 x i1> %108, <16 x float> zeroinitializer)
+  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %107, <16 x i1> %108, <16 x float> zeroinitializer)
   %110 = lshr i64 %99, 32
   %111 = trunc i64 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 128
   %113 = bitcast i16 %111 to <16 x i1>
-  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %112, i32 1, <16 x i1> %113, <16 x float> zeroinitializer)
+  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %112, <16 x i1> %113, <16 x float> zeroinitializer)
   %115 = lshr i64 %99, 48
   %116 = trunc nuw i64 %115 to i16
   %117 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 192
   %118 = bitcast i16 %116 to <16 x i1>
-  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %117, i32 1, <16 x i1> %118, <16 x float> zeroinitializer)
+  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %117, <16 x i1> %118, <16 x float> zeroinitializer)
   %120 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %121 = shufflevector <16 x float> %114, <16 x float> %119, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %122 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -643,22 +643,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
   %103 = bitcast i16 %102 to <16 x i1>
-  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.027.lcssa, i32 1, <16 x i1> %103, <16 x float> zeroinitializer)
+  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.027.lcssa, <16 x i1> %103, <16 x float> zeroinitializer)
   %105 = lshr i64 %99, 16
   %106 = trunc i64 %105 to i16
   %107 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 64
   %108 = bitcast i16 %106 to <16 x i1>
-  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %107, i32 1, <16 x i1> %108, <16 x float> zeroinitializer)
+  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %107, <16 x i1> %108, <16 x float> zeroinitializer)
   %110 = lshr i64 %99, 32
   %111 = trunc i64 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 128
   %113 = bitcast i16 %111 to <16 x i1>
-  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %112, i32 1, <16 x i1> %113, <16 x float> zeroinitializer)
+  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %112, <16 x i1> %113, <16 x float> zeroinitializer)
   %115 = lshr i64 %99, 48
   %116 = trunc nuw i64 %115 to i16
   %117 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 192
   %118 = bitcast i16 %116 to <16 x i1>
-  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %117, i32 1, <16 x i1> %118, <16 x float> zeroinitializer)
+  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %117, <16 x i1> %118, <16 x float> zeroinitializer)
   %120 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %121 = shufflevector <16 x float> %114, <16 x float> %119, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %122 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -883,22 +883,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
   %103 = bitcast i16 %102 to <16 x i1>
-  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.027.lcssa, i32 1, <16 x i1> %103, <16 x float> zeroinitializer)
+  %104 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.027.lcssa, <16 x i1> %103, <16 x float> zeroinitializer)
   %105 = lshr i64 %99, 16
   %106 = trunc i64 %105 to i16
   %107 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 64
   %108 = bitcast i16 %106 to <16 x i1>
-  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %107, i32 1, <16 x i1> %108, <16 x float> zeroinitializer)
+  %109 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %107, <16 x i1> %108, <16 x float> zeroinitializer)
   %110 = lshr i64 %99, 32
   %111 = trunc i64 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 128
   %113 = bitcast i16 %111 to <16 x i1>
-  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %112, i32 1, <16 x i1> %113, <16 x float> zeroinitializer)
+  %114 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %112, <16 x i1> %113, <16 x float> zeroinitializer)
   %115 = lshr i64 %99, 48
   %116 = trunc nuw i64 %115 to i16
   %117 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 192
   %118 = bitcast i16 %116 to <16 x i1>
-  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %117, i32 1, <16 x i1> %118, <16 x float> zeroinitializer)
+  %119 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %117, <16 x i1> %118, <16 x float> zeroinitializer)
   %120 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %121 = shufflevector <16 x float> %114, <16 x float> %119, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %122 = shufflevector <16 x float> %104, <16 x float> %109, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1112,22 +1112,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %93 = trunc i64 %91 to i16
   %94 = bitcast i16 %93 to <16 x i1>
-  %95 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.027.lcssa, i32 1, <16 x i1> %94, <16 x float> zeroinitializer)
+  %95 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.027.lcssa, <16 x i1> %94, <16 x float> zeroinitializer)
   %96 = lshr i64 %90, 16
   %97 = trunc i64 %96 to i16
   %98 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 64
   %99 = bitcast i16 %97 to <16 x i1>
-  %100 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %98, i32 1, <16 x i1> %99, <16 x float> zeroinitializer)
+  %100 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %98, <16 x i1> %99, <16 x float> zeroinitializer)
   %101 = lshr i64 %90, 32
   %102 = trunc i64 %101 to i16
   %103 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 128
   %104 = bitcast i16 %102 to <16 x i1>
-  %105 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %103, i32 1, <16 x i1> %104, <16 x float> zeroinitializer)
+  %105 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %103, <16 x i1> %104, <16 x float> zeroinitializer)
   %106 = lshr i64 %90, 48
   %107 = trunc nuw i64 %106 to i16
   %108 = getelementptr inbounds nuw i8, ptr %.027.lcssa, i64 192
   %109 = bitcast i16 %107 to <16 x i1>
-  %110 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %108, i32 1, <16 x i1> %109, <16 x float> zeroinitializer)
+  %110 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %108, <16 x i1> %109, <16 x float> zeroinitializer)
   %111 = shufflevector <16 x float> %95, <16 x float> %100, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %112 = shufflevector <16 x float> %105, <16 x float> %110, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %113 = shufflevector <16 x float> %95, <16 x float> %100, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1204,13 +1204,13 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE7EE11StoreMaskedEPN9Imath
   %175 = trunc i64 %149 to i16
   %176 = bitcast <32 x i16> %171 to <16 x i32>
   %177 = bitcast i16 %175 to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %176, ptr %.028.lcssa, i32 1, <16 x i1> %177)
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %176, ptr align 1 %.028.lcssa, <16 x i1> %177)
   %178 = lshr i64 %148, 16
   %179 = trunc i64 %178 to i16
   %180 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 64
   %181 = bitcast <32 x i16> %174 to <16 x i32>
   %182 = bitcast i16 %179 to <16 x i1>
-  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %181, ptr nonnull %180, i32 1, <16 x i1> %182)
+  tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %181, ptr nonnull align 1 %180, <16 x i1> %182)
   br label %183
 
 183:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE7EE11StoreMaskedEPN9Imath_3_14halfEDv16_fS6_S6_S6_j.exit, %._crit_edge
@@ -1328,22 +1328,22 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %89 = trunc i64 %87 to i16
   %90 = bitcast i16 %89 to <16 x i1>
-  %91 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr %.025.lcssa, i32 1, <16 x i1> %90, <16 x float> zeroinitializer)
+  %91 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %.025.lcssa, <16 x i1> %90, <16 x float> zeroinitializer)
   %92 = lshr i64 %86, 16
   %93 = trunc i64 %92 to i16
   %94 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 64
   %95 = bitcast i16 %93 to <16 x i1>
-  %96 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %94, i32 1, <16 x i1> %95, <16 x float> zeroinitializer)
+  %96 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %94, <16 x i1> %95, <16 x float> zeroinitializer)
   %97 = lshr i64 %86, 32
   %98 = trunc i64 %97 to i16
   %99 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 128
   %100 = bitcast i16 %98 to <16 x i1>
-  %101 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %99, i32 1, <16 x i1> %100, <16 x float> zeroinitializer)
+  %101 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %99, <16 x i1> %100, <16 x float> zeroinitializer)
   %102 = lshr i64 %86, 48
   %103 = trunc nuw i64 %102 to i16
   %104 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 192
   %105 = bitcast i16 %103 to <16 x i1>
-  %106 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %104, i32 1, <16 x i1> %105, <16 x float> zeroinitializer)
+  %106 = tail call noundef <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %104, <16 x i1> %105, <16 x float> zeroinitializer)
   %107 = shufflevector <16 x float> %91, <16 x float> %96, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %108 = shufflevector <16 x float> %101, <16 x float> %106, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %109 = shufflevector <16 x float> %91, <16 x float> %96, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1413,22 +1413,22 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_f
   %164 = shufflevector <16 x float> %159, <16 x float> %160, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
   %165 = trunc i64 %145 to i16
   %166 = bitcast i16 %165 to <16 x i1>
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %161, ptr %.026.lcssa, i32 1, <16 x i1> %166)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %161, ptr align 1 %.026.lcssa, <16 x i1> %166)
   %167 = lshr i64 %144, 16
   %168 = trunc i64 %167 to i16
   %169 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 64
   %170 = bitcast i16 %168 to <16 x i1>
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %162, ptr nonnull %169, i32 1, <16 x i1> %170)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %162, ptr nonnull align 1 %169, <16 x i1> %170)
   %171 = lshr i64 %144, 32
   %172 = trunc i64 %171 to i16
   %173 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 128
   %174 = bitcast i16 %172 to <16 x i1>
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %163, ptr nonnull %173, i32 1, <16 x i1> %174)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %163, ptr nonnull align 1 %173, <16 x i1> %174)
   %175 = lshr i64 %144, 48
   %176 = trunc nuw i64 %175 to i16
   %177 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 192
   %178 = bitcast i16 %176 to <16 x i1>
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %164, ptr nonnull %177, i32 1, <16 x i1> %178)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %164, ptr nonnull align 1 %177, <16 x i1> %178)
   br label %179
 
 179:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit, %._crit_edge
@@ -1459,27 +1459,27 @@ declare void @llvm.x86.avx512.mask.pmov.db.mem.512(ptr, <16 x i32>, i16) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i32> @llvm.x86.avx512.mask.cvtps2dq.512(<16 x float>, <16 x i32>, i16, i32 immarg) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x float>) #9
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.x86.avx512.mask.pmov.dw.mem.512(ptr, <16 x i32>, i16) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i16> @llvm.x86.avx512.mask.vcvtps2ph.512(<16 x float>, i32 immarg, <16 x i16>, i16) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr captures(none), i32 immarg, <16 x i1>) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), i32 immarg, <16 x i1>) #10
-
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_Lut1DOpCPU_AVX512.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_Lut1DOpCPU_AVX512.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
+declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), <16 x i1>, <16 x float>) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
+declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr captures(none), <16 x i1>) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
+declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), <16 x i1>) #11
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512f,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512f,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -1490,9 +1490,9 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512f,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512f,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

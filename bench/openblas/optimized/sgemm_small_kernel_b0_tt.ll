@@ -479,7 +479,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %320 = shufflevector <4 x float> %319, <4 x float> poison, <16 x i32> zeroinitializer
   %321 = mul nsw i64 %.123172549, %7
   %gep2540 = getelementptr float, ptr %invariant.gep2539, i64 %321
-  %322 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep2540, i32 1, <16 x i1> %286, <16 x float> zeroinitializer)
+  %322 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2540, <16 x i1> %286, <16 x float> zeroinitializer)
   %323 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %292, <16 x float> %322, <16 x float> %.023612548)
   %324 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %296, <16 x float> %322, <16 x float> %.023622547)
   %325 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %300, <16 x float> %322, <16 x float> %.023712546)
@@ -1497,7 +1497,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %930 = shufflevector <4 x float> %929, <4 x float> poison, <16 x i32> zeroinitializer
   %931 = mul nsw i64 %.423202860, %7
   %gep2855 = getelementptr float, ptr %invariant.gep2854, i64 %931
-  %932 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep2855, i32 1, <16 x i1> %912, <16 x float> zeroinitializer)
+  %932 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2855, <16 x i1> %912, <16 x float> zeroinitializer)
   %933 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %918, <16 x float> %932, <16 x float> %.023902856)
   %934 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %922, <16 x float> %932, <16 x float> %.023892857)
   %935 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %926, <16 x float> %932, <16 x float> %.023882858)
@@ -1932,7 +1932,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1140 = shufflevector <4 x float> %1139, <4 x float> poison, <16 x i32> zeroinitializer
   %1141 = mul nsw i64 %.723232963, %7
   %gep2960 = getelementptr float, ptr %invariant.gep2959, i64 %1141
-  %1142 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep2960, i32 1, <16 x i1> %1131, <16 x float> zeroinitializer)
+  %1142 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2960, <16 x i1> %1131, <16 x float> zeroinitializer)
   %1143 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1136, <16 x float> %1142, <16 x float> %.023442961)
   %1144 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1140, <16 x float> %1142, <16 x float> %.023432962)
   %1145 = add nuw nsw i64 %.723232963, 1
@@ -2125,7 +2125,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1216 = shufflevector <4 x float> %1215, <4 x float> poison, <16 x i32> zeroinitializer
   %1217 = mul nsw i64 %.1023263021, %7
   %gep3020 = getelementptr float, ptr %invariant.gep3019, i64 %1217
-  %1218 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep3020, i32 1, <16 x i1> %1213, <16 x float> zeroinitializer)
+  %1218 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep3020, <16 x i1> %1213, <16 x float> zeroinitializer)
   %1219 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1216, <16 x float> %1218, <16 x float> %.023133022)
   %1220 = add nuw nsw i64 %.1023263021, 1
   %exitcond3132.not = icmp eq i64 %1220, %2
@@ -2166,21 +2166,21 @@ declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x float> @llvm.x86.avx512.vpermi2var.ps.512(<16 x float>, <16 x i32>, <16 x float>) #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x float>) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), <16 x i1>, <16 x float>) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { nounwind }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -132,16 +132,16 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %86 = trunc nuw nsw i32 %85 to i16
   %87 = getelementptr inbounds nuw float, ptr %1, i64 %26
   %88 = bitcast i16 %86 to <16 x i1>
-  %89 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %87, i32 1, <16 x i1> %88, <16 x float> zeroinitializer)
+  %89 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %87, <16 x i1> %88, <16 x float> zeroinitializer)
   %90 = getelementptr inbounds nuw float, ptr %3, i64 %26
-  %91 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %90, i32 1, <16 x i1> %88, <16 x float> zeroinitializer)
+  %91 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %90, <16 x i1> %88, <16 x float> zeroinitializer)
   %92 = fmul <16 x float> %25, %91
   %93 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %23, <16 x float> %89, <16 x float> %92)
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %93, ptr %87, i32 1, <16 x i1> %88)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %93, ptr align 1 %87, <16 x i1> %88)
   %94 = fneg <16 x float> %89
   %95 = fmul <16 x float> %25, %94
   %96 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %23, <16 x float> %91, <16 x float> %95)
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %96, ptr %90, i32 1, <16 x i1> %88)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %96, ptr align 1 %90, <16 x i1> %88)
   br label %rot_compute.exit
 
 .lr.ph.i:                                         ; preds = %.thread23, %.lr.ph.i
@@ -298,16 +298,16 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   %85 = trunc nuw nsw i32 %84 to i16
   %86 = getelementptr inbounds nuw float, ptr %4, i64 %25
   %87 = bitcast i16 %85 to <16 x i1>
-  %88 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %86, i32 1, <16 x i1> %87, <16 x float> zeroinitializer)
+  %88 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %86, <16 x i1> %87, <16 x float> zeroinitializer)
   %89 = getelementptr inbounds nuw float, ptr %8, i64 %25
-  %90 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %89, i32 1, <16 x i1> %87, <16 x float> zeroinitializer)
+  %90 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %89, <16 x i1> %87, <16 x float> zeroinitializer)
   %91 = fmul <16 x float> %24, %90
   %92 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %22, <16 x float> %88, <16 x float> %91)
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %92, ptr %86, i32 1, <16 x i1> %87)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %92, ptr align 1 %86, <16 x i1> %87)
   %93 = fneg <16 x float> %88
   %94 = fmul <16 x float> %24, %93
   %95 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %22, <16 x float> %90, <16 x float> %94)
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %95, ptr %89, i32 1, <16 x i1> %87)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %95, ptr align 1 %89, <16 x i1> %87)
   br label %rot_compute.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -341,25 +341,25 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x float>) #4
+declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), <16 x i1>, <16 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), i32 immarg, <16 x i1>) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), <16 x i1>) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

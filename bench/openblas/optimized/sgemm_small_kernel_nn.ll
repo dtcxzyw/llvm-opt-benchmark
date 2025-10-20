@@ -1053,7 +1053,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.029973627 = phi <16 x float> [ zeroinitializer, %.lr.ph3634 ], [ %540, %507 ]
   %508 = mul nsw i64 %.928993633, %4
   %gep3626 = getelementptr float, ptr %invariant.gep3625, i64 %508
-  %509 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep3626, i32 1, <16 x i1> %492, <16 x float> zeroinitializer)
+  %509 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep3626, <16 x i1> %492, <16 x float> zeroinitializer)
   %510 = getelementptr float, ptr %6, i64 %.928993633
   %511 = getelementptr float, ptr %510, i64 %493
   %512 = load float, ptr %511, align 1, !tbaa !3
@@ -1105,32 +1105,32 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %543 = mul nsw i64 %.93654, %10
   %gep3643 = getelementptr float, ptr %invariant.gep3642, i64 %543
   %544 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3643, <16 x float> %24, i16 %489, <16 x float> %542) #8, !srcloc !84
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %544, ptr %gep3643, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %544, ptr align 1 %gep3643, <16 x i1> %492)
   %545 = fmul <16 x float> %22, %.02993.lcssa
   %546 = mul nsw i64 %.pre-phi3917, %10
   %gep3645 = getelementptr float, ptr %invariant.gep3642, i64 %546
   %547 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3645, <16 x float> %24, i16 %489, <16 x float> %545) #8, !srcloc !85
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %547, ptr %gep3645, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %547, ptr align 1 %gep3645, <16 x i1> %492)
   %548 = fmul <16 x float> %22, %.02994.lcssa
   %549 = mul nsw i64 %.pre-phi3919, %10
   %gep3647 = getelementptr float, ptr %invariant.gep3642, i64 %549
   %550 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3647, <16 x float> %24, i16 %489, <16 x float> %548) #8, !srcloc !86
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %550, ptr %gep3647, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %550, ptr align 1 %gep3647, <16 x i1> %492)
   %551 = fmul <16 x float> %22, %.02995.lcssa
   %552 = mul nsw i64 %.pre-phi3921, %10
   %gep3649 = getelementptr float, ptr %invariant.gep3642, i64 %552
   %553 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3649, <16 x float> %24, i16 %489, <16 x float> %551) #8, !srcloc !87
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %553, ptr %gep3649, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %553, ptr align 1 %gep3649, <16 x i1> %492)
   %554 = fmul <16 x float> %22, %.02996.lcssa
   %555 = mul nsw i64 %.pre-phi3923, %10
   %gep3651 = getelementptr float, ptr %invariant.gep3642, i64 %555
   %556 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3651, <16 x float> %24, i16 %489, <16 x float> %554) #8, !srcloc !88
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %556, ptr %gep3651, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %556, ptr align 1 %gep3651, <16 x i1> %492)
   %557 = fmul <16 x float> %22, %.02997.lcssa
   %558 = mul nsw i64 %.pre-phi3925, %10
   %gep3653 = getelementptr float, ptr %invariant.gep3642, i64 %558
   %559 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3653, <16 x float> %24, i16 %489, <16 x float> %557) #8, !srcloc !89
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %559, ptr %gep3653, i32 1, <16 x i1> %492)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %559, ptr align 1 %gep3653, <16 x i1> %492)
   %560 = add nuw nsw i64 %.93654, 6
   %561 = icmp slt i64 %560, %18
   br i1 %561, label %.preheader3135, label %.preheader3134, !llvm.loop !90
@@ -1166,7 +1166,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.029993658 = phi <16 x float> [ zeroinitializer, %.lr.ph3661 ], [ %581, %568 ]
   %569 = mul nsw i64 %.1029003660, %4
   %gep3657 = getelementptr float, ptr %invariant.gep3656, i64 %569
-  %570 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep3657, i32 1, <16 x i1> %506, <16 x float> zeroinitializer)
+  %570 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep3657, <16 x i1> %506, <16 x float> zeroinitializer)
   %571 = getelementptr float, ptr %6, i64 %.1029003660
   %572 = getelementptr float, ptr %571, i64 %562
   %573 = load float, ptr %572, align 1, !tbaa !3
@@ -1190,12 +1190,12 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %584 = mul nsw i64 %.103669, %10
   %gep3666 = getelementptr float, ptr %invariant.gep3642, i64 %584
   %585 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3666, <16 x float> %24, i16 %489, <16 x float> %583) #8, !srcloc !92
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %585, ptr %gep3666, i32 1, <16 x i1> %506)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %585, ptr align 1 %gep3666, <16 x i1> %506)
   %586 = fmul <16 x float> %22, %.02999.lcssa
   %587 = mul nsw i64 %.pre-phi3927, %10
   %gep3668 = getelementptr float, ptr %invariant.gep3642, i64 %587
   %588 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3668, <16 x float> %24, i16 %489, <16 x float> %586) #8, !srcloc !93
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %588, ptr %gep3668, i32 1, <16 x i1> %506)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %588, ptr align 1 %gep3668, <16 x i1> %506)
   %589 = add nuw nsw i64 %.103669, 2
   %590 = icmp slt i64 %589, %20
   br i1 %590, label %.preheader3133, label %.preheader3132, !llvm.loop !94
@@ -1214,7 +1214,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.030003673 = phi <16 x float> [ zeroinitializer, %.lr.ph3675 ], [ %598, %592 ]
   %593 = mul nsw i64 %.1129013674, %4
   %gep3672 = getelementptr float, ptr %invariant.gep3671, i64 %593
-  %594 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep3672, i32 1, <16 x i1> %567, <16 x float> zeroinitializer)
+  %594 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep3672, <16 x i1> %567, <16 x float> zeroinitializer)
   %gep3679 = getelementptr float, ptr %invariant.gep3678, i64 %.1129013674
   %595 = load float, ptr %gep3679, align 1, !tbaa !3
   %596 = insertelement <4 x float> poison, float %595, i64 0
@@ -1230,7 +1230,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %601 = mul nsw i64 %.113682, %10
   %gep3681 = getelementptr float, ptr %invariant.gep3642, i64 %601
   %602 = tail call <16 x float> asm "vfmadd231ps ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3681, <16 x float> %24, i16 %489, <16 x float> %600) #8, !srcloc !96
-  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %602, ptr %gep3681, i32 1, <16 x i1> %567)
+  tail call void @llvm.masked.store.v16f32.p0(<16 x float> %602, ptr align 1 %gep3681, <16 x i1> %567)
   %603 = add i64 %.113682, 1
   %exitcond3869.not = icmp eq i64 %603, %1
   br i1 %exitcond3869.not, label %.loopexit, label %.preheader, !llvm.loop !97
@@ -1303,35 +1303,35 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.1229023411 = phi i64 [ 0, %.lr.ph3413 ], [ %692, %691 ]
   %627 = mul nsw i64 %.1229023411, %4
   %628 = getelementptr float, ptr %612, i64 %627
-  %629 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %628, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %629 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %628, <8 x i1> %613, <8 x float> zeroinitializer)
   %630 = or disjoint i64 %.1229023411, 1
   %631 = mul nsw i64 %630, %4
   %632 = getelementptr float, ptr %612, i64 %631
-  %633 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %632, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %633 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %632, <8 x i1> %613, <8 x float> zeroinitializer)
   %634 = or disjoint i64 %.1229023411, 2
   %635 = mul nsw i64 %634, %4
   %636 = getelementptr float, ptr %612, i64 %635
-  %637 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %636, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %637 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %636, <8 x i1> %613, <8 x float> zeroinitializer)
   %638 = or disjoint i64 %.1229023411, 3
   %639 = mul nsw i64 %638, %4
   %640 = getelementptr float, ptr %612, i64 %639
-  %641 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %640, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %641 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %640, <8 x i1> %613, <8 x float> zeroinitializer)
   %642 = or disjoint i64 %.1229023411, 4
   %643 = mul nsw i64 %642, %4
   %644 = getelementptr float, ptr %612, i64 %643
-  %645 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %644, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %645 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %644, <8 x i1> %613, <8 x float> zeroinitializer)
   %646 = or disjoint i64 %.1229023411, 5
   %647 = mul nsw i64 %646, %4
   %648 = getelementptr float, ptr %612, i64 %647
-  %649 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %648, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %649 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %648, <8 x i1> %613, <8 x float> zeroinitializer)
   %650 = or disjoint i64 %.1229023411, 6
   %651 = mul nsw i64 %650, %4
   %652 = getelementptr float, ptr %612, i64 %651
-  %653 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %652, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %653 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %652, <8 x i1> %613, <8 x float> zeroinitializer)
   %654 = or disjoint i64 %.1229023411, 7
   %655 = mul nsw i64 %654, %4
   %656 = getelementptr float, ptr %612, i64 %655
-  %657 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %656, i32 1, <8 x i1> %613, <8 x float> zeroinitializer)
+  %657 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr align 1 %656, <8 x i1> %613, <8 x float> zeroinitializer)
   %658 = shufflevector <8 x float> %629, <8 x float> %633, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %659 = shufflevector <8 x float> %629, <8 x float> %633, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %660 = shufflevector <8 x float> %637, <8 x float> %641, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -1631,25 +1631,25 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %853
 
 821:                                              ; preds = %._crit_edge3450
-  %822 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %733, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
-  %823 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %734, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
-  %824 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %735, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
-  %825 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %736, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
+  %822 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %733, <16 x i1> %711, <16 x float> zeroinitializer)
+  %823 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %734, <16 x i1> %711, <16 x float> zeroinitializer)
+  %824 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %735, <16 x i1> %711, <16 x float> zeroinitializer)
+  %825 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %736, <16 x i1> %711, <16 x float> zeroinitializer)
   %826 = mul nsw i64 %.123476, %7
   %gep4165 = getelementptr float, ptr %invariant.gep4164, i64 %826
-  %827 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4165, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
+  %827 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4165, <16 x i1> %711, <16 x float> zeroinitializer)
   %828 = or disjoint i64 %.123476, 1
   %829 = mul nsw i64 %828, %7
   %gep4167 = getelementptr float, ptr %invariant.gep4166, i64 %829
-  %830 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4167, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
+  %830 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4167, <16 x i1> %711, <16 x float> zeroinitializer)
   %831 = or disjoint i64 %.123476, 2
   %832 = mul nsw i64 %831, %7
   %gep4169 = getelementptr float, ptr %invariant.gep4168, i64 %832
-  %833 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4169, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
+  %833 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4169, <16 x i1> %711, <16 x float> zeroinitializer)
   %834 = or disjoint i64 %.123476, 3
   %835 = mul nsw i64 %834, %7
   %gep4171 = getelementptr float, ptr %invariant.gep4170, i64 %835
-  %836 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4171, i32 1, <16 x i1> %711, <16 x float> zeroinitializer)
+  %836 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4171, <16 x i1> %711, <16 x float> zeroinitializer)
   %837 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %822, <16 x float> %827, <16 x float> %803)
   %838 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %823, <16 x float> %827, <16 x float> %804)
   %839 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %824, <16 x float> %827, <16 x float> %805)
@@ -1858,17 +1858,17 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %1002
 
 984:                                              ; preds = %._crit_edge3488
-  %985 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %771, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
-  %986 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %772, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
-  %987 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %773, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
-  %988 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %774, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
+  %985 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %771, <16 x i1> %716, <16 x float> zeroinitializer)
+  %986 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %772, <16 x i1> %716, <16 x float> zeroinitializer)
+  %987 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %773, <16 x i1> %716, <16 x float> zeroinitializer)
+  %988 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %774, <16 x i1> %716, <16 x float> zeroinitializer)
   %989 = mul nsw i64 %.133502, %7
   %gep4173 = getelementptr float, ptr %invariant.gep4172, i64 %989
-  %990 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4173, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
+  %990 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4173, <16 x i1> %716, <16 x float> zeroinitializer)
   %991 = add nuw nsw i64 %.133502, 1
   %992 = mul nsw i64 %991, %7
   %gep4175 = getelementptr float, ptr %invariant.gep4174, i64 %992
-  %993 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4175, i32 1, <16 x i1> %716, <16 x float> zeroinitializer)
+  %993 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4175, <16 x i1> %716, <16 x float> zeroinitializer)
   %994 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %985, <16 x float> %990, <16 x float> %974)
   %995 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %986, <16 x float> %990, <16 x float> %975)
   %996 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %987, <16 x float> %990, <16 x float> %976)
@@ -1973,13 +1973,13 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not3099, label %1077, label %1066
 
 1066:                                             ; preds = %._crit_edge3510
-  %1067 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %952, i32 1, <16 x i1> %721, <16 x float> zeroinitializer)
-  %1068 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %953, i32 1, <16 x i1> %721, <16 x float> zeroinitializer)
-  %1069 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %954, i32 1, <16 x i1> %721, <16 x float> zeroinitializer)
-  %1070 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %955, i32 1, <16 x i1> %721, <16 x float> zeroinitializer)
+  %1067 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %952, <16 x i1> %721, <16 x float> zeroinitializer)
+  %1068 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %953, <16 x i1> %721, <16 x float> zeroinitializer)
+  %1069 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %954, <16 x i1> %721, <16 x float> zeroinitializer)
+  %1070 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %955, <16 x i1> %721, <16 x float> zeroinitializer)
   %1071 = mul nsw i64 %.143518, %7
   %gep4177 = getelementptr float, ptr %invariant.gep4176, i64 %1071
-  %1072 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4177, i32 1, <16 x i1> %721, <16 x float> zeroinitializer)
+  %1072 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4177, <16 x i1> %721, <16 x float> zeroinitializer)
   %1073 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1067, <16 x float> %1072, <16 x float> %1060)
   %1074 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1068, <16 x float> %1072, <16 x float> %1061)
   %1075 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1069, <16 x float> %1072, <16 x float> %1062)
@@ -2154,23 +2154,23 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not3097, label %1195, label %1173
 
 1173:                                             ; preds = %._crit_edge3534
-  %1174 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1107, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
-  %1175 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1108, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1174 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1107, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1175 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1108, <16 x i1> %748, <16 x float> zeroinitializer)
   %1176 = mul nsw i64 %.153546, %7
   %gep4179 = getelementptr float, ptr %invariant.gep4178, i64 %1176
-  %1177 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4179, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1177 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4179, <16 x i1> %748, <16 x float> zeroinitializer)
   %1178 = or disjoint i64 %.153546, 1
   %1179 = mul nsw i64 %1178, %7
   %gep4181 = getelementptr float, ptr %invariant.gep4180, i64 %1179
-  %1180 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4181, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1180 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4181, <16 x i1> %748, <16 x float> zeroinitializer)
   %1181 = or disjoint i64 %.153546, 2
   %1182 = mul nsw i64 %1181, %7
   %gep4183 = getelementptr float, ptr %invariant.gep4182, i64 %1182
-  %1183 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4183, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1183 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4183, <16 x i1> %748, <16 x float> zeroinitializer)
   %1184 = or disjoint i64 %.153546, 3
   %1185 = mul nsw i64 %1184, %7
   %gep4185 = getelementptr float, ptr %invariant.gep4184, i64 %1185
-  %1186 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4185, i32 1, <16 x i1> %748, <16 x float> zeroinitializer)
+  %1186 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4185, <16 x i1> %748, <16 x float> zeroinitializer)
   %1187 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1174, <16 x float> %1177, <16 x float> %1163)
   %1188 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1175, <16 x float> %1177, <16 x float> %1164)
   %1189 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1174, <16 x float> %1180, <16 x float> %1165)
@@ -2295,15 +2295,15 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %1282
 
 1270:                                             ; preds = %._crit_edge3554
-  %1271 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1137, i32 1, <16 x i1> %753, <16 x float> zeroinitializer)
-  %1272 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1138, i32 1, <16 x i1> %753, <16 x float> zeroinitializer)
+  %1271 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1137, <16 x i1> %753, <16 x float> zeroinitializer)
+  %1272 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1138, <16 x i1> %753, <16 x float> zeroinitializer)
   %1273 = mul nsw i64 %.163564, %7
   %gep4187 = getelementptr float, ptr %invariant.gep4186, i64 %1273
-  %1274 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4187, i32 1, <16 x i1> %753, <16 x float> zeroinitializer)
+  %1274 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4187, <16 x i1> %753, <16 x float> zeroinitializer)
   %1275 = add nuw nsw i64 %.163564, 1
   %1276 = mul nsw i64 %1275, %7
   %gep4189 = getelementptr float, ptr %invariant.gep4188, i64 %1276
-  %1277 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4189, i32 1, <16 x i1> %753, <16 x float> zeroinitializer)
+  %1277 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4189, <16 x i1> %753, <16 x float> zeroinitializer)
   %1278 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1271, <16 x float> %1274, <16 x float> %1264)
   %1279 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1272, <16 x float> %1274, <16 x float> %1265)
   %1280 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1271, <16 x float> %1277, <16 x float> %1266)
@@ -2372,11 +2372,11 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not3093, label %1325, label %1318
 
 1318:                                             ; preds = %._crit_edge3570
-  %1319 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1248, i32 1, <16 x i1> %758, <16 x float> zeroinitializer)
-  %1320 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1249, i32 1, <16 x i1> %758, <16 x float> zeroinitializer)
+  %1319 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1248, <16 x i1> %758, <16 x float> zeroinitializer)
+  %1320 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1249, <16 x i1> %758, <16 x float> zeroinitializer)
   %1321 = mul nsw i64 %.173576, %7
   %gep4191 = getelementptr float, ptr %invariant.gep4190, i64 %1321
-  %1322 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4191, i32 1, <16 x i1> %758, <16 x float> zeroinitializer)
+  %1322 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4191, <16 x i1> %758, <16 x float> zeroinitializer)
   %1323 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1319, <16 x float> %1322, <16 x float> %1314)
   %1324 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1320, <16 x float> %1322, <16 x float> %1315)
   br label %1325
@@ -2473,22 +2473,22 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not3091, label %1391, label %1374
 
 1374:                                             ; preds = %._crit_edge3588
-  %1375 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1341, i32 1, <16 x i1> %1120, <16 x float> zeroinitializer)
+  %1375 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1341, <16 x i1> %1120, <16 x float> zeroinitializer)
   %1376 = mul nsw i64 %.183596, %7
   %gep4193 = getelementptr float, ptr %invariant.gep4192, i64 %1376
-  %1377 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4193, i32 1, <16 x i1> %1120, <16 x float> zeroinitializer)
+  %1377 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4193, <16 x i1> %1120, <16 x float> zeroinitializer)
   %1378 = or disjoint i64 %.183596, 1
   %1379 = mul nsw i64 %1378, %7
   %gep4195 = getelementptr float, ptr %invariant.gep4194, i64 %1379
-  %1380 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4195, i32 1, <16 x i1> %1120, <16 x float> zeroinitializer)
+  %1380 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4195, <16 x i1> %1120, <16 x float> zeroinitializer)
   %1381 = or disjoint i64 %.183596, 2
   %1382 = mul nsw i64 %1381, %7
   %gep4197 = getelementptr float, ptr %invariant.gep4196, i64 %1382
-  %1383 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4197, i32 1, <16 x i1> %1120, <16 x float> zeroinitializer)
+  %1383 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4197, <16 x i1> %1120, <16 x float> zeroinitializer)
   %1384 = or disjoint i64 %.183596, 3
   %1385 = mul nsw i64 %1384, %7
   %gep4199 = getelementptr float, ptr %invariant.gep4198, i64 %1385
-  %1386 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4199, i32 1, <16 x i1> %1120, <16 x float> zeroinitializer)
+  %1386 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4199, <16 x i1> %1120, <16 x float> zeroinitializer)
   %1387 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1375, <16 x float> %1377, <16 x float> %1368)
   %1388 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1375, <16 x float> %1380, <16 x float> %1369)
   %1389 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1375, <16 x float> %1383, <16 x float> %1370)
@@ -2572,14 +2572,14 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %1445
 
 1436:                                             ; preds = %._crit_edge3602
-  %1437 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1345, i32 1, <16 x i1> %1125, <16 x float> zeroinitializer)
+  %1437 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1345, <16 x i1> %1125, <16 x float> zeroinitializer)
   %1438 = mul nsw i64 %.193610, %7
   %gep4201 = getelementptr float, ptr %invariant.gep4200, i64 %1438
-  %1439 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4201, i32 1, <16 x i1> %1125, <16 x float> zeroinitializer)
+  %1439 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4201, <16 x i1> %1125, <16 x float> zeroinitializer)
   %1440 = add nuw nsw i64 %.193610, 1
   %1441 = mul nsw i64 %1440, %7
   %gep4203 = getelementptr float, ptr %invariant.gep4202, i64 %1441
-  %1442 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4203, i32 1, <16 x i1> %1125, <16 x float> zeroinitializer)
+  %1442 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4203, <16 x i1> %1125, <16 x float> zeroinitializer)
   %1443 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1437, <16 x float> %1439, <16 x float> %1432)
   %1444 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1437, <16 x float> %1442, <16 x float> %1433)
   br label %1445
@@ -2628,10 +2628,10 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not3087, label %1473, label %1468
 
 1468:                                             ; preds = %._crit_edge3615
-  %1469 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull %1419, i32 1, <16 x i1> %1130, <16 x float> zeroinitializer)
+  %1469 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr nonnull align 1 %1419, <16 x i1> %1130, <16 x float> zeroinitializer)
   %1470 = mul nsw i64 %.203620, %7
   %gep4205 = getelementptr float, ptr %invariant.gep4204, i64 %1470
-  %1471 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %gep4205, i32 1, <16 x i1> %1130, <16 x float> zeroinitializer)
+  %1471 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep4205, <16 x i1> %1130, <16 x float> zeroinitializer)
   %1472 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1469, <16 x float> %1471, <16 x float> %1465)
   br label %1473
 
@@ -2680,20 +2680,20 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x float>) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), i32 immarg, <16 x i1>) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <8 x float> @llvm.masked.load.v8f32.p0(ptr captures(none), i32 immarg, <8 x i1>, <8 x float>) #6
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fma.v4f32(<4 x float>, <4 x float>, <4 x float>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.vector.reduce.fadd.v16f32(float, <16 x float>) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
+declare <16 x float> @llvm.masked.load.v16f32.p0(ptr captures(none), <16 x i1>, <16 x float>) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
+declare void @llvm.masked.store.v16f32.p0(<16 x float>, ptr captures(none), <16 x i1>) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
+declare <8 x float> @llvm.masked.load.v8f32.p0(ptr captures(none), <8 x i1>, <8 x float>) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }

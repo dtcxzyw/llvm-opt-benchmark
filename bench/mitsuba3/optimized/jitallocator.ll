@@ -565,10 +565,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %47 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 24
   %48 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 24
   %49 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 24
-  %50 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %46, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
-  %51 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %47, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
-  %52 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %48, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
-  %53 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %49, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
+  %50 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> align 8 %46, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
+  %51 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> align 8 %47, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
+  %52 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> align 8 %48, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
+  %53 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> align 8 %49, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
   %54 = zext <4 x i32> %50 to <4 x i64>
   %55 = zext <4 x i32> %51 to <4 x i64>
   %56 = zext <4 x i32> %52 to <4 x i64>
@@ -581,10 +581,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %63 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 32
   %64 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 32
   %65 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 32
-  %66 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %62, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
-  %67 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %63, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
-  %68 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %64, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
-  %69 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %65, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
+  %66 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %62, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
+  %67 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %63, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
+  %68 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %64, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
+  %69 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %65, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
   %70 = extractelement <4 x ptr> %42, i64 0
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %72 = extractelement <4 x ptr> %42, i64 1
@@ -665,10 +665,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %147 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 40
   %148 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 40
   %149 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 40
-  %150 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %146, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
-  %151 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %147, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
-  %152 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %148, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
-  %153 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %149, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
+  %150 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %146, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
+  %151 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %147, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
+  %152 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %148, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
+  %153 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %149, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
   %154 = mul <4 x i64> %150, %134
   %155 = mul <4 x i64> %151, %135
   %156 = mul <4 x i64> %152, %136
@@ -681,10 +681,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %163 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 48
   %164 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 48
   %165 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 48
-  %166 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %162, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
-  %167 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %163, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
-  %168 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %164, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
-  %169 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %165, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
+  %166 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %162, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
+  %167 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %163, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
+  %168 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %164, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
+  %169 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> align 8 %165, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
   %170 = add <4 x i64> %166, %22
   %171 = add <4 x i64> %167, %23
   %172 = add <4 x i64> %168, %24
@@ -2844,20 +2844,20 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i32>) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i64>) #7
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
+declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, <4 x i1>, <4 x i32>) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
+declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, <4 x i1>, <4 x i64>) #8
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -2866,8 +2866,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0) }
 

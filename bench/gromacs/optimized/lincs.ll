@@ -8800,28 +8800,28 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %328 = shufflevector <8 x float> %324, <8 x float> %321, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %329 = getelementptr inbounds float, ptr %322, i64 %150
   %330 = shufflevector <8 x float> %325, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %330, ptr %329, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %330, ptr align 1 %329, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %331 = getelementptr inbounds float, ptr %322, i64 %154
   %332 = shufflevector <8 x float> %326, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %332, ptr %331, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %332, ptr align 1 %331, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %333 = getelementptr inbounds float, ptr %322, i64 %158
   %334 = shufflevector <8 x float> %328, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %334, ptr %333, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %334, ptr align 1 %333, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %335 = getelementptr inbounds float, ptr %322, i64 %162
   %336 = shufflevector <8 x float> %327, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %336, ptr %335, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %336, ptr align 1 %335, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %337 = getelementptr inbounds float, ptr %322, i64 %166
   %338 = shufflevector <8 x float> %325, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %338, ptr %337, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %338, ptr align 1 %337, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %339 = getelementptr inbounds float, ptr %322, i64 %170
   %340 = shufflevector <8 x float> %326, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %340, ptr %339, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %340, ptr align 1 %339, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %341 = getelementptr inbounds float, ptr %322, i64 %174
   %342 = shufflevector <8 x float> %328, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %342, ptr %341, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %342, ptr align 1 %341, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %343 = getelementptr inbounds float, ptr %322, i64 %178
   %344 = shufflevector <8 x float> %327, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %344, ptr %343, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %344, ptr align 1 %343, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !413, !noalias !422
   %345 = getelementptr inbounds float, ptr %34, i64 %188
   %346 = load <4 x float>, ptr %345, align 1, !tbaa !134, !alias.scope !407, !noalias !423
   %347 = getelementptr inbounds float, ptr %34, i64 %193
@@ -10086,28 +10086,28 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %289 = shufflevector <8 x float> %285, <8 x float> %282, <8 x i32> <i32 0, i32 1, i32 10, i32 8, i32 4, i32 5, i32 14, i32 12>
   %290 = getelementptr inbounds float, ptr %283, i64 %111
   %291 = shufflevector <8 x float> %286, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %291, ptr %290, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %291, ptr align 1 %290, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %292 = getelementptr inbounds float, ptr %283, i64 %115
   %293 = shufflevector <8 x float> %287, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %293, ptr %292, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %293, ptr align 1 %292, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %294 = getelementptr inbounds float, ptr %283, i64 %119
   %295 = shufflevector <8 x float> %289, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %295, ptr %294, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %295, ptr align 1 %294, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %296 = getelementptr inbounds float, ptr %283, i64 %123
   %297 = shufflevector <8 x float> %288, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %297, ptr %296, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %297, ptr align 1 %296, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %298 = getelementptr inbounds float, ptr %283, i64 %127
   %299 = shufflevector <8 x float> %286, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %299, ptr %298, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %299, ptr align 1 %298, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %300 = getelementptr inbounds float, ptr %283, i64 %131
   %301 = shufflevector <8 x float> %287, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %301, ptr %300, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %301, ptr align 1 %300, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %302 = getelementptr inbounds float, ptr %283, i64 %135
   %303 = shufflevector <8 x float> %289, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %303, ptr %302, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %303, ptr align 1 %302, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %304 = getelementptr inbounds float, ptr %283, i64 %139
   %305 = shufflevector <8 x float> %288, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 poison>
-  call void @llvm.masked.store.v4f32.p0(<4 x float> %305, ptr %304, i32 1, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
+  call void @llvm.masked.store.v4f32.p0(<4 x float> %305, ptr align 1 %304, <4 x i1> <i1 true, i1 true, i1 true, i1 false>), !alias.scope !472, !noalias !481
   %306 = getelementptr inbounds float, ptr %21, i64 %149
   %307 = load <4 x float>, ptr %306, align 1, !tbaa !134, !alias.scope !468, !noalias !482
   %308 = getelementptr inbounds float, ptr %21, i64 %154
@@ -11118,7 +11118,7 @@ declare i64 @llvm.smax.i64(i64, i64) #35
 declare float @llvm.sqrt.f32(float) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v4f32.p0(<4 x float>, ptr captures(none), i32 immarg, <4 x i1>) #37
+declare void @llvm.masked.store.v4f32.p0(<4 x float>, ptr captures(none), <4 x i1>) #37
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

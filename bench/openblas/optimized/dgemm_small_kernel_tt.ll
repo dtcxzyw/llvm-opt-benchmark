@@ -397,7 +397,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %268 = shufflevector <2 x double> %267, <2 x double> poison, <8 x i32> zeroinitializer
   %269 = mul nsw i64 %.122732480, %7
   %gep2471 = getelementptr double, ptr %invariant.gep2470, i64 %269
-  %270 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2471, i32 1, <8 x i1> %234, <8 x double> zeroinitializer)
+  %270 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %gep2471, <8 x i1> %234, <8 x double> zeroinitializer)
   %271 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %240, <8 x double> %270, <8 x double> %.023162479)
   %272 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %244, <8 x double> %270, <8 x double> %.023172478)
   %273 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %248, <8 x double> %270, <8 x double> %.023182477)
@@ -1135,7 +1135,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %735 = shufflevector <2 x double> %734, <2 x double> poison, <8 x i32> zeroinitializer
   %736 = mul nsw i64 %.422762679, %7
   %gep2674 = getelementptr double, ptr %invariant.gep2673, i64 %736
-  %737 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2674, i32 1, <8 x i1> %717, <8 x double> zeroinitializer)
+  %737 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %gep2674, <8 x i1> %717, <8 x double> zeroinitializer)
   %738 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %723, <8 x double> %737, <8 x double> %.023602675)
   %739 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %727, <8 x double> %737, <8 x double> %.023592676)
   %740 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %731, <8 x double> %737, <8 x double> %.023582677)
@@ -1523,7 +1523,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %938 = shufflevector <2 x double> %937, <2 x double> poison, <8 x i32> zeroinitializer
   %939 = mul nsw i64 %.722792767, %7
   %gep2764 = getelementptr double, ptr %invariant.gep2763, i64 %939
-  %940 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2764, i32 1, <8 x i1> %929, <8 x double> zeroinitializer)
+  %940 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %gep2764, <8 x i1> %929, <8 x double> zeroinitializer)
   %941 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %934, <8 x double> %940, <8 x double> %.023112765)
   %942 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %938, <8 x double> %940, <8 x double> %.023102766)
   %943 = add nuw nsw i64 %.722792767, 1
@@ -1718,7 +1718,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %1028 = shufflevector <2 x double> %1027, <2 x double> poison, <8 x i32> zeroinitializer
   %1029 = mul nsw i64 %.1022822826, %7
   %gep2824 = getelementptr double, ptr %invariant.gep2823, i64 %1029
-  %1030 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2824, i32 1, <8 x i1> %1025, <8 x double> zeroinitializer)
+  %1030 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %gep2824, <8 x i1> %1025, <8 x double> zeroinitializer)
   %1031 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1028, <8 x double> %1030, <8 x double> %.022832825)
   %1032 = add nuw nsw i64 %.1022822826, 1
   %exitcond2934.not = icmp eq i64 %1032, %2
@@ -1761,22 +1761,22 @@ declare <8 x double> @llvm.fma.v8f64(<8 x double>, <8 x double>, <8 x double>) #
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double>, <8 x i64>, <8 x double>) #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <8 x double> @llvm.masked.load.v8f64.p0(ptr captures(none), i32 immarg, <8 x i1>, <8 x double>) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare <8 x double> @llvm.masked.load.v8f64.p0(ptr captures(none), <8 x i1>, <8 x double>) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #2 = { nounwind }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
