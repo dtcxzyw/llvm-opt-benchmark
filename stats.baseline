@@ -122,7 +122,7 @@
   "function-attrs.NumNoFree": 770931,
   "function-attrs.NumNoRecurse": 1483634,
   "function-attrs.NumNoSync": 1438309,
-  "function-attrs.NumNoUndefReturn": 74745,
+  "function-attrs.NumNoUndefReturn": 74985,
   "function-attrs.NumNoUnwind": 1169722,
   "function-attrs.NumNonNullReturn": 24725,
   "function-attrs.NumReadNoneArg": 836667,
