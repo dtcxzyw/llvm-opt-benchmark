@@ -30352,14 +30352,14 @@ define linkonce_odr void @_ZN6duckdb24EmptyValidityCompression8CompressERNS_16Co
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i: ; preds = %9
   %12 = and i64 %2, 63
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader
+  br i1 %.not.i, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.preheader.i, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.preheader: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i
   %13 = load i64, ptr %7, align 8, !tbaa !19
   %.not49.i12 = icmp eq i64 %11, 1
   br i1 %.not49.i12, label %.preheader.i.preheader, label %.lr.ph
 
-_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i, %.loopexit.us.i
+_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.us.preheader.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i, %.loopexit.us.i
   %.01544.us.i = phi i64 [ %.3.us.i, %.loopexit.us.i ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i ]
   %.03043.us.i = phi i64 [ %14, %.loopexit.us.i ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i ]
   %14 = add nuw nsw i64 %.03043.us.i, 1

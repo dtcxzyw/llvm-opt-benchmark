@@ -2133,11 +2133,11 @@ define internal fastcc void @ir_build_dominators_tree_iterative(ptr noundef read
   %.1 = phi i1 [ true, %60 ], [ %.080138, %._crit_edge ]
   %62 = add i32 %.182137, 1
   %63 = getelementptr inbounds nuw i8, ptr %.195136, i64 52
-  %.not101 = icmp ule i32 %62, %7
-  %brmerge = select i1 %.not101, i1 true, i1 %.1
-  %.1.mux = select i1 %.not101, i1 %.1, i1 false
-  %.mux = select i1 %.not101, i32 %62, i32 2
-  %.mux6 = select i1 %.not101, ptr %63, ptr %16
+  %.not101.not = icmp ule i32 %62, %7
+  %brmerge = select i1 %.not101.not, i1 true, i1 %.1
+  %.1.mux = select i1 %.not101.not, i1 %.1, i1 false
+  %.mux = select i1 %.not101.not, i32 %62, i32 2
+  %.mux6 = select i1 %.not101.not, ptr %63, ptr %16
   br i1 %brmerge, label %.lr.ph140, label %.split144.us
 
 .split144.us:                                     ; preds = %61
