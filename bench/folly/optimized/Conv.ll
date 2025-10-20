@@ -9361,8 +9361,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 1
   %.021.i.add = add nuw nsw i64 %.021.i.idx, 1
-  %.ptr226 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.021.i.add
-  %30 = load i8, ptr %.ptr226, align 1, !tbaa !14
+  %.ptr225 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.021.i.add
+  %30 = load i8, ptr %.ptr225, align 1, !tbaa !14
   %exitcond211 = icmp eq i64 %.021.i.add, 3
   br i1 %exitcond211, label %.critedge, label %.lr.ph.i, !llvm.loop !129
 
@@ -9386,8 +9386,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %.01420.i24, i64 1
   %.021.i23.add = add nuw nsw i64 %.021.i23.idx, 1
-  %.ptr225 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.021.i23.add
-  %40 = load i8, ptr %.ptr225, align 1, !tbaa !14
+  %.ptr224 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.021.i23.add
+  %40 = load i8, ptr %.ptr224, align 1, !tbaa !14
   %exitcond204 = icmp eq i64 %.021.i23.add, 2
   br i1 %exitcond204, label %.critedge, label %.lr.ph.i22, !llvm.loop !129
 
@@ -9411,8 +9411,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.01420.i32, i64 1
   %.021.i31.add = add nuw nsw i64 %.021.i31.idx, 1
-  %.ptr224 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.021.i31.add
-  %50 = load i8, ptr %.ptr224, align 1, !tbaa !14
+  %.ptr223 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.021.i31.add
+  %50 = load i8, ptr %.ptr223, align 1, !tbaa !14
   %exitcond197 = icmp eq i64 %.021.i31.add, 4
   br i1 %exitcond197, label %.critedge, label %.lr.ph.i30, !llvm.loop !129
 
@@ -9436,8 +9436,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.01420.i40, i64 1
   %.021.i39.add = add nuw nsw i64 %.021.i39.idx, 1
-  %.ptr223 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.021.i39.add
-  %60 = load i8, ptr %.ptr223, align 1, !tbaa !14
+  %.ptr222 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.021.i39.add
+  %60 = load i8, ptr %.ptr222, align 1, !tbaa !14
   %exitcond187 = icmp eq i64 %.021.i39.add, 5
   br i1 %exitcond187, label %.critedge, label %.lr.ph.i38, !llvm.loop !129
 
@@ -9485,8 +9485,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %.01420.i56, i64 1
   %.021.i55.add = add nuw nsw i64 %.021.i55.idx, 1
-  %.ptr222 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.021.i55.add
-  %78 = load i8, ptr %.ptr222, align 1, !tbaa !14
+  %.ptr221 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.021.i55.add
+  %78 = load i8, ptr %.ptr221, align 1, !tbaa !14
   %exitcond177 = icmp eq i64 %.021.i55.add, 3
   br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
