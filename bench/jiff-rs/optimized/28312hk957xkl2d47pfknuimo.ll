@@ -10626,7 +10626,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %71 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %70, i64 %67)
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = extractvalue { i64, i1 } %71, 0
-  %74 = select i1 %69, i1 true, i1 %72
+  %74 = select i1 %69, i1 true, i1 %72, !prof !971
   br i1 %74, label %.thread59, label %37, !prof !971
 
 75:                                               ; preds = %58

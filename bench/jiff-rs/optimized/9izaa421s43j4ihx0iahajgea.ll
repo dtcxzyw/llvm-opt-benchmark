@@ -1152,7 +1152,7 @@ common.resume:                                    ; preds = %524, %521, %494, %4
   %149 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %148, i64 %145)
   %150 = extractvalue { i64, i1 } %149, 1
   %151 = extractvalue { i64, i1 } %149, 0
-  %152 = select i1 %147, i1 true, i1 %150
+  %152 = select i1 %147, i1 true, i1 %150, !prof !81
   br i1 %152, label %.thread295, label %130, !prof !81
 
 153:                                              ; preds = %136
@@ -1579,7 +1579,7 @@ _ZN4jiff3fmt6offset6Parser15parse_separator17ha7d64bc9cc458b41E.exit93: ; preds 
   %295 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %294, i64 %291)
   %296 = extractvalue { i64, i1 } %295, 1
   %297 = extractvalue { i64, i1 } %295, 0
-  %298 = select i1 %293, i1 true, i1 %296
+  %298 = select i1 %293, i1 true, i1 %296, !prof !81
   br i1 %298, label %.thread321, label %276, !prof !81
 
 299:                                              ; preds = %282
@@ -1990,7 +1990,7 @@ _ZN4jiff3fmt6offset6Parser15parse_separator17ha7d64bc9cc458b41E.exit: ; preds = 
   %437 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %436, i64 %433)
   %438 = extractvalue { i64, i1 } %437, 1
   %439 = extractvalue { i64, i1 } %437, 0
-  %440 = select i1 %435, i1 true, i1 %438
+  %440 = select i1 %435, i1 true, i1 %438, !prof !81
   br i1 %440, label %.thread340, label %418, !prof !81
 
 441:                                              ; preds = %424

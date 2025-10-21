@@ -12193,7 +12193,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit.thread: ; preds = %52, %_ZNK2c415b
   %77 = phi ptr [ %.pr, %_ZNK2c415basic_substringIKcE9ends_withEc.exit.thread ], [ %62, %_ZNK2c415basic_substringIKcE9ends_withEc.exit ]
   %.not.i12 = icmp ne ptr %77, null
   %78 = icmp ne i64 %76, 0
-  %79 = select i1 %.not.i12, i1 %78, i1 false
+  %79 = select i1 %.not.i12, i1 %78, i1 false, !prof !52
   br i1 %79, label %_ZNK2c415basic_substringIKcE7compareEc.exit, label %87, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %75
@@ -19746,7 +19746,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %_ZNK2c415basic_subs
 .loopexit311:                                     ; preds = %.lr.ph.i, %84
   %.not.i38 = icmp ne ptr %.sroa.0170.0.copyload, null
   %120 = icmp ne i64 %.sroa.36.0.copyload, 0
-  %121 = select i1 %.not.i38, i1 %120, i1 false
+  %121 = select i1 %.not.i38, i1 %120, i1 false, !prof !52
   br i1 %121, label %_ZNK2c415basic_substringIKcE7compareEc.exit, label %159, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %.loopexit311
@@ -20240,7 +20240,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit88: ; preds = %323
 .loopexit309:                                     ; preds = %.lr.ph.i83, %321
   %.not.i89 = icmp ne ptr %.sroa.0170.0.copyload, null
   %330 = icmp ne i64 %.sroa.36.0.copyload, 0
-  %331 = select i1 %.not.i89, i1 %330, i1 false
+  %331 = select i1 %.not.i89, i1 %330, i1 false, !prof !52
   br i1 %331, label %_ZNK2c415basic_substringIKcE7compareEc.exit92, label %342, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit92:    ; preds = %.loopexit309
@@ -29571,7 +29571,7 @@ _ZNK2c415basic_substringIKcE7left_ofEm.exit59:    ; preds = %_ZNK2c415basic_subs
   %.not.i86 = icmp ne ptr %156, null
   %157 = load i64, ptr %25, align 8
   %158 = icmp ne i64 %157, 0
-  %159 = select i1 %.not.i86, i1 %158, i1 false
+  %159 = select i1 %.not.i86, i1 %158, i1 false, !prof !52
   br i1 %159, label %_ZNK2c415basic_substringIKcE7compareEc.exit, label %_ZNK2c415basic_substringIKcE7compareEc.exit.thread, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %.loopexit
@@ -31542,7 +31542,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %193, %209
   %.not.i40 = icmp ne ptr %232, null
   %233 = load i64, ptr %72, align 8
   %234 = icmp ne i64 %233, 0
-  %235 = select i1 %.not.i40, i1 %234, i1 false
+  %235 = select i1 %.not.i40, i1 %234, i1 false, !prof !52
   br i1 %235, label %_ZNK2c415basic_substringIKcE7compareEc.exit, label %_ZNK2c415basic_substringIKcE7compareEc.exit.thread, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %.loopexit
@@ -33112,7 +33112,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %125
   %.not.i40 = icmp ne ptr %184, null
   %185 = load i64, ptr %70, align 8
   %186 = icmp ne i64 %185, 0
-  %187 = select i1 %.not.i40, i1 %186, i1 false
+  %187 = select i1 %.not.i40, i1 %186, i1 false, !prof !52
   br i1 %187, label %_ZNK2c415basic_substringIKcE7compareEc.exit, label %_ZNK2c415basic_substringIKcE7compareEc.exit.thread, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit:      ; preds = %.loopexit
@@ -34562,7 +34562,7 @@ _ZNK2c415basic_substringIKcE7left_ofEm.exit:      ; preds = %_ZNK2c415basic_subs
   %.not.i214 = icmp ne ptr %364, null
   %365 = load i64, ptr %65, align 8
   %366 = icmp ne i64 %365, 0
-  %367 = select i1 %.not.i214, i1 %366, i1 false
+  %367 = select i1 %.not.i214, i1 %366, i1 false, !prof !52
   br i1 %367, label %_ZNK2c415basic_substringIKcE7compareEc.exit217, label %_ZNK2c415basic_substringIKcE7compareEc.exit217.thread, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit217:   ; preds = %.loopexit
@@ -35603,7 +35603,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit118.thread: ; preds = %.lr.ph.
   %.not.i187 = icmp ne ptr %356, null
   %357 = load i64, ptr %63, align 8
   %358 = icmp ne i64 %357, 0
-  %359 = select i1 %.not.i187, i1 %358, i1 false
+  %359 = select i1 %.not.i187, i1 %358, i1 false, !prof !52
   br i1 %359, label %_ZNK2c415basic_substringIKcE7compareEc.exit190, label %_ZNK2c415basic_substringIKcE7compareEc.exit190.thread, !prof !52
 
 _ZNK2c415basic_substringIKcE7compareEc.exit190:   ; preds = %.loopexit

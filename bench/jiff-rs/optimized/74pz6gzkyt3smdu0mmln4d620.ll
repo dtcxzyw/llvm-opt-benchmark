@@ -1433,7 +1433,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %153 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %152, i64 %149)
   %154 = extractvalue { i64, i1 } %153, 1
   %155 = extractvalue { i64, i1 } %153, 0
-  %156 = select i1 %151, i1 true, i1 %154
+  %156 = select i1 %151, i1 true, i1 %154, !prof !92
   br i1 %156, label %.thread747, label %133, !prof !92
 
 157:                                              ; preds = %140
@@ -3810,7 +3810,7 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
   %1183 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %1182, i64 %1179)
   %1184 = extractvalue { i64, i1 } %1183, 1
   %1185 = extractvalue { i64, i1 } %1183, 0
-  %1186 = select i1 %1181, i1 true, i1 %1184
+  %1186 = select i1 %1181, i1 true, i1 %1184, !prof !92
   br i1 %1186, label %.thread875, label %1163, !prof !92
 
 1187:                                             ; preds = %1170

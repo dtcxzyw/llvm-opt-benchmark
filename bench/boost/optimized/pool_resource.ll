@@ -840,7 +840,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
-  %8 = select i1 %.not, i1 %7, i1 false
+  %8 = select i1 %.not, i1 %7, i1 false, !prof !37
   br i1 %8, label %9, label %13, !prof !37
 
 9:                                                ; preds = %2
@@ -868,7 +868,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
-  %8 = select i1 %.not, i1 %7, i1 false
+  %8 = select i1 %.not, i1 %7, i1 false, !prof !37
   br i1 %8, label %9, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, !prof !37
 
 9:                                                ; preds = %2

@@ -918,7 +918,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   %269 = load i32, ptr %68, align 4, !range !13, !noalias !22, !noundef !4
   %270 = load i32, ptr %138, align 4, !noalias !22
   %271 = trunc nuw i32 %269 to i1
-  %272 = select i1 %271, i1 %227, i1 false
+  %272 = select i1 %271, i1 %227, i1 false, !prof !35
   br i1 %272, label %"_ZN125_$LT$polars_parquet_format..parquet_format..DataPageHeader$u20$as$u20$polars_parquet_format..thrift..protocol..ReadThrift$GT$21read_from_in_protocol17h8511e4b202799844E.exit", label %.invoke.i.split.loop.exit, !prof !36
 
 273:                                              ; preds = %328, %258, %254, %250, %246, %242
@@ -1617,7 +1617,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !64
   %382 = load i32, ptr %42, align 4, !range !13, !noalias !64, !noundef !4
   %383 = trunc nuw i32 %382 to i1
-  %384 = select i1 %383, i1 %368, i1 false
+  %384 = select i1 %383, i1 %368, i1 false, !prof !35
   br i1 %384, label %607, label %.invoke4712, !prof !36
 
 .invoke4712:                                      ; preds = %381
@@ -2226,7 +2226,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   %490 = load i32, ptr %24, align 4, !range !13, !noalias !74, !noundef !4
   %491 = load i32, ptr %111, align 4, !noalias !74
   %492 = trunc nuw i32 %490 to i1
-  %493 = select i1 %492, i1 %432, i1 false
+  %493 = select i1 %492, i1 %432, i1 false, !prof !35
   br i1 %493, label %"_ZN127_$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$u20$as$u20$polars_parquet_format..thrift..protocol..ReadThrift$GT$21read_from_in_protocol17he112f494805723bfE.exit", label %.invoke.i389.split.loop.exit, !prof !36
 
 494:                                              ; preds = %569, %471, %467, %463, %459, %455, %451, %447

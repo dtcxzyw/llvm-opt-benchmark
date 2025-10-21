@@ -2006,7 +2006,7 @@ define linkonce_odr dso_local void @_ZN5graph4swapERNS_7graph_t8vertex_tES2_(ptr
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %53 = load i8, ptr %52, align 8, !range !97
   %54 = trunc nuw i8 %53 to i1
-  %55 = select i1 %51, i1 %54, i1 false
+  %55 = select i1 %51, i1 %54, i1 false, !prof !69
   br i1 %55, label %56, label %"_ZNK4$_11clI12hb_hashmap_tIjjLb0EEEEvRT_S4_.exit", !prof !69
 
 56:                                               ; preds = %2

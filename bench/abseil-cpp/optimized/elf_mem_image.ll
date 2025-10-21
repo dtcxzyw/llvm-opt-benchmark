@@ -475,7 +475,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerd
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, %4
-  %8 = select i1 %3, i1 true, i1 %7
+  %8 = select i1 %3, i1 true, i1 %7, !prof !4
   br i1 %8, label %9, label %10, !prof !4
 
 9:                                                ; preds = %2

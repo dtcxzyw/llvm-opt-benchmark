@@ -5053,7 +5053,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit86.thread:          ; preds = %286, %_ZNKSt14defau
   %295 = load i8, ptr %14, align 8, !tbaa !156
   %296 = icmp eq i8 %295, 0
   %not.334 = xor i1 %296, true
-  %spec.select = select i1 %not.334, i1 %.059, i1 false
+  %spec.select = select i1 %not.334, i1 %.059, i1 false, !prof !166
   %297 = zext i1 %296 to i32
   %spec.select65 = add i32 %.057, %297
   br label %666
@@ -5114,7 +5114,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit92.thread:          ; preds = %305, %_ZNKSt14defau
   %314 = load i8, ptr %14, align 8, !tbaa !156
   %315 = icmp eq i8 %314, 0
   %not.333 = xor i1 %315, true
-  %spec.select66 = select i1 %not.333, i1 %.059, i1 false
+  %spec.select66 = select i1 %not.333, i1 %.059, i1 false, !prof !166
   %316 = zext i1 %315 to i32
   %spec.select67 = add i32 %.057, %316
   br label %666
@@ -5175,7 +5175,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit98.thread:          ; preds = %324, %_ZNKSt14defau
   %333 = load i8, ptr %14, align 8, !tbaa !156
   %334 = icmp eq i8 %333, 0
   %not.332 = xor i1 %334, true
-  %spec.select68 = select i1 %not.332, i1 %.059, i1 false
+  %spec.select68 = select i1 %not.332, i1 %.059, i1 false, !prof !166
   %335 = zext i1 %334 to i32
   %spec.select69 = add i32 %.057, %335
   br label %666
@@ -5236,7 +5236,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit104.thread:         ; preds = %343, %_ZNKSt14defau
   %352 = load i8, ptr %14, align 8, !tbaa !156
   %353 = icmp eq i8 %352, 0
   %not.331 = xor i1 %353, true
-  %spec.select70 = select i1 %not.331, i1 %.059, i1 false
+  %spec.select70 = select i1 %not.331, i1 %.059, i1 false, !prof !166
   %354 = zext i1 %353 to i32
   %spec.select71 = add i32 %.057, %354
   br label %666
@@ -5297,7 +5297,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit110.thread:         ; preds = %362, %_ZNKSt14defau
   %371 = load i8, ptr %14, align 8, !tbaa !156
   %372 = icmp eq i8 %371, 0
   %not.330 = xor i1 %372, true
-  %spec.select72 = select i1 %not.330, i1 %.059, i1 false
+  %spec.select72 = select i1 %not.330, i1 %.059, i1 false, !prof !166
   %373 = zext i1 %372 to i32
   %spec.select73 = add i32 %.057, %373
   br label %666
@@ -6210,7 +6210,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit204.thread:         ; preds = %613, %_ZNKSt14defau
   %622 = load i8, ptr %14, align 8, !tbaa !156
   %623 = icmp eq i8 %622, 0
   %not.329 = xor i1 %623, true
-  %spec.select76 = select i1 %not.329, i1 %.059, i1 false
+  %spec.select76 = select i1 %not.329, i1 %.059, i1 false, !prof !166
   %624 = zext i1 %623 to i32
   %spec.select77 = add i32 %.057, %624
   br label %666
@@ -6272,7 +6272,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit210.thread:         ; preds = %633, %_ZNKSt14defau
   %642 = load i8, ptr %14, align 8, !tbaa !156
   %643 = icmp eq i8 %642, 0
   %not. = xor i1 %643, true
-  %spec.select78 = select i1 %not., i1 %.059, i1 false
+  %spec.select78 = select i1 %not., i1 %.059, i1 false, !prof !166
   %644 = zext i1 %643 to i32
   %spec.select79 = add i32 %.057, %644
   br label %666

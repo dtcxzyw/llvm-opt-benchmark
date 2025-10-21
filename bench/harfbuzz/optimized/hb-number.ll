@@ -279,7 +279,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %64 = add i32 %63, -48
   %65 = add i32 %64, %29
   %66 = icmp ugt i32 %65, 2047
-  %.176..i = select i1 %66, i1 true, i1 %.176.i
+  %.176..i = select i1 %66, i1 true, i1 %.176.i, !prof !17
   %..170.i = select i1 %66, i32 %.170.i, i32 %65, !prof !17
   br label %67
 

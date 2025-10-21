@@ -31915,11 +31915,11 @@ define hidden void @"_ZN124_$LT$polars_parquet_format..parquet_format..SchemaEle
   %451 = load i32, ptr %94, align 4, !range !5, !noalias !2071, !noundef !4
   %452 = load i32, ptr %204, align 4, !noalias !2071
   %453 = trunc nuw i32 %451 to i1
-  %454 = select i1 %453, i1 %437, i1 false
-  br i1 %454, label %848, label %.invoke.i.split.loop.exit18439, !prof !2080
+  %454 = select i1 %453, i1 %437, i1 false, !prof !2080
+  br i1 %454, label %848, label %.invoke.i.split.loop.exit18439, !prof !2081
 
 .invoke.i.split.loop.exit18439:                   ; preds = %450
-  %anon.6051c3b956c33ba23e1cc7c69c835a57.70.mux.i.le = select i1 %453, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.71, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.70, !prof !2081
+  %anon.6051c3b956c33ba23e1cc7c69c835a57.70.mux.i.le = select i1 %453, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.71, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.70, !prof !2080
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %539, %541, %595, %597, %651, %655, %.invoke.i.split.loop.exit18439
@@ -37971,11 +37971,11 @@ define hidden void @"_ZN124_$LT$polars_parquet_format..parquet_format..SchemaEle
   %451 = load i32, ptr %94, align 4, !range !5, !noalias !2231, !noundef !4
   %452 = load i32, ptr %204, align 4, !noalias !2231
   %453 = trunc nuw i32 %451 to i1
-  %454 = select i1 %453, i1 %437, i1 false
-  br i1 %454, label %848, label %.invoke.i.split.loop.exit18439, !prof !2080
+  %454 = select i1 %453, i1 %437, i1 false, !prof !2080
+  br i1 %454, label %848, label %.invoke.i.split.loop.exit18439, !prof !2081
 
 .invoke.i.split.loop.exit18439:                   ; preds = %450
-  %anon.6051c3b956c33ba23e1cc7c69c835a57.70.mux.i.le = select i1 %453, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.71, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.70, !prof !2081
+  %anon.6051c3b956c33ba23e1cc7c69c835a57.70.mux.i.le = select i1 %453, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.71, ptr @anon.6051c3b956c33ba23e1cc7c69c835a57.70, !prof !2080
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %539, %541, %595, %597, %651, %655, %.invoke.i.split.loop.exit18439
@@ -182029,8 +182029,8 @@ attributes #35 = { nounwind }
 !2077 = distinct !{!2077, !2078, !"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$$GT$17hf15561d281f154a4E: argument 0"}
 !2078 = distinct !{!2078, !"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$$GT$17hf15561d281f154a4E"}
 !2079 = !{!2072}
-!2080 = !{!"branch_weights", i32 4000000, i32 4001}
-!2081 = !{!"branch_weights", i32 2000, i32 1}
+!2080 = !{!"branch_weights", i32 2000, i32 1}
+!2081 = !{!"branch_weights", i32 4000000, i32 4001}
 !2082 = !{!2083, !2085, !2028, !2030}
 !2083 = distinct !{!2083, !2084, !"_ZN119_$LT$polars_parquet_format..parquet_format..DateType$u20$as$u20$polars_parquet_format..thrift..protocol..ReadThrift$GT$21read_from_in_protocol17h1f947ca36f270fedE: argument 0"}
 !2084 = distinct !{!2084, !"_ZN119_$LT$polars_parquet_format..parquet_format..DateType$u20$as$u20$polars_parquet_format..thrift..protocol..ReadThrift$GT$21read_from_in_protocol17h1f947ca36f270fedE"}

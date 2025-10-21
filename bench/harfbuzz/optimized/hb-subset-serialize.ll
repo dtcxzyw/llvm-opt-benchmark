@@ -8793,7 +8793,7 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit93: ; preds = %147, %148
   %184 = getelementptr inbounds nuw i8, ptr %.0.i90, i64 104
   %185 = load i8, ptr %184, align 8, !range !31
   %186 = trunc nuw i8 %185 to i1
-  %187 = select i1 %183, i1 %186, i1 false
+  %187 = select i1 %183, i1 %186, i1 false, !prof !51
   br i1 %187, label %188, label %_ZN5graph7graph_t8vertex_taSEOS1_.exit, !prof !51
 
 188:                                              ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit93
@@ -16705,7 +16705,7 @@ define linkonce_odr dso_local void @_ZN5graph4swapERNS_7graph_t8vertex_tES2_(ptr
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %53 = load i8, ptr %52, align 8, !range !31
   %54 = trunc nuw i8 %53 to i1
-  %55 = select i1 %51, i1 %54, i1 false
+  %55 = select i1 %51, i1 %54, i1 false, !prof !51
   br i1 %55, label %56, label %"_ZNK3$_9clI12hb_hashmap_tIjjLb0EEEEvRT_S4_.exit", !prof !51
 
 56:                                               ; preds = %2

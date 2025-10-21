@@ -1288,7 +1288,7 @@ define internal fastcc ptr @tmalloc_large(ptr noundef %0, i64 noundef range(i64 
   %257 = load ptr, ptr %81, align 8, !tbaa !19
   %.not300 = icmp uge ptr %.0220, %257
   %258 = icmp uge ptr %256, %257
-  %spec.select311 = select i1 %.not300, i1 %258, i1 false
+  %spec.select311 = select i1 %.not300, i1 %258, i1 false, !prof !22
   br i1 %spec.select311, label %259, label %264, !prof !22
 
 259:                                              ; preds = %254
@@ -1882,7 +1882,7 @@ segment_holding.exit.i:                           ; preds = %185
   %311 = load ptr, ptr %170, align 8, !tbaa !19
   %.not151.i = icmp uge ptr %.0135.i, %311
   %312 = icmp uge ptr %310, %311
-  %spec.select.i = select i1 %.not151.i, i1 %312, i1 false
+  %spec.select.i = select i1 %.not151.i, i1 %312, i1 false, !prof !22
   br i1 %spec.select.i, label %313, label %316, !prof !22
 
 313:                                              ; preds = %308
@@ -3399,7 +3399,7 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   %182 = load ptr, ptr %6, align 8, !tbaa !19
   %.not206 = icmp uge ptr %.0157, %182
   %183 = icmp uge ptr %181, %182
-  %spec.select = select i1 %.not206, i1 %183, i1 false
+  %spec.select = select i1 %.not206, i1 %183, i1 false, !prof !22
   br i1 %spec.select, label %184, label %189, !prof !22
 
 184:                                              ; preds = %179
@@ -5340,7 +5340,7 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
   %413 = load ptr, ptr %19, align 8, !tbaa !19
   %.not455 = icmp uge ptr %.0353, %413
   %414 = icmp uge ptr %412, %413
-  %spec.select = select i1 %.not455, i1 %414, i1 false
+  %spec.select = select i1 %.not455, i1 %414, i1 false, !prof !22
   br i1 %spec.select, label %415, label %417, !prof !22
 
 415:                                              ; preds = %410
@@ -8717,7 +8717,7 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
   %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 24), align 8, !tbaa !19
   %.not448 = icmp uge ptr %.0348, %375
   %376 = icmp uge ptr %374, %375
-  %spec.select = select i1 %.not448, i1 %376, i1 false
+  %spec.select = select i1 %.not448, i1 %376, i1 false, !prof !22
   br i1 %spec.select, label %377, label %379, !prof !22
 
 377:                                              ; preds = %372
@@ -11005,7 +11005,7 @@ calculate_lcm_and_needs_backwards_lcmed.exit:     ; preds = %66, %77, %83, %92, 
   %338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 24), align 8, !tbaa !19
   %.not465 = icmp uge ptr %.0375, %338
   %339 = icmp uge ptr %337, %338
-  %spec.select = select i1 %.not465, i1 %339, i1 false
+  %spec.select = select i1 %.not465, i1 %339, i1 false, !prof !22
   br i1 %spec.select, label %340, label %345, !prof !22
 
 340:                                              ; preds = %335
@@ -12097,7 +12097,7 @@ define internal fastcc nonnull ptr @prepend_alloc(ptr noundef %0, ptr noundef %1
   %261 = load ptr, ptr %260, align 8, !tbaa !19
   %.not259 = icmp uge ptr %.0213, %261
   %262 = icmp uge ptr %259, %261
-  %spec.select = select i1 %.not259, i1 %262, i1 false
+  %spec.select = select i1 %.not259, i1 %262, i1 false, !prof !22
   br i1 %spec.select, label %263, label %268, !prof !22
 
 263:                                              ; preds = %257
@@ -12953,7 +12953,7 @@ define internal fastcc void @dispose_chunk(ptr noundef %0, ptr noundef %1, i64 n
   %391 = load ptr, ptr %154, align 8, !tbaa !19
   %.not428 = icmp uge ptr %.0332, %391
   %392 = icmp uge ptr %390, %391
-  %spec.select = select i1 %.not428, i1 %392, i1 false
+  %spec.select = select i1 %.not428, i1 %392, i1 false, !prof !22
   br i1 %spec.select, label %393, label %398, !prof !22
 
 393:                                              ; preds = %388

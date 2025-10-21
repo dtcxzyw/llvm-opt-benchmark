@@ -1155,7 +1155,7 @@ lpGetWithSize.exit:                               ; preds = %25, %36, %45, %49, 
   %.not41 = icmp uge ptr %.1, %17
   %109 = getelementptr inbounds nuw i8, ptr %.1, i64 %.3.ph
   %110 = icmp ult ptr %109, %18
-  %111 = select i1 %.not41, i1 %110, i1 false
+  %111 = select i1 %.not41, i1 %110, i1 false, !prof !21
   br i1 %111, label %113, label %112, !prof !21
 
 112:                                              ; preds = %107

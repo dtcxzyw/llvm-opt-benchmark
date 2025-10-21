@@ -15904,7 +15904,7 @@ _ZNK2OT16DeltaSetIndexMap13get_map_countEv.exit.i.i: ; preds = %1520, %1515
   %1542 = trunc nuw i8 %1541 to i1
   %1543 = load i8, ptr %1527, align 8, !range !31
   %1544 = trunc nuw i8 %1543 to i1
-  %1545 = select i1 %1542, i1 %1544, i1 false
+  %1545 = select i1 %1542, i1 %1544, i1 false, !prof !35
   br i1 %1545, label %1546, label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EEaSEOS2_.exit.i.i, !prof !35
 
 1546:                                             ; preds = %._crit_edge.i.i322

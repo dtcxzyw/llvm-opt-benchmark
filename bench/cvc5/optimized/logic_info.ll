@@ -2173,7 +2173,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoeqERKS1_(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 87
   %10 = load i8, ptr %9, align 1, !range !36
   %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %8, i1 %11, i1 false
+  %12 = select i1 %8, i1 %11, i1 false, !prof !48
   br i1 %12, label %25, label %.critedge, !prof !48
 
 .critedge:                                        ; preds = %2
@@ -3305,7 +3305,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoleERKS1_(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 87
   %10 = load i8, ptr %9, align 1, !range !36
   %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %8, i1 %11, i1 false
+  %12 = select i1 %8, i1 %11, i1 false, !prof !48
   br i1 %12, label %25, label %.critedge, !prof !48
 
 .critedge:                                        ; preds = %2
@@ -3555,7 +3555,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfogeERKS1_(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 87
   %10 = load i8, ptr %9, align 1, !range !36
   %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %8, i1 %11, i1 false
+  %12 = select i1 %8, i1 %11, i1 false, !prof !48
   br i1 %12, label %25, label %.critedge, !prof !48
 
 .critedge:                                        ; preds = %2

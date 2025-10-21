@@ -1123,7 +1123,7 @@ define hidden void @_ZN4jiff3fmt8temporal14DateTimeParser11parse_zoned17h48c3ad1
   %207 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %206, i64 %203)
   %208 = extractvalue { i64, i1 } %207, 1
   %209 = extractvalue { i64, i1 } %207, 0
-  %210 = select i1 %205, i1 true, i1 %208
+  %210 = select i1 %205, i1 true, i1 %208, !prof !45
   br i1 %210, label %.thread144.i, label %188, !prof !45
 
 211:                                              ; preds = %194
@@ -1385,7 +1385,7 @@ common.resume.i:                                  ; preds = %.body.thread.i.i.i,
   %308 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %307, i64 %304)
   %309 = extractvalue { i64, i1 } %308, 1
   %310 = extractvalue { i64, i1 } %308, 0
-  %311 = select i1 %306, i1 true, i1 %309
+  %311 = select i1 %306, i1 true, i1 %309, !prof !45
   br i1 %311, label %.thread170.i, label %289, !prof !45
 
 312:                                              ; preds = %295
@@ -1771,7 +1771,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc89409
   %442 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %441, i64 %438)
   %443 = extractvalue { i64, i1 } %442, 1
   %444 = extractvalue { i64, i1 } %442, 0
-  %445 = select i1 %440, i1 true, i1 %443
+  %445 = select i1 %440, i1 true, i1 %443, !prof !45
   br i1 %445, label %.thread195.i, label %423, !prof !45
 
 446:                                              ; preds = %429
@@ -2170,7 +2170,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc89409
   %584 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %583, i64 %580)
   %585 = extractvalue { i64, i1 } %584, 1
   %586 = extractvalue { i64, i1 } %584, 0
-  %587 = select i1 %582, i1 true, i1 %585
+  %587 = select i1 %582, i1 true, i1 %585, !prof !45
   br i1 %587, label %.thread212.i, label %565, !prof !45
 
 588:                                              ; preds = %571
@@ -2592,7 +2592,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i: ; preds = %668,
   %741 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %740, i64 %737)
   %742 = extractvalue { i64, i1 } %741, 1
   %743 = extractvalue { i64, i1 } %741, 0
-  %744 = select i1 %739, i1 true, i1 %742
+  %744 = select i1 %739, i1 true, i1 %742, !prof !45
   br i1 %744, label %.thread239.i, label %722, !prof !45
 
 745:                                              ; preds = %728
@@ -2928,7 +2928,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d444316
   %858 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %857, i64 %854)
   %859 = extractvalue { i64, i1 } %858, 1
   %860 = extractvalue { i64, i1 } %858, 0
-  %861 = select i1 %856, i1 true, i1 %859
+  %861 = select i1 %856, i1 true, i1 %859, !prof !45
   br i1 %861, label %.thread267.i, label %839, !prof !45
 
 862:                                              ; preds = %845
@@ -3262,7 +3262,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d444316
   %978 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %977, i64 %974)
   %979 = extractvalue { i64, i1 } %978, 1
   %980 = extractvalue { i64, i1 } %978, 0
-  %981 = select i1 %976, i1 true, i1 %979
+  %981 = select i1 %976, i1 true, i1 %979, !prof !45
   br i1 %981, label %.thread289.i, label %959, !prof !45
 
 982:                                              ; preds = %965
@@ -4636,7 +4636,7 @@ define hidden void @_ZN4jiff3fmt8temporal14DateTimeParser10parse_date17h1ccfe34d
   %178 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %177, i64 %174)
   %179 = extractvalue { i64, i1 } %178, 1
   %180 = extractvalue { i64, i1 } %178, 0
-  %181 = select i1 %176, i1 true, i1 %179
+  %181 = select i1 %176, i1 true, i1 %179, !prof !45
   br i1 %181, label %.thread444, label %159, !prof !45
 
 182:                                              ; preds = %165
@@ -4898,7 +4898,7 @@ common.resume:                                    ; preds = %1024, %1021, %1007,
   %279 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %278, i64 %275)
   %280 = extractvalue { i64, i1 } %279, 1
   %281 = extractvalue { i64, i1 } %279, 0
-  %282 = select i1 %277, i1 true, i1 %280
+  %282 = select i1 %277, i1 true, i1 %280, !prof !45
   br i1 %282, label %.thread470, label %260, !prof !45
 
 283:                                              ; preds = %266
@@ -5284,7 +5284,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc89409
   %413 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %412, i64 %409)
   %414 = extractvalue { i64, i1 } %413, 1
   %415 = extractvalue { i64, i1 } %413, 0
-  %416 = select i1 %411, i1 true, i1 %414
+  %416 = select i1 %411, i1 true, i1 %414, !prof !45
   br i1 %416, label %.thread495, label %394, !prof !45
 
 417:                                              ; preds = %400
@@ -5683,7 +5683,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc89409
   %555 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %554, i64 %551)
   %556 = extractvalue { i64, i1 } %555, 1
   %557 = extractvalue { i64, i1 } %555, 0
-  %558 = select i1 %553, i1 true, i1 %556
+  %558 = select i1 %553, i1 true, i1 %556, !prof !45
   br i1 %558, label %.thread512, label %536, !prof !45
 
 559:                                              ; preds = %542
@@ -6105,7 +6105,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit: ; preds = %623, %
   %712 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %711, i64 %708)
   %713 = extractvalue { i64, i1 } %712, 1
   %714 = extractvalue { i64, i1 } %712, 0
-  %715 = select i1 %710, i1 true, i1 %713
+  %715 = select i1 %710, i1 true, i1 %713, !prof !45
   br i1 %715, label %.thread539, label %693, !prof !45
 
 716:                                              ; preds = %699
@@ -6441,7 +6441,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d444316
   %829 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %828, i64 %825)
   %830 = extractvalue { i64, i1 } %829, 1
   %831 = extractvalue { i64, i1 } %829, 0
-  %832 = select i1 %827, i1 true, i1 %830
+  %832 = select i1 %827, i1 true, i1 %830, !prof !45
   br i1 %832, label %.thread567, label %810, !prof !45
 
 833:                                              ; preds = %816
@@ -6775,7 +6775,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d444316
   %949 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %948, i64 %945)
   %950 = extractvalue { i64, i1 } %949, 1
   %951 = extractvalue { i64, i1 } %949, 0
-  %952 = select i1 %947, i1 true, i1 %950
+  %952 = select i1 %947, i1 true, i1 %950, !prof !45
   br i1 %952, label %.thread589, label %930, !prof !45
 
 953:                                              ; preds = %936

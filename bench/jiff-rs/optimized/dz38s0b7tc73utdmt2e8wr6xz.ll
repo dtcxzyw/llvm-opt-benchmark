@@ -1609,7 +1609,7 @@ _ZN4jiff3fmt7strtime5parse6Parser1f17h47c7c6b0a511c9deE.exit631: ; preds = %_ZN4
   %715 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %714, i64 %711)
   %716 = extractvalue { i64, i1 } %715, 1
   %717 = extractvalue { i64, i1 } %715, 0
-  %718 = select i1 %713, i1 true, i1 %716
+  %718 = select i1 %713, i1 true, i1 %716, !prof !43
   br i1 %718, label %.thread42.i, label %699, !prof !43
 
 719:                                              ; preds = %706
@@ -9311,7 +9311,7 @@ _ZN4jiff3fmt7strtime5parse6Parser19parse_offset_colon317h42a5f8cb64d19f5fE.exit:
   %3209 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3208, i64 %3205)
   %3210 = extractvalue { i64, i1 } %3209, 1
   %3211 = extractvalue { i64, i1 } %3209, 0
-  %3212 = select i1 %3207, i1 true, i1 %3210
+  %3212 = select i1 %3207, i1 true, i1 %3210, !prof !43
   br i1 %3212, label %.thread1703, label %3193, !prof !43
 
 3213:                                             ; preds = %3200

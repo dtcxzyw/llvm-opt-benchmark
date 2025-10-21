@@ -28849,7 +28849,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor5visitEP8AstConst(
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not4.i = icmp ne ptr %11, null
-  %12 = select i1 %.not.i, i1 true, i1 %.not4.i
+  %12 = select i1 %.not.i, i1 true, i1 %.not4.i, !prof !85
   br i1 %12, label %13, label %17, !prof !85
 
 13:                                               ; preds = %6
@@ -30837,7 +30837,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor5visitEP9AstVarRef
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not4.i = icmp ne ptr %11, null
-  %12 = select i1 %.not.i, i1 true, i1 %.not4.i
+  %12 = select i1 %.not.i, i1 true, i1 %.not4.i, !prof !85
   br i1 %12, label %13, label %17, !prof !85
 
 13:                                               ; preds = %6
