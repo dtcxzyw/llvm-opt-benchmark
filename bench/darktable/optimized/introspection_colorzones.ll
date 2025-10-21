@@ -7491,7 +7491,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %19
 
-13:                                               ; preds = %41
+13:                                               ; preds = %40
   %14 = load i32, ptr %6, align 4, !tbaa !142
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %14, ptr %15, align 8, !tbaa !69
@@ -7501,7 +7501,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   store i32 %17, ptr %18, align 4, !tbaa !108
   ret void
 
-19:                                               ; preds = %3, %41
+19:                                               ; preds = %3, %40
   %indvars.iv35 = phi i64 [ 0, %3 ], [ %indvars.iv.next36, %41 ]
   %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv35
   %21 = load i32, ptr %20, align 4, !tbaa !19
@@ -7537,36 +7537,36 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   br i1 %38, label %.lr.ph, label %41
 
 .lr.ph:                                           ; preds = %19
-  %39 = getelementptr inbounds nuw [20 x %struct.dt_iop_colorzones_node_t], ptr %12, i64 %indvars.iv35
-  %40 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %38 = getelementptr inbounds nuw [20 x %struct.dt_iop_colorzones_node_t], ptr %12, i64 %indvars.iv35
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %wide.trip.count = zext nneg i32 %34 to i64
-  br label %42
-
-._crit_edge:                                      ; preds = %42
-  store i8 %51, ptr %27, align 4, !tbaa !162
   br label %41
 
-41:                                               ; preds = %._crit_edge, %19
+._crit_edge:                                      ; preds = %41
+  store i8 %50, ptr %27, align 4, !tbaa !162
+  br label %40
+
+40:                                               ; preds = %._crit_edge, %19
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 3
   br i1 %exitcond38.not, label %13, label %19
 
-42:                                               ; preds = %.lr.ph, %42
+41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = phi i8 [ 0, %.lr.ph ], [ %51, %42 ]
-  %44 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %39, i64 %indvars.iv
-  %45 = load float, ptr %44, align 4, !tbaa !15
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %47 = load float, ptr %46, align 4, !tbaa !17
-  %48 = zext i8 %43 to i64
-  %49 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %40, i64 %48
-  store float %45, ptr %49, align 8, !tbaa !168
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store float %47, ptr %50, align 4, !tbaa !170
-  %51 = add i8 %43, 1
+  %42 = phi i8 [ 0, %.lr.ph ], [ %50, %42 ]
+  %43 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %38, i64 %indvars.iv
+  %44 = load float, ptr %43, align 4, !tbaa !15
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %46 = load float, ptr %45, align 4, !tbaa !17
+  %47 = zext i8 %42 to i64
+  %48 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %39, i64 %47
+  store float %44, ptr %48, align 8, !tbaa !168
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store float %46, ptr %49, align 4, !tbaa !170
+  %50 = add i8 %42, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42
+  br i1 %exitcond.not, label %._crit_edge, label %41
 }
 
 ; Function Attrs: nounwind uwtable

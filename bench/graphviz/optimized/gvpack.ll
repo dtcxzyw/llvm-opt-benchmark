@@ -3108,28 +3108,28 @@ _ZL9gv_callocmm.exit:                             ; preds = %22
 
 .lr.ph:                                           ; preds = %_ZL9gv_callocmm.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %_ZL9gv_callocmm.exit ]
-  %32 = phi ptr [ %46, %.lr.ph ], [ %10, %_ZL9gv_callocmm.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
-  %34 = load ptr, ptr %33, align 8, !tbaa !128
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
-  %36 = load ptr, ptr %35, align 8, !tbaa !65
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !81
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 160
-  %40 = load ptr, ptr %39, align 8, !tbaa !129
-  %41 = load ptr, ptr %4, align 8, !tbaa !81
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 240
-  %43 = load ptr, ptr %42, align 8, !tbaa !128
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
-  store ptr %40, ptr %44, align 8, !tbaa !65
-  %45 = load ptr, ptr %35, align 8, !tbaa !65
-  tail call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %45, ptr noundef %40)
+  %31 = phi ptr [ %45, %.lr.ph ], [ %10, %_ZL9gv_callocmm.exit ]
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 240
+  %33 = load ptr, ptr %32, align 8, !tbaa !128
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %35 = load ptr, ptr %34, align 8, !tbaa !65
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !81
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 160
+  %39 = load ptr, ptr %38, align 8, !tbaa !129
+  %40 = load ptr, ptr %4, align 8, !tbaa !81
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
+  %42 = load ptr, ptr %41, align 8, !tbaa !128
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  store ptr %39, ptr %43, align 8, !tbaa !65
+  %44 = load ptr, ptr %34, align 8, !tbaa !65
+  tail call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %44, ptr noundef %39)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load ptr, ptr %3, align 8, !tbaa !81
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 236
-  %48 = load i32, ptr %47, align 4, !tbaa !85
-  %49 = sext i32 %48 to i64
-  %.not18.not = icmp slt i64 %indvars.iv, %49
+  %45 = load ptr, ptr %3, align 8, !tbaa !81
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 236
+  %47 = load i32, ptr %46, align 4, !tbaa !85
+  %48 = sext i32 %47 to i64
+  %.not18.not = icmp slt i64 %indvars.iv, %48
   br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !174
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZL9gv_callocmm.exit, %2

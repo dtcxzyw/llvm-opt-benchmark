@@ -2154,13 +2154,13 @@ define internal fastcc void @print_ident(ptr noundef nonnull captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !tbaa !15, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %149, label %6
+  br i1 %5, label %143, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = load i8, ptr %7, align 1, !tbaa !16, !range !24, !noundef !25
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %149, label %10
+  br i1 %9, label %143, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2182,7 +2182,7 @@ print_str.exit:                                   ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   tail call void %19(ptr noundef %15, i64 noundef %17, ptr noundef %21) #12
-  br label %149
+  br label %143
 
 22:                                               ; preds = %.preheader204, %24
   %.0156 = phi i64 [ %25, %24 ], [ 4, %.preheader204 ]
@@ -2196,7 +2196,7 @@ print_str.exit:                                   ; preds = %10
 
 27:                                               ; preds = %24
   store i8 1, ptr %3, align 8, !tbaa !15
-  br label %149
+  br label %143
 
 28:                                               ; preds = %22
   %29 = shl nuw i64 %.0156, 2
@@ -2214,7 +2214,7 @@ print_str.exit:                                   ; preds = %10
 
 32:                                               ; preds = %28
   store i8 1, ptr %3, align 8, !tbaa !15
-  br label %149
+  br label %143
 
 .preheader202:                                    ; preds = %35, %.preheader203
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2442,7 +2442,7 @@ print_str.exit:                                   ; preds = %10
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %print_str.exit182, label %141
 
-141:                                              ; preds = %._crit_edge236
+141:; preds = %._crit_edge236
   %142 = load i8, ptr %7, align 1, !tbaa !16, !range !24, !noundef !25
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %print_str.exit182, label %144
@@ -2458,9 +2458,9 @@ print_str.exit:                                   ; preds = %10
 print_str.exit182:                                ; preds = %83, %49, %59, %77, %79, %144, %141, %._crit_edge236
   %.4 = phi ptr [ %.1163, %._crit_edge236 ], [ %.1163, %141 ], [ %.1163, %144 ], [ %.0162220, %79 ], [ %.0162220, %77 ], [ %.0162220, %59 ], [ %.0162220, %49 ], [ %.0162220, %83 ]
   tail call void @free(ptr noundef %.4) #12
-  br label %149
+  br label %143
 
-149:                                              ; preds = %27, %print_str.exit182, %32, %2, %6, %print_str.exit
+143:                                              ; preds = %27, %print_str.exit182, %32, %2, %6, %print_str.exit
   ret void
 }
 

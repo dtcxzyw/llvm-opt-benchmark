@@ -7683,7 +7683,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7Imf_3_420CompressedIDManifestaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #15 align 2 {
   %.not = icmp eq ptr %0, %1
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7712,7 +7712,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7Imf_3_420CompressedI
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %16, i64 %17, i1 false)
   br label %18
 
-18:                                               ; preds = %7, %2
+16:                                               ; preds = %7, %2
   ret ptr %0
 }
 

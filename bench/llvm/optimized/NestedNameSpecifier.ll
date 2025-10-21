@@ -2163,7 +2163,7 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilderC2ERKS0_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 {
   %6 = icmp eq ptr %0, %1
-  br i1 %6, label %53, label %7
+  br i1 %6, label %51, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %3, align 4, !tbaa !514
@@ -2180,7 +2180,7 @@ define internal fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %7
   %.pre = load ptr, ptr %2, align 8, !tbaa !515
   %.pre42 = trunc i64 %12 to i32
-  br label %48
+  br label %46
 
 17:                                               ; preds = %7
   %.not = icmp eq i32 %14, 0
@@ -2189,7 +2189,7 @@ define internal fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef %0, ptr noundef 
   %19 = trunc i64 %12 to i32
   %20 = add i32 %8, %19
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %20)
-  br i1 %.not, label %21, label %36
+  br i1 %.not, label %21, label %34
 
 21:                                               ; preds = %17
   %22 = zext i32 %.sroa.speculated to i64
@@ -2226,50 +2226,50 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %21, %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i, ptr nonnull align 1 %32, i64 %35, i1 false)
   br label %_ZN4llvm12safe_reallocEPvm.exit
 
-36:                                               ; preds = %17
-  %37 = load ptr, ptr %2, align 8, !tbaa !515
-  %38 = zext i32 %.sroa.speculated to i64
-  %39 = tail call ptr @realloc(ptr noundef %37, i64 noundef %38) #20
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN4llvm12safe_reallocEPvm.exit
+34:                                               ; preds = %17
+  %35 = load ptr, ptr %2, align 8, !tbaa !515
+  %36 = zext i32 %.sroa.speculated to i64
+  %37 = tail call ptr @realloc(ptr noundef %35, i64 noundef %36) #20
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN4llvm12safe_reallocEPvm.exit
 
-41:                                               ; preds = %36
-  %42 = icmp eq i32 %.sroa.speculated, 0
-  br i1 %42, label %43, label %47
+39:                                               ; preds = %34
+  %40 = icmp eq i32 %.sroa.speculated, 0
+  br i1 %40, label %41, label %45
 
-43:                                               ; preds = %41
-  %44 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %_ZN4llvm12safe_reallocEPvm.exit
+41:                                               ; preds = %39
+  %42 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %_ZN4llvm12safe_reallocEPvm.exit
 
-46:                                               ; preds = %43
+44:                                               ; preds = %41
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #19
   unreachable
 
-47:                                               ; preds = %41
+45:                                               ; preds = %39
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #19
   unreachable
 
-_ZN4llvm12safe_reallocEPvm.exit:                  ; preds = %43, %36, %_ZN4llvm11safe_mallocEm.exit, %33
-  %storemerge = phi ptr [ %.0.i, %33 ], [ %.0.i, %_ZN4llvm11safe_mallocEm.exit ], [ %39, %36 ], [ %44, %43 ]
+_ZN4llvm12safe_reallocEPvm.exit:                  ; preds = %41, %34, %_ZN4llvm11safe_mallocEm.exit, %33
+  %storemerge = phi ptr [ %.0.i, %33 ], [ %.0.i, %_ZN4llvm11safe_mallocEm.exit ], [ %37, %36 ], [ %42, %43 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !515
   store i32 %.sroa.speculated, ptr %4, align 4, !tbaa !514
   %.pre40 = load i32, ptr %3, align 4, !tbaa !514
   %.pre41 = zext i32 %.pre40 to i64
-  br label %48
+  br label %46
 
-48:                                               ; preds = %._crit_edge, %_ZN4llvm12safe_reallocEPvm.exit
+46:                                               ; preds = %._crit_edge, %_ZN4llvm12safe_reallocEPvm.exit
   %.pre-phi43 = phi i32 [ %.pre42, %._crit_edge ], [ %19, %_ZN4llvm12safe_reallocEPvm.exit ]
   %.pre-phi = phi i64 [ %9, %._crit_edge ], [ %.pre41, %_ZN4llvm12safe_reallocEPvm.exit ]
-  %49 = phi ptr [ %.pre, %._crit_edge ], [ %storemerge, %_ZN4llvm12safe_reallocEPvm.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %0, i64 %12, i1 false)
-  %51 = load i32, ptr %3, align 4, !tbaa !514
-  %52 = add i32 %51, %.pre-phi43
-  store i32 %52, ptr %3, align 4, !tbaa !514
-  br label %53
+  %47 = phi ptr [ %.pre, %._crit_edge ], [ %storemerge, %_ZN4llvm12safe_reallocEPvm.exit ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.pre-phi
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %0, i64 %12, i1 false)
+  %49 = load i32, ptr %3, align 4, !tbaa !514
+  %50 = add i32 %49, %.pre-phi43
+  store i32 %50, ptr %3, align 4, !tbaa !514
+  br label %51
 
-53:                                               ; preds = %5, %48
+51:                                               ; preds = %5, %46
   ret void
 }
 

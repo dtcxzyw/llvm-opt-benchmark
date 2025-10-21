@@ -367,7 +367,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %21
+  br i1 %or.cond, label %6, label %19
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -377,7 +377,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #9
   store ptr %11, ptr %1, align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %21, label %.preheader
+  br i1 %.not, label %19, label %.preheader
 
 .preheader:                                       ; preds = %6
   %12 = load i32, ptr %7, align 4, !tbaa !12
@@ -385,27 +385,27 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
   %wide.trip.count = zext nneg i32 %12 to i64
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %16
+15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  store ptr %18, ptr %19, align 8, !tbaa !14
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !14
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  store ptr %17, ptr %18, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16
+  br i1 %exitcond.not, label %._crit_edge, label %15
 
-._crit_edge:                                      ; preds = %16, %.preheader
+._crit_edge:                                      ; preds = %15, %.preheader
   %20 = sext i32 %12 to i64
   tail call void @qsort(ptr noundef nonnull %11, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %2) #10
   br label %21
 
-21:                                               ; preds = %6, %3, %._crit_edge
+19:                                               ; preds = %6, %3, %._crit_edge
   %.016 = phi i32 [ 0, %._crit_edge ], [ -9999, %3 ], [ -9988, %6 ]
   ret i32 %.016
 }

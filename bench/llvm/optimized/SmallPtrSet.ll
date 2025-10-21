@@ -409,11 +409,11 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef non
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN4llvm11safe_mallocEm.exit
 
-15:                                               ; preds = %8
+15:; preds = %8
   %16 = icmp eq i32 %10, 0
   br i1 %16, label %17, label %21
 
-17:                                               ; preds = %15
+17:; preds = %15
   %18 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #14
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %_ZN4llvm11safe_mallocEm.exit
@@ -422,41 +422,41 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef non
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #15
   unreachable
 
-21:                                               ; preds = %15
+19:                                               ; preds = %15
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #15
   unreachable
 
 _ZN4llvm11safe_mallocEm.exit:                     ; preds = %17, %8, %3
-  %storemerge = phi ptr [ %1, %3 ], [ %13, %8 ], [ %18, %17 ]
+  %20 = phi ptr [ %1, %3 ], [ %13, %8 ], [ %18, %17 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %23 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %23, ptr %22, align 8, !tbaa !12
   %25 = load i8, ptr %4, align 4, !tbaa !20, !range !21, !noundef !22
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %28 = load i32, ptr %27, align 4
   %.v.v.i.i = select i1 %26, i32 %28, i32 %23
   %.not.i.i.i.i.i.i = icmp eq i32 %.v.v.i.i, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit, label %29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit, label %24
 
-29:                                               ; preds = %_ZN4llvm11safe_mallocEm.exit
+24:                                               ; preds = %_ZN4llvm11safe_mallocEm.exit
   %.v.i.i = zext i32 %.v.v.i.i to i64
-  %30 = load ptr, ptr %2, align 8, !tbaa !3
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
   %.idx.i = shl nuw nsw i64 %.v.i.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %storemerge, ptr align 8 %30, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %storemerge, ptr align 8 %25, i64 %.idx.i, i1 false)
   %.pre.i = load i32, ptr %27, align 4, !tbaa !10
   br label %_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit
 
-_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit: ; preds = %_ZN4llvm11safe_mallocEm.exit, %29
-  %31 = phi i32 [ %28, %_ZN4llvm11safe_mallocEm.exit ], [ %.pre.i, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %31, ptr %32, align 4, !tbaa !10
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %34, ptr %35, align 8, !tbaa !11
+_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit: ; preds = %_ZN4llvm11safe_mallocEm.exit, %24
+  %26 = phi i32 [ %28, %_ZN4llvm11safe_mallocEm.exit ], [ %.pre.i, %29 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %26, ptr %27, align 4, !tbaa !10
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %29, ptr %30, align 8, !tbaa !11
   ret void
 }
 

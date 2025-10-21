@@ -3071,7 +3071,7 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %17
-  %9 = phi ptr [ %34, %17 ], [ %8, %7 ]
+  %9 = phi ptr [ %32, %17 ], [ %8, %7 ]
   %.04759 = phi ptr [ %16, %17 ], [ %6, %7 ]
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04759) #24
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
@@ -3109,8 +3109,8 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %22
   store i8 0, ptr %33, align 1
   tail call void @free(ptr noundef nonnull %.04759) #21
-  %34 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %1) #24
-  %.not = icmp eq ptr %34, null
+  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %1) #24
+  %.not = icmp eq ptr %32, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !122
 
 .loopexit:                                        ; preds = %17, %3, %7, %.thread

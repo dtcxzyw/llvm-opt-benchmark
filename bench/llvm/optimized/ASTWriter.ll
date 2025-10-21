@@ -63173,7 +63173,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit78: ; preds = %.lr.ph89.
   %.sroa.2.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %671, i64 72
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i70, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
+  %.pre298 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
   %681 = getelementptr inbounds nuw i8, ptr %671, i64 80
   store i64 0, ptr %681, align 8
   %.sroa.2.0..sroa_idx.i.i77 = getelementptr inbounds nuw i8, ptr %671, i64 88
@@ -63183,11 +63183,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit78: ; preds = %.lr.ph89.
   store ptr %674, ptr %23, align 8, !tbaa !244
   %683 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %671, ptr %683, align 8, !tbaa !249
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre, ptr noundef nonnull align 8 dereferenceable(528) %674)
-  %684 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %685 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre298, ptr noundef nonnull align 8 dereferenceable(528) %674)
+  %684 = getelementptr inbounds nuw i8, ptr %.pre298, i64 64
+  %685 = getelementptr inbounds nuw i8, ptr %.pre298, i64 72
   %686 = load ptr, ptr %685, align 8, !tbaa !250
-  %687 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
+  %687 = getelementptr inbounds nuw i8, ptr %.pre298, i64 80
   %688 = load ptr, ptr %687, align 8, !tbaa !253
   %.not.i.i.i79 = icmp eq ptr %686, %688
   br i1 %.not.i.i.i79, label %694, label %689
@@ -63305,7 +63305,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit117: ; preds = %_ZN4llvm
   store i64 32, ptr %740, align 8
   %.sroa.2.0..sroa_idx.i.i109 = getelementptr inbounds nuw i8, ptr %731, i64 72
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i109, align 8
-  %.pre298 = load ptr, ptr %682, align 8, !tbaa !79
+  %.pre299 = load ptr, ptr %682, align 8, !tbaa !79
   %741 = getelementptr inbounds nuw i8, ptr %731, i64 80
   store i64 0, ptr %741, align 8
   %.sroa.2.0..sroa_idx.i.i116 = getelementptr inbounds nuw i8, ptr %731, i64 88
@@ -63314,11 +63314,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit117: ; preds = %_ZN4llvm
   store ptr %734, ptr %25, align 8, !tbaa !244
   %742 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %731, ptr %742, align 8, !tbaa !249
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre298, ptr noundef nonnull align 8 dereferenceable(528) %734)
-  %743 = getelementptr inbounds nuw i8, ptr %.pre298, i64 64
-  %744 = getelementptr inbounds nuw i8, ptr %.pre298, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre299, ptr noundef nonnull align 8 dereferenceable(528) %734)
+  %743 = getelementptr inbounds nuw i8, ptr %.pre299, i64 64
+  %744 = getelementptr inbounds nuw i8, ptr %.pre299, i64 72
   %745 = load ptr, ptr %744, align 8, !tbaa !250
-  %746 = getelementptr inbounds nuw i8, ptr %.pre298, i64 80
+  %746 = getelementptr inbounds nuw i8, ptr %.pre299, i64 80
   %747 = load ptr, ptr %746, align 8, !tbaa !253
   %.not.i.i.i118 = icmp eq ptr %745, %747
   br i1 %.not.i.i.i118, label %753, label %748
@@ -63454,7 +63454,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   store i32 0, ptr %42, align 8, !tbaa !42
   %809 = load i32, ptr %38, align 8, !tbaa !42
   %.not.i1.i.i.i.i = icmp eq i32 %809, 0
-  %.pre300 = load ptr, ptr %36, align 8, !tbaa !45
+  %.pre301 = load ptr, ptr %36, align 8, !tbaa !45
   br i1 %.not.i1.i.i.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i.thread, label %811
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i.thread: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
@@ -63463,19 +63463,19 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 811:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
   store i64 0, ptr %41, align 8, !tbaa !1193
-  %812 = load ptr, ptr %.pre300, align 8, !tbaa !8
+  %812 = load ptr, ptr %.pre301, align 8, !tbaa !8
   store ptr %812, ptr %35, align 8, !tbaa !1194
   %813 = getelementptr inbounds nuw i8, ptr %812, i64 4096
   %814 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %813, ptr %814, align 8, !tbaa !1195
   %815 = zext i32 %809 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %815, 3
-  %816 = getelementptr inbounds nuw i8, ptr %.pre300, i64 %.idx.i.i.i.i
+  %816 = getelementptr inbounds nuw i8, ptr %.pre301, i64 %.idx.i.i.i.i
   %.not6.i.i.i.i.i = icmp eq i32 %809, 1
   br i1 %.not6.i.i.i.i.i, label %.lr.ph.i.i149.preheader, label %.lr.ph.i2.preheader.i.i.i.i
 
 .lr.ph.i2.preheader.i.i.i.i:                      ; preds = %811
-  %817 = getelementptr inbounds nuw i8, ptr %.pre300, i64 8
+  %817 = getelementptr inbounds nuw i8, ptr %.pre301, i64 8
   br label %.lr.ph.i2.i.i.i.i
 
 .lr.ph.i2.i.i.i.i:                                ; preds = %.lr.ph.i2.i.i.i.i, %.lr.ph.i2.preheader.i.i.i.i
@@ -63497,14 +63497,14 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   br i1 %.not.i3.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit, label %.lr.ph.i2.i.i.i.i, !llvm.loop !1327
 
 _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit: ; preds = %.lr.ph.i2.i.i.i.i
-  %.pre299.pre = load ptr, ptr %36, align 8, !tbaa !45
+  %.pre300.pre = load ptr, ptr %36, align 8, !tbaa !45
   br label %.lr.ph.i.i149.preheader
 
 .lr.ph.i.i149.preheader:                          ; preds = %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit, %811
-  %.pre299 = phi ptr [ %.pre299.pre, %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit ], [ %.pre300, %811 ]
+  %.pre300 = phi ptr [ %.pre300.pre, %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit ], [ %.pre301, %811 ]
   store i32 1, ptr %38, align 8, !tbaa !42
   %828 = load ptr, ptr %36, align 8, !tbaa !45
-  %829 = ptrtoint ptr %.pre299 to i64
+  %829 = ptrtoint ptr %.pre300 to i64
   %830 = ptrtoint ptr %828 to i64
   %831 = sub i64 %829, %830
   %sum.shift.i.i = lshr i64 %831, 10
@@ -63513,7 +63513,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit: ; preds = %.
   %834 = call i32 @llvm.umin.i32(i32 %833, i32 30)
   %.sroa.speculated.i.i.i = zext nneg i32 %834 to i64
   %835 = shl nuw nsw i64 4096, %.sroa.speculated.i.i.i
-  %836 = load ptr, ptr %.pre299, align 8, !tbaa !8
+  %836 = load ptr, ptr %.pre300, align 8, !tbaa !8
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %836, i64 noundef %835, i64 noundef 16) #35
   %.pr = load i32, ptr %42, align 8, !tbaa !42
   %837 = load ptr, ptr %40, align 8, !tbaa !45

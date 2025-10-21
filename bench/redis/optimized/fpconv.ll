@@ -21,7 +21,7 @@ define dso_local double @fpconv_strtod(ptr noundef %0, ptr noundef captures(none
 
 7:                                                ; preds = %2
   %8 = tail call double @strtod(ptr noundef %0, ptr noundef %1) #11
-  br label %43
+  br label %42
 
 .preheader:                                       ; preds = %2, %valid_number_character.exit.thread.i
   %.0.i = phi ptr [ %14, %valid_number_character.exit.thread.i ], [ %0, %2 ]
@@ -57,7 +57,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
 
 19:                                               ; preds = %strtod_buffer_size.exit
   store ptr %0, ptr %1, align 8, !tbaa !9
-  br label %43
+  br label %42
 
 20:                                               ; preds = %strtod_buffer_size.exit
   %21 = icmp sgt i32 %18, 31
@@ -92,7 +92,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
   store i8 %34, ptr %32, align 1, !tbaa !4
   br label %35
 
-35:                                               ; preds = %33, %29
+35:; preds = %33, %29
   %36 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
   %37 = load ptr, ptr %4, align 8, !tbaa !9
   %38 = ptrtoint ptr %37 to i64
@@ -104,9 +104,9 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
 
 42:                                               ; preds = %35
   call void @free(ptr noundef nonnull %.024) #11
-  br label %43
+  br label %42
 
-43:                                               ; preds = %35, %42, %19, %7
+42:                                               ; preds = %35, %42, %19, %7
   %.0 = phi double [ %8, %7 ], [ 0.000000e+00, %19 ], [ %36, %42 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

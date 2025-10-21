@@ -250,14 +250,14 @@ EVP_CIPHER_CTX_cleanup.exit:                      ; preds = %8, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %33, i64 %35, i1 false)
   br label %36
 
-36:                                               ; preds = %32, %25, %EVP_CIPHER_CTX_cleanup.exit
+36:; preds = %32, %25, %EVP_CIPHER_CTX_cleanup.exit
   %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !17
   %39 = and i32 %38, 4096
   %.not22 = icmp eq i32 %39, 0
   br i1 %.not22, label %44, label %40
 
-40:                                               ; preds = %36
+40:; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !18
   %43 = tail call i32 %42(ptr noundef nonnull %1, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %0) #14

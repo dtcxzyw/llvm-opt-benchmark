@@ -1369,10 +1369,10 @@ ggml_gallocr_hash_get.exit185:                    ; preds = %509, %504
   br label %532
 
 532:                                              ; preds = %ggml_gallocr_hash_get.exit185, %487
-  %.sink666 = phi i64 [ %531, %ggml_gallocr_hash_get.exit185 ], [ 0, %487 ]
+  %.sink662 = phi i64 [ %531, %ggml_gallocr_hash_get.exit185 ], [ 0, %487 ]
   %533 = getelementptr inbounds nuw %struct.tensor_alloc, ptr %473, i64 %indvars.iv478
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 16
-  store i64 %.sink666, ptr %534, align 8, !tbaa !105
+  store i64 %.sink662, ptr %534, align 8, !tbaa !105
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, 10
   br i1 %exitcond481.not, label %474, label %478, !llvm.loop !106
@@ -1480,18 +1480,18 @@ ggml_gallocr_hash_get.exit190:                    ; preds = %574, %569
   br i1 %.not171, label %588, label %ggml_gallocr_hash_get.exit190._crit_edge
 
 ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_get.exit190
-  %.pre499 = load ptr, ptr %548, align 8, !tbaa !45
+  %.pre = load ptr, ptr %548, align 8, !tbaa !45
   br label %591
 
 588:                                              ; preds = %ggml_gallocr_hash_get.exit190
   %589 = getelementptr inbounds nuw i8, ptr %555, i64 248
   %590 = load ptr, ptr %589, align 8, !tbaa !96
   %.not172 = icmp eq ptr %590, null
-  %.pre500 = load ptr, ptr %548, align 8, !tbaa !45
+  %.pre496 = load ptr, ptr %548, align 8, !tbaa !45
   br i1 %.not172, label %595, label %591
 
 591:                                              ; preds = %ggml_gallocr_hash_get.exit190._crit_edge, %588
-  %592 = phi ptr [ %.pre499, %ggml_gallocr_hash_get.exit190._crit_edge ], [ %.pre500, %588 ]
+  %592 = phi ptr [ %.pre, %ggml_gallocr_hash_get.exit190._crit_edge ], [ %.pre496, %588 ]
   %593 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %592, i64 %indvars.iv485
   store i32 -1, ptr %593, align 8, !tbaa !107
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
@@ -1501,7 +1501,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 595:                                              ; preds = %588
   %596 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %597 = load i32, ptr %596, align 8, !tbaa !83
-  %598 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %.pre500, i64 %indvars.iv485
+  %598 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %.pre496, i64 %indvars.iv485
   store i32 %597, ptr %598, align 8, !tbaa !107
   %599 = getelementptr inbounds nuw i8, ptr %585, i64 16
   %600 = load i64, ptr %599, align 8, !tbaa !82
@@ -1517,10 +1517,10 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 
 608:                                              ; preds = %595, %591
   %609 = phi ptr [ %607, %595 ], [ %592, %591 ]
-  %.sink669 = phi i64 [ %606, %595 ], [ 0, %591 ]
+  %.sink665 = phi i64 [ %606, %595 ], [ 0, %591 ]
   %610 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %609, i64 %indvars.iv485
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 16
-  store i64 %.sink669, ptr %611, align 8, !tbaa !110
+  store i64 %.sink665, ptr %611, align 8, !tbaa !110
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %612 = load i32, ptr %8, align 8, !tbaa !51
   %613 = sext i32 %612 to i64
@@ -1567,11 +1567,11 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 
 631:                                              ; preds = %.loopexit
   %632 = call i64 @ggml_backend_buffer_get_size(ptr noundef nonnull %630) #12
-  %.pre501.pre = load ptr, ptr %551, align 8, !tbaa !26
+  %.pre497.pre = load ptr, ptr %551, align 8, !tbaa !26
   br label %633
 
 633:                                              ; preds = %.loopexit, %631
-  %.pre501 = phi ptr [ %.pre501.pre, %631 ], [ %628, %.loopexit ]
+  %.pre497 = phi ptr [ %.pre497.pre, %631 ], [ %628, %.loopexit ]
   %634 = phi i64 [ %632, %631 ], [ 0, %.loopexit ]
   %635 = load ptr, ptr %550, align 8, !tbaa !27
   %636 = getelementptr inbounds nuw ptr, ptr %635, i64 %indvars.iv493
@@ -1579,16 +1579,16 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   %638 = getelementptr i8, ptr %637, i64 4112
   %.val = load i64, ptr %638, align 8, !tbaa !41
   %639 = icmp ugt i64 %.val, %634
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre501, i64 %indvars.iv493
-  %.pre503 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
-  br i1 %639, label %._crit_edge502, label %640
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre497, i64 %indvars.iv493
+  %.pre499 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
+  br i1 %639, label %._crit_edge498, label %640
 
 640:                                              ; preds = %633
-  %641 = icmp eq ptr %.pre503, null
-  br i1 %641, label %._crit_edge502, label %655
+  %641 = icmp eq ptr %.pre499, null
+  br i1 %641, label %._crit_edge498, label %655
 
-._crit_edge502:                                   ; preds = %633, %640
-  %642 = phi ptr [ null, %640 ], [ %.pre503, %633 ]
+._crit_edge498:                                   ; preds = %633, %640
+  %642 = phi ptr [ null, %640 ], [ %.pre499, %633 ]
   call void @ggml_backend_buffer_free(ptr noundef %642) #12
   %643 = load ptr, ptr %0, align 8, !tbaa !13
   %644 = getelementptr inbounds nuw ptr, ptr %643, i64 %indvars.iv493
@@ -1600,7 +1600,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   %649 = icmp eq ptr %646, null
   br i1 %649, label %.critedge, label %654
 
-.critedge:                                        ; preds = %._crit_edge502
+.critedge:                                        ; preds = %._crit_edge498
   %650 = load ptr, ptr %0, align 8, !tbaa !13
   %651 = getelementptr inbounds nuw ptr, ptr %650, i64 %indvars.iv493
   %652 = load ptr, ptr %651, align 8, !tbaa !29
@@ -1608,7 +1608,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.ggml_gallocr_reserve_n, ptr noundef %653, i64 noundef %.val) #12
   br label %.critedge179
 
-654:                                              ; preds = %._crit_edge502
+654:                                              ; preds = %._crit_edge498
   call void @ggml_backend_buffer_set_usage(ptr noundef nonnull %646, i32 noundef 2) #12
   br label %655
 

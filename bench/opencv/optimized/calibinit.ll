@@ -31854,8 +31854,8 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_9L2_SimpleIfEEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %94
   %101 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %96, %94 ], [ null, %.thread.i.i24 ]
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %.1.i.i22, ptr %102, align 8, !tbaa !754
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store ptr %.1.i.i22, ptr %103, align 8, !tbaa !754
   %103 = load i32, ptr %70, align 8, !tbaa !508
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %.loopexit
@@ -43757,8 +43757,8 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
 _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_9L2_SimpleIfEEE4NodeEEEPT_m.exit: ; preds = %.thread.i.i20, %80
   %87 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
   %.1.i.i18 = phi ptr [ %82, %80 ], [ null, %.thread.i.i20 ]
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store ptr %.1.i.i18, ptr %88, align 8, !tbaa !1050
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %.1.i.i18, ptr %89, align 8, !tbaa !1050
   %89 = load i32, ptr %56, align 4, !tbaa !540
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph, label %.loopexit

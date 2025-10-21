@@ -1270,7 +1270,7 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
 22:                                               ; preds = %1
   %23 = load i32, ptr @g_displayLevel, align 4, !tbaa !10
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %25, label %61
+  br i1 %24, label %25, label %58
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -1285,52 +1285,52 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
   %33 = shl i64 4, %32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %30, i64 %33, i1 false)
   %.val = load i32, ptr %2, align 8, !tbaa !13
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.val43 = load i32, ptr %34, align 4
-  %35 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %37 = load i64, ptr %36, align 8, !tbaa !31
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %39 = load i32, ptr %38, align 8, !tbaa !32
-  %40 = zext i32 %39 to i64
-  %41 = mul i64 %37, %40
-  %42 = udiv i64 %41, 100
-  %43 = trunc i64 %42 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.val43 = load i32, ptr %31, align 4
+  %32 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %34 = load i64, ptr %33, align 8, !tbaa !31
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %36 = load i32, ptr %35, align 8, !tbaa !32
+  %37 = zext i32 %36 to i64
+  %38 = mul i64 %34, %37
+  %39 = udiv i64 %38, 100
+  %40 = trunc i64 %39 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %44 = getelementptr inbounds nuw i8, ptr %14, i64 %35
-  %45 = sub i64 %8, %35
-  %46 = load ptr, ptr %5, align 8, !tbaa !34
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !36
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !33
-  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %44, i64 noundef %8, i64 noundef %45, ptr noundef %46, ptr noundef %48, i32 noundef %43, i64 noundef %37, i64 noundef %50, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %52, i64 noundef -1) #14
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 %32
+  %42 = sub i64 %8, %32
+  %43 = load ptr, ptr %5, align 8, !tbaa !34
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !35
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %47 = load i64, ptr %46, align 8, !tbaa !36
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !33
+  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %41, i64 noundef %8, i64 noundef %42, ptr noundef %43, ptr noundef %45, i32 noundef %40, i64 noundef %34, i64 noundef %47, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %49, i64 noundef -1) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !78
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %53 = call i32 @COVER_dictSelectionIsError(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
-  %.not = icmp ne i32 %53, 0
-  %54 = load i32, ptr @g_displayLevel, align 4
-  %55 = icmp sgt i32 %54, 0
-  %or.cond42 = select i1 %.not, i1 %55, i1 false
-  br i1 %or.cond42, label %56, label %61
+  %50 = call i32 @COVER_dictSelectionIsError(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
+  %.not = icmp ne i32 %50, 0
+  %51 = load i32, ptr @g_displayLevel, align 4
+  %52 = icmp sgt i32 %51, 0
+  %or.cond42 = select i1 %.not, i1 %52, i1 false
+  br i1 %or.cond42, label %53, label %58
 
-56:                                               ; preds = %28
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %58 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %57) #12
+53:                                               ; preds = %28
+  %54 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %55 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %54) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %56
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %60 = call i32 @fflush(ptr noundef %59)
-  br label %61
+.sink.split:                                      ; preds = %25, %53
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %57 = call i32 @fflush(ptr noundef %56)
+  br label %58
 
-61:                                               ; preds = %.sink.split, %28, %22
+58:                                               ; preds = %.sink.split, %28, %22
   call void @free(ptr noundef %14) #14
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !60
-  call void @COVER_best_finish(ptr noundef %63, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !60
+  call void @COVER_best_finish(ptr noundef %60, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
   call void @free(ptr noundef nonnull %0) #14
   call void @free(ptr noundef %13) #14
   call void @COVER_dictSelectionFree(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14

@@ -599,7 +599,7 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %23, align 8, !tbaa !10
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %25, label %29
+  br i1 %24, label %25, label %H5R__set_obj_token.exit
 
 25:                                               ; preds = %20
   %26 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
@@ -607,11 +607,11 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 286, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.5) #15
   br label %.critedge
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 -1, ptr %30, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i8 4, ptr %31, align 4, !tbaa !15
+H5R__set_obj_token.exit:                          ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 -1, ptr %29, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  store i8 4, ptr %30, align 4, !tbaa !15
   %32 = load i8, ptr @H5R_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %33 = trunc nuw i8 %32 to i1
   %34 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -622,23 +622,23 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
 
 38:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr readonly align 1 %0, i64 %1, i1 false)
-  %39 = trunc i64 %1 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 45
-  store i8 %39, ptr %40, align 1, !tbaa !16
+  %31 = trunc i64 %1 to i8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 45
+  store i8 %31, ptr %32, align 1, !tbaa !16
   br label %H5R__set_obj_token.exit
 
-H5R__set_obj_token.exit:                          ; preds = %29, %38
+39:                                               ; preds = %H5R__set_obj_token.exit, %38
   %41 = call i32 @H5R__encode(ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %47
 
-43:                                               ; preds = %H5R__set_obj_token.exit
+.critedge:                                        ; preds = %31
   %44 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
-  %45 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !17
-  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 295, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.2) #15
+  %44 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !17
+  %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 295, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.2) #15
   br label %.critedge
 
-47:                                               ; preds = %H5R__set_obj_token.exit
+46:                                               ; preds = %39
   %48 = load i64, ptr %5, align 8, !tbaa !17
   %49 = trunc i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 40

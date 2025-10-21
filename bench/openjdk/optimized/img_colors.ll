@@ -482,7 +482,7 @@ init_primaries.exit:                              ; preds = %171
   br label %.lr.ph161.us.i
 
 .lr.ph161.us.i:                                   ; preds = %._crit_edge162.split.us.us.i, %.lr.ph166.i
-  %.pre191.pre.i = phi i32 [ %.pre191.pre196.i, %._crit_edge162.split.us.us.i ], [ %.pre191.pre.pre.i, %.lr.ph166.i ]
+  %.pre191196.i = phi i32 [ %.pre191.pre196.i, %._crit_edge162.split.us.us.i ], [ %.pre191.pre.pre.i, %.lr.ph166.i ]
   %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %._crit_edge162.split.us.us.i ], [ 0, %.lr.ph166.i ]
   %.0117164.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge162.split.us.us.i ], [ %182, %.lr.ph166.i ]
   %226 = trunc nuw nsw i64 %indvars.iv186.i to i32
@@ -500,7 +500,7 @@ init_primaries.exit:                              ; preds = %171
   br label %.lr.ph155.us.us.i
 
 .lr.ph155.us.us.i:                                ; preds = %._crit_edge156.us.us.i, %.lr.ph161.us.i
-  %.pre191.pre199.i = phi i32 [ %.pre191.pre196.i, %._crit_edge156.us.us.i ], [ %.pre191.pre.i, %.lr.ph161.us.i ]
+  %.pre191.i = phi i32 [ %.pre191.pre196.i, %._crit_edge156.us.us.i ], [ %.pre191196.i, %.lr.ph161.us.i ]
   %.pre191.i = phi i32 [ %.pre191192.i, %._crit_edge156.us.us.i ], [ %.pre191.pre.i, %.lr.ph161.us.i ]
   %indvars.iv181.i = phi i64 [ %indvars.iv.next182.i, %._crit_edge156.us.us.i ], [ 0, %.lr.ph161.us.i ]
   %.1118158.us.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge156.us.us.i ], [ %.0117164.us.i, %.lr.ph161.us.i ]
@@ -720,8 +720,8 @@ LUV_convert.exit.us.us.i:                         ; preds = %304, %303, %289
   %365 = getelementptr inbounds nuw i32, ptr @nexttest, i64 %indvars.iv173.i
   store i32 %spec.select.i, ptr %365, align 4
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, -1
-  %.not207.i = icmp eq i64 %indvars.iv173.i, 0
-  br i1 %.not207.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
+  %.not203.i = icmp eq i64 %indvars.iv173.i, 0
+  br i1 %.not203.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
 
 init_virt_cmap.exit:                              ; preds = %._crit_edge162.split.us.us.i, %186, %._crit_edge144.i
   %.pre245 = phi ptr [ %.pre245.pre, %186 ], [ %182, %._crit_edge144.i ], [ %182, %._crit_edge162.split.us.us.i ]
@@ -1477,7 +1477,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
   %.pr = load i32, ptr @num_virt_cmap_entries, align 4
   br i1 %783, label %.lr.ph186.split, label %._crit_edge187, !llvm.loop !27
 
-._crit_edge187:                                   ; preds = %handle_biggest_offenders.exit, %init_virt_cmap.exit
+._crit_edge187.loopexit:                          ; preds = %handle_biggest_offenders.exit, %init_virt_cmap.exit
   %784 = phi i32 [ %.pre247, %init_virt_cmap.exit ], [ %.pr, %handle_biggest_offenders.exit ]
   %.lcssa184 = phi i32 [ %366, %init_virt_cmap.exit ], [ %782, %handle_biggest_offenders.exit ]
   %785 = sext i32 %0 to i64

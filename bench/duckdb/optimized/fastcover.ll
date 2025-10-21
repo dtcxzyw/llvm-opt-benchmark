@@ -1272,7 +1272,7 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
 22:                                               ; preds = %1
   %23 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %25, label %60
+  br i1 %24, label %25, label %57
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -1296,40 +1296,40 @@ define internal void @_ZN11duckdb_zstdL23FASTCOVER_tryParametersEPv(ptr noundef 
   %41 = udiv i64 %40, 100
   %42 = trunc i64 %41 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %43 = getelementptr inbounds nuw i8, ptr %14, i64 %34
-  %44 = sub i64 %8, %34
-  %45 = load ptr, ptr %5, align 8, !tbaa !29
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !30
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !31
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !28
-  call void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %4, ptr noundef nonnull %43, i64 noundef %8, i64 noundef %44, ptr noundef %45, ptr noundef %47, i32 noundef %42, i64 noundef %36, i64 noundef %49, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef %51, i64 noundef -1)
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 %34
+  %41 = sub i64 %8, %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !29
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !30
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %46 = load i64, ptr %45, align 8, !tbaa !31
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !28
+  call void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %4, ptr noundef nonnull %40, i64 noundef %8, i64 noundef %41, ptr noundef %42, ptr noundef %44, i32 noundef %42, i64 noundef %36, i64 noundef %46, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef %48, i64 noundef -1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %52 = call noundef i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsErrorENS_19COVER_dictSelectionE(ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
-  %.not = icmp ne i32 %52, 0
-  %53 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4
-  %54 = icmp sgt i32 %53, 0
-  %or.cond42 = select i1 %.not, i1 %54, i1 false
-  br i1 %or.cond42, label %55, label %60
+  %49 = call noundef i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsErrorENS_19COVER_dictSelectionE(ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
+  %.not = icmp ne i32 %49, 0
+  %50 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4
+  %51 = icmp sgt i32 %50, 0
+  %or.cond42 = select i1 %.not, i1 %51, i1 false
+  br i1 %or.cond42, label %52, label %57
 
-55:                                               ; preds = %28
-  %56 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %57 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %56) #12
+52:                                               ; preds = %28
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %54 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %53) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %55
-  %58 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %59 = call i32 @fflush(ptr noundef %58)
-  br label %60
+.sink.split:                                      ; preds = %25, %52
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %56 = call i32 @fflush(ptr noundef %55)
+  br label %57
 
-60:                                               ; preds = %.sink.split, %28, %22
+57:                                               ; preds = %.sink.split, %28, %22
   call void @free(ptr noundef %14) #15
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  call void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE(ptr noundef %62, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !57
+  call void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE(ptr noundef %59, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %2, ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)
   call void @free(ptr noundef nonnull %0) #15
   call void @free(ptr noundef %13) #15
   call void @_ZN11duckdb_zstd23COVER_dictSelectionFreeENS_19COVER_dictSelectionE(ptr noundef nonnull byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 %3)

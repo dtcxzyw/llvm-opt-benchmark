@@ -181,10 +181,10 @@ ReallocateWindowBuffer.exit17.thread.i:           ; preds = %29
 
 ReallocateWindowBuffer.exit17.i:                  ; preds = %29
   store ptr %35, ptr @rstepbuf, align 8, !tbaa !21
-  br i1 %37, label %ResetSampleFrequency.exit.thread, label %38
+  br i1 %37, label %ResetSampleFrequency.exit.thread, label %33
 
-38:                                               ; preds = %ReallocateWindowBuffer.exit17.i
-  %39 = load i32, ptr @sampleWindow, align 4, !tbaa !18
+33:                                               ; preds = %ReallocateWindowBuffer.exit17.i
+  %34 = load i32, ptr @sampleWindow, align 4, !tbaa !18
   %40 = load ptr, ptr @loutbuf, align 8, !tbaa !21
   %41 = add i32 %39, 10
   %42 = zext i32 %41 to i64
@@ -195,19 +195,19 @@ ReallocateWindowBuffer.exit17.i:                  ; preds = %29
   %or.cond.i.i18.i = and i1 %45, %46
   br i1 %or.cond.i.i18.i, label %ReallocateWindowBuffer.exit19.thread.i, label %ReallocateWindowBuffer.exit19.i
 
-ReallocateWindowBuffer.exit19.thread.i:           ; preds = %38
+ReallocateWindowBuffer.exit19.thread.i:           ; preds = %33
   tail call void @free(ptr noundef %40) #15
   store ptr null, ptr @loutbuf, align 8, !tbaa !21
   br label %ResetSampleFrequency.exit.thread
 
-ReallocateWindowBuffer.exit19.i:                  ; preds = %38
+ReallocateWindowBuffer.exit19.i:                  ; preds = %33
   store ptr %44, ptr @loutbuf, align 8, !tbaa !21
-  br i1 %46, label %ResetSampleFrequency.exit.thread, label %47
+  br i1 %46, label %ResetSampleFrequency.exit.thread, label %37
 
-47:                                               ; preds = %ReallocateWindowBuffer.exit19.i
-  %48 = load i32, ptr @sampleWindow, align 4, !tbaa !18
+37:                                               ; preds = %ReallocateWindowBuffer.exit19.i
+  %38 = load i32, ptr @sampleWindow, align 4, !tbaa !18
   %49 = load ptr, ptr @routbuf, align 8, !tbaa !21
-  %50 = add i32 %48, 10
+  %50 = add i32 %38, 10
   %51 = zext i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 2
   %53 = tail call ptr @realloc(ptr noundef %49, i64 noundef range(i64 0, 17179869181) %52) #17
@@ -216,58 +216,58 @@ ReallocateWindowBuffer.exit19.i:                  ; preds = %38
   %or.cond.i.i20.i = and i1 %54, %55
   br i1 %or.cond.i.i20.i, label %ReallocateWindowBuffer.exit21.thread.i, label %ReallocateWindowBuffer.exit21.i
 
-ReallocateWindowBuffer.exit21.thread.i:           ; preds = %47
+ReallocateWindowBuffer.exit21.thread.i:           ; preds = %37
   tail call void @free(ptr noundef %49) #15
   store ptr null, ptr @routbuf, align 8, !tbaa !21
   br label %ResetSampleFrequency.exit.thread
 
-ReallocateWindowBuffer.exit21.i:                  ; preds = %47
+ReallocateWindowBuffer.exit21.i:                  ; preds = %37
   store ptr %53, ptr @routbuf, align 8, !tbaa !21
   br i1 %55, label %ResetSampleFrequency.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %ReallocateWindowBuffer.exit21.i
-  %56 = load ptr, ptr @rstepbuf, align 8, !tbaa !21
-  %57 = load ptr, ptr @loutbuf, align 8, !tbaa !21
-  %58 = load ptr, ptr @lstepbuf, align 8, !tbaa !21
-  br label %59
+  %41 = load ptr, ptr @rstepbuf, align 8, !tbaa !21
+  %42 = load ptr, ptr @loutbuf, align 8, !tbaa !21
+  %43 = load ptr, ptr @lstepbuf, align 8, !tbaa !21
+  br label %44
 
-59:                                               ; preds = %59, %.preheader.i
+44:                                               ; preds = %44, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %59 ]
-  %60 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %60, align 4, !tbaa !23
-  %61 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %61, align 4, !tbaa !23
-  %62 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %62, align 4, !tbaa !23
-  %63 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %63, align 4, !tbaa !23
-  %64 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %64, align 4, !tbaa !23
-  %65 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %65, align 4, !tbaa !23
+  %45 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %45, align 4, !tbaa !23
+  %46 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !23
+  %47 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %47, align 4, !tbaa !23
+  %48 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %48, align 4, !tbaa !23
+  %49 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %49, align 4, !tbaa !23
+  %50 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %50, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %66, label %59, !llvm.loop !25
+  br i1 %exitcond.not.i, label %51, label %44, !llvm.loop !25
 
-66:                                               ; preds = %59
+51:                                               ; preds = %44
   store double 0.000000e+00, ptr @lsum, align 8, !tbaa !26
   store double 0.000000e+00, ptr @rsum, align 8, !tbaa !26
   store i64 0, ptr @totsamp, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @A, i8 noundef 0, i64 noundef 48000, i1 noundef false) #15
   store ptr getelementptr inbounds nuw (i8, ptr @linprebuf, i64 40), ptr @linpre, align 8, !tbaa !21
   store ptr getelementptr inbounds nuw (i8, ptr @rinprebuf, i64 40), ptr @rinpre, align 8, !tbaa !21
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store ptr %67, ptr @lstep, align 8, !tbaa !21
-  %68 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store ptr %68, ptr @rstep, align 8, !tbaa !21
-  %69 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  store ptr %69, ptr @lout, align 8, !tbaa !21
-  %70 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %70, ptr @rout, align 8, !tbaa !21
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  store ptr %52, ptr @lstep, align 8, !tbaa !21
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store ptr %53, ptr @rstep, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store ptr %54, ptr @lout, align 8, !tbaa !21
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store ptr %55, ptr @rout, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @B, i8 noundef 0, i64 noundef 48000, i1 noundef false) #15
   br label %ResetSampleFrequency.exit.thread
 
-ResetSampleFrequency.exit.thread:                 ; preds = %ReallocateWindowBuffer.exit21.thread.i, %ReallocateWindowBuffer.exit19.thread.i, %ReallocateWindowBuffer.exit17.thread.i, %ReallocateWindowBuffer.exit.thread.i, %CreateGainFilter.exit.thread.i, %ReallocateWindowBuffer.exit.i, %ReallocateWindowBuffer.exit17.i, %ReallocateWindowBuffer.exit19.i, %ReallocateWindowBuffer.exit21.i, %66
+ResetSampleFrequency.exit.thread:                 ; preds = %ReallocateWindowBuffer.exit21.thread.i, %ReallocateWindowBuffer.exit19.thread.i, %ReallocateWindowBuffer.exit17.thread.i, %ReallocateWindowBuffer.exit.thread.i, %CreateGainFilter.exit.thread.i, %ReallocateWindowBuffer.exit.i, %ReallocateWindowBuffer.exit17.i, %ReallocateWindowBuffer.exit19.i, %ReallocateWindowBuffer.exit21.i, %51
   %.0 = phi i32 [ 1, %66 ], [ 0, %ReallocateWindowBuffer.exit21.i ], [ 0, %ReallocateWindowBuffer.exit19.i ], [ 0, %ReallocateWindowBuffer.exit17.i ], [ 0, %ReallocateWindowBuffer.exit.i ], [ 0, %CreateGainFilter.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit.thread.i ], [ 0, %ReallocateWindowBuffer.exit17.thread.i ], [ 0, %ReallocateWindowBuffer.exit19.thread.i ], [ 0, %ReallocateWindowBuffer.exit21.thread.i ]
   ret i32 %.0
 }

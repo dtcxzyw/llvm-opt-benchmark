@@ -626,7 +626,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
 5:                                                ; preds = %4
   %6 = tail call ptr @__errno_location() #32
   store i32 22, ptr %6, align 4, !tbaa !60
-  br label %44
+  br label %43
 
 7:                                                ; preds = %4
   %8 = and i64 %2, 3
@@ -638,12 +638,12 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #32
   store i32 22, ptr %10, align 4, !tbaa !60
-  br label %44
+  br label %43
 
 11:                                               ; preds = %7
   %12 = tail call ptr @__errno_location() #32
   store i32 22, ptr %12, align 4, !tbaa !60
-  br label %44
+  br label %43
 
 13:                                               ; preds = %7
   %.not33 = icmp eq ptr %1, null
@@ -652,8 +652,8 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
 .preheader:                                       ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %.not39 = icmp eq i32 %15, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i32 %15, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -664,7 +664,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
 18:                                               ; preds = %13
   %19 = tail call ptr @__errno_location() #32
   store i32 22, ptr %19, align 4, !tbaa !60
-  br label %44
+  br label %43
 
 20:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -682,12 +682,12 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
 25:                                               ; preds = %21
   %26 = tail call ptr @__errno_location() #32
   store i32 16, ptr %26, align 4, !tbaa !60
-  br label %44
+  br label %43
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %27 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #30
   %.not34 = icmp eq ptr %27, null
-  br i1 %.not34, label %44, label %28
+  br i1 %.not34, label %43, label %28
 
 28:                                               ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -704,12 +704,12 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
   tail call void @free(ptr noundef nonnull %27) #30
   br label %44
 
-37:                                               ; preds = %28
+37:; preds = %28
   %38 = load i32, ptr %14, align 4, !tbaa !3
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %35, i64 %39
+  %41 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %35, i64 %39
   store ptr %27, ptr %40, align 8, !tbaa !32
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %2, ptr %41, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %
   store ptr %35, ptr %29, align 8, !tbaa !31
   br label %44
 
-44:                                               ; preds = %._crit_edge, %37, %36, %25, %18, %11, %9, %5
+43:                                               ; preds = %._crit_edge, %37, %36, %25, %18, %11, %9, %5
   %.027 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %25 ], [ 0, %37 ], [ -1, %36 ], [ -1, %18 ], [ -1, %9 ], [ -1, %._crit_edge ]
   ret i32 %.027
 }

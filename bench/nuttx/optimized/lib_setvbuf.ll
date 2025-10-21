@@ -40,7 +40,7 @@ define range(i32 -1, 1) i32 @setvbuf(ptr noundef captures(none) %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %17, %19
-  br i1 %.not, label %20, label %47
+  br i1 %.not, label %20, label %45
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 194
@@ -71,12 +71,12 @@ define range(i32 -1, 1) i32 @setvbuf(ptr noundef captures(none) %0, ptr noundef 
 30:                                               ; preds = %27
   %31 = tail call noalias ptr @malloc(i64 noundef %.053) #5
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %47, label %36
+  br i1 %32, label %45, label %36
 
 33:                                               ; preds = %26
   %34 = and i8 %22, 8
   %35 = or i8 %.050, %34
-  br label %46
+  br label %44
 
 36:                                               ; preds = %20, %30, %28
   %.052 = phi ptr [ %.055, %28 ], [ %31, %30 ], [ null, %20 ]
@@ -84,39 +84,39 @@ define range(i32 -1, 1) i32 @setvbuf(ptr noundef captures(none) %0, ptr noundef 
   %.not60 = icmp eq ptr %17, null
   br i1 %.not60, label %42, label %37
 
-37:                                               ; preds = %36
+37:; preds = %36
   %38 = load i8, ptr %21, align 2
   %39 = and i8 %38, 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %42
 
-41:                                               ; preds = %37
+39:                                               ; preds = %37
   tail call void @free(ptr noundef nonnull %19)
-  br label %42
+  br label %40
 
-42:                                               ; preds = %41, %37, %36
+40:                                               ; preds = %39, %37, %36
   store ptr %.052, ptr %18, align 8
   store ptr %.052, ptr %16, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %.052, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %.052, i64 %.053
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %44, ptr %45, align 8
-  br label %46
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %.052, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %.052, i64 %.053
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %42, ptr %43, align 8
+  br label %44
 
-46:                                               ; preds = %42, %33
+44:                                               ; preds = %40, %33
   %.151 = phi i8 [ %.2, %42 ], [ %35, %33 ]
   store i8 %.151, ptr %21, align 2
   tail call void @funlockfile(ptr noundef nonnull %0)
   br label %50
 
-47:                                               ; preds = %30, %15
+45:                                               ; preds = %30, %15
   %.0 = phi i32 [ 16, %15 ], [ 12, %30 ]
   tail call void @funlockfile(ptr noundef nonnull %0)
   br label %48
 
 48:                                               ; preds = %5, %4, %47
-  %.1 = phi i32 [ %.0, %47 ], [ 22, %4 ], [ 22, %5 ]
+  %.054 = phi i32 [ %.0, %47 ], [ 22, %4 ], [ 22, %5 ]
   %49 = tail call ptr @__errno() #6
   store i32 %.1, ptr %49, align 4
   br label %50

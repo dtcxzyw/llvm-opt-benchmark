@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pqMakeEmptyPGconn() #16
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %62, label %4
+  br i1 %3, label %60, label %4
 
 4:                                                ; preds = %1
   %.not = icmp eq ptr %0, null
@@ -37,7 +37,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str) #16
-  br label %62
+  br label %60
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -47,17 +47,17 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #16
-  br label %62
+  br label %60
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 344
   store i8 1, ptr %12, align 8
   %13 = tail call zeroext i1 @pqCopyPGconn(ptr noundef nonnull %0, ptr noundef nonnull %2) #16
-  br i1 %13, label %14, label %62
+  br i1 %13, label %14, label %60
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @pqConnectOptions2(ptr noundef nonnull %2) #16
-  br i1 %15, label %16, label %62
+  br i1 %15, label %16, label %60
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -146,7 +146,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %.not62 = icmp eq ptr %52, null
   br i1 %.not62, label %60, label %54
 
-54:                                               ; preds = %49
+54: ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 664
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %55, ptr noundef nonnull align 8 dereferenceable(136) %56, i64 136, i1 false)
@@ -161,9 +161,9 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 416
   store i32 1, ptr %61, align 8
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #16
-  br label %62
+  br label %60
 
-62:                                               ; preds = %14, %11, %1, %60, %54, %10, %5
+60:                                               ; preds = %14, %11, %1, %60, %54, %10, %5
   ret ptr %2
 }
 

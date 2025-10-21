@@ -289,9 +289,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   store ptr null, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  br i1 %14, label %17, label %23
+  br i1 %14, label %18, label %23
 
-17:                                               ; preds = %13
+18:                                               ; preds = %13
   store i8 104, ptr %15, align 2, !tbaa !3
   store i8 0, ptr %16, align 1, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -304,7 +304,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   store i8 0, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %22, align 4, !tbaa !3
-  br label %33
+  br label %32
 
 23:                                               ; preds = %13
   store i8 102, ptr %15, align 2, !tbaa !3
@@ -313,26 +313,26 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !3
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %26, label %28
+  br i1 %.not, label %25, label %27
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %27, align 4, !tbaa !22
-  br label %33
+25:                                               ; preds = %23
+  %26 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %26, align 4, !tbaa !22
+  br label %32
 
-28:                                               ; preds = %23
+27:                                               ; preds = %23
   store ptr %1, ptr %24, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %2, ptr %29, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %3, ptr %30, align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %4, ptr %31, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 0, ptr %32, align 8, !tbaa !20
-  br label %33
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 %2, ptr %28, align 8, !tbaa !17
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %3, ptr %29, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store ptr %4, ptr %30, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i32 0, ptr %31, align 8, !tbaa !20
+  br label %32
 
-33:                                               ; preds = %17, %28, %26
+32:                                               ; preds = %18, %27, %25
   %.0 = phi i32 [ -1, %26 ], [ 0, %28 ], [ 0, %17 ]
   ret i32 %.0
 }
@@ -461,7 +461,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noun
   store ptr null, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  br i1 %4, label %19, label %7
+  br i1 %4, label %17, label %7
 
 7:                                                ; preds = %3
   store i8 102, ptr %5, align 2, !tbaa !3
@@ -491,31 +491,31 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noun
   br label %25
 
 _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %7, %10
-  %18 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %18, align 4, !tbaa !22
-  br label %27
+  %16 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %16, align 4, !tbaa !22
+  br label %25
 
-19:                                               ; preds = %3
+17:                                               ; preds = %3
   store i8 101, ptr %5, align 2, !tbaa !3
-  %20 = trunc nuw nsw i64 %1 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %20, ptr %21, align 1, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 0, ptr %23, align 1, !tbaa !3
-  store i8 0, ptr %22, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %24, align 4, !tbaa !3
+  %18 = trunc nuw nsw i64 %1 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 %18, ptr %19, align 1, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 0, ptr %21, align 1, !tbaa !3
+  store i8 0, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %22, align 4, !tbaa !3
   store i8 12, ptr %6, align 1, !tbaa !3
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %27, label %25
+  br i1 %.not, label %25, label %23
 
-25:                                               ; preds = %.thread, %19
-  %26 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %2, i64 %1, i1 false)
-  br label %27
+23:                                               ; preds = %.thread, %17
+  %24 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %2, i64 %1, i1 false)
+  br label %25
 
-27:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %19, %25
+25:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %17, %23
   %.0.i7 = phi i32 [ 0, %19 ], [ 0, %25 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
   ret i32 %.0.i7
 }
@@ -535,7 +535,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef
   store ptr null, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  br i1 %4, label %19, label %7
+  br i1 %4, label %17, label %7
 
 7:                                                ; preds = %3
   store i8 102, ptr %5, align 2, !tbaa !3
@@ -565,31 +565,31 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef
   br label %25
 
 _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %7, %10
-  %18 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %18, align 4, !tbaa !22
-  br label %27
+  %16 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %16, align 4, !tbaa !22
+  br label %25
 
-19:                                               ; preds = %3
+17:                                               ; preds = %3
   store i8 101, ptr %5, align 2, !tbaa !3
-  %20 = trunc nuw nsw i64 %1 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %20, ptr %21, align 1, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 0, ptr %23, align 1, !tbaa !3
-  store i8 0, ptr %22, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %24, align 4, !tbaa !3
+  %18 = trunc nuw nsw i64 %1 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 %18, ptr %19, align 1, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 0, ptr %21, align 1, !tbaa !3
+  store i8 0, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %22, align 4, !tbaa !3
   store i8 16, ptr %6, align 1, !tbaa !3
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %27, label %25
+  br i1 %.not, label %25, label %23
 
-25:                                               ; preds = %.thread, %19
-  %26 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %2, i64 %1, i1 false)
-  br label %27
+23:                                               ; preds = %.thread, %17
+  %24 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %2, i64 %1, i1 false)
+  br label %25
 
-27:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %19, %25
+25:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %17, %23
   %.0.i7 = phi i32 [ 0, %19 ], [ 0, %25 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
   ret i32 %.0.i7
 }

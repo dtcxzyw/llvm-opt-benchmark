@@ -2628,9 +2628,9 @@ archive_read_disk_gname.exit.thread.i:            ; preds = %648, %archive_read_
   %669 = load i32, ptr %13, align 8, !tbaa !96
   %670 = call i32 @archive_read_disk_entry_from_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %669, ptr noundef nonnull %.0146.i) #17
   %671 = icmp eq i32 %670, 0
-  %.not217 = xor i1 %671, true
-  %brmerge = or i1 %.not217, %.not187.i
-  %.mux = select i1 %.not217, i32 %670, i32 0
+  %.not216 = xor i1 %671, true
+  %brmerge = or i1 %.not216, %.not187.i
+  %.mux = select i1 %.not216, i32 %670, i32 0
   br i1 %brmerge, label %674, label %672
 
 672:                                              ; preds = %668
@@ -2737,9 +2737,9 @@ tree_enter_initial_dir.exit:                      ; preds = %683, %687, %691
   %720 = call noalias ptr @malloc(i64 noundef %719) #23
   store ptr %720, ptr %714, align 8, !tbaa !105
   %721 = icmp eq ptr %720, null
-  br i1 %721, label %setup_sparse.exit, label %._crit_edge38.i
+  br i1 %721, label %setup_sparse.exit, label %722
 
-._crit_edge38.i:                                  ; preds = %713
+722:                                              ; preds = %713
   %.pre.i47 = load i32, ptr %710, align 8, !tbaa !151
   br label %722
 

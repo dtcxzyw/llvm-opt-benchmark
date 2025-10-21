@@ -1552,7 +1552,7 @@ define hidden noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 nound
   %20 = load i32, ptr @_ZN10NMTPreInit16_num_mallocs_preE, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr @_ZN10NMTPreInit16_num_mallocs_preE, align 4
-  br label %69
+  br label %67
 
 _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   %22 = icmp sgt i32 %4, 1
@@ -1580,7 +1580,7 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
 
 37:                                               ; preds = %27
   %38 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %5, i64 noundef %33, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #28
-  br i1 %38, label %69, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  br i1 %38, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 39:                                               ; preds = %25
   %40 = zext i8 %1 to i64
@@ -1602,7 +1602,7 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
 
 _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %43
   %52 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %1, i64 noundef %5, i64 noundef %49, ptr noundef nonnull %41) #28
-  br i1 %52, label %69, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  br i1 %52, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %39, %43, %27, %_ZN10NMTPreInit13handle_mallocEPPvm.exit, %37, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
   %53 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
@@ -1610,33 +1610,33 @@ _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %39, %43,
   %55 = select i1 %54, i64 18, i64 0
   %56 = add i64 %55, %5
   %57 = icmp ult i64 %56, %5
-  br i1 %57, label %69, label %58
+  br i1 %57, label %67, label %58
 
 58:                                               ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
   %59 = tail call noalias ptr @malloc(i64 noundef %56) #31
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %69, label %61
+  br i1 %60, label %67, label %61
 
 61:                                               ; preds = %58
   %62 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %63 = icmp sgt i32 %62, 1
   br i1 %63, label %64, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
 
-64:                                               ; preds = %61
-  %65 = tail call noundef ptr @_ZN13MallocTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack(ptr noundef nonnull %59, i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #28
+62:                                               ; preds = %61
+  %63 = tail call noundef ptr @_ZN13MallocTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack(ptr noundef nonnull %59, i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   br label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
 
-_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %61, %64
-  %.0.i19 = phi ptr [ %65, %64 ], [ %59, %61 ]
-  %66 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %69
+_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %61, %62
+  %.0.i19 = phi ptr [ %63, %64 ], [ %59, %61 ]
+  %64 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %67
 
-68:                                               ; preds = %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
+66:                                               ; preds = %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i19, i8 0, i64 %5, i1 false)
-  br label %69
+  br label %67
 
-69:                                               ; preds = %37, %68, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
+67:                                               ; preds = %37, %66, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
   %.0 = phi ptr [ %19, %11 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread ], [ null, %58 ], [ %.0.i19, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit ], [ %.0.i19, %68 ], [ null, %37 ]
   ret ptr %.0
 }

@@ -3461,8 +3461,8 @@ hwloc__alloc_read_path_as_cpulist.exit.thread:    ; preds = %hwloc__alloc_read_p
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #29
-  %.not175 = icmp eq ptr %16, null
-  br i1 %.not175, label %.thread.sink.split, label %.lr.ph
+  %.not176 = icmp eq ptr %16, null
+  br i1 %.not176, label %.thread.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread, %25
   %17 = phi ptr [ %31, %25 ], [ %16, %hwloc__alloc_read_path_as_cpulist.exit.thread ]
@@ -3486,7 +3486,7 @@ hwloc__alloc_read_path_as_cpulist.exit.thread:    ; preds = %hwloc__alloc_read_p
   store i32 %27, ptr @hwloc_linux_find_kernel_max_numnodes.max_numnodes, align 4, !tbaa !3
   %28 = sdiv i32 %26, 32
   %29 = sext i32 %28 to i64
-  %30 = shl nsw i64 %29, 3
+  %29 = shl nsw i64 %29, 3
   %31 = call noalias ptr @malloc(i64 noundef %30) #29
   %.not17 = icmp eq ptr %31, null
   br i1 %.not17, label %.thread.sink.split, label %.lr.ph

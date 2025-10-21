@@ -600,7 +600,7 @@ sdl_draw_buf_realloc_aligned.exit:                ; preds = %1, %13
   tail call void @SDL_DestroyTexture(ptr noundef nonnull %26) #6
   br label %28
 
-28:                                               ; preds = %27, %sdl_draw_buf_realloc_aligned.exit
+28:; preds = %27, %sdl_draw_buf_realloc_aligned.exit
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = load i32, ptr %0, align 8, !tbaa !16

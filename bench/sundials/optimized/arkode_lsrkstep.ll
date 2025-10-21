@@ -625,13 +625,13 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   store i64 %41, ptr %39, align 8, !tbaa !22
   br label %42
 
-42:                                               ; preds = %36, %26
+42:; preds = %36, %26
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %44 = load ptr, ptr %43, align 8, !tbaa !23
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %58
 
-46:                                               ; preds = %42
+46:; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %48 = load i32, ptr %47, align 8, !tbaa !21
   %49 = sext i32 %48 to i64
@@ -640,7 +640,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %51 = icmp eq ptr %50, null
   br i1 %51, label %60, label %52
 
-52:                                               ; preds = %46
+52:; preds = %46
   %53 = load i32, ptr %47, align 8, !tbaa !21
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 880
