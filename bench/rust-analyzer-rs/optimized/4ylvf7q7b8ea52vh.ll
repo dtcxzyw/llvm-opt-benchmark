@@ -404,18 +404,25 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17ha202f3766644aa71E.llvm.979910700339791004"(i64 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i64 %0, 2
-  %3 = add i64 %0, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = lshr i64 -1, %4
-  %.0 = select i1 %2, i64 0, i64 %5
-  %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0, i64 1)
-  %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %not. = xor i1 %7, true
+  br i1 %2, label %8, label %3
+
+3:                                                ; preds = %1
+  %4 = add i64 %0, -1
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %6 = lshr i64 -1, %5
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 1)
+  br label %8
+
+8:                                                ; preds = %1, %3
+  %.0 = phi { i64, i1 } [ %7, %3 ], [ { i64 1, i1 false }, %1 ]
+  %9 = extractvalue { i64, i1 } %.0, 1
+  %10 = extractvalue { i64, i1 } %.0, 0
+  %.sroa.3.0 = select i1 %9, i64 undef, i64 %10
+  %not. = xor i1 %9, true
   %.sroa.0.0 = zext i1 %not. to i64
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
-  ret { i64, i64 } %10
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -426,18 +433,25 @@ define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h06e7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17h8b1cf4a6fddc71ccE.llvm.979910700339791004(i64 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i64 %0, 2
-  %3 = add i64 %0, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = lshr i64 -1, %4
-  %.0.i = select i1 %2, i64 0, i64 %5
-  %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i, i64 1)
-  %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %not..i = xor i1 %7, true
+  br i1 %2, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17ha202f3766644aa71E.llvm.979910700339791004.exit", label %3
+
+3:                                                ; preds = %1
+  %4 = add i64 %0, -1
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %6 = lshr i64 -1, %5
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 1)
+  br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17ha202f3766644aa71E.llvm.979910700339791004.exit"
+
+"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next_power_of_two17ha202f3766644aa71E.llvm.979910700339791004.exit": ; preds = %1, %3
+  %.0.i = phi { i64, i1 } [ %7, %3 ], [ { i64 1, i1 false }, %1 ]
+  %8 = extractvalue { i64, i1 } %.0.i, 1
+  %9 = extractvalue { i64, i1 } %.0.i, 0
+  %.sroa.3.0.i = select i1 %8, i64 undef, i64 %9
+  %not..i = xor i1 %8, true
   %.sroa.0.0.i = zext i1 %not..i to i64
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
-  ret { i64, i64 } %10
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.3.0.i, 1
+  ret { i64, i64 } %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -826,43 +840,49 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17hff
   %6 = load i64, ptr %5, align 8, !alias.scope !175, !noalias !178
   %.sink4.i = select i1 %4, i64 %6, i64 %3
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i, i64 1)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %.thread, label %9
+  %8 = extractvalue { i64, i1 } %7, 0
+  %9 = extractvalue { i64, i1 } %7, 1
+  br i1 %9, label %.thread, label %10
 
-9:                                                ; preds = %1
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = icmp ult i64 %10, 2
-  %12 = add i64 %10, -1
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
-  %14 = lshr i64 -1, %13
-  %.0.i.i = select i1 %11, i64 0, i64 %14
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i, i64 1)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+10:                                               ; preds = %1
+  %11 = icmp ult i64 %8, 2
+  br i1 %11, label %17, label %12
 
-.thread:                                          ; preds = %1, %9
+12:                                               ; preds = %10
+  %13 = add i64 %8, -1
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+  %15 = lshr i64 -1, %14
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 1)
+  br label %17
+
+17:                                               ; preds = %12, %10
+  %.0.i.i = phi { i64, i1 } [ %16, %12 ], [ { i64 1, i1 false }, %10 ]
+  %18 = extractvalue { i64, i1 } %.0.i.i, 1
+  br i1 %18, label %.thread, label %19
+
+.thread:                                          ; preds = %1, %17
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.d9e016162abdc04bcb57427de26a4941.0.llvm.979910700339791004, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9e016162abdc04bcb57427de26a4941.24.llvm.979910700339791004) #22
   unreachable
 
-17:                                               ; preds = %9
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h23d9608f7670a8caE.llvm.979910700339791004"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %18)
-  %20 = extractvalue { i64, i64 } %19, 0
-  switch i64 %20, label %22 [
+19:                                               ; preds = %17
+  %20 = extractvalue { i64, i1 } %.0.i.i, 0
+  %21 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h23d9608f7670a8caE.llvm.979910700339791004"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %20)
+  %22 = extractvalue { i64, i64 } %21, 0
+  switch i64 %22, label %24 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h990bf60cff8d81d6E.llvm.979910700339791004.exit
-    i64 0, label %21
+    i64 0, label %23
   ]
 
-21:                                               ; preds = %17
+23:                                               ; preds = %19
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d9e016162abdc04bcb57427de26a4941.0.llvm.979910700339791004, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9e016162abdc04bcb57427de26a4941.23.llvm.979910700339791004) #22
   unreachable
 
-22:                                               ; preds = %17
-  %23 = extractvalue { i64, i64 } %19, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %20, i64 noundef %23) #22
+24:                                               ; preds = %19
+  %25 = extractvalue { i64, i64 } %21, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %22, i64 noundef %25) #22
   unreachable
 
-_ZN8smallvec10infallible17h990bf60cff8d81d6E.llvm.979910700339791004.exit: ; preds = %17
+_ZN8smallvec10infallible17h990bf60cff8d81d6E.llvm.979910700339791004.exit: ; preds = %19
   ret void
 }
 

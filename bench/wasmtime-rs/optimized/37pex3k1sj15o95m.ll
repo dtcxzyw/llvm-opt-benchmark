@@ -24934,80 +24934,79 @@ _ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit: ; preds =
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %38 = load i16, ptr %37, align 2, !alias.scope !4288
   %39 = icmp eq i16 %38, %35
-  %or.cond.i.not133.not137 = select i1 %36, i1 %39, i1 false
+  %or.cond.i.not128.not132 = select i1 %36, i1 %39, i1 false
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !alias.scope !4288
   %42 = icmp eq i64 %41, %33
-  %.sroa.3.0.i = select i1 %or.cond.i.not133.not137, i64 %41, i64 undef
-  %narrow.i.not.not = select i1 %or.cond.i.not133.not137, i1 %42, i1 false
+  %.sroa.3.0.i = select i1 %or.cond.i.not128.not132, i64 %41, i64 undef
+  %narrow.i.not.not = select i1 %or.cond.i.not128.not132, i1 %42, i1 false
   %43 = icmp sgt i64 %.sroa.3.0.i, -1
-  %.sroa.6.0 = select i1 %narrow.i.not.not, i64 %.sroa.3.0.i, i64 undef
   %narrow = select i1 %narrow.i.not.not, i1 %43, i1 false
   %44 = load i8, ptr %4, align 8, !range !3795, !alias.scope !4291, !noundef !4
   %45 = icmp eq i8 %44, 1
-  br i1 %45, label %46, label %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit110
+  br i1 %45, label %46, label %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit106
 
 46:                                               ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val.i102 = load i32, ptr %47, align 8, !range !3801, !alias.scope !4291, !noundef !4
+  %.val.i98 = load i32, ptr %47, align 8, !range !3801, !alias.scope !4291, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %.val5.i103 = load i32, ptr %49, align 4, !alias.scope !4291
-  %.val6.i104 = load i32, ptr %48, align 8, !range !3801, !alias.scope !4291, !noundef !4
+  %.val5.i99 = load i32, ptr %49, align 4, !alias.scope !4291
+  %.val6.i100 = load i32, ptr %48, align 8, !range !3801, !alias.scope !4291, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %.val7.i105 = load i32, ptr %50, align 4, !alias.scope !4291
-  %51 = icmp eq i32 %.val.i102, %.val6.i104
-  br i1 %51, label %52, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106"
+  %.val7.i101 = load i32, ptr %50, align 4, !alias.scope !4291
+  %51 = icmp eq i32 %.val.i98, %.val6.i100
+  br i1 %51, label %52, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102"
 
 52:                                               ; preds = %46
-  switch i32 %.val.i102, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106" [
+  switch i32 %.val.i98, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102" [
     i32 1, label %53
     i32 2, label %55
   ]
 
 53:                                               ; preds = %52
-  %54 = icmp eq i32 %.val5.i103, %.val7.i105
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106"
+  %54 = icmp eq i32 %.val5.i99, %.val7.i101
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102"
 
 55:                                               ; preds = %52
-  %56 = icmp eq i32 %.val5.i103, %.val7.i105
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106"
+  %56 = icmp eq i32 %.val5.i99, %.val7.i101
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106": ; preds = %55, %53, %52, %46
-  %.0.shrunk.i.i107 = phi i1 [ false, %46 ], [ true, %52 ], [ %54, %53 ], [ %56, %55 ]
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102": ; preds = %55, %53, %52, %46
+  %.0.shrunk.i.i103 = phi i1 [ false, %46 ], [ true, %52 ], [ %54, %53 ], [ %56, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %58 = load i64, ptr %57, align 8, !alias.scope !4291
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %60 = load i64, ptr %59, align 8, !alias.scope !4291
   %61 = icmp eq i64 %58, %60
-  %.04.i108 = select i1 %.0.shrunk.i.i107, i1 %61, i1 false
-  %spec.select.i109 = select i1 %.04.i108, ptr %47, ptr null
-  br label %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit110
+  %.04.i104 = select i1 %.0.shrunk.i.i103, i1 %61, i1 false
+  %spec.select.i105 = select i1 %.04.i104, ptr %47, ptr null
+  br label %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit106
 
-_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit110: ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106"
-  %.0.i101 = phi ptr [ null, %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit ], [ %spec.select.i109, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i106" ]
+_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit106: ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102"
+  %.0.i97 = phi ptr [ null, %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit ], [ %spec.select.i105, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.i102" ]
   %62 = icmp eq ptr %.0.i, null
   %63 = load i8, ptr %2, align 8, !range !3795
   br i1 %62, label %64, label %66
 
-default.unreachable140:                           ; preds = %136
+default.unreachable135:                           ; preds = %136
   unreachable
 
-64:                                               ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit110
-  %.not74 = icmp ne ptr %.0.i101, null
-  %or.cond.not139 = and i1 %narrow, %.not74
+64:                                               ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit106
+  %.not74 = icmp ne ptr %.0.i97, null
+  %or.cond.not134 = and i1 %narrow, %.not74
   %65 = icmp eq i8 %63, 3
-  %or.cond127 = select i1 %or.cond.not139, i1 %65, i1 false
-  br i1 %or.cond127, label %68, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %or.cond122 = select i1 %or.cond.not134, i1 %65, i1 false
+  br i1 %or.cond122, label %68, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
-66:                                               ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit110
-  %.not = icmp eq ptr %.0.i101, null
+66:                                               ; preds = %_ZN17cranelift_codegen2ir3pcc4Fact9as_symbol17h5dd4b2b48c15dc84E.exit106
+  %.not = icmp eq ptr %.0.i97, null
   %or.cond81 = or i1 %narrow, %.not
   %67 = icmp ne i8 %63, 3
-  %or.cond129.not = select i1 %or.cond81, i1 true, i1 %67
-  br i1 %or.cond129.not, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114", label %102
+  %or.cond124.not = select i1 %or.cond81, i1 true, i1 %67
+  br i1 %or.cond124.not, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110", label %102
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114": ; preds = %102, %68, %111, %76, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit", %66, %64
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110": ; preds = %102, %68, %111, %76, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit", %66, %64
   call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %152
 
@@ -25015,14 +25014,14 @@ default.unreachable140:                           ; preds = %136
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.val = load i32, ptr %.0.i101, align 4, !range !3801, !noundef !4
-  %72 = getelementptr i8, ptr %.0.i101, i64 4
-  %.val94 = load i32, ptr %72, align 4
-  %.val95 = load i32, ptr %70, align 8, !range !3801, !noundef !4
+  %.val = load i32, ptr %.0.i97, align 4, !range !3801, !noundef !4
+  %72 = getelementptr i8, ptr %.0.i97, i64 4
+  %.val90 = load i32, ptr %72, align 4
+  %.val91 = load i32, ptr %70, align 8, !range !3801, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %.val96 = load i32, ptr %73, align 4
-  %74 = icmp eq i32 %.val, %.val95
-  br i1 %74, label %75, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %.val92 = load i32, ptr %73, align 4
+  %74 = icmp eq i32 %.val, %.val91
+  br i1 %74, label %75, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
 75:                                               ; preds = %68
   switch i32 %.val, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread" [
@@ -25031,25 +25030,25 @@ default.unreachable140:                           ; preds = %136
   ]
 
 76:                                               ; preds = %75
-  %77 = icmp eq i32 %.val94, %.val96
-  br i1 %77, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %77 = icmp eq i32 %.val90, %.val92
+  br i1 %77, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
 "_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit": ; preds = %75
-  %78 = icmp eq i32 %.val94, %.val96
-  br i1 %78, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %78 = icmp eq i32 %.val90, %.val92
+  br i1 %78, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
 "_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread": ; preds = %75, %76, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit"
   %79 = xor i1 %5, true
   %. = zext i1 %79 to i64
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %81 = load i64, ptr %80, align 8, !noundef !4
-  %82 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %81, i64 %.sroa.6.0)
+  %82 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %81, i64 %.sroa.3.0.i)
   %83 = extractvalue { i64, i1 } %82, 1
   br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
   %85 = extractvalue { i64, i1 } %82, 0
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i101, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i97, i64 8
   %87 = load i64, ptr %86, align 8, !noundef !4
   %88 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %85, i64 %87)
   %89 = extractvalue { i64, i1 } %88, 1
@@ -25064,14 +25063,14 @@ default.unreachable140:                           ; preds = %136
 94:                                               ; preds = %90
   %95 = extractvalue { i64, i1 } %92, 0
   %96 = load i32, ptr %69, align 4, !noundef !4
-  %spec.select90 = tail call i64 @llvm.smax.i64(i64 %95, i64 0)
+  %spec.select88 = tail call i64 @llvm.smax.i64(i64 %95, i64 0)
   %97 = load i8, ptr %71, align 1, !range !265, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %96, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %spec.select90, ptr %100, align 8
+  store i64 %spec.select88, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %97, ptr %101, align 1
   store i8 2, ptr %9, align 8
@@ -25086,30 +25085,30 @@ default.unreachable140:                           ; preds = %136
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.val97 = load i32, ptr %.0.i101, align 4, !range !3801, !noundef !4
-  %107 = getelementptr i8, ptr %.0.i101, i64 4
-  %.val98 = load i32, ptr %107, align 4
-  %.val99 = load i32, ptr %105, align 8, !range !3801, !noundef !4
+  %.val93 = load i32, ptr %.0.i97, align 4, !range !3801, !noundef !4
+  %107 = getelementptr i8, ptr %.0.i97, i64 4
+  %.val94 = load i32, ptr %107, align 4
+  %.val95 = load i32, ptr %105, align 8, !range !3801, !noundef !4
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %.val100 = load i32, ptr %108, align 4
-  %109 = icmp eq i32 %.val97, %.val99
-  br i1 %109, label %110, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %.val96 = load i32, ptr %108, align 4
+  %109 = icmp eq i32 %.val93, %.val95
+  br i1 %109, label %110, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
 110:                                              ; preds = %102
-  switch i32 %.val97, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread" [
+  switch i32 %.val93, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread" [
     i32 1, label %111
-    i32 2, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112"
+    i32 2, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108"
   ]
 
 111:                                              ; preds = %110
-  %112 = icmp eq i32 %.val98, %.val100
-  br i1 %112, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+  %112 = icmp eq i32 %.val94, %.val96
+  br i1 %112, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112": ; preds = %110
-  %113 = icmp eq i32 %.val98, %.val100
-  br i1 %113, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108": ; preds = %110
+  %113 = icmp eq i32 %.val94, %.val96
+  br i1 %113, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread": ; preds = %110, %111, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread": ; preds = %110, %111, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108"
   %114 = xor i1 %5, true
   %.83 = zext i1 %114 to i64
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -25120,9 +25119,9 @@ default.unreachable140:                           ; preds = %136
   %120 = extractvalue { i64, i1 } %119, 1
   br i1 %120, label %.critedge86, label %121
 
-121:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread"
+121:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread"
   %122 = extractvalue { i64, i1 } %119, 0
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i101, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i97, i64 8
   %124 = load i64, ptr %123, align 8, !noundef !4
   %125 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %122, i64 %124)
   %126 = extractvalue { i64, i1 } %125, 1
@@ -25141,7 +25140,7 @@ default.unreachable140:                           ; preds = %136
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %.sink.split, label %136
 
-.critedge86:                                      ; preds = %121, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit112.thread", %127
+.critedge86:                                      ; preds = %121, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit108.thread", %127
   call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %152
 
@@ -25154,7 +25153,7 @@ default.unreachable140:                           ; preds = %136
   %.sroa.730.0 = phi i32 [ undef, %131 ], [ %135, %.sink.split ]
   %137 = load i32, ptr %103, align 4, !noundef !4
   %138 = load i32, ptr %104, align 8, !range !3801, !alias.scope !4294, !noalias !4297, !noundef !4
-  switch i32 %138, label %default.unreachable140 [
+  switch i32 %138, label %default.unreachable135 [
     i32 0, label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit"
     i32 1, label %139
     i32 2, label %142
@@ -25195,7 +25194,7 @@ default.unreachable140:                           ; preds = %136
   store i8 3, ptr %9, align 8
   br label %152
 
-152:                                              ; preds = %.critedge86, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread114", %94, %.critedge
+152:                                              ; preds = %.critedge86, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread110", %94, %.critedge
   %153 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %154 = icmp ult i64 %153, 6
   tail call void @llvm.assume(i1 %154)

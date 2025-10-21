@@ -2714,27 +2714,30 @@ GC_find_header.exit.i.i:                          ; preds = %43
   %52 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %51
   %.0.i.i = load ptr, ptr %52, align 8, !tbaa !57
   %53 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %53, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !67
+  br i1 %53, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i.loopexit, !llvm.loop !67
 
-GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %33
-  %.031.i = phi ptr [ %31, %33 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
-  %.028.i = phi ptr [ %34, %33 ], [ %38, %GC_find_header.exit.i.i ]
-  %.027.i = phi ptr [ %0, %33 ], [ %38, %GC_find_header.exit.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.031.i, i64 25
-  %55 = load i8, ptr %54, align 1, !tbaa !63
-  %56 = and i8 %55, 4
-  %.not.i = icmp eq i8 %56, 0
-  br i1 %.not.i, label %57, label %GC_base.exit.thread
+GC_find_starting_hblk.exit.i.loopexit:            ; preds = %GC_find_header.exit.i.i
+  %54 = tail call align 8 ptr @llvm.ptrmask.p0.i64(ptr %38, i64 -8)
+  br label %GC_find_starting_hblk.exit.i
 
-57:                                               ; preds = %GC_find_starting_hblk.exit.i
-  %58 = tail call align 8 ptr @llvm.ptrmask.p0.i64(ptr %.027.i, i64 -8)
+GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_starting_hblk.exit.i.loopexit, %33
+  %.031.i = phi ptr [ %31, %33 ], [ %.0.i.i, %GC_find_starting_hblk.exit.i.loopexit ]
+  %.028.i = phi ptr [ %34, %33 ], [ %38, %GC_find_starting_hblk.exit.i.loopexit ]
+  %.027.i = phi ptr [ %0, %33 ], [ %54, %GC_find_starting_hblk.exit.i.loopexit ]
+  %55 = getelementptr inbounds nuw i8, ptr %.031.i, i64 25
+  %56 = load i8, ptr %55, align 1, !tbaa !63
+  %57 = and i8 %56, 4
+  %.not.i = icmp eq i8 %57, 0
+  br i1 %.not.i, label %58, label %GC_base.exit.thread
+
+58:                                               ; preds = %GC_find_starting_hblk.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %.031.i, i64 32
   %60 = load i64, ptr %59, align 8, !tbaa !58
-  %61 = ptrtoint ptr %58 to i64
+  %61 = ptrtoint ptr %.027.i to i64
   %62 = and i64 %61, 4088
   %63 = urem i64 %62, %60
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds i8, ptr %58, i64 %64
+  %65 = getelementptr inbounds i8, ptr %.027.i, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %60
   %67 = getelementptr inbounds nuw i8, ptr %.028.i, i64 4096
   %68 = icmp ult ptr %67, %66
@@ -2742,16 +2745,16 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %or.cond.not34.i.not16 = and i1 %69, %68
   %70 = icmp uge ptr %0, %66
   %or.cond30.i.not13 = or i1 %70, %or.cond.not34.i.not16
-  %71 = icmp eq ptr %58, null
+  %71 = icmp eq ptr %.027.i, null
   %or.cond = or i1 %71, %or.cond30.i.not13
   br i1 %or.cond, label %GC_base.exit.thread, label %73
 
-GC_base.exit.thread:                              ; preds = %57, %GC_find_starting_hblk.exit.i, %29, %22, %1
+GC_base.exit.thread:                              ; preds = %58, %GC_find_starting_hblk.exit.i, %29, %22, %1
   %72 = load ptr, ptr @GC_is_visible_print_proc, align 8, !tbaa !12
   tail call void %72(ptr noundef %0) #46
   br label %73
 
-73:                                               ; preds = %57, %GC_find_header.exit, %GC_base.exit.thread
+73:                                               ; preds = %58, %GC_find_header.exit, %GC_base.exit.thread
   ret ptr %0
 }
 

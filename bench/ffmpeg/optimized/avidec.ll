@@ -2134,14 +2134,14 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
 
 .critedge107.loopexit133.i.i:                     ; preds = %996
   %997 = icmp slt i64 %.193.i.i, 67108865
+  %998 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %.189.i.i, i64 %.191.i.i)
   br label %.critedge107.i.i
 
 .critedge107.i.i:                                 ; preds = %.critedge107.loopexit133.i.i, %.preheader.i.i
   %.092.lcssa.i.i = phi i1 [ %997, %.critedge107.loopexit133.i.i ], [ true, %.preheader.i.i ]
-  %.088.lcssa.i.i = phi i64 [ %.189.i.i, %.critedge107.loopexit133.i.i ], [ -4611686018427387904, %.preheader.i.i ]
-  %998 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %.088.lcssa.i.i, i64 %.191.i.i)
-  %999 = extractvalue { i64, i1 } %998, 1
-  %1000 = extractvalue { i64, i1 } %998, 0
+  %.088.lcssa.i.i = phi { i64, i1 } [ %998, %.critedge107.loopexit133.i.i ], [ { i64 -9223372036854775807, i1 false }, %.preheader.i.i ]
+  %999 = extractvalue { i64, i1 } %.088.lcssa.i.i, 1
+  %1000 = extractvalue { i64, i1 } %.088.lcssa.i.i, 0
   %1001 = icmp slt i64 %1000, 0
   %1002 = select i1 %1001, i64 9223372036854775807, i64 -9223372036854775808
   %1003 = select i1 %999, i64 %1002, i64 %1000

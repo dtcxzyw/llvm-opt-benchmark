@@ -93,8 +93,8 @@ safe_add_int.exit:
   %7 = extractvalue { i32, i1 } %6, 1
   %8 = shl nuw i64 1, %1
   %9 = and i64 %8, 348330
-  %.not185 = icmp eq i64 %9, 0
-  %10 = select i1 %.not185, i32 2147483647, i32 -2147483648
+  %.not187 = icmp eq i64 %9, 0
+  %10 = select i1 %.not187, i32 2147483647, i32 -2147483648
   %11 = extractvalue { i32, i1 } %6, 0
   %.1 = zext i1 %7 to i32
   %.0.i = select i1 %7, i32 %10, i32 %11
@@ -164,7 +164,7 @@ safe_mul_int.exit:                                ; preds = %25, %24
   %41 = and i64 %8, 348160
   %42 = icmp ne i64 %41, 0
   %or.cond.i = and i1 %40, %42
-  br i1 %or.cond.i, label %safe_div_int.exit.thread204, label %safe_div_int.exit.thread
+  br i1 %or.cond.i, label %safe_div_int.exit.thread206, label %safe_div_int.exit.thread
 
 safe_div_int.exit:                                ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -173,55 +173,55 @@ safe_div_int.exit:                                ; preds = %37
   %.not75 = icmp eq i32 %45, 0
   br i1 %.not75, label %157, label %safe_mod_int.exit
 
-safe_div_int.exit.thread204:                      ; preds = %39
+safe_div_int.exit.thread206:                      ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 80, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14, i32 noundef 1, i32 noundef %47) #4
-  %.not75205 = icmp eq i32 %48, 0
-  br i1 %.not75205, label %157, label %.thread206
+  %.not75207 = icmp eq i32 %48, 0
+  br i1 %.not75207, label %157, label %.thread208
 
 safe_div_int.exit.thread:                         ; preds = %39
   %49 = sdiv i32 %3, %5
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 80, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef %51) #4
-  %.not75196 = icmp eq i32 %52, 0
-  br i1 %.not75196, label %157, label %53
+  %.not75198 = icmp eq i32 %52, 0
+  br i1 %.not75198, label %157, label %53
 
 53:                                               ; preds = %safe_div_int.exit.thread
   %54 = sdiv i32 %3, %5
   %55 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 81, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15, i32 noundef %49, i32 noundef %54) #4
   %.not77 = icmp eq i32 %55, 0
-  br i1 %.not77, label %157, label %.thread206
+  br i1 %.not77, label %157, label %.thread208
 
-.thread206:                                       ; preds = %53, %safe_div_int.exit.thread204
+.thread208:                                       ; preds = %53, %safe_div_int.exit.thread206
   %56 = icmp eq i32 %0, 16
   %57 = and i64 %8, 348160
   %58 = icmp ne i64 %57, 0
   %or.cond.i99 = and i1 %56, %58
   br i1 %or.cond.i99, label %safe_mod_int.exit, label %safe_mod_int.exit.thread
 
-safe_mod_int.exit:                                ; preds = %safe_div_int.exit, %.thread206
-  %.0.i100 = phi i32 [ 2147483647, %.thread206 ], [ 0, %safe_div_int.exit ]
+safe_mod_int.exit:                                ; preds = %safe_div_int.exit, %.thread208
+  %.0.i100 = phi i32 [ 2147483647, %.thread208 ], [ 0, %safe_div_int.exit ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !14
   %61 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef %60) #4
   %.not78 = icmp eq i32 %61, 0
   br i1 %.not78, label %157, label %69
 
-safe_mod_int.exit.thread:                         ; preds = %.thread206
+safe_mod_int.exit.thread:                         ; preds = %.thread208
   %62 = srem i32 %3, %5
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !14
   %65 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef %64) #4
-  %.not78210 = icmp eq i32 %65, 0
-  br i1 %.not78210, label %157, label %66
+  %.not78212 = icmp eq i32 %65, 0
+  br i1 %.not78212, label %157, label %66
 
 66:                                               ; preds = %safe_mod_int.exit.thread
   %67 = srem i32 %3, %5
   %68 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 87, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17, i32 noundef %62, i32 noundef %67) #4
   %.not80 = icmp eq i32 %68, 0
-  br i1 %.not80, label %157, label %.thread217
+  br i1 %.not80, label %157, label %.thread219
 
 69:                                               ; preds = %safe_mod_int.exit
   %70 = and i64 %8, 286515
@@ -231,15 +231,15 @@ safe_mod_int.exit.thread:                         ; preds = %.thread206
   %or.cond.i101 = and i1 %73, %71
   br i1 %or.cond.i101, label %78, label %90
 
-.thread217:                                       ; preds = %66
+.thread219:                                       ; preds = %66
   %74 = and i64 %8, 286515
   %75 = icmp ne i64 %74, 0
   %76 = and i64 %8, 700245
   %77 = icmp ne i64 %76, 0
-  %or.cond.i101218 = and i1 %77, %75
-  br i1 %or.cond.i101218, label %78, label %.thread219
+  %or.cond.i101220 = and i1 %77, %75
+  br i1 %or.cond.i101220, label %78, label %.thread221
 
-78:                                               ; preds = %.thread217, %69
+78:                                               ; preds = %.thread219, %69
   %79 = sub nuw nsw i32 2147483647, %5
   %80 = icmp samesign ult i32 %3, %79
   br i1 %80, label %81, label %84
@@ -258,68 +258,69 @@ safe_mod_int.exit.thread:                         ; preds = %.thread206
   br label %safe_div_round_up_int.exit
 
 90:                                               ; preds = %69
-  br i1 %38, label %safe_div_round_up_int.exit.thread, label %.thread219
+  br i1 %38, label %safe_div_round_up_int.exit.thread, label %.thread221
 
-.thread219:                                       ; preds = %.thread217, %90
+.thread221:                                       ; preds = %.thread219, %90
   %91 = icmp eq i32 %0, 16
   %92 = and i64 %8, 348160
   %93 = icmp ne i64 %92, 0
   %or.cond.i.i = and i1 %91, %93
-  br i1 %or.cond.i.i, label %safe_div_int.exit.i, label %94
+  br i1 %or.cond.i.i, label %safe_div_round_up_int.exit.thread222, label %94
 
-94:                                               ; preds = %.thread219
+94:                                               ; preds = %.thread221
   %95 = srem i32 %3, %5
   %96 = icmp ne i32 %95, 0
   %97 = zext i1 %96 to i32
   %98 = sdiv i32 %3, %5
-  br label %safe_div_int.exit.i
+  %99 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %98, i32 %97)
+  %100 = icmp slt i32 %98, 0
+  %101 = select i1 %100, i32 -2147483648, i32 2147483647
+  br label %safe_div_round_up_int.exit.thread222
 
-safe_div_int.exit.i:                              ; preds = %.thread219, %94
-  %.6 = phi i32 [ 0, %94 ], [ 1, %.thread219 ]
-  %.0.i34.i = phi i32 [ %97, %94 ], [ 1, %.thread219 ]
-  %.0.i29.i = phi i32 [ %98, %94 ], [ 2147483647, %.thread219 ]
-  %99 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.0.i29.i, i32 %.0.i34.i)
-  %100 = extractvalue { i32, i1 } %99, 1
-  br i1 %100, label %103, label %101
+safe_div_round_up_int.exit:                       ; preds = %81, %84
+  %.0.i102 = phi i32 [ %83, %81 ], [ %89, %84 ]
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %103 = load i32, ptr %102, align 4, !tbaa !15
+  %104 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef %103) #4
+  %.not81 = icmp eq i32 %104, 0
+  br i1 %.not81, label %157, label %113
 
-101:                                              ; preds = %safe_div_int.exit.i
-  %102 = extractvalue { i32, i1 } %99, 0
-  br label %safe_div_round_up_int.exit
-
-103:                                              ; preds = %safe_div_int.exit.i
-  %104 = icmp slt i32 %.0.i29.i, 0
-  %105 = select i1 %104, i32 -2147483648, i32 2147483647
-  br label %safe_div_round_up_int.exit
-
-safe_div_round_up_int.exit:                       ; preds = %81, %84, %101, %103
-  %.7 = phi i32 [ 0, %81 ], [ 0, %84 ], [ 1, %103 ], [ %.6, %101 ]
-  %.0.i102 = phi i32 [ %83, %81 ], [ %89, %84 ], [ %105, %103 ], [ %102, %101 ]
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %107 = load i32, ptr %106, align 4, !tbaa !15
-  %108 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18, i32 noundef %.7, i32 noundef %107) #4
-  %.not81 = icmp eq i32 %108, 0
-  br i1 %.not81, label %157, label %112
+safe_div_round_up_int.exit.thread222:             ; preds = %94, %.thread221
+  %.6 = phi i32 [ 0, %94 ], [ 1, %.thread221 ]
+  %.0.i34.i = phi { i32, i1 } [ %99, %94 ], [ { i32 -2147483648, i1 true }, %.thread221 ]
+  %.0.i29.i = phi i32 [ %101, %94 ], [ 2147483647, %.thread221 ]
+  %105 = extractvalue { i32, i1 } %.0.i34.i, 1
+  %106 = extractvalue { i32, i1 } %.0.i34.i, 0
+  %spec.select = select i1 %105, i32 1, i32 %.6
+  %spec.select182 = select i1 %105, i32 %.0.i29.i, i32 %106
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %108 = load i32, ptr %107, align 4, !tbaa !15
+  %109 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18, i32 noundef %spec.select, i32 noundef %108) #4
+  %.not81225 = icmp eq i32 %109, 0
+  br i1 %.not81225, label %157, label %.thread228
 
 safe_div_round_up_int.exit.thread:                ; preds = %90
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %110 = load i32, ptr %109, align 4, !tbaa !15
-  %111 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18, i32 noundef 1, i32 noundef %110) #4
-  %.not81163 = icmp eq i32 %111, 0
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %111 = load i32, ptr %110, align 4, !tbaa !15
+  %112 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.18, i32 noundef 1, i32 noundef %111) #4
+  %.not81163 = icmp eq i32 %112, 0
   br i1 %.not81163, label %157, label %safe_add_int.exit110.thread
 
-112:                                              ; preds = %safe_div_round_up_int.exit
-  br i1 %38, label %safe_add_int.exit110.thread, label %113
+113:                                              ; preds = %safe_div_round_up_int.exit
+  br i1 %38, label %safe_add_int.exit110.thread, label %.thread228
 
-113:                                              ; preds = %112
+.thread228:                                       ; preds = %safe_div_round_up_int.exit.thread222, %113
+  %.7226232 = phi i32 [ 0, %113 ], [ %spec.select, %safe_div_round_up_int.exit.thread222 ]
+  %.0.i102227231 = phi i32 [ %.0.i102, %113 ], [ %spec.select182, %safe_div_round_up_int.exit.thread222 ]
   %114 = icmp eq i32 %0, 16
   %115 = and i64 %8, 348160
   %116 = icmp ne i64 %115, 0
   %or.cond.i103 = and i1 %114, %116
   br i1 %or.cond.i103, label %safe_add_int.exit110.thread, label %safe_div_int.exit108
 
-safe_div_int.exit108:                             ; preds = %113
+safe_div_int.exit108:                             ; preds = %.thread228
   %117 = srem i32 %3, %5
-  %118 = icmp ne i32 %.7, 0
+  %118 = icmp ne i32 %.7226232, 0
   %119 = sdiv i32 %3, %5
   %120 = icmp ne i32 %117, 0
   %121 = zext i1 %120 to i32
@@ -330,19 +331,19 @@ safe_div_int.exit108:                             ; preds = %113
 
 124:                                              ; preds = %safe_div_int.exit108
   %125 = extractvalue { i32, i1 } %122, 0
-  %126 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19, i32 noundef %.0.i102, i32 noundef %125) #4
+  %126 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19, i32 noundef %.0.i102227231, i32 noundef %125) #4
   %.not83 = icmp eq i32 %126, 0
   br i1 %.not83, label %157, label %safe_add_int.exit110.thread
 
-safe_add_int.exit110.thread:                      ; preds = %113, %112, %safe_div_round_up_int.exit.thread, %safe_div_int.exit108, %124
+safe_add_int.exit110.thread:                      ; preds = %.thread228, %113, %safe_div_round_up_int.exit.thread, %safe_div_int.exit108, %124
   %127 = and i64 %8, 348160
   %.not.i111.not = icmp ne i64 %127, 0
   %128 = sub nsw i32 0, %3
-  %spec.select = zext i1 %.not.i111.not to i32
-  %spec.select182 = select i1 %.not.i111.not, i32 -2147483648, i32 %128
+  %spec.select183 = zext i1 %.not.i111.not to i32
+  %spec.select184 = select i1 %.not.i111.not, i32 -2147483648, i32 %128
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %130 = load i32, ptr %129, align 16, !tbaa !16
-  %131 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.20, i32 noundef %spec.select, i32 noundef %130) #4
+  %131 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.20, i32 noundef %spec.select183, i32 noundef %130) #4
   %.not84 = icmp eq i32 %131, 0
   br i1 %.not84, label %157, label %132
 
@@ -358,11 +359,11 @@ safe_neg_int.exit115:                             ; preds = %133, %132
   %135 = and i64 %8, 172032
   %.not.i113.not = icmp ne i64 %135, 0
   %136 = sub nsw i32 0, %5
-  %spec.select183 = zext i1 %.not.i113.not to i32
-  %spec.select184 = select i1 %.not.i113.not, i32 -2147483648, i32 %136
+  %spec.select185 = zext i1 %.not.i113.not to i32
+  %spec.select186 = select i1 %.not.i113.not, i32 -2147483648, i32 %136
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %138 = load i32, ptr %137, align 4, !tbaa !17
-  %139 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 107, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.22, i32 noundef %spec.select183, i32 noundef %138) #4
+  %139 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 107, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.22, i32 noundef %spec.select185, i32 noundef %138) #4
   %.not87 = icmp eq i32 %139, 0
   br i1 %.not87, label %157, label %140
 
@@ -379,7 +380,7 @@ safe_abs_int.exit:                                ; preds = %141, %140
   %.0.i117 = select i1 %.not.i111.not, i32 -2147483648, i32 %143
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %145 = load i32, ptr %144, align 8, !tbaa !18
-  %146 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 113, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.24, i32 noundef %spec.select, i32 noundef %145) #4
+  %146 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 113, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.24, i32 noundef %spec.select183, i32 noundef %145) #4
   %.not90 = icmp eq i32 %146, 0
   br i1 %.not90, label %157, label %147
 
@@ -396,7 +397,7 @@ safe_abs_int.exit120:                             ; preds = %148, %147
   %.0.i119 = select i1 %.not.i113.not, i32 -2147483648, i32 %150
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %152 = load i32, ptr %151, align 4, !tbaa !19
-  %153 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 119, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.26, i32 noundef %spec.select183, i32 noundef %152) #4
+  %153 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 119, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.26, i32 noundef %spec.select185, i32 noundef %152) #4
   %.not93 = icmp eq i32 %153, 0
   br i1 %.not93, label %157, label %154
 
@@ -408,9 +409,9 @@ safe_abs_int.exit120:                             ; preds = %148, %147
   %.not95 = icmp eq i32 %156, 0
   br i1 %.not95, label %157, label %158
 
-157:                                              ; preds = %safe_mod_int.exit.thread, %safe_div_int.exit.thread204, %safe_div_int.exit.thread, %safe_div_round_up_int.exit.thread, %safe_abs_int.exit120, %155, %safe_abs_int.exit, %148, %safe_neg_int.exit115, %141, %safe_add_int.exit110.thread, %133, %124, %safe_div_round_up_int.exit, %safe_mod_int.exit, %66, %safe_div_int.exit, %53, %safe_mul_int.exit, %35, %safe_sub_int.exit, %25, %safe_add_int.exit, %16
-  %.0160 = phi i32 [ %.1, %safe_add_int.exit ], [ 0, %16 ], [ %.2, %safe_sub_int.exit ], [ 0, %25 ], [ %.3, %safe_mul_int.exit ], [ 0, %35 ], [ 1, %safe_div_int.exit ], [ 0, %53 ], [ 1, %safe_mod_int.exit ], [ 0, %66 ], [ %.7, %safe_div_round_up_int.exit ], [ 0, %124 ], [ %spec.select, %safe_add_int.exit110.thread ], [ 0, %133 ], [ %spec.select183, %safe_neg_int.exit115 ], [ 0, %141 ], [ %spec.select, %safe_abs_int.exit ], [ 0, %148 ], [ %spec.select183, %safe_abs_int.exit120 ], [ 0, %155 ], [ 1, %safe_div_round_up_int.exit.thread ], [ 0, %safe_div_int.exit.thread ], [ 1, %safe_div_int.exit.thread204 ], [ 0, %safe_mod_int.exit.thread ]
-  %.066 = phi i32 [ %.0.i, %safe_add_int.exit ], [ %11, %16 ], [ %.0.i96, %safe_sub_int.exit ], [ %20, %25 ], [ %.0.i97, %safe_mul_int.exit ], [ %30, %35 ], [ 2147483647, %safe_div_int.exit ], [ %49, %53 ], [ %.0.i100, %safe_mod_int.exit ], [ %62, %66 ], [ %.0.i102, %safe_div_round_up_int.exit ], [ %.0.i102, %124 ], [ %spec.select182, %safe_add_int.exit110.thread ], [ %128, %133 ], [ %spec.select184, %safe_neg_int.exit115 ], [ %136, %141 ], [ %.0.i117, %safe_abs_int.exit ], [ %143, %148 ], [ %.0.i119, %safe_abs_int.exit120 ], [ %150, %155 ], [ 2147483647, %safe_div_round_up_int.exit.thread ], [ %49, %safe_div_int.exit.thread ], [ 2147483647, %safe_div_int.exit.thread204 ], [ %62, %safe_mod_int.exit.thread ]
+157:                                              ; preds = %safe_div_round_up_int.exit.thread222, %safe_mod_int.exit.thread, %safe_div_int.exit.thread206, %safe_div_int.exit.thread, %safe_div_round_up_int.exit.thread, %safe_abs_int.exit120, %155, %safe_abs_int.exit, %148, %safe_neg_int.exit115, %141, %safe_add_int.exit110.thread, %133, %124, %safe_div_round_up_int.exit, %safe_mod_int.exit, %66, %safe_div_int.exit, %53, %safe_mul_int.exit, %35, %safe_sub_int.exit, %25, %safe_add_int.exit, %16
+  %.0160 = phi i32 [ %.1, %safe_add_int.exit ], [ 0, %16 ], [ %.2, %safe_sub_int.exit ], [ 0, %25 ], [ %.3, %safe_mul_int.exit ], [ 0, %35 ], [ 1, %safe_div_int.exit ], [ 0, %53 ], [ 1, %safe_mod_int.exit ], [ 0, %66 ], [ 0, %safe_div_round_up_int.exit ], [ 0, %124 ], [ %spec.select183, %safe_add_int.exit110.thread ], [ 0, %133 ], [ %spec.select185, %safe_neg_int.exit115 ], [ 0, %141 ], [ %spec.select183, %safe_abs_int.exit ], [ 0, %148 ], [ %spec.select185, %safe_abs_int.exit120 ], [ 0, %155 ], [ 1, %safe_div_round_up_int.exit.thread ], [ 0, %safe_div_int.exit.thread ], [ 1, %safe_div_int.exit.thread206 ], [ 0, %safe_mod_int.exit.thread ], [ %spec.select, %safe_div_round_up_int.exit.thread222 ]
+  %.066 = phi i32 [ %.0.i, %safe_add_int.exit ], [ %11, %16 ], [ %.0.i96, %safe_sub_int.exit ], [ %20, %25 ], [ %.0.i97, %safe_mul_int.exit ], [ %30, %35 ], [ 2147483647, %safe_div_int.exit ], [ %49, %53 ], [ %.0.i100, %safe_mod_int.exit ], [ %62, %66 ], [ %.0.i102, %safe_div_round_up_int.exit ], [ %.0.i102227231, %124 ], [ %spec.select184, %safe_add_int.exit110.thread ], [ %128, %133 ], [ %spec.select186, %safe_neg_int.exit115 ], [ %136, %141 ], [ %.0.i117, %safe_abs_int.exit ], [ %143, %148 ], [ %.0.i119, %safe_abs_int.exit120 ], [ %150, %155 ], [ 2147483647, %safe_div_round_up_int.exit.thread ], [ %49, %safe_div_int.exit.thread ], [ 2147483647, %safe_div_int.exit.thread206 ], [ %62, %safe_mod_int.exit.thread ], [ %spec.select182, %safe_div_round_up_int.exit.thread222 ]
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 124, ptr noundef nonnull @.str.28, i32 noundef %3, i32 noundef %5, i32 noundef %.066, i32 noundef %.0160) #4
   br label %158
 

@@ -30235,9 +30235,9 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir10immediates8Offset3212try_from_i6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir10immediates8Offset3211try_add_i6417ha536a63be71c59b2E(i32 noundef %0, i64 noundef %1) unnamed_addr #13 {
-  %3 = add i64 %1, 2147483648
-  %or.cond = icmp ult i64 %3, 4294967296
-  br i1 %or.cond, label %4, label %10
+  %3 = add i64 %1, -2147483648
+  %or.cond = icmp ult i64 %3, -4294967296
+  br i1 %or.cond, label %10, label %4
 
 4:                                                ; preds = %2
   %5 = trunc nsw i64 %1 to i32
@@ -30245,12 +30245,12 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir10immediates8Offset3211try_add_i64
   %7 = extractvalue { i32, i1 } %6, 1
   %8 = extractvalue { i32, i1 } %6, 0
   %9 = xor i1 %7, true
-  %spec.select10 = zext i1 %9 to i32
+  %spec.select18 = zext i1 %9 to i32
   br label %10
 
-10:                                               ; preds = %4, %2
-  %.sroa.4.0 = phi i32 [ undef, %2 ], [ %8, %4 ]
-  %.sroa.0.0 = phi i32 [ 0, %2 ], [ %spec.select10, %4 ]
+10:                                               ; preds = %2, %4
+  %.sroa.4.0 = phi i32 [ %8, %4 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i32 [ %spec.select18, %4 ], [ 0, %2 ]
   %11 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %12 = insertvalue { i32, i32 } %11, i32 %.sroa.4.0, 1
   ret { i32, i32 } %12

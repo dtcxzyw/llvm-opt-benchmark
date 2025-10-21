@@ -10528,9 +10528,9 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
-37:                                               ; preds = %66, %29
-  %.sroa.021.0 = phi i64 [ 0, %29 ], [ %73, %66 ]
-  %.sroa.045.0 = phi ptr [ %0, %29 ], [ %.sroa.045.1, %66 ]
+37:                                               ; preds = %.critedge, %29
+  %.sroa.021.0 = phi i64 [ 0, %29 ], [ %79, %.critedge ]
+  %.sroa.045.0 = phi ptr [ %0, %29 ], [ %.sroa.045.1, %.critedge ]
   %38 = icmp ne ptr %.sroa.045.0, %30
   %.sroa.045.1.idx = zext i1 %38 to i64
   %.sroa.045.1 = getelementptr inbounds nuw i8, ptr %.sroa.045.0, i64 %.sroa.045.1.idx
@@ -10559,9 +10559,9 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %49 = inttoptr i64 %.sroa.021.1 to ptr
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %75, %.loopexit.loopexit, %.thread59, %.thread, %21, %31
-  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %86, %.thread59 ], [ %49, %.loopexit.loopexit ], [ %80, %75 ], [ %65, %60 ]
-  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 1, %31 ], [ 1, %.thread ], [ 1, %.thread59 ], [ 0, %.loopexit.loopexit ], [ 1, %75 ], [ 1, %60 ]
+.loopexit:                                        ; preds = %60, %69, %.loopexit.loopexit, %.thread58, %.thread, %21, %31
+  %.sroa.8.0 = phi ptr [ %26, %21 ], [ %36, %31 ], [ %57, %.thread ], [ %85, %.thread58 ], [ %49, %.loopexit.loopexit ], [ %74, %69 ], [ %65, %60 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 1, %31 ], [ 1, %.thread ], [ 1, %.thread58 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ 1, %60 ]
   %50 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, ptr } %50, ptr %.sroa.8.0, 1
   ret { i64, ptr } %51
@@ -10593,7 +10593,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
 
 58:                                               ; preds = %39
   %59 = icmp ugt i8 %42, 9
-  br i1 %59, label %75, label %66, !prof !51
+  br i1 %59, label %69, label %66, !prof !51
 
 60:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -10619,17 +10619,11 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   br label %.loopexit
 
 66:                                               ; preds = %58
-  %67 = zext nneg i8 %42 to i64
-  %68 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.021.0, i64 10)
-  %69 = extractvalue { i64, i1 } %68, 1
-  %70 = extractvalue { i64, i1 } %68, 0
-  %71 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %70, i64 %67)
-  %72 = extractvalue { i64, i1 } %71, 1
-  %73 = extractvalue { i64, i1 } %71, 0
-  %74 = select i1 %69, i1 true, i1 %72
-  br i1 %74, label %.thread59, label %37, !prof !971
+  %67 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.021.0, i64 10)
+  %68 = extractvalue { i64, i1 } %67, 1
+  br i1 %68, label %.thread58, label %.critedge, !prof !51
 
-75:                                               ; preds = %58
+69:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -10638,40 +10632,48 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.434.0..sroa_idx, align 8
   store ptr @anon.445edfb3d893364410e0537e46991e65.41, ptr %12, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 1, ptr %79, align 8
-  %80 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 1, ptr %73, align 8
+  %74 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.thread59:                                        ; preds = %66
+.critedge:                                        ; preds = %66
+  %75 = zext nneg i8 %42 to i64
+  %76 = extractvalue { i64, i1 } %67, 0
+  %77 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %76, i64 %75)
+  %78 = extractvalue { i64, i1 } %77, 1
+  %79 = extractvalue { i64, i1 } %77, 0
+  br i1 %78, label %.thread58, label %37, !prof !971
+
+.thread58:                                        ; preds = %.critedge, %66
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %1, ptr %81, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %1, ptr %80, align 8
   store ptr %7, ptr %8, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.438.0..sroa_idx, align 8
   store ptr @anon.445edfb3d893364410e0537e46991e65.43, ptr %9, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 2, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1, ptr %85, align 8
-  %86 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 2, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1, ptr %84, align 8
+  %85 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11955,4 +11957,4 @@ attributes #15 = { noreturn }
 !968 = distinct !{!968, !969, !"_ZN4jiff4span4Span24to_invariant_nanoseconds17h76ceb1a6f87bdeb2E: argument 0"}
 !969 = distinct !{!969, !"_ZN4jiff4span4Span24to_invariant_nanoseconds17h76ceb1a6f87bdeb2E"}
 !970 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!971 = !{!"branch_weights", i32 2146410, i32 -2146410}
+!971 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
